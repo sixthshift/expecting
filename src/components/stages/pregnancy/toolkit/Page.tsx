@@ -1,9 +1,9 @@
 import { Baby, Camera, Luggage, Timer } from "lucide-react";
-import { Coming } from "../../components/Coming";
-import { PillarHeader } from "../../components/shell/AppShell";
+import { Coming } from "../../../Coming";
+import { PillarHeader } from "../../../shell/Frame";
 
-/** Things to use in the moment, not read. */
-export function ToolkitPage() {
+/** The pregnancy's tools: things to use in the moment, not read. */
+export function PregnancyToolkit() {
   return (
     <main className="mx-auto max-w-5xl px-4 pb-16 md:px-8">
       <PillarHeader title="Toolkit" lead="Things to use in the moment." />

@@ -1,9 +1,9 @@
 import { Camera, FileText, Footprints, IceCreamCone, NotebookPen, Smile } from "lucide-react";
-import { Coming } from "../../components/Coming";
-import { PillarHeader } from "../../components/shell/AppShell";
+import { Coming } from "../../../Coming";
+import { PillarHeader } from "../../../shell/Frame";
 
-/** What happens to you, kept: each on its day here, and on its week in the timeline. */
-export function JournalPage() {
+/** The pregnancy, kept: each entry on its day here, and on its week in the timeline. */
+export function PregnancyJournal() {
   return (
     <main className="mx-auto max-w-5xl px-4 pb-16 md:px-8">
       <PillarHeader

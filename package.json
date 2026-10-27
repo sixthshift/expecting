@@ -16,7 +16,7 @@
     "db:generate": "drizzle-kit generate",
     "version:next": "bun run scripts/version.ts",
     "password": "bun run scripts/password.ts",
-    "palette": "bun run scripts/palette.ts"
+    "palette": "bun run scripts/palette.ts && bun run scripts/palette-sheet.ts"
   },
   "dependencies": {
     "@markdoc/markdoc": "^0.5.11",

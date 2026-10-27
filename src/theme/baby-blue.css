@@ -1,5 +1,5 @@
 /*
- * Expecting — Sky: the theme for a boy.
+ * Expecting — Baby Blue: the theme for a boy.
  *
  * The blue end of the palette: #9DC3E2 as the brand, #9DD2D8 aqua beside it.
  *
@@ -16,7 +16,7 @@
  *   --expecting-page                  the page: white, at most a temperature
  */
 
-:root[data-expecting-theme="sky"] {
+:root[data-expecting-theme="baby-blue"] {
   /* The page: a cool white, a whisper of blue. */
   --expecting-page: #f8fafc;
   --expecting-accent-from: var(--color-sky-300);

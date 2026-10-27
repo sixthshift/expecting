@@ -1,5 +1,5 @@
 /*
- * Expecting — Dawn: the theme for don't know yet, or keeping it a surprise — and the default.
+ * Expecting — Baby Purple: the theme for don't know yet, or keeping it a surprise — and the default.
  *
  * Both ends at once: lilac (#E2B9DB), the colour between blue and pink, as the brand, and a blue-to-pink accent like the reference's gradient circles.
  *
@@ -17,7 +17,7 @@
  */
 
 :root,
-:root[data-expecting-theme="dawn"] {
+:root[data-expecting-theme="baby-purple"] {
   /* The page: plain white. */
   --expecting-page: #ffffff;
   --expecting-accent-from: var(--color-sky-300);

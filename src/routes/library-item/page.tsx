@@ -6,10 +6,10 @@ import { builtInItems } from "../../content";
 import { slotKey, slotLabel } from "../../lib/timeline";
 import { Route } from "./route";
 
-/** One item on its own page, with the way to its week on the timeline. */
+/** One item on its own page, with the way to its week on the timeline while there is one. */
 export function LibraryItemPage() {
   const { itemId } = Route.useParams();
-  const { items, state } = useApp();
+  const { items, state, stage } = useApp();
   const item = items.find((i) => i.id === itemId);
   // Hidden by an answer, rather than not there at all: say so, and where to change it.
   const tailoredOut = !item && builtInItems.some((i) => i.id === itemId);
@@ -24,10 +24,16 @@ export function LibraryItemPage() {
           {/* The card's title is an h3 among weeks; here it is the page's subject. */}
           <h1 className="sr-only">{item.title}</h1>
           <ItemCard item={item} ticks={state.ticks} />
-          <Link to="/" search={{ at: slotKey(item.from) }} className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal">
-            <CalendarRange aria-hidden size={16} className="text-fg-brand" />
-            See {slotLabel(item.from).toLowerCase()} on the timeline
-          </Link>
+          {stage === "pregnancy" ? (
+            <Link
+              to="/"
+              search={{ at: slotKey(item.from) }}
+              className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal"
+            >
+              <CalendarRange aria-hidden size={16} className="text-fg-brand" />
+              See {slotLabel(item.from).toLowerCase()} on the timeline
+            </Link>
+          ) : null}
         </div>
       ) : (
         <div className="flex flex-col gap-2">

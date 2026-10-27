@@ -4,7 +4,7 @@ import { type ReactNode, useState } from "react";
 import { AddTask, DeleteOwnTask } from "../../components/AddTask";
 import { useApp } from "../../components/app";
 import { AddQuestion, AskedQuestion, OpenQuestion } from "../../components/questions";
-import { PillarHeader } from "../../components/shell/AppShell";
+import { PillarHeader } from "../../components/shell/Frame";
 import { TaskRow } from "../../components/TaskRow";
 import type { Task } from "../../content/schema";
 import { groupTasks, TASK_GROUPS, type TaskGroup } from "../../lib/planner";

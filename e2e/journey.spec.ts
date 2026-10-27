@@ -146,24 +146,24 @@ test("a question is added in the Planner, asked, and lands in this week", async 
 });
 
 test("the answer to boy or girl sets the colours, and they survive a reload", async ({ page, open }) => {
-  const theme = () => page.evaluate(() => document.documentElement.dataset.expectingTheme ?? "dawn");
+  const theme = () => page.evaluate(() => document.documentElement.dataset.expectingTheme ?? "baby-purple");
   await open("/settings");
-  expect(await theme()).toBe("dawn");
+  expect(await theme()).toBe("baby-purple");
 
   await page.getByRole("radio", { name: "Girl" }).click();
-  await expect.poll(theme).toBe("blossom");
+  await expect.poll(theme).toBe("baby-pink");
   await page.reload({ waitUntil: "networkidle" });
-  expect(await theme()).toBe("blossom");
+  expect(await theme()).toBe("baby-pink");
 
   await page.getByRole("radio", { name: "Boy" }).click();
-  await expect.poll(theme).toBe("sky");
+  await expect.poll(theme).toBe("baby-blue");
   await page.getByRole("link", { name: "Timeline" }).click();
   await expect(page.getByRole("slider", { name: "Timeline" })).toBeVisible();
-  expect(await theme()).toBe("sky");
+  expect(await theme()).toBe("baby-blue");
 
   await open("/settings");
   await page.getByRole("radio", { name: "Don't know / surprise" }).click();
-  await expect.poll(theme).toBe("dawn");
+  await expect.poll(theme).toBe("baby-purple");
 });
 
 test("an answer in settings tailors the timeline, and clearing it puts things back", async ({ page, open }) => {
@@ -208,4 +208,34 @@ test("an item draws its window against today, and offers its questions", async (
 
   await open("/planner");
   await expect(page.getByText(text)).toBeVisible();
+});
+
+test("the baby's here: Expecting becomes the newborn's, and clearing the birth date brings the pregnancy back", async ({ page, open }) => {
+  const nav = page.getByRole("navigation", { name: "Expecting" });
+  const babysHere = page.locator("section", { has: page.getByRole("heading", { name: "Baby's here" }) });
+
+  await open("/settings");
+  await babysHere.getByRole("spinbutton", { name: /day/i }).click();
+  await page.keyboard.type(daysFromToday(0));
+  await page.getByRole("button", { name: "Save birth date" }).click();
+
+  await nav.getByRole("link", { name: "This week" }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "This week" })).toBeVisible();
+  await expect(page.getByText("Born today · week 1 after birth")).toBeVisible();
+  await expect(nav.getByRole("link", { name: "Timeline" })).toHaveCount(0);
+  await expect(page.getByRole("slider", { name: "Timeline" })).toHaveCount(0);
+
+  // The newborn's Journal and Toolkit, at the same addresses, and no way back to a week of the pregnancy.
+  await nav.getByRole("link", { name: "Journal" }).click();
+  await expect(page.getByText("The birth story", { exact: true })).toBeVisible();
+  await nav.getByRole("link", { name: "Toolkit" }).click();
+  await expect(page.getByText("Feeds", { exact: true })).toBeVisible();
+  await open("/library/rsv-vaccine");
+  await expect(page.getByRole("link", { name: /on the timeline/ })).toHaveCount(0);
+
+  await open("/settings");
+  await babysHere.getByRole("button", { name: "Clear date" }).click();
+  await page.getByRole("button", { name: "Save birth date" }).click();
+  await nav.getByRole("link", { name: "Timeline" }).click();
+  await expect(page.getByRole("slider", { name: "Timeline" })).toBeVisible();
 });

@@ -4,7 +4,7 @@ import { ChevronRight, Sparkles } from "lucide-react";
 import type { ReactNode } from "react";
 import { useApp } from "../../components/app";
 import { rangeLabel } from "../../components/ItemCard";
-import { PillarHeader } from "../../components/shell/AppShell";
+import { PillarHeader } from "../../components/shell/Frame";
 import { CATEGORIES, type Category, type Item } from "../../content/schema";
 import { Route } from "./route";
 

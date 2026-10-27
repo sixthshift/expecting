@@ -1,7 +1,7 @@
 /*
  * Expecting's own theme, in place of the design system's Linen: a palette from
  * the reference (#9DC3E2 #9DD2D8 #FADCE4 #FFB5CC #E2B9DB) and three themes on
- * it — Sky for a boy, Blossom for a girl, Dawn when you don't know or are
+ * it — Baby Blue for a boy, Baby Pink for a girl, Baby Purple when you don't know or are
  * keeping it a surprise (the default). One is active at a time, chosen by
  * `data-expecting-theme` on <html>.
  *
@@ -12,9 +12,9 @@
  */
 
 @import "./palette.css";
-@import "./dawn.css";
-@import "./sky.css";
-@import "./blossom.css";
+@import "./baby-purple.css";
+@import "./baby-blue.css";
+@import "./baby-pink.css";
 @import "../../node_modules/@sixthshift/design-system/src/theming/tailwind.css";
 
 /* Corners: softer than Tailwind's own, after the reference's pill shapes.

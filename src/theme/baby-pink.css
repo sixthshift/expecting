@@ -1,5 +1,5 @@
 /*
- * Expecting — Blossom: the theme for a girl.
+ * Expecting — Baby Pink: the theme for a girl.
  *
  * The pink end of the palette: #FFB5CC as the brand, #FADCE4 its pale, #E2B9DB lilac beside it.
  *
@@ -16,7 +16,7 @@
  *   --expecting-page                  the page: white, at most a temperature
  */
 
-:root[data-expecting-theme="blossom"] {
+:root[data-expecting-theme="baby-pink"] {
   /* The page: a warm white, nearer cream than pink. */
   --expecting-page: #fcfaf8;
   --expecting-accent-from: var(--color-blossom-300);

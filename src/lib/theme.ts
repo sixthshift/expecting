@@ -12,7 +12,7 @@ export const BABY = {
 
 export type Baby = keyof typeof BABY;
 
-export const THEMES = { boy: "sky", girl: "blossom", unknown: "dawn" } as const satisfies Record<Baby, string>;
+export const THEMES = { boy: "baby-blue", girl: "baby-pink", unknown: "baby-purple" } as const satisfies Record<Baby, string>;
 
 export type Theme = (typeof THEMES)[Baby];
 
@@ -31,10 +31,10 @@ export function applyTheme(theme: Theme): void {
 
 /**
  * Runs in <head> before the page paints, so a returning phone opens in its
- * theme rather than flashing Dawn first. Inlined as a string: nothing has
+ * theme rather than flashing Baby Purple first. Inlined as a string: nothing has
  * loaded yet when it runs.
  */
-export const THEME_BOOT_SCRIPT = `try{var t=localStorage.getItem(${JSON.stringify(THEME_STORAGE_KEY)});if(t==="sky"||t==="blossom"||t==="dawn")document.documentElement.dataset.expectingTheme=t}catch(e){}`;
+export const THEME_BOOT_SCRIPT = `try{var t=localStorage.getItem(${JSON.stringify(THEME_STORAGE_KEY)});if(t==="baby-blue"||t==="baby-pink"||t==="baby-purple")document.documentElement.dataset.expectingTheme=t}catch(e){}`;
 
 /** Keep the page in the household's theme: applied whenever the answer loads or changes. */
 export function useExpectingTheme(baby: Baby): void {

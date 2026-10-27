@@ -3,10 +3,9 @@ import { Link, useRouter } from "@tanstack/react-router";
 import { ChevronRight, LocateFixed, MessageCircleQuestion, Settings } from "lucide-react";
 import { Fragment, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { addDays, daysBetween, formatDate, type ISODate, todayISO } from "../../lib/dates";
-import { STAGE } from "../../lib/onboarding";
 import { gestationLabel, type Position, type Slot, slotKey } from "../../lib/timeline";
 import { buildBands, rulerMarks } from "../../lib/timelineView";
-import { saveAnswer, saveHousehold } from "../../server/functions/household";
+import { saveHousehold } from "../../server/functions/household";
 import { useApp } from "../app";
 import { DateForm } from "../DateForm";
 import { Band } from "./Band";
@@ -29,7 +28,7 @@ function chapter(slot: Slot): string {
  * scrubber above a phone's tab bar) moves along it.
  */
 export function Timeline({ at }: { at: string | undefined }) {
-  const { state, questions, today, position, gettingReady, now, nowKey, items, tasks } = useApp();
+  const { state, questions, today, position, now, nowKey, items, tasks } = useApp();
   const { dueDate, birthDate } = state.household;
 
   const [expanded, setExpanded] = useState<ReadonlySet<string>>(() => new Set([at, nowKey].filter((k): k is string => Boolean(k))));
@@ -142,7 +141,7 @@ export function Timeline({ at }: { at: string | undefined }) {
         <TopBar position={position} onToday={() => nowKey && seek(indexOf(nowKey), true)} />
         <main className="mx-auto max-w-5xl px-4 pt-2 pb-32 md:px-8 lg:pb-24">
           <h1 className="sr-only">Timeline</h1>
-          {!dueDate ? <Welcome gettingReady={gettingReady} /> : null}
+          {!dueDate ? <Welcome /> : null}
           {bands.map((band, i) => {
             const label = chapter(band.slot);
             const prev = bands[i - 1];
@@ -215,7 +214,7 @@ function NowLine({ position, dueDate, today }: { position: Position; dueDate: IS
 }
 
 /** Questions waiting for the next appointment: they live in the Planner. */
-function QuestionsWaiting({ count }: { count: number }) {
+export function QuestionsWaiting({ count }: { count: number }) {
   return (
     <Link to="/planner" hash="questions" className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal">
       <MessageCircleQuestion aria-hidden size={16} className="text-fg-brand" />
@@ -225,14 +224,14 @@ function QuestionsWaiting({ count }: { count: number }) {
   );
 }
 
-/** No due date yet: getting ready, or onboarding skipped it. Entering one moves "now" into the pregnancy. */
-function Welcome({ gettingReady }: { gettingReady: boolean }) {
+/** Expecting, with no due date yet (onboarding skipped it). Entering one places "now" in the pregnancy. */
+function Welcome() {
   const router = useRouter();
   const today = todayISO();
   return (
     <Card size="lg" className="my-6 max-w-lg">
       <DateForm
-        label={gettingReady ? "Expecting now? When's the baby due?" : "When's the baby due?"}
+        label="When's the baby due?"
         description="Your best estimate is fine; change it after the dating scan. The timeline below is all readable either way."
         value={null}
         submitLabel="Start"
@@ -240,7 +239,6 @@ function Welcome({ gettingReady }: { gettingReady: boolean }) {
         maxDate={addDays(today, 7 * 44)}
         onSave={async (date) => {
           await saveHousehold({ data: { dueDate: date } });
-          if (gettingReady) await saveAnswer({ data: { question: STAGE, answer: "pregnant" } });
           await router.invalidate();
         }}
       />

@@ -1,5 +1,7 @@
-import { createRoute, lazyRouteComponent } from "@tanstack/react-router";
+import { createRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { byStage } from "../../components/stages/byStage";
+import { PAGES } from "../../components/stages/pages";
 import { parseSlotKey } from "../../lib/timeline";
 import { Route as appRoute } from "../app/route";
 
@@ -16,5 +18,6 @@ export const Route = createRoute({
   getParentRoute: () => appRoute,
   path: "/",
   validateSearch: search,
-  component: lazyRouteComponent(() => import("./page"), "HomePage"),
+  // Home is the stage's own: getting ready's list, the timeline, or this week.
+  component: byStage(PAGES.home),
 });

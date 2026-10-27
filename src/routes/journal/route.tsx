@@ -1,8 +1,10 @@
-import { createRoute, lazyRouteComponent } from "@tanstack/react-router";
+import { createRoute } from "@tanstack/react-router";
+import { byStage } from "../../components/stages/byStage";
+import { PAGES } from "../../components/stages/pages";
 import { Route as appRoute } from "../app/route";
 
 export const Route = createRoute({
   getParentRoute: () => appRoute,
   path: "/journal",
-  component: lazyRouteComponent(() => import("./page"), "JournalPage"),
+  component: byStage(PAGES.journal),
 });

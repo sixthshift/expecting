@@ -91,6 +91,8 @@ The modes sort into five pillars, by whose a thing is and what you do with it:
 
 These are not views. They are different layouts for different moments, over the same data.
 
+*Built: getting ready, the pregnancy and the baby's here as three stages, each its own shell with its own pillars and home. Not built: the quiet first weeks and go time, which belong inside the pregnancy's.*
+
 ### Who to call
 
 The most important button in the app is personal: **your** birth suite's number, from your contacts, one tap away everywhere.
