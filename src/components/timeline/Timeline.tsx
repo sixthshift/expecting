@@ -154,18 +154,22 @@ export function Timeline({ state, questions, view, at }: Props) {
   );
 
   return (
-    <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_13rem]">
-      {/* Desktop: the rail down the right edge is the timeline at a glance. */}
-      <aside className="sticky top-0 hidden h-dvh flex-col border-l border-border-subtle bg-bg-normal px-4 pt-6 pb-4 lg:order-last lg:flex">
-        <p className="mb-4 flex items-center gap-2 text-lg font-semibold text-fg-strong">
+    <div className="lg:grid lg:grid-cols-[13rem_minmax(0,1fr)_10rem]">
+      {/* Desktop: the sidebar on the left is the app's own (its name, settings)… */}
+      <aside className="sticky top-0 hidden h-dvh flex-col border-r border-border-subtle bg-bg-normal px-4 pt-6 pb-4 lg:flex">
+        <p className="flex items-center gap-2 text-lg font-semibold text-fg-strong">
           <Sprout aria-hidden size={22} className="text-fg-brand" />
           Expecting
         </p>
-        <Ruler marks={marks} active={active} onSeek={seek} orientation="vertical" className="min-h-0 flex-1" />
-        <Link to="/settings" className="mt-4 flex min-h-11 items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:bg-bg-subtle-hovered">
+        <Link to="/settings" className="mt-auto flex min-h-11 items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:bg-bg-subtle-hovered">
           <Settings aria-hidden size={18} />
           Settings
         </Link>
+      </aside>
+
+      {/* …and the ruler down the right edge is the timeline at a glance. */}
+      <aside aria-label="Timeline ruler" className="sticky top-0 hidden h-dvh border-l border-border-subtle bg-bg-normal px-3 pt-6 pb-4 lg:order-last lg:flex">
+        <Ruler marks={marks} active={active} onSeek={seek} orientation="vertical" className="min-h-0 flex-1" />
       </aside>
 
       <div className="min-w-0">

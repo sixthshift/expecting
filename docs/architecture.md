@@ -42,7 +42,7 @@ There are no pages per kind of thing. The app is one scroll of weeks, from "befo
 - **Views, not pages.** **Everything**, **To do**, **Nobody tells you** and **Questions** fold the same timeline down to what you came for, in the URL as `?view=`. The current week is always present, so switching views never loses your place in time. Open questions sit at the current week; asked ones land in the week they were asked.
 - **Adding happens where it belongs.** An own task is added inside its week. A question is added at the current week, in Questions.
 - `?at=28` opens at another week. Settings is the one other page, from the rail or the gear.
-- **Adaptive:** both sizes get a designed layout. Desktop has the rail and a sticky week number in a gutter beside each week. A phone has the scrubber under the thumb and the week number above each week. Item bodies keep a readable line length at every size.
+- **Adaptive:** both sizes get a designed layout. Desktop has a sidebar on the left (the app's name, settings), the ruler in its own column on the right, and a sticky week number in a gutter beside each week. A phone has the scrubber under the thumb and the week number above each week. Item bodies keep a readable line length at every size.
 - Tap targets are at least 44px. No hover-only interactions. Safe areas are respected.
 - e2e loads every page at both sizes (`phone` and `desktop` projects).
 
