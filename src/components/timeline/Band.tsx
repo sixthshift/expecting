@@ -76,12 +76,15 @@ export function Band({ band, view, expanded, onToggle, ticks, onTick, onOpenItem
       aria-labelledby={`week-${key}-label`}
       className={cn(
         "scroll-mt-32 lg:grid lg:scroll-mt-24 lg:grid-cols-[8rem_minmax(0,1fr)] lg:gap-x-8",
-        isNow
-          ? "my-4 rounded-xl border border-border-brand-subtle bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) p-4 lg:my-8 lg:p-6"
-          : "border-t border-border-subtle py-2",
+        isNow ? "relative my-4 rounded-xl border border-border-subtle bg-bg-normal p-4 shadow-sm lg:my-8 lg:p-6" : "border-t border-border-subtle py-2",
         isPast && !isNow && "opacity-80"
       )}
     >
+      {/* This week is a white card; the theme's colour is a stripe along its top, not a fill.
+          Rounded itself rather than clipped by the card: overflow-hidden there would break the sticky week number. */}
+      {isNow ? (
+        <div aria-hidden className="absolute inset-x-0 top-0 h-1 rounded-t-xl bg-linear-to-r from-(--expecting-accent-from) to-(--expecting-accent-to)" />
+      ) : null}
       <header className={cn("lg:sticky lg:top-24 lg:self-start", foldable && "contents lg:block")}>
         <button
           type="button"

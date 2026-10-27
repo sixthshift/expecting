@@ -6,12 +6,13 @@
  * A complete theme for the design system: every semantic token it reads, in
  * light mode (Expecting has no dark mode yet), pointed at src/theme/palette.css.
  * The neutral (mist), success (sea), warning (peach) and danger (cherry) are
- * the same in all three themes; the brand, the page's tint and the accent are
+ * the same in all three themes; the brand and the accent are
  * this theme's own. Applied by `data-expecting-theme` on <html> (src/lib/theme.ts).
  *
  * Beyond the design system's tokens, two of Expecting's own:
  *   --expecting-accent-from/-to       the accent's two colours, for gradients
- *   --expecting-accent-soft-from/-to  the same, pale, for large surfaces
+ *   --expecting-accent-soft-from/-to  the same, pale. Sparingly: the page stays
+ *                                  near-white, and colour comes in accents
  */
 
 :root[data-expecting-theme="sky"] {
@@ -25,10 +26,10 @@
   --bg-strong-pressed: var(--color-mist-950);
   --bg-strong-disabled: var(--color-mist-300);
   --bg-normal: white;
-  --bg-normal-hovered: var(--color-sky-50);
+  --bg-normal-hovered: var(--color-mist-50);
   --bg-normal-pressed: var(--color-mist-100);
   --bg-normal-disabled: var(--color-mist-200);
-  --bg-subtle: var(--color-sky-50);
+  --bg-subtle: var(--color-mist-50);
   --bg-subtle-hovered: var(--color-mist-100);
   --bg-subtle-pressed: var(--color-mist-200);
   --bg-subtle-disabled: var(--color-mist-100);
