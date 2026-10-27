@@ -41,7 +41,7 @@ Open, and it decides the PWA: a service worker and installing to the home screen
 
 ## Stages
 
-Expecting is three apps over one household: getting ready, the pregnancy, and the baby's here. Each has its own shell (`src/components/stages/<stage>/Shell.tsx`) with its own pillars, and its own home at `/`.
+Expecting is three apps over one household: getting ready, the pregnancy, and the baby's here. Each is a folder, `src/app/<stage>/`, whose `index.ts` lists its whole app: its shell, and its pillars in navigation order with the page each shows. Its own home is at `/`.
 
 | Stage | When | Pillars | Home |
 |---|---|---|---|
@@ -51,10 +51,25 @@ Expecting is three apps over one household: getting ready, the pregnancy, and th
 
 - **Derived, never stored** (`src/lib/stage.ts`), like the current week. Entering a due date or a birth date is what moves the household on; clearing the birth date moves it back.
 - **The URL never says the stage.** One route tree, one path per pillar: `/journal` is the Journal for wherever the household is. The stage is a fact about the household, like this week, and a bookmark made in week 39 still works after the birth.
-- **Pages are partitioned by stage; parts and data are not.** A pillar that differs by stage has a page per stage under `src/components/stages/<stage>/` (the pregnancy's Journal and the newborn's are different screens). The rows they show, `ItemCard`, `TaskRow` and the like, the store and the rules in `src/lib/` are shared: an entry from week 39 is still yours after the birth. A page the same in every stage (Library, Planner) stays in its route folder until it diverges.
-- **`src/components/stages/pages.ts` says which stage has which page.** Each pillar route's component is `byStage(PAGES.<pillar>)`, which loads only the household's stage's page and sends a stage without one home. Each stage's `Shell.tsx` lists the same pillars for its navigation; `test/components/stages.test.ts` holds the two together.
-- `AppShell` (the `app` route's component) keeps what every stage shares, the theme and the content context, and picks the stage's shell. The shells share their chrome, `Frame` (`src/components/shell/Frame.tsx`), and differ in what they put in it.
+- **Pages are partitioned by stage; parts and data are not.** A page that differs by stage lives in its stage's folder (the pregnancy's Journal and the newborn's are different screens). The parts they're built from (`src/components/`), the pages every stage shares (`src/features/`: the Library, the Planner, settings), the store and the rules in `src/lib/` are shared: an entry from week 39 is still yours after the birth. When a shared page diverges, its stage's `index.ts` points at a page in its own folder instead.
+- **One route, a page per stage.** Each pillar route's component is `stagePage("/journal")` (`src/app/stagePage.tsx`): it finds that pillar in the household's stage, loads only its page, and sends a stage without it home. The navigation and the pages are one list, so they can't disagree.
+- `AppShell` (the `app` route's component) keeps what every stage shares, the theme and the content context, and draws the stage's `Shell` with its pillars. The shells share their chrome, `Frame` (`src/app/Frame.tsx`); each is where that stage's own things around the pillars go.
 - Only the pregnancy has the timeline; an item's page links to its week only there.
+
+## Code layout
+
+```
+src/
+  app/          the three apps: <stage>/ (index.ts, Shell, its own pages), and what they share (AppShell, Frame, stagePage, useApp)
+  features/     pages every stage shares: library, planner, settings, onboarding, auth
+  components/   the parts pages are built from: TaskRow, ItemCard, questions, the timeline
+  lib/          pure rules and types: no React, no router, no store
+  content/      the built-in items, bundled
+  routes/       definitions only: root.tsx, tree.ts, search.ts, api/
+  db/ server/   server only
+```
+
+Biome holds the boundaries (`noRestrictedImports` in `biome.json`): only `db/`, `server/` and the API routes import the store; nothing imports `routes/` (a page reads its route through `getRouteApi`); `lib/` and `content/` import no React, router or server; `features/` and `components/` never import a stage; and no stage imports another. `src/app/` is the apps, not file-based routing: routes are code, in `src/routes/tree.ts`.
 
 ## The pillars
 
@@ -68,7 +83,7 @@ In the pregnancy, the app is five pillars in its frame: a sidebar on a desktop, 
 | **Journal** | `/journal` | What happens, kept. *Placeholder: says what is coming.* |
 | **Toolkit** | `/toolkit` | Things to use in the moment. *Placeholder.* |
 
-- **One load for all of them.** The `app` route loads the household, the checklist, the people and the questions once; `useApp()` (`src/components/app.ts`) tailors the items and tasks and places "now". Moving between pillars is instant, and they never disagree.
+- **One load for all of them.** The `app` route loads the household, the checklist, the people and the questions once; `useApp()` (`src/app/useApp.ts`) tailors the items and tasks and places "now". Moving between pillars is instant, and they never disagree.
 - **The frame provides what content renders against** (the answers, now, the questions already on your list), so a Markdoc tag works the same on the timeline and in the Library.
 - **Settings sits in the frame too**; onboarding and login don't.
 - **Each thing lives in one pillar and meets the others on the timeline.** A task is the Planner's, and shows in its week; an asked question is the Planner's, and lands in the week it was asked; an item is the Library's, and appears in the week it starts.
@@ -111,7 +126,7 @@ Expecting has its own theme, not the design system's Linen. It's built from a re
 
 ## Onboarding
 
-- `/welcome` asks the first-run questions, one to a screen (`src/routes/welcome/`). The home route sends anyone there who still has a step: a new household gets all of them, a new phone only "who's this?".
+- `/welcome` asks the first-run questions, one to a screen (`src/features/onboarding/`). The home route sends anyone there who still has a step: a new household gets all of them, a new phone only "who's this?".
 - Which steps a device sees is a pure function of what is known (`src/lib/onboarding.ts`): who, then the stage (expecting, or getting ready), then the due date and the baby's colours when expecting, then every `asked: onboarding` question in `content/profile.yaml`, then where Expecting will open.
 - Each answer is saved as it's given, so a reload resumes. A household with a due date from before onboarding existed counts as onboarded.
 - Getting ready with no due date opens the timeline at the getting-ready band; entering a due date later moves it into the pregnancy.

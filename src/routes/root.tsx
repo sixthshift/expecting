@@ -1,10 +1,9 @@
-import { createRootRoute, HeadContent, Link, Outlet, Scripts } from "@tanstack/react-router";
-import type { ReactNode } from "react";
-import { Page } from "../components/Page";
-import { THEME_BOOT_SCRIPT } from "../lib/theme";
+import { createRootRoute, Outlet } from "@tanstack/react-router";
+import { Document } from "../app/Document";
+import { NotFound } from "../app/NotFound";
 import appCss from "../styles.css?url";
 
-export const Route = createRootRoute({
+export const rootRoute = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -14,40 +13,8 @@ export const Route = createRootRoute({
     ],
     links: [{ rel: "stylesheet", href: appCss }],
   }),
-  shellComponent: RootDocument,
-  // Each page brings its own frame: the timeline its rail and scrubber, the rest a plain page.
+  shellComponent: Document,
+  // Each page brings its own frame: the app's pillars theirs, onboarding and login a plain page.
   component: Outlet,
   notFoundComponent: NotFound,
 });
-
-function NotFound() {
-  return (
-    <Page title="Not here">
-      <p>
-        There's no page at this address.{" "}
-        <Link to="/" className="underline">
-          Back to the timeline
-        </Link>
-        .
-      </p>
-    </Page>
-  );
-}
-
-function RootDocument({ children }: { children: ReactNode }) {
-  return (
-    // suppressHydrationWarning: the boot script below sets data-expecting-theme
-    // before React hydrates, so <html> differs from the shell on purpose.
-    <html lang="en-AU" suppressHydrationWarning>
-      <head>
-        {/* biome-ignore lint/security/noDangerouslySetInnerHtml: a fixed string of our own, not user content */}
-        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
-        <HeadContent />
-      </head>
-      <body className="bg-(--expecting-page) text-fg-normal">
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}

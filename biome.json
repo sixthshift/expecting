@@ -96,7 +96,7 @@
       }
     },
     {
-      "includes": ["src/**", "!src/db/**", "!src/server/**", "!src/routes/api/**", "!src/server.ts"],
+      "includes": ["src/**", "!src/db/**", "!src/server/**", "!src/routes/**", "!src/router.tsx", "!src/server.ts"],
       "linter": {
         "rules": {
           "style": {
@@ -107,6 +107,142 @@
                   {
                     "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
                     "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/routes/**"],
+                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/routes/**", "!src/routes/api/**", "src/router.tsx"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
+                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/features/**", "src/components/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
+                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/routes/**"],
+                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
+                  },
+                  {
+                    "group": ["**/preconception/**", "**/pregnancy/**", "**/postpartum/**", "**/preconception", "**/pregnancy", "**/postpartum"],
+                    "message": "Shared code is used by the stages, never the other way round: a stage-only page lives in src/app/<stage>/."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/app/preconception/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
+                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/routes/**"],
+                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
+                  },
+                  {
+                    "group": ["**/pregnancy/**", "**/postpartum/**", "**/pregnancy", "**/postpartum"],
+                    "message": "One stage never imports another: share it through src/features/ or src/components/."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/app/pregnancy/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
+                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/routes/**"],
+                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
+                  },
+                  {
+                    "group": ["**/preconception/**", "**/postpartum/**", "**/preconception", "**/postpartum"],
+                    "message": "One stage never imports another: share it through src/features/ or src/components/."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/app/postpartum/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
+                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/routes/**"],
+                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
+                  },
+                  {
+                    "group": ["**/preconception/**", "**/pregnancy/**", "**/preconception", "**/pregnancy"],
+                    "message": "One stage never imports another: share it through src/features/ or src/components/."
                   }
                 ]
               }
@@ -129,7 +265,7 @@
                     "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
                   },
                   {
-                    "group": ["react", "react-dom", "@tanstack/**", "**/components/**", "**/routes/**", "**/server/**"],
+                    "group": ["react", "react-dom", "@tanstack/**", "**/components/**", "**/features/**", "**/app/**", "**/server/**"],
                     "message": "src/lib/ and src/content/ are pure rules and types: no React, no router, no server."
                   }
                 ]

@@ -4,7 +4,7 @@ import { clearedSessionCookie, readSessionCookie, sessionCookie } from "../../se
 import { auth, limiter, safeNext } from "../../server/auth/gate";
 import { verifyPassword } from "../../server/auth/password";
 import { getDb } from "../../server/core/db";
-import { Route as rootRoute } from "../root";
+import { rootRoute } from "../root";
 
 /** The client a failed attempt counts against: the proxy's view of it if there is one. */
 function clientKey(request: Request): string {
