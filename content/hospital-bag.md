@@ -18,7 +18,7 @@ Have the bag packed and by the door in the last few weeks — babies don't alway
 
 - **Paperwork:** Medicare card, health fund details, birth plan, hospital paperwork.
 - **For the birth parent:** an old T-shirt for labour, going-home clothes, maternity bras, maternity pads, sleepwear, a warm layer, toiletries, slippers or thongs, a pillow from home.
-- **For the baby:** nappies (newborns go through 8 to 10 a day), wipes, a blanket, a few outfits including one for going home.
+- **For the baby:** nappies (newborns go through 8 to 10 a day), wipes, a blanket, a few outfits, including an easy one for going home (avoid fiddly buttons).
 - **For the support partner:** a change of clothes, toiletries, snacks and drinks, phone chargers, a little cash.
 
-Leave jewellery and valuables at home. Make sure the car seat is properly fitted, and line up care for any pets or other children.
+Ask whether your support partner can stay overnight; not every ward allows it. Leave jewellery and valuables at home. Make sure the car seat is properly fitted, and line up care for any pets or other children.

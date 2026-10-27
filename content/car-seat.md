@@ -21,4 +21,4 @@ You'll need a car seat to drive the baby home, and it's a job worth doing well b
 - **Fitting:** an incorrectly fitted seat won't protect properly. Follow the manufacturer's instructions, or use an authorised fitting station (each state and territory lists them).
 - **Second-hand:** only if you know its history, it's undamaged, under 10 years old and meets the standard. A seat that's been in a crash must be thrown away.
 
-Never put a rear-facing seat in front of an airbag, and don't swaddle a baby in the car seat.
+Practise adjusting the harness before the day: buckling a newborn in for the first time is nerve-wracking enough. Never put a rear-facing seat in front of an airbag, and don't swaddle a baby in the car seat.
