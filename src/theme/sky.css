@@ -13,9 +13,12 @@
  *   --expecting-accent-from/-to       the accent's two colours, for gradients
  *   --expecting-accent-soft-from/-to  the same, pale. Sparingly: the page stays
  *                                  near-white, and colour comes in accents
+ *   --expecting-page                  the page: white, at most a temperature
  */
 
 :root[data-expecting-theme="sky"] {
+  /* The page: a cool white, a whisper of blue. */
+  --expecting-page: #f8fafc;
   --expecting-accent-from: var(--color-sky-300);
   --expecting-accent-to: var(--color-lagoon-300);
   --expecting-accent-soft-from: var(--color-sky-100);

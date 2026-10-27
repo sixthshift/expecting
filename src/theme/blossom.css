@@ -13,9 +13,12 @@
  *   --expecting-accent-from/-to       the accent's two colours, for gradients
  *   --expecting-accent-soft-from/-to  the same, pale. Sparingly: the page stays
  *                                  near-white, and colour comes in accents
+ *   --expecting-page                  the page: white, at most a temperature
  */
 
 :root[data-expecting-theme="blossom"] {
+  /* The page: a warm white, nearer cream than pink. */
+  --expecting-page: #fcfaf8;
   --expecting-accent-from: var(--color-blossom-300);
   --expecting-accent-to: var(--color-lilac-300);
   --expecting-accent-soft-from: var(--color-blossom-100);

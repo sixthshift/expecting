@@ -44,7 +44,7 @@ function RootDocument({ children }: { children: ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
         <HeadContent />
       </head>
-      <body className="bg-bg-normal text-fg-normal">
+      <body className="bg-(--expecting-page) text-fg-normal">
         {children}
         <Scripts />
       </body>
