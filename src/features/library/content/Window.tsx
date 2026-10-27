@@ -9,7 +9,7 @@ const weeks = (n: number) => (n === 1 ? "1 week" : `${n} weeks`);
 /** Where this household stands against the window, in words. */
 function status(from: number, to: number, now: ReturnType<typeof useContentContext>["now"]): string {
   if (!now) return `Weeks ${from}–${to}`;
-  if (now.phase === "before") return `Opens at ${from} weeks`;
+  if (now.phase === "preconception") return `Opens at ${from} weeks`;
   if (now.phase === "postpartum" || now.week > to) return `Closed at ${to} weeks`;
   if (now.week < from) return `Opens in ${weeks(from - now.week)}, at ${from} weeks`;
   return now.week === to ? "Open now · its last week" : `Open now · ${weeks(to - now.week)} left`;

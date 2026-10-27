@@ -11,7 +11,7 @@ import { useAction } from "../household/useAction";
 export function AddTask({ slot }: { slot: Slot }) {
   const [title, setTitle] = useState("");
   const [add, saving] = useAction(async () => {
-    const data = slot.phase === "before" ? { title, phase: slot.phase, week: null } : { title, phase: slot.phase, week: slot.week };
+    const data = slot.phase === "preconception" ? { title, phase: slot.phase, week: null } : { title, phase: slot.phase, week: slot.week };
     await addOwnTask({ data });
     setTitle("");
   });

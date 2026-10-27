@@ -1,7 +1,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
 import { formatDate, todayISO } from "../../../lib/dates";
-import { NOT_YET, STAGE } from "../../../lib/onboarding";
+import { EXPECTING, NOT_YET } from "../../../lib/onboarding";
 import { gestationLabel, positionOn, slotLabel } from "../../../lib/timeline";
 import type { HouseholdState } from "../../household/load";
 import type { Screen, StepContext } from "../step";
@@ -14,7 +14,7 @@ export function readyStep({ state, finish }: StepContext): Screen {
 function ReadyLine({ state }: { state: HouseholdState }) {
   const { dueDate, birthDate, profile } = state.household;
   if (!dueDate) {
-    return profile[STAGE] === NOT_YET
+    return profile[EXPECTING] === NOT_YET
       ? "Expecting opens at Getting ready: the things worth doing before a pregnancy. When you're expecting, add the due date and it moves with you."
       : "Expecting opens at the start. Add the due date when you have it, and it opens at your week.";
   }

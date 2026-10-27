@@ -3,11 +3,11 @@
 import type { Task } from "../content/schema";
 import { compareSlots, type Phase, type Slot } from "./timeline";
 
-/** A task of our own, as stored: a phase and, outside "before", a week. */
+/** A task of our own, as stored: a phase and, outside preconception, a week. */
 export type OwnTaskRow = { id: string; title: string; phase: Phase; week: number | null; createdAt: string };
 
 export function ownTaskToTask(row: OwnTaskRow): Task {
-  const due: Slot = row.phase === "before" || row.week === null ? { phase: "before" } : { phase: row.phase, week: row.week };
+  const due: Slot = row.phase === "preconception" || row.week === null ? { phase: "preconception" } : { phase: row.phase, week: row.week };
   return { id: row.id, title: row.title, due, itemId: null, origin: "own" };
 }
 

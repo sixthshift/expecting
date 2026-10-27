@@ -18,7 +18,7 @@ const READING_LINE = 140;
 
 /** Where the timeline changes chapter, named once at the first week shown in it. */
 function chapter(slot: Slot): string {
-  if (slot.phase === "before") return "Before";
+  if (slot.phase === "preconception") return "Before";
   if (slot.phase === "postpartum") return "After the birth";
   return slot.week <= 13 ? "First trimester" : slot.week <= 27 ? "Second trimester" : "Third trimester";
 }
@@ -49,7 +49,7 @@ export function Timeline({ at }: { at: string | undefined }) {
   // The week in view drives the ruler: the last week whose top has passed the
   // reading line, just under the sticky bar. A week lands a little above that
   // line when jumped to (its scroll margin), so a jump always reads as that week.
-  const [active, setActive] = useState(() => Math.max(0, indexOf(at ?? nowKey ?? "before")));
+  const [active, setActive] = useState(() => Math.max(0, indexOf(at ?? nowKey ?? "preconception")));
   const bandKeys = bands.map((b) => b.key).join(",");
   useEffect(() => {
     const keys = bandKeys.split(",");

@@ -2,12 +2,12 @@ import { cn } from "@sixthshift/design-system/utils";
 import { Link, Outlet } from "@tanstack/react-router";
 import { type LucideIcon, Settings, ToyBrick } from "lucide-react";
 
-/** One pillar in a stage's navigation: where it lives and what it's called there. */
+/** One pillar in a phase's navigation: where it lives and what it's called there. */
 export type Pillar = { to: "/" | "/library" | "/planner" | "/journal" | "/toolkit"; label: string; icon: LucideIcon };
 
 /**
- * The layout every stage's own Layout draws its pillars in. Desktop: a sidebar on the left with
- * the stage's pillars and settings. Phone: a tab bar under the thumb, its
+ * The layout every phase's own Layout draws its pillars in. Desktop: a sidebar on the left with
+ * the phase's pillars and settings. Phone: a tab bar under the thumb, its
  * height in `--tab-bar` so what sits above it (the timeline's scrubber) can.
  */
 export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {

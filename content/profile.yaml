@@ -12,12 +12,12 @@
 # order; every question is also in settings. Onboarding stays short: ask there
 # only what changes the first thing you see.
 
-- id: stage
+- id: expecting
   ask: Are you expecting yet?
   asked: onboarding
   answers:
-    pregnant: Yes, we're expecting
-    trying: Not yet, we're getting ready
+    "yes": Yes, we're expecting
+    not-yet: Not yet, we're getting ready
 
 - id: cover
   ask: Do you have private hospital cover that includes pregnancy and birth?

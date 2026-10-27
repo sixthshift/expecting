@@ -9,9 +9,9 @@ import { useAction } from "../household/useAction";
 import type { Screen, StepContext } from "./step";
 import { babyStep } from "./steps/baby";
 import { dueStep } from "./steps/due";
+import { expectingStep } from "./steps/expecting";
 import { questionStep } from "./steps/question";
 import { readyStep } from "./steps/ready";
-import { stageStep } from "./steps/stage";
 import { whoStep } from "./steps/who";
 
 const route = getRouteApi("/welcome");
@@ -119,8 +119,8 @@ function renderStep(step: Step, context: StepContext): Screen {
   switch (step) {
     case "who":
       return whoStep(context);
-    case "stage":
-      return stageStep(context);
+    case "expecting":
+      return expectingStep(context);
     case "due":
       return dueStep(context);
     case "baby":

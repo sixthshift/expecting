@@ -1,7 +1,7 @@
 ---
 id: folic-acid-and-iodine
 title: Folic acid and iodine
-phase: before
+phase: preconception
 category: body
 draft: true
 source:

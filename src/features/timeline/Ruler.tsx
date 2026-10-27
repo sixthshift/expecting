@@ -14,12 +14,12 @@ type Props = {
 };
 
 /**
- * Weeks worth a number on the ruler: "before", every fourth week, and the
- * first week after the birth. Week 1 sits right against "before", so it is
+ * Weeks worth a number on the ruler: preconception, every fourth week, and the
+ * first week after the birth. Week 1 sits right against preconception, so it is
  * left to its tick. On the scrubber the current week says "Now" instead.
  */
 function labelled(m: Mark): boolean {
-  if (m.slot.phase === "before") return true;
+  if (m.slot.phase === "preconception") return true;
   return m.slot.week % 4 === 0 || (m.slot.phase === "postpartum" && m.slot.week === 1);
 }
 
@@ -133,7 +133,7 @@ export function Ruler({ marks, active, onSeek, orientation, className }: Props) 
                   )}
                   style={vertical ? undefined : { top: "1.5rem" }}
                 >
-                  {m.slot.phase === "before" ? (vertical ? "Before" : "B") : slotShortLabel(m.slot)}
+                  {m.slot.phase === "preconception" ? (vertical ? "Before" : "B") : slotShortLabel(m.slot)}
                 </span>
               ) : null}
               {/* What is there: amber when something has slipped, else a dot when something starts. */}

@@ -20,7 +20,7 @@ export const setTicked = createServerFn({ method: "POST" })
 
 const ownTaskInput = z
   .discriminatedUnion("phase", [
-    z.object({ title: z.string(), phase: z.literal("before"), week: z.null() }),
+    z.object({ title: z.string(), phase: z.literal("preconception"), week: z.null() }),
     z.object({ title: z.string(), phase: z.literal("pregnancy"), week: z.number().int().min(PREGNANCY_WEEKS.first).max(PREGNANCY_WEEKS.last) }),
     z.object({ title: z.string(), phase: z.literal("postpartum"), week: z.number().int().min(POSTPARTUM_WEEKS.first).max(POSTPARTUM_WEEKS.last) }),
   ])

@@ -1,13 +1,13 @@
 // Every route, as definitions only: a path, what it loads and validates, and
-// the component it draws. Pages live in src/app/ (per stage) and src/features/
+// the component it draws. Pages live in src/app/ (per phase) and src/features/
 // (shared), and read their route's data through getRouteApi, so nothing
 // imports from here but the router. This is also where the three apps
 // (src/app/) are handed to App.
 
 import { createRoute, lazyRouteComponent, redirect } from "@tanstack/react-router";
-import { STAGES } from "../app";
+import { PHASES } from "../app";
 import { App } from "../features/app/App";
-import { stagePage } from "../features/app/stagePage";
+import { phasePage } from "../features/app/phasePage";
 import { loadApp, loadHouseholdState } from "../features/household/load";
 import { onboardingSteps } from "../lib/onboarding";
 import { rootRoute } from "./root";
@@ -20,7 +20,7 @@ function onboarding(state: Awaited<ReturnType<typeof loadHouseholdState>>) {
 
 /**
  * The frame around every pillar and settings: the household's data, loaded
- * once, and the stage's app. Not a page; it has no path of its own.
+ * once, and the phase's app. Not a page; it has no path of its own.
  */
 const app = createRoute({
   getParentRoute: () => rootRoute,
@@ -30,17 +30,17 @@ const app = createRoute({
     if (onboarding(data.state).length > 0) throw redirect({ to: "/welcome" });
     return data;
   },
-  component: () => <App stages={STAGES} />,
+  component: () => <App phases={PHASES} />,
 });
 
-// The pillars: one path each, and the household's stage picks the page.
-const home = createRoute({ getParentRoute: () => app, path: "/", validateSearch: homeSearch, component: stagePage(STAGES, "/") });
-const library = createRoute({ getParentRoute: () => app, path: "/library", validateSearch: librarySearch, component: stagePage(STAGES, "/library") });
-const planner = createRoute({ getParentRoute: () => app, path: "/planner", component: stagePage(STAGES, "/planner") });
-const journal = createRoute({ getParentRoute: () => app, path: "/journal", component: stagePage(STAGES, "/journal") });
-const toolkit = createRoute({ getParentRoute: () => app, path: "/toolkit", component: stagePage(STAGES, "/toolkit") });
+// The pillars: one path each, and the household's phase picks the page.
+const home = createRoute({ getParentRoute: () => app, path: "/", validateSearch: homeSearch, component: phasePage(PHASES, "/") });
+const library = createRoute({ getParentRoute: () => app, path: "/library", validateSearch: librarySearch, component: phasePage(PHASES, "/library") });
+const planner = createRoute({ getParentRoute: () => app, path: "/planner", component: phasePage(PHASES, "/planner") });
+const journal = createRoute({ getParentRoute: () => app, path: "/journal", component: phasePage(PHASES, "/journal") });
+const toolkit = createRoute({ getParentRoute: () => app, path: "/toolkit", component: phasePage(PHASES, "/toolkit") });
 
-/** One item, to read on its own: from a search, a shelf, or a task's "Why". The same in every stage. */
+/** One item, to read on its own: from a search, a shelf, or a task's "Why". The same in every phase. */
 const libraryItem = createRoute({
   getParentRoute: () => app,
   path: "/library/$itemId",

@@ -39,21 +39,22 @@ content/ (in the repo, bundled at build) ──▶ built-in items
 
 Open, and it decides the PWA: a service worker and installing to the home screen need HTTPS, which plain `http://<lan-host>:9966` is not. Tailscale (`tailscale serve` gives HTTPS on a `*.ts.net` name) is the easiest way to get both. Also open: whether expecting is reachable outside the LAN, and how — a VPN such as Tailscale, or public through the reverse proxy. The password is needed either way; a public route raises the bar for everything else.
 
-## Stages
+## Phases
 
-Expecting is three apps over one household: getting ready, the pregnancy, and the baby's here. Each is a folder, `src/app/<stage>/`, whose `index.ts` lists its whole app: its layout, and its pillars in navigation order with the page each shows. Its own home is at `/`.
+Expecting is three apps over one household: getting ready, the pregnancy, and the baby's here. Each is a folder, `src/app/<phase>/`, whose `index.ts` lists its whole app: its layout, and its pillars in navigation order with the page each shows. Its own home is at `/`.
 
-| Stage | When | Pillars | Home |
+| Phase | When | Pillars | Home |
 |---|---|---|---|
-| **preconception** | No due date, and the stage answer is "trying" | Getting ready, Library, Planner | What's best done before (`stages/preconception/Home.tsx`), and "we're expecting" |
+| **preconception** | No due date, and the answer to "expecting yet?" is not yet | Getting ready, Library, Planner | What's best done before (`src/app/preconception/Home.tsx`), and "we're expecting" |
 | **pregnancy** | A due date, or expecting without one yet | Timeline, Library, Planner, Journal, Toolkit | The timeline |
-| **postpartum** | A birth date, or 42 weeks done with none | This week, Library, Planner, Journal, Toolkit | This week (`stages/postpartum/Home.tsx`); the Toolkit is the newborn's |
+| **postpartum** | A birth date, or 42 weeks done with none | This week, Library, Planner, Journal, Toolkit | This week (`src/app/postpartum/Home.tsx`); the Toolkit is the newborn's |
 
-- **Derived, never stored** (`src/lib/stage.ts`), like the current week. Entering a due date or a birth date is what moves the household on; clearing the birth date moves it back.
-- **The URL never says the stage.** One route tree, one path per pillar: `/journal` is the Journal for wherever the household is. The stage is a fact about the household, like this week, and a bookmark made in week 39 still works after the birth.
-- **Pages are partitioned by stage; parts and data are not.** A page that differs by stage lives in its stage's folder (the pregnancy's Journal and the newborn's are different screens). The features they're built from (`src/features/`: the timeline, tasks, questions, the Library, the Planner, settings), the store and the rules in `src/lib/` are shared: an entry from week 39 is still yours after the birth. When a shared page diverges, its stage's `index.ts` points at a page in its own folder instead.
-- **One route, a page per stage.** Each pillar route's component is `stagePage("/journal")` (`src/features/app/stagePage.tsx`): it finds that pillar in the household's stage, loads only its page, and sends a stage without it home. The navigation and the pages are one list, so they can't disagree.
-- `App` (`src/features/app/App.tsx`, the `app` route's component) keeps what every stage shares, the theme and the content context, and draws the stage's `Layout` with its pillars. The layouts share `PillarLayout` (`src/features/app/PillarLayout.tsx`), the sidebar and tab bar; each stage's `Layout` is where its own things around the pillars go.
+- **"Phase" is the code's word, never the screen's.** The type, `src/app/<phase>/`, `PhaseApp`, `useApp().phase` and the timeline's slots all say phase. The screens name the moment instead: getting ready, expecting, baby's here. ("Stage" is kept for the stages of labour, which the Library explains.)
+- **Derived, never stored** (`currentPhase`, `src/lib/phase.ts`), like the current week. Entering a due date or a birth date is what moves the household on; clearing the birth date moves it back.
+- **The URL never says the phase.** One route tree, one path per pillar: `/journal` is the Journal for wherever the household is. The phase is a fact about the household, like this week, and a bookmark made in week 39 still works after the birth.
+- **Pages are partitioned by phase; parts and data are not.** A page that differs by phase lives in its phase's folder (the pregnancy's Journal and the newborn's are different screens). The features they're built from (`src/features/`: the timeline, tasks, questions, the Library, the Planner, settings), the store and the rules in `src/lib/` are shared: an entry from week 39 is still yours after the birth. When a shared page diverges, its phase's `index.ts` points at a page in its own folder instead.
+- **One route, a page per phase.** Each pillar route's component is `phasePage(PHASES, "/journal")` (`src/features/app/phasePage.tsx`): it finds that pillar in the household's phase, loads only its page, and sends a phase without it home. The navigation and the pages are one list, so they can't disagree.
+- `App` (`src/features/app/App.tsx`, the `app` route's component) keeps what every phase shares, the theme and the content context, and draws the phase's `Layout` with its pillars. The layouts share `PillarLayout` (`src/features/app/PillarLayout.tsx`), the sidebar and tab bar; each phase's `Layout` is where its own things around the pillars go.
 - **Naming.** "Shell" means only what TanStack Start means by it: the HTML document (`shellComponent`, our `Document`) and SPA shell mode. The component that picks an app is `App`; what's drawn around the pillars is a layout.
 - Only the pregnancy has the timeline; an item's page links to its week only there.
 
@@ -61,7 +62,7 @@ Expecting is three apps over one household: getting ready, the pregnancy, and th
 
 ```
 src/
-  app/          the three apps and nothing else: <stage>/ (index.ts, Layout, its own pages), and index.ts listing them
+  app/          the three apps and nothing else: <phase>/ (index.ts, Layout, its own pages), and index.ts listing them
   features/     everything the apps share, a folder per domain: its pages and its parts
                 (app, household, timeline, tasks, questions, library, planner, settings, onboarding, auth)
   components/   generic parts with no domain: Page, DateForm, Coming
@@ -71,7 +72,7 @@ src/
   db/ server/   server only
 ```
 
-Biome holds the boundaries (`noRestrictedImports` in `biome.json`): only `db/`, `server/` and the API routes import the store; nothing imports `routes/` (a page reads its route through `getRouteApi`); `lib/` and `content/` import no React, router or server; `features/` and `components/` never import `src/app/` (the route tree hands the apps to `App`); and no stage imports another. `src/app/` is the apps, not file-based routing: routes are code, in `src/routes/tree.tsx`.
+Biome holds the boundaries (`noRestrictedImports` in `biome.json`): only `db/`, `server/` and the API routes import the store; nothing imports `routes/` (a page reads its route through `getRouteApi`); `lib/` and `content/` import no React, router or server; `features/` and `components/` never import `src/app/` (the route tree hands the apps to `App`); and no phase imports another. `src/app/` is the apps, not file-based routing: routes are code, in `src/routes/tree.tsx`.
 
 ## The pillars
 
@@ -92,7 +93,7 @@ In the pregnancy, the app is five pillars in its frame: a sidebar on a desktop, 
 
 ## The timeline
 
-One scroll of weeks, from "before" through pregnancy weeks 1–42 to 12 weeks after the birth, opened at this week (`src/features/timeline/`). It has no views: what used to be views are the Planner and the Library's shelves.
+One scroll of weeks, from getting ready (preconception) through pregnancy weeks 1–42 to 12 weeks after the birth, opened at this week (`src/features/timeline/`). It has no views: what used to be views are the Planner and the Library's shelves.
 
 - **Weeks are bands.** The current week is open, with the gestation line, what has slipped, what is still running from earlier weeks, and a link to the questions waiting for the next appointment. Every other week is folded to one line of what's in it (`2 new · 1 to do`) until opened. Each item appears once, in the week it starts. The rules are in `src/lib/timelineView.ts`, tested apart from the screen.
 - **The ruler moves along it.** It's a vertical rail down the right edge on the desktop and a scrubber just above the tab bar on a phone (`--tab-bar` holds the bar's height). Both are one `Ruler` component and an ARIA slider: drag or tap to scrub; arrows step a week, Page Up/Down four, Home/End the ends. Each week shows a dot when something starts and amber when a task there has slipped. "Now" is marked, and so is the week in view (the last week whose top has passed a reading line under the sticky bar).
@@ -129,7 +130,7 @@ Expecting has its own theme, not the design system's Linen. It's built from a re
 ## Onboarding
 
 - `/welcome` asks the first-run questions, one to a screen (`src/features/onboarding/`, a file per step in `steps/`). The home route sends anyone there who still has a step: a new household gets all of them, a new phone only "who's this?".
-- Which steps a device sees is a pure function of what is known (`src/lib/onboarding.ts`): who, then the stage (expecting, or getting ready), then the due date and the baby's colours when expecting, then every `asked: onboarding` question in `content/profile.yaml`, then where Expecting will open.
+- Which steps a device sees is a pure function of what is known (`src/lib/onboarding.ts`): who, then whether you're expecting (or getting ready), then the due date and the baby's colours when expecting, then every `asked: onboarding` question in `content/profile.yaml`, then where Expecting will open.
 - Each answer is saved as it's given, so a reload resumes. A household with a due date from before onboarding existed counts as onboarded.
 - Getting ready with no due date opens the timeline at the getting-ready band; entering a due date later moves it into the pregnancy.
 
@@ -144,7 +145,7 @@ Expecting has its own theme, not the design system's Linen. It's built from a re
 - Built-in items live in the repo under `content/`, one Markdoc file per item, with frontmatter for weeks, category, `when`, source, last checked and linked tasks.
 - Bodies are Markdoc: Markdown plus declared tags (`src/content/markdoc.ts`), each drawn by a component in `src/features/library/content/`. `{% ask %}` is a suggested question, added to your list in one tap; `{% window %}` draws an item's weeks against today. Every tag, attribute, `$question` and answer is checked as the content loads.
 - They are validated with zod when the content module loads, and `bun run test` loads it, so a malformed item fails the gate, not the page.
-- Each item's weeks are a phase and a range of weeks within it (`before`, pregnancy 1–42, postpartum 1–12), the same `Slot` that `src/lib/timeline.ts` derives the current week as.
+- Each item's weeks are a phase and a range of weeks within it (`preconception`, pregnancy 1–42, postpartum 1–12), the same `Slot` that `src/lib/timeline.ts` derives the current week as.
 - Each item and each linked task has a stable id in its frontmatter. Ticks and hides in the database point at that id, so editing an item's wording never loses state.
 - Chosen over **content in the database**, because built-in content is reviewed like code: diffs, history, and a build that refuses bad data.
 

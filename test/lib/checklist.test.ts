@@ -4,7 +4,7 @@ import { buildChecklist, overdue } from "../../src/lib/checklist";
 
 const builtIn: Task[] = [
   { id: "b", title: "B", due: { phase: "pregnancy", week: 32 }, itemId: "x", origin: "built-in" },
-  { id: "a", title: "A", due: { phase: "before" }, itemId: "y", origin: "built-in" },
+  { id: "a", title: "A", due: { phase: "preconception" }, itemId: "y", origin: "built-in" },
 ];
 
 test("built-in and own tasks are merged in due order", () => {

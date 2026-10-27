@@ -1,12 +1,12 @@
 import { BookOpen, ListChecks, NotebookPen, Sun, Wrench } from "lucide-react";
-import type { StageApp } from "../../features/app/stageApp";
+import type { PhaseApp } from "../../features/app/phaseApp";
 import { PostpartumLayout } from "./Layout";
 
 /**
  * The baby's here: the weeks stop being why you open the app. Home is this
  * week, and the Journal and Toolkit are the newborn's.
  */
-export const postpartum: StageApp = {
+export const postpartum: PhaseApp = {
   Layout: PostpartumLayout,
   pillars: [
     { to: "/", label: "This week", icon: Sun, page: () => import("./Home").then((m) => m.PostpartumHome) },

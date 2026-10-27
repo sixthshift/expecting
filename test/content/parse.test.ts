@@ -40,9 +40,11 @@ describe("parseItem", () => {
     expect(parsed.tasks[0]!.due).toEqual({ phase: "postpartum", week: 6 });
   });
 
-  test("a before item has no weeks", () => {
-    expect(parseItem("x.md", item("id: x\ntitle: X\nphase: before\ncategory: money")).from).toEqual({ phase: "before" });
-    expect(() => parseItem("x.md", item("id: x\ntitle: X\nphase: before\nweeks: 3\ncategory: money"))).toThrow(/weeks: a 'before' item has no weeks/);
+  test("a preconception item has no weeks", () => {
+    expect(parseItem("x.md", item("id: x\ntitle: X\nphase: preconception\ncategory: money")).from).toEqual({ phase: "preconception" });
+    expect(() => parseItem("x.md", item("id: x\ntitle: X\nphase: preconception\nweeks: 3\ncategory: money"))).toThrow(
+      /weeks: a preconception item has no weeks/
+    );
   });
 
   test.each([
@@ -57,9 +59,9 @@ describe("parseItem", () => {
       /within the item's weeks, 18–20/,
     ],
     ["missing weeks", item("id: x\ntitle: X\nphase: pregnancy\ncategory: body"), /needs weeks/],
-    ["bad category", item("id: x\ntitle: X\nphase: before\ncategory: shopping"), /category/],
-    ["bad id", item("id: Not A Slug\ntitle: X\nphase: before\ncategory: body"), /lower-case/],
-    ["empty body", item("id: x\ntitle: X\nphase: before\ncategory: body", ""), /body is empty/],
+    ["bad category", item("id: x\ntitle: X\nphase: preconception\ncategory: shopping"), /category/],
+    ["bad id", item("id: Not A Slug\ntitle: X\nphase: preconception\ncategory: body"), /lower-case/],
+    ["empty body", item("id: x\ntitle: X\nphase: preconception\ncategory: body", ""), /body is empty/],
     ["a when on no question", item(`${rsv}\nwhen: { mood: happy }`), /"mood" is not a question/],
     ["a when on no answer", item(`${rsv}\nwhen: { cover: maybe }`), /"maybe" is not an answer to cover/],
     ["an unknown tag", item(rsv, "{% video /%}"), /video/],
@@ -87,7 +89,7 @@ describe("tailoring", () => {
 });
 
 test("ids are unique across items and tasks", () => {
-  const a = item("id: a\ntitle: A\nphase: before\ncategory: body\ntasks:\n  - id: b\n    title: T");
-  const b = item("id: b\ntitle: B\nphase: before\ncategory: body");
+  const a = item("id: a\ntitle: A\nphase: preconception\ncategory: body\ntasks:\n  - id: b\n    title: T");
+  const b = item("id: b\ntitle: B\nphase: preconception\ncategory: body");
   expect(() => parseAll({ "a.md": a, "b.md": b })).toThrow(/id "b" is also used by a/);
 });

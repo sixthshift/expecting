@@ -10,7 +10,7 @@ const route = getRouteApi("/app/library/$itemId");
 /** One item on its own page, with the way to its week on the timeline while there is one. */
 export function LibraryItemPage() {
   const { itemId } = route.useParams();
-  const { items, state, stage } = useApp();
+  const { items, state, phase } = useApp();
   const item = items.find((i) => i.id === itemId);
   // Hidden by an answer, rather than not there at all: say so, and where to change it.
   const tailoredOut = !item && builtInItems.some((i) => i.id === itemId);
@@ -25,7 +25,7 @@ export function LibraryItemPage() {
           {/* The card's title is an h3 among weeks; here it is the page's subject. */}
           <h1 className="sr-only">{item.title}</h1>
           <ItemCard item={item} ticks={state.ticks} />
-          {stage === "pregnancy" ? (
+          {phase === "pregnancy" ? (
             <Link
               to="/"
               search={{ at: slotKey(item.from) }}

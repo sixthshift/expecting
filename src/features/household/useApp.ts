@@ -7,7 +7,7 @@ import { builtInItems, builtInTasks } from "../../content";
 import { applies } from "../../content/profile";
 import { buildChecklist } from "../../lib/checklist";
 import { todayISO } from "../../lib/dates";
-import { stageOf } from "../../lib/stage";
+import { currentPhase } from "../../lib/phase";
 import { positionOn, type Slot, slotKey } from "../../lib/timeline";
 
 const route = getRouteApi("/app");
@@ -18,9 +18,9 @@ export function useApp() {
   const today = todayISO();
   const position = dueDate ? positionOn(today, dueDate, birthDate) : null;
   // Which app this is: getting ready, the pregnancy, or the baby's here.
-  const stage = stageOf(state.household, today);
+  const phase = currentPhase(state.household, today);
   // Getting ready, with no due date yet: "now" is the getting-ready band.
-  const now: Slot | null = position?.slot ?? (stage === "preconception" ? { phase: "before" } : null);
+  const now: Slot | null = position?.slot ?? (phase === "preconception" ? { phase: "preconception" } : null);
 
   // Tailored: an item, and its tasks, only for a household its `when` fits.
   const items = useMemo(() => builtInItems.filter((i) => applies(i.when, profile)), [profile]);
@@ -32,5 +32,5 @@ export function useApp() {
     );
   }, [items, state.ownTasks]);
 
-  return { state, questions, today, position, stage, now, nowKey: now ? slotKey(now) : null, items, tasks };
+  return { state, questions, today, position, phase, now, nowKey: now ? slotKey(now) : null, items, tasks };
 }

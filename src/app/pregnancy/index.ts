@@ -1,5 +1,5 @@
 import { BookOpen, CalendarRange, ListChecks, NotebookPen, Wrench } from "lucide-react";
-import type { StageApp } from "../../features/app/stageApp";
+import type { PhaseApp } from "../../features/app/phaseApp";
 import { PregnancyLayout } from "./Layout";
 
 /**
@@ -7,7 +7,7 @@ import { PregnancyLayout } from "./Layout";
  * other four. What the Library explains, the Planner asks of you and the
  * Journal keeps all meet on their week.
  */
-export const pregnancy: StageApp = {
+export const pregnancy: PhaseApp = {
   Layout: PregnancyLayout,
   pillars: [
     { to: "/", label: "Timeline", icon: CalendarRange, page: () => import("./Home").then((m) => m.PregnancyHome) },

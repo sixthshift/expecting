@@ -26,14 +26,14 @@ type Props = {
 
 /** The big label in the week's gutter: "28", "Before", "+3". */
 function Numeral({ slot }: { slot: Slot }) {
-  if (slot.phase === "before") return <span className="text-2xl font-semibold lg:text-3xl">Before</span>;
+  if (slot.phase === "preconception") return <span className="text-2xl font-semibold lg:text-3xl">Before</span>;
   return <span className="text-3xl font-semibold tabular-nums lg:text-5xl">{slotShortLabel(slot)}</span>;
 }
 
 /** The words after the numeral: "28 weeks", "1 week", "+3 after birth". */
 function caption(slot: Slot): string {
   switch (slot.phase) {
-    case "before":
+    case "preconception":
       return "";
     case "pregnancy":
       return slot.week === 1 ? "week" : "weeks";
@@ -92,7 +92,7 @@ export function Band({ band, expanded, onToggle, ticks, onOpenItem, dueDate, bir
             <Numeral slot={slot} />
             <span className="text-sm font-normal text-fg-subtle">{caption(slot)}</span>
           </h2>
-          <span className="text-sm text-fg-subtle">{dateLine ?? (slot.phase === "before" ? "Best done before, or very early" : null)}</span>
+          <span className="text-sm text-fg-subtle">{dateLine ?? (slot.phase === "preconception" ? "Best done before, or very early" : null)}</span>
           {foldable ? (
             <span className="ml-auto flex items-center gap-2 text-sm text-fg-subtle lg:hidden">
               {summary}
@@ -107,7 +107,7 @@ export function Band({ band, expanded, onToggle, ticks, onOpenItem, dueDate, bir
           <button
             type="button"
             onClick={onToggle}
-            aria-label={`${open ? "Fold" : "Open"} ${key === "before" ? "before you start" : `week ${key}`}`}
+            aria-label={`${open ? "Fold" : "Open"} ${key === "preconception" ? "before you start" : `week ${key}`}`}
             className="hidden min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal lg:flex"
           >
             {summary}

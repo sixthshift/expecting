@@ -14,9 +14,9 @@ export const taskTick = sqliteTable("task_tick", {
 export const ownTask = sqliteTable("own_task", {
   id: text("id").primaryKey(),
   title: text("title").notNull(),
-  /** before | pregnancy | postpartum */
+  /** preconception | pregnancy | postpartum */
   phase: text("phase").notNull(),
-  /** Week within the phase; null for `before`. */
+  /** Week within the phase; null for `preconception`. */
   week: integer("week"),
   createdAt: text("created_at").notNull(),
 });

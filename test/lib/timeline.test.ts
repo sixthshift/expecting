@@ -30,7 +30,7 @@ describe("positionOn", () => {
   });
 
   test("more than 40 weeks out is before", () => {
-    expect(positionOn("2026-05-01" as ISODate, due).slot).toEqual({ phase: "before" });
+    expect(positionOn("2026-05-01" as ISODate, due).slot).toEqual({ phase: "preconception" });
   });
 
   test("the first days count as week 1, not week 0", () => {
@@ -80,8 +80,8 @@ describe("slots", () => {
   });
 
   test("neighbours cross phases and stop at the ends", () => {
-    expect(neighbour({ phase: "before" }, -1)).toBeNull();
-    expect(neighbour({ phase: "before" }, 1)).toEqual({ phase: "pregnancy", week: 1 });
+    expect(neighbour({ phase: "preconception" }, -1)).toBeNull();
+    expect(neighbour({ phase: "preconception" }, 1)).toEqual({ phase: "pregnancy", week: 1 });
     expect(neighbour({ phase: "pregnancy", week: 42 }, 1)).toEqual({ phase: "postpartum", week: 1 });
     expect(neighbour({ phase: "postpartum", week: 12 }, 1)).toBeNull();
   });

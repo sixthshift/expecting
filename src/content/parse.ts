@@ -39,7 +39,7 @@ export function parseItem(file: string, source: string): Item {
 }
 
 function toItem(fm: Frontmatter, body: string, doc: Node): Item {
-  const at = (week: number): Slot => (fm.phase === "before" ? { phase: "before" } : { phase: fm.phase, week });
+  const at = (week: number): Slot => (fm.phase === "preconception" ? { phase: "preconception" } : { phase: fm.phase, week });
   const [from, to] = fm.weeks ?? [0, 0];
   return {
     id: fm.id,

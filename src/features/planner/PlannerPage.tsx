@@ -57,7 +57,7 @@ export function PlannerPage() {
           <h2 id="todo" className="text-lg font-semibold text-fg-strong">
             To do
           </h2>
-          <AddTask slot={now ?? { phase: "before" }} />
+          <AddTask slot={now ?? { phase: "preconception" }} />
           {(["slipped", "now", "soon", "later"] as TaskGroup[]).map((g) =>
             groups[g].length > 0 ? (
               <Group key={g} title={now ? TASK_GROUPS[g] : "To do"} count={groups[g].length} tone={g === "slipped" ? "warning" : undefined}>

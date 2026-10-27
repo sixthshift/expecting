@@ -7,7 +7,7 @@ import { ItemCard } from "../../features/library/ItemCard";
 import { AddTask, DeleteOwnTask } from "../../features/tasks/AddTask";
 import { TaskRow } from "../../features/tasks/TaskRow";
 import { type ISODate, todayISO } from "../../lib/dates";
-import { STAGE } from "../../lib/onboarding";
+import { EXPECTING } from "../../lib/onboarding";
 import { dueDateBounds } from "../../lib/timeline";
 import { saveAnswer, saveHousehold } from "../../server/functions/household";
 
@@ -21,11 +21,11 @@ export function PreconceptionHome() {
   // The due date moves Expecting into the pregnancy; the answer keeps onboarding's question in step.
   const [expecting] = useAction(async (dueDate: ISODate | null) => {
     await saveHousehold({ data: { dueDate } });
-    await saveAnswer({ data: { question: STAGE, answer: "pregnant" } });
+    await saveAnswer({ data: { question: EXPECTING, answer: "yes" } });
   });
   const today = todayISO();
-  const before = items.filter((i) => i.from.phase === "before");
-  const standalone = tasks.filter((t) => t.itemId === null && t.due.phase === "before");
+  const before = items.filter((i) => i.from.phase === "preconception");
+  const standalone = tasks.filter((t) => t.itemId === null && t.due.phase === "preconception");
 
   return (
     <main className="mx-auto max-w-5xl px-4 pb-16 md:px-8">
@@ -50,7 +50,7 @@ export function PreconceptionHome() {
               ))}
             </div>
           ) : null}
-          <AddTask slot={{ phase: "before" }} />
+          <AddTask slot={{ phase: "preconception" }} />
         </div>
         <Card size="lg" className="lg:sticky lg:top-10">
           <DateForm

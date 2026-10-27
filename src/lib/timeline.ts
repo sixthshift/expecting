@@ -1,19 +1,21 @@
 // The spine of the app: where on the timeline a moment sits.
 //
-// A slot is one place on the timeline. There are three phases:
-//   before      — things to do before or very early in a pregnancy (private health, folate)
-//   pregnancy   — weeks 1 to 42, counted as completed weeks of gestation, the way
-//                 midwives and the national guidelines count ("28 weeks" is 28+0 to 28+6)
-//   postpartum  — weeks 1 to 12 after the birth, counted from the birth date
+// A slot is one place on the timeline. There are three phases, and each is
+// also one of Expecting's apps (src/app/<phase>/). "Phase" is the code's word:
+// the screens name the moments instead (getting ready, expecting, baby's here).
+//   preconception — things to do before or very early in a pregnancy (private health, folate)
+//   pregnancy     — weeks 1 to 42, counted as completed weeks of gestation, the way
+//                   midwives and the national guidelines count ("28 weeks" is 28+0 to 28+6)
+//   postpartum    — weeks 1 to 12 after the birth, counted from the birth date
 //
 // The current slot is derived from the due date (and the birth date once it is
 // entered) on every read. Nothing here stores it.
 
 import { addDays, daysBetween, type ISODate } from "./dates";
 
-export type Phase = "before" | "pregnancy" | "postpartum";
+export type Phase = "preconception" | "pregnancy" | "postpartum";
 
-export type Slot = { phase: "before" } | { phase: "pregnancy"; week: number } | { phase: "postpartum"; week: number };
+export type Slot = { phase: "preconception" } | { phase: "pregnancy"; week: number } | { phase: "postpartum"; week: number };
 
 export const PREGNANCY_WEEKS = { first: 1, last: 42 } as const;
 export const POSTPARTUM_WEEKS = { first: 1, last: 12 } as const;
@@ -21,11 +23,11 @@ export const POSTPARTUM_WEEKS = { first: 1, last: 12 } as const;
 /** Days from the first day of the last period to the due date: 40+0. */
 export const TERM_DAYS = 280;
 
-const PHASE_ORDER: Record<Phase, number> = { before: 0, pregnancy: 1, postpartum: 2 };
+const PHASE_ORDER: Record<Phase, number> = { preconception: 0, pregnancy: 1, postpartum: 2 };
 
 /** Every slot, in timeline order. */
 export function allSlots(): Slot[] {
-  const slots: Slot[] = [{ phase: "before" }];
+  const slots: Slot[] = [{ phase: "preconception" }];
   for (let week = PREGNANCY_WEEKS.first; week <= PREGNANCY_WEEKS.last; week++) slots.push({ phase: "pregnancy", week });
   for (let week = POSTPARTUM_WEEKS.first; week <= POSTPARTUM_WEEKS.last; week++) slots.push({ phase: "postpartum", week });
   return slots;
@@ -43,14 +45,14 @@ export function sameSlot(a: Slot, b: Slot): boolean {
 }
 
 function weekOf(slot: Slot): number {
-  return slot.phase === "before" ? 0 : slot.week;
+  return slot.phase === "preconception" ? 0 : slot.week;
 }
 
-/** The slot's URL key: `before`, `28`, `pp3`. */
+/** The slot's URL key: `preconception`, `28`, `pp3`. */
 export function slotKey(slot: Slot): string {
   switch (slot.phase) {
-    case "before":
-      return "before";
+    case "preconception":
+      return "preconception";
     case "pregnancy":
       return String(slot.week);
     case "postpartum":
@@ -60,7 +62,8 @@ export function slotKey(slot: Slot): string {
 
 /** The slot a URL key names, or null when it names none. */
 export function parseSlotKey(key: string): Slot | null {
-  if (key === "before") return { phase: "before" };
+  // `before` was the key until the phase was named preconception: an old link still opens.
+  if (key === "preconception" || key === "before") return { phase: "preconception" };
   const pp = /^pp(\d{1,2})$/.exec(key);
   if (pp) {
     const week = Number(pp[1]);
@@ -83,7 +86,7 @@ export function neighbour(slot: Slot, step: -1 | 1): Slot | null {
 /** "Before", "Week 28", "Week 3 after birth". */
 export function slotLabel(slot: Slot): string {
   switch (slot.phase) {
-    case "before":
+    case "preconception":
       return "Before you start";
     case "pregnancy":
       return `Week ${slot.week}`;
@@ -95,7 +98,7 @@ export function slotLabel(slot: Slot): string {
 /** A short form for tight places: "Before", "28", "+3". */
 export function slotShortLabel(slot: Slot): string {
   switch (slot.phase) {
-    case "before":
+    case "preconception":
       return "Before";
     case "pregnancy":
       return String(slot.week);
@@ -122,13 +125,13 @@ const clamp = (n: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, n
  * A birth date moves the household into postpartum from that day. Without
  * one, pregnancy runs to the end of week 42; past that the due date stands in
  * for the birth, so the app never sticks at 42 because nobody updated it.
- * More than 40 weeks before the due date, the household is still "before".
+ * More than 40 weeks before the due date, the household is still in preconception.
  */
 export function positionOn(today: ISODate, dueDate: ISODate, birthDate?: ISODate | null): Position {
   if (birthDate && daysBetween(birthDate, today) >= 0) return postpartumFrom(today, birthDate, false);
 
   const gestationDays = TERM_DAYS - daysBetween(today, dueDate);
-  if (gestationDays < 0) return { slot: { phase: "before" } };
+  if (gestationDays < 0) return { slot: { phase: "preconception" } };
   if (gestationDays >= (PREGNANCY_WEEKS.last + 1) * 7 && !birthDate) return postpartumFrom(today, dueDate, true);
 
   const week = clamp(Math.floor(gestationDays / 7), PREGNANCY_WEEKS.first, PREGNANCY_WEEKS.last);
@@ -168,10 +171,10 @@ export function pregnancyWeekStarts(week: number, dueDate: ISODate): ISODate {
 /**
  * The calendar days a week covers: pregnancy weeks from the due date, weeks
  * after the birth from the birth date (or the due date until one is entered).
- * Null for "before", or without a due date.
+ * Null for preconception, or without a due date.
  */
 export function slotDates(slot: Slot, dueDate: ISODate | null, birthDate: ISODate | null): { start: ISODate; end: ISODate } | null {
-  if (!dueDate || slot.phase === "before") return null;
+  if (!dueDate || slot.phase === "preconception") return null;
   const start = slot.phase === "pregnancy" ? pregnancyWeekStarts(slot.week, dueDate) : addDays(birthDate ?? dueDate, (slot.week - 1) * 7);
   return { start, end: addDays(start, 6) };
 }

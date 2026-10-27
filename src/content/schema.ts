@@ -32,8 +32,8 @@ export const frontmatterSchema = z
   .object({
     id: slug,
     title: z.string().min(1),
-    phase: z.enum(["before", "pregnancy", "postpartum"]),
-    /** A week, or [from, to] inclusive, within the phase. Omitted for `before`. */
+    phase: z.enum(["preconception", "pregnancy", "postpartum"]),
+    /** A week, or [from, to] inclusive, within the phase. Omitted for `preconception`. */
     weeks: weekRange.optional(),
     category: z.enum(Object.keys(CATEGORIES) as [Category, ...Category[]]),
     /** Only for households whose answers match: `{ cover: [no, unsure] }`. See content/profile.yaml. */
@@ -65,8 +65,8 @@ export const frontmatterSchema = z
       if (!question(q)) ctx.addIssue({ code: "custom", path: ["when", q], message: `"${q}" is not a question in profile.yaml` });
       else for (const a of answers) if (!isAnswer(q, a)) ctx.addIssue({ code: "custom", path: ["when", q], message: `"${a}" is not an answer to ${q}` });
     }
-    if (fm.phase === "before") {
-      if (fm.weeks) ctx.addIssue({ code: "custom", path: ["weeks"], message: "a 'before' item has no weeks" });
+    if (fm.phase === "preconception") {
+      if (fm.weeks) ctx.addIssue({ code: "custom", path: ["weeks"], message: "a preconception item has no weeks" });
       for (const [i, t] of fm.tasks.entries()) {
         if (t.due !== undefined) ctx.addIssue({ code: "custom", path: ["tasks", i, "due"], message: "a 'before' task has no due week" });
       }

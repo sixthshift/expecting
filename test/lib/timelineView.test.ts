@@ -52,7 +52,7 @@ describe("the timeline", () => {
 
   test("every week is there, from before to 12 weeks after", () => {
     expect(bands).toHaveLength(55);
-    expect(bands[0]!.key).toBe("before");
+    expect(bands[0]!.key).toBe("preconception");
     expect(bands.at(-1)!.key).toBe("pp12");
   });
 

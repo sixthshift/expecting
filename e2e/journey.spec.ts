@@ -170,7 +170,7 @@ test("an answer in settings tailors the timeline, and clearing it puts things ba
   const privateHealth = page.locator("#item-private-health-waiting-period");
   const rsv = page.locator("#item-rsv-vaccine");
 
-  // Unanswered: everything shows, and the body reads for public care.
+  // Unanswered: everything shows, and the body reads for public care. (`before` is the old key, still accepted.)
   await open("/?at=before");
   await expect(privateHealth).toBeVisible();
   await open("/");
@@ -182,8 +182,8 @@ test("an answer in settings tailors the timeline, and clearing it puts things ba
   await expect(clearCover).toBeVisible();
 
   // Private cover: the waiting-period item has nothing to say, and the RSV item speaks to an obstetrician.
-  await open("/?at=before");
-  await expect(week(page, "before")).toBeVisible();
+  await open("/?at=preconception");
+  await expect(week(page, "preconception")).toBeVisible();
   await expect(privateHealth).toHaveCount(0);
   await open("/");
   await expect(rsv.getByText("Seeing a private obstetrician?")).toBeVisible();
@@ -192,7 +192,7 @@ test("an answer in settings tailors the timeline, and clearing it puts things ba
   await open("/settings");
   await clearCover.click();
   await expect(page.getByText("Not answered").first()).toBeVisible();
-  await open("/?at=before");
+  await open("/?at=preconception");
   await expect(privateHealth).toBeVisible();
 });
 

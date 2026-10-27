@@ -1,12 +1,12 @@
 import { BookOpen, ListChecks, Sprout } from "lucide-react";
-import type { StageApp } from "../../features/app/stageApp";
+import type { PhaseApp } from "../../features/app/phaseApp";
 import { PreconceptionLayout } from "./Layout";
 
 /**
  * Getting ready: no weeks to follow yet, so no timeline, and nothing to keep
  * or time. What to do before a pregnancy, the Library, and the Planner.
  */
-export const preconception: StageApp = {
+export const preconception: PhaseApp = {
   Layout: PreconceptionLayout,
   pillars: [
     { to: "/", label: "Getting ready", icon: Sprout, page: () => import("./Home").then((m) => m.PreconceptionHome) },
