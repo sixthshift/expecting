@@ -1,7 +1,7 @@
 import { Card } from "@sixthshift/design-system/card";
 import { cn } from "@sixthshift/design-system/utils";
 import { Link, useNavigate, useRouter } from "@tanstack/react-router";
-import { LocateFixed, Settings, Sprout } from "lucide-react";
+import { CalendarRange, ListChecks, LocateFixed, MessageCircleQuestion, Settings, Sparkles, Sprout } from "lucide-react";
 import { Fragment, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { builtInItems, builtInTasks } from "../../content";
 import type { Question } from "../../db/models/questions/repo";
@@ -155,13 +155,17 @@ export function Timeline({ state, questions, view, at }: Props) {
 
   return (
     <div className="lg:grid lg:grid-cols-[13rem_minmax(0,1fr)_10rem]">
-      {/* Desktop: the sidebar on the left is the app's own (its name, settings)… */}
+      {/* Desktop: the sidebar on the left is the app's own (its name, the views, settings)… */}
       <aside className="sticky top-0 hidden h-dvh flex-col border-r border-border-subtle bg-bg-normal px-4 pt-6 pb-4 lg:flex">
-        <p className="flex items-center gap-2 text-lg font-semibold text-fg-strong">
+        <p className="mb-6 flex items-center gap-2 px-3 text-lg font-semibold text-fg-strong">
           <Sprout aria-hidden size={22} className="text-fg-brand" />
           Expecting
         </p>
-        <Link to="/settings" className="mt-auto flex min-h-11 items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:bg-bg-subtle-hovered">
+        <ViewNav view={view} layout="list" />
+        <Link
+          to="/settings"
+          className="mt-auto flex min-h-11 items-center gap-3 rounded-md px-3 text-sm text-fg-subtle hover:bg-bg-subtle-hovered hover:text-fg-normal"
+        >
           <Settings aria-hidden size={18} />
           Settings
         </Link>
@@ -217,6 +221,49 @@ export function Timeline({ state, questions, view, at }: Props) {
   );
 }
 
+const VIEW_ICONS: Record<View, typeof Sprout> = {
+  all: CalendarRange,
+  todo: ListChecks,
+  surprise: Sparkles,
+  questions: MessageCircleQuestion,
+};
+
+/** The timeline's views: chips across a phone's top bar, or a list down the desktop's sidebar. */
+function ViewNav({ view, layout, className }: { view: View; layout: "chips" | "list"; className?: string }) {
+  const chips = layout === "chips";
+  return (
+    <nav aria-label="Views" className={className}>
+      <ul className={chips ? "flex gap-2" : "flex flex-col gap-1"}>
+        {(Object.keys(VIEWS) as View[]).map((v) => {
+          const Icon = VIEW_ICONS[v];
+          const current = v === view;
+          return (
+            <li key={v}>
+              <Link
+                to="/"
+                search={v === "all" ? {} : { view: v }}
+                aria-current={current ? "page" : undefined}
+                className={cn(
+                  chips
+                    ? "flex min-h-9 items-center rounded-full border px-3 text-sm whitespace-nowrap"
+                    : "flex min-h-11 items-center gap-3 rounded-md px-3 text-sm",
+                  chips &&
+                    (current ? "border-border-brand-strong bg-bg-brand-strong text-fg-on-brand-strong" : "border-border-normal bg-bg-normal text-fg-normal"),
+                  !chips &&
+                    (current ? "bg-bg-brand-subtle font-medium text-fg-on-brand-subtle" : "text-fg-subtle hover:bg-bg-subtle-hovered hover:text-fg-normal")
+                )}
+              >
+                {chips ? null : <Icon aria-hidden size={18} />}
+                {VIEWS[v]}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+}
+
 function TopBar({ view, position, onToday }: { view: View; position: Position | null; onToday: () => void }) {
   return (
     <div className="sticky top-0 z-10 border-b border-border-subtle bg-(--expecting-page)/95 pt-[env(safe-area-inset-top)] backdrop-blur">
@@ -234,25 +281,8 @@ function TopBar({ view, position, onToday }: { view: View; position: Position | 
             <Settings aria-hidden size={20} />
           </Link>
         </div>
-        <nav aria-label="Views" className="-mx-4 overflow-x-auto px-4 lg:mx-0 lg:px-0">
-          <ul className="flex gap-2">
-            {(Object.keys(VIEWS) as View[]).map((v) => (
-              <li key={v}>
-                <Link
-                  to="/"
-                  search={v === "all" ? {} : { view: v }}
-                  aria-current={v === view ? "page" : undefined}
-                  className={cn(
-                    "flex min-h-9 items-center rounded-full border px-3 text-sm whitespace-nowrap",
-                    v === view ? "border-border-brand-strong bg-bg-brand-strong text-fg-on-brand-strong" : "border-border-normal bg-bg-normal text-fg-normal"
-                  )}
-                >
-                  {VIEWS[v]}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        {/* On a phone the views are chips here; on a desktop they live in the sidebar. */}
+        <ViewNav view={view} layout="chips" className="-mx-4 overflow-x-auto px-4 lg:hidden" />
       </div>
     </div>
   );
