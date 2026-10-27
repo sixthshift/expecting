@@ -154,9 +154,9 @@ export function Timeline({ state, questions, view, at }: Props) {
   );
 
   return (
-    <div className="lg:grid lg:grid-cols-[13rem_minmax(0,1fr)]">
-      {/* Desktop: the rail is the timeline at a glance. */}
-      <aside className="sticky top-0 hidden h-dvh flex-col border-r border-border-subtle bg-bg-normal px-4 pt-6 pb-4 lg:flex">
+    <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_13rem]">
+      {/* Desktop: the rail down the right edge is the timeline at a glance. */}
+      <aside className="sticky top-0 hidden h-dvh flex-col border-l border-border-subtle bg-bg-normal px-4 pt-6 pb-4 lg:order-last lg:flex">
         <p className="mb-4 flex items-center gap-2 text-lg font-semibold text-fg-strong">
           <Sprout aria-hidden size={22} className="text-fg-brand" />
           Expecting

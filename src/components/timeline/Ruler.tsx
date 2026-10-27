@@ -29,7 +29,7 @@ function labelled(m: Mark): boolean {
  * ends. Each week shows a dot when something starts and turns amber when a task
  * there has slipped; "now" is marked, and so is the week in view.
  *
- * Vertical, it is the desktop's left rail. Horizontal, it is the phone's
+ * Vertical, it is the desktop's rail, down the right edge. Horizontal, it is the phone's
  * scrubber along the bottom edge, under the thumb.
  */
 export function Ruler({ marks, active, onSeek, orientation, className }: Props) {
