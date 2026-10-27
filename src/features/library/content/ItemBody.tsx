@@ -6,7 +6,7 @@ import Markdoc, { type Config, type Node } from "@markdoc/markdoc";
 import { Body } from "@sixthshift/design-system/body";
 import { cn } from "@sixthshift/design-system/utils";
 import * as React from "react";
-import { markdocConfig } from "../../content/markdoc";
+import { markdocConfig } from "../../../content/markdoc";
 import { Ask } from "./Ask";
 import { useContentContext } from "./context";
 import { Window } from "./Window";

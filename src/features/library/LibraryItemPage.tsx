@@ -1,9 +1,9 @@
 import { getRouteApi, Link } from "@tanstack/react-router";
 import { ArrowLeft, CalendarRange } from "lucide-react";
 import { useApp } from "../../app/useApp";
-import { ItemCard } from "../../components/ItemCard";
 import { builtInItems } from "../../content";
 import { slotKey, slotLabel } from "../../lib/timeline";
+import { ItemCard } from "./ItemCard";
 
 const route = getRouteApi("/app/library/$itemId");
 

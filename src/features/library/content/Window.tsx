@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { PREGNANCY_WEEKS } from "../../lib/timeline";
+import { PREGNANCY_WEEKS } from "../../../lib/timeline";
 import { useContentContext } from "./context";
 
 const SPAN = PREGNANCY_WEEKS.last - PREGNANCY_WEEKS.first + 1;

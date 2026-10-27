@@ -1,15 +1,16 @@
-// Questions for the next appointment, as they appear on the timeline: the open
-// ones and the form at the current week, asked ones in the week they were asked.
+// Questions for the next appointment: the form and the open ones in the
+// Planner, asked ones in the week they were asked, and the count waiting.
 
 import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
 import { Textarea } from "@sixthshift/design-system/textarea";
-import { Trash2 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { ChevronRight, MessageCircleQuestion, Trash2 } from "lucide-react";
 import { type FormEvent, useState } from "react";
-import { useAction } from "../app/useAction";
-import { formatDate, type ISODate } from "../lib/dates";
-import type { Question } from "../lib/questions";
-import { addQuestion, deleteQuestion, markAsked, reopenQuestion } from "../server/functions/questions";
+import { useAction } from "../../app/useAction";
+import { formatDate, type ISODate } from "../../lib/dates";
+import type { Question } from "../../lib/questions";
+import { addQuestion, deleteQuestion, markAsked, reopenQuestion } from "../../server/functions/questions";
 
 export function AddQuestion() {
   const [text, setText] = useState("");
@@ -110,5 +111,16 @@ function DeleteButton({ id, text }: { id: string; text: string }) {
     <Button variant="ghost" size="sm" iconOnly aria-label={`Delete "${text}"`} loading={removing} onClick={remove}>
       <Trash2 aria-hidden size={16} />
     </Button>
+  );
+}
+
+/** Questions waiting for the next appointment: they live in the Planner. */
+export function QuestionsWaiting({ count }: { count: number }) {
+  return (
+    <Link to="/planner" hash="questions" className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal">
+      <MessageCircleQuestion aria-hidden size={16} className="text-fg-brand" />
+      {count === 1 ? "1 question" : `${count} questions`} for the next appointment
+      <ChevronRight aria-hidden size={16} />
+    </Link>
   );
 }

@@ -3,12 +3,12 @@ import { ChevronDown } from "lucide-react";
 import { type ReactNode, useState } from "react";
 import { PillarHeader } from "../../app/Frame";
 import { useApp } from "../../app/useApp";
-import { AddTask, DeleteOwnTask } from "../../components/AddTask";
-import { AddQuestion, AskedQuestion, OpenQuestion } from "../../components/questions";
-import { TaskRow } from "../../components/TaskRow";
 import type { Task } from "../../content/schema";
 import { groupTasks, TASK_GROUPS, type TaskGroup } from "../../lib/planner";
 import { slotLabel } from "../../lib/timeline";
+import { AddQuestion, AskedQuestion, OpenQuestion } from "../questions/questions";
+import { AddTask, DeleteOwnTask } from "../tasks/AddTask";
+import { TaskRow } from "../tasks/TaskRow";
 
 /**
  * What to do and what to ask: the to-do list grouped by when it matters, and

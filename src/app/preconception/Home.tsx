@@ -1,8 +1,8 @@
 import { Card } from "@sixthshift/design-system/card";
-import { AddTask, DeleteOwnTask } from "../../components/AddTask";
 import { DateForm } from "../../components/DateForm";
-import { ItemCard } from "../../components/ItemCard";
-import { TaskRow } from "../../components/TaskRow";
+import { ItemCard } from "../../features/library/ItemCard";
+import { AddTask, DeleteOwnTask } from "../../features/tasks/AddTask";
+import { TaskRow } from "../../features/tasks/TaskRow";
 import { addDays, type ISODate, todayISO } from "../../lib/dates";
 import { STAGE } from "../../lib/onboarding";
 import { saveAnswer, saveHousehold } from "../../server/functions/household";

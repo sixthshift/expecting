@@ -1,6 +1,6 @@
 import { useLocation } from "@tanstack/react-router";
 import { useEffect, useMemo } from "react";
-import { ContentContext } from "../components/content/context";
+import { ContentContext } from "../features/library/content/context";
 import { STAGES } from "./stages";
 import { useApp } from "./useApp";
 import { useExpectingTheme } from "./useExpectingTheme";

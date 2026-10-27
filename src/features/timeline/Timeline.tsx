@@ -1,14 +1,15 @@
 import { Card } from "@sixthshift/design-system/card";
 import { Link } from "@tanstack/react-router";
-import { ChevronRight, LocateFixed, MessageCircleQuestion, Settings } from "lucide-react";
+import { LocateFixed, Settings } from "lucide-react";
 import { Fragment, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useAction } from "../../app/useAction";
 import { useApp } from "../../app/useApp";
+import { DateForm } from "../../components/DateForm";
 import { addDays, daysBetween, formatDate, type ISODate, todayISO } from "../../lib/dates";
 import { gestationLabel, type Position, type Slot, slotKey } from "../../lib/timeline";
 import { buildBands, rulerMarks } from "../../lib/timelineView";
 import { saveHousehold } from "../../server/functions/household";
-import { DateForm } from "../DateForm";
+import { QuestionsWaiting } from "../questions/questions";
 import { Band } from "./Band";
 import { Ruler } from "./Ruler";
 
@@ -212,17 +213,6 @@ function NowLine({ position, dueDate, today }: { position: Position; dueDate: IS
   }
   const d = position.daysSinceBirth ?? 0;
   return <p className="text-lg text-fg-strong">{d === 0 ? "Born today" : `${d} ${d === 1 ? "day" : "days"} old`}</p>;
-}
-
-/** Questions waiting for the next appointment: they live in the Planner. */
-export function QuestionsWaiting({ count }: { count: number }) {
-  return (
-    <Link to="/planner" hash="questions" className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal">
-      <MessageCircleQuestion aria-hidden size={16} className="text-fg-brand" />
-      {count === 1 ? "1 question" : `${count} questions`} for the next appointment
-      <ChevronRight aria-hidden size={16} />
-    </Link>
-  );
 }
 
 /** Expecting, with no due date yet (onboarding skipped it). Entering one places "now" in the pregnancy. */

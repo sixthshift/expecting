@@ -4,8 +4,8 @@ import { ChevronRight, Sparkles } from "lucide-react";
 import type { ReactNode } from "react";
 import { PillarHeader } from "../../app/Frame";
 import { useApp } from "../../app/useApp";
-import { rangeLabel } from "../../components/ItemCard";
 import { CATEGORIES, type Category, type Item } from "../../content/schema";
+import { rangeLabel } from "./ItemCard";
 
 const route = getRouteApi("/app/library");
 

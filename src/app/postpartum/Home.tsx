@@ -1,6 +1,6 @@
 import { useNavigate } from "@tanstack/react-router";
-import { Band } from "../../components/timeline/Band";
-import { QuestionsWaiting } from "../../components/timeline/Timeline";
+import { QuestionsWaiting } from "../../features/questions/questions";
+import { Band } from "../../features/timeline/Band";
 import { slotLabel } from "../../lib/timeline";
 import { buildBands } from "../../lib/timelineView";
 import { PillarHeader } from "../Frame";

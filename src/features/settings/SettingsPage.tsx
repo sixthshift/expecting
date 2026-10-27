@@ -8,13 +8,13 @@ import { useApp } from "../../app/useApp";
 import { useExpectingTheme } from "../../app/useExpectingTheme";
 import { DateForm } from "../../components/DateForm";
 import { Page, Section } from "../../components/Page";
-import { ProfileForm } from "../../components/ProfileForm";
 import { addDays, formatDate, todayISO } from "../../lib/dates";
 import { applyTheme, BABY, type Baby, THEMES } from "../../lib/theme";
 import { positionOn, slotLabel } from "../../lib/timeline";
 import { COMMIT, VERSION } from "../../lib/version";
 import { saveHousehold } from "../../server/functions/household";
 import { forgetPerson } from "../../server/functions/people";
+import { ProfileForm } from "./ProfileForm";
 
 /** The two dates everything hangs off, and the one question that colours it. */
 export function SettingsPage() {

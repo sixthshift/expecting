@@ -1,5 +1,5 @@
 import { getRouteApi } from "@tanstack/react-router";
-import { Timeline } from "../../components/timeline/Timeline";
+import { Timeline } from "../../features/timeline/Timeline";
 
 const route = getRouteApi("/app/");
 

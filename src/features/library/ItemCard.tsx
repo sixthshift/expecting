@@ -1,11 +1,11 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { Card } from "@sixthshift/design-system/card";
 import { ExternalLink } from "lucide-react";
-import { CATEGORIES, type Item } from "../content/schema";
-import { formatDate, type ISODate } from "../lib/dates";
-import { sameSlot, slotLabel } from "../lib/timeline";
+import { CATEGORIES, type Item } from "../../content/schema";
+import { formatDate, type ISODate } from "../../lib/dates";
+import { sameSlot, slotLabel } from "../../lib/timeline";
+import { TaskRow } from "../tasks/TaskRow";
 import { ItemBody } from "./content/ItemBody";
-import { TaskRow } from "./TaskRow";
 
 /** "Weeks 28–36", "Week 3 after birth", "Before you start". */
 export function rangeLabel(item: Item): string {

@@ -5,10 +5,10 @@ import type { ReactNode } from "react";
 import { formatDate, type ISODate } from "../../lib/dates";
 import { type Slot, slotDates, slotShortLabel } from "../../lib/timeline";
 import type { Band as BandData } from "../../lib/timelineView";
-import { AddTask, DeleteOwnTask } from "../AddTask";
-import { ItemCard, rangeLabel } from "../ItemCard";
-import { AskedQuestion } from "../questions";
-import { TaskRow } from "../TaskRow";
+import { ItemCard, rangeLabel } from "../library/ItemCard";
+import { AskedQuestion } from "../questions/questions";
+import { AddTask, DeleteOwnTask } from "../tasks/AddTask";
+import { TaskRow } from "../tasks/TaskRow";
 
 type Props = {
   band: BandData;
