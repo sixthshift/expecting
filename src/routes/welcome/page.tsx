@@ -8,11 +8,12 @@ import { type FormEvent, type ReactNode, useEffect, useRef, useState } from "rea
 import { DateForm } from "../../components/DateForm";
 import { AnswerInput } from "../../components/ProfileForm";
 import type { HouseholdState } from "../../components/state";
+import { useExpectingTheme } from "../../components/useExpectingTheme";
 import { question } from "../../content/profile";
-import { type Person, ROLES, type Role } from "../../db/models/people/repo";
 import { addDays, formatDate, type ISODate, todayISO } from "../../lib/dates";
 import { NOT_YET, onboardingSteps, STAGE, type Step } from "../../lib/onboarding";
-import { applyTheme, BABY, type Baby, THEMES, useExpectingTheme } from "../../lib/theme";
+import { type Person, ROLES, type Role } from "../../lib/people";
+import { applyTheme, BABY, type Baby, THEMES } from "../../lib/theme";
 import { gestationLabel, positionOn, slotLabel } from "../../lib/timeline";
 import { finishOnboarding, saveAnswer, saveHousehold } from "../../server/functions/household";
 import { addPerson, becomePerson } from "../../server/functions/people";

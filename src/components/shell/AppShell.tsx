@@ -1,12 +1,12 @@
 import { useLocation } from "@tanstack/react-router";
 import { useEffect, useMemo } from "react";
 import type { Stage } from "../../lib/stage";
-import { useExpectingTheme } from "../../lib/theme";
 import { useApp } from "../app";
 import { ContentContext } from "../content/context";
 import { PostpartumShell } from "../stages/postpartum/Shell";
 import { PreconceptionShell } from "../stages/preconception/Shell";
 import { PregnancyShell } from "../stages/pregnancy/Shell";
+import { useExpectingTheme } from "../useExpectingTheme";
 
 /** Each stage is its own app: its own pillars and its own home, in the frame they share. */
 const SHELLS: Record<Stage, () => React.ReactNode> = {

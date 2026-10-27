@@ -1,8 +1,10 @@
 // The checklist: every built-in task plus our own, in timeline order.
 
 import type { Task } from "../content/schema";
-import type { OwnTaskRow } from "../db/models/checklist/repo";
-import { compareSlots, type Slot } from "./timeline";
+import { compareSlots, type Phase, type Slot } from "./timeline";
+
+/** A task of our own, as stored: a phase and, outside "before", a week. */
+export type OwnTaskRow = { id: string; title: string; phase: Phase; week: number | null; createdAt: string };
 
 export function ownTaskToTask(row: OwnTaskRow): Task {
   const due: Slot = row.phase === "before" || row.week === null ? { phase: "before" } : { phase: row.phase, week: row.week };

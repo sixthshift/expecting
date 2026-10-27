@@ -1,9 +1,8 @@
 import type { Database } from "bun:sqlite";
 import { asc, eq } from "drizzle-orm";
+import type { Question } from "../../../lib/questions";
 import { orm } from "../../connection/client";
 import { question } from "./schema";
-
-export type Question = { id: string; text: string; answer: string | null; askedAt: string | null; createdAt: string };
 
 export class QuestionsRepo {
   private readonly db;

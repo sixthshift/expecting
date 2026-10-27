@@ -1,10 +1,9 @@
 import type { Database } from "bun:sqlite";
 import { asc, eq } from "drizzle-orm";
+import type { OwnTaskRow } from "../../../lib/checklist";
 import type { Phase } from "../../../lib/timeline";
 import { orm } from "../../connection/client";
 import { ownTask, taskTick } from "./schema";
-
-export type OwnTaskRow = { id: string; title: string; phase: Phase; week: number | null; createdAt: string };
 
 export class ChecklistRepo {
   private readonly db;

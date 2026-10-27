@@ -1,8 +1,8 @@
 import Markdoc from "@markdoc/markdoc";
 import { describe, expect, test } from "vitest";
 import type { Item, Task } from "../../src/content/schema";
-import type { Question } from "../../src/db/models/questions/repo";
 import type { ISODate } from "../../src/lib/dates";
+import type { Question } from "../../src/lib/questions";
 import type { Slot } from "../../src/lib/timeline";
 import { buildBands, rulerMarks, type TimelineInput } from "../../src/lib/timelineView";
 

@@ -1,15 +1,8 @@
 import type { Database } from "bun:sqlite";
 import { asc, eq } from "drizzle-orm";
+import type { Person, Role } from "../../../lib/people";
 import { orm } from "../../connection/client";
 import { person } from "./schema";
-
-export type Role = "carrying" | "partner";
-export type Person = { id: string; name: string; role: Role };
-
-export const ROLES: Record<Role, string> = {
-  carrying: "I'm the one who's pregnant (or will be)",
-  partner: "I'm the partner",
-};
 
 export class PeopleRepo {
   private readonly db;

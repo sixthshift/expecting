@@ -10,9 +10,9 @@
 // tells you" in the Library. The timeline is where they meet in time.
 
 import type { Item, Task } from "../content/schema";
-import type { Question } from "../db/models/questions/repo";
 import { overdue } from "./checklist";
 import type { ISODate } from "./dates";
+import type { Question } from "./questions";
 import { allSlots, compareSlots, positionOn, type Slot, sameSlot, slotKey } from "./timeline";
 
 export type Band = {

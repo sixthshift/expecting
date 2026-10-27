@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 // Which of Expecting's three themes is showing, from the one question it asks:
 // boy, girl, or don't know (which covers keeping it a surprise). The themes
 // themselves are CSS (src/theme/); this only chooses one.
@@ -35,8 +33,3 @@ export function applyTheme(theme: Theme): void {
  * loaded yet when it runs.
  */
 export const THEME_BOOT_SCRIPT = `try{var t=localStorage.getItem(${JSON.stringify(THEME_STORAGE_KEY)});if(t==="baby-blue"||t==="baby-pink"||t==="baby-purple")document.documentElement.dataset.expectingTheme=t}catch(e){}`;
-
-/** Keep the page in the household's theme: applied whenever the answer loads or changes. */
-export function useExpectingTheme(baby: Baby): void {
-  useEffect(() => applyTheme(THEMES[baby]), [baby]);
-}

@@ -7,8 +7,8 @@ import { Textarea } from "@sixthshift/design-system/textarea";
 import { useRouter } from "@tanstack/react-router";
 import { Trash2 } from "lucide-react";
 import { type FormEvent, useState } from "react";
-import type { Question } from "../db/models/questions/repo";
 import { formatDate, type ISODate } from "../lib/dates";
+import type { Question } from "../lib/questions";
 import { addQuestion, deleteQuestion, markAsked, reopenQuestion } from "../server/functions/questions";
 
 function useRefresh() {

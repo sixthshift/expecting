@@ -94,6 +94,50 @@
           }
         }
       }
+    },
+    {
+      "includes": ["src/**", "!src/db/**", "!src/server/**", "!src/routes/api/**", "!src/server.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
+                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/lib/**", "src/content/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
+                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["react", "react-dom", "@tanstack/**", "**/components/**", "**/routes/**", "**/server/**"],
+                    "message": "src/lib/ and src/content/ are pure rules and types: no React, no router, no server."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
     }
   ]
 }
