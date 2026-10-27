@@ -5,8 +5,8 @@ import { Fragment, type ReactNode, useCallback, useEffect, useMemo, useRef, useS
 import { useAction } from "../../app/useAction";
 import { useApp } from "../../app/useApp";
 import { DateForm } from "../../components/DateForm";
-import { addDays, daysBetween, formatDate, type ISODate, todayISO } from "../../lib/dates";
-import { gestationLabel, type Position, type Slot, slotKey } from "../../lib/timeline";
+import { daysBetween, formatDate, type ISODate, todayISO } from "../../lib/dates";
+import { ageLabel, dueDateBounds, gestationLabel, type Position, type Slot, slotKey } from "../../lib/timeline";
 import { buildBands, rulerMarks } from "../../lib/timelineView";
 import { saveHousehold } from "../../server/functions/household";
 import { QuestionsWaiting } from "../questions/questions";
@@ -211,8 +211,7 @@ function NowLine({ position, dueDate, today }: { position: Position; dueDate: IS
       </p>
     );
   }
-  const d = position.daysSinceBirth ?? 0;
-  return <p className="text-lg text-fg-strong">{d === 0 ? "Born today" : `${d} ${d === 1 ? "day" : "days"} old`}</p>;
+  return <p className="text-lg text-fg-strong">{ageLabel(position.daysSinceBirth ?? 0)}</p>;
 }
 
 /** Expecting, with no due date yet (onboarding skipped it). Entering one places "now" in the pregnancy. */
@@ -226,8 +225,7 @@ function Welcome() {
         description="Your best estimate is fine; change it after the dating scan. The timeline below is all readable either way."
         value={null}
         submitLabel="Start"
-        minDate={addDays(today, -7 * 3)}
-        maxDate={addDays(today, 7 * 44)}
+        {...dueDateBounds(today)}
         onSave={save}
       />
     </Card>

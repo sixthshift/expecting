@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { DateForm } from "../../../components/DateForm";
 import { addDays, type ISODate, todayISO } from "../../../lib/dates";
-import { TERM_DAYS } from "../../../lib/timeline";
+import { dueDateBounds, TERM_DAYS } from "../../../lib/timeline";
 import { saveHousehold } from "../../../server/functions/household";
 import { SkipButton } from "../parts";
 import type { Advance, Screen, StepContext } from "../step";
@@ -36,16 +36,7 @@ function DueDate({ value, onDone }: { value: ISODate | null; onDone: Advance }) 
           onSave={async (lmp) => save(lmp ? addDays(lmp, TERM_DAYS) : null)}
         />
       ) : (
-        <DateForm
-          key="due"
-          label="Due date"
-          value={value}
-          submitLabel="Next"
-          wide
-          minDate={addDays(today, -7 * 3)}
-          maxDate={addDays(today, 7 * 44)}
-          onSave={save}
-        />
+        <DateForm key="due" label="Due date" value={value} submitLabel="Next" wide {...dueDateBounds(today)} onSave={save} />
       )}
       <button type="button" onClick={() => setFromPeriod((f) => !f)} className="min-h-11 self-start text-sm text-fg-subtle underline hover:text-fg-normal">
         {fromPeriod ? "I know the due date" : "Not sure? Work it out from the last period"}

@@ -1,7 +1,7 @@
 import { useNavigate } from "@tanstack/react-router";
 import { QuestionsWaiting } from "../../features/questions/questions";
 import { Band } from "../../features/timeline/Band";
-import { slotLabel } from "../../lib/timeline";
+import { ageLabel, slotLabel } from "../../lib/timeline";
 import { buildBands } from "../../lib/timelineView";
 import { PillarHeader } from "../Frame";
 import { useApp } from "../useApp";
@@ -15,8 +15,7 @@ export function PostpartumHome() {
   const navigate = useNavigate();
   const { dueDate, birthDate } = state.household;
   const band = buildBands({ items, tasks, ticks: state.ticks, questions, now, dueDate, birthDate }).find((b) => b.isNow);
-  const days = position?.daysSinceBirth ?? 0;
-  const age = days === 0 ? "Born today" : `${days} ${days === 1 ? "day" : "days"} old`;
+  const age = ageLabel(position?.daysSinceBirth ?? 0);
   const openQuestions = questions.filter((q) => !q.askedAt).length;
 
   return (

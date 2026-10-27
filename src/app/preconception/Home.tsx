@@ -3,8 +3,9 @@ import { DateForm } from "../../components/DateForm";
 import { ItemCard } from "../../features/library/ItemCard";
 import { AddTask, DeleteOwnTask } from "../../features/tasks/AddTask";
 import { TaskRow } from "../../features/tasks/TaskRow";
-import { addDays, type ISODate, todayISO } from "../../lib/dates";
+import { type ISODate, todayISO } from "../../lib/dates";
 import { STAGE } from "../../lib/onboarding";
+import { dueDateBounds } from "../../lib/timeline";
 import { saveAnswer, saveHousehold } from "../../server/functions/household";
 import { PillarHeader } from "../Frame";
 import { useAction } from "../useAction";
@@ -57,8 +58,7 @@ export function PreconceptionHome() {
             description="Your best estimate is fine; change it after the dating scan. Expecting moves on to the pregnancy, week by week."
             value={null}
             submitLabel="We're expecting"
-            minDate={addDays(today, -7 * 3)}
-            maxDate={addDays(today, 7 * 44)}
+            {...dueDateBounds(today)}
             onSave={expecting}
           />
         </Card>

@@ -146,6 +146,20 @@ export function gestationLabel(gestationDays: number): string {
   return `${Math.floor(gestationDays / 7)}+${gestationDays % 7}`;
 }
 
+/** "Born today", "1 day old", "12 days old". */
+export function ageLabel(daysSinceBirth: number): string {
+  if (daysSinceBirth === 0) return "Born today";
+  return `${daysSinceBirth} ${daysSinceBirth === 1 ? "day" : "days"} old`;
+}
+
+/**
+ * The due dates worth accepting on `today`: from just past one (a birth not
+ * yet entered) to a pregnancy that has barely begun.
+ */
+export function dueDateBounds(today: ISODate): { minDate: ISODate; maxDate: ISODate } {
+  return { minDate: addDays(today, -7 * 3), maxDate: addDays(today, 7 * 44) };
+}
+
 /** The first day of a pregnancy week, given the due date. */
 export function pregnancyWeekStarts(week: number, dueDate: ISODate): ISODate {
   return addDays(dueDate, week * 7 - TERM_DAYS);

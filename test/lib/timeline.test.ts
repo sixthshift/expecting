@@ -1,6 +1,18 @@
 import { describe, expect, test } from "vitest";
 import type { ISODate } from "../../src/lib/dates";
-import { allSlots, compareSlots, gestationLabel, neighbour, parseSlotKey, positionOn, pregnancyWeekStarts, slotKey, slotLabel } from "../../src/lib/timeline";
+import {
+  ageLabel,
+  allSlots,
+  compareSlots,
+  dueDateBounds,
+  gestationLabel,
+  neighbour,
+  parseSlotKey,
+  positionOn,
+  pregnancyWeekStarts,
+  slotKey,
+  slotLabel,
+} from "../../src/lib/timeline";
 
 const due = "2027-03-01" as ISODate;
 
@@ -83,4 +95,14 @@ describe("slots", () => {
     expect(pregnancyWeekStarts(40, due)).toBe(due);
     expect(pregnancyWeekStarts(39, due)).toBe("2027-02-22");
   });
+});
+
+test("the baby's age reads as people say it", () => {
+  expect(ageLabel(0)).toBe("Born today");
+  expect(ageLabel(1)).toBe("1 day old");
+  expect(ageLabel(12)).toBe("12 days old");
+});
+
+test("a due date is accepted from three weeks past to 44 weeks ahead", () => {
+  expect(dueDateBounds("2026-10-27" as ISODate)).toEqual({ minDate: "2026-10-06", maxDate: "2027-08-31" });
 });

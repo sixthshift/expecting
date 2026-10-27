@@ -2,7 +2,7 @@
 // A malformed file throws as this module loads; test/content/content.test.ts
 // loads it, so a bad item fails the gate before it reaches a page.
 
-import { compareSlots, type Slot, sameSlot } from "../lib/timeline";
+import { compareSlots, type Slot } from "../lib/timeline";
 import { parseAll } from "./parse";
 import type { Item, Task } from "./schema";
 
@@ -25,9 +25,4 @@ export function byTimeline(a: Item, b: Item): number {
 /** Whether `item` applies at `slot`. */
 export function covers(item: Item, slot: Slot): boolean {
   return compareSlots(item.from, slot) <= 0 && compareSlots(slot, item.to) <= 0;
-}
-
-/** Whether `item` begins at `slot`. */
-export function startsAt(item: Item, slot: Slot): boolean {
-  return sameSlot(item.from, slot);
 }
