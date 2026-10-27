@@ -4,11 +4,13 @@
 import { expect, test } from "./fixtures";
 
 const pages = [
-  { path: "/", heading: /^Expecting: everything/ },
-  { path: "/?view=todo", heading: /^Expecting: to do/ },
-  { path: "/?view=surprise", heading: /^Expecting: nobody tells you/ },
-  { path: "/?view=questions", heading: /^Expecting: questions/ },
-  { path: "/?at=pp3", heading: /^Expecting: everything/ },
+  { path: "/", heading: "Timeline" },
+  { path: "/?at=pp3", heading: "Timeline" },
+  { path: "/library", heading: "Library" },
+  { path: "/library/rsv-vaccine", heading: "The RSV vaccine" },
+  { path: "/planner", heading: "Planner" },
+  { path: "/journal", heading: "Journal" },
+  { path: "/toolkit", heading: "Toolkit" },
   { path: "/settings", heading: "Settings" },
 ];
 
@@ -16,21 +18,20 @@ for (const { path, heading } of pages) {
   test(`${path} loads`, async ({ page, open }) => {
     await open(path);
     await expect(page.getByRole("heading", { level: 1, name: heading })).toBeAttached();
-    if (path.startsWith("/?") || path === "/") await expect(page.getByRole("slider", { name: "Timeline" })).toBeVisible();
+    if (heading === "Timeline") await expect(page.getByRole("slider", { name: "Timeline" })).toBeVisible();
   });
 }
 
-test("the views and settings are all reachable", async ({ page, open }) => {
+test("every pillar and settings is reachable", async ({ page, open }) => {
   await open("/");
-  const views = page.getByRole("navigation", { name: "Views" });
-  for (const name of ["To do", "Nobody tells you", "Questions", "Everything"]) {
-    await views.getByRole("link", { name }).click();
-    await expect(views.getByRole("link", { name })).toHaveAttribute("aria-current", "page");
+  const nav = page.getByRole("navigation", { name: "Expecting" });
+  for (const name of ["Library", "Planner", "Journal", "Toolkit", "Timeline"]) {
+    await nav.getByRole("link", { name }).click();
+    await expect(nav.getByRole("link", { name })).toHaveAttribute("aria-current", "page");
   }
+  await expect(page.getByRole("slider", { name: "Timeline" })).toBeVisible();
   await page.getByRole("link", { name: "Settings" }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Settings" })).toBeVisible();
-  await page.getByRole("link", { name: "Timeline" }).click();
-  await expect(page.getByRole("slider", { name: "Timeline" })).toBeVisible();
 });
 
 test.describe("a page that doesn't exist", () => {
@@ -55,7 +56,7 @@ test.describe("logged out", () => {
   // component). Allowed here only, so it stays visible; remove once fixed.
   test.use({ loggedIn: false, allowedErrors: [/Minified React error #418/] });
 
-  test("a page sends you to log in, then back where you were going", async ({ page, open }) => {
+  test("a page sends you to log in, then to say who you are", async ({ page, open }) => {
     await open("/settings");
     await expect(page).toHaveURL(/\/login\?next=%2Fsettings$/);
 
@@ -65,7 +66,9 @@ test.describe("logged out", () => {
 
     await page.getByLabel("Password").fill("e2e-household-password");
     await page.getByRole("button", { name: "Log in" }).click();
-    await expect(page.getByRole("heading", { level: 1, name: "Settings" })).toBeVisible();
+    // A phone that hasn't said who's holding it is asked first, then goes on.
+    await page.getByRole("button", { name: "I'm Jason" }).click();
+    await expect(page.getByRole("heading", { level: 1, name: "Timeline" })).toBeAttached();
   });
 
   test("server functions refuse without a session", async ({ request }) => {

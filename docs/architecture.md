@@ -4,7 +4,7 @@ How expecting is built. What it is and why: [intent.md](intent.md). Running it: 
 
 ## Built so far
 
-The timeline (the whole app: weeks, the ruler, and views for to do, nobody tells you and questions), built-in content, own tasks, questions for appointments, the due and birth dates, and the shared password. Not yet: the rest of the store (appointments, scans and photos, contacts, symptoms, names), our own items, hiding built-in items, the PWA manifest, the service worker, offline reads and writes. Everything below is the intended shape; where it isn't built, it says so.
+The five pillars (the timeline, the Library, the Planner, and placeholders for the Journal and Toolkit), built-in content in Markdoc tailored by the household's answers, onboarding, who's holding each phone, own tasks, questions for appointments, the due and birth dates, and the shared password. Not yet: the rest of the store (appointments, scans and photos, contacts, symptoms, names), our own items, hiding built-in items, the PWA manifest, the service worker, offline reads and writes. Everything below is the intended shape; where it isn't built, it says so.
 
 Expecting has the same shape as garnish. Where this file says "as garnish", garnish's `docs/architecture.md` is the reference.
 
@@ -25,24 +25,49 @@ content/ (in the repo, bundled at build) ──▶ built-in items
 
 - No users, no accounts. One password, set as an environment variable and stored only as a hash.
 - Logging in sets a long-lived, HTTP-only session cookie, so a phone stays logged in for months.
-- Chosen over **no auth** (garnish's choice), because this data is personal and the app is meant to be reachable from a phone at the hospital. Chosen over **two accounts**, because nothing in the app differs per parent. Favourites on baby names are the one exception, and a "whose favourite" field covers it.
+- Chosen over **no auth** (garnish's choice), because this data is personal and the app is meant to be reachable from a phone at the hospital. Chosen over **two accounts**, because nothing needs to be private from the other parent.
 - Login attempts are rate limited: ten failures in fifteen minutes locks that client out, in memory.
 - Sessions are rows holding the SHA-256 of the cookie's token, so a copy of the database is not a login. A session lives 400 days from its last use.
 - Every request passes one request middleware. Pages without a session redirect to `/login`, and everything else gets a 401. The login form is a plain form post to `/api/login`, which sets the cookie itself.
 - Without `EXPECTING_PASSWORD_HASH` the dev server runs open; a production server refuses to start.
 
+### Who's holding the phone
+
+- The household's people are rows (`person`: a name, and `carrying` or `partner`). A device says which one it is once, and remembers it in a `expecting_person` cookie (`src/server/functions/people.ts`).
+- That cookie is not authentication: anyone past the password can say they are anyone. It is how Expecting can say who logged something and speak to each of you.
+- It is separate from the session cookie, so it works on a dev server running open, and logging out doesn't forget who you are.
+
 Open, and it decides the PWA: a service worker and installing to the home screen need HTTPS, which plain `http://<lan-host>:9966` is not. Tailscale (`tailscale serve` gives HTTPS on a `*.ts.net` name) is the easiest way to get both. Also open: whether expecting is reachable outside the LAN, and how — a VPN such as Tailscale, or public through the reverse proxy. The password is needed either way; a public route raises the bar for everything else.
 
-## The timeline is the app
+## The pillars
 
-There are no pages per kind of thing. The app is one scroll of weeks, from "before" through pregnancy weeks 1–42 to 12 weeks after the birth, and it opens at this week (`src/components/timeline/`).
+The app is five pillars in one frame (`src/components/shell/AppShell.tsx`, the pathless `app` route): a sidebar on a desktop, a tab bar on a phone.
 
-- **Weeks are bands.** The current week is open, with the gestation line, what has slipped, and what is still running from earlier weeks. Every other week is folded to one line of what's in it (`2 new · 1 to do`) until opened. Each item appears once, in the week it starts. The rules are in `src/lib/timelineView.ts`, tested apart from the screen.
-- **The ruler moves along it.** It's a vertical rail down the right edge on the desktop and a scrubber along the bottom edge on a phone. Both are one `Ruler` component and an ARIA slider: drag or tap to scrub; arrows step a week, Page Up/Down four, Home/End the ends. Each week shows a dot when something starts and amber when a task there has slipped. "Now" is marked, and so is the week in view (the last week whose top has passed a reading line under the sticky bar).
-- **Views, not pages.** **Everything**, **To do**, **Nobody tells you** and **Questions** fold the same timeline down to what you came for, in the URL as `?view=`. They're a list in the desktop sidebar, and chips across a phone's top bar. The current week is always present, so switching views never loses your place in time. Open questions sit at the current week; asked ones land in the week they were asked.
-- **Adding happens where it belongs.** An own task is added inside its week. A question is added at the current week, in Questions.
-- `?at=28` opens at another week. Settings is the one other page, from the rail or the gear.
-- **Adaptive:** both sizes get a designed layout. Desktop has a sidebar on the left (the app's name, the views, settings), the ruler in its own column on the right, and a sticky week number in a gutter beside each week. A phone has the scrubber under the thumb and the week number above each week. Item bodies keep a readable line length at every size.
+| Pillar | Route | Holds |
+|---|---|---|
+| **Timeline** | `/` | The weeks: the thread the other four meet on |
+| **Library** | `/library`, `/library/<id>` | Everything Expecting knows: a "nobody tells you" shelf, a shelf per topic, search (`?q=`), each item on its own page |
+| **Planner** | `/planner` | To do, grouped by when it matters (`src/lib/planner.ts`), and the questions for the next appointment |
+| **Journal** | `/journal` | What happens, kept. *Placeholder: says what is coming.* |
+| **Toolkit** | `/toolkit` | Things to use in the moment. *Placeholder.* |
+
+- **One load for all of them.** The `app` route loads the household, the checklist, the people and the questions once; `useApp()` (`src/components/app.ts`) tailors the items and tasks and places "now". Moving between pillars is instant, and they never disagree.
+- **The frame provides what content renders against** (the answers, now, the questions already on your list), so a Markdoc tag works the same on the timeline and in the Library.
+- **Settings sits in the frame too**; onboarding and login don't.
+- **Each thing lives in one pillar and meets the others on the timeline.** A task is the Planner's, and shows in its week; an asked question is the Planner's, and lands in the week it was asked; an item is the Library's, and appears in the week it starts.
+
+## The timeline
+
+One scroll of weeks, from "before" through pregnancy weeks 1–42 to 12 weeks after the birth, opened at this week (`src/components/timeline/`). It has no views: what used to be views are the Planner and the Library's shelves.
+
+- **Weeks are bands.** The current week is open, with the gestation line, what has slipped, what is still running from earlier weeks, and a link to the questions waiting for the next appointment. Every other week is folded to one line of what's in it (`2 new · 1 to do`) until opened. Each item appears once, in the week it starts. The rules are in `src/lib/timelineView.ts`, tested apart from the screen.
+- **The ruler moves along it.** It's a vertical rail down the right edge on the desktop and a scrubber just above the tab bar on a phone (`--tab-bar` holds the bar's height). Both are one `Ruler` component and an ARIA slider: drag or tap to scrub; arrows step a week, Page Up/Down four, Home/End the ends. Each week shows a dot when something starts and amber when a task there has slipped. "Now" is marked, and so is the week in view (the last week whose top has passed a reading line under the sticky bar).
+- **Adding happens where it belongs.** An own task is added inside its week, or in the Planner for this week. A question is added in the Planner.
+- `?at=28` opens at another week; an item's page links to its week this way.
+
+## Adaptive
+
+- Both sizes get a designed layout. Desktop: the pillars in a sidebar on the left; on the timeline, the ruler in its own column on the right and a sticky week number beside each week; the Planner in two columns. Phone: the tab bar under the thumb, settings behind a gear at the top of each pillar, the scrubber above the tab bar. Item bodies keep a readable line length at every size.
 - Tap targets are at least 44px. No hover-only interactions. Safe areas are respected.
 - e2e loads every page at both sizes (`phone` and `desktop` projects).
 
@@ -66,9 +91,23 @@ Expecting has its own theme, not the design system's Linen. It's built from a re
 - **Offline reads.** Built-in content is bundled with the app, so every week reads offline. The app shell and the last-fetched data are cached. Hospital Wi-Fi is unreliable, and the hospital bag checklist has to open there.
 - **Offline writes.** Ticking a task or adding a note while offline is queued and sent on reconnect, using garnish's outbox pattern. Photo uploads need a connection.
 
+## Onboarding
+
+- `/welcome` asks the first-run questions, one to a screen (`src/routes/welcome/`). The home route sends anyone there who still has a step: a new household gets all of them, a new phone only "who's this?".
+- Which steps a device sees is a pure function of what is known (`src/lib/onboarding.ts`): who, then the stage (expecting, or getting ready), then the due date and the baby's colours when expecting, then every `asked: onboarding` question in `content/profile.yaml`, then where Expecting will open.
+- Each answer is saved as it's given, so a reload resumes. A household with a due date from before onboarding existed counts as onboarded.
+- Getting ready with no due date opens the timeline at the getting-ready band; entering a due date later moves it into the pregnancy.
+
+## Tailoring
+
+- `content/profile.yaml` holds the questions. The household's answers are a JSON object of question id to answer id on the household row: adding a question is a content change, not a migration. Settings shows every question, built from the file.
+- An item's `when:` hides it on a definite answer; `{% if equals($cover, "yes") %}` tailors a passage. An unanswered question hides nothing, so the `{% else %}` branch is the general wording.
+- `src/content/profile.ts` has the rules (`applies`), tested apart from the screen.
+
 ## Content
 
-- Built-in items live in the repo under `content/`, one Markdown file per item, with frontmatter for weeks, category, source, last checked and linked tasks.
+- Built-in items live in the repo under `content/`, one Markdoc file per item, with frontmatter for weeks, category, `when`, source, last checked and linked tasks.
+- Bodies are Markdoc: Markdown plus declared tags (`src/content/markdoc.ts`), each drawn by a component in `src/components/content/`. `{% ask %}` is a suggested question, added to your list in one tap; `{% window %}` draws an item's weeks against today. Every tag, attribute, `$question` and answer is checked as the content loads.
 - They are validated with zod when the content module loads, and `bun run test` loads it, so a malformed item fails the gate, not the page.
 - Each item's weeks are a phase and a range of weeks within it (`before`, pregnancy 1–42, postpartum 1–12), the same `Slot` that `src/lib/timeline.ts` derives the current week as.
 - Each item and each linked task has a stable id in its frontmatter. Ticks and hides in the database point at that id, so editing an item's wording never loses state.
@@ -85,7 +124,8 @@ The database holds only what we create:
 - hidden built-in items
 - appointments, questions, contacts, symptoms, baby names
 - photo records; the files themselves are in `uploads/`
-- settings: the due date and the birth date
+- the household: the due date, the birth date, the baby's colours, the answers to the profile questions, and when onboarding finished
+- the household's people
 - sessions
 
 The current week is derived from the due date and the birth date on read, never stored.

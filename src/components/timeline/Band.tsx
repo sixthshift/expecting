@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 import type { ReactNode } from "react";
 import { formatDate, type ISODate } from "../../lib/dates";
 import { type Slot, slotDates, slotShortLabel } from "../../lib/timeline";
-import type { Band as BandData, View } from "../../lib/timelineView";
+import type { Band as BandData } from "../../lib/timelineView";
 import { AddTask, DeleteOwnTask } from "../AddTask";
 import { ItemCard, rangeLabel } from "../ItemCard";
 import { AskedQuestion } from "../questions";
@@ -12,11 +12,9 @@ import { TaskRow } from "../TaskRow";
 
 type Props = {
   band: BandData;
-  view: View;
   expanded: boolean;
   onToggle: () => void;
   ticks: Record<string, string>;
-  onTick: (taskId: string, ticked: boolean) => void;
   /** Jump to an item, in whatever week it starts. */
   onOpenItem: (itemId: string) => void;
   dueDate: ISODate | null;
@@ -47,14 +45,13 @@ function caption(slot: Slot): string {
 /**
  * One week on the timeline. A gutter holds its number and dates (sticky on a
  * desktop, so the number stays with you down a long week); beside it, the
- * week's content. In Everything, a week other than the current one is folded
- * to one line of what's in it until it is opened; the other views show their
- * weeks open, since they only show weeks with something in them.
+ * week's content. A week other than the current one is folded to one line of
+ * what's in it until it is opened.
  */
-export function Band({ band, view, expanded, onToggle, ticks, onTick, onOpenItem, dueDate, birthDate, nowContent, register }: Props) {
+export function Band({ band, expanded, onToggle, ticks, onOpenItem, dueDate, birthDate, nowContent, register }: Props) {
   const { slot, key, isNow, isPast } = band;
   const dates = slotDates(slot, dueDate, birthDate);
-  const foldable = view === "all" && !isNow;
+  const foldable = !isNow;
   const open = !foldable || expanded;
   const dateLine = dates
     ? `${formatDate(dates.start, { day: "numeric", month: "short" })} – ${formatDate(dates.end, { day: "numeric", month: "short" })}`
@@ -134,14 +131,14 @@ export function Band({ band, view, expanded, onToggle, ticks, onTick, onOpenItem
               >
                 <div className="mt-1 flex flex-col">
                   {band.slipped.map((task) => (
-                    <TaskRow key={task.id} task={task} ticked={false} meta={slotShortLabel(task.due)} onTick={(t) => onTick(task.id, t)} />
+                    <TaskRow key={task.id} task={task} ticked={false} meta={slotShortLabel(task.due)} />
                   ))}
                 </div>
               </Message>
             ) : null}
 
             {band.starting.map((item) => (
-              <ItemCard key={item.id} item={item} ticks={ticks} onTick={onTick} />
+              <ItemCard key={item.id} item={item} ticks={ticks} />
             ))}
 
             {band.tasks.length > 0 ? (
@@ -151,8 +148,6 @@ export function Band({ band, view, expanded, onToggle, ticks, onTick, onOpenItem
                     key={task.id}
                     task={task}
                     ticked={Boolean(ticks[task.id])}
-                    onTick={(t) => onTick(task.id, t)}
-                    meta={view === "todo" && isPast && !ticks[task.id] ? <span className="text-fg-warning">overdue</span> : null}
                     action={task.origin === "own" ? <DeleteOwnTask task={task} /> : <WhyLink task={task} onOpenItem={onOpenItem} />}
                   />
                 ))}
@@ -182,7 +177,7 @@ export function Band({ band, view, expanded, onToggle, ticks, onTick, onOpenItem
               <AskedQuestion key={q.id} question={q} />
             ))}
 
-            {view === "all" ? <AddTask slot={slot} /> : null}
+            <AddTask slot={slot} />
           </>
         ) : null}
       </div>

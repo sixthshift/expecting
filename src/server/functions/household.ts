@@ -38,3 +38,9 @@ export const saveHousehold = createServerFn({ method: "POST" })
       .strict()
   )
   .handler(({ data }) => new HouseholdRepo(getDb()).update(data));
+
+/** Onboarding is done: from now on, a new device is only asked who it is. */
+export const finishOnboarding = createServerFn({ method: "POST" }).handler(() => {
+  const repo = new HouseholdRepo(getDb());
+  return repo.update({ onboardedAt: repo.get().onboardedAt ?? new Date().toISOString() });
+});

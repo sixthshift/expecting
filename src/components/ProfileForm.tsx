@@ -25,7 +25,12 @@ export function ProfileForm({ profile }: { profile: Profile }) {
           <div className="flex flex-col items-start gap-2">
             <AnswerInput question={q} value={profile[q.id]} onChange={(answer) => save(q.id, answer)} />
             {profile[q.id] ? (
-              <button type="button" onClick={() => save(q.id, null)} className="text-xs text-fg-subtle underline hover:text-fg-normal">
+              <button
+                type="button"
+                onClick={() => save(q.id, null)}
+                aria-label={`Clear answer: ${q.ask}`}
+                className="text-xs text-fg-subtle underline hover:text-fg-normal"
+              >
                 Clear answer
               </button>
             ) : (
@@ -39,7 +44,7 @@ export function ProfileForm({ profile }: { profile: Profile }) {
 }
 
 /** A few answers as buttons; a long list (a state) as a select. */
-function AnswerInput({ question, value, onChange }: { question: ProfileQuestion; value: string | undefined; onChange: (answer: string) => void }) {
+export function AnswerInput({ question, value, onChange }: { question: ProfileQuestion; value: string | undefined; onChange: (answer: string) => void }) {
   const options = Object.entries(question.answers).map(([answer, label]) => ({ value: answer, label }));
   if (options.length <= 4) return <RadioButtonGroup aria-label={question.ask} options={options} value={value ?? ""} onValueChange={onChange} />;
   return <Select aria-label={question.ask} options={options} value={value} placeholder="Choose…" onValueChange={onChange} className="w-full max-w-xs" />;

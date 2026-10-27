@@ -37,7 +37,7 @@ Partners say the appointments, the classes and the reading all leave them out, a
 ## Who uses it
 
 - **Both parents, as one household.** One shared space. Everything either of you adds, the other sees and can edit. One password, no accounts.
-- **But each with a name.** Each device says who is holding it ("I'm Jason"), once. That needs no account. It is what lets Expecting say who logged something, run the names game, show the partner's lens, and tell one of you what the other added since you last looked. *Not built.*
+- **But each with a name.** Each device says who is holding it ("I'm Jason"), once. That needs no account. It is what lets Expecting say who logged something, run the names game, show the partner's lens, and tell one of you what the other added since you last looked. *Built: who's who. Not built: what uses it.*
 - **In the baby's colours.** One question (boy, girl, or don't know / keeping it a surprise) sets the theme: blue, pink, or both. *Built.*
 - **On a phone and on a computer, for different moments.**
   - **The phone** is for reacting: a lookup at 2am, at the appointment, go time. On a phone it installs to the home screen and opens like an app.
@@ -61,16 +61,24 @@ People open a pregnancy app in different modes, and each mode has its own shape.
 | **3am with a newborn** | Feeds, nappies, "is this crying normal?" | A mode: one hand, dark, tired |
 | **Feelings** | Anxiety, the quiet first weeks, after a scare | A voice: gentle, with support one tap away |
 
-### The sections
+### The pillars
 
-The modes group into a few places:
+The modes sort into five pillars, by whose a thing is and what you do with it:
 
-- **Now.** The timeline, opened at this week: this week's note, what's due, the next appointment, one heads-up. *Built, as the whole app.*
-- **Ask.** One search box over "Can I…?", "Is this normal?" and topics, with the call button.
-- **Plan.** To do, decisions, appointments and questions.
-- **Cards.** The "nobody tells you" deck.
+| Pillar | Whose | You… | What's in it |
+|---|---|---|---|
+| **Timeline** | both, through time | follow it | This week, what's coming, and behind today, what happened |
+| **Library** | Expecting's | read it | Guides, week by week, "nobody tells you" (a shelf of its own), "Can I…?", "Is this normal?", topics, search |
+| **Planner** | yours, ahead | do it | To do, decisions, appointments and their questions, contacts |
+| **Journal** | yours, behind | keep it | Movements, cravings, moods and symptoms, notes, bump photos, scans, results, documents |
+| **Toolkit** | yours, in the moment | use it | The names game, the bump booth, the contraction timer, the hospital bag; later the newborn's feeds and nappies |
 
-Plus the features that are switched on, such as names and records.
+- **They are the things a pregnant person already keeps:** a book, a planner, a journal and a few gadgets.
+- **The timeline is the thread through the other four, not a fifth shelf.** A Library item appears on the week it matters, a Planner task on the week it's due, a Journal entry on its day. The others are where things live; the timeline is where they meet. That is why "nobody tells you" was wrong as a view of the timeline: it put a shelf onto the thread.
+- **Records live in the Journal:** a scan is something that happened, dated, on the timeline. A separate Vault for medical papers stays an option.
+- **Outside every pillar:** the capture button (one "+" that files a kick, a question or a photo into the right pillar) and the call button.
+
+*Built: the frame and the Timeline, Library and Planner. The Journal and Toolkit say what's coming.*
 
 ### The app changes shape
 
@@ -153,7 +161,7 @@ What this asks of the app, not yet built:
   - Hiding happens only on a definite answer, and clearing the answer puts everything back.
   - Content is tailored two ways: a whole item by its `when:`, and a passage inside an item by `{% if %}`.
 
-*Proven in a spike (branch `markdoc-spike`): two questions, a settings form built from the file, one tailored item and one tailored passage. Onboarding and in-timeline questions are not built.*
+*Built: the questions in `content/profile.yaml`, onboarding (who, expecting or getting ready, the due date or the last period, the colours, the onboarding questions), a settings form built from the file, one tailored item and one tailored passage. Not built: questions asked in the timeline.*
 
 ## Content
 
@@ -172,7 +180,7 @@ What this asks of the app, not yet built:
   - every `when:`.
 - **YAML for content that is only lists:** the profile questions, the phases, the categories, the log's entry types.
 
-*Proven in the spike; on `main`, items are plain Markdown with YAML frontmatter.*
+*Built on `timeline`: the format, `ask`, `window` and `if`, and the checks.*
 
 ### Content types
 
@@ -349,7 +357,7 @@ How the switches work:
 
 The core loop first, the thing you open every week; then the parts that stand alone:
 
-1. **Onboarding** and who's who.
+1. **Onboarding** and who's who. *Built.*
 2. **The weekly loop:** this week (content), the timeline as diary, and the capture button with movements, sickness, cravings, mood and notes.
 3. **Safety:** the call button and the red flags.
 4. **Names:** self-contained and fun, and the first test of the feature switches.

@@ -14,7 +14,7 @@ export function readSessionCookie(request: Request): string | null {
 }
 
 /** Secure only when the browser reached us over HTTPS, directly or through the proxy. */
-function isHttps(request: Request): boolean {
+export function isHttps(request: Request): boolean {
   return new URL(request.url).protocol === "https:" || request.headers.get("x-forwarded-proto") === "https";
 }
 

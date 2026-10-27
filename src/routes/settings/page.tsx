@@ -2,8 +2,7 @@ import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
 import { FormField } from "@sixthshift/design-system/form-field";
 import { RadioButtonGroup } from "@sixthshift/design-system/radio-button-group";
-import { Link, useRouter } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
+import { useNavigate, useRouter } from "@tanstack/react-router";
 import { DateForm } from "../../components/DateForm";
 import { Page, Section } from "../../components/Page";
 import { ProfileForm } from "../../components/ProfileForm";
@@ -12,27 +11,20 @@ import { applyTheme, BABY, type Baby, THEMES, useExpectingTheme } from "../../li
 import { positionOn, slotLabel } from "../../lib/timeline";
 import { COMMIT, VERSION } from "../../lib/version";
 import { saveHousehold } from "../../server/functions/household";
+import { forgetPerson } from "../../server/functions/people";
 import { Route } from "./route";
 
 /** The two dates everything hangs off, and the one question that colours it. */
 export function SettingsPage() {
   const router = useRouter();
-  const { dueDate, birthDate, baby, profile } = Route.useLoaderData();
+  const navigate = useNavigate();
+  const { dueDate, birthDate, baby, profile, me, people } = Route.useLoaderData();
   useExpectingTheme(baby);
   const today = todayISO();
   const position = dueDate ? positionOn(today, dueDate, birthDate) : null;
 
   return (
-    <Page
-      title="Settings"
-      aside={
-        <Button asChild variant="outline" size="sm">
-          <Link to="/">
-            <ArrowLeft aria-hidden size={16} /> Timeline
-          </Link>
-        </Button>
-      }
-    >
+    <Page title="Settings">
       <div className="grid items-start gap-6 md:grid-cols-2 md:gap-8">
         <Section title="Due date">
           <Card>
@@ -98,11 +90,36 @@ export function SettingsPage() {
         </Card>
       </Section>
       <Section title="This phone">
-        <form method="post" action="/api/logout">
-          <Button type="submit" variant="outline">
-            Log out
-          </Button>
-        </form>
+        <Card>
+          <div className="flex flex-col gap-4">
+            <p className="text-sm text-fg-normal">
+              {me ? (
+                <>
+                  This is <span className="font-semibold">{me.name}</span>'s phone.
+                </>
+              ) : (
+                "This phone hasn't said whose it is."
+              )}{" "}
+              {people.length > 1 ? `Expecting is shared by ${people.map((p) => p.name).join(" and ")}.` : null}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <Button
+                variant="outline"
+                onClick={async () => {
+                  await forgetPerson();
+                  await navigate({ to: "/welcome" });
+                }}
+              >
+                Someone else is using it
+              </Button>
+              <form method="post" action="/api/logout">
+                <Button type="submit" variant="outline">
+                  Log out
+                </Button>
+              </form>
+            </div>
+          </div>
+        </Card>
       </Section>
       <p className="text-xs text-fg-subtle">
         Expecting {VERSION}

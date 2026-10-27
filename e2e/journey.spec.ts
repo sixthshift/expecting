@@ -15,16 +15,60 @@ test.describe.configure({ mode: "serial" });
 
 const week = (page: import("@playwright/test").Page, key: string) => page.locator(`[data-week="${key}"]`);
 
-test("entering the due date opens the timeline at this week", async ({ page, open }) => {
-  await open("/");
-  await page.getByRole("spinbutton", { name: /day/i }).click();
-  // 12 weeks to go is 28+0.
-  await page.keyboard.type(daysFromToday(12 * 7));
-  await page.getByRole("button", { name: "Start", exact: true }).click();
+test.describe("the first evening", () => {
+  // This phone is the household's first: nobody to choose yet.
+  test.use({ person: null });
 
+  test("onboarding asks who, then the due date, and opens the timeline at this week", async ({ page, open }) => {
+    await open("/");
+    await expect(page).toHaveURL(/\/welcome$/);
+    await expect(page.getByRole("heading", { name: "Welcome to Expecting. Who's holding this phone?" })).toBeVisible();
+
+    await page.getByLabel("Your name").fill("Jason");
+    await page.getByRole("button", { name: "I'm the partner" }).click();
+    await page.getByRole("button", { name: "Continue" }).click();
+
+    await page.getByRole("button", { name: "Yes, we're expecting" }).click();
+
+    // Each new screen takes focus to its question.
+    await expect(page.getByRole("heading", { name: "When's the baby due?" })).toBeFocused();
+    await page.getByRole("spinbutton", { name: /day/i }).click();
+    // 12 weeks to go is 28+0.
+    await page.keyboard.type(daysFromToday(12 * 7));
+    await page.getByRole("button", { name: "Next" }).click();
+
+    await page.getByRole("button", { name: "Don't know / surprise" }).click();
+    // Private cover and the state: skipped, so nothing is hidden.
+    await page.getByRole("button", { name: "Skip for now" }).click();
+    await page.getByRole("button", { name: "Skip for now" }).click();
+
+    await expect(page.getByRole("heading", { name: "You're all set" })).toBeVisible();
+    await expect(page.getByText("Expecting opens at week 28 (28+0)")).toBeVisible();
+    await page.getByRole("button", { name: "Open Expecting" }).click();
+
+    await expect(week(page, "28").getByRole("heading", { name: "28 weeks" })).toBeVisible();
+    await expect(page.getByText("28+0 · 84 days to go")).toBeVisible();
+    await expect(page.getByRole("slider", { name: "Timeline" })).toHaveAttribute("aria-valuetext", "Week 28");
+  });
+});
+
+test("the second phone is only asked who it is", async ({ page, open }) => {
+  // The fixture has already said "I'm Jason"; this phone is someone new.
+  await open("/settings");
+  await expect(page.getByText("This is Jason's phone.")).toBeVisible();
+  await page.getByRole("button", { name: "Someone else is using it" }).click();
+
+  await expect(page.getByRole("heading", { name: "Who's this?" })).toBeVisible();
+  await page.getByRole("button", { name: "Someone else" }).click();
+  await page.getByLabel("Your name").fill("Sam");
+  // The household has a partner, so the second person is offered the other role.
+  await expect(page.getByRole("button", { name: "I'm the one who's pregnant (or will be)" })).toHaveAttribute("aria-pressed", "true");
+  await page.getByRole("button", { name: "Continue" }).click();
+
+  // The household is already set up: straight to the timeline.
   await expect(week(page, "28").getByRole("heading", { name: "28 weeks" })).toBeVisible();
-  await expect(page.getByText("28+0 · 84 days to go")).toBeVisible();
-  await expect(page.getByRole("slider", { name: "Timeline" })).toHaveAttribute("aria-valuetext", "Week 28");
+  await open("/settings");
+  await expect(page.getByText("This is Sam's phone. Expecting is shared by Jason and Sam.")).toBeVisible();
 });
 
 test("the ruler moves along the timeline, and Today comes back", async ({ page, open }) => {
@@ -45,34 +89,49 @@ test("the ruler moves along the timeline, and Today comes back", async ({ page, 
   await expect(week(page, "28")).toBeInViewport();
 });
 
-test("an own task is added to its week and stays ticked across views", async ({ page, open }) => {
+test("an own task is added to its week, and the Planner has it", async ({ page, open }) => {
   await open("/");
   await week(page, "28").getByRole("textbox", { name: "New task for Week 28" }).fill("Pack the snacks for the hospital");
   await week(page, "28").getByRole("button", { name: "Add task" }).click();
+  await expect(week(page, "28").getByRole("checkbox", { name: "Pack the snacks for the hospital" })).toBeVisible();
 
+  await page.getByRole("navigation", { name: "Expecting" }).getByRole("link", { name: "Planner" }).click();
   const task = page.getByRole("checkbox", { name: "Pack the snacks for the hospital" });
+  await expect(task).toBeVisible();
   await task.click();
-  await expect(task).toBeChecked();
-
-  // Ticked this visit, it stays in To do until the next one.
-  await page.getByRole("navigation", { name: "Views" }).getByRole("link", { name: "To do" }).click();
+  // Ticked this visit, it stays where it was; on the next, it's done.
   await expect(task).toBeChecked();
   await page.reload({ waitUntil: "networkidle" });
-  await expect(page.getByRole("checkbox", { name: "Pack the snacks for the hospital" })).toBeHidden();
+  await expect(task).toBeHidden();
+  await page.getByRole("button", { name: /^Done/ }).click();
+  await expect(task).toBeChecked();
 
-  await page.getByRole("navigation", { name: "Views" }).getByRole("link", { name: "Everything" }).click();
-  await expect(page.getByRole("checkbox", { name: "Pack the snacks for the hospital" })).toBeChecked();
+  await open("/");
+  await expect(week(page, "28").getByRole("checkbox", { name: "Pack the snacks for the hospital" })).toBeChecked();
 });
 
-test("Why jumps from a task to the item that explains it", async ({ page, open }) => {
-  await open("/?view=todo");
-  await page.getByRole("button", { name: "Why: Book the RSV vaccine" }).click();
-  await expect(page.locator("#item-rsv-vaccine")).toBeInViewport();
-  await expect(page.getByRole("navigation", { name: "Views" }).getByRole("link", { name: "Everything" })).toHaveAttribute("aria-current", "page");
+test("Why goes from a task to the item that explains it, and on to its week", async ({ page, open }) => {
+  await open("/planner");
+  await page.getByRole("link", { name: "Why: Book the RSV vaccine" }).click();
+  await expect(page).toHaveURL(/\/library\/rsv-vaccine$/);
+  await expect(page.getByRole("heading", { level: 1, name: "The RSV vaccine" })).toBeAttached();
+
+  await page.getByRole("link", { name: "See week 28 on the timeline" }).click();
+  await expect(week(page, "28")).toBeInViewport();
 });
 
-test("a question is added, asked, and lands in this week", async ({ page, open }) => {
-  await open("/?view=questions");
+test("the Library finds things, and keeps nobody-tells-you on a shelf of its own", async ({ page, open }) => {
+  await open("/library");
+  await expect(page.getByRole("region", { name: "Nobody tells you" }).getByRole("link", { name: /The RSV vaccine/ })).toBeVisible();
+
+  await page.getByLabel("Search the library").fill("whooping cough");
+  await expect(page).toHaveURL(/q=whooping/);
+  await expect(page.getByRole("region", { name: "Results" }).getByRole("link", { name: /The whooping cough vaccine/ })).toBeVisible();
+  await expect(page.getByRole("region", { name: "Nobody tells you" })).toBeHidden();
+});
+
+test("a question is added in the Planner, asked, and lands in this week", async ({ page, open }) => {
+  await open("/planner");
   await page.getByRole("textbox", { name: "New question" }).fill("Which hospital entrance after hours?");
   await page.getByRole("button", { name: "Add question" }).click();
   await expect(page.getByText("Which hospital entrance after hours?")).toBeVisible();
@@ -80,9 +139,10 @@ test("a question is added, asked, and lands in this week", async ({ page, open }
   await page.getByRole("button", { name: "Asked it" }).click();
   await page.getByRole("textbox", { name: "Answer" }).fill("Emergency, then the lift to level 3.");
   await page.getByRole("button", { name: "Save as asked" }).click();
-
-  await expect(week(page, "28").getByText("Emergency, then the lift to level 3.")).toBeVisible();
   await expect(page.getByRole("button", { name: "Asked it" })).toBeHidden();
+
+  await open("/");
+  await expect(week(page, "28").getByText("Emergency, then the lift to level 3.")).toBeVisible();
 });
 
 test("the answer to boy or girl sets the colours, and they survive a reload", async ({ page, open }) => {
@@ -118,7 +178,8 @@ test("an answer in settings tailors the timeline, and clearing it puts things ba
 
   await open("/settings");
   await page.getByRole("radio", { name: "Yes", exact: true }).click();
-  await expect(page.getByRole("button", { name: "Clear answer" })).toBeVisible();
+  const clearCover = page.getByRole("button", { name: "Clear answer: Do you have private hospital cover that includes pregnancy and birth?" });
+  await expect(clearCover).toBeVisible();
 
   // Private cover: the waiting-period item has nothing to say, and the RSV item speaks to an obstetrician.
   await open("/?at=before");
@@ -129,7 +190,7 @@ test("an answer in settings tailors the timeline, and clearing it puts things ba
   await expect(rsv.getByText("Your GP, the hospital's antenatal clinic")).toHaveCount(0);
 
   await open("/settings");
-  await page.getByRole("button", { name: "Clear answer" }).click();
+  await clearCover.click();
   await expect(page.getByText("Not answered").first()).toBeVisible();
   await open("/?at=before");
   await expect(privateHealth).toBeVisible();
@@ -145,6 +206,6 @@ test("an item draws its window against today, and offers its questions", async (
   await rsv.getByRole("button", { name: `Add to your questions: ${text}` }).click();
   await expect(rsv.getByText("On your list").first()).toBeVisible();
 
-  await open("/?view=questions");
+  await open("/planner");
   await expect(page.getByText(text)).toBeVisible();
 });

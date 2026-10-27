@@ -14,10 +14,12 @@ type Props = {
   clearable?: boolean;
   minDate?: ISODate;
   maxDate?: ISODate;
+  /** A full-width, large button: the main action of a screen, as in onboarding. */
+  wide?: boolean;
 };
 
 /** One date, picked day-first, saved with a button. */
-export function DateForm({ label, description, value, submitLabel, onSave, clearable = false, minDate, maxDate }: Props) {
+export function DateForm({ label, description, value, submitLabel, onSave, clearable = false, minDate, maxDate, wide = false }: Props) {
   const [date, setDate] = useState<ISODate | undefined>(value ?? undefined);
   const [saving, setSaving] = useState(false);
   const unchanged = (date ?? null) === value;
@@ -45,7 +47,14 @@ export function DateForm({ label, description, value, submitLabel, onSave, clear
           maxDate={maxDate}
         />
       </FormField>
-      <Button type="submit" intent="brand" loading={saving} disabled={unchanged || (!clearable && !date)} className="self-start">
+      <Button
+        type="submit"
+        intent="brand"
+        size={wide ? "xl" : "md"}
+        loading={saving}
+        disabled={unchanged || (!clearable && !date)}
+        className={wide ? "w-full" : "self-start"}
+      >
         {submitLabel}
       </Button>
     </form>

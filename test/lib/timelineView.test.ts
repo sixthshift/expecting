@@ -39,17 +39,15 @@ const base: TimelineInput = {
   items: [flu, gtt, rsv],
   tasks,
   ticks: {},
-  tickedHere: new Set(),
   questions: [],
   now: wk(28),
   dueDate: "2027-01-19" as ISODate,
   birthDate: null,
-  view: "all",
 };
 
 const band = (bands: ReturnType<typeof buildBands>, key: string) => bands.find((b) => b.key === key)!;
 
-describe("everything", () => {
+describe("the timeline", () => {
   const bands = buildBands(base);
 
   test("every week is there, from before to 12 weeks after", () => {
@@ -77,35 +75,11 @@ describe("everything", () => {
   });
 });
 
-describe("to do", () => {
-  test("only weeks with an open task, plus now", () => {
-    const bands = buildBands({ ...base, view: "todo", ticks: { "book-rsv": "t" } });
-    expect(bands.map((b) => b.key)).toEqual(["25", "28"]);
-    expect(band(bands, "28").tasks.map((t) => t.id)).toEqual(["own-snacks"]);
-  });
-
-  test("a task ticked this visit stays until the next one", () => {
-    const bands = buildBands({ ...base, view: "todo", ticks: { "book-rsv": "t" }, tickedHere: new Set(["book-rsv"]) });
-    expect(bands.map((b) => b.key)).toEqual(["25", "28", "30"]);
-  });
-});
-
-test("nobody tells you: only weeks where a surprise starts, plus now", () => {
-  const bands = buildBands({ ...base, view: "surprise", now: wk(20) });
-  expect(bands.map((b) => [b.key, b.starting.map((i) => i.id)])).toEqual([
-    ["20", []],
-    ["28", ["rsv"]],
-  ]);
-});
-
-test("questions: asked ones land in the week they were asked", () => {
+test("asked questions land in the week they were asked: the diary", () => {
   const q = (id: string, askedAt: string | null): Question => ({ id, text: id, answer: null, askedAt, createdAt: "2026-01-01T00:00:00Z" });
   // Due 19 Jan 2027: 1 Oct 2026 is 110 days before, so 24+2.
-  const bands = buildBands({ ...base, view: "questions", questions: [q("open", null), q("asked", "2026-10-01T09:00:00Z")] });
-  expect(bands.map((b) => [b.key, b.asked.map((x) => x.id)])).toEqual([
-    ["24", ["asked"]],
-    ["28", []],
-  ]);
+  const bands = buildBands({ ...base, questions: [q("open", null), q("asked", "2026-10-01T09:00:00Z")] });
+  expect(bands.filter((b) => b.asked.length > 0).map((b) => [b.key, b.asked.map((x) => x.id)])).toEqual([["24", ["asked"]]]);
 });
 
 test("with no due date there is no now, and every week is still readable", () => {

@@ -13,6 +13,8 @@ type Fixtures = {
   allowedErrors: RegExp[];
   /** Whether the page starts with a session. Default true. */
   loggedIn: boolean;
+  /** Who this phone says it is, chosen on the first-run screen once the household has them. Null to leave it unsaid. */
+  person: string | null;
   /** Go to `path` and resolve once the page has loaded and settled. */
   open: (path: string) => Promise<void>;
 };
@@ -20,11 +22,18 @@ type Fixtures = {
 export const test = base.extend<Fixtures>({
   allowedErrors: [[], { option: true }],
   loggedIn: [true, { option: true }],
-  page: async ({ page, allowedErrors, loggedIn }, use) => {
+  person: ["Jason", { option: true }],
+  page: async ({ page, allowedErrors, loggedIn, person }, use) => {
     if (loggedIn) {
       // page.request shares the browser context's cookies, so the session lands where the page will use it.
       const response = await page.request.post("/api/login", { form: { password: PASSWORD }, maxRedirects: 0 });
       expect(response.status(), "logging in").toBe(303);
+    }
+    if (loggedIn && person) {
+      // Every test is a new phone: say who's holding it, the way the second parent would.
+      await page.goto("/welcome", { waitUntil: "networkidle" });
+      await page.getByRole("button", { name: `I'm ${person}` }).click();
+      await page.waitForURL((url) => url.pathname !== "/welcome");
     }
     const errors: string[] = [];
     const record = (text: string) => {

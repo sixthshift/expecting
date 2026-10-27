@@ -13,6 +13,8 @@ const questionSchema = z
     /** Also its name in content, as `$id`: so one word. */
     id: z.string().regex(/^[a-z][a-zA-Z0-9]*$/, "a question id is one camelCase word, so content can write it as $id"),
     ask: z.string().min(1),
+    /** Also asked in the first-run questions, not only in settings. */
+    asked: z.literal("onboarding").optional(),
     answers: z.record(slug, z.string().min(1)).refine((a) => Object.keys(a).length >= 2, "a question needs at least two answers"),
   })
   .strict();

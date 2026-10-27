@@ -1,25 +1,16 @@
 import { Card } from "@sixthshift/design-system/card";
-import { cn } from "@sixthshift/design-system/utils";
-import { Link, useNavigate, useRouter } from "@tanstack/react-router";
-import { CalendarRange, ListChecks, LocateFixed, MessageCircleQuestion, Settings, Sparkles, Sprout } from "lucide-react";
+import { Link, useRouter } from "@tanstack/react-router";
+import { ChevronRight, LocateFixed, MessageCircleQuestion, Settings } from "lucide-react";
 import { Fragment, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { builtInItems, builtInTasks } from "../../content";
-import { applies } from "../../content/profile";
-import type { Question } from "../../db/models/questions/repo";
-import { buildChecklist } from "../../lib/checklist";
 import { addDays, daysBetween, formatDate, type ISODate, todayISO } from "../../lib/dates";
-import { useExpectingTheme } from "../../lib/theme";
-import { gestationLabel, type Position, positionOn, type Slot, slotKey } from "../../lib/timeline";
-import { buildBands, rulerMarks, VIEWS, type View } from "../../lib/timelineView";
-import { saveHousehold } from "../../server/functions/household";
-import { ContentContext } from "../content/context";
+import { STAGE } from "../../lib/onboarding";
+import { gestationLabel, type Position, type Slot, slotKey } from "../../lib/timeline";
+import { buildBands, rulerMarks } from "../../lib/timelineView";
+import { saveAnswer, saveHousehold } from "../../server/functions/household";
+import { useApp } from "../app";
 import { DateForm } from "../DateForm";
-import { AddQuestion, OpenQuestion } from "../questions";
-import type { HouseholdState } from "../state";
 import { Band } from "./Band";
 import { Ruler } from "./Ruler";
-
-type Props = { state: HouseholdState; questions: Question[]; view: View; at: string | undefined };
 
 /** Pixels from the top of the window where a week counts as in view: below the sticky bar, past a band's scroll margin (scroll-mt-32 = 128px). */
 const READING_LINE = 140;
@@ -32,35 +23,19 @@ function chapter(slot: Slot): string {
 }
 
 /**
- * The app: the whole pregnancy as one scroll of weeks, opened at this one.
- * The ruler (the rail on a desktop, the scrubber under a phone's thumb) moves
- * along it; the views fold it down to what you came for without losing your
- * place in time.
+ * The thread through the pillars: the whole pregnancy as one scroll of weeks,
+ * opened at this one. What the Library explains, the Planner asks and the
+ * Journal keeps meet here on their week. The ruler (a rail on a desktop, a
+ * scrubber above a phone's tab bar) moves along it.
  */
-export function Timeline({ state, questions, view, at }: Props) {
-  const navigate = useNavigate();
-  const today = todayISO();
+export function Timeline({ at }: { at: string | undefined }) {
+  const { state, questions, today, position, gettingReady, now, nowKey, items, tasks } = useApp();
   const { dueDate, birthDate } = state.household;
-  useExpectingTheme(state.household.baby);
-  const position = dueDate ? positionOn(today, dueDate, birthDate) : null;
-  const now = position?.slot ?? null;
-  const nowKey = now ? slotKey(now) : null;
 
-  const [tickedHere, setTickedHere] = useState<ReadonlySet<string>>(new Set());
   const [expanded, setExpanded] = useState<ReadonlySet<string>>(() => new Set([at, nowKey].filter((k): k is string => Boolean(k))));
   const [pendingItem, setPendingItem] = useState<string | null>(null);
 
-  // Tailored: an item, and its tasks, only for a household its `when` fits.
-  const profile = state.household.profile;
-  const items = useMemo(() => builtInItems.filter((i) => applies(i.when, profile)), [profile]);
-  const tasks = useMemo(() => {
-    const shown = new Set(items.map((i) => i.id));
-    return buildChecklist(
-      builtInTasks.filter((t) => t.itemId === null || shown.has(t.itemId)),
-      state.ownTasks
-    );
-  }, [items, state.ownTasks]);
-  const bands = buildBands({ items, tasks, ticks: state.ticks, tickedHere, questions, now, dueDate, birthDate, view });
+  const bands = buildBands({ items, tasks, ticks: state.ticks, questions, now, dueDate, birthDate });
   const marks = useMemo(() => rulerMarks(items, tasks, state.ticks, now), [items, tasks, state.ticks, now]);
   const indexOf = useCallback((key: string) => marks.findIndex((m) => m.key === key), [marks]);
 
@@ -103,8 +78,8 @@ export function Timeline({ state, questions, view, at }: Props) {
   }, []);
 
   // Open where asked, else at this week; with no due date, at the top.
-  // On arrival, on a change of view, and when "now" first appears (the due date
-  // was just entered) or moves (it was changed): go there, and open that week.
+  // On arrival, and when "now" first appears (the due date was just entered) or
+  // moves (it was changed): go there, and open that week.
   // biome-ignore lint/correctness/useExhaustiveDependencies: `at` is read on those occasions only, not followed
   useEffect(() => {
     const target = at ?? nowKey;
@@ -112,7 +87,7 @@ export function Timeline({ state, questions, view, at }: Props) {
     setExpanded((s) => (s.has(target) ? s : new Set(s).add(target)));
     setActive(Math.max(0, indexOf(target)));
     requestAnimationFrame(() => scrollTo(target, false));
-  }, [view, nowKey]);
+  }, [nowKey]);
 
   // A jump to an item waits for its week to open, then lands on the card.
   useEffect(() => {
@@ -124,13 +99,11 @@ export function Timeline({ state, questions, view, at }: Props) {
     }
   });
 
-  /** From the ruler: go to that week, or the nearest one this view shows. */
+  /** From the ruler: go to that week, and open it once the ruler settles. */
   function seek(index: number, settle: boolean) {
     setActive(index);
-    const shown = bands.map((b) => indexOf(b.key));
-    const nearest = shown.reduce((best, i) => (Math.abs(i - index) < Math.abs(best - index) ? i : best), shown[0] ?? 0);
-    const key = marks[nearest]!.key;
-    if (settle && view === "all") setExpanded((s) => new Set(s).add(key));
+    const key = marks[index]!.key;
+    if (settle) setExpanded((s) => new Set(s).add(key));
     scrollTo(key, settle);
   }
 
@@ -143,161 +116,83 @@ export function Timeline({ state, questions, view, at }: Props) {
     });
   }
 
-  function onTick(taskId: string, ticked: boolean) {
-    if (ticked) setTickedHere((ids) => new Set(ids).add(taskId));
-  }
-
   function openItem(itemId: string) {
     const item = items.find((i) => i.id === itemId);
     if (!item) return;
-    const key = slotKey(item.from);
-    setExpanded((s) => new Set(s).add(key));
+    setExpanded((s) => new Set(s).add(slotKey(item.from)));
     setPendingItem(itemId);
-    if (view !== "all") navigate({ to: "/", search: { at: key } });
   }
 
-  const openQuestions = questions.filter((q) => !q.askedAt);
-  // biome-ignore lint/correctness/useExhaustiveDependencies: `now` is a new object each render; its key says when it moved.
-  const content = useMemo(() => ({ profile, now, openQuestions: questions.filter((q) => !q.askedAt).map((q) => q.text) }), [profile, nowKey, questions]);
+  const openQuestions = questions.filter((q) => !q.askedAt).length;
   const nowContent = (
     <>
       {position ? <NowLine position={position} dueDate={dueDate!} today={today} /> : null}
-      {view === "questions" ? <NextAppointment open={openQuestions} /> : null}
+      {openQuestions > 0 ? <QuestionsWaiting count={openQuestions} /> : null}
     </>
   );
 
   return (
-    <div className="lg:grid lg:grid-cols-[13rem_minmax(0,1fr)_10rem]">
-      {/* Desktop: the sidebar on the left is the app's own (its name, the views, settings)… */}
-      <aside className="sticky top-0 hidden h-dvh flex-col border-r border-border-subtle bg-bg-normal px-4 pt-6 pb-4 lg:flex">
-        <p className="mb-6 flex items-center gap-2 px-3 text-lg font-semibold text-fg-strong">
-          <Sprout aria-hidden size={22} className="text-fg-brand" />
-          Expecting
-        </p>
-        <ViewNav view={view} layout="list" />
-        <Link
-          to="/settings"
-          className="mt-auto flex min-h-11 items-center gap-3 rounded-md px-3 text-sm text-fg-subtle hover:bg-bg-subtle-hovered hover:text-fg-normal"
-        >
-          <Settings aria-hidden size={18} />
-          Settings
-        </Link>
-      </aside>
-
-      {/* …and the ruler down the right edge is the timeline at a glance. */}
+    <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_10rem]">
+      {/* Desktop: the ruler down the right edge is the timeline at a glance. */}
       <aside aria-label="Timeline ruler" className="sticky top-0 hidden h-dvh border-l border-border-subtle bg-bg-normal px-3 pt-6 pb-4 lg:order-last lg:flex">
         <Ruler marks={marks} active={active} onSeek={seek} orientation="vertical" className="min-h-0 flex-1" />
       </aside>
 
       <div className="min-w-0">
-        <TopBar view={view} position={position} onToday={() => nowKey && seek(indexOf(nowKey), true)} />
-
-        <ContentContext.Provider value={content}>
-          <main className="mx-auto max-w-5xl px-4 pt-2 pb-32 md:px-8 lg:pb-24">
-            <h1 className="sr-only">Expecting: {VIEWS[view].toLowerCase()}, week by week</h1>
-            {!dueDate ? <Welcome /> : null}
-            {view === "questions" && !now ? <NextAppointment open={openQuestions} /> : null}
-            {bands.length === 0 ? <p className="py-8 text-fg-subtle">Nothing here.</p> : null}
-            {bands.map((band, i) => {
-              const label = chapter(band.slot);
-              const prev = bands[i - 1];
-              return (
-                <Fragment key={band.key}>
-                  {!prev || chapter(prev.slot) !== label ? (
-                    <p className="mt-8 mb-2 text-xs font-semibold tracking-widest text-fg-subtle uppercase first:mt-4">{label}</p>
-                  ) : null}
-                  <Band
-                    band={band}
-                    view={view}
-                    expanded={expanded.has(band.key)}
-                    onToggle={() => toggle(band.key)}
-                    ticks={state.ticks}
-                    onTick={onTick}
-                    onOpenItem={openItem}
-                    dueDate={dueDate}
-                    birthDate={birthDate}
-                    nowContent={nowContent}
-                    register={register}
-                  />
-                </Fragment>
-              );
-            })}
-            {/* Room after the last week, so any week can be brought up to the reading line. */}
-            <div aria-hidden className="h-[70dvh]" />
-          </main>
-        </ContentContext.Provider>
+        <TopBar position={position} onToday={() => nowKey && seek(indexOf(nowKey), true)} />
+        <main className="mx-auto max-w-5xl px-4 pt-2 pb-32 md:px-8 lg:pb-24">
+          <h1 className="sr-only">Timeline</h1>
+          {!dueDate ? <Welcome gettingReady={gettingReady} /> : null}
+          {bands.map((band, i) => {
+            const label = chapter(band.slot);
+            const prev = bands[i - 1];
+            return (
+              <Fragment key={band.key}>
+                {!prev || chapter(prev.slot) !== label ? (
+                  <p className="mt-8 mb-2 text-xs font-semibold tracking-widest text-fg-subtle uppercase first:mt-4">{label}</p>
+                ) : null}
+                <Band
+                  band={band}
+                  expanded={expanded.has(band.key)}
+                  onToggle={() => toggle(band.key)}
+                  ticks={state.ticks}
+                  onOpenItem={openItem}
+                  dueDate={dueDate}
+                  birthDate={birthDate}
+                  nowContent={nowContent}
+                  register={register}
+                />
+              </Fragment>
+            );
+          })}
+          {/* Room after the last week, so any week can be brought up to the reading line. */}
+          <div aria-hidden className="h-[70dvh]" />
+        </main>
       </div>
 
-      {/* Phone: the scrubber, under the thumb. */}
-      <div className="fixed inset-x-0 bottom-0 z-20 border-t border-border-subtle bg-bg-normal/95 px-5 pt-1 pb-[max(0.5rem,env(safe-area-inset-bottom))] backdrop-blur lg:hidden">
+      {/* Phone: the scrubber, under the thumb, just above the tab bar. */}
+      <div className="fixed inset-x-0 bottom-(--tab-bar) z-20 border-t border-border-subtle bg-bg-normal/95 px-5 pt-1 pb-1 backdrop-blur lg:hidden">
         <Ruler marks={marks} active={active} onSeek={seek} orientation="horizontal" className="h-11" />
       </div>
     </div>
   );
 }
 
-const VIEW_ICONS: Record<View, typeof Sprout> = {
-  all: CalendarRange,
-  todo: ListChecks,
-  surprise: Sparkles,
-  questions: MessageCircleQuestion,
-};
-
-/** The timeline's views: chips across a phone's top bar, or a list down the desktop's sidebar. */
-function ViewNav({ view, layout, className }: { view: View; layout: "chips" | "list"; className?: string }) {
-  const chips = layout === "chips";
-  return (
-    <nav aria-label="Views" className={className}>
-      <ul className={chips ? "flex gap-2" : "flex flex-col gap-1"}>
-        {(Object.keys(VIEWS) as View[]).map((v) => {
-          const Icon = VIEW_ICONS[v];
-          const current = v === view;
-          return (
-            <li key={v}>
-              <Link
-                to="/"
-                search={v === "all" ? {} : { view: v }}
-                aria-current={current ? "page" : undefined}
-                className={cn(
-                  chips
-                    ? "flex min-h-9 items-center rounded-full border px-3 text-sm whitespace-nowrap"
-                    : "flex min-h-11 items-center gap-3 rounded-md px-3 text-sm",
-                  chips &&
-                    (current ? "border-border-brand-strong bg-bg-brand-strong text-fg-on-brand-strong" : "border-border-normal bg-bg-normal text-fg-normal"),
-                  !chips &&
-                    (current ? "bg-bg-brand-subtle font-medium text-fg-on-brand-subtle" : "text-fg-subtle hover:bg-bg-subtle-hovered hover:text-fg-normal")
-                )}
-              >
-                {chips ? null : <Icon aria-hidden size={18} />}
-                {VIEWS[v]}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
-  );
-}
-
-function TopBar({ view, position, onToday }: { view: View; position: Position | null; onToday: () => void }) {
+function TopBar({ position, onToday }: { position: Position | null; onToday: () => void }) {
   return (
     <div className="sticky top-0 z-10 border-b border-border-subtle bg-(--expecting-page)/95 pt-[env(safe-area-inset-top)] backdrop-blur">
-      <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 py-3 md:px-8 lg:flex-row lg:items-center lg:justify-between">
-        <div className="flex items-center justify-between gap-2">
-          {position ? (
-            <button type="button" onClick={onToday} className="flex min-h-11 items-center gap-2 text-left font-semibold text-fg-strong">
-              <LocateFixed aria-hidden size={18} className="text-fg-brand" />
-              Today
-            </button>
-          ) : (
-            <span className="font-semibold text-fg-strong">Expecting</span>
-          )}
-          <Link to="/settings" aria-label="Settings" className="flex size-11 items-center justify-center rounded-md text-fg-subtle lg:hidden">
-            <Settings aria-hidden size={20} />
-          </Link>
-        </div>
-        {/* On a phone the views are chips here; on a desktop they live in the sidebar. */}
-        <ViewNav view={view} layout="chips" className="-mx-4 overflow-x-auto px-4 lg:hidden" />
+      <div className="mx-auto flex max-w-5xl items-center justify-between gap-2 px-4 py-2 md:px-8">
+        {position ? (
+          <button type="button" onClick={onToday} className="flex min-h-11 items-center gap-2 text-left font-semibold text-fg-strong">
+            <LocateFixed aria-hidden size={18} className="text-fg-brand" />
+            Today
+          </button>
+        ) : (
+          <span className="font-semibold text-fg-strong">Timeline</span>
+        )}
+        <Link to="/settings" aria-label="Settings" className="-mr-2 flex size-11 items-center justify-center rounded-md text-fg-subtle lg:hidden">
+          <Settings aria-hidden size={20} />
+        </Link>
       </div>
     </div>
   );
@@ -319,25 +214,25 @@ function NowLine({ position, dueDate, today }: { position: Position; dueDate: IS
   return <p className="text-lg text-fg-strong">{d === 0 ? "Born today" : `${d} ${d === 1 ? "day" : "days"} old`}</p>;
 }
 
-function NextAppointment({ open }: { open: Question[] }) {
+/** Questions waiting for the next appointment: they live in the Planner. */
+function QuestionsWaiting({ count }: { count: number }) {
   return (
-    <div className="flex flex-col gap-3">
-      <p className="text-sm font-medium text-fg-subtle">For the next appointment{open.length > 0 ? ` · ${open.length}` : ""}</p>
-      <AddQuestion />
-      {open.map((q) => (
-        <OpenQuestion key={q.id} question={q} />
-      ))}
-    </div>
+    <Link to="/planner" hash="questions" className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal">
+      <MessageCircleQuestion aria-hidden size={16} className="text-fg-brand" />
+      {count === 1 ? "1 question" : `${count} questions`} for the next appointment
+      <ChevronRight aria-hidden size={16} />
+    </Link>
   );
 }
 
-function Welcome() {
+/** No due date yet: getting ready, or onboarding skipped it. Entering one moves "now" into the pregnancy. */
+function Welcome({ gettingReady }: { gettingReady: boolean }) {
   const router = useRouter();
   const today = todayISO();
   return (
     <Card size="lg" className="my-6 max-w-lg">
       <DateForm
-        label="When's the baby due?"
+        label={gettingReady ? "Expecting now? When's the baby due?" : "When's the baby due?"}
         description="Your best estimate is fine; change it after the dating scan. The timeline below is all readable either way."
         value={null}
         submitLabel="Start"
@@ -345,6 +240,7 @@ function Welcome() {
         maxDate={addDays(today, 7 * 44)}
         onSave={async (date) => {
           await saveHousehold({ data: { dueDate: date } });
+          if (gettingReady) await saveAnswer({ data: { question: STAGE, answer: "pregnant" } });
           await router.invalidate();
         }}
       />

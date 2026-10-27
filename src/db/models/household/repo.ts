@@ -6,7 +6,7 @@ import { orm } from "../../connection/client";
 import { household } from "./schema";
 
 /** `profile` is question id to answer id; which questions exist is content's business, not this repo's. */
-export type Household = { dueDate: ISODate | null; birthDate: ISODate | null; baby: Baby; profile: Record<string, string> };
+export type Household = { dueDate: ISODate | null; birthDate: ISODate | null; baby: Baby; profile: Record<string, string>; onboardedAt: string | null };
 
 const ID = 1;
 
@@ -25,6 +25,7 @@ export class HouseholdRepo {
       birthDate: (row?.birthDate as ISODate | null) ?? null,
       baby: row?.baby ?? "unknown",
       profile: row?.profile ?? {},
+      onboardedAt: row?.onboardedAt ?? null,
     };
   }
 
@@ -39,13 +40,28 @@ export class HouseholdRepo {
   /** Change the fields given; leave the rest. */
   update(changes: Partial<Household>, now: Date = new Date()): Household {
     const next = { ...this.get(), ...changes };
-    const values = { id: ID, dueDate: next.dueDate, birthDate: next.birthDate, baby: next.baby, profile: next.profile, updatedAt: now.toISOString() };
+    const values = {
+      id: ID,
+      dueDate: next.dueDate,
+      birthDate: next.birthDate,
+      baby: next.baby,
+      profile: next.profile,
+      onboardedAt: next.onboardedAt,
+      updatedAt: now.toISOString(),
+    };
     this.db
       .insert(household)
       .values(values)
       .onConflictDoUpdate({
         target: household.id,
-        set: { dueDate: values.dueDate, birthDate: values.birthDate, baby: values.baby, profile: values.profile, updatedAt: values.updatedAt },
+        set: {
+          dueDate: values.dueDate,
+          birthDate: values.birthDate,
+          baby: values.baby,
+          profile: values.profile,
+          onboardedAt: values.onboardedAt,
+          updatedAt: values.updatedAt,
+        },
       })
       .run();
     return next;

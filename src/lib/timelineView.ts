@@ -1,30 +1,19 @@
-// What the timeline shows: one band per week, shaped by the view. Pure, so the
-// rules about what appears where are tested apart from the screen.
+// What the timeline shows: one band per week. Pure, so the rules about what
+// appears where are tested apart from the screen.
 //
-//   all        every week; each item once, in the week it starts; standalone
-//              tasks in their due week; the current week also carries what is
-//              still relevant and what has slipped
-//   todo       only weeks with an open task, each showing just its tasks
-//   surprise   only weeks where a "nobody tells you" item starts
-//   questions  open questions sit at the current week; asked ones in the week
-//              they were asked
+//   every week, from getting ready to 12 weeks after the birth
+//   each item once, in the week it starts; standalone tasks in their due week
+//   asked questions in the week they were asked: behind today, the diary
+//   the current week also carries what is still relevant and what has slipped
 //
-// The current week is always present, whatever the view, so "now" never vanishes.
+// The timeline has no views: To do and questions live in the Planner, "nobody
+// tells you" in the Library. The timeline is where they meet in time.
 
 import type { Item, Task } from "../content/schema";
 import type { Question } from "../db/models/questions/repo";
 import { overdue } from "./checklist";
 import type { ISODate } from "./dates";
 import { allSlots, compareSlots, positionOn, type Slot, sameSlot, slotKey } from "./timeline";
-
-export const VIEWS = {
-  all: "Everything",
-  todo: "To do",
-  surprise: "Nobody tells you",
-  questions: "Questions",
-} as const;
-
-export type View = keyof typeof VIEWS;
 
 export type Band = {
   slot: Slot;
@@ -33,11 +22,11 @@ export type Band = {
   isPast: boolean;
   /** Items that start this week. */
   starting: Item[];
-  /** Items still running from an earlier week. Only on the current week, in `all`. */
+  /** Items still running from an earlier week. Only on the current week. */
   continuing: Item[];
-  /** Tasks shown loose in this band: standalone tasks in `all`, every open task in `todo`. */
+  /** Standalone tasks due this week; an item's tasks stay in its card. */
   tasks: Task[];
-  /** Tasks due before this week and not done. Only on the current week, in `all`. */
+  /** Tasks due before this week and not done. Only on the current week. */
   slipped: Task[];
   /** Asked questions, in the week they were asked. */
   asked: Question[];
@@ -49,21 +38,18 @@ export type TimelineInput = {
   items: readonly Item[];
   tasks: readonly Task[];
   ticks: Record<string, string>;
-  /** Ticked during this visit: they stay in `todo` until the next one. */
-  tickedHere: ReadonlySet<string>;
   questions: readonly Question[];
   now: Slot | null;
   dueDate: ISODate | null;
   birthDate: ISODate | null;
-  view: View;
 };
 
 export function buildBands(input: TimelineInput): Band[] {
-  const { items, tasks, ticks, tickedHere, questions, now, view } = input;
+  const { items, tasks, ticks, questions, now } = input;
   const isOpen = (t: Task) => !ticks[t.id];
   const askedAt = askedSlots(input);
 
-  const bands = allSlots().map((slot): Band => {
+  return allSlots().map((slot): Band => {
     const isNow = now !== null && sameSlot(slot, now);
     const due = tasks.filter((t) => sameSlot(t.due, slot));
     const starting = items.filter((i) => sameSlot(i.from, slot));
@@ -72,17 +58,14 @@ export function buildBands(input: TimelineInput): Band[] {
       key: slotKey(slot),
       isNow,
       isPast: now !== null && compareSlots(slot, now) < 0,
-      starting: view === "surprise" ? starting.filter((i) => i.surprise) : view === "all" ? starting : [],
-      continuing: view === "all" && isNow ? items.filter((i) => compareSlots(i.from, slot) < 0 && compareSlots(slot, i.to) <= 0) : [],
-      tasks: view === "all" ? due.filter((t) => t.itemId === null) : view === "todo" ? due.filter((t) => isOpen(t) || tickedHere.has(t.id)) : [],
-      slipped: view === "all" && isNow && now ? overdue(tasks, ticks, now) : [],
-      asked: view === "questions" ? questions.filter((q) => askedAt.get(q.id) === slotKey(slot)) : [],
+      starting,
+      continuing: isNow ? items.filter((i) => compareSlots(i.from, slot) < 0 && compareSlots(slot, i.to) <= 0) : [],
+      tasks: due.filter((t) => t.itemId === null),
+      slipped: isNow && now ? overdue(tasks, ticks, now) : [],
+      asked: questions.filter((q) => askedAt.get(q.id) === slotKey(slot)),
       openTasks: due.filter(isOpen).length,
     };
   });
-
-  if (view === "all") return bands;
-  return bands.filter((b) => b.isNow || b.starting.length > 0 || b.tasks.length > 0 || b.asked.length > 0);
 }
 
 /** The week each asked question was asked in, by question id. Empty without a due date. */

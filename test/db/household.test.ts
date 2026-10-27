@@ -5,16 +5,16 @@ import { useTestDb } from "./helpers";
 const db = useTestDb();
 
 test("empty until a date is entered", () => {
-  expect(new HouseholdRepo(db()).get()).toEqual({ dueDate: null, birthDate: null, baby: "unknown", profile: {} });
+  expect(new HouseholdRepo(db()).get()).toEqual({ dueDate: null, birthDate: null, baby: "unknown", profile: {}, onboardedAt: null });
 });
 
 test("updates change only the fields given", () => {
   const repo = new HouseholdRepo(db());
   repo.update({ dueDate: "2027-03-01" });
   repo.update({ birthDate: "2027-02-20" });
-  expect(repo.get()).toEqual({ dueDate: "2027-03-01", birthDate: "2027-02-20", baby: "unknown", profile: {} });
-  repo.update({ birthDate: null, baby: "girl", profile: {} });
-  expect(repo.get()).toEqual({ dueDate: "2027-03-01", birthDate: null, baby: "girl", profile: {} });
+  expect(repo.get()).toEqual({ dueDate: "2027-03-01", birthDate: "2027-02-20", baby: "unknown", profile: {}, onboardedAt: null });
+  repo.update({ birthDate: null, baby: "girl", profile: {}, onboardedAt: null });
+  expect(repo.get()).toEqual({ dueDate: "2027-03-01", birthDate: null, baby: "girl", profile: {}, onboardedAt: null });
 });
 
 test("there is only ever one household row", () => {
