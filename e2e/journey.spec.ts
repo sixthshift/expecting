@@ -225,6 +225,12 @@ test("the baby's here: Expecting becomes the newborn's, and clearing the birth d
   await expect(nav.getByRole("link", { name: "Timeline" })).toHaveCount(0);
   await expect(page.getByRole("slider", { name: "Timeline" })).toHaveCount(0);
 
+  // The same Planner, planning for the newborn: the pregnancy's open tasks are left behind, folded, not slipped.
+  await nav.getByRole("link", { name: "Planner" }).click();
+  await expect(page.getByRole("heading", { name: "For the next check-up" })).toBeVisible();
+  await expect(page.getByRole("button", { name: /^From the pregnancy/ })).toHaveAttribute("aria-expanded", "false");
+  await expect(page.getByRole("checkbox", { name: "Book the RSV vaccine" })).toBeHidden();
+
   // The newborn's Journal and Toolkit, at the same addresses, and no way back to a week of the pregnancy.
   await nav.getByRole("link", { name: "Journal" }).click();
   await expect(page.getByText("The birth story", { exact: true })).toBeVisible();

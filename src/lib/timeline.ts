@@ -33,6 +33,11 @@ export function allSlots(): Slot[] {
   return slots;
 }
 
+/** Negative when phase `a` comes before phase `b`, zero when they are the same phase. */
+export function comparePhases(a: Phase, b: Phase): number {
+  return PHASE_ORDER[a] - PHASE_ORDER[b];
+}
+
 /** Negative when `a` comes before `b`, zero when they are the same slot. */
 export function compareSlots(a: Slot, b: Slot): number {
   const byPhase = PHASE_ORDER[a.phase] - PHASE_ORDER[b.phase];

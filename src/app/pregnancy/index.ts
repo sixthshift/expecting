@@ -10,6 +10,7 @@ import { PregnancyLayout } from "./Layout";
 export const pregnancy: PhaseApp = {
   Layout: PregnancyLayout,
   timeline: true,
+  planner: { grouping: "weeks", earlier: "slip", questionsFor: "For the next appointment" },
   pillars: [
     { to: "/", label: "Timeline", icon: CalendarRange, page: () => import("./Home").then((m) => m.PregnancyHome) },
     { to: "/library", label: "Library", icon: BookOpen, page: () => import("../../features/library/LibraryPage").then((m) => m.LibraryPage) },
