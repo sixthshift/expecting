@@ -4,34 +4,23 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
 import { Textarea } from "@sixthshift/design-system/textarea";
-import { useRouter } from "@tanstack/react-router";
 import { Trash2 } from "lucide-react";
 import { type FormEvent, useState } from "react";
+import { useAction } from "../app/useAction";
 import { formatDate, type ISODate } from "../lib/dates";
 import type { Question } from "../lib/questions";
 import { addQuestion, deleteQuestion, markAsked, reopenQuestion } from "../server/functions/questions";
 
-function useRefresh() {
-  const router = useRouter();
-  return () => router.invalidate();
-}
-
 export function AddQuestion() {
-  const refresh = useRefresh();
   const [text, setText] = useState("");
-  const [saving, setSaving] = useState(false);
+  const [add, saving] = useAction(async () => {
+    await addQuestion({ data: { text } });
+    setText("");
+  });
 
   async function submit(event: FormEvent) {
     event.preventDefault();
-    if (text.trim().length === 0) return;
-    setSaving(true);
-    try {
-      await addQuestion({ data: { text } });
-      setText("");
-      await refresh();
-    } finally {
-      setSaving(false);
-    }
+    if (text.trim().length > 0) await add();
   }
 
   return (
@@ -53,14 +42,13 @@ export function AddQuestion() {
 }
 
 export function OpenQuestion({ question }: { question: Question }) {
-  const refresh = useRefresh();
   const [answering, setAnswering] = useState(false);
   const [answer, setAnswer] = useState(question.answer ?? "");
+  const [markAsAsked, saving] = useAction(() => markAsked({ data: { id: question.id, answer } }));
 
   async function save(event: FormEvent) {
     event.preventDefault();
-    await markAsked({ data: { id: question.id, answer } });
-    await refresh();
+    await markAsAsked();
   }
 
   return (
@@ -80,7 +68,7 @@ export function OpenQuestion({ question }: { question: Question }) {
             rows={2}
           />
           <div className="flex gap-2">
-            <Button type="submit" intent="brand" size="sm">
+            <Button type="submit" intent="brand" size="sm" loading={saving}>
               Save as asked
             </Button>
             <Button type="button" variant="ghost" size="sm" onClick={() => setAnswering(false)}>
@@ -98,7 +86,7 @@ export function OpenQuestion({ question }: { question: Question }) {
 }
 
 export function AskedQuestion({ question }: { question: Question }) {
-  const refresh = useRefresh();
+  const [reopen, reopening] = useAction(() => reopenQuestion({ data: { id: question.id } }));
   return (
     <Card size="sm">
       <div className="flex items-start gap-2">
@@ -108,14 +96,7 @@ export function AskedQuestion({ question }: { question: Question }) {
       {question.answer ? <p className="mt-1 whitespace-pre-wrap text-fg-normal">{question.answer}</p> : null}
       <div className="mt-2 flex items-center justify-between gap-2 text-xs text-fg-subtle">
         <span>Asked {formatDate(question.askedAt!.slice(0, 10) as ISODate, { day: "numeric", month: "short", year: "numeric" })}</span>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={async () => {
-            await reopenQuestion({ data: { id: question.id } });
-            await refresh();
-          }}
-        >
+        <Button variant="ghost" size="sm" loading={reopening} onClick={reopen}>
           Ask again
         </Button>
       </div>
@@ -124,18 +105,9 @@ export function AskedQuestion({ question }: { question: Question }) {
 }
 
 function DeleteButton({ id, text }: { id: string; text: string }) {
-  const refresh = useRefresh();
+  const [remove, removing] = useAction(() => deleteQuestion({ data: { id } }));
   return (
-    <Button
-      variant="ghost"
-      size="sm"
-      iconOnly
-      aria-label={`Delete "${text}"`}
-      onClick={async () => {
-        await deleteQuestion({ data: { id } });
-        await refresh();
-      }}
-    >
+    <Button variant="ghost" size="sm" iconOnly aria-label={`Delete "${text}"`} loading={removing} onClick={remove}>
       <Trash2 aria-hidden size={16} />
     </Button>
   );

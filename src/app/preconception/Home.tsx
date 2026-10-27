@@ -1,13 +1,13 @@
 import { Card } from "@sixthshift/design-system/card";
-import { useRouter } from "@tanstack/react-router";
 import { AddTask, DeleteOwnTask } from "../../components/AddTask";
 import { DateForm } from "../../components/DateForm";
 import { ItemCard } from "../../components/ItemCard";
 import { TaskRow } from "../../components/TaskRow";
-import { addDays, todayISO } from "../../lib/dates";
+import { addDays, type ISODate, todayISO } from "../../lib/dates";
 import { STAGE } from "../../lib/onboarding";
 import { saveAnswer, saveHousehold } from "../../server/functions/household";
 import { PillarHeader } from "../Frame";
+import { useAction } from "../useAction";
 import { useApp } from "../useApp";
 
 /**
@@ -17,7 +17,11 @@ import { useApp } from "../useApp";
  */
 export function PreconceptionHome() {
   const { state, items, tasks } = useApp();
-  const router = useRouter();
+  // The due date moves Expecting into the pregnancy; the answer keeps onboarding's question in step.
+  const [expecting] = useAction(async (dueDate: ISODate | null) => {
+    await saveHousehold({ data: { dueDate } });
+    await saveAnswer({ data: { question: STAGE, answer: "pregnant" } });
+  });
   const today = todayISO();
   const before = items.filter((i) => i.from.phase === "before");
   const standalone = tasks.filter((t) => t.itemId === null && t.due.phase === "before");
@@ -55,11 +59,7 @@ export function PreconceptionHome() {
             submitLabel="We're expecting"
             minDate={addDays(today, -7 * 3)}
             maxDate={addDays(today, 7 * 44)}
-            onSave={async (date) => {
-              await saveHousehold({ data: { dueDate: date } });
-              await saveAnswer({ data: { question: STAGE, answer: "pregnant" } });
-              await router.invalidate();
-            }}
+            onSave={expecting}
           />
         </Card>
       </div>

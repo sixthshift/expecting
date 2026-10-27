@@ -2,7 +2,8 @@ import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
 import { FormField } from "@sixthshift/design-system/form-field";
 import { RadioButtonGroup } from "@sixthshift/design-system/radio-button-group";
-import { useNavigate, useRouter } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
+import { useAction } from "../../app/useAction";
 import { useApp } from "../../app/useApp";
 import { useExpectingTheme } from "../../app/useExpectingTheme";
 import { DateForm } from "../../components/DateForm";
@@ -17,8 +18,8 @@ import { forgetPerson } from "../../server/functions/people";
 
 /** The two dates everything hangs off, and the one question that colours it. */
 export function SettingsPage() {
-  const router = useRouter();
   const navigate = useNavigate();
+  const [save] = useAction((data: Parameters<typeof saveHousehold>[0]["data"]) => saveHousehold({ data }));
   const { state } = useApp();
   const { me, people } = state;
   const { dueDate, birthDate, baby, profile } = state.household;
@@ -40,10 +41,7 @@ export function SettingsPage() {
               }
               value={dueDate}
               submitLabel="Save due date"
-              onSave={async (date) => {
-                await saveHousehold({ data: { dueDate: date } });
-                await router.invalidate();
-              }}
+              onSave={(date) => save({ dueDate: date })}
             />
           </Card>
         </Section>
@@ -58,10 +56,7 @@ export function SettingsPage() {
                 maxDate={today}
                 minDate={addDays(dueDate, -7 * 20)}
                 submitLabel="Save birth date"
-                onSave={async (date) => {
-                  await saveHousehold({ data: { birthDate: date } });
-                  await router.invalidate();
-                }}
+                onSave={(date) => save({ birthDate: date })}
               />
             </Card>
           </Section>
@@ -75,12 +70,11 @@ export function SettingsPage() {
               <RadioButtonGroup
                 options={(Object.keys(BABY) as Baby[]).map((value) => ({ value, label: BABY[value] }))}
                 value={baby}
-                onValueChange={async (value) => {
+                onValueChange={(value) => {
                   const next = value as Baby;
                   // Show it at once; the save follows.
                   applyTheme(THEMES[next]);
-                  await saveHousehold({ data: { baby: next } });
-                  await router.invalidate();
+                  return save({ baby: next });
                 }}
               />
             </FormField>

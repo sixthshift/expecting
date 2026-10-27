@@ -1,6 +1,6 @@
 import { Checkbox } from "@sixthshift/design-system/checkbox";
-import { useRouter } from "@tanstack/react-router";
 import { type ReactNode, useState } from "react";
+import { useAction } from "../app/useAction";
 import type { Task } from "../content/schema";
 import { setTicked } from "../server/functions/checklist";
 
@@ -22,16 +22,15 @@ export function TaskRow({
   /** Told of each tick or untick as it is made, before it is saved. */
   onTick?: (ticked: boolean) => void;
 }) {
-  const router = useRouter();
   const [optimistic, setOptimistic] = useState<boolean | null>(null);
   const checked = optimistic ?? ticked;
+  const [save] = useAction((next: boolean) => setTicked({ data: { taskId: task.id, ticked: next } }));
 
   async function change(next: boolean) {
     setOptimistic(next);
     onTick?.(next);
     try {
-      await setTicked({ data: { taskId: task.id, ticked: next } });
-      await router.invalidate();
+      await save(next);
     } finally {
       setOptimistic(null);
     }

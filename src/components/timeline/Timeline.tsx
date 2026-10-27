@@ -1,7 +1,8 @@
 import { Card } from "@sixthshift/design-system/card";
-import { Link, useRouter } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { ChevronRight, LocateFixed, MessageCircleQuestion, Settings } from "lucide-react";
 import { Fragment, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useAction } from "../../app/useAction";
 import { useApp } from "../../app/useApp";
 import { addDays, daysBetween, formatDate, type ISODate, todayISO } from "../../lib/dates";
 import { gestationLabel, type Position, type Slot, slotKey } from "../../lib/timeline";
@@ -226,8 +227,8 @@ export function QuestionsWaiting({ count }: { count: number }) {
 
 /** Expecting, with no due date yet (onboarding skipped it). Entering one places "now" in the pregnancy. */
 function Welcome() {
-  const router = useRouter();
   const today = todayISO();
+  const [save] = useAction((dueDate: ISODate | null) => saveHousehold({ data: { dueDate } }));
   return (
     <Card size="lg" className="my-6 max-w-lg">
       <DateForm
@@ -237,10 +238,7 @@ function Welcome() {
         submitLabel="Start"
         minDate={addDays(today, -7 * 3)}
         maxDate={addDays(today, 7 * 44)}
-        onSave={async (date) => {
-          await saveHousehold({ data: { dueDate: date } });
-          await router.invalidate();
-        }}
+        onSave={save}
       />
     </Card>
   );

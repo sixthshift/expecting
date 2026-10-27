@@ -1,7 +1,7 @@
 import { FormField } from "@sixthshift/design-system/form-field";
 import { RadioButtonGroup } from "@sixthshift/design-system/radio-button-group";
 import { Select } from "@sixthshift/design-system/select";
-import { useRouter } from "@tanstack/react-router";
+import { useAction } from "../app/useAction";
 import { PROFILE, type Profile, type ProfileQuestion } from "../content/profile";
 import { saveAnswer } from "../server/functions/household";
 
@@ -11,12 +11,7 @@ import { saveAnswer } from "../server/functions/household";
  * cleared, which puts back everything it hid.
  */
 export function ProfileForm({ profile }: { profile: Profile }) {
-  const router = useRouter();
-
-  async function save(question: string, answer: string | null) {
-    await saveAnswer({ data: { question, answer } });
-    await router.invalidate();
-  }
+  const [save] = useAction((question: string, answer: string | null) => saveAnswer({ data: { question, answer } }));
 
   return (
     <div className="flex flex-col gap-6">

@@ -60,7 +60,7 @@ Expecting is three apps over one household: getting ready, the pregnancy, and th
 
 ```
 src/
-  app/          the three apps: <stage>/ (index.ts, Shell, its own pages), and what they share (AppShell, Frame, stagePage, useApp)
+  app/          the three apps: <stage>/ (index.ts, Shell, its own pages), and what they share (AppShell, Frame, stagePage, useApp, useAction)
   features/     pages every stage shares: library, planner, settings, onboarding, auth
   components/   the parts pages are built from: TaskRow, ItemCard, questions, the timeline
   lib/          pure rules and types: no React, no router, no store
@@ -83,7 +83,7 @@ In the pregnancy, the app is five pillars in its frame: a sidebar on a desktop, 
 | **Journal** | `/journal` | What happens, kept. *Placeholder: says what is coming.* |
 | **Toolkit** | `/toolkit` | Things to use in the moment. *Placeholder.* |
 
-- **One load for all of them.** The `app` route loads the household, the checklist, the people and the questions once; `useApp()` (`src/app/useApp.ts`) tailors the items and tasks and places "now". Moving between pillars is instant, and they never disagree.
+- **One load for all of them.** The `app` route loads the household, the checklist, the people and the questions once; `useApp()` (`src/app/useApp.ts`) tailors the items and tasks and places "now". Moving between pillars is instant, and they never disagree. A change goes through `useAction` (`src/app/useAction.ts`): it saves, then reloads that one load, so every pillar sees it.
 - **The frame provides what content renders against** (the answers, now, the questions already on your list), so a Markdoc tag works the same on the timeline and in the Library.
 - **Settings sits in the frame too**; onboarding and login don't.
 - **Each thing lives in one pillar and meets the others on the timeline.** A task is the Planner's, and shows in its week; an asked question is the Planner's, and lands in the week it was asked; an item is the Library's, and appears in the week it starts.

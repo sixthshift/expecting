@@ -1,25 +1,13 @@
-import { useRouter } from "@tanstack/react-router";
 import { Check, MessageCircleQuestion, Plus } from "lucide-react";
-import { useState } from "react";
+import { useAction } from "../../app/useAction";
 import { addQuestion } from "../../server/functions/questions";
 import { useContentContext } from "./context";
 
 /** `{% ask "…" /%}`: a question worth asking at an appointment, added to your list in one tap. */
 export function Ask({ primary: text }: { primary: string }) {
-  const router = useRouter();
   const { openQuestions } = useContentContext();
-  const [saving, setSaving] = useState(false);
+  const [add, saving] = useAction(() => addQuestion({ data: { text } }));
   const onList = openQuestions.includes(text);
-
-  async function add() {
-    setSaving(true);
-    try {
-      await addQuestion({ data: { text } });
-      await router.invalidate();
-    } finally {
-      setSaving(false);
-    }
-  }
 
   return (
     <div className="mt-3 flex items-start gap-3 rounded-lg border border-border-subtle bg-bg-normal p-3">

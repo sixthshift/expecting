@@ -2,10 +2,11 @@ import { Button } from "@sixthshift/design-system/button";
 import { FormField } from "@sixthshift/design-system/form-field";
 import { Input } from "@sixthshift/design-system/input";
 import { cn } from "@sixthshift/design-system/utils";
-import { getRouteApi, useNavigate, useRouter } from "@tanstack/react-router";
+import { getRouteApi, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, Check, ToyBrick } from "lucide-react";
 import { type FormEvent, type ReactNode, useEffect, useRef, useState } from "react";
 import type { HouseholdState } from "../../app/load";
+import { useAction } from "../../app/useAction";
 import { useExpectingTheme } from "../../app/useExpectingTheme";
 import { DateForm } from "../../components/DateForm";
 import { AnswerInput } from "../../components/ProfileForm";
@@ -30,7 +31,6 @@ const GESTATION_DAYS = 280;
  */
 export function WelcomePage() {
   const state = route.useLoaderData();
-  const router = useRouter();
   const navigate = useNavigate();
   useExpectingTheme(state.household.baby);
 
@@ -41,9 +41,11 @@ export function WelcomePage() {
   const previous = [...done].reverse().find((s) => steps.includes(s));
 
   /** Save, reload what's known, then move on. */
-  async function advance(save?: () => Promise<unknown>) {
-    await save?.();
-    await router.invalidate();
+  const [save] = useAction(async (step?: () => Promise<unknown>) => {
+    await step?.();
+  });
+  async function advance(step?: () => Promise<unknown>) {
+    await save(step);
     setDone((d) => [...d, current]);
   }
 
