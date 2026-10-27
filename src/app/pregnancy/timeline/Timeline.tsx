@@ -2,15 +2,15 @@ import { Card } from "@sixthshift/design-system/card";
 import { Link } from "@tanstack/react-router";
 import { LocateFixed, Settings } from "lucide-react";
 import { Fragment, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { DateForm } from "../../components/DateForm";
-import { daysBetween, formatDate, type ISODate, todayISO } from "../../lib/dates";
-import { ageLabel, dueDateBounds, gestationLabel, type Position, type Slot, slotKey } from "../../lib/timeline";
-import { buildBands, rulerMarks } from "../../lib/timelineView";
-import { saveHousehold } from "../../server/functions/household";
-import { useAction } from "../household/useAction";
-import { useApp } from "../household/useApp";
-import { QuestionsWaiting } from "../questions/questions";
-import { Band } from "./Band";
+import { DateForm } from "../../../components/DateForm";
+import { useAction } from "../../../features/household/useAction";
+import { useApp } from "../../../features/household/useApp";
+import { QuestionsWaiting } from "../../../features/questions/questions";
+import { Week } from "../../../features/weeks/Week";
+import { daysBetween, formatDate, type ISODate, todayISO } from "../../../lib/dates";
+import { ageLabel, dueDateBounds, gestationLabel, type Position, type Slot, slotKey } from "../../../lib/timeline";
+import { buildBands, rulerMarks } from "../../../lib/timelineView";
+import { saveHousehold } from "../../../server/functions/household";
 import { Ruler } from "./Ruler";
 
 /** Pixels from the top of the window where a week counts as in view: below the sticky bar, past a band's scroll margin (scroll-mt-32 = 128px). */
@@ -152,7 +152,7 @@ export function Timeline({ at }: { at: string | undefined }) {
                 {!prev || chapter(prev.slot) !== label ? (
                   <p className="mt-8 mb-2 text-xs font-semibold tracking-widest text-fg-subtle uppercase first:mt-4">{label}</p>
                 ) : null}
-                <Band
+                <Week
                   band={band}
                   expanded={expanded.has(band.key)}
                   onToggle={() => toggle(band.key)}

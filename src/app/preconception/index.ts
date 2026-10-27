@@ -8,6 +8,7 @@ import { PreconceptionLayout } from "./Layout";
  */
 export const preconception: PhaseApp = {
   Layout: PreconceptionLayout,
+  timeline: false,
   pillars: [
     { to: "/", label: "Getting ready", icon: Sprout, page: () => import("./Home").then((m) => m.PreconceptionHome) },
     { to: "/library", label: "Library", icon: BookOpen, page: () => import("../../features/library/LibraryPage").then((m) => m.LibraryPage) },

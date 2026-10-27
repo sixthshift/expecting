@@ -43,12 +43,13 @@ function caption(slot: Slot): string {
 }
 
 /**
- * One week on the timeline. A gutter holds its number and dates (sticky on a
+ * One week, of any phase: each band of the pregnancy's timeline, and the
+ * newborn's "This week". A gutter holds its number and dates (sticky on a
  * desktop, so the number stays with you down a long week); beside it, the
  * week's content. A week other than the current one is folded to one line of
  * what's in it until it is opened.
  */
-export function Band({ band, expanded, onToggle, ticks, onOpenItem, dueDate, birthDate, nowContent, register }: Props) {
+export function Week({ band, expanded, onToggle, ticks, onOpenItem, dueDate, birthDate, nowContent, register }: Props) {
   const { slot, key, isNow, isPast } = band;
   const dates = slotDates(slot, dueDate, birthDate);
   const foldable = !isNow;

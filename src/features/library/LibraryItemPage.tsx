@@ -2,6 +2,7 @@ import { getRouteApi, Link } from "@tanstack/react-router";
 import { ArrowLeft, CalendarRange } from "lucide-react";
 import { builtInItems } from "../../content";
 import { slotKey, slotLabel } from "../../lib/timeline";
+import { usePhaseApp } from "../app/usePhaseApp";
 import { useApp } from "../household/useApp";
 import { ItemCard } from "./ItemCard";
 
@@ -10,7 +11,8 @@ const route = getRouteApi("/app/library/$itemId");
 /** One item on its own page, with the way to its week on the timeline while there is one. */
 export function LibraryItemPage() {
   const { itemId } = route.useParams();
-  const { items, state, phase } = useApp();
+  const { items, state } = useApp();
+  const { timeline } = usePhaseApp();
   const item = items.find((i) => i.id === itemId);
   // Hidden by an answer, rather than not there at all: say so, and where to change it.
   const tailoredOut = !item && builtInItems.some((i) => i.id === itemId);
@@ -25,7 +27,7 @@ export function LibraryItemPage() {
           {/* The card's title is an h3 among weeks; here it is the page's subject. */}
           <h1 className="sr-only">{item.title}</h1>
           <ItemCard item={item} ticks={state.ticks} />
-          {phase === "pregnancy" ? (
+          {timeline ? (
             <Link
               to="/"
               search={{ at: slotKey(item.from) }}

@@ -2,7 +2,7 @@ import { useNavigate } from "@tanstack/react-router";
 import { PillarHeader } from "../../features/app/PillarLayout";
 import { useApp } from "../../features/household/useApp";
 import { QuestionsWaiting } from "../../features/questions/questions";
-import { Band } from "../../features/timeline/Band";
+import { Week } from "../../features/weeks/Week";
 import { ageLabel, slotLabel } from "../../lib/timeline";
 import { buildBands } from "../../lib/timelineView";
 
@@ -22,7 +22,7 @@ export function PostpartumHome() {
     <main className="mx-auto max-w-5xl px-4 pb-16 md:px-8">
       <PillarHeader title="This week" lead={now ? `${age} · ${slotLabel(now).toLowerCase()}` : age} />
       {band ? (
-        <Band
+        <Week
           band={band}
           expanded
           onToggle={() => {}}

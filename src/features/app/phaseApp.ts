@@ -6,12 +6,16 @@ import type { Pillar } from "./PillarLayout";
 export type PhasePillar = Pillar & { page: () => Promise<ComponentType> };
 
 /**
- * One phase's app: its layout, and its pillars in navigation order, home first.
- * Each phase's index.ts is one of these, so its folder says the whole app.
+ * One phase's app: its layout, its pillars in navigation order (home first),
+ * and what it has that shared pages may offer a way to. Each phase's index.ts
+ * is one of these, so its folder says the whole app. Shared code asks these,
+ * never which phase it is.
  */
 export type PhaseApp = {
   Layout: ComponentType<{ pillars: readonly Pillar[] }>;
   pillars: readonly PhasePillar[];
+  /** Whether its home is the timeline, so a week can be linked to (`/?at=28`). */
+  timeline: boolean;
 };
 
 /** The three apps, by phase: src/app/index.ts, handed to App by the route tree. */

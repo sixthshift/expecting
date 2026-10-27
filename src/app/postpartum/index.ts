@@ -8,6 +8,7 @@ import { PostpartumLayout } from "./Layout";
  */
 export const postpartum: PhaseApp = {
   Layout: PostpartumLayout,
+  timeline: false,
   pillars: [
     { to: "/", label: "This week", icon: Sun, page: () => import("./Home").then((m) => m.PostpartumHome) },
     { to: "/library", label: "Library", icon: BookOpen, page: () => import("../../features/library/LibraryPage").then((m) => m.LibraryPage) },

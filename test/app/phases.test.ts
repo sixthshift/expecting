@@ -13,6 +13,7 @@ test.each(phases)("%s lists each pillar once", (phase) => {
   expect(new Set(paths).size).toBe(paths.length);
 });
 
-test("only the pregnancy has the timeline", () => {
+test("only the pregnancy has the timeline, and says so", () => {
   expect(phases.filter((s) => PHASES[s].pillars.some((p) => p.label === "Timeline"))).toEqual(["pregnancy"]);
+  expect(phases.filter((s) => PHASES[s].timeline)).toEqual(["pregnancy"]);
 });
