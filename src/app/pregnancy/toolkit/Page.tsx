@@ -1,6 +1,6 @@
 import { Baby, Camera, Luggage, Timer } from "lucide-react";
 import { Coming } from "../../../components/Coming";
-import { PillarHeader } from "../../../features/shell/Frame";
+import { PillarHeader } from "../../../features/app/PillarLayout";
 
 /** The pregnancy's tools: things to use in the moment, not read. */
 export function PregnancyToolkit() {

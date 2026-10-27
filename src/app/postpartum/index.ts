@@ -1,13 +1,13 @@
 import { BookOpen, ListChecks, NotebookPen, Sun, Wrench } from "lucide-react";
-import type { StageApp } from "../../features/shell/stageApp";
-import { PostpartumShell } from "./Shell";
+import type { StageApp } from "../../features/app/stageApp";
+import { PostpartumLayout } from "./Layout";
 
 /**
  * The baby's here: the weeks stop being why you open the app. Home is this
  * week, and the Journal and Toolkit are the newborn's.
  */
 export const postpartum: StageApp = {
-  Shell: PostpartumShell,
+  Layout: PostpartumLayout,
   pillars: [
     { to: "/", label: "This week", icon: Sun, page: () => import("./Home").then((m) => m.PostpartumHome) },
     { to: "/library", label: "Library", icon: BookOpen, page: () => import("../../features/library/LibraryPage").then((m) => m.LibraryPage) },

@@ -1,6 +1,6 @@
 import { BookOpen, CalendarRange, ListChecks, NotebookPen, Wrench } from "lucide-react";
-import type { StageApp } from "../../features/shell/stageApp";
-import { PregnancyShell } from "./Shell";
+import type { StageApp } from "../../features/app/stageApp";
+import { PregnancyLayout } from "./Layout";
 
 /**
  * The pregnancy: all five pillars, with the timeline as the thread through the
@@ -8,7 +8,7 @@ import { PregnancyShell } from "./Shell";
  * Journal keeps all meet on their week.
  */
 export const pregnancy: StageApp = {
-  Shell: PregnancyShell,
+  Layout: PregnancyLayout,
   pillars: [
     { to: "/", label: "Timeline", icon: CalendarRange, page: () => import("./Home").then((m) => m.PregnancyHome) },
     { to: "/library", label: "Library", icon: BookOpen, page: () => import("../../features/library/LibraryPage").then((m) => m.LibraryPage) },

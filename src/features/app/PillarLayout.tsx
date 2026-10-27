@@ -6,11 +6,11 @@ import { type LucideIcon, Settings, ToyBrick } from "lucide-react";
 export type Pillar = { to: "/" | "/library" | "/planner" | "/journal" | "/toolkit"; label: string; icon: LucideIcon };
 
 /**
- * The chrome every stage's shell shares. Desktop: a sidebar on the left with
+ * The layout every stage's own Layout draws its pillars in. Desktop: a sidebar on the left with
  * the stage's pillars and settings. Phone: a tab bar under the thumb, its
  * height in `--tab-bar` so what sits above it (the timeline's scrubber) can.
  */
-export function Frame({ pillars }: { pillars: readonly Pillar[] }) {
+export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
   return (
     <div className="[--tab-bar:calc(3.75rem+env(safe-area-inset-bottom))] lg:grid lg:grid-cols-[13rem_minmax(0,1fr)] lg:[--tab-bar:0px]">
       <aside className="sticky top-0 hidden h-dvh flex-col border-r border-border-subtle bg-bg-normal px-4 pt-6 pb-4 lg:flex">

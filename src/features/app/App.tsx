@@ -8,9 +8,9 @@ import type { Stages } from "./stageApp";
 /**
  * Around every pillar: the household's colours and the context content
  * renders against, whichever stage it's in. Then that stage's app, from
- * `stages`, drawn in its own shell.
+ * `stages`, drawn in its own layout.
  */
-export function AppShell({ stages }: { stages: Stages }) {
+export function App({ stages }: { stages: Stages }) {
   const { state, questions, stage, now, nowKey } = useApp();
   useExpectingTheme(state.household.baby);
   const { pathname } = useLocation();
@@ -25,10 +25,10 @@ export function AppShell({ stages }: { stages: Stages }) {
   const content = useMemo(() => ({ profile, now, openQuestions: questions.filter((q) => !q.askedAt).map((q) => q.text) }), [profile, nowKey, questions]);
 
   // Each stage is its own app: its own pillars and its own home, in the frame they share.
-  const { Shell, pillars } = stages[stage];
+  const { Layout, pillars } = stages[stage];
   return (
     <ContentContext.Provider value={content}>
-      <Shell pillars={pillars} />
+      <Layout pillars={pillars} />
     </ContentContext.Provider>
   );
 }

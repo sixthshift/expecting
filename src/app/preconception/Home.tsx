@@ -1,9 +1,9 @@
 import { Card } from "@sixthshift/design-system/card";
 import { DateForm } from "../../components/DateForm";
+import { PillarHeader } from "../../features/app/PillarLayout";
 import { useAction } from "../../features/household/useAction";
 import { useApp } from "../../features/household/useApp";
 import { ItemCard } from "../../features/library/ItemCard";
-import { PillarHeader } from "../../features/shell/Frame";
 import { AddTask, DeleteOwnTask } from "../../features/tasks/AddTask";
 import { TaskRow } from "../../features/tasks/TaskRow";
 import { type ISODate, todayISO } from "../../lib/dates";

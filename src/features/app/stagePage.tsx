@@ -2,7 +2,7 @@ import { Navigate } from "@tanstack/react-router";
 import { type ComponentType, lazy, type ReactNode, Suspense } from "react";
 import type { Stage } from "../../lib/stage";
 import { useApp } from "../household/useApp";
-import type { Pillar } from "./Frame";
+import type { Pillar } from "./PillarLayout";
 import type { Stages } from "./stageApp";
 
 /**

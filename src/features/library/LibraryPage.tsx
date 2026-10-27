@@ -3,8 +3,8 @@ import { getRouteApi, Link, useNavigate } from "@tanstack/react-router";
 import { ChevronRight, Sparkles } from "lucide-react";
 import type { ReactNode } from "react";
 import { CATEGORIES, type Category, type Item } from "../../content/schema";
+import { PillarHeader } from "../app/PillarLayout";
 import { useApp } from "../household/useApp";
-import { PillarHeader } from "../shell/Frame";
 import { rangeLabel } from "./ItemCard";
 
 const route = getRouteApi("/app/library");

@@ -41,7 +41,7 @@ Open, and it decides the PWA: a service worker and installing to the home screen
 
 ## Stages
 
-Expecting is three apps over one household: getting ready, the pregnancy, and the baby's here. Each is a folder, `src/app/<stage>/`, whose `index.ts` lists its whole app: its shell, and its pillars in navigation order with the page each shows. Its own home is at `/`.
+Expecting is three apps over one household: getting ready, the pregnancy, and the baby's here. Each is a folder, `src/app/<stage>/`, whose `index.ts` lists its whole app: its layout, and its pillars in navigation order with the page each shows. Its own home is at `/`.
 
 | Stage | When | Pillars | Home |
 |---|---|---|---|
@@ -52,17 +52,18 @@ Expecting is three apps over one household: getting ready, the pregnancy, and th
 - **Derived, never stored** (`src/lib/stage.ts`), like the current week. Entering a due date or a birth date is what moves the household on; clearing the birth date moves it back.
 - **The URL never says the stage.** One route tree, one path per pillar: `/journal` is the Journal for wherever the household is. The stage is a fact about the household, like this week, and a bookmark made in week 39 still works after the birth.
 - **Pages are partitioned by stage; parts and data are not.** A page that differs by stage lives in its stage's folder (the pregnancy's Journal and the newborn's are different screens). The features they're built from (`src/features/`: the timeline, tasks, questions, the Library, the Planner, settings), the store and the rules in `src/lib/` are shared: an entry from week 39 is still yours after the birth. When a shared page diverges, its stage's `index.ts` points at a page in its own folder instead.
-- **One route, a page per stage.** Each pillar route's component is `stagePage("/journal")` (`src/features/shell/stagePage.tsx`): it finds that pillar in the household's stage, loads only its page, and sends a stage without it home. The navigation and the pages are one list, so they can't disagree.
-- `AppShell` (the `app` route's component) keeps what every stage shares, the theme and the content context, and draws the stage's `Shell` with its pillars. The shells share their chrome, `Frame` (`src/features/shell/Frame.tsx`); each is where that stage's own things around the pillars go.
+- **One route, a page per stage.** Each pillar route's component is `stagePage("/journal")` (`src/features/app/stagePage.tsx`): it finds that pillar in the household's stage, loads only its page, and sends a stage without it home. The navigation and the pages are one list, so they can't disagree.
+- `App` (`src/features/app/App.tsx`, the `app` route's component) keeps what every stage shares, the theme and the content context, and draws the stage's `Layout` with its pillars. The layouts share `PillarLayout` (`src/features/app/PillarLayout.tsx`), the sidebar and tab bar; each stage's `Layout` is where its own things around the pillars go.
+- **Naming.** "Shell" means only what TanStack Start means by it: the HTML document (`shellComponent`, our `Document`) and SPA shell mode. The component that picks an app is `App`; what's drawn around the pillars is a layout.
 - Only the pregnancy has the timeline; an item's page links to its week only there.
 
 ## Code layout
 
 ```
 src/
-  app/          the three apps and nothing else: <stage>/ (index.ts, Shell, its own pages), and index.ts listing them
+  app/          the three apps and nothing else: <stage>/ (index.ts, Layout, its own pages), and index.ts listing them
   features/     everything the apps share, a folder per domain: its pages and its parts
-                (shell, household, timeline, tasks, questions, library, planner, settings, onboarding, auth)
+                (app, household, timeline, tasks, questions, library, planner, settings, onboarding, auth)
   components/   generic parts with no domain: Page, DateForm, Coming
   lib/          pure rules and types: no React, no router, no store
   content/      the built-in items, bundled
@@ -70,7 +71,7 @@ src/
   db/ server/   server only
 ```
 
-Biome holds the boundaries (`noRestrictedImports` in `biome.json`): only `db/`, `server/` and the API routes import the store; nothing imports `routes/` (a page reads its route through `getRouteApi`); `lib/` and `content/` import no React, router or server; `features/` and `components/` never import `src/app/` (the route tree hands the apps to the shell); and no stage imports another. `src/app/` is the apps, not file-based routing: routes are code, in `src/routes/tree.tsx`.
+Biome holds the boundaries (`noRestrictedImports` in `biome.json`): only `db/`, `server/` and the API routes import the store; nothing imports `routes/` (a page reads its route through `getRouteApi`); `lib/` and `content/` import no React, router or server; `features/` and `components/` never import `src/app/` (the route tree hands the apps to `App`); and no stage imports another. `src/app/` is the apps, not file-based routing: routes are code, in `src/routes/tree.tsx`.
 
 ## The pillars
 

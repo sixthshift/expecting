@@ -1,5 +1,5 @@
-// Which app the household is in. Each stage has its own shell, with its own
-// pillars and its own home, over the same data (src/components/stages/):
+// Which app the household is in. Each stage has its own layout, with its own
+// pillars and its own home, over the same data (src/app/):
 //
 //   preconception  getting ready: no due date yet, and not expecting
 //   pregnancy      a due date, or expecting without one yet: the timeline

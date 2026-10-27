@@ -140,7 +140,7 @@
       }
     },
     {
-      "includes": ["src/features/**", "src/components/**"],
+      "includes": ["src/features/*/*"],
       "linter": {
         "rules": {
           "style": {
@@ -157,17 +157,148 @@
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
                   },
                   {
-                    "group": [
-                      "**/app",
-                      "**/app/**",
-                      "**/preconception/**",
-                      "**/pregnancy/**",
-                      "**/postpartum/**",
-                      "**/preconception",
-                      "**/pregnancy",
-                      "**/postpartum"
-                    ],
-                    "message": "Shared code is used by the apps, never the other way round: the route tree hands src/app/ to the shell, and a stage-only page lives in src/app/<stage>/."
+                    "group": ["../../app", "../../app/**"],
+                    "message": "Shared code is used by the apps, never the other way round: the route tree hands src/app/ to App, and a stage-only page lives in src/app/<stage>/."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/features/*/*/*"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
+                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/routes/**"],
+                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
+                  },
+                  {
+                    "group": ["../../../app", "../../../app/**"],
+                    "message": "Shared code is used by the apps, never the other way round: the route tree hands src/app/ to App, and a stage-only page lives in src/app/<stage>/."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/features/*/*/*/*"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
+                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/routes/**"],
+                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
+                  },
+                  {
+                    "group": ["../../../../app", "../../../../app/**"],
+                    "message": "Shared code is used by the apps, never the other way round: the route tree hands src/app/ to App, and a stage-only page lives in src/app/<stage>/."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/components/*"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
+                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/routes/**"],
+                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
+                  },
+                  {
+                    "group": ["../app", "../app/**"],
+                    "message": "Shared code is used by the apps, never the other way round: the route tree hands src/app/ to App, and a stage-only page lives in src/app/<stage>/."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/components/*/*"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
+                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/routes/**"],
+                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
+                  },
+                  {
+                    "group": ["../../app", "../../app/**"],
+                    "message": "Shared code is used by the apps, never the other way round: the route tree hands src/app/ to App, and a stage-only page lives in src/app/<stage>/."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/components/*/*/*"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
+                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/routes/**"],
+                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
+                  },
+                  {
+                    "group": ["../../../app", "../../../app/**"],
+                    "message": "Shared code is used by the apps, never the other way round: the route tree hands src/app/ to App, and a stage-only page lives in src/app/<stage>/."
                   }
                 ]
               }

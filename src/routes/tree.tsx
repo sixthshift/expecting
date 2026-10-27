@@ -2,13 +2,13 @@
 // the component it draws. Pages live in src/app/ (per stage) and src/features/
 // (shared), and read their route's data through getRouteApi, so nothing
 // imports from here but the router. This is also where the three apps
-// (src/app/) are handed to the shared shell.
+// (src/app/) are handed to App.
 
 import { createRoute, lazyRouteComponent, redirect } from "@tanstack/react-router";
 import { STAGES } from "../app";
+import { App } from "../features/app/App";
+import { stagePage } from "../features/app/stagePage";
 import { loadApp, loadHouseholdState } from "../features/household/load";
-import { AppShell } from "../features/shell/AppShell";
-import { stagePage } from "../features/shell/stagePage";
 import { onboardingSteps } from "../lib/onboarding";
 import { rootRoute } from "./root";
 import { homeSearch, librarySearch, loginSearch } from "./search";
@@ -30,7 +30,7 @@ const app = createRoute({
     if (onboarding(data.state).length > 0) throw redirect({ to: "/welcome" });
     return data;
   },
-  component: () => <AppShell stages={STAGES} />,
+  component: () => <App stages={STAGES} />,
 });
 
 // The pillars: one path each, and the household's stage picks the page.

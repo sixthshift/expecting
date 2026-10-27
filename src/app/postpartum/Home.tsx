@@ -1,7 +1,7 @@
 import { useNavigate } from "@tanstack/react-router";
+import { PillarHeader } from "../../features/app/PillarLayout";
 import { useApp } from "../../features/household/useApp";
 import { QuestionsWaiting } from "../../features/questions/questions";
-import { PillarHeader } from "../../features/shell/Frame";
 import { Band } from "../../features/timeline/Band";
 import { ageLabel, slotLabel } from "../../lib/timeline";
 import { buildBands } from "../../lib/timelineView";
