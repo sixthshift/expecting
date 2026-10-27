@@ -1,8 +1,8 @@
 # Expecting
 
-A pregnancy companion for one household, running on your own network — and later, perhaps, for the newborn months after. It is meant to hold a shared checklist, a week-by-week guide to what to expect, the surprising things nobody tells you, and one place to keep everything you've both learned.
+A companion for one household through trying, pregnancy and the months after the birth, running on your own network. It is meant to hold a shared checklist, a week-by-week guide to what to expect, the surprising things nobody tells you, and one place to keep everything you've both learned.
 
-**An MVP.** What's here: this week and every other week, the built-in items (all still drafts until reviewed), a checklist that ticks everywhere, your own tasks, and a running list of questions for appointments. Not yet: photos, contacts, appointments, symptoms, names, installing to the home screen, or offline use.
+**Early days.** What's here: onboarding for both of you, the timeline (this week and every other), the Library, the Planner (a checklist that ticks everywhere, your own tasks, questions for appointments), and built-in content tailored by your answers (all still drafts until reviewed). Not yet: the Journal and the Toolkit (they say what's coming), photos, contacts, appointments, installing to the home screen, or offline use.
 
 There are no accounts: one household password, and each phone stays logged in for months. Even so, keep it off the public internet. A VPN such as Tailscale is the intended way in from outside home.
 

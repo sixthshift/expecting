@@ -3,7 +3,7 @@ import { FormField } from "@sixthshift/design-system/form-field";
 import { Input } from "@sixthshift/design-system/input";
 import { cn } from "@sixthshift/design-system/utils";
 import { useNavigate, useRouter } from "@tanstack/react-router";
-import { ArrowLeft, Check, Sprout } from "lucide-react";
+import { ArrowLeft, Check, ToyBrick } from "lucide-react";
 import { type FormEvent, type ReactNode, useEffect, useRef, useState } from "react";
 import { DateForm } from "../../components/DateForm";
 import { AnswerInput } from "../../components/ProfileForm";
@@ -73,7 +73,7 @@ export function WelcomePage() {
             <ArrowLeft aria-hidden size={20} />
           </button>
         ) : (
-          <Sprout aria-hidden size={22} className="text-fg-brand" />
+          <ToyBrick aria-hidden size={22} className="text-fg-brand" />
         )}
         <span className="font-semibold text-fg-strong">Expecting</span>
         {steps.length > 1 ? (
@@ -124,7 +124,11 @@ function renderStep(step: Step, state: HouseholdState, advance: Advance, finish:
             lead: "Expecting is for both of you, on both your phones. It just needs to know who's who; there are no accounts.",
             body: <NewPerson people={people} onDone={advance} />,
           }
-        : { title: "Who's this?", lead: "Expecting is shared; this phone just needs to know whose it is.", body: <WhoIsThis people={people} onDone={advance} /> };
+        : {
+            title: "Who's this?",
+            lead: "Expecting is shared; this phone just needs to know whose it is.",
+            body: <WhoIsThis people={people} onDone={advance} />,
+          };
 
     case "stage": {
       const q = question(STAGE)!;
