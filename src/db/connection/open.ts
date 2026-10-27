@@ -1,0 +1,18 @@
+import { Database } from "bun:sqlite";
+import { join } from "node:path";
+import { dataDir } from "../../server/core/boot";
+
+export const DB_FILE = "expecting.db";
+
+/** Path of the SQLite file inside the runtime volume. */
+export function databasePath(dir: string = dataDir()): string {
+  return join(dir, DB_FILE);
+}
+
+/** Open (creating if needed) a database with WAL journaling and foreign keys on. */
+export function openDatabase(path: string): Database {
+  const db = new Database(path, { create: true, strict: true });
+  db.exec("PRAGMA journal_mode = WAL");
+  db.exec("PRAGMA foreign_keys = ON");
+  return db;
+}

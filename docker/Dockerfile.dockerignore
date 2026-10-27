@@ -1,0 +1,19 @@
+# Only what `bun run build` needs reaches the build context. BuildKit reads
+# this file because it sits beside the Dockerfile with the Dockerfile's name.
+node_modules
+.output
+data
+.git
+test
+docs
+
+# framework caches and local tooling
+.nitro
+.tanstack
+.vite
+.devcontainer
+*.db
+*.db-shm
+*.db-wal
+docker
+.github

@@ -1,0 +1,53 @@
+import { Button } from "@sixthshift/design-system/button";
+import { DatePicker } from "@sixthshift/design-system/date-picker";
+import { FormField } from "@sixthshift/design-system/form-field";
+import { type FormEvent, useState } from "react";
+import type { ISODate } from "../lib/dates";
+
+type Props = {
+  label: string;
+  description?: string;
+  value: ISODate | null;
+  submitLabel: string;
+  onSave: (date: ISODate | null) => Promise<void>;
+  /** Whether saving with no date (clearing it) is allowed. */
+  clearable?: boolean;
+  minDate?: ISODate;
+  maxDate?: ISODate;
+};
+
+/** One date, picked day-first, saved with a button. */
+export function DateForm({ label, description, value, submitLabel, onSave, clearable = false, minDate, maxDate }: Props) {
+  const [date, setDate] = useState<ISODate | undefined>(value ?? undefined);
+  const [saving, setSaving] = useState(false);
+  const unchanged = (date ?? null) === value;
+
+  async function submit(event: FormEvent) {
+    event.preventDefault();
+    setSaving(true);
+    try {
+      await onSave(date ?? null);
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  return (
+    <form onSubmit={submit} className="flex flex-col gap-3">
+      <FormField label={label} description={description}>
+        <DatePicker
+          value={date}
+          onChange={(d) => setDate(d as ISODate | undefined)}
+          segmentOrder="dmy"
+          weekStartsOn={1}
+          clearable={clearable}
+          minDate={minDate}
+          maxDate={maxDate}
+        />
+      </FormField>
+      <Button type="submit" intent="brand" loading={saving} disabled={unchanged || (!clearable && !date)} className="self-start">
+        {submitLabel}
+      </Button>
+    </form>
+  );
+}

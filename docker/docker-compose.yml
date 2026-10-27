@@ -1,0 +1,21 @@
+# expecting — one service, one data folder, run from this folder:
+# `cd docker && docker compose up -d`. The image is the one GitHub Actions
+# publishes (.github/workflows/docker.yml); nothing is built here. Set
+# EXPECTING_IMAGE to run another, e.g. one built locally with
+# `docker build -f docker/Dockerfile -t expecting:local .`. No `version` key:
+# Compose v2 ignores it.
+services:
+  expecting:
+    image: ${EXPECTING_IMAGE:-ghcr.io/sixthshift/expecting:latest}
+    ports:
+      - "9966:9966"
+    volumes:
+      # expecting.db lives here. EXPECTING_DATA_DIR sets the host folder (default ./data).
+      - ${EXPECTING_DATA_DIR:-./data}:/data
+    environment:
+      DATA_DIR: /data
+      # The household password's hash, from `bun run password`. Put it in
+      # docker/.env in single quotes: EXPECTING_PASSWORD_HASH='$argon2id$...'.
+      # The server refuses to start without it.
+      EXPECTING_PASSWORD_HASH: ${EXPECTING_PASSWORD_HASH:?set EXPECTING_PASSWORD_HASH in docker/.env (bun run password makes one)}
+    restart: unless-stopped

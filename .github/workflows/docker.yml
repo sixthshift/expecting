@@ -1,0 +1,142 @@
+# Builds the image and publishes it to GitHub's registry as
+# ghcr.io/<owner>/<repo> on every push to main (tagged latest, by the new
+# version and by commit) and every v* tag (tagged by version). Pull requests
+# build without pushing.
+# The test and e2e jobs gate the image: nothing ships that does not pass
+# `bun run check`, `bun run test`, `bun run lint` and `bun run e2e` on the same
+# Bun the image runs.
+# A push to main also bumps package.json's version before the build, by what
+# the commits since the last tag ask for (scripts/version.ts, Conventional
+# Commits). The image carries that version, and the bumped package.json is
+# committed back to main with a matching v tag once the image is published —
+# `[skip ci]` so the bot's own commit does not start this again — and the tag
+# is published as a GitHub release, its notes generated from the commits since
+# the last one.
+# docker/docker-compose.yml pulls the latest tag.
+name: docker
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  packages: write
+
+# One release at a time: two runs bumping and pushing at once would race for
+# the version and for main.
+concurrency:
+  group: docker-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
+      - run: bun install --frozen-lockfile
+      - run: bun run check
+      - run: bun run test
+      - run: bun run lint
+
+  # The built app in a real browser: every page loads without an error.
+  # Beside the test job, not after it, so the gate takes the longer of the two.
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
+      - run: bun install --frozen-lockfile
+      - run: bunx playwright install --with-deps chromium
+      - run: bun run e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: |
+            playwright-report
+            test-results
+          retention-days: 7
+
+  image:
+    needs: [test, e2e]
+    runs-on: ubuntu-latest
+    permissions:
+      # The bump commit and its tag go back to main.
+      contents: write
+      packages: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # scripts/version.ts reads the commits since the last v* tag.
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
+      # Writes the new version into package.json so the build inlines it, and
+      # outputs it. Only on a push to main: a pull request and a hand-made tag
+      # build the version already committed.
+      - id: bump
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: bun run version:next
+      # arm64 is built under emulation so one image runs on an x86 box and an
+      # Apple-silicon Mac alike. If the build proves too slow, a matrix on
+      # native ubuntu-24.04-arm runners is the next step.
+      - uses: docker/setup-qemu-action@v4
+      - uses: docker/setup-buildx-action@v4
+      - uses: docker/login-action@v4
+        if: github.event_name != 'pull_request'
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - id: meta
+        uses: docker/metadata-action@v6
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            # priority beats latest's, so the image's own version label and
+            # the summary read 1.2.3 rather than "latest".
+            type=raw,value=${{ steps.bump.outputs.version }},priority=1000,enable=${{ steps.bump.outputs.version != '' }}
+            type=semver,pattern={{version}}
+            type=sha
+      - uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: docker/Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          # Inlined beside the version, so Settings and every error say which commit is running.
+          build-args: EXPECTING_COMMIT=${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      # Last, so a version is only spent on an image that published.
+      - name: commit the version and tag it
+        if: steps.bump.outputs.version != ''
+        env:
+          VERSION: ${{ steps.bump.outputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "chore(release): v$VERSION [skip ci]"
+          # Annotated, and both refs named on the push: --follow-tags alone
+          # silently leaves a lightweight tag behind on the runner.
+          git tag -a "v$VERSION" -m "expecting v$VERSION"
+          git push origin HEAD:main "refs/tags/v$VERSION"
+      - name: publish the release
+        if: steps.bump.outputs.version != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.bump.outputs.version }}
+        run: gh release create "v$VERSION" --title "v$VERSION" --generate-notes --verify-tag

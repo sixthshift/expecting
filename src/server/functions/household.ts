@@ -1,0 +1,16 @@
+import { createServerFn } from "@tanstack/react-start";
+import { z } from "zod";
+import { HouseholdRepo } from "../../db/models/household/repo";
+import { type ISODate, isISODate } from "../../lib/dates";
+import { getDb } from "../core/db";
+
+const isoDate = z
+  .string()
+  .refine(isISODate, "a date as YYYY-MM-DD")
+  .transform((d) => d as ISODate);
+
+export const getHousehold = createServerFn({ method: "GET" }).handler(() => new HouseholdRepo(getDb()).get());
+
+export const saveHousehold = createServerFn({ method: "POST" })
+  .validator(z.object({ dueDate: isoDate.nullable().optional(), birthDate: isoDate.nullable().optional() }).strict())
+  .handler(({ data }) => new HouseholdRepo(getDb()).update(data));
