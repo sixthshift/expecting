@@ -12,6 +12,8 @@ export const household = sqliteTable(
     baby: text("baby", { enum: ["boy", "girl", "unknown"] })
       .notNull()
       .default("unknown"),
+    /** Answers to content/profile.yaml's questions, question id to answer id. */
+    profile: text("profile", { mode: "json" }).$type<Record<string, string>>().notNull().default(sql`'{}'`),
     updatedAt: text("updated_at").notNull(),
   },
   (t) => [check("household_single_row", sql`${t.id} = 1`), check("household_baby", sql`${t.baby} IN ('boy', 'girl', 'unknown')`)]

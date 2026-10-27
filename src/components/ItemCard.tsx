@@ -1,10 +1,10 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { Card } from "@sixthshift/design-system/card";
-import { Markdown } from "@sixthshift/design-system/markdown";
 import { ExternalLink } from "lucide-react";
 import { CATEGORIES, type Item } from "../content/schema";
 import { formatDate, type ISODate } from "../lib/dates";
 import { sameSlot, slotLabel } from "../lib/timeline";
+import { ItemBody } from "./content/ItemBody";
 import { TaskRow } from "./TaskRow";
 
 /** "Weeks 28–36", "Week 3 after birth", "Before you start". */
@@ -37,7 +37,7 @@ export function ItemCard({ item, ticks, onTick }: { item: Item; ticks: Record<st
         </div>
         <h3 className="text-lg leading-snug font-semibold text-fg-strong">{item.title}</h3>
         {/* A readable line length, however wide the column. */}
-        <Markdown className="max-w-prose">{item.body}</Markdown>
+        <ItemBody doc={item.doc} className="max-w-prose" />
         {item.tasks.length > 0 ? (
           <div className="flex flex-col border-t border-border-subtle pt-2">
             {item.tasks.map((task) => (

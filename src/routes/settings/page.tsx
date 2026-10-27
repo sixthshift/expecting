@@ -6,6 +6,7 @@ import { Link, useRouter } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { DateForm } from "../../components/DateForm";
 import { Page, Section } from "../../components/Page";
+import { ProfileForm } from "../../components/ProfileForm";
 import { addDays, formatDate, todayISO } from "../../lib/dates";
 import { applyTheme, BABY, type Baby, THEMES, useExpectingTheme } from "../../lib/theme";
 import { positionOn, slotLabel } from "../../lib/timeline";
@@ -16,7 +17,7 @@ import { Route } from "./route";
 /** The two dates everything hangs off, and the one question that colours it. */
 export function SettingsPage() {
   const router = useRouter();
-  const { dueDate, birthDate, baby } = Route.useLoaderData();
+  const { dueDate, birthDate, baby, profile } = Route.useLoaderData();
   useExpectingTheme(baby);
   const today = todayISO();
   const position = dueDate ? positionOn(today, dueDate, birthDate) : null;
@@ -91,6 +92,11 @@ export function SettingsPage() {
           </Card>
         </Section>
       </div>
+      <Section title="About you">
+        <Card>
+          <ProfileForm profile={profile} />
+        </Card>
+      </Section>
       <Section title="This phone">
         <form method="post" action="/api/logout">
           <Button type="submit" variant="outline">

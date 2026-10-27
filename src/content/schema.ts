@@ -2,9 +2,11 @@
 // the normalised item the rest of the app reads. Our own items, when they
 // arrive, normalise to the same `Item`.
 
+import type { Node } from "@markdoc/markdoc";
 import { z } from "zod";
 import { isISODate } from "../lib/dates";
 import { POSTPARTUM_WEEKS, PREGNANCY_WEEKS, type Slot } from "../lib/timeline";
+import { isAnswer, question, type When } from "./profile";
 
 export const CATEGORIES = {
   appointments: "Appointments",
@@ -34,6 +36,11 @@ export const frontmatterSchema = z
     /** A week, or [from, to] inclusive, within the phase. Omitted for `before`. */
     weeks: weekRange.optional(),
     category: z.enum(Object.keys(CATEGORIES) as [Category, ...Category[]]),
+    /** Only for households whose answers match: `{ cover: [no, unsure] }`. See content/profile.yaml. */
+    when: z
+      .record(z.string(), z.union([z.string(), z.array(z.string()).min(1)]))
+      .transform((w): When => Object.fromEntries(Object.entries(w).map(([q, a]) => [q, typeof a === "string" ? [a] : a])))
+      .default({}),
     /** One of the things nobody tells you. */
     surprise: z.boolean().default(false),
     /** Drafted, not yet reviewed by us. Shown with a marker. */
@@ -54,6 +61,10 @@ export const frontmatterSchema = z
   })
   .strict()
   .superRefine((fm, ctx) => {
+    for (const [q, answers] of Object.entries(fm.when)) {
+      if (!question(q)) ctx.addIssue({ code: "custom", path: ["when", q], message: `"${q}" is not a question in profile.yaml` });
+      else for (const a of answers) if (!isAnswer(q, a)) ctx.addIssue({ code: "custom", path: ["when", q], message: `"${a}" is not an answer to ${q}` });
+    }
     if (fm.phase === "before") {
       if (fm.weeks) ctx.addIssue({ code: "custom", path: ["weeks"], message: "a 'before' item has no weeks" });
       for (const [i, t] of fm.tasks.entries()) {
@@ -99,8 +110,12 @@ export type Item = {
   draft: boolean;
   source: { title: string; url: string } | null;
   checked: string | null;
-  /** Markdown. */
+  /** Who it is for; empty for everyone. */
+  when: When;
+  /** The body as written: Markdown, with Markdoc tags. */
   body: string;
+  /** The body parsed and checked, ready to render. */
+  doc: Node;
   tasks: Task[];
   origin: "built-in" | "own";
 };

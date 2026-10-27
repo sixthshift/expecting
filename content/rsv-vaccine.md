@@ -17,6 +17,18 @@ tasks:
 ---
 RSV (respiratory syncytial virus) is a common cold-like virus, but in babies under 6 months it's a leading cause of hospital stays, from bronchiolitis and pneumonia. Many people have never heard of the vaccine that helps.
 
+{% window from=28 to=36 /%}
+
 A single dose of the maternal RSV vaccine (Abrysvo) is recommended **from 28 weeks in each pregnancy**, and it's free under the National Immunisation Program. Antibodies pass through the placenta, so the baby is protected from birth for up to about 6 months. It works best if the baby is born at least 2 weeks after the vaccine; if not, the baby is recommended an infant RSV antibody (nirsevimab) for extra protection.
 
+{% if equals($cover, "yes") %}
+Seeing a private obstetrician? Ask whether they give it in their rooms, or whether your GP will.
+{% else /%}
+Your GP, the hospital's antenatal clinic or some pharmacies can give it. Ask at your next appointment where yours is done.
+{% /if %}
+
 Some older material gives the window as 28–36 weeks; the current Handbook says that if 36 weeks has passed, it's given as soon as possible. Ask your midwife or OB.
+
+{% ask "Where should I get the RSV vaccine, and can I have it on the same day as whooping cough?" /%}
+
+{% ask "If the baby comes within 2 weeks of the vaccine, will they need the infant antibody?" /%}

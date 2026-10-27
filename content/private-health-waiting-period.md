@@ -3,6 +3,7 @@ id: private-health-waiting-period
 title: The 12-month wait on private obstetrics cover
 phase: before
 category: money
+when: { cover: ["no", unsure] }
 surprise: true
 draft: true
 source:

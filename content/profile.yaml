@@ -1,0 +1,28 @@
+# The questions that tailor the timeline. Each answer becomes a fact on the
+# household, shared by both parents and changeable in settings.
+#
+# Items are written against these: `when: { cover: [no, unsure] }` in an item's
+# frontmatter, `{% if equals($cover, "yes") %}` in its body. The tests check
+# every such reference names a question and an answer here, so renaming an
+# answer fails every item that depends on it.
+#
+# A question nobody has answered never hides anything.
+
+- id: cover
+  ask: Do you have private hospital cover that includes pregnancy and birth?
+  answers:
+    "yes": "Yes"
+    "no": No, we're going public
+    unsure: Not sure yet
+
+- id: state
+  ask: Which state or territory will the baby be born in?
+  answers:
+    act: ACT
+    nsw: New South Wales
+    nt: Northern Territory
+    qld: Queensland
+    sa: South Australia
+    tas: Tasmania
+    vic: Victoria
+    wa: Western Australia

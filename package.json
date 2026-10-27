@@ -19,6 +19,7 @@
     "palette": "bun run scripts/palette.ts"
   },
   "dependencies": {
+    "@markdoc/markdoc": "^0.5.11",
     "@sixthshift/design-system": "^0.11.0",
     "@tanstack/react-router": "^1.170.36",
     "@tanstack/react-start": "^1.168.54",

@@ -105,3 +105,46 @@ test("the answer to boy or girl sets the colours, and they survive a reload", as
   await page.getByRole("radio", { name: "Don't know / surprise" }).click();
   await expect.poll(theme).toBe("dawn");
 });
+
+test("an answer in settings tailors the timeline, and clearing it puts things back", async ({ page, open }) => {
+  const privateHealth = page.locator("#item-private-health-waiting-period");
+  const rsv = page.locator("#item-rsv-vaccine");
+
+  // Unanswered: everything shows, and the body reads for public care.
+  await open("/?at=before");
+  await expect(privateHealth).toBeVisible();
+  await open("/");
+  await expect(rsv.getByText("Your GP, the hospital's antenatal clinic")).toBeVisible();
+
+  await open("/settings");
+  await page.getByRole("radio", { name: "Yes", exact: true }).click();
+  await expect(page.getByRole("button", { name: "Clear answer" })).toBeVisible();
+
+  // Private cover: the waiting-period item has nothing to say, and the RSV item speaks to an obstetrician.
+  await open("/?at=before");
+  await expect(week(page, "before")).toBeVisible();
+  await expect(privateHealth).toHaveCount(0);
+  await open("/");
+  await expect(rsv.getByText("Seeing a private obstetrician?")).toBeVisible();
+  await expect(rsv.getByText("Your GP, the hospital's antenatal clinic")).toHaveCount(0);
+
+  await open("/settings");
+  await page.getByRole("button", { name: "Clear answer" }).click();
+  await expect(page.getByText("Not answered").first()).toBeVisible();
+  await open("/?at=before");
+  await expect(privateHealth).toBeVisible();
+});
+
+test("an item draws its window against today, and offers its questions", async ({ page, open }) => {
+  await open("/");
+  const rsv = page.locator("#item-rsv-vaccine");
+  await expect(rsv.getByRole("figure", { name: /Weeks 28 to 36/ })).toBeVisible();
+  await expect(rsv.getByText("Open now · 8 weeks left")).toBeVisible();
+
+  const text = "If the baby comes within 2 weeks of the vaccine, will they need the infant antibody?";
+  await rsv.getByRole("button", { name: `Add to your questions: ${text}` }).click();
+  await expect(rsv.getByText("On your list").first()).toBeVisible();
+
+  await open("/?view=questions");
+  await expect(page.getByText(text)).toBeVisible();
+});

@@ -4,6 +4,7 @@ import { Link, useNavigate, useRouter } from "@tanstack/react-router";
 import { CalendarRange, ListChecks, LocateFixed, MessageCircleQuestion, Settings, Sparkles, Sprout } from "lucide-react";
 import { Fragment, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { builtInItems, builtInTasks } from "../../content";
+import { applies } from "../../content/profile";
 import type { Question } from "../../db/models/questions/repo";
 import { buildChecklist } from "../../lib/checklist";
 import { addDays, daysBetween, formatDate, type ISODate, todayISO } from "../../lib/dates";
@@ -11,6 +12,7 @@ import { useExpectingTheme } from "../../lib/theme";
 import { gestationLabel, type Position, positionOn, type Slot, slotKey } from "../../lib/timeline";
 import { buildBands, rulerMarks, VIEWS, type View } from "../../lib/timelineView";
 import { saveHousehold } from "../../server/functions/household";
+import { ContentContext } from "../content/context";
 import { DateForm } from "../DateForm";
 import { AddQuestion, OpenQuestion } from "../questions";
 import type { HouseholdState } from "../state";
@@ -48,9 +50,18 @@ export function Timeline({ state, questions, view, at }: Props) {
   const [expanded, setExpanded] = useState<ReadonlySet<string>>(() => new Set([at, nowKey].filter((k): k is string => Boolean(k))));
   const [pendingItem, setPendingItem] = useState<string | null>(null);
 
-  const tasks = useMemo(() => buildChecklist(builtInTasks, state.ownTasks), [state.ownTasks]);
-  const bands = buildBands({ items: builtInItems, tasks, ticks: state.ticks, tickedHere, questions, now, dueDate, birthDate, view });
-  const marks = useMemo(() => rulerMarks(builtInItems, tasks, state.ticks, now), [tasks, state.ticks, now]);
+  // Tailored: an item, and its tasks, only for a household its `when` fits.
+  const profile = state.household.profile;
+  const items = useMemo(() => builtInItems.filter((i) => applies(i.when, profile)), [profile]);
+  const tasks = useMemo(() => {
+    const shown = new Set(items.map((i) => i.id));
+    return buildChecklist(
+      builtInTasks.filter((t) => t.itemId === null || shown.has(t.itemId)),
+      state.ownTasks
+    );
+  }, [items, state.ownTasks]);
+  const bands = buildBands({ items, tasks, ticks: state.ticks, tickedHere, questions, now, dueDate, birthDate, view });
+  const marks = useMemo(() => rulerMarks(items, tasks, state.ticks, now), [items, tasks, state.ticks, now]);
   const indexOf = useCallback((key: string) => marks.findIndex((m) => m.key === key), [marks]);
 
   const elements = useRef(new Map<string, HTMLElement>());
@@ -137,7 +148,7 @@ export function Timeline({ state, questions, view, at }: Props) {
   }
 
   function openItem(itemId: string) {
-    const item = builtInItems.find((i) => i.id === itemId);
+    const item = items.find((i) => i.id === itemId);
     if (!item) return;
     const key = slotKey(item.from);
     setExpanded((s) => new Set(s).add(key));
@@ -146,6 +157,8 @@ export function Timeline({ state, questions, view, at }: Props) {
   }
 
   const openQuestions = questions.filter((q) => !q.askedAt);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: `now` is a new object each render; its key says when it moved.
+  const content = useMemo(() => ({ profile, now, openQuestions: questions.filter((q) => !q.askedAt).map((q) => q.text) }), [profile, nowKey, questions]);
   const nowContent = (
     <>
       {position ? <NowLine position={position} dueDate={dueDate!} today={today} /> : null}
@@ -179,38 +192,40 @@ export function Timeline({ state, questions, view, at }: Props) {
       <div className="min-w-0">
         <TopBar view={view} position={position} onToday={() => nowKey && seek(indexOf(nowKey), true)} />
 
-        <main className="mx-auto max-w-5xl px-4 pt-2 pb-32 md:px-8 lg:pb-24">
-          <h1 className="sr-only">Expecting: {VIEWS[view].toLowerCase()}, week by week</h1>
-          {!dueDate ? <Welcome /> : null}
-          {view === "questions" && !now ? <NextAppointment open={openQuestions} /> : null}
-          {bands.length === 0 ? <p className="py-8 text-fg-subtle">Nothing here.</p> : null}
-          {bands.map((band, i) => {
-            const label = chapter(band.slot);
-            const prev = bands[i - 1];
-            return (
-              <Fragment key={band.key}>
-                {!prev || chapter(prev.slot) !== label ? (
-                  <p className="mt-8 mb-2 text-xs font-semibold tracking-widest text-fg-subtle uppercase first:mt-4">{label}</p>
-                ) : null}
-                <Band
-                  band={band}
-                  view={view}
-                  expanded={expanded.has(band.key)}
-                  onToggle={() => toggle(band.key)}
-                  ticks={state.ticks}
-                  onTick={onTick}
-                  onOpenItem={openItem}
-                  dueDate={dueDate}
-                  birthDate={birthDate}
-                  nowContent={nowContent}
-                  register={register}
-                />
-              </Fragment>
-            );
-          })}
-          {/* Room after the last week, so any week can be brought up to the reading line. */}
-          <div aria-hidden className="h-[70dvh]" />
-        </main>
+        <ContentContext.Provider value={content}>
+          <main className="mx-auto max-w-5xl px-4 pt-2 pb-32 md:px-8 lg:pb-24">
+            <h1 className="sr-only">Expecting: {VIEWS[view].toLowerCase()}, week by week</h1>
+            {!dueDate ? <Welcome /> : null}
+            {view === "questions" && !now ? <NextAppointment open={openQuestions} /> : null}
+            {bands.length === 0 ? <p className="py-8 text-fg-subtle">Nothing here.</p> : null}
+            {bands.map((band, i) => {
+              const label = chapter(band.slot);
+              const prev = bands[i - 1];
+              return (
+                <Fragment key={band.key}>
+                  {!prev || chapter(prev.slot) !== label ? (
+                    <p className="mt-8 mb-2 text-xs font-semibold tracking-widest text-fg-subtle uppercase first:mt-4">{label}</p>
+                  ) : null}
+                  <Band
+                    band={band}
+                    view={view}
+                    expanded={expanded.has(band.key)}
+                    onToggle={() => toggle(band.key)}
+                    ticks={state.ticks}
+                    onTick={onTick}
+                    onOpenItem={openItem}
+                    dueDate={dueDate}
+                    birthDate={birthDate}
+                    nowContent={nowContent}
+                    register={register}
+                  />
+                </Fragment>
+              );
+            })}
+            {/* Room after the last week, so any week can be brought up to the reading line. */}
+            <div aria-hidden className="h-[70dvh]" />
+          </main>
+        </ContentContext.Provider>
       </div>
 
       {/* Phone: the scrubber, under the thumb. */}

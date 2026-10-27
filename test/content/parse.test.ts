@@ -60,10 +60,29 @@ describe("parseItem", () => {
     ["bad category", item("id: x\ntitle: X\nphase: before\ncategory: shopping"), /category/],
     ["bad id", item("id: Not A Slug\ntitle: X\nphase: before\ncategory: body"), /lower-case/],
     ["empty body", item("id: x\ntitle: X\nphase: before\ncategory: body", ""), /body is empty/],
+    ["a when on no question", item(`${rsv}\nwhen: { mood: happy }`), /"mood" is not a question/],
+    ["a when on no answer", item(`${rsv}\nwhen: { cover: maybe }`), /"maybe" is not an answer to cover/],
+    ["an unknown tag", item(rsv, "{% video /%}"), /video/],
+    ["a tag missing its attribute", item(rsv, "{% ask /%}"), /primary/],
+    ["an unknown question in the body", item(rsv, '{% if equals($mood, "happy") %}\nHi\n{% /if %}'), /\$mood is not a question/],
+    ["an unknown answer in the body", item(rsv, '{% if equals($cover, "maybe") %}\nHi\n{% /if %}'), /"maybe" is not an answer to \$cover/],
+    ["a window backwards", item(rsv, "{% window from=36 to=28 /%}"), /window weeks must run forwards/],
   ])("rejects %s, naming the file", (_name, source, message) => {
     expect(() => parseItem("bad.md", source)).toThrow(ContentError);
     expect(() => parseItem("bad.md", source)).toThrow(message);
     expect(() => parseItem("bad.md", source)).toThrow(/^bad\.md: /);
+  });
+});
+
+describe("tailoring", () => {
+  test("when takes one answer or a list", () => {
+    expect(parseItem("x.md", item(`${rsv}\nwhen: { cover: "no", state: [vic, nsw] }`)).when).toEqual({ cover: ["no"], state: ["vic", "nsw"] });
+    expect(parseItem("x.md", item(rsv)).when).toEqual({});
+  });
+
+  test("a body may use the tags and the household's answers", () => {
+    const body = '{% window from=28 to=36 /%}\n\n{% if equals($cover, "yes") %}\nPrivate.\n{% else /%}\nPublic.\n{% /if %}\n\n{% ask "Is it free?" /%}';
+    expect(() => parseItem("x.md", item(rsv, body))).not.toThrow();
   });
 });
 

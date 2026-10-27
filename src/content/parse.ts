@@ -1,5 +1,7 @@
+import type { Node } from "@markdoc/markdoc";
 import { parse as parseYaml } from "yaml";
 import type { Slot } from "../lib/timeline";
+import { parseBody } from "./markdoc";
 import { type Frontmatter, frontmatterSchema, type Item } from "./schema";
 
 const FRONTMATTER = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/;
@@ -31,10 +33,12 @@ export function parseItem(file: string, source: string): Item {
 
   const body = match[2]!.trim();
   if (body.length === 0) throw new ContentError(file, "the body is empty");
-  return toItem(parsed.data, body);
+  const { ast, problems } = parseBody(body);
+  if (problems.length > 0) throw new ContentError(file, `in the body, ${problems.join("; ")}`);
+  return toItem(parsed.data, body, ast);
 }
 
-function toItem(fm: Frontmatter, body: string): Item {
+function toItem(fm: Frontmatter, body: string, doc: Node): Item {
   const at = (week: number): Slot => (fm.phase === "before" ? { phase: "before" } : { phase: fm.phase, week });
   const [from, to] = fm.weeks ?? [0, 0];
   return {
@@ -47,7 +51,9 @@ function toItem(fm: Frontmatter, body: string): Item {
     draft: fm.draft,
     source: fm.source ?? null,
     checked: fm.checked ?? null,
+    when: fm.when,
     body,
+    doc,
     tasks: fm.tasks.map((t) => ({ id: t.id, title: t.title, due: at(t.due ?? to), itemId: fm.id, origin: "built-in" })),
     origin: "built-in",
   };

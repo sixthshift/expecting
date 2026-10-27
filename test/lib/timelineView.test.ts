@@ -1,3 +1,4 @@
+import Markdoc from "@markdoc/markdoc";
 import { describe, expect, test } from "vitest";
 import type { Item, Task } from "../../src/content/schema";
 import type { Question } from "../../src/db/models/questions/repo";
@@ -18,7 +19,9 @@ function item(id: string, from: number, to: number, extra: Partial<Item> = {}): 
     draft: true,
     source: null,
     checked: null,
+    when: {},
     body: "x",
+    doc: Markdoc.parse("x"),
     tasks: [],
     origin: "built-in",
     ...extra,
