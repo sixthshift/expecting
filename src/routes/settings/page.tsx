@@ -1,6 +1,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
-import { useRouter } from "@tanstack/react-router";
+import { Link, useRouter } from "@tanstack/react-router";
+import { ArrowLeft } from "lucide-react";
 import { DateForm } from "../../components/DateForm";
 import { Page, Section } from "../../components/Page";
 import { addDays, formatDate, todayISO } from "../../lib/dates";
@@ -17,7 +18,16 @@ export function SettingsPage() {
   const position = dueDate ? positionOn(today, dueDate, birthDate) : null;
 
   return (
-    <Page title="Settings">
+    <Page
+      title="Settings"
+      aside={
+        <Button asChild variant="outline" size="sm">
+          <Link to="/">
+            <ArrowLeft aria-hidden size={16} /> Timeline
+          </Link>
+        </Button>
+      }
+    >
       <div className="grid items-start gap-6 md:grid-cols-2 md:gap-8">
         <Section title="Due date">
           <Card>

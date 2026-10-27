@@ -150,3 +150,14 @@ export function gestationLabel(gestationDays: number): string {
 export function pregnancyWeekStarts(week: number, dueDate: ISODate): ISODate {
   return addDays(dueDate, week * 7 - TERM_DAYS);
 }
+
+/**
+ * The calendar days a week covers: pregnancy weeks from the due date, weeks
+ * after the birth from the birth date (or the due date until one is entered).
+ * Null for "before", or without a due date.
+ */
+export function slotDates(slot: Slot, dueDate: ISODate | null, birthDate: ISODate | null): { start: ISODate; end: ISODate } | null {
+  if (!dueDate || slot.phase === "before") return null;
+  const start = slot.phase === "pregnancy" ? pregnancyWeekStarts(slot.week, dueDate) : addDays(birthDate ?? dueDate, (slot.week - 1) * 7);
+  return { start, end: addDays(start, 6) };
+}

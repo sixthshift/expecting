@@ -33,6 +33,7 @@ Plus a place to keep everything else: notes, photos, contacts, names.
 - Pregnancy weeks are completed weeks of gestation, the way midwives count: "28 weeks" runs from 28+0 to 28+6.
 - Once the baby is here you enter the birth date, and the weeks after the birth count from it, not from the due date. Without one, the due date stands in once you are past 42 weeks.
 - All content for every week is always available. You can read week 34 in week 8.
+- The app *is* the timeline: one scroll of weeks that opens at this one, with a ruler to move along it. Checklist, "nobody tells you" and questions are ways of looking at the same timeline, not separate places.
 - You enter the due date once. The app then opens at the current week and shows what's coming up. The due date changes where you land, never what you can see.
 
 ## Content
@@ -87,5 +88,6 @@ All shared, all editable by both:
 - **Content sourcing.** How the first pass of built-in items gets written and reviewed. To explore.
 - **Partner category.** Items written for the non-pregnant parent. Built as a category for now; an audience flag may suit better, since partner items also belong to paperwork and the birth.
 - **Reaching out.** Whether the app ever notifies (a weekly push). Today it only shows things when opened.
+- **Next on the timeline.** Capture from anywhere (one thumb-reach button for a question, task or note), a "since you last looked" line for the other parent, and the app changing shape with the phase (a "go time" mode near the birth, an appointment mode).
 - **State and care pathway.** Settings that mark items as not applying (another state's birth registration, private-only appointments) without hiding them.
 - **Hosting.** Castle or Tower, and so which backup covers it.

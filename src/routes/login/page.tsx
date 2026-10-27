@@ -10,7 +10,7 @@ const errors = {
   locked: "Too many tries. Wait a few minutes, then try again.",
 } as const;
 
-/** A plain form posting to /api/login, so it works before the app's script has loaded. */
+/** A plain form posting to /api/login, which sets the cookie itself. */
 export function LoginPage() {
   const { error, next } = Route.useSearch();
   return (

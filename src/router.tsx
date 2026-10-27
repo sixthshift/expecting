@@ -4,7 +4,9 @@ import { routeTree } from "./routes/routes";
 export function getRouter() {
   return createRouter({
     routeTree,
-    scrollRestoration: true,
+    // Off: the timeline decides where it opens (this week, or ?at=), and a
+    // restored position would fight it.
+    scrollRestoration: false,
     defaultPreload: "intent",
   });
 }

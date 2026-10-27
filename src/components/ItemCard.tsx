@@ -15,7 +15,7 @@ export function rangeLabel(item: Item): string {
   return `${slotLabel(item.from)} – ${slotLabel(item.to)}`;
 }
 
-export function ItemCard({ item, ticks }: { item: Item; ticks: Record<string, string> }) {
+export function ItemCard({ item, ticks, onTick }: { item: Item; ticks: Record<string, string>; onTick?: (taskId: string, ticked: boolean) => void }) {
   return (
     <Card id={`item-${item.id}`} className="scroll-mt-4">
       <article className="flex flex-col gap-3">
@@ -41,7 +41,7 @@ export function ItemCard({ item, ticks }: { item: Item; ticks: Record<string, st
         {item.tasks.length > 0 ? (
           <div className="flex flex-col border-t border-border-subtle pt-2">
             {item.tasks.map((task) => (
-              <TaskRow key={task.id} task={task} ticked={Boolean(ticks[task.id])} />
+              <TaskRow key={task.id} task={task} ticked={Boolean(ticks[task.id])} onTick={onTick && ((ticked) => onTick(task.id, ticked))} />
             ))}
           </div>
         ) : null}

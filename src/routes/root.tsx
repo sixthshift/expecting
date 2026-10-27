@@ -1,7 +1,6 @@
-import { createRootRoute, HeadContent, Link, Outlet, Scripts, useLocation } from "@tanstack/react-router";
+import { createRootRoute, HeadContent, Link, Outlet, Scripts } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { Page } from "../components/Page";
-import { TabBar } from "../components/TabBar";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
@@ -15,23 +14,10 @@ export const Route = createRootRoute({
     links: [{ rel: "stylesheet", href: appCss }],
   }),
   shellComponent: RootDocument,
-  component: AppLayout,
+  // Each page brings its own frame: the timeline its rail and scrubber, the rest a plain page.
+  component: Outlet,
   notFoundComponent: NotFound,
 });
-
-function AppLayout() {
-  const { pathname } = useLocation();
-  if (pathname === "/login") return <Outlet />;
-  return (
-    <>
-      {/* From lg the navigation is a 14rem rail on the left; the page sits beside it. */}
-      <div className="lg:pl-56">
-        <Outlet />
-      </div>
-      <TabBar />
-    </>
-  );
-}
 
 function NotFound() {
   return (
@@ -39,7 +25,7 @@ function NotFound() {
       <p>
         There's no page at this address.{" "}
         <Link to="/" className="underline">
-          Back to this week
+          Back to the timeline
         </Link>
         .
       </p>

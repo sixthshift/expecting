@@ -1,54 +1,22 @@
+// Questions for the next appointment, as they appear on the timeline: the open
+// ones and the form at the current week, asked ones in the week they were asked.
+
 import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
 import { Textarea } from "@sixthshift/design-system/textarea";
 import { useRouter } from "@tanstack/react-router";
 import { Trash2 } from "lucide-react";
 import { type FormEvent, useState } from "react";
-import { Columns, Page, Section } from "../../components/Page";
-import type { Question } from "../../db/models/questions/repo";
-import { formatDate, type ISODate } from "../../lib/dates";
-import { addQuestion, deleteQuestion, markAsked, reopenQuestion } from "../../server/functions/questions";
-import { Route } from "./route";
-
-/** A running list for the next appointment. Asked questions keep their answers. */
-export function QuestionsPage() {
-  const questions = Route.useLoaderData();
-  const open = questions.filter((q) => !q.askedAt);
-  const asked = questions.filter((q) => q.askedAt).sort((a, b) => b.askedAt!.localeCompare(a.askedAt!));
-
-  return (
-    <Page title="Questions" subtitle="For the next appointment. Either of you can add one.">
-      <Columns
-        sideLabel="Add a question"
-        side={<AddQuestion />}
-        main={
-          <>
-            <Section title={`For next time${open.length > 0 ? ` · ${open.length}` : ""}`}>
-              {open.length === 0 ? <p className="text-fg-subtle">Nothing yet. Add one when it comes to you.</p> : null}
-              {open.map((q) => (
-                <OpenQuestion key={q.id} question={q} />
-              ))}
-            </Section>
-            {asked.length > 0 ? (
-              <Section title="Asked">
-                {asked.map((q) => (
-                  <AskedQuestion key={q.id} question={q} />
-                ))}
-              </Section>
-            ) : null}
-          </>
-        }
-      />
-    </Page>
-  );
-}
+import type { Question } from "../db/models/questions/repo";
+import { formatDate, type ISODate } from "../lib/dates";
+import { addQuestion, deleteQuestion, markAsked, reopenQuestion } from "../server/functions/questions";
 
 function useRefresh() {
   const router = useRouter();
   return () => router.invalidate();
 }
 
-function AddQuestion() {
+export function AddQuestion() {
   const refresh = useRefresh();
   const [text, setText] = useState("");
   const [saving, setSaving] = useState(false);
@@ -84,7 +52,7 @@ function AddQuestion() {
   );
 }
 
-function OpenQuestion({ question }: { question: Question }) {
+export function OpenQuestion({ question }: { question: Question }) {
   const refresh = useRefresh();
   const [answering, setAnswering] = useState(false);
   const [answer, setAnswer] = useState(question.answer ?? "");
@@ -129,7 +97,7 @@ function OpenQuestion({ question }: { question: Question }) {
   );
 }
 
-function AskedQuestion({ question }: { question: Question }) {
+export function AskedQuestion({ question }: { question: Question }) {
   const refresh = useRefresh();
   return (
     <Card size="sm">

@@ -4,7 +4,7 @@ How expecting is built. What it is and why: [intent.md](intent.md). Running it: 
 
 ## Built so far
 
-The timeline, built-in content, the checklist (built-in and own tasks), questions for appointments, the due and birth dates, and the shared password. Not yet: the rest of the store (appointments, scans and photos, contacts, symptoms, names), our own items, hiding built-in items, the PWA manifest, the service worker, offline reads and writes. Everything below is the intended shape; where it isn't built, it says so.
+The timeline (the whole app: weeks, the ruler, and views for to do, nobody tells you and questions), built-in content, own tasks, questions for appointments, the due and birth dates, and the shared password. Not yet: the rest of the store (appointments, scans and photos, contacts, symptoms, names), our own items, hiding built-in items, the PWA manifest, the service worker, offline reads and writes. Everything below is the intended shape; where it isn't built, it says so.
 
 Expecting has the same shape as garnish. Where this file says "as garnish", garnish's `docs/architecture.md` is the reference.
 
@@ -28,21 +28,22 @@ content/ (in the repo, bundled at build) ──▶ built-in items
 - Chosen over **no auth** (garnish's choice), because this data is personal and the app is meant to be reachable from a phone at the hospital. Chosen over **two accounts**, because nothing in the app differs per parent. Favourites on baby names are the one exception, and a "whose favourite" field covers it.
 - Login attempts are rate limited: ten failures in fifteen minutes locks that client out, in memory.
 - Sessions are rows holding the SHA-256 of the cookie's token, so a copy of the database is not a login. A session lives 400 days from its last use.
-- Every request passes one request middleware. Pages without a session redirect to `/login`, and everything else gets a 401. The login form is a plain form post to `/api/login`, so it works before any script loads.
+- Every request passes one request middleware. Pages without a session redirect to `/login`, and everything else gets a 401. The login form is a plain form post to `/api/login`, which sets the cookie itself.
 - Without `EXPECTING_PASSWORD_HASH` the dev server runs open; a production server refuses to start.
 
 Open, and it decides the PWA: a service worker and installing to the home screen need HTTPS, which plain `http://<lan-host>:9966` is not. Tailscale (`tailscale serve` gives HTTPS on a `*.ts.net` name) is the easiest way to get both. Also open: whether expecting is reachable outside the LAN, and how — a VPN such as Tailscale, or public through the reverse proxy. The password is needed either way; a public route raises the bar for everything else.
 
-## Adaptive, phone and desktop alike
+## The timeline is the app
 
-Expecting is used on both. Each size gets a layout designed for it, not a phone column stretched or centred on a big screen.
+There are no pages per kind of thing. The app is one scroll of weeks, from "before" through pregnancy weeks 1–42 to 12 weeks after the birth, and it opens at this week (`src/components/timeline/`).
 
-- **Phone** (below `lg`, 1024px): one column. A bottom tab bar within thumb reach: **This week**, **Weeks**, **Checklist**, **Questions**, **Settings**. As the store grows, Questions becomes **Store** and Settings folds into **More**.
-- **Desktop** (`lg` and up): the same tabs as a rail down the left. Screens split into a main column and a 20rem side panel (`Columns` in `src/components/Page.tsx`). The panel holds what needs doing now (slipped tasks, your own tasks this week, the form to add to a list) and stays in view while the main column scrolls. On a phone the same panel comes first, above the main column.
-- **Weeks** shows two trimesters side by side on desktop.
-- **Reading width:** item bodies are capped at a readable line length (`max-w-prose`) at every size. The page itself is not capped to a phone's width.
-- Tap targets are at least 44px. No hover-only interactions; hover is decoration only.
-- Safe areas are respected, so nothing sits under the notch or the home indicator.
+- **Weeks are bands.** The current week is open, with the gestation line, what has slipped, and what is still running from earlier weeks. Every other week is folded to one line of what's in it (`2 new · 1 to do`) until opened. Each item appears once, in the week it starts. The rules are in `src/lib/timelineView.ts`, tested apart from the screen.
+- **The ruler moves along it.** It's a vertical rail on the desktop and a scrubber along the bottom edge on a phone. Both are one `Ruler` component and an ARIA slider: drag or tap to scrub; arrows step a week, Page Up/Down four, Home/End the ends. Each week shows a dot when something starts and amber when a task there has slipped. "Now" is marked, and so is the week in view (the last week whose top has passed a reading line under the sticky bar).
+- **Views, not pages.** **Everything**, **To do**, **Nobody tells you** and **Questions** fold the same timeline down to what you came for, in the URL as `?view=`. The current week is always present, so switching views never loses your place in time. Open questions sit at the current week; asked ones land in the week they were asked.
+- **Adding happens where it belongs.** An own task is added inside its week. A question is added at the current week, in Questions.
+- `?at=28` opens at another week. Settings is the one other page, from the rail or the gear.
+- **Adaptive:** both sizes get a designed layout. Desktop has the rail and a sticky week number in a gutter beside each week. A phone has the scrubber under the thumb and the week number above each week. Item bodies keep a readable line length at every size.
+- Tap targets are at least 44px. No hover-only interactions. Safe areas are respected.
 - e2e loads every page at both sizes (`phone` and `desktop` projects).
 
 ## PWA
