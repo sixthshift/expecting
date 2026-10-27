@@ -136,7 +136,6 @@ const themeCards = themes
   <header><h3>${t.name}</h3><p>${esc(t.for)}</p></header>
   <div class="preview">
     <div class="week">
-      <div class="stripe"></div>
       <p class="num">28 <span>weeks</span></p>
       <p class="line"><b>28+0</b> · 84 days to go</p>
       <div class="soft">Nobody tells you: the RSV vaccine window opens this week.</div>
@@ -234,7 +233,6 @@ code { font-family: var(--mono); font-size: 12px; }
 .theme > header p { font-size: 13px; color: var(--ink-soft); }
 .preview { background: var(--t-page); border: 1px solid var(--rule); border-radius: 14px; padding: 18px; color: var(--t-fg); }
 .week { position: relative; background: #fff; border: 1px solid var(--t-border); border-radius: 12px; padding: 20px 16px 16px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 1px 2px rgb(0 0 0 / 0.05); overflow: hidden; }
-.stripe { position: absolute; inset: 0 0 auto; height: 4px; background: linear-gradient(90deg, var(--t-from), var(--t-to)); }
 .num { font: 700 36px/1 var(--display); color: var(--t-fg-brand); }
 .num span { font: 400 13px var(--body); color: var(--t-fg-subtle); }
 .line { font-size: 14px; }
@@ -273,7 +271,7 @@ footer { color: var(--ink-soft); font-size: 13px; }
   </section>
 
   <section class="section" aria-labelledby="themes">
-    <header><h2 id="themes">Themes</h2><p>Each preview is drawn with that theme's own tokens: the current week's card, its accent stripe, a brand button, a subtle badge, the focus ring and a warning.</p></header>
+    <header><h2 id="themes">Themes</h2><p>Each preview is drawn with that theme's own tokens: the current week's card, a brand button, a subtle badge, the focus ring and a warning.</p></header>
     <div class="themes">${themeCards}</div>
   </section>
 

@@ -56,9 +56,8 @@ export function LibraryPage() {
                     <Link
                       to="/library/$itemId"
                       params={{ itemId: item.id }}
-                      className="relative flex h-full flex-col gap-2 overflow-hidden rounded-xl border border-border-subtle bg-bg-normal p-4 pt-5 hover:border-border-normal"
+                      className="flex h-full flex-col gap-2 rounded-xl border border-border-subtle bg-bg-normal p-4 hover:border-border-normal"
                     >
-                      <span aria-hidden className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-(--expecting-accent-from) to-(--expecting-accent-to)" />
                       <span className="font-medium text-fg-strong">{item.title}</span>
                       <span className="mt-auto text-xs text-fg-subtle">{rangeLabel(item)}</span>
                     </Link>

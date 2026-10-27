@@ -68,7 +68,6 @@ code { font-family: var(--mono); font-size: 12px; }
 .theme > header p { font-size: 13px; color: var(--ink-soft); }
 .preview { background: var(--t-page); border: 1px solid var(--rule); border-radius: 14px; padding: 18px; color: var(--t-fg); }
 .week { position: relative; background: #fff; border: 1px solid var(--t-border); border-radius: 12px; padding: 20px 16px 16px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 1px 2px rgb(0 0 0 / 0.05); overflow: hidden; }
-.stripe { position: absolute; inset: 0 0 auto; height: 4px; background: linear-gradient(90deg, var(--t-from), var(--t-to)); }
 .num { font: 700 36px/1 var(--display); color: var(--t-fg-brand); }
 .num span { font: 400 13px var(--body); color: var(--t-fg-subtle); }
 .line { font-size: 14px; }
@@ -114,12 +113,11 @@ footer { color: var(--ink-soft); font-size: 13px; }
   </section>
 
   <section class="section" aria-labelledby="themes">
-    <header><h2 id="themes">Themes</h2><p>Each preview is drawn with that theme's own tokens: the current week's card, its accent stripe, a brand button, a subtle badge, the focus ring and a warning.</p></header>
+    <header><h2 id="themes">Themes</h2><p>Each preview is drawn with that theme's own tokens: the current week's card, a brand button, a subtle badge, the focus ring and a warning.</p></header>
     <div class="themes"><article class="theme" style="--t-page:#f8fafc;--t-from:#9dc3e2;--t-to:#9dd2d8;--t-soft-from:#ddf0ff;--t-soft-to:#d7f3f6;--t-brand:#3974a0;--t-on-brand:#f7f6fa;--t-fg-brand:#285d83;--t-subtle:#ddf0ff;--t-on-subtle:#1c4665;--t-ring:#5b91ba;--t-fg:#2f2c34;--t-fg-subtle:#8c8895;--t-border:#edecf1;--t-warn-bg:#ffe8d5;--t-warn-fg:#633500;--t-border-warn:#f8b67c">
   <header><h3>Baby Blue</h3><p>A boy</p></header>
   <div class="preview">
     <div class="week">
-      <div class="stripe"></div>
       <p class="num">28 <span>weeks</span></p>
       <p class="line"><b>28+0</b> · 84 days to go</p>
       <div class="soft">Nobody tells you: the RSV vaccine window opens this week.</div>
@@ -133,7 +131,6 @@ footer { color: var(--ink-soft); font-size: 13px; }
   <header><h3>Baby Pink</h3><p>A girl</p></header>
   <div class="preview">
     <div class="week">
-      <div class="stripe"></div>
       <p class="num">28 <span>weeks</span></p>
       <p class="line"><b>28+0</b> · 84 days to go</p>
       <div class="soft">Nobody tells you: the RSV vaccine window opens this week.</div>
@@ -147,7 +144,6 @@ footer { color: var(--ink-soft); font-size: 13px; }
   <header><h3>Baby Purple</h3><p>Don't know, or a surprise · the default</p></header>
   <div class="preview">
     <div class="week">
-      <div class="stripe"></div>
       <p class="num">28 <span>weeks</span></p>
       <p class="line"><b>28+0</b> · 84 days to go</p>
       <div class="soft">Nobody tells you: the RSV vaccine window opens this week.</div>
