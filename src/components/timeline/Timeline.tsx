@@ -215,7 +215,7 @@ export function Timeline({ state, questions, view, at }: Props) {
 
 function TopBar({ view, position, onToday }: { view: View; position: Position | null; onToday: () => void }) {
   return (
-    <div className="sticky top-0 z-10 border-b border-border-subtle bg-bg-subtle/95 pt-[env(safe-area-inset-top)] backdrop-blur">
+    <div className="sticky top-0 z-10 border-b border-border-subtle bg-bg-normal/95 pt-[env(safe-area-inset-top)] backdrop-blur">
       <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 py-3 md:px-8 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex items-center justify-between gap-2">
           {position ? (
