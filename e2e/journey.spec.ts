@@ -84,3 +84,24 @@ test("a question is added, asked, and lands in this week", async ({ page, open }
   await expect(week(page, "28").getByText("Emergency, then the lift to level 3.")).toBeVisible();
   await expect(page.getByRole("button", { name: "Asked it" })).toBeHidden();
 });
+
+test("the answer to boy or girl sets the colours, and they survive a reload", async ({ page, open }) => {
+  const theme = () => page.evaluate(() => document.documentElement.dataset.expectingTheme ?? "dawn");
+  await open("/settings");
+  expect(await theme()).toBe("dawn");
+
+  await page.getByRole("radio", { name: "Girl" }).click();
+  await expect.poll(theme).toBe("blossom");
+  await page.reload({ waitUntil: "networkidle" });
+  expect(await theme()).toBe("blossom");
+
+  await page.getByRole("radio", { name: "Boy" }).click();
+  await expect.poll(theme).toBe("sky");
+  await page.getByRole("link", { name: "Timeline" }).click();
+  await expect(page.getByRole("slider", { name: "Timeline" })).toBeVisible();
+  expect(await theme()).toBe("sky");
+
+  await open("/settings");
+  await page.getByRole("radio", { name: "Don't know / surprise" }).click();
+  await expect.poll(theme).toBe("dawn");
+});

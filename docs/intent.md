@@ -25,6 +25,7 @@ Plus a place to keep everything else: notes, photos, contacts, names.
 ## Who uses it
 
 - **Both parents, as one.** One shared space. Everything either of you adds, the other sees and can edit. No accounts.
+- **In the baby's colours.** One question, boy, girl, or don't know / keeping it a surprise, sets the theme: blue, pink, or both. The colour is visible to anyone who sees the screen.
 - **On a phone and on a computer.** On a phone it installs to the home screen and opens like an app. On a desktop it uses the room: the same app, laid out for a big screen, not a phone column in the middle of one.
 
 ## The timeline

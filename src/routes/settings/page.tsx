@@ -1,19 +1,23 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
+import { FormField } from "@sixthshift/design-system/form-field";
+import { RadioButtonGroup } from "@sixthshift/design-system/radio-button-group";
 import { Link, useRouter } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { DateForm } from "../../components/DateForm";
 import { Page, Section } from "../../components/Page";
 import { addDays, formatDate, todayISO } from "../../lib/dates";
+import { applyTheme, BABY, type Baby, THEMES, useExpectingTheme } from "../../lib/theme";
 import { positionOn, slotLabel } from "../../lib/timeline";
 import { COMMIT, VERSION } from "../../lib/version";
 import { saveHousehold } from "../../server/functions/household";
 import { Route } from "./route";
 
-/** The two dates everything hangs off, and nothing else yet. */
+/** The two dates everything hangs off, and the one question that colours it. */
 export function SettingsPage() {
   const router = useRouter();
-  const { dueDate, birthDate } = Route.useLoaderData();
+  const { dueDate, birthDate, baby } = Route.useLoaderData();
+  useExpectingTheme(baby);
   const today = todayISO();
   const position = dueDate ? positionOn(today, dueDate, birthDate) : null;
 
@@ -66,6 +70,26 @@ export function SettingsPage() {
             </Card>
           </Section>
         ) : null}
+        <Section title="Baby">
+          <Card>
+            <FormField
+              label="Boy or girl?"
+              description="Sets Expecting's colours: blue for a boy, pink for a girl, both if you don't know or are keeping it a surprise. Anyone who sees the screen will see the colour."
+            >
+              <RadioButtonGroup
+                options={(Object.keys(BABY) as Baby[]).map((value) => ({ value, label: BABY[value] }))}
+                value={baby}
+                onValueChange={async (value) => {
+                  const next = value as Baby;
+                  // Show it at once; the save follows.
+                  applyTheme(THEMES[next]);
+                  await saveHousehold({ data: { baby: next } });
+                  await router.invalidate();
+                }}
+              />
+            </FormField>
+          </Card>
+        </Section>
       </div>
       <Section title="This phone">
         <form method="post" action="/api/logout">

@@ -76,7 +76,9 @@ export function Band({ band, view, expanded, onToggle, ticks, onTick, onOpenItem
       aria-labelledby={`week-${key}-label`}
       className={cn(
         "scroll-mt-32 lg:grid lg:scroll-mt-24 lg:grid-cols-[8rem_minmax(0,1fr)] lg:gap-x-8",
-        isNow ? "my-4 rounded-xl border border-border-brand bg-bg-brand-subtle/40 p-4 lg:my-8 lg:p-6" : "border-t border-border-subtle py-2",
+        isNow
+          ? "my-4 rounded-xl border border-border-brand-subtle bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) p-4 lg:my-8 lg:p-6"
+          : "border-t border-border-subtle py-2",
         isPast && !isNow && "opacity-80"
       )}
     >

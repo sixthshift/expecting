@@ -1,0 +1,32 @@
+/*
+ * Expecting's own theme, in place of the design system's Linen: a palette from
+ * the reference (#9DC3E2 #9DD2D8 #FADCE4 #FFB5CC #E2B9DB) and three themes on
+ * it — Sky for a boy, Blossom for a girl, Dawn when you don't know or are
+ * keeping it a surprise (the default). One is active at a time, chosen by
+ * `data-expecting-theme` on <html>.
+ *
+ * A theme for the design system is its semantic tokens and a radius scale,
+ * plus the system's theme-independent half (its Tailwind bridge and component
+ * recipes), which the package ships only inside Linen's export — so it is
+ * imported here by path.
+ */
+
+@import "./palette.css";
+@import "./dawn.css";
+@import "./sky.css";
+@import "./blossom.css";
+@import "../../node_modules/@sixthshift/design-system/src/theming/tailwind.css";
+
+/* Corners: softer than Tailwind's own, after the reference's pill shapes.
+   Type: the design system's own stacks, as Linen set them (Inter is an
+   optional peer, not installed, so the system font shows). Mode-free and the
+   same in all three themes. */
+:root {
+  --font-sans: Inter Variable, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: JetBrains Mono Variable, ui-monospace, monospace;
+  --border-radius-xs: 0.25rem;
+  --border-radius-sm: 0.375rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
+}

@@ -7,6 +7,7 @@ import { builtInItems, builtInTasks } from "../../content";
 import type { Question } from "../../db/models/questions/repo";
 import { buildChecklist } from "../../lib/checklist";
 import { addDays, daysBetween, formatDate, type ISODate, todayISO } from "../../lib/dates";
+import { useExpectingTheme } from "../../lib/theme";
 import { gestationLabel, type Position, positionOn, type Slot, slotKey } from "../../lib/timeline";
 import { buildBands, rulerMarks, VIEWS, type View } from "../../lib/timelineView";
 import { saveHousehold } from "../../server/functions/household";
@@ -38,6 +39,7 @@ export function Timeline({ state, questions, view, at }: Props) {
   const navigate = useNavigate();
   const today = todayISO();
   const { dueDate, birthDate } = state.household;
+  useExpectingTheme(state.household.baby);
   const position = dueDate ? positionOn(today, dueDate, birthDate) : null;
   const now = position?.slot ?? null;
   const nowKey = now ? slotKey(now) : null;

@@ -1,6 +1,7 @@
 import { createRootRoute, HeadContent, Link, Outlet, Scripts } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { Page } from "../components/Page";
+import { THEME_BOOT_SCRIPT } from "../lib/theme";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
@@ -35,8 +36,12 @@ function NotFound() {
 
 function RootDocument({ children }: { children: ReactNode }) {
   return (
-    <html lang="en-AU">
+    // suppressHydrationWarning: the boot script below sets data-expecting-theme
+    // before React hydrates, so <html> differs from the shell on purpose.
+    <html lang="en-AU" suppressHydrationWarning>
       <head>
+        {/* biome-ignore lint/security/noDangerouslySetInnerHtml: a fixed string of our own, not user content */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
         <HeadContent />
       </head>
       <body className="bg-bg-subtle text-fg-normal">
