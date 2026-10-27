@@ -2,10 +2,10 @@ import { Button } from "@sixthshift/design-system/button";
 import { Input } from "@sixthshift/design-system/input";
 import { Plus, Trash2 } from "lucide-react";
 import { type FormEvent, useState } from "react";
-import { useAction } from "../../app/useAction";
 import type { Task } from "../../content/schema";
 import { type Slot, slotLabel } from "../../lib/timeline";
 import { addOwnTask, deleteOwnTask } from "../../server/functions/checklist";
+import { useAction } from "../household/useAction";
 
 /** A task of our own, added straight into the week it belongs to. */
 export function AddTask({ slot }: { slot: Slot }) {

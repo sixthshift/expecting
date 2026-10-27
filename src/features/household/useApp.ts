@@ -3,12 +3,12 @@ import { getRouteApi } from "@tanstack/react-router";
 // tailored (only the items and tasks its answers fit) and placed in time.
 
 import { useMemo } from "react";
-import { builtInItems, builtInTasks } from "../content";
-import { applies } from "../content/profile";
-import { buildChecklist } from "../lib/checklist";
-import { todayISO } from "../lib/dates";
-import { stageOf } from "../lib/stage";
-import { positionOn, type Slot, slotKey } from "../lib/timeline";
+import { builtInItems, builtInTasks } from "../../content";
+import { applies } from "../../content/profile";
+import { buildChecklist } from "../../lib/checklist";
+import { todayISO } from "../../lib/dates";
+import { stageOf } from "../../lib/stage";
+import { positionOn, type Slot, slotKey } from "../../lib/timeline";
 
 const route = getRouteApi("/app");
 

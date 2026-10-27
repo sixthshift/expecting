@@ -1,6 +1,6 @@
 import { Camera, HeartHandshake, NotebookPen, Ruler, Sparkles, Star } from "lucide-react";
 import { Coming } from "../../../components/Coming";
-import { PillarHeader } from "../../Frame";
+import { PillarHeader } from "../../../features/shell/Frame";
 
 /** The baby's first weeks, kept. The pregnancy's entries are still there, in the story. */
 export function PostpartumJournal() {

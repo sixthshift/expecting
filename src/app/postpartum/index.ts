@@ -1,5 +1,5 @@
 import { BookOpen, ListChecks, NotebookPen, Sun, Wrench } from "lucide-react";
-import type { StageApp } from "../stageApp";
+import type { StageApp } from "../../features/shell/stageApp";
 import { PostpartumShell } from "./Shell";
 
 /**

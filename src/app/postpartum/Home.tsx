@@ -1,10 +1,10 @@
 import { useNavigate } from "@tanstack/react-router";
+import { useApp } from "../../features/household/useApp";
 import { QuestionsWaiting } from "../../features/questions/questions";
+import { PillarHeader } from "../../features/shell/Frame";
 import { Band } from "../../features/timeline/Band";
 import { ageLabel, slotLabel } from "../../lib/timeline";
 import { buildBands } from "../../lib/timelineView";
-import { PillarHeader } from "../Frame";
-import { useApp } from "../useApp";
 
 /**
  * The baby's here, and home is this week: what matters now, what has slipped,

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Page } from "../components/Page";
+import { Page } from "../../components/Page";
 
 /** Any address with no page. */
 export function NotFound() {

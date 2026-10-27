@@ -3,9 +3,6 @@ import { Card } from "@sixthshift/design-system/card";
 import { FormField } from "@sixthshift/design-system/form-field";
 import { RadioButtonGroup } from "@sixthshift/design-system/radio-button-group";
 import { useNavigate } from "@tanstack/react-router";
-import { useAction } from "../../app/useAction";
-import { useApp } from "../../app/useApp";
-import { useExpectingTheme } from "../../app/useExpectingTheme";
 import { DateForm } from "../../components/DateForm";
 import { Page, Section } from "../../components/Page";
 import { addDays, formatDate, todayISO } from "../../lib/dates";
@@ -14,6 +11,9 @@ import { positionOn, slotLabel } from "../../lib/timeline";
 import { COMMIT, VERSION } from "../../lib/version";
 import { saveHousehold } from "../../server/functions/household";
 import { forgetPerson } from "../../server/functions/people";
+import { useExpectingTheme } from "../../theme/useExpectingTheme";
+import { useAction } from "../household/useAction";
+import { useApp } from "../household/useApp";
 import { ProfileForm } from "./ProfileForm";
 
 /** The two dates everything hangs off, and the one question that colours it. */

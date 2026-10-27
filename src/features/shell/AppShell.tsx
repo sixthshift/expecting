@@ -1,15 +1,16 @@
 import { useLocation } from "@tanstack/react-router";
 import { useEffect, useMemo } from "react";
-import { ContentContext } from "../features/library/content/context";
-import { STAGES } from "./stages";
-import { useApp } from "./useApp";
-import { useExpectingTheme } from "./useExpectingTheme";
+import { useExpectingTheme } from "../../theme/useExpectingTheme";
+import { useApp } from "../household/useApp";
+import { ContentContext } from "../library/content/context";
+import type { Stages } from "./stageApp";
 
 /**
  * Around every pillar: the household's colours and the context content
- * renders against, whichever stage it's in. Then the stage's own shell.
+ * renders against, whichever stage it's in. Then that stage's app, from
+ * `stages`, drawn in its own shell.
  */
-export function AppShell() {
+export function AppShell({ stages }: { stages: Stages }) {
   const { state, questions, stage, now, nowKey } = useApp();
   useExpectingTheme(state.household.baby);
   const { pathname } = useLocation();
@@ -24,7 +25,7 @@ export function AppShell() {
   const content = useMemo(() => ({ profile, now, openQuestions: questions.filter((q) => !q.askedAt).map((q) => q.text) }), [profile, nowKey, questions]);
 
   // Each stage is its own app: its own pillars and its own home, in the frame they share.
-  const { Shell, pillars } = STAGES[stage];
+  const { Shell, pillars } = stages[stage];
   return (
     <ContentContext.Provider value={content}>
       <Shell pillars={pillars} />

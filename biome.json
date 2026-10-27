@@ -157,8 +157,17 @@
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
                   },
                   {
-                    "group": ["**/preconception/**", "**/pregnancy/**", "**/postpartum/**", "**/preconception", "**/pregnancy", "**/postpartum"],
-                    "message": "Shared code is used by the stages, never the other way round: a stage-only page lives in src/app/<stage>/."
+                    "group": [
+                      "**/app",
+                      "**/app/**",
+                      "**/preconception/**",
+                      "**/pregnancy/**",
+                      "**/postpartum/**",
+                      "**/preconception",
+                      "**/pregnancy",
+                      "**/postpartum"
+                    ],
+                    "message": "Shared code is used by the apps, never the other way round: the route tree hands src/app/ to the shell, and a stage-only page lives in src/app/<stage>/."
                   }
                 ]
               }

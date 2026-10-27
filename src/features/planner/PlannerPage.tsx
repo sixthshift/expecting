@@ -1,12 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronDown } from "lucide-react";
 import { type ReactNode, useState } from "react";
-import { PillarHeader } from "../../app/Frame";
-import { useApp } from "../../app/useApp";
 import type { Task } from "../../content/schema";
 import { groupTasks, TASK_GROUPS, type TaskGroup } from "../../lib/planner";
 import { slotLabel } from "../../lib/timeline";
+import { useApp } from "../household/useApp";
 import { AddQuestion, AskedQuestion, OpenQuestion } from "../questions/questions";
+import { PillarHeader } from "../shell/Frame";
 import { AddTask, DeleteOwnTask } from "../tasks/AddTask";
 import { TaskRow } from "../tasks/TaskRow";
 

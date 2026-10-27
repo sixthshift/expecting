@@ -1,9 +1,9 @@
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
-import type { HouseholdState } from "../../../app/load";
 import { formatDate, todayISO } from "../../../lib/dates";
 import { NOT_YET, STAGE } from "../../../lib/onboarding";
 import { gestationLabel, positionOn, slotLabel } from "../../../lib/timeline";
+import type { HouseholdState } from "../../household/load";
 import type { Screen, StepContext } from "../step";
 
 /** Done: where Expecting will open, and in. */

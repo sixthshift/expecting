@@ -52,17 +52,17 @@ Expecting is three apps over one household: getting ready, the pregnancy, and th
 - **Derived, never stored** (`src/lib/stage.ts`), like the current week. Entering a due date or a birth date is what moves the household on; clearing the birth date moves it back.
 - **The URL never says the stage.** One route tree, one path per pillar: `/journal` is the Journal for wherever the household is. The stage is a fact about the household, like this week, and a bookmark made in week 39 still works after the birth.
 - **Pages are partitioned by stage; parts and data are not.** A page that differs by stage lives in its stage's folder (the pregnancy's Journal and the newborn's are different screens). The features they're built from (`src/features/`: the timeline, tasks, questions, the Library, the Planner, settings), the store and the rules in `src/lib/` are shared: an entry from week 39 is still yours after the birth. When a shared page diverges, its stage's `index.ts` points at a page in its own folder instead.
-- **One route, a page per stage.** Each pillar route's component is `stagePage("/journal")` (`src/app/stagePage.tsx`): it finds that pillar in the household's stage, loads only its page, and sends a stage without it home. The navigation and the pages are one list, so they can't disagree.
-- `AppShell` (the `app` route's component) keeps what every stage shares, the theme and the content context, and draws the stage's `Shell` with its pillars. The shells share their chrome, `Frame` (`src/app/Frame.tsx`); each is where that stage's own things around the pillars go.
+- **One route, a page per stage.** Each pillar route's component is `stagePage("/journal")` (`src/features/shell/stagePage.tsx`): it finds that pillar in the household's stage, loads only its page, and sends a stage without it home. The navigation and the pages are one list, so they can't disagree.
+- `AppShell` (the `app` route's component) keeps what every stage shares, the theme and the content context, and draws the stage's `Shell` with its pillars. The shells share their chrome, `Frame` (`src/features/shell/Frame.tsx`); each is where that stage's own things around the pillars go.
 - Only the pregnancy has the timeline; an item's page links to its week only there.
 
 ## Code layout
 
 ```
 src/
-  app/          the three apps: <stage>/ (index.ts, Shell, its own pages), and what they share (AppShell, Frame, stagePage, useApp, useAction)
-  features/     a folder per domain, shared by every stage: its pages and its parts
-                (timeline, tasks, questions, library, planner, settings, onboarding, auth)
+  app/          the three apps and nothing else: <stage>/ (index.ts, Shell, its own pages), and index.ts listing them
+  features/     everything the apps share, a folder per domain: its pages and its parts
+                (shell, household, timeline, tasks, questions, library, planner, settings, onboarding, auth)
   components/   generic parts with no domain: Page, DateForm, Coming
   lib/          pure rules and types: no React, no router, no store
   content/      the built-in items, bundled
@@ -70,7 +70,7 @@ src/
   db/ server/   server only
 ```
 
-Biome holds the boundaries (`noRestrictedImports` in `biome.json`): only `db/`, `server/` and the API routes import the store; nothing imports `routes/` (a page reads its route through `getRouteApi`); `lib/` and `content/` import no React, router or server; `features/` and `components/` never import a stage; and no stage imports another. `src/app/` is the apps, not file-based routing: routes are code, in `src/routes/tree.ts`.
+Biome holds the boundaries (`noRestrictedImports` in `biome.json`): only `db/`, `server/` and the API routes import the store; nothing imports `routes/` (a page reads its route through `getRouteApi`); `lib/` and `content/` import no React, router or server; `features/` and `components/` never import `src/app/` (the route tree hands the apps to the shell); and no stage imports another. `src/app/` is the apps, not file-based routing: routes are code, in `src/routes/tree.tsx`.
 
 ## The pillars
 
@@ -84,7 +84,7 @@ In the pregnancy, the app is five pillars in its frame: a sidebar on a desktop, 
 | **Journal** | `/journal` | What happens, kept. *Placeholder: says what is coming.* |
 | **Toolkit** | `/toolkit` | Things to use in the moment. *Placeholder.* |
 
-- **One load for all of them.** The `app` route loads the household, the checklist, the people and the questions once; `useApp()` (`src/app/useApp.ts`) tailors the items and tasks and places "now". Moving between pillars is instant, and they never disagree. A change goes through `useAction` (`src/app/useAction.ts`): it saves, then reloads that one load, so every pillar sees it.
+- **One load for all of them.** The `app` route loads the household, the checklist, the people and the questions once; `useApp()` (`src/features/household/useApp.ts`) tailors the items and tasks and places "now". Moving between pillars is instant, and they never disagree. A change goes through `useAction` (`src/features/household/useAction.ts`): it saves, then reloads that one load, so every pillar sees it.
 - **The frame provides what content renders against** (the answers, now, the questions already on your list), so a Markdoc tag works the same on the timeline and in the Library.
 - **Settings sits in the frame too**; onboarding and login don't.
 - **Each thing lives in one pillar and meets the others on the timeline.** A task is the Planner's, and shows in its week; an asked question is the Planner's, and lands in the week it was asked; an item is the Library's, and appears in the week it starts.

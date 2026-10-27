@@ -1,5 +1,5 @@
 import { BookOpen, ListChecks, Sprout } from "lucide-react";
-import type { StageApp } from "../stageApp";
+import type { StageApp } from "../../features/shell/stageApp";
 import { PreconceptionShell } from "./Shell";
 
 /**

@@ -1,10 +1,10 @@
 import { getRouteApi, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ToyBrick } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { useAction } from "../../app/useAction";
-import { useExpectingTheme } from "../../app/useExpectingTheme";
 import { onboardingSteps, type Step } from "../../lib/onboarding";
 import { finishOnboarding } from "../../server/functions/household";
+import { useExpectingTheme } from "../../theme/useExpectingTheme";
+import { useAction } from "../household/useAction";
 
 import type { Screen, StepContext } from "./step";
 import { babyStep } from "./steps/baby";

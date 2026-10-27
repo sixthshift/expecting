@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { STAGES } from "../../src/app/stages";
+import { STAGES } from "../../src/app/index";
 import type { Stage } from "../../src/lib/stage";
 
 const stages = Object.keys(STAGES) as Stage[];

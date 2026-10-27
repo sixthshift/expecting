@@ -1,6 +1,6 @@
 import { HeadContent, Scripts } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { THEME_BOOT_SCRIPT } from "../lib/theme";
+import { THEME_BOOT_SCRIPT } from "../../lib/theme";
 
 /** The HTML document every page is drawn in. */
 export function Document({ children }: { children: ReactNode }) {

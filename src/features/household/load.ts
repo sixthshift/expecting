@@ -2,10 +2,10 @@
 // checklist's state and the questions. One load for every pillar, so moving
 // between them is instant and they never disagree.
 
-import { getChecklist } from "../server/functions/checklist";
-import { getHousehold } from "../server/functions/household";
-import { getPeople } from "../server/functions/people";
-import { listQuestions } from "../server/functions/questions";
+import { getChecklist } from "../../server/functions/checklist";
+import { getHousehold } from "../../server/functions/household";
+import { getPeople } from "../../server/functions/people";
+import { listQuestions } from "../../server/functions/questions";
 
 export async function loadHouseholdState() {
   const [household, checklist, people] = await Promise.all([getHousehold(), getChecklist(), getPeople()]);

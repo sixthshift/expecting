@@ -1,6 +1,6 @@
 import { Camera, FileText, Footprints, IceCreamCone, NotebookPen, Smile } from "lucide-react";
 import { Coming } from "../../../components/Coming";
-import { PillarHeader } from "../../Frame";
+import { PillarHeader } from "../../../features/shell/Frame";
 
 /** The pregnancy, kept: each entry on its day here, and on its week in the timeline. */
 export function PregnancyJournal() {

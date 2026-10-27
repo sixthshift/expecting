@@ -1,11 +1,14 @@
 // Every route, as definitions only: a path, what it loads and validates, and
 // the component it draws. Pages live in src/app/ (per stage) and src/features/
 // (shared), and read their route's data through getRouteApi, so nothing
-// imports from here but the router.
+// imports from here but the router. This is also where the three apps
+// (src/app/) are handed to the shared shell.
 
 import { createRoute, lazyRouteComponent, redirect } from "@tanstack/react-router";
-import { loadApp, loadHouseholdState } from "../app/load";
-import { stagePage } from "../app/stagePage";
+import { STAGES } from "../app";
+import { loadApp, loadHouseholdState } from "../features/household/load";
+import { AppShell } from "../features/shell/AppShell";
+import { stagePage } from "../features/shell/stagePage";
 import { onboardingSteps } from "../lib/onboarding";
 import { rootRoute } from "./root";
 import { homeSearch, librarySearch, loginSearch } from "./search";
@@ -27,15 +30,15 @@ const app = createRoute({
     if (onboarding(data.state).length > 0) throw redirect({ to: "/welcome" });
     return data;
   },
-  component: lazyRouteComponent(() => import("../app/AppShell"), "AppShell"),
+  component: () => <AppShell stages={STAGES} />,
 });
 
 // The pillars: one path each, and the household's stage picks the page.
-const home = createRoute({ getParentRoute: () => app, path: "/", validateSearch: homeSearch, component: stagePage("/") });
-const library = createRoute({ getParentRoute: () => app, path: "/library", validateSearch: librarySearch, component: stagePage("/library") });
-const planner = createRoute({ getParentRoute: () => app, path: "/planner", component: stagePage("/planner") });
-const journal = createRoute({ getParentRoute: () => app, path: "/journal", component: stagePage("/journal") });
-const toolkit = createRoute({ getParentRoute: () => app, path: "/toolkit", component: stagePage("/toolkit") });
+const home = createRoute({ getParentRoute: () => app, path: "/", validateSearch: homeSearch, component: stagePage(STAGES, "/") });
+const library = createRoute({ getParentRoute: () => app, path: "/library", validateSearch: librarySearch, component: stagePage(STAGES, "/library") });
+const planner = createRoute({ getParentRoute: () => app, path: "/planner", component: stagePage(STAGES, "/planner") });
+const journal = createRoute({ getParentRoute: () => app, path: "/journal", component: stagePage(STAGES, "/journal") });
+const toolkit = createRoute({ getParentRoute: () => app, path: "/toolkit", component: stagePage(STAGES, "/toolkit") });
 
 /** One item, to read on its own: from a search, a shelf, or a task's "Why". The same in every stage. */
 const libraryItem = createRoute({

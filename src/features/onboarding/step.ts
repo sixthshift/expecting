@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { HouseholdState } from "../../app/load";
+import type { HouseholdState } from "../household/load";
 
 /** One screen of onboarding: its question, a line under it, and the way to answer. */
 export type Screen = { title: string; lead?: ReactNode; body: ReactNode };

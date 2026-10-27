@@ -1,5 +1,5 @@
 import { BookOpen, CalendarRange, ListChecks, NotebookPen, Wrench } from "lucide-react";
-import type { StageApp } from "../stageApp";
+import type { StageApp } from "../../features/shell/stageApp";
 import { PregnancyShell } from "./Shell";
 
 /**

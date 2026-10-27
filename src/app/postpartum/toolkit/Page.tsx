@@ -1,6 +1,6 @@
 import { Droplets, Milk, Moon } from "lucide-react";
 import { Coming } from "../../../components/Coming";
-import { PillarHeader } from "../../Frame";
+import { PillarHeader } from "../../../features/shell/Frame";
 
 /** The newborn's tools, for a night with a newborn: one hand, half awake. */
 export function PostpartumToolkit() {

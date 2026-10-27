@@ -7,10 +7,10 @@ import { Textarea } from "@sixthshift/design-system/textarea";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, MessageCircleQuestion, Trash2 } from "lucide-react";
 import { type FormEvent, useState } from "react";
-import { useAction } from "../../app/useAction";
 import { formatDate, type ISODate } from "../../lib/dates";
 import type { Question } from "../../lib/questions";
 import { addQuestion, deleteQuestion, markAsked, reopenQuestion } from "../../server/functions/questions";
+import { useAction } from "../household/useAction";
 
 export function AddQuestion() {
   const [text, setText] = useState("");
