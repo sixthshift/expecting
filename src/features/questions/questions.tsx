@@ -7,7 +7,7 @@ import { Textarea } from "@sixthshift/design-system/textarea";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, MessageCircleQuestion, Trash2 } from "lucide-react";
 import { type FormEvent, useState } from "react";
-import { formatDate, type ISODate } from "../../lib/dates";
+import { formatDate, todayISO } from "../../lib/dates";
 import type { Question } from "../../lib/questions";
 import { addQuestion, deleteQuestion, markAsked, reopenQuestion } from "../../server/functions/questions";
 import { useAction } from "../household/useAction";
@@ -96,7 +96,7 @@ export function AskedQuestion({ question }: { question: Question }) {
       </div>
       {question.answer ? <p className="mt-1 whitespace-pre-wrap text-fg-normal">{question.answer}</p> : null}
       <div className="mt-2 flex items-center justify-between gap-2 text-xs text-fg-subtle">
-        <span>Asked {formatDate(question.askedAt!.slice(0, 10) as ISODate, { day: "numeric", month: "short", year: "numeric" })}</span>
+        <span>Asked {formatDate(todayISO(new Date(question.askedAt!)), { day: "numeric", month: "short", year: "numeric" })}</span>
         <Button variant="ghost" size="sm" loading={reopening} onClick={reopen}>
           Ask again
         </Button>

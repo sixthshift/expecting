@@ -11,7 +11,7 @@
 
 import type { Item, Task } from "../content/schema";
 import { overdue } from "./checklist";
-import type { ISODate } from "./dates";
+import { type ISODate, todayISO } from "./dates";
 import type { Question } from "./questions";
 import { allSlots, compareSlots, positionOn, type Slot, sameSlot, slotKey } from "./timeline";
 
@@ -73,7 +73,7 @@ function askedSlots({ questions, dueDate, birthDate }: TimelineInput): Map<strin
   const at = new Map<string, string>();
   if (!dueDate) return at;
   for (const q of questions) {
-    if (q.askedAt) at.set(q.id, slotKey(positionOn(q.askedAt.slice(0, 10) as ISODate, dueDate, birthDate).slot));
+    if (q.askedAt) at.set(q.id, slotKey(positionOn(todayISO(new Date(q.askedAt)), dueDate, birthDate).slot));
   }
   return at;
 }

@@ -82,6 +82,19 @@ test("asked questions land in the week they were asked: the diary", () => {
   expect(bands.filter((b) => b.asked.length > 0).map((b) => [b.key, b.asked.map((x) => x.id)])).toEqual([["24", ["asked"]]]);
 });
 
+test("a question asked just after midnight lands in that local day's week, not the UTC one", () => {
+  const tz = process.env.TZ;
+  process.env.TZ = "Australia/Sydney";
+  try {
+    const q: Question = { id: "early", text: "early", answer: null, askedAt: "2026-10-26T13:30:00Z", createdAt: "2026-01-01T00:00:00Z" };
+    // 00:30 on Tue 27 Oct in Sydney, still the 26th in UTC. Due 19 Jan 2027, the 27th is 28+0.
+    const bands = buildBands({ ...base, questions: [q] });
+    expect(bands.find((b) => b.asked.length > 0)?.key).toBe("28");
+  } finally {
+    process.env.TZ = tz;
+  }
+});
+
 test("with no due date there is no now, and every week is still readable", () => {
   const bands = buildBands({ ...base, now: null, dueDate: null });
   expect(bands.some((b) => b.isNow || b.isPast)).toBe(false);
