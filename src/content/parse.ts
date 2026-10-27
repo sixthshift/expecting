@@ -1,6 +1,6 @@
 import type { Node } from "@markdoc/markdoc";
 import { parse as parseYaml } from "yaml";
-import type { Slot } from "../lib/timeline";
+import type { Phase, Slot } from "../lib/timeline";
 import { parseBody } from "./markdoc";
 import { type Frontmatter, frontmatterSchema, type Item } from "./schema";
 
@@ -13,8 +13,22 @@ export class ContentError extends Error {
   }
 }
 
-/** One content file into an item. Throws a ContentError naming the file on any problem. */
+const PHASES: readonly Phase[] = ["preconception", "pregnancy", "postpartum"];
+
+/**
+ * Where a file says it belongs: `<phase>/<id>.md`, the folder its phase and
+ * the name its id. Anything else is a ContentError.
+ */
+function placeOf(file: string): { phase: Phase; id: string } {
+  const [folder, name] = file.split("/").slice(-2);
+  const phase = PHASES.find((p) => p === folder);
+  if (!phase || !name?.endsWith(".md")) throw new ContentError(file, `belongs in a phase's folder, as ${PHASES.join("/, ")}/<id>.md`);
+  return { phase, id: name.slice(0, -".md".length) };
+}
+
+/** One content file, `<phase>/<id>.md`, into an item. Throws a ContentError naming the file on any problem. */
 export function parseItem(file: string, source: string): Item {
+  const place = placeOf(file);
   const match = FRONTMATTER.exec(source);
   if (!match) throw new ContentError(file, "no frontmatter block between --- lines");
 
@@ -25,11 +39,15 @@ export function parseItem(file: string, source: string): Item {
     throw new ContentError(file, `frontmatter is not YAML: ${(error as Error).message}`);
   }
 
-  const parsed = frontmatterSchema.safeParse(raw);
+  // The folder is the phase, so the frontmatter can't disagree with it.
+  if (raw && typeof raw === "object" && "phase" in raw) throw new ContentError(file, `no phase: in the frontmatter; the folder (${place.phase}/) is its phase`);
+  const parsed = frontmatterSchema.safeParse({ ...(raw as object), phase: place.phase });
   if (!parsed.success) {
     const problems = parsed.error.issues.map((i) => `${i.path.join(".") || "(root)"}: ${i.message}`).join("; ");
     throw new ContentError(file, problems);
   }
+
+  if (parsed.data.id !== place.id) throw new ContentError(file, `id "${parsed.data.id}" must be the file's name, ${place.id}`);
 
   const body = match[2]!.trim();
   if (body.length === 0) throw new ContentError(file, "the body is empty");

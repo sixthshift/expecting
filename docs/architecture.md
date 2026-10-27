@@ -143,10 +143,11 @@ Expecting has its own theme, not the design system's Linen. It's built from a re
 
 ## Content
 
-- Built-in items live in the repo under `content/`, one Markdoc file per item, with frontmatter for weeks, category, `when`, source, last checked and linked tasks.
+- Built-in items live in the repo as `content/<phase>/<id>.md`, one Markdoc file per item, with frontmatter for weeks, category, `when`, source, last checked and linked tasks. `content/profile.yaml`, the questions every phase is tailored by, sits above the folders.
+- **The folder is the item's phase,** and the file's name is its id: the frontmatter has no `phase:`, and a file outside a phase's folder or named for another id fails the gate. An item belongs to exactly one phase. Its phase says *when it matters*, not who can read it: every phase's Library has every item, so in week 34 the newborn's are there to read ahead.
 - Bodies are Markdoc: Markdown plus declared tags (`src/content/markdoc.ts`), each drawn by a component in `src/features/library/content/`. `{% ask %}` is a suggested question, added to your list in one tap; `{% window %}` draws an item's weeks against today. Every tag, attribute, `$question` and answer is checked as the content loads.
 - They are validated with zod when the content module loads, and `bun run test` loads it, so a malformed item fails the gate, not the page.
-- Each item's weeks are a phase and a range of weeks within it (`preconception`, pregnancy 1–42, postpartum 1–12), the same `Slot` that `src/lib/timeline.ts` derives the current week as.
+- Each item's weeks are its phase and a range of weeks within it (`preconception`, pregnancy 1–42, postpartum 1–12), the same `Slot` that `src/lib/timeline.ts` derives the current week as.
 - Each item and each linked task has a stable id in its frontmatter. Ticks and hides in the database point at that id, so editing an item's wording never loses state.
 - Chosen over **content in the database**, because built-in content is reviewed like code: diffs, history, and a build that refuses bad data.
 

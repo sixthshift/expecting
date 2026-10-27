@@ -1,4 +1,4 @@
-// The shape of a built-in item, as written in content/*.md frontmatter, and
+// The shape of a built-in item, as written in content/<phase>/<id>.md frontmatter, and
 // the normalised item the rest of the app reads. Our own items, when they
 // arrive, normalise to the same `Item`.
 
@@ -32,6 +32,7 @@ export const frontmatterSchema = z
   .object({
     id: slug,
     title: z.string().min(1),
+    /** Not written in the file: its folder, `content/<phase>/`, supplies it. */
     phase: z.enum(["preconception", "pregnancy", "postpartum"]),
     /** A week, or [from, to] inclusive, within the phase. Omitted for `preconception`. */
     weeks: weekRange.optional(),
@@ -68,7 +69,7 @@ export const frontmatterSchema = z
     if (fm.phase === "preconception") {
       if (fm.weeks) ctx.addIssue({ code: "custom", path: ["weeks"], message: "a preconception item has no weeks" });
       for (const [i, t] of fm.tasks.entries()) {
-        if (t.due !== undefined) ctx.addIssue({ code: "custom", path: ["tasks", i, "due"], message: "a 'before' task has no due week" });
+        if (t.due !== undefined) ctx.addIssue({ code: "custom", path: ["tasks", i, "due"], message: "a preconception task has no due week" });
       }
       return;
     }
