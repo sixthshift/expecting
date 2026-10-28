@@ -83,7 +83,7 @@
       }
     },
     {
-      "includes": ["src/styles.css"],
+      "includes": ["src/styles/index.css"],
       "linter": {
         "rules": {
           "complexity": {

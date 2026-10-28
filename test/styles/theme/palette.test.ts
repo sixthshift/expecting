@@ -3,9 +3,9 @@
 // in scripts/palette.ts can't quietly break that.
 import { readFileSync } from "node:fs";
 import { expect, test } from "vitest";
-import { contrast } from "../../scripts/palette";
+import { contrast } from "../../../scripts/palette";
 
-const css = readFileSync(new URL("../../src/theme/palette.css", import.meta.url), "utf8");
+const css = readFileSync(new URL("../../../src/styles/theme/palette.css", import.meta.url), "utf8");
 const tokens = [...css.matchAll(/--color-([a-z]+)-(\d+): (#[0-9a-f]{6});/g)].map(([, family, step, hex]) => ({
   family: family!,
   step: Number(step),

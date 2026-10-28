@@ -1,4 +1,4 @@
-// Generates src/theme/palette.css: a 50–950 scale for every colour family the
+// Generates src/styles/theme/palette.css: a 50–950 scale for every colour family the
 // three Expecting themes paint with, from a handful of anchors.
 //
 //   bun run palette
@@ -164,8 +164,8 @@ if (import.meta.main) {
     "",
   ].join("\n");
 
-  await Bun.write(new URL("../src/theme/palette.css", import.meta.url), css);
-  console.log("wrote src/theme/palette.css\n");
+  await Bun.write(new URL("../src/styles/theme/palette.css", import.meta.url), css);
+  console.log("wrote src/styles/theme/palette.css\n");
 
   console.log("contrast (AA body text needs 4.5, large text and UI 3):");
   for (const { name, steps } of families) {

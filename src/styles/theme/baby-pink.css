@@ -4,7 +4,7 @@
  * The pink end of the palette: #FFB5CC as the brand, #FADCE4 its pale, #E2B9DB lilac beside it.
  *
  * A complete theme for the design system: every semantic token it reads, in
- * light mode (Expecting has no dark mode yet), pointed at src/theme/palette.css.
+ * light mode (Expecting has no dark mode yet), pointed at src/styles/theme/palette.css.
  * The neutral (mist), success (sea), warning (peach) and danger (cherry) are
  * the same in all three themes; the brand and the accent are
  * this theme's own. Applied by `data-expecting-theme` on <html> (src/lib/theme.ts).

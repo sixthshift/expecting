@@ -3,7 +3,7 @@ import { ArrowLeft, ToyBrick } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { finishOnboarding } from "../../api/rpc/household";
 import { onboardingSteps, type Step } from "../../lib/onboarding";
-import { useExpectingTheme } from "../../theme/useExpectingTheme";
+import { useExpectingTheme } from "../app/useExpectingTheme";
 import { useAction } from "../household/useAction";
 
 import type { Screen, StepContext } from "./step";

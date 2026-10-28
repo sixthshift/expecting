@@ -1,9 +1,9 @@
 import { useLocation } from "@tanstack/react-router";
 import { useEffect, useMemo } from "react";
-import { useExpectingTheme } from "../../theme/useExpectingTheme";
 import { useApp } from "../household/useApp";
 import { ContentContext } from "../library/content/context";
 import type { Phases } from "./phaseApp";
+import { useExpectingTheme } from "./useExpectingTheme";
 import { PhaseAppContext } from "./usePhaseApp";
 
 /**

@@ -1,10 +1,10 @@
 /*
- * Expecting — Baby Purple: the theme for don't know yet, or keeping it a surprise — and the default.
+ * Expecting — Baby Blue: the theme for a boy.
  *
- * Both ends at once: lilac (#E2B9DB), the colour between blue and pink, as the brand, and a blue-to-pink accent like the reference's gradient circles.
+ * The blue end of the palette: #9DC3E2 as the brand, #9DD2D8 aqua beside it.
  *
  * A complete theme for the design system: every semantic token it reads, in
- * light mode (Expecting has no dark mode yet), pointed at src/theme/palette.css.
+ * light mode (Expecting has no dark mode yet), pointed at src/styles/theme/palette.css.
  * The neutral (mist), success (sea), warning (peach) and danger (cherry) are
  * the same in all three themes; the brand and the accent are
  * this theme's own. Applied by `data-expecting-theme` on <html> (src/lib/theme.ts).
@@ -16,14 +16,13 @@
  *   --expecting-page                  the page: white, at most a temperature
  */
 
-:root,
-:root[data-expecting-theme="baby-purple"] {
-  /* The page: plain white. */
-  --expecting-page: #ffffff;
+:root[data-expecting-theme="baby-blue"] {
+  /* The page: a cool white, a whisper of blue. */
+  --expecting-page: #f8fafc;
   --expecting-accent-from: var(--color-sky-300);
-  --expecting-accent-to: var(--color-blossom-300);
+  --expecting-accent-to: var(--color-lagoon-300);
   --expecting-accent-soft-from: var(--color-sky-100);
-  --expecting-accent-soft-to: var(--color-blossom-100);
+  --expecting-accent-soft-to: var(--color-lagoon-100);
 
   --bg-strong: var(--color-mist-800);
   --bg-strong-hovered: var(--color-mist-900);
@@ -37,18 +36,18 @@
   --bg-subtle-hovered: var(--color-mist-100);
   --bg-subtle-pressed: var(--color-mist-200);
   --bg-subtle-disabled: var(--color-mist-100);
-  --bg-brand-subtle: var(--color-lilac-100);
-  --bg-brand-subtle-hovered: var(--color-lilac-200);
-  --bg-brand-subtle-pressed: var(--color-lilac-300);
-  --bg-brand-subtle-disabled: var(--color-lilac-50);
-  --bg-brand: var(--color-lilac-600);
-  --bg-brand-hovered: var(--color-lilac-700);
-  --bg-brand-pressed: var(--color-lilac-800);
-  --bg-brand-disabled: var(--color-lilac-300);
-  --bg-brand-strong: var(--color-lilac-800);
-  --bg-brand-strong-hovered: var(--color-lilac-900);
-  --bg-brand-strong-pressed: var(--color-lilac-950);
-  --bg-brand-strong-disabled: var(--color-lilac-400);
+  --bg-brand-subtle: var(--color-sky-100);
+  --bg-brand-subtle-hovered: var(--color-sky-200);
+  --bg-brand-subtle-pressed: var(--color-sky-300);
+  --bg-brand-subtle-disabled: var(--color-sky-50);
+  --bg-brand: var(--color-sky-600);
+  --bg-brand-hovered: var(--color-sky-700);
+  --bg-brand-pressed: var(--color-sky-800);
+  --bg-brand-disabled: var(--color-sky-300);
+  --bg-brand-strong: var(--color-sky-800);
+  --bg-brand-strong-hovered: var(--color-sky-900);
+  --bg-brand-strong-pressed: var(--color-sky-950);
+  --bg-brand-strong-disabled: var(--color-sky-400);
   --bg-success-subtle: var(--color-sea-100);
   --bg-success-subtle-hovered: var(--color-sea-200);
   --bg-success-subtle-pressed: var(--color-sea-300);
@@ -102,14 +101,14 @@
   --fg-subtle-hovered: var(--color-mist-600);
   --fg-subtle-pressed: var(--color-mist-700);
   --fg-subtle-disabled: var(--color-mist-300);
-  --fg-brand: var(--color-lilac-700);
-  --fg-brand-hovered: var(--color-lilac-800);
-  --fg-brand-pressed: var(--color-lilac-900);
-  --fg-brand-disabled: var(--color-lilac-300);
-  --fg-on-brand-subtle: var(--color-lilac-800);
-  --fg-on-brand-subtle-hovered: var(--color-lilac-900);
-  --fg-on-brand-subtle-pressed: var(--color-lilac-950);
-  --fg-on-brand-subtle-disabled: var(--color-lilac-400);
+  --fg-brand: var(--color-sky-700);
+  --fg-brand-hovered: var(--color-sky-800);
+  --fg-brand-pressed: var(--color-sky-900);
+  --fg-brand-disabled: var(--color-sky-300);
+  --fg-on-brand-subtle: var(--color-sky-800);
+  --fg-on-brand-subtle-hovered: var(--color-sky-900);
+  --fg-on-brand-subtle-pressed: var(--color-sky-950);
+  --fg-on-brand-subtle-disabled: var(--color-sky-400);
   --fg-on-brand: var(--color-mist-50);
   --fg-on-brand-hovered: white;
   --fg-on-brand-pressed: white;
@@ -178,18 +177,18 @@
   --border-subtle-hovered: var(--color-mist-200);
   --border-subtle-pressed: var(--color-mist-300);
   --border-subtle-disabled: var(--color-mist-50);
-  --border-brand-subtle: var(--color-lilac-300);
-  --border-brand-subtle-hovered: var(--color-lilac-400);
-  --border-brand-subtle-pressed: var(--color-lilac-500);
-  --border-brand-subtle-disabled: var(--color-lilac-200);
-  --border-brand: var(--color-lilac-600);
-  --border-brand-hovered: var(--color-lilac-700);
-  --border-brand-pressed: var(--color-lilac-800);
-  --border-brand-disabled: var(--color-lilac-200);
-  --border-brand-strong: var(--color-lilac-800);
-  --border-brand-strong-hovered: var(--color-lilac-900);
-  --border-brand-strong-pressed: var(--color-lilac-950);
-  --border-brand-strong-disabled: var(--color-lilac-400);
+  --border-brand-subtle: var(--color-sky-300);
+  --border-brand-subtle-hovered: var(--color-sky-400);
+  --border-brand-subtle-pressed: var(--color-sky-500);
+  --border-brand-subtle-disabled: var(--color-sky-200);
+  --border-brand: var(--color-sky-600);
+  --border-brand-hovered: var(--color-sky-700);
+  --border-brand-pressed: var(--color-sky-800);
+  --border-brand-disabled: var(--color-sky-200);
+  --border-brand-strong: var(--color-sky-800);
+  --border-brand-strong-hovered: var(--color-sky-900);
+  --border-brand-strong-pressed: var(--color-sky-950);
+  --border-brand-strong-disabled: var(--color-sky-400);
   --border-success: var(--color-sea-300);
   --border-success-hovered: var(--color-sea-400);
   --border-success-pressed: var(--color-sea-500);
@@ -202,5 +201,5 @@
   --border-danger-hovered: var(--color-cherry-400);
   --border-danger-pressed: var(--color-cherry-500);
   --border-danger-disabled: var(--color-cherry-200);
-  --focus-ring: var(--color-lilac-500);
+  --focus-ring: var(--color-sky-500);
 }

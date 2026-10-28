@@ -15,7 +15,7 @@
 @import "./baby-purple.css";
 @import "./baby-blue.css";
 @import "./baby-pink.css";
-@import "../../node_modules/@sixthshift/design-system/src/theming/tailwind.css";
+@import "../../../node_modules/@sixthshift/design-system/src/theming/tailwind.css";
 
 /* Corners: softer than Tailwind's own, after the reference's pill shapes.
    Type: the design system's own stacks, as Linen set them (Inter is an

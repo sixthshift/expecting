@@ -12,7 +12,7 @@ import { addDays, formatDate, todayISO } from "../../lib/dates";
 import { applyTheme, BABY, type Baby, THEMES } from "../../lib/theme";
 import { positionOn, slotLabel } from "../../lib/timeline";
 import { COMMIT, VERSION } from "../../lib/version";
-import { useExpectingTheme } from "../../theme/useExpectingTheme";
+import { useExpectingTheme } from "../app/useExpectingTheme";
 import { useAction } from "../household/useAction";
 import { useApp } from "../household/useApp";
 import { ProfileForm } from "./ProfileForm";

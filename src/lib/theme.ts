@@ -1,6 +1,6 @@
 // Which of Expecting's three themes is showing, from the one question it asks:
 // boy, girl, or don't know (which covers keeping it a surprise). The themes
-// themselves are CSS (src/theme/); this only chooses one.
+// themselves are CSS (src/styles/theme/); this only chooses one.
 
 export const BABY = {
   boy: "Boy",
