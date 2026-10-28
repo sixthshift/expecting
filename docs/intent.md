@@ -10,7 +10,15 @@ A pregnancy companion for one couple, expecting in Australia. Self-hosted. Not a
 
 It covers the whole pregnancy, from getting ready to the birth, then the fourth trimester (the first three months after it). It may grow into newborn and parenting later. Nothing is built for that yet, but nothing should prevent it.
 
-**A companion, not a tool.** A tool answers when asked. A companion:
+**It runs the admin.** Having a baby in Australia comes with a long tail of bookings, claims, forms and purchases, each with its own window and lead time, split between two people and spread over a year. Expecting holds that list so you don't have to. From what it knows about your household, it says what to do this week, what to start preparing for, and why, and it keeps track of what's done. You shouldn't need to know how the system works to get through it.
+
+- **It tells, it doesn't just inform.** "Claim Parental Leave Pay this week", not an article about Parental Leave Pay. The reading is one tap behind the instruction.
+- **Only about the admin.** It is directive about bookings, paperwork, purchases and plans; about her body it explains and points to the midwife ([Not medical advice](#not-medical-advice)).
+- **It has to be complete to be trusted.** A reading app missing an article is a gap; a driver missing a deadline is a failure. Every task that has a date has a source.
+- **It asks what it needs to know,** when it needs to know it, and the answer changes the plan ([Tailoring](#tailoring)).
+- **It knows whose job it is:** hers, the partner's, or both of yours.
+
+**And a companion, not a tool.** The admin is half of it; the other half is the pregnancy itself. A tool answers when asked. A companion:
 
 - **knows you:** your answers tailor what you see;
 - **remembers:** what happened becomes part of the story;
@@ -157,6 +165,7 @@ What this asks of the app, not yet built:
 
 - **Onboarding asks a few questions:** are you pregnant yet, when are you due, do you have private cover. The answers decide what you see.
 - **Some questions only make sense later,** when the answer exists ("your first bloods are usually back: are you RhD negative?"). Those are asked in the timeline, in the week they become real, so onboarding stays short and the app keeps learning.
+- **The driver needs more of them.** To say what to do, it has to know things like: is this your first baby; public, private or midwifery care; is the hospital booked; for each parent, employee, self-employed or not working, and whether the employer pays leave. Each is asked in the week it starts to matter, as close as possible to the task it changes, and each one earns its place by changing a task.
 - **The rules:**
   - The questions are content (`content/profile.yaml`).
   - Each answer is a fact on the household, shared by both parents and changeable in settings.
@@ -230,6 +239,7 @@ The app shows both the same way. A small marker says which is which.
 ### Not medical advice
 
 - **Medical content explains** what usually happens and when. It never tells her what to do about her body.
+- **The admin is the exception that proves it.** Bookings, claims, forms and purchases are told plainly, with a when and a why. Booking an appointment is admin; what happens at it is medical.
 - **Anything clinical** ends with "ask your midwife or OB".
 - **Nothing reassures** where it should send you to a phone. A change in movements is always a call, never a chart.
 
@@ -239,12 +249,21 @@ The content assumes Australian care: Medicare, the public and private pathways, 
 
 ## To do
 
-- **What's on it:** every linked task, ordered by week, plus any standalone tasks we add.
-- **Nothing separate to manage.** Tick a task and it's ticked everywhere it appears.
-- **Due weeks:** each task has an optional due week. It defaults to the end of its item's range.
-- **Not decisions.** "Book the morphology scan" is a task. "Decide on public or private care" is a [decision](#decisions).
+To do is how Expecting [runs the admin](#what-it-is). This week opens with it: the few things to do now, in the order they matter, each with why.
 
-*Built, as the To do view.*
+- **What's on it:** every linked task, ordered by when it matters, plus any standalone tasks we add.
+- **Nothing separate to manage.** Tick a task and it's ticked everywhere it appears.
+- **A task has a window, not just a week:**
+  - **opens:** the earliest it can or should be done ("you can't lodge the claim before…");
+  - **best by:** when it's comfortably done, allowing for its **lead time** (classes and childcare book out weeks or months ahead);
+  - **deadline:** a hard date, where there is one, when missing it costs something (a payment, a place, a vaccine window).
+  These are in weeks, from the content, and the deadline is checked against a source like any other fact.
+- **Ordered by urgency, not by week.** A hard deadline coming up beats a soft one; a task with a long lead time surfaces early. What has slipped says what it costs now.
+- **Whose job it is:** hers, the partner's, or together. Each phone knows who is holding it, so This week can say "yours" and "Sam's".
+- **The plan changes with the answers.** A self-employed parent has different leave paperwork; the state decides how the birth is registered. A task appears, changes or goes away when the household's answers say so.
+- **Not decisions.** "Book the morphology scan" is a task. "Decide on public or private care" is a [decision](#decisions), and a decision can produce tasks.
+
+*Built, as the Planner and the timeline: tasks with one due week, slipped tasks flagged. Not built: windows, deadlines, lead times, whose job, ordering by urgency, This week leading with what to do.*
 
 ## Decisions
 
@@ -361,16 +380,18 @@ How the switches work:
 The core loop first, the thing you open every week; then the parts that stand alone:
 
 1. **Onboarding** and who's who. *Built.*
-2. **The weekly loop:** this week (content), the timeline as diary, and the capture button with movements, sickness, cravings, mood and notes.
-3. **Safety:** the call button and the red flags.
-4. **Names:** self-contained and fun, and the first test of the feature switches.
-5. **Records,** once backups and access are settled.
-6. **The rest of the content:** the deck, "Is this normal?", "Can I…?". Mostly writing.
+2. **The driver:** tasks with a window and whose job they are, and This week opening with what to do now. Then the questions it needs asked in the week they matter, and the full admin inventory, grown together.
+3. **The weekly loop:** this week's note (*four weeks drafted*), the timeline as diary, and the capture button with movements, sickness, cravings, mood and notes.
+4. **Safety:** the call button and the red flags.
+5. **Names:** self-contained and fun, and the first test of the feature switches.
+6. **Records,** once backups and access are settled.
+7. **The rest of the content:** the deck, "Is this normal?", "Can I…?". Mostly writing.
 
 ## Open questions
 
 - **Content sourcing.** How the built-in content gets written and reviewed at this volume: weekly notes, cards, "Can I…?" and symptoms are hundreds of entries.
 - **The partner's lens.** How much of each week is written twice, once for each of you, rather than once with a "for you" line.
-- **Reaching out.** Whether the app ever notifies (a weekly push, a heads-up). Today it only shows things when opened.
+- **Reaching out.** Whether the app ever notifies (a weekly push, a heads-up). Today it only shows things when opened. A driver you have to remember to open is half a driver, so this matters more now; push on a self-hosted server needs HTTPS and the installed app first.
+- **The admin inventory.** What the complete list is, for an Australian household with two working parents, and who keeps it current as entitlements change each financial year.
 - **The newborn mode.** How much of feed, sleep and nappy tracking belongs here, and where it would end before "parenting" begins.
 - **Hosting and access.** Castle or Tower, which backup covers it, and HTTPS (Tailscale) before records arrive.
