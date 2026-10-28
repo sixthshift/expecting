@@ -8,6 +8,10 @@ export function getRouter() {
     // restored position would fight it.
     scrollRestoration: false,
     defaultPreload: "intent",
+    // A reload of data already shown (router.invalidate, after every save) is waited for, not run in the
+    // background: what's awaited is the fresh data, so a navigation straight after a save (onboarding's next
+    // question) draws what was just saved, and useAction's pending lasts until the page shows it.
+    defaultStaleReloadMode: "blocking",
   });
 }
 
