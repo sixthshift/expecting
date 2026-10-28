@@ -20,5 +20,5 @@ export const homeSearch = z.object({
 /** The Library: what was typed in its search. */
 export const librarySearch = z.object({ q: z.string().optional().catch(undefined) });
 
-/** Login: why the last try failed, and where to go once in. */
-export const loginSearch = z.object({ error: z.enum(["wrong", "locked"]).optional(), next: z.string().optional() });
+/** Login: where to go once in. */
+export const loginSearch = z.object({ next: z.string().optional() });

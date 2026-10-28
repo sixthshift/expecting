@@ -25,9 +25,10 @@ export const test = base.extend<Fixtures>({
   person: ["Jason", { option: true }],
   page: async ({ page, allowedErrors, loggedIn, person }, use) => {
     if (loggedIn) {
-      // page.request shares the browser context's cookies, so the session lands where the page will use it.
-      const response = await page.request.post("/api/login", { form: { password: PASSWORD }, maxRedirects: 0 });
-      expect(response.status(), "logging in").toBe(303);
+      await page.goto("/login", { waitUntil: "networkidle" });
+      await page.getByLabel("Password").fill(PASSWORD);
+      await page.getByRole("button", { name: "Log in" }).click();
+      await page.waitForURL((url) => url.pathname !== "/login");
     }
     if (loggedIn && person) {
       // Every test is a new phone: say who's holding it, the way the second parent would.

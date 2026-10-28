@@ -11,6 +11,7 @@ import { positionOn, slotLabel } from "../../lib/timeline";
 import { COMMIT, VERSION } from "../../lib/version";
 import { saveHousehold } from "../../server/functions/household";
 import { forgetPerson } from "../../server/functions/people";
+import { logout } from "../../server/functions/session";
 import { useExpectingTheme } from "../../theme/useExpectingTheme";
 import { useAction } from "../household/useAction";
 import { useApp } from "../household/useApp";
@@ -109,11 +110,16 @@ export function SettingsPage() {
               >
                 Someone else is using it
               </Button>
-              <form method="post" action="/api/logout">
-                <Button type="submit" variant="outline">
-                  Log out
-                </Button>
-              </form>
+              <Button
+                variant="outline"
+                onClick={async () => {
+                  await logout();
+                  // A full load, not a navigation: nothing of the household stays in this tab's memory.
+                  window.location.assign("/login");
+                }}
+              >
+                Log out
+              </Button>
             </div>
           </div>
         </Card>

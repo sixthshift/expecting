@@ -49,12 +49,7 @@ test("/api/health answers", async ({ request }) => {
 });
 
 test.describe("logged out", () => {
-  // KNOWN ISSUE (timeline branch): the second load of /login in one tab (here,
-  // after a wrong password) logs React hydration error #418, which React then
-  // recovers from; the page works. main does not show it and the cause is not
-  // yet found (not the prerendered shell, scroll restoration or the root
-  // component). Allowed here only, so it stays visible; remove once fixed.
-  test.use({ loggedIn: false, allowedErrors: [/Minified React error #418/] });
+  test.use({ loggedIn: false });
 
   test("a page sends you to log in, then to say who you are", async ({ page, open }) => {
     await open("/settings");
@@ -70,9 +65,29 @@ test.describe("logged out", () => {
     await page.getByRole("button", { name: "I'm Jason" }).click();
     await expect(page.getByRole("heading", { level: 1, name: "Timeline" })).toBeAttached();
   });
+});
 
-  test("server functions refuse without a session", async ({ request }) => {
-    const response = await request.get("/_serverFn/anything", { headers: { accept: "application/json" } });
-    expect(response.status()).toBe(401);
+test("server functions refuse a caller without a session", async ({ page, open, playwright, baseURL }) => {
+  // Note the calls a logged-in page makes, then make them again with no cookie.
+  const calls: string[] = [];
+  page.on("request", (request) => {
+    if (new URL(request.url()).pathname.startsWith("/_serverFn/")) calls.push(request.url());
   });
+  await open("/");
+  expect(calls.length, "the app loaded through server functions").toBeGreaterThan(0);
+
+  const stranger = await playwright.request.newContext({ baseURL });
+  for (const url of calls) {
+    const response = await stranger.get(url, { headers: { accept: "application/json" } });
+    expect(response.status(), url).toBe(401);
+  }
+  await stranger.dispose();
+});
+
+test("logging out ends the session", async ({ page, open }) => {
+  await open("/settings");
+  await page.getByRole("button", { name: "Log out" }).click();
+  await expect(page).toHaveURL(/\/login$/);
+  await open("/settings");
+  await expect(page).toHaveURL(/\/login\?next=%2Fsettings$/);
 });

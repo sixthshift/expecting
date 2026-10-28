@@ -18,12 +18,7 @@ export function isHttps(request: Request): boolean {
   return new URL(request.url).protocol === "https:" || request.headers.get("x-forwarded-proto") === "https";
 }
 
-export function sessionCookie(token: string, request: Request): string {
-  const attrs = [`${SESSION_COOKIE}=${encodeURIComponent(token)}`, "Path=/", "HttpOnly", "SameSite=Lax", `Max-Age=${SESSION_DAYS * 86_400}`];
-  if (isHttps(request)) attrs.push("Secure");
-  return attrs.join("; ");
-}
-
-export function clearedSessionCookie(): string {
-  return `${SESSION_COOKIE}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0`;
+/** How the session cookie is set: for the whole site, out of scripts' reach, for as long as a session lives. */
+export function sessionCookieOptions(request: Request) {
+  return { path: "/", httpOnly: true, sameSite: "lax", secure: isHttps(request), maxAge: SESSION_DAYS * 86_400 } as const;
 }

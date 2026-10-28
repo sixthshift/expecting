@@ -28,7 +28,8 @@ content/ (in the repo, bundled at build) ──▶ built-in items
 - Chosen over **no auth** (garnish's choice), because this data is personal and the app is meant to be reachable from a phone at the hospital. Chosen over **two accounts**, because nothing needs to be private from the other parent.
 - Login attempts are rate limited: ten failures in fifteen minutes locks that client out, in memory.
 - Sessions are rows holding the SHA-256 of the cookie's token, so a copy of the database is not a login. A session lives 400 days from its last use.
-- Every request passes one request middleware. Pages without a session redirect to `/login`, and everything else gets a 401. The login form is a plain form post to `/api/login`, which sets the cookie itself.
+- Every request passes request middleware, which judges it by path: pages without a session redirect to `/login`, `/api/*` calls get a 401, and only `/login` and `/api/health` are open.
+- A server function's path is a generated id, so request middleware lets those calls on, and function middleware judges each one by the file it is defined in: without a session, only `src/server/functions/session.ts` answers. That file holds `login` and `logout`, ordinary server functions like the rest, so the app has one way of calling the server, and `/api/*` is left for callers that aren't the app.
 - Without `EXPECTING_PASSWORD_HASH` the dev server runs open; a production server refuses to start.
 
 ### Who's holding the phone

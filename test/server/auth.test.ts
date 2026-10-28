@@ -1,7 +1,8 @@
+import { existsSync } from "node:fs";
 import { describe, expect, test } from "vitest";
 import { SessionRepo } from "../../src/db/models/auth/repo";
-import { readSessionCookie, sessionCookie } from "../../src/server/auth/cookie";
-import { safeNext } from "../../src/server/auth/gate";
+import { readSessionCookie, sessionCookieOptions } from "../../src/server/auth/cookie";
+import { isOpenFunction, isOpenPath, safeNext } from "../../src/server/auth/gate";
 import { authMode, LoginLimiter, verifyPassword } from "../../src/server/auth/password";
 import { useTestDb } from "../db/helpers";
 
@@ -44,12 +45,31 @@ test.each([
 });
 
 test("the cookie round-trips and is Secure only over HTTPS", () => {
-  const plain = new Request("http://expecting.lan/api/login");
-  const proxied = new Request("http://expecting.lan/api/login", { headers: { "x-forwarded-proto": "https" } });
-  expect(sessionCookie("t", plain)).not.toContain("Secure");
-  expect(sessionCookie("t", proxied)).toContain("Secure");
-  expect(sessionCookie("t", plain)).toContain("HttpOnly");
+  const plain = new Request("http://expecting.lan/_serverFn/login");
+  const proxied = new Request("http://expecting.lan/_serverFn/login", { headers: { "x-forwarded-proto": "https" } });
+  expect(sessionCookieOptions(plain).secure).toBe(false);
+  expect(sessionCookieOptions(proxied).secure).toBe(true);
+  expect(sessionCookieOptions(plain).httpOnly).toBe(true);
   expect(readSessionCookie(new Request("http://x/", { headers: { cookie: "a=1; expecting_session=abc%3D; b=2" } }))).toBe("abc=");
+});
+
+describe("what is open without a session", () => {
+  test("by path, only the login page and the health check", () => {
+    expect(isOpenPath("/login")).toBe(true);
+    expect(isOpenPath("/api/health")).toBe(true);
+    expect(isOpenPath("/api/login")).toBe(false);
+    expect(isOpenPath("/settings")).toBe(false);
+  });
+
+  test("by file, only the session's server functions", () => {
+    expect(isOpenFunction("src/server/functions/session.ts")).toBe(true);
+    expect(isOpenFunction("src/server/functions/people.ts")).toBe(false);
+  });
+
+  test("the open file is where login and logout are defined", () => {
+    // A move or rename that forgets the gate would lock everyone out; this catches it first.
+    expect(existsSync(new URL("../../src/server/functions/session.ts", import.meta.url))).toBe(true);
+  });
 });
 
 describe("sessions", () => {
