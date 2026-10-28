@@ -1,5 +1,5 @@
 import { getRouteApi, Outlet, useMatch, useNavigate } from "@tanstack/react-router";
-import { ArrowLeft, ToyBrick } from "lucide-react";
+import { ArrowLeft, Baby } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { finishOnboarding } from "../../api/rpc/household";
 import { type Step, stepAfter } from "../../lib/onboarding";
@@ -97,7 +97,7 @@ export function OnboardingStep() {
             <ArrowLeft aria-hidden size={20} />
           </button>
         ) : (
-          <ToyBrick aria-hidden size={22} className="text-fg-brand" />
+          <Baby aria-hidden size={22} className="text-fg-brand" />
         )}
         <span className="font-semibold text-fg-strong">Expecting</span>
         {steps.length > 1 ? (

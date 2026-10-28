@@ -1,6 +1,6 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { Link, Outlet } from "@tanstack/react-router";
-import { type LucideIcon, Settings, ToyBrick } from "lucide-react";
+import { Baby, type LucideIcon, Settings } from "lucide-react";
 import type { AppPath } from "./paths";
 
 /** One pillar in a phase's navigation: where it lives (under the phase, `/pregnancy/planner`) and what it's called there. */
@@ -16,7 +16,7 @@ export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
     <div className="[--tab-bar:calc(3.75rem+env(safe-area-inset-bottom))] lg:grid lg:grid-cols-[13rem_minmax(0,1fr)] lg:[--tab-bar:0px]">
       <aside className="sticky top-0 hidden h-dvh flex-col border-r border-border-subtle bg-bg-normal px-4 pt-6 pb-4 lg:flex">
         <p className="mb-6 flex items-center gap-2 px-3 text-lg font-semibold text-fg-strong">
-          <ToyBrick aria-hidden size={22} className="text-fg-brand" />
+          <Baby aria-hidden size={22} className="text-fg-brand" />
           Expecting
         </p>
         <PillarNav pillars={pillars} layout="list" />
