@@ -29,7 +29,16 @@ function item(id: string, from: number, to: number, extra: Partial<Item> = {}): 
   };
 }
 
-const task = (id: string, week: number, itemId: string | null = "i"): Task => ({ id, title: id, due: wk(week), itemId, origin: itemId ? "built-in" : "own" });
+const task = (id: string, week: number, itemId: string | null = "i"): Task => ({
+  id,
+  title: id,
+  opens: { phase: "preconception" },
+  due: wk(week),
+  deadline: null,
+  who: "together",
+  itemId,
+  origin: itemId ? "built-in" : "own",
+});
 
 const rsv = item("rsv", 28, 36, { surprise: true });
 const flu = item("flu", 4, 40);

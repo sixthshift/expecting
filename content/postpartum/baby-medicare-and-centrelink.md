@@ -13,6 +13,8 @@ tasks:
   - id: finalise-pre-birth-claim
     title: Finalise the Centrelink claim with the baby's details and proof of birth
     due: 4
+    # Within 56 days of the birth, for Parental Leave Pay.
+    deadline: 8
 ---
 In hospital you'll get a **Parent Pack** with a **Newborn Child Declaration**. A midwife or doctor signs it, and it's your proof of birth — if it's lost, you'll need the birth certificate instead.
 

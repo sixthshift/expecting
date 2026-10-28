@@ -263,7 +263,7 @@ To do is how Expecting [runs the admin](#what-it-is). This week opens with it: t
 - **The plan changes with the answers.** A self-employed parent has different leave paperwork; the state decides how the birth is registered. A task appears, changes or goes away when the household's answers say so.
 - **Not decisions.** "Book the morphology scan" is a task. "Decide on public or private care" is a [decision](#decisions), and a decision can produce tasks.
 
-*Built, as the Planner and the timeline: tasks with one due week, slipped tasks flagged. Not built: windows, deadlines, lead times, whose job, ordering by urgency, This week leading with what to do.*
+*Built: windows (opens, best by, deadline) and whose job on built-in tasks, ordered by urgency into To do now, which This week opens with (`src/lib/todo.ts`: a deadline within two weeks or just missed, then what slipped in the last four weeks, then what is best done in the next two; older slips are left to the Planner). Four deadlines so far, each from its item's checked source: the employer's 10-week and 4-week notice, finalising the Centrelink claim, and registering the birth. Not built: the Planner ordering by urgency, own tasks with a window or an owner, and most tasks' windows, which is content work.*
 
 ## Decisions
 

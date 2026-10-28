@@ -206,6 +206,16 @@ test("an answer in settings tailors the timeline, and clearing it puts things ba
   await expect(privateHealth).toBeVisible();
 });
 
+test("This week opens with what to do now: a deadline coming up first, and why", async ({ page, open }) => {
+  await open("/");
+  const toDo = page.getByRole("region", { name: "To do now" });
+  // At 28+0, written notice to the employer is best done now and due by week 30 at the latest.
+  await expect(toDo.getByRole("checkbox").first()).toHaveAccessibleName("Give your employer written notice of parental leave");
+  await expect(toDo.getByText("deadline week 30")).toBeVisible();
+  await toDo.getByRole("link", { name: "Why: Give your employer written notice of parental leave" }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "Telling your employer about parental leave" })).toBeAttached();
+});
+
 test("an item draws its window against today, and offers its questions", async ({ page, open }) => {
   await open("/");
   const rsv = page.locator("#item-rsv-vaccine");

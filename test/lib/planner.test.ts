@@ -6,7 +6,7 @@ import type { Slot } from "../../src/lib/timeline";
 const wk = (week: number): Slot => ({ phase: "pregnancy", week });
 const pp = (week: number): Slot => ({ phase: "postpartum", week });
 const BEFORE: Slot = { phase: "preconception" };
-const task = (id: string, due: Slot): Task => ({ id, title: id, due, itemId: null, origin: "own" });
+const task = (id: string, due: Slot): Task => ({ id, title: id, opens: BEFORE, due, deadline: null, who: "together", itemId: null, origin: "own" });
 const ids = (tasks: Task[]) => tasks.map((t) => t.id);
 
 // The plans each phase's app gives (src/features/phases/<phase>/index.ts).

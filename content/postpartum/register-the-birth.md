@@ -12,6 +12,8 @@ tasks:
   - id: register-the-birth-with-bdm
     title: Register the birth with your state's Births, Deaths and Marriages
     due: 6
+    # 60 days after the birth: the last full week before it.
+    deadline: 8
 ---
 **The hospital doesn't register the birth for you.** You do that yourselves, with your state or territory's Births, Deaths and Marriages registry, using the forms the hospital or birth centre gives you.
 

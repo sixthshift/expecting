@@ -12,6 +12,7 @@ tasks:
   - id: book-postnatal-check
     title: Book the 6-week postnatal check
     due: 5
+    who: carrying
 ---
 Amid all the baby appointments, this one is for the person who gave birth. Most people have mostly recovered physically by about 6 weeks, though it depends on how the birth went.
 

@@ -12,9 +12,13 @@ tasks:
   - id: give-written-leave-notice
     title: Give your employer written notice of parental leave
     due: 28
+    # 10 weeks before leave starts: week 30 for leave from the due date, earlier for leave before it.
+    deadline: 30
   - id: confirm-leave-dates
     title: Confirm your leave dates with your employer
     due: 34
+    # 4 weeks before leave starts.
+    deadline: 36
 ---
 Under the National Employment Standards, employees can take up to 12 months of unpaid parental leave, and request up to a further 12. Two notice deadlines apply to each working parent:
 

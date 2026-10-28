@@ -31,8 +31,29 @@ describe("parseItem", () => {
       body: "Some words.",
     });
     expect(parsed.tasks).toEqual([
-      { id: "book-rsv-vaccine", title: "Book it", due: { phase: "pregnancy", week: 36 }, itemId: "rsv-vaccine", origin: "built-in" },
+      {
+        id: "book-rsv-vaccine",
+        title: "Book it",
+        opens: { phase: "pregnancy", week: 28 },
+        due: { phase: "pregnancy", week: 36 },
+        deadline: null,
+        who: "together",
+        itemId: "rsv-vaccine",
+        origin: "built-in",
+      },
     ]);
+  });
+
+  test("a task's window and whose job it is", () => {
+    const tasks = "tasks:\n  - id: t\n    title: T\n    opens: 27\n    due: 28\n    deadline: 36\n    who: partner";
+    const [task] = parseItem("pregnancy/x.md", item(`id: x\ntitle: X\nweeks: [24, 34]\ncategory: paperwork\n${tasks}`)).tasks;
+    expect(task).toMatchObject({
+      opens: { phase: "pregnancy", week: 27 },
+      due: { phase: "pregnancy", week: 28 },
+      // A deadline may fall after the item's weeks, as long as it is in the phase.
+      deadline: { phase: "pregnancy", week: 36 },
+      who: "partner",
+    });
   });
 
   test("the folder is the phase, however the path starts", () => {
@@ -64,6 +85,31 @@ describe("parseItem", () => {
       /within the item's weeks, 18–20/,
     ],
     ["missing weeks", "pregnancy/x.md", item("id: x\ntitle: X\ncategory: body"), /needs weeks/],
+    [
+      "a task that opens after it is due",
+      "pregnancy/x.md",
+      item("id: x\ntitle: X\nweeks: [18, 24]\ncategory: body\ntasks:\n  - id: t\n    title: T\n    opens: 22\n    due: 20"),
+      /no later than due, 18–20/,
+    ],
+    [
+      "a deadline before it is due",
+      "pregnancy/x.md",
+      item("id: x\ntitle: X\nweeks: [18, 24]\ncategory: body\ntasks:\n  - id: t\n    title: T\n    due: 22\n    deadline: 20"),
+      /on or after due and within the phase, 22–42/,
+    ],
+    [
+      "a deadline outside the phase",
+      "postpartum/x.md",
+      item("id: x\ntitle: X\nweeks: [1, 8]\ncategory: body\ntasks:\n  - id: t\n    title: T\n    deadline: 13"),
+      /within the phase, 8–12/,
+    ],
+    [
+      "a preconception task with a week",
+      "preconception/x.md",
+      item("id: x\ntitle: X\ncategory: body\ntasks:\n  - id: t\n    title: T\n    deadline: 4"),
+      /a preconception task has no deadline week/,
+    ],
+    ["a task for nobody", RSV, item(rsv.replace("    title: Book it", "    title: Book it\n    who: grandma")), /who/],
     ["bad category", "preconception/x.md", item("id: x\ntitle: X\ncategory: shopping"), /category/],
     ["bad id", "preconception/x.md", item("id: Not A Slug\ntitle: X\ncategory: body"), /lower-case/],
     ["empty body", "preconception/x.md", item("id: x\ntitle: X\ncategory: body", ""), /body is empty/],

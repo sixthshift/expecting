@@ -13,12 +13,15 @@ export function TaskRow({
   ticked,
   meta,
   action,
+  stack = false,
   onTick,
 }: {
   task: Task;
   ticked: boolean;
   meta?: ReactNode;
   action?: ReactNode;
+  /** On a phone, put the meta and action on their own line under the title, for a long one. */
+  stack?: boolean;
   /** Told of each tick or untick as it is made, before it is saved. */
   onTick?: (ticked: boolean) => void;
 }) {
@@ -37,7 +40,7 @@ export function TaskRow({
   }
 
   return (
-    <div className="flex min-h-11 items-center gap-3">
+    <div className={stack ? "flex min-h-11 flex-wrap items-center gap-x-3 pb-2 lg:flex-nowrap lg:pb-0" : "flex min-h-11 items-center gap-3"}>
       <Checkbox
         checked={checked}
         onCheckedChange={change}
@@ -45,8 +48,17 @@ export function TaskRow({
         labelClassName="flex-1 min-h-11 items-center"
         className="shrink-0"
       />
-      {meta ? <span className="ml-auto shrink-0 text-xs text-fg-subtle">{meta}</span> : null}
-      {action}
+      {stack ? (
+        <span className="flex basis-full items-center gap-3 pl-9 text-xs text-fg-subtle lg:ml-auto lg:basis-auto lg:shrink-0 lg:pl-0">
+          {meta}
+          {action}
+        </span>
+      ) : (
+        <>
+          {meta ? <span className="ml-auto shrink-0 text-xs text-fg-subtle">{meta}</span> : null}
+          {action}
+        </>
+      )}
     </div>
   );
 }

@@ -6,12 +6,14 @@ import { buildBands } from "../../../lib/timelineView";
 import { PillarHeader } from "../../app/PillarLayout";
 import { useApp } from "../../household/useApp";
 import { QuestionsWaiting } from "../../questions/questions";
+import { ToDoNow } from "../../tasks/ToDoNow";
 import { Week } from "../../weeks/Week";
 import { NowLine, Welcome } from "./Now";
 
 /**
- * The pregnancy's home: where you are, this week's note, what to do and what
- * has slipped, the questions waiting, and the tools for the moment. The
+ * The pregnancy's home: what to do now, then where you are, the questions
+ * waiting, this week's note and the week's items, and the tools for the
+ * moment. The
  * timeline is the whole pregnancy; this is the week you're in.
  */
 export function PregnancyHome() {
@@ -25,9 +27,11 @@ export function PregnancyHome() {
     <main className="mx-auto max-w-5xl px-4 pb-16 md:px-8">
       <PillarHeader title="This week" />
       {!dueDate ? <Welcome /> : null}
+      <ToDoNow />
       {band ? (
         <Week
-          band={band}
+          // What has slipped is in To do now, above.
+          band={{ ...band, slipped: [] }}
           expanded
           onToggle={() => {}}
           ticks={state.ticks}

@@ -86,7 +86,7 @@ In the pregnancy, the app is five pillars in its frame: a sidebar on a desktop, 
 
 | Pillar | Route | Holds |
 |---|---|---|
-| **This week** | `/` | Home: where you are, this week's note, what to do and what has slipped, the questions waiting, and the tools for the moment. *The tools are placeholders.* |
+| **This week** | `/` | Home: To do now (the most urgent few, `src/features/tasks/ToDoNow.tsx`), then where you are, this week's note, the questions waiting, and the tools for the moment. *The tools are placeholders.* |
 | **Timeline** | `/timeline`, `?at=28` | Every week: the thread the others meet on |
 | **Library** | `/library`, `/library/<id>` | Everything Expecting knows: shelves in the order the phase wants (a "nobody tells you" shelf, a shelf per topic), search (`?q=`), each item on its own page |
 | **Planner** | `/planner` | To do, grouped by when it matters (`src/lib/planner.ts`), and the questions for whoever you'll see next |
@@ -155,6 +155,7 @@ Expecting has its own theme, not the design system's Linen. It's built from a re
 - **This week** is its own shape, `content/weeks/<week>.md`, named for the week's key (`28`, later `pp3`): a title, the baby's size (length head to bottom in cm, weight in g, and something that size), and three parts, each a `##` heading in this order: The baby, Your body, For the partner (`src/content/weeks.ts`). Each part is Markdoc like an item's body. The note sits at the top of its week on the timeline, and its title on the week when folded.
 - They are validated with zod when the content module loads, and `bun run test` loads it, so a malformed item fails the gate, not the page.
 - Each item's weeks are its phase and a range of weeks within it (`preconception`, pregnancy 1–42, postpartum 1–12), the same `Slot` that `src/lib/timeline.ts` derives the current week as.
+- **A linked task has a window and an owner:** `opens` (defaults to the item's first week), `due` (best by, defaults to its last), an optional hard `deadline` (on or after `due`, anywhere in the phase, from the item's source), and `who` (`carrying`, `partner` or `together`, the default). `src/lib/todo.ts` orders the open ones into To do now; `whose()` in `src/lib/people.ts` names the owner for the phone holding it ("Yours", "Sam's").
 - Each item and each linked task has a stable id in its frontmatter. Ticks and hides in the database point at that id, so editing an item's wording never loses state.
 - Chosen over **content in the database**, because built-in content is reviewed like code: diffs, history, and a build that refuses bad data.
 

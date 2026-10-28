@@ -5,11 +5,12 @@ import { buildBands } from "../../../lib/timelineView";
 import { PillarHeader } from "../../app/PillarLayout";
 import { useApp } from "../../household/useApp";
 import { QuestionsWaiting } from "../../questions/questions";
+import { ToDoNow } from "../../tasks/ToDoNow";
 import { Week } from "../../weeks/Week";
 
 /**
- * The baby's here, and home is this week: what matters now, what has slipped,
- * and what to do. The weeks are still there, but they're no longer the thread.
+ * The baby's here, and home is this week: what to do now, most urgent first,
+ * then what matters this week. The weeks are still there, but they're no longer the thread.
  */
 export function PostpartumHome() {
   const { state, questions, position, now, items, tasks } = useApp();
@@ -22,9 +23,11 @@ export function PostpartumHome() {
   return (
     <main className="mx-auto max-w-5xl px-4 pb-16 md:px-8">
       <PillarHeader title="This week" lead={now ? `${age} · ${slotLabel(now).toLowerCase()}` : age} />
+      <ToDoNow />
       {band ? (
         <Week
-          band={band}
+          // What has slipped is in To do now, above.
+          band={{ ...band, slipped: [] }}
           expanded
           onToggle={() => {}}
           ticks={state.ticks}

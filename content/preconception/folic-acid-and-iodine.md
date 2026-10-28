@@ -10,6 +10,7 @@ checked: 2026-10-27
 tasks:
   - id: start-folic-acid-and-iodine
     title: Start folic acid and iodine supplements
+    who: carrying
 ---
 In Australia, folic acid and iodine supplements are recommended for everyone planning a pregnancy or pregnant.
 

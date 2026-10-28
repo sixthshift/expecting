@@ -12,6 +12,7 @@ tasks:
   - id: get-flu-vaccine
     title: Get this year's flu vaccine
     due: 28
+    who: carrying
 ---
 The flu vaccine is recommended in **every pregnancy, at any stage**. Pregnancy changes the immune system, so flu is more likely to cause complications and even a hospital stay. It's also the best way to protect a newborn: babies can't have their own flu vaccine until 6 months.
 

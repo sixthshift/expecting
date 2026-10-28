@@ -12,6 +12,7 @@ tasks:
   - id: get-whooping-cough-vaccine
     title: Get the whooping cough vaccine
     due: 28
+    who: carrying
 ---
 Whooping cough (pertussis) can be very serious, even deadly, for young babies — and they can't have their own first dose until 6 weeks of age.
 

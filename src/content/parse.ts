@@ -74,7 +74,16 @@ function toItem(fm: Frontmatter, body: string, doc: Node): Item {
     when: fm.when,
     body,
     doc,
-    tasks: fm.tasks.map((t) => ({ id: t.id, title: t.title, due: at(t.due ?? to), itemId: fm.id, origin: "built-in" })),
+    tasks: fm.tasks.map((t) => ({
+      id: t.id,
+      title: t.title,
+      opens: at(t.opens ?? from),
+      due: at(t.due ?? to),
+      deadline: t.deadline === undefined ? null : at(t.deadline),
+      who: t.who,
+      itemId: fm.id,
+      origin: "built-in",
+    })),
     origin: "built-in",
   };
 }

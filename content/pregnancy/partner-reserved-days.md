@@ -12,6 +12,7 @@ tasks:
   - id: plan-partner-leave-days
     title: Plan when the partner will take their reserved days
     due: 32
+    who: partner
 ---
 For couples, some of the family's Parental Leave Pay is set aside for the partner. For a child born **from 1 July 2026**, that's **20 days** of the 130. They can't be handed over to the birth parent — if they aren't used, they're lost.
 

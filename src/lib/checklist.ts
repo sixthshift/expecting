@@ -6,9 +6,10 @@ import { compareSlots, type Phase, type Slot } from "./timeline";
 /** A task of our own, as stored: a phase and, outside preconception, a week. */
 export type OwnTaskRow = { id: string; title: string; phase: Phase; week: number | null; createdAt: string };
 
+/** An own task can be done any time up to its week, has no hard deadline, and is both of yours. */
 export function ownTaskToTask(row: OwnTaskRow): Task {
   const due: Slot = row.phase === "preconception" || row.week === null ? { phase: "preconception" } : { phase: row.phase, week: row.week };
-  return { id: row.id, title: row.title, due, itemId: null, origin: "own" };
+  return { id: row.id, title: row.title, opens: { phase: "preconception" }, due, deadline: null, who: "together", itemId: null, origin: "own" };
 }
 
 /** Built-in and own tasks together, by due slot; ties keep built-in order, then own tasks. */
