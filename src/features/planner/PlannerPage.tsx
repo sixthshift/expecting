@@ -3,31 +3,22 @@ import { ChevronDown } from "lucide-react";
 import { type ReactNode, useState } from "react";
 import type { Task } from "../../content/schema";
 import { GROUP_TITLES, groupTasks } from "../../lib/planner";
-import { slotLabel } from "../../lib/timeline";
+import { WEEKS, weekLabel } from "../../lib/timeline";
 import { PillarHeader } from "../app/PillarLayout";
-import { usePhaseApp } from "../app/usePhaseApp";
-import { usePhaseTo } from "../app/usePhaseTo";
 import { useApp } from "../household/useApp";
 import { AddQuestion, AskedQuestion, OpenQuestion } from "../questions/questions";
 import { AddTask, DeleteOwnTask } from "../tasks/AddTask";
 import { TaskRow } from "../tasks/TaskRow";
 
 /**
- * What to do and what to ask: the to-do list grouped by when it matters, and
- * the questions for whoever you'll see next. One page in every phase, planning
- * the way the phase's app says (`usePhaseApp().planner`): by week, or getting
- * ready's now and once you're expecting; and whether an earlier phase's open
- * tasks still slip or are left behind.
+ * What to do and what to ask: the to-do list grouped by when it matters
+ * (src/lib/planner.ts), and the questions for the next appointment.
  */
 export function PlannerPage() {
   const { state, questions, now, tasks } = useApp();
-  // The same Planner in every phase, planning the way the phase's app says.
-  const { planner } = usePhaseApp();
-  const to = usePhaseTo();
   // Ticked during this visit: they stay in their group until the next one.
   const [tickedHere, setTickedHere] = useState<ReadonlySet<string>>(new Set());
-  const groups = groupTasks(tasks, state.ticks, tickedHere, now, planner);
-  const titles = GROUP_TITLES[planner.grouping];
+  const groups = groupTasks(tasks, state.ticks, tickedHere, now);
   const open = questions.filter((q) => !q.askedAt);
   const asked = questions.filter((q) => q.askedAt);
 
@@ -37,14 +28,14 @@ export function PlannerPage() {
         key={task.id}
         task={task}
         ticked={Boolean(state.ticks[task.id])}
-        meta={slotLabel(task.due)}
+        meta={weekLabel(task.due)}
         onTick={(ticked) => ticked && setTickedHere((ids) => new Set(ids).add(task.id))}
         action={
           task.origin === "own" ? (
             <DeleteOwnTask task={task} />
           ) : task.itemId ? (
             <Link
-              to={to("/library/$itemId")}
+              to="/library/$itemId"
               params={{ itemId: task.itemId }}
               aria-label={`Why: ${task.title}`}
               className="shrink-0 px-1 text-xs text-fg-subtle underline hover:text-fg-normal"
@@ -65,36 +56,25 @@ export function PlannerPage() {
           <h2 id="todo" className="text-lg font-semibold text-fg-strong">
             To do
           </h2>
-          <AddTask slot={now ?? { phase: "preconception" }} />
           {(["slipped", "now", "soon", "later"] as const).map((g) =>
             groups[g].length > 0 ? (
-              <Group
-                key={g}
-                title={now ? titles[g] : "To do"}
-                count={groups[g].length}
-                tone={g === "slipped" ? "warning" : undefined}
-                // Getting ready: what's for once you're expecting is there to look ahead at, not to do yet.
-                folded={g === "later" && planner.grouping === "getting-ready"}
-              >
+              <Group key={g} title={now !== null ? GROUP_TITLES[g] : "To do"} count={groups[g].length} tone={g === "slipped" ? "warning" : undefined}>
                 {groups[g].map(row)}
               </Group>
             ) : null
           )}
-          {groups.behind.length > 0 ? (
-            <Group title={planner.behind ?? "From earlier"} count={groups.behind.length} folded>
-              {groups.behind.map(row)}
-            </Group>
-          ) : null}
           {groups.done.length > 0 ? (
-            <Group title={titles.done} count={groups.done.length} folded>
+            <Group title={GROUP_TITLES.done} count={groups.done.length} folded>
               {groups.done.map(row)}
             </Group>
           ) : null}
+          {/* Expecting knows what needs doing; this is for the odd thing it couldn't. */}
+          <AddTask week={now ?? WEEKS.first} />
         </section>
 
         <section id="questions" aria-labelledby="questions-heading" className="flex scroll-mt-6 flex-col gap-4 lg:sticky lg:top-6">
           <h2 id="questions-heading" className="text-lg font-semibold text-fg-strong">
-            {planner.questionsFor}
+            For the next appointment
           </h2>
           <AddQuestion />
           {open.length === 0 ? <p className="text-sm text-fg-subtle">Nothing to ask yet. Add a question as it comes to you.</p> : null}

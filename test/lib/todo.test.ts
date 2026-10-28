@@ -1,54 +1,56 @@
 import { expect, test } from "vitest";
 import type { Task } from "../../src/content/schema";
-import type { Slot } from "../../src/lib/timeline";
-import { toDoNow } from "../../src/lib/todo";
+import { comingUp, toDoNow } from "../../src/lib/todo";
 
-const wk = (week: number): Slot => ({ phase: "pregnancy", week });
-const pp = (week: number): Slot => ({ phase: "postpartum", week });
-
-function task(id: string, due: Slot, extra: Partial<Task> = {}): Task {
-  return { id, title: id, opens: { phase: "preconception" }, due, deadline: null, who: "together", itemId: "i", origin: "built-in", ...extra };
+function task(id: string, due: number, extra: Partial<Task> = {}): Task {
+  return { id, title: id, opens: 1, due, deadline: null, deadlineFrom: null, who: "together", itemId: "i", origin: "built-in", ...extra };
 }
 
-const order = (tasks: Task[], now: Slot, ticks: Record<string, string> = {}) => toDoNow(tasks, ticks, now).map((t) => `${t.task.id}:${t.why}`);
+const order = (tasks: Task[], now: number, ticks: Record<string, string> = {}) => toDoNow(tasks, ticks, now).map((t) => `${t.task.id}:${t.why}`);
 
 test("a deadline coming up first, then what has slipped, then what is best done soon", () => {
-  const tasks = [
-    task("soon", wk(29)),
-    task("slipped-later", wk(26)),
-    task("deadline", wk(28), { deadline: wk(30) }),
-    task("slipped-first", wk(24)),
-    task("far", wk(34)),
-  ];
-  expect(order(tasks, wk(28))).toEqual(["deadline:deadline", "slipped-first:slipped", "slipped-later:slipped", "soon:soon"]);
+  const tasks = [task("soon", 29), task("slipped-later", 26), task("deadline", 28, { deadline: 30 }), task("slipped-first", 24), task("far", 34)];
+  expect(order(tasks, 28)).toEqual(["deadline:deadline", "slipped-first:slipped", "slipped-later:slipped", "soon:soon"]);
 });
 
 test("a task shows once it opens, and not before", () => {
-  const notYet = task("claim", wk(30), { opens: wk(29) });
-  expect(order([notYet], wk(28))).toEqual([]);
-  expect(order([notYet], wk(29))).toEqual(["claim:soon"]);
+  const notYet = task("claim", 30, { opens: 29 });
+  expect(order([notYet], 28)).toEqual([]);
+  expect(order([notYet], 29)).toEqual(["claim:soon"]);
 });
 
 test("a ticked task is done, deadline or not", () => {
-  expect(order([task("t", wk(26), { deadline: wk(28) })], wk(28), { t: "2026-10-28T00:00:00Z" })).toEqual([]);
+  expect(order([task("t", 26, { deadline: 28 })], 28, { t: "2026-10-28T00:00:00Z" })).toEqual([]);
 });
 
 test("a deadline far off doesn't make it urgent; its best-by week still does", () => {
-  expect(order([task("notice", wk(29), { deadline: wk(36) })], wk(28))).toEqual(["notice:soon"]);
-  expect(order([task("notice", wk(27), { deadline: wk(36) })], wk(28))).toEqual(["notice:slipped"]);
+  expect(order([task("notice", 29, { deadline: 36 })], 28)).toEqual(["notice:soon"]);
+  expect(order([task("notice", 27, { deadline: 36 })], 28)).toEqual(["notice:slipped"]);
 });
 
 test("a missed deadline stays at the top until it's ticked", () => {
-  expect(order([task("late", wk(30)), task("missed", wk(24), { deadline: wk(26) })], wk(29))).toEqual(["missed:deadline", "late:soon"]);
+  expect(order([task("late", 30), task("missed", 24, { deadline: 26 })], 29)).toEqual(["missed:deadline", "late:soon"]);
 });
 
 test("what slipped long ago is left to the Planner", () => {
-  const tasks = [task("gp-visit", wk(6)), task("recent", wk(24)), task("old-deadline", wk(10), { deadline: wk(12) })];
-  expect(order(tasks, wk(28))).toEqual(["recent:slipped"]);
-  expect(order([task("from-before", { phase: "preconception" })], wk(3))).toEqual(["from-before:slipped"]);
+  const tasks = [task("gp-visit", 6), task("recent", 24), task("old-deadline", 10, { deadline: 12 })];
+  expect(order(tasks, 28)).toEqual(["recent:slipped"]);
 });
 
-test("the weeks run on across the birth", () => {
-  expect(order([task("register", pp(6), { opens: pp(1), deadline: pp(8) })], pp(6))).toEqual(["register:deadline"]);
-  expect(order([task("after", pp(1))], wk(41))).toEqual(["after:soon"]);
+const coming = (tasks: Task[], now: number, ticks: Record<string, string> = {}) =>
+  comingUp(tasks, ticks, now).map((c) => `${c.task.id}:${c.week}${c.deadline ? "!" : ""}`);
+
+test("coming up is what falls after To do now's horizon, within eight weeks, soonest first", () => {
+  const tasks = [task("bag", 32), task("soon", 29), task("swab", 36), task("far", 37), task("past", 26)];
+  expect(coming(tasks, 28)).toEqual(["bag:32", "swab:36"]);
+});
+
+test("coming up counts a deadline ahead when the best-by week has passed it by", () => {
+  // Best by week 26 has slipped out of To do now's reach; its deadline is still ahead.
+  expect(coming([task("claim", 20, { deadline: 34 })], 28)).toEqual(["claim:34!"]);
+});
+
+test("coming up leaves out what's ticked, and what To do now already has", () => {
+  expect(coming([task("t", 32)], 28, { t: "2026-10-28T00:00:00Z" })).toEqual([]);
+  expect(coming([task("notice", 33, { deadline: 30 })], 28)).toEqual([]);
 });

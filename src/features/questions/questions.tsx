@@ -10,7 +10,6 @@ import { type FormEvent, useState } from "react";
 import { addQuestion, deleteQuestion, markAsked, reopenQuestion } from "../../api/rpc/questions";
 import { formatDate, todayISO } from "../../lib/dates";
 import type { Question } from "../../lib/questions";
-import { usePhaseTo } from "../app/usePhaseTo";
 import { useAction } from "../household/useAction";
 
 export function AddQuestion() {
@@ -117,9 +116,8 @@ function DeleteButton({ id, text }: { id: string; text: string }) {
 
 /** Questions waiting for the next appointment: they live in the Planner. */
 export function QuestionsWaiting({ count }: { count: number }) {
-  const to = usePhaseTo();
   return (
-    <Link to={to("/planner")} hash="questions" className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal">
+    <Link to="/planner" hash="questions" className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal">
       <MessageCircleQuestion aria-hidden size={16} className="text-fg-brand" />
       {count === 1 ? "1 question" : `${count} questions`} for the next appointment
       <ChevronRight aria-hidden size={16} />

@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
 import { weekNotes } from "../../src/content";
 import { ContentError } from "../../src/content/parse";
-import { parseWeek, SECTIONS, sizeLabel } from "../../src/content/weeks";
+import { noteFor, parseWeek, SECTIONS, sizeLabel } from "../../src/content/weeks";
 
 const BODY = "## The baby\n\nGrowing.\n\n## Your body\n\nTired.\n\n## For the partner\n\nCook.";
 const note = (frontmatter = "title: Halfway", body = BODY) => `---\n${frontmatter}\n---\n${body}\n`;
@@ -15,8 +15,7 @@ describe("parseWeek", () => {
       )
     );
     expect(parsed).toMatchObject({
-      key: "20",
-      slot: { phase: "pregnancy", week: 20 },
+      week: 20,
       title: "Halfway",
       size: { length: 16, weight: 320, like: "a banana" },
       draft: true,
@@ -28,8 +27,8 @@ describe("parseWeek", () => {
   });
 
   test("the file's name is its week, however the path starts", () => {
-    expect(parseWeek("../../content/weeks/pp3.md", note()).slot).toEqual({ phase: "postpartum", week: 3 });
-    for (const file of ["weeks/06.md", "weeks/43.md", "weeks/pp13.md", "weeks/preconception.md", "weeks/halfway.md"]) {
+    expect(parseWeek("../../content/weeks/3.md", note()).week).toBe(3);
+    for (const file of ["weeks/06.md", "weeks/0.md", "weeks/43.md", "weeks/pp3.md", "weeks/preconception.md", "weeks/halfway.md"]) {
       expect(() => parseWeek(file, note()), file).toThrow(ContentError);
     }
   });
@@ -67,6 +66,14 @@ describe("sizeLabel", () => {
 
 test("every note in content/weeks/ is valid, one per week", () => {
   expect(weekNotes.length).toBeGreaterThan(0);
-  const keys = weekNotes.map((n) => n.key);
-  expect(new Set(keys).size).toBe(keys.length);
+  const weeks = weekNotes.map((n) => n.week);
+  expect(new Set(weeks).size).toBe(weeks.length);
+});
+
+test("a note stays in force until the next one", () => {
+  const notes = [parseWeek("weeks/12.md", note()), parseWeek("weeks/20.md", note())];
+  expect(noteFor(notes, 12)?.week).toBe(12);
+  expect(noteFor(notes, 19)?.week).toBe(12);
+  expect(noteFor(notes, 30)?.week).toBe(20);
+  expect(noteFor(notes, 11)).toBeNull();
 });

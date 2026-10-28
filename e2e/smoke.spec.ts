@@ -5,11 +5,12 @@ import { expect, test } from "./fixtures";
 
 const pages = [
   { path: "/", heading: "This week" },
-  { path: "/pregnancy/timeline?at=pp3", heading: "Timeline" },
-  { path: "/pregnancy/library", heading: "Library" },
-  { path: "/pregnancy/library/rsv-vaccine", heading: "The RSV vaccine" },
-  { path: "/pregnancy/planner", heading: "Planner" },
-  { path: "/pregnancy/journal", heading: "Journal" },
+  { path: "/timeline?at=36", heading: "Timeline" },
+  { path: "/library", heading: "Library" },
+  { path: "/library/rsv-vaccine", heading: "The RSV vaccine" },
+  { path: "/planner", heading: "Planner" },
+  { path: "/journal", heading: "Journal" },
+  { path: "/drawer", heading: "Drawer" },
   { path: "/settings", heading: "Settings" },
 ];
 
@@ -24,10 +25,10 @@ for (const { path, heading } of pages) {
 test("every pillar and settings is reachable", async ({ page, open }) => {
   await open("/");
   const nav = page.getByRole("navigation", { name: "Expecting" });
-  for (const name of ["Timeline", "Library", "Planner", "Journal", "This week"]) {
+  for (const name of ["Timeline", "Library", "Planner", "Journal", "Drawer", "This week"]) {
     await nav.getByRole("link", { name }).click();
     await expect(nav.getByRole("link", { name })).toHaveAttribute("aria-current", "page");
-    // Home is the phase's own path, which every page sits under: it is current only on itself.
+    // Home is `/`, which every page sits under: it is current only on itself.
     if (name !== "This week") await expect(nav.getByRole("link", { name: "This week" })).not.toHaveAttribute("aria-current");
   }
   await expect(page.getByRole("heading", { level: 1, name: "This week" })).toBeVisible();
@@ -35,11 +36,13 @@ test("every pillar and settings is reachable", async ({ page, open }) => {
   await expect(page.getByRole("heading", { level: 1, name: "Settings" })).toBeVisible();
 });
 
-test("a week shows its note: the baby, your body, the partner", async ({ page, open }) => {
-  await open("/pregnancy/timeline?at=20");
+test("a week shows its note, read as the partner holding this phone, or as the other", async ({ page, open }) => {
+  await open("/timeline?at=20");
   const note = page.getByRole("article", { name: "Halfway" });
   await expect(note).toBeVisible();
-  for (const part of ["The baby", "Your body", "For the partner"]) await expect(note.getByRole("heading", { name: part })).toBeVisible();
+  for (const part of ["The baby", "For the partner"]) await expect(note.getByRole("heading", { name: part })).toBeVisible();
+  await note.getByRole("radio", { name: /^For (Sam|the pregnancy)$/ }).click();
+  for (const part of ["The baby", "Your body"]) await expect(note.getByRole("heading", { name: part })).toBeVisible();
 });
 
 test.describe("a page that doesn't exist", () => {

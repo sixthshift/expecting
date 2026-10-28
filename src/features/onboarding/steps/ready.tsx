@@ -1,8 +1,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
 import { formatDate, todayISO } from "../../../lib/dates";
-import { EXPECTING, NOT_YET } from "../../../lib/onboarding";
-import { gestationLabel, positionOn, slotLabel } from "../../../lib/timeline";
+import { gestationLabel, positionOn, weekLabel } from "../../../lib/timeline";
 import type { HouseholdState } from "../../household/load";
 import type { Screen, StepContext } from "../step";
 
@@ -12,17 +11,12 @@ export function readyStep({ state, finish }: StepContext): Screen {
 }
 
 function ReadyLine({ state }: { state: HouseholdState }) {
-  const { dueDate, birthDate, profile } = state.household;
-  if (!dueDate) {
-    return profile[EXPECTING] === NOT_YET
-      ? "Expecting opens at Getting ready: the things worth doing before a pregnancy. When you're expecting, add the due date and it moves with you."
-      : "Expecting opens at the start. Add the due date when you have it, and it opens at your week.";
-  }
-  const position = positionOn(todayISO(), dueDate, birthDate);
+  const { dueDate } = state.household;
+  if (!dueDate) return "Expecting opens at the start. Add the due date when you have it, and it opens at your week.";
+  const position = positionOn(todayISO(), dueDate);
   return (
     <>
-      Expecting opens at {slotLabel(position.slot).toLowerCase()}
-      {position.gestationDays !== undefined ? ` (${gestationLabel(position.gestationDays)})` : ""}, due {formatDate(dueDate)}.
+      Expecting opens at {weekLabel(position.week).toLowerCase()} ({gestationLabel(position.gestationDays)}), due {formatDate(dueDate)}.
     </>
   );
 }

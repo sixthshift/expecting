@@ -1,26 +1,23 @@
-import { Link, useParams } from "@tanstack/react-router";
+import { getRouteApi, Link } from "@tanstack/react-router";
 import { ArrowLeft, CalendarRange } from "lucide-react";
 import { builtInItems } from "../../content";
-import { slotKey, slotLabel } from "../../lib/timeline";
-import { usePhaseApp } from "../app/usePhaseApp";
-import { usePhaseTo } from "../app/usePhaseTo";
+import { weekLabel } from "../../lib/timeline";
 import { useApp } from "../household/useApp";
 import { ItemCard } from "./ItemCard";
 
-/** One item on its own page, with the way to its week on the timeline while there is one. */
+const route = getRouteApi("/app/library/$itemId");
+
+/** One item on its own page, with the way to its week on the timeline. */
 export function LibraryItemPage() {
-  // Every phase has the item page at its own path, so the item is read from wherever this is.
-  const { itemId } = useParams({ strict: false });
-  const to = usePhaseTo();
+  const { itemId } = route.useParams();
   const { items, state } = useApp();
-  const { timeline } = usePhaseApp();
   const item = items.find((i) => i.id === itemId);
   // Hidden by an answer, rather than not there at all: say so, and where to change it.
   const tailoredOut = !item && builtInItems.some((i) => i.id === itemId);
 
   return (
     <main className="mx-auto max-w-3xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-8">
-      <Link to={to("/library")} className="-ml-2 mb-4 flex min-h-11 w-fit items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal">
+      <Link to="/library" className="-ml-2 mb-4 flex min-h-11 w-fit items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal">
         <ArrowLeft aria-hidden size={16} /> Library
       </Link>
       {item ? (
@@ -28,16 +25,10 @@ export function LibraryItemPage() {
           {/* The card's title is an h3 among weeks; here it is the page's subject. */}
           <h1 className="sr-only">{item.title}</h1>
           <ItemCard item={item} ticks={state.ticks} />
-          {timeline ? (
-            <Link
-              to={timeline}
-              search={{ at: slotKey(item.from) }}
-              className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal"
-            >
-              <CalendarRange aria-hidden size={16} className="text-fg-brand" />
-              See {slotLabel(item.from).toLowerCase()} on the timeline
-            </Link>
-          ) : null}
+          <Link to="/timeline" search={{ at: item.from }} className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal">
+            <CalendarRange aria-hidden size={16} className="text-fg-brand" />
+            See {weekLabel(item.from).toLowerCase()} on the timeline
+          </Link>
         </div>
       ) : (
         <div className="flex flex-col gap-2">

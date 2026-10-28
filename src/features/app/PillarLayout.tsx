@@ -3,13 +3,13 @@ import { Link, Outlet } from "@tanstack/react-router";
 import { Baby, type LucideIcon, Settings } from "lucide-react";
 import type { AppPath } from "./paths";
 
-/** One pillar in a phase's navigation: where it lives (under the phase, `/pregnancy/planner`) and what it's called there. */
+/** One pillar in the navigation: where it lives (`/planner`) and what it's called. */
 export type Pillar = { to: AppPath; label: string; icon: LucideIcon };
 
 /**
- * The layout every phase's own Layout draws its pillars in. Desktop: a sidebar on the left with
- * the phase's pillars and settings. Phone: a tab bar under the thumb, its
- * height in `--tab-bar` so what sits above it (the timeline's scrubber) can.
+ * The layout the pillars are drawn in. Desktop: a sidebar on the left with
+ * the pillars and settings. Phone: a tab bar under the thumb, its height in
+ * `--tab-bar` so what sits above it (the timeline's scrubber) can.
  */
 export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
   return (
@@ -42,7 +42,7 @@ export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
   );
 }
 
-const TAB_COLUMNS: Record<number, string> = { 3: "grid-cols-3", 4: "grid-cols-4", 5: "grid-cols-5" };
+const TAB_COLUMNS: Record<number, string> = { 3: "grid-cols-3", 4: "grid-cols-4", 5: "grid-cols-5", 6: "grid-cols-6" };
 
 function PillarNav({ pillars, layout }: { pillars: readonly Pillar[]; layout: "list" | "tabs" }) {
   const tabs = layout === "tabs";
@@ -53,7 +53,7 @@ function PillarNav({ pillars, layout }: { pillars: readonly Pillar[]; layout: "l
           <li key={to}>
             <Link
               to={to}
-              // The first pillar is the phase's home, which every other page is under.
+              // The first pillar is home, `/`, which every other page is under.
               activeOptions={{ exact: i === 0, includeSearch: false }}
               activeProps={{
                 "aria-current": "page",

@@ -15,7 +15,7 @@ test("tick, tick again, untick", () => {
 
 test("own tasks are added, found, and deleted with their tick", () => {
   const repo = new ChecklistRepo(db());
-  const task = repo.addOwnTask({ title: "Ask Mum about the cot", phase: "pregnancy", week: 30 });
+  const task = repo.addOwnTask({ title: "Ask Mum about the cot", week: 30 });
   expect(repo.hasOwnTask(task.id)).toBe(true);
   expect(repo.ownTasks()).toEqual([task]);
   repo.setTicked(task.id, true);

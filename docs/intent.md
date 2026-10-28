@@ -8,7 +8,7 @@ Architecture: [architecture.md](architecture.md).
 
 A pregnancy companion for one couple, expecting in Australia. Self-hosted. Not a product.
 
-It covers the whole pregnancy, from getting ready to the birth, then the fourth trimester (the first three months after it). It may grow into newborn and parenting later. Nothing is built for that yet, but nothing should prevent it.
+It covers the pregnancy, weeks 1 to 42. That is the first version: getting ready before a pregnancy and the fourth trimester after the birth (the first three months) come later, and it may grow into newborn and parenting after that. Nothing is built for them now, but nothing should prevent them.
 
 **It runs the admin.** Having a baby in Australia comes with a long tail of bookings, claims, forms and purchases, each with its own window and lead time, split between two people and spread over a year. Expecting holds that list so you don't have to. From what it knows about your household, it says what to do this week, what to start preparing for, and why, and it keeps track of what's done. You shouldn't need to know how the system works to get through it.
 
@@ -71,23 +71,24 @@ People open a pregnancy app in different modes, and each mode has its own shape.
 
 ### The pillars
 
-The modes sort into five pillars, by whose a thing is and what you do with it:
+The modes sort into six pillars, by whose a thing is and what you do with it:
 
 | Pillar | Whose | You… | What's in it |
 |---|---|---|---|
-| **This week** | both, now | open it | Home: where you are, this week's note, what to do and what has slipped, the questions waiting; and the tools for the moment: the names game, the bump booth, the contraction timer, the hospital bag |
+| **This week** | both, now | open it | Home: where you are, what to do and what has slipped, this week's note read as you, what's worth knowing, what's coming, the questions waiting |
 | **Timeline** | both, through time | follow it | The whole pregnancy at a glance: what's coming, and behind today, what happened |
 | **Library** | Expecting's | read it | Guides, week by week, "nobody tells you" (a shelf of its own), "Can I…?", "Is this normal?", topics, search |
 | **Planner** | yours, ahead | do it | To do, decisions, appointments and their questions, contacts |
 | **Journal** | yours, behind | keep it | Movements, cravings, moods and symptoms, notes, bump photos, scans, results, documents |
+| **Drawer** | both, when it's time | reach for it | The handy things, each for its moment: the names game, the bump booth, the contraction timer, the hospital bag |
 
-- **They are the things a pregnant person already keeps:** a book, a planner, a journal and a few gadgets.
-- **Home is this week, not the timeline.** The timeline answers "where are we in all of it"; opening the app asks "where are we now, and what matters". This week is that landing page, and the tools for the moment live on it rather than in a pillar of their own, so a phone keeps five tabs.
-- **The timeline is the thread through the other four, not a fifth shelf.** A Library item appears on the week it matters, a Planner task on the week it's due, a Journal entry on its day. The others are where things live; the timeline is where they meet. That is why "nobody tells you" was wrong as a view of the timeline: it put a shelf onto the thread.
+- **They are the things a pregnant person already keeps:** a book, a planner, a journal and a drawer of handy things.
+- **Home is this week, not the timeline.** The timeline answers "where are we in all of it"; opening the app asks "where are we now, and what matters". This week is that landing page, and it stays about the week: the handy things have a pillar of their own, the Drawer, rather than crowding it, at the cost of a sixth tab on a phone.
+- **The timeline is the thread through the others, not another shelf.** A Library item appears on the week it matters, a Planner task on the week it's due, a Journal entry on its day. The others are where things live; the timeline is where they meet. That is why "nobody tells you" was wrong as a view of the timeline: it put a shelf onto the thread.
 - **Records live in the Journal:** a scan is something that happened, dated, on the timeline. A separate Vault for medical papers stays an option.
 - **Outside every pillar:** the capture button (one "+" that files a kick, a question or a photo into the right pillar) and the call button.
 
-*Built: the frame, This week, the Timeline, Library and Planner. The Journal and the tools say what's coming.*
+*Built: the frame, This week, the Timeline, Library and Planner. The Journal and the Drawer say what's coming.*
 
 ### The app changes shape
 
@@ -100,7 +101,7 @@ The modes sort into five pillars, by whose a thing is and what you do with it:
 
 These are not views. They are different layouts for different moments, over the same data.
 
-*Built: getting ready, the pregnancy and the baby's here as three phases, each its own app with its own pillars, layout and home. Not built: the quiet first weeks and go time, which belong inside the pregnancy's.*
+*Built: the pregnancy, one app with its pillars. Getting ready and the baby's here were built as apps of their own and taken out to keep the first version to the pregnancy; they come back with their phases. Not built: the quiet first weeks and go time.*
 
 ### Who to call
 
@@ -118,18 +119,19 @@ Some pregnancies end in miscarriage, and screening sometimes brings bad news. An
 - **The spine is the week,** grouped two ways: [phases](#phases) and [chapters](#chapters).
 - **Counting:**
   - Pregnancy weeks are completed weeks of gestation, the way midwives count: "28 weeks" runs from 28+0 to 28+6.
-  - Once the baby is here you enter the birth date, and the weeks after the birth count from it. Without one, the due date stands in once you are past 42 weeks.
+  - Before week 1 the app reads as week 1, and past 42 weeks it stays at 42.
+  - Later, with the weeks after the birth: you enter the birth date, and they count from it.
 - **Everything is always available.** You can read week 34 in week 8. The due date changes where you land, never what you can see.
 - **Everything has a date, so everything has a week.** Built-in content, tasks, log entries, records and answered questions all land in their week.
   - **Ahead of today,** the timeline is the plan.
   - **Behind today,** it is the diary: week 22 holds the morphology scan item, the scan photos, "first kick, Tuesday night" and the questions you asked.
   - **By the birth,** it is the story of the pregnancy, without anyone having sat down to write it.
 
-*Built: the weeks, the ruler, the views, each week's note, own tasks and asked questions in their week. Not built: phases beyond the three, chapters, log entries and records.*
+*Built: pregnancy weeks 1–42, the ruler, each week's note, own tasks and asked questions in their week, and the trimesters as the timeline's chapter headings. Not built: the phases before and after the pregnancy, the named chapters, log entries and records.*
 
 ### Phases
 
-The phases are the timeline's segments. They're what the data knows: every item and every week belongs to one.
+The phases are the timeline's segments. The first version is the pregnancy alone, so the timeline is weeks 1–42 and the code has no phases; the rest come later, and with them the data learns which phase an item belongs to.
 
 | Phase | Span | Counted from |
 |---|---|---|
@@ -163,17 +165,18 @@ What this asks of the app, not yet built:
 
 ## Tailoring
 
-- **Onboarding asks a few questions:** are you pregnant yet, when are you due, do you have private cover. The answers decide what you see.
-- **Some questions only make sense later,** when the answer exists ("your first bloods are usually back: are you RhD negative?"). Those are asked in the timeline, in the week they become real, so onboarding stays short and the app keeps learning.
-- **The driver needs more of them.** To say what to do, it has to know things like: is this your first baby; public, private or midwifery care; is the hospital booked; for each parent, employee, self-employed or not working, and whether the employer pays leave. Each is asked in the week it starts to matter, as close as possible to the task it changes, and each one earns its place by changing a task.
+- **The answers build the plan.** What you answer decides which tasks are yours and when: do you have a hospital, an OB, is a caesarean planned. The Planner is the pregnancy's plan, put together from them.
+- **Asked up front, and asked again.** Onboarding asks what you might already know: are you pregnant yet, when are you due, do you have private cover, public or private care, is the hospital booked, is this your first. Each can be "not sure yet". A question still unanswered or not sure comes back in the timeline, in the week it starts to matter, as close as possible to the task it changes.
+- **Some questions only make sense later,** when the answer exists ("your first bloods are usually back: are you RhD negative?"). Those are asked only in the timeline, in the week they become real.
+- **The driver needs more of them.** To say what to do, it has to know things like: is this your first baby; public, private or midwifery care; is the hospital booked; is a caesarean planned; for each parent, employee, self-employed or not working, and whether the employer pays leave. Each one earns its place by changing a task.
 - **The rules:**
-  - The questions are content (`content/profile.yaml`).
+  - The questions are content (`content/facts.yaml`).
   - Each answer is a fact on the household, shared by both parents and changeable in settings.
   - **An unanswered question hides nothing,** and "not sure" is an answer that hides nothing.
   - Hiding happens only on a definite answer, and clearing the answer puts everything back.
   - Content is tailored two ways: a whole item by its `when:`, and a passage inside an item by `{% if %}`.
 
-*Built: the questions in `content/profile.yaml`, onboarding (who, expecting or getting ready, the due date or the last period, the colours, the onboarding questions), a settings form built from the file, one tailored item and one tailored passage. Not built: questions asked in the timeline.*
+*Built: the questions in `content/facts.yaml` (fifteen, some asked of each of you, some only once another answer fits, one a date), each with the week This week asks it; onboarding (who, the due date or the last period, the colours, the onboarding questions); every answer kept with who gave it and when; This week asking what's due, again four weeks after a "not sure" or "not now"; a settings form built from the file; three items tailored by an answer (booking in, anti-D, childcare) and one passage; notice to the employer timed from the leave start date. Not built: most of the tasks the answers add, change or remove, which is content work, and asking with `text` answers.*
 
 ## Content
 
@@ -190,13 +193,13 @@ What this asks of the app, not yet built:
   - every tag and its attributes;
   - every `$question` and every answer it is compared with;
   - every `when:`.
-- **YAML for content that is only lists:** the profile questions, the phases, the categories, the log's entry types.
+- **YAML for content that is only lists:** the questions (`content/facts.yaml`), the categories, the log's entry types.
 
 *Built on `timeline`: the format, `ask`, `window` and `if`, and the checks.*
 
 ### Content types
 
-There isn't one shape of content. There are several, all Markdoc, all tagged with topics and tailored by the profile. The timeline shows any of them that has weeks; topics and search show all of them.
+There isn't one shape of content. There are several, all Markdoc, all tagged with topics and tailored by the household's answers. The timeline shows any of them that has weeks; topics and search show all of them.
 
 | Type | Shape | Example |
 |---|---|---|
@@ -220,9 +223,9 @@ There isn't one shape of content. There are several, all Markdoc, all tagged wit
 
 ### Every item
 
-- **Weeks:** the range it applies to, such as 28–36, within one phase.
+- **Weeks:** the range it applies to, such as 28–36, within weeks 1–42.
 - **Topics:** body, baby, food and safety, tests and appointments, birth, feeding, money and work, feelings, gear, paperwork. Several per item.
-- **When:** who it is for, by the profile's answers. Empty for everyone.
+- **When:** who it is for, by the household's answers. Empty for everyone.
 - **Body:** a short explanation. Practical, with a bit of warmth. Plain words, no jargon left undefined.
 - **Source:** an optional link, preferring Australian sources: Pregnancy, Birth and Baby (healthdirect), Services Australia, RANZCOG (the college of obstetricians), state health departments.
 - **Last checked:** when the source was last confirmed. Entitlements change every financial year.
@@ -263,7 +266,7 @@ To do is how Expecting [runs the admin](#what-it-is). This week opens with it: t
 - **The plan changes with the answers.** A self-employed parent has different leave paperwork; the state decides how the birth is registered. A task appears, changes or goes away when the household's answers say so.
 - **Not decisions.** "Book the morphology scan" is a task. "Decide on public or private care" is a [decision](#decisions), and a decision can produce tasks.
 
-*Built: windows (opens, best by, deadline) and whose job on built-in tasks, ordered by urgency into To do now, which This week opens with (`src/lib/todo.ts`: a deadline within two weeks or just missed, then what slipped in the last four weeks, then what is best done in the next two; older slips are left to the Planner). Four deadlines so far, each from its item's checked source: the employer's 10-week and 4-week notice, finalising the Centrelink claim, and registering the birth. Not built: the Planner ordering by urgency, own tasks with a window or an owner, and most tasks' windows, which is content work.*
+*Built: windows (opens, best by, deadline) and whose job on built-in tasks, ordered by urgency into To do now, which This week opens with (`src/lib/todo.ts`: a deadline within two weeks or just missed, then what slipped in the last four weeks, then what is best done in the next two; older slips are left to the Planner). Four deadlines so far, each from its item's checked source: the first-trimester screening window, the glucose test window, and the employer's 10-week and 4-week notice. The other tasks' sources give no hard date, so they have a best-by week only. Not built: the Planner ordering by urgency, own tasks with a window or an owner, and most tasks' windows, which is content work.*
 
 ## Decisions
 

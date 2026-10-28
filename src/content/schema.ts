@@ -1,4 +1,4 @@
-// The shape of a built-in item, as written in content/<phase>/<id>.md frontmatter, and
+// The shape of a built-in item, as written in content/items/<id>.md frontmatter, and
 // the normalised item the rest of the app reads. Our own items, when they
 // arrive, normalise to the same `Item`.
 
@@ -6,8 +6,8 @@ import type { Node } from "@markdoc/markdoc";
 import { z } from "zod";
 import { isISODate } from "../lib/dates";
 import type { Who } from "../lib/people";
-import { POSTPARTUM_WEEKS, PREGNANCY_WEEKS, type Slot } from "../lib/timeline";
-import { isAnswer, question, type When } from "./profile";
+import { WEEKS, type Week } from "../lib/timeline";
+import { checkWhen, question, type When, whenSchema } from "./facts";
 
 export const CATEGORIES = {
   appointments: "Appointments",
@@ -33,16 +33,11 @@ export const frontmatterSchema = z
   .object({
     id: slug,
     title: z.string().min(1),
-    /** Not written in the file: its folder, `content/<phase>/`, supplies it. */
-    phase: z.enum(["preconception", "pregnancy", "postpartum"]),
-    /** A week, or [from, to] inclusive, within the phase. Omitted for `preconception`. */
-    weeks: weekRange.optional(),
+    /** A week, or [from, to] inclusive. */
+    weeks: weekRange,
     category: z.enum(Object.keys(CATEGORIES) as [Category, ...Category[]]),
-    /** Only for households whose answers match: `{ cover: [no, unsure] }`. See content/profile.yaml. */
-    when: z
-      .record(z.string(), z.union([z.string(), z.array(z.string()).min(1)]))
-      .transform((w): When => Object.fromEntries(Object.entries(w).map(([q, a]) => [q, typeof a === "string" ? [a] : a])))
-      .default({}),
+    /** Only for households whose answers match: `{ cover: "no", state: [vic, nsw] }`. See content/facts.yaml. */
+    when: whenSchema.default({}),
     /** One of the things nobody tells you. */
     surprise: z.boolean().default(false),
     /** Drafted, not yet reviewed by us. Shown with a marker. */
@@ -60,8 +55,12 @@ export const frontmatterSchema = z
             opens: z.number().int().optional(),
             /** Best by: when it's comfortably done, lead time allowed for. Within the item's weeks; defaults to the end of its range. */
             due: z.number().int().optional(),
-            /** A hard week, where missing it costs something: on or after `due`, within the phase. From the item's source. */
-            deadline: z.number().int().optional(),
+            /**
+             * A hard week, where missing it costs something: on or after `due`, by week 42. From the item's source.
+             * Or counted back from a date the household gives: `{ before: leaveStart, weeks: 10, week: 30 }`, with
+             * `week` standing in until the date is known.
+             */
+            deadline: z.union([z.number().int(), z.object({ before: z.string(), weeks: z.number().int().min(0), week: z.number().int() }).strict()]).optional(),
             /** Whose job it is. */
             who: z.enum(["carrying", "partner", "together"]).default("together"),
           })
@@ -71,27 +70,10 @@ export const frontmatterSchema = z
   })
   .strict()
   .superRefine((fm, ctx) => {
-    for (const [q, answers] of Object.entries(fm.when)) {
-      if (!question(q)) ctx.addIssue({ code: "custom", path: ["when", q], message: `"${q}" is not a question in profile.yaml` });
-      else for (const a of answers) if (!isAnswer(q, a)) ctx.addIssue({ code: "custom", path: ["when", q], message: `"${a}" is not an answer to ${q}` });
-    }
-    if (fm.phase === "preconception") {
-      if (fm.weeks) ctx.addIssue({ code: "custom", path: ["weeks"], message: "a preconception item has no weeks" });
-      for (const [i, t] of fm.tasks.entries()) {
-        for (const key of ["opens", "due", "deadline"] as const) {
-          if (t[key] !== undefined) ctx.addIssue({ code: "custom", path: ["tasks", i, key], message: `a preconception task has no ${key} week` });
-        }
-      }
-      return;
-    }
-    if (!fm.weeks) {
-      ctx.addIssue({ code: "custom", path: ["weeks"], message: `a ${fm.phase} item needs weeks` });
-      return;
-    }
-    const bounds = fm.phase === "pregnancy" ? PREGNANCY_WEEKS : POSTPARTUM_WEEKS;
+    for (const message of checkWhen(fm.when)) ctx.addIssue({ code: "custom", path: ["when"], message });
     const [from, to] = fm.weeks;
-    if (from < bounds.first || to > bounds.last || from > to) {
-      ctx.addIssue({ code: "custom", path: ["weeks"], message: `weeks must run forwards within ${bounds.first}–${bounds.last}` });
+    if (from < WEEKS.first || to > WEEKS.last || from > to) {
+      ctx.addIssue({ code: "custom", path: ["weeks"], message: `weeks must run forwards within ${WEEKS.first}–${WEEKS.last}` });
     }
     for (const [i, t] of fm.tasks.entries()) {
       if (t.due !== undefined && (t.due < from || t.due > to)) {
@@ -101,8 +83,19 @@ export const frontmatterSchema = z
       if (t.opens !== undefined && (t.opens < from || t.opens > due)) {
         ctx.addIssue({ code: "custom", path: ["tasks", i, "opens"], message: `opens must be within the item's weeks and no later than due, ${from}–${due}` });
       }
-      if (t.deadline !== undefined && (t.deadline < due || t.deadline > bounds.last)) {
-        ctx.addIssue({ code: "custom", path: ["tasks", i, "deadline"], message: `a deadline is on or after due and within the phase, ${due}–${bounds.last}` });
+      const deadline = typeof t.deadline === "object" ? t.deadline.week : t.deadline;
+      if (typeof t.deadline === "object") {
+        const q = question(t.deadline.before);
+        if (q?.type !== "date") {
+          ctx.addIssue({ code: "custom", path: ["tasks", i, "deadline", "before"], message: `"${t.deadline.before}" is not a date question in facts.yaml` });
+        }
+      }
+      if (deadline !== undefined && (deadline < due || deadline > WEEKS.last)) {
+        ctx.addIssue({
+          code: "custom",
+          path: ["tasks", i, "deadline"],
+          message: `a deadline is on or after due and no later than week ${WEEKS.last}, ${due}–${WEEKS.last}`,
+        });
       }
     }
   });
@@ -112,12 +105,14 @@ export type Frontmatter = z.output<typeof frontmatterSchema>;
 export type Task = {
   id: string;
   title: string;
-  /** The earliest it can or should be done. */
-  opens: Slot;
+  /** The earliest week it can or should be done. */
+  opens: Week;
   /** Best by. */
-  due: Slot;
+  due: Week;
   /** A hard deadline, when there is one. */
-  deadline: Slot | null;
+  deadline: Week | null;
+  /** Counted back from a date fact (whose, by `who`) when it's known: `deadline` stands in until then. */
+  deadlineFrom: { fact: string; weeks: number } | null;
   who: Who;
   /** The item this task belongs to; null for a standalone task. */
   itemId: string | null;
@@ -127,9 +122,9 @@ export type Task = {
 export type Item = {
   id: string;
   title: string;
-  /** First and last slot the item applies to, inclusive. Same phase. */
-  from: Slot;
-  to: Slot;
+  /** First and last week the item applies to, inclusive. */
+  from: Week;
+  to: Week;
   category: Category;
   surprise: boolean;
   draft: boolean;

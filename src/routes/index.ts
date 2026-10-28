@@ -1,6 +1,9 @@
-import { createRoute } from "@tanstack/react-router";
-import { GoHome } from "../features/app/PhaseGuard";
+import { createRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { app } from "./app";
 
-/** `/`: on to the household's phase's home (`/pregnancy`), wherever the dates put it. */
-export const index = createRoute({ getParentRoute: () => app, path: "/", component: GoHome });
+/** `/`: home, This week: where you are and what matters now. */
+export const index = createRoute({
+  getParentRoute: () => app,
+  path: "/",
+  component: lazyRouteComponent(() => import("../features/home/Home"), "Home"),
+});

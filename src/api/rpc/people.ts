@@ -10,8 +10,7 @@ import { PeopleRepo } from "../../db/models/people/repo";
 import { type Person, ROLES, type Role } from "../../lib/people";
 import { isHttps } from "../../server/auth/cookie";
 import { getDb } from "../../server/core/db";
-
-const PERSON_COOKIE = "expecting_person";
+import { PERSON_COOKIE } from "../../server/core/person";
 
 function remember(person: Person) {
   setCookie(PERSON_COOKIE, person.id, {

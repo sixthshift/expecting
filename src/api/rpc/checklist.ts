@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { isBuiltInTaskId } from "../../content";
 import { ChecklistRepo } from "../../db/models/checklist/repo";
-import { POSTPARTUM_WEEKS, PREGNANCY_WEEKS } from "../../lib/timeline";
+import { WEEKS } from "../../lib/timeline";
 import { getDb } from "../../server/core/db";
 
 export const getChecklist = createServerFn({ method: "GET" }).handler(() => {
@@ -19,11 +19,8 @@ export const setTicked = createServerFn({ method: "POST" })
   });
 
 const ownTaskInput = z
-  .discriminatedUnion("phase", [
-    z.object({ title: z.string(), phase: z.literal("preconception"), week: z.null() }),
-    z.object({ title: z.string(), phase: z.literal("pregnancy"), week: z.number().int().min(PREGNANCY_WEEKS.first).max(PREGNANCY_WEEKS.last) }),
-    z.object({ title: z.string(), phase: z.literal("postpartum"), week: z.number().int().min(POSTPARTUM_WEEKS.first).max(POSTPARTUM_WEEKS.last) }),
-  ])
+  .object({ title: z.string(), week: z.number().int().min(WEEKS.first).max(WEEKS.last) })
+  .strict()
   .transform((t) => ({ ...t, title: t.title.trim() }))
   .refine((t) => t.title.length > 0 && t.title.length <= 200, "a title of 1–200 characters");
 

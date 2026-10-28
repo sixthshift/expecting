@@ -1,34 +1,27 @@
 // The route tree: its shape, and nothing else. Each route is defined in its own
 // file beside this one (a path, what it loads and validates, the component it
-// draws), a phase's in its folder (src/routes/<phase>/), the pages every phase
-// has built per phase by shared.ts; here they are put together. Routing is still code: a file's name
+// draws); here they are put together. Routing is still code: a file's name
 // decides nothing, this list does. Pages live in src/features/ and read their
 // route's data through getRouteApi, so nothing imports a route but the router.
 
 import { app } from "./app";
 import { login } from "./auth/login";
+import { drawer } from "./drawer";
 import { index } from "./index";
+import { journal } from "./journal";
+import { library } from "./library";
+import { libraryItem } from "./libraryItem";
 import { onboarding } from "./onboarding";
 import { baby } from "./onboarding/baby";
 import { due } from "./onboarding/due";
-import { expecting } from "./onboarding/expecting";
 import { onboardingNext } from "./onboarding/next";
 import { question } from "./onboarding/question";
 import { ready } from "./onboarding/ready";
 import { who } from "./onboarding/who";
-import { postpartum } from "./postpartum";
-import { postpartumHome } from "./postpartum/home";
-import { postpartumJournal } from "./postpartum/journal";
-import { postpartumToolkit } from "./postpartum/toolkit";
-import { preconception } from "./preconception";
-import { preconceptionHome } from "./preconception/home";
-import { pregnancy } from "./pregnancy";
-import { pregnancyHome } from "./pregnancy/home";
-import { pregnancyJournal } from "./pregnancy/journal";
-import { pregnancyTimeline } from "./pregnancy/timeline";
+import { planner } from "./planner";
 import { rootRoute } from "./root";
 import { settings } from "./settings";
-import { sharedRoutes } from "./shared";
+import { timeline } from "./timeline";
 
 // /api/* is served by the server alone: its handlers may import the store, and
 // the browser never routes there, it fetches. Vite fixes import.meta.env.SSR
@@ -37,16 +30,10 @@ import { sharedRoutes } from "./shared";
 const api = import.meta.env.SSR ? (await import("../api/rest")).restRoutes : ([] as unknown as typeof import("../api/rest").restRoutes);
 
 export const routeTree = rootRoute.addChildren([
-  // The frame: each phase under its own path, its pages its own and the shared ones, then settings, the same in every phase.
-  app.addChildren([
-    index,
-    preconception.addChildren([preconceptionHome, ...sharedRoutes(preconception)]),
-    pregnancy.addChildren([pregnancyHome, pregnancyTimeline, pregnancyJournal, ...sharedRoutes(pregnancy)]),
-    postpartum.addChildren([postpartumHome, postpartumJournal, postpartumToolkit, ...sharedRoutes(postpartum)]),
-    settings,
-  ]),
+  // The frame: the pillars, in navigation order, then settings.
+  app.addChildren([index, timeline, library, libraryItem, planner, journal, drawer, settings]),
   // Outside the frame: the first-run questions, a step to a URL, and logging in.
-  onboarding.addChildren([onboardingNext, who, expecting, due, baby, question, ready]),
+  onboarding.addChildren([onboardingNext, who, due, baby, question, ready]),
   login,
   ...api,
 ]);

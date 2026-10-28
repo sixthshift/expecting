@@ -8,25 +8,24 @@ import { forgetPerson } from "../../api/rpc/people";
 import { logout } from "../../api/rpc/session";
 import { DateForm } from "../../components/DateForm";
 import { Page, Section } from "../../components/Page";
-import { addDays, formatDate, todayISO } from "../../lib/dates";
+import { formatDate, todayISO } from "../../lib/dates";
 import { applyTheme, BABY, type Baby, THEMES } from "../../lib/theme";
-import { positionOn, slotLabel } from "../../lib/timeline";
+import { positionOn, weekLabel } from "../../lib/timeline";
 import { COMMIT, VERSION } from "../../lib/version";
 import { useExpectingTheme } from "../app/useExpectingTheme";
 import { useAction } from "../household/useAction";
 import { useApp } from "../household/useApp";
-import { ProfileForm } from "./ProfileForm";
+import { FactsForm } from "./FactsForm";
 
-/** The two dates everything hangs off, and the one question that colours it. */
+/** The date everything hangs off, the one question that colours it, the answers, and this phone. */
 export function SettingsPage() {
   const navigate = useNavigate();
   const [save] = useAction((data: Parameters<typeof saveHousehold>[0]["data"]) => saveHousehold({ data }));
   const { state } = useApp();
   const { me, people } = state;
-  const { dueDate, birthDate, baby, profile } = state.household;
+  const { dueDate, baby } = state.household;
   useExpectingTheme(baby);
-  const today = todayISO();
-  const position = dueDate ? positionOn(today, dueDate, birthDate) : null;
+  const position = dueDate ? positionOn(todayISO(), dueDate) : null;
 
   return (
     <Page title="Settings">
@@ -37,7 +36,7 @@ export function SettingsPage() {
               label="Due date"
               description={
                 position
-                  ? `${formatDate(dueDate!)}. The app opens at ${slotLabel(position.slot).toLowerCase()}.${position.birthAssumed ? " Past 42 weeks with no birth date, so the due date stands in for the birth." : ""}`
+                  ? `${formatDate(dueDate!)}. The app opens at ${weekLabel(position.week).toLowerCase()}.`
                   : "Where the app opens. It never hides any week."
               }
               value={dueDate}
@@ -46,22 +45,6 @@ export function SettingsPage() {
             />
           </Card>
         </Section>
-        {dueDate ? (
-          <Section title="Baby's here">
-            <Card>
-              <DateForm
-                label="Birth date"
-                description="Once entered, the weeks after the birth count from this day, not the due date."
-                value={birthDate}
-                clearable
-                maxDate={today}
-                minDate={addDays(dueDate, -7 * 20)}
-                submitLabel="Save birth date"
-                onSave={(date) => save({ birthDate: date })}
-              />
-            </Card>
-          </Section>
-        ) : null}
         <Section title="Baby">
           <Card>
             <FormField
@@ -84,7 +67,7 @@ export function SettingsPage() {
       </div>
       <Section title="About you">
         <Card>
-          <ProfileForm profile={profile} />
+          <FactsForm answers={state.answers} people={people} />
         </Card>
       </Section>
       <Section title="This phone">

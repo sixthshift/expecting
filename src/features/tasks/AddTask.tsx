@@ -4,15 +4,14 @@ import { Plus, Trash2 } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { addOwnTask, deleteOwnTask } from "../../api/rpc/checklist";
 import type { Task } from "../../content/schema";
-import { type Slot, slotLabel } from "../../lib/timeline";
+import { type Week, weekLabel } from "../../lib/timeline";
 import { useAction } from "../household/useAction";
 
-/** A task of our own, added straight into the week it belongs to. */
-export function AddTask({ slot }: { slot: Slot }) {
+/** A task of our own, for the odd thing Expecting couldn't know: added in the Planner, for this week. */
+export function AddTask({ week }: { week: Week }) {
   const [title, setTitle] = useState("");
   const [add, saving] = useAction(async () => {
-    const data = slot.phase === "preconception" ? { title, phase: slot.phase, week: null } : { title, phase: slot.phase, week: slot.week };
-    await addOwnTask({ data });
+    await addOwnTask({ data: { title, week } });
     setTitle("");
   });
 
@@ -26,8 +25,8 @@ export function AddTask({ slot }: { slot: Slot }) {
       <Input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder={`Add a task for ${slotLabel(slot).toLowerCase()}`}
-        aria-label={`New task for ${slotLabel(slot)}`}
+        placeholder={`Add a task for ${weekLabel(week).toLowerCase()}`}
+        aria-label={`New task for ${weekLabel(week)}`}
         maxLength={200}
         className="flex-1"
       />

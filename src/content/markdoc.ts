@@ -9,8 +9,8 @@
 //   {% window from=28 to=36 /%}                      the weeks it applies, against today
 
 import Markdoc, { Ast, type Config, type Node, type Schema } from "@markdoc/markdoc";
-import { PREGNANCY_WEEKS } from "../lib/timeline";
-import { isAnswer, PROFILE, question } from "./profile";
+import { WEEKS } from "../lib/timeline";
+import { QUESTIONS, question } from "./facts";
 
 const ask: Schema = {
   render: "Ask",
@@ -24,10 +24,8 @@ const window: Schema = {
   attributes: { from: { type: Number, required: true }, to: { type: Number, required: true } },
   validate(node) {
     const { from, to } = node.attributes as { from: number; to: number };
-    const ok = Number.isInteger(from) && Number.isInteger(to) && PREGNANCY_WEEKS.first <= from && from <= to && to <= PREGNANCY_WEEKS.last;
-    return ok
-      ? []
-      : [{ id: "window-weeks", level: "error", message: `window weeks must run forwards within ${PREGNANCY_WEEKS.first}–${PREGNANCY_WEEKS.last}` }];
+    const ok = Number.isInteger(from) && Number.isInteger(to) && WEEKS.first <= from && from <= to && to <= WEEKS.last;
+    return ok ? [] : [{ id: "window-weeks", level: "error", message: `window weeks must run forwards within ${WEEKS.first}–${WEEKS.last}` }];
   },
 };
 
@@ -40,8 +38,11 @@ export const markdocConfig: Config = {
 /** Every $question and every answer compared against it, wherever they sit in an attribute. */
 function checkAnswers(value: unknown, problems: string[]) {
   if (Ast.isVariable(value)) {
-    const [name] = value.path as string[];
-    if (!question(String(name))) problems.push(`$${name} is not a question in profile.yaml (there are ${PROFILE.map((q) => `$${q.id}`).join(", ")})`);
+    const [name, whose] = (value.path as string[]).map(String);
+    const q = question(name ?? "");
+    if (!q) problems.push(`$${name} is not a question in facts.yaml (there are ${QUESTIONS.map((q) => `$${q.id}`).join(", ")})`);
+    else if (q.about === "each" && whose !== "carrying" && whose !== "partner")
+      problems.push(`$${name} is asked of each of you: say whose, as $${name}.carrying or $${name}.partner`);
     return;
   }
   if (Ast.isFunction(value)) {
@@ -49,10 +50,10 @@ function checkAnswers(value: unknown, problems: string[]) {
     // equals($q, "answer"): the answer must be one of the question's.
     if (value.name === "equals") {
       const variable = params.find(Ast.isVariable);
-      const name = variable ? String((variable.path as string[])[0]) : null;
+      const q = variable ? question(String((variable.path as string[])[0])) : undefined;
       for (const p of params) {
-        if (name && question(name) && typeof p === "string" && !isAnswer(name, p)) {
-          problems.push(`"${p}" is not an answer to $${name} (answers: ${Object.keys(question(name)!.answers).join(", ")})`);
+        if (q && typeof p === "string" && !Object.hasOwn(q.answers, p)) {
+          problems.push(`"${p}" is not an answer to $${q.id} (answers: ${Object.keys(q.answers).join(", ")})`);
         }
       }
     }

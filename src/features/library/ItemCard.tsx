@@ -3,16 +3,13 @@ import { Card } from "@sixthshift/design-system/card";
 import { ExternalLink } from "lucide-react";
 import { CATEGORIES, type Item } from "../../content/schema";
 import { formatDate, type ISODate } from "../../lib/dates";
-import { sameSlot, slotLabel } from "../../lib/timeline";
+import { weekLabel } from "../../lib/timeline";
 import { TaskRow } from "../tasks/TaskRow";
 import { ItemBody } from "./content/ItemBody";
 
-/** "Weeks 28–36", "Week 3 after birth", "Before you start". */
+/** "Week 28", "Weeks 28–36". */
 export function rangeLabel(item: Item): string {
-  if (sameSlot(item.from, item.to)) return slotLabel(item.from);
-  if (item.from.phase === "pregnancy" && item.to.phase === "pregnancy") return `Weeks ${item.from.week}–${item.to.week}`;
-  if (item.from.phase === "postpartum" && item.to.phase === "postpartum") return `Weeks ${item.from.week}–${item.to.week} after birth`;
-  return `${slotLabel(item.from)} – ${slotLabel(item.to)}`;
+  return item.from === item.to ? weekLabel(item.from) : `Weeks ${item.from}–${item.to}`;
 }
 
 export function ItemCard({ item, ticks, onTick }: { item: Item; ticks: Record<string, string>; onTick?: (taskId: string, ticked: boolean) => void }) {

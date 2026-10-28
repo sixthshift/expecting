@@ -1,7 +1,7 @@
 import type { Database } from "bun:sqlite";
 import { asc, eq } from "drizzle-orm";
 import type { OwnTaskRow } from "../../../lib/checklist";
-import type { Phase } from "../../../lib/timeline";
+import type { Week } from "../../../lib/timeline";
 import { orm } from "../../connection/client";
 import { ownTask, taskTick } from "./schema";
 
@@ -28,14 +28,14 @@ export class ChecklistRepo {
   }
 
   ownTasks(): OwnTaskRow[] {
-    return this.db.select().from(ownTask).orderBy(asc(ownTask.createdAt)).all() as OwnTaskRow[];
+    return this.db.select().from(ownTask).orderBy(asc(ownTask.createdAt)).all();
   }
 
   hasOwnTask(id: string): boolean {
     return this.db.select({ id: ownTask.id }).from(ownTask).where(eq(ownTask.id, id)).get() !== undefined;
   }
 
-  addOwnTask(task: { title: string; phase: Phase; week: number | null }, now: Date = new Date()): OwnTaskRow {
+  addOwnTask(task: { title: string; week: Week }, now: Date = new Date()): OwnTaskRow {
     const row: OwnTaskRow = { id: crypto.randomUUID(), ...task, createdAt: now.toISOString() };
     this.db.insert(ownTask).values(row).run();
     return row;

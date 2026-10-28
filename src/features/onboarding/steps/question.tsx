@@ -1,44 +1,61 @@
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
-import { saveAnswer } from "../../../api/rpc/household";
-import { question } from "../../../content/profile";
-import { AnswerInput } from "../../settings/ProfileForm";
+import { saveAnswer } from "../../../api/rpc/facts";
+import { DateForm } from "../../../components/DateForm";
+import { type Ask, ask } from "../../../content/facts";
+import type { ISODate } from "../../../lib/dates";
+import { latestByKey } from "../../../lib/facts";
+import { AnswerInput, askedOfIn } from "../../settings/FactsForm";
 import { Choices, SkipButton } from "../parts";
 import type { Advance, Screen, StepContext } from "../step";
 
-/** One of content/profile.yaml's onboarding questions, skippable. */
-export function questionStep({ state, advance }: StepContext, id: string): Screen {
-  const { household } = state;
-  const q = question(id)!;
-  const value = household.profile[q.id];
-  const answers = Object.entries(q.answers).map(([value, label]) => ({ value, label }));
+/**
+ * One of content/facts.yaml's onboarding questions, skippable. A skip is kept,
+ * unless it's already answered, so This week asks it again only once its week
+ * has come, not straight away.
+ */
+export function questionStep({ state, advance }: StepContext, key: string): Screen {
+  const a = ask(key)!;
+  const last = latestByKey(state.answers)[key];
+  const value = last?.value ?? undefined;
+  const save = (answer: string | null) => () => saveAnswer({ data: { key, answer } });
+  const answers = Object.entries(a.question.answers).map(([value, label]) => ({ value, label }));
   return {
-    title: q.ask,
-    lead: "It tailors what Expecting shows you. Skip it and you'll see everything.",
+    title: askedOfIn(a, state.people),
+    lead: "It tailors what Expecting shows you. Skip it and you'll see everything, and be asked again when it matters.",
     body: (
       <div className="flex flex-col gap-4">
-        {answers.length <= 4 ? (
-          <Choices options={answers} value={value} onChoose={(answer) => advance(() => saveAnswer({ data: { question: q.id, answer } }))} />
+        {a.question.type === "date" ? (
+          <DateForm
+            label="Date"
+            value={(value as ISODate | undefined) ?? null}
+            submitLabel="Next"
+            wide
+            requireChange={false}
+            onSave={(date) => advance(save(date))}
+          />
+        ) : answers.length <= 4 ? (
+          <Choices options={answers} value={value} onChoose={(answer) => advance(save(answer))} />
         ) : (
-          <ChooseFromList question={q} value={value} onDone={advance} />
+          <ChooseFromList ask={a} name={askedOfIn(a, state.people)} value={value} onDone={advance} />
         )}
-        <SkipButton onClick={() => advance()} />
+        <SkipButton onClick={() => advance(last ? undefined : save(null))} />
       </div>
     ),
   };
 }
 
-function ChooseFromList({ question: q, value, onDone }: { question: NonNullable<ReturnType<typeof question>>; value?: string; onDone: Advance }) {
+function ChooseFromList({ ask: a, name, value, onDone }: { ask: Ask; name: string; value?: string; onDone: Advance }) {
   const [answer, setAnswer] = useState(value);
   return (
     <div className="flex flex-col gap-4">
-      <AnswerInput question={q} value={answer} onChange={setAnswer} />
+      <AnswerInput question={a.question} label={name} value={answer} onChange={setAnswer} />
       <Button
         intent="brand"
         size="xl"
         disabled={!answer}
         className="w-full"
-        onClick={() => onDone(() => saveAnswer({ data: { question: q.id, answer: answer! } }))}
+        onClick={() => onDone(() => saveAnswer({ data: { key: a.key, answer: answer! } }))}
       >
         Next
       </Button>

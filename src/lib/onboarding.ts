@@ -3,46 +3,43 @@
 // second parent's phone asks only who they are.
 //
 //   who        which person is holding this phone (every new device)
-//   expecting  expecting yet, or getting ready (the household, once)
-//   due        the due date, when expecting
-//   baby       boy, girl or don't know: the colours, when expecting
-//   q:<id>     the rest of content/profile.yaml's `asked: onboarding` questions
+//   due        the due date (the household, once)
+//   baby       boy, girl or don't know: the colours
+//   q:<key>    content/facts.yaml's `asked: onboarding` questions, once for
+//              each of you where they're about each, and only where their
+//              `when` fits the answers so far
 //   ready      where Expecting will open, and in
 
-import { PROFILE, type Profile } from "../content/profile";
+import { ASKS, type Facts } from "../content/facts";
+import { isAsked } from "./facts";
 
-export type Step = "who" | "expecting" | "due" | "baby" | "ready" | `q:${string}`;
+export type Step = "who" | "due" | "baby" | "ready" | `q:${string}`;
 
 export type OnboardingState = {
   /** Whether this device has said who it is. */
   known: boolean;
   /** Whether the household has finished onboarding. */
   onboarded: boolean;
-  profile: Profile;
+  /** What has been said so far: a question depending on another is asked only when its answer fits. */
+  facts?: Facts;
 };
 
-/** The question every household is asked first, and the answer that skips pregnancy's steps. */
-export const EXPECTING = "expecting";
-export const NOT_YET = "not-yet";
-
-export function onboardingSteps({ known, onboarded, profile }: OnboardingState): Step[] {
+export function onboardingSteps({ known, onboarded, facts = {} }: OnboardingState): Step[] {
   const steps: Step[] = known ? [] : ["who"];
   if (onboarded) return steps;
-  steps.push("expecting");
-  if (profile[EXPECTING] !== NOT_YET) steps.push("due", "baby");
-  for (const q of PROFILE) if (q.asked === "onboarding" && q.id !== EXPECTING) steps.push(`q:${q.id}`);
+  steps.push("due", "baby");
+  for (const a of ASKS) if (a.question.asked === "onboarding" && isAsked(a, facts)) steps.push(`q:${a.key}`);
   steps.push("ready");
   return steps;
 }
 
 /** Every step there could be, in the order they're asked. */
-const ALL_STEPS = onboardingSteps({ known: false, onboarded: false, profile: {} });
+const ALL_STEPS = onboardingSteps({ known: false, onboarded: false });
 
 /**
  * The step to ask after `after`: the first of `steps` (what's left to ask,
- * worked out afresh) that comes later in the order. Fresh, because an answer
- * can change what's left: "not yet" leaves no due date to ask. Undefined when
- * there's nothing after it.
+ * worked out afresh) that comes later in the order: the other phone may have
+ * finished onboarding meanwhile. Undefined when there's nothing after it.
  */
 export function stepAfter(steps: readonly Step[], after: Step): Step | undefined {
   const order = (s: Step) => ALL_STEPS.indexOf(s);

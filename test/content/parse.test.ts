@@ -3,8 +3,8 @@ import { ContentError, parseAll, parseItem } from "../../src/content/parse";
 
 const item = (frontmatter: string, body = "Some words.") => `---\n${frontmatter}\n---\n${body}\n`;
 
-// An item's folder is its phase and its file name its id: `pregnancy/rsv-vaccine.md`.
-const RSV = "pregnancy/rsv-vaccine.md";
+// An item lives in items/ and its file name is its id: `items/rsv-vaccine.md`.
+const RSV = "items/rsv-vaccine.md";
 const rsv = `id: rsv-vaccine
 title: The RSV vaccine
 weeks: [28, 36]
@@ -23,8 +23,8 @@ describe("parseItem", () => {
     const parsed = parseItem(RSV, item(rsv));
     expect(parsed).toMatchObject({
       id: "rsv-vaccine",
-      from: { phase: "pregnancy", week: 28 },
-      to: { phase: "pregnancy", week: 36 },
+      from: 28,
+      to: 36,
       surprise: true,
       draft: true,
       checked: "2026-10-27",
@@ -34,9 +34,10 @@ describe("parseItem", () => {
       {
         id: "book-rsv-vaccine",
         title: "Book it",
-        opens: { phase: "pregnancy", week: 28 },
-        due: { phase: "pregnancy", week: 36 },
+        opens: 28,
+        due: 36,
         deadline: null,
+        deadlineFrom: null,
         who: "together",
         itemId: "rsv-vaccine",
         origin: "built-in",
@@ -46,78 +47,80 @@ describe("parseItem", () => {
 
   test("a task's window and whose job it is", () => {
     const tasks = "tasks:\n  - id: t\n    title: T\n    opens: 27\n    due: 28\n    deadline: 36\n    who: partner";
-    const [task] = parseItem("pregnancy/x.md", item(`id: x\ntitle: X\nweeks: [24, 34]\ncategory: paperwork\n${tasks}`)).tasks;
+    const [task] = parseItem("items/x.md", item(`id: x\ntitle: X\nweeks: [24, 34]\ncategory: paperwork\n${tasks}`)).tasks;
     expect(task).toMatchObject({
-      opens: { phase: "pregnancy", week: 27 },
-      due: { phase: "pregnancy", week: 28 },
-      // A deadline may fall after the item's weeks, as long as it is in the phase.
-      deadline: { phase: "pregnancy", week: 36 },
+      opens: 27,
+      due: 28,
+      // A deadline may fall after the item's weeks, as long as it is by week 42.
+      deadline: 36,
       who: "partner",
     });
   });
 
-  test("the folder is the phase, however the path starts", () => {
-    expect(parseItem("postpartum/x.md", item("id: x\ntitle: X\nweeks: 6\ncategory: baby")).from).toEqual({ phase: "postpartum", week: 6 });
-    expect(parseItem("../../content/pregnancy/x.md", item("id: x\ntitle: X\nweeks: 6\ncategory: baby")).from).toEqual({ phase: "pregnancy", week: 6 });
+  test("a deadline counted back from a date the household gives, its week standing in until then", () => {
+    const tasks = "tasks:\n  - id: t\n    title: T\n    due: 28\n    deadline: { before: leaveStart, weeks: 10, week: 30 }";
+    const [task] = parseItem("items/x.md", item(`id: x\ntitle: X\nweeks: [24, 34]\ncategory: paperwork\n${tasks}`)).tasks;
+    expect(task).toMatchObject({ due: 28, deadline: 30, deadlineFrom: { fact: "leaveStart", weeks: 10 } });
+  });
+
+  test("items/ holds them, however the path starts", () => {
+    expect(parseItem("../../content/items/x.md", item("id: x\ntitle: X\nweeks: 6\ncategory: baby")).from).toBe(6);
   });
 
   test("a single week and an explicit due", () => {
-    const parsed = parseItem("postpartum/x.md", item("id: x\ntitle: X\nweeks: 6\ncategory: baby\ntasks:\n  - id: t\n    title: T\n    due: 6"));
-    expect(parsed.from).toEqual({ phase: "postpartum", week: 6 });
-    expect(parsed.tasks[0]!.due).toEqual({ phase: "postpartum", week: 6 });
-  });
-
-  test("a preconception item has no weeks", () => {
-    expect(parseItem("preconception/x.md", item("id: x\ntitle: X\ncategory: money")).from).toEqual({ phase: "preconception" });
-    expect(() => parseItem("preconception/x.md", item("id: x\ntitle: X\nweeks: 3\ncategory: money"))).toThrow(/weeks: a preconception item has no weeks/);
+    const parsed = parseItem("items/x.md", item("id: x\ntitle: X\nweeks: 6\ncategory: baby\ntasks:\n  - id: t\n    title: T\n    due: 6"));
+    expect([parsed.from, parsed.to]).toEqual([6, 6]);
+    expect(parsed.tasks[0]!.due).toBe(6);
   });
 
   test.each([
-    ["no frontmatter", "pregnancy/x.md", "just text", /no frontmatter/],
-    ["bad yaml", "pregnancy/x.md", item("id: [unclosed"), /not YAML/],
+    ["no frontmatter", "items/x.md", "just text", /no frontmatter/],
+    ["bad yaml", "items/x.md", item("id: [unclosed"), /not YAML/],
     ["unknown field", RSV, item(`${rsv}\nmood: happy`), /mood|Unrecognized/],
-    ["weeks backwards", "pregnancy/x.md", item("id: x\ntitle: X\nweeks: [30, 20]\ncategory: body"), /weeks must run forwards/],
-    ["weeks out of range", "postpartum/x.md", item("id: x\ntitle: X\nweeks: [1, 20]\ncategory: body"), /within 1–12/],
+    ["weeks backwards", "items/x.md", item("id: x\ntitle: X\nweeks: [30, 20]\ncategory: body"), /weeks must run forwards/],
+    ["weeks out of range", "items/x.md", item("id: x\ntitle: X\nweeks: [30, 43]\ncategory: body"), /within 1–42/],
     [
       "a task due outside its item",
-      "pregnancy/x.md",
+      "items/x.md",
       item("id: x\ntitle: X\nweeks: [18, 20]\ncategory: body\ntasks:\n  - id: t\n    title: T\n    due: 16"),
       /within the item's weeks, 18–20/,
     ],
-    ["missing weeks", "pregnancy/x.md", item("id: x\ntitle: X\ncategory: body"), /needs weeks/],
+    ["missing weeks", "items/x.md", item("id: x\ntitle: X\ncategory: body"), /weeks/],
     [
       "a task that opens after it is due",
-      "pregnancy/x.md",
+      "items/x.md",
       item("id: x\ntitle: X\nweeks: [18, 24]\ncategory: body\ntasks:\n  - id: t\n    title: T\n    opens: 22\n    due: 20"),
       /no later than due, 18–20/,
     ],
     [
       "a deadline before it is due",
-      "pregnancy/x.md",
+      "items/x.md",
       item("id: x\ntitle: X\nweeks: [18, 24]\ncategory: body\ntasks:\n  - id: t\n    title: T\n    due: 22\n    deadline: 20"),
-      /on or after due and within the phase, 22–42/,
+      /on or after due and no later than week 42, 22–42/,
     ],
     [
-      "a deadline outside the phase",
-      "postpartum/x.md",
-      item("id: x\ntitle: X\nweeks: [1, 8]\ncategory: body\ntasks:\n  - id: t\n    title: T\n    deadline: 13"),
-      /within the phase, 8–12/,
-    ],
-    [
-      "a preconception task with a week",
-      "preconception/x.md",
-      item("id: x\ntitle: X\ncategory: body\ntasks:\n  - id: t\n    title: T\n    deadline: 4"),
-      /a preconception task has no deadline week/,
+      "a deadline after week 42",
+      "items/x.md",
+      item("id: x\ntitle: X\nweeks: [36, 40]\ncategory: body\ntasks:\n  - id: t\n    title: T\n    deadline: 43"),
+      /no later than week 42, 40–42/,
     ],
     ["a task for nobody", RSV, item(rsv.replace("    title: Book it", "    title: Book it\n    who: grandma")), /who/],
-    ["bad category", "preconception/x.md", item("id: x\ntitle: X\ncategory: shopping"), /category/],
-    ["bad id", "preconception/x.md", item("id: Not A Slug\ntitle: X\ncategory: body"), /lower-case/],
-    ["empty body", "preconception/x.md", item("id: x\ntitle: X\ncategory: body", ""), /body is empty/],
-    ["a phase in the frontmatter", "pregnancy/x.md", item("id: x\ntitle: X\nphase: pregnancy\nweeks: 6\ncategory: body"), /no phase: in the frontmatter/],
-    ["a file outside a phase's folder", "x.md", item("id: x\ntitle: X\nweeks: 6\ncategory: body"), /belongs in a phase's folder/],
-    ["a folder that is no phase", "birth/x.md", item("id: x\ntitle: X\nweeks: 6\ncategory: body"), /belongs in a phase's folder/],
-    ["an id that isn't the file's name", "pregnancy/y.md", item("id: x\ntitle: X\nweeks: 6\ncategory: body"), /id "x" must be the file's name, y/],
+    ["bad category", "items/x.md", item("id: x\ntitle: X\nweeks: 6\ncategory: shopping"), /category/],
+    ["bad id", "items/x.md", item("id: Not A Slug\ntitle: X\nweeks: 6\ncategory: body"), /lower-case/],
+    ["empty body", "items/x.md", item("id: x\ntitle: X\nweeks: 6\ncategory: body", ""), /body is empty/],
+    ["a phase in the frontmatter", "items/x.md", item("id: x\ntitle: X\nphase: pregnancy\nweeks: 6\ncategory: body"), /phase|Unrecognized/],
+    ["a file outside items/", "x.md", item("id: x\ntitle: X\nweeks: 6\ncategory: body"), /belongs in items\//],
+    ["a folder that isn't items/", "pregnancy/x.md", item("id: x\ntitle: X\nweeks: 6\ncategory: body"), /belongs in items\//],
+    ["an id that isn't the file's name", "items/y.md", item("id: x\ntitle: X\nweeks: 6\ncategory: body"), /id "x" must be the file's name, y/],
     ["a when on no question", RSV, item(`${rsv}\nwhen: { mood: happy }`), /"mood" is not a question/],
+    ["a when without whose", RSV, item(`${rsv}\nwhen: { work: employee }`), /say whose/],
+    ["a body without whose", RSV, item(rsv, '{% if equals($work, "employee") %}\nHi\n{% /if %}'), /say whose/],
+    [
+      "a deadline counted from no date",
+      "items/x.md",
+      item("id: x\ntitle: X\nweeks: [24, 34]\ncategory: paperwork\ntasks:\n  - id: t\n    title: T\n    deadline: { before: cover, weeks: 10, week: 34 }"),
+      /"cover" is not a date question/,
+    ],
     ["a when on no answer", RSV, item(`${rsv}\nwhen: { cover: maybe }`), /"maybe" is not an answer to cover/],
     ["an unknown tag", RSV, item(rsv, "{% video /%}"), /video/],
     ["a tag missing its attribute", RSV, item(rsv, "{% ask /%}"), /primary/],
@@ -144,7 +147,7 @@ describe("tailoring", () => {
 });
 
 test("ids are unique across items and tasks", () => {
-  const a = item("id: a\ntitle: A\ncategory: body\ntasks:\n  - id: b\n    title: T");
-  const b = item("id: b\ntitle: B\ncategory: body");
-  expect(() => parseAll({ "preconception/a.md": a, "preconception/b.md": b })).toThrow(/id "b" is also used by a/);
+  const a = item("id: a\ntitle: A\nweeks: 6\ncategory: body\ntasks:\n  - id: b\n    title: T");
+  const b = item("id: b\ntitle: B\nweeks: 6\ncategory: body");
+  expect(() => parseAll({ "items/a.md": a, "items/b.md": b })).toThrow(/id "b" is also used by a/);
 });

@@ -11,7 +11,6 @@ import { stepAt, stepHref } from "./paths";
 import type { Screen, StepContext } from "./step";
 import { babyStep } from "./steps/baby";
 import { dueStep } from "./steps/due";
-import { expectingStep } from "./steps/expecting";
 import { questionStep } from "./steps/question";
 import { readyStep } from "./steps/ready";
 import { whoStep } from "./steps/who";
@@ -140,8 +139,6 @@ function renderStep(step: Step, context: StepContext): Screen {
   switch (step) {
     case "who":
       return whoStep(context);
-    case "expecting":
-      return expectingStep(context);
     case "due":
       return dueStep(context);
     case "baby":

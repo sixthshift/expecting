@@ -2,20 +2,17 @@
 // read by the page through getRouteApi.
 
 import { z } from "zod";
-import { parseSlotKey, slotKey } from "../lib/timeline";
+import { parseWeekKey } from "../lib/timeline";
 
-/** The timeline: a week to open at instead of this one (`preconception`, `28`, `pp3`). */
+/** The timeline: a week to open at instead of this one (`28`). */
 export const timelineSearch = z.object({
   at: z
-    // The router reads `?at=28` as the number 28: a pregnancy week's key arrives as a number.
+    // The router reads `?at=28` as the number 28, and anything else as a string.
     .union([z.string(), z.number().transform(String)])
     .optional()
     .catch(undefined)
-    // Read as a slot and written back as its key, so an old alias (`before`) opens as `preconception`.
-    .transform((key) => {
-      const slot = key ? parseSlotKey(key) : null;
-      return slot ? slotKey(slot) : undefined;
-    }),
+    // A week, 1–42; anything else opens at this week.
+    .transform((key) => (key ? (parseWeekKey(key) ?? undefined) : undefined)),
 });
 
 /** The Library: what was typed in its search. */

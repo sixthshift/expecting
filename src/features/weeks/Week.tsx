@@ -3,11 +3,11 @@ import { cn } from "@sixthshift/design-system/utils";
 import { ChevronDown } from "lucide-react";
 import type { ReactNode } from "react";
 import { formatDate, type ISODate } from "../../lib/dates";
-import { type Slot, slotDates, slotShortLabel } from "../../lib/timeline";
+import { type Week as WeekNumber, weekDates } from "../../lib/timeline";
 import type { Band as BandData } from "../../lib/timelineView";
 import { ItemCard, rangeLabel } from "../library/ItemCard";
 import { AskedQuestion } from "../questions/questions";
-import { AddTask, DeleteOwnTask } from "../tasks/AddTask";
+import { DeleteOwnTask } from "../tasks/AddTask";
 import { TaskRow } from "../tasks/TaskRow";
 import { WeekNote } from "./WeekNote";
 
@@ -19,40 +19,22 @@ type Props = {
   /** Jump to an item, in whatever week it starts. */
   onOpenItem: (itemId: string) => void;
   dueDate: ISODate | null;
-  birthDate: ISODate | null;
   /** What sits at the top of the current week: the hero line, open questions. */
   nowContent?: ReactNode;
-  register: (key: string, el: HTMLElement | null) => void;
+  register: (week: WeekNumber, el: HTMLElement | null) => void;
 };
 
-/** The big label in the week's gutter: "28", "Before", "+3". */
-function Numeral({ slot }: { slot: Slot }) {
-  if (slot.phase === "preconception") return <span className="text-2xl font-semibold lg:text-3xl">Before</span>;
-  return <span className="text-3xl font-semibold tabular-nums lg:text-5xl">{slotShortLabel(slot)}</span>;
-}
-
-/** The words after the numeral: "28 weeks", "1 week", "+3 after birth". */
-function caption(slot: Slot): string {
-  switch (slot.phase) {
-    case "preconception":
-      return "";
-    case "pregnancy":
-      return slot.week === 1 ? "week" : "weeks";
-    case "postpartum":
-      return "after birth";
-  }
-}
-
 /**
- * One week, of any phase: each band of the pregnancy's timeline, and the
- * newborn's "This week". A gutter holds its number and dates (sticky on a
- * desktop, so the number stays with you down a long week); beside it, the
- * week's note and then its content. A week other than the current one is folded to one line of
- * what's in it until it is opened.
+ * One week: each band of the timeline, and This week. A gutter holds its
+ * number and dates (sticky on a desktop, so the number stays with you down a
+ * long week); beside it, the week's note and then its content. A week other
+ * than the current one is folded to one line of what's in it until it is
+ * opened.
  */
-export function Week({ band, expanded, onToggle, ticks, onOpenItem, dueDate, birthDate, nowContent, register }: Props) {
-  const { slot, key, isNow, isPast } = band;
-  const dates = slotDates(slot, dueDate, birthDate);
+export function Week({ band, expanded, onToggle, ticks, onOpenItem, dueDate, nowContent, register }: Props) {
+  const { week, isNow, isPast } = band;
+  const key = String(week);
+  const dates = weekDates(week, dueDate);
   const foldable = !isNow;
   const open = !foldable || expanded;
   const dateLine = dates
@@ -70,7 +52,7 @@ export function Week({ band, expanded, onToggle, ticks, onOpenItem, dueDate, bir
 
   return (
     <section
-      ref={(el) => register(key, el)}
+      ref={(el) => register(week, el)}
       id={`week-${key}`}
       data-week={key}
       aria-labelledby={`week-${key}-label`}
@@ -92,10 +74,10 @@ export function Week({ band, expanded, onToggle, ticks, onOpenItem, dueDate, bir
           )}
         >
           <h2 id={`week-${key}-label`} className={cn("flex items-baseline gap-2", isNow ? "text-fg-brand" : "text-fg-strong")}>
-            <Numeral slot={slot} />
-            <span className="text-sm font-normal text-fg-subtle">{caption(slot)}</span>
+            <span className="text-sm font-normal text-fg-subtle">Week</span>
+            <span className="text-3xl font-semibold tabular-nums lg:text-5xl">{week}</span>
           </h2>
-          <span className="text-sm text-fg-subtle">{dateLine ?? (slot.phase === "preconception" ? "Best done before, or very early" : null)}</span>
+          <span className="text-sm text-fg-subtle">{dateLine}</span>
           {foldable ? (
             <span className="ml-auto flex items-center gap-2 text-sm text-fg-subtle lg:hidden">
               {summary}
@@ -110,7 +92,7 @@ export function Week({ band, expanded, onToggle, ticks, onOpenItem, dueDate, bir
           <button
             type="button"
             onClick={onToggle}
-            aria-label={`${open ? "Fold" : "Open"} ${key === "preconception" ? "before you start" : `week ${key}`}`}
+            aria-label={`${open ? "Fold" : "Open"} week ${week}`}
             className="hidden min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal lg:flex"
           >
             {summary}
@@ -131,7 +113,7 @@ export function Week({ band, expanded, onToggle, ticks, onOpenItem, dueDate, bir
               >
                 <div className="mt-1 flex flex-col">
                   {band.slipped.map((task) => (
-                    <TaskRow key={task.id} task={task} ticked={false} meta={slotShortLabel(task.due)} />
+                    <TaskRow key={task.id} task={task} ticked={false} meta={String(task.due)} />
                   ))}
                 </div>
               </Message>
@@ -176,8 +158,6 @@ export function Week({ band, expanded, onToggle, ticks, onOpenItem, dueDate, bir
             {band.asked.map((q) => (
               <AskedQuestion key={q.id} question={q} />
             ))}
-
-            <AddTask slot={slot} />
           </>
         ) : null}
       </div>

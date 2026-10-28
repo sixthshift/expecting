@@ -2,24 +2,23 @@ import { Badge } from "@sixthshift/design-system/badge";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { whose } from "../../lib/people";
-import { compareSlots, type Slot, sameSlot, slotLabel } from "../../lib/timeline";
+import { type Week, weekLabel } from "../../lib/timeline";
 import { type ToDo, toDoNow } from "../../lib/todo";
-import { usePhaseTo } from "../app/usePhaseTo";
 import { useApp } from "../household/useApp";
 import { TaskRow } from "./TaskRow";
 
 /** How many To do now shows before handing over to the Planner. */
 const SHOWN = 5;
 
-const week = (slot: Slot) => slotLabel(slot).toLowerCase();
+const week = (w: Week) => weekLabel(w).toLowerCase();
 
 /** When, in a few words: "deadline week 30", "was due week 25", "this week", "by week 30". */
-function when({ task, why }: ToDo, now: Slot): string {
-  if (why === "deadline" && task.deadline) {
-    return compareSlots(task.deadline, now) < 0 ? `deadline was ${week(task.deadline)}` : `deadline ${week(task.deadline)}`;
+function when({ task, why }: ToDo, now: Week): string {
+  if (why === "deadline" && task.deadline !== null) {
+    return task.deadline < now ? `deadline was ${week(task.deadline)}` : `deadline ${week(task.deadline)}`;
   }
-  if (why === "slipped") return task.due.phase === "preconception" ? "best done before now" : `was due ${week(task.due)}`;
-  return sameSlot(task.due, now) ? "this week" : `by ${week(task.due)}`;
+  if (why === "slipped") return `was due ${week(task.due)}`;
+  return task.due === now ? "this week" : `by ${week(task.due)}`;
 }
 
 /**
@@ -29,13 +28,12 @@ function when({ task, why }: ToDo, now: Slot): string {
  */
 export function ToDoNow() {
   const { state, now, tasks } = useApp();
-  const to = usePhaseTo();
-  if (!now) return null;
+  if (now === null) return null;
   const list = toDoNow(tasks, state.ticks, now);
   const shown = list.slice(0, SHOWN);
 
   return (
-    <section aria-labelledby="to-do-now" className="mb-6 flex flex-col gap-2">
+    <section aria-labelledby="to-do-now" className="flex flex-col gap-2">
       <h2 id="to-do-now" className="text-lg font-semibold text-fg-strong">
         To do now
       </h2>
@@ -65,7 +63,7 @@ export function ToDoNow() {
               action={
                 entry.task.itemId ? (
                   <Link
-                    to={to("/library/$itemId")}
+                    to="/library/$itemId"
                     params={{ itemId: entry.task.itemId }}
                     aria-label={`Why: ${entry.task.title}`}
                     className="shrink-0 px-1 text-xs text-fg-subtle underline"
@@ -78,7 +76,7 @@ export function ToDoNow() {
           ))}
         </div>
       )}
-      <Link to={to("/planner")} className="flex min-h-11 w-fit items-center gap-1 text-sm text-fg-subtle hover:text-fg-normal">
+      <Link to="/planner" className="flex min-h-11 w-fit items-center gap-1 text-sm text-fg-subtle hover:text-fg-normal">
         {list.length > SHOWN ? `${list.length - SHOWN} more, and everything else, in the Planner` : "Everything in the Planner"}
         <ChevronRight aria-hidden size={16} />
       </Link>

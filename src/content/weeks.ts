@@ -1,5 +1,5 @@
 // This week: one note per week, as written in content/weeks/<week>.md, where
-// the file's name is the week's key (`28`, later `pp3`). A note has three
+// the file's name is the week (`28`). A note has three
 // parts, each a `##` heading in the body, in this order: the baby, the
 // pregnant parent's body, and the partner. Each part is Markdoc like an item's
 // body, so it can be tailored with {% if %}.
@@ -16,7 +16,7 @@
 import { Ast, type Node } from "@markdoc/markdoc";
 import { z } from "zod";
 import { isISODate } from "../lib/dates";
-import { parseSlotKey, type Slot, slotKey } from "../lib/timeline";
+import { parseWeekKey, type Week } from "../lib/timeline";
 import { parseBody } from "./markdoc";
 import { ContentError, readFrontmatter } from "./parse";
 
@@ -51,9 +51,8 @@ const frontmatterSchema = z
   .strict();
 
 export type WeekNote = {
-  /** The week's key, which is also the file's name: `28`. */
-  key: string;
-  slot: Slot;
+  /** The week, which is also the file's name: `28`. */
+  week: Week;
   title: string;
   size: { length: number; weight: number | null; like: string | null } | null;
   /** Each part's body, parsed and checked, ready to render. */
@@ -105,9 +104,9 @@ function splitSections(file: string, doc: Node): Record<Section, Node> {
 export function parseWeek(file: string, source: string): WeekNote {
   const name = file.split("/").at(-1)!;
   const key = name.endsWith(".md") ? name.slice(0, -".md".length) : name;
-  const slot = parseSlotKey(key);
-  if (!slot || slot.phase === "preconception" || slotKey(slot) !== key || !name.endsWith(".md")) {
-    throw new ContentError(file, "a week's file is named for its week, as weeks/28.md or weeks/pp3.md");
+  const week = parseWeekKey(key);
+  if (week === null || String(week) !== key || !name.endsWith(".md")) {
+    throw new ContentError(file, "a week's file is named for its week, 1–42, as weeks/28.md");
   }
 
   const { raw, body } = readFrontmatter(file, source);
@@ -121,8 +120,7 @@ export function parseWeek(file: string, source: string): WeekNote {
 
   const fm = parsed.data;
   return {
-    key,
-    slot,
+    week,
     title: fm.title,
     size: fm.size ? { length: fm.size.length, weight: fm.size.weight ?? null, like: fm.size.like ?? null } : null,
     sections: splitSections(file, ast),
@@ -143,4 +141,9 @@ export function sizeLabel(size: NonNullable<WeekNote["size"]>): string {
   const weight = size.weight === null ? null : size.weight < 1000 ? `${Math.round(size.weight)} g` : `${Number((size.weight / 1000).toFixed(1))} kg`;
   const measures = weight ? `about ${length} from head to bottom and about ${weight}` : `about ${length} from head to bottom`;
   return size.like ? `${measures}: about the size of ${size.like}` : measures;
+}
+
+/** The note in force in `week`: its own, or else the latest before it, until the next is written. */
+export function noteFor(notes: readonly WeekNote[], week: Week): WeekNote | null {
+  return notes.reduce<WeekNote | null>((found, note) => (note.week <= week && (!found || note.week > found.week) ? note : found), null);
 }

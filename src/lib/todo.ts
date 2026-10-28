@@ -13,7 +13,7 @@
 // it up early; nothing here needs to know the lead time itself.
 
 import type { Task } from "../content/schema";
-import { allSlots, type Slot, slotKey } from "./timeline";
+import type { Week } from "./timeline";
 
 /** How many weeks ahead "now" looks: a task best done within them is on the list. */
 export const HORIZON_WEEKS = 2;
@@ -27,25 +27,39 @@ export type ToDo = { task: Task; why: Why };
 
 const ORDER: Record<Why, number> = { deadline: 0, slipped: 1, soon: 2 };
 
-const position = new Map(allSlots().map((slot, i) => [slotKey(slot), i]));
-
-/** A slot's place on the timeline, counted in weeks (getting ready is 0). */
-function at(slot: Slot): number {
-  return position.get(slotKey(slot))!;
-}
-
 /** The open, unticked tasks to do now, most urgent first. */
-export function toDoNow(tasks: readonly Task[], ticks: Record<string, string>, now: Slot): ToDo[] {
-  const today = at(now);
+export function toDoNow(tasks: readonly Task[], ticks: Record<string, string>, today: Week): ToDo[] {
   const list: (ToDo & { when: number; i: number })[] = [];
   for (const [i, task] of tasks.entries()) {
-    if (ticks[task.id] || at(task.opens) > today) continue;
-    const recent = (slot: Slot) => today - at(slot) <= SLIPPED_WEEKS;
-    if (task.deadline && at(task.deadline) - today <= HORIZON_WEEKS) {
-      if (recent(task.deadline)) list.push({ task, why: "deadline", when: at(task.deadline), i });
-    } else if (at(task.due) < today) {
-      if (recent(task.due)) list.push({ task, why: "slipped", when: at(task.due), i });
-    } else if (at(task.due) - today <= HORIZON_WEEKS) list.push({ task, why: "soon", when: at(task.due), i });
+    if (ticks[task.id] || task.opens > today) continue;
+    const recent = (week: Week) => today - week <= SLIPPED_WEEKS;
+    if (task.deadline !== null && task.deadline - today <= HORIZON_WEEKS) {
+      if (recent(task.deadline)) list.push({ task, why: "deadline", when: task.deadline, i });
+    } else if (task.due < today) {
+      if (recent(task.due)) list.push({ task, why: "slipped", when: task.due, i });
+    } else if (task.due - today <= HORIZON_WEEKS) list.push({ task, why: "soon", when: task.due, i });
   }
   return list.sort((a, b) => ORDER[a.why] - ORDER[b.why] || a.when - b.when || a.i - b.i).map(({ task, why }) => ({ task, why }));
+}
+
+/** How many weeks ahead Coming up looks, past To do now's horizon. */
+export const AHEAD_WEEKS = 8;
+
+export type Coming = { task: Task; week: Week; deadline: boolean };
+
+/**
+ * Coming up: the heads-up after To do now. An unticked task best done (or with
+ * a deadline) after the next couple of weeks but within the next eight, by the
+ * week it falls in, soonest first. Anything To do now has is left out.
+ */
+export function comingUp(tasks: readonly Task[], ticks: Record<string, string>, today: Week): Coming[] {
+  const now = new Set(toDoNow(tasks, ticks, today).map((t) => t.task.id));
+  const ahead = (week: Week) => week - today > HORIZON_WEEKS && week - today <= AHEAD_WEEKS;
+  const list: (Coming & { i: number })[] = [];
+  for (const [i, task] of tasks.entries()) {
+    if (ticks[task.id] || now.has(task.id)) continue;
+    if (ahead(task.due)) list.push({ task, week: task.due, deadline: false, i });
+    else if (task.deadline !== null && ahead(task.deadline)) list.push({ task, week: task.deadline, deadline: true, i });
+  }
+  return list.sort((a, b) => a.week - b.week || a.i - b.i).map(({ task, week, deadline }) => ({ task, week, deadline }));
 }

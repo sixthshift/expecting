@@ -7,13 +7,10 @@ export const household = sqliteTable(
   {
     id: integer("id").primaryKey(),
     dueDate: text("due_date"),
-    birthDate: text("birth_date"),
     /** boy | girl | unknown (don't know, or keeping it a surprise). Chooses the theme. */
     baby: text("baby", { enum: ["boy", "girl", "unknown"] })
       .notNull()
       .default("unknown"),
-    /** Answers to content/profile.yaml's questions, question id to answer id. */
-    profile: text("profile", { mode: "json" }).$type<Record<string, string>>().notNull().default(sql`'{}'`),
     /** When onboarding was finished; null until then. */
     onboardedAt: text("onboarded_at"),
     updatedAt: text("updated_at").notNull(),

@@ -6,6 +6,7 @@ import Markdoc, { type Config, type Node } from "@markdoc/markdoc";
 import { Body } from "@sixthshift/design-system/body";
 import { cn } from "@sixthshift/design-system/utils";
 import * as React from "react";
+import { variables } from "../../../content/facts";
 import { markdocConfig } from "../../../content/markdoc";
 import { Ask } from "./Ask";
 import { useContentContext } from "./context";
@@ -35,8 +36,8 @@ const components = {
 };
 
 export function ItemBody({ doc, className }: { doc: Node; className?: string }) {
-  const { profile } = useContentContext();
-  const tree = React.useMemo(() => Markdoc.transform(doc, { ...renderConfig, variables: profile }), [doc, profile]);
+  const { facts } = useContentContext();
+  const tree = React.useMemo(() => Markdoc.transform(doc, { ...renderConfig, variables: variables(facts) }), [doc, facts]);
   return (
     <div className={cn("flex flex-col [&_li]:text-sm [&_ol]:mt-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ul]:mt-2 [&_ul]:list-disc [&_ul]:pl-5", className)}>
       {Markdoc.renderers.react(tree, React, { components })}

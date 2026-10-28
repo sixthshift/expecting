@@ -1,7 +1,7 @@
 // What the timeline shows: one band per week. Pure, so the rules about what
 // appears where are tested apart from the screen.
 //
-//   every week, from getting ready to 12 weeks after the birth
+//   every week of the pregnancy, 1 to 42
 //   each week's note, where it has one
 //   each item once, in the week it starts; standalone tasks in their due week
 //   asked questions in the week they were asked: behind today, the diary
@@ -15,11 +15,10 @@ import type { WeekNote } from "../content/weeks";
 import { overdue } from "./checklist";
 import { type ISODate, todayISO } from "./dates";
 import type { Question } from "./questions";
-import { allSlots, compareSlots, positionOn, type Slot, sameSlot, slotKey } from "./timeline";
+import { allWeeks, positionOn, type Week } from "./timeline";
 
 export type Band = {
-  slot: Slot;
-  key: string;
+  week: Week;
   isNow: boolean;
   isPast: boolean;
   /** This week's note: the baby, the body, the partner. */
@@ -44,55 +43,51 @@ export type TimelineInput = {
   tasks: readonly Task[];
   ticks: Record<string, string>;
   questions: readonly Question[];
-  now: Slot | null;
+  now: Week | null;
   dueDate: ISODate | null;
-  birthDate: ISODate | null;
 };
 
 export function buildBands(input: TimelineInput): Band[] {
   const { notes, items, tasks, ticks, questions, now } = input;
   const isOpen = (t: Task) => !ticks[t.id];
-  const askedAt = askedSlots(input);
+  const askedAt = askedWeeks(input);
 
-  return allSlots().map((slot): Band => {
-    const isNow = now !== null && sameSlot(slot, now);
-    const due = tasks.filter((t) => sameSlot(t.due, slot));
-    const starting = items.filter((i) => sameSlot(i.from, slot));
+  return allWeeks().map((week): Band => {
+    const isNow = week === now;
+    const due = tasks.filter((t) => t.due === week);
     return {
-      slot,
-      key: slotKey(slot),
+      week,
       isNow,
-      isPast: now !== null && compareSlots(slot, now) < 0,
-      note: notes.find((n) => sameSlot(n.slot, slot)) ?? null,
-      starting,
-      continuing: isNow ? items.filter((i) => compareSlots(i.from, slot) < 0 && compareSlots(slot, i.to) <= 0) : [],
+      isPast: now !== null && week < now,
+      note: notes.find((n) => n.week === week) ?? null,
+      starting: items.filter((i) => i.from === week),
+      continuing: isNow ? items.filter((i) => i.from < week && week <= i.to) : [],
       tasks: due.filter((t) => t.itemId === null),
-      slipped: isNow && now ? overdue(tasks, ticks, now) : [],
-      asked: questions.filter((q) => askedAt.get(q.id) === slotKey(slot)),
+      slipped: isNow ? overdue(tasks, ticks, week) : [],
+      asked: questions.filter((q) => askedAt.get(q.id) === week),
       openTasks: due.filter(isOpen).length,
     };
   });
 }
 
 /** The week each asked question was asked in, by question id. Empty without a due date. */
-function askedSlots({ questions, dueDate, birthDate }: TimelineInput): Map<string, string> {
-  const at = new Map<string, string>();
+function askedWeeks({ questions, dueDate }: TimelineInput): Map<string, Week> {
+  const at = new Map<string, Week>();
   if (!dueDate) return at;
   for (const q of questions) {
-    if (q.askedAt) at.set(q.id, slotKey(positionOn(todayISO(new Date(q.askedAt)), dueDate, birthDate).slot));
+    if (q.askedAt) at.set(q.id, positionOn(todayISO(new Date(q.askedAt)), dueDate).week);
   }
   return at;
 }
 
 /** What the ruler marks at each week: how much starts, and whether anything has slipped. */
-export type Mark = { slot: Slot; key: string; starting: number; overdue: boolean; isNow: boolean };
+export type Mark = { week: Week; starting: number; overdue: boolean; isNow: boolean };
 
-export function rulerMarks(items: readonly Item[], tasks: readonly Task[], ticks: Record<string, string>, now: Slot | null): Mark[] {
-  return allSlots().map((slot) => ({
-    slot,
-    key: slotKey(slot),
-    starting: items.filter((i) => sameSlot(i.from, slot)).length,
-    overdue: now !== null && compareSlots(slot, now) < 0 && tasks.some((t) => sameSlot(t.due, slot) && !ticks[t.id]),
-    isNow: now !== null && sameSlot(slot, now),
+export function rulerMarks(items: readonly Item[], tasks: readonly Task[], ticks: Record<string, string>, now: Week | null): Mark[] {
+  return allWeeks().map((week) => ({
+    week,
+    starting: items.filter((i) => i.from === week).length,
+    overdue: now !== null && week < now && tasks.some((t) => t.due === week && !ticks[t.id]),
+    isNow: week === now,
   }));
 }

@@ -1,6 +1,5 @@
 import type { Node } from "@markdoc/markdoc";
 import { parse as parseYaml } from "yaml";
-import type { Phase, Slot } from "../lib/timeline";
 import { parseBody } from "./markdoc";
 import { type Frontmatter, frontmatterSchema, type Item } from "./schema";
 
@@ -13,17 +12,17 @@ export class ContentError extends Error {
   }
 }
 
-const PHASES: readonly Phase[] = ["preconception", "pregnancy", "postpartum"];
+/** The folder built-in items live in: `content/items/<id>.md`. */
+const FOLDER = "items";
 
 /**
- * Where a file says it belongs: `<phase>/<id>.md`, the folder its phase and
- * the name its id. Anything else is a ContentError.
+ * Where a file says it belongs: `items/<id>.md`, the name its id. Anything
+ * else is a ContentError.
  */
-function placeOf(file: string): { phase: Phase; id: string } {
+function idOf(file: string): string {
   const [folder, name] = file.split("/").slice(-2);
-  const phase = PHASES.find((p) => p === folder);
-  if (!phase || !name?.endsWith(".md")) throw new ContentError(file, `belongs in a phase's folder, as ${PHASES.join("/, ")}/<id>.md`);
-  return { phase, id: name.slice(0, -".md".length) };
+  if (folder !== FOLDER || !name?.endsWith(".md")) throw new ContentError(file, `belongs in ${FOLDER}/, as ${FOLDER}/<id>.md`);
+  return name.slice(0, -".md".length);
 }
 
 /** A content file's frontmatter, as YAML, and its body. Throws a ContentError naming the file if either is missing or malformed. */
@@ -37,20 +36,17 @@ export function readFrontmatter(file: string, source: string): { raw: unknown; b
   }
 }
 
-/** One content file, `<phase>/<id>.md`, into an item. Throws a ContentError naming the file on any problem. */
+/** One content file, `items/<id>.md`, into an item. Throws a ContentError naming the file on any problem. */
 export function parseItem(file: string, source: string): Item {
-  const place = placeOf(file);
+  const id = idOf(file);
   const { raw, body } = readFrontmatter(file, source);
-
-  // The folder is the phase, so the frontmatter can't disagree with it.
-  if (raw && typeof raw === "object" && "phase" in raw) throw new ContentError(file, `no phase: in the frontmatter; the folder (${place.phase}/) is its phase`);
-  const parsed = frontmatterSchema.safeParse({ ...(raw as object), phase: place.phase });
+  const parsed = frontmatterSchema.safeParse(raw);
   if (!parsed.success) {
     const problems = parsed.error.issues.map((i) => `${i.path.join(".") || "(root)"}: ${i.message}`).join("; ");
     throw new ContentError(file, problems);
   }
 
-  if (parsed.data.id !== place.id) throw new ContentError(file, `id "${parsed.data.id}" must be the file's name, ${place.id}`);
+  if (parsed.data.id !== id) throw new ContentError(file, `id "${parsed.data.id}" must be the file's name, ${id}`);
 
   if (body.length === 0) throw new ContentError(file, "the body is empty");
   const { ast, problems } = parseBody(body);
@@ -59,13 +55,12 @@ export function parseItem(file: string, source: string): Item {
 }
 
 function toItem(fm: Frontmatter, body: string, doc: Node): Item {
-  const at = (week: number): Slot => (fm.phase === "preconception" ? { phase: "preconception" } : { phase: fm.phase, week });
-  const [from, to] = fm.weeks ?? [0, 0];
+  const [from, to] = fm.weeks;
   return {
     id: fm.id,
     title: fm.title,
-    from: at(from),
-    to: at(to),
+    from,
+    to,
     category: fm.category,
     surprise: fm.surprise,
     draft: fm.draft,
@@ -77,9 +72,10 @@ function toItem(fm: Frontmatter, body: string, doc: Node): Item {
     tasks: fm.tasks.map((t) => ({
       id: t.id,
       title: t.title,
-      opens: at(t.opens ?? from),
-      due: at(t.due ?? to),
-      deadline: t.deadline === undefined ? null : at(t.deadline),
+      opens: t.opens ?? from,
+      due: t.due ?? to,
+      deadline: (typeof t.deadline === "object" ? t.deadline.week : t.deadline) ?? null,
+      deadlineFrom: typeof t.deadline === "object" ? { fact: t.deadline.before, weeks: t.deadline.weeks } : null,
       who: t.who,
       itemId: fm.id,
       origin: "built-in",

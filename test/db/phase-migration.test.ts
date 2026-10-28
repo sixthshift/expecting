@@ -8,9 +8,10 @@ import { join } from "node:path";
 import { expect, test } from "vitest";
 import { MIGRATIONS_DIR, migrate } from "../../src/db/migrations/migrate";
 
+// Up to and including 006: later migrations reshape what it wrote.
 const sql = Object.fromEntries(
   readdirSync(MIGRATIONS_DIR)
-    .filter((f) => f.endsWith(".sql"))
+    .filter((f) => f.endsWith(".sql") && f < "007")
     .map((f) => [f, readFileSync(join(MIGRATIONS_DIR, f), "utf8")])
 );
 const before = Object.fromEntries(Object.entries(sql).filter(([f]) => f < "006"));

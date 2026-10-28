@@ -1,13 +1,11 @@
 import { createRoute, redirect } from "@tanstack/react-router";
 import { App } from "../features/app/App";
 import { loadApp, onboardingLeft } from "../features/household/load";
-import { PHASES } from "../features/phases";
 import { rootRoute } from "./root";
 
 /**
  * The frame around every pillar and settings: the household's data, loaded
- * once, and the phase's app. Not a page; it has no path of its own. This is
- * where the three apps are handed to App.
+ * once. Not a page; it has no path of its own.
  */
 export const app = createRoute({
   getParentRoute: () => rootRoute,
@@ -17,5 +15,5 @@ export const app = createRoute({
     if (onboardingLeft(data.state).length > 0) throw redirect({ to: "/onboarding" });
     return data;
   },
-  component: () => <App phases={PHASES} />,
+  component: App,
 });

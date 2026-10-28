@@ -28,8 +28,6 @@ test.describe("the first evening", () => {
     await page.getByRole("button", { name: "I'm the partner" }).click();
     await page.getByRole("button", { name: "Continue" }).click();
 
-    await page.getByRole("button", { name: "Yes, we're expecting" }).click();
-
     // Each new screen takes focus to its question.
     await expect(page.getByRole("heading", { name: "When's the baby due?" })).toBeFocused();
     await page.getByRole("spinbutton", { name: /day/i }).click();
@@ -45,16 +43,24 @@ test.describe("the first evening", () => {
     await expect(page).toHaveURL(/\/onboarding\/baby$/);
 
     await page.getByRole("button", { name: "Don't know / surprise" }).click();
-    // Private cover and the state: skipped, so nothing is hidden.
-    await page.getByRole("button", { name: "Skip for now" }).click();
-    await page.getByRole("button", { name: "Skip for now" }).click();
+    await expect(page.getByRole("heading", { name: "Do you know if it's a boy or a girl?" })).toBeHidden();
+    // The questions that build the plan: all skipped, so nothing is hidden.
+    // A skip saves, then moves to the next question's page: wait for that page before asking again.
+    const allSet = page.getByRole("heading", { name: "You're all set" });
+    const skip = page.getByRole("button", { name: "Skip for now" });
+    while (!(await allSet.isVisible())) {
+      const question = await page.getByRole("heading", { level: 1 }).textContent();
+      await skip.click();
+      await expect(page.getByRole("heading", { level: 1, name: question ?? "" })).toBeHidden();
+      await expect(allSet.or(skip)).toBeVisible();
+    }
 
     await expect(page.getByRole("heading", { name: "You're all set" })).toBeVisible();
     await expect(page.getByText("Expecting opens at week 28 (28+0)")).toBeVisible();
     await page.getByRole("button", { name: "Open Expecting" }).click();
 
-    await expect(week(page, "28").getByRole("heading", { name: "28 weeks" })).toBeVisible();
-    await expect(page).toHaveURL(/\/pregnancy$/);
+    await expect(page.getByRole("heading", { level: 1, name: "This week Week 28" })).toBeVisible();
+    await expect(page).toHaveURL((url) => url.pathname === "/");
     await expect(page.getByText("28+0 · 84 days to go")).toBeVisible();
     // The timeline opens at this week too.
     await page.getByRole("navigation", { name: "Expecting" }).getByRole("link", { name: "Timeline" }).click();
@@ -75,37 +81,41 @@ test("the second phone is only asked who it is", async ({ page, open }) => {
   await expect(page.getByRole("button", { name: "I'm the one who's pregnant (or will be)" })).toHaveAttribute("aria-pressed", "true");
   await page.getByRole("button", { name: "Continue" }).click();
 
-  // The household is already set up: straight to the timeline.
-  await expect(week(page, "28").getByRole("heading", { name: "28 weeks" })).toBeVisible();
+  // The household is already set up: straight to This week.
+  await expect(page.getByRole("heading", { level: 1, name: "This week Week 28" })).toBeVisible();
+  // The week's note reads as the one holding the phone, and flips to the other.
+  const note = page.getByRole("article", { name: "The home stretch begins" });
+  await expect(note.getByRole("heading", { name: "Your body" })).toBeVisible();
+  await expect(note.getByRole("heading", { name: "For the partner" })).toHaveCount(0);
+  await note.getByRole("radio", { name: "For Jason" }).click();
+  await expect(note.getByRole("heading", { name: "For the partner" })).toBeVisible();
+  await expect(note.getByRole("heading", { name: "Your body" })).toHaveCount(0);
   await open("/settings");
   await expect(page.getByText("This is Sam's phone. Expecting is shared by Jason and Sam.")).toBeVisible();
 });
 
 test("the ruler moves along the timeline, and Today comes back", async ({ page, open }) => {
-  await open("/pregnancy/timeline");
+  await open("/timeline");
   const ruler = page.getByRole("slider", { name: "Timeline" });
   await ruler.focus();
   await page.keyboard.press("PageDown");
   await expect(ruler).toHaveAttribute("aria-valuetext", "Week 32");
   await expect(week(page, "32")).toBeInViewport();
   // A settled move opens the week it lands on.
-  await expect(week(page, "32").getByRole("textbox", { name: "New task for Week 32" })).toBeVisible();
+  await expect(week(page, "32").getByRole("button", { expanded: true })).toBeVisible();
 
   await page.keyboard.press("End");
-  await expect(ruler).toHaveAttribute("aria-valuetext", "Week 12 after birth");
-  await expect(week(page, "pp12")).toBeInViewport();
+  await expect(ruler).toHaveAttribute("aria-valuetext", "Week 42");
+  await expect(week(page, "42")).toBeInViewport();
 
   await page.getByRole("button", { name: "Today" }).click();
   await expect(week(page, "28")).toBeInViewport();
 });
 
-test("an own task is added to its week, and the Planner has it", async ({ page, open }) => {
-  await open("/");
-  await week(page, "28").getByRole("textbox", { name: "New task for Week 28" }).fill("Pack the snacks for the hospital");
-  await week(page, "28").getByRole("button", { name: "Add task" }).click();
-  await expect(week(page, "28").getByRole("checkbox", { name: "Pack the snacks for the hospital" })).toBeVisible();
-
-  await page.getByRole("navigation", { name: "Expecting" }).getByRole("link", { name: "Planner" }).click();
+test("an own task is added in the Planner, and lands on its week", async ({ page, open }) => {
+  await open("/planner");
+  await page.getByRole("textbox", { name: "New task for Week 28" }).fill("Pack the snacks for the hospital");
+  await page.getByRole("button", { name: "Add task" }).click();
   const task = page.getByRole("checkbox", { name: "Pack the snacks for the hospital" });
   await expect(task).toBeVisible();
   await task.click();
@@ -116,12 +126,12 @@ test("an own task is added to its week, and the Planner has it", async ({ page, 
   await page.getByRole("button", { name: /^Done/ }).click();
   await expect(task).toBeChecked();
 
-  await open("/");
+  await open("/timeline");
   await expect(week(page, "28").getByRole("checkbox", { name: "Pack the snacks for the hospital" })).toBeChecked();
 });
 
 test("Why goes from a task to the item that explains it, and on to its week", async ({ page, open }) => {
-  await open("/pregnancy/planner");
+  await open("/planner");
   await page.getByRole("link", { name: "Why: Book the RSV vaccine" }).click();
   await expect(page).toHaveURL(/\/library\/rsv-vaccine$/);
   await expect(page.getByRole("heading", { level: 1, name: "The RSV vaccine" })).toBeAttached();
@@ -131,7 +141,7 @@ test("Why goes from a task to the item that explains it, and on to its week", as
 });
 
 test("the Library finds things, and keeps nobody-tells-you on a shelf of its own", async ({ page, open }) => {
-  await open("/pregnancy/library");
+  await open("/library");
   await expect(page.getByRole("region", { name: "Nobody tells you" }).getByRole("link", { name: /The RSV vaccine/ })).toBeVisible();
 
   await page.getByLabel("Search the library").fill("whooping cough");
@@ -141,7 +151,7 @@ test("the Library finds things, and keeps nobody-tells-you on a shelf of its own
 });
 
 test("a question is added in the Planner, asked, and lands in this week", async ({ page, open }) => {
-  await open("/pregnancy/planner");
+  await open("/planner");
   await page.getByRole("textbox", { name: "New question" }).fill("Which hospital entrance after hours?");
   await page.getByRole("button", { name: "Add question" }).click();
   await expect(page.getByText("Which hospital entrance after hours?")).toBeVisible();
@@ -151,7 +161,7 @@ test("a question is added in the Planner, asked, and lands in this week", async 
   await page.getByRole("button", { name: "Save as asked" }).click();
   await expect(page.getByRole("button", { name: "Asked it" })).toBeHidden();
 
-  await open("/");
+  await open("/timeline");
   await expect(week(page, "28").getByText("Emergency, then the lift to level 3.")).toBeVisible();
 });
 
@@ -176,48 +186,75 @@ test("the answer to boy or girl sets the colours, and they survive a reload", as
   await expect.poll(theme).toBe("baby-purple");
 });
 
-test("an answer in settings tailors the timeline, and clearing it puts things back", async ({ page, open }) => {
-  const privateHealth = page.locator("#item-private-health-waiting-period");
+test("an answer in settings tailors an item, and clearing it puts it back", async ({ page, open }) => {
   const rsv = page.locator("#item-rsv-vaccine");
 
-  // Unanswered: everything shows, and the body reads for public care. (`before` is the old key, still accepted.)
-  await open("/pregnancy/timeline?at=before");
-  await expect(privateHealth).toBeVisible();
-  await open("/");
+  // Unanswered: the body reads for public care.
+  await open("/timeline");
   await expect(rsv.getByText("Your GP, the hospital's antenatal clinic")).toBeVisible();
 
   await open("/settings");
-  await page.getByRole("radio", { name: "Yes", exact: true }).click();
+  await page
+    .getByRole("radiogroup", { name: "Do you have private hospital cover that includes pregnancy and birth?" })
+    .getByRole("radio", { name: "Yes" })
+    .click();
   const clearCover = page.getByRole("button", { name: "Clear answer: Do you have private hospital cover that includes pregnancy and birth?" });
   await expect(clearCover).toBeVisible();
 
-  // Private cover: the waiting-period item has nothing to say, and the RSV item speaks to an obstetrician.
-  await open("/pregnancy/timeline?at=preconception");
-  await expect(week(page, "preconception")).toBeVisible();
-  await expect(privateHealth).toHaveCount(0);
-  await open("/");
+  // Private cover: the RSV item speaks to an obstetrician.
+  await open("/timeline");
   await expect(rsv.getByText("Seeing a private obstetrician?")).toBeVisible();
   await expect(rsv.getByText("Your GP, the hospital's antenatal clinic")).toHaveCount(0);
 
   await open("/settings");
   await clearCover.click();
   await expect(page.getByText("Not answered").first()).toBeVisible();
-  await open("/pregnancy/timeline?at=preconception");
-  await expect(privateHealth).toBeVisible();
+  await open("/timeline");
+  await expect(rsv.getByText("Your GP, the hospital's antenatal clinic")).toBeVisible();
+});
+
+test("This week asks what Expecting needs to know, and an answer changes the plan", async ({ page, open }) => {
+  const childcareTask = page.getByRole("checkbox", { name: "Shortlist childcare centres and join their waiting lists" });
+  await open("/planner");
+  await expect(childcareTask).toBeVisible();
+
+  // At 28+0, onboarding's questions were skipped this week; the ones whose week has passed are asked now.
+  await open("/");
+  const ask = page.getByRole("region", { name: "Expecting needs to know" });
+  const childcare = ask.getByRole("group", { name: "Will you want childcare in the baby's first two years?" });
+  await childcare.getByRole("radio", { name: "No", exact: true }).click();
+  await expect(childcare).toHaveCount(0);
+  await open("/planner");
+  await expect(childcareTask).toHaveCount(0);
+
+  // Not now puts a question off, without answering it.
+  await open("/");
+  const rhd = ask.getByRole("group", { name: "Is the pregnant parent's blood group RhD negative?" });
+  await rhd.getByRole("button", { name: /^Not now/ }).click();
+  await expect(rhd).toHaveCount(0);
+
+  // Settings says who answered, and clearing it puts the plan back.
+  await open("/settings");
+  await expect(page.getByText(/^Jason answered,/)).toBeVisible();
+  await page.getByRole("button", { name: "Clear answer: Will you want childcare in the baby's first two years?" }).click();
+  await open("/planner");
+  await expect(childcareTask).toBeVisible();
 });
 
 test("This week opens with what to do now: a deadline coming up first, and why", async ({ page, open }) => {
   await open("/");
   const toDo = page.getByRole("region", { name: "To do now" });
-  // At 28+0, written notice to the employer is best done now and due by week 30 at the latest.
-  await expect(toDo.getByRole("checkbox").first()).toHaveAccessibleName("Give your employer written notice of parental leave");
+  // At 28+0, the deadlines lead, soonest first: the glucose test (by week 28), then written notice to the employer (week 30).
+  const tasks = toDo.getByRole("checkbox");
+  await expect(tasks.nth(0)).toHaveAccessibleName("Book the glucose tolerance test");
+  await expect(tasks.nth(1)).toHaveAccessibleName("Give your employer written notice of parental leave");
   await expect(toDo.getByText("deadline week 30")).toBeVisible();
   await toDo.getByRole("link", { name: "Why: Give your employer written notice of parental leave" }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Telling your employer about parental leave" })).toBeAttached();
 });
 
 test("an item draws its window against today, and offers its questions", async ({ page, open }) => {
-  await open("/");
+  await open("/timeline");
   const rsv = page.locator("#item-rsv-vaccine");
   await expect(rsv.getByRole("figure", { name: /Weeks 28 to 36/ })).toBeVisible();
   await expect(rsv.getByText("Open now · 8 weeks left")).toBeVisible();
@@ -226,61 +263,6 @@ test("an item draws its window against today, and offers its questions", async (
   await rsv.getByRole("button", { name: `Add to your questions: ${text}` }).click();
   await expect(rsv.getByText("On your list").first()).toBeVisible();
 
-  await open("/pregnancy/planner");
+  await open("/planner");
   await expect(page.getByText(text)).toBeVisible();
-});
-
-test("the baby's here: Expecting becomes the newborn's, and clearing the birth date brings the pregnancy back", async ({ page, open }) => {
-  const nav = page.getByRole("navigation", { name: "Expecting" });
-  const babysHere = page.locator("section", { has: page.getByRole("heading", { name: "Baby's here" }) });
-
-  await open("/settings");
-  await babysHere.getByRole("spinbutton", { name: /day/i }).click();
-  await page.keyboard.type(daysFromToday(0));
-  await page.getByRole("button", { name: "Save birth date" }).click();
-
-  await nav.getByRole("link", { name: "This week" }).click();
-  await expect(page.getByRole("heading", { level: 1, name: "This week" })).toBeVisible();
-  await expect(page.getByText("Born today · week 1 after birth")).toBeVisible();
-  await expect(nav.getByRole("link", { name: "Timeline" })).toHaveCount(0);
-  await expect(page.getByRole("slider", { name: "Timeline" })).toHaveCount(0);
-
-  // The same Planner, planning for the newborn: the pregnancy's open tasks are left behind, folded, not slipped.
-  await nav.getByRole("link", { name: "Planner" }).click();
-  await expect(page.getByRole("heading", { name: "For the next check-up" })).toBeVisible();
-  await expect(page.getByRole("button", { name: /^From the pregnancy/ })).toHaveAttribute("aria-expanded", "false");
-  await expect(page.getByRole("checkbox", { name: "Book the RSV vaccine" })).toBeHidden();
-
-  // The same Library, arranged for the newborn: its topics first, a 3 am prompt, the pregnancy's reading folded away.
-  await nav.getByRole("link", { name: "Library" }).click();
-  await expect(page.getByPlaceholder("Is this normal? Search the library")).toBeVisible();
-  await expect(page.getByRole("region").first()).toHaveAccessibleName("Baby");
-  await expect(page.getByRole("button", { name: /^From the pregnancy/ })).toHaveAttribute("aria-expanded", "false");
-  await expect(page.getByRole("link", { name: /The RSV vaccine/ })).toBeHidden();
-
-  // The newborn's Journal and Toolkit, and no way back to a week of the pregnancy.
-  await nav.getByRole("link", { name: "Journal" }).click();
-  await expect(page.getByText("The birth story", { exact: true })).toBeVisible();
-  await nav.getByRole("link", { name: "Toolkit" }).click();
-  await expect(page.getByText("Feeds", { exact: true })).toBeVisible();
-  await open("/postpartum/library/rsv-vaccine");
-  await expect(page.getByRole("link", { name: /on the timeline/ })).toHaveCount(0);
-
-  // The dates decide the phase, not the URL: a page of the pregnancy opens as the newborn's.
-  await open("/pregnancy/planner");
-  await expect(page).toHaveURL(/\/postpartum\/planner$/);
-  await open("/pregnancy/library/rsv-vaccine");
-  await expect(page).toHaveURL(/\/postpartum\/library\/rsv-vaccine$/);
-  await open("/");
-  await expect(page).toHaveURL(/\/postpartum$/);
-
-  await open("/settings");
-  await babysHere.getByRole("button", { name: "Clear date" }).click();
-  await page.getByRole("button", { name: "Save birth date" }).click();
-  await nav.getByRole("link", { name: "Timeline" }).click();
-  await expect(page.getByRole("slider", { name: "Timeline" })).toBeVisible();
-  await expect(page).toHaveURL(/\/pregnancy\/timeline$/);
-  // And a page of the newborn's opens as the pregnancy's again.
-  await open("/postpartum/planner");
-  await expect(page).toHaveURL(/\/pregnancy\/planner$/);
 });

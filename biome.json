@@ -175,10 +175,6 @@
                   {
                     "group": ["**/routes/**"],
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
-                  },
-                  {
-                    "group": ["../phases", "../phases/**"],
-                    "message": "Shared code is used by the phases' apps, never the other way round: the route tree hands src/features/phases/ to App, and a phase-only page lives in src/features/phases/<phase>/."
                   }
                 ]
               }
@@ -211,10 +207,6 @@
                   {
                     "group": ["**/routes/**"],
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
-                  },
-                  {
-                    "group": ["../../phases", "../../phases/**"],
-                    "message": "Shared code is used by the phases' apps, never the other way round: the route tree hands src/features/phases/ to App, and a phase-only page lives in src/features/phases/<phase>/."
                   }
                 ]
               }
@@ -247,10 +239,6 @@
                   {
                     "group": ["**/routes/**"],
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
-                  },
-                  {
-                    "group": ["../../../phases", "../../../phases/**"],
-                    "message": "Shared code is used by the phases' apps, never the other way round: the route tree hands src/features/phases/ to App, and a phase-only page lives in src/features/phases/<phase>/."
                   }
                 ]
               }
@@ -283,10 +271,6 @@
                   {
                     "group": ["**/routes/**"],
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
-                  },
-                  {
-                    "group": ["../features/phases", "../features/phases/**"],
-                    "message": "Shared code is used by the phases' apps, never the other way round: the route tree hands src/features/phases/ to App, and a phase-only page lives in src/features/phases/<phase>/."
                   }
                 ]
               }
@@ -319,10 +303,6 @@
                   {
                     "group": ["**/routes/**"],
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
-                  },
-                  {
-                    "group": ["../../features/phases", "../../features/phases/**"],
-                    "message": "Shared code is used by the phases' apps, never the other way round: the route tree hands src/features/phases/ to App, and a phase-only page lives in src/features/phases/<phase>/."
                   }
                 ]
               }
@@ -355,118 +335,6 @@
                   {
                     "group": ["**/routes/**"],
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
-                  },
-                  {
-                    "group": ["../../../features/phases", "../../../features/phases/**"],
-                    "message": "Shared code is used by the phases' apps, never the other way round: the route tree hands src/features/phases/ to App, and a phase-only page lives in src/features/phases/<phase>/."
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    {
-      "includes": ["src/features/phases/preconception/**"],
-      "linter": {
-        "rules": {
-          "style": {
-            "noRestrictedImports": {
-              "level": "error",
-              "options": {
-                "patterns": [
-                  {
-                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
-                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
-                  },
-                  {
-                    "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
-                  },
-                  {
-                    "group": ["**/api/rest", "**/api/rest/**"],
-                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
-                  },
-                  {
-                    "group": ["**/routes/**"],
-                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
-                  },
-                  {
-                    "group": ["**/pregnancy/**", "**/postpartum/**", "**/pregnancy", "**/postpartum"],
-                    "message": "One phase never imports another: share it through src/features/ or src/components/."
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    {
-      "includes": ["src/features/phases/pregnancy/**"],
-      "linter": {
-        "rules": {
-          "style": {
-            "noRestrictedImports": {
-              "level": "error",
-              "options": {
-                "patterns": [
-                  {
-                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
-                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
-                  },
-                  {
-                    "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
-                  },
-                  {
-                    "group": ["**/api/rest", "**/api/rest/**"],
-                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
-                  },
-                  {
-                    "group": ["**/routes/**"],
-                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
-                  },
-                  {
-                    "group": ["**/preconception/**", "**/postpartum/**", "**/preconception", "**/postpartum"],
-                    "message": "One phase never imports another: share it through src/features/ or src/components/."
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    {
-      "includes": ["src/features/phases/postpartum/**"],
-      "linter": {
-        "rules": {
-          "style": {
-            "noRestrictedImports": {
-              "level": "error",
-              "options": {
-                "patterns": [
-                  {
-                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
-                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
-                  },
-                  {
-                    "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
-                  },
-                  {
-                    "group": ["**/api/rest", "**/api/rest/**"],
-                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
-                  },
-                  {
-                    "group": ["**/routes/**"],
-                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
-                  },
-                  {
-                    "group": ["**/preconception/**", "**/pregnancy/**", "**/preconception", "**/pregnancy"],
-                    "message": "One phase never imports another: share it through src/features/ or src/components/."
                   }
                 ]
               }
