@@ -67,18 +67,19 @@ The modes sort into five pillars, by whose a thing is and what you do with it:
 
 | Pillar | Whose | You… | What's in it |
 |---|---|---|---|
-| **Timeline** | both, through time | follow it | This week, what's coming, and behind today, what happened |
+| **This week** | both, now | open it | Home: where you are, this week's note, what to do and what has slipped, the questions waiting; and the tools for the moment: the names game, the bump booth, the contraction timer, the hospital bag |
+| **Timeline** | both, through time | follow it | The whole pregnancy at a glance: what's coming, and behind today, what happened |
 | **Library** | Expecting's | read it | Guides, week by week, "nobody tells you" (a shelf of its own), "Can I…?", "Is this normal?", topics, search |
 | **Planner** | yours, ahead | do it | To do, decisions, appointments and their questions, contacts |
 | **Journal** | yours, behind | keep it | Movements, cravings, moods and symptoms, notes, bump photos, scans, results, documents |
-| **Toolkit** | yours, in the moment | use it | The names game, the bump booth, the contraction timer, the hospital bag; later the newborn's feeds and nappies |
 
 - **They are the things a pregnant person already keeps:** a book, a planner, a journal and a few gadgets.
+- **Home is this week, not the timeline.** The timeline answers "where are we in all of it"; opening the app asks "where are we now, and what matters". This week is that landing page, and the tools for the moment live on it rather than in a pillar of their own, so a phone keeps five tabs.
 - **The timeline is the thread through the other four, not a fifth shelf.** A Library item appears on the week it matters, a Planner task on the week it's due, a Journal entry on its day. The others are where things live; the timeline is where they meet. That is why "nobody tells you" was wrong as a view of the timeline: it put a shelf onto the thread.
 - **Records live in the Journal:** a scan is something that happened, dated, on the timeline. A separate Vault for medical papers stays an option.
 - **Outside every pillar:** the capture button (one "+" that files a kick, a question or a photo into the right pillar) and the call button.
 
-*Built: the frame and the Timeline, Library and Planner. The Journal and Toolkit say what's coming.*
+*Built: the frame, This week, the Timeline, Library and Planner. The Journal and the tools say what's coming.*
 
 ### The app changes shape
 

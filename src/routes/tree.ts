@@ -25,7 +25,7 @@ import { preconceptionHome } from "./preconception/home";
 import { pregnancy } from "./pregnancy";
 import { pregnancyHome } from "./pregnancy/home";
 import { pregnancyJournal } from "./pregnancy/journal";
-import { pregnancyToolkit } from "./pregnancy/toolkit";
+import { pregnancyTimeline } from "./pregnancy/timeline";
 import { rootRoute } from "./root";
 import { settings } from "./settings";
 import { sharedRoutes } from "./shared";
@@ -41,7 +41,7 @@ export const routeTree = rootRoute.addChildren([
   app.addChildren([
     index,
     preconception.addChildren([preconceptionHome, ...sharedRoutes(preconception)]),
-    pregnancy.addChildren([pregnancyHome, pregnancyJournal, pregnancyToolkit, ...sharedRoutes(pregnancy)]),
+    pregnancy.addChildren([pregnancyHome, pregnancyTimeline, pregnancyJournal, ...sharedRoutes(pregnancy)]),
     postpartum.addChildren([postpartumHome, postpartumJournal, postpartumToolkit, ...sharedRoutes(postpartum)]),
     settings,
   ]),

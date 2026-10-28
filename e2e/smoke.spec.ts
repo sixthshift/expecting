@@ -4,13 +4,12 @@
 import { expect, test } from "./fixtures";
 
 const pages = [
-  { path: "/", heading: "Timeline" },
-  { path: "/pregnancy?at=pp3", heading: "Timeline" },
+  { path: "/", heading: "This week" },
+  { path: "/pregnancy/timeline?at=pp3", heading: "Timeline" },
   { path: "/pregnancy/library", heading: "Library" },
   { path: "/pregnancy/library/rsv-vaccine", heading: "The RSV vaccine" },
   { path: "/pregnancy/planner", heading: "Planner" },
   { path: "/pregnancy/journal", heading: "Journal" },
-  { path: "/pregnancy/toolkit", heading: "Toolkit" },
   { path: "/settings", heading: "Settings" },
 ];
 
@@ -25,19 +24,19 @@ for (const { path, heading } of pages) {
 test("every pillar and settings is reachable", async ({ page, open }) => {
   await open("/");
   const nav = page.getByRole("navigation", { name: "Expecting" });
-  for (const name of ["Library", "Planner", "Journal", "Toolkit", "Timeline"]) {
+  for (const name of ["Timeline", "Library", "Planner", "Journal", "This week"]) {
     await nav.getByRole("link", { name }).click();
     await expect(nav.getByRole("link", { name })).toHaveAttribute("aria-current", "page");
     // Home is the phase's own path, which every page sits under: it is current only on itself.
-    if (name !== "Timeline") await expect(nav.getByRole("link", { name: "Timeline" })).not.toHaveAttribute("aria-current");
+    if (name !== "This week") await expect(nav.getByRole("link", { name: "This week" })).not.toHaveAttribute("aria-current");
   }
-  await expect(page.getByRole("slider", { name: "Timeline" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "This week" })).toBeVisible();
   await page.getByRole("link", { name: "Settings" }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Settings" })).toBeVisible();
 });
 
 test("a week shows its note: the baby, your body, the partner", async ({ page, open }) => {
-  await open("/pregnancy?at=20");
+  await open("/pregnancy/timeline?at=20");
   const note = page.getByRole("article", { name: "Halfway" });
   await expect(note).toBeVisible();
   for (const part of ["The baby", "Your body", "For the partner"]) await expect(note.getByRole("heading", { name: part })).toBeVisible();
@@ -72,7 +71,7 @@ test.describe("logged out", () => {
     await page.getByRole("button", { name: "Log in" }).click();
     // A phone that hasn't said who's holding it is asked first, then goes on.
     await page.getByRole("button", { name: "I'm Jason" }).click();
-    await expect(page.getByRole("heading", { level: 1, name: "Timeline" })).toBeAttached();
+    await expect(page.getByRole("heading", { level: 1, name: "This week" })).toBeAttached();
   });
 });
 

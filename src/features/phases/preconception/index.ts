@@ -8,7 +8,7 @@ import { PreconceptionLayout } from "./Layout";
  */
 export const preconception: PhaseApp = {
   Layout: PreconceptionLayout,
-  timeline: false,
+  timeline: null,
   planner: { grouping: "getting-ready", earlier: "slip", questionsFor: "For your GP" },
   library: { lead: "Getting ready", first: [], earlier: "keep", search: "Search the library" },
   pillars: [

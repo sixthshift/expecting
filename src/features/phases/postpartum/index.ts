@@ -8,7 +8,7 @@ import { PostpartumLayout } from "./Layout";
  */
 export const postpartum: PhaseApp = {
   Layout: PostpartumLayout,
-  timeline: false,
+  timeline: null,
   planner: { grouping: "weeks", earlier: "leave-behind", behind: "From the pregnancy", questionsFor: "For the next check-up" },
   // At 3 am it's the baby, and a question: the newborn's topics first, the pregnancy's reading put away.
   library: {

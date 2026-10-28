@@ -4,8 +4,8 @@
 import { z } from "zod";
 import { parseSlotKey, slotKey } from "../lib/timeline";
 
-/** Home: a week to open at instead of this one (`preconception`, `28`, `pp3`). */
-export const homeSearch = z.object({
+/** The timeline: a week to open at instead of this one (`preconception`, `28`, `pp3`). */
+export const timelineSearch = z.object({
   at: z
     // The router reads `?at=28` as the number 28: a pregnancy week's key arrives as a number.
     .union([z.string(), z.number().transform(String)])

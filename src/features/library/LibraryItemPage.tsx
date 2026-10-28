@@ -30,7 +30,7 @@ export function LibraryItemPage() {
           <ItemCard item={item} ticks={state.ticks} />
           {timeline ? (
             <Link
-              to={to("/")}
+              to={timeline}
               search={{ at: slotKey(item.from) }}
               className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal"
             >

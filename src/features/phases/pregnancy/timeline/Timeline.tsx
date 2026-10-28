@@ -1,17 +1,13 @@
-import { Card } from "@sixthshift/design-system/card";
 import { Link } from "@tanstack/react-router";
 import { LocateFixed, Settings } from "lucide-react";
-import { Fragment, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { saveHousehold } from "../../../../api/rpc/household";
-import { DateForm } from "../../../../components/DateForm";
+import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { weekNotes } from "../../../../content";
-import { daysBetween, formatDate, type ISODate, todayISO } from "../../../../lib/dates";
-import { ageLabel, dueDateBounds, gestationLabel, type Position, type Slot, slotKey } from "../../../../lib/timeline";
+import { type Position, type Slot, slotKey } from "../../../../lib/timeline";
 import { buildBands, rulerMarks } from "../../../../lib/timelineView";
-import { useAction } from "../../../household/useAction";
 import { useApp } from "../../../household/useApp";
 import { QuestionsWaiting } from "../../../questions/questions";
 import { Week } from "../../../weeks/Week";
+import { NowLine, Welcome } from "../Now";
 import { Ruler } from "./Ruler";
 
 /** Pixels from the top of the window where a week counts as in view: below the sticky bar, past a band's scroll margin (scroll-mt-32 = 128px). */
@@ -197,38 +193,5 @@ function TopBar({ position, onToday }: { position: Position | null; onToday: () 
         </Link>
       </div>
     </div>
-  );
-}
-
-function NowLine({ position, dueDate, today }: { position: Position; dueDate: ISODate; today: ISODate }): ReactNode {
-  if (position.gestationDays !== undefined) {
-    const toGo = daysBetween(today, dueDate);
-    return (
-      <p className="text-lg text-fg-strong">
-        <span className="font-semibold">{gestationLabel(position.gestationDays)}</span>
-        {" · "}
-        {toGo > 0 ? `${toGo} days to go` : toGo === 0 ? "due today" : `${-toGo} days past the due date`}
-        <span className="text-fg-subtle"> · due {formatDate(dueDate)}</span>
-      </p>
-    );
-  }
-  return <p className="text-lg text-fg-strong">{ageLabel(position.daysSinceBirth ?? 0)}</p>;
-}
-
-/** Expecting, with no due date yet (onboarding skipped it). Entering one places "now" in the pregnancy. */
-function Welcome() {
-  const today = todayISO();
-  const [save] = useAction((dueDate: ISODate | null) => saveHousehold({ data: { dueDate } }));
-  return (
-    <Card size="lg" className="my-6 max-w-lg">
-      <DateForm
-        label="When's the baby due?"
-        description="Your best estimate is fine; change it after the dating scan. The timeline below is all readable either way."
-        value={null}
-        submitLabel="Start"
-        {...dueDateBounds(today)}
-        onSave={save}
-      />
-    </Card>
   );
 }

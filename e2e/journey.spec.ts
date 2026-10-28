@@ -19,7 +19,7 @@ test.describe("the first evening", () => {
   // This phone is the household's first: nobody to choose yet.
   test.use({ person: null });
 
-  test("onboarding asks who, then the due date, and opens the timeline at this week", async ({ page, open }) => {
+  test("onboarding asks who, then the due date, and opens at this week", async ({ page, open }) => {
     await open("/");
     await expect(page).toHaveURL(/\/onboarding\/who$/);
     await expect(page.getByRole("heading", { name: "Welcome to Expecting. Who's holding this phone?" })).toBeVisible();
@@ -56,6 +56,8 @@ test.describe("the first evening", () => {
     await expect(week(page, "28").getByRole("heading", { name: "28 weeks" })).toBeVisible();
     await expect(page).toHaveURL(/\/pregnancy$/);
     await expect(page.getByText("28+0 · 84 days to go")).toBeVisible();
+    // The timeline opens at this week too.
+    await page.getByRole("navigation", { name: "Expecting" }).getByRole("link", { name: "Timeline" }).click();
     await expect(page.getByRole("slider", { name: "Timeline" })).toHaveAttribute("aria-valuetext", "Week 28");
   });
 });
@@ -80,7 +82,7 @@ test("the second phone is only asked who it is", async ({ page, open }) => {
 });
 
 test("the ruler moves along the timeline, and Today comes back", async ({ page, open }) => {
-  await open("/");
+  await open("/pregnancy/timeline");
   const ruler = page.getByRole("slider", { name: "Timeline" });
   await ruler.focus();
   await page.keyboard.press("PageDown");
@@ -179,7 +181,7 @@ test("an answer in settings tailors the timeline, and clearing it puts things ba
   const rsv = page.locator("#item-rsv-vaccine");
 
   // Unanswered: everything shows, and the body reads for public care. (`before` is the old key, still accepted.)
-  await open("/pregnancy?at=before");
+  await open("/pregnancy/timeline?at=before");
   await expect(privateHealth).toBeVisible();
   await open("/");
   await expect(rsv.getByText("Your GP, the hospital's antenatal clinic")).toBeVisible();
@@ -190,7 +192,7 @@ test("an answer in settings tailors the timeline, and clearing it puts things ba
   await expect(clearCover).toBeVisible();
 
   // Private cover: the waiting-period item has nothing to say, and the RSV item speaks to an obstetrician.
-  await open("/pregnancy?at=preconception");
+  await open("/pregnancy/timeline?at=preconception");
   await expect(week(page, "preconception")).toBeVisible();
   await expect(privateHealth).toHaveCount(0);
   await open("/");
@@ -200,7 +202,7 @@ test("an answer in settings tailors the timeline, and clearing it puts things ba
   await open("/settings");
   await clearCover.click();
   await expect(page.getByText("Not answered").first()).toBeVisible();
-  await open("/pregnancy?at=preconception");
+  await open("/pregnancy/timeline?at=preconception");
   await expect(privateHealth).toBeVisible();
 });
 
@@ -267,7 +269,7 @@ test("the baby's here: Expecting becomes the newborn's, and clearing the birth d
   await page.getByRole("button", { name: "Save birth date" }).click();
   await nav.getByRole("link", { name: "Timeline" }).click();
   await expect(page.getByRole("slider", { name: "Timeline" })).toBeVisible();
-  await expect(page).toHaveURL(/\/pregnancy$/);
+  await expect(page).toHaveURL(/\/pregnancy\/timeline$/);
   // And a page of the newborn's opens as the pregnancy's again.
   await open("/postpartum/planner");
   await expect(page).toHaveURL(/\/pregnancy\/planner$/);

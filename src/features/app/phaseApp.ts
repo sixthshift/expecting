@@ -13,8 +13,8 @@ import type { Pillar } from "./PillarLayout";
 export type PhaseApp = {
   Layout: ComponentType<{ pillars: readonly Pillar[] }>;
   pillars: readonly Pillar[];
-  /** Whether its home is the timeline, so a week can be linked to (`/pregnancy?at=28`). */
-  timeline: boolean;
+  /** Where its timeline is, when it has one, so a week can be linked to (`/pregnancy/timeline?at=28`). */
+  timeline: "/pregnancy/timeline" | null;
   /** How its Planner plans: the shared page, tuned to the phase. */
   planner: PlannerPlan & {
     /** The heading over open tasks an earlier phase left behind, when this one leaves them. */
