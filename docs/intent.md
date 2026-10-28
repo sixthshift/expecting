@@ -116,7 +116,7 @@ Some pregnancies end in miscarriage, and screening sometimes brings bad news. An
   - **Behind today,** it is the diary: week 22 holds the morphology scan item, the scan photos, "first kick, Tuesday night" and the questions you asked.
   - **By the birth,** it is the story of the pregnancy, without anyone having sat down to write it.
 
-*Built: the weeks, the ruler, the views, own tasks and asked questions in their week. Not built: phases beyond the three, chapters, log entries and records.*
+*Built: the weeks, the ruler, the views, each week's note, own tasks and asked questions in their week. Not built: phases beyond the three, chapters, log entries and records.*
 
 ### Phases
 
@@ -198,7 +198,7 @@ There isn't one shape of content. There are several, all Markdoc, all tagged wit
 | **Decisions** | Options and trade-offs, a decide-by week, what you chose and why | Public, private or midwifery group practice |
 | **Guides** | The long reads | Labour, feeding, recovery, the newborn |
 
-*Built: moments, the 29 items so far, which are almost all appointments and paperwork. That makes Expecting an efficient to-do list, not yet a companion. The biggest gaps are this week, "Can I…?" and "Is this normal?": the reasons people open a pregnancy app.*
+*Built: moments, the 29 items so far, which are almost all appointments and paperwork, and this week, with four weeks drafted (6, 12, 20 and 28) to settle the format and voice before the rest. The biggest gaps are the other weeks, "Can I…?" and "Is this normal?": the reasons people open a pregnancy app.*
 
 ### Cards: "nobody tells you"
 

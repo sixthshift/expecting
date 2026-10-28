@@ -26,18 +26,21 @@ function placeOf(file: string): { phase: Phase; id: string } {
   return { phase, id: name.slice(0, -".md".length) };
 }
 
-/** One content file, `<phase>/<id>.md`, into an item. Throws a ContentError naming the file on any problem. */
-export function parseItem(file: string, source: string): Item {
-  const place = placeOf(file);
+/** A content file's frontmatter, as YAML, and its body. Throws a ContentError naming the file if either is missing or malformed. */
+export function readFrontmatter(file: string, source: string): { raw: unknown; body: string } {
   const match = FRONTMATTER.exec(source);
   if (!match) throw new ContentError(file, "no frontmatter block between --- lines");
-
-  let raw: unknown;
   try {
-    raw = parseYaml(match[1]!);
+    return { raw: parseYaml(match[1]!), body: match[2]!.trim() };
   } catch (error) {
     throw new ContentError(file, `frontmatter is not YAML: ${(error as Error).message}`);
   }
+}
+
+/** One content file, `<phase>/<id>.md`, into an item. Throws a ContentError naming the file on any problem. */
+export function parseItem(file: string, source: string): Item {
+  const place = placeOf(file);
+  const { raw, body } = readFrontmatter(file, source);
 
   // The folder is the phase, so the frontmatter can't disagree with it.
   if (raw && typeof raw === "object" && "phase" in raw) throw new ContentError(file, `no phase: in the frontmatter; the folder (${place.phase}/) is its phase`);
@@ -49,7 +52,6 @@ export function parseItem(file: string, source: string): Item {
 
   if (parsed.data.id !== place.id) throw new ContentError(file, `id "${parsed.data.id}" must be the file's name, ${place.id}`);
 
-  const body = match[2]!.trim();
   if (body.length === 0) throw new ContentError(file, "the body is empty");
   const { ast, problems } = parseBody(body);
   if (problems.length > 0) throw new ContentError(file, `in the body, ${problems.join("; ")}`);

@@ -2,6 +2,7 @@
 // appears where are tested apart from the screen.
 //
 //   every week, from getting ready to 12 weeks after the birth
+//   each week's note, where it has one
 //   each item once, in the week it starts; standalone tasks in their due week
 //   asked questions in the week they were asked: behind today, the diary
 //   the current week also carries what is still relevant and what has slipped
@@ -10,6 +11,7 @@
 // tells you" in the Library. The timeline is where they meet in time.
 
 import type { Item, Task } from "../content/schema";
+import type { WeekNote } from "../content/weeks";
 import { overdue } from "./checklist";
 import { type ISODate, todayISO } from "./dates";
 import type { Question } from "./questions";
@@ -20,6 +22,8 @@ export type Band = {
   key: string;
   isNow: boolean;
   isPast: boolean;
+  /** This week's note: the baby, the body, the partner. */
+  note: WeekNote | null;
   /** Items that start this week. */
   starting: Item[];
   /** Items still running from an earlier week. Only on the current week. */
@@ -35,6 +39,7 @@ export type Band = {
 };
 
 export type TimelineInput = {
+  notes: readonly WeekNote[];
   items: readonly Item[];
   tasks: readonly Task[];
   ticks: Record<string, string>;
@@ -45,7 +50,7 @@ export type TimelineInput = {
 };
 
 export function buildBands(input: TimelineInput): Band[] {
-  const { items, tasks, ticks, questions, now } = input;
+  const { notes, items, tasks, ticks, questions, now } = input;
   const isOpen = (t: Task) => !ticks[t.id];
   const askedAt = askedSlots(input);
 
@@ -58,6 +63,7 @@ export function buildBands(input: TimelineInput): Band[] {
       key: slotKey(slot),
       isNow,
       isPast: now !== null && compareSlots(slot, now) < 0,
+      note: notes.find((n) => sameSlot(n.slot, slot)) ?? null,
       starting,
       continuing: isNow ? items.filter((i) => compareSlots(i.from, slot) < 0 && compareSlots(slot, i.to) <= 0) : [],
       tasks: due.filter((t) => t.itemId === null),

@@ -9,6 +9,7 @@ import { ItemCard, rangeLabel } from "../library/ItemCard";
 import { AskedQuestion } from "../questions/questions";
 import { AddTask, DeleteOwnTask } from "../tasks/AddTask";
 import { TaskRow } from "../tasks/TaskRow";
+import { WeekNote } from "./WeekNote";
 
 type Props = {
   band: BandData;
@@ -46,7 +47,7 @@ function caption(slot: Slot): string {
  * One week, of any phase: each band of the pregnancy's timeline, and the
  * newborn's "This week". A gutter holds its number and dates (sticky on a
  * desktop, so the number stays with you down a long week); beside it, the
- * week's content. A week other than the current one is folded to one line of
+ * week's note and then its content. A week other than the current one is folded to one line of
  * what's in it until it is opened.
  */
 export function Week({ band, expanded, onToggle, ticks, onOpenItem, dueDate, birthDate, nowContent, register }: Props) {
@@ -59,6 +60,7 @@ export function Week({ band, expanded, onToggle, ticks, onOpenItem, dueDate, bir
     : null;
 
   const summary = [
+    band.note?.title ?? null,
     band.starting.length > 0 ? `${band.starting.length} new` : null,
     band.openTasks > 0 ? `${band.openTasks} to do` : null,
     band.starting.some((i) => i.surprise) ? "nobody tells you" : null,
@@ -119,6 +121,8 @@ export function Week({ band, expanded, onToggle, ticks, onOpenItem, dueDate, bir
         {open ? (
           <>
             {isNow ? nowContent : null}
+
+            {band.note ? <WeekNote note={band.note} /> : null}
 
             {band.slipped.length > 0 ? (
               <Message

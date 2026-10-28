@@ -1,6 +1,7 @@
 import Markdoc from "@markdoc/markdoc";
 import { describe, expect, test } from "vitest";
 import type { Item, Task } from "../../src/content/schema";
+import { parseWeek } from "../../src/content/weeks";
 import type { ISODate } from "../../src/lib/dates";
 import type { Question } from "../../src/lib/questions";
 import type { Slot } from "../../src/lib/timeline";
@@ -36,6 +37,7 @@ const gtt = item("gtt", 24, 28);
 const tasks = [task("book-gtt", 25, "gtt"), task("book-rsv", 30, "rsv"), task("own-snacks", 28, null)];
 
 const base: TimelineInput = {
+  notes: [],
   items: [flu, gtt, rsv],
   tasks,
   ticks: {},
@@ -73,6 +75,12 @@ describe("the timeline", () => {
     expect(band(bands, "30").tasks).toEqual([]);
     expect(band(bands, "30").openTasks).toBe(1);
   });
+});
+
+test("each week carries its own note, and only its own", () => {
+  const note = parseWeek("weeks/28.md", "---\ntitle: Home stretch\n---\n## The baby\n\nA.\n\n## Your body\n\nB.\n\n## For the partner\n\nC.\n");
+  const bands = buildBands({ ...base, notes: [note] });
+  expect(bands.filter((b) => b.note).map((b) => [b.key, b.note!.title])).toEqual([["28", "Home stretch"]]);
 });
 
 test("asked questions land in the week they were asked: the diary", () => {

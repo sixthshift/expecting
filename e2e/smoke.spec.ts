@@ -36,6 +36,13 @@ test("every pillar and settings is reachable", async ({ page, open }) => {
   await expect(page.getByRole("heading", { level: 1, name: "Settings" })).toBeVisible();
 });
 
+test("a week shows its note: the baby, your body, the partner", async ({ page, open }) => {
+  await open("/pregnancy?at=20");
+  const note = page.getByRole("article", { name: "Halfway" });
+  await expect(note).toBeVisible();
+  for (const part of ["The baby", "Your body", "For the partner"]) await expect(note.getByRole("heading", { name: part })).toBeVisible();
+});
+
 test.describe("a page that doesn't exist", () => {
   test.use({ allowedErrors: [/404|Not Found/i] });
   test("is not found", async ({ page, open }) => {

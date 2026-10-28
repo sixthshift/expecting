@@ -4,6 +4,7 @@ import { LocateFixed, Settings } from "lucide-react";
 import { Fragment, type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { saveHousehold } from "../../../../api/rpc/household";
 import { DateForm } from "../../../../components/DateForm";
+import { weekNotes } from "../../../../content";
 import { daysBetween, formatDate, type ISODate, todayISO } from "../../../../lib/dates";
 import { ageLabel, dueDateBounds, gestationLabel, type Position, type Slot, slotKey } from "../../../../lib/timeline";
 import { buildBands, rulerMarks } from "../../../../lib/timelineView";
@@ -36,7 +37,7 @@ export function Timeline({ at }: { at: string | undefined }) {
   const [expanded, setExpanded] = useState<ReadonlySet<string>>(() => new Set([at, nowKey].filter((k): k is string => Boolean(k))));
   const [pendingItem, setPendingItem] = useState<string | null>(null);
 
-  const bands = buildBands({ items, tasks, ticks: state.ticks, questions, now, dueDate, birthDate });
+  const bands = buildBands({ notes: weekNotes, items, tasks, ticks: state.ticks, questions, now, dueDate, birthDate });
   const marks = useMemo(() => rulerMarks(items, tasks, state.ticks, now), [items, tasks, state.ticks, now]);
   const indexOf = useCallback((key: string) => marks.findIndex((m) => m.key === key), [marks]);
 
