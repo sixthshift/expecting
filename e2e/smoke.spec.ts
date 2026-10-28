@@ -73,6 +73,16 @@ test.describe("logged out", () => {
     await page.getByRole("button", { name: "I'm Jason" }).click();
     await expect(page.getByRole("heading", { level: 1, name: "This week" })).toBeAttached();
   });
+
+  test("the login page has the icon", async ({ page, open, request }) => {
+    // The icons are public/ files, served ahead of the gate, so a stranger's tab shows them too.
+    await open("/login");
+    await expect(page.locator('link[rel="icon"]')).toHaveAttribute("href", "/favicon.svg");
+    for (const path of ["/favicon.svg", "/apple-touch-icon.png"]) {
+      const response = await request.get(path);
+      expect(response.status(), path).toBe(200);
+    }
+  });
 });
 
 test("server functions refuse a caller without a session", async ({ page, open, playwright, baseURL }) => {

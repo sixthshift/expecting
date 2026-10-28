@@ -11,7 +11,12 @@ export const rootRoute = createRootRoute({
       { name: "apple-mobile-web-app-capable", content: "yes" },
       { title: "Expecting" },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    // The icons are public/: served as files ahead of the app, so the login page has them too.
+    links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+    ],
   }),
   shellComponent: Document,
   // Each page brings its own frame: the app's pillars theirs, onboarding and login a plain page.
