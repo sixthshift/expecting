@@ -1,11 +1,13 @@
-import { getRouteApi, useNavigate } from "@tanstack/react-router";
+import { getRouteApi, Outlet, useMatch, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ToyBrick } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { finishOnboarding } from "../../api/rpc/household";
-import { onboardingSteps, type Step } from "../../lib/onboarding";
+import { type Step, stepAfter } from "../../lib/onboarding";
+import { Redirect } from "../app/Redirect";
 import { useExpectingTheme } from "../app/useExpectingTheme";
+import { onboardingLeft } from "../household/load";
 import { useAction } from "../household/useAction";
-
+import { stepAt, stepHref } from "./paths";
 import type { Screen, StepContext } from "./step";
 import { babyStep } from "./steps/baby";
 import { dueStep } from "./steps/due";
@@ -14,49 +16,68 @@ import { questionStep } from "./steps/question";
 import { readyStep } from "./steps/ready";
 import { whoStep } from "./steps/who";
 
-const route = getRouteApi("/welcome");
+// The first-run questions, one to a screen, each at its own URL
+// (`/onboarding/due`), so the phone's back gesture goes back a question. Each
+// answer is saved as it is given, and what's left to ask is worked out afresh
+// from what is known (onboardingLeft): the second parent's phone is only asked
+// who's holding it.
 
-/** Pregnancy, counted the way midwives do: 40 weeks from the first day of the last period. */
-const _GESTATION_DAYS = 280;
+const route = getRouteApi("/onboarding");
+const nextRoute = getRouteApi("/onboarding/");
+
+/** Around every step: the household's colours. */
+export function OnboardingLayout() {
+  const state = route.useLoaderData();
+  useExpectingTheme(state.household.baby);
+  return <Outlet />;
+}
 
 /**
- * The first-run questions, one to a screen. Each answer is saved as it is
- * given, so a reload resumes, and the steps are worked out again from what is
- * known: the second parent's phone is only asked who's holding it.
+ * `/onboarding`: on to the step to ask. After an answer (`?after=due`), the
+ * next one still to ask, from what's known now; else the first.
  */
-export function WelcomePage() {
+export function OnboardingNext() {
+  const state = route.useLoaderData();
+  const { after } = nextRoute.useSearch();
+  const steps = onboardingLeft(state);
+  const next = after ? stepAfter(steps, after as Step) : steps[0];
+  return <Redirect href={next ? stepHref(next) : "/"} />;
+}
+
+// The first screen of a visit keeps focus where the browser put it; every one after moves it to its question.
+let shownOne = false;
+
+/** One step, the one the URL names. A step that isn't (or is no longer) asked goes on to the one that is. */
+export function OnboardingStep() {
   const state = route.useLoaderData();
   const navigate = useNavigate();
-  useExpectingTheme(state.household.baby);
+  // This page's own match, not the location: while a navigation away is pending, the location is already
+  // the next one, and this page, still drawn, would take it for a step that isn't there.
+  const current = stepAt(useMatch({ strict: false, select: (match) => match.pathname }));
+  const steps = onboardingLeft(state);
 
-  const steps = onboardingSteps({ known: state.me !== null, onboarded: state.household.onboardedAt !== null, profile: state.household.profile });
-  // Steps answered in this visit, in order: the way back. A step leaves `steps` once it can't be asked again (who).
-  const [done, setDone] = useState<Step[]>([]);
-  const current = steps.find((s) => !done.includes(s)) ?? "ready";
-  const previous = [...done].reverse().find((s) => steps.includes(s));
-
-  /** Save, reload what's known, then move on. */
+  /** Save, reload what's known, then on to whatever's next. */
   const [save] = useAction(async (step?: () => Promise<unknown>) => {
     await step?.();
   });
-  async function advance(step?: () => Promise<unknown>) {
-    await save(step);
-    setDone((d) => [...d, current]);
-  }
 
-  // A new screen: move focus to its question, for anyone not looking. Not on arrival; the page is new then anyway.
+  // A new screen: move focus to its question, for anyone not looking.
   const heading = useRef<HTMLHeadingElement>(null);
-  const arrived = useRef(false);
-  // biome-ignore lint/correctness/useExhaustiveDependencies: runs on each new step.
   useEffect(() => {
-    if (arrived.current) heading.current?.focus({ preventScroll: true });
-    arrived.current = true;
-  }, [current]);
+    if (shownOne) heading.current?.focus({ preventScroll: true });
+    shownOne = true;
+  }, []);
+
+  if (!current || !steps.includes(current)) return <Redirect href="/onboarding" />;
 
   const index = steps.indexOf(current);
+  const previous = steps[index - 1];
   const screen = renderStep(current, {
     state,
-    advance,
+    advance: async (step) => {
+      await save(step);
+      await navigate({ to: "/onboarding", search: { after: current } });
+    },
     finish: async () => {
       await finishOnboarding();
       await navigate({ to: "/" });
@@ -69,7 +90,7 @@ export function WelcomePage() {
         {previous ? (
           <button
             type="button"
-            onClick={() => setDone((d) => d.slice(0, d.lastIndexOf(previous)))}
+            onClick={() => navigate({ href: stepHref(previous) })}
             aria-label="Back"
             className="-ml-2 flex size-11 items-center justify-center rounded-full text-fg-subtle hover:bg-bg-normal-hovered hover:text-fg-normal"
           >
@@ -96,7 +117,7 @@ export function WelcomePage() {
         ) : null}
       </header>
 
-      <section key={current} aria-labelledby="step-heading" className="mt-10 flex flex-1 flex-col gap-6 lg:mt-14 lg:flex-none">
+      <section aria-labelledby="step-heading" className="mt-10 flex flex-1 flex-col gap-6 lg:mt-14 lg:flex-none">
         <div className="flex flex-col gap-2">
           <h1
             id="step-heading"

@@ -1,9 +1,8 @@
-import { Outlet, useLocation, useNavigate } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { Outlet, useLocation } from "@tanstack/react-router";
 import { samePageIn } from "../../lib/phase";
 import type { Phase } from "../../lib/timeline";
 import { useApp } from "../household/useApp";
-import type { AppPath } from "./paths";
+import { Redirect } from "./Redirect";
 import { usePhaseApp } from "./usePhaseApp";
 
 /**
@@ -19,13 +18,11 @@ export function PhaseGuard({ phase }: { phase: Phase }) {
   if (household === phase) return <Outlet />;
   return (
     <Redirect
-      to={
-        samePageIn(
-          pathname,
-          household,
-          pillars.map((p) => p.to)
-        ) as AppPath
-      }
+      href={samePageIn(
+        pathname,
+        household,
+        pillars.map((p) => p.to)
+      )}
     />
   );
 }
@@ -33,19 +30,5 @@ export function PhaseGuard({ phase }: { phase: Phase }) {
 /** `/`: the household's phase's home, whichever that is. */
 export function GoHome() {
   const { pillars } = usePhaseApp();
-  return <Redirect to={pillars[0]!.to} />;
-}
-
-/**
- * Go to `to`, once. Not the router's <Navigate>: it navigates again whenever
- * it re-renders with new props, and this re-renders while that navigation is
- * pending (the location and the household change under it), which loops.
- * Keyed on the path, this goes once per place to go.
- */
-function Redirect({ to }: { to: AppPath }) {
-  const navigate = useNavigate();
-  useEffect(() => {
-    void navigate({ to, replace: true });
-  }, [navigate, to]);
-  return null;
+  return <Redirect href={pillars[0]!.to} />;
 }

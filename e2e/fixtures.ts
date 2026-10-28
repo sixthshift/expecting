@@ -32,9 +32,9 @@ export const test = base.extend<Fixtures>({
     }
     if (loggedIn && person) {
       // Every test is a new phone: say who's holding it, the way the second parent would.
-      await page.goto("/welcome", { waitUntil: "networkidle" });
+      await page.goto("/onboarding", { waitUntil: "networkidle" });
       await page.getByRole("button", { name: `I'm ${person}` }).click();
-      await page.waitForURL((url) => url.pathname !== "/welcome");
+      await page.waitForURL((url) => !url.pathname.startsWith("/onboarding"));
     }
     const errors: string[] = [];
     const record = (text: string) => {

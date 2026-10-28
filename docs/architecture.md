@@ -135,7 +135,8 @@ Expecting has its own theme, not the design system's Linen. It's built from a re
 
 ## Onboarding
 
-- `/welcome` asks the first-run questions, one to a screen (`src/features/onboarding/`, a file per step in `steps/`). The home route sends anyone there who still has a step: a new household gets all of them, a new phone only "who's this?".
+- `/onboarding` asks the first-run questions, one to a screen and each at its own URL (`/onboarding/due`, `/onboarding/q/cover`; routes in `src/routes/onboarding/`, screens in `src/features/onboarding/steps/`), so the phone's back gesture goes back a question. The frame sends anyone there who still has a step: a new household gets all of them, a new phone only "who's this?".
+- After an answer, `/onboarding?after=due` goes on to the next step still to ask, worked out afresh (`stepAfter`), since an answer can change what's left: "not yet" drops the due date. A URL for a step that isn't asked goes to the one that is.
 - Which steps a device sees is a pure function of what is known (`src/lib/onboarding.ts`): who, then whether you're expecting (or getting ready), then the due date and the baby's colours when expecting, then every `asked: onboarding` question in `content/profile.yaml`, then where Expecting will open.
 - Each answer is saved as it's given, so a reload resumes. A household with a due date from before onboarding existed counts as onboarded.
 - Getting ready with no due date opens the timeline at the getting-ready band; entering a due date later moves it into the pregnancy.

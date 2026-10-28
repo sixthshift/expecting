@@ -16,13 +16,15 @@ type Props = {
   maxDate?: ISODate;
   /** A full-width, large button: the main action of a screen, as in onboarding. */
   wide?: boolean;
+  /** Whether the date must change before it can be saved. Off where the button goes on, not only saves (onboarding's Next, come back to). */
+  requireChange?: boolean;
 };
 
 /** One date, picked day-first, saved with a button. */
-export function DateForm({ label, description, value, submitLabel, onSave, clearable = false, minDate, maxDate, wide = false }: Props) {
+export function DateForm({ label, description, value, submitLabel, onSave, clearable = false, minDate, maxDate, wide = false, requireChange = true }: Props) {
   const [date, setDate] = useState<ISODate | undefined>(value ?? undefined);
   const [saving, setSaving] = useState(false);
-  const unchanged = (date ?? null) === value;
+  const unchanged = requireChange && (date ?? null) === value;
 
   async function submit(event: FormEvent) {
     event.preventDefault();

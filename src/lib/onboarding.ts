@@ -34,3 +34,17 @@ export function onboardingSteps({ known, onboarded, profile }: OnboardingState):
   steps.push("ready");
   return steps;
 }
+
+/** Every step there could be, in the order they're asked. */
+const ALL_STEPS = onboardingSteps({ known: false, onboarded: false, profile: {} });
+
+/**
+ * The step to ask after `after`: the first of `steps` (what's left to ask,
+ * worked out afresh) that comes later in the order. Fresh, because an answer
+ * can change what's left: "not yet" leaves no due date to ask. Undefined when
+ * there's nothing after it.
+ */
+export function stepAfter(steps: readonly Step[], after: Step): Step | undefined {
+  const order = (s: Step) => ALL_STEPS.indexOf(s);
+  return steps.find((s) => order(s) > order(after));
+}

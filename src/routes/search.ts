@@ -20,5 +20,8 @@ export const homeSearch = z.object({
 /** The Library: what was typed in its search. */
 export const librarySearch = z.object({ q: z.string().optional().catch(undefined) });
 
+/** Onboarding: the step just answered, to go on from. */
+export const onboardingSearch = z.object({ after: z.string().optional().catch(undefined) });
+
 /** Login: where to go once in. */
 export const loginSearch = z.object({ next: z.string().optional() });

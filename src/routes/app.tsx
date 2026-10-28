@@ -14,7 +14,7 @@ export const app = createRoute({
   id: "app",
   loader: async () => {
     const data = await loadApp();
-    if (onboardingLeft(data.state).length > 0) throw redirect({ to: "/welcome" });
+    if (onboardingLeft(data.state).length > 0) throw redirect({ to: "/onboarding" });
     return data;
   },
   component: () => <App phases={PHASES} />,

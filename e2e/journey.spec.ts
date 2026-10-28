@@ -21,7 +21,7 @@ test.describe("the first evening", () => {
 
   test("onboarding asks who, then the due date, and opens the timeline at this week", async ({ page, open }) => {
     await open("/");
-    await expect(page).toHaveURL(/\/welcome$/);
+    await expect(page).toHaveURL(/\/onboarding\/who$/);
     await expect(page.getByRole("heading", { name: "Welcome to Expecting. Who's holding this phone?" })).toBeVisible();
 
     await page.getByLabel("Your name").fill("Jason");
@@ -36,6 +36,13 @@ test.describe("the first evening", () => {
     // 12 weeks to go is 28+0.
     await page.keyboard.type(daysFromToday(12 * 7));
     await page.getByRole("button", { name: "Next" }).click();
+
+    // Each question is its own page: the phone's back gesture goes back one, with the answer kept.
+    await expect(page).toHaveURL(/\/onboarding\/baby$/);
+    await page.goBack();
+    await expect(page.getByRole("heading", { name: "When's the baby due?" })).toBeVisible();
+    await page.getByRole("button", { name: "Next" }).click();
+    await expect(page).toHaveURL(/\/onboarding\/baby$/);
 
     await page.getByRole("button", { name: "Don't know / surprise" }).click();
     // Private cover and the state: skipped, so nothing is hidden.

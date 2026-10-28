@@ -105,7 +105,7 @@ export function SettingsPage() {
                 variant="outline"
                 onClick={async () => {
                   await forgetPerson();
-                  await navigate({ to: "/welcome" });
+                  await navigate({ to: "/onboarding" });
                 }}
               >
                 Someone else is using it

@@ -6,8 +6,16 @@
 // route's data through getRouteApi, so nothing imports a route but the router.
 
 import { app } from "./app";
+import { login } from "./auth/login";
 import { index } from "./index";
-import { login } from "./login";
+import { onboarding } from "./onboarding";
+import { baby } from "./onboarding/baby";
+import { due } from "./onboarding/due";
+import { expecting } from "./onboarding/expecting";
+import { onboardingNext } from "./onboarding/next";
+import { question } from "./onboarding/question";
+import { ready } from "./onboarding/ready";
+import { who } from "./onboarding/who";
 import { postpartum } from "./postpartum";
 import { postpartumHome } from "./postpartum/home";
 import { postpartumJournal } from "./postpartum/journal";
@@ -21,7 +29,6 @@ import { pregnancyToolkit } from "./pregnancy/toolkit";
 import { rootRoute } from "./root";
 import { settings } from "./settings";
 import { sharedRoutes } from "./shared";
-import { welcome } from "./welcome";
 
 // /api/* is served by the server alone: its handlers may import the store, and
 // the browser never routes there, it fetches. Vite fixes import.meta.env.SSR
@@ -38,8 +45,8 @@ export const routeTree = rootRoute.addChildren([
     postpartum.addChildren([postpartumHome, postpartumJournal, postpartumToolkit, ...sharedRoutes(postpartum)]),
     settings,
   ]),
-  // Outside the frame.
-  welcome,
+  // Outside the frame: the first-run questions, a step to a URL, and logging in.
+  onboarding.addChildren([onboardingNext, who, expecting, due, baby, question, ready]),
   login,
   ...api,
 ]);

@@ -36,7 +36,7 @@ function DueDate({ value, onDone }: { value: ISODate | null; onDone: Advance }) 
           onSave={async (lmp) => save(lmp ? addDays(lmp, TERM_DAYS) : null)}
         />
       ) : (
-        <DateForm key="due" label="Due date" value={value} submitLabel="Next" wide {...dueDateBounds(today)} onSave={save} />
+        <DateForm key="due" label="Due date" value={value} submitLabel="Next" wide requireChange={false} {...dueDateBounds(today)} onSave={save} />
       )}
       <button type="button" onClick={() => setFromPeriod((f) => !f)} className="min-h-11 self-start text-sm text-fg-subtle underline hover:text-fg-normal">
         {fromPeriod ? "I know the due date" : "Not sure? Work it out from the last period"}
