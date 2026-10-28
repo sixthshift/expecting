@@ -9,7 +9,7 @@ const BEFORE: Slot = { phase: "preconception" };
 const task = (id: string, due: Slot): Task => ({ id, title: id, due, itemId: null, origin: "own" });
 const ids = (tasks: Task[]) => tasks.map((t) => t.id);
 
-// The plans each phase's app gives (src/app/<phase>/index.ts).
+// The plans each phase's app gives (src/features/phases/<phase>/index.ts).
 const GETTING_READY: PlannerPlan = { grouping: "getting-ready", earlier: "slip" };
 const PREGNANCY: PlannerPlan = { grouping: "weeks", earlier: "slip" };
 const NEWBORN: PlannerPlan = { grouping: "weeks", earlier: "leave-behind" };

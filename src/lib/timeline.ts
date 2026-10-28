@@ -1,7 +1,7 @@
 // The spine of the app: where on the timeline a moment sits.
 //
 // A slot is one place on the timeline. There are three phases, and each is
-// also one of Expecting's apps (src/app/<phase>/). "Phase" is the code's word:
+// also one of Expecting's apps (src/features/phases/<phase>/). "Phase" is the code's word:
 // the screens name the moments instead (getting ready, expecting, baby's here).
 //   preconception — things to do before or very early in a pregnancy (private health, folate)
 //   pregnancy     — weeks 1 to 42, counted as completed weeks of gestation, the way

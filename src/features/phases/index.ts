@@ -1,4 +1,4 @@
-// The three apps, by phase: everything in src/app/ is one of them. Which one
+// The three apps, by phase: everything in this folder is one of them. Which one
 // the household is in is derived from its dates (src/lib/phase.ts); the URL
 // never says. The route tree hands this to App (src/features/app/),
 // so nothing shared imports a phase.

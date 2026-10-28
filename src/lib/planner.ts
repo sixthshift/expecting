@@ -1,6 +1,6 @@
 // The Planner's to-do list: every task, grouped by when it matters against
 // today. Pure, so the grouping is tested apart from the screen. Each phase's
-// app says how it plans (src/app/<phase>/index.ts):
+// app says how it plans (src/features/phases/<phase>/index.ts):
 //
 //   by week, the pregnancy and the newborn
 //     slipped  due before this week and not done

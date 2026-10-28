@@ -1,6 +1,6 @@
 // The Library's shelves, in the order a phase wants them. Pure, so the order is
 // tested apart from the screen. Every phase's Library has every item; what a
-// phase changes is what comes first (src/app/<phase>/index.ts):
+// phase changes is what comes first (src/features/phases/<phase>/index.ts):
 //
 //   lead       a first shelf of the phase's own items, when it names one
 //   first      the topics it puts first, in its order

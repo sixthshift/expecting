@@ -32,5 +32,5 @@ export type PhaseApp = {
   };
 };
 
-/** The three apps, by phase: src/app/index.ts, handed to App by the route tree. */
+/** The three apps, by phase: src/features/phases/index.ts, handed to App by the route tree. */
 export type Phases = Record<Phase, PhaseApp>;

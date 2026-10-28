@@ -37,7 +37,7 @@ const items = [
   item("register", pp(2), "paperwork", true),
 ];
 
-// The plans each phase's app gives (src/app/<phase>/index.ts).
+// The plans each phase's app gives (src/features/phases/<phase>/index.ts).
 const GETTING_READY: LibraryPlan = { lead: "Getting ready", first: [], earlier: "keep" };
 const PREGNANCY: LibraryPlan = { first: [], earlier: "keep" };
 const NEWBORN: LibraryPlan = { first: ["baby", "after-the-birth", "appointments", "paperwork"], earlier: "leave-behind", behind: "From the pregnancy" };

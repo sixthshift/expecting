@@ -1,5 +1,5 @@
 // Which phase the household is in now, and so which of Expecting's apps it
-// sees (src/app/<phase>/):
+// sees (src/features/phases/<phase>/):
 //
 //   preconception  no due date yet, and not expecting
 //   pregnancy      a due date, or expecting without one yet: the timeline

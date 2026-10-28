@@ -42,18 +42,18 @@ Open, and it decides the PWA: a service worker and installing to the home screen
 
 ## Phases
 
-Expecting is three apps over one household: getting ready, the pregnancy, and the baby's here. Each is a folder, `src/app/<phase>/`, whose `index.ts` lists its whole app: its layout, and its pillars in navigation order with the page each shows. Its own home is at `/`.
+Expecting is three apps over one household: getting ready, the pregnancy, and the baby's here. Each is a folder, `src/features/phases/<phase>/`, whose `index.ts` lists its whole app: its layout, and its pillars in navigation order with the page each shows. Its own home is at `/`.
 
 | Phase | When | Pillars | Home |
 |---|---|---|---|
-| **preconception** | No due date, and the answer to "expecting yet?" is not yet | Getting ready, Library, Planner | What's best done before (`src/app/preconception/Home.tsx`), and "we're expecting" |
+| **preconception** | No due date, and the answer to "expecting yet?" is not yet | Getting ready, Library, Planner | What's best done before (`src/features/phases/preconception/Home.tsx`), and "we're expecting" |
 | **pregnancy** | A due date, or expecting without one yet | Timeline, Library, Planner, Journal, Toolkit | The timeline |
-| **postpartum** | A birth date, or 42 weeks done with none | This week, Library, Planner, Journal, Toolkit | This week (`src/app/postpartum/Home.tsx`); the Toolkit is the newborn's |
+| **postpartum** | A birth date, or 42 weeks done with none | This week, Library, Planner, Journal, Toolkit | This week (`src/features/phases/postpartum/Home.tsx`); the Toolkit is the newborn's |
 
-- **"Phase" is the code's word, never the screen's.** The type, `src/app/<phase>/`, `PhaseApp`, `useApp().phase` and the timeline's slots all say phase. The screens name the moment instead: getting ready, expecting, baby's here. ("Stage" is kept for the stages of labour, which the Library explains.)
+- **"Phase" is the code's word, never the screen's.** The type, `src/features/phases/<phase>/`, `PhaseApp`, `useApp().phase` and the timeline's slots all say phase. The screens name the moment instead: getting ready, expecting, baby's here. ("Stage" is kept for the stages of labour, which the Library explains.)
 - **Derived, never stored** (`currentPhase`, `src/lib/phase.ts`), like the current week. Entering a due date or a birth date is what moves the household on; clearing the birth date moves it back.
 - **The URL never says the phase.** One route tree, one path per pillar: `/journal` is the Journal for wherever the household is. The phase is a fact about the household, like this week, and a bookmark made in week 39 still works after the birth.
-- **`src/features/` is phase-agnostic; anything only one phase has lives in that phase.** The timeline is the pregnancy's (`src/app/pregnancy/timeline/`), and so are its Journal and Toolkit, as the newborn's are its own. What every phase can use is a feature: onboarding, settings and login sit outside any phase; the Library, the Planner, tasks, questions and a week (`src/features/weeks/`, drawn on the timeline and on the newborn's This week) work in any. The store and the rules in `src/lib/` are shared too: an entry from week 39 is still yours after the birth.
+- **The rest of `src/features/` is phase-agnostic; anything only one phase has lives in that phase.** The timeline is the pregnancy's (`src/features/phases/pregnancy/timeline/`), and so are its Journal and Toolkit, as the newborn's are its own. What every phase can use is a feature: onboarding, settings and login sit outside any phase; the Library, the Planner, tasks, questions and a week (`src/features/weeks/`, drawn on the timeline and on the newborn's This week) work in any. The store and the rules in `src/lib/` are shared too: an entry from week 39 is still yours after the birth.
 - **A shared page keeps its frame in every phase; the phase tunes it.** The Library and the Planner look and work the same everywhere, so what you learned in the pregnancy is where your thumb expects it at 3 am. What differs is what comes first, and the phase's `index.ts` says it. The Planner (`planner:`): getting ready groups by now and once you're expecting, as it has no weeks to count; the pregnancy and the newborn group by week. The pregnancy still lets getting ready's open tasks slip (folic acid matters at week 6); the newborn leaves the pregnancy's behind, folded under "From the pregnancy", since an RSV vaccine can't be had after the birth. The questions are for your GP, the next appointment, or the next check-up. The Library (`library:`, arranged by `src/lib/library.ts`): getting ready puts its own items on a first shelf; the pregnancy leads with the things nobody tells you; the newborn puts the baby, recovery, check-ups and paperwork first, prompts search with "Is this normal?", and folds the pregnancy's reading away under "From the pregnancy". Every phase's Library still has every item, and search looks through all of them.
 - **Shared code asks what the phase's app has, never which phase it is.** `usePhaseApp()` gives the current `PhaseApp`; an item's page offers "See week 28 on the timeline" only where `usePhaseApp().timeline`. A phase that gains its weeks says `timeline: true` in its `index.ts`, and the links appear. When a shared page diverges, its phase's `index.ts` points at a page in its own folder instead.
 - **One route, a page per phase.** Each pillar route's component is `phasePage(PHASES, "/journal")` (`src/features/app/phasePage.tsx`): it finds that pillar in the household's phase, loads only its page, and sends a phase without it home. The navigation and the pages are one list, so they can't disagree.
@@ -65,9 +65,9 @@ Expecting is three apps over one household: getting ready, the pregnancy, and th
 
 ```
 src/
-  app/          the three apps and nothing else: <phase>/ (index.ts, Layout, its own pages), and index.ts listing them
-  features/     phase-agnostic, a folder per domain: its pages and its parts
-                (app, household, weeks, tasks, questions, library, planner, settings, onboarding, auth)
+  features/     a folder per domain: its pages and its parts
+    phases/     the three apps and nothing else: <phase>/ (index.ts, Layout, its own pages), and index.ts listing them
+    …           the rest phase-agnostic (app, household, weeks, tasks, questions, library, planner, settings, onboarding, auth)
   components/   generic parts with no domain: Page, DateForm, Coming
   lib/          pure rules and types: no React, no router, no store
   content/      the built-in items, bundled
@@ -78,7 +78,7 @@ src/
   db/ server/   server only: the store, auth, boot
 ```
 
-Biome holds the boundaries (`noRestrictedImports` in `biome.json`): only `db/`, `server/` and `api/` import the store or `server/`, and nothing else imports `api/rest/`, so the browser reaches the server only through `api/rpc/`; nothing imports `routes/` (a page reads its route through `getRouteApi`); `lib/` and `content/` import no React, router or server; `features/` and `components/` never import `src/app/` (the route tree hands the apps to `App`); and no phase imports another. `src/app/` is the apps, not file-based routing: routes are code, a file per route in `src/routes/`, put together in `tree.ts`.
+Biome holds the boundaries (`noRestrictedImports` in `biome.json`): only `db/`, `server/` and `api/` import the store or `server/`, and nothing else imports `api/rest/`, so the browser reaches the server only through `api/rpc/`; nothing imports `routes/` (a page reads its route through `getRouteApi`); `lib/` and `content/` import no React, router or server; the rest of `features/` and `components/` never import `features/phases/` (the route tree hands the apps to `App`); and no phase imports another. Routes are code, a file per route in `src/routes/`, put together in `tree.ts`.
 
 ## The pillars
 
@@ -99,7 +99,7 @@ In the pregnancy, the app is five pillars in its frame: a sidebar on a desktop, 
 
 ## The timeline
 
-One scroll of weeks, from getting ready (preconception) through pregnancy weeks 1–42 to 12 weeks after the birth, opened at this week (`src/app/pregnancy/timeline/`), and only in the pregnancy. It has no views: what used to be views are the Planner and the Library's shelves.
+One scroll of weeks, from getting ready (preconception) through pregnancy weeks 1–42 to 12 weeks after the birth, opened at this week (`src/features/phases/pregnancy/timeline/`), and only in the pregnancy. It has no views: what used to be views are the Planner and the Library's shelves.
 
 - **Weeks are bands.** The current week is open, with the gestation line, what has slipped, what is still running from earlier weeks, and a link to the questions waiting for the next appointment. Every other week is folded to one line of what's in it (`2 new · 1 to do`) until opened. Each item appears once, in the week it starts. The rules are in `src/lib/timelineView.ts`, tested apart from the screen.
 - **The ruler moves along it.** It's a vertical rail down the right edge on the desktop and a scrubber just above the tab bar on a phone (`--tab-bar` holds the bar's height). Both are one `Ruler` component and an ARIA slider: drag or tap to scrub; arrows step a week, Page Up/Down four, Home/End the ends. Each week shows a dot when something starts and amber when a task there has slipped. "Now" is marked, and so is the week in view (the last week whose top has passed a reading line under the sticky bar).

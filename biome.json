@@ -177,8 +177,8 @@
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
                   },
                   {
-                    "group": ["../../app", "../../app/**"],
-                    "message": "Shared code is used by the apps, never the other way round: the route tree hands src/app/ to App, and a phase-only page lives in src/app/<phase>/."
+                    "group": ["../phases", "../phases/**"],
+                    "message": "Shared code is used by the phases' apps, never the other way round: the route tree hands src/features/phases/ to App, and a phase-only page lives in src/features/phases/<phase>/."
                   }
                 ]
               }
@@ -213,8 +213,8 @@
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
                   },
                   {
-                    "group": ["../../../app", "../../../app/**"],
-                    "message": "Shared code is used by the apps, never the other way round: the route tree hands src/app/ to App, and a phase-only page lives in src/app/<phase>/."
+                    "group": ["../../phases", "../../phases/**"],
+                    "message": "Shared code is used by the phases' apps, never the other way round: the route tree hands src/features/phases/ to App, and a phase-only page lives in src/features/phases/<phase>/."
                   }
                 ]
               }
@@ -249,8 +249,8 @@
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
                   },
                   {
-                    "group": ["../../../../app", "../../../../app/**"],
-                    "message": "Shared code is used by the apps, never the other way round: the route tree hands src/app/ to App, and a phase-only page lives in src/app/<phase>/."
+                    "group": ["../../../phases", "../../../phases/**"],
+                    "message": "Shared code is used by the phases' apps, never the other way round: the route tree hands src/features/phases/ to App, and a phase-only page lives in src/features/phases/<phase>/."
                   }
                 ]
               }
@@ -285,8 +285,8 @@
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
                   },
                   {
-                    "group": ["../app", "../app/**"],
-                    "message": "Shared code is used by the apps, never the other way round: the route tree hands src/app/ to App, and a phase-only page lives in src/app/<phase>/."
+                    "group": ["../features/phases", "../features/phases/**"],
+                    "message": "Shared code is used by the phases' apps, never the other way round: the route tree hands src/features/phases/ to App, and a phase-only page lives in src/features/phases/<phase>/."
                   }
                 ]
               }
@@ -321,8 +321,8 @@
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
                   },
                   {
-                    "group": ["../../app", "../../app/**"],
-                    "message": "Shared code is used by the apps, never the other way round: the route tree hands src/app/ to App, and a phase-only page lives in src/app/<phase>/."
+                    "group": ["../../features/phases", "../../features/phases/**"],
+                    "message": "Shared code is used by the phases' apps, never the other way round: the route tree hands src/features/phases/ to App, and a phase-only page lives in src/features/phases/<phase>/."
                   }
                 ]
               }
@@ -357,8 +357,8 @@
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
                   },
                   {
-                    "group": ["../../../app", "../../../app/**"],
-                    "message": "Shared code is used by the apps, never the other way round: the route tree hands src/app/ to App, and a phase-only page lives in src/app/<phase>/."
+                    "group": ["../../../features/phases", "../../../features/phases/**"],
+                    "message": "Shared code is used by the phases' apps, never the other way round: the route tree hands src/features/phases/ to App, and a phase-only page lives in src/features/phases/<phase>/."
                   }
                 ]
               }
@@ -368,7 +368,7 @@
       }
     },
     {
-      "includes": ["src/app/preconception/**"],
+      "includes": ["src/features/phases/preconception/**"],
       "linter": {
         "rules": {
           "style": {
@@ -404,7 +404,7 @@
       }
     },
     {
-      "includes": ["src/app/pregnancy/**"],
+      "includes": ["src/features/phases/pregnancy/**"],
       "linter": {
         "rules": {
           "style": {
@@ -440,7 +440,7 @@
       }
     },
     {
-      "includes": ["src/app/postpartum/**"],
+      "includes": ["src/features/phases/postpartum/**"],
       "linter": {
         "rules": {
           "style": {
@@ -497,7 +497,7 @@
                     "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
-                    "group": ["react", "react-dom", "@tanstack/**", "**/components/**", "**/features/**", "**/app/**", "**/server/**"],
+                    "group": ["react", "react-dom", "@tanstack/**", "**/components/**", "**/features/**", "**/server/**"],
                     "message": "src/lib/ and src/content/ are pure rules and types: no React, no router, no server."
                   }
                 ]
