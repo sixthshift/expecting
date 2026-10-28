@@ -1,6 +1,6 @@
 import { createRoute } from "@tanstack/react-router";
-import { COMMIT, VERSION } from "../../lib/version";
-import { rootRoute } from "../root";
+import { COMMIT, VERSION } from "../lib/version";
+import { rootRoute } from "../routes/root";
 
 /** GET /api/health — liveness probe for outside callers, and what version and commit answered. */
 export function handleHealth(_request: Request): Response {

@@ -71,12 +71,13 @@ src/
   components/   generic parts with no domain: Page, DateForm, Coming
   lib/          pure rules and types: no React, no router, no store
   content/      the built-in items, bundled
-  routes/       definitions only: root.tsx, tree.ts, search.ts, api/
-  rpc/          the server functions: what the browser calls, run on the server
+  routes/       the pages' routes, definitions only: root.tsx, tree.tsx, search.ts
+  rpc/          the server functions: what the app calls, run on the server
+  api/          the server routes: fixed /api/* URLs for callers outside the app (health)
   db/ server/   server only: the store, auth, boot
 ```
 
-Biome holds the boundaries (`noRestrictedImports` in `biome.json`): only `db/`, `server/`, `rpc/` and the API routes import the store or `server/`, so the browser reaches the server only through `rpc/`; nothing imports `routes/` (a page reads its route through `getRouteApi`); `lib/` and `content/` import no React, router or server; `features/` and `components/` never import `src/app/` (the route tree hands the apps to `App`); and no phase imports another. `src/app/` is the apps, not file-based routing: routes are code, in `src/routes/tree.tsx`.
+Biome holds the boundaries (`noRestrictedImports` in `biome.json`): only `db/`, `server/`, `rpc/` and `api/` import the store or `server/`, so the browser reaches the server only through `rpc/`; nothing imports `routes/` (a page reads its route through `getRouteApi`); `lib/` and `content/` import no React, router or server; `features/` and `components/` never import `src/app/` (the route tree hands the apps to `App`); and no phase imports another. `src/app/` is the apps, not file-based routing: routes are code, in `src/routes/tree.tsx`.
 
 ## The pillars
 

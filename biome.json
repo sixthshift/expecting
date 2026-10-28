@@ -96,7 +96,17 @@
       }
     },
     {
-      "includes": ["src/**", "!src/db/**", "!src/server/**", "!src/rpc/**", "!src/routes/**", "!src/router.tsx", "!src/server.ts", "!src/start.ts"],
+      "includes": [
+        "src/**",
+        "!src/db/**",
+        "!src/server/**",
+        "!src/rpc/**",
+        "!src/api/**",
+        "!src/routes/**",
+        "!src/router.tsx",
+        "!src/server.ts",
+        "!src/start.ts"
+      ],
       "linter": {
         "rules": {
           "style": {
@@ -124,7 +134,7 @@
       }
     },
     {
-      "includes": ["src/routes/**", "!src/routes/api/**", "src/router.tsx"],
+      "includes": ["src/routes/**", "src/router.tsx"],
       "linter": {
         "rules": {
           "style": {
