@@ -1,9 +1,10 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { Link, Outlet } from "@tanstack/react-router";
 import { type LucideIcon, Settings, ToyBrick } from "lucide-react";
+import type { AppPath } from "./paths";
 
-/** One pillar in a phase's navigation: where it lives and what it's called there. */
-export type Pillar = { to: "/" | "/library" | "/planner" | "/journal" | "/toolkit"; label: string; icon: LucideIcon };
+/** One pillar in a phase's navigation: where it lives (under the phase, `/pregnancy/planner`) and what it's called there. */
+export type Pillar = { to: AppPath; label: string; icon: LucideIcon };
 
 /**
  * The layout every phase's own Layout draws its pillars in. Desktop: a sidebar on the left with
@@ -48,11 +49,12 @@ function PillarNav({ pillars, layout }: { pillars: readonly Pillar[]; layout: "l
   return (
     <nav aria-label="Expecting">
       <ul className={tabs ? cn("grid h-15", TAB_COLUMNS[pillars.length]) : "flex flex-col gap-1"}>
-        {pillars.map(({ to, label, icon: Icon }) => (
+        {pillars.map(({ to, label, icon: Icon }, i) => (
           <li key={to}>
             <Link
               to={to}
-              activeOptions={{ exact: to === "/", includeSearch: false }}
+              // The first pillar is the phase's home, which every other page is under.
+              activeOptions={{ exact: i === 0, includeSearch: false }}
               activeProps={{
                 "aria-current": "page",
                 className: tabs ? "text-fg-brand" : "bg-bg-brand-subtle font-medium text-fg-on-brand-subtle",

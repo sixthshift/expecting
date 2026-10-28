@@ -13,10 +13,10 @@ export const pregnancy: PhaseApp = {
   planner: { grouping: "weeks", earlier: "slip", questionsFor: "For the next appointment" },
   library: { first: [], earlier: "keep", search: "Search the library" },
   pillars: [
-    { to: "/", label: "Timeline", icon: CalendarRange, page: () => import("./Home").then((m) => m.PregnancyHome) },
-    { to: "/library", label: "Library", icon: BookOpen, page: () => import("../../library/LibraryPage").then((m) => m.LibraryPage) },
-    { to: "/planner", label: "Planner", icon: ListChecks, page: () => import("../../planner/PlannerPage").then((m) => m.PlannerPage) },
-    { to: "/journal", label: "Journal", icon: NotebookPen, page: () => import("./journal/Page").then((m) => m.PregnancyJournal) },
-    { to: "/toolkit", label: "Toolkit", icon: Wrench, page: () => import("./toolkit/Page").then((m) => m.PregnancyToolkit) },
+    { to: "/pregnancy", label: "Timeline", icon: CalendarRange },
+    { to: "/pregnancy/library", label: "Library", icon: BookOpen },
+    { to: "/pregnancy/planner", label: "Planner", icon: ListChecks },
+    { to: "/pregnancy/journal", label: "Journal", icon: NotebookPen },
+    { to: "/pregnancy/toolkit", label: "Toolkit", icon: Wrench },
   ],
 };

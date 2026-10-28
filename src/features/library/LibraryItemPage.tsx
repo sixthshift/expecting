@@ -1,16 +1,17 @@
-import { getRouteApi, Link } from "@tanstack/react-router";
+import { Link, useParams } from "@tanstack/react-router";
 import { ArrowLeft, CalendarRange } from "lucide-react";
 import { builtInItems } from "../../content";
 import { slotKey, slotLabel } from "../../lib/timeline";
 import { usePhaseApp } from "../app/usePhaseApp";
+import { usePhaseTo } from "../app/usePhaseTo";
 import { useApp } from "../household/useApp";
 import { ItemCard } from "./ItemCard";
 
-const route = getRouteApi("/app/library/$itemId");
-
 /** One item on its own page, with the way to its week on the timeline while there is one. */
 export function LibraryItemPage() {
-  const { itemId } = route.useParams();
+  // Every phase has the item page at its own path, so the item is read from wherever this is.
+  const { itemId } = useParams({ strict: false });
+  const to = usePhaseTo();
   const { items, state } = useApp();
   const { timeline } = usePhaseApp();
   const item = items.find((i) => i.id === itemId);
@@ -19,7 +20,7 @@ export function LibraryItemPage() {
 
   return (
     <main className="mx-auto max-w-3xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-8">
-      <Link to="/library" className="-ml-2 mb-4 flex min-h-11 w-fit items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal">
+      <Link to={to("/library")} className="-ml-2 mb-4 flex min-h-11 w-fit items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal">
         <ArrowLeft aria-hidden size={16} /> Library
       </Link>
       {item ? (
@@ -29,7 +30,7 @@ export function LibraryItemPage() {
           <ItemCard item={item} ticks={state.ticks} />
           {timeline ? (
             <Link
-              to="/"
+              to={to("/")}
               search={{ at: slotKey(item.from) }}
               className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal"
             >

@@ -6,6 +6,7 @@ import { GROUP_TITLES, groupTasks } from "../../lib/planner";
 import { slotLabel } from "../../lib/timeline";
 import { PillarHeader } from "../app/PillarLayout";
 import { usePhaseApp } from "../app/usePhaseApp";
+import { usePhaseTo } from "../app/usePhaseTo";
 import { useApp } from "../household/useApp";
 import { AddQuestion, AskedQuestion, OpenQuestion } from "../questions/questions";
 import { AddTask, DeleteOwnTask } from "../tasks/AddTask";
@@ -22,6 +23,7 @@ export function PlannerPage() {
   const { state, questions, now, tasks } = useApp();
   // The same Planner in every phase, planning the way the phase's app says.
   const { planner } = usePhaseApp();
+  const to = usePhaseTo();
   // Ticked during this visit: they stay in their group until the next one.
   const [tickedHere, setTickedHere] = useState<ReadonlySet<string>>(new Set());
   const groups = groupTasks(tasks, state.ticks, tickedHere, now, planner);
@@ -42,7 +44,7 @@ export function PlannerPage() {
             <DeleteOwnTask task={task} />
           ) : task.itemId ? (
             <Link
-              to="/library/$itemId"
+              to={to("/library/$itemId")}
               params={{ itemId: task.itemId }}
               aria-label={`Why: ${task.title}`}
               className="shrink-0 px-1 text-xs text-fg-subtle underline hover:text-fg-normal"

@@ -12,8 +12,8 @@ export const preconception: PhaseApp = {
   planner: { grouping: "getting-ready", earlier: "slip", questionsFor: "For your GP" },
   library: { lead: "Getting ready", first: [], earlier: "keep", search: "Search the library" },
   pillars: [
-    { to: "/", label: "Getting ready", icon: Sprout, page: () => import("./Home").then((m) => m.PreconceptionHome) },
-    { to: "/library", label: "Library", icon: BookOpen, page: () => import("../../library/LibraryPage").then((m) => m.LibraryPage) },
-    { to: "/planner", label: "Planner", icon: ListChecks, page: () => import("../../planner/PlannerPage").then((m) => m.PlannerPage) },
+    { to: "/preconception", label: "Getting ready", icon: Sprout },
+    { to: "/preconception/library", label: "Library", icon: BookOpen },
+    { to: "/preconception/planner", label: "Planner", icon: ListChecks },
   ],
 };

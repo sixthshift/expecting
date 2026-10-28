@@ -18,10 +18,10 @@ export const postpartum: PhaseApp = {
     search: "Is this normal? Search the library",
   },
   pillars: [
-    { to: "/", label: "This week", icon: Sun, page: () => import("./Home").then((m) => m.PostpartumHome) },
-    { to: "/library", label: "Library", icon: BookOpen, page: () => import("../../library/LibraryPage").then((m) => m.LibraryPage) },
-    { to: "/planner", label: "Planner", icon: ListChecks, page: () => import("../../planner/PlannerPage").then((m) => m.PlannerPage) },
-    { to: "/journal", label: "Journal", icon: NotebookPen, page: () => import("./journal/Page").then((m) => m.PostpartumJournal) },
-    { to: "/toolkit", label: "Toolkit", icon: Wrench, page: () => import("./toolkit/Page").then((m) => m.PostpartumToolkit) },
+    { to: "/postpartum", label: "This week", icon: Sun },
+    { to: "/postpartum/library", label: "Library", icon: BookOpen },
+    { to: "/postpartum/planner", label: "Planner", icon: ListChecks },
+    { to: "/postpartum/journal", label: "Journal", icon: NotebookPen },
+    { to: "/postpartum/toolkit", label: "Toolkit", icon: Wrench },
   ],
 };

@@ -20,8 +20,8 @@ export function App({ phases }: { phases: Phases }) {
 
   // A new pillar starts at its top; the timeline places itself (this week, or ?at=).
   useEffect(() => {
-    if (pathname !== "/" || !app.timeline) window.scrollTo(0, 0);
-  }, [pathname, app.timeline]);
+    if (pathname !== app.pillars[0]?.to || !app.timeline) window.scrollTo(0, 0);
+  }, [pathname, app]);
 
   const profile = state.household.profile;
   // biome-ignore lint/correctness/useExhaustiveDependencies: `now` is a new object each render; its key says when it moved.

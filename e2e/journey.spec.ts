@@ -47,6 +47,7 @@ test.describe("the first evening", () => {
     await page.getByRole("button", { name: "Open Expecting" }).click();
 
     await expect(week(page, "28").getByRole("heading", { name: "28 weeks" })).toBeVisible();
+    await expect(page).toHaveURL(/\/pregnancy$/);
     await expect(page.getByText("28+0 · 84 days to go")).toBeVisible();
     await expect(page.getByRole("slider", { name: "Timeline" })).toHaveAttribute("aria-valuetext", "Week 28");
   });
@@ -111,7 +112,7 @@ test("an own task is added to its week, and the Planner has it", async ({ page, 
 });
 
 test("Why goes from a task to the item that explains it, and on to its week", async ({ page, open }) => {
-  await open("/planner");
+  await open("/pregnancy/planner");
   await page.getByRole("link", { name: "Why: Book the RSV vaccine" }).click();
   await expect(page).toHaveURL(/\/library\/rsv-vaccine$/);
   await expect(page.getByRole("heading", { level: 1, name: "The RSV vaccine" })).toBeAttached();
@@ -121,7 +122,7 @@ test("Why goes from a task to the item that explains it, and on to its week", as
 });
 
 test("the Library finds things, and keeps nobody-tells-you on a shelf of its own", async ({ page, open }) => {
-  await open("/library");
+  await open("/pregnancy/library");
   await expect(page.getByRole("region", { name: "Nobody tells you" }).getByRole("link", { name: /The RSV vaccine/ })).toBeVisible();
 
   await page.getByLabel("Search the library").fill("whooping cough");
@@ -131,7 +132,7 @@ test("the Library finds things, and keeps nobody-tells-you on a shelf of its own
 });
 
 test("a question is added in the Planner, asked, and lands in this week", async ({ page, open }) => {
-  await open("/planner");
+  await open("/pregnancy/planner");
   await page.getByRole("textbox", { name: "New question" }).fill("Which hospital entrance after hours?");
   await page.getByRole("button", { name: "Add question" }).click();
   await expect(page.getByText("Which hospital entrance after hours?")).toBeVisible();
@@ -171,7 +172,7 @@ test("an answer in settings tailors the timeline, and clearing it puts things ba
   const rsv = page.locator("#item-rsv-vaccine");
 
   // Unanswered: everything shows, and the body reads for public care. (`before` is the old key, still accepted.)
-  await open("/?at=before");
+  await open("/pregnancy?at=before");
   await expect(privateHealth).toBeVisible();
   await open("/");
   await expect(rsv.getByText("Your GP, the hospital's antenatal clinic")).toBeVisible();
@@ -182,7 +183,7 @@ test("an answer in settings tailors the timeline, and clearing it puts things ba
   await expect(clearCover).toBeVisible();
 
   // Private cover: the waiting-period item has nothing to say, and the RSV item speaks to an obstetrician.
-  await open("/?at=preconception");
+  await open("/pregnancy?at=preconception");
   await expect(week(page, "preconception")).toBeVisible();
   await expect(privateHealth).toHaveCount(0);
   await open("/");
@@ -192,7 +193,7 @@ test("an answer in settings tailors the timeline, and clearing it puts things ba
   await open("/settings");
   await clearCover.click();
   await expect(page.getByText("Not answered").first()).toBeVisible();
-  await open("/?at=preconception");
+  await open("/pregnancy?at=preconception");
   await expect(privateHealth).toBeVisible();
 });
 
@@ -206,7 +207,7 @@ test("an item draws its window against today, and offers its questions", async (
   await rsv.getByRole("button", { name: `Add to your questions: ${text}` }).click();
   await expect(rsv.getByText("On your list").first()).toBeVisible();
 
-  await open("/planner");
+  await open("/pregnancy/planner");
   await expect(page.getByText(text)).toBeVisible();
 });
 
@@ -238,17 +239,29 @@ test("the baby's here: Expecting becomes the newborn's, and clearing the birth d
   await expect(page.getByRole("button", { name: /^From the pregnancy/ })).toHaveAttribute("aria-expanded", "false");
   await expect(page.getByRole("link", { name: /The RSV vaccine/ })).toBeHidden();
 
-  // The newborn's Journal and Toolkit, at the same addresses, and no way back to a week of the pregnancy.
+  // The newborn's Journal and Toolkit, and no way back to a week of the pregnancy.
   await nav.getByRole("link", { name: "Journal" }).click();
   await expect(page.getByText("The birth story", { exact: true })).toBeVisible();
   await nav.getByRole("link", { name: "Toolkit" }).click();
   await expect(page.getByText("Feeds", { exact: true })).toBeVisible();
-  await open("/library/rsv-vaccine");
+  await open("/postpartum/library/rsv-vaccine");
   await expect(page.getByRole("link", { name: /on the timeline/ })).toHaveCount(0);
+
+  // The dates decide the phase, not the URL: a page of the pregnancy opens as the newborn's.
+  await open("/pregnancy/planner");
+  await expect(page).toHaveURL(/\/postpartum\/planner$/);
+  await open("/pregnancy/library/rsv-vaccine");
+  await expect(page).toHaveURL(/\/postpartum\/library\/rsv-vaccine$/);
+  await open("/");
+  await expect(page).toHaveURL(/\/postpartum$/);
 
   await open("/settings");
   await babysHere.getByRole("button", { name: "Clear date" }).click();
   await page.getByRole("button", { name: "Save birth date" }).click();
   await nav.getByRole("link", { name: "Timeline" }).click();
   await expect(page.getByRole("slider", { name: "Timeline" })).toBeVisible();
+  await expect(page).toHaveURL(/\/pregnancy$/);
+  // And a page of the newborn's opens as the pregnancy's again.
+  await open("/postpartum/planner");
+  await expect(page).toHaveURL(/\/pregnancy\/planner$/);
 });

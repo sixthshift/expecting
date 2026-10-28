@@ -5,12 +5,12 @@ import { expect, test } from "./fixtures";
 
 const pages = [
   { path: "/", heading: "Timeline" },
-  { path: "/?at=pp3", heading: "Timeline" },
-  { path: "/library", heading: "Library" },
-  { path: "/library/rsv-vaccine", heading: "The RSV vaccine" },
-  { path: "/planner", heading: "Planner" },
-  { path: "/journal", heading: "Journal" },
-  { path: "/toolkit", heading: "Toolkit" },
+  { path: "/pregnancy?at=pp3", heading: "Timeline" },
+  { path: "/pregnancy/library", heading: "Library" },
+  { path: "/pregnancy/library/rsv-vaccine", heading: "The RSV vaccine" },
+  { path: "/pregnancy/planner", heading: "Planner" },
+  { path: "/pregnancy/journal", heading: "Journal" },
+  { path: "/pregnancy/toolkit", heading: "Toolkit" },
   { path: "/settings", heading: "Settings" },
 ];
 
@@ -28,6 +28,8 @@ test("every pillar and settings is reachable", async ({ page, open }) => {
   for (const name of ["Library", "Planner", "Journal", "Toolkit", "Timeline"]) {
     await nav.getByRole("link", { name }).click();
     await expect(nav.getByRole("link", { name })).toHaveAttribute("aria-current", "page");
+    // Home is the phase's own path, which every page sits under: it is current only on itself.
+    if (name !== "Timeline") await expect(nav.getByRole("link", { name: "Timeline" })).not.toHaveAttribute("aria-current");
   }
   await expect(page.getByRole("slider", { name: "Timeline" })).toBeVisible();
   await page.getByRole("link", { name: "Settings" }).click();

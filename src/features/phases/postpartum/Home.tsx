@@ -27,7 +27,7 @@ export function PostpartumHome() {
           expanded
           onToggle={() => {}}
           ticks={state.ticks}
-          onOpenItem={(itemId) => navigate({ to: "/library/$itemId", params: { itemId } })}
+          onOpenItem={(itemId) => navigate({ to: "/postpartum/library/$itemId", params: { itemId } })}
           dueDate={dueDate}
           birthDate={birthDate}
           nowContent={openQuestions > 0 ? <QuestionsWaiting count={openQuestions} /> : null}

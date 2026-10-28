@@ -19,3 +19,24 @@ export function currentPhase({ dueDate, birthDate, profile }: { dueDate: ISODate
   if (dueDate) return positionOn(today, dueDate, birthDate).slot.phase === "postpartum" ? "postpartum" : "pregnancy";
   return profile[EXPECTING] === NOT_YET ? "preconception" : "pregnancy";
 }
+
+/**
+ * Where a URL for one phase leads in `phase`: the same page, when that phase
+ * has it, else its home. The URL carries the phase (`/pregnancy/planner`), but
+ * the dates decide it, so a URL for any other phase (a link from before the
+ * birth, the page open as the birth date is entered) is brought to this one.
+ * `pillarPaths` are `phase`'s pillars (`/postpartum`, `/postpartum/library`, …):
+ * a page is kept when one of them is it, or holds it (`/library/x`). The search
+ * is dropped, as a week's `?at=` belongs to the pregnancy's timeline.
+ */
+export function samePageIn(pathname: string, phase: Phase, pillarPaths: readonly string[]): string {
+  const home = `/${phase}`;
+  const rest = pathname.replace(/^\/[^/]+/, "").replace(/\/$/, "");
+  const kept =
+    rest !== "" &&
+    pillarPaths.some((path) => {
+      const pillar = path.slice(home.length);
+      return pillar !== "" && (rest === pillar || rest.startsWith(`${pillar}/`));
+    });
+  return kept ? home + rest : home;
+}

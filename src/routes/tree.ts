@@ -1,19 +1,26 @@
 // The route tree: its shape, and nothing else. Each route is defined in its own
 // file beside this one (a path, what it loads and validates, the component it
-// draws); here they are put together. Routing is still code: a file's name
+// draws), a phase's in its folder (src/routes/<phase>/), the pages every phase
+// has built per phase by shared.ts; here they are put together. Routing is still code: a file's name
 // decides nothing, this list does. Pages live in src/features/ and read their
 // route's data through getRouteApi, so nothing imports a route but the router.
 
 import { app } from "./app";
-import { home } from "./home";
-import { journal } from "./journal";
-import { library } from "./library";
-import { libraryItem } from "./library-item";
+import { index } from "./index";
 import { login } from "./login";
-import { planner } from "./planner";
+import { postpartum } from "./postpartum";
+import { postpartumHome } from "./postpartum/home";
+import { postpartumJournal } from "./postpartum/journal";
+import { postpartumToolkit } from "./postpartum/toolkit";
+import { preconception } from "./preconception";
+import { preconceptionHome } from "./preconception/home";
+import { pregnancy } from "./pregnancy";
+import { pregnancyHome } from "./pregnancy/home";
+import { pregnancyJournal } from "./pregnancy/journal";
+import { pregnancyToolkit } from "./pregnancy/toolkit";
 import { rootRoute } from "./root";
 import { settings } from "./settings";
-import { toolkit } from "./toolkit";
+import { sharedRoutes } from "./shared";
 import { welcome } from "./welcome";
 
 // /api/* is served by the server alone: its handlers may import the store, and
@@ -23,8 +30,14 @@ import { welcome } from "./welcome";
 const api = import.meta.env.SSR ? (await import("../api/rest")).restRoutes : ([] as unknown as typeof import("../api/rest").restRoutes);
 
 export const routeTree = rootRoute.addChildren([
-  // The frame: the pillars and settings, each phase's page picked by the household's phase.
-  app.addChildren([home, library, libraryItem, planner, journal, toolkit, settings]),
+  // The frame: each phase under its own path, its pages its own and the shared ones, then settings, the same in every phase.
+  app.addChildren([
+    index,
+    preconception.addChildren([preconceptionHome, ...sharedRoutes(preconception)]),
+    pregnancy.addChildren([pregnancyHome, pregnancyJournal, pregnancyToolkit, ...sharedRoutes(pregnancy)]),
+    postpartum.addChildren([postpartumHome, postpartumJournal, postpartumToolkit, ...sharedRoutes(postpartum)]),
+    settings,
+  ]),
   // Outside the frame.
   welcome,
   login,
