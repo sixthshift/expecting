@@ -7,7 +7,8 @@ import { parseSlotKey, slotKey } from "../lib/timeline";
 /** Home: a week to open at instead of this one (`preconception`, `28`, `pp3`). */
 export const homeSearch = z.object({
   at: z
-    .string()
+    // The router reads `?at=28` as the number 28: a pregnancy week's key arrives as a number.
+    .union([z.string(), z.number().transform(String)])
     .optional()
     .catch(undefined)
     // Read as a slot and written back as its key, so an old alias (`before`) opens as `preconception`.
