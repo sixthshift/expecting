@@ -26,8 +26,8 @@ afterAll(() => {
   vi.unstubAllEnvs();
 });
 
-const PEOPLE = "src/rpc/people.ts";
-const SESSION = "src/rpc/session.ts";
+const PEOPLE = "src/api/rpc/people.ts";
+const SESSION = "src/api/rpc/session.ts";
 
 function request(path: string, init: RequestInit = {}) {
   return new Request(`http://expecting.lan${path}`, init);
@@ -50,7 +50,7 @@ describe("without a session", () => {
   });
 
   test("a server function call passes the path check, then only the session's functions answer", () => {
-    const call = request("/_serverFn/abc", { method: "POST" });
+    const call = request("/api/rpc/abc", { method: "POST" });
     expect(gateModule.gate(call)).toBeNull();
     expect(gateModule.refuseFunction(call, SESSION)).toBeNull();
     expect(gateModule.refuseFunction(call, PEOPLE)?.status).toBe(401);
@@ -59,7 +59,7 @@ describe("without a session", () => {
 
 test("with a session, every server function answers", () => {
   const token = new SessionRepo(db.getDb()).create();
-  const call = request("/_serverFn/abc", { method: "POST", headers: { cookie: `expecting_session=${token}` } });
+  const call = request("/api/rpc/abc", { method: "POST", headers: { cookie: `expecting_session=${token}` } });
   expect(gateModule.refuseFunction(call, PEOPLE)).toBeNull();
   expect(gateModule.gate(request("/settings", { headers: { accept: "text/html", cookie: `expecting_session=${token}` } }))).toBeNull();
 });

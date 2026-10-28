@@ -1,8 +1,8 @@
 import { getRouteApi, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ToyBrick } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { finishOnboarding } from "../../api/rpc/household";
 import { onboardingSteps, type Step } from "../../lib/onboarding";
-import { finishOnboarding } from "../../rpc/household";
 import { useExpectingTheme } from "../../theme/useExpectingTheme";
 import { useAction } from "../household/useAction";
 

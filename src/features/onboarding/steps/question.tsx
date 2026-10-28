@@ -1,7 +1,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
+import { saveAnswer } from "../../../api/rpc/household";
 import { question } from "../../../content/profile";
-import { saveAnswer } from "../../../rpc/household";
 import { AnswerInput } from "../../settings/ProfileForm";
 import { Choices, SkipButton } from "../parts";
 import type { Advance, Screen, StepContext } from "../step";

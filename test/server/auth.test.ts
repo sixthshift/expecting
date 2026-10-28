@@ -45,8 +45,8 @@ test.each([
 });
 
 test("the cookie round-trips and is Secure only over HTTPS", () => {
-  const plain = new Request("http://expecting.lan/_serverFn/login");
-  const proxied = new Request("http://expecting.lan/_serverFn/login", { headers: { "x-forwarded-proto": "https" } });
+  const plain = new Request("http://expecting.lan/api/rpc/login");
+  const proxied = new Request("http://expecting.lan/api/rpc/login", { headers: { "x-forwarded-proto": "https" } });
   expect(sessionCookieOptions(plain).secure).toBe(false);
   expect(sessionCookieOptions(proxied).secure).toBe(true);
   expect(sessionCookieOptions(plain).httpOnly).toBe(true);
@@ -62,13 +62,13 @@ describe("what is open without a session", () => {
   });
 
   test("by file, only the session's server functions", () => {
-    expect(isOpenFunction("src/rpc/session.ts")).toBe(true);
-    expect(isOpenFunction("src/rpc/people.ts")).toBe(false);
+    expect(isOpenFunction("src/api/rpc/session.ts")).toBe(true);
+    expect(isOpenFunction("src/api/rpc/people.ts")).toBe(false);
   });
 
   test("the open file is where login and logout are defined", () => {
     // A move or rename that forgets the gate would lock everyone out; this catches it first.
-    expect(existsSync(new URL("../../src/rpc/session.ts", import.meta.url))).toBe(true);
+    expect(existsSync(new URL("../../src/api/rpc/session.ts", import.meta.url))).toBe(true);
   });
 });
 

@@ -28,13 +28,13 @@ content/ (in the repo, bundled at build) ──▶ built-in items
 - Chosen over **no auth** (garnish's choice), because this data is personal and the app is meant to be reachable from a phone at the hospital. Chosen over **two accounts**, because nothing needs to be private from the other parent.
 - Login attempts are rate limited: ten failures in fifteen minutes locks that client out, in memory.
 - Sessions are rows holding the SHA-256 of the cookie's token, so a copy of the database is not a login. A session lives 400 days from its last use.
-- Every request passes request middleware, which judges it by path: pages without a session redirect to `/login`, `/api/*` calls get a 401, and only `/login` and `/api/health` are open.
-- A server function's path is a generated id, so request middleware lets those calls on, and function middleware judges each one by the file it is defined in: without a session, only `src/rpc/session.ts` answers. That file holds `login` and `logout`, ordinary server functions like the rest, so the app has one way of calling the server, and `/api/*` is left for callers that aren't the app.
+- Every request passes request middleware, which judges it by path: pages without a session redirect to `/login`, other `/api/*` calls get a 401, and only `/login` and `/api/health` are open.
+- Server functions answer under `/api/rpc/`, each at a generated id, so request middleware lets those calls on, and function middleware judges each one by the file it is defined in: without a session, only `src/api/rpc/session.ts` answers. That file holds `login` and `logout`, ordinary server functions like the rest, so the app has one way of calling the server, and `src/api/rest/` is left for callers that aren't the app.
 - Without `EXPECTING_PASSWORD_HASH` the dev server runs open; a production server refuses to start.
 
 ### Who's holding the phone
 
-- The household's people are rows (`person`: a name, and `carrying` or `partner`). A device says which one it is once, and remembers it in a `expecting_person` cookie (`src/rpc/people.ts`).
+- The household's people are rows (`person`: a name, and `carrying` or `partner`). A device says which one it is once, and remembers it in a `expecting_person` cookie (`src/api/rpc/people.ts`).
 - That cookie is not authentication: anyone past the password can say they are anyone. It is how Expecting can say who logged something and speak to each of you.
 - It is separate from the session cookie, so it works on a dev server running open, and logging out doesn't forget who you are.
 
@@ -72,12 +72,13 @@ src/
   lib/          pure rules and types: no React, no router, no store
   content/      the built-in items, bundled
   routes/       the pages' routes, definitions only: root.tsx, tree.tsx, search.ts
-  rpc/          the server functions: what the app calls, run on the server
-  api/          the server routes: fixed /api/* URLs for callers outside the app (health)
+  api/          everything that answers at /api
+    rest/       the server routes: fixed URLs for callers outside the app (/api/health)
+    rpc/        the server functions: what the app calls, run on the server (/api/rpc/<id>)
   db/ server/   server only: the store, auth, boot
 ```
 
-Biome holds the boundaries (`noRestrictedImports` in `biome.json`): only `db/`, `server/`, `rpc/` and `api/` import the store or `server/`, so the browser reaches the server only through `rpc/`; nothing imports `routes/` (a page reads its route through `getRouteApi`); `lib/` and `content/` import no React, router or server; `features/` and `components/` never import `src/app/` (the route tree hands the apps to `App`); and no phase imports another. `src/app/` is the apps, not file-based routing: routes are code, in `src/routes/tree.tsx`.
+Biome holds the boundaries (`noRestrictedImports` in `biome.json`): only `db/`, `server/` and `api/` import the store or `server/`, and nothing else imports `api/rest/`, so the browser reaches the server only through `api/rpc/`; nothing imports `routes/` (a page reads its route through `getRouteApi`); `lib/` and `content/` import no React, router or server; `features/` and `components/` never import `src/app/` (the route tree hands the apps to `App`); and no phase imports another. `src/app/` is the apps, not file-based routing: routes are code, in `src/routes/tree.tsx`.
 
 ## The pillars
 

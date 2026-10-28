@@ -1,5 +1,5 @@
 import { Check, MessageCircleQuestion, Plus } from "lucide-react";
-import { addQuestion } from "../../../rpc/questions";
+import { addQuestion } from "../../../api/rpc/questions";
 import { useAction } from "../../household/useAction";
 import { useContentContext } from "./context";
 

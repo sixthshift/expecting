@@ -4,8 +4,8 @@ import { FormField } from "@sixthshift/design-system/form-field";
 import { Input } from "@sixthshift/design-system/input";
 import { getRouteApi, useRouter } from "@tanstack/react-router";
 import { type FormEvent, useState } from "react";
+import { login } from "../../api/rpc/session";
 import { Page } from "../../components/Page";
-import { login } from "../../rpc/session";
 
 const route = getRouteApi("/login");
 

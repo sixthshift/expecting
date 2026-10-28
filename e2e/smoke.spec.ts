@@ -71,7 +71,7 @@ test("server functions refuse a caller without a session", async ({ page, open, 
   // Note the calls a logged-in page makes, then make them again with no cookie.
   const calls: string[] = [];
   page.on("request", (request) => {
-    if (new URL(request.url()).pathname.startsWith("/_serverFn/")) calls.push(request.url());
+    if (new URL(request.url()).pathname.startsWith("/api/rpc/")) calls.push(request.url());
   });
   await open("/");
   expect(calls.length, "the app loaded through server functions").toBeGreaterThan(0);

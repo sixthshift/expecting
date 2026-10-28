@@ -4,8 +4,8 @@ import { Input } from "@sixthshift/design-system/input";
 import { cn } from "@sixthshift/design-system/utils";
 import { Check } from "lucide-react";
 import { type FormEvent, useState } from "react";
+import { addPerson, becomePerson } from "../../../api/rpc/people";
 import { type Person, ROLES, type Role } from "../../../lib/people";
-import { addPerson, becomePerson } from "../../../rpc/people";
 import { Choices } from "../parts";
 import type { Advance, Screen, StepContext } from "../step";
 

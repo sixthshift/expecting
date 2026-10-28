@@ -96,17 +96,7 @@
       }
     },
     {
-      "includes": [
-        "src/**",
-        "!src/db/**",
-        "!src/server/**",
-        "!src/rpc/**",
-        "!src/api/**",
-        "!src/routes/**",
-        "!src/router.tsx",
-        "!src/server.ts",
-        "!src/start.ts"
-      ],
+      "includes": ["src/**", "!src/db/**", "!src/server/**", "!src/api/**", "!src/routes/**", "!src/router.tsx", "!src/server.ts", "!src/start.ts"],
       "linter": {
         "rules": {
           "style": {
@@ -120,7 +110,11 @@
                   },
                   {
                     "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
+                  },
+                  {
+                    "group": ["**/api/rest", "**/api/rest/**"],
+                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
                     "group": ["**/routes/**"],
@@ -148,7 +142,7 @@
                   },
                   {
                     "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
                   }
                 ]
               }
@@ -172,7 +166,11 @@
                   },
                   {
                     "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
+                  },
+                  {
+                    "group": ["**/api/rest", "**/api/rest/**"],
+                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
                     "group": ["**/routes/**"],
@@ -204,7 +202,11 @@
                   },
                   {
                     "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
+                  },
+                  {
+                    "group": ["**/api/rest", "**/api/rest/**"],
+                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
                     "group": ["**/routes/**"],
@@ -236,7 +238,11 @@
                   },
                   {
                     "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
+                  },
+                  {
+                    "group": ["**/api/rest", "**/api/rest/**"],
+                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
                     "group": ["**/routes/**"],
@@ -268,7 +274,11 @@
                   },
                   {
                     "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
+                  },
+                  {
+                    "group": ["**/api/rest", "**/api/rest/**"],
+                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
                     "group": ["**/routes/**"],
@@ -300,7 +310,11 @@
                   },
                   {
                     "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
+                  },
+                  {
+                    "group": ["**/api/rest", "**/api/rest/**"],
+                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
                     "group": ["**/routes/**"],
@@ -332,7 +346,11 @@
                   },
                   {
                     "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
+                  },
+                  {
+                    "group": ["**/api/rest", "**/api/rest/**"],
+                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
                     "group": ["**/routes/**"],
@@ -364,7 +382,11 @@
                   },
                   {
                     "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
+                  },
+                  {
+                    "group": ["**/api/rest", "**/api/rest/**"],
+                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
                     "group": ["**/routes/**"],
@@ -396,7 +418,11 @@
                   },
                   {
                     "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
+                  },
+                  {
+                    "group": ["**/api/rest", "**/api/rest/**"],
+                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
                     "group": ["**/routes/**"],
@@ -428,7 +454,11 @@
                   },
                   {
                     "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
+                  },
+                  {
+                    "group": ["**/api/rest", "**/api/rest/**"],
+                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
                     "group": ["**/routes/**"],
@@ -460,7 +490,11 @@
                   },
                   {
                     "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
+                  },
+                  {
+                    "group": ["**/api/rest", "**/api/rest/**"],
+                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
                     "group": ["react", "react-dom", "@tanstack/**", "**/components/**", "**/features/**", "**/app/**", "**/server/**"],

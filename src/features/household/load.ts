@@ -2,10 +2,10 @@
 // checklist's state and the questions. One load for every pillar, so moving
 // between them is instant and they never disagree.
 
-import { getChecklist } from "../../rpc/checklist";
-import { getHousehold } from "../../rpc/household";
-import { getPeople } from "../../rpc/people";
-import { listQuestions } from "../../rpc/questions";
+import { getChecklist } from "../../api/rpc/checklist";
+import { getHousehold } from "../../api/rpc/household";
+import { getPeople } from "../../api/rpc/people";
+import { listQuestions } from "../../api/rpc/questions";
 
 export async function loadHouseholdState() {
   const [household, checklist, people] = await Promise.all([getHousehold(), getChecklist(), getPeople()]);

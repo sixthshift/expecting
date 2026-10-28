@@ -39,6 +39,9 @@ export default defineConfig({
   plugins: [
     tanstackStart({
       spa: { enabled: true },
+      // Server functions answer under /api/rpc/, beside the /api/* server
+      // routes: src/api/ is everything that answers at /api.
+      serverFns: { base: "/api/rpc" },
       // Routing is code: src/routes/routes.ts builds the tree with createRoute.
       // Start still runs its route generator to build the asset manifest, so
       // it is handed the root alone and an output path nothing imports.

@@ -7,9 +7,9 @@ import { Textarea } from "@sixthshift/design-system/textarea";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, MessageCircleQuestion, Trash2 } from "lucide-react";
 import { type FormEvent, useState } from "react";
+import { addQuestion, deleteQuestion, markAsked, reopenQuestion } from "../../api/rpc/questions";
 import { formatDate, todayISO } from "../../lib/dates";
 import type { Question } from "../../lib/questions";
-import { addQuestion, deleteQuestion, markAsked, reopenQuestion } from "../../rpc/questions";
 import { useAction } from "../household/useAction";
 
 export function AddQuestion() {
