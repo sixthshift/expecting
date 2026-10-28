@@ -1,4 +1,5 @@
 import type { ComponentType } from "react";
+import type { LibraryPlan } from "../../lib/library";
 import type { PlannerPlan } from "../../lib/planner";
 import type { Phase } from "../../lib/timeline";
 import type { Pillar } from "./PillarLayout";
@@ -23,6 +24,11 @@ export type PhaseApp = {
     behind?: string;
     /** The heading over the questions: who they're for. */
     questionsFor: string;
+  };
+  /** How its Library arranges its shelves: the shared page, tuned to the phase. */
+  library: LibraryPlan & {
+    /** The search box's prompt: what people come here to ask in this phase. */
+    search: string;
   };
 };
 

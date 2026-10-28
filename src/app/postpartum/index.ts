@@ -10,6 +10,13 @@ export const postpartum: PhaseApp = {
   Layout: PostpartumLayout,
   timeline: false,
   planner: { grouping: "weeks", earlier: "leave-behind", behind: "From the pregnancy", questionsFor: "For the next check-up" },
+  // At 3 am it's the baby, and a question: the newborn's topics first, the pregnancy's reading put away.
+  library: {
+    first: ["baby", "after-the-birth", "appointments", "paperwork"],
+    earlier: "leave-behind",
+    behind: "From the pregnancy",
+    search: "Is this normal? Search the library",
+  },
   pillars: [
     { to: "/", label: "This week", icon: Sun, page: () => import("./Home").then((m) => m.PostpartumHome) },
     { to: "/library", label: "Library", icon: BookOpen, page: () => import("../../features/library/LibraryPage").then((m) => m.LibraryPage) },

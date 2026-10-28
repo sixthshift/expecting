@@ -231,6 +231,13 @@ test("the baby's here: Expecting becomes the newborn's, and clearing the birth d
   await expect(page.getByRole("button", { name: /^From the pregnancy/ })).toHaveAttribute("aria-expanded", "false");
   await expect(page.getByRole("checkbox", { name: "Book the RSV vaccine" })).toBeHidden();
 
+  // The same Library, arranged for the newborn: its topics first, a 3 am prompt, the pregnancy's reading folded away.
+  await nav.getByRole("link", { name: "Library" }).click();
+  await expect(page.getByPlaceholder("Is this normal? Search the library")).toBeVisible();
+  await expect(page.getByRole("region").first()).toHaveAccessibleName("Baby");
+  await expect(page.getByRole("button", { name: /^From the pregnancy/ })).toHaveAttribute("aria-expanded", "false");
+  await expect(page.getByRole("link", { name: /The RSV vaccine/ })).toBeHidden();
+
   // The newborn's Journal and Toolkit, at the same addresses, and no way back to a week of the pregnancy.
   await nav.getByRole("link", { name: "Journal" }).click();
   await expect(page.getByText("The birth story", { exact: true })).toBeVisible();
