@@ -5,10 +5,10 @@
 // (src/app/) are handed to App.
 
 import { createRoute, lazyRouteComponent, redirect } from "@tanstack/react-router";
-import { PHASES } from "../app";
 import { App } from "../features/app/App";
 import { phasePage } from "../features/app/phasePage";
 import { loadApp, loadHouseholdState } from "../features/household/load";
+import { PHASES } from "../features/phases";
 import { onboardingSteps } from "../lib/onboarding";
 import { rootRoute } from "./root";
 import { homeSearch, librarySearch, loginSearch } from "./search";

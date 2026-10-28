@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { PHASES } from "../../src/app/index";
+import { PHASES } from "../../src/features/phases/index";
 import type { Phase } from "../../src/lib/timeline";
 
 const phases = Object.keys(PHASES) as Phase[];

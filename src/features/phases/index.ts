@@ -3,7 +3,7 @@
 // never says. The route tree hands this to App (src/features/app/),
 // so nothing shared imports a phase.
 
-import type { Phases } from "../features/app/phaseApp";
+import type { Phases } from "../app/phaseApp";
 import { postpartum } from "./postpartum";
 import { preconception } from "./preconception";
 import { pregnancy } from "./pregnancy";

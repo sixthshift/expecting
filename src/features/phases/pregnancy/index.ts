@@ -1,5 +1,5 @@
 import { BookOpen, CalendarRange, ListChecks, NotebookPen, Wrench } from "lucide-react";
-import type { PhaseApp } from "../../features/app/phaseApp";
+import type { PhaseApp } from "../../app/phaseApp";
 import { PregnancyLayout } from "./Layout";
 
 /**
@@ -14,8 +14,8 @@ export const pregnancy: PhaseApp = {
   library: { first: [], earlier: "keep", search: "Search the library" },
   pillars: [
     { to: "/", label: "Timeline", icon: CalendarRange, page: () => import("./Home").then((m) => m.PregnancyHome) },
-    { to: "/library", label: "Library", icon: BookOpen, page: () => import("../../features/library/LibraryPage").then((m) => m.LibraryPage) },
-    { to: "/planner", label: "Planner", icon: ListChecks, page: () => import("../../features/planner/PlannerPage").then((m) => m.PlannerPage) },
+    { to: "/library", label: "Library", icon: BookOpen, page: () => import("../../library/LibraryPage").then((m) => m.LibraryPage) },
+    { to: "/planner", label: "Planner", icon: ListChecks, page: () => import("../../planner/PlannerPage").then((m) => m.PlannerPage) },
     { to: "/journal", label: "Journal", icon: NotebookPen, page: () => import("./journal/Page").then((m) => m.PregnancyJournal) },
     { to: "/toolkit", label: "Toolkit", icon: Wrench, page: () => import("./toolkit/Page").then((m) => m.PregnancyToolkit) },
   ],

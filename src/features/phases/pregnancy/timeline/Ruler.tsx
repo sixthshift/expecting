@@ -1,7 +1,7 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { Fragment, type KeyboardEvent, type PointerEvent, useRef, useState } from "react";
-import { slotLabel, slotShortLabel } from "../../../lib/timeline";
-import type { Mark } from "../../../lib/timelineView";
+import { slotLabel, slotShortLabel } from "../../../../lib/timeline";
+import type { Mark } from "../../../../lib/timelineView";
 
 type Props = {
   marks: Mark[];

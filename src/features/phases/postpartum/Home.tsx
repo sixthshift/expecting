@@ -1,10 +1,10 @@
 import { useNavigate } from "@tanstack/react-router";
-import { PillarHeader } from "../../features/app/PillarLayout";
-import { useApp } from "../../features/household/useApp";
-import { QuestionsWaiting } from "../../features/questions/questions";
-import { Week } from "../../features/weeks/Week";
-import { ageLabel, slotLabel } from "../../lib/timeline";
-import { buildBands } from "../../lib/timelineView";
+import { ageLabel, slotLabel } from "../../../lib/timeline";
+import { buildBands } from "../../../lib/timelineView";
+import { PillarHeader } from "../../app/PillarLayout";
+import { useApp } from "../../household/useApp";
+import { QuestionsWaiting } from "../../questions/questions";
+import { Week } from "../../weeks/Week";
 
 /**
  * The baby's here, and home is this week: what matters now, what has slipped,
