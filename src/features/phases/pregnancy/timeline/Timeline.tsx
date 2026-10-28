@@ -6,7 +6,7 @@ import { DateForm } from "../../../../components/DateForm";
 import { daysBetween, formatDate, type ISODate, todayISO } from "../../../../lib/dates";
 import { ageLabel, dueDateBounds, gestationLabel, type Position, type Slot, slotKey } from "../../../../lib/timeline";
 import { buildBands, rulerMarks } from "../../../../lib/timelineView";
-import { saveHousehold } from "../../../../server/functions/household";
+import { saveHousehold } from "../../../../rpc/household";
 import { useAction } from "../../../household/useAction";
 import { useApp } from "../../../household/useApp";
 import { QuestionsWaiting } from "../../../questions/questions";

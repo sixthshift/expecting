@@ -1,6 +1,6 @@
 import { question } from "../../../content/profile";
 import { EXPECTING } from "../../../lib/onboarding";
-import { saveAnswer } from "../../../server/functions/household";
+import { saveAnswer } from "../../../rpc/household";
 import { Choices } from "../parts";
 import type { Screen, StepContext } from "../step";
 

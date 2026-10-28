@@ -1,7 +1,7 @@
 import { Checkbox } from "@sixthshift/design-system/checkbox";
 import { type ReactNode, useState } from "react";
 import type { Task } from "../../content/schema";
-import { setTicked } from "../../server/functions/checklist";
+import { setTicked } from "../../rpc/checklist";
 import { useAction } from "../household/useAction";
 
 /**

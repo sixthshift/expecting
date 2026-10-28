@@ -5,7 +5,7 @@ import { cn } from "@sixthshift/design-system/utils";
 import { Check } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { type Person, ROLES, type Role } from "../../../lib/people";
-import { addPerson, becomePerson } from "../../../server/functions/people";
+import { addPerson, becomePerson } from "../../../rpc/people";
 import { Choices } from "../parts";
 import type { Advance, Screen, StepContext } from "../step";
 

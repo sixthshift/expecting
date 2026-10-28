@@ -1,9 +1,9 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { isBuiltInTaskId } from "../../content";
-import { ChecklistRepo } from "../../db/models/checklist/repo";
-import { POSTPARTUM_WEEKS, PREGNANCY_WEEKS } from "../../lib/timeline";
-import { getDb } from "../core/db";
+import { isBuiltInTaskId } from "../content";
+import { ChecklistRepo } from "../db/models/checklist/repo";
+import { POSTPARTUM_WEEKS, PREGNANCY_WEEKS } from "../lib/timeline";
+import { getDb } from "../server/core/db";
 
 export const getChecklist = createServerFn({ method: "GET" }).handler(() => {
   const repo = new ChecklistRepo(getDb());

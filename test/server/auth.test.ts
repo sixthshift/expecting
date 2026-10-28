@@ -62,13 +62,13 @@ describe("what is open without a session", () => {
   });
 
   test("by file, only the session's server functions", () => {
-    expect(isOpenFunction("src/server/functions/session.ts")).toBe(true);
-    expect(isOpenFunction("src/server/functions/people.ts")).toBe(false);
+    expect(isOpenFunction("src/rpc/session.ts")).toBe(true);
+    expect(isOpenFunction("src/rpc/people.ts")).toBe(false);
   });
 
   test("the open file is where login and logout are defined", () => {
     // A move or rename that forgets the gate would lock everyone out; this catches it first.
-    expect(existsSync(new URL("../../src/server/functions/session.ts", import.meta.url))).toBe(true);
+    expect(existsSync(new URL("../../src/rpc/session.ts", import.meta.url))).toBe(true);
   });
 });
 

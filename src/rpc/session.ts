@@ -6,11 +6,11 @@
 import { createServerFn } from "@tanstack/react-start";
 import { deleteCookie, getRequest, setCookie } from "@tanstack/react-start/server";
 import { z } from "zod";
-import { SessionRepo } from "../../db/models/auth/repo";
-import { readSessionCookie, SESSION_COOKIE, sessionCookieOptions } from "../auth/cookie";
-import { auth, clientKey, limiter, safeNext } from "../auth/gate";
-import { verifyPassword } from "../auth/password";
-import { getDb } from "../core/db";
+import { SessionRepo } from "../db/models/auth/repo";
+import { readSessionCookie, SESSION_COOKIE, sessionCookieOptions } from "../server/auth/cookie";
+import { auth, clientKey, limiter, safeNext } from "../server/auth/gate";
+import { verifyPassword } from "../server/auth/password";
+import { getDb } from "../server/core/db";
 
 export type LoginResult = { ok: true; next: string } | { ok: false; error: "wrong" | "locked" };
 

@@ -5,11 +5,11 @@
 import { createServerFn } from "@tanstack/react-start";
 import { deleteCookie, getCookie, getRequest, setCookie } from "@tanstack/react-start/server";
 import { z } from "zod";
-import { SESSION_DAYS } from "../../db/models/auth/repo";
-import { PeopleRepo } from "../../db/models/people/repo";
-import { type Person, ROLES, type Role } from "../../lib/people";
-import { isHttps } from "../auth/cookie";
-import { getDb } from "../core/db";
+import { SESSION_DAYS } from "../db/models/auth/repo";
+import { PeopleRepo } from "../db/models/people/repo";
+import { type Person, ROLES, type Role } from "../lib/people";
+import { isHttps } from "../server/auth/cookie";
+import { getDb } from "../server/core/db";
 
 const PERSON_COOKIE = "expecting_person";
 

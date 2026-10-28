@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { QuestionsRepo } from "../../db/models/questions/repo";
-import { getDb } from "../core/db";
+import { QuestionsRepo } from "../db/models/questions/repo";
+import { getDb } from "../server/core/db";
 
 const id = z.object({ id: z.uuid() }).strict();
 

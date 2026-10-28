@@ -26,8 +26,8 @@ afterAll(() => {
   vi.unstubAllEnvs();
 });
 
-const PEOPLE = "src/server/functions/people.ts";
-const SESSION = "src/server/functions/session.ts";
+const PEOPLE = "src/rpc/people.ts";
+const SESSION = "src/rpc/session.ts";
 
 function request(path: string, init: RequestInit = {}) {
   return new Request(`http://expecting.lan${path}`, init);

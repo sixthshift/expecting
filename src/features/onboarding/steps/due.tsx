@@ -2,7 +2,7 @@ import { useState } from "react";
 import { DateForm } from "../../../components/DateForm";
 import { addDays, type ISODate, todayISO } from "../../../lib/dates";
 import { dueDateBounds, TERM_DAYS } from "../../../lib/timeline";
-import { saveHousehold } from "../../../server/functions/household";
+import { saveHousehold } from "../../../rpc/household";
 import { SkipButton } from "../parts";
 import type { Advance, Screen, StepContext } from "../step";
 

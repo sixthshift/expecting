@@ -96,7 +96,7 @@
       }
     },
     {
-      "includes": ["src/**", "!src/db/**", "!src/server/**", "!src/routes/**", "!src/router.tsx", "!src/server.ts"],
+      "includes": ["src/**", "!src/db/**", "!src/server/**", "!src/rpc/**", "!src/routes/**", "!src/router.tsx", "!src/server.ts", "!src/start.ts"],
       "linter": {
         "rules": {
           "style": {
@@ -107,6 +107,10 @@
                   {
                     "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
                     "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/server/**"],
+                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
                   },
                   {
                     "group": ["**/routes/**"],
@@ -131,6 +135,10 @@
                   {
                     "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
                     "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/server/**"],
+                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
                   }
                 ]
               }
@@ -151,6 +159,10 @@
                   {
                     "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
                     "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/server/**"],
+                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
                   },
                   {
                     "group": ["**/routes/**"],
@@ -181,6 +193,10 @@
                     "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
                   },
                   {
+                    "group": ["**/server/**"],
+                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                  },
+                  {
                     "group": ["**/routes/**"],
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
                   },
@@ -207,6 +223,10 @@
                   {
                     "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
                     "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/server/**"],
+                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
                   },
                   {
                     "group": ["**/routes/**"],
@@ -237,6 +257,10 @@
                     "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
                   },
                   {
+                    "group": ["**/server/**"],
+                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                  },
+                  {
                     "group": ["**/routes/**"],
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
                   },
@@ -263,6 +287,10 @@
                   {
                     "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
                     "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/server/**"],
+                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
                   },
                   {
                     "group": ["**/routes/**"],
@@ -293,6 +321,10 @@
                     "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
                   },
                   {
+                    "group": ["**/server/**"],
+                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                  },
+                  {
                     "group": ["**/routes/**"],
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
                   },
@@ -319,6 +351,10 @@
                   {
                     "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
                     "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/server/**"],
+                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
                   },
                   {
                     "group": ["**/routes/**"],
@@ -349,6 +385,10 @@
                     "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
                   },
                   {
+                    "group": ["**/server/**"],
+                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                  },
+                  {
                     "group": ["**/routes/**"],
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
                   },
@@ -377,6 +417,10 @@
                     "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
                   },
                   {
+                    "group": ["**/server/**"],
+                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
+                  },
+                  {
                     "group": ["**/routes/**"],
                     "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
                   },
@@ -403,6 +447,10 @@
                   {
                     "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
                     "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/server/**"],
+                    "message": "Server only: the browser reaches the server through a server function in src/rpc/."
                   },
                   {
                     "group": ["react", "react-dom", "@tanstack/**", "**/components/**", "**/features/**", "**/app/**", "**/server/**"],

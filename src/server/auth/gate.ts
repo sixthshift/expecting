@@ -31,7 +31,7 @@ const OPEN = new Set(["/login", "/api/health"]);
 const SERVER_FN_BASE = process.env.TSS_SERVER_FN_BASE ?? "/_serverFn/";
 
 /** Files whose server functions anyone may call: logging in and out. Relative to the project root. */
-const OPEN_FUNCTIONS = new Set(["src/server/functions/session.ts"]);
+const OPEN_FUNCTIONS = new Set(["src/rpc/session.ts"]);
 
 export function isOpenPath(pathname: string): boolean {
   return OPEN.has(pathname);

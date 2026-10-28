@@ -5,7 +5,7 @@ import { Input } from "@sixthshift/design-system/input";
 import { getRouteApi, useRouter } from "@tanstack/react-router";
 import { type FormEvent, useState } from "react";
 import { Page } from "../../components/Page";
-import { login } from "../../server/functions/session";
+import { login } from "../../rpc/session";
 
 const route = getRouteApi("/login");
 

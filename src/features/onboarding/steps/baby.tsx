@@ -1,5 +1,5 @@
 import { applyTheme, BABY, type Baby, THEMES } from "../../../lib/theme";
-import { saveHousehold } from "../../../server/functions/household";
+import { saveHousehold } from "../../../rpc/household";
 import { Choices } from "../parts";
 import type { Screen, StepContext } from "../step";
 

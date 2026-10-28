@@ -2,7 +2,7 @@ import { FormField } from "@sixthshift/design-system/form-field";
 import { RadioButtonGroup } from "@sixthshift/design-system/radio-button-group";
 import { Select } from "@sixthshift/design-system/select";
 import { PROFILE, type Profile, type ProfileQuestion } from "../../content/profile";
-import { saveAnswer } from "../../server/functions/household";
+import { saveAnswer } from "../../rpc/household";
 import { useAction } from "../household/useAction";
 
 /**
