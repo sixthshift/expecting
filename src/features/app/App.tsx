@@ -1,25 +1,23 @@
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { useLocation } from "@tanstack/react-router";
 import { useEffect, useMemo } from "react";
-import { AppProvider, useApp } from "../household/useApp";
+import { todayISO } from "../../lib/dates";
+import { householdQuery, questionsQuery } from "../household/load";
+import { workOut } from "../household/workOut";
 import { ContentContext } from "../library/content/context";
 import { PillarLayout } from "./PillarLayout";
 import { PILLARS } from "./pillars";
 import { useExpectingTheme } from "./useExpectingTheme";
 
 /**
- * Around every pillar: the household, worked out once, its colours and the
+ * Around every pillar: the household's colours and the
  * context content renders against, then the pillars in their layout.
  */
 export function App() {
-  return (
-    <AppProvider>
-      <Frame />
-    </AppProvider>
-  );
-}
-
-function Frame() {
-  const { state, questions, now, facts } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
+  const { data: questions } = useSuspenseQuery(questionsQuery);
+  const today = todayISO();
+  const { now, facts } = useMemo(() => workOut(state, today), [state, today]);
   useExpectingTheme(state.household.baby);
   const { pathname } = useLocation();
 

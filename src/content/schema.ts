@@ -4,11 +4,11 @@
 
 import type { Node } from "@markdoc/markdoc";
 import { z } from "zod";
+import { extra } from "../features/settings/model/extras";
+import { checkWhen, question, type When, whenSchema } from "../features/settings/model/facts";
 import { isISODate } from "../lib/dates";
 import type { Who } from "../lib/people";
 import { WEEKS, type Week } from "../lib/timeline";
-import { extra } from "./extras";
-import { checkWhen, question, type When, whenSchema } from "./facts";
 
 /** What kind of entry an item is: each has its own page, and its own body shape (src/content/parse.ts). */
 export const TYPES = ["moment", "payment", "decision", "can-i", "symptom", "guide", "card", "term"] as const;
@@ -111,9 +111,9 @@ export const indexSchema = z
     verdict: z.enum(VERDICTS).optional(),
     /** A decision's week to decide by, from its source. */
     decide_by: z.number().int().optional(),
-    /** Only for households whose answers match: `{ cover: "no", state: [vic, nsw] }`. See content/facts.yaml. */
+    /** Only for households whose answers match: `{ cover: "no", state: [vic, nsw] }`. See src/features/settings/model/facts.data.ts. */
     when: whenSchema.default({}),
-    /** Part of an extra in content/extras.yaml: shown only once the household turns it on. */
+    /** Part of an extra in src/features/settings/model/extras.data.ts: shown only once the household turns it on. */
     extra: z.string().optional(),
     /** One of the things nobody tells you. A card is one by type. */
     surprise: z.boolean().default(false),
@@ -147,7 +147,8 @@ export const indexSchema = z
   .strict()
   .superRefine((fm, ctx) => {
     for (const message of checkWhen(fm.when)) ctx.addIssue({ code: "custom", path: ["when"], message });
-    if (fm.extra !== undefined && !extra(fm.extra)) ctx.addIssue({ code: "custom", path: ["extra"], message: `"${fm.extra}" is not an extra in extras.yaml` });
+    if (fm.extra !== undefined && !extra(fm.extra))
+      ctx.addIssue({ code: "custom", path: ["extra"], message: `"${fm.extra}" is not an extra in extras.data.ts` });
     if ((fm.type === "can-i") !== (fm.verdict !== undefined)) {
       ctx.addIssue({ code: "custom", path: ["verdict"], message: "a can-i has a verdict, and nothing else does" });
     }
@@ -177,7 +178,7 @@ export const indexSchema = z
       if (typeof t.deadline === "object") {
         const q = question(t.deadline.before);
         if (q?.type !== "date") {
-          ctx.addIssue({ code: "custom", path: ["tasks", i, "deadline", "before"], message: `"${t.deadline.before}" is not a date question in facts.yaml` });
+          ctx.addIssue({ code: "custom", path: ["tasks", i, "deadline", "before"], message: `"${t.deadline.before}" is not a date question in facts.data.ts` });
         }
       }
       if (deadline !== undefined && (deadline < due || deadline > WEEKS.last)) {

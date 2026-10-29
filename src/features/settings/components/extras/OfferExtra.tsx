@@ -1,18 +1,24 @@
 import { Button } from "@sixthshift/design-system/button";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { Sparkles } from "lucide-react";
-import { setExtras } from "../../api/rpc/extras";
-import { extraToOffer } from "../../lib/extras";
-import { useAction } from "../household/useAction";
-import { useApp } from "../household/useApp";
+import { useMemo } from "react";
+import { setExtras } from "../../../../api/rpc/extras";
+import { todayISO } from "../../../../lib/dates";
+import { extraToOffer } from "../../../../lib/extras";
+import { householdQuery } from "../../../household/load";
+import { useAction } from "../../../household/useAction";
+import { workOut } from "../../../household/workOut";
 
 /**
  * This week offers an extra once, in its week (`offer` in
- * content/extras.yaml), if nobody has decided on it: one at a time. Either
+ * src/features/settings/model/extras.data.ts), if nobody has decided on it: one at a time. Either
  * answer decides it, so it isn't offered again; settings can change it.
  */
 export function OfferExtra() {
-  const { state, now, facts } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
+  const today = todayISO();
+  const { now, facts } = useMemo(() => workOut(state, today), [state, today]);
   const [save, pending] = useAction((id: string, on: boolean) => setExtras({ data: [{ id, on }] }));
   if (now === null) return null;
   const extra = extraToOffer(state.extras, now, facts);

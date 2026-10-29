@@ -1,10 +1,10 @@
 import { Button } from "@sixthshift/design-system/button";
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { forgetPerson } from "../../api/rpc/people";
-import { logout } from "../../api/rpc/session";
-import type { Person } from "../../lib/people";
-import { useAction } from "../household/useAction";
+import { forgetPerson } from "../../../../api/rpc/people";
+import { logout } from "../../../../api/rpc/session";
+import type { Person } from "../../../../lib/people";
+import { useAction } from "../../../household/useAction";
 
 /** Who's holding this phone, the household it's shared with, and the way out. */
 export function ThisPhone({ me, people }: { me: Person | null; people: readonly Person[] }) {

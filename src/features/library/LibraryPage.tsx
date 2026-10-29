@@ -1,11 +1,15 @@
 import { SearchInput } from "@sixthshift/design-system/search-input";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { getRouteApi, Link, useNavigate } from "@tanstack/react-router";
 import { Sparkles } from "lucide-react";
 import type { ReactNode } from "react";
+import { useMemo } from "react";
 import type { Item } from "../../content/schema";
+import { todayISO } from "../../lib/dates";
 import { arrangeLibrary, type Shelf as ShelfData } from "../../lib/library";
 import { PillarHeader } from "../app/PillarLayout";
-import { useApp } from "../household/useApp";
+import { householdQuery } from "../household/load";
+import { workOut } from "../household/workOut";
 import { CanIDoor, IsThisNormalDoor, NobodyTellsYouDoor } from "./Doors";
 import { rangeLabel } from "./ItemCard";
 import { ItemList } from "./ItemList";
@@ -33,7 +37,9 @@ const SURPRISE_ANCHOR = "nobody-tells-you";
  * turns up on its week; here it can be found without knowing when.
  */
 export function LibraryPage() {
-  const { items, now } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
+  const today = todayISO();
+  const { items, now } = useMemo(() => workOut(state, today), [state, today]);
   const { q = "" } = route.useSearch();
   const navigate = useNavigate();
   const results = q.trim() ? items.filter((i) => matches(i, q)) : null;

@@ -1,11 +1,11 @@
-// The household's facts: its answers to content/facts.yaml's questions, each
+// The household's facts: its answers to src/features/settings/model/facts.data.ts's questions, each
 // kept with who answered and when.
 
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { ask, isAnswer } from "../../content/facts";
 import { FactsRepo } from "../../db/models/facts/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
+import { ask, isAnswer } from "../../features/settings/model/facts";
 import { getDb } from "../../server/core/db";
 import { personId } from "../../server/core/person";
 
@@ -15,7 +15,7 @@ export const saveAnswer = createServerFn({ method: "POST" })
     z
       .object({ key: z.string(), answer: z.string().nullable() })
       .strict()
-      .refine((a) => ask(a.key) !== undefined, "not a question in facts.yaml")
+      .refine((a) => ask(a.key) !== undefined, "not a question in facts.data.ts")
       .refine((a) => a.answer === null || isAnswer(a.key, a.answer), "not an answer to that question")
   )
   .handler(({ data }) => {

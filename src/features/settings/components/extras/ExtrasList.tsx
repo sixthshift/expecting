@@ -1,23 +1,27 @@
 import { Switch } from "@sixthshift/design-system/switch";
 import { cn } from "@sixthshift/design-system/utils";
-import { useState } from "react";
-import { setExtras } from "../../api/rpc/extras";
-import { EXTRA_GROUPS, type ExtraGroup } from "../../content/extras";
-import { formatDate, todayISO } from "../../lib/dates";
-import { type Choice, extrasFor } from "../../lib/extras";
-import type { Person } from "../../lib/people";
-import { useAction } from "../household/useAction";
-import { useApp } from "../household/useApp";
-import { SettingList } from "../settings/SettingRow";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { useMemo, useState } from "react";
+import { setExtras } from "../../../../api/rpc/extras";
+import { formatDate, todayISO } from "../../../../lib/dates";
+import { type Choice, extrasFor } from "../../../../lib/extras";
+import type { Person } from "../../../../lib/people";
+import { householdQuery } from "../../../household/load";
+import { useAction } from "../../../household/useAction";
+import { workOut } from "../../../household/workOut";
+import { EXTRA_GROUPS, type ExtraGroup } from "../../model/extras";
+import { SettingList } from "../SettingRow";
 
 /**
- * Every extra in content/extras.yaml this household is offered (its `when`
+ * Every extra in src/features/settings/model/extras.data.ts this household is offered (its `when`
  * fits, or it's on), with its switch: on, its items appear
  * wherever they belong; off, they're gone. Each says who last changed it.
  * `highlight` marks the one a link opened settings at.
  */
 export function ExtrasList({ choices, people, highlight }: { choices: readonly Choice[]; people: readonly Person[]; highlight?: string }) {
-  const { facts, extras } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
+  const today = todayISO();
+  const { facts, extras } = useMemo(() => workOut(state, today), [state, today]);
   const [save] = useAction((id: string, on: boolean) => setExtras({ data: [{ id, on }] }));
   const [pending, setPending] = useState<string | null>(null);
 

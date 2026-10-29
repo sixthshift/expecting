@@ -7,5 +7,5 @@ export const settings = createRoute({
   getParentRoute: () => app,
   path: "/settings",
   validateSearch: settingsSearch,
-  component: lazyRouteComponent(() => import("../features/settings/SettingsPage"), "SettingsPage"),
+  component: lazyRouteComponent(() => import("../features/settings/pages/SettingsPage"), "SettingsPage"),
 });

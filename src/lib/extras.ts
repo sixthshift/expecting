@@ -1,8 +1,8 @@
-// What the household has chosen of the extras (content/extras.yaml): which are
+// What the household has chosen of the extras (src/features/settings/model/extras.data.ts): which are
 // on, and which This week should offer. Pure, tested apart from the screen.
 
-import { EXTRAS, type Extra } from "../content/extras";
-import { applies, type Facts } from "../content/facts";
+import { EXTRAS, type Extra } from "../features/settings/model/extras";
+import { applies, type Facts } from "../features/settings/model/facts";
 import type { Week } from "./timeline";
 
 /** One extra someone turned on or off. No choice is undecided. */

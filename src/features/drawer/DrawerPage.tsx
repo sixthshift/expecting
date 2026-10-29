@@ -1,17 +1,21 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { Baby, Camera, ChevronRight, Luggage, Siren, Timer } from "lucide-react";
+import { useMemo } from "react";
 import { Coming } from "../../components/Coming";
-import { extra } from "../../content/extras";
+import { todayISO } from "../../lib/dates";
 import { PillarHeader } from "../app/PillarLayout";
-import { namesQuery } from "../household/load";
-import { useApp } from "../household/useApp";
+import { householdQuery, namesQuery } from "../household/load";
+import { workOut } from "../household/workOut";
 import { NamesGame } from "../names/NamesGame";
+import { extra } from "../settings/model/extras";
 
 /** The handy things, each for its moment: Emergency info, the names (with the Choosing a name extra), the bump photos, the bag, the contractions. */
 export function DrawerPage() {
   const { data: names } = useSuspenseQuery(namesQuery);
-  const { state, extras } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
+  const today = todayISO();
+  const { extras } = useMemo(() => workOut(state, today), [state, today]);
   const other = state.people.find((p) => p.id !== state.me?.id) ?? null;
   const naming = extra("choosing-names");
 
@@ -33,7 +37,7 @@ export function DrawerPage() {
       </Link>
       {extras.has("choosing-names") ? (
         <NamesGame view={names} other={other} />
-      ) : naming ? (
+      ) : (
         <div className="flex items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
           <Baby aria-hidden size={18} className="mt-0.5 shrink-0 text-fg-brand" />
           <p className="text-sm text-fg-normal">
@@ -44,7 +48,7 @@ export function DrawerPage() {
             </Link>
           </p>
         </div>
-      ) : null}
+      )}
       <Coming
         things={[
           {

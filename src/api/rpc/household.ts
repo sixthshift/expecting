@@ -1,12 +1,12 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { extra } from "../../content/extras";
-import { ask } from "../../content/facts";
 import { ChecklistRepo } from "../../db/models/checklist/repo";
 import { ExtrasRepo } from "../../db/models/extras/repo";
 import { FactsRepo } from "../../db/models/facts/repo";
 import { HouseholdRepo } from "../../db/models/household/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
+import { extra } from "../../features/settings/model/extras";
+import { ask } from "../../features/settings/model/facts";
 import { type ISODate, isISODate } from "../../lib/dates";
 import { BABY, type Baby } from "../../lib/theme";
 import { getDb } from "../../server/core/db";

@@ -32,7 +32,7 @@ export function SettingRow({
         aria-expanded={open}
         aria-controls={panel}
         onClick={onToggle}
-        className="flex min-h-14 w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-bg-normal-hovered focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-(--focus-ring)"
+        className="flex min-h-14 w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-bg-normal-hovered focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus-ring"
       >
         <span className="grid min-w-0 flex-1 gap-1 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-x-6">
           <span className="flex min-w-0 flex-col gap-0.5">

@@ -9,8 +9,8 @@
 //   {% window from=28 to=36 /%}                      the weeks it applies, against today
 
 import Markdoc, { Ast, type Config, type Node, type Schema } from "@markdoc/markdoc";
+import { QUESTIONS, question } from "../features/settings/model/facts";
 import { WEEKS } from "../lib/timeline";
-import { QUESTIONS, question } from "./facts";
 
 const ask: Schema = {
   render: "Ask",
@@ -40,7 +40,7 @@ function checkAnswers(value: unknown, problems: string[]) {
   if (Ast.isVariable(value)) {
     const [name, whose] = (value.path as string[]).map(String);
     const q = question(name ?? "");
-    if (!q) problems.push(`$${name} is not a question in facts.yaml (there are ${QUESTIONS.map((q) => `$${q.id}`).join(", ")})`);
+    if (!q) problems.push(`$${name} is not a question in facts.data.ts (there are ${QUESTIONS.map((q) => `$${q.id}`).join(", ")})`);
     else if (q.about === "each" && whose !== "carrying" && whose !== "partner")
       problems.push(`$${name} is asked of each of you: say whose, as $${name}.carrying or $${name}.partner`);
     return;

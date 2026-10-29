@@ -1,11 +1,10 @@
-// The extras, from content/extras.yaml: the optional parts of Expecting a
+// The extras, from extras.data.ts: the optional parts of Expecting a
 // household turns on. Pure, and bundled into the client like the items.
 
-import { parse as parseYaml } from "yaml";
 import { z } from "zod";
-import source from "../../content/extras.yaml?raw";
-import { WEEKS } from "../lib/timeline";
-import { checkWhen, whenSchema } from "./facts";
+import { WEEKS } from "../../../lib/timeline";
+import { EXTRA_LIST } from "./extras.data";
+import { checkWhen, type WhenInput, whenSchema } from "./facts";
 
 /** How settings groups the extras, in this order. */
 export const EXTRA_GROUPS = {
@@ -41,19 +40,35 @@ const extraSchema = z
 
 export type Extra = z.output<typeof extraSchema>;
 
-/** content/extras.yaml into extras. Throws on a bad file or a repeated id. */
-export function parseExtras(text: string): Extra[] {
-  const extras = z.array(extraSchema).parse(parseYaml(text));
+/** An extra as extras.data.ts writes it; checked by `parseExtras`. */
+export type ExtraInput = {
+  readonly id: string;
+  readonly name: string;
+  readonly pitch: string;
+  readonly group: ExtraGroup;
+  readonly onboarding?: boolean;
+  readonly offer: number;
+  readonly when?: WhenInput;
+};
+
+/** An extra's id, as extras.data.ts has it. */
+export type ExtraId = (typeof EXTRA_LIST)[number]["id"];
+
+/** The extras, checked. Throws on a bad extra or a repeated id. */
+export function parseExtras(list: readonly unknown[]): Extra[] {
+  const extras = z.array(extraSchema).parse(list);
   const seen = new Set<string>();
   for (const e of extras) {
-    if (seen.has(e.id)) throw new Error(`extras.yaml: extra "${e.id}" appears twice`);
+    if (seen.has(e.id)) throw new Error(`extra "${e.id}" appears twice`);
     seen.add(e.id);
   }
   return extras;
 }
 
-export const EXTRAS: readonly Extra[] = parseExtras(source);
+export const EXTRAS: readonly Extra[] = parseExtras(EXTRA_LIST);
 
+export function extra(id: ExtraId): Extra;
+export function extra(id: string): Extra | undefined;
 export function extra(id: string): Extra | undefined {
   return EXTRAS.find((e) => e.id === id);
 }

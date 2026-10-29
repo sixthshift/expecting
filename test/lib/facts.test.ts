@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
 import { builtInItems } from "../../src/content";
-import { ask } from "../../src/content/facts";
 import type { Task } from "../../src/content/schema";
+import { ask } from "../../src/features/settings/model/facts";
 import type { ISODate } from "../../src/lib/dates";
 import { type Answer, decides, factsOf, nextAsked, questionsDue, timeTask } from "../../src/lib/facts";
 import { weekStarts } from "../../src/lib/timeline";

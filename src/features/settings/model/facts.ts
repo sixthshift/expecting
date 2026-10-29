@@ -1,4 +1,4 @@
-// The questions Expecting asks, from content/facts.yaml, and the rules for
+// The questions Expecting asks, from facts.data.ts, and the rules for
 // what the household's answers, its facts, do to an item. Pure, and bundled
 // into the client like the items.
 //
@@ -6,12 +6,11 @@
 // so a fact's key is the question's id, or the id and whose it is:
 // `work.carrying`, `work.partner`.
 
-import { parse as parseYaml } from "yaml";
 import { z } from "zod";
-import source from "../../content/facts.yaml?raw";
-import { isISODate } from "../lib/dates";
-import type { Role } from "../lib/people";
-import { WEEKS } from "../lib/timeline";
+import { isISODate } from "../../../lib/dates";
+import type { Role } from "../../../lib/people";
+import { WEEKS } from "../../../lib/timeline";
+import { QUESTION_LIST } from "./facts.data";
 
 /** Where settings shows a question, in this order. */
 export const GROUPS = {
@@ -27,6 +26,9 @@ const slug = z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "answers are lower-cas
 
 /** For each fact, the answers something is for: `{ cover: [no, unsure] }`. */
 export type When = Record<string, string[]>;
+
+/** A `when` as written: one answer, or several. */
+export type WhenInput = Readonly<Record<string, string | readonly string[]>>;
 
 export const whenSchema = z
   .record(z.string(), z.union([z.string(), z.array(z.string()).min(1)]))
@@ -63,6 +65,22 @@ const questionSchema = z
 
 export type FactQuestion = z.output<typeof questionSchema>;
 
+/** A question as facts.data.ts writes it; checked by `parseFacts`. */
+export type QuestionInput = {
+  readonly id: string;
+  readonly ask: string;
+  readonly group: Group;
+  readonly asked?: "onboarding";
+  readonly week?: number;
+  readonly type?: "choice" | "date";
+  readonly about?: "household" | "each";
+  readonly when?: WhenInput;
+  readonly answers?: Readonly<Record<string, string>>;
+};
+
+/** A question's id, as facts.data.ts has it. */
+export type QuestionId = (typeof QUESTION_LIST)[number]["id"];
+
 /** Whose a fact is: the household's, or one of you. */
 export type About = "household" | Role;
 
@@ -81,25 +99,27 @@ export function factKey(id: string, about: About): string {
   return about === "household" ? id : `${id}.${about}`;
 }
 
-/** content/facts.yaml into questions. Throws on a bad file, a repeated id or a `when` that names nothing. */
-export function parseFacts(text: string): FactQuestion[] {
-  const questions = z.array(questionSchema).parse(parseYaml(text));
+/** The questions, checked. Throws on a bad question, a repeated id or a `when` that names nothing. */
+export function parseFacts(list: readonly unknown[]): FactQuestion[] {
+  const questions = z.array(questionSchema).parse(list);
   const byId = new Map<string, FactQuestion>();
   for (const q of questions) {
-    if (byId.has(q.id)) throw new Error(`facts.yaml: question "${q.id}" appears twice`);
+    if (byId.has(q.id)) throw new Error(`question "${q.id}" appears twice`);
     byId.set(q.id, q);
   }
   for (const q of questions) {
     const problems = checkWhen(q.when, (id) => byId.get(id), q.about === "each");
-    if (problems.length > 0) throw new Error(`facts.yaml: ${q.id}: ${problems.join("; ")}`);
+    if (problems.length > 0) throw new Error(`${q.id}: ${problems.join("; ")}`);
   }
   return questions;
 }
 
-export const QUESTIONS: readonly FactQuestion[] = parseFacts(source);
+export const QUESTIONS: readonly FactQuestion[] = parseFacts(QUESTION_LIST);
 
 const byId = new Map(QUESTIONS.map((q) => [q.id, q]));
 
+export function question(id: QuestionId): FactQuestion;
+export function question(id: string): FactQuestion | undefined;
 export function question(id: string): FactQuestion | undefined {
   return byId.get(id);
 }
@@ -123,7 +143,7 @@ export function isAnswer(key: string, value: string): boolean {
   return q.type === "date" ? isISODate(value) : Object.hasOwn(q.answers, value);
 }
 
-/** Facts still meaning something: drops any whose question or answer has since left facts.yaml. */
+/** Facts still meaning something: drops any whose question or answer has since left the list. */
 export function cleanFacts(facts: Facts): Facts {
   return Object.fromEntries(Object.entries(facts).filter(([k, v]) => isAnswer(k, v)));
 }
@@ -139,7 +159,7 @@ export function checkWhen(when: When, find: (id: string) => FactQuestion | undef
     const [id = "", whose, ...rest] = key.split(".");
     const q = find(id);
     if (!q) {
-      problems.push(`"${id}" is not a question in facts.yaml`);
+      problems.push(`"${id}" is not a question`);
       continue;
     }
     if (q.type !== "choice") problems.push(`"${id}" is a date, not a choice`);

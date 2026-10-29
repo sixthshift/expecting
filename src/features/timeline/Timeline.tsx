@@ -1,12 +1,15 @@
 import { Button } from "@sixthshift/design-system/button";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { LocateFixed } from "lucide-react";
 import { useEffect, useMemo } from "react";
 import { weekNotes } from "../../content";
+import { todayISO } from "../../lib/dates";
 import type { Week } from "../../lib/timeline";
 import { mapWeeks, mapWindows } from "../../lib/timelineMap";
 import { PillarHeader } from "../app/PillarLayout";
 import { Welcome } from "../home/Now";
-import { useApp } from "../household/useApp";
+import { householdQuery, questionsQuery } from "../household/load";
+import { workOut } from "../household/workOut";
 import { WeekMap } from "./WeekMap";
 import { WindowsChart } from "./WindowsChart";
 
@@ -25,7 +28,10 @@ function scrollToWeek(week: Week, smooth: boolean) {
  * desktop, a trimester each.
  */
 export function Timeline({ at }: { at: Week | undefined }) {
-  const { state, questions, now, items, tasks } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
+  const { data: questions } = useSuspenseQuery(questionsQuery);
+  const today = todayISO();
+  const { now, items, tasks } = useMemo(() => workOut(state, today), [state, today]);
   const { dueDate } = state.household;
   const windows = useMemo(() => mapWindows(items, state.ticks, now), [items, state.ticks, now]);
   const weeks = mapWeeks({ notes: weekNotes, windows, tasks, ticks: state.ticks, questions, now, dueDate });

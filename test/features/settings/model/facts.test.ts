@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
-import { ASKS, applies, ask, askedOf, checkWhen, cleanFacts, isAnswer, parseFacts, QUESTIONS, variables } from "../../src/content/facts";
+import { ASKS, applies, ask, askedOf, checkWhen, cleanFacts, isAnswer, parseFacts, QUESTIONS, variables } from "../../../../src/features/settings/model/facts";
 
-describe("content/facts.yaml", () => {
+describe("src/features/settings/model/facts.data.ts", () => {
   test("loads, every question with answers or a date", () => {
     expect(QUESTIONS.length).toBeGreaterThan(0);
     expect(isAnswer("cover", "yes")).toBe(true);
@@ -16,18 +16,19 @@ describe("content/facts.yaml", () => {
     expect(ask("cover.partner")).toBeUndefined();
   });
 
+  const q = { id: "a", group: "care", ask: "A", answers: { x: "X", y: "Y" } };
   test.each([
-    ["a repeated id", "- { id: a, group: care, ask: A, answers: { x: X, y: Y } }\n- { id: a, group: care, ask: B, answers: { x: X, y: Y } }", /appears twice/],
-    ["one answer", "- { id: a, group: care, ask: A, answers: { x: X } }", /at least two answers/],
-    ["an id content can't name", "- { id: first-baby, group: care, ask: A, answers: { x: X, y: Y } }", /camelCase/],
-    ["a week past the pregnancy", "- { id: a, group: care, ask: A, week: 43, answers: { x: X, y: Y } }", /42/],
-    ["a date with answers", "- { id: a, group: care, ask: A, type: date, answers: { x: X, y: Y } }", /no answers/],
-    ["one about each that names nobody", "- { id: a, group: care, ask: Do you work?, about: each, answers: { x: X, y: Y } }", /\{name\}/],
-    ["no group", "- { id: a, ask: A, answers: { x: X, y: Y } }", /group/],
-    ["a group settings doesn't have", "- { id: a, group: misc, ask: A, answers: { x: X, y: Y } }", /group/],
-    ["a when on nothing", "- { id: a, group: care, ask: A, when: { b: x }, answers: { x: X, y: Y } }", /"b" is not a question/],
-  ])("rejects %s", (_name, text, message) => {
-    expect(() => parseFacts(text)).toThrow(message);
+    ["a repeated id", [q, { ...q, ask: "B" }], /appears twice/],
+    ["one answer", [{ ...q, answers: { x: "X" } }], /at least two answers/],
+    ["an id content can't name", [{ ...q, id: "first-baby" }], /camelCase/],
+    ["a week past the pregnancy", [{ ...q, week: 43 }], /42/],
+    ["a date with answers", [{ ...q, type: "date" }], /no answers/],
+    ["one about each that names nobody", [{ ...q, ask: "Do you work?", about: "each" }], /\{name\}/],
+    ["no group", [{ ...q, group: undefined }], /group/],
+    ["a group settings doesn't have", [{ ...q, group: "misc" }], /group/],
+    ["a when on nothing", [{ ...q, when: { b: "x" } }], /"b" is not a question/],
+  ])("rejects %s", (_name, list, message) => {
+    expect(() => parseFacts(list)).toThrow(message);
   });
 });
 

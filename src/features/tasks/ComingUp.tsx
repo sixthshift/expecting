@@ -1,8 +1,12 @@
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
+import { useMemo } from "react";
+import { todayISO } from "../../lib/dates";
 import { whose } from "../../lib/people";
 import { weekLabel } from "../../lib/timeline";
 import { comingUp } from "../../lib/todo";
-import { useApp } from "../household/useApp";
+import { householdQuery } from "../household/load";
+import { workOut } from "../household/workOut";
 
 /** How many Coming up shows; the Planner has the rest. */
 const SHOWN = 5;
@@ -12,7 +16,9 @@ const SHOWN = 5;
  * nothing arrives as a surprise. Each one goes to why it matters.
  */
 export function ComingUp() {
-  const { state, now, tasks } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
+  const today = todayISO();
+  const { now, tasks } = useMemo(() => workOut(state, today), [state, today]);
   if (now === null) return null;
   const list = comingUp(tasks, state.ticks, now).slice(0, SHOWN);
   if (list.length === 0) return null;

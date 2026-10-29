@@ -5,13 +5,13 @@
 //   who        which person is holding this phone (every new device)
 //   due        the due date (the household, once)
 //   baby       boy, girl or don't know: the colours
-//   q:<key>    content/facts.yaml's `asked: onboarding` questions, once for
+//   q:<key>    src/features/settings/model/facts.data.ts's `asked: onboarding` questions, once for
 //              each of you where they're about each, and only where their
 //              `when` fits the answers so far
-//   extras     the extras in content/extras.yaml, any of which to turn on
+//   extras     the extras in src/features/settings/model/extras.data.ts, any of which to turn on
 //   ready      where Expecting will open, and in
 
-import { ASKS, type Facts } from "../content/facts";
+import { ASKS, type Facts } from "../features/settings/model/facts";
 import { isAsked } from "./facts";
 
 export type Step = "who" | "due" | "baby" | "extras" | "ready" | `q:${string}`;

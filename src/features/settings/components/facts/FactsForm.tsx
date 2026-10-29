@@ -1,22 +1,25 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { RadioButtonGroup } from "@sixthshift/design-system/radio-button-group";
 import { Select } from "@sixthshift/design-system/select";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
-import { saveAnswer } from "../../api/rpc/facts";
-import { DateForm } from "../../components/DateForm";
-import { builtInItems } from "../../content";
-import { type Ask, askedOf, type FactQuestion, UNSURE } from "../../content/facts";
-import { formatDate, type ISODate, todayISO } from "../../lib/dates";
-import { inExtras } from "../../lib/extras";
-import { type Answer, decides, isSettled, nextAsked } from "../../lib/facts";
-import type { Person } from "../../lib/people";
-import type { Week } from "../../lib/timeline";
-import { useAction } from "../household/useAction";
-import { useApp } from "../household/useApp";
-import { SettingRow } from "./SettingRow";
+import { useMemo } from "react";
+import { saveAnswer } from "../../../../api/rpc/facts";
+import { DateForm } from "../../../../components/DateForm";
+import { builtInItems } from "../../../../content";
+import { formatDate, type ISODate, todayISO } from "../../../../lib/dates";
+import { inExtras } from "../../../../lib/extras";
+import { type Answer, decides, isSettled, nextAsked } from "../../../../lib/facts";
+import type { Person } from "../../../../lib/people";
+import type { Week } from "../../../../lib/timeline";
+import { householdQuery } from "../../../household/load";
+import { useAction } from "../../../household/useAction";
+import { workOut } from "../../../household/workOut";
+import { type Ask, askedOf, type FactQuestion, UNSURE } from "../../model/facts";
+import { SettingRow } from "../SettingRow";
 
 /**
- * One of the questions in content/facts.yaml, as a row: its answer, who gave
+ * One of the questions in src/features/settings/model/facts.data.ts, as a row: its answer, who gave
  * it, and when This week asks again if it isn't settled. Open, it can be
  * answered, changed or cleared (which puts back everything it hid), and says
  * what it decides. Nothing here names a question, so a new one in the file
@@ -44,7 +47,9 @@ export function FactRow({
   const value = last?.value ?? undefined;
   const settled = isSettled(a, last);
   const again = dueDate && !settled ? nextAsked(a, last, dueDate) : null;
-  const { extras } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
+  const today = todayISO();
+  const { extras } = useMemo(() => workOut(state, today), [state, today]);
   // What it decides among everything that could show: not an extra that's off.
   const uses = open ? decides(a.question.id, builtInItems).filter((i) => inExtras(i.extra, extras)) : [];
 

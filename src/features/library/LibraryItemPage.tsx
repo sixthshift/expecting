@@ -1,12 +1,15 @@
 import { Spinner } from "@sixthshift/design-system/spinner";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { getRouteApi, Link } from "@tanstack/react-router";
 import { ArrowLeft, CalendarRange } from "lucide-react";
-import { Suspense, use } from "react";
+import { Suspense, use, useMemo } from "react";
 import { builtInItems } from "../../content";
-import { extra } from "../../content/extras";
 import type { Item } from "../../content/schema";
+import { todayISO } from "../../lib/dates";
 import { weekLabel } from "../../lib/timeline";
-import { useApp } from "../household/useApp";
+import { householdQuery } from "../household/load";
+import { workOut } from "../household/workOut";
+import { extra } from "../settings/model/extras";
 import { ItemCard } from "./ItemCard";
 import { pageOf } from "./pageOf";
 import { Related } from "./Related";
@@ -16,7 +19,9 @@ const route = getRouteApi("/app/library/$itemId");
 /** One item on its own page, with the way to its week on the timeline. */
 export function LibraryItemPage() {
   const { itemId } = route.useParams();
-  const { items, state, facts, extras } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
+  const today = todayISO();
+  const { items, facts, extras } = useMemo(() => workOut(state, today), [state, today]);
   const item = items.find((i) => i.id === itemId);
   // Hidden by an answer, rather than not there at all: say so, and open settings at it.
   const hidden = item ? undefined : builtInItems.find((i) => i.id === itemId);

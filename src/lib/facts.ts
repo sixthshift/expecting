@@ -2,8 +2,8 @@
 // asks again, and a task's deadline counted back from a date it gave. Pure,
 // tested apart from the screen.
 
-import { ASKS, type Ask, applies, cleanFacts, type FactQuestion, type Facts, factKey, isAnswer, UNSURE } from "../content/facts";
 import type { Item, Task } from "../content/schema";
+import { ASKS, type Ask, applies, cleanFacts, type FactQuestion, type Facts, factKey, isAnswer, UNSURE } from "../features/settings/model/facts";
 import { addDays, type ISODate, todayISO } from "./dates";
 import type { Role } from "./people";
 import { positionOn, WEEKS, type Week } from "./timeline";

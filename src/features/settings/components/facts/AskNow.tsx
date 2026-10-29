@@ -1,11 +1,15 @@
 import { Card } from "@sixthshift/design-system/card";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
-import { saveAnswer } from "../../api/rpc/facts";
-import { DateForm } from "../../components/DateForm";
-import { questionsDue } from "../../lib/facts";
-import { useAction } from "../household/useAction";
-import { useApp } from "../household/useApp";
-import { AnswerInput, askedOfIn } from "../settings/FactsForm";
+import { useMemo } from "react";
+import { saveAnswer } from "../../../../api/rpc/facts";
+import { DateForm } from "../../../../components/DateForm";
+import { todayISO } from "../../../../lib/dates";
+import { questionsDue } from "../../../../lib/facts";
+import { householdQuery } from "../../../household/load";
+import { useAction } from "../../../household/useAction";
+import { workOut } from "../../../household/workOut";
+import { AnswerInput, askedOfIn } from "./FactsForm";
 
 /** How many questions This week asks at once; the rest wait their turn. */
 const SHOWN = 3;
@@ -16,7 +20,9 @@ const SHOWN = 3;
  * a few weeks. Every answer can be changed in settings.
  */
 export function AskNow() {
-  const { state, now } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
+  const today = todayISO();
+  const { now } = useMemo(() => workOut(state, today), [state, today]);
   const [save] = useAction((key: string, answer: string | null) => saveAnswer({ data: { key, answer } }));
   const { dueDate } = state.household;
   if (now === null || !dueDate) return null;

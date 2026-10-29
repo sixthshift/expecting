@@ -170,13 +170,13 @@ What this asks of the app, not yet built:
 - **Some questions only make sense later,** when the answer exists ("your first bloods are usually back: are you RhD negative?"). Those are asked only in the timeline, in the week they become real.
 - **The driver needs more of them.** To say what to do, it has to know things like: is this your first baby; public, private or midwifery care; is the hospital booked; is a caesarean planned; for each parent, employee, self-employed or not working, and whether the employer pays leave. Each one earns its place by changing a task.
 - **The rules:**
-  - The questions are content (`content/facts.yaml`).
+  - The questions are a list in the code (`src/features/settings/model/facts.data.ts`), not a migration.
   - Each answer is a fact on the household, shared by both parents and changeable in settings.
   - **An unanswered question hides nothing,** and "not sure" is an answer that hides nothing.
   - Hiding happens only on a definite answer, and clearing the answer puts everything back.
   - Content is tailored two ways: a whole item by its `when:`, and a passage inside an item by `{% if %}`.
 
-*Built: the questions in `content/facts.yaml` (fifteen, some asked of each of you, some only once another answer fits, one a date), each with the week This week asks it; onboarding (who, the due date or the last period, the colours, the onboarding questions); every answer kept with who gave it and when; This week asking what's due, again four weeks after a "not sure" or "not now"; settings built from the file, grouped, with how many are answered and what each answer changes; three items tailored by an answer (booking in, anti-D, childcare) and one passage; notice to the employer timed from the leave start date. Not built: most of the tasks the answers add, change or remove, which is content work, and asking with `text` answers.*
+*Built: the questions in `src/features/settings/model/facts.data.ts` (fifteen, some asked of each of you, some only once another answer fits, one a date), each with the week This week asks it; onboarding (who, the due date or the last period, the colours, the onboarding questions); every answer kept with who gave it and when; This week asking what's due, again four weeks after a "not sure" or "not now"; settings built from the file, grouped, with how many are answered and what each answer changes; three items tailored by an answer (booking in, anti-D, childcare) and one passage; notice to the employer timed from the leave start date. Not built: most of the tasks the answers add, change or remove, which is content work, and asking with `text` answers.*
 
 ## Content
 
@@ -193,7 +193,7 @@ What this asks of the app, not yet built:
   - every tag and its attributes;
   - every `$question` and every answer it is compared with;
   - every `when:`.
-- **YAML for content that is only lists:** the questions (`content/facts.yaml`), the categories, the log's entry types.
+- **YAML for content that is only lists:** the categories, the log's entry types. The questions and the extras were YAML once; they drive behaviour, so they are typed lists in the code (`src/features/settings/model/facts.data.ts`, `src/features/settings/model/extras.data.ts`).
 
 *Built on `timeline`: the format, `ask`, `window` and `if`, and the checks.*
 
@@ -377,7 +377,7 @@ How the switches work:
 - **Off really means off.** Each feature brings its own sections, capture types and settings, so switching one off removes it rather than leaving gaps.
 - **This week offers one in its week** if nobody has decided ("Add a babymoon?"), once: either answer settles it.
 
-*Built, as extras (`content/extras.yaml`): the switches in settings, the offer in onboarding and on This week, and items that belong to an extra. Thirty-one so far, in five groups (celebrating, family and friends, getting ready, for you two, money), each one content, and one also a feature: Choosing a name brings the names game. An extra can be only for some households (`when`, as Older siblings is only for a second baby), and only a few are offered in onboarding (`onboarding: true`). Not built: the features above, which need more than items (the log, records), and bump photos, which wait for uploads and backups. Left out on purpose: a kick counter (Australian guidance is to know your baby's pattern, not to count kicks) and a baby pool (friends can't log in, and the app has no birth to score against).*
+*Built, as extras (`src/features/settings/model/extras.data.ts`): the switches in settings, the offer in onboarding and on This week, and items that belong to an extra. Thirty-one so far, in five groups (celebrating, family and friends, getting ready, for you two, money), each one content, and one also a feature: Choosing a name brings the names game. An extra can be only for some households (`when`, as Older siblings is only for a second baby), and only a few are offered in onboarding (`onboarding: true`). Not built: the features above, which need more than items (the log, records), and bump photos, which wait for uploads and backups. Left out on purpose: a kick counter (Australian guidance is to know your baby's pattern, not to count kicks) and a baby pool (friends can't log in, and the app has no birth to score against).*
 
 ## Order
 

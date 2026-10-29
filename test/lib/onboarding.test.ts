@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { ASKS } from "../../src/content/facts";
+import { ASKS } from "../../src/features/settings/model/facts";
 import { onboardingSteps, stepAfter } from "../../src/lib/onboarding";
 
 // Before anything is said, every onboarding question, once for each of you where it's about each.

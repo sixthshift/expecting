@@ -15,7 +15,7 @@ function Door({ icon: Icon, title, examples, to, meta }: { icon: LucideIcon; tit
   const body = (
     <>
       <span aria-hidden className="flex size-9 shrink-0 items-center justify-center rounded-full sm:size-11 bg-bg-brand-subtle text-fg-brand">
-        <Icon className="size-5 sm:size-[22px]" />
+        <Icon className="size-5 sm:size-5.5" />
       </span>
       <span className="flex min-w-0 flex-1 flex-col gap-0.5 sm:flex-none">
         <span className="text-base leading-snug font-display sm:text-lg font-semibold text-fg-strong">{title}</span>

@@ -3,9 +3,9 @@ import { cn } from "@sixthshift/design-system/utils";
 import { Check } from "lucide-react";
 import { useState } from "react";
 import { setExtras } from "../../../api/rpc/extras";
-import type { Extra } from "../../../content/extras";
 import { extrasFor, extrasOn } from "../../../lib/extras";
 import { factsOf } from "../../../lib/facts";
+import type { Extra } from "../../settings/model/extras";
 import { SkipButton } from "../parts";
 import type { Advance, Screen, StepContext } from "../step";
 

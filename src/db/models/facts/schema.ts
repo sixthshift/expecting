@@ -3,7 +3,7 @@ import { check, index, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { person } from "../people/schema";
 
 /**
- * Every answer to content/facts.yaml's questions, kept: the latest for a
+ * Every answer to src/features/settings/model/facts.data.ts's questions, kept: the latest for a
  * question and its subject is the fact. No value is skipped, or cleared.
  */
 export const answer = sqliteTable(

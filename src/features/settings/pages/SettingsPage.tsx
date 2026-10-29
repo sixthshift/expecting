@@ -1,24 +1,26 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { Button } from "@sixthshift/design-system/button";
 import { cn } from "@sixthshift/design-system/utils";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { getRouteApi } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { saveHousehold } from "../../api/rpc/household";
-import { Page, Section } from "../../components/Page";
-import { type Ask, GROUPS, type Group } from "../../content/facts";
-import { daysBetween, formatDate } from "../../lib/dates";
-import { asksFor, isSettled, latestByKey } from "../../lib/facts";
-import type { Person, Role } from "../../lib/people";
-import { gestationLabel } from "../../lib/timeline";
-import { COMMIT, VERSION } from "../../lib/version";
-import { ExtrasList } from "../extras/ExtrasList";
-import { DueDateForm } from "../household/DueDateForm";
-import { useAction } from "../household/useAction";
-import { useApp } from "../household/useApp";
-import { ColourChoice } from "./ColourChoice";
-import { FactRow } from "./FactsForm";
-import { SettingList, SettingRow } from "./SettingRow";
-import { ThisPhone } from "./ThisPhone";
+import { useEffect, useMemo, useState } from "react";
+import { saveHousehold } from "../../../api/rpc/household";
+import { Page, Section } from "../../../components/Page";
+import { daysBetween, formatDate, todayISO } from "../../../lib/dates";
+import { asksFor, isSettled, latestByKey } from "../../../lib/facts";
+import type { Person, Role } from "../../../lib/people";
+import { gestationLabel } from "../../../lib/timeline";
+import { COMMIT, VERSION } from "../../../lib/version";
+import { DueDateForm } from "../../household/DueDateForm";
+import { householdQuery } from "../../household/load";
+import { useAction } from "../../household/useAction";
+import { workOut } from "../../household/workOut";
+import { ColourChoice } from "../components/colour/ColourChoice";
+import { ExtrasList } from "../components/extras/ExtrasList";
+import { FactRow } from "../components/facts/FactsForm";
+import { SettingList, SettingRow } from "../components/SettingRow";
+import { ThisPhone } from "../components/thisPhone/ThisPhone";
+import { type Ask, GROUPS, type Group } from "../model/facts";
 
 const route = getRouteApi("/app/settings");
 
@@ -34,7 +36,7 @@ const SECTIONS = [
 /**
  * Everything Expecting has been told, grouped and readable at a glance: the
  * due date and colours with the pregnancy, every question in
- * content/facts.yaml in its group (each of yours under your name), how many
+ * src/features/settings/model/facts.data.ts in its group (each of yours under your name), how many
  * are settled and the next to answer; the extras; then this phone. `?ask=cover` opens at a
  * question (or `?ask=extra:babymoon` at an extra), as a hidden item's page links
  * here.
@@ -42,7 +44,9 @@ const SECTIONS = [
 export function SettingsPage() {
   const { ask } = route.useSearch();
   const [save] = useAction((data: Parameters<typeof saveHousehold>[0]["data"]) => saveHousehold({ data }));
-  const { state, facts, today, position, now } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
+  const today = todayISO();
+  const { facts, position, now } = useMemo(() => workOut(state, today), [state, today]);
   const { me, people } = state;
   const { dueDate, baby } = state.household;
 

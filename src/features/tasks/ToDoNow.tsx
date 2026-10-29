@@ -1,9 +1,13 @@
 import { Badge } from "@sixthshift/design-system/badge";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
+import { useMemo } from "react";
+import { todayISO } from "../../lib/dates";
 import { whose } from "../../lib/people";
 import { toDoNow, whenToDo } from "../../lib/todo";
-import { useApp } from "../household/useApp";
+import { householdQuery } from "../household/load";
+import { workOut } from "../household/workOut";
 import { TaskRow } from "./TaskRow";
 
 /** How many To do now shows before handing over to the Planner. */
@@ -15,7 +19,9 @@ const SHOWN = 5;
  * is in the Planner.
  */
 export function ToDoNow() {
-  const { state, now, tasks } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
+  const today = todayISO();
+  const { now, tasks } = useMemo(() => workOut(state, today), [state, today]);
   if (now === null) return null;
   const list = toDoNow(tasks, state.ticks, now);
   const shown = list.slice(0, SHOWN);

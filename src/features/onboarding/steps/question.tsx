@@ -2,15 +2,15 @@ import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
 import { saveAnswer } from "../../../api/rpc/facts";
 import { DateForm } from "../../../components/DateForm";
-import { type Ask, ask } from "../../../content/facts";
 import type { ISODate } from "../../../lib/dates";
 import { latestByKey } from "../../../lib/facts";
-import { AnswerInput, askedOfIn } from "../../settings/FactsForm";
+import { AnswerInput, askedOfIn } from "../../settings/components/facts/FactsForm";
+import { type Ask, ask } from "../../settings/model/facts";
 import { Choices, SkipButton } from "../parts";
 import type { Advance, Screen, StepContext } from "../step";
 
 /**
- * One of content/facts.yaml's onboarding questions, skippable. A skip is kept,
+ * One of src/features/settings/model/facts.data.ts's onboarding questions, skippable. A skip is kept,
  * unless it's already answered, so This week asks it again only once its week
  * has come, not straight away.
  */

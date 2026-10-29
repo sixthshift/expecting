@@ -1,14 +1,18 @@
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { getRouteApi, Link } from "@tanstack/react-router";
 import { CalendarRange, ChevronRight, Settings } from "lucide-react";
+import { useMemo } from "react";
 import { weekNotes } from "../../content";
 import { asks } from "../../content/schema";
 import { noteFor } from "../../content/weeks";
+import { todayISO } from "../../lib/dates";
 import { askedWeeks } from "../../lib/timelineMap";
-import { OfferExtra } from "../extras/OfferExtra";
-import { AskNow } from "../facts/AskNow";
-import { useApp } from "../household/useApp";
+import { householdQuery, questionsQuery } from "../household/load";
+import { workOut } from "../household/workOut";
 import { ItemList } from "../library/ItemList";
 import { AskedQuestion, QuestionsWaiting } from "../questions/questions";
+import { OfferExtra } from "../settings/components/extras/OfferExtra";
+import { AskNow } from "../settings/components/facts/AskNow";
 import { ComingUp } from "../tasks/ComingUp";
 import { TaskRow } from "../tasks/TaskRow";
 import { ToDoNow } from "../tasks/ToDoNow";
@@ -28,7 +32,10 @@ import { Hero, Welcome } from "./Now";
 const route = getRouteApi("/app/");
 
 export function Home() {
-  const { state, questions, today, position, now, items, tasks } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
+  const { data: questions } = useSuspenseQuery(questionsQuery);
+  const today = todayISO();
+  const { position, now, items, tasks } = useMemo(() => workOut(state, today), [state, today]);
   const { at } = route.useSearch();
   const { dueDate } = state.household;
   // The week shown: this one, or the one peeked at (only once there is a this week).
@@ -62,12 +69,12 @@ export function Home() {
       <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start lg:gap-10">
         <div className="contents lg:flex lg:flex-col lg:gap-8">
           {note ? (
-            <div className="order-2 lg:order-none">
+            <div className="order-2 lg:order-0">
               <WeekNote key={note.week} note={note} showSize={note.week !== week} />
             </div>
           ) : null}
           {asked.length > 0 ? (
-            <section aria-labelledby="asked" className="order-4 flex flex-col gap-2 lg:order-none">
+            <section aria-labelledby="asked" className="order-4 flex flex-col gap-2 lg:order-0">
               <h2 id="asked" className="text-lg font-display font-semibold text-fg-strong">
                 {peeking ? "Asked that week" : "Asked this week"}
               </h2>
@@ -77,7 +84,7 @@ export function Home() {
             </section>
           ) : null}
           {starting.length > 0 ? (
-            <section aria-labelledby="worth-knowing" className="order-4 flex flex-col gap-2 lg:order-none">
+            <section aria-labelledby="worth-knowing" className="order-4 flex flex-col gap-2 lg:order-0">
               <h2 id="worth-knowing" className="text-lg font-display font-semibold text-fg-strong">
                 {peeking ? "Worth knowing that week" : "Worth knowing this week"}
               </h2>
@@ -87,7 +94,7 @@ export function Home() {
           <Link
             to="/timeline"
             search={peeking && week !== null ? { at: week } : {}}
-            className="order-7 flex min-h-11 w-fit items-center gap-2 rounded-md text-sm text-fg-subtle hover:text-fg-normal lg:order-none"
+            className="order-7 flex min-h-11 w-fit items-center gap-2 rounded-md text-sm text-fg-subtle hover:text-fg-normal lg:order-0"
           >
             <CalendarRange aria-hidden size={16} className="text-fg-brand" />
             The whole pregnancy, week by week
@@ -97,7 +104,7 @@ export function Home() {
 
         {peeking ? (
           <div className="contents lg:sticky lg:top-6 lg:flex lg:flex-col lg:gap-8">
-            <section aria-labelledby="that-week" className="order-1 flex flex-col gap-2 lg:order-none">
+            <section aria-labelledby="that-week" className="order-1 flex flex-col gap-2 lg:order-0">
               <h2 id="that-week" className="text-lg font-display font-semibold text-fg-strong">
                 Best done that week
               </h2>
@@ -131,20 +138,20 @@ export function Home() {
           </div>
         ) : (
           <div className="contents lg:sticky lg:top-6 lg:flex lg:flex-col lg:gap-8">
-            <div className="order-1 lg:order-none">
+            <div className="order-1 lg:order-0">
               <ToDoNow />
             </div>
-            <div className="order-3 empty:hidden lg:order-none">
+            <div className="order-3 empty:hidden lg:order-0">
               <AskNow />
             </div>
-            <div className="order-5 empty:hidden lg:order-none">
+            <div className="order-5 empty:hidden lg:order-0">
               <OfferExtra />
             </div>
-            <div className="order-5 empty:hidden lg:order-none">
+            <div className="order-5 empty:hidden lg:order-0">
               <ComingUp />
             </div>
             {openQuestions > 0 ? (
-              <div className="order-6 lg:order-none">
+              <div className="order-6 lg:order-0">
                 <QuestionsWaiting count={openQuestions} />
               </div>
             ) : null}

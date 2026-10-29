@@ -5,15 +5,15 @@ import { Textarea } from "@sixthshift/design-system/textarea";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, Pencil, Phone } from "lucide-react";
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useMemo, useState } from "react";
 import { saveEmergency } from "../../api/rpc/emergency";
-import { question, UNSURE } from "../../content/facts";
-import { formatDate, isISODate } from "../../lib/dates";
+import { formatDate, isISODate, todayISO } from "../../lib/dates";
 import { ALWAYS, EMERGENCY, EMERGENCY_FIELDS, EMERGENCY_MAX, type EmergencyField, type EmergencyInfo, telHref } from "../../lib/emergency";
 import { gestationLabel } from "../../lib/timeline";
-import { emergencyQuery } from "../household/load";
+import { emergencyQuery, householdQuery } from "../household/load";
 import { useAction } from "../household/useAction";
-import { useApp } from "../household/useApp";
+import { workOut } from "../household/workOut";
+import { question, UNSURE } from "../settings/model/facts";
 
 /** The answers a doctor or paramedic would ask about, as the page shows them. */
 const FROM_ANSWERS: readonly { id: string; label: string }[] = [
@@ -55,7 +55,9 @@ export function EmergencyPage() {
 }
 
 function EmergencyView({ emergency }: { emergency: EmergencyInfo }) {
-  const { state, position, facts } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
+  const today = todayISO();
+  const { position, facts } = useMemo(() => workOut(state, today), [state, today]);
   const carrying = state.people.find((p) => p.role === "carrying");
   const { dueDate } = state.household;
   const answered = FROM_ANSWERS.flatMap(({ id, label }) => {

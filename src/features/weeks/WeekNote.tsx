@@ -1,12 +1,13 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { Card } from "@sixthshift/design-system/card";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { type WeekNote as Note, SECTIONS, type Section, sizeLabel } from "../../content/weeks";
 import { formatDate, type ISODate } from "../../lib/dates";
 import type { Role } from "../../lib/people";
-import { useApp } from "../household/useApp";
+import { householdQuery } from "../household/load";
 import { ItemBody } from "../library/content/ItemBody";
 
 /** What each of you reads: the baby for both, then your own part. */
@@ -25,7 +26,7 @@ export function WeekNote({
   /** Off where the size is already said: This week's heading. */
   showSize?: boolean;
 }) {
-  const { state } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
   const [lens, setLens] = useState<Role>(state.me?.role ?? "carrying");
   const size = showSize && note.size ? sizeLabel(note.size) : null;
   const named = (role: Role, fallback: string) => {

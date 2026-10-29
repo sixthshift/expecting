@@ -1,16 +1,19 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { Card } from "@sixthshift/design-system/card";
 import { ProgressBar } from "@sixthshift/design-system/progress-bar";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, ChevronRight } from "lucide-react";
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useMemo, useState } from "react";
 import type { Item, Task } from "../../content/schema";
+import { todayISO } from "../../lib/dates";
 import { whose } from "../../lib/people";
 import { type Ahead, planTasks, type Stage, stagesAhead } from "../../lib/planner";
 import { WEEKS, type Week, weekLabel } from "../../lib/timeline";
 import { type ToDo, whenToDo } from "../../lib/todo";
 import { PillarHeader } from "../app/PillarLayout";
-import { useApp } from "../household/useApp";
+import { householdQuery, questionsQuery } from "../household/load";
+import { workOut } from "../household/workOut";
 import { AddQuestion, AskedQuestion, OpenQuestion } from "../questions/questions";
 import { AddTask, DeleteOwnTask } from "../tasks/AddTask";
 import { TaskRow } from "../tasks/TaskRow";
@@ -33,7 +36,10 @@ const AHEAD_AT: Record<Ahead["at"], (w: Week) => string> = {
  * appointment.
  */
 export function PlannerPage() {
-  const { state, questions, now, tasks, items } = useApp();
+  const { data: state } = useSuspenseQuery(householdQuery);
+  const { data: questions } = useSuspenseQuery(questionsQuery);
+  const today = todayISO();
+  const { now, tasks, items } = useMemo(() => workOut(state, today), [state, today]);
   // Ticked during this visit: they stay where they were until the next one.
   const [tickedHere, setTickedHere] = useState<ReadonlySet<string>>(new Set());
   const plan = planTasks(tasks, state.ticks, tickedHere, now);

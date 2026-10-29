@@ -2,7 +2,7 @@ import { sql } from "drizzle-orm";
 import { check, integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { person } from "../people/schema";
 
-/** Each extra in content/extras.yaml someone has turned on or off. No row is undecided. */
+/** Each extra in src/features/settings/model/extras.data.ts someone has turned on or off. No row is undecided. */
 export const extra = sqliteTable(
   "extra",
   {

@@ -1,6 +1,6 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { Check } from "lucide-react";
-import { applyTheme, BABY, type Baby, THEMES } from "../../lib/theme";
+import { applyTheme, BABY, type Baby, THEMES } from "../../../../lib/theme";
 
 /**
  * Boy, girl, or don't know, as the three themes themselves: each choice is
@@ -17,7 +17,7 @@ export function ColourChoice({ value, onChoose }: { value: Baby; onChoose: (baby
             key={baby}
             data-expecting-theme={THEMES[baby]}
             className={cn(
-              "relative flex cursor-pointer flex-col gap-2 rounded-xl border bg-bg-normal p-2 transition-colors has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--focus-ring) sm:p-3",
+              "relative flex cursor-pointer flex-col gap-2 rounded-xl border bg-bg-normal p-2 transition-colors has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-focus-ring sm:p-3",
               chosen ? "border-border-brand ring-1 ring-border-brand" : "border-border-subtle hover:border-border-brand-hovered"
             )}
           >

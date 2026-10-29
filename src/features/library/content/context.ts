@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
-import type { Facts } from "../../../content/facts";
 import type { Week } from "../../../lib/timeline";
+import type { Facts } from "../../settings/model/facts";
 
 /** What content renders against: the household's answers, where it is now, the questions already on its list. */
 export type ContentContextValue = { facts: Facts; now: Week | null; openQuestions: readonly string[] };

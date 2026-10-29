@@ -344,7 +344,7 @@
       }
     },
     {
-      "includes": ["src/lib/**", "src/content/**"],
+      "includes": ["src/lib/**", "src/content/**", "src/features/settings/model/**"],
       "linter": {
         "rules": {
           "style": {
@@ -365,8 +365,8 @@
                     "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
-                    "group": ["react", "react-dom", "@tanstack/**", "**/components/**", "**/features/**", "**/server/**"],
-                    "message": "src/lib/ and src/content/ are pure rules and types: no React, no router, no server."
+                    "group": ["react", "react-dom", "@tanstack/**", "**/components/**", "**/features/**", "!**/features/settings/model/*", "**/server/**"],
+                    "message": "src/lib/, src/content/ and the questions and extras (src/features/settings/model/) are pure rules and types: no React, no router, no server. Of features/, only settings/model/ may be imported from here."
                   }
                 ]
               }

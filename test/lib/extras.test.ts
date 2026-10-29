@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { EXTRAS } from "../../src/content/extras";
+import { EXTRAS } from "../../src/features/settings/model/extras";
 import { type Choice, extrasOn, extraToOffer, inExtras } from "../../src/lib/extras";
 
 const choice = (id: string, on: boolean): Choice => ({ id, on, changedBy: null, changedAt: "2026-10-01T00:00:00.000Z" });
