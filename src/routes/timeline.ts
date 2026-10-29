@@ -7,5 +7,5 @@ export const timeline = createRoute({
   getParentRoute: () => app,
   path: "/timeline",
   validateSearch: timelineSearch,
-  component: lazyRouteComponent(() => import("../features/timeline/Page"), "TimelinePage"),
+  component: lazyRouteComponent(() => import("../features/timeline/pages/TimelinePage"), "TimelinePage"),
 });

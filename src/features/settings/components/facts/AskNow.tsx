@@ -5,7 +5,7 @@ import { usePeople } from "../../../../api/rpc/people";
 import { useNow, useSettings } from "../../../../api/rpc/settings";
 import { DateForm } from "../../../../components/DateForm";
 import { questionsDue } from "../../../../lib/facts";
-import { useAction } from "../../../app/useAction";
+import { useAction } from "../../../app/hooks/useAction";
 import { AnswerInput, askedOfIn } from "./FactsForm";
 
 /** How many questions This week asks at once; the rest wait their turn. */

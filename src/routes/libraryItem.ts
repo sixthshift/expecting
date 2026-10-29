@@ -5,5 +5,5 @@ import { app } from "./app";
 export const libraryItem = createRoute({
   getParentRoute: () => app,
   path: "/library/$itemId",
-  component: lazyRouteComponent(() => import("../features/library/LibraryItemPage"), "LibraryItemPage"),
+  component: lazyRouteComponent(() => import("../features/library/pages/LibraryItemPage"), "LibraryItemPage"),
 });

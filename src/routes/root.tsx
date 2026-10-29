@@ -1,8 +1,8 @@
 import type { QueryClient } from "@tanstack/react-query";
 import { createRootRouteWithContext, Outlet } from "@tanstack/react-router";
-import { Document } from "../features/app/Document";
-import { ErrorPage } from "../features/app/ErrorPage";
-import { NotFound } from "../features/app/NotFound";
+import { Document } from "../features/app/pages/Document";
+import { ErrorPage } from "../features/app/pages/ErrorPage";
+import { NotFound } from "../features/app/pages/NotFound";
 import appCss from "../styles/index.css?url";
 
 /** What every loader is handed: the queries, which hold what the app has loaded. */

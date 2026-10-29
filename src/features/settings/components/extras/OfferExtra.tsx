@@ -6,7 +6,7 @@ import { useAnswers } from "../../../../api/rpc/facts";
 import { useNow } from "../../../../api/rpc/settings";
 import { extraToOffer } from "../../../../lib/extras";
 import { factsOf } from "../../../../lib/facts";
-import { useAction } from "../../../app/useAction";
+import { useAction } from "../../../app/hooks/useAction";
 
 /**
  * This week offers an extra once, in its week (`offer` in

@@ -107,7 +107,7 @@ Each step ends with the gate green (`check`, `test`, `lint`, `e2e`).
    phone. If it is, keep frontmatter eager and parse each body when its page
    opens (tests still parse everything).
 3. **The item page by type** (`LibraryItemPage` and parts in
-   `src/features/library/content/`): a verdict badge for can-i; the symptom
+   `src/features/library/components/content/`): a verdict badge for can-i; the symptom
    levels drawn as triage, most urgent first, with call buttons for 000 and
    numbers; a decision's options and decide-by; a card as a card; a term as a
    short definition; sources listed with the checked date; related links;

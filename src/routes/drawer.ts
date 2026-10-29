@@ -7,5 +7,5 @@ export const drawer = createRoute({
   getParentRoute: () => app,
   path: "/drawer",
   loader: ({ context: { queryClient } }) => queryClient.ensureQueryData(namesQuery),
-  component: lazyRouteComponent(() => import("../features/drawer/DrawerPage"), "DrawerPage"),
+  component: lazyRouteComponent(() => import("../features/drawer/pages/DrawerPage"), "DrawerPage"),
 });

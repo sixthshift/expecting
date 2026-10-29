@@ -7,7 +7,7 @@ import { formatDate, todayISO } from "../../../../lib/dates";
 import { type Choice, extrasFor, extrasOn } from "../../../../lib/extras";
 import { factsOf } from "../../../../lib/facts";
 import type { Person } from "../../../../lib/people";
-import { useAction } from "../../../app/useAction";
+import { useAction } from "../../../app/hooks/useAction";
 import { EXTRA_GROUPS, type ExtraGroup } from "../../model/extras";
 import { SettingList } from "../SettingRow";
 

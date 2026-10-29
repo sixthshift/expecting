@@ -3,7 +3,7 @@ import { extrasQuery } from "../../api/rpc/extras";
 import { answersQuery } from "../../api/rpc/facts";
 import { peopleQuery } from "../../api/rpc/people";
 import { settingsQuery } from "../../api/rpc/settings";
-import { onboardingLeft } from "../../features/onboarding/left";
+import { onboardingLeft } from "../../features/onboarding/model/left";
 import { rootRoute } from "../root";
 
 /**
@@ -22,5 +22,5 @@ export const onboarding = createRoute({
     ]);
     if (onboardingLeft({ me: people.me, onboardedAt: settings.onboardedAt, answers }).length === 0) throw redirect({ to: "/" });
   },
-  component: lazyRouteComponent(() => import("../../features/onboarding/Onboarding"), "OnboardingLayout"),
+  component: lazyRouteComponent(() => import("../../features/onboarding/pages/Onboarding"), "OnboardingLayout"),
 });

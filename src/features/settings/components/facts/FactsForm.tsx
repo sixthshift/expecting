@@ -11,7 +11,7 @@ import { extrasOn, inExtras } from "../../../../lib/extras";
 import { type Answer, decides, isSettled, nextAsked } from "../../../../lib/facts";
 import type { Person } from "../../../../lib/people";
 import type { Week } from "../../../../lib/timeline";
-import { useAction } from "../../../app/useAction";
+import { useAction } from "../../../app/hooks/useAction";
 import { type Ask, askedOf, type FactQuestion, UNSURE } from "../../model/facts";
 import { SettingRow } from "../SettingRow";
 

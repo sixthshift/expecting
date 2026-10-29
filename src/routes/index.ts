@@ -7,5 +7,5 @@ export const index = createRoute({
   getParentRoute: () => app,
   path: "/",
   validateSearch: homeSearch,
-  component: lazyRouteComponent(() => import("../features/home/Home"), "Home"),
+  component: lazyRouteComponent(() => import("../features/home/pages/Home"), "Home"),
 });

@@ -7,5 +7,5 @@ export const library = createRoute({
   getParentRoute: () => app,
   path: "/library",
   validateSearch: librarySearch,
-  component: lazyRouteComponent(() => import("../features/library/LibraryPage"), "LibraryPage"),
+  component: lazyRouteComponent(() => import("../features/library/pages/LibraryPage"), "LibraryPage"),
 });

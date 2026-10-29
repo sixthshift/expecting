@@ -2,7 +2,7 @@
 // here with its attributes, and conditions on the household's answers. The
 // body is parsed and checked once, as the content loads, so a mistyped tag, an
 // unknown $question or an answer that doesn't exist fails the gate. Rendering
-// is in src/features/library/content/, which maps each tag to a component.
+// is in src/features/library/components/content/, which maps each tag to a component.
 //
 //   {% if equals($cover, "yes") %} … {% else /%} … {% /if %}
 //   {% ask "Is it too late after 36 weeks?" /%}      a question to add in one tap
