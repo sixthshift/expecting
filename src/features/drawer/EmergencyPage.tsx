@@ -2,7 +2,8 @@ import { Button } from "@sixthshift/design-system/button";
 import { FormField } from "@sixthshift/design-system/form-field";
 import { Input } from "@sixthshift/design-system/input";
 import { Textarea } from "@sixthshift/design-system/textarea";
-import { getRouteApi, Link } from "@tanstack/react-router";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { Link } from "@tanstack/react-router";
 import { ArrowLeft, Pencil, Phone } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { saveEmergency } from "../../api/rpc/emergency";
@@ -10,10 +11,9 @@ import { question, UNSURE } from "../../content/facts";
 import { formatDate, isISODate } from "../../lib/dates";
 import { ALWAYS, EMERGENCY, EMERGENCY_FIELDS, EMERGENCY_MAX, type EmergencyField, type EmergencyInfo, telHref } from "../../lib/emergency";
 import { gestationLabel } from "../../lib/timeline";
+import { emergencyQuery } from "../household/load";
 import { useAction } from "../household/useAction";
 import { useApp } from "../household/useApp";
-
-const route = getRouteApi("/app/drawer/emergency");
 
 /** The answers a doctor or paramedic would ask about, as the page shows them. */
 const FROM_ANSWERS: readonly { id: string; label: string }[] = [
@@ -30,7 +30,7 @@ const FROM_ANSWERS: readonly { id: string; label: string }[] = [
  * doctor will ask and the numbers you'll be asked for. Both of you fill it in.
  */
 export function EmergencyPage() {
-  const emergency = route.useLoaderData();
+  const { data: emergency } = useSuspenseQuery(emergencyQuery);
   const [editing, setEditing] = useState(false);
 
   return (
@@ -150,19 +150,12 @@ function CallLink({ phone }: { phone: string }) {
 
 function EmergencyForm({ emergency, done }: { emergency: EmergencyInfo; done: () => void }) {
   const [draft, setDraft] = useState<Record<string, string>>(() => Object.fromEntries(EMERGENCY_FIELDS.map((f) => [f.id, emergency.values[f.id] ?? ""])));
-  const [failed, setFailed] = useState(false);
   const [save, saving] = useAction((values: Record<string, string>) => saveEmergency({ data: values }));
   const set = (id: string) => (e: { target: { value: string } }) => setDraft((d) => ({ ...d, [id]: e.target.value }));
 
   async function submit(e: FormEvent) {
     e.preventDefault();
-    setFailed(false);
-    try {
-      await save(draft);
-      done();
-    } catch {
-      setFailed(true);
-    }
+    if (await save(draft)) done();
   }
 
   return (
@@ -186,7 +179,6 @@ function EmergencyForm({ emergency, done }: { emergency: EmergencyInfo; done: ()
           ))}
         </fieldset>
       ))}
-      {failed ? <p className="text-sm text-fg-danger">That didn't save. Try again.</p> : null}
       <div className="sticky bottom-[max(1rem,env(safe-area-inset-bottom))] flex gap-3">
         <Button type="submit" disabled={saving}>
           {saving ? "Saving…" : "Save"}

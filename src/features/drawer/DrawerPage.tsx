@@ -1,16 +1,16 @@
-import { getRouteApi, Link } from "@tanstack/react-router";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { Link } from "@tanstack/react-router";
 import { Baby, Camera, ChevronRight, Luggage, Siren, Timer } from "lucide-react";
 import { Coming } from "../../components/Coming";
 import { extra } from "../../content/extras";
 import { PillarHeader } from "../app/PillarLayout";
+import { namesQuery } from "../household/load";
 import { useApp } from "../household/useApp";
 import { NamesGame } from "../names/NamesGame";
 
-const route = getRouteApi("/app/drawer");
-
 /** The handy things, each for its moment: Emergency info, the names (with the Choosing a name extra), the bump photos, the bag, the contractions. */
 export function DrawerPage() {
-  const names = route.useLoaderData();
+  const { data: names } = useSuspenseQuery(namesQuery);
   const { state, extras } = useApp();
   const other = state.people.find((p) => p.id !== state.me?.id) ?? null;
   const naming = extra("choosing-names");

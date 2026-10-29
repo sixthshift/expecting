@@ -119,9 +119,12 @@ test("an own task is added in the Planner, and lands on its week", async ({ page
   await page.getByRole("button", { name: "Add task" }).click();
   const task = page.getByRole("checkbox", { name: "Pack the snacks for the hospital" });
   await expect(task).toBeVisible();
+  // The tick shows at once; reload only once it's saved.
+  const saved = page.waitForResponse((r) => r.request().method() === "POST" && r.url().includes("/api/rpc/"));
   await task.click();
   // Ticked this visit, it stays where it was; on the next, it's done.
   await expect(task).toBeChecked();
+  await saved;
   await page.reload({ waitUntil: "networkidle" });
   await expect(task).toBeHidden();
   await page.getByRole("button", { name: /^Done/ }).click();
@@ -471,4 +474,55 @@ test("opening a choice further down the page keeps your place", async ({ page, o
   await expect(page.getByRole("listbox")).toBeVisible();
   expect(await page.evaluate(() => window.scrollY)).toBe(before);
   await page.keyboard.press("Escape");
+});
+
+test("a save further down the page keeps your place, and what you had open", async ({ page, open }) => {
+  // A save refetches what's on screen with the page still drawn: it isn't swapped for the loading page,
+  // which had scrolled it to the top and closed the open row.
+  await open("/settings");
+  const shower = page.getByRole("switch", { name: "Baby shower" });
+  await shower.scrollIntoViewIfNeeded();
+  const before = await page.evaluate(() => window.scrollY);
+  expect(before).toBeGreaterThan(200);
+  await shower.click();
+  await expect(page.getByText(/^Jason turned it on,/)).toBeVisible();
+  expect(await page.evaluate(() => window.scrollY)).toBe(before);
+
+  const row = page.getByRole("button", { name: /^Who's looking after the pregnancy/ });
+  await row.click();
+  await row.scrollIntoViewIfNeeded();
+  const at = await page.evaluate(() => window.scrollY);
+  await page.getByRole("combobox", { name: "Who's looking after the pregnancy?" }).click();
+  await page.getByRole("option").first().click();
+  await expect(row).toHaveAttribute("aria-expanded", "true");
+  await expect(page.getByText(/^Jason answered,/).first()).toBeVisible();
+  expect(await page.evaluate(() => window.scrollY)).toBe(at);
+
+  // As it was, for the specs after.
+  await shower.click();
+  await expect(shower).not.toBeChecked();
+});
+
+test.describe("a save that fails", () => {
+  test.use({ allowedErrors: [/Failed to load resource/] });
+
+  test("says so, and leaves things as they were", async ({ page, open }) => {
+    await open("/settings");
+    await page.route("**/api/rpc/**", (route) => (route.request().method() === "POST" ? route.abort() : route.continue()));
+    const shower = page.getByRole("switch", { name: "Baby shower" });
+    await shower.click();
+    await expect(page.getByRole("alert").filter({ hasText: "That didn't save" })).toBeVisible();
+    await expect(shower).not.toBeChecked();
+  });
+});
+
+test.describe("a save after the session ends", () => {
+  test.use({ allowedErrors: [/401/] });
+
+  test("goes to log in", async ({ page, open, context }) => {
+    await open("/settings");
+    await context.clearCookies();
+    await page.getByRole("switch", { name: "Baby shower" }).click();
+    await page.waitForURL((url) => url.pathname === "/login");
+  });
 });

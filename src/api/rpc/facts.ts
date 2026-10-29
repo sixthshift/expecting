@@ -9,11 +9,6 @@ import { PeopleRepo } from "../../db/models/people/repo";
 import { getDb } from "../../server/core/db";
 import { personId } from "../../server/core/person";
 
-/** The latest answer to each question, for each of you where it's asked of each; answers no longer in facts.yaml are left out. */
-export const getAnswers = createServerFn({ method: "GET" }).handler(() =>
-  new FactsRepo(getDb()).latest().filter((a) => ask(a.about === "household" ? a.question : `${a.question}.${a.about}`) !== undefined)
-);
-
 /** Answer a question, or skip or clear it with null. The person holding this phone answered it. */
 export const saveAnswer = createServerFn({ method: "POST" })
   .validator(

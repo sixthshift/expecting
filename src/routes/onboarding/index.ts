@@ -1,5 +1,5 @@
 import { createRoute, lazyRouteComponent, redirect } from "@tanstack/react-router";
-import { loadHouseholdState, onboardingLeft } from "../../features/household/load";
+import { householdQuery, onboardingLeft } from "../../features/household/load";
 import { rootRoute } from "../root";
 
 /**
@@ -9,10 +9,9 @@ import { rootRoute } from "../root";
 export const onboarding = createRoute({
   getParentRoute: () => rootRoute,
   path: "/onboarding",
-  loader: async () => {
-    const state = await loadHouseholdState();
+  loader: async ({ context: { queryClient } }) => {
+    const state = await queryClient.ensureQueryData(householdQuery);
     if (onboardingLeft(state).length === 0) throw redirect({ to: "/" });
-    return state;
   },
   component: lazyRouteComponent(() => import("../../features/onboarding/Onboarding"), "OnboardingLayout"),
 });

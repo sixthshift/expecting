@@ -5,11 +5,6 @@ import { ChecklistRepo } from "../../db/models/checklist/repo";
 import { WEEKS } from "../../lib/timeline";
 import { getDb } from "../../server/core/db";
 
-export const getChecklist = createServerFn({ method: "GET" }).handler(() => {
-  const repo = new ChecklistRepo(getDb());
-  return { ticks: repo.ticks(), ownTasks: repo.ownTasks() };
-});
-
 export const setTicked = createServerFn({ method: "POST" })
   .validator(z.object({ taskId: z.string().min(1).max(200), ticked: z.boolean() }).strict())
   .handler(({ data }) => {

@@ -7,7 +7,7 @@ import { applyTheme, BABY, type Baby, THEMES } from "../../lib/theme";
  * drawn in its own colours (`data-expecting-theme` on the swatch), so you see
  * what you're choosing. Shown at once; the save follows.
  */
-export function ColourChoice({ value, onChoose }: { value: Baby; onChoose: (baby: Baby) => Promise<void> }) {
+export function ColourChoice({ value, onChoose }: { value: Baby; onChoose: (baby: Baby) => Promise<unknown> }) {
   return (
     <div role="radiogroup" aria-label="Boy or girl?" className="grid grid-cols-3 gap-2 sm:gap-3">
       {(Object.keys(BABY) as Baby[]).map((baby) => {

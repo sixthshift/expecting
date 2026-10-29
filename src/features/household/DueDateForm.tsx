@@ -6,7 +6,7 @@ import { dueDateBounds, TERM_DAYS } from "../../lib/timeline";
 type Props = {
   value: ISODate | null;
   submitLabel: string;
-  onSave: (dueDate: ISODate | null) => Promise<void>;
+  onSave: (dueDate: ISODate | null) => Promise<unknown>;
   /** A full-width, large button, as in onboarding. */
   wide?: boolean;
   /** Whether the due date must change before it can be saved. */

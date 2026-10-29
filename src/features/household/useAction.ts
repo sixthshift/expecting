@@ -1,24 +1,36 @@
-import { useRouter } from "@tanstack/react-router";
-import { useState } from "react";
+import { toast } from "@sixthshift/design-system/overlay";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { isLoggedOut } from "../../lib/errors";
+import { loggedOut } from "../app/loggedOut";
 
 /**
- * A change to the household: run `save`, then reload what the app shows, so
- * every pillar sees it. `pending` is true while it runs, for a button's
- * spinner. A failed save throws to the caller, with `pending` put back.
+ * A change to the household: run `save`, then refetch whatever the app has on
+ * screen, so every pillar sees it. The page stays drawn while it refetches.
+ * `pending` lasts until the fresh data is in, for a button's spinner, so a
+ * navigation straight after (onboarding's next question) draws what was just
+ * saved. Resolves true once saved; false if it failed, which it says in a
+ * toast (or, if the session has ended, by going to log in).
  */
-export function useAction<Args extends unknown[]>(save: (...args: Args) => Promise<unknown>): [run: (...args: Args) => Promise<void>, pending: boolean] {
-  const router = useRouter();
-  const [pending, setPending] = useState(false);
+export function useAction<Args extends unknown[]>(
+  save: (...args: Args) => Promise<unknown>
+): [run: (...args: Args) => Promise<boolean>, pending: boolean, error: Error | null] {
+  const queryClient = useQueryClient();
+  const { mutateAsync, isPending, error } = useMutation({
+    mutationFn: (args: Args) => save(...args),
+    // Awaited before the mutation settles: refetches every query on screen; the rest refetch when next shown.
+    onSuccess: () => queryClient.invalidateQueries(),
+  });
 
   async function run(...args: Args) {
-    setPending(true);
     try {
-      await save(...args);
-      await router.invalidate();
-    } finally {
-      setPending(false);
+      await mutateAsync(args);
+      return true;
+    } catch (cause) {
+      if (isLoggedOut(cause)) loggedOut();
+      else toast({ intent: "danger", title: "That didn't save", children: "Check your connection and try again." });
+      return false;
     }
   }
 
-  return [run, pending];
+  return [run, isPending, error];
 }

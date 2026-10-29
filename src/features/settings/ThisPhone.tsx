@@ -4,11 +4,13 @@ import { useState } from "react";
 import { forgetPerson } from "../../api/rpc/people";
 import { logout } from "../../api/rpc/session";
 import type { Person } from "../../lib/people";
+import { useAction } from "../household/useAction";
 
 /** Who's holding this phone, the household it's shared with, and the way out. */
 export function ThisPhone({ me, people }: { me: Person | null; people: readonly Person[] }) {
   const navigate = useNavigate();
   const [leaving, setLeaving] = useState(false);
+  const [forget, forgetting] = useAction(() => forgetPerson());
 
   return (
     <div className="flex flex-col gap-4 rounded-xl border border-border-subtle bg-bg-normal p-4">
@@ -45,9 +47,9 @@ export function ThisPhone({ me, people }: { me: Person | null; people: readonly 
         <div className="flex flex-wrap gap-2">
           <Button
             variant="outline"
+            loading={forgetting}
             onClick={async () => {
-              await forgetPerson();
-              await navigate({ to: "/onboarding" });
+              if (await forget()) await navigate({ to: "/onboarding" });
             }}
           >
             Someone else is using it

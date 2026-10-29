@@ -3,7 +3,7 @@
 // can say who logged something and speak to each of you.
 
 import { createServerFn } from "@tanstack/react-start";
-import { deleteCookie, getCookie, getRequest, setCookie } from "@tanstack/react-start/server";
+import { deleteCookie, getRequest, setCookie } from "@tanstack/react-start/server";
 import { z } from "zod";
 import { SESSION_DAYS } from "../../db/models/auth/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
@@ -21,13 +21,6 @@ function remember(person: Person) {
     maxAge: SESSION_DAYS * 86_400,
   });
 }
-
-/** This device's person, if it has said, and everyone in the household. */
-export const getPeople = createServerFn({ method: "GET" }).handler(() => {
-  const repo = new PeopleRepo(getDb());
-  const id = getCookie(PERSON_COOKIE);
-  return { me: id ? repo.get(id) : null, people: repo.list() };
-});
 
 /** "I'm Jason": this device is someone already in the household. */
 export const becomePerson = createServerFn({ method: "POST" })

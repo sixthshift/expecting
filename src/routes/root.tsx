@@ -1,9 +1,14 @@
-import { createRootRoute, Outlet } from "@tanstack/react-router";
+import type { QueryClient } from "@tanstack/react-query";
+import { createRootRouteWithContext, Outlet } from "@tanstack/react-router";
 import { Document } from "../features/app/Document";
+import { ErrorPage } from "../features/app/ErrorPage";
 import { NotFound } from "../features/app/NotFound";
 import appCss from "../styles/index.css?url";
 
-export const rootRoute = createRootRoute({
+/** What every loader is handed: the queries, which hold what the app has loaded. */
+export type RouterContext = { queryClient: QueryClient };
+
+export const rootRoute = createRootRouteWithContext<RouterContext>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -22,4 +27,5 @@ export const rootRoute = createRootRoute({
   // Each page brings its own frame: the app's pillars theirs, onboarding and login a plain page.
   component: Outlet,
   notFoundComponent: NotFound,
+  errorComponent: ErrorPage,
 });

@@ -11,7 +11,6 @@ import { asksFor, isSettled, latestByKey } from "../../lib/facts";
 import type { Person, Role } from "../../lib/people";
 import { gestationLabel } from "../../lib/timeline";
 import { COMMIT, VERSION } from "../../lib/version";
-import { useExpectingTheme } from "../app/useExpectingTheme";
 import { ExtrasList } from "../extras/ExtrasList";
 import { DueDateForm } from "../household/DueDateForm";
 import { useAction } from "../household/useAction";
@@ -46,7 +45,6 @@ export function SettingsPage() {
   const { state, facts, today, position, now } = useApp();
   const { me, people } = state;
   const { dueDate, baby } = state.household;
-  useExpectingTheme(baby);
 
   const asks = asksFor(facts);
   const latest = latestByKey(state.answers);

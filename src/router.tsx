@@ -1,18 +1,31 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRouter } from "@tanstack/react-router";
 import { LoadingPage } from "./components/loading/Loading";
+import { isLoggedOut } from "./lib/errors";
 import { routeTree } from "./routes/tree";
 
 export function getRouter() {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        // Fresh for half a minute: moving between pillars doesn't refetch, and a phone
+        // coming back to the app (window focus) picks up what the other one changed.
+        staleTime: 30_000,
+        // Once more after a failure, unless the session has ended: no point asking again.
+        retry: (count, error) => count < 1 && !isLoggedOut(error),
+      },
+    },
+  });
+
   return createRouter({
     routeTree,
+    // The loaders' way to the queries (src/features/household/load.ts).
+    context: { queryClient },
+    Wrap: ({ children }) => <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>,
     // Off: the timeline decides where it opens (this week, or ?at=), and a
     // restored position would fight it.
     scrollRestoration: false,
     defaultPreload: "intent",
-    // A reload of data already shown (router.invalidate, after every save) is waited for, not run in the
-    // background: what's awaited is the fresh data, so a navigation straight after a save (onboarding's next
-    // question) draws what was just saved, and useAction's pending lasts until the page shows it.
-    defaultStaleReloadMode: "blocking",
     // A page whose data is slow draws the loading animation in its place: not for a quick load (under
     // 400ms, so it doesn't flash), and once shown, for at least the router's half a second.
     defaultPendingComponent: LoadingPage,

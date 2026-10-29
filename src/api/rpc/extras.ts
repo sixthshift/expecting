@@ -9,9 +9,6 @@ import { PeopleRepo } from "../../db/models/people/repo";
 import { getDb } from "../../server/core/db";
 import { personId } from "../../server/core/person";
 
-/** Every extra someone has decided on; ones no longer in extras.yaml are left out. */
-export const getExtras = createServerFn({ method: "GET" }).handler(() => new ExtrasRepo(getDb()).list().filter((c) => extra(c.id) !== undefined));
-
 /** Turn extras on or off, several at once (onboarding's choice). The person holding this phone changed them. */
 export const setExtras = createServerFn({ method: "POST" })
   .validator(

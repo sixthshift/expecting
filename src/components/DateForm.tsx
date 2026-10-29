@@ -9,7 +9,7 @@ type Props = {
   description?: string;
   value: ISODate | null;
   submitLabel: string;
-  onSave: (date: ISODate | null) => Promise<void>;
+  onSave: (date: ISODate | null) => Promise<unknown>;
   /** Whether saving with no date (clearing it) is allowed. */
   clearable?: boolean;
   minDate?: ISODate;

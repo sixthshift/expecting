@@ -1,3 +1,4 @@
+import { ToastStack } from "@sixthshift/design-system/overlay";
 import { HeadContent, Scripts } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { THEME_BOOT_SCRIPT } from "../../lib/theme";
@@ -15,6 +16,8 @@ export function Document({ children }: { children: ReactNode }) {
       </head>
       <body className="bg-(--expecting-page) text-fg-normal">
         {children}
+        {/* Above a phone's tab bar. */}
+        <ToastStack className="bottom-[calc(4.5rem+env(safe-area-inset-bottom))] lg:bottom-6" />
         <Scripts />
       </body>
     </html>

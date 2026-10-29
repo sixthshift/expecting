@@ -1,3 +1,4 @@
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { getRouteApi, Outlet, useMatch, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, Baby } from "lucide-react";
 import { useEffect, useRef } from "react";
@@ -5,7 +6,7 @@ import { finishOnboarding } from "../../api/rpc/household";
 import { type Step, stepAfter } from "../../lib/onboarding";
 import { Redirect } from "../app/Redirect";
 import { useExpectingTheme } from "../app/useExpectingTheme";
-import { onboardingLeft } from "../household/load";
+import { householdQuery, onboardingLeft } from "../household/load";
 import { useAction } from "../household/useAction";
 import { stepAt, stepHref } from "./paths";
 import type { Screen, StepContext } from "./step";
@@ -22,12 +23,11 @@ import { whoStep } from "./steps/who";
 // from what is known (onboardingLeft): the second parent's phone is only asked
 // who's holding it.
 
-const route = getRouteApi("/onboarding");
 const nextRoute = getRouteApi("/onboarding/");
 
 /** Around every step: the household's colours. */
 export function OnboardingLayout() {
-  const state = route.useLoaderData();
+  const { data: state } = useSuspenseQuery(householdQuery);
   useExpectingTheme(state.household.baby);
   return <Outlet />;
 }
@@ -37,7 +37,7 @@ export function OnboardingLayout() {
  * next one still to ask, from what's known now; else the first.
  */
 export function OnboardingNext() {
-  const state = route.useLoaderData();
+  const { data: state } = useSuspenseQuery(householdQuery);
   const { after } = nextRoute.useSearch();
   const steps = onboardingLeft(state);
   const next = after ? stepAfter(steps, after as Step) : steps[0];
@@ -49,7 +49,7 @@ let shownOne = false;
 
 /** One step, the one the URL names. A step that isn't (or is no longer) asked goes on to the one that is. */
 export function OnboardingStep() {
-  const state = route.useLoaderData();
+  const { data: state } = useSuspenseQuery(householdQuery);
   const navigate = useNavigate();
   // This page's own match, not the location: while a navigation away is pending, the location is already
   // the next one, and this page, still drawn, would take it for a step that isn't there.
@@ -75,12 +75,10 @@ export function OnboardingStep() {
   const screen = renderStep(current, {
     state,
     advance: async (step) => {
-      await save(step);
-      await navigate({ to: "/onboarding", search: { after: current } });
+      if (await save(step)) await navigate({ to: "/onboarding", search: { after: current } });
     },
     finish: async () => {
-      await finishOnboarding();
-      await navigate({ to: "/" });
+      if (await save(() => finishOnboarding())) await navigate({ to: "/" });
     },
   });
 

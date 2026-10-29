@@ -1,27 +1,23 @@
-// What the app loads: the household (its dates, answers, extras and people), the
-// checklist's state and the questions. One load for every pillar, so moving
-// between them is instant and they never disagree.
+// What the app loads, as queries: the household (its dates, answers, extras,
+// checklist and people) and the questions, which every pillar reads, and the
+// names and Emergency info, which only their pages do. A route's loader makes
+// sure its queries are there before the page draws; a save (useAction)
+// refreshes whichever are on screen, and the page stays drawn meanwhile.
 
-import { getChecklist } from "../../api/rpc/checklist";
-import { getExtras } from "../../api/rpc/extras";
-import { getAnswers } from "../../api/rpc/facts";
-import { getHousehold } from "../../api/rpc/household";
-import { getPeople } from "../../api/rpc/people";
+import { queryOptions } from "@tanstack/react-query";
+import { getEmergency } from "../../api/rpc/emergency";
+import { getHouseholdState } from "../../api/rpc/household";
+import { getNames } from "../../api/rpc/names";
 import { listQuestions } from "../../api/rpc/questions";
 import { factsOf } from "../../lib/facts";
 import { onboardingSteps } from "../../lib/onboarding";
 
-export async function loadHouseholdState() {
-  const [household, answers, extras, checklist, people] = await Promise.all([getHousehold(), getAnswers(), getExtras(), getChecklist(), getPeople()]);
-  return { household, answers, extras, ...checklist, ...people };
-}
+export const householdQuery = queryOptions({ queryKey: ["household"], queryFn: () => getHouseholdState() });
+export const questionsQuery = queryOptions({ queryKey: ["questions"], queryFn: () => listQuestions() });
+export const namesQuery = queryOptions({ queryKey: ["names"], queryFn: () => getNames() });
+export const emergencyQuery = queryOptions({ queryKey: ["emergency"], queryFn: () => getEmergency() });
 
-export type HouseholdState = Awaited<ReturnType<typeof loadHouseholdState>>;
-
-export async function loadApp() {
-  const [state, questions] = await Promise.all([loadHouseholdState(), listQuestions()]);
-  return { state, questions };
-}
+export type HouseholdState = Awaited<ReturnType<typeof getHouseholdState>>;
 
 /** The first-run questions this phone, or this household, still has to answer. None once it's set up. */
 export function onboardingLeft(state: HouseholdState) {
