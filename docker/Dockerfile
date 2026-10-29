@@ -14,6 +14,8 @@ WORKDIR /app
 
 # Dependencies first so the install layer is cached while source changes.
 COPY package.json bun.lock ./
+# Fixes to dependencies, applied by the install (package.json's patchedDependencies).
+COPY patches ./patches
 RUN bun install --frozen-lockfile
 
 COPY . .

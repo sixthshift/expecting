@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import type { ISODate } from "../../src/lib/dates";
-import { allWeeks, dueDateBounds, gestationLabel, parseWeekKey, positionOn, weekDates, weekLabel, weekStarts } from "../../src/lib/timeline";
+import { allWeeks, dueDateBounds, gestationLabel, parseWeekKey, positionOn, weekDates, weekFromNow, weekLabel, weekStarts } from "../../src/lib/timeline";
 
 const due = "2027-03-01" as ISODate;
 
@@ -58,4 +58,8 @@ describe("weeks", () => {
 
 test("a due date is accepted from three weeks past to 44 weeks ahead", () => {
   expect(dueDateBounds("2026-10-27" as ISODate)).toEqual({ minDate: "2026-10-06", maxDate: "2027-08-31" });
+});
+
+test("a week as seen from this one", () => {
+  expect([28, 29, 31, 27, 25].map((w) => weekFromNow(w, 28))).toEqual(["This week", "Next week", "In 3 weeks", "Last week", "3 weeks ago"]);
 });

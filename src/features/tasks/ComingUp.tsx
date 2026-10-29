@@ -19,7 +19,7 @@ export function ComingUp() {
 
   return (
     <section aria-labelledby="coming-up" className="flex flex-col gap-2">
-      <h2 id="coming-up" className="text-lg font-semibold text-fg-strong">
+      <h2 id="coming-up" className="text-lg font-display font-semibold text-fg-strong">
         Coming up
       </h2>
       <ul className="flex flex-col">

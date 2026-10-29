@@ -1,20 +1,21 @@
 ---
 id: antenatal-classes
 title: Antenatal classes
+summary: "Classes on labour, birth and feeding fill up quickly, so book early for a course around 28 weeks."
 weeks: [20, 32]
 category: appointments
 draft: true
 source:
   title: Pregnancy, Birth and Baby — Antenatal classes
   url: https://www.pregnancybirthbaby.org.au/antenatal-classes
-checked: 2026-10-27
+checked: 2026-10-29
 tasks:
   - id: book-antenatal-classes
     title: Book antenatal classes
     due: 22
 ---
-Antenatal (childbirth education) classes cover labour, pain relief options, birth, feeding and the first days with a newborn. They're also a good way to meet other people due around the same time.
+Antenatal (childbirth education) classes cover labour, pain relief options, birth, feeding and the first days with a newborn. You'll also meet other people who are expecting babies.
 
-Pregnancy, Birth and Baby suggests booking a course for when you'll be around **28 weeks** — and booking early, because classes often fill up quickly. Birth support partners are welcome, and the partner often gets as much out of it as anyone.
+Pregnancy, Birth and Baby suggests booking a course for when you'll be around **28 weeks** — and booking early, because classes often fill up quickly. If you have a birth support partner, you can bring them along; classes help prepare you both for the birth. Your midwife, obstetrician or GP can tell you about the classes at your hospital or birth centre.
 
-Costs vary. Medicare doesn't cover them, but some hospitals run free classes, and private health insurance may pay something towards them. Your hospital or midwife can tell you what's on offer.
+Costs vary. Medicare doesn't cover them, but some hospitals run free classes, and private health insurance may pay something towards them. Check with your insurer about what they'll pay.

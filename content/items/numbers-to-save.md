@@ -1,12 +1,14 @@
 ---
 id: numbers-to-save
 title: Numbers to save
+summary: "Save the support numbers in both phones now, so you're not searching for one at 3 am."
 weeks: [34, 38]
 category: after-the-birth
 draft: true
 source:
   title: Australian Breastfeeding Association — Breastfeeding Helpline
   url: https://www.breastfeeding.asn.au/breastfeeding-helpline
+checked: 2026-10-29
 tasks:
   - id: save-support-numbers
     title: Save the support numbers in both phones
@@ -16,9 +18,9 @@ At 3 am with a crying baby, you won't want to be searching for a number. Save th
 
 - **Emergency:** 000
 - **Your hospital:** the birth suite or maternity ward, and your midwife or OB
-- **healthdirect:** 1800 022 222 — a registered nurse, any time
-- **Pregnancy, Birth and Baby:** 1800 882 436 — maternal child health nurses
-- **Breastfeeding Helpline:** 1800 686 268 — free, any time
+- **healthdirect:** 1800 022 222 — a registered nurse, 24 hours a day, 7 days a week
+- **Pregnancy, Birth and Baby:** 1800 882 436 — maternal child health nurses, 7am to midnight (AET), 7 days a week
+- **Breastfeeding Helpline:** 1800 686 268 — free, 24 hours a day, 7 days a week
 - **PANDA:** 1300 726 306 — perinatal anxiety and depression, for either of you
 
 Once the baby's home, add your local child health service and your GP. You don't need to know everything — just where to get help.

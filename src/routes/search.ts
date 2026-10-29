@@ -15,8 +15,14 @@ export const timelineSearch = z.object({
     .transform((key) => (key ? (parseWeekKey(key) ?? undefined) : undefined)),
 });
 
+/** This week: a week to peek at instead (`29`), the same way. */
+export const homeSearch = timelineSearch;
+
 /** The Library: what was typed in its search. */
 export const librarySearch = z.object({ q: z.string().optional().catch(undefined) });
+
+/** Settings: a question to open at (`cover`, `work.partner`). */
+export const settingsSearch = z.object({ ask: z.string().optional().catch(undefined) });
 
 /** Onboarding: the step just answered, to go on from. */
 export const onboardingSearch = z.object({ after: z.string().optional().catch(undefined) });

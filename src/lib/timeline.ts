@@ -34,6 +34,15 @@ export function weekLabel(week: Week): string {
   return `Week ${week}`;
 }
 
+/** A week as seen from this one: "This week", "Next week", "In 3 weeks", "Last week", "3 weeks ago". */
+export function weekFromNow(week: Week, now: Week): string {
+  const d = week - now;
+  if (d === 0) return "This week";
+  if (d === 1) return "Next week";
+  if (d === -1) return "Last week";
+  return d > 0 ? `In ${d} weeks` : `${-d} weeks ago`;
+}
+
 export type Position = {
   week: Week;
   /** Days since the first day of the last period; 0 before it. */

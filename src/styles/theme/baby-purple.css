@@ -7,7 +7,8 @@
  * light mode (Expecting has no dark mode yet), pointed at src/styles/theme/palette.css.
  * The neutral (mist), success (sea), warning (peach) and danger (cherry) are
  * the same in all three themes; the brand and the accent are
- * this theme's own. Applied by `data-expecting-theme` on <html> (src/lib/theme.ts).
+ * this theme's own. Applied by `data-expecting-theme` on <html> (src/lib/theme.ts), or on any
+ * element to preview it there.
  *
  * Beyond the design system's tokens, two of Expecting's own:
  *   --expecting-accent-from/-to       the accent's two colours, for gradients
@@ -17,7 +18,9 @@
  */
 
 :root,
-:root[data-expecting-theme="baby-purple"] {
+:root[data-expecting-theme="baby-purple"],
+/* A preview of the theme inside another, as settings' colour choice draws it. */
+[data-expecting-theme="baby-purple"] {
   /* The page: plain white. */
   --expecting-page: #ffffff;
   --expecting-accent-from: var(--color-sky-300);

@@ -81,7 +81,7 @@ export function PillarHeader({ title, lead }: { title: string; lead?: string }) 
   return (
     <header className="flex items-start justify-between gap-3 pt-[max(1.5rem,env(safe-area-inset-top))] pb-5 lg:pt-10 lg:pb-8">
       <div className="flex flex-col gap-1">
-        <h1 className="text-2xl font-semibold text-fg-strong lg:text-3xl">{title}</h1>
+        <h1 className="text-2xl font-display font-semibold text-fg-strong lg:text-3xl">{title}</h1>
         {lead ? <p className="max-w-prose text-fg-subtle">{lead}</p> : null}
       </div>
       <Link to="/settings" aria-label="Settings" className="-mr-2 flex size-11 shrink-0 items-center justify-center rounded-md text-fg-subtle lg:hidden">

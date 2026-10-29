@@ -1,0 +1,364 @@
+<!doctype html>
+<!-- A try-on for Expecting's type: the This week screen in a dozen directions, in the three themes. Open in a browser. -->
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Expecting type try-on</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..800,0..100&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@200..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap">
+<style>
+/* Layout: a quiet frame around a wall of phone screens; the screens are the
+   only thing with personality, so the frame uses the system face, small. */
+:root {
+  --ground: #f3f2f6;
+  --ink: #2f2c34;
+  --ink-soft: #706c79;
+  --line: #dddbe2;
+  --chip: #ffffff;
+  --chip-on: #2f2c34;
+  --chip-on-ink: #ffffff;
+  --frame: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Expecting's own theme (light only, as in the app). Baby Purple default. */
+  --e-page: #ffffff;
+  --e-soft-from: #ddf0ff;
+  --e-soft-to: #fadce4;
+  --e-from: #9dc3e2;
+  --e-to: #ffb5cc;
+  --e-brand: #915789;
+  --e-brand-ink: #76436f;
+  --e-brand-subtle: #fce5f7;
+  --e-strong: #2f2c34;
+  --e-subtle: #8c8895;
+  --e-line: #dddbe2;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground: #1b1a1e;
+    --ink: #edecf1;
+    --ink-soft: #aaa7b1;
+    --line: #43414a;
+    --chip: #2f2c34;
+    --chip-on: #edecf1;
+    --chip-on-ink: #1b1a1e;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground: #1b1a1e;
+  --ink: #edecf1;
+  --ink-soft: #aaa7b1;
+  --line: #43414a;
+  --chip: #2f2c34;
+  --chip-on: #edecf1;
+  --chip-on-ink: #1b1a1e;
+}
+body[data-expecting="blue"] {
+  --e-page: #f8fafc; --e-soft-from: #ddf0ff; --e-soft-to: #d7f3f6;
+  --e-from: #9dc3e2; --e-to: #9dd2d8;
+  --e-brand: #3974a0; --e-brand-ink: #285d83; --e-brand-subtle: #ddf0ff;
+}
+body[data-expecting="pink"] {
+  --e-page: #fcfaf8; --e-soft-from: #fadce4; --e-soft-to: #fce5f7;
+  --e-from: #ffb5cc; --e-to: #e2b9db;
+  --e-brand: #af436d; --e-brand-ink: #8f3056; --e-brand-subtle: #fadce4;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--frame);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 32px 64px;
+}
+.wrap { max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+
+.intro { display: flex; flex-direction: column; gap: 8px; max-width: 62ch; }
+.intro h1 { margin: 0; font-size: 22px; font-weight: 650; letter-spacing: -0.01em; text-wrap: balance; }
+.intro p { margin: 0; color: var(--ink-soft); line-height: 1.55; font-size: 14px; }
+
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center;
+  padding-block: 10px; background: var(--ground);
+  border-bottom: 1px solid var(--line);
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--ground); }
+.group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.group > span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin-right: 4px; }
+.chip {
+  font: 500 13px var(--frame); color: var(--ink);
+  background: var(--chip); border: 1px solid var(--line);
+  border-radius: 999px; padding: 6px 12px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.chip[aria-pressed="true"] { background: var(--chip-on); color: var(--chip-on-ink); border-color: var(--chip-on); }
+.chip:focus-visible, .like:focus-visible, .cta:focus-visible { outline: 2px solid var(--e-brand); outline-offset: 2px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--a), var(--b)); }
+.count { font-size: 13px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 36px 28px; }
+
+.dir { display: flex; flex-direction: column; gap: 12px; }
+.dir[hidden] { display: none; }
+.dir-head { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; align-items: start; }
+.dir-head h2 { margin: 0; font-size: 15px; font-weight: 650; }
+.feel { margin: 0; grid-column: 1; font-size: 13px; color: var(--ink); font-style: italic; }
+.fonts { margin: 0; grid-column: 1; font-size: 12px; color: var(--ink-soft); }
+.like {
+  grid-column: 2; grid-row: 1 / span 3;
+  font: 500 13px var(--frame); color: var(--ink);
+  background: var(--chip); border: 1px solid var(--line);
+  border-radius: 999px; padding: 6px 12px; cursor: pointer;
+}
+.like[aria-pressed="true"] { background: var(--e-brand); border-color: var(--e-brand); color: #fff; }
+
+/* The phone screen: Expecting's This week, in the direction's faces. */
+.phone {
+  background: var(--e-page);
+  color: var(--e-strong);
+  border: 1px solid var(--e-line);
+  border-radius: 28px;
+  padding: 22px 20px 20px;
+  display: flex; flex-direction: column; gap: 14px;
+  font-family: var(--t);
+  font-size: calc(15px * var(--t-scale, 1));
+  line-height: 1.5;
+  box-shadow: 0 1px 2px rgba(27, 26, 30, 0.06), 0 12px 32px -12px rgba(27, 26, 30, 0.18);
+}
+.eyebrow { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--e-subtle); font-weight: 600; }
+.hero {
+  display: flex; align-items: flex-end; gap: 14px;
+  padding: 16px 18px; border-radius: 20px;
+  background: linear-gradient(135deg, var(--e-soft-from), var(--e-soft-to));
+}
+.wk {
+  font-family: var(--d); font-weight: var(--d-wk-weight, var(--d-weight, 600));
+  font-variation-settings: var(--d-settings, normal);
+  font-style: var(--d-style, normal);
+  font-size: calc(76px * var(--d-scale, 1)); line-height: 0.85;
+  letter-spacing: var(--d-track, -0.02em);
+  font-variant-numeric: lining-nums;
+  color: var(--e-brand-ink);
+}
+.hero-meta { display: flex; flex-direction: column; gap: 2px; padding-bottom: 4px; }
+.hero-meta b { font-weight: 600; font-size: 1em; }
+.hero-meta span { font-size: 0.87em; color: var(--e-subtle); font-variant-numeric: tabular-nums; }
+.title {
+  margin: 0; font-family: var(--d); font-weight: var(--d-weight, 600);
+  font-variation-settings: var(--d-settings, normal);
+  font-style: var(--d-style, normal);
+  font-size: calc(27px * var(--d-scale, 1)); line-height: 1.12;
+  letter-spacing: var(--d-track, -0.01em); text-wrap: balance;
+}
+.size { margin: -8px 0 0; color: var(--e-subtle); font-size: 0.93em; }
+.part {
+  margin: 4px 0 -6px; font-family: var(--d); font-weight: var(--d-weight, 600);
+  font-variation-settings: var(--d-settings, normal);
+  font-style: var(--d-style, normal);
+  font-size: calc(18px * var(--d-scale, 1)); letter-spacing: var(--d-track, 0);
+}
+.body { margin: 0; font-family: var(--r, var(--t)); }
+.tasks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.tasks li {
+  display: grid; grid-template-columns: 20px 1fr auto; gap: 10px; align-items: center;
+  padding: 10px 0; border-top: 1px solid var(--e-line);
+}
+.tasks li:last-child { border-bottom: 1px solid var(--e-line); }
+.box { width: 18px; height: 18px; border-radius: 6px; border: 1.5px solid var(--e-subtle); }
+.done .box { background: var(--e-brand); border-color: var(--e-brand); position: relative; }
+.done .box::after { content: ""; position: absolute; left: 5px; top: 1px; width: 5px; height: 10px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.done .t { color: var(--e-subtle); text-decoration: line-through; }
+.due { font-size: 0.82em; color: var(--e-subtle); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.due.soon { color: var(--e-brand-ink); background: var(--e-brand-subtle); padding: 2px 8px; border-radius: 999px; font-weight: 600; }
+.ruler { display: flex; justify-content: space-between; font-size: 0.82em; color: var(--e-subtle); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.ruler b { color: var(--e-brand-ink); font-weight: 700; }
+.cta {
+  align-self: flex-start; font: 600 0.93em var(--t); color: #fff; background: var(--e-brand);
+  border: 0; border-radius: 999px; padding: 10px 18px; cursor: pointer;
+}
+
+.empty { color: var(--ink-soft); font-size: 14px; }
+.foot { color: var(--ink-soft); font-size: 13px; line-height: 1.55; max-width: 62ch; margin: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .like, .chip { transition: background-color 120ms, color 120ms; }
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <div class="intro">
+    <h1>Which one feels like Expecting?</h1>
+    <p>The same This week screen in eleven type directions. Scroll and go by your gut. Mark any you like, then switch the theme to check they still feel right in blue and pink. The first card is roughly what you see today.</p>
+  </div>
+
+  <div class="bar" role="toolbar" aria-label="Preview options">
+    <div class="group" id="themes">
+      <span>Theme</span>
+      <button class="chip" id="th-purple" data-th="purple" aria-pressed="true"><i class="dot" style="--a:#9dc3e2;--b:#ffb5cc"></i>Baby Purple</button>
+      <button class="chip" id="th-blue" data-th="blue" aria-pressed="false"><i class="dot" style="--a:#9dc3e2;--b:#9dd2d8"></i>Baby Blue</button>
+      <button class="chip" id="th-pink" data-th="pink" aria-pressed="false"><i class="dot" style="--a:#ffb5cc;--b:#e2b9db"></i>Baby Pink</button>
+    </div>
+    <div class="group">
+      <span>Show</span>
+      <button class="chip" id="only-liked" aria-pressed="false">Liked only</button>
+      <span class="count" id="count">None liked yet</span>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty" hidden>Nothing liked yet. Turn off "Liked only" and mark a few.</p>
+  <p class="foot">Tell Claude which you liked, and which you disliked straight away. The dislikes are just as useful. Expecting has no dark mode yet, so the screens stay light whatever your system is set to.</p>
+</div>
+
+<template id="screen">
+  <div class="phone">
+    <p class="eyebrow">This week</p>
+    <div class="hero">
+      <span class="wk">28</span>
+      <div class="hero-meta"><b>weeks pregnant</b><span>Third trimester · 84 days to go</span></div>
+    </div>
+    <h3 class="title">The home stretch begins</h3>
+    <p class="size">About 25 cm and 1 kg, like an eggplant</p>
+    <h4 class="part">For the partner</h4>
+    <p class="body">The paperwork starts here: Parental Leave Pay can be claimed before the birth, and your employer needs notice of your leave. Save the birth unit's number in your phone now.</p>
+    <h4 class="part">To do now</h4>
+    <ul class="tasks">
+      <li><span class="box"></span><span class="t">Claim Parental Leave Pay</span><span class="due soon">by 14 Nov</span></li>
+      <li><span class="box"></span><span class="t">Book the glucose test</span><span class="due">by week 28</span></li>
+      <li><span class="box"></span><span class="t">Whooping cough vaccine</span><span class="due">20–32 wks</span></li>
+      <li class="done"><span class="box"></span><span class="t">Book antenatal classes</span><span class="due">done</span></li>
+    </ul>
+    <div class="ruler"><span>12</span><span>16</span><span>20</span><span>24</span><b>28</b><span>32</span><span>36</span><span>40</span></div>
+    <button class="cta" type="button">Open the timeline</button>
+  </div>
+</template>
+
+<script>
+const DIRECTIONS = [
+  { id: "today", name: "What you see today", feel: "neutral · familiar · no personality of its own",
+    fonts: "Your device's system font",
+    v: { "--d": "ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif", "--t": "ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif", "--d-weight": 650 } },
+  { id: "storybook", name: "Storybook warmth", feel: "warm · nostalgic · a sense of occasion",
+    fonts: "Fraunces, softened, for headings · Figtree for text",
+    v: { "--d": "'Fraunces', Georgia, serif", "--t": "'Figtree', system-ui, sans-serif", "--d-weight": 560, "--d-settings": "'SOFT' 100, 'opsz' 72", "--d-track": "-0.015em" } },
+  { id: "clear", name: "Plain and clear", feel: "honest · steady · nothing to squint at",
+    fonts: "Atkinson Hyperlegible Next throughout",
+    v: { "--d": "'Atkinson Hyperlegible Next', system-ui, sans-serif", "--t": "'Atkinson Hyperlegible Next', system-ui, sans-serif", "--d-weight": 700 } },
+  { id: "gentle", name: "Soft and gentle", feel: "reassuring · tender · rounded edges",
+    fonts: "Nunito for headings · Nunito Sans for text",
+    v: { "--d": "'Nunito', system-ui, sans-serif", "--t": "'Nunito Sans', system-ui, sans-serif", "--d-weight": 800 } },
+  { id: "homely", name: "Kitchen table", feel: "cosy · sturdy · homemade",
+    fonts: "Young Serif for headings · Hanken Grotesk for text",
+    v: { "--d": "'Young Serif', Georgia, serif", "--t": "'Hanken Grotesk', system-ui, sans-serif", "--d-weight": 400, "--d-scale": 0.96 } },
+  { id: "elegant", name: "Quiet elegance", feel: "graceful · understated · a little fashion",
+    fonts: "Instrument Serif for headings · Instrument Sans for text",
+    v: { "--d": "'Instrument Serif', Georgia, serif", "--t": "'Instrument Sans', system-ui, sans-serif", "--d-weight": 400, "--d-scale": 1.2, "--d-track": "0" } },
+  { id: "lively", name: "Bright and modern", feel: "lively · a bit quirky · of the moment",
+    fonts: "Bricolage Grotesque for headings · Onest for text",
+    v: { "--d": "'Bricolage Grotesque', system-ui, sans-serif", "--t": "'Onest', system-ui, sans-serif", "--d-weight": 700, "--d-settings": "'opsz' 96", "--d-track": "-0.025em" } },
+  { id: "letter", name: "A letter from a friend", feel: "thoughtful · unhurried · gently wise",
+    fonts: "Newsreader for headings and the note · Public Sans for the rest",
+    v: { "--d": "'Newsreader', Georgia, serif", "--t": "'Public Sans', system-ui, sans-serif", "--r": "'Newsreader', Georgia, serif", "--d-weight": 500, "--d-settings": "'opsz' 72", "--d-scale": 1.06 } },
+  { id: "classic", name: "Classic and confident", feel: "polished · timeless · self-assured",
+    fonts: "DM Serif Display for headings · DM Sans for text",
+    v: { "--d": "'DM Serif Display', Georgia, serif", "--t": "'DM Sans', system-ui, sans-serif", "--d-weight": 400, "--d-track": "-0.005em" } },
+  { id: "easy", name: "Easy going", feel: "relaxed · roomy · effortless to read",
+    fonts: "Lexend throughout",
+    v: { "--d": "'Lexend', system-ui, sans-serif", "--t": "'Lexend', system-ui, sans-serif", "--d-weight": 600, "--t-scale": 0.95, "--d-scale": 0.95 } },
+  { id: "keepsake", name: "Handwritten keepsake", feel: "personal · scrapbook · sentimental",
+    fonts: "Caveat for headings · Figtree for text",
+    v: { "--d": "'Caveat', cursive", "--t": "'Figtree', system-ui, sans-serif", "--d-weight": 700, "--d-scale": 1.3, "--d-track": "0" } },
+  { id: "tool", name: "Clean tool", feel: "efficient · neutral · stays out of the way",
+    fonts: "Inter throughout (what the design system expects)",
+    v: { "--d": "'Inter', system-ui, sans-serif", "--t": "'Inter', system-ui, sans-serif", "--d-weight": 650, "--d-track": "-0.025em" } },
+];
+
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+};
+
+const grid = document.getElementById("grid");
+const tpl = document.getElementById("screen");
+let liked = new Set(store.get("liked", []));
+let onlyLiked = false;
+
+for (const d of DIRECTIONS) {
+  const art = document.createElement("article");
+  art.className = "dir";
+  art.dataset.id = d.id;
+  art.innerHTML = `<div class="dir-head"><h2></h2><p class="feel"></p><p class="fonts"></p><button class="like" id="like-${d.id}" type="button" aria-pressed="false">Like</button></div>`;
+  art.querySelector("h2").textContent = d.name;
+  art.querySelector(".feel").textContent = d.feel;
+  art.querySelector(".fonts").textContent = d.fonts;
+  const screen = tpl.content.firstElementChild.cloneNode(true);
+  for (const [k, val] of Object.entries(d.v)) screen.style.setProperty(k, val);
+  art.append(screen);
+  art.querySelector(".like").addEventListener("click", () => {
+    liked.has(d.id) ? liked.delete(d.id) : liked.add(d.id);
+    store.set("liked", [...liked]);
+    render();
+  });
+  grid.append(art);
+}
+
+function render() {
+  let shown = 0;
+  for (const art of grid.children) {
+    const on = liked.has(art.dataset.id);
+    const btn = art.querySelector(".like");
+    btn.setAttribute("aria-pressed", on);
+    btn.textContent = on ? "Liked" : "Like";
+    art.hidden = onlyLiked && !on;
+    if (!art.hidden) shown++;
+  }
+  const names = DIRECTIONS.filter(d => liked.has(d.id)).map(d => d.name);
+  document.getElementById("count").textContent = names.length ? `Liked: ${names.join(", ")}` : "None liked yet";
+  document.getElementById("empty").hidden = shown > 0;
+}
+
+function setTheme(th) {
+  document.body.dataset.expecting = th;
+  for (const b of document.querySelectorAll("#themes .chip")) b.setAttribute("aria-pressed", b.dataset.th === th);
+  store.set("theme", th);
+}
+document.getElementById("themes").addEventListener("click", e => {
+  const b = e.target.closest(".chip");
+  if (b) setTheme(b.dataset.th);
+});
+document.getElementById("only-liked").addEventListener("click", e => {
+  onlyLiked = !onlyLiked;
+  e.currentTarget.setAttribute("aria-pressed", onlyLiked);
+  render();
+});
+
+setTheme(store.get("theme", "purple"));
+render();
+</script>
+</body>
+</html>

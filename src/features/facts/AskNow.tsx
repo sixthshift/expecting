@@ -26,7 +26,7 @@ export function AskNow() {
 
   return (
     <section aria-labelledby="ask-now" className="flex flex-col gap-2">
-      <h2 id="ask-now" className="text-lg font-semibold text-fg-strong">
+      <h2 id="ask-now" className="text-lg font-display font-semibold text-fg-strong">
         Expecting needs to know
       </h2>
       <p className="text-sm text-fg-subtle">Your answers decide what's on your plan, and when.</p>

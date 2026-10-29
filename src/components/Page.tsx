@@ -11,7 +11,9 @@ export function Page({ title, subtitle, aside, children }: { title: string; subt
     <main className="mx-auto w-full max-w-6xl px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-10">
       <header className="mb-5 flex items-start justify-between gap-3 lg:mb-8">
         <div>
-          <Heading as="h1">{title}</Heading>
+          <Heading as="h1" className="font-display">
+            {title}
+          </Heading>
           {subtitle ? <div className="mt-1 text-fg-subtle">{subtitle}</div> : null}
         </div>
         {aside}
@@ -22,9 +24,9 @@ export function Page({ title, subtitle, aside, children }: { title: string; subt
 }
 
 /** A titled group of content on a page. */
-export function Section({ title, className, children }: { title: string; className?: string; children: ReactNode }) {
+export function Section({ id, title, className, children }: { id?: string; title: string; className?: string; children: ReactNode }) {
   return (
-    <section className={cn("flex flex-col gap-3", className)}>
+    <section id={id} aria-label={id ? title : undefined} className={cn("flex flex-col gap-3", className)}>
       <h2 className="text-sm font-semibold tracking-wide text-fg-subtle uppercase">{title}</h2>
       {children}
     </section>

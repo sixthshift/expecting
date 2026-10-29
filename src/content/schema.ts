@@ -7,6 +7,7 @@ import { z } from "zod";
 import { isISODate } from "../lib/dates";
 import type { Who } from "../lib/people";
 import { WEEKS, type Week } from "../lib/timeline";
+import { extra } from "./extras";
 import { checkWhen, question, type When, whenSchema } from "./facts";
 
 export const CATEGORIES = {
@@ -18,6 +19,7 @@ export const CATEGORIES = {
   "baby-gear": "Baby gear",
   partner: "Partner",
   "after-the-birth": "After the birth",
+  celebrations: "Celebrations",
 } as const;
 
 export type Category = keyof typeof CATEGORIES;
@@ -33,11 +35,15 @@ export const frontmatterSchema = z
   .object({
     id: slug,
     title: z.string().min(1),
+    /** Why it matters, in one sentence, from the body: under its title in a list and on its page. */
+    summary: z.string().min(1).optional(),
     /** A week, or [from, to] inclusive. */
     weeks: weekRange,
     category: z.enum(Object.keys(CATEGORIES) as [Category, ...Category[]]),
     /** Only for households whose answers match: `{ cover: "no", state: [vic, nsw] }`. See content/facts.yaml. */
     when: whenSchema.default({}),
+    /** Part of an extra in content/extras.yaml: shown only once the household turns it on. */
+    extra: z.string().optional(),
     /** One of the things nobody tells you. */
     surprise: z.boolean().default(false),
     /** Drafted, not yet reviewed by us. Shown with a marker. */
@@ -71,6 +77,7 @@ export const frontmatterSchema = z
   .strict()
   .superRefine((fm, ctx) => {
     for (const message of checkWhen(fm.when)) ctx.addIssue({ code: "custom", path: ["when"], message });
+    if (fm.extra !== undefined && !extra(fm.extra)) ctx.addIssue({ code: "custom", path: ["extra"], message: `"${fm.extra}" is not an extra in extras.yaml` });
     const [from, to] = fm.weeks;
     if (from < WEEKS.first || to > WEEKS.last || from > to) {
       ctx.addIssue({ code: "custom", path: ["weeks"], message: `weeks must run forwards within ${WEEKS.first}–${WEEKS.last}` });
@@ -122,6 +129,8 @@ export type Task = {
 export type Item = {
   id: string;
   title: string;
+  /** Why it matters, in one sentence; null when none is written. */
+  summary: string | null;
   /** First and last week the item applies to, inclusive. */
   from: Week;
   to: Week;
@@ -132,6 +141,8 @@ export type Item = {
   checked: string | null;
   /** Who it is for; empty for everyone. */
   when: When;
+  /** The extra it belongs to, shown only when that's on; null for everyone. */
+  extra: string | null;
   /** The body as written: Markdown, with Markdoc tags. */
   body: string;
   /** The body parsed and checked, ready to render. */

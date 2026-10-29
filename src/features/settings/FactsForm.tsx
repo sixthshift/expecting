@@ -1,54 +1,123 @@
-import { FormField } from "@sixthshift/design-system/form-field";
+import { Badge } from "@sixthshift/design-system/badge";
 import { RadioButtonGroup } from "@sixthshift/design-system/radio-button-group";
 import { Select } from "@sixthshift/design-system/select";
+import { Link } from "@tanstack/react-router";
 import { saveAnswer } from "../../api/rpc/facts";
 import { DateForm } from "../../components/DateForm";
-import { type Ask, askedOf, type FactQuestion } from "../../content/facts";
+import { builtInItems } from "../../content";
+import { type Ask, askedOf, type FactQuestion, UNSURE } from "../../content/facts";
 import { formatDate, type ISODate, todayISO } from "../../lib/dates";
-import { type Answer, asksFor, factsOf, latestByKey } from "../../lib/facts";
+import { inExtras } from "../../lib/extras";
+import { type Answer, decides, isSettled, nextAsked } from "../../lib/facts";
 import type { Person } from "../../lib/people";
+import type { Week } from "../../lib/timeline";
 import { useAction } from "../household/useAction";
+import { useApp } from "../household/useApp";
+import { SettingRow } from "./SettingRow";
 
 /**
- * The questions in content/facts.yaml, as a form: nothing here names a
- * question, so a new one in the file appears here by itself, once for each of
- * you where it's about each. Any answer can be cleared, which puts back
- * everything it hid; each says who gave it.
+ * One of the questions in content/facts.yaml, as a row: its answer, who gave
+ * it, and when This week asks again if it isn't settled. Open, it can be
+ * answered, changed or cleared (which puts back everything it hid), and says
+ * what it decides. Nothing here names a question, so a new one in the file
+ * appears by itself.
  */
-export function FactsForm({ answers, people }: { answers: readonly Answer[]; people: readonly Person[] }) {
+export function FactRow({
+  a,
+  last,
+  people,
+  dueDate,
+  now,
+  open,
+  onToggle,
+}: {
+  a: Ask;
+  last: Answer | undefined;
+  people: readonly Person[];
+  dueDate: ISODate | null;
+  now: Week | null;
+  open: boolean;
+  onToggle: () => void;
+}) {
   const [save] = useAction((key: string, answer: string | null) => saveAnswer({ data: { key, answer } }));
-  const latest = latestByKey(answers);
+  const label = askedOfIn(a, people);
+  const value = last?.value ?? undefined;
+  const settled = isSettled(a, last);
+  const again = dueDate && !settled ? nextAsked(a, last, dueDate) : null;
+  const { extras } = useApp();
+  // What it decides among everything that could show: not an extra that's off.
+  const uses = open ? decides(a.question.id, builtInItems).filter((i) => inExtras(i.extra, extras)) : [];
 
   return (
-    <div className="flex flex-col gap-6">
-      {asksFor(factsOf(answers)).map((a) => {
-        const label = askedOfIn(a, people);
-        const last = latest[a.key];
-        const value = last?.value ?? undefined;
-        return (
-          <FormField key={a.key} label={label}>
-            <div className="flex flex-col items-start gap-2">
-              {a.question.type === "date" ? (
-                <DateForm label="Date" value={(value as ISODate | undefined) ?? null} submitLabel="Save" onSave={(date) => save(a.key, date)} />
-              ) : (
-                <AnswerInput question={a.question} label={label} value={value} onChange={(answer) => save(a.key, answer)} />
-              )}
-              {value ? (
-                <span className="flex flex-wrap items-baseline gap-x-3 text-xs text-fg-subtle">
-                  {answeredBy(last!, people)}
-                  <button type="button" onClick={() => save(a.key, null)} aria-label={`Clear answer: ${label}`} className="underline hover:text-fg-normal">
-                    Clear answer
-                  </button>
-                </span>
-              ) : (
-                <span className="text-xs text-fg-subtle">Not answered: you'll see everything this question decides.</span>
-              )}
-            </div>
-          </FormField>
-        );
-      })}
-    </div>
+    <SettingRow
+      id={a.key}
+      label={label}
+      open={open}
+      onToggle={onToggle}
+      value={
+        settled ? (
+          shown(a.question, value!)
+        ) : value === UNSURE ? (
+          <Badge variant="soft" intent="warning" size="sm">
+            Not sure
+          </Badge>
+        ) : (
+          <Badge variant="soft" intent="brand" size="sm">
+            Not answered
+          </Badge>
+        )
+      }
+      meta={[value ? answeredBy(last!, people) : null, again !== null && now !== null ? askedAgain(again, now) : null].filter(Boolean).join(" · ") || undefined}
+    >
+      <div className="flex flex-col gap-4">
+        {a.question.type === "date" ? (
+          <DateForm label="Date" value={(value as ISODate | undefined) ?? null} submitLabel="Save" onSave={(date) => save(a.key, date)} />
+        ) : (
+          <AnswerInput question={a.question} label={label} value={value} onChange={(answer) => save(a.key, answer)} />
+        )}
+        {value ? (
+          <button
+            type="button"
+            onClick={() => save(a.key, null)}
+            aria-label={`Clear answer: ${label}`}
+            className="min-h-11 self-start text-sm text-fg-subtle underline hover:text-fg-normal"
+          >
+            Clear answer
+          </button>
+        ) : (
+          <p className="text-xs text-fg-subtle">Until it's answered, you see everything this question decides.</p>
+        )}
+        {uses.length > 0 ? (
+          <div className="flex flex-col gap-1.5">
+            <h4 className="text-xs font-semibold text-fg-subtle">What this answer changes</h4>
+            <ul className="flex flex-wrap gap-2">
+              {uses.map((item) => (
+                <li key={item.id}>
+                  <Link
+                    to="/library/$itemId"
+                    params={{ itemId: item.id }}
+                    className="inline-flex min-h-9 items-center rounded-full border border-border-subtle bg-bg-normal px-3 text-sm text-fg-normal hover:border-border-brand-hovered"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+      </div>
+    </SettingRow>
   );
+}
+
+/** An answer in words: its label, or the date. */
+function shown(q: FactQuestion, value: string): string {
+  return q.type === "date" ? formatDate(value as ISODate, { day: "numeric", month: "short", year: "numeric" }) : (q.answers[value] ?? value);
+}
+
+/** "This week asks in week 16", or that it's asking now. */
+function askedAgain(week: Week, now: Week): string {
+  return week <= now ? "This week is asking" : `This week asks in week ${week}`;
 }
 
 /** The question in words, with the name of whoever it's about if they've joined. */

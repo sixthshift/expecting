@@ -4,7 +4,7 @@ How expecting is built. What it is and why: [intent.md](intent.md). Running it: 
 
 ## Built so far
 
-The pregnancy's six pillars (This week, the timeline, the Library, the Planner, and placeholders for the Journal and the Drawer), built-in content in Markdoc tailored by the household's answers, onboarding, who's holding each phone, own tasks, questions for appointments, the due date, and the shared password. Getting ready and the weeks after the birth are out of the first version ([One app, the pregnancy](#one-app-the-pregnancy)). Not yet: the rest of the store (appointments, scans and photos, contacts, symptoms, names), our own items, hiding built-in items, the PWA manifest, the service worker, offline reads and writes. Everything below is the intended shape; where it isn't built, it says so.
+The pregnancy's six pillars (This week, the timeline, the Library, the Planner, and placeholders for the Journal and the Drawer), built-in content in Markdoc tailored by the household's answers, onboarding, who's holding each phone, own tasks, questions for appointments, the due date, and the shared password. Getting ready and the weeks after the birth are out of the first version ([One app, the pregnancy](#one-app-the-pregnancy)). Not yet: the rest of the store (appointments, scans and photos, contacts, symptoms), our own items, hiding built-in items, the PWA manifest, the service worker, offline reads and writes. Everything below is the intended shape; where it isn't built, it says so.
 
 Expecting has the same shape as garnish. Where this file says "as garnish", garnish's `docs/architecture.md` is the reference.
 
@@ -72,12 +72,12 @@ The app is six pillars in its frame: a sidebar on a desktop, a tab bar on a phon
 
 | Pillar | Route | Holds |
 |---|---|---|
-| **This week** | `/` | Home: where you are as its heading (the week, the baby's size, how far along), To do now (the most urgent few, `src/features/tasks/ToDoNow.tsx`), the week's note (the one in force: its own, or the latest before it), what Expecting needs to know, what's worth knowing this week, Coming up (the next eight weeks after To do now's two, `comingUp` in `src/lib/todo.ts`) and the questions waiting. Desktop: the week on the left, the doing on the right. |
+| **This week** | `/` | Home: where you are as its heading (the week, the baby's size, how far along), To do now (the most urgent few, `src/features/tasks/ToDoNow.tsx`), the week's note (the one in force: its own, or the latest before it), what Expecting needs to know, what's worth knowing this week, Coming up (the next eight weeks after To do now's two, `comingUp` in `src/lib/todo.ts`) and the questions waiting. Desktop: the week on the left, the doing on the right. A step back or ahead peeks at another week (`/?at=29`): its own note, what's worth knowing and what's best done then, with a way back to this week. |
 | **Timeline** | `/timeline`, `?at=28` | Every week: the thread the others meet on |
-| **Library** | `/library`, `/library/<id>` | Everything Expecting knows: a "nobody tells you" shelf, then a shelf per topic (`src/lib/library.ts`), search (`?q=`), each item on its own page |
-| **Planner** | `/planner` | To do, grouped by when it matters (`src/lib/planner.ts`), and the questions for the next appointment |
+| **Library** | `/library`, `/library/<id>` | Everything Expecting knows, by the question you came with: search (`?q=`, results replace the page), then three doors (Can I…? and Is this normal?, marked "Coming" until their content types arrive; Nobody tells you, down to its shelf), then Right now (the items open this week, soonest-closing first, with where each window stands), then everything by topic: the "nobody tells you" shelf and a shelf per topic. The rules are in `src/lib/library.ts`; the doors in `src/features/library/Doors.tsx`. Each item on its own page leads with its summary and tasks, then the body and source |
+| **Planner** | `/planner` | To do, so there's always somewhere to start (`src/lib/planner.ts`): progress so far, Next up (the one thing to do first, with when, whose and why), Also now (the rest of To do now, in the same order as This week), then folded away On the horizon (by the week each next asks of you: opens, best by or deadline), Missed earlier and Done. Beside it, the questions for the next appointment |
 | **Journal** | `/journal` | What happens, kept. *Placeholder: says what is coming.* |
-| **Drawer** | `/drawer` | The handy things: baby names, the bump booth, the contraction timer, the hospital bag. *Placeholder: says what is coming.* |
+| **Drawer** | `/drawer` | The handy things: baby names, the bump booth, the contraction timer, the hospital bag. *Built: Emergency info (`/drawer/emergency`: the pregnancy at a glance, who to call with each number a call button, what a doctor will ask and the numbers you'll be asked for; the fields are fixed in `src/lib/emergency.ts`, the values the `emergency` table, shared and editable by both) and the names game, with the Choosing a name extra; the rest says what is coming.* |
 
 - **One load for all of them.** The `app` route loads the household, the checklist, the people and the questions once; `useApp()` (`src/features/household/useApp.ts`) tailors the items and tasks and places "now". Moving between pillars is instant, and they never disagree. A change goes through `useAction` (`src/features/household/useAction.ts`): it saves, then reloads that one load, so every pillar sees it.
 - **The frame provides what content renders against** (the answers, now, the questions already on your list), so a Markdoc tag works the same on the timeline and in the Library.
@@ -87,16 +87,17 @@ The app is six pillars in its frame: a sidebar on a desktop, a tab bar on a phon
 
 ## The timeline
 
-One scroll of weeks, pregnancy weeks 1–42 under their trimesters, opened at this week (`src/features/timeline/`). It has no views: what used to be views are the Planner and the Library's shelves.
+The map: the whole pregnancy at once, weeks 1–42 under their trimesters (`src/features/timeline/`). A week's detail is This week's, not the timeline's: every week links to `/?at=<week>`. It has no views: what used to be views are the Planner and the Library's shelves. The rules are in `src/lib/timelineMap.ts`, tested apart from the screen.
 
-- **Weeks are bands.** The current week is open, with the gestation line, what has slipped, what is still running from earlier weeks, and a link to the questions waiting for the next appointment. Every other week is folded to one line of what's in it (`2 new · 1 to do`) until opened. Each item appears once, in the week it starts. The rules are in `src/lib/timelineView.ts`, tested apart from the screen.
-- **The ruler moves along it.** It's a vertical rail down the right edge on the desktop and a scrubber just above the tab bar on a phone (`--tab-bar` holds the bar's height). Both are one `Ruler` component and an ARIA slider: drag or tap to scrub; arrows step a week, Page Up/Down four, Home/End the ends. Each week shows a dot when something starts and amber when a task there has slipped. "Now" is marked, and so is the week in view (the last week whose top has passed a reading line under the sticky bar).
+- **A week is a line** (`WeekMap`): its note's title, or a landmark (Halfway, Full term, Due date), and what it has: what opens, what's to do or has slipped, what's done, the questions asked there. Today is marked.
+- **The windows are what each item asks of you, across its weeks** (an item with tasks, from its first week to its last), coloured by where they stand: open now, ahead, closed or done. They are a chart across the pregnancy (`WindowsChart`), with the trimesters behind them, the landmarks as faint lines and today as a line; each row goes to its item. On a desktop the labels are a column beside the chart; on a phone the chart is the width of the screen and each label sits over its bar, starting where the bar does (or ending where it does, late in the pregnancy).
+- **Below the chart, the weeks:** one column on a phone, with a Today button to its line; three on a desktop, a trimester each.
 - **Expecting knows what to do; you don't fill it in.** The weeks carry no add box. An own task, for the odd thing Expecting couldn't know, is added at the foot of the Planner's To do, for this week, and shows on its week like any other. A question is added in the Planner.
 - `?at=28` opens at another week; an item's page links to its week this way.
 
 ## Adaptive
 
-- Both sizes get a designed layout. Desktop: the pillars in a sidebar on the left; on the timeline, the ruler in its own column on the right and a sticky week number beside each week; the Planner in two columns. Phone: the tab bar under the thumb, settings behind a gear at the top of each pillar, the scrubber above the tab bar. Item bodies keep a readable line length at every size.
+- Both sizes get a designed layout. Desktop: the pillars in a sidebar on the left; on the timeline, the windows as a chart and the weeks in three columns; the Planner in two columns. Phone: the tab bar under the thumb, settings behind a gear at the top of each pillar, the timeline's chart the width of the screen, each label over its bar. Item bodies keep a readable line length at every size.
 - Tap targets are at least 44px. No hover-only interactions. Safe areas are respected.
 - e2e loads every page at both sizes (`phone` and `desktop` projects).
 
@@ -110,7 +111,7 @@ Expecting has its own theme, not the design system's Linen. It's built from a re
   - **Baby Blue** (`baby-blue.css`): a boy. Blue brand, sky-to-aqua accent.
   - **Baby Pink** (`baby-pink.css`): a girl. Pink brand, pink-to-lilac accent.
   - **Baby Purple** (`baby-purple.css`): don't know or surprise, and the default. Lilac brand, blue-to-pink accent.
-- Each theme sets every semantic token the design system reads, in light mode only (there's no dark mode yet). Each also sets Expecting's own `--expecting-accent-*` pair, for the gradients in progress bars (onboarding, an item's window of weeks). The page is white with at most a temperature (`--expecting-page`): a cool white in Baby Blue, a warm white in Baby Pink, plain white in Baby Purple. Colour comes in accents (the brand, the progress bars, the ruler), never as a fill. Never as a border on one side of a box, either: a card is outlined all round or not at all. Neutral, success, warning, danger, the corner scale and the type stacks are shared.
+- Each theme sets every semantic token the design system reads, in light mode only (there's no dark mode yet). Each also sets Expecting's own `--expecting-accent-*` pair, for the gradients in progress bars (onboarding, an item's window of weeks). The page is white with at most a temperature (`--expecting-page`): a cool white in Baby Blue, a warm white in Baby Pink, plain white in Baby Purple. Colour comes in accents (the brand, the progress bars, the timeline's windows), never as a fill. Never as a border on one side of a box, either: a card is outlined all round or not at all. Neutral, success, warning, danger, the corner scale and the type stacks are shared.
 - `data-expecting-theme` on `<html>` picks the theme (`src/lib/theme.ts`). The answer is stored on the household (`baby`). The browser remembers the last theme in `localStorage`, and an inline script in `<head>` applies it before paint, so a reload doesn't flash Baby Purple.
 - The three are separate files on purpose, so each can be judged on its own. If they turn out to differ only in brand, they can merge into one theme with named brands, which the design system supports through `data-brand`.
 
@@ -131,7 +132,7 @@ Expecting has its own theme, not the design system's Linen. It's built from a re
 
 ## Tailoring
 
-- `content/facts.yaml` holds the questions; `src/content/facts.ts` reads them and has the rules (`applies`, `checkWhen`), and `src/lib/facts.ts` what the answers become (`factsOf`, `questionsDue`, `timeTask`), both tested apart from the screen. Settings shows every question, built from the file.
+- `content/facts.yaml` holds the questions; `src/content/facts.ts` reads them and has the rules (`applies`, `checkWhen`), and `src/lib/facts.ts` what the answers become (`factsOf`, `questionsDue`, `timeTask`), both tested apart from the screen. Settings shows every question, built from the file: in its `group` (the sections, `GROUPS`), each a row with its answer, who gave it and when This week asks again (`nextAsked`), opening to change it and to list what it decides (`decides`: the items its `when`, `$id` or a deadline reads). `/settings?ask=<key>` opens at a question, as a hidden item's page links to the answer that hid it.
 - An item's `when:` hides it on a definite answer; `{% if equals($cover, "yes") %}` tailors a passage. An unanswered question hides nothing, and neither does `unsure`, so nothing is written against it (`checkWhen` refuses it) and the `{% else %}` branch is the general wording.
 
 ### Facts
@@ -150,12 +151,19 @@ The answers are what Expecting knows about the household, asked as the pregnancy
 - **Facts are not records.** A fact changes what Expecting tells you to do; a record is something you look up. The birth suite's number is a contact, and a planned caesarean's date is an appointment, even where a fact (`birth: caesarean`) points at it. Without this line, the facts grow into the whole store.
 - The code's word is **facts**. The screens say "About you", "Expecting needs to know", or ask the question itself.
 
+## Extras
+
+- The optional parts of Expecting, `content/extras.yaml`: off until one of you turns one on, unlike a question, which hides nothing until answered. Read by `src/content/extras.ts`; what the choices mean is `src/lib/extras.ts` (`extrasOn`, `inExtras`, `extraToOffer`).
+- An item with `extra: <id>` is shown only while that extra is on, so `useApp` drops it, and its tasks, from every pillar. Its own page says which extra it's part of and links to the switch (`/settings?ask=extra:<id>`).
+- An extra can be only for some households (`when`, as an item's), is offered in onboarding only with `onboarding: true`, and sits in a group in settings (`EXTRA_GROUPS`). An extra can bring a feature as well as items: Choosing a name brings the names game in the Drawer (`baby_name` and `name_vote`; `src/api/rpc/names.ts` answers only as the person holding the phone, with their own votes and the matches, never the other's votes).
+- The household's choices are the `extra` table, a row per extra once decided (on or off, who, when); no row is undecided. Onboarding's extras step decides them all, or none if skipped; This week offers the first undecided one whose `offer` week has come, once.
+
 ## Content
 
 - Built-in items live in the repo as `content/items/<id>.md`, one Markdoc file per item, with frontmatter for weeks, category, `when`, source, last checked and linked tasks. `content/facts.yaml`, the questions it is tailored by, sits beside the folder.
 - **The file's name is its id:** a file outside `items/` or named for another id fails the gate.
 - Bodies are Markdoc: Markdown plus declared tags (`src/content/markdoc.ts`), each drawn by a component in `src/features/library/content/`. `{% ask %}` is a suggested question, added to your list in one tap; `{% window %}` draws an item's weeks against today. Every tag, attribute, `$question` and answer is checked as the content loads.
-- **This week** is its own shape, `content/weeks/<week>.md`, named for the week (`28`): a title, the baby's size (length head to bottom in cm, weight in g, and something that size), and three parts, each a `##` heading in this order: The baby, Your body, For the partner (`src/content/weeks.ts`). Each part is Markdoc like an item's body. The note sits at the top of its week on the timeline, and its title on the week when folded.
+- **This week** is its own shape, `content/weeks/<week>.md`, named for the week (`28`): a title, the baby's size (length head to bottom in cm, weight in g, and something that size), and three parts, each a `##` heading in this order: The baby, Your body, For the partner (`src/content/weeks.ts`). Each part is Markdoc like an item's body. The note is on This week (and on a peek at its week), and its title is its week's line on the timeline.
 - They are validated with zod when the content module loads, and `bun run test` loads it, so a malformed item fails the gate, not the page.
 - Each item's weeks are a range within 1–42, the same `Week` that `src/lib/timeline.ts` derives the current week as.
 - **A linked task has a window and an owner:** `opens` (defaults to the item's first week), `due` (best by, defaults to its last), an optional hard `deadline` (on or after `due`, by week 42, from the item's source), and `who` (`carrying`, `partner` or `together`, the default). `src/lib/todo.ts` orders the open ones into To do now; `whose()` in `src/lib/people.ts` names the owner for the phone holding it ("Yours", "Sam's").

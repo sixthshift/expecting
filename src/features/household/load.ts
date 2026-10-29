@@ -1,8 +1,9 @@
-// What the app loads: the household (its dates, answers and people), the
+// What the app loads: the household (its dates, answers, extras and people), the
 // checklist's state and the questions. One load for every pillar, so moving
 // between them is instant and they never disagree.
 
 import { getChecklist } from "../../api/rpc/checklist";
+import { getExtras } from "../../api/rpc/extras";
 import { getAnswers } from "../../api/rpc/facts";
 import { getHousehold } from "../../api/rpc/household";
 import { getPeople } from "../../api/rpc/people";
@@ -11,8 +12,8 @@ import { factsOf } from "../../lib/facts";
 import { onboardingSteps } from "../../lib/onboarding";
 
 export async function loadHouseholdState() {
-  const [household, answers, checklist, people] = await Promise.all([getHousehold(), getAnswers(), getChecklist(), getPeople()]);
-  return { household, answers, ...checklist, ...people };
+  const [household, answers, extras, checklist, people] = await Promise.all([getHousehold(), getAnswers(), getExtras(), getChecklist(), getPeople()]);
+  return { household, answers, extras, ...checklist, ...people };
 }
 
 export type HouseholdState = Awaited<ReturnType<typeof loadHouseholdState>>;

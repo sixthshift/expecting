@@ -1,6 +1,7 @@
 ---
 id: parental-leave-pay-claim
 title: Claim Parental Leave Pay before the birth
+summary: "You can claim Parental Leave Pay up to 3 months before the due date, and claiming early lets you choose your start date."
 weeks: [27, 36]
 category: money
 surprise: true
@@ -8,7 +9,7 @@ draft: true
 source:
   title: Services Australia — Claiming timeframes for Parental Leave Pay
   url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay
-checked: 2026-10-27
+checked: 2026-10-29
 tasks:
   - id: submit-pre-birth-claim
     title: Submit the pre-birth claim in myGov

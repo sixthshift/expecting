@@ -8,12 +8,13 @@
 //   q:<key>    content/facts.yaml's `asked: onboarding` questions, once for
 //              each of you where they're about each, and only where their
 //              `when` fits the answers so far
+//   extras     the extras in content/extras.yaml, any of which to turn on
 //   ready      where Expecting will open, and in
 
 import { ASKS, type Facts } from "../content/facts";
 import { isAsked } from "./facts";
 
-export type Step = "who" | "due" | "baby" | "ready" | `q:${string}`;
+export type Step = "who" | "due" | "baby" | "extras" | "ready" | `q:${string}`;
 
 export type OnboardingState = {
   /** Whether this device has said who it is. */
@@ -29,7 +30,7 @@ export function onboardingSteps({ known, onboarded, facts = {} }: OnboardingStat
   if (onboarded) return steps;
   steps.push("due", "baby");
   for (const a of ASKS) if (a.question.asked === "onboarding" && isAsked(a, facts)) steps.push(`q:${a.key}`);
-  steps.push("ready");
+  steps.push("extras", "ready");
   return steps;
 }
 

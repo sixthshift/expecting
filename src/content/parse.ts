@@ -59,6 +59,7 @@ function toItem(fm: Frontmatter, body: string, doc: Node): Item {
   return {
     id: fm.id,
     title: fm.title,
+    summary: fm.summary ?? null,
     from,
     to,
     category: fm.category,
@@ -67,6 +68,7 @@ function toItem(fm: Frontmatter, body: string, doc: Node): Item {
     source: fm.source ?? null,
     checked: fm.checked ?? null,
     when: fm.when,
+    extra: fm.extra ?? null,
     body,
     doc,
     tasks: fm.tasks.map((t) => ({

@@ -3,6 +3,7 @@
 // it matters, and a question for the midwife. Runs first, on the phone, against
 // the empty database the config makes.
 import { expect, test } from "./fixtures";
+import { PASSWORD } from "./playwright.config";
 
 /** dd, mm, yyyy of today plus `days`, in this machine's local time, as the app sees it. */
 function daysFromToday(days: number): string {
@@ -64,7 +65,7 @@ test.describe("the first evening", () => {
     await expect(page.getByText("28+0 · 84 days to go")).toBeVisible();
     // The timeline opens at this week too.
     await page.getByRole("navigation", { name: "Expecting" }).getByRole("link", { name: "Timeline" }).click();
-    await expect(page.getByRole("slider", { name: "Timeline" })).toHaveAttribute("aria-valuetext", "Week 28");
+    await expect(week(page, "28").getByRole("link")).toHaveAttribute("aria-current", "date");
   });
 });
 
@@ -94,22 +95,22 @@ test("the second phone is only asked who it is", async ({ page, open }) => {
   await expect(page.getByText("This is Sam's phone. Expecting is shared by Jason and Sam.")).toBeVisible();
 });
 
-test("the ruler moves along the timeline, and Today comes back", async ({ page, open }) => {
+test("the timeline is the map: what to do and when, the landmarks, and a week goes to This week", async ({ page, open }) => {
   await open("/timeline");
-  const ruler = page.getByRole("slider", { name: "Timeline" });
-  await ruler.focus();
-  await page.keyboard.press("PageDown");
-  await expect(ruler).toHaveAttribute("aria-valuetext", "Week 32");
-  await expect(week(page, "32")).toBeInViewport();
-  // A settled move opens the week it lands on.
-  await expect(week(page, "32").getByRole("button", { expanded: true })).toBeVisible();
+  const chart = page.getByRole("region", { name: "What to do, and when" });
+  await expect(chart.getByRole("link", { name: /^The RSV vaccine, weeks 28 to 36, open now/ })).toBeVisible();
+  await expect(chart.getByRole("link", { name: /^Packing the hospital bag, weeks \d+ to \d+, ahead/ })).toBeVisible();
+  await expect(week(page, "20")).toContainText("Halfway");
+  await expect(week(page, "28")).toContainText("RSV vaccine opens");
 
-  await page.keyboard.press("End");
-  await expect(ruler).toHaveAttribute("aria-valuetext", "Week 42");
-  await expect(week(page, "42")).toBeInViewport();
-
+  await week(page, "40").scrollIntoViewIfNeeded();
+  await expect(week(page, "40")).toContainText("Due date");
   await page.getByRole("button", { name: "Today" }).click();
   await expect(week(page, "28")).toBeInViewport();
+
+  await week(page, "32").getByRole("link").click();
+  await expect(page).toHaveURL(/\/\?at=32$/);
+  await expect(page.getByRole("heading", { level: 1, name: "In 4 weeks Week 32" })).toBeVisible();
 });
 
 test("an own task is added in the Planner, and lands on its week", async ({ page, open }) => {
@@ -127,7 +128,7 @@ test("an own task is added in the Planner, and lands on its week", async ({ page
   await expect(task).toBeChecked();
 
   await open("/timeline");
-  await expect(week(page, "28").getByRole("checkbox", { name: "Pack the snacks for the hospital" })).toBeChecked();
+  await expect(week(page, "28")).toContainText(/✓ \d+ done/);
 });
 
 test("Why goes from a task to the item that explains it, and on to its week", async ({ page, open }) => {
@@ -150,6 +151,26 @@ test("the Library finds things, and keeps nobody-tells-you on a shelf of its own
   await expect(page.getByRole("region", { name: "Nobody tells you" })).toBeHidden();
 });
 
+test("the Library's ways in: two doors coming, one down to its shelf, and what's open right now", async ({ page, open }) => {
+  await open("/library");
+  const doors = page.getByRole("navigation", { name: "Ways in" });
+  // Can I…? and Is this normal? are drawn, but not yet links.
+  await expect(doors.getByText("Can I…?")).toBeVisible();
+  await expect(doors.getByText("Is this normal?")).toBeVisible();
+  await expect(doors.getByText("Coming")).toHaveCount(2);
+  await expect(doors.getByRole("link")).toHaveCount(1);
+
+  // At week 28: the glucose test's window closes this week, so it leads; the RSV vaccine's has just opened.
+  const rightNow = page.getByRole("region", { name: "Right now, at week 28" });
+  await expect(rightNow.getByRole("link").first()).toContainText("Closes this week");
+  await expect(rightNow.getByRole("link").first()).toContainText("The glucose tolerance test");
+  await expect(rightNow.getByRole("link", { name: /The RSV vaccine/ })).toContainText("Opened this week");
+
+  await doors.getByRole("link", { name: /Nobody tells you/ }).click();
+  await expect(page).toHaveURL(/#nobody-tells-you$/);
+  await expect(page.getByRole("region", { name: "Nobody tells you" })).toBeInViewport();
+});
+
 test("a question is added in the Planner, asked, and lands in this week", async ({ page, open }) => {
   await open("/planner");
   await page.getByRole("textbox", { name: "New question" }).fill("Which hospital entrance after hours?");
@@ -161,8 +182,10 @@ test("a question is added in the Planner, asked, and lands in this week", async 
   await page.getByRole("button", { name: "Save as asked" }).click();
   await expect(page.getByRole("button", { name: "Asked it" })).toBeHidden();
 
+  await open("/");
+  await expect(page.getByRole("region", { name: "Asked this week" }).getByText("Emergency, then the lift to level 3.")).toBeVisible();
   await open("/timeline");
-  await expect(week(page, "28").getByText("Emergency, then the lift to level 3.")).toBeVisible();
+  await expect(week(page, "28")).toContainText("1 question asked");
 });
 
 test("the answer to boy or girl sets the colours, and they survive a reload", async ({ page, open }) => {
@@ -178,7 +201,7 @@ test("the answer to boy or girl sets the colours, and they survive a reload", as
   await page.getByRole("radio", { name: "Boy" }).click();
   await expect.poll(theme).toBe("baby-blue");
   await page.getByRole("link", { name: "Timeline" }).click();
-  await expect(page.getByRole("slider", { name: "Timeline" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Timeline" })).toBeVisible();
   expect(await theme()).toBe("baby-blue");
 
   await open("/settings");
@@ -190,27 +213,31 @@ test("an answer in settings tailors an item, and clearing it puts it back", asyn
   const rsv = page.locator("#item-rsv-vaccine");
 
   // Unanswered: the body reads for public care.
-  await open("/timeline");
-  await expect(rsv.getByText("Your GP, the hospital's antenatal clinic")).toBeVisible();
+  await open("/library/rsv-vaccine");
+  await expect(rsv.getByText("Ask at your next appointment where yours is done.")).toBeVisible();
 
+  const coverQuestion = "Do you have private hospital cover that includes pregnancy and birth?";
+  const coverRow = page.getByRole("button", { name: new RegExp(`^${coverQuestion.replace("?", "\\?")}`) });
   await open("/settings");
-  await page
-    .getByRole("radiogroup", { name: "Do you have private hospital cover that includes pregnancy and birth?" })
-    .getByRole("radio", { name: "Yes" })
-    .click();
+  await expect(coverRow).toContainText("Not answered");
+  await coverRow.click();
+  await page.getByRole("radiogroup", { name: coverQuestion }).getByRole("radio", { name: "Yes" }).click();
   const clearCover = page.getByRole("button", { name: "Clear answer: Do you have private hospital cover that includes pregnancy and birth?" });
   await expect(clearCover).toBeVisible();
 
   // Private cover: the RSV item speaks to an obstetrician.
-  await open("/timeline");
+  await open("/library/rsv-vaccine");
   await expect(rsv.getByText("Seeing a private obstetrician?")).toBeVisible();
-  await expect(rsv.getByText("Your GP, the hospital's antenatal clinic")).toHaveCount(0);
+  await expect(rsv.getByText("Ask at your next appointment where yours is done.")).toHaveCount(0);
 
-  await open("/settings");
+  // A link can open settings at a question.
+  await open("/settings?ask=cover");
+  await expect(coverRow).toHaveAttribute("aria-expanded", "true");
+  await expect(coverRow).toContainText("Yes");
   await clearCover.click();
-  await expect(page.getByText("Not answered").first()).toBeVisible();
-  await open("/timeline");
-  await expect(rsv.getByText("Your GP, the hospital's antenatal clinic")).toBeVisible();
+  await expect(coverRow).toContainText("Not answered");
+  await open("/library/rsv-vaccine");
+  await expect(rsv.getByText("Ask at your next appointment where yours is done.")).toBeVisible();
 });
 
 test("This week asks what Expecting needs to know, and an answer changes the plan", async ({ page, open }) => {
@@ -226,6 +253,10 @@ test("This week asks what Expecting needs to know, and an answer changes the pla
   await expect(childcare).toHaveCount(0);
   await open("/planner");
   await expect(childcareTask).toHaveCount(0);
+  // Its item says an answer hid it, and links to that answer.
+  await open("/library/childcare-waitlists");
+  await page.getByRole("link", { name: "settings", exact: true }).click();
+  await expect(page.getByRole("button", { name: /^Will you want childcare in the baby's first two years\?/ })).toHaveAttribute("aria-expanded", "true");
 
   // Not now puts a question off, without answering it.
   await open("/");
@@ -235,7 +266,13 @@ test("This week asks what Expecting needs to know, and an answer changes the pla
 
   // Settings says who answered, and clearing it puts the plan back.
   await open("/settings");
-  await expect(page.getByText(/^Jason answered,/)).toBeVisible();
+  const childcareRow = page.getByRole("button", { name: /^Will you want childcare in the baby's first two years\?/ });
+  await expect(childcareRow).toContainText(/Jason answered,/);
+  await childcareRow.click();
+  // It says what it decides.
+  await expect(
+    page.getByRole("region", { name: "Will you want childcare in the baby's first two years?" }).getByRole("link", { name: /childcare/i })
+  ).toBeVisible();
   await page.getByRole("button", { name: "Clear answer: Will you want childcare in the baby's first two years?" }).click();
   await open("/planner");
   await expect(childcareTask).toBeVisible();
@@ -253,8 +290,48 @@ test("This week opens with what to do now: a deadline coming up first, and why",
   await expect(page.getByRole("heading", { level: 1, name: "Telling your employer about parental leave" })).toBeAttached();
 });
 
+test("the Planner starts with one thing to do next, and ticking it brings up the next", async ({ page, open }) => {
+  await open("/planner");
+  const next = page.getByRole("region", { name: "Next up" });
+  // The same order as This week: at 28+0, the glucose test's deadline leads.
+  await expect(next.getByRole("checkbox")).toHaveAccessibleName("Book the glucose tolerance test");
+  await expect(page.getByText(/^\d+ of \d+ done · 2 deadlines close$/)).toBeVisible();
+  // What's ahead is in stages, each folded away until asked for.
+  const horizon = page.getByRole("region", { name: "On the horizon" });
+  const fullTerm = horizon.getByRole("button", { name: /^By full term/ });
+  await expect(fullTerm).toContainText(/\d of \d+ done/);
+  await expect(page.getByRole("checkbox", { name: "Pack the hospital bag" })).toHaveCount(0);
+  await fullTerm.click();
+  await expect(page.getByRole("checkbox", { name: "Pack the hospital bag" })).toBeVisible();
+
+  await next.getByRole("checkbox").click();
+  await expect(next.getByRole("checkbox")).toHaveAccessibleName("Give your employer written notice of parental leave");
+  // Put it back for the journeys after this one.
+  await page.getByRole("button", { name: /^Done/ }).click();
+  await page.getByRole("checkbox", { name: "Book the glucose tolerance test" }).click();
+  await expect(next.getByRole("checkbox")).toHaveAccessibleName("Book the glucose tolerance test");
+});
+
+test("This week peeks ahead at the next week, and comes back", async ({ page, open }) => {
+  await open("/");
+  const weeks = page.getByRole("navigation", { name: "Weeks" });
+  await weeks.getByRole("link", { name: "Week 29" }).click();
+  await expect(page).toHaveURL(/\/\?at=29$/);
+  await expect(page.getByRole("heading", { level: 1, name: "Next week Week 29" })).toBeVisible();
+  await expect(page.getByRole("region", { name: "Best done that week" })).toBeVisible();
+  // What to do now stays with now.
+  await expect(page.getByRole("region", { name: "To do now" })).toHaveCount(0);
+
+  await weeks.getByRole("link", { name: "Week 30" }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "In 2 weeks Week 30" })).toBeVisible();
+  await weeks.getByRole("link", { name: "Back to this week" }).click();
+  await expect(page).toHaveURL((url) => url.pathname === "/" && url.search === "");
+  await expect(page.getByRole("heading", { level: 1, name: "This week Week 28" })).toBeVisible();
+  await expect(page.getByRole("region", { name: "To do now" })).toBeVisible();
+});
+
 test("an item draws its window against today, and offers its questions", async ({ page, open }) => {
-  await open("/timeline");
+  await open("/library/rsv-vaccine");
   const rsv = page.locator("#item-rsv-vaccine");
   await expect(rsv.getByRole("figure", { name: /Weeks 28 to 36/ })).toBeVisible();
   await expect(rsv.getByText("Open now · 8 weeks left")).toBeVisible();
@@ -265,4 +342,133 @@ test("an item draws its window against today, and offers its questions", async (
 
   await open("/planner");
   await expect(page.getByText(text)).toBeVisible();
+});
+
+test("an extra is off until one of you turns it on, then it's everywhere it belongs", async ({ page, open }) => {
+  const hostTask = page.getByRole("checkbox", { name: "Decide who's hosting the shower, and pick a date" });
+  await open("/planner");
+  await expect(page.getByRole("heading", { level: 1, name: "Planner" })).toBeVisible();
+  await expect(hostTask).toHaveCount(0);
+
+  // Its item says why it isn't there, and links to its switch.
+  await open("/library/baby-shower");
+  await expect(page.getByText("It's part of Baby shower, an extra that's off.")).toBeVisible();
+  await page.getByRole("link", { name: "Turn it on in settings" }).click();
+  const shower = page.getByRole("switch", { name: "Baby shower" });
+  await expect(shower).not.toBeChecked();
+  await shower.click();
+  await expect(shower).toBeChecked();
+  await expect(page.getByText(/^Jason turned it on,/)).toBeVisible();
+
+  await open("/planner");
+  await expect(hostTask).toBeVisible();
+  await open("/library/baby-shower");
+  await expect(page.getByRole("heading", { level: 1, name: "The baby shower" })).toBeAttached();
+
+  // Off means gone.
+  await open("/settings");
+  await page.getByRole("switch", { name: "Baby shower" }).click();
+  await expect(page.getByRole("switch", { name: "Baby shower" })).not.toBeChecked();
+  await open("/planner");
+  await expect(page.getByRole("heading", { level: 1, name: "Planner" })).toBeVisible();
+  await expect(hostTask).toHaveCount(0);
+});
+
+test("This week offers an extra nobody has decided on, once", async ({ page, open }) => {
+  // At 28+0, onboarding's extras were skipped: the first whose week has come is offered.
+  await open("/");
+  const offer = page.getByRole("region", { name: "Add food and drink?" });
+  await expect(offer).toBeVisible();
+  await offer.getByRole("button", { name: "Add it" }).click();
+  await expect(offer).toHaveCount(0);
+  // The next one takes its place.
+  const next = page.getByRole("region", { name: "Add telling people?" });
+  await next.getByRole("button", { name: "No thanks" }).click();
+  await expect(next).toHaveCount(0);
+
+  await open("/library/listeria");
+  await expect(page.getByRole("heading", { level: 1, name: "Listeria and the foods that carry it" })).toBeAttached();
+  await open("/settings");
+  await expect(page.getByRole("switch", { name: "Food and drink" })).toBeChecked();
+  await expect(page.getByRole("switch", { name: "Telling people" })).not.toBeChecked();
+});
+
+test("the names game: a name is a match only when you both like it, on your own phones", async ({ page, open, browser }) => {
+  // It comes with the Choosing a name extra.
+  await open("/drawer");
+  await page.getByRole("link", { name: "Turn it on in settings" }).click();
+  await page.getByRole("switch", { name: "Choosing a name" }).click();
+  await expect(page.getByRole("switch", { name: "Choosing a name" })).toBeChecked();
+
+  // Jason adds two names: adding one likes it.
+  await open("/drawer");
+  const names = page.getByRole("region", { name: "Baby names" });
+  for (const name of ["ada", "Iris"]) {
+    await names.getByRole("textbox", { name: "A name to add" }).fill(name);
+    await names.getByRole("button", { name: "Add name" }).click();
+    await expect(names.getByRole("textbox", { name: "A name to add" })).toHaveValue("");
+  }
+  await expect(names.getByRole("heading", { name: "No matches yet" })).toBeVisible();
+
+  // Sam, on another phone, sees the names but not Jason's votes, and likes one.
+  const phone = await browser.newContext();
+  const sam = await phone.newPage();
+  await sam.goto("/login", { waitUntil: "networkidle" });
+  await sam.getByLabel("Password").fill(PASSWORD);
+  await sam.getByRole("button", { name: "Log in" }).click();
+  await sam.waitForURL((url) => url.pathname !== "/login");
+  await sam.goto("/onboarding", { waitUntil: "networkidle" });
+  await sam.getByRole("button", { name: "I'm Sam" }).click();
+  await sam.waitForURL((url) => !url.pathname.startsWith("/onboarding"));
+  await sam.goto("/drawer", { waitUntil: "networkidle" });
+  const samNames = sam.getByRole("region", { name: "Baby names" });
+  await expect(samNames.getByText("2 names to go")).toBeVisible();
+  await samNames.getByRole("button", { name: "Pass on Ada" }).click();
+  await samNames.getByRole("button", { name: "Like Iris" }).click();
+  await expect(samNames.getByRole("region", { name: "Matches" }).getByText("Iris")).toBeVisible();
+  await phone.close();
+
+  await open("/drawer");
+  const matches = names.getByRole("region", { name: "Matches" });
+  await expect(matches.getByRole("heading", { name: "You both like one name" })).toBeVisible();
+  await expect(matches.getByText("Iris")).toBeVisible();
+  await expect(matches.getByText("Ada")).toHaveCount(0);
+
+  // Off means gone.
+  await open("/settings");
+  await page.getByRole("switch", { name: "Choosing a name" }).click();
+  await open("/drawer");
+  await expect(page.getByRole("region", { name: "Baby names" })).toHaveCount(0);
+});
+
+test("Emergency info: filled in once, it's the call button and the details in a hurry", async ({ page, open }) => {
+  await open("/drawer");
+  await page.getByRole("link", { name: /^Emergency info/ }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "Emergency info" })).toBeVisible();
+  // Before anything is filled in, the numbers that are the same for everyone are there to call.
+  await expect(page.getByRole("link", { name: "Call 000" })).toHaveAttribute("href", "tel:000");
+
+  await page.getByRole("button", { name: "Edit" }).click();
+  await page.getByRole("textbox", { name: "Birth suite" }).fill("(02) 9999 0000");
+  await page.getByRole("textbox", { name: "Blood group" }).fill("O negative");
+  await page.getByRole("button", { name: "Save" }).click();
+
+  await expect(page.getByRole("link", { name: "Call (02) 9999 0000" })).toHaveAttribute("href", "tel:0299990000");
+  await expect(page.getByText("O negative")).toBeVisible();
+  await expect(page.getByText(/^Last changed by Jason on/)).toBeVisible();
+});
+
+test("opening a choice further down the page keeps your place", async ({ page, open }) => {
+  // The design system's Select focused its list before placing it, which scrolled the page to the top
+  // (patched in patches/: focus with preventScroll). A design-system upgrade could undo it.
+  await open("/settings");
+  const row = page.getByRole("button", { name: /^Who's looking after the pregnancy/ });
+  await row.click();
+  await row.scrollIntoViewIfNeeded();
+  const before = await page.evaluate(() => window.scrollY);
+  expect(before).toBeGreaterThan(200);
+  await page.getByRole("combobox", { name: "Who's looking after the pregnancy?" }).click();
+  await expect(page.getByRole("listbox")).toBeVisible();
+  expect(await page.evaluate(() => window.scrollY)).toBe(before);
+  await page.keyboard.press("Escape");
 });

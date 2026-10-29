@@ -1,13 +1,14 @@
 ---
 id: whooping-cough-vaccine
 title: The whooping cough vaccine
+summary: "Recommended and free between 20 and 32 weeks, it gives the baby some protection from whooping cough until their own vaccines start."
 weeks: [20, 32]
 category: appointments
 draft: true
 source:
   title: Department of Health — Immunisation for pregnancy
   url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
-checked: 2026-10-27
+checked: 2026-10-29
 tasks:
   - id: get-whooping-cough-vaccine
     title: Get the whooping cough vaccine

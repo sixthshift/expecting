@@ -19,12 +19,16 @@
 # answers so far fit; in a question about each of you, a bare `work` is the
 # same person's.
 #
+# `group` is where settings shows it: pregnancy, care, work or after (the
+# groups are GROUPS in src/content/facts.ts, in settings' order).
+#
 # `type: date` asks for a date instead of a choice; `about: each` asks it once
 # for each of you, with `{name}` in the question. Each question earns its place
 # by changing a task; the comment above it says which.
 
 # Antenatal classes, and how much a first-timer is told.
 - id: firstBaby
+  group: pregnancy
   ask: Is this your first baby?
   asked: onboarding
   week: 8
@@ -34,6 +38,7 @@
 
 # Whether to try for a vaginal birth this time, and the care that goes with it.
 - id: previousCaesarean
+  group: pregnancy
   ask: Was a previous baby born by caesarean?
   asked: onboarding
   week: 8
@@ -44,6 +49,7 @@
 
 # Earlier and extra scans, earlier leave, two of everything.
 - id: babies
+  group: pregnancy
   ask: How many babies are you expecting?
   asked: onboarding
   week: 12
@@ -55,6 +61,7 @@
 
 # Who to book, the referral, and what the appointments cost.
 - id: care
+  group: care
   ask: Who's looking after the pregnancy?
   asked: onboarding
   week: 8
@@ -68,6 +75,7 @@
 
 # Booking in with the hospital or birth centre.
 - id: booked
+  group: care
   ask: Have you booked in with your hospital or birth centre?
   asked: onboarding
   week: 12
@@ -77,6 +85,7 @@
 
 # The fund's waiting period, the obstetrician's fees and the gap.
 - id: cover
+  group: care
   ask: Do you have private hospital cover that includes pregnancy and birth?
   asked: onboarding
   week: 8
@@ -88,17 +97,19 @@
 # A planned caesarean: its date, the pre-op appointments, the longer stay, and
 # no driving for some weeks after.
 - id: birth
+  group: care
   ask: How are you planning to give birth?
   asked: onboarding
   week: 32
   answers:
-    vaginal: A vaginal birth
+    natural: A natural birth
     caesarean: A planned caesarean
     unsure: Not sure yet
 
 # Notice to an employer, or the self-employed's own leave and claim; for the
 # partner, Partner Pay.
 - id: work
+  group: work
   ask: Does {name} work?
   about: each
   asked: onboarding
@@ -110,6 +121,7 @@
 
 # Registering the birth, and the state's own services.
 - id: state
+  group: care
   ask: Which state or territory will the baby be born in?
   asked: onboarding
   week: 20
@@ -125,6 +137,7 @@
 
 # The first blood tests are usually back: anti-D.
 - id: rhd
+  group: pregnancy
   ask: Is the pregnant parent's blood group RhD negative?
   week: 12
   answers:
@@ -134,6 +147,7 @@
 
 # Childcare waiting lists.
 - id: childcare
+  group: after
   ask: Will you want childcare in the baby's first two years?
   week: 12
   answers:
@@ -143,6 +157,7 @@
 
 # Employer-paid leave first or alongside, and when to claim the government's.
 - id: paidLeave
+  group: work
   ask: Does {name}'s employer pay parental leave?
   about: each
   week: 20
@@ -155,6 +170,7 @@
 # The day leave starts: notice to an employer is due 10 weeks before it, and
 # confirming the dates 4 weeks before.
 - id: leaveStart
+  group: work
   ask: When does {name}'s parental leave start?
   about: each
   type: date

@@ -1,13 +1,14 @@
 ---
 id: flu-vaccine
 title: The flu vaccine
+summary: "The flu vaccine is free and recommended at any stage of every pregnancy, and it's the best way to protect a newborn from flu."
 weeks: [4, 40]
 category: appointments
 draft: true
 source:
   title: Department of Health — Immunisation for pregnancy
   url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
-checked: 2026-10-27
+checked: 2026-10-29
 tasks:
   - id: get-flu-vaccine
     title: Get this year's flu vaccine

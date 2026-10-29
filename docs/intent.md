@@ -127,7 +127,7 @@ Some pregnancies end in miscarriage, and screening sometimes brings bad news. An
   - **Behind today,** it is the diary: week 22 holds the morphology scan item, the scan photos, "first kick, Tuesday night" and the questions you asked.
   - **By the birth,** it is the story of the pregnancy, without anyone having sat down to write it.
 
-*Built: pregnancy weeks 1–42, the ruler, each week's note, own tasks and asked questions in their week, and the trimesters as the timeline's chapter headings. Not built: the phases before and after the pregnancy, the named chapters, log entries and records.*
+*Built: pregnancy weeks 1–42 as a map (a line a week, the landmarks, and the windows drawn across their weeks), each week's note on This week, own tasks and asked questions in their week, and the trimesters as the timeline's chapter headings. Not built: the phases before and after the pregnancy, the named chapters, log entries and records.*
 
 ### Phases
 
@@ -176,7 +176,7 @@ What this asks of the app, not yet built:
   - Hiding happens only on a definite answer, and clearing the answer puts everything back.
   - Content is tailored two ways: a whole item by its `when:`, and a passage inside an item by `{% if %}`.
 
-*Built: the questions in `content/facts.yaml` (fifteen, some asked of each of you, some only once another answer fits, one a date), each with the week This week asks it; onboarding (who, the due date or the last period, the colours, the onboarding questions); every answer kept with who gave it and when; This week asking what's due, again four weeks after a "not sure" or "not now"; a settings form built from the file; three items tailored by an answer (booking in, anti-D, childcare) and one passage; notice to the employer timed from the leave start date. Not built: most of the tasks the answers add, change or remove, which is content work, and asking with `text` answers.*
+*Built: the questions in `content/facts.yaml` (fifteen, some asked of each of you, some only once another answer fits, one a date), each with the week This week asks it; onboarding (who, the due date or the last period, the colours, the onboarding questions); every answer kept with who gave it and when; This week asking what's due, again four weeks after a "not sure" or "not now"; settings built from the file, grouped, with how many are answered and what each answer changes; three items tailored by an answer (booking in, anti-D, childcare) and one passage; notice to the employer timed from the leave start date. Not built: most of the tasks the answers add, change or remove, which is content work, and asking with `text` answers.*
 
 ## Content
 
@@ -211,7 +211,7 @@ There isn't one shape of content. There are several, all Markdoc, all tagged wit
 | **Decisions** | Options and trade-offs, a decide-by week, what you chose and why | Public, private or midwifery group practice |
 | **Guides** | The long reads | Labour, feeding, recovery, the newborn |
 
-*Built: moments, the 29 items so far, which are almost all appointments and paperwork, and this week, with four weeks drafted (6, 12, 20 and 28) to settle the format and voice before the rest. The biggest gaps are the other weeks, "Can I…?" and "Is this normal?": the reasons people open a pregnancy app.*
+*Built: moments, the 22 items so far, which are almost all appointments and paperwork, each with a one-sentence summary of why it matters; and a note for each of the 42 weeks, all still draft. The Library opens by the question you came with: search, then a door each for "Can I…?", "Is this normal?" and Nobody tells you, then what's open right now, then every topic. Nobody tells you is live; the other two doors say "Coming". Not built: "Can I…?" and "Is this normal?" themselves, and the cards. They are the biggest gaps, because they are the reasons people open a pregnancy app.*
 
 ### Cards: "nobody tells you"
 
@@ -266,7 +266,7 @@ To do is how Expecting [runs the admin](#what-it-is). This week opens with it: t
 - **The plan changes with the answers.** A self-employed parent has different leave paperwork; the state decides how the birth is registered. A task appears, changes or goes away when the household's answers say so.
 - **Not decisions.** "Book the morphology scan" is a task. "Decide on public or private care" is a [decision](#decisions), and a decision can produce tasks.
 
-*Built: windows (opens, best by, deadline) and whose job on built-in tasks, ordered by urgency into To do now, which This week opens with (`src/lib/todo.ts`: a deadline within two weeks or just missed, then what slipped in the last four weeks, then what is best done in the next two; older slips are left to the Planner). Four deadlines so far, each from its item's checked source: the first-trimester screening window, the glucose test window, and the employer's 10-week and 4-week notice. The other tasks' sources give no hard date, so they have a best-by week only. Not built: the Planner ordering by urgency, own tasks with a window or an owner, and most tasks' windows, which is content work.*
+*Built: windows (opens, best by, deadline) and whose job on built-in tasks, ordered by urgency into To do now, which This week opens with (`src/lib/todo.ts`: a deadline within two weeks or just missed, then what slipped in the last four weeks, then what is best done in the next two; older slips are left to the Planner). Four deadlines so far, each from its item's checked source: the first-trimester screening window, the glucose test window, and the employer's 10-week and 4-week notice. The other tasks' sources give no hard date, so they have a best-by week only. The Planner leads with the same order: one task Next up, the rest of To do now under it, and everything else folded away by the week it next asks of you (`src/lib/planner.ts`). Not built: own tasks with a window or an owner, and most tasks' windows, which is content work.*
 
 ## Decisions
 
@@ -323,7 +323,7 @@ The entry types are content (a YAML file), so adding one is a content change. Ea
   - a veto each.
 - **Secret mode,** for couples who keep the name until the birth.
 
-*Not built. Needs [who's who](#who-uses-it).*
+*Built: the game, in the Drawer, with the Choosing a name extra. Either of you adds names (adding one likes it), each votes on your own phone, and the matches show to both; nobody ever sees the other's votes. Not built: the shortlist's checks, popularity, and secret mode.*
 
 ## Records
 
@@ -350,7 +350,7 @@ All shared, all editable by both:
 
 - **Appointments:** date, who with, notes, the questions to ask, the log since the last one, and a waiting-room mode on the day.
 - **Questions:** a running list for the next appointment. Asked questions keep their answers. *Built.*
-- **Contacts:** midwife, OB, hospital, birth suite, GP, maternal child health nurse. The birth suite's number is the call button.
+- **Contacts:** midwife, OB, hospital, birth suite, GP, maternal child health nurse. The birth suite's number is the call button. *Begun as Emergency info, in the Drawer: one page with who to call, what a doctor will ask and the numbers you'll be asked for.*
 
 ## Features
 
@@ -375,8 +375,9 @@ How the switches work:
 
 - **Onboarding offers them** ("Want a place for baby names?"), so the app starts small and grows with you.
 - **Off really means off.** Each feature brings its own sections, capture types and settings, so switching one off removes it rather than leaving gaps.
+- **This week offers one in its week** if nobody has decided ("Add a babymoon?"), once: either answer settles it.
 
-*Not built.*
+*Built, as extras (`content/extras.yaml`): the switches in settings, the offer in onboarding and on This week, and items that belong to an extra. Thirty-one so far, in five groups (celebrating, family and friends, getting ready, for you two, money), each one content, and one also a feature: Choosing a name brings the names game. An extra can be only for some households (`when`, as Older siblings is only for a second baby), and only a few are offered in onboarding (`onboarding: true`). Not built: the features above, which need more than items (the log, records), and bump photos, which wait for uploads and backups. Left out on purpose: a kick counter (Australian guidance is to know your baby's pattern, not to count kicks) and a baby pool (friends can't log in, and the app has no birth to score against).*
 
 ## Order
 

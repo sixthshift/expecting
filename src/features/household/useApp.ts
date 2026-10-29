@@ -1,6 +1,6 @@
 import { getRouteApi } from "@tanstack/react-router";
 // The household as every pillar sees it: loaded once by the app route, then
-// tailored (only the items and tasks its facts fit, each task timed by them)
+// tailored (only the items and tasks its facts and extras fit, each task timed by them)
 // and placed in time.
 
 import { useMemo } from "react";
@@ -8,6 +8,7 @@ import { builtInItems, builtInTasks } from "../../content";
 import { applies } from "../../content/facts";
 import { buildChecklist } from "../../lib/checklist";
 import { todayISO } from "../../lib/dates";
+import { extrasOn, inExtras } from "../../lib/extras";
 import { factsOf, timeTask } from "../../lib/facts";
 import { positionOn } from "../../lib/timeline";
 
@@ -22,8 +23,9 @@ export function useApp() {
   // This week; null until there's a due date.
   const now = position?.week ?? null;
 
-  // Tailored: an item, and its tasks, only for a household its `when` fits.
-  const items = useMemo(() => builtInItems.filter((i) => applies(i.when, facts)), [facts]);
+  // Tailored: an item, and its tasks, only for a household its `when` fits, and in an extra only once that's on.
+  const on = useMemo(() => extrasOn(state.extras), [state.extras]);
+  const items = useMemo(() => builtInItems.filter((i) => applies(i.when, facts) && inExtras(i.extra, on)), [facts, on]);
   const tasks = useMemo(() => {
     const shown = new Set(items.map((i) => i.id));
     return buildChecklist(
@@ -32,5 +34,5 @@ export function useApp() {
     );
   }, [items, facts, dueDate, state.ownTasks]);
 
-  return { state, questions, today, position, now, facts, items, tasks };
+  return { state, questions, today, position, now, facts, extras: on, items, tasks };
 }

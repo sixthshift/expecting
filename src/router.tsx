@@ -1,4 +1,5 @@
 import { createRouter } from "@tanstack/react-router";
+import { LoadingPage } from "./components/loading/Loading";
 import { routeTree } from "./routes/tree";
 
 export function getRouter() {
@@ -12,6 +13,10 @@ export function getRouter() {
     // background: what's awaited is the fresh data, so a navigation straight after a save (onboarding's next
     // question) draws what was just saved, and useAction's pending lasts until the page shows it.
     defaultStaleReloadMode: "blocking",
+    // A page whose data is slow draws the loading animation in its place: not for a quick load (under
+    // 400ms, so it doesn't flash), and once shown, for at least the router's half a second.
+    defaultPendingComponent: LoadingPage,
+    defaultPendingMs: 400,
   });
 }
 

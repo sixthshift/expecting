@@ -2,8 +2,8 @@
 // asks again, and a task's deadline counted back from a date it gave. Pure,
 // tested apart from the screen.
 
-import { ASKS, type Ask, applies, cleanFacts, type FactQuestion, type Facts, factKey, UNSURE } from "../content/facts";
-import type { Task } from "../content/schema";
+import { ASKS, type Ask, applies, cleanFacts, type FactQuestion, type Facts, factKey, isAnswer, UNSURE } from "../content/facts";
+import type { Item, Task } from "../content/schema";
 import { addDays, type ISODate, todayISO } from "./dates";
 import type { Role } from "./people";
 import { positionOn, WEEKS, type Week } from "./timeline";
@@ -42,24 +42,44 @@ function isDefinite(q: FactQuestion, value: string | null | undefined): boolean 
   return value != null && !(q.type === "choice" && value === UNSURE);
 }
 
+/** Whether a question has a definite answer, still one of its own: not unknown, skipped or `unsure`. */
+export function isSettled(a: Ask, last: Answer | undefined): boolean {
+  return last !== undefined && isDefinite(a.question, last.value) && isAnswer(a.key, last.value!);
+}
+
 /**
- * The questions This week asks: those whose week has come, still unknown or
- * `unsure`. One answered (or skipped) before its week comes back at its week;
- * one answered `unsure`, or skipped, since then comes back ASK_AGAIN_AFTER
- * weeks later, not every week.
+ * The week This week asks a question, or null if it won't: a question with a
+ * week, still unknown or `unsure`. Never answered, or answered (or skipped)
+ * before its week, it comes at its week; answered `unsure`, or skipped, since
+ * then, ASK_AGAIN_AFTER weeks later, not every week.
  */
+export function nextAsked(a: Ask, last: Answer | undefined, dueDate: ISODate): Week | null {
+  const { week } = a.question;
+  if (week === undefined) return null;
+  if (!last) return week;
+  if (isSettled(a, last)) return null;
+  const answeredIn = positionOn(todayISO(new Date(last.answeredAt)), dueDate).week;
+  return answeredIn < week ? week : answeredIn + ASK_AGAIN_AFTER;
+}
+
+/** The questions This week asks: those whose week (nextAsked) has come. */
 export function questionsDue({ answers, now, dueDate }: { answers: readonly Answer[]; now: Week; dueDate: ISODate }): Ask[] {
-  const facts = factsOf(answers);
   const latest = latestByKey(answers);
-  return asksFor(facts).filter((a) => {
-    const { week } = a.question;
-    if (week === undefined || now < week) return false;
-    const last = latest[a.key];
-    if (!last) return true;
-    if (isDefinite(a.question, facts[a.key])) return false;
-    const answeredIn = positionOn(todayISO(new Date(last.answeredAt)), dueDate).week;
-    return answeredIn < week || now >= answeredIn + ASK_AGAIN_AFTER;
+  return asksFor(factsOf(answers)).filter((a) => {
+    const at = nextAsked(a, latest[a.key], dueDate);
+    return at !== null && now >= at;
   });
+}
+
+/**
+ * What a question decides: the items it shows or hides (`when`), whose words
+ * it changes (`$id` in the body), or whose deadline it counts back from.
+ */
+export function decides(id: string, items: readonly Item[]): Item[] {
+  const named = new RegExp(`\\$${id}\\b`);
+  return items.filter(
+    (item) => Object.keys(item.when).some((key) => key.split(".")[0] === id) || named.test(item.body) || item.tasks.some((t) => t.deadlineFrom?.fact === id)
+  );
 }
 
 /**

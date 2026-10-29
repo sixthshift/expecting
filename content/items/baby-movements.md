@@ -1,6 +1,7 @@
 ---
 id: baby-movements
 title: Your baby's movements matter
+summary: "Get to know your baby's own pattern of movements, and call the midwife or birth unit straight away if it slows, weakens or stops."
 weeks: [16, 40]
 category: baby
 surprise: true
@@ -8,7 +9,7 @@ draft: true
 source:
   title: Safer Baby (Stillbirth CRE) — Your baby's movements matter
   url: https://www.saferbaby.org.au/preventative-steps/your-babys-movements-matter/
-checked: 2026-10-27
+checked: 2026-10-29
 ---
 First movements usually show up somewhere between 16 and 24 weeks — flutters, swishes, tiny kicks. By about 28 weeks they become regular, and babies keep moving every day right up to birth.
 

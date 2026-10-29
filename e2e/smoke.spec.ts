@@ -11,6 +11,7 @@ const pages = [
   { path: "/planner", heading: "Planner" },
   { path: "/journal", heading: "Journal" },
   { path: "/drawer", heading: "Drawer" },
+  { path: "/drawer/emergency", heading: "Emergency info" },
   { path: "/settings", heading: "Settings" },
 ];
 
@@ -18,7 +19,7 @@ for (const { path, heading } of pages) {
   test(`${path} loads`, async ({ page, open }) => {
     await open(path);
     await expect(page.getByRole("heading", { level: 1, name: heading })).toBeAttached();
-    if (heading === "Timeline") await expect(page.getByRole("slider", { name: "Timeline" })).toBeVisible();
+    if (heading === "Timeline") await expect(page.locator('[data-week="36"]')).toBeVisible();
   });
 }
 
@@ -37,7 +38,7 @@ test("every pillar and settings is reachable", async ({ page, open }) => {
 });
 
 test("a week shows its note, read as the partner holding this phone, or as the other", async ({ page, open }) => {
-  await open("/timeline?at=20");
+  await open("/?at=20");
   const note = page.getByRole("article", { name: "Halfway" });
   await expect(note).toBeVisible();
   for (const part of ["The baby", "For the partner"]) await expect(note.getByRole("heading", { name: part })).toBeVisible();
@@ -108,6 +109,10 @@ test("server functions refuse a caller without a session", async ({ page, open, 
 test("logging out ends the session", async ({ page, open }) => {
   await open("/settings");
   await page.getByRole("button", { name: "Log out" }).click();
+  // It asks first, and Cancel keeps you in.
+  await page.getByRole("button", { name: "Cancel" }).click();
+  await page.getByRole("button", { name: "Log out" }).click();
+  await page.getByRole("button", { name: "Yes, log out" }).click();
   await expect(page).toHaveURL(/\/login$/);
   await open("/settings");
   await expect(page).toHaveURL(/\/login\?next=%2Fsettings$/);

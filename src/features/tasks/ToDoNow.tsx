@@ -2,24 +2,12 @@ import { Badge } from "@sixthshift/design-system/badge";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { whose } from "../../lib/people";
-import { type Week, weekLabel } from "../../lib/timeline";
-import { type ToDo, toDoNow } from "../../lib/todo";
+import { toDoNow, whenToDo } from "../../lib/todo";
 import { useApp } from "../household/useApp";
 import { TaskRow } from "./TaskRow";
 
 /** How many To do now shows before handing over to the Planner. */
 const SHOWN = 5;
-
-const week = (w: Week) => weekLabel(w).toLowerCase();
-
-/** When, in a few words: "deadline week 30", "was due week 25", "this week", "by week 30". */
-function when({ task, why }: ToDo, now: Week): string {
-  if (why === "deadline" && task.deadline !== null) {
-    return task.deadline < now ? `deadline was ${week(task.deadline)}` : `deadline ${week(task.deadline)}`;
-  }
-  if (why === "slipped") return `was due ${week(task.due)}`;
-  return task.due === now ? "this week" : `by ${week(task.due)}`;
-}
 
 /**
  * What This week opens with: the few things to do now, most urgent first,
@@ -34,7 +22,7 @@ export function ToDoNow() {
 
   return (
     <section aria-labelledby="to-do-now" className="flex flex-col gap-2">
-      <h2 id="to-do-now" className="text-lg font-semibold text-fg-strong">
+      <h2 id="to-do-now" className="text-lg font-display font-semibold text-fg-strong">
         To do now
       </h2>
       {shown.length === 0 ? (
@@ -51,10 +39,10 @@ export function ToDoNow() {
                 <span className="flex flex-wrap items-center gap-x-2">
                   {entry.why === "deadline" ? (
                     <Badge size="sm" variant="soft" intent="warning">
-                      {when(entry, now)}
+                      {whenToDo(entry, now)}
                     </Badge>
                   ) : (
-                    <span>{when(entry, now)}</span>
+                    <span>{whenToDo(entry, now)}</span>
                   )}
                   {/* Both of yours is the usual; only one person's job says whose. */}
                   {entry.task.who === "together" ? null : <span>{whose(entry.task.who, state.me, state.people)}</span>}

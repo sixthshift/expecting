@@ -1,7 +1,9 @@
 import { describe, expect, test } from "vitest";
+import { builtInItems } from "../../src/content";
+import { ask } from "../../src/content/facts";
 import type { Task } from "../../src/content/schema";
 import type { ISODate } from "../../src/lib/dates";
-import { type Answer, factsOf, questionsDue, timeTask } from "../../src/lib/facts";
+import { type Answer, decides, factsOf, nextAsked, questionsDue, timeTask } from "../../src/lib/facts";
 import { weekStarts } from "../../src/lib/timeline";
 
 const dueDate: ISODate = "2027-03-01";
@@ -48,6 +50,40 @@ describe("questionsDue", () => {
   test("a question depending on another waits for it", () => {
     expect(due([answer("firstBaby", "yes", 6)], 8)).not.toContain("previousCaesarean");
     expect(due([answer("firstBaby", "no", 6)], 8)).toContain("previousCaesarean");
+  });
+});
+
+describe("nextAsked", () => {
+  const cover = ask("cover")!;
+
+  test("unanswered, at its week; settled, never", () => {
+    expect(nextAsked(cover, undefined, dueDate)).toBe(8);
+    expect(nextAsked(cover, answer("cover", "no", 6), dueDate)).toBeNull();
+    expect(nextAsked(ask("leaveStart.partner")!, answer("leaveStart.partner", "2027-04-01", 20), dueDate)).toBeNull();
+  });
+
+  test("not sure before its week, at its week; since then, four weeks on", () => {
+    expect(nextAsked(cover, answer("cover", "unsure", 6), dueDate)).toBe(8);
+    expect(nextAsked(cover, answer("cover", "unsure", 9), dueDate)).toBe(13);
+    expect(nextAsked(cover, answer("cover", null, 10), dueDate)).toBe(14);
+  });
+});
+
+describe("decides", () => {
+  const ids = (id: string) => decides(id, builtInItems).map((i) => i.id);
+
+  test("an item it shows or hides, one whose words it changes, and a deadline it counts back from", () => {
+    expect(ids("rhd")).toContain("anti-d");
+    expect(ids("cover")).toContain("rsv-vaccine");
+    expect(ids("leaveStart")).toContain("employer-leave-notice");
+  });
+
+  test("a question nothing is written against decides nothing", () => {
+    expect(ids("firstBaby")).toEqual([]);
+  });
+
+  test("a name is matched whole: $cove is not $cover", () => {
+    expect(ids("cove")).toEqual([]);
   });
 });
 

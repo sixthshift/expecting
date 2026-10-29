@@ -17,13 +17,15 @@ describe("content/facts.yaml", () => {
   });
 
   test.each([
-    ["a repeated id", "- { id: a, ask: A, answers: { x: X, y: Y } }\n- { id: a, ask: B, answers: { x: X, y: Y } }", /appears twice/],
-    ["one answer", "- { id: a, ask: A, answers: { x: X } }", /at least two answers/],
-    ["an id content can't name", "- { id: first-baby, ask: A, answers: { x: X, y: Y } }", /camelCase/],
-    ["a week past the pregnancy", "- { id: a, ask: A, week: 43, answers: { x: X, y: Y } }", /42/],
-    ["a date with answers", "- { id: a, ask: A, type: date, answers: { x: X, y: Y } }", /no answers/],
-    ["one about each that names nobody", "- { id: a, ask: Do you work?, about: each, answers: { x: X, y: Y } }", /\{name\}/],
-    ["a when on nothing", "- { id: a, ask: A, when: { b: x }, answers: { x: X, y: Y } }", /"b" is not a question/],
+    ["a repeated id", "- { id: a, group: care, ask: A, answers: { x: X, y: Y } }\n- { id: a, group: care, ask: B, answers: { x: X, y: Y } }", /appears twice/],
+    ["one answer", "- { id: a, group: care, ask: A, answers: { x: X } }", /at least two answers/],
+    ["an id content can't name", "- { id: first-baby, group: care, ask: A, answers: { x: X, y: Y } }", /camelCase/],
+    ["a week past the pregnancy", "- { id: a, group: care, ask: A, week: 43, answers: { x: X, y: Y } }", /42/],
+    ["a date with answers", "- { id: a, group: care, ask: A, type: date, answers: { x: X, y: Y } }", /no answers/],
+    ["one about each that names nobody", "- { id: a, group: care, ask: Do you work?, about: each, answers: { x: X, y: Y } }", /\{name\}/],
+    ["no group", "- { id: a, ask: A, answers: { x: X, y: Y } }", /group/],
+    ["a group settings doesn't have", "- { id: a, group: misc, ask: A, answers: { x: X, y: Y } }", /group/],
+    ["a when on nothing", "- { id: a, group: care, ask: A, when: { b: x }, answers: { x: X, y: Y } }", /"b" is not a question/],
   ])("rejects %s", (_name, text, message) => {
     expect(() => parseFacts(text)).toThrow(message);
   });

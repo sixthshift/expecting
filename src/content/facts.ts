@@ -13,6 +13,16 @@ import { isISODate } from "../lib/dates";
 import type { Role } from "../lib/people";
 import { WEEKS } from "../lib/timeline";
 
+/** Where settings shows a question, in this order. */
+export const GROUPS = {
+  pregnancy: "The pregnancy",
+  care: "Care and the birth",
+  work: "Work and leave",
+  after: "After the birth",
+} as const;
+
+export type Group = keyof typeof GROUPS;
+
 const slug = z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "answers are lower-case words joined by hyphens");
 
 /** For each fact, the answers something is for: `{ cover: [no, unsure] }`. */
@@ -28,6 +38,8 @@ const questionSchema = z
     id: z.string().regex(/^[a-z][a-zA-Z0-9]*$/, "a question id is one camelCase word, so content can write it as $id"),
     /** About each of you, `{name}` is whose it is: "Does {name} work?" */
     ask: z.string().min(1),
+    /** Where settings shows it. */
+    group: z.enum(Object.keys(GROUPS) as [Group, ...Group[]]),
     /** Also asked in the first-run questions, not only in settings. */
     asked: z.literal("onboarding").optional(),
     /** The pregnancy week This week asks it: again, if still unanswered or `unsure`. */

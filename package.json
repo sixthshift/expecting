@@ -19,6 +19,8 @@
     "palette": "bun run scripts/palette.ts && bun run scripts/palette-sheet.ts"
   },
   "dependencies": {
+    "@fontsource-variable/figtree": "^5.3.0",
+    "@fontsource-variable/fraunces": "^5.3.0",
     "@markdoc/markdoc": "^0.5.11",
     "@sixthshift/design-system": "^0.11.0",
     "@tanstack/react-router": "^1.170.36",
@@ -50,5 +52,8 @@
     "typescript": "^7.0.2",
     "vite": "^8.3.0",
     "vitest": "^5.0.0"
+  },
+  "patchedDependencies": {
+    "@sixthshift/design-system@0.11.0": "patches/@sixthshift%2Fdesign-system@0.11.0.patch"
   }
 }

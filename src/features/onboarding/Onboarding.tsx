@@ -11,6 +11,7 @@ import { stepAt, stepHref } from "./paths";
 import type { Screen, StepContext } from "./step";
 import { babyStep } from "./steps/baby";
 import { dueStep } from "./steps/due";
+import { extrasStep } from "./steps/extras";
 import { questionStep } from "./steps/question";
 import { readyStep } from "./steps/ready";
 import { whoStep } from "./steps/who";
@@ -122,7 +123,7 @@ export function OnboardingStep() {
             id="step-heading"
             ref={heading}
             tabIndex={-1}
-            className="text-2xl leading-tight font-semibold text-fg-strong outline-none focus-visible:ring-0 focus-visible:outline-none lg:text-3xl"
+            className="text-2xl leading-tight font-display font-semibold text-fg-strong outline-none focus-visible:ring-0 focus-visible:outline-none lg:text-3xl"
           >
             {screen.title}
           </h1>
@@ -143,6 +144,8 @@ function renderStep(step: Step, context: StepContext): Screen {
       return dueStep(context);
     case "baby":
       return babyStep(context);
+    case "extras":
+      return extrasStep(context);
     case "ready":
       return readyStep(context);
     default:

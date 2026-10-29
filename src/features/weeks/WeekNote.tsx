@@ -44,7 +44,7 @@ export function WeekNote({
             </Badge>
           ) : null}
         </div>
-        <h3 id={`note-${note.week}`} className="text-lg leading-snug font-semibold text-fg-strong">
+        <h3 id={`note-${note.week}`} className="text-lg leading-snug font-display font-semibold text-fg-strong">
           {note.title}
         </h3>
         {size ? <p className="text-sm text-fg-subtle">{size.charAt(0).toUpperCase() + size.slice(1)}.</p> : null}
@@ -65,7 +65,7 @@ export function WeekNote({
         />
         {LENS[lens].map((section) => (
           <section key={section} className="max-w-prose">
-            <h4 className="text-sm font-semibold text-fg-brand">{SECTIONS[section]}</h4>
+            <h4 className="text-sm font-display font-semibold text-fg-brand">{SECTIONS[section]}</h4>
             <ItemBody doc={note.sections[section]} />
           </section>
         ))}

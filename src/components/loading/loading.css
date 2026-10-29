@@ -1,0 +1,80 @@
+/*
+ * The loading animations (src/components/loading/). Each loader's parts move
+ * about points in its own 100-unit box, hence `transform-box: view-box`.
+ */
+
+.loading-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* The stork */
+.stork-glide {
+  animation: stork-glide 1.4s ease-in-out infinite alternate;
+}
+.stork-wing {
+  transform-box: view-box;
+  transform-origin: 44px 46px;
+  animation: stork-flap 0.7s ease-in-out infinite alternate;
+}
+.stork-bundle {
+  transform-box: view-box;
+  transform-origin: 88px 35px;
+  animation: stork-swing 1.4s ease-in-out infinite alternate;
+}
+.stork-cloud {
+  transform-box: view-box;
+  animation: stork-drift 3s linear infinite;
+}
+.stork-cloud-later {
+  animation-delay: -1.5s;
+}
+
+@keyframes stork-glide {
+  from {
+    transform: translateY(-2px);
+  }
+  to {
+    transform: translateY(2px);
+  }
+}
+@keyframes stork-flap {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(-0.5);
+  }
+}
+@keyframes stork-swing {
+  from {
+    transform: rotate(-8deg);
+  }
+  to {
+    transform: rotate(8deg);
+  }
+}
+@keyframes stork-drift {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+}
+
+/* Still, for anyone who has asked their device for less motion. Last, so it
+   wins over the rules above at the same specificity. */
+@media (prefers-reduced-motion: reduce) {
+  .loading-svg * {
+    animation: none;
+  }
+}
