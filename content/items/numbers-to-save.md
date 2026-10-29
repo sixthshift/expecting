@@ -3,11 +3,12 @@ id: numbers-to-save
 title: Numbers to save
 summary: "Save the support numbers in both phones now, so you're not searching for one at 3 am."
 weeks: [34, 38]
-category: after-the-birth
+type: moment
+topic: after-the-birth
 draft: true
-source:
-  title: Australian Breastfeeding Association — Breastfeeding Helpline
-  url: https://www.breastfeeding.asn.au/breastfeeding-helpline
+sources:
+  - title: Australian Breastfeeding Association — Breastfeeding Helpline
+    url: https://www.breastfeeding.asn.au/breastfeeding-helpline
 checked: 2026-10-29
 tasks:
   - id: save-support-numbers

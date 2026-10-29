@@ -3,12 +3,13 @@ id: caffeine-and-alcohol
 title: Coffee and alcohol
 summary: "Up to 200 mg of caffeine a day, about one or two coffees; and no alcohol, which has no safe amount in pregnancy."
 weeks: [4, 12]
-category: body
+type: moment
+topic: body
 extra: food-safety
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Caffeine during pregnancy
-  url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/caffeine-during-pregnancy
+sources:
+  - title: Pregnancy, Birth and Baby — Caffeine during pregnancy
+    url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/caffeine-during-pregnancy
 ---
 **Caffeine:** the advice in Australia is no more than 200 mg a day from everything: coffee, tea, cola, chocolate and energy drinks. That's roughly one or two espresso-based coffees, or three cups of instant. Café coffee varies a lot in strength, and a double shot counts twice. Too much caffeine is linked to miscarriage and low birth weight.
 

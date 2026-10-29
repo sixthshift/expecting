@@ -3,11 +3,12 @@ id: morphology-scan
 title: The morphology scan
 summary: "The detailed ultrasound at about 18 to 20 weeks that checks how the baby is growing and developing."
 weeks: [16, 20]
-category: appointments
+type: moment
+topic: appointments
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Morphology scan
-  url: https://www.pregnancybirthbaby.org.au/morphology-scan
+sources:
+  - title: Pregnancy, Birth and Baby — Morphology scan
+    url: https://www.pregnancybirthbaby.org.au/morphology-scan
 checked: 2026-10-29
 tasks:
   - id: book-morphology-scan

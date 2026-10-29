@@ -3,12 +3,13 @@ id: staying-active
 title: Staying active
 summary: "Being active most days is recommended in an uncomplicated pregnancy; a class run for pregnancy makes it easier to keep going."
 weeks: [12, 36]
-category: body
+type: moment
+topic: body
 extra: exercise
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Exercising during pregnancy
-  url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+sources:
+  - title: Pregnancy, Birth and Baby — Exercising during pregnancy
+    url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
 tasks:
   - id: book-pregnancy-exercise-class
     title: Book a pregnancy exercise class, if you'd like one

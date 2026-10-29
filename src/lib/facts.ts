@@ -76,9 +76,9 @@ export function questionsDue({ answers, now, dueDate }: { answers: readonly Answ
  * it changes (`$id` in the body), or whose deadline it counts back from.
  */
 export function decides(id: string, items: readonly Item[]): Item[] {
-  const named = new RegExp(`\\$${id}\\b`);
   return items.filter(
-    (item) => Object.keys(item.when).some((key) => key.split(".")[0] === id) || named.test(item.body) || item.tasks.some((t) => t.deadlineFrom?.fact === id)
+    (item) =>
+      Object.keys(item.when).some((key) => key.split(".")[0] === id) || item.variables.includes(id) || item.tasks.some((t) => t.deadlineFrom?.fact === id)
   );
 }
 

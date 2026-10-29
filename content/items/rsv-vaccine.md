@@ -3,12 +3,13 @@ id: rsv-vaccine
 title: The RSV vaccine
 summary: "A free vaccine from 28 weeks protects the baby from birth against RSV, a leading cause of hospital stays in babies."
 weeks: [28, 36]
-category: appointments
+type: moment
+topic: appointments
 surprise: true
 draft: true
-source:
-  title: Australian Immunisation Handbook — RSV vaccine in pregnancy
-  url: https://immunisationhandbook.health.gov.au/recommendations/pregnant-women-are-recommended-to-receive-an-rsv-vaccine-during-each-pregnancy-to-protect-their-infant
+sources:
+  - title: Australian Immunisation Handbook — RSV vaccine in pregnancy
+    url: https://immunisationhandbook.health.gov.au/recommendations/pregnant-women-are-recommended-to-receive-an-rsv-vaccine-during-each-pregnancy-to-protect-their-infant
 checked: 2026-10-29
 tasks:
   - id: book-rsv-vaccine

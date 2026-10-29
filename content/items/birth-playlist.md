@@ -3,12 +3,13 @@ id: birth-playlist
 title: Birth playlist
 summary: "Music is one of the things people use to relax in labour; make the playlist, download it, and pack the small comforts in the hospital bag."
 weeks: [32, 37]
-category: baby-gear
+type: moment
+topic: gear
 extra: birth-playlist
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Non-medical pain relief during labour
-  url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/non-medical-pain-relief-during-labour
+sources:
+  - title: Pregnancy, Birth and Baby — Non-medical pain relief during labour
+    url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/non-medical-pain-relief-during-labour
 tasks:
   - id: make-birth-playlist
     title: Make the birth playlist and download it to a phone

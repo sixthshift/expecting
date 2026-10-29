@@ -3,12 +3,13 @@ id: partner-prep
 title: Getting ready as the partner
 summary: "The partner's own jobs before the birth: a class, the vaccines, the route and the numbers, and knowing the plan."
 weeks: [16, 38]
-category: partner
+type: moment
+topic: partner
 extra: partner-prep
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — The role of a birth support partner
-  url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
+sources:
+  - title: Pregnancy, Birth and Baby — The role of a birth support partner
+    url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
 tasks:
   - id: partner-class-or-session
     title: Find a partners' class or session, alongside the antenatal classes

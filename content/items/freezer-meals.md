@@ -3,7 +3,8 @@ id: freezer-meals
 title: Freezer meals
 summary: "A freezer full of easy meals is one of the most useful things you can do for the first weeks home, so plan it and cook it in the last month or two."
 weeks: [32, 39]
-category: after-the-birth
+type: moment
+topic: after-the-birth
 extra: freezer-meals
 draft: true
 tasks:

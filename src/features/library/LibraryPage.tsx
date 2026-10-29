@@ -11,9 +11,9 @@ import { rangeLabel } from "./ItemCard";
 import { ItemList } from "./ItemList";
 import { RightNow } from "./RightNow";
 
-/** Whether an item matches what was typed: every word, in its title, summary or body. */
+/** Whether an item matches what was typed: every word, in its title, the question it answers, its other names or its summary. */
 function matches(item: Item, query: string): boolean {
-  const text = `${item.title} ${item.summary ?? ""} ${item.body}`.toLowerCase();
+  const text = `${item.title} ${item.ask ?? ""} ${item.aliases.join(" ")} ${item.summary ?? ""}`.toLowerCase();
   return query
     .toLowerCase()
     .split(/\s+/)

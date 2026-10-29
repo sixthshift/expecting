@@ -1,16 +1,28 @@
-// The built-in items, bundled from content/items/*.md so every week reads
-// offline, and this week's notes from content/weeks/<week>.md.
-// A malformed file throws as this module loads; test/content/content.test.ts
-// loads it, so a bad item fails the gate before it reaches a page.
+// The built-in items, from content/items/*.md, so every week reads offline:
+// every item's index up front (src/content/vite.ts), and each one's page
+// when it opens. This week's notes come whole from content/weeks/<week>.md.
+// A malformed index throws as this module loads; test/content/content.test.ts
+// parses every file whole, pages too, so a bad item fails the gate before it
+// reaches a page.
 
+import halves from "virtual:expecting/items";
 import type { Week } from "../lib/timeline";
-import { parseAll } from "./parse";
-import type { Item, Task } from "./schema";
+import type { PageHalf } from "./file";
+import { indexAll, parsePage } from "./parse";
+import type { Item, ItemPage, Task } from "./schema";
 import { parseWeeks, type WeekNote } from "./weeks";
 
-const files = import.meta.glob<string>("../../content/items/*.md", { query: "?raw", eager: true, import: "default" });
+export const builtInItems: readonly Item[] = indexAll(halves).sort(byTimeline);
 
-export const builtInItems: readonly Item[] = parseAll(files).sort(byTimeline);
+const pages = import.meta.glob<PageHalf>("../../content/items/*.md", { query: "?page", import: "default" });
+
+/** An item's page: its body, sources and related, fetched with the item's own chunk. */
+export async function loadPage(item: Item): Promise<ItemPage> {
+  const file = `items/${item.id}.md`;
+  const load = pages[`../../content/${file}`];
+  if (!load) throw new Error(`No page for ${item.id}`);
+  return parsePage(file, await load(), item.type);
+}
 
 const weekFiles = import.meta.glob<string>("../../content/weeks/*.md", { query: "?raw", eager: true, import: "default" });
 
@@ -25,11 +37,13 @@ export function isBuiltInTaskId(id: string): boolean {
   return taskIds.has(id);
 }
 
+/** By their weeks, then title; those without weeks last. */
 export function byTimeline(a: Item, b: Item): number {
+  if (a.from === null || b.from === null) return (a.from === null ? 1 : 0) - (b.from === null ? 1 : 0) || a.title.localeCompare(b.title);
   return a.from - b.from || a.to - b.to || a.title.localeCompare(b.title);
 }
 
-/** Whether `item` applies in `week`. */
+/** Whether `item` applies in `week`. One without weeks never does. */
 export function covers(item: Item, week: Week): boolean {
-  return item.from <= week && week <= item.to;
+  return item.from !== null && item.from <= week && week <= item.to;
 }

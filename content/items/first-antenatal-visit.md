@@ -3,11 +3,12 @@ id: first-antenatal-visit
 title: The first visit and choosing your care
 summary: "The first visit, best before 10 weeks and ideally at about 6 to 8, is where you start choosing your care."
 weeks: [4, 10]
-category: appointments
+type: moment
+topic: appointments
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Your first antenatal visit
-  url: https://www.pregnancybirthbaby.org.au/your-first-antenatal-visit
+sources:
+  - title: Pregnancy, Birth and Baby — Your first antenatal visit
+    url: https://www.pregnancybirthbaby.org.au/your-first-antenatal-visit
 checked: 2026-10-29
 tasks:
   - id: book-first-gp-visit

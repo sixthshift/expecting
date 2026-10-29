@@ -3,7 +3,8 @@ id: keepsakes
 title: Keepsakes
 summary: "A belly cast, hand and foot prints, a letter to the baby, a time capsule: decide which you'd like and get any kits before the last weeks."
 weeks: [20, 40]
-category: celebrations
+type: moment
+topic: celebrations
 extra: keepsakes
 draft: true
 tasks:

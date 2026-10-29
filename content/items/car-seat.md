@@ -3,11 +3,12 @@ id: car-seat
 title: The car seat
 summary: "Babies up to 6 months must be in an approved rear-facing car seat that meets the Australian standard, so sort one well before labour."
 weeks: [30, 37]
-category: baby-gear
+type: moment
+topic: gear
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Car and road safety for babies and children
-  url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
+sources:
+  - title: Pregnancy, Birth and Baby — Car and road safety for babies and children
+    url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
 checked: 2026-10-29
 tasks:
   - id: buy-and-fit-car-seat

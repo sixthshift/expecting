@@ -3,12 +3,13 @@ id: anti-d
 title: Anti-D if your blood group is RhD negative
 summary: "If the pregnant parent is RhD negative, anti-D injections at 28 and 34 weeks may be offered to stop antibodies that affect this or a future baby."
 weeks: [26, 34]
-category: appointments
+type: moment
+topic: appointments
 when: { rhd: negative }
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Rhesus D negative in pregnancy
-  url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+sources:
+  - title: Pregnancy, Birth and Baby — Rhesus D negative in pregnancy
+    url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
 checked: 2026-10-29
 ---
 You'll have a blood test early in pregnancy to find out your blood group, and with it your Rhesus (RhD) factor: positive or negative.

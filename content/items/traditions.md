@@ -3,7 +3,8 @@ id: traditions
 title: Traditions around the birth
 summary: "Naming ceremonies, baptisms, the confinement month and other customs often involve booking people or places; talk them through with both families well before the birth."
 weeks: [20, 40]
-category: celebrations
+type: moment
+topic: celebrations
 extra: traditions
 draft: true
 tasks:

@@ -3,12 +3,13 @@ id: fish-and-mercury
 title: Fish and mercury
 summary: "Most Australian fish is low in mercury and good to eat; a few large fish have a limit."
 weeks: [4, 12]
-category: body
+type: moment
+topic: body
 extra: food-safety
 draft: true
-source:
-  title: NSW Food Authority — Mercury and fish
-  url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/mercury-and-fish
+sources:
+  - title: NSW Food Authority — Mercury and fish
+    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/mercury-and-fish
 ---
 Fish is worth eating in pregnancy: protein, iodine and omega-3. Food Standards Australia New Zealand suggests two to three serves a week of fish that isn't on the mercury list, cooked through and eaten hot. Salmon, sardines, mackerel, trout and herring are high in omega-3 and low in mercury.
 

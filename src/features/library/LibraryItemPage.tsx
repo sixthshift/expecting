@@ -1,10 +1,14 @@
+import { Spinner } from "@sixthshift/design-system/spinner";
 import { getRouteApi, Link } from "@tanstack/react-router";
 import { ArrowLeft, CalendarRange } from "lucide-react";
+import { Suspense, use } from "react";
 import { builtInItems } from "../../content";
 import { extra } from "../../content/extras";
+import type { Item } from "../../content/schema";
 import { weekLabel } from "../../lib/timeline";
 import { useApp } from "../household/useApp";
 import { ItemCard } from "./ItemCard";
+import { pageOf } from "./pageOf";
 
 const route = getRouteApi("/app/library/$itemId");
 
@@ -28,11 +32,21 @@ export function LibraryItemPage() {
         <div className="flex flex-col gap-4">
           {/* The card's title is an h3 among weeks; here it is the page's subject. */}
           <h1 className="sr-only">{item.title}</h1>
-          <ItemCard item={item} ticks={state.ticks} />
-          <Link to="/timeline" search={{ at: item.from }} className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal">
-            <CalendarRange aria-hidden size={16} className="text-fg-brand" />
-            See {weekLabel(item.from).toLowerCase()} on the timeline
-          </Link>
+          <Suspense
+            fallback={
+              <p className="flex min-h-40 items-center justify-center gap-2 text-sm text-fg-subtle">
+                <Spinner size="sm" /> Opening {item.title}
+              </p>
+            }
+          >
+            <Page item={item} ticks={state.ticks} />
+          </Suspense>
+          {item.from !== null ? (
+            <Link to="/timeline" search={{ at: item.from }} className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal">
+              <CalendarRange aria-hidden size={16} className="text-fg-brand" />
+              See {weekLabel(item.from).toLowerCase()} on the timeline
+            </Link>
+          ) : null}
         </div>
       ) : (
         <div className="flex flex-col gap-2">
@@ -62,4 +76,10 @@ export function LibraryItemPage() {
       )}
     </main>
   );
+}
+
+/** The item with its page, once loaded. */
+function Page({ item, ticks }: { item: Item; ticks: Record<string, string> }) {
+  const page = use(pageOf(item));
+  return <ItemCard item={item} page={page} ticks={ticks} />;
 }

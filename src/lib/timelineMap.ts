@@ -7,7 +7,7 @@
 //   so what overlaps and what's open now can be seen at a glance
 //   landmarks: the moments people mark, halfway, full term, the due date
 
-import type { Item, Task } from "../content/schema";
+import { asks, type DatedItem, type Item, type Task } from "../content/schema";
 import type { WeekNote } from "../content/weeks";
 import { type ISODate, todayISO } from "./dates";
 import type { Question } from "./questions";
@@ -27,10 +27,10 @@ export const TRIMESTERS = { 1: "First trimester", 2: "Second trimester", 3: "Thi
 export type WindowState = "past" | "open" | "ahead" | "done";
 
 /** An item that asks something of you, across its weeks. */
-export type MapWindow = { item: Item; from: Week; to: Week; state: WindowState };
+export type MapWindow = { item: DatedItem; from: Week; to: Week; state: WindowState };
 
 export function mapWindows(items: readonly Item[], ticks: Record<string, string>, now: Week | null): MapWindow[] {
-  const asking = items.filter((i) => i.tasks.length > 0).sort((a, b) => a.from - b.from || a.to - b.to);
+  const asking = items.filter(asks).sort((a, b) => a.from - b.from || a.to - b.to);
   return asking.map((item) => {
     const done = item.tasks.every((t) => ticks[t.id]);
     const state: WindowState = done ? "done" : now === null || now < item.from ? "ahead" : now > item.to ? "past" : "open";

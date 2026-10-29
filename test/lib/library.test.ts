@@ -1,24 +1,28 @@
-import Markdoc from "@markdoc/markdoc";
 import { describe, expect, test } from "vitest";
-import type { Category, Item } from "../../src/content/schema";
+import type { DatedItem, Item, Topic } from "../../src/content/schema";
 import { arrangeLibrary, rightNow, standingLabel } from "../../src/lib/library";
 
-function item(id: string, from: number, category: Category, surprise = false): Item {
+function item(id: string, from: number, topic: Topic, surprise = false): DatedItem {
   return {
     id,
     title: id,
     summary: null,
     from,
     to: from,
-    category,
+    type: "moment",
+    topic,
+    ask: null,
+    aliases: [],
+    who: null,
+    stakes: null,
+    verdict: null,
+    decideBy: null,
     surprise,
+    private: false,
     draft: true,
-    source: null,
-    checked: null,
     when: {},
     extra: null,
-    body: "x",
-    doc: Markdoc.parse("x"),
+    variables: [],
     tasks: [],
     origin: "built-in",
   };
@@ -29,18 +33,18 @@ const items = [
   item("folic-acid", 4, "body"),
   item("dating-scan", 6, "appointments"),
   item("rsv", 28, "appointments", true),
-  item("car-seat", 30, "baby-gear"),
+  item("car-seat", 30, "gear"),
   item("numbers", 36, "after-the-birth"),
 ];
 
 test("the things nobody tells you, then every topic in its usual order", () => {
   expect(arrangeLibrary(items).map((s) => [s.title, s.items.map((i) => i.id)])).toEqual([
     ["Nobody tells you", ["cover", "rsv"]],
-    ["Appointments", ["dating-scan", "rsv"]],
     ["Body", ["folic-acid"]],
+    ["Appointments", ["dating-scan", "rsv"]],
+    ["After the birth", ["numbers"]],
     ["Money", ["cover"]],
     ["Baby gear", ["car-seat"]],
-    ["After the birth", ["numbers"]],
   ]);
 });
 
@@ -49,7 +53,11 @@ test("an empty shelf isn't shown", () => {
 });
 
 describe("right now", () => {
-  const span = (id: string, from: number, to: number): Item => ({ ...item(id, from, "appointments"), to });
+  const span = (id: string, from: number, to: number): DatedItem => ({
+    ...item(id, from, "appointments"),
+    to,
+    tasks: [{ id: `${id}-task`, title: id, opens: from, due: to, deadline: null, deadlineFrom: null, who: "together", itemId: id, origin: "built-in" }],
+  });
   const windows = [span("flu", 4, 40), span("gtt", 24, 28), span("rsv", 28, 36), span("whooping", 20, 32), span("car-seat", 30, 37)];
 
   test("the items open this week, soonest-closing first, with where each stands", () => {
@@ -76,5 +84,12 @@ describe("right now", () => {
 
   test("nothing open, nothing shown", () => {
     expect(rightNow(windows, 2)).toEqual([]);
+  });
+
+  test("only what asks something of you: an item without tasks, or without weeks, is on its shelf instead", () => {
+    const reading = { ...span("reading", 20, 32), tasks: [] };
+    const weekless: Item = { ...item("vernix", 1, "baby"), from: null, to: null };
+    expect(rightNow([reading, weekless, ...windows], 28).map(({ item }) => item.id)).not.toContain("reading");
+    expect(rightNow([reading, weekless, ...windows], 28).map(({ item }) => item.id)).not.toContain("vernix");
   });
 });

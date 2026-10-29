@@ -3,12 +3,13 @@ id: second-hand-gear
 title: Second-hand baby gear
 summary: "Most baby gear is fine second-hand; a car seat only if you know its whole history, and a cot only if it meets the Australian standard."
 weeks: [20, 36]
-category: baby-gear
+type: moment
+topic: gear
 extra: second-hand
 draft: true
-source:
-  title: Red Nose — Second-hand nursery furniture
-  url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/second-hand-nursery-furniture/
+sources:
+  - title: Red Nose — Second-hand nursery furniture
+    url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/second-hand-nursery-furniture/
 tasks:
   - id: check-second-hand-recalls
     title: Check the second-hand gear against Product Safety Australia's recalls

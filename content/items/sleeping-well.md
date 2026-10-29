@@ -3,12 +3,13 @@ id: sleeping-well
 title: Sleeping well in the later months
 summary: "From 28 weeks, doctors recommend going to sleep on your side; a pregnancy pillow and a bed set up for it make that easier."
 weeks: [20, 40]
-category: body
+type: moment
+topic: body
 extra: sleep-setup
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Sleep during pregnancy
-  url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
+sources:
+  - title: Pregnancy, Birth and Baby — Sleep during pregnancy
+    url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
 tasks:
   - id: buy-pregnancy-pillow
     title: Buy a pregnancy pillow, if you'd like one

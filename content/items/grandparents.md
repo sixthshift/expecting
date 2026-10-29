@@ -3,12 +3,13 @@ id: grandparents
 title: The grandparents-to-be
 summary: "Talk with the grandparents early about the help you'd like and the role they'll have, so nobody is guessing when the baby comes."
 weeks: [12, 36]
-category: after-the-birth
+type: moment
+topic: after-the-birth
 extra: grandparents
 draft: true
-source:
-  title: Gidget Foundation — How can support people help expectant and new parents?
-  url: https://www.gidgetfoundation.org.au/fact-sheets/how-can-support-people-help-expectant-and-new-parents
+sources:
+  - title: Gidget Foundation — How can support people help expectant and new parents?
+    url: https://www.gidgetfoundation.org.au/fact-sheets/how-can-support-people-help-expectant-and-new-parents
 tasks:
   - id: agree-grandparent-plans
     title: Agree between you what help you'd like from the grandparents

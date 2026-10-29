@@ -3,12 +3,13 @@ id: visitors
 title: Visitors, and how to say not yet
 summary: "Decide together who visits in hospital and the first weeks, and ask the people who'll be close to the baby about their whooping cough vaccine."
 weeks: [32, 38]
-category: after-the-birth
+type: moment
+topic: after-the-birth
 extra: visitors
 draft: true
-source:
-  title: Australian Immunisation Handbook — Pertussis (whooping cough)
-  url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/pertussis-whooping-cough
+sources:
+  - title: Australian Immunisation Handbook — Pertussis (whooping cough)
+    url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/pertussis-whooping-cough
 tasks:
   - id: check-hospital-visiting-rules
     title: Check the hospital's visiting hours and rules

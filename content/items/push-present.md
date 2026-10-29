@@ -3,7 +3,8 @@ id: push-present
 title: A push present
 summary: "A gift for the birth parent around the birth, if you'd like one; sort it out in the weeks before, while there's time."
 weeks: [28, 40]
-category: celebrations
+type: moment
+topic: celebrations
 extra: push-present
 draft: true
 tasks:

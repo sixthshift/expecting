@@ -161,9 +161,9 @@
       url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
     - title: Pregnancy, Birth and Baby — Non-medical pain relief during labour
       url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/non-medical-pain-relief-during-labour
-  related: [ doula, support-person-role, birth-preferences, emergency-caesarean ]
+  related: [ doulas, support-person-role, birth-preferences, emergency-caesarean ]
 
-- id: doula
+- id: doulas
   title: Doulas
   type: guide
   topic: birth

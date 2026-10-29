@@ -3,11 +3,12 @@ id: dating-scan
 title: The dating scan
 summary: "An early ultrasound that measures the baby to work out how far along you are and estimate the due date."
 weeks: [6, 13]
-category: appointments
+type: moment
+topic: appointments
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Dating scan
-  url: https://www.pregnancybirthbaby.org.au/dating-scan
+sources:
+  - title: Pregnancy, Birth and Baby — Dating scan
+    url: https://www.pregnancybirthbaby.org.au/dating-scan
 checked: 2026-10-29
 ---
 A dating scan is an early ultrasound that measures the baby to work out how far along the pregnancy is and estimate the due date. Early on, most babies of the same age are about the same size, so a dating scan can give an accurate estimated due date.

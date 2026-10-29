@@ -1,4 +1,3 @@
-import Markdoc from "@markdoc/markdoc";
 import { describe, expect, test } from "vitest";
 import type { Item, Task } from "../../src/content/schema";
 import type { ISODate } from "../../src/lib/dates";
@@ -24,15 +23,20 @@ function item(id: string, from: number, to: number, tasks: Task[] = [task(`${id}
     summary: null,
     from,
     to,
-    category: "body",
+    type: "moment",
+    topic: "body",
+    ask: null,
+    aliases: [],
+    who: null,
+    stakes: null,
+    verdict: null,
+    decideBy: null,
     surprise: false,
+    private: false,
     draft: true,
-    source: null,
-    checked: null,
     when: {},
     extra: null,
-    body: "x",
-    doc: Markdoc.parse("x"),
+    variables: [],
     tasks,
     origin: "built-in",
   };

@@ -57,6 +57,27 @@ detail.
   between both parents. The drafts have no field for that; it has to be built
   when the new types are wired in.
 
+## Duplicates (not merged)
+
+Pairs that cover the same ground. Each is kept for now; pick one to keep, or
+cut one down to what the other doesn't say, and link them with `related`.
+
+- Draft and item, same subject: `listeria-foods` and `listeria` (same
+  title), `pets-and-the-baby` and `pets` (same title),
+  `staying-active-in-pregnancy` and `staying-active`, `second-hand-baby-gear`
+  and `second-hand-gear`, `cord-blood-banking` and `cord-blood`, `alcohol`
+  and `caffeine-and-alcohol`.
+- Draft and an extra's item, for everyone against only those who turn the
+  extra on: `doulas` and `doula` (extra `doula`), `when-to-tell-people` and
+  `telling-people` (extra `announcing`). The drafts were `doula` and
+  `telling-people` and were renamed so the ids don't collide; nothing pointed
+  at them yet.
+- `pets-and-health` (can-i, was the draft `pets`, renamed for the same
+  reason), `pets-and-the-baby` (guide) and the item `pets`: three on pets.
+- Drafts with each other: `braxton-hicks` (symptom) and
+  `braxton-hicks-contractions` (guide), with `term-braxton-hicks` as well;
+  `preterm-birth` and `when-the-baby-comes-early`; `ecv` and `breech`.
+
 ## Sources that disagree (kept side by side, each credited)
 
 Worth a clinician's eye first: `cord-prolapse` and `waters-breaking-early`

@@ -3,11 +3,12 @@ id: feeding-plan
 title: A feeding plan, and a plan B
 summary: "Decide how you'll feed the baby, and who to call for help, while you have time to think."
 weeks: [32, 37]
-category: baby
+type: moment
+topic: baby
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Feeding your baby
-  url: https://www.pregnancybirthbaby.org.au/baby-feeding
+sources:
+  - title: Pregnancy, Birth and Baby — Feeding your baby
+    url: https://www.pregnancybirthbaby.org.au/baby-feeding
 checked: 2026-10-29
 tasks:
   - id: save-feeding-support-contact

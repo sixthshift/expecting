@@ -3,7 +3,8 @@ id: baby-shower
 title: The baby shower
 summary: "Usually held between 28 and 34 weeks: decide who hosts, set up a registry, and get the invitations out a month ahead."
 weeks: [24, 34]
-category: celebrations
+type: moment
+topic: celebrations
 extra: baby-shower
 draft: true
 tasks:

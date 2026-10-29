@@ -3,13 +3,14 @@ id: childcare-waitlists
 title: Childcare waiting lists
 summary: "Many childcare centres have waiting lists, so get on them well before you'll need a place."
 weeks: [12, 30]
-category: paperwork
+type: moment
+topic: paperwork
 surprise: true
 when: { childcare: "yes" }
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Child care, what are my options?
-  url: https://www.pregnancybirthbaby.org.au/child-care
+sources:
+  - title: Pregnancy, Birth and Baby — Child care, what are my options?
+    url: https://www.pregnancybirthbaby.org.au/child-care
 checked: 2026-10-29
 tasks:
   - id: join-childcare-waitlists

@@ -3,7 +3,8 @@ id: freebies
 title: Freebies and free help
 summary: "What's free for new parents: the public services, a few payments, and the sample packs, with a word on what they cost you in data."
 weeks: [24, 38]
-category: money
+type: moment
+topic: money
 extra: freebies
 draft: true
 tasks:

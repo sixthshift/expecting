@@ -3,11 +3,12 @@ id: first-trimester-screening
 title: Screening tests in the first trimester
 summary: "Screening is optional and its window is short, from about 10 to 13 weeks, so talk it through together before it opens."
 weeks: [10, 14]
-category: appointments
+type: moment
+topic: appointments
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Non-invasive prenatal testing (NIPT)
-  url: https://www.pregnancybirthbaby.org.au/non-invasive-prenatal-testing-nipt
+sources:
+  - title: Pregnancy, Birth and Baby — Non-invasive prenatal testing (NIPT)
+    url: https://www.pregnancybirthbaby.org.au/non-invasive-prenatal-testing-nipt
 checked: 2026-10-29
 tasks:
   - id: decide-on-first-trimester-screening

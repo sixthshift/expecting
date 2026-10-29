@@ -10,19 +10,50 @@ import { WEEKS, type Week } from "../lib/timeline";
 import { extra } from "./extras";
 import { checkWhen, question, type When, whenSchema } from "./facts";
 
-export const CATEGORIES = {
-  appointments: "Appointments",
+/** What kind of entry an item is: each has its own page, and its own body shape (src/content/parse.ts). */
+export const TYPES = ["moment", "payment", "decision", "can-i", "symptom", "guide", "card", "term"] as const;
+
+export type ItemType = (typeof TYPES)[number];
+
+/** The Library's shelves, in their usual order: the map's topics (content/map/README.md), and the extras'. */
+export const TOPICS = {
+  food: "Food",
+  drink: "Drink",
+  medicines: "Medicines",
+  activities: "Activities",
   body: "Body",
   baby: "Baby",
-  paperwork: "Paperwork",
-  money: "Money",
-  "baby-gear": "Baby gear",
-  partner: "Partner",
+  tests: "Tests",
+  appointments: "Appointments",
+  care: "Care",
+  labour: "Labour",
+  birth: "Birth",
   "after-the-birth": "After the birth",
+  feeding: "Feeding",
+  "mental-health": "Mental health",
+  relationships: "Relationships",
+  loss: "Loss",
+  money: "Money",
+  work: "Work",
+  paperwork: "Paperwork",
+  gear: "Baby gear",
+  partner: "Partner",
+  travel: "Travel",
+  "special-circumstances": "Special circumstances",
   celebrations: "Celebrations",
 } as const;
 
-export type Category = keyof typeof CATEGORIES;
+export type Topic = keyof typeof TOPICS;
+
+/** A can-i's answer: go ahead, in moderation, don't, or ask your doctor or midwife first. */
+export const VERDICTS = ["yes", "limit", "avoid", "ask"] as const;
+
+export type Verdict = (typeof VERDICTS)[number];
+
+/** What a wrong answer costs: health, safety or a deadline; something; little. */
+export const STAKES = ["high", "medium", "low"] as const;
+
+export type Stakes = (typeof STAKES)[number];
 
 const slug = z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "ids are lower-case words joined by hyphens");
 const isoDate = z.string().refine(isISODate, "a date as YYYY-MM-DD");
@@ -31,26 +62,45 @@ const weekRange = z
   .union([z.number().int(), z.tuple([z.number().int(), z.number().int()])])
   .transform((w): [number, number] => (typeof w === "number" ? [w, w] : w));
 
-export const frontmatterSchema = z
+const who = z.enum(["carrying", "partner", "together"]);
+
+/**
+ * The frontmatter every list reads: what it is, where it sits, when and for
+ * whom, and what it asks of you. The rest (PAGE_FIELDS in ./file) is
+ * `pageSchema`, read when its page opens.
+ */
+export const indexSchema = z
   .object({
     id: slug,
     title: z.string().min(1),
+    type: z.enum(TYPES),
+    topic: z.enum(Object.keys(TOPICS) as [Topic, ...Topic[]]),
+    /** The question as people ask it: "Can I eat brie?" */
+    ask: z.string().min(1).optional(),
+    /** What people search for: brands, slang, other words for it. */
+    aliases: z.array(z.string().min(1)).default([]),
     /** Why it matters, in one sentence, from the body: under its title in a list and on its page. */
     summary: z.string().min(1).optional(),
-    /** A week, or [from, to] inclusive. */
-    weeks: weekRange,
-    category: z.enum(Object.keys(CATEGORIES) as [Category, ...Category[]]),
+    /** A week, or [from, to] inclusive. Without weeks it's in the Library only: not on the timeline, never open. */
+    weeks: weekRange.optional(),
+    /** Who it's written for; omitted, everyone. */
+    who: who.optional(),
+    /** What a wrong answer costs. */
+    stakes: z.enum(STAKES).optional(),
+    /** A can-i's answer. */
+    verdict: z.enum(VERDICTS).optional(),
+    /** A decision's week to decide by, from its source. */
+    decide_by: z.number().int().optional(),
     /** Only for households whose answers match: `{ cover: "no", state: [vic, nsw] }`. See content/facts.yaml. */
     when: whenSchema.default({}),
     /** Part of an extra in content/extras.yaml: shown only once the household turns it on. */
     extra: z.string().optional(),
-    /** One of the things nobody tells you. */
+    /** One of the things nobody tells you. A card is one by type. */
     surprise: z.boolean().default(false),
+    /** Read, but never saved, asked about or remembered, so it leaves no trace in the space you share. */
+    private: z.boolean().default(false),
     /** Drafted, not yet reviewed by us. Shown with a marker. */
     draft: z.boolean().default(true),
-    source: z.object({ title: z.string().min(1), url: z.url() }).optional(),
-    /** When the source was last confirmed. */
-    checked: isoDate.optional(),
     tasks: z
       .array(
         z
@@ -68,7 +118,7 @@ export const frontmatterSchema = z
              */
             deadline: z.union([z.number().int(), z.object({ before: z.string(), weeks: z.number().int().min(0), week: z.number().int() }).strict()]).optional(),
             /** Whose job it is. */
-            who: z.enum(["carrying", "partner", "together"]).default("together"),
+            who: who.default("together"),
           })
           .strict()
       )
@@ -78,6 +128,19 @@ export const frontmatterSchema = z
   .superRefine((fm, ctx) => {
     for (const message of checkWhen(fm.when)) ctx.addIssue({ code: "custom", path: ["when"], message });
     if (fm.extra !== undefined && !extra(fm.extra)) ctx.addIssue({ code: "custom", path: ["extra"], message: `"${fm.extra}" is not an extra in extras.yaml` });
+    if ((fm.type === "can-i") !== (fm.verdict !== undefined)) {
+      ctx.addIssue({ code: "custom", path: ["verdict"], message: "a can-i has a verdict, and nothing else does" });
+    }
+    if (fm.decide_by !== undefined) {
+      if (fm.type !== "decision") ctx.addIssue({ code: "custom", path: ["decide_by"], message: "only a decision has a decide_by" });
+      else if (fm.decide_by < WEEKS.first || fm.decide_by > WEEKS.last) {
+        ctx.addIssue({ code: "custom", path: ["decide_by"], message: `decide_by is a week, ${WEEKS.first}–${WEEKS.last}` });
+      }
+    }
+    if (!fm.weeks) {
+      if (fm.tasks.length > 0) ctx.addIssue({ code: "custom", path: ["tasks"], message: "tasks fall due within the item's weeks, so it needs weeks" });
+      return;
+    }
     const [from, to] = fm.weeks;
     if (from < WEEKS.first || to > WEEKS.last || from > to) {
       ctx.addIssue({ code: "custom", path: ["weeks"], message: `weeks must run forwards within ${WEEKS.first}–${WEEKS.last}` });
@@ -107,7 +170,21 @@ export const frontmatterSchema = z
     }
   });
 
-export type Frontmatter = z.output<typeof frontmatterSchema>;
+export type IndexFrontmatter = z.output<typeof indexSchema>;
+
+/** The frontmatter only its page shows. */
+export const pageSchema = z
+  .object({
+    /** Every page a claim in the body comes from. */
+    sources: z.array(z.object({ title: z.string().min(1), url: z.url() }).strict()).default([]),
+    /** Ids of the entries it links to, each checked to exist. */
+    related: z.array(slug).default([]),
+    /** When a second reader last confirmed every claim against the sources. */
+    checked: isoDate.optional(),
+  })
+  .strict();
+
+export type PageFrontmatter = z.output<typeof pageSchema>;
 
 export type Task = {
   id: string;
@@ -126,27 +203,61 @@ export type Task = {
   origin: "built-in" | "own";
 };
 
-export type Item = {
+type ItemFields = {
   id: string;
   title: string;
+  type: ItemType;
+  topic: Topic;
+  /** The question as people ask it; null when none is written. */
+  ask: string | null;
+  aliases: string[];
   /** Why it matters, in one sentence; null when none is written. */
   summary: string | null;
-  /** First and last week the item applies to, inclusive. */
-  from: Week;
-  to: Week;
-  category: Category;
+  /** Who it's written for; null for everyone. */
+  who: Who | null;
+  stakes: Stakes | null;
+  verdict: Verdict | null;
+  decideBy: Week | null;
+  /** One of the things nobody tells you: marked so, or a card. */
   surprise: boolean;
+  private: boolean;
   draft: boolean;
-  source: { title: string; url: string } | null;
-  checked: string | null;
   /** Who it is for; empty for everyone. */
   when: When;
   /** The extra it belongs to, shown only when that's on; null for everyone. */
   extra: string | null;
+  /** The questions its body names (`$cover`), whose answers change its words. */
+  variables: string[];
+  tasks: Task[];
+  origin: "built-in" | "own";
+};
+
+/**
+ * An item as every list reads it. With weeks, it's on the timeline from `from`
+ * to `to`, inclusive; without (both null), it's in the Library only.
+ */
+export type Item = ItemFields & ({ from: Week; to: Week } | { from: null; to: null });
+
+/** An item with weeks. */
+export type DatedItem = Item & { from: Week; to: Week };
+
+/** Whether `item` has weeks: is on the timeline. */
+export function isDated(item: Item): item is DatedItem {
+  return item.from !== null;
+}
+
+/** Whether `item` asks something of you: has tasks, so a window to do them in (tasks need weeks). */
+export function asks(item: Item): item is DatedItem {
+  return item.tasks.length > 0 && isDated(item);
+}
+
+/** What only an item's own page shows, loaded when it opens. */
+export type ItemPage = {
+  sources: { title: string; url: string }[];
+  related: string[];
+  checked: string | null;
   /** The body as written: Markdown, with Markdoc tags. */
   body: string;
   /** The body parsed and checked, ready to render. */
   doc: Node;
-  tasks: Task[];
-  origin: "built-in" | "own";
 };

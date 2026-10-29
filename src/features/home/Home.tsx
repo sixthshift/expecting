@@ -1,6 +1,7 @@
 import { getRouteApi, Link } from "@tanstack/react-router";
 import { CalendarRange, ChevronRight, Settings } from "lucide-react";
 import { weekNotes } from "../../content";
+import { asks } from "../../content/schema";
 import { noteFor } from "../../content/weeks";
 import { askedWeeks } from "../../lib/timelineMap";
 import { OfferExtra } from "../extras/OfferExtra";
@@ -36,7 +37,8 @@ export function Home() {
   // Now, the note in force carries on until the next; a peek shows only that week's own.
   const inForce = week === null ? null : noteFor(weekNotes, week);
   const note = peeking && inForce?.week !== week ? null : inForce;
-  const starting = week === null ? [] : items.filter((i) => i.from === week);
+  // What asks something of you, from this week; the rest of what has weeks is in the Library.
+  const starting = week === null ? [] : items.filter((i) => asks(i) && i.from === week);
   const thatWeek = week === null ? [] : tasks.filter((t) => t.due === week || t.deadline === week);
   const openQuestions = questions.filter((q) => !q.askedAt).length;
   const askedIn = askedWeeks(questions, dueDate);

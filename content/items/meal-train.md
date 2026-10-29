@@ -3,7 +3,8 @@ id: meal-train
 title: A meal train
 summary: "Friends take turns bringing dinner in the first weeks home; set it up before the birth so someone else can run it."
 weeks: [30, 38]
-category: after-the-birth
+type: moment
+topic: after-the-birth
 extra: meal-train
 draft: true
 tasks:

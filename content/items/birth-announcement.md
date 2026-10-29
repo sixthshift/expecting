@@ -3,7 +3,8 @@ id: birth-announcement
 title: Announcing the birth
 summary: "Agree before the birth who hears first and how, and who's allowed to share it, so nobody finds out from a post."
 weeks: [32, 40]
-category: celebrations
+type: moment
+topic: celebrations
 extra: birth-announcement
 draft: true
 tasks:

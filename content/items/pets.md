@@ -3,12 +3,13 @@ id: pets
 title: Getting the pets ready
 summary: "Train the dog, set up barriers and arrange pet care for the birth now; and never leave a pet alone with the baby."
 weeks: [24, 38]
-category: after-the-birth
+type: moment
+topic: after-the-birth
 extra: pets
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Getting your pets ready for baby to arrive
-  url: https://www.pregnancybirthbaby.org.au/parenting-and-family/parenting-skills-and-daily-life/getting-your-pets-ready-for-baby-to-arrive
+sources:
+  - title: Pregnancy, Birth and Baby — Getting your pets ready for baby to arrive
+    url: https://www.pregnancybirthbaby.org.au/parenting-and-family/parenting-skills-and-daily-life/getting-your-pets-ready-for-baby-to-arrive
 tasks:
   - id: book-dog-training
     title: Book obedience training for the dog

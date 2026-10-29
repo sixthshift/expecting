@@ -3,12 +3,13 @@ id: doula
 title: A doula
 summary: "A doula is a paid, non-medical support person for the pregnancy, the birth and the weeks after; if you want one, find them by the third trimester so they can meet your care team."
 weeks: [14, 30]
-category: appointments
+type: moment
+topic: appointments
 extra: doula
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Birth doulas, what do they do?
-  url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/what-does-a-birth-doula-do
+sources:
+  - title: Pregnancy, Birth and Baby — Birth doulas, what do they do?
+    url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/what-does-a-birth-doula-do
 tasks:
   - id: decide-on-a-doula
     title: Decide whether you want a doula

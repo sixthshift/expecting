@@ -160,10 +160,10 @@ test("the Library's ways in: two doors coming, one down to its shelf, and what's
   await expect(doors.getByText("Coming")).toHaveCount(2);
   await expect(doors.getByRole("link")).toHaveCount(1);
 
-  // At week 28: the glucose test's window closes this week, so it leads; the RSV vaccine's has just opened.
+  // At week 28: what closes this week leads, the glucose test among it; the RSV vaccine's window has just opened.
   const rightNow = page.getByRole("region", { name: "Right now, at week 28" });
   await expect(rightNow.getByRole("link").first()).toContainText("Closes this week");
-  await expect(rightNow.getByRole("link").first()).toContainText("The glucose tolerance test");
+  await expect(rightNow.getByRole("link", { name: /The glucose tolerance test/ })).toContainText("Closes this week");
   await expect(rightNow.getByRole("link", { name: /The RSV vaccine/ })).toContainText("Opened this week");
 
   await doors.getByRole("link", { name: /Nobody tells you/ }).click();

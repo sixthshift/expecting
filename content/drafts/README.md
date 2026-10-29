@@ -1,12 +1,12 @@
 # Drafts
 
-Library entries written from the map (`content/map/*.yaml`) before the app can
-show them. Nothing here is loaded by the app yet: the types other than items
-(can-i, symptom, card, term, guide, decision, payment) are wired into
-`src/content/` and the Library later, and these files move then.
+Library entries written from the map (`content/map/*.yaml`). They have moved
+to `content/items/<id>.md`, beside the items, and the app loads them (marked
+draft); this folder keeps the format they were written to and `REVIEW.md`, the
+calls for the review pass, until the plan in `docs/plan-content-types.md`
+retires it. `src/content/parse.ts` checks the shapes below.
 
-One file per map entry, `content/drafts/<id>.md`, the name its map id. Ids are
-stable: never rename one.
+One file per map entry, the name its map id. Ids are stable: never rename one.
 
 ## Frontmatter
 
@@ -42,7 +42,7 @@ its own urgency wording: never softer, never stronger, never merged.
 - `symptom`: `## What's usual`, then only the levels the sources give, most
   urgent first: `## Call 000 or go to emergency` (either or both, as the source says), `## Contact your hospital now`, `## See your
   doctor or midwife`, `## Mention it at your next visit`.
-- `can-i`: `## Why`, then `## What to do` (how to, alternatives, what if you
+- `can-i`: `## Why`, then `## What to do` when there is anything to do (how to, alternatives, what if you
   already did).
 - `guide`: a short opening paragraph, then `##` sections as the subject needs.
   Red flags under `## When to get help`.

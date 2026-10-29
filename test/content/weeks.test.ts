@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { weekNotes } from "../../src/content";
-import { ContentError } from "../../src/content/parse";
+import { ContentError } from "../../src/content/file";
 import { noteFor, parseWeek, SECTIONS, sizeLabel } from "../../src/content/weeks";
 
 const BODY = "## The baby\n\nGrowing.\n\n## Your body\n\nTired.\n\n## For the partner\n\nCook.";

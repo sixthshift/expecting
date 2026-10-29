@@ -3,12 +3,13 @@ id: cord-blood
 title: Cord blood
 summary: "Donating the cord blood to a public bank is free but only possible at some hospitals, and private banking costs money; either way it has to be arranged before the birth."
 weeks: [20, 34]
-category: appointments
+type: moment
+topic: appointments
 extra: cord-blood
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Cord blood banking
-  url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/cord-blood-banking
+sources:
+  - title: Pregnancy, Birth and Baby — Cord blood banking
+    url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/cord-blood-banking
 tasks:
   - id: ask-hospital-about-cord-blood
     title: Ask the hospital whether it collects cord blood for a public bank

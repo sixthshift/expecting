@@ -3,11 +3,12 @@ id: employer-leave-notice
 title: Telling your employer about parental leave
 summary: "Each working parent must give written notice at least 10 weeks before parental leave starts, and confirm the dates 4 weeks before."
 weeks: [24, 34]
-category: paperwork
+type: payment
+topic: paperwork
 draft: true
-source:
-  title: Fair Work Ombudsman — Applying for parental leave
-  url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+sources:
+  - title: Fair Work Ombudsman — Applying for parental leave
+    url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
 checked: 2026-10-29
 tasks:
   - id: give-written-leave-notice

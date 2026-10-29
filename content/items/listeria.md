@@ -3,13 +3,14 @@ id: listeria
 title: Listeria and the foods that carry it
 summary: "Listeria grows in the fridge, so the risky foods are the chilled, ready-to-eat ones; freshly cooked and eaten hot is safe."
 weeks: [4, 12]
-category: body
+type: moment
+topic: body
 extra: food-safety
 surprise: true
 draft: true
-source:
-  title: Food Standards Australia New Zealand — Listeria in food
-  url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+sources:
+  - title: Food Standards Australia New Zealand — Listeria in food
+    url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
 ---
 Listeria infection is rare, but in pregnancy it can cause miscarriage, stillbirth or premature birth. Unlike most food bugs, listeria keeps growing in the fridge. Cooking it to 75°C kills it.
 

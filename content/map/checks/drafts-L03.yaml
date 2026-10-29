@@ -100,7 +100,7 @@
 - id: perineal-massage
   file: content/drafts/perineal-massage.md
   verdict: ok
-- id: doula
+- id: doulas
   file: content/drafts/doula.md
   verdict: ok
 - id: tens-machine

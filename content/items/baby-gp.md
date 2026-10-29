@@ -3,12 +3,13 @@ id: baby-gp
 title: The baby's doctor
 summary: "Choose a GP for the baby before the birth, so you know who to call when they're unwell and who'll give the first vaccines."
 weeks: [30, 38]
-category: appointments
+type: moment
+topic: appointments
 extra: baby-gp
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — What does your GP do for your baby?
-  url: https://www.pregnancybirthbaby.org.au/what-does-your-GP-do-for-your-baby
+sources:
+  - title: Pregnancy, Birth and Baby — What does your GP do for your baby?
+    url: https://www.pregnancybirthbaby.org.au/what-does-your-GP-do-for-your-baby
 tasks:
   - id: choose-baby-gp
     title: Choose a GP for the baby, and check they see newborns

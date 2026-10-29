@@ -3,12 +3,13 @@ id: baby-budget
 title: A budget for the baby
 summary: "Most of the cost of a baby is the drop in income and, later, childcare, not the gear; a budget now shows what you can spend on the things to buy."
 weeks: [10, 30]
-category: money
+type: moment
+topic: money
 extra: baby-budget
 draft: true
-source:
-  title: Moneysmart — Budget planner
-  url: https://moneysmart.gov.au/budgeting/budget-planner
+sources:
+  - title: Moneysmart — Budget planner
+    url: https://moneysmart.gov.au/budgeting/budget-planner
 tasks:
   - id: draft-baby-budget
     title: Draft a budget for the year with the baby

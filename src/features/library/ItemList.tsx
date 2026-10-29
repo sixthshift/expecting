@@ -13,10 +13,7 @@ export function ItemList({ items }: { items: readonly Item[] }) {
             <span className="flex min-w-0 flex-1 flex-col gap-0.5">
               <span className="text-fg-strong">{item.title}</span>
               {item.summary ? <span className="text-sm text-fg-normal">{item.summary}</span> : null}
-              <span className="text-xs text-fg-subtle">
-                {rangeLabel(item)}
-                {item.surprise ? " · nobody tells you" : ""}
-              </span>
+              <span className="text-xs text-fg-subtle">{[rangeLabel(item), item.surprise ? "nobody tells you" : null].filter(Boolean).join(" · ")}</span>
             </span>
             <ChevronRight aria-hidden size={18} className="shrink-0 text-fg-subtle" />
           </Link>

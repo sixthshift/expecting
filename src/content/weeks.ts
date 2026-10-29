@@ -17,8 +17,8 @@ import { Ast, type Node } from "@markdoc/markdoc";
 import { z } from "zod";
 import { isISODate } from "../lib/dates";
 import { parseWeekKey, type Week } from "../lib/timeline";
+import { ContentError, readFrontmatter } from "./file";
 import { parseBody } from "./markdoc";
-import { ContentError, readFrontmatter } from "./parse";
 
 export const SECTIONS = { baby: "The baby", body: "Your body", partner: "For the partner" } as const;
 

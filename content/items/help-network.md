@@ -3,12 +3,13 @@ id: help-network
 title: Lining up help
 summary: "Make a list of who can help with what in the first weeks, and ask before the birth, while there's time to plan."
 weeks: [30, 37]
-category: after-the-birth
+type: moment
+topic: after-the-birth
 extra: help-network
 draft: true
-source:
-  title: Gidget Foundation — The importance of a support network
-  url: https://www.gidgetfoundation.org.au/adjusting-to-parenthood/building-a-support-network
+sources:
+  - title: Gidget Foundation — The importance of a support network
+    url: https://www.gidgetfoundation.org.au/adjusting-to-parenthood/building-a-support-network
 tasks:
   - id: list-who-can-help
     title: List who can help with what in the first weeks

@@ -6,6 +6,7 @@ import { rootRoute } from "@tanstack/virtual-file-routes";
 import viteReact from "@vitejs/plugin-react";
 import { nitro } from "nitro/vite";
 import { defineConfig } from "vitest/config";
+import { contentPlugin } from "./src/content/vite.ts";
 
 // nitro is the deploy adapter (dev server + .output build). Under vitest it
 // combines with tanstackStart to inline React's CJS build into the module
@@ -49,6 +50,8 @@ export default defineConfig({
     }),
     // compressPublicAssets writes .gz/.br beside each built asset; Nitro's static handler serves them by Accept-Encoding.
     ...(testing ? [] : [nitro({ preset: "bun", compressPublicAssets: { gzip: true, brotli: true } })]),
+    // content/items/*.md, split into an index bundled up front and a page per item loaded when it opens.
+    contentPlugin(),
     viteReact(),
     tailwindcss(),
   ],

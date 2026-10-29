@@ -3,11 +3,12 @@ id: hospital-bag
 title: Packing the hospital bag
 summary: "Pack the bag from the checklist, and check the hospital or birth centre's own list for what to bring."
 weeks: [34, 38]
-category: baby-gear
+type: moment
+topic: gear
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Birth bag checklist
-  url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-to-take-to-hospital-checklist
+sources:
+  - title: Pregnancy, Birth and Baby — Birth bag checklist
+    url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-to-take-to-hospital-checklist
 checked: 2026-10-29
 tasks:
   - id: pack-hospital-bag

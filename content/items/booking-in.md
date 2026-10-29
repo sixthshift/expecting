@@ -3,12 +3,13 @@ id: booking-in
 title: Booking in with your hospital or birth centre
 summary: "Booking in is how you get a place at the hospital or birth centre you'll give birth at. If you want one, book as early as possible."
 weeks: [6, 14]
-category: appointments
+type: moment
+topic: appointments
 when: { booked: not-yet }
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Maternity care in Australia
-  url: https://www.pregnancybirthbaby.org.au/maternity-care-in-australia
+sources:
+  - title: Pregnancy, Birth and Baby — Maternity care in Australia
+    url: https://www.pregnancybirthbaby.org.au/maternity-care-in-australia
 checked: 2026-10-29
 tasks:
   - id: book-in-hospital

@@ -3,12 +3,13 @@ id: choosing-names
 title: Choosing a name
 summary: "Shortlist a few names early, test them out loud, and check them against the registry's rules: the name goes on the birth registration within 60 days of the birth."
 weeks: [12, 40]
-category: celebrations
+type: moment
+topic: celebrations
 extra: choosing-names
 draft: true
-source:
-  title: myGov — Register your baby's birth and get their birth certificate
-  url: https://my.gov.au/en/services/raising-kids/having-a-baby/when-your-baby-is-born/register-your-baby-s-birth-and-get-their-birth-certificate
+sources:
+  - title: myGov — Register your baby's birth and get their birth certificate
+    url: https://my.gov.au/en/services/raising-kids/having-a-baby/when-your-baby-is-born/register-your-baby-s-birth-and-get-their-birth-certificate
 tasks:
   - id: name-shortlist
     title: Agree a shortlist of names

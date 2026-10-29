@@ -3,12 +3,13 @@ id: siblings
 title: Getting an older child ready
 summary: "Plan who minds your older child during the birth, make any big changes early, and have a gift from the baby ready."
 weeks: [20, 38]
-category: after-the-birth
+type: moment
+topic: after-the-birth
 extra: siblings
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Toddler and the new baby
-  url: https://www.pregnancybirthbaby.org.au/children/behaviours-and-emotions/toddler-and-the-new-baby
+sources:
+  - title: Pregnancy, Birth and Baby — Toddler and the new baby
+    url: https://www.pregnancybirthbaby.org.au/children/behaviours-and-emotions/toddler-and-the-new-baby
 tasks:
   - id: older-child-room-changes
     title: Make any room or bed changes for the older child

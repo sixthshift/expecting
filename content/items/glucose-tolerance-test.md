@@ -3,11 +3,12 @@ id: glucose-tolerance-test
 title: The glucose tolerance test
 summary: "Everyone is offered screening for gestational diabetes between 24 and 28 weeks, a fasting blood test, a sugary drink and two hours at the lab."
 weeks: [24, 28]
-category: appointments
+type: moment
+topic: appointments
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Gestational diabetes
-  url: https://www.pregnancybirthbaby.org.au/gestational-diabetes
+sources:
+  - title: Pregnancy, Birth and Baby — Gestational diabetes
+    url: https://www.pregnancybirthbaby.org.au/gestational-diabetes
 checked: 2026-10-29
 tasks:
   - id: book-glucose-tolerance-test

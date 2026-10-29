@@ -3,12 +3,13 @@ id: telling-people
 title: Telling people, and when
 summary: "There's no rule about when to share the news; decide who hears first, and how you'd want support if something went wrong."
 weeks: [6, 14]
-category: celebrations
+type: moment
+topic: celebrations
 extra: announcing
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — When to tell people you are pregnant
-  url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/when-to-tell-people-you-are-pregnant
+sources:
+  - title: Pregnancy, Birth and Baby — When to tell people you are pregnant
+    url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/when-to-tell-people-you-are-pregnant
 tasks:
   - id: decide-who-to-tell
     title: Decide who to tell first, and when

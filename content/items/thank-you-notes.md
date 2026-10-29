@@ -3,7 +3,8 @@ id: thank-you-notes
 title: Thank-you notes without the stress
 summary: "Keep one list of who gave what from now on, and get the cards ready before the birth so thanking people is quick."
 weeks: [28, 40]
-category: celebrations
+type: moment
+topic: celebrations
 extra: thank-you-notes
 draft: true
 tasks:

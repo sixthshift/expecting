@@ -3,13 +3,14 @@ id: nursery
 title: The nursery
 summary: "For the first 6 to 12 months the safest place for the baby to sleep is their own safe cot in your room, so the cot and its mattress matter more than the nursery."
 weeks: [20, 36]
-category: baby-gear
+type: moment
+topic: gear
 extra: nursery
 surprise: true
 draft: true
-source:
-  title: Red Nose — What is a safe cot?
-  url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/newborn-to-1-year/what-is-a-safe-cot/
+sources:
+  - title: Red Nose — What is a safe cot?
+    url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/newborn-to-1-year/what-is-a-safe-cot/
 tasks:
   - id: choose-cot-and-mattress
     title: Choose a cot that meets AS/NZS 2172, and a firm mattress that fits it

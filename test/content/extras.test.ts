@@ -22,7 +22,7 @@ describe("content/extras.yaml", () => {
   });
 
   test("an item names an extra that exists", () => {
-    const item = (extra: string) => `---\nid: x\ntitle: X\nweeks: 20\ncategory: celebrations\nextra: ${extra}\n---\nBody.\n`;
+    const item = (extra: string) => `---\nid: x\ntitle: X\nweeks: 20\ntype: moment\ntopic: celebrations\nextra: ${extra}\n---\nBody.\n`;
     expect(parseItem("items/x.md", item("baby-shower")).extra).toBe("baby-shower");
     expect(() => parseItem("items/x.md", item("pony"))).toThrow(/not an extra/);
   });

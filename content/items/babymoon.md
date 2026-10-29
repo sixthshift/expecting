@@ -3,12 +3,13 @@ id: babymoon
 title: The babymoon
 summary: "The middle of the pregnancy is usually the easiest time to travel; check the airline's week limits and the insurance's pregnancy cover before booking."
 weeks: [14, 28]
-category: celebrations
+type: moment
+topic: celebrations
 extra: babymoon
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Travel and pregnancy
-  url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
+sources:
+  - title: Pregnancy, Birth and Baby — Travel and pregnancy
+    url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
 tasks:
   - id: check-travel-insurance
     title: Check the travel insurance covers the pregnancy, before paying for the trip

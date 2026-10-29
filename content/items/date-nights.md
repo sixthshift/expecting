@@ -3,7 +3,8 @@ id: date-nights
 title: Date nights before the baby
 summary: "A few nights out as two, planned now, while getting out is still easy."
 weeks: [20, 36]
-category: celebrations
+type: moment
+topic: celebrations
 extra: date-nights
 draft: true
 tasks:

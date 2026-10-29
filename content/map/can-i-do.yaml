@@ -1241,7 +1241,7 @@
       url: https://www.healthdirect.gov.au/conditions/parasite-and-fungal-infections/toxoplasmosis
     - title: Pregnancy, Birth and Baby — Common myths about pregnancy
       url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/common-myths-about-pregnancy
-  related: [gardening, pets, farm-animals-and-lambing]
+  related: [gardening, pets-and-health, farm-animals-and-lambing]
   notes: The "oocysts take 24 hours to sporulate" point is the reason daily changing works; it isn't on the PBB page, so source it (SA Health perinatal guideline, cited by PBB) before writing it. Raw meat and unwashed vegetables are the food file's; link.
 
 - id: gardening
@@ -1351,7 +1351,7 @@
       url: https://www.healthdirect.gov.au/healthy-living/weather-and-environment/bushfires-and-your-health
   related: [hot-weather, gas-heaters, exercise-in-pregnancy]
 
-- id: pets
+- id: pets-and-health
   title: Dogs, birds, reptiles and other pets
   type: can-i
   topic: activities
@@ -1394,7 +1394,7 @@
       url: https://www.healthdirect.gov.au/conditions/bacterial-infections/q-fever
     - title: Pregnancy, Birth and Baby — Toxoplasmosis
       url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/toxoplasmosis
-  related: [pets, cat-litter, working-with-children]
+  related: [pets-and-health, cat-litter, working-with-children]
   notes: Listeria and toxoplasmosis from lambing (the UK advice) isn't in the Australian pages loaded; Q fever is the Australian framing. Confirm vaccine-in-pregnancy wording against the Immunisation Handbook's Q fever chapter.
 
 - id: plastics-and-bpa

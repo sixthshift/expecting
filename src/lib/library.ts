@@ -7,10 +7,11 @@
 // An item sits on its topic's shelf; a surprise is on both. Search, on the
 // page, looks through everything.
 //
-// Above the shelves, right now: the items open this week, soonest-closing
-// first, each with where its window stands.
+// Above the shelves, right now: the items that ask something of you open this
+// week, soonest-closing first, each with where its window stands. The rest of
+// what's worth reading this week is on the shelves.
 
-import { CATEGORIES, type Category, type Item } from "../content/schema";
+import { asks, type DatedItem, type Item, TOPICS, type Topic } from "../content/schema";
 import type { Week } from "./timeline";
 
 export type Shelf = {
@@ -22,9 +23,7 @@ export type Shelf = {
 };
 
 export function arrangeLibrary(items: readonly Item[]): Shelf[] {
-  const topics = (Object.keys(CATEGORIES) as Category[]).map(
-    (c): Shelf => ({ key: c, title: CATEGORIES[c], items: items.filter((i) => i.category === c), surprise: false })
-  );
+  const topics = (Object.keys(TOPICS) as Topic[]).map((t): Shelf => ({ key: t, title: TOPICS[t], items: items.filter((i) => i.topic === t), surprise: false }));
   return [{ key: "surprise", title: "Nobody tells you", items: items.filter((i) => i.surprise), surprise: true }, ...topics].filter((s) => s.items.length > 0);
 }
 
@@ -37,24 +36,25 @@ export type Standing =
   /** It has a while yet: say how long it has been open instead. */
   | { kind: "open"; since: Week };
 
-export type RightNow = { item: Item; standing: Standing };
+export type RightNow = { item: DatedItem; standing: Standing };
 
 /** A window closing within this many weeks counts down; a longer one says when it opened. */
 export const COUNTDOWN_WEEKS = 4;
 
 /**
- * Right now, at week `now`: the items whose weeks cover it, soonest-closing
+ * Right now, at week `now`: the items that ask something of you whose weeks cover it, soonest-closing
  * first (then the one open longest, then by title), each with where its window
  * stands.
  */
 export function rightNow(items: readonly Item[], now: Week): RightNow[] {
   return items
+    .filter(asks)
     .filter((i) => i.from <= now && now <= i.to)
     .sort((a, b) => a.to - b.to || a.from - b.from || a.title.localeCompare(b.title))
     .map((item) => ({ item, standing: standingAt(item, now) }));
 }
 
-function standingAt(item: Item, now: Week): Standing {
+function standingAt(item: DatedItem, now: Week): Standing {
   const left = item.to - now;
   if (left === 0) return { kind: "closing" };
   if (left <= COUNTDOWN_WEEKS) return { kind: "left", weeks: left };

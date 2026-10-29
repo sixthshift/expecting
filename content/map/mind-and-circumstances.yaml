@@ -721,7 +721,7 @@
 # Relationships and life
 # ---------------------------------------------------------------------------
 
-- id: telling-people
+- id: when-to-tell-people
   title: Telling people, and when
   type: guide
   topic: relationships
@@ -764,7 +764,7 @@
       url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
     - title: Fair Work Ombudsman — Parental leave
       url: https://www.fairwork.gov.au/leave/parental-leave
-  related: [telling-people, partner-leave-pointer]
+  related: [when-to-tell-people, partner-leave-pointer]
   exists: content/items/employer-leave-notice.md
   notes: "Border: money and work agent owns the rules. Keep to the 'when to tell' feeling and the pointer."
 
@@ -923,7 +923,7 @@
       url: https://www.gidgetfoundation.org.au/adjusting-to-parenthood/managing-advice
     - title: Pregnancy, Birth and Baby — Having difficult conversations
       url: https://www.pregnancybirthbaby.org.au/parenting-and-family/relationships-and-support/having-difficult-conversations
-  related: [everyone-has-advice, family-overseas, telling-people, card-village-has-changed]
+  related: [everyone-has-advice, family-overseas, when-to-tell-people, card-village-has-changed]
   notes: "Raising Children's grandparent pages refused automated fetches; if a writer opens them in a browser they are a good second source."
 
 - id: everyone-has-advice
@@ -1770,7 +1770,7 @@
       url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/teenage-pregnancy
     - title: Pregnancy, Birth and Baby — Support for teenage parents
       url: https://www.pregnancybirthbaby.org.au/parenting-and-family/support-and-financial-services/support-for-teenage-parents
-  related: [telling-people, building-your-village, told-higher-risk]
+  related: [when-to-tell-people, building-your-village, told-higher-risk]
 
 - id: pregnancy-after-loss
   title: Pregnant again after a loss
@@ -2196,7 +2196,7 @@
   sources:
     - title: Pregnancy, Birth and Baby — Pregnancy at weeks 1 to 4
       url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-1-4
-  related: [telling-people]
+  related: [when-to-tell-people]
 
 - id: card-miscarriage-not-your-fault
   title: Up to 1 in 4 pregnancies end early, and it is almost never something you did
@@ -2458,7 +2458,7 @@
   sources:
     - title: Pregnancy, Birth and Baby — When to tell people you are pregnant
       url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/when-to-tell-people-you-are-pregnant
-  related: [telling-people]
+  related: [when-to-tell-people]
 
 - id: card-partner-left-out
   title: "Most partners feel on the outside at some point. That's a cue to grab something, not step back."

@@ -3,12 +3,13 @@ id: finding-out-the-sex
 title: Finding out the sex
 summary: "NIPT can tell from 10 weeks and the morphology scan usually can at about 20; for a reveal, ask for it in a sealed envelope."
 weeks: [10, 20]
-category: celebrations
+type: moment
+topic: celebrations
 extra: gender-reveal
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Non-invasive prenatal testing (NIPT)
-  url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/non-invasive-prenatal-testing-nipt
+sources:
+  - title: Pregnancy, Birth and Baby — Non-invasive prenatal testing (NIPT)
+    url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/non-invasive-prenatal-testing-nipt
 tasks:
   - id: sealed-envelope
     title: Ask for the sex in a sealed envelope, if you want a reveal

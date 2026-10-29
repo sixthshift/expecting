@@ -3,7 +3,8 @@ id: gender-reveal
 title: Planning a reveal
 summary: "A cake, balloons or a box of confetti: whoever holds the envelope arranges it, so you find out with everyone."
 weeks: [18, 24]
-category: celebrations
+type: moment
+topic: celebrations
 extra: gender-reveal
 draft: true
 tasks:

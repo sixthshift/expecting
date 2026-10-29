@@ -177,7 +177,7 @@
       source_says: "It has been suggested that exposure to these chemicals during pregnancy and infancy can impact your baby's development ... However, FSANZ says that BPA in food packaging is unlikely to be a health risk."
       url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
       fixed_to: "verdict ask; summary and opening show both sides"
-- id: pets
+- id: pets-and-health
   file: content/drafts/pets.md
   verdict: ok
 - id: essential-oils

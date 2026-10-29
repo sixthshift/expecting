@@ -3,7 +3,8 @@ id: maternity-photos
 title: Maternity photos
 summary: "Bump shoots are usually done somewhere in the early third trimester; good photographers book out, so book a couple of months ahead."
 weeks: [20, 34]
-category: celebrations
+type: moment
+topic: celebrations
 extra: maternity-photos
 draft: true
 tasks:

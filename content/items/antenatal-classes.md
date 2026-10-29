@@ -3,11 +3,12 @@ id: antenatal-classes
 title: Antenatal classes
 summary: "Classes on labour, birth and feeding fill up quickly, so book early for a course around 28 weeks."
 weeks: [20, 32]
-category: appointments
+type: moment
+topic: appointments
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Antenatal classes
-  url: https://www.pregnancybirthbaby.org.au/antenatal-classes
+sources:
+  - title: Pregnancy, Birth and Baby — Antenatal classes
+    url: https://www.pregnancybirthbaby.org.au/antenatal-classes
 checked: 2026-10-29
 tasks:
   - id: book-antenatal-classes

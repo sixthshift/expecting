@@ -174,7 +174,7 @@
       source_says: "PBB: 'It is normal to feel a range of emotions while your partner is pregnant... Some partners feel as though they are left out.' Gidget lists 'Common Experiences for Dads and Non-birthing Partners' incl. feeling helpless and unsure."
       url: https://www.gidgetfoundation.org.au/becoming-a-parent/pregnancy-for-expectant-dads-and-non-birthing-partners
       fixed_to: "it's common to feel unsure, helpless or left out"
-- id: telling-people
+- id: when-to-tell-people
   file: content/drafts/telling-people.md
   verdict: ok
 - id: sex-and-intimacy

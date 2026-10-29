@@ -3,11 +3,12 @@ id: group-b-strep-swab
 title: The Group B strep swab
 summary: "Many providers offer a swab for Group B strep at 35 to 37 weeks, which helps decide on antibiotics during labour."
 weeks: [35, 37]
-category: appointments
+type: moment
+topic: appointments
 draft: true
-source:
-  title: Pregnancy, Birth and Baby — Group B Strep (GBS) in pregnancy
-  url: https://www.pregnancybirthbaby.org.au/group-b-strep-test
+sources:
+  - title: Pregnancy, Birth and Baby — Group B Strep (GBS) in pregnancy
+    url: https://www.pregnancybirthbaby.org.au/group-b-strep-test
 checked: 2026-10-29
 ---
 Group B streptococcus (GBS) is a common bacterium. About 1 in 5 people carry it in the vagina, usually with no symptoms or health problems. There's a small chance it will pass to the baby during birth, and most babies who come into contact with it don't become unwell.

@@ -3,11 +3,12 @@ id: partner-reserved-days
 title: The partner's reserved Parental Leave Pay days
 summary: "For a baby born from 1 July 2026, 20 of the family's 130 Parental Leave Pay days are reserved for the partner to use."
 weeks: [26, 34]
-category: partner
+type: payment
+topic: partner
 draft: true
-source:
-  title: Services Australia — How much Parental Leave Pay you can get
-  url: https://www.servicesaustralia.gov.au/how-much-parental-leave-pay-you-can-get
+sources:
+  - title: Services Australia — How much Parental Leave Pay you can get
+    url: https://www.servicesaustralia.gov.au/how-much-parental-leave-pay-you-can-get
 checked: 2026-10-29
 tasks:
   - id: plan-partner-leave-days
