@@ -15,6 +15,18 @@ export const TYPES = ["moment", "payment", "decision", "can-i", "symptom", "guid
 
 export type ItemType = (typeof TYPES)[number];
 
+/** What each type is called on its page; a moment is just itself. */
+export const TYPE_LABELS: Record<ItemType, string | null> = {
+  moment: null,
+  payment: "Money and leave",
+  decision: "A decision",
+  "can-i": "Can I…?",
+  symptom: "Is this normal?",
+  guide: "Guide",
+  card: "Nobody tells you",
+  term: "Glossary",
+};
+
 /** The Library's shelves, in their usual order: the map's topics (content/map/README.md), and the extras'. */
 export const TOPICS = {
   food: "Food",
@@ -49,6 +61,14 @@ export type Topic = keyof typeof TOPICS;
 export const VERDICTS = ["yes", "limit", "avoid", "ask"] as const;
 
 export type Verdict = (typeof VERDICTS)[number];
+
+/** A symptom's levels, most urgent first: the four content/drafts/README.md names, after what's usual. */
+export const SYMPTOM_LEVELS = [
+  "Call 000 or go to emergency",
+  "Contact your hospital now",
+  "See your doctor or midwife",
+  "Mention it at your next visit",
+] as const;
 
 /** What a wrong answer costs: health, safety or a deadline; something; little. */
 export const STAKES = ["high", "medium", "low"] as const;

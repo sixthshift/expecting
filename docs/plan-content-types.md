@@ -72,6 +72,20 @@ Each step ends with the gate green (`check`, `test`, `lint`, `e2e`).
   else with weeks is in the Library only. 321 items cover week 28 and 101
   start at week 1, so step 5 has to choose what earns a place on a week.
 
+**Done 2026-10-30: step 3.** The item page draws each type
+(`ItemCard`, with `Verdict`, `Triage` and `Related`). Settled on the way:
+
+- A symptom shows "When to get help" before "What's usual": someone
+  wondering whether to worry sees when first. Each level has its action:
+  Call 000; the birth suite's number from Emergency info, or a link to add
+  it; the midwife's and GP's numbers when filled in; and "Mention it at your
+  next visit" adds the entry's question to the Planner.
+- Every phone number in any body (items and week notes) is a `tel:` link
+  (`src/lib/phones.ts`: 000, 13 and 1300/1800 numbers).
+- The card's title is the page's h1; a body's own `##` headings are styled.
+- No decision has a `decide_by` yet, so "Decide by week N" shows nowhere
+  until the review pass adds one from a source.
+
 1. **Clean the drafts (mechanical).**
    - Fix the 6 drafts whose frontmatter doesn't parse:
      `partner-mental-health-support`, `card-fundal-height-matches-weeks`,

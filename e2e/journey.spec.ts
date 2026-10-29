@@ -144,6 +144,39 @@ test("Why goes from a task to the item that explains it, and on to its week", as
   await expect(week(page, "28")).toBeInViewport();
 });
 
+test("an item is drawn by its type: a verdict, triage with the call to make, a definition, a card", async ({ page, open }) => {
+  await open("/library/soft-cheese");
+  await expect(page.getByRole("heading", { level: 1, name: "Soft cheese" })).toBeVisible();
+  await expect(page.getByText("Avoid", { exact: true })).toBeVisible();
+  await page
+    .getByRole("region", { name: "Related" })
+    .getByRole("link", { name: /Listeria/ })
+    .first()
+    .click();
+  await expect(page).toHaveURL(/\/library\/listeria-foods$/);
+
+  // A symptom: when to get help comes first, most urgent first, each with what to do in one tap.
+  await open("/library/dizziness-and-fainting");
+  const help = page.getByRole("region", { name: "When to get help" });
+  await expect(help.getByRole("heading", { level: 3 })).toHaveText([
+    "Call 000 or go to emergency",
+    "Contact your hospital now",
+    "See your doctor or midwife",
+    "Mention it at your next visit",
+  ]);
+  await expect(help.getByRole("link", { name: "Call 000" })).toHaveAttribute("href", "tel:000");
+  await expect(help.getByRole("link", { name: "Add your birth suite's number to Emergency info" })).toBeVisible();
+  // Any number in a body is one you can tap.
+  await expect(help.getByRole("link", { name: "1800 882 436" })).toHaveAttribute("href", "tel:1800882436");
+
+  await open("/library/blood-group-and-antibodies");
+  await expect(page.getByText("Glossary")).toBeVisible();
+  await expect(page.getByText(/^Also called blood type/)).toBeVisible();
+
+  await open("/library/card-sterile-water");
+  await expect(page.getByText("Nobody tells you", { exact: true })).toBeVisible();
+});
+
 test("the Library finds things, and keeps nobody-tells-you on a shelf of its own", async ({ page, open }) => {
   await open("/library");
   await expect(page.getByRole("region", { name: "Nobody tells you" }).getByRole("link", { name: /The RSV vaccine/ })).toBeVisible();

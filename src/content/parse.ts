@@ -1,7 +1,7 @@
 import type { z } from "zod";
 import { ContentError, type IndexHalf, type PageHalf, splitItem } from "./file";
 import { parseBody } from "./markdoc";
-import { type IndexFrontmatter, type Item, type ItemPage, type ItemType, indexSchema, pageSchema } from "./schema";
+import { type IndexFrontmatter, type Item, type ItemPage, type ItemType, indexSchema, pageSchema, SYMPTOM_LEVELS } from "./schema";
 
 /** The folder built-in items live in: `content/items/<id>.md`. */
 const FOLDER = "items";
@@ -47,14 +47,6 @@ export function parseItem(file: string, source: string): Item & ItemPage {
   const item = parseIndex(index);
   return { ...item, ...parsePage(file, page, item.type) };
 }
-
-/** A symptom's levels, most urgent first: the four content/drafts/README.md names, after what's usual. */
-export const SYMPTOM_LEVELS = [
-  "Call 000 or go to emergency",
-  "Contact your hospital now",
-  "See your doctor or midwife",
-  "Mention it at your next visit",
-] as const;
 
 /** The `##` sections a type must have. */
 const REQUIRED: Partial<Record<ItemType, string[]>> = {

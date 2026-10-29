@@ -9,6 +9,7 @@ import { weekLabel } from "../../lib/timeline";
 import { useApp } from "../household/useApp";
 import { ItemCard } from "./ItemCard";
 import { pageOf } from "./pageOf";
+import { Related } from "./Related";
 
 const route = getRouteApi("/app/library/$itemId");
 
@@ -30,8 +31,6 @@ export function LibraryItemPage() {
       </Link>
       {item ? (
         <div className="flex flex-col gap-4">
-          {/* The card's title is an h3 among weeks; here it is the page's subject. */}
-          <h1 className="sr-only">{item.title}</h1>
           <Suspense
             fallback={
               <p className="flex min-h-40 items-center justify-center gap-2 text-sm text-fg-subtle">
@@ -41,12 +40,6 @@ export function LibraryItemPage() {
           >
             <Page item={item} ticks={state.ticks} />
           </Suspense>
-          {item.from !== null ? (
-            <Link to="/timeline" search={{ at: item.from }} className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal">
-              <CalendarRange aria-hidden size={16} className="text-fg-brand" />
-              See {weekLabel(item.from).toLowerCase()} on the timeline
-            </Link>
-          ) : null}
         </div>
       ) : (
         <div className="flex flex-col gap-2">
@@ -78,8 +71,19 @@ export function LibraryItemPage() {
   );
 }
 
-/** The item with its page, once loaded. */
+/** The item with its page, once loaded: the card, its week on the timeline, and what it links to. */
 function Page({ item, ticks }: { item: Item; ticks: Record<string, string> }) {
   const page = use(pageOf(item));
-  return <ItemCard item={item} page={page} ticks={ticks} />;
+  return (
+    <>
+      <ItemCard item={item} page={page} ticks={ticks} />
+      {item.from !== null ? (
+        <Link to="/timeline" search={{ at: item.from }} className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal">
+          <CalendarRange aria-hidden size={16} className="text-fg-brand" />
+          See {weekLabel(item.from).toLowerCase()} on the timeline
+        </Link>
+      ) : null}
+      <Related ids={page.related} />
+    </>
+  );
 }
