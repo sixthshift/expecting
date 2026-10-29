@@ -1,0 +1,223 @@
+# Batch 6: mind-and-circumstances (loss, early birth, NICU, birth trauma, family violence, three cards)
+# and money-and-work (Parental Leave Pay, claiming, tests, reserved days, FTB, CCS, Medicare, unpaid leave, notice).
+# Checked 2026-10-29 against the pages as they read that day. Fixes applied to the map the same day.
+# Services Australia figures (rate $200.94 a day, 130/120/110 days, reserved 20/15/10, income test $186,487 and
+# $386,525 for 2025-26, CCS $88,520 and $538,520) all match the map: none has changed since it was written.
+
+- id: stillbirth
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "the choices (photos, hand and footprints, naming, a funeral is required after 20 weeks, registration)"
+      judgement: unsupported
+      source_says: "PBB: 'There is no rush to make decisions about a funeral or other memorial options', and the hospital gives information and support about registering the baby's birth and death. Nothing says a funeral is required after 20 weeks. (Notes also said PBB implies registration after 20 weeks; it does not.)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/stillbirth-and-neonatal-death/what-is-a-stillbirth
+    - covers: "your body after: milk comes in, bleeding, the six-week check"
+      judgement: wrong
+      source_says: "PBB: 'Make an appointment to see your doctor about 8 to 12 weeks after giving birth.' Bleeding can last up to 6 weeks, which is not a check. Milk and bleeding are ok."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/stillbirth-and-neonatal-death/your-body-after-stillbirth-or-neonatal-death
+
+- id: when-the-baby-comes-early
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "before 37 weeks is premature; between 32 and 37 most need special care and do well long-term; before 32 the risks are higher and most need help breathing in a NICU (PBB)"
+      judgement: wrong
+      source_says: "PBB: babies born between 32 and 37 weeks 'may need care in a special care nursery' and most have no serious long-term problems; before 32 weeks there is a higher risk of health and developmental problems and 'many' (not most) 'may need help breathing' and are usually cared for in a NICU at first."
+      url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/premature-baby
+
+- id: baby-in-the-nicu
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "the partner in the NICU: often back at work by day, at the cot by night"
+      judgement: unsupported
+      source_says: "Miracle Babies' dads page says dads may have to follow the baby to the neonatal unit, feel torn leaving the mother, be asked to consent to clinical procedures, and lists things dads can do (talk, sing, read, nappies, cares, helping with the pump). Nothing about work by day and the cot by night. SMS4dads does have NICU message sets."
+      url: https://www.miraclebabies.org.au/content/just-for-dads/goajxs
+    - covers: "NurtureLine 1300 622 243, 24 hours; PANDA; the hospital social worker"
+      judgement: unsupported
+      source_says: "The number and 24 hours are ok (free, 7 days a week), and PANDA 1300 726 306 is on the PBB page. No cited page mentions a hospital social worker for NICU families."
+      url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/supporting-parents-of-sick-or-premature-babies
+
+- id: birth-trauma
+  file: mind-and-circumstances.yaml
+  verdict: ok
+
+- id: loss-support-services
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "Sands is now part of Red Nose (sands.org.au redirects there)"
+      judgement: unsupported
+      source_says: "Neither Red Nose page cited mentions Sands. (The 1300 308 307 number, 24/7, free, and the list of losses it covers including miscarriage, ectopic, medical termination, stillbirth, newborn death and SIDS are ok.)"
+      url: https://rednose.org.au/grief-and-loss-support/overview/
+    - covers: "Bears of Hope: counselling and groups, support for dads"
+      judgement: unsupported
+      source_says: "The Bears of Hope home page offers free grief counselling, walk and talk groups and pregnancy-after-loss and early-loss programmes. Nothing about support for dads."
+      url: https://www.bearsofhope.org.au/
+    - covers: "Pink Elephants: ... resources written by women who have been there, a workplace programme"
+      judgement: unchecked
+      source_says: "The Pink Elephants home page is a JavaScript shell with no readable text. The peer-support page confirms private online (Facebook) communities moderated by peer companions, including miscarriage, TFMR and pregnancy-after-loss groups. Resources and a workplace programme could not be checked."
+      url: https://www.pinkelephants.org.au/
+    - covers: "the support list as a whole (PBB's miscarriage and pregnancy loss support services page)"
+      judgement: unchecked
+      source_says: "That PBB URL returned a 404 page, so nothing on it could be read."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/miscarriage-and-pregnancy-loss-support-services
+
+- id: partner-after-a-loss
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "partners often park their feelings to be the support, then feel it later, sometimes when planning the next baby (PBB)"
+      judgement: unsupported
+      source_says: "The cited PBB partners page says partners often feel they need to be strong and can feel isolated, and that thinking about trying again can be difficult. The 'ignore their feelings at first ... may feel sad or anxious later while planning for another baby' wording is on PBB's 'Experiencing a pregnancy loss' page, which is already in the map; kept, and that page added to the sources."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/partners-and-miscarriage
+    - covers: "look after yourself as well as her; the bereavement leave is yours too"
+      judgement: unsupported
+      source_says: "None of the cited pages mentions leave. Fair Work's page on accruing and taking other leave (already in the map) says an employee can take compassionate leave if their spouse or de facto partner has a miscarriage, or if their baby is stillborn. Reworded to compassionate leave and that page added."
+      url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/accruing-and-taking-other-leave-during-parental-leave
+    - covers: "support services are for partners: Red Nose, Bears of Hope's dads support, PANDA"
+      judgement: unsupported
+      source_says: "Red Nose's men's grief page and its dads' group are ok. Bears of Hope's page mentions no dads support (removed). PANDA is not on the cited partner pages."
+      url: https://rednose.org.au/grief-and-loss-support/mens-grief/
+
+- id: pregnancy-after-loss
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "milestones (the week it happened last time) are the hard days"
+      judgement: unsupported
+      source_says: "Not on the cited pages. The Gidget stillbirth fact sheet (already in the map) says grief can return around due dates, birthdays, anniversaries, medical appointments and pregnancy announcements. Reworded to that and the Gidget page added. (PBB's stress page does name a previous loss as a trigger: ok.)"
+      url: https://www.gidgetfoundation.org.au/fact-sheets/stillbirth
+    - covers: "extra care exists: early scans, and after stillbirth or neonatal death specialist clinics in many hospitals (PBB); ask for them"
+      judgement: wrong
+      source_says: "PBB: you may be offered more frequent and flexible appointments, extra ultrasounds to assess growth, genetic testing and so on, and 'specialist clinics throughout Australia'. 'Early scans' and 'many hospitals' are not said."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/stillbirth-and-neonatal-death/pregnancy-after-a-stillbirth-or-neonatal-death
+    - covers: "Pink Elephants and Red Nose support pregnancy after loss; Gidget's counselling"
+      judgement: unsupported
+      source_says: "Pink Elephants runs a Pregnancy After Loss group (ok). No Red Nose page cited mentions pregnancy after loss (removed). Gidget therapy covering fears about a future pregnancy is on the Gidget stillbirth sheet (added)."
+      url: https://www.pinkelephants.org.au/page/74/peer-support-private-support-groups
+
+- id: domestic-violence-in-pregnancy
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "your midwife or doctor may ask whether you feel safe at home; you can tell them, or ask to be seen alone"
+      judgement: unsupported
+      source_says: "PBB says to talk with your doctor, midwife or a support organisation. Gidget says some midwives and doctors are trained to spot risk, and that if you cannot speak to one directly (for example a controlling partner insists on attending every appointment) you should reach a specialist service. Neither says they will ask, or that you can ask to be seen alone."
+      url: https://www.gidgetfoundation.org.au/becoming-a-parent/understanding-family-violence-and-abuse-during-pregnancy
+    - covers: "1800RESPECT 1800 737 732, 24/7, free, confidential; text 0458 737 732; online chat and video; interpreters"
+      judgement: unsupported
+      source_says: "Number, 24/7, free, confidential, text 0458 737 732, online chat and video call are all on the 1800RESPECT home and safety planning pages. Interpreters are not mentioned on any cited page (removed)."
+      url: https://1800respect.org.au/
+
+- id: card-miscarriage-not-your-fault
+  file: mind-and-circumstances.yaml
+  verdict: ok
+
+- id: card-one-in-ten-dads
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "nobody screens them"
+      judgement: unsupported
+      source_says: "PBB gives 1 in 10 depression and 1 in 6 anxiety in pregnancy (ok) but says nothing about screening. The SMS4dads page (already in the map) quotes a researcher saying 'we need to be screening dads for depression, not just mums'; reworded to that and the page added."
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/fathers-and-depression
+
+- id: card-red-nose-24-7
+  file: mind-and-circumstances.yaml
+  verdict: ok
+
+- id: parental-leave-pay
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "the government's payment while you care for a newborn, through Services Australia, not your employer's own leave"
+      judgement: wrong
+      source_says: "You claim through Services Australia, but 'in many cases your employer will deliver your Parental Leave Pay'; sometimes Services Australia pays directly. Reworded."
+      url: https://www.servicesaustralia.gov.au/how-much-parental-leave-pay-you-can-get
+    - covers: "can be taken before, during or after employer-paid leave, annual leave or long service leave"
+      judgement: unsupported
+      source_says: "Not on the three cited pages. The claiming timeframes page (already in the map) says 'You can take Parental Leave Pay before, during or after any paid or unpaid employer funded leave', including maternity or parental leave, annual leave and long service leave. Kept; page added."
+      url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay
+    - covers: "notes: the scheme says the 2026 figure is the last step"
+      judgement: unsupported
+      source_says: "No cited page says 130 days is the final step. Removed from the notes. (All other figures ok: 130 days from 1 July 2026, 120 from 1 July 2025, 110 from 1 July 2024; $200.94 a day, $1,004.70 a 5-day week in 2026-27, $189.62 and $948.10 in 2025-26; rate follows the financial year of the days, not the birth date; one child's worth of days for multiples; taxable.)"
+      url: https://www.servicesaustralia.gov.au/paid-parental-leave-scheme-changes
+
+- id: parental-leave-pay-claim
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "the pre-birth claim shows 120 days until proof of birth confirms a birth from 1 July 2026, then 130"
+      judgement: wrong
+      source_says: "Services Australia: 'If you submit a pre-birth claim for a child before 1 July 2026, your Parental Leave Pay day balance will be 120 days.' The 120-then-130 behaviour applies only to claims submitted before 1 July 2026, which has now passed. Reworded to say so. (Up to 3 months before, 56 days, 14 weeks or 100 days, 52 weeks, 2 years, myGov path and shared FTB claim all ok.)"
+      url: https://www.servicesaustralia.gov.au/how-much-parental-leave-pay-you-can-get
+
+- id: parental-leave-pay-work-test
+  file: money-and-work.yaml
+  verdict: ok
+
+- id: parental-leave-pay-income-test
+  file: money-and-work.yaml
+  verdict: ok
+
+- id: partner-reserved-days
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "they can't be given to the birth parent; unused, they're lost"
+      judgement: unsupported
+      source_says: "The page says only that days are 'reserved for them to use' (20, 15 and 10 by birth date, ok) and that you decide together how to use the rest. Neither 'can't be given to the birth parent' nor 'lost if unused' is stated. Reworded."
+      url: https://www.servicesaustralia.gov.au/how-much-parental-leave-pay-you-can-get
+    - covers: "the partner claims in their own name and must pass the work and income tests"
+      judgement: unsupported
+      source_says: "Not on the cited page. The work requirements page says that if you are partnered to the birth mother both of you must meet the work test, and the income test page tests each claimant (both already in the map). Kept; both pages added. (Up to 20 days at the same time is ok for births from 1 July 2025; 10 before.)"
+      url: https://www.servicesaustralia.gov.au/work-requirements-for-parental-leave-pay
+
+- id: family-tax-benefit-claim
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "balanced after 30 June once both tax returns are in; 12 months to confirm income"
+      judgement: unsupported
+      source_says: "Payments are balanced 'after the end of the financial year'; 'You have 12 months from the end of the financial year to confirm your family income ... or claim FTB as a lump sum.' Nothing about both tax returns. Reworded."
+      url: https://www.servicesaustralia.gov.au/payment-choices-for-ftb
+    - covers: "proof of birth and the child's Medicare number finish the claim"
+      judgement: unsupported
+      source_says: "The claim page says you need proof of your child's birth before the claim for Parental Leave Pay or FTB can be finalised. A Medicare number is not mentioned. (3 months before, 52 weeks, lump sum before 30 June of the next financial year, and the payment choices are ok.)"
+      url: https://www.servicesaustralia.gov.au/how-to-claim-family-tax-benefit
+
+- id: child-care-subsidy
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "an hourly rate cap by care type and the child's age; fees above it are yours"
+      judgement: unsupported
+      source_says: "The income page says the percentage 'applies to either your hourly fee or the relevant hourly rate cap, whichever is lower'. Caps by care type and age are not on the cited pages. Reworded."
+      url: https://www.servicesaustralia.gov.au/your-income-can-affect-child-care-subsidy
+    - covers: "only approved care: centre-based day care, family day care, outside school hours care, in home care; not a nanny or grandparents"
+      judgement: unsupported
+      source_says: "The four approved types are ok. 'Not a nanny or grandparents' is not said (and In Home Care is an approved type with its own rules). Removed."
+      url: https://www.servicesaustralia.gov.au/who-can-get-child-care-subsidy
+    - covers: "notes: the 3 Day Guarantee replaced the old activity test in January 2026; thresholds and caps change each 1 July"
+      judgement: unsupported
+      source_says: "The hours page says only 'From 5 January 2026, families eligible for Child Care Subsidy can get at least 72 hours of subsidised child care each fortnight' (100 depending on recognised participation); it does not use the name '3 Day Guarantee' and still has a 'recognised participation and activity test' section. Notes reworded. (Percentage 90% up to $88,520, down 1% per $5,000, nil at $538,520, 5% withheld and immunisation are ok.)"
+      url: https://www.servicesaustralia.gov.au/hours-subsidised-child-care-for-child-care-subsidy
+
+- id: medicare-enrol-baby
+  file: money-and-work.yaml
+  verdict: ok
+
+- id: unpaid-parental-leave
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "leave entitlements and super don't accrue on unpaid leave; long service leave depends on the state"
+      judgement: unsupported
+      source_says: "Fair Work: employees 'don't usually build up (or accrue) paid leave' on unpaid parental leave, though some leave accrues during a keeping-in-touch day or paid leave taken within it; long service leave may build up depending on state or territory rules. Superannuation is not mentioned. Reworded."
+      url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/accruing-and-taking-other-leave-during-parental-leave
+
+- id: employer-leave-notice
+  file: money-and-work.yaml
+  verdict: ok

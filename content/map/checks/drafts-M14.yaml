@@ -1,0 +1,211 @@
+# Fact-check of drafted Library entries, batch M14 (20 drafts in mind-and-circumstances), checked 2026-10-29
+# against the pages in each draft's sources: (re-fetched 2026-10-29).
+- id: epilepsy-pointer
+  file: content/drafts/epilepsy-pointer.md
+  verdict: fix
+  problems:
+    - claim: "Epilepsy is on the list of conditions that make a pregnancy higher risk, which means closer care: more frequent appointments with both your obstetrician and your neurologist."
+      judgement: wrong
+      source_says: "PBB: pre-existing medical conditions (such as epilepsy ...) may increase the chance of complications. EAA: more frequent appointments with both obstetrician and neurologist only 'if someone has had frequent seizures during pregnancy, especially during the third trimester'; otherwise 'They will want to monitor you closely throughout.'"
+      url: https://www.epilepsy.org.au/epilepsy-pregnancy/
+      fixed_to: "PBB lists epilepsy among pre-existing conditions that may make a pregnancy higher risk; EAA says talk to neurologist/GP/obstetrician and they will want to monitor you closely; the frequent-appointments line moved to The birth, with its condition."
+    - claim: "doctors may monitor blood levels and raise a dose even if you're not having seizures. It usually goes back down soon after the birth."
+      judgement: wrong
+      source_says: "Some medications may deplete; doctor may need to monitor and increase regardless of seizures. 'most likely to be returned to pre-pregnancy levels shortly after delivery'"
+      url: https://www.epilepsy.org.au/epilepsy-pregnancy/
+      fixed_to: "wording as the source, 'most likely'"
+    - claim: "a fall can cause injury"
+      judgement: wrong
+      source_says: "Injury to the foetus if the mother has a severe fall or serious injury"
+      url: https://www.epilepsy.org.au/epilepsy-pregnancy/
+      fixed_to: "a severe fall or serious injury can injure the baby"
+    - claim: "The aim is usually one medicine at the lowest dose"
+      judgement: wrong
+      source_says: "ideally aim to use one medication at the lowest possible dose"
+      url: https://www.epilepsy.org.au/epilepsy-pregnancy/
+      fixed_to: "'ideally aim' wording"
+    - claim: "Valproate paragraph lacked the regulator's statement"
+      judgement: unsupported
+      source_says: "TGA: It is well known that valproate can cause malformations and neurodevelopmental disorders in babies born to women taking valproate before and during pregnancy. Because of this, women and people who can give birth to children are advised to avoid taking this medicine at those times."
+      url: https://www.tga.gov.au/safety/safety-monitoring-and-information/safety-alerts/valproate-safety-alert
+      fixed_to: "added, credited to the TGA beside EAA's 'do not stop taking your medications' advice (both kept, each credited); TGA page added to sources. Also added EAA's valproate prescribing line and the labour/delivery seizure risk and 'report to neurologist' detail."
+- id: loss-and-work
+  file: content/drafts/loss-and-work.md
+  verdict: fix
+  problems:
+    - claim: "taken as 2 days together, 2 separate days, or as agreed with your employer"
+      judgement: wrong
+      source_says: "a single continuous 2 day period; 2 separate periods of 1 day each; any separate periods as agreed with their employer"
+      url: https://www.fairwork.gov.au/leave/compassionate-and-bereavement-leave
+      fixed_to: "wording as Fair Work's page"
+    - claim: "This applies to deaths on or after 7 November 2025."
+      judgement: wrong
+      source_says: "This protection applies where a child is stillborn or dies on or after 7 November 2025."
+      url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/stillbirth-premature-birth-or-death-of-a-child
+      fixed_to: "'This protection applies where a child is stillborn or dies on or after 7 November 2025.' (it covers employer-funded paid parental leave only; 2 days compassionate leave, 12 months unpaid parental leave and the casual-unpaid rule all confirmed on the Fair Work pages; Miscarriage Australia says '2 days of paid' without the casual exception, Fair Work's casual-unpaid wording kept)"
+- id: ivf-pregnancy
+  file: content/drafts/ivf-pregnancy.md
+  verdict: fix
+  problems:
+    - claim: "Counselling, on your own or as a couple, can help."
+      judgement: unsupported
+      source_says: "Gidget: If your relationship is struggling, consider seeing someone who specialises in couple's therapy."
+      url: https://www.gidgetfoundation.org.au/fact-sheets/assisted-reproduction
+      fixed_to: "If your relationship is struggling, Gidget Foundation suggests seeing someone who specialises in couple's therapy. (PBB's complication list confirmed item for item: vaginal bleeding, blood clots in early pregnancy, high blood pressure, gestational diabetes, premature birth, birth by caesarean, child with a congenital disorder; higher chance of multiples if more than one embryo transferred. PANDA 75% and Gidget GP-referral/bulk-billed lines confirmed.)"
+- id: surrogacy
+  file: content/drafts/surrogacy.md
+  verdict: fix
+  problems:
+    - claim: "It's illegal to pay a surrogate. The intended parents pay the surrogate's pregnancy-related costs. / The surrogate can make the intended parents repay their costs."
+      judgement: wrong
+      source_says: "PBB: 'surrogacy arrangements must be altruistic. Altruistic surrogacy means that the surrogate is not paid for carrying the pregnancy. However, the intended parents must pay for the surrogate's pregnancy-related costs. This is legal in Australia.' and 'the surrogate can force the intended parents to pay them back for any costs involved in the process.' (PBB page does not use the word 'refund'; both the 'must pay' and the 'pay them back' statements are kept, as PBB words them.)"
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/adoption-and-surrogacy/surrogacy
+      fixed_to: "'must be altruistic: the surrogate is not paid for carrying the pregnancy' + 'the intended parents must pay for the surrogate's pregnancy-related costs' + 'the surrogate can force the intended parents to pay them back'; commercial surrogacy defined as PBB does; summary reworded to match. Everything else (rules by state, counselling, $55,000-$75,000, Medicare, parentage order, Rainbow Families relationship-centred line, Attorney-General's site) confirmed."
+- id: twins-and-multiples-support
+  file: content/drafts/twins-and-multiples-support.md
+  verdict: fix
+  problems:
+    - claim: "Parents of multiples are more likely to become depressed...: AMBA cites research finding clinical anxiety three times and depression five times as common in birth parents of twins as in those with one baby."
+      judgement: wrong
+      source_says: "mothers of twins experience rates of clinical anxiety ... three times higher than among mothers of singletons and rates of depression five times higher"
+      url: https://www.amba.org.au/support/information/perinatal-mental-health
+      fixed_to: "kept the source's subject: 'mothers of twins' vs 'mothers of singletons'; 'mothers of multiples' for the general risk statement"
+    - claim: "if you're struggling, talk to your GP, child health nurse or hospital social worker; accept help"
+      judgement: unsupported
+      source_says: "Gidget: 'Speaking to the hospital social worker or someone at AMBA may help'; 'ask for help if needed'. No listed page names GP or child health nurse."
+      url: https://www.gidgetfoundation.org.au/fact-sheets/multiple-births
+      fixed_to: "hospital social worker or someone at AMBA; ask for help if you need it"
+    - claim: "When to get help: Contact your doctor immediately if your tummy feels tight, hurts or suddenly gets bigger, if you put on weight very quickly, or if you're short of breath (signs of TTTS)"
+      judgement: unsupported
+      source_says: "PBB on TTTS: rare condition in identical twins sharing a placenta and sac; blood flows from one twin to the other; can be very severe; care transferred to specialists. No listed page gives these symptoms or an urgency level; Royal Women's TTTS page did not load usable text and web search was unavailable."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy
+      fixed_to: "cut the symptom list and 'immediately'; replaced the section with PBB's TTTS description. NOTE FOR CALLER: this removes a red-flag list; if wanted, source it from Royal Women's / Better Health TTTS pages in a later pass."
+- id: older-parent-35
+  file: content/drafts/older-parent-35.md
+  verdict: fix
+  problems:
+    - claim: "Many people aged 35 and older conceive naturally and have healthy pregnancies and babies."
+      judgement: wrong
+      source_says: "Many people in their mid-30s and over go on to have healthy pregnancies, although getting pregnant may become more difficult for some."
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/fertility/trying-for-pregnancy-after-35
+      fixed_to: "Many people in their mid-30s and older go on to have healthy pregnancies."
+    - claim: "Fertility drops more after 35, and it can take longer to conceive."
+      judgement: wrong
+      source_says: "drops more after the age of 35 years ... getting pregnant may become more difficult for some"
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/fertility/trying-for-pregnancy-after-35
+      fixed_to: "wording as source"
+- id: older-parent-40
+  file: content/drafts/older-parent-40.md
+  verdict: fix
+  problems:
+    - claim: "The chance of a chromosome difference rises with age but stays relatively low overall."
+      judgement: unsupported
+      source_says: "not on the page (it says pregnancy later in life can increase the chance of some genetic conditions)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/being-pregnant-after-40
+      fixed_to: "cut"
+    - claim: "your care team may watch for them more closely / your team watches more closely"
+      judgement: unsupported
+      source_says: "your care team can help monitor and support you"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/being-pregnant-after-40
+      fixed_to: "'can help monitor and support you' in body and summary"
+- id: supporting-someone-after-a-loss
+  file: content/drafts/supporting-someone-after-a-loss.md
+  verdict: fix
+  problems:
+    - claim: "Look after yourself too: you may be grieving as well, and that's normal."
+      judgement: wrong
+      source_says: "Miscarriage Australia: 'Take care that you are prepared and ready emotionally and physically before providing support, as you may also experience grief. It is normal and valid to feel sad about the loss.'"
+      url: https://miscarriageaustralia.com.au/finding-miscarriage-support/for-family-and-friends/supporting-someone-after-miscarriage/
+      fixed_to: "Take care you're ready too: you may be grieving as well, and that's normal. (Everything else confirmed on Gidget and Miscarriage Australia, including the 'at least' list and the don'ts.)"
+- id: remembering-the-baby
+  file: content/drafts/remembering-the-baby.md
+  verdict: fix
+  problems:
+    - claim: "A loss from 20 weeks is a stillbirth, and the hospital gives you information and support about registering your baby's birth and death. Staff can help with keepsakes ... and with rituals ..."
+      judgement: unsupported
+      source_says: "PBB stillbirth page: 'Your hospital healthcare provider may be able to help you with things like' a lock of hair, cot name card, handprints and footprints; 'Your healthcare professionals can support you to arrange bereavement rituals ...' No mention of registering the birth and death."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/stillbirth-and-neonatal-death/what-is-a-stillbirth
+      fixed_to: "registration sentence cut; 'may be able to help' and 'can support you to arrange' wording as the source. Certificate names for all eight jurisdictions, burial/cremation, memorial service and private-garden lines confirmed."
+- id: grief-and-anniversaries
+  file: content/drafts/grief-and-anniversaries.md
+  verdict: fix
+  problems:
+    - claim: "The loss of a pregnancy or a baby stays with you at some level."
+      judgement: unsupported
+      source_says: "Gidget: 'Grief is not something that completely goes away, although you do learn to live with it.'"
+      url: https://www.gidgetfoundation.org.au/fact-sheets/a-guide-to-coping-with-reminders-of-your-pregnancy-and-or-child-loss
+      fixed_to: "Grief after the loss of a pregnancy or a baby doesn't completely go away, though you learn to live with it. (Beyond Blue 1300 22 4636, Lifeline 13 11 14, 000 and PBB 'doctor or midwife' lines confirmed.)"
+- id: young-parent
+  file: content/drafts/young-parent.md
+  verdict: fix
+  problems:
+    - claim: "Kids Helpline is 1800 55 1800, any time, for young people up to 25."
+      judgement: wrong
+      source_says: "PBB: 'Teenagers and young adults aged 18 to 25 years can also call Kids helpline on 1800 55 1800, 24 hours a day, 7 days a week.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/teenage-pregnancy
+      fixed_to: "24 hours a day, 7 days a week, for teenagers and young adults aged 18 to 25 (PBB's wording). All else (health risks, school, Centrelink payments, Rent Assistance, housing services, Relationships Australia 1300 364 277, rights) confirmed. Note PBB's 'Dad and Partner Pay' is not used."
+- id: pregnancy-after-birth-trauma
+  file: content/drafts/pregnancy-after-birth-trauma.md
+  verdict: fix
+  problems:
+    - claim: "Continuity of care, the same professional or small team throughout, can help you talk through scenarios and set realistic expectations."
+      judgement: unsupported
+      source_says: "Birth Trauma Australia: 'In being clear, and on the same page as your support team you can make plans around possible situations and outcomes.' No continuity-of-care statement."
+      url: https://birthtrauma.org.au/birth-after-birth-trauma/
+      fixed_to: "Being on the same page as your team lets you make plans for possible situations and outcomes: 'if X happens, we'll try our best to do Y.'"
+    - claim: "staff should explain the risks and benefits of any intervention and ask your consent first."
+      judgement: unsupported
+      source_says: "PBB: 'Informed consent is when you agree to healthcare, while understanding the potential benefits and risks involved.'"
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-rights/what-is-trauma-informed-care
+      fixed_to: "informed consent means you agree to care while understanding the potential benefits and risks. (Never too late, referral, PANDA 1300 726 306, Gidget 1300 851 758, Medicare Mental Health 1800 595 212, Peer2Peer details confirmed.)"
+- id: previous-caesarean-pointer
+  file: content/drafts/previous-caesarean-pointer.md
+  verdict: ok
+- id: told-higher-risk
+  file: content/drafts/told-higher-risk.md
+  verdict: ok
+- id: thyroid-pointer
+  file: content/drafts/thyroid-pointer.md
+  verdict: fix
+  problems:
+    - claim: "Treated well, an underactive thyroid won't cause problems for you or your baby. Untreated, low thyroid hormone can lead to miscarriage, ... An overactive thyroid can lead to miscarriage or stillbirth ..."
+      judgement: wrong
+      source_says: "PBB: 'If your hypothyroidism is treated effectively, it will not cause problems for you or your baby.' 'Low levels of thyroid hormone can cause complications such as: premature birth, low birth weight, miscarriage, placental abruption, pre-eclampsia'; overactive 'may cause complications such as miscarriage or stillbirth ...'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/thyroid-dysfunction-and-pregnancy
+      fixed_to: "wording as the source ('treated effectively', 'can cause complications such as', 'may cause complications such as')"
+- id: autoimmune-pointer
+  file: content/drafts/autoimmune-pointer.md
+  verdict: ok
+- id: disability-and-pregnancy
+  file: content/drafts/disability-and-pregnancy.md
+  verdict: ok
+- id: lgbtqia-families
+  file: content/drafts/lgbtqia-families.md
+  verdict: fix
+  problems:
+    - claim: "often more intentional because of all the planning"
+      judgement: wrong
+      source_says: "Gidget: 'sometimes more intentional because of the planning involved'"
+      url: https://www.gidgetfoundation.org.au/fact-sheets/rainbow-families
+      fixed_to: "sometimes more intentional because of the planning involved"
+    - claim: "Same-sex parents have the same entitlements as everyone else, married or de facto."
+      judgement: wrong
+      source_says: "PBB: 'Same-sex parents are assessed for entitlements in the same way as everyone else.' (nothing on married or de facto; the same page also mentions Dad and Partner Pay, which no longer exists, so not used)"
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/relationships-and-support/same-sex-parents
+      fixed_to: "Pregnancy, Birth and Baby says same-sex parents are assessed for entitlements in the same way as everyone else."
+    - claim: "Pregnancy, Birth and Baby suggests getting legal advice and a written agreement."
+      judgement: wrong
+      source_says: "PBB: 'Also consider getting legal advice. You can get a contract drawn up to ensure all people involved understand the agreement.'"
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/relationships-and-support/same-sex-parents
+      fixed_to: "says to consider getting legal advice, and that you can have a contract drawn up so everyone understands the agreement"
+    - claim: "safe, appropriate care for trans, gender-diverse or intersex parents isn't always available (credited to the sources, none of the listed pages said it)"
+      judgement: unsupported
+      source_says: "Gidget dads/non-birthing partners page: 'Access to safe and appropriate care for trans, gender diverse or intersex parents is not always available'"
+      url: https://www.gidgetfoundation.org.au/becoming-a-parent/pregnancy-for-expectant-dads-and-non-birthing-partners
+      fixed_to: "kept; that page added to sources. QLife 1800 184 527 3pm to midnight 7 days confirmed on Gidget LGBTQIA+ page; BDM Victoria female-partner and consented-donor lines confirmed."
+- id: non-birth-parent
+  file: content/drafts/non-birth-parent.md
+  verdict: ok
+- id: adoption-pointers
+  file: content/drafts/adoption-pointers.md
+  verdict: ok

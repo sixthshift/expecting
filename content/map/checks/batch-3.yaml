@@ -1,0 +1,261 @@
+- id: hot-weather
+  file: can-i-do.yaml
+  verdict: fix
+  problems:
+    - covers: "verdict: you run hotter in pregnancy and are on every state's at-risk list; plan the day around it"
+      judgement: unsupported
+      source_says: "The first half is ok (PBB: metabolism rises, body temperature rises, 'more sensitive to hot weather'; SA Health: higher body temperature). Only NSW Health lists pregnant women among those at risk of serious problems in hot weather. PBB and SA Health name no at-risk list, and no other state is cited."
+      url: https://www.health.nsw.gov.au/environment/beattheheat/Pages/health-in-hot-weather.aspx
+    - covers: "first-trimester overheating and development; later, blood goes to the skin not the placenta"
+      judgement: unsupported
+      source_says: "First half ok (PBB: in the first trimester overheating 'can affect your baby's growth and development'). The blood-flow point is made for any overheating ('more blood flows to your skin... less goes to other parts including your placenta'), not for later pregnancy."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/dealing-with-hot-weather-during-pregnancy-and-breastfeeding
+    - covers: "move exercise to early or late; swim or walk, not run"
+      judgement: unsupported
+      source_says: "Minor. PBB: exercise early morning or later in the day; swimming, walking, gentle cycling, pilates, yoga are less likely to cause overheating. It does not say not to run."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/dealing-with-hot-weather-during-pregnancy-and-breastfeeding
+
+- id: sleeping-on-your-back
+  file: can-i-do.yaml
+  verdict: unchecked
+  problems:
+    - covers: "verdict: from 28 weeks go to sleep on your side, every sleep including naps; it halves the risk of late stillbirth"
+      judgement: unchecked
+      source_says: "The Red Nose page returned 403 (Cloudflare block). Side, 28 weeks and naps are ok on PBB. 'Halves the risk' is on neither page that loaded: PBB says only that sleeping on your side 'can reduce the risk of stillbirth'; RANZCOG says back-sleepers have 'up to 8 times' the chance of stillbirth."
+      url: https://rednose.org.au/news/sleeping-on-your-side-reduces-your-stillbirth-risk/
+
+- id: cat-litter
+  file: can-i-do.yaml
+  verdict: fix
+  problems:
+    - covers: "the cat stays; it's the faeces, and oocysts need a day or more to become infective, so daily changing cuts the risk"
+      judgement: unsupported
+      source_says: "The cat can stay is ok (PBB myths: 'no need to give away your pets'). PBB says the litter tray should be emptied daily but gives no reason; oocysts and a day to become infective are on none of the cited pages (the entry's own notes already say so)."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/toxoplasmosis
+    - covers: "keep cats off hunting (bell, indoors), feed cooked or commercial food"
+      judgement: unsupported
+      source_says: "Minor. PBB: feed store-bought or cooked food; discourage hunting, 'a bell on their collar can help'. Keeping the cat indoors is not said."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/toxoplasmosis
+    - covers: "not screened in Australia; a blood test if you've had direct contact or symptoms"
+      judgement: unsupported
+      source_says: "'Not screened in Australia' is on none of the three pages. PBB: see your doctor or midwife if you have symptoms or have been in direct contact with cat faeces, raw meat or contaminated soil or water; a blood test diagnoses it."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/toxoplasmosis
+
+- id: vaccines-in-pregnancy
+  file: can-i-do.yaml
+  verdict: fix
+  problems:
+    - covers: "verdict: non-live vaccines yes (flu, whooping cough, RSV in their windows; COVID, tetanus, hep B if needed); live vaccines no (MMR, varicella, yellow fever, live JE, BCG)"
+      judgement: wrong
+      source_says: "Only flu (any time), whooping cough (preferably 20 to 32 weeks) and RSV (from 28 weeks, preferably 28 to 36) are routinely recommended. The Handbook says most other non-live vaccines (COVID-19, hepatitis B, and so on) are 'not routinely recommended' in pregnancy, though pregnancy is not an absolute contraindication and they can be given when benefits outweigh risks. Live attenuated vaccines (MMR, varicella, BCG, Imojev) are contraindicated; yellow fever is not recommended unless travel is unavoidable. 'Tetanus' alone is not named; the pertussis vaccine is the dTpa."
+      url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
+    - covers: "COVID: safe at any stage; a further dose not routinely recommended if already vaccinated"
+      judgement: wrong
+      source_says: "Handbook: COVID-19 vaccine is 'not routinely recommended, but all pregnant women can consider a dose from 20 weeks gestation in each pregnancy'; safe use of mRNA vaccines has been shown. 'At any stage' is not said. PBB: if already vaccinated you do not need to be vaccinated again during pregnancy, but can choose to."
+      url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
+
+- id: travel-in-pregnancy
+  file: can-i-do.yaml
+  verdict: fix
+  problems:
+    - covers: "who shouldn't: bleeding, multiples, pre-eclampsia or high blood pressure, placental problems, previous preterm labour, poorly controlled diabetes; ask first"
+      judgement: unsupported
+      source_says: "MotherSafe lists the high-risk factors as placental abnormalities, incompetent cervix, history of premature labour, diabetes (not 'poorly controlled'), multiple pregnancy, and high blood pressure in the current or a previous pregnancy, plus some medical conditions. Bleeding and pre-eclampsia are not named on any cited page. PBB: with a high chance of complications it may not be safe; ask your doctor or midwife."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
+    - covers: "Australia: Medicare travels with you, but rural maternity care is thin"
+      judgement: unsupported
+      source_says: "First half ok (PBB: within Australia you can receive care throughout the country with your Medicare card or private health insurance). Nothing on any cited page says rural maternity care is thin."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
+
+- id: airline-pregnancy-limits
+  file: can-i-do.yaml
+  verdict: fix
+  problems:
+    - covers: "overseas carriers set their own rules, often earlier (Smartraveller says many stop at 28 weeks); check before you book, and the return leg counts"
+      judgement: wrong
+      source_says: "Smartraveller says 'Most airlines won't let you fly beyond 28 weeks of pregnancy', not 'many'. MotherSafe says to check the airline's cut-off: generally 36 weeks for local flights and from 32 weeks for international. 'The return leg counts' is on none of the cited pages. Qantas and Virgin limits, the 28-week letter, the 10-day date for Virgin, medical clearance for complications and the 'minimum, not a safety endorsement' line are all ok. Qantas says submit the clearance form no later than five days before departure."
+      url: https://www.smartraveller.gov.au/before-you-go/health/pregnancy
+
+- id: travel-insurance
+  file: can-i-do.yaml
+  verdict: fix
+  problems:
+    - covers: "verdict: buy it, and read the pregnancy clause; cover for complications usually ends somewhere between 23 and 32 weeks"
+      judgement: wrong
+      source_says: "PBB: 'You may only be covered until week 32 of pregnancy'; different policies offer different levels of pregnancy cover. No cited page gives 23 weeks or says it 'usually' ends in a range. Smartraveller: 'You need travel insurance'; ask whether it covers pregnancy and until what stage, and you may need to pay extra."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
+    - covers: "reciprocal health care agreements (11 countries as of 2025) cover some urgent care, not evacuation or the baby"
+      judgement: unsupported
+      source_says: "PBB says only 'Visit the Services Australia website to learn about reciprocal health agreements between Australia and some other countries.' The count, what they cover, and that they exclude evacuation or the baby are on no cited page."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
+
+- id: seatbelt-position
+  file: can-i-do.yaml
+  verdict: fix
+  problems:
+    - covers: "seat back from the wheel and dash; airbags on"
+      judgement: unsupported
+      source_says: "Better Health Channel: move the seat well back from the dashboard (passenger) or wheel (driver) 'to reduce airbag impact'; tilt the wheel down. It does not say to keep airbags switched on."
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+    - covers: "belt adjusters: no Australian guidance for or against; the belt itself positioned right is the standard"
+      judgement: unsupported
+      source_says: "None of the three pages mentions belt adjusters. The 'no guidance' claim is an absence claim these pages cannot support; the correct belt position (lap belt over hips and under the bump, sash between the breasts and above the bump) is ok on PBB and Better Health Channel."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+
+- id: overseas-travel
+  file: can-i-do.yaml
+  verdict: fix
+  problems:
+    - covers: "food and water: boil, cook, bottle, peel; no iodine purification; traveller's diarrhoea is serious in pregnancy"
+      judgement: wrong
+      source_says: "MotherSafe: 'Avoid iodine to purify water after 10 weeks of pregnancy as it can affect your unborn baby's thyroid' and chlorine-based tablets can be used. It is not a blanket ban. 'Boil, cook, bottle, peel' and traveller's diarrhoea leading to 'dehydration, low blood pressure and shock in pregnancy' are ok."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
+    - covers: "COVID and flu: be vaccinated before you go"
+      judgement: unsupported
+      source_says: "PBB says that if you are pregnant and unvaccinated you have a higher risk of severe illness and hospital admission with COVID-19 or flu, and to ask your doctor if travel vaccinations are safe for you. MotherSafe: talk with your maternity provider before travelling. Neither says to be vaccinated before you go."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
+
+- id: zika
+  file: can-i-do.yaml
+  verdict: fix
+  problems:
+    - covers: "verdict: defer non-essential travel to Zika areas while pregnant; the Department of Health's advice"
+      judgement: wrong
+      source_says: "healthdirect: 'The Department of Health advises anyone who is pregnant or planning pregnancy to consider delaying travelling to countries where the virus outbreak has been detected.' It says 'consider delaying', not 'defer', and does not say 'non-essential'."
+      url: https://www.healthdirect.gov.au/conditions/viral-infections/zika-virus
+    - covers: "spread by mosquitoes and sexually; condoms for the trip and after"
+      judgement: unsupported
+      source_says: "Spread by mosquitoes and sexually is ok. healthdirect says to use condoms during sex while in the affected region. 'And after' is not said."
+      url: https://www.healthdirect.gov.au/conditions/viral-infections/zika-virus
+    - covers: "the partner who travels alone: condoms for the rest of the pregnancy; planning a pregnancy, wait six months after leaving the area"
+      judgement: unsupported
+      source_says: "The six months for planning a pregnancy is ok. Condoms for the rest of the pregnancy is not on any cited page. healthdirect says that anyone who is pregnant, planning a pregnancy or with a pregnant partner who has recently travelled to a Zika-affected area should see a doctor to discuss testing and prevention of transmission, even without symptoms."
+      url: https://www.healthdirect.gov.au/conditions/viral-infections/zika-virus
+    - covers: "where: check the Smartraveller country page and the Department of Health list; the Pacific and Southeast Asia include places Australians go"
+      judgement: wrong
+      source_says: "healthdirect: 'For an up-to-date list of countries with a risk of Zika, check the US Centers for Disease Control and Prevention website', and to check smartraveller.org.au for travel advice. It does not point to a Department of Health list. It names parts of Africa, South and Central America, Asia, the Caribbean, the Pacific Islands and Mexico."
+      url: https://www.healthdirect.gov.au/conditions/viral-infections/zika-virus
+
+- id: choosing-your-model-of-care
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "continuity of care has real benefits, and the places that give it fill in the first trimester"
+      judgement: unsupported
+      source_says: "Benefits are ok (PBB continuity page; Royal Women's: significant and lasting health benefits). Nothing says continuity places fill in the first trimester. The Royal Women's says only that caseload is popular, is not available in all locations, and to check at the booking appointment."
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/pregnancy-care-birthing-options
+    - covers: "the questions to ask your GP at the first visit, and that you can change later"
+      judgement: unsupported
+      source_says: "PBB: ask your GP, midwife or doctor at your first antenatal visit about models of care in your area. Nothing on the cited pages says you can change your model of care later."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/what-is-the-difference-between-public-and-private-care-in-pregnancy
+    - covers: "decide by about 10 to 12 weeks so booking in is not late"
+      judgement: unsupported
+      source_says: "No cited page gives a decide-by week. PBB: 'Take your time to decide'; the Royal Women's: think about options before your booking appointment."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/what-is-the-difference-between-public-and-private-care-in-pregnancy
+
+- id: midwifery-group-practice
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "publicly funded, free with Medicare, in a public hospital"
+      judgement: unsupported
+      source_says: "PBB models page: 'Care is publicly funded'. 'Free with Medicare' is not said of this model (PBB says Medicare covers most of the cost of public pregnancy care, with some out-of-pocket costs possible). Appointments may be in hospital, community or at home, and birth in hospital, birth centre or sometimes home, so 'in a public hospital' is too narrow."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/maternity-models-of-care
+    - covers: "places are limited and allocated early, ask at the first visit and at booking"
+      judgement: unsupported
+      source_says: "Royal Women's: caseload is popular and not available in all locations; check with the midwife at the booking appointment. PBB: ask your GP or midwife at the first antenatal visit about models available. 'Allocated early' is not said."
+      url: https://thewomens.org.au/patients-visitors/clinics-and-services/pregnancy-birth/pregnancy-care-options
+
+- id: private-obstetrician
+  file: care.yaml
+  verdict: ok
+
+- id: choosing-a-hospital
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "public hospitals usually take you by catchment, your address decides, ask about out-of-area"
+      judgement: unsupported
+      source_says: "PBB maternity care page: 'you may book at the local maternity hospital for your area'; the choosing-where page: if there is more than one hospital in your area you can choose. Catchment rules and asking about out-of-area access are not on the cited pages (the Royal Women's says where you live determines which hospital you can go to, but it is not cited here)."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/choosing-where-to-give-birth
+    - covers: "what to compare, models of care offered, a birth centre, special care nursery or NICU level, distance in labour, visiting rules, parking"
+      judgement: unsupported
+      source_says: "PBB covers models of care, birth centres, that a hospital allows an easy transfer to a special care or neonatal intensive care unit, how far you want to travel, and questions on touring, birth plan, pain relief, birthing aids, length of stay and transfer. 'NICU level', visiting rules and parking are not on the cited pages."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/choosing-where-to-give-birth
+    - covers: "decide early, places and group practices fill"
+      judgement: unsupported
+      source_says: "PBB: birth centres are popular, so book in as early as you can; if you want a hospital or birth centre birth, book as early as possible. Group practices filling is not said."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/maternity-care-in-australia
+
+- id: booking-in
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "book as early as possible, some hospitals and group practices fill"
+      judgement: unsupported
+      source_says: "PBB maternity care: 'If you want to give birth in a hospital or birth centre, it's a good idea to book as early as possible.' Hospitals or group practices filling is not said."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/maternity-care-in-australia
+    - covers: "what the hospital asks for, the referral, Medicare card, blood results, scan reports"
+      judgement: unsupported
+      source_says: "Neither cited page lists what a hospital asks for at booking. PBB first visit: a GP referral to a maternity service or obstetrician; you may not need one for a midwife in a group or private practice."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/your-first-antenatal-visit
+    - covers: "the booking visit that follows is a separate, longer appointment"
+      judgement: unsupported
+      source_says: "Both pages describe the first antenatal visit as a longer appointment than later ones. Neither describes a separate hospital booking visit that follows it."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/your-first-antenatal-visit
+
+- id: what-medicare-covers
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "rebates on routine ultrasounds, blood tests and telehealth, the imaging provider may charge a gap"
+      judgement: unsupported
+      source_says: "PBB: Medicare covers 'free or subsidised ultrasounds and blood tests' and telehealth; Services Australia: 'may help with the costs of' routine ultrasounds, blood tests and telehealth. Neither says the imaging provider may charge a gap."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/medicare-during-pregnancy
+    - covers: "flu, whooping cough and RSV vaccines free under the National Immunisation Program"
+      judgement: unsupported
+      source_says: "Both cited pages name only whooping cough and influenza as free under the NIP. RSV is free under the NIP on the PBB vaccinations-and-pregnancy page (28 to 38 weeks), which is cited elsewhere in the map."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/medicare-during-pregnancy
+
+- id: private-health-insurance-and-pregnancy
+  file: care.yaml
+  verdict: ok
+
+- id: first-antenatal-visit
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "the screening choices with short windows that open at 10 weeks"
+      judgement: unsupported
+      source_says: "PBB first visit says only that you 'may wish to do screening tests for certain genetic conditions'; the Royal Women's page says to discuss your risk of Down syndrome. Neither gives windows or 10 weeks. The windows are on the PBB Screening for Down syndrome page (combined blood test from 10 weeks, NIPT after 10 weeks), cited elsewhere in the map."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/your-first-antenatal-visit
+
+- id: first-trimester-screening
+  file: care.yaml
+  verdict: ok
+
+- id: combined-first-trimester-screening
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "the deadline is the scan window, book the bloods first"
+      judgement: wrong
+      source_says: "The blood test window closes earlier than the scan's: RANZCOG gives the blood test at 10 to 13 weeks and the ultrasound at 11 to 13 weeks; PBB gives the blood test between week 10 and week 13 and the NT scan from 11 weeks to 13 weeks 6 days. So the blood test, not the scan, is the earlier deadline. 'Book the bloods first' is not said. (One PBB paragraph prints the blood window as 'between 9 and week 13'; the other says 10 to 13.)"
+      url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Prenatal-Screening-for-Chromosomal-and-Genetic-Conditions.pdf
+
+- id: nuchal-translucency-scan
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "the fluid at the back of the baby's neck, measured only between 11 weeks and 13 weeks 6 days"
+      judgement: wrong
+      source_says: "PBB: 'An NT scan is usually done between 11 weeks and 13 weeks and 6 days'. 'Usually', not 'only'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/nuchal-translucency-scan
+    - covers: "part of combined screening, but also a structural look and a dating check, worth having even with NIPT"
+      judgement: unsupported
+      source_says: "PBB: the scan can find early signs of heart and other structural differences, and sonographers measure the baby's length to time the scan. It does not call it a dating check, and does not say it is worth having with NIPT (it says NIPT is more accurate than the NT scan). RANZCOG: NIPT does not include the 11 to 13 week ultrasound, which 'has to be arranged separately if you decide to have one'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/nuchal-translucency-scan
+    - covers: "cost, a rebate with a referral, often a gap"
+      judgement: unsupported
+      source_says: "The NT page says nothing on cost or a rebate. PBB Screening for Down syndrome (cited elsewhere in the map): the combined blood test is covered by Medicare, but there may be costs for the ultrasound. A referral and a rebate for the scan are not said."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/nuchal-translucency-scan

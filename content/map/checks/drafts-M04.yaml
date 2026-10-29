@@ -1,0 +1,199 @@
+# Fact-check of drafted Library entries, batch M04 (20 drafts: medicines, supplements, exercise), checked 2026-10-29.
+# Each claim checked against the pages in the draft's sources:.
+- id: isotretinoin
+  file: content/drafts/isotretinoin.md
+  verdict: fix
+  problems:
+    - claim: "Isotretinoin is not considered safe during pregnancy: if you're taking it and find you're pregnant, talk to your doctor or pharmacist about it."
+      judgement: unsupported
+      source_says: "If you become pregnant while taking Roaccutane, stop taking it and tell your doctor immediately. Roaccutane can cause birth defects (damage to unborn babies)... If you fall pregnant while taking Roaccutane there is an extremely high risk of having a baby that is severely deformed."
+      url: https://www.safetyandquality.gov.au/medicine-finder/roaccutane
+      fixed_to: "Summary, opening line, Why and What to do rewritten to the Roaccutane CMI's wording (birth defects; stop and tell your doctor immediately; strict birth control from 1 month before, during, and 1 month after). Page added to sources. healthdirect's own line kept, credited. Note: healthdirect's generic isotretinoin page also says 'Do not stop taking this medicine abruptly without medical advice', which conflicts with the CMI's 'stop taking it'; not repeated in the entry. The TGA CMI licence gate was not clicked through; the Commission's page shows the CMI inline."
+    - claim: "MotherSafe says tretinoin ... should not be used in pregnancy"
+      judgement: ok
+      source_says: "Minoxidil for hair growth or tretinoin for acne are skin products requiring a prescription and should also not be used."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
+      fixed_to: "confirmed, no change"
+  note: "Other claims ok (retinol minimally absorbed, benzoyl peroxide/salicylic/glycolic considered safe, acne worsens with hormone changes, MotherSafe numbers). checked left on: every claim confirmed on a loaded page."
+- id: anti-diarrhoea-medicines
+  file: content/drafts/anti-diarrhoea-medicines.md
+  verdict: fix
+  problems:
+    - claim: "loperamide ... avoided in the first trimester and after that only on your doctor's advice ... never for moderate to severe (summary)"
+      judgement: wrong
+      source_says: "healthdirect: avoid loperamide in the first trimester; can be used after on the advice of your doctor. MotherSafe: for mild diarrhoea during social inconvenience loperamide is most often recommended; anti-diarrhoeal medications should be avoided for moderate to severe diarrhoea (no 'never', no trimester limit)."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/GastroPregBfeedFeb23.pdf
+      fixed_to: "Summary and opening reworded to credit each source; 'never' changed to 'avoided'."
+  note: "All other claims ok (fluids, diet, urgent treatment, labour, phone numbers)."
+- id: thrush-treatments
+  file: content/drafts/thrush-treatments.md
+  verdict: fix
+  problems:
+    - claim: "Pregnancy, Birth and Baby and KEMH both say not to take it unless your doctor advises it."
+      judgement: wrong
+      source_says: "KEMH: 'A single dose of oral fluconazole is not routinely recommended during pregnancy unless it is advised by your doctor.' PBB: 'Don't use the single dose oral tablet for thrush during pregnancy unless your doctor tells you to.' MotherSafe: not a recommended treatment in the first trimester; second-line after the first trimester; reassuring about an inadvertent single 150 mg dose."
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+      fixed_to: "Each source credited with its own wording (KEMH 'not routinely recommended')."
+  note: "Disagreements: fluconazole and the applicator are both credited to each source (PBB: best not to use applicator with pessaries; MotherSafe and KEMH: applicators may be used with care). All other claims ok."
+- id: uti-remedies
+  file: content/drafts/uti-remedies.md
+  verdict: ok
+  note: "All claims confirmed on MotherSafe and Pregnancy, Birth and Baby (including 'risk goes away when treated', PBB)."
+- id: sleeping-pills
+  file: content/drafts/sleeping-pills.md
+  verdict: fix
+  problems:
+    - claim: "Doxylamine (Restavit) ... hasn't been linked with any increased risk to the baby (presented without the other source's view)"
+      judgement: unsupported
+      source_says: "healthdirect (general, not pregnancy-specific): sedating antihistamines such as doxylamine 'are not sleeping pills — they are anti-allergy medicines which have a side effect of making you feel drowsy. They should not be used to help you sleep.' MotherSafe: doxylamine widely used at all stages of pregnancy, not associated with increased risk to the baby, not habit forming."
+      url: https://www.healthdirect.gov.au/medicines/safe-use-of-sleeping-pills
+      fixed_to: "Kept MotherSafe's line and added healthdirect's, each credited."
+  note: "Everything else ok (MotherSafe insomnia sheet)."
+- id: melatonin
+  file: content/drafts/melatonin.md
+  verdict: fix
+  problems:
+    - claim: "Doxylamine (Restavit) has been widely used in pregnancy without increased risk to the baby, and is not habit-forming (suggested as an alternative)"
+      judgement: unsupported
+      source_says: "healthdirect: sedating antihistamines such as doxylamine 'should not be used to help you sleep' (general advice). MotherSafe: widely used in pregnancy, no increased risk to baby."
+      url: https://www.healthdirect.gov.au/medicines/safe-use-of-sleeping-pills
+      fixed_to: "healthdirect's view added, both credited."
+  note: "Melatonin claims ok (MotherSafe: little information, no evidence of harm, may be preferable to use one with more evidence; homeopathic version minute amounts). healthdirect's page also says pharmacists can provide melatonin to adults over 55 or for jet lag: not used in draft."
+- id: high-dose-folic-acid
+  file: content/drafts/high-dose-folic-acid.md
+  verdict: fix
+  problems:
+    - claim: "5 mg 'throughout the pregnancy, not just the first 3 months'"
+      judgement: unsupported
+      source_says: "MotherSafe: for those at increased risk of folate deficiency, 'taking 5mg of folic acid throughout the pregnancy should be considered.' No source gives a duration for the other 5 mg groups."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/VitaminsmineralspandbupdateSept19.pdf
+      fixed_to: "'not just the first 3 months' cut."
+    - claim: "ask your doctor ... ideally before you're pregnant or as early as you can"
+      judgement: unsupported
+      source_says: "PBB gives 'at least one month before a planned pregnancy' for 0.5 mg only."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+      fixed_to: cut
+    - claim: "Ask how long to take it. For some it's the first 3 months; for others, the whole pregnancy."
+      judgement: unsupported
+      source_says: "Only MotherSafe's 'throughout the pregnancy should be considered' for some."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/VitaminsmineralspandbupdateSept19.pdf
+      fixed_to: "Reworded to MotherSafe's line."
+- id: iron
+  file: content/drafts/iron.md
+  verdict: fix
+  problems:
+    - claim: "[anaemia] may make it harder for your body to cope with blood loss at the birth"
+      judgement: wrong
+      source_says: "PBB: 'Severe iron-deficiency anaemia (haemoglobin concentration <70 mg/dL) can cause cardiac (heart) failure. It may also mean that your body is less able to cope with blood loss at birth.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/anaemia-in-pregnancy
+      fixed_to: "Made 'severe iron-deficiency anaemia'."
+    - claim: "Expect dark poo. Iron can also cause constipation or nausea."
+      judgement: wrong
+      source_says: "healthdirect: iron supplements 'may make your stools (poo) dark and can also cause constipation'; PBB: some people get nausea or constipation."
+      url: https://www.healthdirect.gov.au/iron-deficiency
+      fixed_to: "'Iron may make your poo dark. It can also cause constipation, and some people get nausea.'"
+  note: "Other claims ok (1 in 4, blood tests at first visit and about 28 weeks, medical supervision/iron poisoning, absorption, foods)."
+- id: iron-infusion
+  file: content/drafts/iron-infusion.md
+  verdict: fix
+  problems:
+    - claim: "tell the nurse straight away list (omitted pain, swelling or skin colour change around the IV line)"
+      judgement: unsupported
+      source_says: "healthdirect warning: tell a nurse or doctor immediately if you have 'any pain, swelling or change in skin colour around your IV line'."
+      url: https://www.healthdirect.gov.au/medicines/iron-infusion
+      fixed_to: "Added to the bullet."
+  note: "Other claims ok (avoid in first trimester, reasons, side effects, fewer than 1 in 100, 30 minutes, blood test 2-4 weeks)."
+- id: vitamin-d
+  file: content/drafts/vitamin-d.md
+  verdict: ok
+  note: "Disagreement credited to each source: PBB (blood test and supplement if likely low), MotherSafe (routine testing not necessary; international guidelines at least 400 IU), Royal Women's (all pregnant women 400 IU/10 mcg a day, more if low). Royal Women's page re-fetched. MotherSafe 1000 IU line confirmed."
+- id: fish-oil
+  file: content/drafts/fish-oil.md
+  verdict: ok
+  note: "All claims confirmed on MotherSafe omega-3 sheet (July 2025) and PBB."
+- id: pregnancy-multivitamins
+  file: content/drafts/pregnancy-multivitamins.md
+  verdict: fix
+  problems:
+    - claim: "High-dose vitamins only if your doctor recommends them."
+      judgement: unsupported
+      source_says: "PBB: high doses of vitamins A, C and E can be dangerous; 'It's best not to take these vitamins as supplements during pregnancy.' No source says 'unless your doctor recommends'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+      fixed_to: "Reworded to PBB's line."
+  note: "Other claims ok (folic acid 0.5 mg/400 mcg, iodine 150 mcg per PBB; MotherSafe not all contain iodine; KEMH take at night with a snack, keep folic acid and iodine). MotherSafe's RDI for iodine is 220 mcg a day intake, PBB says look for a 150 mcg supplement: draft uses PBB only."
+- id: vitamin-a-supplements
+  file: content/drafts/vitamin-a-supplements.md
+  verdict: fix
+  problems:
+    - claim: "Go easy on liver and pâté. It's best to avoid foods very high in vitamin A."
+      judgement: wrong
+      source_says: "PBB: 'It's also best to avoid eating foods that are very high in vitamin A. This might include liver and pâté.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+      fixed_to: "'Avoid foods very high in vitamin A...' in PBB's wording."
+    - claim: "Skin care is fine."
+      judgement: unsupported
+      source_says: "MotherSafe: 'Retinol in skin care products is poorly absorbed through the skin and is not anticipated to be a concern in pregnancy.' (tretinoin on prescription and isotretinoin are different: see isotretinoin entry.)"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/VitaminsmineralspandbupdateSept19.pdf
+      fixed_to: "Heading changed to 'Retinol in skin care: MotherSafe says...'."
+  note: "10,000 IU limit, beta-carotene, cod liver oil confirmed."
+- id: high-dose-vitamins
+  file: content/drafts/high-dose-vitamins.md
+  verdict: fix
+  problems:
+    - claim: "Avoid them. Only take a high-dose vitamin supplement if your doctor recommends it. (also summary)"
+      judgement: unsupported
+      source_says: "PBB: 'It's best not to take these vitamins as supplements during pregnancy' and 'It's always best to check with your midwife, doctor or dietitian before taking any vitamins, minerals or other supplements.' Nothing about taking high doses if a doctor recommends."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+      fixed_to: "Summary and opening reworded to 'check with your doctor before taking any'."
+- id: vitamin-b12
+  file: content/drafts/vitamin-b12.md
+  verdict: ok
+  note: "Disagreement credited to each source (PBB 'may suggest'; MotherSafe 'should be supplemented'; Royal Women's 'you will need to take'). Royal Women's page re-fetched: plant proteins, vitamin C foods, soy milk calcium all confirmed."
+- id: st-johns-wort
+  file: content/drafts/st-johns-wort.md
+  verdict: fix
+  problems:
+    - claim: "Several small studies suggest St John's wort may be safe in pregnancy... it may have dangerous interactions with prescribed medicines, including some antidepressants"
+      judgement: unsupported
+      source_says: "Herbal sheet: 'Several small studies have indicated that it may be safe in pregnancy and breastfeeding. However further research is required'; 'potential to interact with many other medications (including some antidepressants) so caution is recommended.' Depression sheet: 'may also have dangerous interactions with prescribed medicines.' (Two different urgency levels.)"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/MSHerbalApril2020.pdf
+      fixed_to: "Each sheet credited with its own wording."
+  note: "Other claims ok (herbal medicines not recommended for depression/anxiety, untreated risks, antidepressants, PANDA 1300 726 306, Beyond Blue 1300 224 636)."
+- id: echinacea
+  file: content/drafts/echinacea.md
+  verdict: fix
+  problems:
+    - claim: "Echinacea is the best studied."
+      judgement: unsupported
+      source_says: "Cold sheet: 'There is limited information regarding its effectiveness and safety during pregnancy.'"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/docs/Cold%20in%20pregnancy%20and%20breastfeeding%20.pdf
+      fixed_to: "'Echinacea is often used for colds. There is limited information about its effectiveness and safety in pregnancy.'"
+    - claim: "See your doctor if your symptoms don't go away."
+      judgement: unsupported
+      source_says: "Cold sheet: 'see your doctor if symptoms persist' (given with cough medicines)."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/docs/Cold%20in%20pregnancy%20and%20breastfeeding%20.pdf
+      fixed_to: "'if your symptoms persist'."
+  note: "Paracetamol 2 x 500 mg every 4-6 hours, max 8 in 24 hours, non-drug treatments, complementary 'would not be advised' confirmed."
+- id: cannabis
+  file: content/drafts/cannabis.md
+  verdict: ok
+  note: "All claims confirmed on Royal Women's cannabis fact sheet (one third, possible links, withdrawal in a week or two, up to eight times in breast milk, DirectLine 1800 888 236) and PBB (illicit drugs should not be used)."
+- id: illicit-drugs
+  file: content/drafts/illicit-drugs.md
+  verdict: ok
+  note: "All claims confirmed on PBB and the two Royal Women's pages (including Suboxone and naltrexone 'cannot be used in pregnancy', amphetamines 'considered dangerous')."
+- id: exercise-in-pregnancy
+  file: content/drafts/exercise-in-pregnancy.md
+  verdict: fix
+  problems:
+    - claim: "Summary: aim for about 30 minutes of moderate activity on most days (one source's figure stated as the answer)"
+      judgement: wrong
+      source_says: "BHC: at least 30 minutes on most, if not all, days. RWH: a session on all or most days, or at least 150 minutes a week. RANZCOG: 20-30 minutes four to five times a week. PBB: try to be active each day of the week, strengthening twice a week."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+      fixed_to: "Summary says it differs by source; PBB added to the 'How much' paragraph."
+    - claim: "exercising lying flat on your back: RWH says after 16 weeks; PBB says particularly after 28 weeks (BHC omitted)"
+      judgement: unsupported
+      source_says: "RWH: 'After 16 weeks of pregnancy, it is best to avoid exercises lying on your back'. PBB: 'Lying flat on your back, particularly after 28 weeks, can be dangerous.' BHC: avoid supine exercise position, no week given."
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+      fixed_to: "Each source credited with its own wording, BHC added."
+  note: "Other claims ok (benefits, talk test, resting heart rate, avoid list, stop-and-see-doctor list, check first list)."

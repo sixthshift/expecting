@@ -1,0 +1,167 @@
+# Fact-check of drafts, batch L07 (body-and-baby terms), 2026-10-29. Every claim checked against each draft's cited pages, re-fetched today.
+# term-occiput-posterior, term-apgar, term-doppler verified ok (see notes in report).
+- id: term-in-utero
+  file: content/drafts/term-in-utero.md
+  verdict: ok
+- id: term-crown-rump-length
+  file: content/drafts/term-crown-rump-length.md
+  verdict: ok
+- id: term-low-birthweight
+  file: content/drafts/term-low-birthweight.md
+  verdict: ok
+- id: term-quickening
+  file: content/drafts/term-quickening.md
+  verdict: fix
+  problems:
+    - claim: "You will start to feel your baby move between 16 and 24 weeks"
+      judgement: unsupported
+      source_says: '"PBB: "You will usually start to feel your baby moving at around 20 weeks of pregnancy." (16-24 weeks appears only in a link blurb for another organisation''s page, not as PBB''s statement)"'
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
+      fixed_to: "You will usually start to feel your baby moving at around 20 weeks"
+- id: term-vernix
+  file: content/drafts/term-vernix.md
+  verdict: fix
+  problems:
+    - claim: "covers your baby's skin from about 19 weeks"
+      judgement: wrong
+      source_says: "By 19 weeks, your baby's skin is becoming covered in a white sticky substance called vernix."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-19
+      fixed_to: "that, by 19 weeks, is covering your baby's skin"
+- id: term-lanugo
+  file: content/drafts/term-lanugo.md
+  verdict: ok
+- id: term-surfactant
+  file: content/drafts/term-surfactant.md
+  verdict: ok
+- id: term-fontanelles
+  file: content/drafts/term-fontanelles.md
+  verdict: ok
+- id: term-amniotic-fluid
+  file: content/drafts/term-amniotic-fluid.md
+  verdict: ok
+- id: term-amniotic-sac
+  file: content/drafts/term-amniotic-sac.md
+  verdict: ok
+- id: term-afi
+  file: content/drafts/term-afi.md
+  verdict: ok
+- id: term-placenta
+  file: content/drafts/term-placenta.md
+  verdict: ok
+- id: term-anterior-placenta
+  file: content/drafts/term-anterior-placenta.md
+  verdict: ok
+- id: term-posterior-placenta
+  file: content/drafts/term-posterior-placenta.md
+  verdict: ok
+- id: term-umbilical-cord
+  file: content/drafts/term-umbilical-cord.md
+  verdict: ok
+- id: term-presentation
+  file: content/drafts/term-presentation.md
+  verdict: ok
+- id: term-cephalic
+  file: content/drafts/term-cephalic.md
+  verdict: ok
+- id: term-vertex
+  file: content/drafts/term-vertex.md
+  verdict: ok
+- id: term-frank-breech
+  file: content/drafts/term-frank-breech.md
+  verdict: ok
+- id: term-occiput-anterior
+  file: content/drafts/term-occiput-anterior.md
+  verdict: ok
+- id: term-occiput-posterior
+  file: content/drafts/term-occiput-posterior.md
+  verdict: ok
+- id: term-occiput-transverse
+  file: content/drafts/term-occiput-transverse.md
+  verdict: ok
+- id: term-engagement
+  file: content/drafts/term-engagement.md
+  verdict: fix
+  problems:
+    - claim: "any time from about 36–37 weeks until the birth"
+      judgement: wrong
+      source_says: '"Week 37: "may engage any time from now until the birth"; week 36: for a first baby "its likely that their head will have moved down into your pelvis"."'
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-37
+      fixed_to: "At 36 weeks a first baby's head is likely to have moved down already; any time from 37 weeks until the birth"
+- id: term-lightening
+  file: content/drafts/term-lightening.md
+  verdict: ok
+- id: term-station
+  file: content/drafts/term-station.md
+  verdict: fix
+  problems:
+    - claim: "summary: how low your baby's head sits in your pelvis"
+      judgement: unsupported
+      source_says: '""check where your baby is placed in your pelvis (station)"; no mention of head or "how low"."'
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/vaginal-examinations-in-pregnancy-and-birth
+      fixed_to: "Where your baby is placed in your pelvis, checked on a vaginal examination."
+- id: term-ultrasound
+  file: content/drafts/term-ultrasound.md
+  verdict: ok
+- id: term-nipt
+  file: content/drafts/term-nipt.md
+  verdict: ok
+- id: term-ctg
+  file: content/drafts/term-ctg.md
+  verdict: ok
+- id: term-doppler
+  file: content/drafts/term-doppler.md
+  verdict: ok
+- id: term-pinard
+  file: content/drafts/term-pinard.md
+  verdict: ok
+- id: term-dizygotic
+  file: content/drafts/term-dizygotic.md
+  verdict: ok
+- id: term-monozygotic
+  file: content/drafts/term-monozygotic.md
+  verdict: ok
+- id: term-dcda
+  file: content/drafts/term-dcda.md
+  verdict: ok
+- id: term-apgar
+  file: content/drafts/term-apgar.md
+  verdict: ok
+- id: term-neonate
+  file: content/drafts/term-neonate.md
+  verdict: ok
+- id: term-nuchal-cord
+  file: content/drafts/term-nuchal-cord.md
+  verdict: unchecked
+  problems:
+    - claim: "term-nuchal-cord"
+      judgement: unchecked
+      source_says: "no draft; no official Australian page found that defines it (Qld guidance only says not to routinely check for it)"
+      url: ""
+      fixed_to: "no draft"
+- id: term-fundal-placenta
+  file: content/drafts/term-fundal-placenta.md
+  verdict: unchecked
+  problems:
+    - claim: "term-fundal-placenta"
+      judgement: unchecked
+      source_says: "no draft; no official Australian page found that defines it"
+      url: ""
+      fixed_to: "no draft"
+- id: term-fifths
+  file: content/drafts/term-fifths.md
+  verdict: unchecked
+  problems:
+    - claim: "term-fifths"
+      judgement: unchecked
+      source_says: "no draft; candidate Qld Health clinical guidelines (PDF) could not be read as text here"
+      url: ""
+      fixed_to: "no draft"
+- id: term-fhr
+  file: content/drafts/term-fhr.md
+  verdict: unchecked
+  problems:
+    - claim: "term-fhr"
+      judgement: unchecked
+      source_says: "no draft; candidate Qld Health pregnancy health record glossary (PDF) could not be read as text here"
+      url: ""
+      fixed_to: "no draft"

@@ -1,0 +1,2408 @@
+# "Can I…?": activities, products, environment and travel.
+# Doing things, using things and going places. Food, drink and medicines, symptoms,
+# tests, the body, labour, money and work, and mental health live in other files.
+# Every URL below was loaded and read on 2026-10-28.
+
+# ---------------------------------------------------------------------------
+# Exercise and activity
+# ---------------------------------------------------------------------------
+
+- id: exercise-in-pregnancy
+  title: Exercise in pregnancy
+  type: can-i
+  topic: activities
+  ask: Can I keep exercising now that I'm pregnant?
+  aliases: [exercise, working out, keeping fit, gym, fitness, physical activity, how much exercise, cardio]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "verdict: yes, and recommended; most days, about 30 minutes of moderate activity, or 150 minutes a week"
+    - intensity test is talk-but-not-sing, not a heart-rate target
+    - keep to what you did before; don't ramp up intensity in pregnancy
+    - "the short list to avoid: falls, contact, heat, pressure change, lying flat after 16 weeks"
+    - stop and call if chest pain, dizziness, bleeding, fluid, contractions, less movement, calf pain or sudden swelling
+    - don't exercise with a fever
+    - starting from unfit is fine, 15 to 20 minutes and build
+  sources:
+    - title: Pregnancy, Birth and Baby — Exercising during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+    - title: Better Health Channel — Pregnancy and exercise
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+    - title: The Royal Women's Hospital — Active pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+    - title: RANZCOG — Common questions in pregnancy
+      url: https://ranzcog.edu.au/wp-content/uploads/Common-Questions-In-Pregnancy.pdf
+  related: [exercise-intensity-and-heart-rate, running, swimming, weights, exercise-lying-on-your-back, hot-yoga]
+  notes: The hub entry. Contraindications (pre-eclampsia, placenta praevia late, ruptured membranes, cervical insufficiency, bleeding, growth restriction) belong here as "ask first" conditions.
+
+- id: exercise-intensity-and-heart-rate
+  title: How hard to push
+  type: can-i
+  topic: activities
+  ask: How hard can I exercise, and is there a heart rate I shouldn't go over?
+  aliases: [heart rate, 140 bpm, max heart rate, HIIT, high intensity, vigorous exercise, F45, CrossFit, Borg scale, perceived exertion]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "verdict: moderate; keep it conversational, the old 140 bpm rule is gone"
+    - resting heart rate rises in pregnancy, so use perceived exertion not a number
+    - Better Health keeps effort under about 75 per cent of maximum
+    - vigorous is possible if you were already doing it; MotherSafe cites 35 minutes of high intensity at 25 degrees as safe
+    - no competitive or personal-best efforts
+  sources:
+    - title: Better Health Channel — Pregnancy and exercise
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+    - title: MotherSafe (Royal Hospital for Women) — Diet and exercise before, during and after pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/dietexercise2020.pdf
+    - title: Pregnancy, Birth and Baby — Playing sport during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
+  related: [exercise-in-pregnancy, running, hot-weather]
+  notes: Sources differ on vigorous exercise for the already-fit. Write it as "continue what you did, don't add".
+
+- id: walking
+  title: Walking
+  type: can-i
+  topic: activities
+  ask: Is walking enough exercise, and can I walk right up to the end?
+  aliases: [walking, brisk walk, steps, 10,000 steps, bushwalking, hiking]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "verdict: yes, the default exercise for all 42 weeks"
+    - brisk enough to notice your breathing
+    - supportive shoes, shorter strides late on
+    - hiking is fine on stable tracks; think about falls, heat, altitude and distance from help
+  sources:
+    - title: Pregnancy, Birth and Baby — Exercising during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+    - title: The Royal Women's Hospital — Active pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+  related: [exercise-in-pregnancy, hot-weather, altitude, remote-travel-in-australia]
+
+- id: running
+  title: Running
+  type: can-i
+  topic: activities
+  ask: Can I keep running?
+  aliases: [running, jogging, parkrun, treadmill, marathon, fun run, half marathon]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "verdict: yes if you ran before, at an easier pace; don't start running in pregnancy"
+    - keep it conversational; stop for the usual warning signs
+    - expect to slow and shorten as the bump grows; pelvic floor and joints take more load
+    - no events or racing; skip hot days
+    - the Royal Women's lists running as high impact to avoid, PBB lists jogging as fine
+  sources:
+    - title: Pregnancy, Birth and Baby — Exercising during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+    - title: Better Health Channel — Pregnancy and exercise
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+    - title: The Royal Women's Hospital — Active pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+  related: [exercise-in-pregnancy, exercise-intensity-and-heart-rate, hot-weather]
+  notes: Contested. Better Health and PBB allow jogging for the already-active; the Royal Women's page tells everyone to avoid high-impact activities including running. Give the "if you already run" verdict and say why the sources differ.
+
+- id: swimming
+  title: Swimming and aqua classes
+  type: can-i
+  topic: activities
+  ask: Can I swim while pregnant?
+  aliases: [swimming, laps, aquarobics, aqua natal, water aerobics, pool, ocean swimming, snorkelling]
+  who: carrying
+  priority: 1
+  stakes: low
+  covers:
+    - "verdict: yes, one of the best choices; water carries the weight"
+    - avoid heated pools, spas and hydrotherapy pools that are hot
+    - snorkelling is fine; scuba is not
+    - stop swimming once your waters have broken (ask your midwife)
+  sources:
+    - title: Pregnancy, Birth and Baby — Playing sport during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
+    - title: Better Health Channel — Pregnancy and travel
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+    - title: The Royal Women's Hospital — Active pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+  related: [scuba-diving, spas-and-hot-tubs, exercise-in-pregnancy]
+
+- id: yoga
+  title: Yoga
+  type: can-i
+  topic: activities
+  ask: Can I do yoga, and which poses should I skip?
+  aliases: [yoga, prenatal yoga, pregnancy yoga, vinyasa, ashtanga, stretching, inversions, twists]
+  who: carrying
+  priority: 1
+  stakes: low
+  covers:
+    - "verdict: yes; tell the teacher or choose a pregnancy class"
+    - no lying flat on your back after the first trimester
+    - no hot rooms
+    - "looser ligaments: don't push stretches; deep twists, wide squats and walking lunges not recommended"
+    - balance changes; avoid poses you could fall from
+  sources:
+    - title: Pregnancy, Birth and Baby — Yoga and Pilates during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/yoga-and-pilates-during-pregnancy
+  related: [hot-yoga, pilates, exercise-lying-on-your-back]
+
+- id: pilates
+  title: Pilates
+  type: can-i
+  topic: activities
+  ask: Can I do Pilates while pregnant?
+  aliases: [pilates, reformer, clinical pilates, mat pilates, core work]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "verdict: yes, with a pregnancy-trained instructor; reformer and clinical Pilates are fine"
+    - two strength sessions a week with a day between
+    - no supine work after the first trimester; no hot studios
+    - skip abdominal exercises if you develop a bulge down the midline (abdominal separation)
+  sources:
+    - title: Pregnancy, Birth and Baby — Yoga and Pilates during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/yoga-and-pilates-during-pregnancy
+    - title: The Royal Women's Hospital — The abdominal muscles
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/the-abdominal-muscles
+  related: [yoga, abdominal-exercises, exercise-lying-on-your-back]
+
+- id: weights
+  title: Weights and strength training
+  type: can-i
+  topic: activities
+  ask: Can I lift weights or keep doing strength training?
+  aliases: [weights, weightlifting, strength training, resistance training, gym, dumbbells, squats, deadlifts, Olympic lifting, powerlifting, pump class]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "verdict: yes for light-to-moderate weights with more reps; no heavy or maximal lifting"
+    - breathe out on effort; no breath-holding or straining (Valsalva)
+    - nothing that strains the abdomen or pelvic floor
+    - no lifts lying flat on a bench after 16 weeks
+    - PBB and Better Health both list heavy weightlifting among things to avoid
+  sources:
+    - title: Pregnancy, Birth and Baby — Exercising during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+    - title: Better Health Channel — Pregnancy and exercise
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+    - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+  related: [heavy-lifting, abdominal-exercises, exercise-lying-on-your-back]
+  notes: The sources say "avoid weightlifting" and "resistance training with light weights" in the same breath. Draw the line at heavy or maximal loads and breath-holding, not at dumbbells.
+
+- id: abdominal-exercises
+  title: Sit-ups, crunches and planks
+  type: can-i
+  topic: activities
+  ask: Can I do sit-ups or ab work while pregnant?
+  aliases: [sit-ups, crunches, planks, core, abs, abdominal separation, diastasis recti, pelvic tilt]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "verdict: no sit-ups or crunches; yes to gentle core bracing on hands and knees"
+    - crunches are done on your back and can worsen abdominal separation
+    - the Royal Women's drawing-in exercise, building to 10-second holds
+    - stop any ab work if a midline bulge appears
+  sources:
+    - title: The Royal Women's Hospital — The abdominal muscles
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/the-abdominal-muscles
+    - title: Better Health Channel — Pregnancy and exercise
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+    - title: Pregnancy, Birth and Baby — Exercising during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+  related: [pilates, weights, exercise-lying-on-your-back]
+
+- id: exercise-lying-on-your-back
+  title: Exercising on your back
+  type: can-i
+  topic: activities
+  ask: Why can't I exercise lying on my back, and from when?
+  aliases: [supine, lying flat, bench press, bridges, lying on back exercise, 16 weeks]
+  weeks: [16, 42]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "verdict: avoid from about 16 weeks; the uterus presses on the big vein returning blood to the heart"
+    - makes you faint and can cut blood flow to the baby
+    - substitute side-lying, inclined or hands-and-knees versions
+    - the same reason behind side-sleeping from 28 weeks
+  sources:
+    - title: Pregnancy, Birth and Baby — Playing sport during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
+    - title: The Royal Women's Hospital — Active pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Diet and exercise before, during and after pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/dietexercise2020.pdf
+  related: [sleeping-on-your-back, abdominal-exercises, massage]
+  notes: Sources give 16 weeks (Royal Women's, MotherSafe, PBB sport), "after the first trimester" (PBB yoga) and 28 weeks (PBB exercise). Say 16 weeks and explain the spread.
+
+- id: cycling
+  title: Cycling
+  type: can-i
+  topic: activities
+  ask: Can I ride my bike while pregnant?
+  aliases: [cycling, bike, bicycle, commuting by bike, mountain biking, spin class, stationary bike, exercise bike, e-bike]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "verdict: stationary bike and spin, yes; road and trail riding, it's the fall that matters"
+    - PBB and RANZCOG list cycling with horse riding and skiing as fall risks; Better Health allows outdoor cycling
+    - balance shifts with the bump, and traffic is the other rider
+    - "if you keep riding: flat, familiar routes, upright bike, stop when balance feels off"
+  sources:
+    - title: Pregnancy, Birth and Baby — Exercising during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+    - title: RANZCOG — Common questions in pregnancy
+      url: https://ranzcog.edu.au/wp-content/uploads/Common-Questions-In-Pregnancy.pdf
+    - title: Better Health Channel — Pregnancy and exercise
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+  related: [exercise-in-pregnancy, motorbikes-and-scooters, horse-riding]
+  notes: Contested between Australian sources. Give both and let the verdict turn on fall risk, not cycling itself.
+
+- id: contact-sports
+  title: Contact and team sports
+  type: can-i
+  topic: activities
+  ask: Can I keep playing netball, soccer or footy?
+  aliases: [netball, soccer, football, AFL, rugby, hockey, basketball, touch footy, cricket, softball, martial arts, boxing, squash, tennis, team sport, competitive sport]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "verdict: avoid; a knock to the abdomen can separate the placenta"
+    - "the list: football, soccer, hockey, basketball, martial arts, judo, kickboxing, and bat-and-ball sports (cricket, softball)"
+    - court sports (tennis, squash) also mean sudden direction changes on loose ligaments
+    - after about 12 weeks the uterus is above the pelvis and unprotected
+    - "low-contact substitutes: walking, swimming, stationary bike, pregnancy classes"
+  sources:
+    - title: Pregnancy, Birth and Baby — Exercising during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Playing sport during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
+    - title: Better Health Channel — Pregnancy and exercise
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+    - title: Pregnancy, Birth and Baby — Injuries during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+  related: [exercise-in-pregnancy, horse-riding, skiing, falls-and-knocks]
+
+- id: falls-and-knocks
+  title: A fall or a knock to the bump
+  type: can-i
+  topic: activities
+  ask: I fell over or got hit in the stomach, what do I do?
+  aliases: [fall, fell over, tripped, knock to the belly, blow to the stomach, bump to the bump, car accident, abdominal trauma, placental abruption]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "verdict: any fall or blow to the abdomen gets checked, even if you feel fine"
+    - placental abruption is the main risk; monitoring for at least four hours is common
+    - "go to hospital if the baby is moving less than normal, or there is vaginal bleeding or abdominal pain"
+    - "contractions or fluid leaking: contact your doctor (or urgent care; 000 in an emergency)"
+    - "after an abdominal injury: pain, a firm or tightening uterus or bleeding means call 000; any abdominal injury, go to the nearest hospital"
+    - "Rh-negative: say so, anti-D may be needed"
+  sources:
+    - title: Pregnancy, Birth and Baby — Injuries during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+    - title: Better Health Channel — Pregnancy and travel
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+  related: [contact-sports, seatbelt-position, horse-riding, roller-coasters]
+  notes: Sits near the symptoms file. Kept here because the question is "I did a thing, now what", and the activity entries all point to it.
+
+- id: horse-riding
+  title: Horse riding
+  type: can-i
+  topic: activities
+  ask: Can I keep riding my horse?
+  aliases: [horse riding, horseriding, equestrian, pony club, trail ride, riding lessons]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - "verdict: avoid; named by every Australian source as a fall risk"
+    - a fall from height onto the abdomen; abruption
+    - experienced riders ask the same question; the answer doesn't change with skill
+    - handling and ground work are a different question (hygiene, kicks)
+  sources:
+    - title: Pregnancy, Birth and Baby — Common myths about pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/common-myths-about-pregnancy
+    - title: RANZCOG — Common questions in pregnancy
+      url: https://ranzcog.edu.au/wp-content/uploads/Common-Questions-In-Pregnancy.pdf
+    - title: Better Health Channel — Pregnancy and travel
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+  related: [contact-sports, skiing, falls-and-knocks]
+
+- id: skiing
+  title: Skiing and snowboarding
+  type: can-i
+  topic: activities
+  ask: Can I go skiing while pregnant?
+  aliases: [skiing, snowboarding, snow trip, Thredbo, Perisher, Japan ski trip, downhill, cross-country skiing, water skiing]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - "verdict: downhill skiing and snowboarding, avoid; falls and collisions"
+    - water skiing is on the same list (falls at speed, water forced into the vagina)
+    - altitude of overseas resorts adds a second reason
+    - "the snow trip itself is fine: walking, the lodge, cross-country on the flat if experienced"
+  sources:
+    - title: Pregnancy, Birth and Baby — Exercising during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+    - title: Better Health Channel — Pregnancy and exercise
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+    - title: Better Health Channel — Pregnancy and travel
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+  related: [altitude, horse-riding, contact-sports, falls-and-knocks]
+
+- id: scuba-diving
+  title: Scuba diving
+  type: can-i
+  topic: activities
+  ask: Can I scuba dive while pregnant?
+  aliases: [scuba, diving, dive trip, Great Barrier Reef dive, decompression, the bends, free diving, snorkelling]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - "verdict: no, at any depth and any week; the baby has no protection from decompression sickness"
+    - PBB and the Royal Women's list scuba among activities to avoid; snorkelling is fine
+    - Better Health's "reasonably safe to 18 metres" line contradicts the others; follow RANZCOG and PBB
+    - airlines also refuse flight within 24 hours of a dive
+  sources:
+    - title: Pregnancy, Birth and Baby — Exercising during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+    - title: The Royal Women's Hospital — Active pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+    - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+    - title: Better Health Channel — Pregnancy and travel
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+  related: [swimming, flying, skydiving]
+  notes: Better Health's travel page says scuba is "generally considered reasonably safe to 18 metres". Every other Australian source says avoid. Say avoid and explain the outlier.
+
+- id: skydiving
+  title: Skydiving and bungee
+  type: can-i
+  topic: activities
+  ask: Can I go skydiving or bungee jumping?
+  aliases: [skydiving, tandem skydive, bungee, bungy, parachuting, paragliding, extreme sports]
+  who: carrying
+  priority: 3
+  stakes: high
+  covers:
+    - "verdict: no; pressure change, harness across the abdomen, hard landings"
+    - PBB names skydiving with scuba as a pressure-change activity; MotherSafe names bungee as a fall risk
+    - operators will refuse a pregnant customer anyway
+  sources:
+    - title: Pregnancy, Birth and Baby — Exercising during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Diet and exercise before, during and after pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/dietexercise2020.pdf
+  related: [scuba-diving, roller-coasters, falls-and-knocks]
+
+- id: hot-yoga
+  title: Hot yoga and heated Pilates
+  type: can-i
+  topic: activities
+  ask: Can I do hot yoga while pregnant?
+  aliases: [hot yoga, Bikram, heated pilates, hot pilates, infrared yoga, heated studio]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "verdict: avoid; core temperature is the problem, especially in the first trimester"
+    - PBB and the Royal Women's both name heated classes specifically
+    - ordinary yoga in a cool room is fine
+    - same rule for any class in a hot or humid room
+  sources:
+    - title: Pregnancy, Birth and Baby — Exercising during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+    - title: The Royal Women's Hospital — Active pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+    - title: Pregnancy, Birth and Baby — Yoga and Pilates during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/yoga-and-pilates-during-pregnancy
+  related: [yoga, saunas, spas-and-hot-tubs, hot-weather]
+
+- id: group-fitness-classes
+  title: Gym classes, aerobics and dance
+  type: can-i
+  topic: activities
+  ask: Can I keep going to my classes?
+  aliases: [gym class, aerobics, step class, Zumba, dance class, boxercise, body attack, pump class, circuit, boot camp, trampoline, jumping]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "verdict: yes with modifications; tell the instructor, or switch to a pregnancy class"
+    - avoid jumping, bouncing, high stepping, fast direction changes and trampolines
+    - low-impact aerobics and dance are fine; stay cool, stay hydrated
+    - boxercise without contact is listed by the Royal Women's as a reasonable core option
+  sources:
+    - title: Pregnancy, Birth and Baby — Exercising during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+    - title: The Royal Women's Hospital — The abdominal muscles
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/the-abdominal-muscles
+  related: [exercise-in-pregnancy, contact-sports, hot-yoga]
+
+- id: skating-and-rollerblading
+  title: Skating, rollerblading and ice skating
+  type: can-i
+  topic: activities
+  ask: Can I go ice skating or rollerblading?
+  aliases: [ice skating, rollerblading, roller skating, skateboard, scooter, ice rink]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers:
+    - "verdict: avoid; Better Health lists skating with skiing and horse riding as fall risks"
+    - a hard fall backwards or onto the bump
+    - the rink outing is fine from the side
+  sources:
+    - title: Better Health Channel — Pregnancy and exercise
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+  related: [skiing, falls-and-knocks, cycling]
+
+- id: rock-climbing
+  title: Rock climbing and bouldering
+  type: can-i
+  topic: activities
+  ask: Can I keep climbing?
+  aliases: [rock climbing, bouldering, indoor climbing, climbing gym, harness, abseiling]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers:
+    - "verdict: ask; no Australian source names it, but it is a fall and a harness across the abdomen"
+    - bouldering is falls by design; roped climbing with a full-body harness is what experienced climbers negotiate with their midwife
+    - "the general rules apply: no falls, nothing pressing on the bump, no straining, looser ligaments"
+  sources:
+    - title: Pregnancy, Birth and Baby — Playing sport during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+  related: [contact-sports, falls-and-knocks, weights]
+  notes: Not directly addressed by any Australian source. Write from the fall and abdominal-pressure principles and say so.
+
+- id: surfing-and-water-sports
+  title: Surfing, wakeboarding and jet skis
+  type: can-i
+  topic: activities
+  ask: Can I surf or go wakeboarding while pregnant?
+  aliases: [surfing, surf, bodyboarding, wakeboarding, water skiing, jet ski, kayaking, paddle boarding, SUP, kitesurfing]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers:
+    - "verdict: water skiing and wakeboarding avoid (Better Health); surfing is a board to the bump and wipeouts, most stop as the bump grows"
+    - "jet skis: the impact of chop, and falls at speed"
+    - kayaking and paddle boarding on flat water are low risk if you can get back on
+    - cold water, distance from shore and no-one to help are the other factors
+  sources:
+    - title: Better Health Channel — Pregnancy and travel
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+    - title: The Royal Women's Hospital — Active pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+  related: [swimming, boats-and-ferries, falls-and-knocks]
+  notes: Only water skiing is named by sources. Surfing, SUP and jet skis are written from principles; say so.
+
+# ---------------------------------------------------------------------------
+# Heat
+# ---------------------------------------------------------------------------
+
+- id: saunas
+  title: Saunas and steam rooms
+  type: can-i
+  topic: body
+  ask: Can I use a sauna while pregnant?
+  aliases: [sauna, steam room, infrared sauna, Finnish sauna, hammam, bathhouse]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "verdict: avoid; raises core temperature, with overheating, dehydration and fainting"
+    - MotherSafe's evidence review allows up to 20 minutes; PBB and the Royal Women's say avoid; give the cautious answer
+    - a warm bath or shower is not the same thing
+  sources:
+    - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+    - title: The Royal Women's Hospital — Active pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Fever and pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/2020feverp.pdf
+  related: [spas-and-hot-tubs, hot-baths, hot-yoga, hot-weather]
+  notes: Contested. MotherSafe cites a 2019 BJSM review saying 20 minutes in a sauna or hot tub is safe at any stage. PBB, the Royal Women's and RANZCOG say avoid. Writers should present "avoid" as the Australian guidance and mention the review for the person who already had one.
+
+- id: spas-and-hot-tubs
+  title: Spas and hot tubs
+  type: can-i
+  topic: body
+  ask: Can I get in the spa?
+  aliases: [spa, hot tub, jacuzzi, spa bath, hydrotherapy pool, heated pool, thermal pool, hot springs, onsen, Peninsula Hot Springs]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "verdict: avoid heated spas and hot tubs; the body sits in hot water and can't cool"
+    - heated hydrotherapy pools are on the same list
+    - MotherSafe's 20-minute line, see saunas
+  sources:
+    - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Common myths about pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/common-myths-about-pregnancy
+    - title: Pregnancy, Birth and Baby — Playing sport during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Fever and pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/2020feverp.pdf
+  related: [saunas, hot-baths, swimming, hot-weather]
+
+- id: hot-baths
+  title: Hot baths and showers
+  type: can-i
+  topic: body
+  ask: Can I have a hot bath?
+  aliases: [bath, hot bath, warm bath, long bath, hot shower, bath in pregnancy, bath temperature]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "verdict: yes, warm; not so hot that you flush, sweat or feel faint"
+    - a bath cools as you sit in it, a spa doesn't; that's the difference
+    - get out if you feel hot, dizzy or sick
+    - a bath once your waters have broken is a labour question (ask your midwife)
+  sources:
+    - title: Pregnancy, Birth and Baby — Common myths about pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/common-myths-about-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Fever and pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/2020feverp.pdf
+  related: [spas-and-hot-tubs, saunas, electric-blankets]
+
+- id: electric-blankets
+  title: Electric blankets, heat packs and hot water bottles
+  type: can-i
+  topic: body
+  ask: Can I use an electric blanket or a heat pack on my back?
+  aliases: [electric blanket, heat pack, wheat bag, hot water bottle, heated throw, heating pad, heat on belly]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "verdict: yes; warm the bed then turn it off, and keep heat packs off the bump"
+    - MotherSafe names electric blankets among things that raise body temperature but says only prolonged, very hot exposure matters
+    - a heat pack on the lower back or hip for aches is fine and is packed for labour
+    - skin is more sensitive in pregnancy; wrap the pack
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Fever and pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/2020feverp.pdf
+  related: [hot-baths, saunas, sleeping-on-your-back]
+  notes: Thinly sourced. Only MotherSafe mentions electric blankets, and only in passing. No Australian source addresses heat packs on the abdomen; write that as a sensible precaution, not a rule.
+
+- id: hot-weather
+  title: Heatwaves and hot days
+  type: can-i
+  topic: body
+  ask: Is the heat dangerous for the baby, and what do I do on a 40-degree day?
+  aliases: [heatwave, hot weather, 40 degrees, summer, overheating, heat exhaustion, heatstroke, dehydration, humidity, outdoor work in heat]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "verdict: you run hotter in pregnancy, and NSW Health lists pregnant women among those at risk in hot weather; plan the day around it"
+    - first-trimester overheating can affect growth and development; when overheated, blood goes to the skin and less to the placenta
+    - signs of heat exhaustion and when it becomes heatstroke (call 000)
+    - move exercise to early or late; swimming or walking are less likely to overheat you
+    - air conditioning in the middle of the day, water, loose clothes, feet in cool water, lie on your side
+    - dark urine means drink
+  sources:
+    - title: Pregnancy, Birth and Baby — Dealing with hot weather during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/dealing-with-hot-weather-during-pregnancy-and-breastfeeding
+    - title: SA Health — Heatwaves during pregnancy
+      url: https://www.sahealth.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/healthy+living/protecting+your+health/environmental+health/healthy+in+the+heat/heatwaves+during+pregnancy
+    - title: NSW Health — Hot weather and heatwaves, keep cool, stay hydrated
+      url: https://www.health.nsw.gov.au/environment/beattheheat/Pages/health-in-hot-weather.aspx
+  related: [exercise-intensity-and-heart-rate, saunas, bushfire-smoke, swimming]
+
+# ---------------------------------------------------------------------------
+# Sleep and positions
+# ---------------------------------------------------------------------------
+
+- id: sleeping-on-your-back
+  title: Sleeping on your back
+  type: can-i
+  topic: body
+  ask: Is it true I can't sleep on my back?
+  aliases: [back sleeping, sleep on side, side sleeping, 28 weeks, left side, right side, woke up on my back, stillbirth and sleep position, Sleep on Side]
+  weeks: [28, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "verdict: from 28 weeks go to sleep on your side, every sleep including naps; it halves the risk of late stillbirth"
+    - either side is fine; the "left side only" rule is not the Australian advice
+    - the position you fall asleep in is the one you hold longest; waking on your back is normal, just roll over
+    - "why: the uterus compresses the big vessels, less blood to the placenta"
+    - pillows behind the back and between the knees
+  sources:
+    - title: Pregnancy, Birth and Baby — Sleep during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
+    - title: Red Nose — Sleeping on your side reduces your stillbirth risk
+      url: https://rednose.org.au/news/sleeping-on-your-side-reduces-your-stillbirth-risk/
+    - title: RANZCOG — Common questions in pregnancy
+      url: https://ranzcog.edu.au/wp-content/uploads/Common-Questions-In-Pregnancy.pdf
+  related: [exercise-lying-on-your-back, sleeping-on-your-stomach, massage, sex]
+  notes: SA Health's heat page says "left side"; Red Nose and PBB say either. Don't let the left-side myth creep in. Handle the stillbirth statistic gently (RANZCOG quotes "up to 8 times", Red Nose "halves"); use Red Nose's framing.
+
+- id: sleeping-on-your-stomach
+  title: Sleeping on your stomach
+  type: can-i
+  topic: body
+  ask: Can I sleep on my stomach early on?
+  aliases: [stomach sleeping, front sleeping, tummy sleeping, sleeping position first trimester, pregnancy pillow]
+  weeks: [1, 20]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "verdict: yes while it's comfortable; the uterus is inside the pelvis until about 12 weeks and well cushioned after"
+    - it stops being comfortable before it becomes a problem
+    - the switch to side-sleeping is a 28-week habit worth starting earlier
+    - "pregnancy pillows: a wedge under the belly, a pillow between the knees"
+  sources:
+    - title: Pregnancy, Birth and Baby — Sleep during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
+  related: [sleeping-on-your-back]
+  notes: No source gives a verdict on front sleeping; PBB covers position and pillows. Write the "comfort decides" answer and say it is reasoning, not guidance.
+
+- id: standing-up-quickly
+  title: Dizziness when standing or lying flat
+  type: can-i
+  topic: body
+  ask: Why do I feel faint lying on my back or standing up fast, and is it dangerous?
+  aliases: [dizzy, faint, light-headed, supine hypotension, standing too long, blood pressure drop, getting up quickly]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "verdict: common and usually harmless; lie on your side, get up slowly, don't stand still for long"
+    - lower blood pressure plus the uterus on the big vein
+    - calf raises and marching on the spot when you must stand
+    - frequent fainting gets checked
+  sources:
+    - title: The Royal Women's Hospital — Common concerns in early pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
+    - title: The Royal Women's Hospital — Active pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+  related: [sleeping-on-your-back, standing-all-day, exercise-lying-on-your-back]
+  notes: Border with symptoms. Kept because it explains the position rules; the symptoms file may own "dizziness" proper.
+
+# ---------------------------------------------------------------------------
+# Sex
+# ---------------------------------------------------------------------------
+
+- id: sex
+  title: Sex in pregnancy
+  type: can-i
+  topic: body
+  ask: Can we still have sex?
+  aliases: [sex, intercourse, making love, orgasm, sex drive, libido, positions, oral sex, sex toys, anal sex, does sex hurt the baby, sex and miscarriage]
+  who: together
+  priority: 1
+  stakes: medium
+  covers:
+    - "verdict: yes at any stage unless your care provider has said not to"
+    - the baby is protected by the uterus, muscles, fluid and the mucus plug; it can't feel or know
+    - orgasm can bring tightenings and movement; not labour in a healthy pregnancy
+    - "when to stop: placenta praevia or low-lying placenta, bleeding, waters broken, cervical stitch or short cervix, risk of preterm labour"
+    - condoms and STI tests with a new or casual partner
+    - "positions from 28 weeks: side-lying, hands and knees, on top; not flat on your back"
+    - desire goes up and down by trimester; both of you get a say
+    - see a doctor after sex for bleeding, cramps, discharge, fever, sharp pain
+    - "late pregnancy: sex may help ripen the cervix, won't start labour early"
+  sources:
+    - title: Pregnancy, Birth and Baby — Sex during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sex-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Common myths about pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/common-myths-about-pregnancy
+  related: [sleeping-on-your-back, bleeding-after-sex]
+  notes: Oral sex and blown air (air embolism) is a classic question; no Australian source we loaded addresses it, so either leave it out or source it before writing. "Sex to bring on labour" belongs to the labour file; link, don't write.
+
+- id: bleeding-after-sex
+  title: Bleeding after sex
+  type: can-i
+  topic: body
+  ask: I bled a little after sex, is that normal?
+  aliases: [spotting after sex, bleeding after intercourse, cervical ectropion, pink discharge after sex]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "verdict: tell your care team; often a sensitive cervix (ectropion), but bleeding is always reported"
+    - you may be told to pause sex even once it stops
+    - heavy bleeding, pain or fluid is urgent
+  sources:
+    - title: Pregnancy, Birth and Baby — Sex during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sex-during-pregnancy
+  related: [sex]
+  notes: "Border with symptoms (bleeding in pregnancy). Kept narrow: the after-sex case only."
+
+# ---------------------------------------------------------------------------
+# Beauty and products
+# ---------------------------------------------------------------------------
+
+- id: hair-dye
+  title: Hair dye
+  type: can-i
+  topic: body
+  ask: Can I dye my hair?
+  aliases: [hair dye, hair colour, colouring, bleach, highlights, foils, balayage, toner, box dye, root touch-up, henna, semi-permanent]
+  who: carrying
+  priority: 1
+  stakes: low
+  covers:
+    - "verdict: yes; the chemicals barely absorb through the scalp"
+    - the first-12-weeks wait is a preference, not a rule
+    - "lower exposure: gloves, minimum time, rinse well, ventilated salon, semi-permanent or vegetable dyes, foils over roots"
+    - hair may take colour differently in pregnancy; strand test
+    - "hairdressers: no evidence of harm from working with dye; gloves and ventilation"
+  sources:
+    - title: Pregnancy, Birth and Baby — Hair care during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/hair-care-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
+  related: [hair-straightening, hairdressing-and-nail-salon-work, nail-salons]
+
+- id: hair-straightening
+  title: Keratin and chemical straightening
+  type: can-i
+  topic: body
+  ask: Can I get a keratin treatment or chemical straightening?
+  aliases: [keratin treatment, Brazilian blowout, chemical straightening, relaxer, perm, formaldehyde, hair smoothing]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: avoid treatments that release formaldehyde; perms and relaxers are low-exposure like dye"
+    - formaldehyde is a known carcinogen; no evidence of harm to the baby, avoided on principle
+    - ask the salon what's in it; "formaldehyde-free" still deserves ventilation
+  sources:
+    - title: Pregnancy, Birth and Baby — Hair care during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/hair-care-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
+  related: [hair-dye, nail-salons]
+
+- id: hair-removal
+  title: Waxing, hair removal cream and laser
+  type: can-i
+  topic: body
+  ask: Can I keep waxing or having laser hair removal?
+  aliases: [waxing, Brazilian wax, hair removal cream, Veet, Nair, depilatory, laser hair removal, IPL, electrolysis, shaving, threading, bleaching]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "verdict: yes to all of it; creams, wax, laser, IPL, threading and shaving"
+    - laser heats only the surface of the skin; it may be less effective with pregnancy hormones
+    - skin is more sensitive and may react to a product it never did; patch test
+    - hair bleach (peroxide) is low exposure; hydroquinone is the one to avoid
+  sources:
+    - title: Pregnancy, Birth and Baby — Hair care during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/hair-care-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Cosmetic procedures during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
+    - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
+  related: [hair-dye, skincare-ingredients, fake-tan]
+
+- id: fake-tan
+  title: Fake tan and spray tan
+  type: can-i
+  topic: body
+  ask: Can I use fake tan or get a spray tan?
+  aliases: [fake tan, self tanner, spray tan, tanning lotion, DHA, dihydroxyacetone, tanning booth, Bondi Sands]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "verdict: lotions, mousses and creams yes; spray tans, PBB says avoid, MotherSafe says mask up"
+    - the active ingredient (DHA) barely absorbs; the issue with spray is breathing it in
+    - no tanning pills or sunbeds
+    - patch test, skin is more reactive
+  sources:
+    - title: Pregnancy, Birth and Baby — Cosmetic procedures during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
+    - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
+  related: [sunbeds, sunscreen, hair-removal]
+  notes: PBB's "things to avoid" says it is best to avoid spray tans; its cosmetic page and MotherSafe say generally safe with breathing precautions. Give the lotion-yes, spray-with-care answer.
+
+- id: sunbeds
+  title: Sunbeds and solariums
+  type: can-i
+  topic: body
+  ask: Can I use a sunbed?
+  aliases: [sunbed, solarium, tanning bed, tanning salon, UV tanning]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers:
+    - "verdict: no; commercial solariums are illegal in Australia and skin is more sensitive in pregnancy"
+    - melanoma risk, pigmentation (melasma) darkens with UV
+  sources:
+    - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+  related: [fake-tan, sunscreen]
+
+- id: sunscreen
+  title: Sunscreen
+  type: can-i
+  topic: body
+  ask: Is sunscreen safe to use every day while pregnant?
+  aliases: [sunscreen, SPF, chemical sunscreen, mineral sunscreen, zinc, oxybenzone, octocrylene, sun protection, melasma, mask of pregnancy]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "verdict: yes, and more important than usual; pigmentation darkens in the sun"
+    - absorption of common filters is minimal; mineral (zinc) if you prefer
+    - hat, shade, midday indoors on hot days
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
+    - title: The Royal Women's Hospital — Common concerns in early pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
+  related: [fake-tan, sunbeds, hot-weather, skincare-ingredients]
+
+- id: skincare-ingredients
+  title: Retinol, acids and skincare ingredients
+  type: can-i
+  topic: body
+  ask: Which skincare ingredients do I need to stop using?
+  aliases: [retinol, retinoids, vitamin A cream, tretinoin, Retin-A, salicylic acid, glycolic acid, AHA, BHA, hyaluronic acid, niacinamide, vitamin C serum, hydroquinone, skin lightening, chemical peel, skincare routine]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "verdict: most of your routine is fine; stop prescription retinoids and hydroquinone"
+    - over-the-counter retinol is low dose and minimally absorbed; PBB and MotherSafe accept it, many choose to pause
+    - "benzoyl peroxide, salicylic acid spot treatment, glycolic acid: fine"
+    - "salicylic acid peels: avoid; hydroquinone: avoid (high absorption)"
+    - "unbranded or online products you can't verify: skip"
+    - check with a pharmacist when unsure, and tell them you're pregnant
+  sources:
+    - title: Pregnancy, Birth and Baby — Cosmetic procedures during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
+    - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
+  related: [acne-treatments, sunscreen, botox-and-fillers]
+  notes: Oral isotretinoin (Roaccutane) is a medicine and belongs to the medicines file; link to it rather than cover it.
+
+- id: acne-treatments
+  title: Pregnancy acne
+  type: can-i
+  topic: body
+  ask: My skin has broken out, what can I use on it?
+  aliases: [acne, pimples, breakouts, pregnancy acne, benzoyl peroxide, spot treatment, Roaccutane, isotretinoin, acne cream, Differin, adapalene]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "verdict: benzoyl peroxide and salicylic spot treatments yes; retinoids (creams and pills) no"
+    - hormones drive it; oil-free make-up, gentle cleanser, don't pick
+    - sun protection, as pigmentation marks darken
+    - "persistent or severe acne: GP, not the internet"
+  sources:
+    - title: Pregnancy, Birth and Baby — Skin changes during pregnancy, acne
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/skin-changes-during-pregnancy-acne
+    - title: Pregnancy, Birth and Baby — Cosmetic procedures during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
+  related: [skincare-ingredients, sunscreen]
+  notes: Prescription acne medicines (isotretinoin, oral antibiotics) are the medicines file's. This entry covers the shelf products.
+
+- id: nail-salons
+  title: Manicures, gel and acrylic nails
+  type: can-i
+  topic: body
+  ask: Can I get my nails done?
+  aliases: [nails, manicure, pedicure, gel nails, shellac, SNS, acrylics, nail polish, acetone, nail salon fumes, UV lamp]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "verdict: yes; low concentrations, short exposure, not well absorbed"
+    - ventilated salon, no cuts around the nails, sterilised tools
+    - ask for polishes without dibutyl phthalate, toluene and formaldehyde
+    - the UV lamp is a skin question, not a pregnancy one
+  sources:
+    - title: Pregnancy, Birth and Baby — Cosmetic procedures during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
+    - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
+  related: [hair-dye, hairdressing-and-nail-salon-work, beauty-salon-treatments]
+
+- id: beauty-salon-treatments
+  title: Facials, lash extensions and brow tints
+  type: can-i
+  topic: body
+  ask: Can I get a facial, lash extensions or my brows tinted?
+  aliases: [facial, lash extensions, lash lift, brow tint, brow lamination, microdermabrasion, chemical peel, LED facial, cosmetic tattoo, microblading]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: facials and tints are surface treatments, fine; peels with salicylic acid avoid; cosmetic tattooing follows the tattoo rule"
+    - skin reacts more; patch tests and gentle products
+    - glue and fumes near the eyes are a ventilation question
+    - "\"not proven safe and not essential\" is PBB's general test for anything unusual"
+  sources:
+    - title: Pregnancy, Birth and Baby — Cosmetic procedures during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
+    - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
+  related: [nail-salons, skincare-ingredients, tattoos]
+  notes: Lash extensions and brow tints are not named by any Australian source. Write from the absorption principle and say so.
+
+- id: botox-and-fillers
+  title: Botox and dermal fillers
+  type: can-i
+  topic: body
+  ask: Can I keep getting Botox or filler?
+  aliases: [Botox, anti-wrinkle injections, dermal filler, lip filler, cosmetic injectables, Dysport]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: not recommended; not because of known harm, but because it's elective and unstudied"
+    - Botox doesn't cross the placenta; one done before you knew is not a worry
+    - "fillers: no evidence either way, no recommendation"
+    - medical Botox (migraine, spasm) is a doctor conversation
+  sources:
+    - title: Pregnancy, Birth and Baby — Cosmetic procedures during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
+    - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
+  related: [cosmetic-surgery, skincare-ingredients]
+
+- id: cosmetic-surgery
+  title: Cosmetic surgery and skin procedures
+  type: can-i
+  topic: body
+  ask: Can I have a cosmetic procedure or get a mole removed while pregnant?
+  aliases: [cosmetic surgery, mole removal, skin tag removal, wart removal, skin cancer removal, sclerotherapy, varicose vein treatment, local anaesthetic, liposuction, breast surgery]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers:
+    - "verdict: purely cosmetic surgery waits; skin tags, warts and benign lesions are fine; a skin cancer comes out, ideally in the second trimester"
+    - local anaesthetic with adrenaline is the concern in bigger procedures
+    - varicose vein treatment waits; the veins often settle after birth anyway
+    - tell every surgeon, dentist and beautician you're pregnant
+  sources:
+    - title: Pregnancy, Birth and Baby — Cosmetic procedures during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
+  related: [botox-and-fillers, dental-work, tattoos]
+
+- id: teeth-whitening
+  title: Teeth whitening
+  type: can-i
+  topic: body
+  ask: Can I whiten my teeth?
+  aliases: [teeth whitening, whitening strips, whitening kit, bleaching teeth, Zoom whitening, whitening toothpaste]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: wait; healthdirect lists pregnancy among reasons it isn't recommended, and PBB says elective whitening can be put off"
+    - gums are inflamed and sensitive in pregnancy anyway
+    - whitening toothpaste is fine; peroxide trays and in-chair bleaching are the ones to defer
+  sources:
+    - title: healthdirect — Teeth whitening
+      url: https://www.healthdirect.gov.au/procedures/dental-procedures-and-appliances/teeth-whitening
+    - title: Pregnancy, Birth and Baby — Looking after your teeth during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/looking-after-your-teeth-during-pregnancy
+  related: [dental-work, dental-x-rays]
+
+- id: tattoos
+  title: Tattoos
+  type: can-i
+  topic: body
+  ask: Can I get a tattoo while pregnant?
+  aliases: [tattoo, new tattoo, tattoo ink, tattoo infection, cover-up, cosmetic tattoo, henna tattoo, black henna]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "verdict: wait until after pregnancy and breastfeeding; no evidence either way, and infection is the real risk"
+    - hepatitis B and C from unregistered operators
+    - black henna (PPD) can burn; natural henna is a skin stain
+    - an existing tattoo is not a problem, including near an epidural site (ask the anaesthetist)
+  sources:
+    - title: Pregnancy, Birth and Baby — Cosmetic procedures during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
+    - title: healthdirect — Body piercing and tattoos
+      url: https://www.healthdirect.gov.au/healthy-living/hygiene-and-protection/body-piercing-and-tattoos
+  related: [piercings, beauty-salon-treatments]
+  notes: The epidural-over-a-tattoo question is not in these sources; flag it for the labour file or source it.
+
+- id: piercings
+  title: Piercings
+  type: can-i
+  topic: body
+  ask: Can I get a piercing, and what about my belly button ring?
+  aliases: [piercing, belly button ring, navel piercing, nipple piercing, new piercing, pregnancy belly bar, removing piercings for birth]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: no new piercings; infection and slow healing. Existing ones stay until they pull"
+    - a navel ring stretches with the bump; swap for a flexible bar or take it out
+    - nipple piercings come out before breastfeeding; genital and navel piercings out for a caesarean
+    - infection risks (hepatitis B and C) from unregistered studios
+  sources:
+    - title: healthdirect — Body piercing and tattoos
+      url: https://www.healthdirect.gov.au/healthy-living/hygiene-and-protection/body-piercing-and-tattoos
+  related: [tattoos]
+  notes: healthdirect's page doesn't mention pregnancy. The pregnancy-specific advice (belly bars, removal for birth) is unsourced here; find a hospital admission sheet or treat it as practical advice.
+
+- id: insect-repellent
+  title: Insect repellent
+  type: can-i
+  topic: body
+  ask: Can I use DEET or picaridin while pregnant?
+  aliases: [insect repellent, DEET, picaridin, Aerogard, Bushman, mosquito repellent, mozzie spray, Ross River virus, Japanese encephalitis, dengue, mosquito coils, citronella]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "verdict: yes; mosquito-borne disease is the bigger risk and APVMA-approved repellents are safe in pregnancy"
+    - DEET poorly crosses the placenta; medium strength gives the same protection as high, skip 80 per cent
+    - picaridin is the alternative
+    - Ross River, Barmah Forest, Murray Valley and Japanese encephalitis are Australian risks; JE vaccine (JEspect) if high risk
+    - long sleeves, screens, nets, dusk-to-dawn indoors
+    - PBB's travel page says use a spray not a roll-on after the first trimester; no other source says this
+  sources:
+    - title: healthdirect — Mosquito bites
+      url: https://www.healthdirect.gov.au/accidents-and-injuries/bites-and-stings/mosquito-bites
+    - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
+    - title: Pregnancy, Birth and Baby — Toxic household products to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
+  related: [malaria, zika, pesticides, camping-and-the-bush]
+  notes: PBB's travel page contains an odd line ("after the first trimester use a spray instead of a roll-on") that no other source supports. Don't repeat it without a reason.
+
+- id: deodorant-and-perfume
+  title: Deodorant, perfume and make-up
+  type: can-i
+  topic: body
+  ask: Do I need to change my deodorant, perfume or make-up?
+  aliases: [deodorant, antiperspirant, aluminium, perfume, fragrance, make-up, cosmetics, lipstick, parabens, phthalates, clean beauty]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: no; everyday cosmetics are applied to the skin and barely absorbed"
+    - the "aluminium in antiperspirant" worry has no pregnancy guidance behind it
+    - "PBB's test: avoid what isn't essential and hasn't been shown safe; this is about unusual products, not deodorant"
+    - skin and smell sensitivity change; swap for comfort, not safety
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
+    - title: Pregnancy, Birth and Baby — Cosmetic procedures during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
+  related: [skincare-ingredients, essential-oils]
+  notes: A myth entry. Neither source names deodorant; both say ordinary cosmetics are safe.
+
+- id: essential-oils
+  title: Essential oils and aromatherapy
+  type: can-i
+  topic: body
+  ask: Can I use essential oils or an oil diffuser?
+  aliases: [essential oils, aromatherapy, diffuser, lavender oil, peppermint oil, clary sage, tea tree, oil burner, doTERRA]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: a diffuser in the room is fine; don't swallow oils, don't apply undiluted, and treat labour-inducing claims (clary sage) as the labour file's question"
+    - PBB groups aromatherapy with complementary therapies that lack evidence and are no longer insured
+    - "massage oils: ask the therapist to use ones suitable in pregnancy"
+  sources:
+    - title: Pregnancy, Birth and Baby — Complementary therapy during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/complementary-therapy-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Pregnancy massage
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/pregnancy-massage
+  related: [massage, deodorant-and-perfume, acupuncture]
+  notes: Thin. No Australian source gives a verdict on specific oils. Herbal teas and ingested preparations belong to the drink and medicines files.
+
+# ---------------------------------------------------------------------------
+# Household and environment
+# ---------------------------------------------------------------------------
+
+- id: cleaning-products
+  title: Cleaning products
+  type: can-i
+  topic: activities
+  ask: Can I keep using bleach and oven cleaner?
+  aliases: [cleaning products, bleach, oven cleaner, ammonia, disinfectant, mould spray, fumes, gloves, air freshener, scented candles]
+  who: carrying
+  priority: 1
+  stakes: low
+  covers:
+    - "verdict: yes; gloves, windows open, follow the label, never mix bleach and ammonia"
+    - fumes are the thing to avoid, not the product on the bench
+    - a mask for the strong stuff; let someone else do the oven
+    - most everyday chemicals are in amounts too small to matter
+  sources:
+    - title: Pregnancy, Birth and Baby — Toxic household products to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+  related: [painting-and-renovating, mould, pesticides]
+
+- id: painting-and-renovating
+  title: Painting the nursery and renovating
+  type: can-i
+  topic: activities
+  ask: Can I paint the nursery?
+  aliases: [painting, paint fumes, nursery, renovating, renovation, sanding, stripping paint, lead paint, VOCs, solvent, turps, varnish, treated timber, demolition, dust]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "verdict: modern water-based paint with the windows open is low risk; stay away from stripping or sanding old paint"
+    - houses before 1971 may have lead paint; there is no safe level of lead; let someone else do it and stay out of the dust
+    - no solvent-based paints, no eating in the room, gloves, mask, goggles
+    - "arsenic-treated timber: don't breathe the sawdust, don't burn it"
+    - if worried, give the painting to the partner, especially in the first trimester
+  sources:
+    - title: Pregnancy, Birth and Baby — Toxic household products to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+    - title: healthdirect — Lead poisoning
+      url: https://www.healthdirect.gov.au/healthy-living/toxins-and-poisoning/lead-poisoning
+  related: [lead-exposure, cleaning-products, heavy-lifting, mould]
+
+- id: lead-exposure
+  title: Lead
+  type: can-i
+  topic: activities
+  ask: How would I be exposed to lead, and does it reach the baby?
+  aliases: [lead, lead paint, lead poisoning, old pipes, lead in soil, Broken Hill, Mount Isa, Port Pirie, lead crystal, imported ceramics, shooting range]
+  who: carrying
+  priority: 3
+  stakes: high
+  covers:
+    - "verdict: lead crosses the placenta and there is no safe level; the risk is old paint, old plumbing, some soils and some hobbies"
+    - pre-1971 paint, renovation dust, contaminated soil in mining towns, imported glazed ceramics, shooting ranges
+    - wash hands, damp-dust, keep soil off shoes, don't eat where you work
+    - a blood lead test if you think you've been exposed
+  sources:
+    - title: healthdirect — Lead poisoning
+      url: https://www.healthdirect.gov.au/healthy-living/toxins-and-poisoning/lead-poisoning
+    - title: Pregnancy, Birth and Baby — Toxic household products to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
+  related: [painting-and-renovating, gardening]
+
+- id: cat-litter
+  title: Cat litter and toxoplasmosis
+  type: can-i
+  topic: activities
+  ask: Do I have to stop changing the cat's litter?
+  aliases: [cat litter, litter tray, toxoplasmosis, toxo, cat poo, cats and pregnancy, get rid of the cat, kitten, outdoor cat, sandpit]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "verdict: hand the litter tray to your partner; if you must, gloves, daily changes and wash well"
+    - toxoplasmosis crosses the placenta; earlier infection is rarer but worse (eyes, brain, hearing), later is likelier and milder
+    - the cat stays; it's the faeces, so the litter tray is emptied daily
+    - discourage the cat from hunting (a bell helps), feed cooked or store-bought food
+    - the other routes are raw meat, unwashed veg and soil; see gardening
+    - a blood test diagnoses it; see your doctor or midwife if you've had direct contact or have symptoms
+    - "flu-like symptoms: tell your midwife"
+  sources:
+    - title: Pregnancy, Birth and Baby — Toxoplasmosis
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/toxoplasmosis
+    - title: healthdirect — Toxoplasmosis
+      url: https://www.healthdirect.gov.au/conditions/parasite-and-fungal-infections/toxoplasmosis
+    - title: Pregnancy, Birth and Baby — Common myths about pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/common-myths-about-pregnancy
+  related: [gardening, pets, farm-animals-and-lambing]
+  notes: The "oocysts take 24 hours to sporulate" point is the reason daily changing works; it isn't on the PBB page, so source it (SA Health perinatal guideline, cited by PBB) before writing it. Raw meat and unwashed vegetables are the food file's; link.
+
+- id: gardening
+  title: Gardening
+  type: can-i
+  topic: activities
+  ask: Can I keep gardening?
+  aliases: [gardening, soil, potting mix, compost, digging, weeding, lawn, mulch, Legionella, sandpit, veggie patch]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "verdict: yes, in gloves, with a good hand wash after; soil can carry toxoplasmosis from cat faeces"
+    - cover the sandpit when not in use
+    - "potting mix: open it away from your face, damp it down (Legionella is a general warning on the bag)"
+    - "bending, lifting and heat: the usual rules"
+    - "pesticides and weedkillers: see that entry"
+  sources:
+    - title: Pregnancy, Birth and Baby — Toxoplasmosis
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/toxoplasmosis
+    - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+  related: [cat-litter, pesticides, heavy-lifting, hot-weather]
+  notes: Potting mix and Legionella is a general Australian warning, not pregnancy-specific; cite a state health page if you include it.
+
+- id: pesticides
+  title: Pesticides, weedkillers and pest control
+  type: can-i
+  topic: activities
+  ask: Can I spray the weeds or have the house treated for termites?
+  aliases: [pesticides, weedkiller, Roundup, glyphosate, herbicide, fly spray, insect spray, termite treatment, pest control, flea treatment, cockroach bait, mosquito coil, head lice treatment]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "verdict: reduce your own use as far as you can; let a licensed professional do treatments and stay out while it dries"
+    - some pesticides are known to affect developing babies; home use is usually safe at label doses
+    - gloves, no spray drift, wash hands, keep off treated areas
+    - "personal repellents are the exception: keep using them"
+    - "pet flea treatments: follow the label and wash hands"
+  sources:
+    - title: Pregnancy, Birth and Baby — Toxic household products to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
+    - title: healthdirect — Pesticides
+      url: https://www.healthdirect.gov.au/healthy-living/toxins-and-poisoning/pesticides
+  related: [gardening, insect-repellent, cleaning-products]
+  notes: Head lice treatments are medicines (PBB's hair-care page covers them); leave to the medicines file.
+
+- id: mould
+  title: Mould in the house
+  type: can-i
+  topic: activities
+  ask: Is the mould in our bathroom dangerous for the baby, and can I clean it?
+  aliases: [mould, mold, damp, black mould, mouldy ceiling, mould spray, vinegar, bleach, rising damp, condensation]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "verdict: no pregnancy-specific risk is established; it's a breathing and allergy issue, so fix the damp and let someone else scrub"
+    - "NSW Health: vinegar 4:1 for routine cleaning, diluted bleach with gloves and glasses if needed, dry it completely"
+    - "who is sensitive: asthma, allergies, weak immune systems"
+    - ventilate, fix leaks, dry carpets fully or discard
+    - testing is rarely needed; if you can see it, clean it
+  sources:
+    - title: NSW Health — Mould
+      url: https://www.health.nsw.gov.au/environment/factsheets/Pages/mould.aspx
+  related: [cleaning-products, painting-and-renovating, bushfire-smoke]
+  notes: NSW Health's page does not mention pregnancy at all. The honest verdict is "no specific evidence"; don't invent a risk.
+
+- id: gas-heaters
+  title: Gas heaters and carbon monoxide
+  type: can-i
+  topic: activities
+  ask: Is our old gas heater safe to use now that I'm pregnant?
+  aliases: [gas heater, unflued heater, carbon monoxide, CO alarm, gas fitter, BBQ indoors, outdoor heater inside, generator, wood heater, fireplace]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - "verdict: a serviced, indoor-rated heater is fine; the unborn baby holds carbon monoxide longer than you do, so this is one to take seriously"
+    - pregnant women are on NSW Health's list of people who get sicker
+    - service every two years by a registered gas fitter; a CO alarm near bedrooms
+    - never BBQs, outdoor heaters or generators inside
+    - "headache, nausea, dizziness, weakness that lifts outdoors: get out, turn it off, call Poisons Information 13 11 26"
+  sources:
+    - title: NSW Health — Carbon monoxide
+      url: https://www.health.nsw.gov.au/environment/factsheets/Pages/carbon-monoxide.aspx
+  related: [bushfire-smoke, mould]
+
+- id: bushfire-smoke
+  title: Bushfire smoke and air quality
+  type: can-i
+  topic: activities
+  ask: Should I stay inside when there's bushfire smoke?
+  aliases: [bushfire smoke, smoke haze, air quality, AQI, P2 mask, N95, hazard reduction burn, smoky day, wood smoke]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "verdict: yes; pregnancy is on healthdirect's higher-risk list for bushfire smoke"
+    - stay indoors with windows shut, air conditioning on recirculate, skip outdoor exercise
+    - a P2 or N95 mask fitted well if you must be outside
+    - "heat and smoke together: see the heat entry"
+    - "symptoms: shortness of breath, chest tightness, cough, see a doctor"
+  sources:
+    - title: healthdirect — Bushfires and your health
+      url: https://www.healthdirect.gov.au/healthy-living/weather-and-environment/bushfires-and-your-health
+  related: [hot-weather, gas-heaters, exercise-in-pregnancy]
+
+- id: pets
+  title: Dogs, birds, reptiles and other pets
+  type: can-i
+  topic: activities
+  ask: Do I need to worry about our pets?
+  aliases: [pets, dog, puppy, bird, parrot, psittacosis, reptile, lizard, turtle, salmonella, guinea pig, rabbit, pet hygiene, getting a pet while pregnant]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "verdict: keep them; wash hands after handling, feeding and cleaning cages"
+    - cats are the toxoplasmosis question, see cat litter
+    - "birds (psittacosis) and reptiles (salmonella): cage and tank cleaning to the partner, or gloves"
+    - "dogs: train now for the baby (lead, jumping, off-limits rooms); a big dog pulling is a fall"
+    - no new pets you'll have to give away
+  sources:
+    - title: Pregnancy, Birth and Baby — Pets in the family
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/parenting-skills-and-daily-life/pets-in-the-family
+    - title: Pregnancy, Birth and Baby — Common myths about pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/common-myths-about-pregnancy
+  related: [cat-litter, farm-animals-and-lambing, falls-and-knocks]
+  notes: Psittacosis and reptile salmonella are not in PBB's pets page; source them (a state health factsheet) before writing those lines.
+
+- id: farm-animals-and-lambing
+  title: Farms, lambing and Q fever
+  type: can-i
+  topic: activities
+  ask: Can I help with lambing or visit a farm?
+  aliases: [lambing, sheep, goats, kidding, farm visit, petting zoo, abattoir, Q fever, listeria from animals, cattle, birthing animals, shearing]
+  who: carrying
+  priority: 3
+  stakes: high
+  covers:
+    - "verdict: stay away from birthing animals and their afterbirth; Q fever in pregnancy can cause miscarriage and stillbirth"
+    - Q fever spreads from cattle, sheep and goats, especially birth fluids and dust
+    - the Q fever vaccine is not given in pregnancy; it's a pre-pregnancy job for farm and vet workers
+    - petting zoos and farm visits are fine with hand washing; no bottle-feeding lambs
+    - "rural and vet work: tell your employer"
+  sources:
+    - title: healthdirect — Q fever
+      url: https://www.healthdirect.gov.au/conditions/bacterial-infections/q-fever
+    - title: Pregnancy, Birth and Baby — Toxoplasmosis
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/toxoplasmosis
+  related: [pets, cat-litter, working-with-children]
+  notes: Listeria and toxoplasmosis from lambing (the UK advice) isn't in the Australian pages loaded; Q fever is the Australian framing. Confirm vaccine-in-pregnancy wording against the Immunisation Handbook's Q fever chapter.
+
+- id: plastics-and-bpa
+  title: Plastics, BPA and non-stick pans
+  type: can-i
+  topic: activities
+  ask: Should I stop using plastic containers and non-stick pans?
+  aliases: [BPA, plastics, plastic containers, microwaving plastic, non-stick, Teflon, PFAS, flame retardants, water bottle, receipts]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: no need to throw things out; FSANZ says BPA in food packaging is unlikely to be a health risk"
+    - "sensible low-effort swaps: glass for reheating, don't microwave in old or scratched plastic"
+    - flame retardants in furniture and electronics are a dust issue; damp-dust and vacuum
+    - non-stick pans used normally are fine; don't overheat empty pans
+  sources:
+    - title: Pregnancy, Birth and Baby — Toxic household products to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
+  related: [cleaning-products, microwaves-and-devices]
+  notes: Non-stick and PFAS are not in the PBB page; either source it (FSANZ PFAS page) or drop that line.
+
+- id: mothballs-and-naphthalene
+  title: Mothballs
+  type: can-i
+  topic: activities
+  ask: Are mothballs a problem?
+  aliases: [mothballs, naphthalene, toilet cakes, camphor, moth repellent]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: avoid breathing them in; naphthalene damages blood cells and PBB lists it among household products to avoid"
+    - store clothes another way; ventilate wardrobes that have had them
+  sources:
+    - title: Pregnancy, Birth and Baby — Toxic household products to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
+  related: [cleaning-products, pesticides]
+
+# ---------------------------------------------------------------------------
+# Work hazards
+# ---------------------------------------------------------------------------
+
+- id: working-while-pregnant
+  title: Is my job safe to keep doing?
+  type: can-i
+  topic: work
+  ask: Is it safe to keep working, and what has to change?
+  aliases: [working while pregnant, safe job, risk assessment, no safe job leave, work adjustments, telling my employer, work hazards, physically demanding job]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "verdict: yes unless your doctor says otherwise; the employer must reassess risks once they know, and again as pregnancy progresses"
+    - "the hazards that change things: chemicals, radiation, infections, heavy lifting, long standing, shift work, heat, work travel"
+    - the right to a safe job at the same pay, or no-safe-job leave; a medical certificate may be asked for
+    - stop and ask if a task makes you dizzy, sore or unwell
+    - "carpal tunnel, swelling, fatigue: the ordinary adjustments"
+  sources:
+    - title: Pregnancy, Birth and Baby — Working during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
+    - title: SafeWork NSW — Pregnancy
+      url: https://www.safework.nsw.gov.au/safety-starts-here/physical-safety-at-work-the-basics/pregnancy
+  related: [standing-all-day, heavy-lifting, chemicals-at-work, radiation-at-work, shift-work, working-with-children]
+  notes: Leave, notice periods, pay and discrimination law are the money-and-work file's. This entry is the physical-safety hub only.
+
+- id: standing-all-day
+  title: Standing all day
+  type: can-i
+  topic: work
+  ask: My job is on my feet all day, is that a problem?
+  aliases: [standing all day, on my feet, retail, hospitality, nursing, teaching, hairdressing, swollen feet, varicose veins, sitting all day]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "verdict: fine with breaks; long standing without them worsens swelling, varicose veins, back pain and faintness"
+    - "SafeWork NSW: sit and raise your feet after standing, stretch after sitting; the employer adjusts the rota"
+    - "MotherSafe (for salon workers): avoid prolonged standing and long hours"
+    - compression stockings, supportive shoes, calf raises
+    - "sitting all day has its own answer: move every hour"
+  sources:
+    - title: SafeWork NSW — Pregnancy
+      url: https://www.safework.nsw.gov.au/safety-starts-here/physical-safety-at-work-the-basics/pregnancy
+    - title: The Royal Women's Hospital — Common concerns in early pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
+  related: [working-while-pregnant, standing-up-quickly, heavy-lifting]
+
+- id: heavy-lifting
+  title: Heavy lifting
+  type: can-i
+  topic: work
+  ask: How much can I lift, at work and at home?
+  aliases: [heavy lifting, lifting, how much can I lift, lifting toddler, carrying groceries, moving house, moving boxes, furniture, warehouse, nursing lifts, manual handling]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "verdict: if it seems too heavy, it is; ask for help. No Australian source gives a kilogram limit"
+    - looser ligaments, a shifted centre of gravity and a pelvic floor under load
+    - "the technique: close to the body, bend the knees, no twisting, no breath-holding"
+    - "toddlers: squat, let them climb to you, sit to cuddle"
+    - "moving house: pack, don't carry; book the removalists"
+    - occupational heavy lifting is a reason for adjusted duties
+  sources:
+    - title: SafeWork NSW — Pregnancy
+      url: https://www.safework.nsw.gov.au/safety-starts-here/physical-safety-at-work-the-basics/pregnancy
+    - title: Pregnancy, Birth and Baby — Working during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
+    - title: Better Health Channel — Pregnancy and exercise
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+  related: [weights, standing-all-day, working-while-pregnant, reaching-above-your-head]
+  notes: People want a number. Don't give one; the Australian sources don't, and the research "over 10 kg" figure is not guidance.
+
+- id: shift-work
+  title: Night shifts and long hours
+  type: can-i
+  topic: work
+  ask: Can I keep doing night shifts?
+  aliases: [shift work, night shift, nights, rostering, long hours, overtime, fatigue at work, FIFO, 12-hour shifts]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "verdict: ask for a review; SafeWork NSW lists shift work and exhausting work among the risks the employer must reassess"
+    - fatigue, sleep and nausea are the practical problems; the evidence on outcomes is mixed
+    - request day shifts, shorter shifts or more breaks as the pregnancy goes on
+    - driving home tired is a real risk
+  sources:
+    - title: SafeWork NSW — Pregnancy
+      url: https://www.safework.nsw.gov.au/safety-starts-here/physical-safety-at-work-the-basics/pregnancy
+    - title: Pregnancy, Birth and Baby — Working during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
+  related: [working-while-pregnant, standing-all-day, long-drives]
+
+- id: chemicals-at-work
+  title: Chemicals at work
+  type: can-i
+  topic: work
+  ask: I work with chemicals, what do I need to know?
+  aliases: [chemicals at work, solvents, lab work, laboratory, anaesthetic gases, cytotoxic drugs, chemotherapy handling, vet nurse, cleaner, painter, mechanic, agricultural chemicals, safety data sheet, SDS]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - "verdict: tell your employer early; chemical and biological hazards are the main reason for a safe-job transfer"
+    - safety data sheets name reproductive hazards; ask for them
+    - ventilation, gloves, hand-washing before eating, safe storage; masks don't stop most vapours
+    - "the ones to flag specifically: solvents, cytotoxic drugs, anaesthetic gases, lead, pesticides"
+    - "hairdressers and nail technicians: see that entry"
+  sources:
+    - title: Pregnancy, Birth and Baby — Working during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
+    - title: SafeWork NSW — Pregnancy
+      url: https://www.safework.nsw.gov.au/safety-starts-here/physical-safety-at-work-the-basics/pregnancy
+    - title: Pregnancy, Birth and Baby — Toxic household products to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
+  related: [working-while-pregnant, hairdressing-and-nail-salon-work, radiation-at-work, painting-and-renovating]
+  notes: The specific hazard list (cytotoxics, anaesthetic gases) is not in these pages; cite Safe Work Australia or a state hospital policy before naming them.
+
+- id: hairdressing-and-nail-salon-work
+  title: Working as a hairdresser or nail technician
+  type: can-i
+  topic: work
+  ask: I'm a hairdresser, is the salon safe for me?
+  aliases: [hairdresser, nail technician, beauty therapist, salon work, salon fumes, spray tan technician, dye at work]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers:
+    - "verdict: yes; studies of hairdressers show no significant increase in birth defects or complications"
+    - gloves, open windows, wash hands before eating, store and dispose of chemicals safely
+    - masks don't stop vapours; ventilation does
+    - avoid long shifts on your feet
+    - "spray tan technicians: nose plugs or mask"
+  sources:
+    - title: Pregnancy, Birth and Baby — Hair care during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/hair-care-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
+  related: [hair-dye, nail-salons, chemicals-at-work, standing-all-day]
+
+- id: radiation-at-work
+  title: X-rays and radiation at work
+  type: can-i
+  topic: work
+  ask: I work with x-rays, can I keep doing my job?
+  aliases: [radiographer, radiation at work, dental nurse, vet x-rays, theatre nurse, nuclear medicine, dosimeter, 1 mSv, industrial radiography, airline crew cosmic radiation]
+  who: carrying
+  priority: 3
+  stakes: high
+  covers:
+    - "verdict: yes with controls; the dose to the unborn child must stay under 1 mSv for the rest of the pregnancy"
+    - tell your employer as soon as you know so duties and monitoring can change
+    - "your badge over-reads the fetal dose (ARPANSA: unlikely to exceed 25 per cent of the badge)"
+    - "aircrew: cosmic radiation counts; the same 1 mSv public limit applies"
+  sources:
+    - title: ARPANSA — Occupational exposure, management of pregnant workers
+      url: https://www.arpansa.gov.au/understanding-radiation/sources-radiation/occupational-exposure/occupational-exposure-management
+    - title: ARPANSA — Flying and health, cosmic radiation exposure for casual flyers and aircrew
+      url: https://www.arpansa.gov.au/understanding-radiation/radiation-sources/more-radiation-sources/flying-and-health
+    - title: Pregnancy, Birth and Baby — Radiation exposure during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/radiation-exposure-during-pregnancy
+  related: [medical-x-rays-and-ct, dental-x-rays, flying, working-while-pregnant]
+
+- id: working-with-children
+  title: Working with children and infections
+  type: can-i
+  topic: work
+  ask: I work in childcare, what infections should I worry about?
+  aliases: [childcare worker, early childhood, teacher, nurse, paediatric nurse, CMV, cytomegalovirus, slapped cheek, parvovirus, chickenpox exposure, hand foot and mouth, nappies, kissing kids]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - "verdict: keep working; hand hygiene is the protection, and CMV is the one nobody tells you about"
+    - "CMV: wash hands after nappies, wiping noses and handling toys; don't share food, cups or dummies; don't kiss young children on the lips"
+    - "chickenpox: if you're not immune and are exposed, call the same day; immunoglobulin within 10 days"
+    - "parvovirus (slapped cheek) and others: tell your midwife about outbreaks at work"
+    - the employer's risk assessment can move you during an outbreak
+  sources:
+    - title: Pregnancy, Birth and Baby — Cytomegalovirus (CMV) during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cytomegalovirus-cmv-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Chickenpox and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/chickenpox-and-pregnancy
+  related: [working-while-pregnant, vaccines-in-pregnancy, farm-animals-and-lambing]
+  notes: Border with the tests-and-care file, which may own CMV, chickenpox and parvovirus as conditions. This entry is the workplace angle only; parvovirus is unsourced here.
+
+- id: computer-screens
+  title: Screens, laptops and office work
+  type: can-i
+  topic: work
+  ask: Is a laptop on my lap or a day at the screen a problem?
+  aliases: [computer screen, laptop on lap, desk job, office work, sitting all day, VDU, monitor radiation, ergonomics, carpal tunnel]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: no; screens don't emit anything that reaches the baby. The real issues are sitting still, posture and wrists"
+    - move every hour, feet up, chair and desk adjusted as the bump grows
+    - laptop heat on the thighs is comfort, not risk
+    - carpal tunnel is common; the Royal Women's has a factsheet
+  sources:
+    - title: ARPANSA — Effects of radiofrequency electromagnetic field exposure on adverse pregnancy outcomes
+      url: https://www.arpansa.gov.au/effects-radiofrequency-electromagnetic-field-exposure-adverse-pregnancy-outcomes-human-observational-studies
+    - title: Pregnancy, Birth and Baby — Working during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
+  related: [microwaves-and-devices, standing-all-day, working-while-pregnant]
+
+- id: loud-noise
+  title: Loud noise, concerts and festivals
+  type: can-i
+  topic: activities
+  ask: Can I go to a concert or work somewhere loud?
+  aliases: [concert, festival, loud music, nightclub, fireworks, noise at work, hearing protection, bass, baby's hearing]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: ask; no Australian source addresses it. Treat prolonged, very loud noise at work as a hazard to raise in the risk assessment; a concert is a crowd, heat and standing question"
+    - the baby hears from around the middle of pregnancy; muffled by the body
+    - "crowds: crush, falls, dehydration, no seat"
+  sources:
+    - title: SafeWork NSW — Pregnancy
+      url: https://www.safework.nsw.gov.au/safety-starts-here/physical-safety-at-work-the-basics/pregnancy
+  related: [working-while-pregnant, hot-weather, falls-and-knocks]
+  notes: Unsourced as a pregnancy question. Only the general workplace risk assessment supports it. Consider dropping or finding a Safe Work Australia noise page.
+
+# ---------------------------------------------------------------------------
+# Medical: things done to you
+# ---------------------------------------------------------------------------
+
+- id: dental-work
+  title: Dental work
+  type: can-i
+  topic: care
+  ask: Can I have a filling, a root canal or a tooth out while pregnant?
+  aliases: [dentist, dental check-up, filling, root canal, tooth extraction, wisdom teeth, local anaesthetic at dentist, amalgam, dental infection, bleeding gums, gum disease, pregnancy gingivitis, free dental]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "verdict: yes, all of it, at any stage; untreated gum disease and infection are the bigger risk"
+    - book a check-up early in pregnancy; second trimester is the comfortable chair
+    - local anaesthetic is fine; most antibiotics are fine; paracetamol for pain, not ibuprofen
+    - gums bleed and swell with hormones; keep brushing gently; vomiting and tooth erosion (rinse, wait 30 minutes to brush)
+    - elective things (whitening, implants) wait
+    - tell the receptionist and the dentist you're pregnant
+    - public dental is free for Health Care Card holders in most states
+  sources:
+    - title: Pregnancy, Birth and Baby — Looking after your teeth during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/looking-after-your-teeth-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Dental treatment in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/DentaltreatmentpregbreastNov2020.pdf
+  related: [dental-x-rays, teeth-whitening, cosmetic-surgery]
+  notes: Public dental eligibility differs by state; the money file may own it. Amalgam removal is not addressed by these sources.
+
+- id: dental-x-rays
+  title: Dental x-rays
+  type: can-i
+  topic: care
+  ask: Can I have a dental x-ray?
+  aliases: [dental x-ray, OPG, bitewing, lead apron, x-ray at the dentist]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "verdict: yes when needed; the dose to the baby is insignificant and a lead apron is standard"
+    - PBB's general "x-rays not recommended, especially first trimester" line is about abdominal imaging; dental is the exception it names
+    - tell the dentist so they can decide if it can wait
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Dental treatment in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/DentaltreatmentpregbreastNov2020.pdf
+    - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+  related: [dental-work, medical-x-rays-and-ct]
+
+- id: medical-x-rays-and-ct
+  title: X-rays, CT scans and MRI
+  type: can-i
+  topic: care
+  ask: Can I have an x-ray or a CT scan while pregnant?
+  aliases: [x-ray, CT scan, CAT scan, MRI, nuclear medicine, radiation dose, mSv, chest x-ray, broken bone x-ray, I had an x-ray before I knew, contrast dye]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - "verdict: a needed x-ray away from the abdomen is fine; CT of the abdomen or pelvis is avoided unless necessary; MRI has no radiation and is used after the first trimester"
+    - "doses: chest x-ray up to 0.1 mSv, CT up to 8 mSv, background 2 mSv a year; harm depends on dose, stage and body part"
+    - one x-ray before you knew you were pregnant is very unlikely to have caused harm; tell your doctor and they can estimate the dose
+    - always say you are or might be pregnant; ask if ultrasound or MRI can substitute
+    - "nuclear medicine and breastfeeding later: ask"
+  sources:
+    - title: Pregnancy, Birth and Baby — Radiation exposure during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/radiation-exposure-during-pregnancy
+    - title: healthdirect — X-rays
+      url: https://www.healthdirect.gov.au/procedures/diagnostic-tests-and-scans/x-rays
+    - title: healthdirect — CT scan
+      url: https://www.healthdirect.gov.au/procedures/diagnostic-tests-and-scans/ct-scan
+    - title: healthdirect — Magnetic resonance imaging (MRI)
+      url: https://www.healthdirect.gov.au/procedures/diagnostic-tests-and-scans/magnetic-resonance-imaging-mri
+  related: [dental-x-rays, radiation-at-work, airport-scanners, falls-and-knocks]
+  notes: Border with tests-and-care (which owns pregnancy ultrasounds). This is the "I need imaging for something else" question.
+
+- id: vaccines-in-pregnancy
+  title: Which vaccines can I have?
+  type: can-i
+  topic: care
+  ask: Which vaccines are safe in pregnancy, and which do I have to avoid?
+  aliases: [vaccines, vaccination, live vaccines, MMR, chickenpox vaccine, varicella, HPV vaccine, Gardasil, COVID vaccine, shingles vaccine, BCG, tetanus, hepatitis B vaccine, I had a vaccine before I knew, 28 days]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "verdict: flu, whooping cough and RSV are routinely recommended, in their windows; other non-live vaccines (COVID, hep B) are not routine but can be given when the benefit outweighs the risk; live vaccines no (MMR, varicella, BCG, live JE), and yellow fever only if travel is unavoidable"
+    - live vaccines are given before pregnancy with 28 days' wait; one given before you knew is a hypothetical risk, not a reason for alarm
+    - "HPV: pause the course, finish after birth"
+    - "COVID: not routinely recommended, but a dose can be considered from 20 weeks; no need for another if already vaccinated"
+    - tell every vaccinator you're pregnant
+  sources:
+    - title: Pregnancy, Birth and Baby — Vaccinations and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/vaccinations-and-pregnancy
+    - title: Australian Immunisation Handbook — Vaccination for women who are planning pregnancy, pregnant or breastfeeding
+      url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
+  related: [travel-vaccines, working-with-children]
+  exists: content/items/flu-vaccine.md
+  notes: The flu, whooping cough and RSV items already exist (flu-vaccine, whooping-cough-vaccine, rsv-vaccine); this entry is the general rule and the live/non-live line. The tests-and-care file may want it; agreed border.
+
+- id: massage
+  title: Massage
+  type: can-i
+  topic: care
+  ask: Can I have a massage, and does it have to be a "pregnancy massage"?
+  aliases: [massage, pregnancy massage, prenatal massage, remedial massage, deep tissue, foot massage, reflexology, hot stone, massage chair, partner massage, pressure points]
+  who: carrying
+  priority: 1
+  stakes: low
+  covers:
+    - "verdict: yes, from a therapist trained in pregnancy; side-lying or supported, never flat on your back or front in the second half"
+    - no abdominal massage; gentle legs (clot risk); certain pressure points avoided
+    - the "first trimester massage causes miscarriage" idea is a myth the therapy industry keeps alive; PBB gives no such rule
+    - "evidence: eases back and leg pain, stress, sleep; and labour pain"
+    - hot stones are a heat question; reflexology has limited evidence
+    - a partner can learn the labour massage
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy massage
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/pregnancy-massage
+    - title: Pregnancy, Birth and Baby — Complementary therapy during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/complementary-therapy-during-pregnancy
+    - title: healthdirect — Massage therapy
+      url: https://www.healthdirect.gov.au/treatments-and-self-care/massage-therapy
+  related: [sleeping-on-your-back, chiropractic-and-osteopathy, acupuncture, essential-oils]
+  notes: Don't assert the first-trimester myth is false without a source; PBB simply doesn't impose a first-trimester rule. Perineal massage is the labour file's.
+
+- id: chiropractic-and-osteopathy
+  title: Chiropractors, osteopaths and physios
+  type: can-i
+  topic: care
+  ask: Can I see a chiropractor or osteopath for my back?
+  aliases: [chiropractor, chiro, osteopath, osteo, spinal manipulation, Webster technique, physio, physiotherapist, women's health physio, pelvic girdle pain, back pain treatment]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "verdict: physiotherapy is the first call; chiropractic and osteopathy may ease back and pelvic pain but safety evidence is limited and manipulation has had reported harms"
+    - check AHPRA registration; tell them you're pregnant; they should assess before any manipulation
+    - no evidence for "turning a breech baby" claims; that's a labour question
+    - a women's health physio for pelvic floor, pelvic girdle pain and abdominal separation
+  sources:
+    - title: Pregnancy, Birth and Baby — Complementary therapy during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/complementary-therapy-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Injuries during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+  related: [massage, acupuncture, exercise-in-pregnancy]
+  notes: The Webster/breech claim is not addressed by these sources; say "no evidence here" rather than "disproven".
+
+- id: acupuncture
+  title: Acupuncture and acupressure
+  type: can-i
+  topic: care
+  ask: Can I have acupuncture for nausea or back pain?
+  aliases: [acupuncture, acupressure, Sea-Bands, dry needling, Chinese medicine, TCM, forbidden points, moxibustion]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "verdict: yes from a trained, registered practitioner who knows you're pregnant; some points are avoided"
+    - some evidence for nausea, back and pelvic pain, and labour pain; mild bruising is the usual side effect
+    - "healthdirect flags a possible miscarriage risk in the first trimester: discuss with your doctor first"
+    - Chinese herbal medicine is a different question (medicines file)
+    - acupuncture to start labour and moxibustion for breech are the labour file's
+  sources:
+    - title: Pregnancy, Birth and Baby — Complementary therapy during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/complementary-therapy-during-pregnancy
+    - title: healthdirect — Acupuncture
+      url: https://www.healthdirect.gov.au/treatments-and-self-care/acupuncture
+    - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+  related: [massage, chiropractic-and-osteopathy, essential-oils]
+
+- id: other-complementary-therapies
+  title: Hypnotherapy, reflexology, naturopathy and the rest
+  type: can-i
+  topic: care
+  ask: Are hypnobirthing, reflexology or naturopathy worth it, and are they safe?
+  aliases: [hypnotherapy, hypnobirthing, reflexology, naturopathy, homeopathy, kinesiology, biofeedback, TENS, Bowen, reiki, complementary therapy, alternative medicine, private health extras]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: mostly harmless, mostly unproven; the risk is delaying real care or paying for nothing"
+    - "hypnotherapy: safe, may help labour pain; TENS: safe in all trimesters; reflexology: probably safe, weak evidence; naturopathy and homeopathy: no reliable evidence"
+    - questions to ask a practitioner (PBB's list); AHPRA registration
+    - many are no longer claimable on private health extras
+  sources:
+    - title: Pregnancy, Birth and Baby — Complementary therapy during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/complementary-therapy-during-pregnancy
+  related: [acupuncture, massage, chiropractic-and-osteopathy]
+  notes: Herbal supplements and teas are the drink and medicines files'. Hypnobirthing as labour preparation is the labour file's; link.
+
+- id: blood-donation
+  title: Giving blood and plasma
+  type: can-i
+  topic: care
+  ask: Can I still donate blood?
+  aliases: [blood donation, donate blood, plasma donation, Lifeblood, Red Cross, giving blood, iron levels, donating after birth]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: no, not during pregnancy; Lifeblood defers you to protect your iron and circulation"
+    - "after birth: nine months, and further restrictions while breastfeeding"
+    - "trying to conceive: Lifeblood suggests a break to build iron"
+    - the partner can donate; the household's blood is still useful
+  sources:
+    - title: Australian Red Cross Lifeblood — I am pregnant. Can I donate?
+      url: https://www.lifeblood.com.au/faq/eligibility/pregnancy-and-reproductive-health/pregnancy
+  related: [vaccines-in-pregnancy]
+
+# ---------------------------------------------------------------------------
+# Travel
+# ---------------------------------------------------------------------------
+
+- id: travel-in-pregnancy
+  title: Travelling while pregnant
+  type: can-i
+  topic: travel
+  ask: Can we still go on that trip?
+  aliases: [travel, holiday, babymoon, trip, when is the best time to travel, travelling pregnant, high-risk pregnancy travel, medical letter for travel]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - "verdict: usually yes; the second trimester (13 to 26 weeks) is the sweet spot"
+    - "who shouldn't: multiples, high blood pressure, placental problems, incompetent cervix, previous preterm labour, diabetes; ask first"
+    - "what to take: a letter with due date, complications and a brief history; copies of prescriptions and insurance; medical records"
+    - how far from a hospital will you be, and does it have a maternity unit
+    - "Australia: Medicare or private health insurance covers care throughout the country"
+    - "overseas: see insurance, vaccines, Zika, malaria, altitude"
+    - see your doctor at least 8 weeks before leaving (Smartraveller)
+  sources:
+    - title: Pregnancy, Birth and Baby — Travel and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
+    - title: Smartraveller — Advice for pregnant travellers
+      url: https://www.smartraveller.gov.au/before-you-go/health/pregnancy
+    - title: RANZCOG — Travelling during pregnancy
+      url: https://ranzcog.edu.au/womens-health/patient-information-resources/travelling-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
+  related: [flying, airline-pregnancy-limits, travel-insurance, overseas-travel, long-drives, remote-travel-in-australia]
+
+- id: flying
+  title: Flying
+  type: can-i
+  topic: travel
+  ask: Is it safe to fly while pregnant?
+  aliases: [flying, plane, air travel, long haul, domestic flight, international flight, cabin pressure, radiation on planes, swelling on flights, aisle seat, is flying bad for the baby]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "verdict: yes in an uncomplicated pregnancy; the airline's week limit and clot risk are the practical issues"
+    - "cabin pressure and cosmic radiation on normal trips don't harm the baby (ARPANSA: under 1 mSv)"
+    - "clots: water, compression stockings, walk every half hour or so, ankle exercises; high-risk may need injections, ask before a long haul"
+    - aisle or bulkhead seat; seatbelt under the bump; ask crew for oxygen if faint or breathless
+    - "gestational diabetes or multiples: Better Health says flying is generally advised against; others say ask"
+    - "after a dive: no flying for 24 hours"
+  sources:
+    - title: Pregnancy, Birth and Baby — Travel and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
+    - title: Better Health Channel — Pregnancy and travel
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+    - title: ARPANSA — Flying and health, cosmic radiation exposure for casual flyers and aircrew
+      url: https://www.arpansa.gov.au/understanding-radiation/radiation-sources/more-radiation-sources/flying-and-health
+    - title: Pregnancy, Birth and Baby — Common myths about pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/common-myths-about-pregnancy
+  related: [airline-pregnancy-limits, dvt-and-compression-stockings, airport-scanners, travel-insurance, scuba-diving]
+  notes: Better Health's "last six weeks could trigger premature labour" and "no flying with gestational diabetes or multiples" are stronger than PBB or the airlines. Present them as a more cautious view.
+
+- id: airline-pregnancy-limits
+  title: Airline week limits and the doctor's letter
+  type: can-i
+  topic: travel
+  ask: Until what week will the airline let me fly, and do I need a letter?
+  aliases: [airline policy, Qantas pregnancy, Jetstar pregnancy, Virgin pregnancy, 28 weeks letter, 36 weeks, medical clearance, fit to fly letter, twins flying limit, how late can I fly]
+  weeks: [24, 40]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "verdict: on Qantas and Virgin Australia, routine single pregnancies fly to the end of week 36 on flights of four hours or more and week 40 under four hours; twins to 32 and 36. From 28 weeks carry a letter"
+    - "the letter: due date, single or multiple, no complications, fit to fly; Virgin wants it dated within 10 days of travel"
+    - "complications of any kind: formal medical clearance, lodged days ahead"
+    - overseas carriers set their own rules, often earlier (Smartraveller says most airlines won't let you fly beyond 28 weeks; MotherSafe says international cut-offs start from 32 weeks); check before you book
+    - "RANZCOG: travel beyond 36 weeks is not recommended regardless"
+    - the limits are the airline's minimum, not a safety endorsement
+  sources:
+    - title: Qantas — Flying with a medical condition (pregnancy)
+      url: https://www.qantas.com/en-au/travel-information/specific-needs-assistance/fitness-to-fly
+    - title: Virgin Australia — Flying while pregnant
+      url: https://www.virginaustralia.com/au/en/travel-info/specific-travel/specific-needs-assistance/flying-while-pregnant/
+    - title: Smartraveller — Advice for pregnant travellers
+      url: https://www.smartraveller.gov.au/before-you-go/health/pregnancy
+    - title: RANZCOG — Travelling during pregnancy
+      url: https://ranzcog.edu.au/womens-health/patient-information-resources/travelling-during-pregnancy
+  related: [flying, travel-in-pregnancy, travel-insurance]
+  notes: Changing advice. Airline policies move; the entry should carry a checked date and name the airlines whose pages were read (Qantas, Virgin; Jetstar's page would not load for us). A task "get the fit-to-fly letter" belongs here, due the week before the trip.
+
+- id: dvt-and-compression-stockings
+  title: Blood clots on long journeys
+  type: can-i
+  topic: travel
+  ask: Do I need compression stockings for the flight?
+  aliases: [DVT, blood clot, deep vein thrombosis, compression stockings, flight socks, clexane for flying, heparin injections, calf pain after flight, long journey clot]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - "verdict: yes, knee-high fitted stockings for any flight or sitting journey of four hours or more; pregnancy already raises clot risk"
+    - the risk lasts up to two weeks after a long flight
+    - "higher risk (previous clot, over 100 kg, multiples, family history): talk about injections before and after"
+    - water, walking, ankle circles, limit caffeine and alcohol
+    - "calf pain or swelling, chest pain or breathlessness afterwards: emergency"
+  sources:
+    - title: Pregnancy, Birth and Baby — Travel and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
+    - title: Better Health Channel — Pregnancy and travel
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+    - title: healthdirect — Deep vein thrombosis
+      url: https://www.healthdirect.gov.au/conditions/vascular-diseases/deep-vein-thrombosis
+    - title: RANZCOG — Travelling during pregnancy
+      url: https://ranzcog.edu.au/womens-health/patient-information-resources/travelling-during-pregnancy
+  related: [flying, long-drives, standing-all-day]
+
+- id: airport-scanners
+  title: Airport body scanners
+  type: can-i
+  topic: travel
+  ask: Do I have to go through the airport scanner?
+  aliases: [airport scanner, body scanner, millimetre wave, security screening, metal detector, x-ray at airport, opt out of scanner]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: yes; Australian body scanners are non-ionising and emit less energy than a mobile phone"
+    - the baggage x-ray is shielded; you aren't in its beam
+    - you can ask for a pat-down instead if you'd rather
+  sources:
+    - title: ARPANSA — Airport passenger screening and health
+      url: https://www.arpansa.gov.au/understanding-radiation/radiation-sources/more-radiation-sources/airport-passenger-screening
+  related: [flying, microwaves-and-devices, medical-x-rays-and-ct]
+
+- id: travel-insurance
+  title: Travel insurance and pregnancy
+  type: can-i
+  topic: travel
+  ask: Will travel insurance cover me if something goes wrong with the pregnancy?
+  aliases: [travel insurance, pregnancy cover, insurance week limit, 23 weeks, 32 weeks, IVF pregnancy insurance, newborn cover, reciprocal health care, medical evacuation, cruise insurance]
+  weeks: [1, 36]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - "verdict: buy it, and read the pregnancy clause; some policies only cover you until week 32"
+    - "what to check: multiples, IVF, pre-existing complications, the baby if born early, medical evacuation, cruises"
+    - reciprocal health care agreements with some countries exist; check Services Australia for what they cover
+    - "within Australia: Medicare covers care, insurance still covers cancellation"
+    - "a task: confirm pregnancy cover in writing before paying for the trip"
+  sources:
+    - title: Pregnancy, Birth and Baby — Travel and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
+    - title: Smartraveller — Advice for pregnant travellers
+      url: https://www.smartraveller.gov.au/before-you-go/health/pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
+    - title: Smartraveller — Going on a cruise
+      url: https://www.smartraveller.gov.au/before-you-go/getting-around/cruises
+  related: [travel-in-pregnancy, overseas-travel, cruise-ships, airline-pregnancy-limits]
+  notes: Border with the money file; kept here because it decides whether the trip happens. The week limits are insurer-specific and change; don't name insurers.
+
+- id: long-drives
+  title: Long drives and road trips
+  type: can-i
+  topic: travel
+  ask: Can I do a long drive, and can I drive myself late in pregnancy?
+  aliases: [long drive, road trip, driving while pregnant, driving late in pregnancy, driving to hospital, steering wheel and bump, airbag, car sickness, how long in the car, driving in labour]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "verdict: yes; stop every two hours, limit to five or six hours a day, and wear the belt properly"
+    - sit well back from the wheel and dashboard; tilt the wheel away from the bump; airbags stay on
+    - "clots: the same rules as flying on long sits"
+    - "any collision, even minor: see a doctor the same day"
+    - driving yourself late on is fine until it isn't comfortable or safe; don't drive yourself in labour
+    - "motion sickness: second trimester is easier; ask before taking travel sickness tablets"
+  sources:
+    - title: Pregnancy, Birth and Baby — Travel and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
+    - title: Better Health Channel — Pregnancy and travel
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+    - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
+  related: [seatbelt-position, dvt-and-compression-stockings, falls-and-knocks, remote-travel-in-australia]
+  notes: "\"Don't drive yourself in labour\" is practical advice, not in these sources. Travel sickness medicines are the medicines file's."
+
+- id: seatbelt-position
+  title: Wearing a seatbelt with a bump
+  type: can-i
+  topic: travel
+  ask: How do I wear a seatbelt over the bump?
+  aliases: [seatbelt, seat belt, lap belt, sash, seatbelt over bump, pregnancy seatbelt adjuster, is a seatbelt safe when pregnant, airbag and pregnancy]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "verdict: always wear it; lap belt low across the hips under the bump, sash between the breasts and above the bump, never across the belly"
+    - not wearing it correctly is a named risk factor for injury in pregnancy
+    - seat well back from the wheel and dash to reduce airbag impact
+    - after any crash, see a doctor; Rh-negative, say so
+  sources:
+    - title: Pregnancy, Birth and Baby — Injuries during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Travel and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
+    - title: Better Health Channel — Pregnancy and travel
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+  related: [long-drives, falls-and-knocks]
+
+- id: motorbikes-and-scooters
+  title: Motorbikes, scooters and e-bikes
+  type: can-i
+  topic: travel
+  ask: Can I keep riding my motorbike or e-scooter?
+  aliases: [motorbike, motorcycle, scooter, Vespa, e-scooter, e-bike, pillion, moped overseas, Bali scooter]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers:
+    - "verdict: ask; no Australian source addresses it. Every fall-risk principle applies, there's no seatbelt and a tank or bars in front of the bump"
+    - scooters on holiday (Bali) also mean overseas hospitals and insurance exclusions
+    - the person who stops at the bump getting in the way is usually right
+  sources:
+    - title: Pregnancy, Birth and Baby — Injuries during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+    - title: Smartraveller — Advice for pregnant travellers
+      url: https://www.smartraveller.gov.au/before-you-go/health/pregnancy
+  related: [cycling, falls-and-knocks, travel-insurance]
+  notes: Unsourced as a specific question. Written from fall and abdominal-trauma principles.
+
+- id: overseas-travel
+  title: Overseas travel
+  type: can-i
+  topic: travel
+  ask: Can we go overseas while I'm pregnant?
+  aliases: [overseas, international travel, Bali, Fiji, Europe trip, developing countries, Smartraveller, travel advisory, medical care overseas, giving birth overseas, embassy]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - "verdict: yes to places with good hospitals and no Zika or malaria; not recommended to remote areas or developing countries"
+    - check the Smartraveller advisory and health section for the destination; set an alert
+    - distance to a hospital with maternity and newborn care; whether very premature babies can be cared for there
+    - "food and water: boil, cook, bottle, peel; no iodine to purify water after 10 weeks, chlorine tablets are an option; traveller's diarrhoea is serious in pregnancy"
+    - "language: a phrase list for pregnancy emergencies; the embassy as last resort"
+    - medicines legal at home may be restricted abroad; carry prescriptions
+    - "COVID and flu: unvaccinated pregnant travellers are at higher risk of severe illness; ask your doctor about vaccination"
+  sources:
+    - title: Smartraveller — Advice for pregnant travellers
+      url: https://www.smartraveller.gov.au/before-you-go/health/pregnancy
+    - title: Pregnancy, Birth and Baby — Travel and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
+  related: [travel-insurance, zika, malaria, travel-vaccines, altitude, cruise-ships, flying]
+  notes: The food-and-water lines overlap the food file (listeria, soft cheese). Keep them to the travel framing ("boil, cook, bottle, peel") and link.
+
+- id: travel-vaccines
+  title: Travel vaccines
+  type: can-i
+  topic: travel
+  ask: Can I have the travel vaccines I need?
+  aliases: [travel vaccines, typhoid, hepatitis A, yellow fever, Japanese encephalitis, rabies, cholera, travel doctor, travel clinic, yellow fever certificate]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - "verdict: inactivated vaccines (injectable typhoid, hepatitis A, inactivated JE) yes if the risk warrants; live ones no, and yellow fever only when travel is unavoidable and risk substantial"
+    - a destination that requires a live vaccine is a destination to reconsider
+    - "plan ahead: these are ideally done before pregnancy"
+    - a travel doctor plus your obstetric team, not either alone
+  sources:
+    - title: Australian Immunisation Handbook — Vaccination for women who are planning pregnancy, pregnant or breastfeeding
+      url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
+    - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
+    - title: healthdirect — Travel vaccinations
+      url: https://www.healthdirect.gov.au/procedures/immunisation-and-vaccinations/travel-vaccinations
+  related: [vaccines-in-pregnancy, overseas-travel, malaria, zika]
+
+- id: zika
+  title: Zika
+  type: can-i
+  topic: travel
+  ask: Which countries have Zika, and can we go?
+  aliases: [Zika, Zika virus, microcephaly, Zika countries, Fiji Zika, Bali Zika, Pacific Zika, Zika and trying to conceive, Zika and partner, six months]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - "verdict: consider delaying travel to Zika areas while pregnant; the Department of Health's advice"
+    - "what it does: microcephaly and other severe abnormalities; mostly symptomless in the adult"
+    - spread by mosquitoes and sexually; condoms during sex while in the affected region
+    - "the partner who travels alone, or anyone back from a Zika area who is pregnant or has a pregnant partner: see a doctor about testing and preventing transmission; planning a pregnancy, wait six months after leaving the area"
+    - "where: healthdirect points to the US CDC for the up-to-date list and to Smartraveller for travel advice; parts of Asia and the Pacific Islands are included"
+    - "if you must go: full mosquito precautions, see the repellent entry"
+  sources:
+    - title: healthdirect — Zika virus
+      url: https://www.healthdirect.gov.au/conditions/viral-infections/zika-virus
+    - title: Smartraveller — Advice for pregnant travellers
+      url: https://www.smartraveller.gov.au/before-you-go/health/pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
+  related: [overseas-travel, insect-repellent, malaria, sex]
+  notes: Changing. The list of affected countries moves; the entry should point at the live Smartraveller and Department of Health pages rather than name countries. The Department of Health's own Zika page would not load for us; healthdirect quotes it.
+
+- id: malaria
+  title: Malaria areas
+  type: can-i
+  topic: travel
+  ask: Can I travel to a malaria area, and can I take the tablets?
+  aliases: [malaria, antimalarials, malaria tablets, chloroquine, doxycycline, Malarone, mefloquine, PNG, Africa trip, malaria prophylaxis]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - "verdict: avoid malaria areas if you possibly can; malaria in pregnancy causes miscarriage, stillbirth, low birth weight and prematurity"
+    - "if unavoidable: some tablets are considered safe (chloroquine), some are not (doxycycline); a travel doctor chooses"
+    - pregnant women are bitten more; dusk-to-dawn precautions, nets, screens, repellent
+    - fever during or after the trip is malaria until proven otherwise
+  sources:
+    - title: healthdirect — Malaria
+      url: https://www.healthdirect.gov.au/conditions/parasite-and-fungal-infections/malaria
+    - title: Better Health Channel — Pregnancy and travel
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+    - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
+  related: [overseas-travel, insect-repellent, zika, travel-vaccines]
+  notes: Which antimalarial is a medicines-file question; this entry says "some yes, some no, a travel doctor decides".
+
+- id: altitude
+  title: Altitude
+  type: can-i
+  topic: travel
+  ask: Can I go to high altitude, like Cusco or a Himalayan trek?
+  aliases: [altitude, high altitude, altitude sickness, Machu Picchu, Cusco, La Paz, Everest base camp, Nepal trek, Kilimanjaro, Mount Kosciuszko, ski resort altitude, 2,500 metres]
+  who: carrying
+  priority: 3
+  stakes: high
+  covers:
+    - "verdict: avoid trips above about 2,500 metres; less oxygen for the baby and pregnancy makes altitude sickness likelier"
+    - don't exercise above 2,000 metres until acclimatised (PBB); MotherSafe flags over 2,500; Better Health over 3,000
+    - the sightseeing city at altitude (Cusco, La Paz) is the common case; flying straight in is the worst version
+    - nothing in Australia reaches these heights; Kosciuszko is fine
+  sources:
+    - title: Pregnancy, Birth and Baby — Exercising during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
+    - title: Better Health Channel — Pregnancy and travel
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+  related: [overseas-travel, skiing, walking, flying]
+  notes: The three Australian sources give three thresholds (2,000, 2,500, 3,000 m). Give the range and the reasoning, not a single number.
+
+- id: cruise-ships
+  title: Cruises
+  type: can-i
+  topic: travel
+  ask: Can I go on a cruise?
+  aliases: [cruise, cruise ship, P&O, Carnival, Royal Caribbean, cruise pregnancy limit, 24 weeks cruise, ship doctor, seasickness, norovirus on cruise]
+  weeks: [1, 28]
+  who: together
+  priority: 2
+  stakes: high
+  covers:
+    - "verdict: most lines refuse passengers beyond about 24 to 28 weeks at any point of the voyage; check the line's rule before booking"
+    - the ship's medical centre is not a maternity unit; days from a hospital at sea; evacuation costs
+    - insurance must cover cruising specifically, and pregnancy
+    - motion sickness, falls on a moving ship, gastro and respiratory outbreaks
+    - short ferries and harbour boats are fine
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
+    - title: Smartraveller — Going on a cruise
+      url: https://www.smartraveller.gov.au/before-you-go/getting-around/cruises
+    - title: Pregnancy, Birth and Baby — Travel and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
+  related: [travel-insurance, boats-and-ferries, overseas-travel]
+  notes: MotherSafe says "most restrict beyond 28 weeks"; many lines in practice use 24 weeks (unsourced here). Say "check the line" and avoid a single number, or source a line's policy page.
+
+- id: boats-and-ferries
+  title: Boats and ferries
+  type: can-i
+  topic: travel
+  ask: Can I go out on a boat?
+  aliases: [boat, ferry, sailing, fishing boat, tinny, catamaran, whale watching, boat trip, seasick]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: short trips by ferry or boat are generally safe; the risks are falls on a moving deck, seasickness and distance from help"
+    - sit down in chop; hold on; life jacket fitted above the bump
+    - a long offshore trip is a cruise-style question
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
+  related: [cruise-ships, surfing-and-water-sports, falls-and-knocks]
+
+- id: remote-travel-in-australia
+  title: Outback, remote and rural trips
+  type: can-i
+  topic: travel
+  ask: Can we do the outback trip, hours from a hospital?
+  aliases: [outback, remote travel, 4WD trip, Kimberley, Uluru, road trip, rural, hours from hospital, Royal Flying Doctor, no phone reception, grey nomad trip]
+  who: together
+  priority: 2
+  stakes: high
+  covers:
+    - "verdict: ask your midwife with a map; PBB says very remote areas are not recommended, and care is thin outside towns"
+    - the question is time to a hospital with maternity care, not kilometres
+    - heat, long drives, no reception, limited water
+    - records and a letter with you; know the nearest hospital on each leg
+    - better in the second trimester; reconsider in the third
+  sources:
+    - title: Pregnancy, Birth and Baby — Travel and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
+    - title: Pregnancy, Birth and Baby — Dealing with hot weather during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/dealing-with-hot-weather-during-pregnancy-and-breastfeeding
+  related: [long-drives, hot-weather, travel-in-pregnancy, camping-and-the-bush]
+
+- id: camping-and-the-bush
+  title: Camping, the bush and mosquitoes at home
+  type: can-i
+  topic: travel
+  ask: Can I go camping while pregnant?
+  aliases: [camping, bush, bushwalking overnight, tent, caravan, river camping, Japanese encephalitis, Ross River, mozzies, sleeping on the ground]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers:
+    - "verdict: yes with mosquito precautions and a plan for getting out; near rivers and piggeries in JE-affected states ask about the vaccine"
+    - Japanese encephalitis has been found in NSW, Vic, SA and Qld; infection in early pregnancy is linked to miscarriage; JEspect is inactivated and can be given if high risk
+    - repellent, long sleeves, nets, dusk indoors
+    - heat, lifting, a decent mattress, side-sleeping, distance from help
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
+    - title: Pregnancy, Birth and Baby — Toxic household products to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
+    - title: Australian Immunisation Handbook — Vaccination for women who are planning pregnancy, pregnant or breastfeeding
+      url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
+  related: [insect-repellent, remote-travel-in-australia, walking, sleeping-on-your-back]
+
+# ---------------------------------------------------------------------------
+# Other: myths worth answering
+# ---------------------------------------------------------------------------
+
+- id: roller-coasters
+  title: Roller coasters and theme park rides
+  type: can-i
+  topic: activities
+  ask: Can I go on rides at the theme park?
+  aliases: [roller coaster, theme park, Dreamworld, Movie World, Luna Park, show rides, water slide, Ferris wheel, bumper cars, go-karts, rides while pregnant]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "verdict: skip the fast ones; sudden stops, jolts and restraints across the abdomen are the collision-and-sudden-movement category PBB says to avoid"
+    - the ride signs say "not for pregnant guests" and operators will refuse you; that's the park's rule, not just caution
+    - the slow rides (Ferris wheel, trains, carousels) are fine; heat and queues are the real day's problem
+    - no Australian health source addresses rides by name; this is the fall-and-impact principle applied
+  sources:
+    - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Injuries during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+  related: [falls-and-knocks, contact-sports, skydiving, hot-weather]
+  notes: Unsourced as a named question in Australia; US bodies advise avoiding. Say so plainly.
+
+- id: microwaves-and-devices
+  title: Phones, wifi, microwaves and laptops
+  type: can-i
+  topic: activities
+  ask: Is my phone, the wifi or the microwave bad for the baby?
+  aliases: [mobile phone, phone on belly, wifi, 5G, EMF, radiation from phone, microwave oven, laptop on belly, headphones on bump, Bluetooth, induction cooktop, power lines, electric blanket EMF]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "verdict: no; ARPANSA's review found no or little association between radiofrequency exposure and pregnancy outcomes, and microwave ovens in working order have no established health effect"
+    - these are non-ionising; the x-ray entry is the one with real doses
+    - a phone on the bump is fine; headphones on the bump are for you, the baby hears your voice better anyway
+    - a damaged microwave door seal is the only microwave advice worth giving
+  sources:
+    - title: ARPANSA — Effects of radiofrequency electromagnetic field exposure on adverse pregnancy outcomes
+      url: https://www.arpansa.gov.au/effects-radiofrequency-electromagnetic-field-exposure-adverse-pregnancy-outcomes-human-observational-studies
+    - title: ARPANSA — Microwave ovens and health
+      url: https://www.arpansa.gov.au/understanding-radiation/radiation-sources/more-radiation-sources/microwave-ovens
+  related: [computer-screens, airport-scanners, medical-x-rays-and-ct, electric-blankets]
+
+- id: reaching-above-your-head
+  title: Hanging out the washing
+  type: can-i
+  topic: activities
+  ask: Does reaching above my head wrap the cord around the baby's neck?
+  aliases: [reaching up, arms above head, hanging washing, cord around neck, nuchal cord, old wives tale, stretching up]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: a myth; reaching up does nothing to the cord"
+    - the cord around the neck is common and is about the baby's movement, not yours
+    - the only reach-up concern is a step-stool and balance
+  sources:
+    - title: Pregnancy, Birth and Baby — Common myths about pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/common-myths-about-pregnancy
+  related: [heavy-lifting, falls-and-knocks]
+
+- id: bending-and-housework
+  title: Bending, squatting and housework
+  type: can-i
+  topic: activities
+  ask: Can I still bend over, squat and do the housework?
+  aliases: [bending, squatting, vacuuming, mopping, housework, scrubbing floors, making beds, can I squash the baby, kneeling]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "verdict: yes; you can't squash the baby by bending. Bend at the knees, and stop what makes you dizzy or sore"
+    - "the Royal Women's: avoid heavy lifting and long standing for backache; rest with legs up"
+    - "fumes and gloves: see cleaning products"
+    - share the load; it isn't a safety rule, it's a tiredness one
+  sources:
+    - title: The Royal Women's Hospital — Common concerns in early pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
+    - title: Pregnancy, Birth and Baby — Sleep during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
+  related: [heavy-lifting, cleaning-products, standing-all-day, reaching-above-your-head]
+  notes: "\"You can't squash the baby\" is reasoning, not a sourced line."

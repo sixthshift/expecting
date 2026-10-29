@@ -1,0 +1,192 @@
+- id: asthma-inhalers
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "flu and whooping cough vaccines matter more with asthma"
+      judgement: unsupported
+      source_says: "PBB says only 'stay up to date with your vaccinations... asthma can increase your risk of having complications from some illnesses' and names no vaccine. MotherSafe names the flu vaccine and COVID-19 vaccination as important for asthma. Whooping cough is on neither page."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/asthma-and-pregnancy
+
+- id: antidepressants
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "partners can be on them too; nothing to change"
+      judgement: unsupported
+      source_says: "Neither page says anything about a partner taking antidepressants. Both pages are about the person who is pregnant or breastfeeding."
+      url: https://www.healthdirect.gov.au/medicines/antidepressants
+
+- id: folic-acid
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "after 12 weeks it can stop, though most keep taking a pregnancy multivitamin"
+      judgement: unsupported
+      source_says: "The 'it can stop' half is ok (FSANZ: 'You don't need to take folic acid supplements after that'). 'Most keep taking a pregnancy multivitamin' is on neither page. FSANZ also says one month before and three months after conception; PBB says throughout the first trimester, and 12 weeks only for the 5 mg higher dose."
+      url: https://www.foodstandards.gov.au/consumer/nutrition/pregnancy/folic-acidfolate-and-pregnancy
+
+- id: iodine
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "most pregnancy multivitamins contain it: check the label, don't double up"
+      judgement: unsupported
+      source_says: "Neither the NHMRC page nor FSANZ says anything about multivitamins containing iodine or doubling up. (The 'don't double up' advice is on the PBB folate page, for folic acid.)"
+      url: https://www.foodstandards.gov.au/consumer/nutrition/pregnancy/iodine-and-pregnancy
+
+- id: herbal-supplements
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "labels may not match contents; contamination with heavy metals, pesticides or drugs has been found"
+      judgement: unsupported
+      source_says: "The first half is ok (MotherSafe: ingredients on the label 'may not always accurately reflect the actual contents'). Contamination with heavy metals, pesticides or drugs is not on any cited page."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/MSHerbalApril2020.pdf
+    - covers: "some herbs can trigger contractions or interact with prescribed medicines"
+      judgement: unsupported
+      source_says: "The interaction half is ok (MotherSafe: herbal medicines 'may interact with other medicines'; St John's wort interacts with many). Triggering contractions is not said on any cited page; PBB mentions raspberry leaf only as taken to prepare for birth, MotherSafe as safe but ineffective."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/MSHerbalApril2020.pdf
+    - covers: "tell every practitioner you're pregnant"
+      judgement: unsupported
+      source_says: "The pages say to discuss herbal products with your doctor, midwife or obstetrician (MotherSafe, PBB) and to ask a practitioner whether a treatment is safe in pregnancy. None says to tell every practitioner you are pregnant."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/complementary-therapy-during-pregnancy
+
+- id: nicotine-replacement
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "Champix and Zyban: not enough safety data; a doctor's decision"
+      judgement: unsupported
+      source_says: "Minor. MotherSafe: 'little research regarding the effectiveness of either during pregnancy and there is inadequate safety data on varenicline' (Champix). It does not say Zyban (bupropion) lacks safety data. 'Consult with your doctor if NRT is ineffective' is ok."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/SmokNRTPregBfeedFeb23.pdf
+    - covers: "Quitline 13 7848; the partner quitting too doubles the odds"
+      judgement: unsupported
+      source_says: "Quitline 13 7848 is ok. MotherSafe says only 'it is always easier to quit if your partner stops smoking with you' and that second-hand smoke is a risk. 'Doubles the odds' is a number on neither page."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/SmokNRTPregBfeedFeb23.pdf
+
+- id: vaping
+  file: can-i-consume.yaml
+  verdict: ok
+  problems: []
+
+- id: swollen-feet-and-ankles
+  file: symptoms.yaml
+  verdict: fix
+  problems:
+    - covers: "healthdirect: see doctor or midwife as soon as possible for swelling in the legs that doesn't improve overnight"
+      judgement: wrong
+      source_says: "The healthdirect page lists this twice. Under 'see your doctor or midwife as soon as possible' (any time in pregnancy) it appears, but under 'Later pregnancy (after 20 weeks): contact your doctor, midwife or hospital immediately' it also appears ('swelling in your legs that doesn't improve overnight'). After 20 weeks the stronger urgency applies, so 'as soon as possible' understates it for most of the pregnancy when swelling is common."
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+
+- id: headaches
+  file: symptoms.yaml
+  verdict: ok
+  problems: []
+
+- id: dizziness-and-fainting
+  file: symptoms.yaml
+  verdict: fix
+  problems:
+    - covers: "blood pressure commonly falls in the first and second trimesters and rises back by birth; dizziness is an early sign of pregnancy"
+      judgement: unsupported
+      source_says: "Minor. The blood pressure half is ok (PBB: falls in the first trimester, continues to fall in the second, rises towards pre-pregnancy levels by birth). No cited page calls dizziness an early sign of pregnancy; the RWH early-pregnancy page lists 'fainting' among common concerns."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/low-blood-pressure-during-pregnancy
+
+- id: urinary-tract-infection
+  file: symptoms.yaml
+  verdict: ok
+  problems: []
+
+- id: itchy-skin
+  file: symptoms.yaml
+  verdict: ok
+  problems: []
+
+- id: braxton-hicks
+  file: symptoms.yaml
+  verdict: ok
+  problems: []
+
+- id: not-felt-baby-move-yet
+  file: symptoms.yaml
+  verdict: fix
+  problems:
+    - covers: "usually first felt by about 20 weeks, earlier in a later pregnancy (by about 19 weeks, PBB second trimester); regular by 28 weeks"
+      judgement: unsupported
+      source_says: "Ok: 'by week 20 (or earlier if this is not your first pregnancy)', regular by week 28. The 'about 19 weeks' figure is not on either cited page; the PBB second-trimester page is not in the sources. Also, the 24-week threshold (the point of the entry) is on the Braxton Hicks page banner only, not on the baby-movements page."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
+
+- id: cramping-and-pain-in-early-pregnancy
+  file: symptoms.yaml
+  verdict: fix
+  problems:
+    - covers: "pain and bleeding are common in early pregnancy and do not always mean miscarriage; implantation can cause some cramping and light bleeding"
+      judgement: unsupported
+      source_says: "Implantation cramping and light bleeding is ok (PBB first trimester). The page does not say pain and bleeding are common or do not always mean miscarriage; it says 'You should get medical help if you have vaginal bleeding or abdominal pain during the first trimester' and lists miscarriage, ectopic and molar pregnancy as causes. Reassurance framing is not in the source."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/first-trimester
+    - covers: "see doctor as soon as possible for any ectopic symptoms"
+      judgement: wrong
+      source_says: "The same ectopic page says 'If you have any of these symptoms while pregnant, go to the nearest emergency department or call triple zero (000) for an ambulance' (the 'see your doctor as soon as possible' line sits under 'When should I see my doctor?' and is weaker). The page's lead banner: 'If you have heavy bleeding, strong pain or feel unwell call triple zero (000)'. As written this phrase understates the urgency; it also conflicts with the entry's last phrase."
+      url: https://www.healthdirect.gov.au/ectopic-pregnancy
+
+- id: painful-urination
+  file: symptoms.yaml
+  verdict: ok
+  problems: []
+
+- id: contact-sports
+  file: can-i-do.yaml
+  verdict: fix
+  problems:
+    - covers: "the list: football codes, hockey, basketball, martial arts, boxing, and bat-and-ball sports with flying objects"
+      judgement: unsupported
+      source_says: "Minor. Better Health Channel names martial arts, soccer, basketball, hockey, cricket, softball; PBB names football, hockey, judo, kickboxing, squash, tennis. Boxing is on neither (kickboxing is)."
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+    - covers: "court sports (tennis, squash, netball) also mean sudden direction changes on loose ligaments"
+      judgement: unsupported
+      source_says: "Minor. PBB playing-sport page: loosening ligaments, avoid sudden movements and changes in direction 'such as court sports like tennis and squash'. Netball is not named there; the Royal Women's page (not cited here) lists netball under high-impact exercise."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
+
+- id: falls-and-knocks
+  file: can-i-do.yaml
+  verdict: fix
+  problems:
+    - covers: "go straight to hospital if bleeding, pain, contractions, fluid or less movement"
+      judgement: wrong
+      source_says: "PBB: 'go to hospital if your baby is not moving as much as normal, you have vaginal bleeding or you have pain in your abdomen'. Contractions and waters breaking are listed only as symptoms to watch for, after which 'contact your doctor' (or Urgent Care, or 000 in an emergency). Abdominal pain, a firm or tightening uterus or bleeding after an abdominal injury: call 000. Any abdominal injury: go to the nearest hospital. The phrase merges these."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+
+- id: hot-yoga
+  file: can-i-do.yaml
+  verdict: fix
+  problems:
+    - covers: "PBB, the Royal Women's and RANZCOG all name heated classes specifically"
+      judgement: unsupported
+      source_says: "PBB names them (exercising page: 'avoid exercise classes at intentionally higher temperatures, such as hot Pilates or yoga'; yoga page: not in a room that is too hot or humid) and the Royal Women's Active pregnancy page lists 'hot yoga' among activities to avoid. RANZCOG is not among the cited sources and no cited page quotes it."
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+
+- id: saunas
+  file: can-i-do.yaml
+  verdict: fix
+  problems:
+    - covers: "first trimester is the window where overheating matters for development"
+      judgement: unsupported
+      source_says: "PBB: 'A significant rise in your temperature may affect your unborn baby', no mention of the first trimester. MotherSafe says sauna and hot tub use up to 20 minutes is safe at any time in pregnancy. The first-trimester emphasis is on the PBB playing-sport page (keep cool in the first trimester), which is not cited here, and in MotherSafe only for fever, not saunas."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+
+- id: spas-and-hot-tubs
+  file: can-i-do.yaml
+  verdict: fix
+  problems:
+    - covers: "heated hydrotherapy pools are on the same list; a warm (not hot) pool is fine"
+      judgement: unsupported
+      source_says: "Hydrotherapy pools are ok (PBB things to avoid: 'activities in unsafe environments, such as spas, hydrotherapy pools or hot conditions'). 'A warm (not hot) pool is fine' is not said; PBB playing-sport page says 'avoid heated pools and spas' while swimming and aqua-natal classes are encouraged. The warm-bath reassurance on the myths page is for baths, not pools."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
+    - covers: "hot springs and onsen are spas by another name; cooler pools at the same venue are the workaround"
+      judgement: unsupported
+      source_says: "No cited page mentions hot springs, onsen or using cooler pools at the same venue."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+    - covers: "MotherSafe's 20-minute line, see saunas"
+      judgement: unsupported
+      source_says: "Not on any page this entry cites; it is in the MotherSafe Fever and pregnancy PDF, which only the saunas entry cites. The line itself is real: 'sit in hot tubs and saunas for up to 20 minutes at any time in pregnancy'. Add the source or drop the phrase."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/2020feverp.pdf

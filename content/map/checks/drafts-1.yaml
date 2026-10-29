@@ -1,0 +1,215 @@
+# Fact-check of drafted Library entries, batch B1 (red-flag symptoms): 21 drafts in
+# content/drafts/, every claim and each warning's level checked against the pages in
+# `sources:` (fetched 2026-10-29). verdict "fix" = text rewritten to the source and
+# `checked: 2026-10-29` added; "ok" = no change needed, `checked` added.
+# Level notes (not changed, for the owner):
+#  - PBB "Bleeding during pregnancy" puts 2 pads/hour under "contact your obstetrician or
+#    call an ambulance" and "contact your doctor urgently or ED"; its miscarriage page puts
+#    1+ pads/hour under "call 000 or go to ED". heavy-bleeding / spotting go by 1 and say
+#    so; bleeding-after-20-weeks now states the 2 vs 1 difference too.
+#  - PBB's sepsis banner offers "see your doctor urgently, or ED, or 000" in one sentence;
+#    fever keeps that wording under Call 000. healthdirect's fever page says "go to the
+#    nearest hospital emergency department immediately" (ED, not 000) for fever with
+#    seizures, confusion or difficulty breathing; fever now says so, still under Call 000.
+#  - PBB/healthdirect early-pregnancy dizziness/fainting: PBB low-BP and ectopic pages say
+#    ED or 000; healthdirect's warning-signs page says contact doctor/midwife/hospital
+#    immediately. dizziness-and-fainting gives both, as drafted.
+
+- id: swollen-feet-and-ankles
+  file: content/drafts/swollen-feet-and-ankles.md
+  verdict: fix
+  problems:
+    - claim: "sudden swelling of your face, hands or feet, or swelling with a very severe headache ... changes to your vision, severe pain just below your ribs, feeling sick or vomiting, or heartburn that antacids don't ease"
+      judgement: wrong
+      source_says: "You should immediately contact your doctor, midwife or maternity hospital if you develop sudden swelling of your face, hands or feet or any of these symptoms: a very severe or dull headache that does not go away; changes to your vision ...; severe pain just below your ribs; feeling sick or vomiting; high blood pressure; heartburn that does not go away with antacids"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/swelling-during-pregnancy
+      fixed_to: "reworded to the source's list (each symptom on its own, 'very severe or dull', adds high blood pressure, 'symptoms of pre-eclampsia, a very dangerous complication')"
+    - claim: "all other claims (8 in 10, usually down overnight, compression stockings, one limb more swollen with pain/redness/warmth, legs not improving overnight after 20 weeks vs as soon as possible earlier, tell doctor if more than slight)"
+      judgement: ok
+      source_says: "confirmed in PBB swelling page, Royal Women's fact sheet (PDF read with unpdf), healthdirect warning signs"
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+      fixed_to: "no change"
+
+- id: headaches
+  file: content/drafts/headaches.md
+  verdict: fix
+  problems:
+    - claim: "Call triple zero (000) and ask for an ambulance if you have a sudden, severe headache, or a headache with vomiting, confusion, a stiff neck or changes in your vision."
+      judgement: wrong
+      source_says: "call triple zero (000) and ask for an ambulance or go to your nearest hospital emergency department"
+      url: https://www.healthdirect.gov.au/headaches
+      fixed_to: "added 'or go to your nearest hospital emergency department'"
+
+- id: dizziness-and-fainting
+  file: content/drafts/dizziness-and-fainting.md
+  verdict: fix
+  problems:
+    - claim: "fainting or dizziness alone in early pregnancy -> go straight to emergency or call 000 (drafter note)"
+      judgement: ok
+      source_says: "If you're in early pregnancy and you faint, feel dizzy, or have bleeding or abdominal pain, this could be a sign of an ectopic pregnancy ... Go straight to your nearest emergency department, or call triple zero (000) for an ambulance.' (PBB low blood pressure). healthdirect ectopic page: 'dizziness or fainting' -> ED or 000."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/low-blood-pressure-during-pregnancy
+      fixed_to: "kept; added healthdirect ectopic page to sources and a note that it says the same"
+    - claim: "To avoid it: ... eat at regular times, ... move your legs or wear support stockings"
+      judgement: wrong
+      source_says: "Stand up slowly after sitting or when getting out of bed or the bath ... leg exercises and support stockings can improve your blood flow. Have something to eat at regular intervals ..."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/low-blood-pressure-during-pregnancy
+      fixed_to: "reworded to the source; also added that low BP is common and not usually a concern but rarely can be dangerous"
+    - claim: "chair or hot bath / late pregnancy lying on back / frequent dizziness contact doctor"
+      judgement: ok
+      source_says: "Royal Women's: 'faint ... if you get up quickly from a chair or hot bath or if you stand for too long ... In late pregnancy, lying on your back can make you feel faint ... Contact your doctor or midwife if you have frequent dizziness or fainting.'"
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
+      fixed_to: "no change"
+
+- id: urinary-tract-infection
+  file: content/drafts/urinary-tract-infection.md
+  verdict: ok
+  problems: []
+
+- id: itchy-skin
+  file: content/drafts/itchy-skin.md
+  verdict: ok
+  problems: []
+
+- id: braxton-hicks
+  file: content/drafts/braxton-hicks.md
+  verdict: ok
+  problems: []
+
+- id: not-felt-baby-move-yet
+  file: content/drafts/not-felt-baby-move-yet.md
+  verdict: fix
+  problems:
+    - claim: "(under What's usual) If you're ever worried about it, or notice the movements slowing down, contact your midwife, hospital birth unit or doctor immediately; don't wait until the next day."
+      judgement: wrong
+      source_says: "At any point, if you are concerned about your baby's movement pattern or notice a decrease in their movements, contact your midwife, hospital birth unit or doctor immediately. Do not wait until the next day. If you are not able to reach your maternity care provider, please go to your nearest hospital birthing or emergency unit."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
+      fixed_to: "moved under a new '## Contact your hospital now' heading (an immediate-level warning was sitting under What's usual); added the can't-reach-them line"
+    - claim: "24-week threshold (drafter note)"
+      judgement: ok
+      source_says: "If you have not felt your baby move by 24 weeks, contact your doctor or midwife. (banner, Braxton Hicks page)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/braxton-hicks-contractions
+      fixed_to: "no change"
+
+- id: spotting-and-bleeding-in-early-pregnancy
+  file: content/drafts/spotting-and-bleeding-in-early-pregnancy.md
+  verdict: fix
+  problems:
+    - claim: "(Call 000 list) a fever or chills; ... trouble breathing, or a fast heartbeat"
+      judgement: wrong
+      source_says: "Banner: Call 000 or go to nearest ED immediately if heavy bleeding (1+ pads in an hour...), severe abdominal pain, shoulder-tip pain, smelly vaginal discharge, a fever, or feel faint, dizzy or unwell. Body: call 000 for 'unwell, dizzy or faint, or trouble breathing'; go to ED for 'a fever or chills ... shortness of breath or a fast heartbeat'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-should-i-do-if-i-think-im-having-a-miscarriage
+      fixed_to: "000 list now 'a fever' and 'faint, dizzy or unwell, or trouble breathing'; chills and a fast heartbeat moved to a separate 'go to your nearest emergency department immediately' sentence"
+    - claim: "1 in 4 bleed; 1 vs 2 pads note; anti-D; EPAS; GP"
+      judgement: ok
+      source_says: "confirmed (Royal Women's 'One in four'; PBB bleeding page 2 pads; miscarriage page 1+ pads)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
+      fixed_to: "no change"
+
+- id: bleeding-after-20-weeks
+  file: content/drafts/bleeding-after-20-weeks.md
+  verdict: fix
+  problems:
+    - claim: "you're soaking 2 pads an hour or passing clots"
+      judgement: unsupported
+      source_says: "PBB bleeding page: 'your bleeding becomes very heavy (soaking 2 pads per hour or passing blood clots)' under contact your obstetrician, birth unit or call an ambulance immediately; the miscarriage page says 1 or more pads an hour."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
+      fixed_to: "kept 2 pads (the page's own figure) and stated the 1-pad figure from the miscarriage page, which was added to sources, so the entry agrees with heavy-bleeding"
+    - claim: "000 line; placenta praevia heavy bleeding + pain/contractions -> 000 or ED; show / bright red blood; injury"
+      judgement: ok
+      source_says: "confirmed (PBB bleeding, abruption, praevia, discharge pages)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-praevia
+      fixed_to: "no change"
+
+- id: heavy-bleeding
+  file: content/drafts/heavy-bleeding.md
+  verdict: fix
+  problems:
+    - claim: "(Call 000 list) shortness of breath or a fast heartbeat; a fever or chills"
+      judgement: wrong
+      source_says: "Miscarriage page: 000 for 'trouble breathing' and (banner) 'a fever'; 'chills ... shortness of breath or a fast heartbeat' are under 'go immediately to your nearest hospital emergency department'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-should-i-do-if-i-think-im-having-a-miscarriage
+      fixed_to: "'trouble breathing' and 'a fever' stay in the 000 list; chills and a fast heartbeat moved to a separate ED-immediately sentence"
+    - claim: "1 vs 2 pads (drafter note)"
+      judgement: ok
+      source_says: "bleeding page 2 pads or golf-ball clots; miscarriage page 1+ pads or bleeding you can't catch or contain. Text states the difference honestly."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
+      fixed_to: "no change"
+
+- id: abdominal-pain
+  file: content/drafts/abdominal-pain.md
+  verdict: ok
+  problems: []
+
+- id: cramping-and-pain-in-early-pregnancy
+  file: content/drafts/cramping-and-pain-in-early-pregnancy.md
+  verdict: ok
+  problems: []
+
+- id: shoulder-tip-pain
+  file: content/drafts/shoulder-tip-pain.md
+  verdict: fix
+  problems:
+    - claim: "(missing) healthdirect's urgency for shoulder-tip pain before 20 weeks"
+      judgement: unsupported
+      source_says: "Early pregnancy (before 20 weeks) Contact your doctor, midwife or hospital immediately if you experience: ... pain in the tip of one shoulder — especially if you also have bleeding from your vagina"
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+      fixed_to: "added one sentence under Contact your hospital now; the 000/ED line from the ectopic page stays"
+
+- id: severe-headache
+  file: content/drafts/severe-headache.md
+  verdict: ok
+  problems: []
+
+- id: vision-changes
+  file: content/drafts/vision-changes.md
+  verdict: ok
+  problems: []
+
+- id: sudden-swelling
+  file: content/drafts/sudden-swelling.md
+  verdict: ok
+  problems: []
+
+- id: pain-under-the-ribs
+  file: content/drafts/pain-under-the-ribs.md
+  verdict: ok
+  problems: []
+
+- id: signs-of-pre-eclampsia
+  file: content/drafts/signs-of-pre-eclampsia.md
+  verdict: ok
+  problems: []
+
+- id: itchy-palms-and-soles
+  file: content/drafts/itchy-palms-and-soles.md
+  verdict: fix
+  problems:
+    - claim: "(under What's usual) If you have it and you're ever worried about your baby's movements, or notice them moving less, contact your midwife or doctor immediately. Don't wait until the next day."
+      judgement: wrong
+      source_says: "At any point, if you are concerned about your baby's movement pattern or notice them moving less, contact your midwife or doctor immediately. Do not wait until the next day."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cholestasis
+      fixed_to: "moved to Contact your hospital now (an immediate-level warning was sitting under What's usual)"
+
+- id: fluid-leaking
+  file: content/drafts/fluid-leaking.md
+  verdict: ok
+  problems: []
+
+- id: fever
+  file: content/drafts/fever.md
+  verdict: fix
+  problems:
+    - claim: "Get emergency care if you have a fever with confusion or drowsiness, difficulty breathing, or seizures or muscle spasms."
+      judgement: wrong
+      source_says: "healthdirect Fever: 'If you have a fever, as well as seizures, confusion or difficulty breathing, go to the nearest hospital emergency department immediately.' and 'Get emergency care if you have a fever and other symptoms such as: confusion or drowsiness, difficulty breathing, seizures or muscle spasms.'"
+      url: https://www.healthdirect.gov.au/fever
+      fixed_to: "now gives the 'nearest hospital emergency department immediately' line first, then the emergency-care list. This is ED level, not 000, though it sits under Call 000 as the closest heading; the sepsis banner line (doctor urgently / ED / 000) is kept in the source's own words."
+    - claim: "000 line from PBB sepsis page (drafter note)"
+      judgement: ok
+      source_says: "If you have symptoms of sepsis such as infection, fever or difficulty breathing, see your doctor urgently, or go to your nearest emergency department or call triple zero (000) and ask for an ambulance."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/sepsis-during-pregnancy-and-after-childbirth
+      fixed_to: "no change"
+
+# Follow-up 2026-10-29 (main session): removed the checker's own unsourced "if you're unsure, don't wait" from
+# bleeding-after-20-weeks; renamed the symptom heading `## Call 000` to `## Call 000 or go to emergency` in every
+# draft and in content/drafts/README.md, since the sources pair ED and 000 and fever's ED-only line sat under 000.

@@ -1,0 +1,206 @@
+# Fact-check of drafted Library entries, batch L04 (content/drafts/*.md against their listed sources).
+# Checked 2026-10-29. Pages re-fetched this session; claims compared line by line.
+- id: term-golden-hour
+  file: content/drafts/term-golden-hour.md
+  verdict: fix
+  problems:
+    - claim: "The golden hour is the common name for the first hour or so after birth (summary and body)"
+      judgement: unsupported
+      source_says: "Neither cited page uses the phrase 'golden hour'. ABA: 'continue skin-to-skin contact for at least the first hour after birth, and until after the first feed'."
+      url: https://www.breastfeeding.asn.au/resources/skin-to-skin-first-feed
+      fixed_to: "left as the app's glossary label (body already says neither source uses it); typo ',,' fixed. checked: NOT added because the 'common name' claim has no source page."
+    - claim: "It isn't a clinical term,, and the sources don't use it."
+      judgement: wrong
+      source_says: "typo"
+      url: https://www.breastfeeding.asn.au/resources/skin-to-skin-first-feed
+      fixed_to: "It isn't a clinical term, and neither source uses it."
+- id: breastfeeding-after-caesarean
+  file: content/drafts/breastfeeding-after-caesarean.md
+  verdict: ok
+- id: newborn-checks
+  file: content/drafts/newborn-checks.md
+  verdict: ok
+- id: hospital-stay
+  file: content/drafts/hospital-stay.md
+  verdict: fix
+  problems:
+    - claim: "Stays vary by hospital and state"
+      judgement: unsupported
+      source_says: "Visiting hours can vary between hospitals (no mention of state variation)"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/having-a-baby-in-hospital
+      fixed_to: "Stays vary by hospital"
+    - claim: "Pregnancy, Birth and Baby says to ask your maternity unit about your options for who can be with you during your stay."
+      judgement: unsupported
+      source_says: "Visiting hours can vary between hospitals, so it's a good idea to check when you can have visitors."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/having-a-baby-in-hospital
+      fixed_to: "Visiting hours can vary between hospitals, so Pregnancy, Birth and Baby says it's a good idea to check when you can have visitors."
+- id: term-afterpains
+  file: content/drafts/term-afterpains.md
+  verdict: fix
+  problems:
+    - claim: "summary: often stronger while feeding and after a second or later baby"
+      judgement: unsupported
+      source_says: "You are more likely to get after-birth pains if this is not your first baby. You might notice after-birth pains when you're breastfeeding."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-first-few-days-after-giving-birth
+      fixed_to: "more likely after a second or later baby, and you may notice them while breastfeeding."
+- id: card-labour-can-take-days
+  file: content/drafts/card-labour-can-take-days.md
+  verdict: ok
+- id: card-sent-home
+  file: content/drafts/card-sent-home.md
+  verdict: ok
+- id: card-nobody-knows-how-long
+  file: content/drafts/card-nobody-knows-how-long.md
+  verdict: ok
+- id: card-upright-helps
+  file: content/drafts/card-upright-helps.md
+  verdict: ok
+- id: card-waters-not-first
+  file: content/drafts/card-waters-not-first.md
+  verdict: fix
+  problems:
+    - claim: "Whenever it happens, PBB says to contact your midwife, doctor or birth centre, and if the fluid is green, brown or blood coloured, to call immediately for advice or go to hospital."
+      judgement: wrong
+      source_says: "If your waters break before labour, put on a sanitary pad and contact your midwife, doctor or birth centre. Warning: If your water breaks and the fluid is green, brown or blood coloured, call your doctor, midwife or birthing unit immediately for advice, or go to hospital."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+      fixed_to: "if they break before labour, contact your midwife, doctor or birth centre; if green, brown or blood coloured, call your doctor, midwife or birthing unit immediately for advice, or go to hospital."
+- id: card-gas-side-effects
+  file: content/drafts/card-gas-side-effects.md
+  verdict: ok
+- id: card-sterile-water
+  file: content/drafts/card-sterile-water.md
+  verdict: ok
+- id: card-episiotomy-not-routine
+  file: content/drafts/card-episiotomy-not-routine.md
+  verdict: ok
+- id: card-tears-first-baby
+  file: content/drafts/card-tears-first-baby.md
+  verdict: ok
+- id: card-breech-at-30-weeks
+  file: content/drafts/card-breech-at-30-weeks.md
+  verdict: ok
+- id: card-overdue-is-42
+  file: content/drafts/card-overdue-is-42.md
+  verdict: fix
+  problems:
+    - claim: "full term / overdue credited only as: PBB overdue at 42 weeks; Better Health full term 37 to 42 weeks"
+      judgement: unsupported
+      source_says: "PBB: 'Your pregnancy is considered full term at 37 weeks. If your labour doesn't start by 42 weeks, you are overdue.' Better Health: 'a baby is considered full term if its birth falls between 37 to 42 weeks'; 'Around 5 out of every 100 babies will be overdue, or more than 42 weeks gestation.'"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+      fixed_to: "kept both, each credited: PBB full term at 37 weeks and overdue if labour hasn't started by 42 weeks; Better Health full term 37 to 42 weeks and about 5 in 100 overdue. Figures 42 weeks, 5 in 100 confirmed."
+- id: card-induction-takes-time
+  file: content/drafts/card-induction-takes-time.md
+  verdict: ok
+- id: card-placenta-is-a-stage
+  file: content/drafts/card-placenta-is-a-stage.md
+  verdict: ok
+- id: card-cord-waits
+  file: content/drafts/card-cord-waits.md
+  verdict: ok
+- id: card-skin-to-skin-in-theatre
+  file: content/drafts/card-skin-to-skin-in-theatre.md
+  verdict: ok
+- id: card-partner-pack-snacks
+  file: content/drafts/card-partner-pack-snacks.md
+  verdict: ok
+- id: card-home-in-four-hours
+  file: content/drafts/card-home-in-four-hours.md
+  verdict: ok
+- id: card-bleed-six-weeks
+  file: content/drafts/card-bleed-six-weeks.md
+  verdict: fix
+  problems:
+    - claim: "Talk to your doctor or midwife straight away if you have sudden, heavy vaginal bleeding."
+      judgement: wrong
+      source_says: "Also talk to your doctor or midwife straight away if you feel unwell and have: ... sudden, heavy vaginal bleeding ... These are signs that you need immediate treatment."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-first-few-days-after-giving-birth
+      fixed_to: "It also says to talk to your doctor or midwife straight away if you feel unwell and have sudden, heavy vaginal bleeding, which it calls a sign that you need immediate treatment."
+- id: card-afterpains
+  file: content/drafts/card-afterpains.md
+  verdict: ok
+- id: card-first-poo-black
+  file: content/drafts/card-first-poo-black.md
+  verdict: ok
+- id: card-heel-prick-72-hours
+  file: content/drafts/card-heel-prick-72-hours.md
+  verdict: ok
+- id: card-apgar-is-quick
+  file: content/drafts/card-apgar-is-quick.md
+  verdict: ok
+- id: card-perineal-massage-from-34
+  file: content/drafts/card-perineal-massage-from-34.md
+  verdict: ok
+- id: card-one-in-ten-assisted
+  file: content/drafts/card-one-in-ten-assisted.md
+  verdict: unchecked
+  problems:
+    - claim: "no draft written"
+      judgement: unchecked
+      source_says: "skipped by the drafter: its only source is an unreadable RANZCOG poster"
+      url: ""
+      fixed_to: "nothing written; no file to check"
+- id: mood-swings
+  file: content/drafts/mood-swings.md
+  verdict: fix
+  problems:
+    - claim: "Abrupt mood swings are on its list of feelings that can come with the big changes of pregnancy."
+      judgement: wrong
+      source_says: "'Look out for these symptoms of anxiety and depression: ... abrupt mood swings ...'; usual: 'It's normal for expectant parents to experience ups and downs'; partner: 'Your partner may have mood swings during pregnancy. Try not to take this personally.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/feelings-relationships-and-pregnancy
+      fixed_to: "cut (abrupt mood swings stay only in the anxiety/depression symptom list under See your doctor or midwife)"
+    - claim: "help lines (PANDA 1300 726 306, Lifeline 13 11 14, Beyond Blue 1300 22 4636) sat under 'See your doctor or midwife'"
+      judgement: wrong
+      source_says: "Warning: If you are worried you might hurt yourself or your baby, you can call PANDA (1300 726 306), Lifeline (13 11 14), or Beyond Blue (1300 22 4636). If your life is in danger, call triple zero (000)."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/feelings-relationships-and-pregnancy
+      fixed_to: "000 stays under its own 'Call 000 or go to emergency' heading; the three help lines (numbers confirmed exact) moved under their own heading 'If you're worried you might hurt yourself or your baby', not merged with the see-your-GP level (2 weeks or worried: talk to your GP or midwife, confirmed)."
+- id: gender-disappointment
+  file: content/drafts/gender-disappointment.md
+  verdict: fix
+  problems:
+    - claim: "The Gidget Foundation provides free individual psychological therapy ... subject to Medicare eligibility."
+      judgement: unsupported
+      source_says: "free* individual psychological therapy ... * Up to 10 individual sessions per calendar year. Access ... is subject to meeting relevant Medicare eligibility requirements."
+      url: https://www.gidgetfoundation.org.au/fact-sheets/gender-disappointment
+      fixed_to: "added 'up to 10 individual sessions per calendar year'"
+- id: bonding-before-birth
+  file: content/drafts/bonding-before-birth.md
+  verdict: ok
+- id: partner-going-to-appointments
+  file: content/drafts/partner-going-to-appointments.md
+  verdict: fix
+  problems:
+    - claim: "summary: it's normal to feel unsure, helpless or left out"
+      judgement: unsupported
+      source_says: "PBB: 'It is normal to feel a range of emotions while your partner is pregnant... Some partners feel as though they are left out.' Gidget lists 'Common Experiences for Dads and Non-birthing Partners' incl. feeling helpless and unsure."
+      url: https://www.gidgetfoundation.org.au/becoming-a-parent/pregnancy-for-expectant-dads-and-non-birthing-partners
+      fixed_to: "it's common to feel unsure, helpless or left out"
+- id: telling-people
+  file: content/drafts/telling-people.md
+  verdict: ok
+- id: sex-and-intimacy
+  file: content/drafts/sex-and-intimacy.md
+  verdict: ok
+- id: preparing-an-older-child
+  file: content/drafts/preparing-an-older-child.md
+  verdict: fix
+  problems:
+    - claim: "Let them feel the baby move, and let them help set up the nursery."
+      judgement: unsupported
+      source_says: "Listed sources: 'letting them feel the baby move' (Navigating a second pregnancy); nothing on the nursery. The PBB bonding page says other children can 'let them help set up the nursery'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/bonding-with-your-baby-during-pregnancy
+      fixed_to: "kept; bonding page added to sources"
+- id: second-pregnancy-feels-different
+  file: content/drafts/second-pregnancy-feels-different.md
+  verdict: ok
+- id: pets-and-the-baby
+  file: content/drafts/pets-and-the-baby.md
+  verdict: ok
+- id: grandparents-and-boundaries
+  file: content/drafts/grandparents-and-boundaries.md
+  verdict: fix
+  problems:
+    - claim: "quoted sentence: \"Thank you for trying to help. We are going to take our time with trying a few different things and we'll work it out.\""
+      judgement: wrong
+      source_says: "\"Thank you for trying to help. I really appreciate that you care about me and the baby. We are going to take our time with trying a few different things and we'll work it out.\""
+      url: https://www.gidgetfoundation.org.au/adjusting-to-parenthood/managing-advice
+      fixed_to: "full quote restored"

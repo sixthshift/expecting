@@ -1,0 +1,208 @@
+# Items check 3, 2026-10-29: employer-leave-notice, parental-leave-pay-claim, partner-reserved-days,
+# childcare-waitlists, car-seat, feeding-plan, numbers-to-save. Every claim read against the source page
+# (loaded by curl, as WebFetch timed out on Fair Work and Services Australia). Phone numbers confirmed on
+# the organisations' own sites: ABA, healthdirect, Pregnancy Birth and Baby, PANDA.
+# Fair Work's types-of-parental-leave page (…/before-parental-leave/types-of-parental-leave) was also used.
+
+- id: employer-leave-notice
+  file: content/items/employer-leave-notice.md
+  verdict: fix
+  problems:
+    - claim: "take up to 12 months of unpaid parental leave, and request up to a further 12"
+      judgement: unsupported
+      source_says: "Not on the cited page. Types of parental leave page: 'Employees can access up to 12 months of unpaid parental leave initially. Employees can also request up to a further 12 months leave.'"
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/types-of-parental-leave
+      fixed_to: "wording matched to that page"
+    - claim: "written notice saying how much leave, and the start and finish dates"
+      judgement: unsupported
+      source_says: "Start and finish dates are needed for continuous unpaid leave; flexible leave states the total number of days."
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+      fixed_to: "added '(for continuous leave)'"
+    - claim: "confirm those dates, or tell your employer about any change"
+      judgement: wrong
+      source_says: "Confirm 'their parental leave start and end dates' and 'any changes to these dates'."
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+      fixed_to: "confirm the start and end dates, and any changes to them"
+    - claim: "the leave is still available — give notice as soon as you can"
+      judgement: wrong
+      source_says: "'they're still entitled to take the leave as long as they give notice as soon as possible', e.g. if a baby is born prematurely."
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+      fixed_to: "entitlement wording from the page"
+    - claim: "Check your workplace policy and award or agreement too: some employers offer their own paid leave on top of the government's."
+      judgement: unsupported
+      source_says: "Not on the cited page. Services Australia: 'You can take Parental Leave Pay before, during or after any paid or unpaid employer funded leave' (maternity or parental, annual, long service)."
+      url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay
+      fixed_to: "sentence rewritten to that, ending 'ask your employer what they offer'"
+  # ok: 10 weeks' written notice, 4 weeks' confirmation, week 28 arithmetic, deadlines week 30 / 36, due 28 / 34.
+
+- id: parental-leave-pay-claim
+  file: content/items/parental-leave-pay-claim.md
+  verdict: ok
+  # Up to 3 months before the expected date, choose start date, employer register and opt in, 56 days with child's
+  # details and proof of birth (claiming timeframes page); 130 days / 26 weeks from 1 July 2026, $200.94 a day in
+  # 2026-27, rate usually changes 1 July, ATO super contribution paid automatically after the financial year
+  # (how much page); myGov "Apply for Family Assistance (including Paid Parental Leave)" (how-to-claim page, which
+  # also speaks of finalising the claim for Parental Leave Pay or Family Tax Benefit together). No deadline set.
+
+- id: partner-reserved-days
+  file: content/items/partner-reserved-days.md
+  verdict: fix
+  problems:
+    - claim: "if they aren't used, they're lost (summary); They can't be handed over to the birth parent — if they aren't used, they're lost."
+      judgement: unsupported
+      source_says: "'If you have a partner, some of your Parental Leave Pay will be reserved for them to use. You'll need to decide together how to use the rest of the days.' Reserved days from 1 July 2026: 20. Nothing about handing over or losing them."
+      url: https://www.servicesaustralia.gov.au/how-much-parental-leave-pay-you-can-get
+      fixed_to: "'reserved for the partner to use' (summary); 'reserved for them to use. You decide together how to use the rest.' (body)"
+    - claim: "Days can be taken flexibly within 2 years of the birth"
+      judgement: unsupported
+      source_says: "'You can choose when to take your days, as long as it's within 2 years of your child's birth or adoption.' (claiming timeframes page)"
+      url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay
+      fixed_to: "'Days can be taken any time within 2 years of the birth'"
+  # ok: 20 of 130 for births from 1 July 2026; up to 20 days at the same time (births from 1 July 2025);
+  # Fair Work notice (10 weeks written, 4 weeks confirm) applies to each employee.
+  restored:
+    - claim: "To get the full number of days, you both need to be eligible and both need to make a claim. If only one of you is eligible, the reserved days limit still applies."
+      url: https://www.servicesaustralia.gov.au/sharing-your-parental-leave-pay
+      source_says: "If you have a partner some Parental Leave Pay days will be reserved for your partner to use. To get the full number of days, both you and your partner need to be eligible and you both need to make a claim. If only one of you is eligible, the reserved days limit still applies."
+  not_restored:
+    - claim: "If the reserved days aren't used, they're lost; can't be handed to the birth parent"
+      reason: "No Services Australia page (how-much, sharing, parental-leave-pay) says 'lost', 'use it or lose it' or 'can't be transferred'; only secondary sites do. The sourced wording above is the closest it goes."
+- id: childcare-waitlists
+  file: content/items/childcare-waitlists.md
+  verdict: fix
+  problems:
+    - claim: "Many childcare centres have long waiting lists / many centres have long waiting lists"
+      judgement: wrong
+      source_says: "'Many centres have waiting lists.' 'It's best to start this process well before you think you may need care, so it's available when you need it.' No wait times given."
+      url: https://www.pregnancybirthbaby.org.au/child-care
+      fixed_to: "'waiting lists' without 'long'; best-to-start-early wording from the page"
+    - claim: "If either of you plans to return to work within the first year or two..."
+      judgement: unsupported
+      source_says: "Not on the page."
+      url: https://www.pregnancybirthbaby.org.au/child-care
+      fixed_to: cut
+    - claim: "StartingBlocks.gov.au lists centres near you along with their national quality ratings."
+      judgement: wrong
+      source_says: "Starting Blocks, by the Australian Government, lets you search child care services for approved services, fees, vacancies, quality ratings and inclusions."
+      url: https://www.pregnancybirthbaby.org.au/child-care
+      fixed_to: "wording matched to that"
+    - claim: "Join the lists of the centres you'd be happy with — not just your first choice."
+      judgement: unsupported
+      source_says: "Not on the page."
+      url: https://www.pregnancybirthbaby.org.au/child-care
+      fixed_to: cut
+    - claim: "Claim before care starts: otherwise you may pay full fees until the claim is finalised, and it can only be backdated 28 days."
+      judgement: unsupported
+      source_says: "Services Australia: 'A CCS claim can be backdated to the first Monday of a CCS fortnight, no more than 28 days before your claim was submitted.' Nothing on full fees or claiming before care starts."
+      url: https://www.servicesaustralia.gov.au/how-to-claim-child-care-subsidy
+      fixed_to: "the backdating sentence only"
+  restored:
+    - claim: "In NSW, you can put your child on the wait list at more than one service at once; consider it if your child needs to be enrolled by a particular age or time. Most services charge a wait list fee; know the terms, including whether it's refundable."
+      url: https://nsw.gov.au/family-and-relationships/having-children/having-a-baby/early-childhood-education-care/enrolling-a-service
+      source_says: "You can put your child on the wait list at more than one service at once. Consider doing this if your child needs be enrolled by a particular age or time. Most early childhood education and care services charge a wait list fee. ... make sure you know the terms and conditions, including if the fee is refundable if: you don't get a place; you find a place somewhere else."
+  not_restored:
+    - claim: "Many centres have LONG waiting lists"
+      reason: "No official page says 'long'; council and university pages give 12-18 months for particular centres only."
+    - claim: "If either of you plans to return to work within the first year or two..."
+      reason: "Tone/advice with no source."
+    - claim: "otherwise you may pay full fees until the claim is finalised"
+      reason: "Services Australia CCS pages state only the 28-day backdating rule."
+- id: car-seat
+  file: content/items/car-seat.md
+  verdict: fix
+  problems:
+    - claim: "You need a compliant, properly fitted rear-facing car seat to drive the baby home (summary); You'll need a car seat to drive the baby home"
+      judgement: unsupported
+      source_says: "The page doesn't mention driving the baby home. It says the baby 'must be safely secured in the correct car seat', that babies up to 6 months must be in an approved rear-facing seat, and that the restraint must meet AS/NZS 1754."
+      url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
+      fixed_to: "summary and opening restated from those lines"
+    - claim: "under 6 months travel in an approved rear-facing restraint with an inbuilt harness"
+      judgement: wrong
+      source_says: "'Babies up to 6 months of age must be secured in an approved rear-facing car seat.' The inbuilt harness line is for ages 4 to under 7 (forward-facing)."
+      url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
+      fixed_to: "'babies up to 6 months of age must be secured in an approved rear-facing car seat'"
+    - claim: "Keeping them rear-facing for as long as they fit is safer still."
+      judgement: unsupported
+      source_says: "'Ideally, children should stay rear-facing for as long as possible, and only move to the next type of child restraint when they have outgrown their current one.'"
+      url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
+      fixed_to: "the page's 'Ideally' wording"
+    - claim: "an incorrectly fitted seat won't protect properly"
+      judgement: unsupported
+      source_says: "'It is important that the restraint is installed properly.' 'If you are unsure, contact an authorised restraint fitting station in your state or territory.'"
+      url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
+      fixed_to: "the page's wording"
+    - claim: "Second-hand: only if you know its history..."
+      judgement: wrong
+      source_says: "'Where possible, buy a new car restraint.' Second-hand risk is 'its history is unknown'; make sure it is undamaged, less than 10 years old, meets AS/NZS 1754; a seat in an accident 'must be thrown away and not resold'."
+      url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
+      fixed_to: "buy new where possible; the three conditions; thrown away and not resold"
+    - claim: "Practise adjusting the harness before the day: buckling a newborn in for the first time is nerve-wracking enough."
+      judgement: unsupported
+      source_says: "Not on the page."
+      url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
+      fixed_to: cut
+    - claim: "Never put a rear-facing seat in front of an airbag"
+      judgement: wrong
+      source_says: "'rear-facing child car seats can't be used if there's a passenger airbag.'"
+      url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
+      fixed_to: "'A rear-facing seat can't be used where there's a passenger airbag'"
+  # ok: AS/NZS 1754, buy from an outlet that only stocks compliant restraints, never swaddle in the restraint.
+  not_restored:
+    - claim: "Practise adjusting the harness before the day"
+      reason: "Only a UK NHS Wales page says to practise fitting before the birth; no Australian official source found."
+- id: feeding-plan
+  file: content/items/feeding-plan.md
+  verdict: fix
+  problems:
+    - claim: "Feeding doesn't always go to plan ... plan B (summary and body); all ways to feed a baby well"
+      judgement: unsupported
+      source_says: "The page says how you feed your baby is 'one of the most important choices you need to make as a new parent', and lists breastfeeding, formula and mixed feeding (formula as well as breast milk). It has no plan B or 'doesn't go to plan'."
+      url: https://www.pregnancybirthbaby.org.au/baby-feeding
+      fixed_to: "summary and intro reworded to the choice and who to ask for help"
+    - claim: "the hospital's lactation service, your child health nurse"
+      judgement: unsupported
+      source_says: "Not on the page. The page and contact page list the maternal child health nurse line, 1800 882 436 (7am to midnight AET, 7 days)."
+      url: https://www.pregnancybirthbaby.org.au/baby-feeding
+      fixed_to: "ABA helpline, plus the PBB nurse line"
+    - claim: "A breast pump: ... whether to buy or hire."
+      judgement: unsupported
+      source_says: "'Find out why you might need a breast pump to express milk. Learn what types there are and where to get one.' No hire."
+      url: https://www.pregnancybirthbaby.org.au/baby-feeding
+      fixed_to: "whether you might need one, and where you'd get it"
+    - claim: "Bottles: one or two to try first. Babies can be fussy about teats, so don't stock up on one brand — or one formula"
+      judgement: unsupported
+      source_says: "Only: 'You can use a bottle to feed your baby expressed breast milk or formula'."
+      url: https://www.pregnancybirthbaby.org.au/baby-feeding
+      fixed_to: "whether you'll use a bottle, for expressed milk or formula"
+    - claim: "Formula: where you'd get it at short notice"
+      judgement: unsupported
+      source_says: "Page covers how to choose between types of formula."
+      url: https://www.pregnancybirthbaby.org.au/baby-feeding
+      fixed_to: "whether you'd use it, and how to choose between types"
+    - claim: "Bottles and teats are sterilised before each use until the baby is 12 months old."
+      judgement: wrong
+      source_says: "'Until your baby is 12 months old you should sterilise bottles before you use them.' Teats not mentioned."
+      url: https://www.pregnancybirthbaby.org.au/baby-feeding
+      fixed_to: "'Until the baby is 12 months old, sterilise bottles before you use them.'"
+    - claim: "What matters most is a fed baby and a supported parent."
+      judgement: unsupported
+      source_says: "Not on the page."
+      url: https://www.pregnancybirthbaby.org.au/baby-feeding
+      fixed_to: cut
+  # ok: ABA helpline 1800 686 268, free, 24 hours a day, 7 days a week (ABA site). The {% ask %} is a question, not a claim.
+  restored:
+    - claim: "A breast pump: whether you might need one to express milk, and whether to buy or hire. Electric pumps can be either."
+      url: https://www.pregnancybirthbaby.org.au/expressing-and-storing-breast-milk
+      source_says: "Electric pumps can express milk from both of your breasts at once. These can be purchased or hired."
+  not_restored:
+    - claim: "Bottles: one or two to try first; babies fuss over teats, don't stock up on one brand or formula"
+      reason: "No official page found."
+    - claim: "What matters most is a fed baby and a supported parent"
+      reason: "Tone line, no source."
+- id: numbers-to-save
+  file: content/items/numbers-to-save.md
+  verdict: ok
+  # Confirmed on the organisations' own sites: ABA 1800 686 268 free 24/7; healthdirect 1800 022 222, registered
+  # nurse 24/7, 000 for critical; Pregnancy Birth and Baby 1800 882 436, maternal child health nurse, 7am to
+  # midnight AET 7 days; PANDA National Helpline 1300 726 306, 7 days (panda.org.au, perinatal families and new dads).
+  # Hour details added to the list. 000 confirmed on the healthdirect and PBB contact pages.

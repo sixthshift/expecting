@@ -1,0 +1,1912 @@
+# Antenatal care, appointments, tests, scans and vaccines in Australia.
+# Models of care, Medicare and the cost of care, the schedule of visits, every
+# routine test and screen with its window, the vaccines, and the conditions a
+# test can find. Symptoms, labour, pain relief, induction and money outside
+# care are in other files. The Pregnancy Care Guidelines (health.gov.au) sit
+# behind a bot check we could not pass, so they are not cited here; every
+# entry cites a page that loaded.
+
+# ---------------------------------------------------------------------------
+# Models of care and the cost of care
+# ---------------------------------------------------------------------------
+
+- id: choosing-your-model-of-care
+  title: Choosing your model of care
+  type: decision
+  topic: care
+  ask: Public, private, midwife or GP — who should look after us?
+  aliases: [ models of care, maternity care options, public or private, who do I see, antenatal care options, maternity model ]
+  weeks: [ 4, 12 ]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - the four common models, public hospital clinic, shared care, midwifery group practice, private obstetrician, plus private midwife, birth centre and home birth
+    - what each costs, who you see, whether you see the same person, and where the birth happens
+    - continuity of care has real benefits, and caseload places are popular and not available everywhere, so check at booking
+    - what is actually offered depends on where you live and your hospital
+    - the questions to ask your GP, midwife or doctor at the first visit
+  sources:
+    - title: Pregnancy, Birth and Baby — Maternity models of care
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/maternity-models-of-care
+    - title: Pregnancy, Birth and Baby — Public vs private care in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/what-is-the-difference-between-public-and-private-care-in-pregnancy
+    - title: The Royal Women's Hospital — Pregnancy care & birthing options
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/pregnancy-care-birthing-options
+  related: [ public-hospital-care, midwifery-group-practice, gp-shared-care, private-obstetrician, private-midwife, birth-centre, home-birth, choosing-a-hospital, booking-in, first-antenatal-visit, what-medicare-covers ]
+  notes: The names and the mix differ by state and hospital (the Royal Women's calls its models Team Maternity, MIST, Caseload/COSMOS; WA has the Community Midwifery Programme). Write it as the national shape and tell the reader to ask what their hospital calls them.
+
+- id: public-hospital-care
+  title: Public hospital maternity care
+  type: guide
+  topic: care
+  ask: What is it like having the baby as a public patient?
+  aliases: [ public patient, antenatal clinic, hospital clinic, team midwifery, public maternity ]
+  weeks: [ 4, 42 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - the most used model in Australia, free with a Medicare card
+    - antenatal visits at the hospital outpatient clinic or an outreach clinic, midwives and doctors, often not the same person
+    - midwife-led for low-risk pregnancies, obstetrician-led if risk factors arise
+    - the birth in the hospital's birth unit with whoever is rostered on
+    - waiting times can be longer than a private clinic
+    - options inside a public hospital, team midwifery, group practice, birth centre, public home birth
+  sources:
+    - title: Pregnancy, Birth and Baby — Maternity models of care
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/maternity-models-of-care
+    - title: Pregnancy, Birth and Baby — What to expect if I have my baby in hospital
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/having-a-baby-in-hospital
+    - title: The Royal Women's Hospital — Pregnancy care & birthing options
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/pregnancy-care-birthing-options
+  related: [ choosing-your-model-of-care, booking-in, what-medicare-covers, private-patient-in-a-public-hospital ]
+
+- id: midwifery-group-practice
+  title: Midwifery group practice (caseload)
+  type: guide
+  topic: care
+  ask: What is midwifery group practice and how do I get a place?
+  aliases: [ MGP, caseload midwifery, continuity of care, continuity of carer, known midwife, COSMOS, MIST, midwives in small teams ]
+  weeks: [ 4, 14 ]
+  priority: 1
+  stakes: high
+  covers:
+    - one known midwife, with a small backup team, through pregnancy, birth and up to six weeks after
+    - publicly funded; care may be in hospital, in the community or at home
+    - strong evidence of benefit, including fewer preterm births
+    - places are limited and not available everywhere, ask at the first visit and at booking
+    - what happens if a complication arises, the midwife works with the doctors
+    - team midwifery is the same idea with less continuity
+  sources:
+    - title: Pregnancy, Birth and Baby — What is midwife continuity of care?
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/what-is-midwife-continuity-of-care
+    - title: Pregnancy, Birth and Baby — Maternity models of care
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/maternity-models-of-care
+    - title: The Royal Women's Hospital — Pregnancy care options
+      url: https://thewomens.org.au/patients-visitors/clinics-and-services/pregnancy-birth/pregnancy-care-options
+  related: [ choosing-your-model-of-care, booking-in, birth-centre, home-birth ]
+  notes: Eligibility and how early places go differ by hospital. The Royal Women's confirms caseload availability at the booking appointment. Say that, not a national rule.
+
+- id: gp-shared-care
+  title: GP shared care
+  type: guide
+  topic: care
+  ask: Can my own GP do my pregnancy appointments?
+  aliases: [ shared care, shared maternity care, GP antenatal care, GP obstetrician ]
+  weeks: [ 4, 42 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - most visits with an accredited GP or community midwife, key visits and the birth at the hospital, under an agreed schedule
+    - convenient and usually cheaper, Medicare covers bulk-billed visits, some GPs charge a gap
+    - suits a healthy, low-risk pregnancy, the hospital takes over if things change
+    - the GP must be affiliated with the hospital, ask whether yours is
+    - GP obstetricians in rural areas may provide all the care and attend the birth
+  sources:
+    - title: Pregnancy, Birth and Baby — GPs, what they do during your pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/the-role-of-your-gp
+    - title: Pregnancy, Birth and Baby — Maternity models of care
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/maternity-models-of-care
+    - title: The Royal Women's Hospital — Pregnancy care & birthing options
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/pregnancy-care-birthing-options
+  related: [ choosing-your-model-of-care, first-antenatal-visit, antenatal-visit-schedule ]
+
+- id: private-obstetrician
+  title: Private obstetrician care
+  type: guide
+  topic: care
+  ask: How does it work with a private obstetrician?
+  aliases: [ private OB, obstetrician, private hospital, private maternity, specialist care ]
+  weeks: [ 4, 42 ]
+  priority: 1
+  stakes: high
+  covers:
+    - the same doctor through pregnancy, birth and after, visits in their rooms, the birth in a private or public hospital with hospital midwives
+    - you need a GP referral, which lasts 12 months, to claim any Medicare rebate
+    - ask about fees before the first appointment, costs vary a lot
+    - private health insurance only applies once admitted to hospital, and needs the 12-month wait served
+    - how to find one, ask the GP, the hospital's list, the RANZCOG find-a-doctor
+    - the obstetrician may not be there for most of the labour, midwives are
+  sources:
+    - title: Pregnancy, Birth and Baby — Obstetricians, what do they do?
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/obstetrician
+    - title: The Royal Women's Hospital — Pregnancy care & birthing options
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/pregnancy-care-birthing-options
+    - title: Pregnancy, Birth and Baby — Private health insurance and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+  related: [ obstetrician-out-of-pocket-costs, private-health-insurance-and-pregnancy, choosing-your-model-of-care, private-patient-in-a-public-hospital ]
+
+- id: private-midwife
+  title: Private midwife care
+  type: guide
+  topic: care
+  ask: Can I hire my own midwife?
+  aliases: [ privately practising midwife, MIPP, endorsed midwife, eligible midwife, private midwifery ]
+  weeks: [ 4, 42 ]
+  priority: 3
+  stakes: medium
+  covers:
+    - a midwife you employ for pregnancy, birth and postnatal care, often for a home birth or birth centre
+    - usually no GP referral needed, but Medicare rebates for eligible midwives need one
+    - an endorsed midwife can order tests and prescribe some medicines
+    - what Medicare does not cover, the labour and home-birth fees
+    - their arrangement with a local hospital in case of transfer, and booking in there too
+    - some work jointly with a private obstetrician
+  sources:
+    - title: Pregnancy, Birth and Baby — Midwives, what do they do?
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/midwife
+    - title: Pregnancy, Birth and Baby — Public vs private care in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/what-is-the-difference-between-public-and-private-care-in-pregnancy
+    - title: The Royal Women's Hospital — Money matters
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/preparing-for-pregnancy/money-matters
+  related: [ home-birth, birth-centre, choosing-your-model-of-care, what-medicare-covers ]
+
+- id: birth-centre
+  title: Having the baby at a birth centre
+  type: guide
+  topic: care
+  ask: What is a birth centre and can we use one?
+  aliases: [ birthing centre, birth center, low-intervention birth, family birth centre ]
+  weeks: [ 4, 14 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - home-like rooms, usually attached to a public hospital, care from a known midwife or small team
+    - only for low-risk pregnancies, the centre decides eligibility
+    - no epidural, transfer to the labour ward if one is wanted or anything changes
+    - referral rules differ, some take self-referral
+    - the first appointment is usually at 10 to 16 weeks, so ask early
+    - free as a public patient
+  sources:
+    - title: Pregnancy, Birth and Baby — What to expect if I have my baby at a birthing centre
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/having-a-baby-at-a-birthing-centre
+    - title: Pregnancy, Birth and Baby — Choosing where to give birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/choosing-where-to-give-birth
+  related: [ midwifery-group-practice, home-birth, choosing-a-hospital, choosing-your-model-of-care ]
+  notes: Pain relief options at a birth centre belong to the labour file; keep this to who can use one and how to get in.
+
+- id: home-birth
+  title: Planned home birth
+  type: guide
+  topic: care
+  ask: Can we have the baby at home?
+  aliases: [ homebirth, publicly funded homebirth, home birth program, freebirth ]
+  weeks: [ 4, 16 ]
+  priority: 3
+  stakes: high
+  covers:
+    - two routes, a public hospital home-birth program (needs a GP referral, strict criteria, free) or a private midwife (fees, Medicare covers some antenatal care but not the birth)
+    - low-risk pregnancies only, and what rules you out
+    - the transfer plan and booking in at the local hospital as backup
+    - freebirth, birth without a registered carer, is a different thing and not recommended
+  sources:
+    - title: Pregnancy, Birth and Baby — Public vs private care in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/what-is-the-difference-between-public-and-private-care-in-pregnancy
+    - title: Pregnancy, Birth and Baby — Choosing where to give birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/choosing-where-to-give-birth
+    - title: Pregnancy, Birth and Baby — Medicare during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/medicare-during-pregnancy
+  related: [ private-midwife, midwifery-group-practice, birth-centre, choosing-your-model-of-care ]
+  notes: Public home-birth programs exist only in some hospitals and states; say to ask the hospital.
+
+- id: choosing-a-hospital
+  title: Choosing a hospital
+  type: decision
+  topic: care
+  ask: Which hospital should we book into?
+  aliases: [ which hospital, catchment, maternity hospital, where to give birth, hospital catchment area ]
+  weeks: [ 4, 12 ]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - "public hospital: you may book at the local maternity hospital for your area, and can choose if there is more than one"
+    - what to compare, models of care offered, a birth centre, easy transfer to a special care or neonatal intensive care unit, how far you will travel, pain relief available, length of stay
+    - a private hospital comes with the obstetrician, choose the doctor and the hospital together
+    - twins or a higher-risk pregnancy may mean a bigger hospital
+    - the questions to ask, including whether you can tour it
+    - decide early, birth centres are popular, book as early as you can
+  sources:
+    - title: Pregnancy, Birth and Baby — Choosing where to give birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/choosing-where-to-give-birth
+    - title: Pregnancy, Birth and Baby — Maternity care in Australia
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/maternity-care-in-australia
+    - title: Pregnancy, Birth and Baby — Pregnant with twins
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy
+  related: [ booking-in, choosing-your-model-of-care, hospital-tour, private-obstetrician ]
+  notes: Catchment rules differ by state and hospital; don't promise out-of-area access.
+
+- id: booking-in
+  title: Booking in with your hospital or birth centre
+  type: moment
+  topic: care
+  ask: When do I have to book into the hospital?
+  aliases: [ book in, hospital booking, referral to hospital, maternity referral, booking appointment ]
+  weeks: [ 6, 14 ]
+  priority: 1
+  stakes: high
+  covers:
+    - a GP referral starts the hospital booking, some midwifery services take self-referral
+    - book as early as possible
+  sources:
+    - title: Pregnancy, Birth and Baby — Maternity care in Australia
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/maternity-care-in-australia
+    - title: Pregnancy, Birth and Baby — Your first antenatal visit
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/your-first-antenatal-visit
+  related: [ choosing-a-hospital, booking-visit, first-antenatal-visit, midwifery-group-practice ]
+  exists: content/items/booking-in.md
+
+- id: what-medicare-covers
+  title: What Medicare covers in pregnancy
+  type: payment
+  topic: care
+  ask: What do we actually have to pay for?
+  aliases: [ Medicare, bulk billing, gap fee, out of pocket, free pregnancy care, Medicare rebate ]
+  weeks: [ 1, 42 ]
+  priority: 1
+  stakes: high
+  covers:
+    - public patient in a public hospital or birth centre, care and the stay are free
+    - bulk-billed GP and midwife visits cost nothing, others charge a gap
+    - free or subsidised routine ultrasounds, blood tests and telehealth
+    - flu, whooping cough and RSV vaccines free under the National Immunisation Program
+    - three pregnancy support counselling sessions per pregnancy
+    - not covered, NIPT, private obstetrician and private midwife gap fees, private hospital accommodation, private midwife labour fees
+    - as a private patient, 75 percent of the schedule fee for in-hospital doctors, nothing for the bed or theatre
+  sources:
+    - title: Pregnancy, Birth and Baby — Medicare during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/medicare-during-pregnancy
+    - title: Services Australia — Medicare services for conceiving, pregnancy and birth
+      url: https://www.servicesaustralia.gov.au/medicare-services-for-conceiving-pregnancy-and-birth
+    - title: Pregnancy, Birth and Baby — Vaccinations and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/vaccinations-and-pregnancy
+  related: [ medicare-safety-net, obstetrician-out-of-pocket-costs, private-health-insurance-and-pregnancy, paying-for-scans, nipt, pregnancy-care-without-medicare ]
+
+- id: private-health-insurance-and-pregnancy
+  title: Private health insurance and the 12-month wait
+  type: payment
+  topic: care
+  ask: Will our health insurance cover the birth?
+  aliases: [ 12 month waiting period, obstetrics cover, pregnancy cover, gold cover, hospital cover, upgrade to family cover ]
+  weeks: [ 1, 36 ]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - obstetrics has a waiting period of up to 12 months, served before admission to hospital, so cover bought after conception won't pay for this birth
+    - what it pays, the private hospital stay and part of the doctors' in-hospital fees, not the consultations in the rooms
+    - check the policy covers obstetrics and midwifery, some only cover a private patient in a public hospital
+    - the baby's cover, upgrade to a family policy one to three months before the birth, some funds want longer
+    - a premature or unwell baby admitted in a private hospital can cost a lot without family cover
+    - without cover, a private hospital means high out-of-pocket costs, and the public system is always there
+  sources:
+    - title: Pregnancy, Birth and Baby — Private health insurance and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+    - title: PrivateHealth.gov.au — Waiting periods
+      url: https://www.privatehealth.gov.au/health_insurance/howitworks/waiting_periods.htm
+    - title: The Royal Women's Hospital — Money matters
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/preparing-for-pregnancy/money-matters
+  related: [ private-obstetrician, obstetrician-out-of-pocket-costs, what-medicare-covers, private-patient-in-a-public-hospital ]
+  notes: The decision was really made before conception; in the app it becomes a check. The family-policy upgrade is the live deadline.
+
+- id: obstetrician-out-of-pocket-costs
+  title: What a private obstetrician costs
+  type: guide
+  topic: care
+  ask: How much is a private obstetrician really?
+  aliases: [ management fee, pregnancy management fee, obstetrician fees, gap, anaesthetist fee, paediatrician fee, known gap ]
+  weeks: [ 4, 12 ]
+  who: together
+  priority: 2
+  stakes: high
+  covers:
+    - the pieces, consultation fees, a pregnancy management fee, the birth fee, then anaesthetist and paediatrician bills, scans and tests
+    - Medicare rebates part of each, insurance covers the hospital stay and some in-hospital gaps, the rooms fees are yours
+    - ask for a written estimate before committing, and ask the fund what it pays
+    - the Medical Costs Finder and the Safety Net
+    - a private patient in a public hospital pays medical and diagnostic costs without a guaranteed single room
+  sources:
+    - title: Pregnancy, Birth and Baby — Obstetricians, what do they do?
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/obstetrician
+    - title: Pregnancy, Birth and Baby — Private health insurance and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+    - title: The Royal Women's Hospital — Money matters
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/preparing-for-pregnancy/money-matters
+  related: [ private-obstetrician, private-health-insurance-and-pregnancy, medicare-safety-net, what-medicare-covers ]
+  notes: Don't quote dollar figures; they vary by city and doctor. Describe the structure and tell the reader to get it in writing.
+
+- id: private-patient-in-a-public-hospital
+  title: Being a private patient in a public hospital
+  type: guide
+  topic: care
+  ask: Can I use my insurance at the public hospital?
+  aliases: [ private in public, use my cover in a public hospital, single room public hospital ]
+  weeks: [ 4, 20 ]
+  priority: 3
+  stakes: medium
+  covers:
+    - you can elect to be private in a public hospital, with your own obstetrician if they have rights there
+    - no guaranteed single room, and you take on hospital, medical and diagnostic costs the fund may not fully cover
+    - sometimes the hospital asks a public patient to use their cover, you can say no
+  sources:
+    - title: Pregnancy, Birth and Baby — Public vs private care in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/what-is-the-difference-between-public-and-private-care-in-pregnancy
+    - title: The Royal Women's Hospital — Pregnancy care & birthing options
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/pregnancy-care-birthing-options
+  related: [ private-health-insurance-and-pregnancy, public-hospital-care, private-obstetrician ]
+
+- id: pregnancy-care-without-medicare
+  title: Pregnancy care on a visa, without Medicare
+  type: guide
+  topic: care
+  ask: We're not eligible for Medicare, what will it cost?
+  aliases: [ visa, overseas student health cover, OSHC, reciprocal health care, no Medicare card, temporary visa pregnancy ]
+  weeks: [ 1, 42 ]
+  priority: 3
+  stakes: high
+  covers:
+    - without Medicare you pay the full cost in public or private hospitals, ask for an estimate at booking
+    - reciprocal agreements cover urgent treatment only, check whether pregnancy care counts
+    - visa health cover often has its own 12-month wait for pregnancy
+    - hospitals may offer payment plans or financial support, ask early
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy and newborn care on a visa in Australia
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/pregnancy-care-on-a-visa-in-australia
+    - title: Pregnancy, Birth and Baby — Medicare during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/medicare-during-pregnancy
+  related: [ what-medicare-covers, private-health-insurance-and-pregnancy ]
+
+# ---------------------------------------------------------------------------
+# Appointments
+# ---------------------------------------------------------------------------
+
+- id: confirming-the-pregnancy
+  title: Confirming the pregnancy
+  type: moment
+  topic: appointments
+  ask: The test is positive, what now?
+  aliases: [ positive pregnancy test, hCG blood test, home pregnancy test, am I pregnant, confirm pregnancy GP ]
+  weeks: [ 4, 6 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - home tests detect hCG from about the day the period is due, test first thing in the morning
+    - see a GP to confirm with a blood test and to start the first visit, before 10 weeks and ideally at 6 to 8
+    - what the GP does at that visit, due date from the last period, the first bloods, folate and iodine, care options
+    - a false positive is rare, a false negative early on is not
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy tests
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/pregnancy-tests
+    - title: Pregnancy, Birth and Baby — GPs, what they do during your pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/the-role-of-your-gp
+  related: [ first-antenatal-visit, estimated-due-date, first-blood-tests, dating-scan ]
+
+- id: first-antenatal-visit
+  title: The first visit and choosing your care
+  type: moment
+  topic: appointments
+  ask: What happens at the first pregnancy appointment?
+  aliases: [ first GP visit, first antenatal appointment, 8 week appointment, confirm pregnancy, first checkup ]
+  weeks: [ 4, 10 ]
+  priority: 1
+  stakes: high
+  covers:
+    - before 10 weeks, ideally 6 to 8, with a GP or directly with a midwifery service
+    - a long visit, medical and family history, medicines, mental health and support, family violence asked of everyone
+    - blood pressure, weight and height, urine, the first bloods, cervical screening if due
+    - the due date and whether a dating scan is needed
+    - the model of care conversation and the referral or booking that follows
+    - the screening choices with short windows that open at 10 weeks
+  sources:
+    - title: Pregnancy, Birth and Baby — Your first antenatal visit
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/your-first-antenatal-visit
+    - title: Pregnancy, Birth and Baby — Screening for Down syndrome
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/screening-for-down-syndrome
+    - title: The Royal Women's Hospital — Your first pregnancy check-up
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/your-first-pregnancy-check-up
+  related: [ confirming-the-pregnancy, choosing-your-model-of-care, first-blood-tests, booking-in, first-trimester-screening, carrier-screening ]
+  exists: content/items/first-antenatal-visit.md
+
+- id: booking-visit
+  title: The booking visit
+  type: moment
+  topic: appointments
+  ask: What is the booking-in appointment at the hospital?
+  aliases: [ booking appointment, hospital booking visit, first hospital appointment, 12 week appointment, 16 week appointment, antenatal booking ]
+  weeks: [ 10, 16 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - the long first hospital appointment, usually 10 to 16 weeks, often with a midwife
+    - history again in detail, blood pressure, weight and BMI, urine, the bloods if not done, mental health and wellbeing screen
+    - results so far and the screening decisions reviewed
+    - allocation to a model of care, caseload confirmed here at some hospitals
+    - what to bring, the referral, Medicare card, scan and blood results, a list of questions, the partner
+    - the visit schedule you leave with
+  sources:
+    - title: Pregnancy, Birth and Baby — Routine antenatal tests
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/routine-antenatal-tests
+    - title: Pregnancy, Birth and Baby — What to expect if I have my baby at a birthing centre
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/having-a-baby-at-a-birthing-centre
+    - title: The Royal Women's Hospital — Pregnancy care options
+      url: https://thewomens.org.au/patients-visitors/clinics-and-services/pregnancy-birth/pregnancy-care-options
+  related: [ booking-in, antenatal-visit-schedule, first-blood-tests, midwifery-group-practice, questions-to-ask-at-appointments ]
+  notes: Timing differs by hospital (the Royal Women's allocates models at about 16 weeks; many book at 12). The mental health questionnaire belongs to the mental health file; name it, don't explain it.
+
+- id: antenatal-visit-schedule
+  title: How many appointments, and when
+  type: guide
+  topic: appointments
+  ask: How often will I have appointments?
+  aliases: [ antenatal schedule, visit schedule, how many checkups, appointment plan, 28 week appointment, 36 week appointment ]
+  weeks: [ 10, 42 ]
+  priority: 1
+  stakes: low
+  covers:
+    - about 10 visits for a first baby, 7 for later ones, more if anything complicates
+    - the usual rhythm, every 4 to 6 weeks until 28, then every 2 to 3, then weekly from about 36
+    - the visits with something extra, booking, 20 weeks, 28 weeks, 36 weeks, past the due date
+    - visits differ by model of care, private rooms, GP shared care, hospital clinic
+    - you can always ask for an extra visit
+  sources:
+    - title: Pregnancy, Birth and Baby — Antenatal care during your pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/antenatal-care-during-your-pregnancy
+    - title: Pregnancy, Birth and Baby — Your first antenatal visit
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/your-first-antenatal-visit
+  related: [ what-happens-at-each-visit, booking-visit, third-trimester-bloods, babys-position-check, past-your-due-date-appointment ]
+
+- id: what-happens-at-each-visit
+  title: What happens at every appointment
+  type: guide
+  topic: appointments
+  ask: What do they check at a normal appointment?
+  aliases: [ routine checkup, blood pressure check, urine test, measuring the bump, listening to the heartbeat, doppler ]
+  weeks: [ 10, 42 ]
+  priority: 1
+  stakes: low
+  covers:
+    - blood pressure every time, why it matters
+    - urine dipstick for protein and sugar
+    - the bump measured from 20 weeks, fundal height, and what a measurement off the curve leads to
+    - the heartbeat with a doppler from about 12 weeks
+    - movements asked about from the second half
+    - how you are, sleep, mood, symptoms, questions
+    - what is not routine, vaginal examinations and scans
+  sources:
+    - title: Pregnancy, Birth and Baby — Checkups, tests and scans available during your pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/checkups-and-scans-during-your-pregnancy
+    - title: Pregnancy, Birth and Baby — Antenatal care during your pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/antenatal-care-during-your-pregnancy
+  related: [ fundal-height, fetal-heartbeat-check, antenatal-visit-schedule, pre-eclampsia, baby-movements ]
+
+- id: fundal-height
+  title: Fundal height
+  type: term
+  topic: appointments
+  ask: Why do they measure my belly with a tape?
+  aliases: [ symphysis-fundal height, SFH, measuring the bump, measuring small, measuring big ]
+  weeks: [ 20, 42 ]
+  priority: 2
+  stakes: low
+  covers:
+    - the distance from the pubic bone to the top of the uterus in centimetres, roughly the week from 20 onward
+    - plotted on a chart, a measurement that falls off its line leads to a growth scan, not a diagnosis
+    - why it is rough, the baby's position, fluid, your build
+  sources:
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+    - title: Pregnancy, Birth and Baby — Checkups, tests and scans available during your pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/checkups-and-scans-during-your-pregnancy
+  related: [ what-happens-at-each-visit, growth-scans, small-for-dates, large-for-dates ]
+
+- id: fetal-heartbeat-check
+  title: Listening to the heartbeat
+  type: term
+  topic: appointments
+  ask: When can they hear the heartbeat at an appointment?
+  aliases: [ doppler, fetal heart rate, heartbeat at appointment, hearing the heartbeat ]
+  weeks: [ 10, 42 ]
+  priority: 2
+  stakes: low
+  covers:
+    - a hand-held doppler from about 12 weeks, sometimes later, not finding it early is common and not alarming
+    - the normal range, a fast rate is normal
+    - home dopplers are not a way to check on the baby, movements are
+  sources:
+    - title: Pregnancy, Birth and Baby — Checkups, tests and scans available during your pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/checkups-and-scans-during-your-pregnancy
+    - title: Pregnancy, Birth and Baby — Fetal heart rate monitoring
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/fetal-monitoring
+  related: [ what-happens-at-each-visit, ctg-monitoring, baby-movements ]
+
+- id: questions-to-ask-at-appointments
+  title: Questions to ask at appointments
+  type: guide
+  topic: appointments
+  ask: What should I be asking at my appointments?
+  aliases: [ questions for the midwife, questions for the obstetrician, what to ask, appointment questions, questions about tests ]
+  weeks: [ 4, 42 ]
+  who: together
+  priority: 1
+  stakes: low
+  covers:
+    - about any test, is it routine, why me, when, risks, alternatives, when and how results come, what if it is wrong, what it costs
+    - about care, who will I see, who is at the birth, how do I reach someone after hours
+    - the questions for each stage, booking, 20 weeks, 28 weeks, 36 weeks
+    - write them down together beforehand, bring the partner
+    - you may refuse any test and ask for a second opinion
+  sources:
+    - title: Pregnancy, Birth and Baby — Questions to ask your doctor about tests and scans
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/questions-to-ask-your-doctor-about-tests-and-scans
+    - title: Pregnancy, Birth and Baby — Routine antenatal tests
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/routine-antenatal-tests
+  related: [ your-rights-in-pregnancy-care, what-happens-at-each-visit, partner-at-appointments ]
+  notes: This is the natural home for the app's ask tag; each stage's questions can be one-tap adds to the Planner.
+
+- id: your-rights-in-pregnancy-care
+  title: Your rights in pregnancy care
+  type: guide
+  topic: care
+  ask: Can I say no to a test or change my doctor?
+  aliases: [ informed consent, refuse a test, second opinion, change provider, interpreter, shared decision making, healthcare rights ]
+  weeks: [ 4, 42 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - every test and treatment is a choice, informed consent means benefits, risks and alternatives explained
+    - you can decline, change your mind, ask for a second opinion or a different carer, and complain
+    - an interpreter is free and can be asked for at any time
+    - your records, My Health Record and who can see them
+    - what shared decision making looks like at a visit
+  sources:
+    - title: Pregnancy, Birth and Baby — Healthcare rights
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-rights
+    - title: Pregnancy, Birth and Baby — Routine antenatal tests
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/routine-antenatal-tests
+    - title: Pregnancy, Birth and Baby — About My Health Record
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/my-health-record
+  related: [ questions-to-ask-at-appointments, screening-vs-diagnostic, choosing-your-model-of-care ]
+
+- id: partner-at-appointments
+  title: The partner at appointments
+  type: card
+  topic: appointments
+  ask: Should the partner come to appointments?
+  aliases: [ partner at scan, can my partner come, support person at appointments, bring your partner ]
+  weeks: [ 6, 42 ]
+  who: partner
+  priority: 2
+  stakes: low
+  covers:
+    - yes, and the ones to not miss, the first visit, the dating and morphology scans, booking, the birth-plan visit
+    - the partner's job there, the list of questions, the notes, remembering what was said
+    - hospital rules on who can come to scans and clinics differ, check first
+  sources:
+    - title: Pregnancy, Birth and Baby — Antenatal care during your pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/antenatal-care-during-your-pregnancy
+  related: [ questions-to-ask-at-appointments, dating-scan, morphology-scan ]
+
+- id: estimated-due-date
+  title: The due date (EDD)
+  type: term
+  topic: appointments
+  ask: How do they work out my due date?
+  aliases: [ EDD, EDB, estimated due date, due date calculator, LMP, last menstrual period, gestational age, 38+2 ]
+  weeks: [ 4, 14 ]
+  priority: 1
+  stakes: low
+  covers:
+    - 40 weeks from the first day of the last period, so week 1 is before conception
+    - the dating scan can change it, and the earliest scan's date usually stands
+    - how weeks are written, 38+2 means 38 weeks and 2 days
+    - only a few babies arrive on the day, term is a range
+  sources:
+    - title: Pregnancy, Birth and Baby — Working out your due date
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+  related: [ dating-scan, confirming-the-pregnancy, past-your-due-date-appointment ]
+
+# ---------------------------------------------------------------------------
+# Tests and screening
+# ---------------------------------------------------------------------------
+
+- id: first-blood-tests
+  title: The first blood tests
+  type: moment
+  topic: tests
+  ask: What are all the blood tests at the start for?
+  aliases: [ booking bloods, antenatal bloods, first trimester blood tests, routine bloods, pathology pregnancy ]
+  weeks: [ 5, 12 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - one set of tubes, blood group and antibodies, full blood count, rubella immunity, hepatitis B and C, HIV, syphilis, vitamin D
+    - offered to everyone, each is a choice, and each has a reason
+    - sometimes added, chlamydia and gonorrhoea, an early diabetes test, thyroid, ferritin
+    - a urine culture goes with them
+    - bulk-billed at most pathology collectors with a Medicare card
+    - results come back to the GP, and the ones that change care, RhD negative, low iron, no rubella immunity
+  sources:
+    - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Routine antenatal tests
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/routine-antenatal-tests
+    - title: The Royal Women's Hospital — Your first pregnancy check-up
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/your-first-pregnancy-check-up
+  related: [ blood-group-and-antibodies, full-blood-count, rubella-immunity, hepatitis-b-screening, hepatitis-c-screening, hiv-screening, syphilis-screening, vitamin-d-test, urine-culture, sti-screening, early-diabetes-test ]
+
+- id: blood-group-and-antibodies
+  title: Blood group and antibody screen
+  type: term
+  topic: tests
+  ask: Why do they need my blood group?
+  aliases: [ blood type, rhesus factor, RhD, antibody screen, group and antibodies, Rh negative test ]
+  weeks: [ 5, 12 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - ABO group and RhD status, useful if blood is ever needed
+    - the antibody screen, antibodies that could affect the baby's blood, repeated at about 28 weeks
+    - almost 2 in 10 are RhD negative, which starts the anti-D pathway
+  sources:
+    - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+  related: [ rhd-negative, anti-d, rhd-nipt, third-trimester-bloods, first-blood-tests ]
+
+- id: full-blood-count
+  title: Full blood count
+  type: term
+  topic: tests
+  ask: What is the full blood count checking?
+  aliases: [ FBC, haemoglobin, Hb, iron test, ferritin, platelets, anaemia test ]
+  weeks: [ 5, 30 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - haemoglobin for anaemia, platelets, white cells, at the first visit and again at about 28 weeks
+    - ferritin is often added to catch low iron before anaemia
+    - what a low result leads to, iron tablets or an infusion
+    - low platelets are common and usually harmless
+  sources:
+    - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Low platelets during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/low-platelets-during-pregnancy
+  related: [ anaemia-in-pregnancy, low-platelets, third-trimester-bloods, first-blood-tests ]
+
+- id: rubella-immunity
+  title: Rubella immunity
+  type: term
+  topic: tests
+  ask: Why are they testing me for German measles?
+  aliases: [ rubella antibodies, German measles, rubella immune, MMR after birth ]
+  weeks: [ 5, 12 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - rubella in early pregnancy can harm the baby, most Australians are immune from childhood vaccination
+    - the test checks antibodies, not immune means avoid contact with rashes and get the MMR after the birth
+    - MMR is a live vaccine, so it cannot be given during pregnancy
+  sources:
+    - title: Pregnancy, Birth and Baby — Rubella and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rubella-and-pregnancy
+    - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+  related: [ first-blood-tests, live-vaccines-to-avoid ]
+
+- id: hepatitis-b-screening
+  title: Hepatitis B screening
+  type: term
+  topic: tests
+  ask: Why do they test for hepatitis B?
+  aliases: [ hep B, HBsAg, hepatitis B surface antigen, hepatitis B positive pregnancy ]
+  weeks: [ 5, 12 ]
+  priority: 2
+  stakes: high
+  covers:
+    - a blood-borne virus that can pass to the baby at birth, tested in every pregnancy
+    - a positive result changes the birth plan for the baby, vaccine and immunoglobulin straight after birth, and referral for the parent
+    - not immune and at risk means the vaccine can be given in pregnancy, it is not live
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy and breastfeeding with hepatitis B
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pregnancy-and-breastfeeding-with-hepatitis-b
+    - title: Australian Immunisation Handbook — Vaccination for women who are planning pregnancy, pregnant or breastfeeding
+      url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
+  related: [ first-blood-tests, hepatitis-c-screening, hiv-screening ]
+
+- id: hepatitis-c-screening
+  title: Hepatitis C screening
+  type: term
+  topic: tests
+  ask: What does the hepatitis C test mean for the baby?
+  aliases: [ hep C, HCV antibody, hepatitis C pregnancy ]
+  weeks: [ 5, 12 ]
+  priority: 3
+  stakes: medium
+  covers:
+    - an antibody test at the first bloods, a positive leads to a further test and specialist care
+    - treatment is after pregnancy, the baby is tested later
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy and breastfeeding with hepatitis C
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pregnancy-and-breastfeeding-with-hepatitis-c
+    - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+  related: [ first-blood-tests, hepatitis-b-screening ]
+
+- id: hiv-screening
+  title: HIV screening
+  type: term
+  topic: tests
+  ask: Why am I being tested for HIV?
+  aliases: [ HIV test pregnancy, HIV antibody, routine HIV screen ]
+  weeks: [ 5, 12 ]
+  priority: 3
+  stakes: high
+  covers:
+    - offered to everyone because treatment in pregnancy almost always stops the virus passing to the baby
+    - a positive result means specialist care, medicines and a planned birth and feeding
+  sources:
+    - title: Pregnancy, Birth and Baby — HIV and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/hiv-and-pregnancy
+    - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+  related: [ first-blood-tests, hepatitis-b-screening, syphilis-screening ]
+
+- id: syphilis-screening
+  title: Syphilis screening
+  type: term
+  topic: tests
+  ask: Why do they test for syphilis, and why again later?
+  aliases: [ syphilis test, syphilis serology, congenital syphilis, repeat syphilis test ]
+  weeks: [ 5, 36 ]
+  priority: 2
+  stakes: high
+  covers:
+    - tested at the first bloods in every pregnancy, cases are rising in Australia
+    - many services now repeat it at 26 to 28 weeks and at 36 weeks or birth
+    - a positive is treated with penicillin, and the earlier the better for the baby
+  sources:
+    - title: Pregnancy, Birth and Baby — Syphilis and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/syphilis-and-pregnancy
+  related: [ first-blood-tests, third-trimester-bloods, sti-screening ]
+  notes: Repeat testing in the third trimester is now standard in several states (Qld, NT, WA, NSW in higher-prevalence areas); say "many services" rather than a single rule.
+
+- id: vitamin-d-test
+  title: Vitamin D test
+  type: term
+  topic: tests
+  ask: Do I need a vitamin D test?
+  aliases: [ vitamin D level, vitamin D deficiency, low vitamin D pregnancy ]
+  weeks: [ 5, 12 ]
+  priority: 2
+  stakes: low
+  covers:
+    - often included with the first bloods, low levels are common with darker skin, covering clothing or little sun
+    - a low result means a supplement, often continued after the birth
+  sources:
+    - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Routine antenatal tests
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/routine-antenatal-tests
+  related: [ first-blood-tests ]
+
+- id: urine-culture
+  title: The urine culture
+  type: term
+  topic: tests
+  ask: Why do they send my urine to the lab?
+  aliases: [ MSU, midstream urine, urine test pregnancy, asymptomatic bacteriuria, urine culture and sensitivity ]
+  weeks: [ 5, 14 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - a midstream sample at the first visit, cultured for bacteria you may not feel
+    - an infection without symptoms is treated with antibiotics because it can reach the kidneys and bring on early labour
+    - how to collect a clean sample
+    - the dipstick at every later visit is a different, quicker check
+  sources:
+    - title: Pregnancy, Birth and Baby — Urinary tract infections (UTIs) in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/urinary-tract-infections-utis-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Routine antenatal tests
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/routine-antenatal-tests
+  related: [ first-blood-tests, uti-found-on-testing, what-happens-at-each-visit ]
+
+- id: sti-screening
+  title: Chlamydia and gonorrhoea screening
+  type: term
+  topic: tests
+  ask: Will they test me for STIs?
+  aliases: [ chlamydia test, gonorrhoea test, STI screen pregnancy, swab at first visit ]
+  weeks: [ 5, 14 ]
+  priority: 3
+  stakes: medium
+  covers:
+    - a urine or swab test, offered under 25 or with risk factors, some services offer it to everyone
+    - both are often silent and both are easily treated, and untreated can affect the baby at birth
+  sources:
+    - title: Pregnancy, Birth and Baby — STIs and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/stis-and-pregnancy
+    - title: Pregnancy, Birth and Baby — Checkups, tests and scans available during your pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/checkups-and-scans-during-your-pregnancy
+  related: [ first-blood-tests, syphilis-screening ]
+
+- id: early-diabetes-test
+  title: An early diabetes test
+  type: term
+  topic: tests
+  ask: Why am I having a sugar test so early?
+  aliases: [ HbA1c pregnancy, early glucose test, early OGTT, early gestational diabetes screening ]
+  weeks: [ 5, 20 ]
+  priority: 3
+  stakes: medium
+  covers:
+    - an HbA1c or early glucose tolerance test before 20 weeks for those at higher risk, previous gestational diabetes, a large previous baby, family history, higher BMI, some backgrounds
+    - a normal early result still means the usual test at 24 to 28 weeks
+  sources:
+    - title: Pregnancy, Birth and Baby — Gestational diabetes
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/gestational-diabetes
+    - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+  related: [ glucose-tolerance-test, gestational-diabetes, first-blood-tests ]
+
+- id: cervical-screening-test
+  title: Cervical screening in pregnancy
+  type: moment
+  topic: tests
+  ask: Can I have my cervical screening test while pregnant?
+  aliases: [ pap smear, CST, HPV test, cervical screening due, smear test pregnant ]
+  weeks: [ 4, 20 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - if it is due, it is safe in pregnancy and usually offered at the first visit, every 5 years from 25
+    - some providers prefer to wait until after the birth, ask
+    - the self-collect option
+    - Medicare covers it, a bulk-billed GP charges nothing
+  sources:
+    - title: Pregnancy, Birth and Baby — Cervical screening during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/cervical-screening-during-pregnancy
+    - title: The Royal Women's Hospital — Your first pregnancy check-up
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/your-first-pregnancy-check-up
+  related: [ first-antenatal-visit, first-blood-tests ]
+
+- id: dating-scan
+  title: The dating scan
+  type: moment
+  topic: tests
+  ask: When is the first scan?
+  aliases: [ early scan, 8 week scan, viability scan, first ultrasound, CRL, transvaginal scan, internal ultrasound ]
+  weeks: [ 6, 13 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - usually 8 to 14 weeks, measures the baby to set the due date, confirms the heartbeat and how many babies
+    - not everyone needs one if the dates are certain, and the nuchal scan can double as it
+    - early scans are often transvaginal, what that is like
+    - Medicare rebates part, imaging providers may charge a gap, ask when booking
+    - a referral from the GP, and bring a full bladder if asked
+  sources:
+    - title: Pregnancy, Birth and Baby — Dating scan
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/dating-scan
+    - title: Pregnancy, Birth and Baby — Ultrasound scans during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/ultrasound-scan
+  related: [ estimated-due-date, nuchal-translucency-scan, twins-found-at-a-scan, paying-for-scans ]
+  exists: content/items/dating-scan.md
+
+- id: paying-for-scans
+  title: Paying for ultrasounds
+  type: guide
+  topic: tests
+  ask: Why did the scan cost money if Medicare covers it?
+  aliases: [ ultrasound cost, scan gap fee, bulk billed ultrasound, radiology fees, 3D scan, keepsake scan ]
+  weeks: [ 6, 40 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - Medicare pays a rebate on each routine scan with a referral, the provider sets the fee and many charge a gap
+    - public hospital imaging is often bulk-billed, private practices often not, ask when booking
+    - the NT scan with combined screening may carry a larger gap
+    - keepsake 3D or 4D scans are not medical and not rebated
+    - scans count toward the Safety Net
+  sources:
+    - title: Pregnancy, Birth and Baby — Ultrasound scans during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/ultrasound-scan
+    - title: Pregnancy, Birth and Baby — Screening for Down syndrome
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/screening-for-down-syndrome
+  related: [ what-medicare-covers, medicare-safety-net, dating-scan, morphology-scan, growth-scans ]
+
+- id: first-trimester-screening
+  title: Screening tests in the first trimester
+  type: decision
+  topic: tests
+  ask: Should we have the Down syndrome screening, and which one?
+  aliases: [ 12 week screening, genetic screening, chromosome screening, Down syndrome test, trisomy screening, NIPT or combined ]
+  weeks: [ 10, 14 ]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - optional, and a real choice, what you would do with a result
+    - the options, combined first-trimester screening, NIPT, or neither, and second-trimester serum screening if the window is missed
+    - accuracy and cost of each, Medicare and the NIPT bill
+    - the window closes at 13 weeks 6 days for the scan part
+    - what a high-chance result leads to, counselling and a diagnostic test
+  sources:
+    - title: Pregnancy, Birth and Baby — Screening for Down syndrome
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/screening-for-down-syndrome
+    - title: RANZCOG — Prenatal screening for chromosomal and genetic conditions (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Prenatal-Screening-for-Chromosomal-and-Genetic-Conditions.pdf
+    - title: Pregnancy, Birth and Baby — Non-invasive prenatal testing (NIPT)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/non-invasive-prenatal-testing-nipt
+  related: [ combined-first-trimester-screening, nipt, nuchal-translucency-scan, second-trimester-serum-screening, screening-vs-diagnostic, high-chance-result, genetic-counselling ]
+  exists: content/items/first-trimester-screening.md
+
+- id: combined-first-trimester-screening
+  title: Combined first-trimester screening
+  type: moment
+  topic: tests
+  ask: What is the combined screening test?
+  aliases: [ CFTS, combined screening, first trimester screen, 12 week scan and bloods, nuchal and bloods ]
+  weeks: [ 10, 13 ]
+  priority: 1
+  stakes: high
+  covers:
+    - a blood test at 10 to 13 weeks plus the nuchal translucency scan at 11 to 13 weeks 6 days, combined with age into a chance
+    - finds about 85 to 90 percent of Down syndrome, also trisomy 18 and 13, and the scan checks structure
+    - Medicare covers the blood test, the scan may have a gap
+    - the blood test window closes at 13 weeks and the scan at 13 weeks 6 days
+    - results as a chance, low or increased, not yes or no
+  sources:
+    - title: Pregnancy, Birth and Baby — Screening for Down syndrome
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/screening-for-down-syndrome
+    - title: RANZCOG — Prenatal screening for chromosomal and genetic conditions (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Prenatal-Screening-for-Chromosomal-and-Genetic-Conditions.pdf
+    - title: The Royal Women's Hospital — Genetic testing in pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/genetic-testing-in-pregnancy
+  related: [ first-trimester-screening, nuchal-translucency-scan, nipt, high-chance-result ]
+
+- id: nuchal-translucency-scan
+  title: The nuchal translucency scan
+  type: moment
+  topic: tests
+  ask: What is the 12-week scan looking at?
+  aliases: [ NT scan, 12 week scan, nuchal scan, nuchal fold, 13 week scan ]
+  weeks: [ 11, 13 ]
+  priority: 1
+  stakes: high
+  covers:
+    - the fluid at the back of the baby's neck, usually measured between 11 weeks and 13 weeks 6 days
+    - part of combined screening, and also an early look for heart and other structural differences; NIPT does not include it, so it is arranged separately
+    - what the measurement means and what a large one leads to
+    - cost, there may be costs for the ultrasound
+  sources:
+    - title: Pregnancy, Birth and Baby — Nuchal translucency scan
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/nuchal-translucency-scan
+    - title: RANZCOG — Prenatal screening for chromosomal and genetic conditions (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Prenatal-Screening-for-Chromosomal-and-Genetic-Conditions.pdf
+    - title: Pregnancy, Birth and Baby — Screening for Down syndrome
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/screening-for-down-syndrome
+  related: [ combined-first-trimester-screening, nipt, dating-scan, paying-for-scans ]
+
+- id: nipt
+  title: NIPT
+  type: decision
+  topic: tests
+  ask: Is NIPT worth paying for?
+  aliases: [ non-invasive prenatal testing, cell-free DNA, cfDNA, Harmony, Percept, Generation, blood test for Down syndrome, find out the sex early ]
+  weeks: [ 10, 16 ]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - a blood test from 10 weeks that reads the baby's DNA in your blood, finds about 99 percent of Down syndrome, also trisomy 18 and 13 and sex chromosome conditions
+    - not on Medicare or private insurance, around 450 to 800 dollars, plus a consult
+    - still a screen, a high-chance result needs CVS or amniocentesis to confirm
+    - genome-wide versus targeted panels, and what it does not screen for
+    - it can tell the sex, decide together whether you want to know
+    - it does not replace the 12-week scan
+  sources:
+    - title: Pregnancy, Birth and Baby — Non-invasive prenatal testing (NIPT)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/non-invasive-prenatal-testing-nipt
+    - title: Pregnancy, Birth and Baby — Medicare during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/medicare-during-pregnancy
+    - title: RANZCOG — Prenatal screening for chromosomal and genetic conditions (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Prenatal-Screening-for-Chromosomal-and-Genetic-Conditions.pdf
+  related: [ first-trimester-screening, combined-first-trimester-screening, nuchal-translucency-scan, screening-vs-diagnostic, high-chance-result ]
+  notes: Prices move; give the range as "around" and date it.
+
+- id: second-trimester-serum-screening
+  title: Second-trimester serum screening
+  type: moment
+  topic: tests
+  ask: I missed the 12-week screening, is there another?
+  aliases: [ maternal serum screening, MSS, quad test, triple test, 15 to 20 week blood test, second trimester screening ]
+  weeks: [ 15, 20 ]
+  priority: 2
+  stakes: high
+  covers:
+    - a blood test between 15 and 20 weeks for those who missed the first-trimester window
+    - finds about 75 percent of Down syndrome, also trisomy 18 and neural tube defects
+    - Medicare rebated
+    - NIPT remains an option at any week after 10
+  sources:
+    - title: RANZCOG — Prenatal screening for chromosomal and genetic conditions (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Prenatal-Screening-for-Chromosomal-and-Genetic-Conditions.pdf
+    - title: The Royal Women's Hospital — Genetic testing in pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/genetic-testing-in-pregnancy
+    - title: Pregnancy, Birth and Baby — Screening for Down syndrome
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/screening-for-down-syndrome
+  related: [ first-trimester-screening, nipt, neural-tube-defect-screening ]
+
+- id: neural-tube-defect-screening
+  title: Screening for spina bifida
+  type: term
+  topic: tests
+  ask: How do they check for spina bifida?
+  aliases: [ neural tube defect, NTD, spina bifida screening, AFP, anencephaly ]
+  weeks: [ 15, 22 ]
+  priority: 3
+  stakes: medium
+  covers:
+    - the morphology scan is the main check, serum screening adds AFP
+    - folate before and in early pregnancy is the prevention
+    - what a finding leads to, a specialist scan and counselling
+  sources:
+    - title: Pregnancy, Birth and Baby — Neural tube defects
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/neural-tube-defect
+    - title: The Royal Women's Hospital — Genetic testing in pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/genetic-testing-in-pregnancy
+  related: [ morphology-scan, second-trimester-serum-screening ]
+
+- id: screening-vs-diagnostic
+  title: Screening test or diagnostic test
+  type: term
+  topic: tests
+  ask: What is the difference between a screening test and a diagnostic test?
+  aliases: [ screening test, diagnostic test, chance result, risk result, false positive, detection rate ]
+  weeks: [ 8, 22 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - a screen gives a chance, a diagnostic test gives an answer
+    - why screens come first, diagnostic tests carry a small miscarriage risk
+    - a high-chance result is not a diagnosis, and a low-chance result is not a guarantee
+    - how a result is written, 1 in 1,000, and what cut-offs mean
+  sources:
+    - title: Pregnancy, Birth and Baby — Checkups, tests and scans available during your pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/checkups-and-scans-during-your-pregnancy
+    - title: RANZCOG — Prenatal screening for chromosomal and genetic conditions (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Prenatal-Screening-for-Chromosomal-and-Genetic-Conditions.pdf
+  related: [ first-trimester-screening, nipt, cvs, amniocentesis, high-chance-result ]
+
+- id: high-chance-result
+  title: A high-chance screening result
+  type: guide
+  topic: tests
+  ask: The screening came back high chance, what happens now?
+  aliases: [ increased risk result, high risk screening, positive screening, abnormal NIPT, what next after screening ]
+  weeks: [ 10, 22 ]
+  who: together
+  priority: 2
+  stakes: high
+  covers:
+    - what the number means, most high-chance results are not an affected baby
+    - the next steps offered, genetic counselling, NIPT if you had combined screening, CVS or amniocentesis
+    - time matters but there is time, the windows for each diagnostic test
+    - it is your choice at every step, including to stop testing
+    - support, and where the decisions after a diagnosis are discussed
+  sources:
+    - title: Pregnancy, Birth and Baby — Screening for Down syndrome
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/screening-for-down-syndrome
+    - title: Pregnancy, Birth and Baby — Non-invasive prenatal testing (NIPT)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/non-invasive-prenatal-testing-nipt
+    - title: Pregnancy, Birth and Baby — Genetic counselling
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/pregnancy-planning/genetic-counselling
+  related: [ genetic-counselling, cvs, amniocentesis, screening-vs-diagnostic, nipt ]
+  notes: Decisions after a diagnosis, including ending a pregnancy, belong to the loss and mental health file; stop at the diagnostic test and point there.
+
+- id: cvs
+  title: Chorionic villus sampling (CVS)
+  type: moment
+  topic: tests
+  ask: What is a CVS and is it risky?
+  aliases: [ chorionic villus sampling, placenta biopsy, CVS test, diagnostic test 12 weeks ]
+  weeks: [ 11, 14 ]
+  priority: 2
+  stakes: high
+  covers:
+    - a needle sample of the placenta at 11 to 13 weeks 6 days, under ultrasound, a diagnostic answer on chromosomes and some genetic conditions
+    - offered after a high-chance screen or a known family condition
+    - a small added miscarriage risk, infection, bleeding
+    - results in days for the common trisomies, longer for the full result
+    - Medicare covers part, private procedure fees possible, done at specialist centres
+    - rest afterwards, and who to call
+  sources:
+    - title: Pregnancy, Birth and Baby — Chorionic villus sampling (CVS)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/chorionic-villus-sampling-cvs
+    - title: The Royal Women's Hospital — Genetic testing in pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/genetic-testing-in-pregnancy
+  related: [ amniocentesis, high-chance-result, screening-vs-diagnostic, genetic-counselling ]
+
+- id: amniocentesis
+  title: Amniocentesis
+  type: moment
+  topic: tests
+  ask: What is an amniocentesis?
+  aliases: [ amnio, amniotic fluid test, diagnostic test 16 weeks ]
+  weeks: [ 15, 20 ]
+  priority: 2
+  stakes: high
+  covers:
+    - a needle sample of the fluid around the baby from 15 weeks, under ultrasound, a diagnostic answer
+    - offered after a high-chance screen, a scan finding, or for infection tests
+    - a very small miscarriage risk, fluid leak, cramping
+    - Medicare covers part, private fees possible
+    - results timing, rest afterwards, anti-D if RhD negative
+  sources:
+    - title: Pregnancy, Birth and Baby — Amniocentesis
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/amniocentesis
+    - title: The Royal Women's Hospital — Genetic testing in pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/genetic-testing-in-pregnancy
+  related: [ cvs, high-chance-result, screening-vs-diagnostic, rhd-negative ]
+
+- id: genetic-counselling
+  title: Genetic counselling
+  type: guide
+  topic: tests
+  ask: What does a genetic counsellor do?
+  aliases: [ genetic counsellor, clinical genetics, genetics referral, genetic service ]
+  weeks: [ 4, 22 ]
+  priority: 3
+  stakes: medium
+  covers:
+    - who they are, and when you are referred, a family history, a carrier result, a high-chance screen, a scan finding
+    - what a session covers, the chances in plain numbers, the test options, no pressure either way
+    - public genetics services are free with a referral, private ones charge
+  sources:
+    - title: Pregnancy, Birth and Baby — Genetic counselling
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/pregnancy-planning/genetic-counselling
+    - title: RANZCOG — Prenatal screening for chromosomal and genetic conditions (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Prenatal-Screening-for-Chromosomal-and-Genetic-Conditions.pdf
+  related: [ high-chance-result, carrier-screening, cvs, amniocentesis ]
+
+- id: carrier-screening
+  title: Carrier screening
+  type: decision
+  topic: tests
+  ask: Should we have carrier screening, and is it free now?
+  aliases: [ reproductive carrier screening, genetic carrier screening, three-condition screen, cystic fibrosis carrier, SMA carrier, fragile X carrier, expanded carrier screening, Mackenzie's Mission ]
+  weeks: [ 4, 12 ]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - a blood or saliva test for whether you carry cystic fibrosis, spinal muscular atrophy or fragile X, about 1 in 20 Australians carry one
+    - since 1 November 2023 Medicare covers the three-condition test, the pregnant partner first, then the other partner for CF and SMA if needed
+    - carrier screening costs from 100 to more than 1,500 dollars depending on the provider and how many conditions, expanded panels screen hundreds of conditions, some Medicare rebates apply depending on the tests ordered
+    - best before pregnancy, still useful early, results take 2 to 8 weeks, so ask at the first visit
+    - what a both-carriers result means, a 1 in 4 chance each pregnancy, and the diagnostic tests that follow
+  sources:
+    - title: Pregnancy, Birth and Baby — Genetic carrier screening
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/pregnancy-planning/genetic-carrier-screening
+    - title: MBS Online — Reproductive carrier testing for cystic fibrosis, spinal muscular atrophy and fragile X syndrome (factsheet)
+      url: https://www.mbsonline.gov.au/internet/mbsonline/publishing.nsf/Content/0FAE1338D92EA3A3CA258A6F0001701A/$File/FS%20-%20Reproductive%20carrier%20testing%20for%20cystic%20fibrosis,%20spinal%20muscular%20atrophy%20and%20fragile%20X%20syndrome.pdf
+  related: [ first-antenatal-visit, genetic-counselling, first-trimester-screening, cvs ]
+  notes: The items are MBS 73451 (the pregnant or planning person) and 73452 (their partner). Labs may bulk bill or charge a gap. The deadline is soft but real, the results must be back in time for diagnostic testing.
+
+- id: rhd-nipt
+  title: The RhD blood test for the baby's group
+  type: term
+  topic: tests
+  ask: Can they tell the baby's blood group from my blood?
+  aliases: [ fetal RHD genotyping, RhD NIPT, cell-free fetal DNA RhD, baby's blood group test ]
+  weeks: [ 11, 28 ]
+  priority: 3
+  stakes: medium
+  covers:
+    - for RhD negative parents, a blood test from 11 weeks predicts whether the baby is RhD positive
+    - if the baby is negative, routine anti-D can be skipped
+    - now Medicare-rebated, not offered everywhere yet, ask your provider
+  sources:
+    - title: Pregnancy, Birth and Baby — Rhesus D negative in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+    - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+  related: [ rhd-negative, anti-d, blood-group-and-antibodies ]
+
+- id: morphology-scan
+  title: The morphology scan
+  type: moment
+  topic: tests
+  ask: What is the 20-week scan for?
+  aliases: [ 20 week scan, anatomy scan, anomaly scan, mid-pregnancy scan, structural scan, find out the sex scan ]
+  weeks: [ 16, 22 ]
+  priority: 1
+  stakes: high
+  covers:
+    - at 18 to 22 weeks, ideally 20, every organ and limb, the heart, the spine, growth, the placenta's position, the cervix
+    - Medicare covers the cost of the scan, but there may be out-of-pocket costs depending on where you go, ask when you book
+    - the sex can usually be seen, say if you don't want to know
+    - what happens if something is seen, a further ultrasound or a diagnostic test
+    - the partner can usually come, check the rules
+  sources:
+    - title: Pregnancy, Birth and Baby — Morphology scan
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/morphology-scan
+    - title: Pregnancy, Birth and Baby — Ultrasound scans during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/ultrasound-scan
+  related: [ low-lying-placenta, neural-tube-defect-screening, paying-for-scans, partner-at-appointments, twins-found-at-a-scan ]
+  exists: content/items/morphology-scan.md
+
+- id: glucose-tolerance-test
+  title: The glucose tolerance test
+  type: moment
+  topic: tests
+  ask: What is the sugar test like and do I have to fast?
+  aliases: [ OGTT, GTT, glucose test, sugar drink test, gestational diabetes test, 26 week bloods ]
+  weeks: [ 24, 28 ]
+  priority: 1
+  stakes: high
+  covers:
+    - offered to everyone at 24 to 28 weeks, fast overnight, a blood test, the drink, two more draws over two hours
+    - you stay at the pathology centre for the full two hours, so plan for that
+    - usually done in the morning so you can fast overnight, Medicare may help with the cost of pregnancy blood tests
+    - the result, and what gestational diabetes care looks like
+    - the third-trimester bloods come around 28 weeks, a full blood count and perhaps more blood group tests
+  sources:
+    - title: Pregnancy, Birth and Baby — Gestational diabetes
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/gestational-diabetes
+    - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Medicare during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/medicare-during-pregnancy
+  related: [ gestational-diabetes, third-trimester-bloods, early-diabetes-test ]
+  exists: content/items/glucose-tolerance-test.md
+
+- id: third-trimester-bloods
+  title: The 28-week blood tests
+  type: moment
+  topic: tests
+  ask: Why more blood tests at 28 weeks?
+  aliases: [ 28 week bloods, third trimester blood tests, repeat antibodies, repeat FBC, 26 week blood test ]
+  weeks: [ 26, 28 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - a full blood count again for iron, the antibody screen again, and in many services syphilis again
+    - usually drawn with the glucose test, one fasting trip
+    - RhD negative, the antibody screen before the first anti-D
+    - low iron here is common, and there is time to fix it before the birth
+  sources:
+    - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Syphilis and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/syphilis-and-pregnancy
+    - title: Pregnancy, Birth and Baby — Anaemia in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/anaemia-in-pregnancy
+  related: [ glucose-tolerance-test, full-blood-count, anti-d, anaemia-in-pregnancy, syphilis-screening ]
+
+- id: anti-d
+  title: Anti-D if your blood group is RhD negative
+  type: moment
+  topic: tests
+  ask: Why do I need anti-D injections?
+  aliases: [ anti-D injection, RhD immunoglobulin, rhesus negative injection, 28 week injection, 34 week injection ]
+  weeks: [ 26, 34 ]
+  priority: 1
+  stakes: high
+  covers:
+    - routine doses at about 28 and 34 weeks, and after the birth if the baby is positive
+    - also after a sensitising event (CVS or amniocentesis, an injury or accident to the abdomen, heavy or repeated bleeding or bleeding with stomach pain, miscarriage), within 72 hours but it can still be given later, one-off bleeding in the first 12 weeks may not need it
+    - a blood product made from plasma, safe for you and the baby, what to expect
+    - skipped if the RhD NIPT shows a negative baby
+  sources:
+    - title: Pregnancy, Birth and Baby — Rhesus D negative in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+    - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+  related: [ rhd-negative, rhd-nipt, blood-group-and-antibodies, third-trimester-bloods ]
+  exists: content/items/anti-d.md
+
+- id: group-b-strep-swab
+  title: The Group B strep swab
+  type: moment
+  topic: tests
+  ask: What is the GBS swab?
+  aliases: [ GBS, group B streptococcus, 36 week swab, vaginal swab, strep B ]
+  weeks: [ 35, 37 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - a low vaginal and rectal swab at 35 to 37 weeks, often self-collected
+    - about 1 in 5 carry it with no symptoms, a positive means antibiotics in labour, not now
+    - some hospitals use risk factors instead of a swab, ask which
+    - free, done at a visit
+  sources:
+    - title: Pregnancy, Birth and Baby — Group B Strep (GBS) in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/group-b-strep-test
+  related: [ antenatal-visit-schedule, babys-position-check ]
+  exists: content/items/group-b-strep-swab.md
+  notes: Screening versus risk-factor approach differs by state and hospital.
+
+- id: growth-scans
+  title: Growth scans
+  type: moment
+  topic: tests
+  ask: Why have I been sent for a growth scan?
+  aliases: [ third trimester scan, 32 week scan, 36 week scan, growth ultrasound, serial scans, doppler scan ]
+  weeks: [ 26, 40 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - not routine in a straightforward pregnancy, ordered when the bump measures off, with diabetes, high blood pressure, twins, a low placenta, reduced movements, or past dates
+    - what is measured, estimated weight and its wide error, fluid, blood flow in the cord, the placenta, position
+    - Medicare rebates them with a referral, gaps vary
+    - what a result leads to, more scans, earlier birth, or reassurance
+  sources:
+    - title: Pregnancy, Birth and Baby — Placental insufficiency
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placental-insufficiency
+    - title: Pregnancy, Birth and Baby — Ultrasound scans during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/ultrasound-scan
+    - title: Pregnancy, Birth and Baby — Placenta praevia
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-praevia
+  related: [ fundal-height, small-for-dates, large-for-dates, low-lying-placenta, twins-found-at-a-scan, paying-for-scans ]
+  notes: Private obstetricians often scan routinely at 32 to 36 weeks; public clinics do not. Say both.
+
+- id: ctg-monitoring
+  title: CTG monitoring
+  type: term
+  topic: tests
+  ask: What is a CTG and why am I on the monitor?
+  aliases: [ cardiotocograph, fetal monitoring, heart rate trace, the monitor, belts on the belly, day assessment unit ]
+  weeks: [ 26, 42 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - two sensors on belts, the baby's heart rate and any tightenings, 20 to 40 minutes
+    - before birth it is used for reduced movements, high blood pressure, bleeding, past dates, before and after an ECV
+    - usually in a day assessment or pregnancy assessment unit, free in the public system
+    - what a normal trace looks like, and what a non-reassuring one leads to
+    - routine CTG in labour is not recommended for low-risk pregnancies
+  sources:
+    - title: Pregnancy, Birth and Baby — Fetal heart rate monitoring
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/fetal-monitoring
+    - title: Pregnancy, Birth and Baby — External cephalic version (ECV)
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/external-cephalic-version-ecv
+  related: [ baby-movements, pre-eclampsia, ecv, past-your-due-date-appointment, fetal-heartbeat-check ]
+  notes: Monitoring in labour belongs to the labour file; keep this to the antenatal use.
+
+- id: babys-position-check
+  title: Checking the baby's position at 36 weeks
+  type: moment
+  topic: appointments
+  ask: How do they know which way the baby is lying?
+  aliases: [ 36 week check, palpation, head down, engaged, cephalic, presentation check, baby's position ]
+  weeks: [ 34, 37 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - at about 36 weeks the midwife feels the bump for the head, the back and whether the head has engaged
+    - most babies are head down by now, a suspected breech is confirmed by scan
+    - what the words mean, cephalic, breech, transverse, posterior, engaged
+    - what a breech at 36 weeks leads to
+  sources:
+    - title: Pregnancy, Birth and Baby — Breech pregnancy
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
+    - title: The Royal Women's Hospital — Baby's position
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/babys-position
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+  related: [ breech-baby, ecv, group-b-strep-swab, antenatal-visit-schedule ]
+
+- id: past-your-due-date-appointment
+  title: The appointment after the due date
+  type: moment
+  topic: appointments
+  ask: What happens at the appointment if I go past my due date?
+  aliases: [ 41 week appointment, overdue appointment, post-dates check, post-term monitoring, 40 week appointment ]
+  weeks: [ 40, 42 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - a visit at about 40 to 41 weeks, blood pressure, the bump, movements, often a CTG and a fluid scan
+    - what will be discussed, a stretch and sweep, the timing of induction, usually offered by 41 to 42 weeks
+    - the choice is yours, and what extra monitoring looks like if you wait
+  sources:
+    - title: Pregnancy, Birth and Baby — Fetal heart rate monitoring
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/fetal-monitoring
+    - title: Pregnancy, Birth and Baby — Working out your due date
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date
+  related: [ ctg-monitoring, estimated-due-date, antenatal-visit-schedule ]
+  notes: Induction and the stretch and sweep themselves belong to the labour file; this entry is the appointment and the monitoring. Hospital policy on when induction is offered differs (41 to 42 weeks).
+
+# ---------------------------------------------------------------------------
+# Vaccines
+# ---------------------------------------------------------------------------
+
+- id: flu-vaccine
+  title: The flu vaccine
+  type: moment
+  topic: tests
+  ask: Should I get the flu shot while pregnant?
+  aliases: [ influenza vaccine, flu shot, flu jab, free flu vaccine pregnancy ]
+  weeks: [ 4, 40 ]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - recommended at any stage of every pregnancy, free under the National Immunisation Program
+    - pregnancy raises the risk of severe flu, and the vaccine protects the baby for the first 6 months
+    - inactivated, not live, safe in every trimester
+    - if vaccinated early with last year's, have this year's when it comes out
+    - can be given with the whooping cough and RSV vaccines
+  sources:
+    - title: Department of Health — Immunisation for pregnancy
+      url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
+    - title: Australian Immunisation Handbook — Influenza (flu)
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/influenza-flu
+  related: [ whooping-cough-vaccine, rsv-vaccine, vaccines-in-one-visit, partner-flu-vaccine ]
+  exists: content/items/flu-vaccine.md
+
+- id: whooping-cough-vaccine
+  title: The whooping cough vaccine
+  type: moment
+  topic: tests
+  ask: When do I get the whooping cough vaccine?
+  aliases: [ pertussis vaccine, dTpa, Boostrix, Adacel, 28 week vaccine, whooping cough booster ]
+  weeks: [ 20, 32 ]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - a single dose between 20 and 32 weeks of every pregnancy, free, still worth having later if missed
+    - vaccination in pregnancy cuts whooping cough in young babies (3 to 4 months) by about 90 percent, and gives some protection until their first immunisations at 6 weeks
+    - the partner and other adults around the baby need their own booster
+  sources:
+    - title: Australian Immunisation Handbook — Pertussis (whooping cough)
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/pertussis-whooping-cough
+    - title: Department of Health — Immunisation for pregnancy
+      url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
+  related: [ partner-whooping-cough-booster, flu-vaccine, rsv-vaccine, vaccines-in-one-visit ]
+  exists: content/items/whooping-cough-vaccine.md
+
+- id: rsv-vaccine
+  title: The RSV vaccine
+  type: moment
+  topic: tests
+  ask: What is the RSV vaccine in pregnancy?
+  aliases: [ Abrysvo, RSV vaccine pregnancy, respiratory syncytial virus, bronchiolitis vaccine, nirsevimab, Beyfortus ]
+  weeks: [ 28, 36 ]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - Abrysvo, a single dose from 28 weeks, best by the end of 36, free under the NIP
+    - protects the baby from birth against RSV, cutting severe RSV in babies under 6 months by about 70 percent, RSV is a leading cause of lower respiratory tract hospitalisation in babies under 12 months
+    - not before 28 weeks, and what the trials showed
+    - if missed or given late, the baby can have the antibody injection instead through state programs
+    - can be given with flu and whooping cough
+  sources:
+    - title: Australian Immunisation Handbook — Respiratory syncytial virus (RSV)
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/respiratory-syncytial-virus-rsv
+    - title: Department of Health — Immunisation for pregnancy
+      url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
+  related: [ whooping-cough-vaccine, flu-vaccine, vaccines-in-one-visit ]
+  exists: content/items/rsv-vaccine.md
+  notes: Infant nirsevimab eligibility differs by state program.
+
+- id: covid-vaccine-in-pregnancy
+  title: The COVID-19 vaccine in pregnancy
+  type: decision
+  topic: tests
+  ask: Do I need a COVID vaccine while pregnant?
+  aliases: [ COVID vaccine pregnancy, COVID booster pregnant, mRNA vaccine pregnancy ]
+  weeks: [ 20, 40 ]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - not routinely recommended, but any pregnant person can consider a dose from 20 weeks in each pregnancy, to protect the baby
+    - safe at any stage, mRNA vaccines have good pregnancy data
+    - more reason if in a higher-risk group or it has been a long time since the last dose
+    - free, and can be given with the other pregnancy vaccines
+  sources:
+    - title: Australian Immunisation Handbook — COVID-19
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/covid-19
+    - title: Australian Immunisation Handbook — Vaccination for women who are planning pregnancy, pregnant or breastfeeding
+      url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
+  related: [ flu-vaccine, vaccines-in-one-visit, live-vaccines-to-avoid ]
+  notes: Advice has shifted from "recommended" to "can consider"; date the entry and check the Handbook each year.
+
+- id: live-vaccines-to-avoid
+  title: Vaccines not to have in pregnancy
+  type: guide
+  topic: tests
+  ask: Which vaccines can't I have while pregnant?
+  aliases: [ live vaccines, MMR pregnancy, chickenpox vaccine pregnancy, varicella vaccine, yellow fever vaccine, BCG, travel vaccines pregnancy, immunisation history ]
+  weeks: [ 1, 42 ]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - live vaccines are contraindicated, MMR, varicella, BCG, oral typhoid, oral cholera, yellow fever, the nasal flu spray
+    - wait 28 days after a live vaccine before conceiving, and tell any vaccinator you may be pregnant
+    - if given by accident, no proven harm, tell your midwife
+    - not immune to rubella or chickenpox, the catch-up is after the birth and is fine while breastfeeding
+    - travel vaccines, inactivated ones can be given if the risk justifies it
+    - check your record on the Australian Immunisation Register through myGov
+  sources:
+    - title: Australian Immunisation Handbook — Vaccination for women who are planning pregnancy, pregnant or breastfeeding
+      url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
+    - title: Pregnancy, Birth and Baby — Vaccinations and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/vaccinations-and-pregnancy
+  related: [ rubella-immunity, flu-vaccine, covid-vaccine-in-pregnancy ]
+  notes: Travel itself is another file; here only the vaccines.
+
+- id: vaccines-in-one-visit
+  title: The three pregnancy vaccines can be one visit
+  type: card
+  topic: tests
+  ask: Can I get all the pregnancy vaccines at once?
+  aliases: [ vaccines together, same day vaccines, 28 week vaccines, one appointment vaccines ]
+  weeks: [ 26, 32 ]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - flu, whooping cough and RSV can all be given at the same visit, different arms
+    - from 28 weeks the windows overlap, so one appointment around 28 to 32 covers all three
+    - a GP, a pharmacy or the antenatal clinic, all free with Medicare
+  sources:
+    - title: Department of Health — Immunisation for pregnancy
+      url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
+    - title: Australian Immunisation Handbook — Vaccination for women who are planning pregnancy, pregnant or breastfeeding
+      url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
+  related: [ flu-vaccine, whooping-cough-vaccine, rsv-vaccine ]
+
+- id: partner-whooping-cough-booster
+  title: The partner's whooping cough booster
+  type: moment
+  topic: tests
+  ask: Does the partner need a whooping cough shot too?
+  aliases: [ partner vaccine, dad whooping cough, grandparents whooping cough, household booster, cocooning ]
+  weeks: [ 28, 40 ]
+  who: partner
+  priority: 1
+  stakes: high
+  covers:
+    - adults who will be close to the baby need a dTpa if their last was more than 10 years ago, at least 2 weeks before meeting the baby
+    - other adult household contacts and carers of babies under 6 months too
+  sources:
+    - title: Australian Immunisation Handbook — Pertussis (whooping cough)
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/pertussis-whooping-cough
+  related: [ whooping-cough-vaccine, partner-flu-vaccine ]
+  notes: Whether a partner's or household contact's dTpa is funded is not on the cited page; check the state program before promising free.
+
+- id: partner-flu-vaccine
+  title: The partner's flu vaccine
+  type: moment
+  topic: tests
+  ask: Should the partner get a flu shot before the baby comes?
+  aliases: [ partner flu shot, household flu vaccine, flu vaccine for dad ]
+  weeks: [ 4, 40 ]
+  who: partner
+  priority: 2
+  stakes: medium
+  covers:
+    - household contacts of babies under 6 months are advised to have the yearly flu vaccine, the baby cannot
+    - get it when the season's vaccine arrives, at a GP or pharmacy, usually a small fee
+  sources:
+    - title: Australian Immunisation Handbook — Influenza (flu)
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/influenza-flu
+  related: [ flu-vaccine, partner-whooping-cough-booster ]
+
+# ---------------------------------------------------------------------------
+# Conditions found at tests
+# ---------------------------------------------------------------------------
+
+- id: gestational-diabetes
+  title: Gestational diabetes
+  type: guide
+  topic: tests
+  ask: I have gestational diabetes, what does that mean for the rest of the pregnancy?
+  aliases: [ GDM, gestational diabetes mellitus, diabetes in pregnancy, blood sugar pregnancy, finger prick testing, NDSS ]
+  weeks: [ 24, 42 ]
+  priority: 1
+  stakes: high
+  covers:
+    - about 1 in 10 pregnancies, hormones from the placenta blunt insulin, it usually goes after the birth
+    - the care that follows, a diabetes educator and dietitian, finger-prick testing, diet and walking, sometimes metformin or insulin
+    - extra antenatal visits, and giving birth in a hospital with a consultant-led team
+    - register with the NDSS for subsidised strips
+    - the baby after birth, early feeds and sugar checks
+    - a higher chance of type 2 later, the test at 6 to 12 weeks after and every few years
+  sources:
+    - title: Pregnancy, Birth and Baby — Gestational diabetes
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/gestational-diabetes
+    - title: The Royal Women's Hospital — Gestational diabetes
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/gestational-diabetes
+  related: [ glucose-tolerance-test, early-diabetes-test, growth-scans, large-for-dates, higher-risk-pregnancy ]
+  notes: Diet detail belongs to the food file; here the care pathway.
+
+- id: anaemia-in-pregnancy
+  title: Anaemia and low iron
+  type: guide
+  topic: tests
+  ask: My iron is low, what happens now?
+  aliases: [ iron deficiency, low haemoglobin, low ferritin, iron tablets, iron infusion, Ferinject ]
+  weeks: [ 6, 42 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - about 1 in 4 pregnancies, blood volume rises and the baby takes iron, found on the full blood count at the start and at 28 weeks
+    - treatment, iron tablets and how to take them, constipation and nausea, when an infusion is offered instead
+    - why it matters for the birth, blood loss and recovery, and the baby's iron stores
+    - an infusion is a day visit, Medicare covers it, some private fees
+    - recheck a few weeks after starting
+  sources:
+    - title: Pregnancy, Birth and Baby — Anaemia in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/anaemia-in-pregnancy
+    - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+  related: [ full-blood-count, third-trimester-bloods, first-blood-tests ]
+  notes: Which iron to take and iron-rich food are the medicines and food files.
+
+- id: low-platelets
+  title: Low platelets in pregnancy
+  type: guide
+  topic: tests
+  ask: My platelets are low, is that a problem?
+  aliases: [ gestational thrombocytopenia, thrombocytopenia, low platelet count, platelets and epidural ]
+  weeks: [ 20, 42 ]
+  priority: 3
+  stakes: medium
+  covers:
+    - about 1 in 10, usually gestational thrombocytopenia, harmless and found on a routine count
+    - rechecked through the third trimester, other causes ruled out if very low
+    - why the anaesthetist cares, a threshold for an epidural, so it is checked again near term
+  sources:
+    - title: Pregnancy, Birth and Baby — Low platelets during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/low-platelets-during-pregnancy
+  related: [ full-blood-count, third-trimester-bloods ]
+
+- id: uti-found-on-testing
+  title: A UTI found on the urine test
+  type: guide
+  topic: tests
+  ask: They found an infection in my urine but I feel fine, why treat it?
+  aliases: [ asymptomatic bacteriuria, bacteria in urine, urine infection pregnancy, antibiotics in pregnancy UTI ]
+  weeks: [ 5, 42 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - bacteria in the urine with no symptoms is treated in pregnancy because it can become a kidney infection and bring on early labour
+    - a short course of a pregnancy-safe antibiotic, a repeat culture after
+    - repeat cultures through the pregnancy if it recurs
+  sources:
+    - title: Pregnancy, Birth and Baby — Urinary tract infections (UTIs) in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/urinary-tract-infections-utis-during-pregnancy
+  related: [ urine-culture, what-happens-at-each-visit ]
+  notes: UTI symptoms and when to call are the symptoms file.
+
+- id: rhd-negative
+  title: Being RhD negative
+  type: guide
+  topic: tests
+  ask: My blood group is negative, what does that mean for the baby?
+  aliases: [ rhesus negative, Rh negative, RhD negative, negative blood group, haemolytic disease of the newborn, sensitising event ]
+  weeks: [ 6, 42 ]
+  priority: 1
+  stakes: high
+  covers:
+    - about 17 in 100 Australians, a mismatch with a positive baby can make antibodies that usually don't affect the first pregnancy but can seriously affect the next baby
+    - the plan, anti-D at 28 and 34 weeks and after the birth, the baby's cord blood group
+    - sensitising events, heavy or repeated bleeding, an injury or accident to the abdomen, CVS or amniocentesis, miscarriage, call and ask about anti-D within 72 hours (it can still be given later), one-off bleeding in the first 12 weeks may not need it
+    - the RhD NIPT that can show the baby is negative and make anti-D unnecessary
+  sources:
+    - title: Pregnancy, Birth and Baby — Rhesus D negative in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+    - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+  related: [ anti-d, rhd-nipt, blood-group-and-antibodies, third-trimester-bloods ]
+
+- id: low-lying-placenta
+  title: A low-lying placenta and placenta praevia
+  type: guide
+  topic: tests
+  ask: The scan said my placenta is low, is that serious?
+  aliases: [ placenta praevia, low placenta, low-lying placenta, anterior placenta, placenta position scan, 32 week placenta scan ]
+  weeks: [ 18, 40 ]
+  priority: 2
+  stakes: high
+  covers:
+    - seen at the morphology scan in many pregnancies, most move up as the uterus grows
+    - a repeat scan at about 32 to 34 weeks decides, within 2 cm of the cervix is low-lying, covering it is praevia
+    - if it stays low, a planned caesarean, extra scans, advice on sex and travel, and a plan for bleeding
+    - painless bleeding after 28 weeks is the warning, go straight in
+    - an anterior placenta is a different thing, normal, movements felt later
+  sources:
+    - title: Pregnancy, Birth and Baby — Placenta praevia
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-praevia
+    - title: The Royal Women's Hospital — Placenta problems
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/placenta-problems
+  related: [ morphology-scan, growth-scans, ecv ]
+  notes: Caesarean itself is the birth file; stop at "a planned caesarean will be discussed".
+
+- id: pre-eclampsia
+  title: Pre-eclampsia
+  type: guide
+  topic: tests
+  ask: What is pre-eclampsia and how do they watch for it?
+  aliases: [ preeclampsia, toxaemia, high blood pressure pregnancy, protein in urine, PET, aspirin in pregnancy, HELLP ]
+  weeks: [ 12, 42 ]
+  priority: 1
+  stakes: high
+  covers:
+    - high blood pressure that can affect the liver, kidneys and brain, usually after 20 weeks, protein in the urine is also a sign, why every visit checks blood pressure and a high reading leads to urine and blood tests
+    - who is at higher risk, first pregnancy, twins, previous pre-eclampsia, chronic hypertension, diabetes, older, higher BMI
+    - low-dose aspirin for those at higher risk, and calcium
+    - what a diagnosis leads to, bloods, CTG, growth scans, more visits or admission, medicines, and birth as the cure, sometimes early
+    - blood pressure after the birth and the 6-week check
+  sources:
+    - title: Pregnancy, Birth and Baby — Pre-eclampsia
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
+    - title: The Royal Women's Hospital — High blood pressure & preeclampsia
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/preeclampsia
+  related: [ high-blood-pressure-in-pregnancy, what-happens-at-each-visit, ctg-monitoring, growth-scans, higher-risk-pregnancy ]
+  notes: Symptoms (headache, vision, swelling, pain under the ribs) and when to call are the symptoms file; link, don't duplicate.
+
+- id: high-blood-pressure-in-pregnancy
+  title: High blood pressure in pregnancy
+  type: guide
+  topic: tests
+  ask: My blood pressure was high at a visit, what now?
+  aliases: [ gestational hypertension, chronic hypertension pregnancy, hypertension in pregnancy, blood pressure medication pregnancy, home blood pressure ]
+  weeks: [ 12, 42 ]
+  priority: 2
+  stakes: high
+  covers:
+    - the kinds, already high before 20 weeks, new after 20 weeks, and pre-eclampsia
+    - one high reading is rechecked, a pattern means bloods, urine and more visits
+    - safe medicines in pregnancy, and home monitoring
+    - more often obstetric-led care, growth scans and a talk about timing the birth
+  sources:
+    - title: Pregnancy, Birth and Baby — High blood pressure in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/high-blood-pressure-in-pregnancy
+    - title: The Royal Women's Hospital — High blood pressure & preeclampsia
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/preeclampsia
+  related: [ pre-eclampsia, what-happens-at-each-visit, higher-risk-pregnancy ]
+
+- id: breech-baby
+  title: A breech baby late in pregnancy
+  type: guide
+  topic: tests
+  ask: The baby is breech at 36 weeks, what are our options?
+  aliases: [ breech, bottom first, breech at 36 weeks, turn the baby, vaginal breech birth, breech caesarean, moxibustion ]
+  weeks: [ 34, 40 ]
+  priority: 2
+  stakes: high
+  covers:
+    - normal until 35 or 36 weeks, about 3 in 100 are still breech at the end
+    - the options, an ECV at 36 to 37 weeks, a planned caesarean, or a vaginal breech birth at a unit set up for it
+    - what makes each suitable, placenta position, previous caesarean, the kind of breech
+    - the baby's hip check after birth
+    - there is a week or two to decide, and it is a shared decision
+  sources:
+    - title: Pregnancy, Birth and Baby — Breech pregnancy
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
+    - title: RANZCOG — Management of breech presentation (clinical guidance statement)
+      url: https://ranzcog.edu.au/wp-content/uploads/Management-Breech-Presentation.pdf
+    - title: The Royal Women's Hospital — Baby's position
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/babys-position
+  related: [ ecv, babys-position-check, low-lying-placenta ]
+  notes: Caesarean and vaginal breech birth as births are the birth file; this is the finding and the choice it opens.
+
+- id: small-for-dates
+  title: A small baby or slow growth
+  type: guide
+  topic: tests
+  ask: They said the baby is measuring small, should I worry?
+  aliases: [ small for gestational age, SGA, fetal growth restriction, FGR, IUGR, placental insufficiency, measuring small, small bump ]
+  weeks: [ 24, 42 ]
+  priority: 2
+  stakes: high
+  covers:
+    - a small fundal height is a prompt, the growth scan decides, and many small babies are simply small
+    - growth restriction means the placenta is not keeping up, dopplers of the cord and more scans
+    - who is at higher risk, smoking, high blood pressure, a previous small baby
+    - the plan, scans every 2 to 4 weeks, CTGs, movements matter more, and an earlier birth if growth stalls
+    - why it is caught, stillbirth prevention
+  sources:
+    - title: Pregnancy, Birth and Baby — Placental insufficiency
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placental-insufficiency
+    - title: Pregnancy, Birth and Baby — What is a high risk pregnancy?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/what-is-a-higher-risk-pregnancy
+  related: [ fundal-height, growth-scans, baby-movements, ctg-monitoring, higher-risk-pregnancy ]
+
+- id: large-for-dates
+  title: A big baby
+  type: guide
+  topic: tests
+  ask: They think the baby is big, what does that change?
+  aliases: [ large for gestational age, LGA, macrosomia, big baby, measuring big, over 4.5 kg, polyhydramnios ]
+  weeks: [ 24, 42 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - a big fundal height leads to a growth scan and a check for diabetes or extra fluid
+    - scan weight estimates can be out by 10 to 15 percent either way
+    - what it changes, more scans, sometimes a conversation about timing or mode of birth, often nothing
+    - a large baby in a previous pregnancy is a reason for early diabetes testing
+  sources:
+    - title: Pregnancy, Birth and Baby — Gestational diabetes
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/gestational-diabetes
+    - title: Pregnancy, Birth and Baby — Ultrasound scans during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/ultrasound-scan
+  related: [ fundal-height, growth-scans, gestational-diabetes, early-diabetes-test ]
+  notes: Induction for a suspected big baby is contested and belongs to the labour file; say only that it may be discussed.
+
+- id: twins-found-at-a-scan
+  title: Twins found at a scan
+  type: guide
+  topic: tests
+  ask: It's twins, what changes in our care?
+  aliases: [ twins, multiple pregnancy, twin pregnancy care, chorionicity, identical twins, DCDA, MCDA, vanishing twin, twin scans ]
+  weeks: [ 6, 40 ]
+  who: together
+  priority: 2
+  stakes: high
+  covers:
+    - the early scan shows how many and whether they share a placenta, which sets the whole plan
+    - more visits, scans every 2 to 4 weeks, often an obstetric-led or multiples clinic, a hospital with the right nursery
+    - birth centre and home birth are usually off the table, most twins come before 37 weeks
+    - the higher chances, diabetes, pre-eclampsia, anaemia, the extra screening
+    - costs rise in the private system if the babies need the nursery
+    - a vanishing twin, seen on one scan and not the next
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnant with twins
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy
+    - title: Pregnancy, Birth and Baby — Private health insurance and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+  related: [ dating-scan, choosing-a-hospital, growth-scans, higher-risk-pregnancy, choosing-your-model-of-care ]
+
+- id: higher-risk-pregnancy
+  title: What a "high-risk" pregnancy means for your care
+  type: guide
+  topic: care
+  ask: They called my pregnancy high risk, what does that mean?
+  aliases: [ high risk pregnancy, complex pregnancy, obstetric-led care, maternal fetal medicine, MFM, high risk clinic ]
+  weeks: [ 6, 42 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - a label about monitoring, not a prediction, and the common reasons, age, BMI, twins, diabetes, high blood pressure, a previous caesarean or complication, a condition found at a test
+    - what changes, obstetrician-led care in a public clinic, more visits, more bloods and scans, sometimes maternal-fetal medicine
+    - it may rule out a birth centre or home birth and move you from a midwifery model, ask what can stay
+    - the care is still yours to agree to
+  sources:
+    - title: Pregnancy, Birth and Baby — What is a high risk pregnancy?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/what-is-a-higher-risk-pregnancy
+    - title: Pregnancy, Birth and Baby — Maternity models of care
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/maternity-models-of-care
+  related: [ choosing-your-model-of-care, public-hospital-care, pre-eclampsia, gestational-diabetes, twins-found-at-a-scan, small-for-dates ]

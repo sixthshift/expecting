@@ -1,0 +1,193 @@
+# M07 drafts check: claims in each draft checked against the pages in its sources, 2026-10-29.
+- id: home-birth
+  file: content/drafts/home-birth.md
+  verdict: fix
+  problems:
+    - claim: "freebirth line rests only on PBB 'can increase the chance of health problems'"
+      judgement: unsupported
+      source_says: "RANZCOG/ACM joint statement 3 Nov 2025: 'The absence of appropriate clinical support during freebirth has led to preventable harm and loss of life.' Freebirth 'is the intentional practice of giving birth without a registered healthcare professional, such as a midwife or doctor, present. It is different from a homebirth, which is a planned birth at home with a registered healthcare provider.' RANZCOG Home Births C-Obs 2 (July 2023) puts freebirths out of scope, so it adds no position on them."
+      url: https://ranzcog.edu.au/news/ranzcog-acm-call-on-health-ministers-to-end-freebirth-deaths/
+      fixed_to: "added the joint statement's wording, credited, and added it to sources. PBB line kept (page says it)."
+    - claim: "public program (free with Medicare, needs a GP referral)"
+      judgement: wrong
+      source_says: "Medicare covers care in a publicly funded homebirth program; referral 'from your doctor' to see a midwife in a public hospital"
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/medicare-during-pregnancy
+      fixed_to: "covered by Medicare, needs a referral from your doctor"
+- id: medical-x-rays-and-ct
+  file: content/drafts/medical-x-rays-and-ct.md
+  verdict: fix
+  problems:
+    - claim: "Say you're pregnant when the test is booked and again on the day."
+      judgement: unsupported
+      source_says: "Tell your doctor and tell the radiology practice staff that you are pregnant (or might be pregnant) before you have any tests."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/radiation-exposure-during-pregnancy
+      fixed_to: "Say you're pregnant (or might be) to your doctor and the radiology staff before any test."
+    - claim: "Ultrasound or MRI ... may do instead, though they don't always give the answer needed."
+      judgement: unsupported
+      source_says: "may be useful alternatives in some situations"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/radiation-exposure-during-pregnancy
+      fixed_to: "may be useful alternatives in some situations."
+- id: chiropractic-and-osteopathy
+  file: content/drafts/chiropractic-and-osteopathy.md
+  verdict: ok
+  # note: PBB advises checking with your doctor or midwife before a chiropractor only; the draft's body asks it of the chiropractor bullet, which matches.
+- id: flying
+  file: content/drafts/flying.md
+  verdict: fix
+  problems:
+    - claim: "week limits listed from PBB, MotherSafe, Smartraveller, RANZCOG, Better Health (Better Health's own limit missing)"
+      judgement: unsupported
+      source_says: "Better Health: 'some airlines won't allow a woman over 35 weeks to fly at all, or they require a doctor's note'. PBB: 'most airlines won't let you travel with them after 32 to 36 weeks'. MotherSafe: 'For local flights, it is generally 36 weeks, and international flights from 32 weeks.' Smartraveller: 'Most airlines won't let you fly beyond 28 weeks'. RANZCOG: 'Travel beyond 36 weeks' gestation is not recommended.' (all re-fetched and confirmed; each is credited by name in the draft)"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+      fixed_to: "added Better Health's over-35-weeks wording, credited. Other limits unchanged."
+- id: dvt-and-compression-stockings
+  file: content/drafts/dvt-and-compression-stockings.md
+  verdict: fix
+  problems:
+    - claim: "Call triple zero (000) ... chest pain, trouble breathing or short of breath, palpitations, dizzy or faint, cough up blood (missing PBB's stroke/heart attack trigger)"
+      judgement: unsupported
+      source_says: "PBB: 'See a doctor immediately if you have signs of a deep vein thrombosis (redness, swelling or pain in your lower leg). Call triple zero (000) and ask for an ambulance if you have chest pain, trouble breathing or symptoms of stroke or heart attack.' healthdirect: DVT suspected 'see your doctor straight away'; 000 if short of breath, chest pain, heart palpitations, dizzy or faint, cough up blood."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
+      fixed_to: "kept both levels as the sources give them (see a doctor immediately for leg signs; 000 for the chest/breathing list), added 'or have symptoms of a stroke or heart attack' from PBB"
+- id: long-drives
+  file: content/drafts/long-drives.md
+  verdict: ok
+- id: motorbikes-and-scooters
+  file: content/drafts/motorbikes-and-scooters.md
+  verdict: fix
+  problems:
+    - claim: "After any injury, even a less urgent one, go to hospital if the baby is moving less than normal, or you have vaginal bleeding or pain in your abdomen."
+      judgement: wrong
+      source_says: "Even after a minor injury during pregnancy, go to hospital straight away if your baby is not moving as much as normal, you have vaginal bleeding or if you have pain in your abdomen. Also: 'If you have any injury to your abdomen, you should go to the nearest hospital.' Warning banner: contact your midwife or doctor immediately."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+      fixed_to: "kept 'contact your midwife or doctor immediately'; added 'go to the nearest hospital' for any abdominal injury, and 'go to hospital straight away' (urgency restored) for reduced movements, bleeding, pain"
+    - claim: "most policies are void if you were breaking a local road law, including riding without the right licence"
+      judgement: unsupported
+      source_says: "Most policies are void if you were breaking the law when the accident occurred ... any road law like giving way. / Some insurance policies won't cover you for an accident if you're driving a vehicle without an authorised licence."
+      url: https://www.smartraveller.gov.au/before-you-go/getting-around/road-safety
+      fixed_to: "most policies are void if you were breaking any road law when the accident happened, and some won't cover you if you ride without an authorised licence"
+- id: travel-vaccines
+  file: content/drafts/travel-vaccines.md
+  verdict: fix
+  problems:
+    - claim: "Yellow fever ... Handbook: if travel to a country with yellow fever is unavoidable, weigh the risks and benefits of the vaccine with your doctor."
+      judgement: wrong
+      source_says: "Handbook table: 'Not recommended. Advise pregnant women against going to rural areas where yellow fever is endemic. However, if travel to a country with a risk of yellow fever virus transmission is unavoidable, pregnant women should receive yellow fever vaccine.' Handbook text: 'weigh the risks and benefits of yellow fever vaccination, and discuss other strategies ... such as avoiding mosquitoes.' MotherSafe: 'only be given when the risk of contracting the disease is substantial and travel is unavoidable.' Better Health: 'Some vaccines, such as for yellow fever, may cautiously be given after the first trimester.'"
+      url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
+      fixed_to: "kept all three, each credited; the Handbook's two statements both given (table 'should receive', text 'weigh the risks and benefits')"
+    - claim: "See your doctor 6 to 12 weeks before you go"
+      judgement: wrong
+      source_says: "healthdirect: 'at least 6 weeks (and preferably 12 weeks) before you leave Australia'"
+      url: https://www.healthdirect.gov.au/procedures/immunisation-and-vaccinations/travel-vaccinations
+      fixed_to: "at least 6 weeks, and preferably 12 weeks"
+- id: malaria
+  file: content/drafts/malaria.md
+  verdict: fix
+  problems:
+    - claim: "stay indoors from dusk to dawn"
+      judgement: wrong
+      source_says: "healthdirect: 'avoid outdoor activities after sunset'. MotherSafe: 'minimising outdoor activities from dusk to dawn'."
+      url: https://www.healthdirect.gov.au/conditions/parasite-and-fungal-infections/malaria
+      fixed_to: "avoid outdoor activities after sunset (MotherSafe says to minimise outdoor activities from dusk to dawn)"
+- id: altitude
+  file: content/drafts/altitude.md
+  verdict: ok
+  # heights confirmed: PBB 'avoid exercise at more than 2,000 metres above sea level until you have acclimatised'; MotherSafe 'high-altitude areas (>2500meters)'; Better Health 'high-altitude activities such as mountain climbing - at heights over 3,000 metres'. All three credited separately in the draft.
+- id: cruise-ships
+  file: content/drafts/cruise-ships.md
+  verdict: fix
+  problems:
+    - claim: "summary: the ship's medical centre isn't a hospital"
+      judgement: unsupported
+      source_says: "Smartraveller: 'Standards on board may not be as good as in Australia. This may include quality of care or access to medication devices and medicines.'"
+      url: https://www.smartraveller.gov.au/before-you-go/getting-around/cruises
+      fixed_to: "care on board may not match Australian standards"
+    - claim: "check [insurance] covers your pregnancy (no listed source)"
+      judgement: unsupported
+      source_says: "Smartraveller pregnancy page: 'Ask your travel insurer if your policy covers...' pregnancy"
+      url: https://www.smartraveller.gov.au/before-you-go/health/pregnancy
+      fixed_to: "page added to sources"
+- id: remote-travel-in-australia
+  file: content/drafts/remote-travel-in-australia.md
+  verdict: fix
+  problems:
+    - claim: "Heatstroke is an emergency: get emergency medical care for hot, dry skin ... (000 level missing)"
+      judgement: wrong
+      source_says: "PBB: 'Call triple zero (000) immediately and ask for an ambulance if you are experiencing symptoms of heatstroke, such as hot, dry skin with no sweating or a rise in body temperature to above 40 °C.' and, lower on the page, 'Get emergency medical care if you are experiencing symptoms of heatstroke, such as: [list]'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/dealing-with-hot-weather-during-pregnancy-and-breastfeeding
+      fixed_to: "both levels given as the page words them"
+- id: camping-and-the-bush
+  file: content/drafts/camping-and-the-bush.md
+  verdict: ok
+- id: roller-coasters
+  file: content/drafts/roller-coasters.md
+  verdict: fix
+  problems:
+    - claim: "verdict avoid / 'Skip the fast ones' / 'Leave out rides that jolt, drop, spin hard or bump'"
+      judgement: unsupported
+      source_says: "No cited page mentions theme park rides. PBB lists 'activities where there is a risk of collision, tripping, falling or heavy body contact' and 'sports that require sudden or unsafe movements' (sports, not rides)."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+      fixed_to: "verdict ask; 'Ask your midwife or doctor about any ride, particularly one with a risk of a knock or a fall'; 'sports that need sudden or unsafe movements'"
+    - claim: "After any injury, even a less urgent one, go to hospital if the baby is moving less than normal, or you have vaginal bleeding or pain in your abdomen."
+      judgement: wrong
+      source_says: "Even after a minor injury during pregnancy, go to hospital straight away if your baby is not moving as much as normal, you have vaginal bleeding or if you have pain in your abdomen. Also 'If you have any injury to your abdomen, you should go to the nearest hospital.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+      fixed_to: "go to hospital straight away ...; added the nearest-hospital line"
+- id: public-hospital-care
+  file: content/drafts/public-hospital-care.md
+  verdict: fix
+  problems:
+    - claim: "the ones you see in pregnancy often won't be there at the birth (no exception)"
+      judgement: unsupported
+      source_says: "Royal Women's: 'The doctors and midwives you see when you are pregnant will often not be present at your birth, except in the case of Midwife Team Care or Caseload.'"
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/pregnancy-care-birthing-options
+      fixed_to: "added the exception, credited"
+  # fees: confirmed both PBB (having-a-baby-in-hospital) and the Royal Women's say 'Fees and expenses are low if you have a Medicare card'; draft says low, not free. ok.
+- id: gp-shared-care
+  file: content/drafts/gp-shared-care.md
+  verdict: fix
+  problems:
+    - claim: "some GPs can keep seeing you for much of the pregnancy"
+      judgement: unsupported
+      source_says: "Some GPs offer 'shared care', where you can see your GP for some of your routine pregnancy care visits."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/the-role-of-your-gp
+      fixed_to: "some GPs offer 'shared care', where you see your GP for some of your routine pregnancy care visits"
+- id: private-midwife
+  file: content/drafts/private-midwife.md
+  verdict: fix
+  problems:
+    - claim: "They can spot complications and give emergency care, and refer you to medical care if needed."
+      judgement: unsupported
+      source_says: "No cited page says this. PBB: midwives are 'trained to support you during your pregnancy, labour and birth'; endorsed midwives can prescribe certain medicines, order tests and refer."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/midwife
+      fixed_to: "cut (the endorsed-midwife referral sentence stays)"
+    - claim: "You don't usually need a GP referral ... public home-birth service"
+      judgement: wrong
+      source_says: "You don't need a referral to see a private midwife. However, you will need a referral from your doctor to see a midwife who is based in a public hospital, including those working in a maternity group practice."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/midwife
+      fixed_to: "wording as the page gives it (public home-birth service dropped from the list; the home-birth draft credits PBB's home-birth page for the referral)"
+- id: birth-centre
+  file: content/drafts/birth-centre.md
+  verdict: ok
+- id: obstetrician-out-of-pocket-costs
+  file: content/drafts/obstetrician-out-of-pocket-costs.md
+  verdict: fix
+  problems:
+    - claim: "Tests and scans, usually done in their rooms or through private providers"
+      judgement: unsupported
+      source_says: "Royal Women's: costs may attach to 'pregnancy appointments; pregnancy tests, including blood tests and ultrasound'; nothing on where they're done."
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/preparing-for-pregnancy/money-matters
+      fixed_to: "Tests and scans, such as blood tests and ultrasounds."
+    - claim: "you need the right cover at least 12 months before you become pregnant, or you pay for private care yourself"
+      judgement: unsupported
+      source_says: "PBB: 'Most private health insurance policies have a 12-month waiting period. During this time, you can't claim any pregnancy-related health expenses.' 'Buy ... at least 12 months before you become pregnant.'"
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+      fixed_to: "waiting-period wording as the page gives it"
+    - claim: "Register for the Medicare Safety Net"
+      judgement: wrong
+      source_says: "You may want to register for the Medicare Safety Net. If you spend above a certain amount on healthcare in a calendar year, you can get more money back from Medicare."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+      fixed_to: "Consider registering ... (softer, as the page words it)"
+- id: private-patient-in-a-public-hospital
+  file: content/drafts/private-patient-in-a-public-hospital.md
+  verdict: ok

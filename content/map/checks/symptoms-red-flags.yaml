@@ -1,0 +1,135 @@
+- id: spotting-and-bleeding-in-early-pregnancy
+  verdict: fix
+  problems:
+    - covers: "causes: implantation bleeding, the cervix, miscarriage, ectopic pregnancy, molar pregnancy"
+      judgement: unsupported
+      source_says: "Early-pregnancy causes listed are implantation bleeding, miscarriage, ectopic pregnancy and molar pregnancy. The cervix is not named as a cause of early bleeding (it appears only in the placenta praevia and vasa praevia descriptions)."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
+    - covers: "Rh negative: ask about anti-D"
+      judgement: unsupported
+      source_says: "Only the miscarriage page mentions it, and only after a miscarriage: 'If you have a negative blood type, check with your doctor whether you need a dose of anti-D after your miscarriage.' Nothing about anti-D for spotting in general."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-should-i-do-if-i-think-im-having-a-miscarriage
+
+- id: bleeding-after-20-weeks
+  verdict: fix
+  problems:
+    - covers: "call 000: bleeding that is heavy (soaking 2 pads an hour or clots), strong pain in the tummy or shoulder, dizzy or faint, short of breath, or feeling very unwell; heavy bleeding with pain or contractions"
+      judgement: wrong
+      source_says: "PBB bleeding page reserves 000 for 'very heavy bleeding, strong pain or feel very unwell'. Soaking 2 pads an hour or clots, strong tummy or shoulder pain, dizzy or faint, short of breath are listed under 'contact your obstetrician, birth unit or call an ambulance immediately' and, in a second list, 'contact your doctor urgently, or visit the nearest emergency department'. Abruption page: 'if the bleeding or pain is severe, call 000'. Praevia page: 000 or ED if bleeding is heavy and with pain or contractions. The 000 list as written merges these and states a lower trigger for 000 than the sources do."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
+    - covers: "placental abruption (bleeding with constant pain, back pain, a tight uterus, fewer movements)"
+      judgement: unsupported
+      source_says: "Abruption symptoms listed: vaginal bleeding, abdominal pain (constant, not in waves), contractions, lower back pain, vaginal or pelvic pain, baby moving less, dizziness. No 'tight uterus' (a firm or tightening uterus appears only on the injuries page, after trauma). Also pain is 'usually severe' but may be mild or absent."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placental-abruption
+
+- id: heavy-bleeding
+  verdict: ok
+  problems: []
+
+- id: abdominal-pain
+  verdict: fix
+  problems:
+    - covers: "healthdirect: call doctor or midwife straight away for severe abdominal pain; after 20 weeks, pain under the ribs is a pre-eclampsia sign"
+      judgement: unsupported
+      source_says: "Minor, the attribution only. The healthdirect warning-signs page lists 'pain under your ribs' under later pregnancy (after 20 weeks) and 'severe pain in your abdomen' under any time, both 'contact immediately', but does not call rib pain a pre-eclampsia sign. The pre-eclampsia link is on the PBB pre-eclampsia page, which this entry does not cite."
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+
+- id: shoulder-tip-pain
+  verdict: fix
+  problems:
+    - covers: "go to emergency or call 000: shoulder tip pain with bleeding, belly pain, dizziness or fainting"
+      judgement: wrong
+      source_says: "healthdirect ectopic page: 'If you have any of these symptoms while pregnant, go to the nearest emergency department or call triple zero (000)', and the symptoms listed include shoulder tip pain on its own (also spotting, tummy pain, back pain, fast heart rate, dizziness). It is not conditional on a combination. The entry's other phrase (contact doctor/hospital 'especially with bleeding', from the warning-signs page) is a softer urgency than the ectopic page gives for the same symptom, so the entry should lead with the ectopic page's emergency/000 advice."
+      url: https://www.healthdirect.gov.au/ectopic-pregnancy
+
+- id: severe-headache
+  verdict: fix
+  problems:
+    - covers: "call 000: a sudden severe headache, or a headache with vomiting, confusion, neck stiffness or vision changes (healthdirect); heavy bleeding, severe headache or blurred vision in labour (PBB)"
+      judgement: unsupported
+      source_says: "The healthdirect half is ok (headaches page: sudden severe headache, or headache with vomiting, confusion, neck stiffness or vision changes, call 000). The 'in labour (PBB)' half is not on any page this entry cites. It is on PBB 'Giving birth - early signs of labour' (call 000 if 'heavy bleeding from your vagina, a severe headache or blurred vision (signs of pre-eclampsia)'), which is not in sources. Add that page or drop the clause."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/headaches-during-pregnancy
+
+- id: vision-changes
+  verdict: fix
+  problems:
+    - covers: "call 000: severe headache or blurred vision in labour, or a headache with vision changes"
+      judgement: unsupported
+      source_says: "Not on any cited page. 'Headache with vision changes: call 000' is on healthdirect Headaches, and 'in labour' on PBB early signs of labour; neither is in this entry's sources (healthdirect warning signs, PBB pre-eclampsia, PBB headaches). The cited PBB pre-eclampsia page says 'seek medical attention urgently or go to your local emergency department' for blurred vision with severe headache etc., not 000."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
+
+- id: sudden-swelling
+  verdict: ok
+  problems: []
+
+- id: pain-under-the-ribs
+  verdict: ok
+  problems: []
+
+- id: signs-of-pre-eclampsia
+  verdict: fix
+  problems:
+    - covers: "call 000 in labour with severe headache or blurred vision"
+      judgement: unsupported
+      source_says: "Not on any cited page. It is on PBB 'Giving birth - early signs of labour', which this entry does not cite. The cited PBB/healthdirect pre-eclampsia pages say 'see your midwife, doctor or pregnancy care provider straight away' and 'seek medical attention urgently or go to your local emergency department'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
+
+- id: itchy-palms-and-soles
+  verdict: ok
+  problems: []
+
+- id: fluid-leaking
+  verdict: fix
+  problems:
+    - covers: "at term before labour: put on a pad, contact midwife, doctor or birth centre; most give birth within 24 to 48 hours"
+      judgement: wrong
+      source_says: "The page contradicts itself. Key facts: 'Most people will give birth within 24 to 48 hours of their waters breaking.' Body, on waters breaking at term: 'most people will go into labour naturally within 24 to 96 hours.' (24 to 48 hours with a 1 in 2 chance is the PPROM figure on the Waters breaking early page.) Use 24 to 96 hours, or drop the number."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+
+- id: reduced-movements
+  verdict: fix
+  problems:
+    - covers: "after any injury, go to hospital if the baby is moving less"
+      judgement: unsupported
+      source_says: "Not on any cited page. It is on PBB 'Injuries during pregnancy' ('Even after a minor injury... go to hospital straight away if your baby is not moving as much as normal'), which this entry does not cite. The cited healthdirect warning-signs page says only 'seek help immediately if you are injured in your abdomen'."
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+
+- id: fever
+  verdict: fix
+  problems:
+    - covers: "healthdirect fever page: see doctor as soon as possible if you have a fever and are pregnant; emergency if fever with seizures, confusion or difficulty breathing"
+      judgement: wrong
+      source_says: "The healthdirect Fever page has no pregnancy advice. Its 'see your doctor as soon as possible' list (recent hospital stay or surgery, overseas travel, cancer or immune-suppressing treatment, sensitivity to light, unusual rash, severe headache, other concerns) does not include pregnancy. The emergency half is ok (fever with confusion or drowsiness, difficulty breathing, seizures). For pregnancy the urgency comes from the warning-signs page: 'contact your doctor, midwife or hospital immediately if you have fever or chills', which is stronger than 'as soon as possible'."
+      url: https://www.healthdirect.gov.au/fever
+
+- id: feeling-very-unwell
+  verdict: ok
+  problems: []
+
+- id: chest-pain
+  verdict: ok
+  problems: []
+
+- id: painful-swollen-leg
+  verdict: fix
+  problems:
+    - covers: "pregnancy and the weeks after birth increase the risk of blood clots; some DVTs have no symptoms"
+      judgement: unsupported
+      source_says: "Minor. 'The weeks after birth' is not on any cited page. healthdirect DVT lists 'being pregnant' as a risk factor and says some people have no symptoms ('silent DVT'). The 'recently had a baby' risk is on the healthdirect Pulmonary embolism page, not cited here."
+      url: https://www.healthdirect.gov.au/deep-vein-thrombosis
+
+- id: fall-or-blow-to-the-belly
+  verdict: fix
+  problems:
+    - covers: "after any injury, go to hospital if the baby moves less, there is bleeding, pain, contractions or the waters break"
+      judgement: wrong
+      source_says: "PBB: 'go to hospital if your baby is not moving as much as normal, you have vaginal bleeding or you have pain in your abdomen'. Contractions and waters breaking are only in the list of things to watch for, after which 'contact your doctor' (or Urgent Care, or 000 in an emergency), not 'go to hospital'. Separately, any injury to the abdomen: 'go to the nearest hospital'; abdominal pain, a firm or tightening uterus or vaginal bleeding after injury: call 000."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+
+- id: severe-vomiting
+  verdict: ok
+  problems: []
+
+- id: signs-of-preterm-labour
+  verdict: ok
+  problems: []

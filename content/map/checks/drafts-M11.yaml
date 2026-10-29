@@ -1,0 +1,191 @@
+# Fact-check of 20 drafted Library entries (batch M11, labour and birth): every claim,
+# heading level and figure checked against the pages in `sources:` (PBB pages re-fetched
+# 2026-10-29; RANZCOG PDFs and the Royal Women's Hospital pages read in full).
+# verdict "fix" = text rewritten to the source and `checked: 2026-10-29` added;
+# "ok" = no change needed, `checked` added.
+# Notes for the owner:
+#  - Emergency position conflict: PBB "Umbilical cord prolapse" says (you may be asked to)
+#    bring your knees to your chest with your head facing down; PBB "Waters breaking early"
+#    says call an ambulance and get down on your hands and knees with your bottom in the
+#    air. Both pages say call triple zero / an ambulance. cord-prolapse and
+#    waters-breaking-early now lead with the call and give both positions, each credited.
+#  - VBAC scar rupture: RANZCOG 1 in 122-500 (1 in 370 if induced, 1 in 56 if induced from
+#    40+6 weeks), PBB 5-7 in 1,000, Royal Women's 1-2 in 200: all three kept as drafted.
+#    Success: RWH 70 in 100; PBB about 1 in 4 need an emergency caesarean. Gap: RANZCOG
+#    under 21 months, PBB caesarean under 18 months. All verified.
+#  - ECV: PBB usually after 37 weeks (after 36 if first baby); RANZCOG clinical guidance
+#    37+0 or 36+0 for first baby; RANZCOG patient leaflet says discuss at 36 weeks.
+#    Success RANZCOG leaflet 50%, guidance 40% first / 60% later; 1 in 200 emergency
+#    caesarean; about 3% turn back. All verified.
+#  - Moxibustion: PBB Breech and ECV pages and RANZCOG: no good evidence; PBB
+#    Malpresentation: some evidence before 37 weeks may reduce chance of breech at birth.
+#    breech-birth now gives both, credited.
+#  - Perineal tears: PBB 8 in 10 have a tear; PBB "Birth injury to the mother" about 3 in 4
+#    tear or cut. Verified.
+#  - Prostaglandin timing: PBB gel usually every 6 hours, RWH every six to eight hours;
+#    PBB lie on left side 30-40 minutes, RWH rest at least 30 minutes. Verified.
+#  - Third stage: PBB physiological usually recommended for healthy low-risk, up to an
+#    hour; active up to 30 minutes; RANZCOG C-Obs 31 recommends active for all (conditional,
+#    from C-Obs 43) while saying benefit is less certain for low-risk. Verified.
+
+- id: shoulder-dystocia
+  file: content/drafts/shoulder-dystocia.md
+  verdict: ok
+
+- id: cord-prolapse
+  file: content/drafts/cord-prolapse.md
+  verdict: fix
+  problems:
+    - claim: "The call-000 instruction sat in the middle of the entry, after the signs and risk factors"
+      judgement: wrong
+      source_says: "Warning: If you're pregnant and your waters have broken and you feel the umbilical cord in your vagina, call triple zero (000) and ask for an ambulance. ... While you're waiting for the ambulance, you may be asked to bring your knees to your chest with your head facing down. This will help relieve pressure on the cord. Stay in this position while waiting for an ambulance"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/umbilical-cord-prolapse
+      fixed_to: "'When to get help' moved to the top with the page's wording; the opening paragraph follows under 'What it is'"
+    - claim: "(no mention of the other PBB page's different position)"
+      judgement: unsupported
+      source_says: "PBB Waters breaking early: if you feel something in your vagina after your waters break, call an ambulance and get down on your hands and knees with your bottom in the air."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/waters-breaking-early
+      fixed_to: "added a sentence crediting that page's hands-and-knees position, and that the two pages differ"
+    - claim: "weighs under 2.5 kg (as a baby's trait)"
+      judgement: wrong
+      source_says: "You're more likely to have an umbilical cord prolapse if: you've had a baby that weighs less than 2.5kg at birth ... different pelvic structure; the chance increases if your baby is not head down, has birth differences, has a very long cord, is the second twin, is premature"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/umbilical-cord-prolapse
+      fixed_to: "risk factors rewritten to the page's two lists (adds one or more babies before, different pelvic structure, birth differences)"
+    - claim: "they may suggest you stay in hospital from 37 weeks (if lying sideways or position changes)"
+      judgement: unsupported
+      source_says: "can't be prevented; may recommend staying in hospital from 37 weeks if your baby is lying on its side or its position changes ... if the cord is felt before the waters break, your doctor will not break your waters if possible"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/umbilical-cord-prolapse
+      fixed_to: "reworded to the page, plus the 'won't break your waters' line"
+
+- id: birth-injury-to-the-baby
+  file: content/drafts/birth-injury-to-the-baby.md
+  verdict: fix
+  problems:
+    - claim: "Brain injury or bleeding is very rare, from a lack of oxygen, or more often in a very premature baby."
+      judgement: wrong
+      source_says: "In very rare cases, babies may suffer a brain injury ... if your baby doesn't get enough oxygen. ... In rare cases, babies can suffer bleeding in or around the brain ... more common if your baby is very premature."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/birth-injury-to-the-baby
+      fixed_to: "Brain injury is very rare ... Brain bleeds are rare, and more common in a very premature baby."
+
+- id: morphine-and-opioids
+  file: content/drafts/morphine-and-opioids.md
+  verdict: ok
+
+- id: prostaglandin
+  file: content/drafts/prostaglandin.md
+  verdict: ok
+
+- id: balloon-catheter
+  file: content/drafts/balloon-catheter.md
+  verdict: fix
+  problems:
+    - claim: "(summary) whose pressure softens and opens it without a hormone"
+      judgement: wrong
+      source_says: "The pressure of the balloon on the cervix causes the release of hormones in the body, which help soften and open the cervix."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/induced-labour
+      fixed_to: "'without a hormone' cut from the summary"
+
+- id: breaking-the-waters
+  file: content/drafts/breaking-the-waters.md
+  verdict: ok
+
+- id: oxytocin-drip
+  file: content/drafts/oxytocin-drip.md
+  verdict: ok
+
+- id: episiotomy
+  file: content/drafts/episiotomy.md
+  verdict: ok
+
+- id: perineal-tears
+  file: content/drafts/perineal-tears.md
+  verdict: ok
+
+- id: term-oasis
+  file: content/drafts/term-oasis.md
+  verdict: ok
+
+- id: breech-birth
+  file: content/drafts/breech-birth.md
+  verdict: fix
+  problems:
+    - claim: "decide_by: 37"
+      judgement: unsupported
+      source_says: "PBB: no extra care is needed for an uncomplicated breech pregnancy until about 37 weeks; ECV after 37 weeks. RANZCOG: elective caesarean at 39 weeks. No page gives 37 weeks as the week to decide by."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
+      fixed_to: "decide_by removed; 'When to decide' now states what the pages say (37 weeks no extra care, ask about options after 37 weeks; RANZCOG caesarean at 39 weeks)"
+    - claim: "'When to decide': talk through ... so a caesarean can be booked at about 39 weeks if that's your choice"
+      judgement: unsupported
+      source_says: "PBB question list: 'What are my options if my baby is in a breech position after 37 weeks?'; RANZCOG guidance: elective caesarean for breech at 39 weeks"
+      url: https://ranzcog.edu.au/wp-content/uploads/Management-Breech-Presentation.pdf
+      fixed_to: "reworded to the two statements above"
+    - claim: "It works about half the time. RANZCOG's guidance is to offer it from 37 weeks, or from 36 weeks for a first baby."
+      judgement: unsupported
+      source_says: "Leaflet: ECV is successful 50% of the time; discuss at 36 weeks. Guidance: offer from 37+0, 36+0 for nulliparous; success 40% nulliparous, 60% multiparous. PBB: after 37 weeks."
+      url: https://ranzcog.edu.au/wp-content/uploads/Breech-Presentation-End-of-Pregnancy.pdf
+      fixed_to: "all three timings and both success figures given, each credited"
+    - claim: "moxibustion: no evidence (PBB Breech, RANZCOG)"
+      judgement: unsupported
+      source_says: "PBB Malpresentation: if moxibustion is done before 37 weeks there is some evidence it may reduce the chance of your baby being breech at birth"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/malpresentation
+      fixed_to: "added the Malpresentation page's statement, credited, and added it to sources"
+    - claim: "call-000 instruction was the third paragraph"
+      judgement: wrong
+      source_says: "Warning: If your waters break and you have been told that your baby is not head-first, seek medical help immediately by calling triple-zero (000) and asking for an ambulance."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
+      fixed_to: "moved to the first line of the body, wording unchanged"
+
+- id: ecv
+  file: content/drafts/ecv.md
+  verdict: ok
+
+- id: malpresentation
+  file: content/drafts/malpresentation.md
+  verdict: fix
+  problems:
+    - claim: "'Having a malpresentation once makes it more likely next time.' sat under 'When to get help'; emergency section was last"
+      judgement: wrong
+      source_says: "If you had a malpresentation in one pregnancy, you have a higher chance of it happening again. / Warning: If your waters break and you have been told that your baby is not in a head-first position, seek medical help immediately."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/malpresentation
+      fixed_to: "'When to get help' moved to the top, stray line moved to the end of the body under its own context; 'What it is' heading added over the opening paragraph"
+
+- id: caesarean-what-happens
+  file: content/drafts/caesarean-what-happens.md
+  verdict: ok
+
+- id: caesarean-on-request
+  file: content/drafts/caesarean-on-request.md
+  verdict: ok
+
+- id: vbac
+  file: content/drafts/vbac.md
+  verdict: fix
+  problems:
+    - claim: "Not recommended after a classical (high) or vertical cut on the uterus"
+      judgement: wrong
+      source_says: "A previous classical caesarean birth (i.e. a high uterine incision); a previous caesarean birth with an inverted T or low vertical uterine incision."
+      url: https://ranzcog.edu.au/wp-content/uploads/Birth-After-Caesarean-Pamphlet.pdf
+      fixed_to: "after a classical (high) cut on the uterus, an inverted T or low vertical cut, a previous rupture ..."
+
+- id: preterm-birth
+  file: content/drafts/preterm-birth.md
+  verdict: ok
+
+- id: waters-breaking-early
+  file: content/drafts/waters-breaking-early.md
+  verdict: fix
+  problems:
+    - claim: "Call-an-ambulance instruction sat under 'When to get help' after the intro, giving only the hands-and-knees position"
+      judgement: wrong
+      source_says: "Warning: If you feel something in your vagina after your waters break, call an ambulance and get down on your hands and knees with your bottom in the air. ... serious emergency called cord prolapse. It is life-threatening for your baby."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/waters-breaking-early
+      fixed_to: "'When to get help' moved to the top (and call-an-ambulance added to the summary), wording per the page"
+    - claim: "(no mention of the cord prolapse page's different position)"
+      judgement: unsupported
+      source_says: "PBB Umbilical cord prolapse: you may be asked to bring your knees to your chest with your head facing down while waiting for the ambulance."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/umbilical-cord-prolapse
+      fixed_to: "added a credited sentence giving that position and noting the pages differ; page added to sources; 'What it is' heading added over the opening paragraph"
+
+- id: third-stage-placenta
+  file: content/drafts/third-stage-placenta.md
+  verdict: ok

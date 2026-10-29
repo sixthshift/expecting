@@ -1,0 +1,215 @@
+# Fact-check of the L02 batch of drafts (content/drafts/*.md) against their listed sources.
+# Checked 2026-10-29. Every claim (summary, verdict, headings, body) compared with the loaded source pages.
+- id: antacids
+  file: content/drafts/antacids.md
+  verdict: fix
+  problems:
+    - claim: "It tends to get worse late in pregnancy."
+      judgement: unsupported
+      source_says: "(no statement about timing)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/indigestion-and-heartburn-in-pregnancy
+      fixed_to: "cut"
+    - claim: "avoid lying down or exercising for 2 or 3 hours after eating"
+      judgement: wrong
+      source_says: "Avoid eating for 2 or 3 hours before exercising or going to bed ... don't lie down right after a meal."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/indigestion-and-heartburn-in-pregnancy
+      fixed_to: "avoid eating for 2 or 3 hours before exercising or going to bed, don't lie down right after a meal"
+    - claim: "vomiting blood"
+      judgement: wrong
+      source_says: "vomiting up blood"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/indigestion-and-heartburn-in-pregnancy
+      fixed_to: "vomiting up blood"
+- id: laxatives
+  file: content/drafts/laxatives.md
+  verdict: ok
+- id: cold-sore-treatments
+  file: content/drafts/cold-sore-treatments.md
+  verdict: fix
+  problems:
+    - claim: "your lowered immune system makes complications more likely"
+      judgement: wrong
+      source_says: "While you're pregnant, or if have a health condition that affects how your immune system works, HSV can cause severe illness."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-sores-in-pregnancy
+      fixed_to: "while you're pregnant the virus can cause severe illness"
+    - claim: "A lip balm with SPF15+ can lower your risk of an outbreak."
+      judgement: unsupported
+      source_says: "Avoid excessive sunlight exposure. Apply sunscreen on your lips when you are in the sun."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-sores-in-pregnancy
+      fixed_to: "avoid excessive sunlight; sunscreen on your lips in the sun"
+- id: haemorrhoid-treatments
+  file: content/drafts/haemorrhoid-treatments.md
+  verdict: ok
+- id: calcium
+  file: content/drafts/calcium.md
+  verdict: ok
+- id: homeopathy
+  file: content/drafts/homeopathy.md
+  verdict: ok
+- id: walking
+  file: content/drafts/walking.md
+  verdict: ok
+- id: swimming
+  file: content/drafts/swimming.md
+  verdict: fix
+  problems:
+    - claim: "Scuba diving. Pregnancy, Birth and Baby says to avoid sports that involve diving. Better Health Channel says ... diving to less than 18 metres is reasonably safe but to check with your doctor first."
+      judgement: unsupported
+      source_says: "Royal Women's also lists scuba diving among sports and activities to avoid in pregnancy; PBB: avoid sports that involve diving; Better Health: Snorkelling is fine and scuba diving to depths of less than 18 metres (60 feet) is reasonably safe, but check with your doctor first."
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+      fixed_to: "rewritten as a disagreement between sources; 18 m credited to Better Health Channel alone, not general advice"
+    - claim: "Tell the instructor you are pregnant and how many weeks (no listed source carried it)"
+      judgement: unsupported
+      source_says: "make sure your teacher ... knows that you're pregnant and knows how many weeks pregnant you are"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+      fixed_to: "kept; Exercising during pregnancy added to sources"
+- id: yoga
+  file: content/drafts/yoga.md
+  verdict: ok
+- id: pilates
+  file: content/drafts/pilates.md
+  verdict: ok
+- id: group-fitness-classes
+  file: content/drafts/group-fitness-classes.md
+  verdict: ok
+- id: electric-blankets
+  file: content/drafts/electric-blankets.md
+  verdict: ok
+- id: sleeping-on-your-stomach
+  file: content/drafts/sleeping-on-your-stomach.md
+  verdict: ok
+- id: probiotics
+  file: content/drafts/probiotics.md
+  verdict: ok
+- id: computer-screens
+  file: content/drafts/computer-screens.md
+  verdict: fix
+  problems:
+    - claim: "verdict yes / Yes, desk work is fine"
+      judgement: unsupported
+      source_says: "Neither page addresses computer screens or laptops; PBB: It is safe to work while you are pregnant unless your doctor tells you it is unsafe."
+      url: https://www.arpansa.gov.au/effects-radiofrequency-electromagnetic-field-exposure-adverse-pregnancy-outcomes-human-observational-studies
+      fixed_to: "verdict ask; summary reworded"
+    - claim: "ARPANSA's 2024 review"
+      judgement: unsupported
+      source_says: "no year on the page"
+      url: https://www.arpansa.gov.au/effects-radiofrequency-electromagnetic-field-exposure-adverse-pregnancy-outcomes-human-observational-studies
+      fixed_to: "year cut"
+    - claim: "no or little association with miscarriage, preterm birth, low birth weight or congenital anomalies"
+      judgement: wrong
+      source_says: "overall no or little association with pregnancy outcomes; general public studies: association with SGA (RR 1.13); miscarriage and anomalies figures are occupational only"
+      url: https://www.arpansa.gov.au/effects-radiofrequency-electromagnetic-field-exposure-adverse-pregnancy-outcomes-human-observational-studies
+      fixed_to: "overall wording plus SGA finding"
+- id: loud-noise
+  file: content/drafts/loud-noise.md
+  verdict: ok
+- id: airport-scanners
+  file: content/drafts/airport-scanners.md
+  verdict: ok
+- id: dental-x-rays
+  file: content/drafts/dental-x-rays.md
+  verdict: ok
+- id: blood-donation
+  file: content/drafts/blood-donation.md
+  verdict: ok
+- id: boats-and-ferries
+  file: content/drafts/boats-and-ferries.md
+  verdict: ok
+- id: hair-dye
+  file: content/drafts/hair-dye.md
+  verdict: ok
+- id: hair-removal
+  file: content/drafts/hair-removal.md
+  verdict: ok
+- id: fake-tan
+  file: content/drafts/fake-tan.md
+  verdict: ok
+- id: nail-salons
+  file: content/drafts/nail-salons.md
+  verdict: ok
+- id: beauty-salon-treatments
+  file: content/drafts/beauty-salon-treatments.md
+  verdict: ok
+- id: botox-and-fillers
+  file: content/drafts/botox-and-fillers.md
+  verdict: ok
+- id: hair-straightening
+  file: content/drafts/hair-straightening.md
+  verdict: fix
+  problems:
+    - claim: "Ask the salon whether the product contains formaldehyde before you book."
+      judgement: unsupported
+      source_says: "While there's no evidence that it can harm unborn babies, it is a known carcinogen and should be avoided."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/hair-care-during-pregnancy
+      fixed_to: "Skip any treatment that contains formaldehyde. PBB says it should be avoided."
+- id: sunscreen
+  file: content/drafts/sunscreen.md
+  verdict: fix
+  problems:
+    - claim: "Keep using your usual sunscreen. MotherSafe doesn't ask you to switch types."
+      judgement: unsupported
+      source_says: "Using sunscreen is advisable ... sunscreens do not pose a risk to pregnant and breastfeeding women."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
+      fixed_to: "Use sunscreen. MotherSafe says it is advisable, and that sunscreens don't pose a risk to pregnant people."
+- id: teeth-whitening
+  file: content/drafts/teeth-whitening.md
+  verdict: ok
+- id: piercings
+  file: content/drafts/piercings.md
+  verdict: ok
+- id: deodorant-and-perfume
+  file: content/drafts/deodorant-and-perfume.md
+  verdict: fix
+  problems:
+    - claim: "avoid anything unusual that isn't essential or proven safe"
+      judgement: unsupported
+      source_says: "avoid using products that are not essential or have not been proven safe during pregnancy or breastfeeding"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
+      fixed_to: "avoid products that aren't essential or haven't been proven safe"
+- id: cleaning-products
+  file: content/drafts/cleaning-products.md
+  verdict: ok
+- id: plastics-and-bpa
+  file: content/drafts/plastics-and-bpa.md
+  verdict: fix
+  problems:
+    - claim: "No need to throw things out (verdict yes)"
+      judgement: unsupported
+      source_says: "It has been suggested that exposure to these chemicals during pregnancy and infancy can impact your baby's development ... However, FSANZ says that BPA in food packaging is unlikely to be a health risk."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
+      fixed_to: "verdict ask; summary and opening show both sides"
+- id: pets
+  file: content/drafts/pets.md
+  verdict: ok
+- id: essential-oils
+  file: content/drafts/essential-oils.md
+  verdict: ok
+- id: mothballs-and-naphthalene
+  file: content/drafts/mothballs-and-naphthalene.md
+  verdict: fix
+  problems:
+    - claim: "Avoid them / lists mothballs among the household products to avoid"
+      judgement: unsupported
+      source_says: "Mothballs and toilet cakes contain naphthalene. Exposure to lots of naphthalene can cause damage to your blood cells... don't use mothballs around children under 3 years. Store safely."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
+      fixed_to: "verdict limit; 'be careful'; page lists them among chemicals to be aware of"
+- id: massage
+  file: content/drafts/massage.md
+  verdict: fix
+  problems:
+    - claim: "it should be gentle"
+      judgement: wrong
+      source_says: "It is usually a gentle massage."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/pregnancy-massage
+      fixed_to: "it is usually gentle"
+- id: acupuncture
+  file: content/drafts/acupuncture.md
+  verdict: fix
+  problems:
+    - claim: "In the first trimester, healthdirect says it's important to speak to your doctor before getting acupuncture"
+      judgement: wrong
+      source_says: "It's important to speak to your doctor before getting acupuncture if you are pregnant. There may be a chance of miscarriage in the first trimester."
+      url: https://www.healthdirect.gov.au/treatments-and-self-care/acupuncture
+      fixed_to: "speak to your doctor first if pregnant; chance of miscarriage in first trimester"
+- id: other-complementary-therapies
+  file: content/drafts/other-complementary-therapies.md
+  verdict: ok

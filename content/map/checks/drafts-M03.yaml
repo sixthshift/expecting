@@ -1,0 +1,299 @@
+# Fact-check of drafted Library entries, batch M03 (can-i: drinks and medicines): 20 drafts in
+# content/drafts/, every claim checked against the pages in `sources:` (fetched/re-read 2026-10-29).
+# verdict "fix" = text rewritten to the source; "ok" = no change; `checked: 2026-10-29` added
+# only where every claim was confirmed against a loaded page.
+
+- id: cough-medicines
+  file: content/drafts/cough-medicines.md
+  verdict: fix
+  problems:
+    - claim: "Pregnancy, Birth and Baby still lists pholcodine as safe for a dry cough (placed after the answer, summary led with the safe medicines)"
+      judgement: wrong
+      source_says: "TGA: 55 pholcodine-containing products are being cancelled from the ARTG and those on shelves recalled (cancellation effective 29 March 2023); MotherSafe: 'pholcodine has been recalled in Australia due to interactions with some agents used during general anaesthesia, resulting in anaphylaxis'. (PBB/healthdirect medicines page, last reviewed June 2024, still lists 'pholcodine or dextromethorphan' as safe.)"
+      url: https://www.tga.gov.au/news/media-releases/pholcodine-cough-medicines-cancelled-tga-and-recalled-pharmacies-safety-reasons
+      fixed_to: "Body now leads with 'Pholcodine is no longer sold in Australia' (TGA cancelled 55 products in March 2023, shelf stock recalled), mentions only 'Some older pages still list it', and gives the anaesthesia reason and the 12-month advice (TGA/WA Health). Summary says no longer sold. TGA page added to sources; PBB medicines page removed from sources (no longer used)."
+    - claim: "cold and flu combinations contain oral decongestants 'that aren't recommended in pregnancy'"
+      judgement: unsupported
+      source_says: "MotherSafe: pseudoephedrine and phenylephrine are the oral decongestants in many combination cold and flu tablets; best to check ingredients with MotherSafe, doctor or pharmacist. (Views on oral decongestants differ by source; see oral-decongestants.)"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/docs/Cold%20in%20pregnancy%20and%20breastfeeding%20.pdf
+      fixed_to: "'which contain several ingredients, including in many cases an oral decongestant (see Sudafed and oral decongestants)'"
+    - claim: "all other claims (dextromethorphan dry cough; bromhexine/guaifenesin chesty; MotherSafe no large studies but widely used; dihydrocodeine; rest, fluids, honey and lemon; recommended dose; flu see doctor, antiviral earlier)"
+      judgement: ok
+      source_says: "confirmed in KEMH, MotherSafe cold factsheet and PBB cold and flu page"
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+      fixed_to: "unchanged"
+
+- id: coffee-and-caffeine
+  file: content/drafts/coffee-and-caffeine.md
+  verdict: ok
+  problems:
+    - claim: "FSANZ caffeine-powders page listed in sources but nothing in the body comes from it"
+      judgement: unsupported
+      source_says: "n/a (no body claim relies on it)"
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/caffeine-powders-and-high-caffeine-content-foods
+      fixed_to: "removed from sources. Every figure re-read on the three PBB pages and each is credited as drafted: caffeine page (200 mg total; 1-2 espresso, 2-3 instant; chart 145 mg/50 mL espresso, 80 mg/250 mL instant, tea 10-50, cola 35/375 mL, chocolate 20/100 g, energy drink 80/250 mL; medicines 20-100 mg a dose; withdrawal up to a week), healthy-diet page (60 mg instant, 100 mg espresso shot), foods-to-avoid page (3 cups instant; energy drinks and double shots not recommended)."
+
+- id: oral-decongestants
+  file: content/drafts/oral-decongestants.md
+  verdict: fix
+  problems:
+    - claim: "KEMH and healthdirect say they're not recommended, naming pseudoephedrine and phenylephrine"
+      judgement: wrong
+      source_says: "KEMH: 'Oral medicines to treat a blocked nose, such as pseudoephedrine or phenylephrine, are not recommended in pregnancy.' healthdirect: 'You should not use oral decongestants such as phenylephrine.' PBB: 'Oral decongestant medicines are not safe to use during pregnancy.'"
+      url: https://www.healthdirect.gov.au/medicines/medicines-during-pregnancy
+      fixed_to: "each source now credited in its own words (PBB 'not safe', KEMH 'not recommended', healthdirect 'should not use ... such as phenylephrine'); MotherSafe's measured view kept separate"
+    - claim: "summary: oral decongestants 'aren't recommended' (merged all four sources)"
+      judgement: wrong
+      source_says: "MotherSafe: no conclusive data of harm in the first trimester; do not use in the 2nd and 3rd trimester if you have high blood pressure"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/docs/Cold%20in%20pregnancy%20and%20breastfeeding%20.pdf
+      fixed_to: "summary names PBB, KEMH and healthdirect and says MotherSafe is more measured"
+    - claim: "'Pseudoephedrine and phenylephrine narrow blood vessels...' unattributed; breastfeeding line unattributed"
+      judgement: unsupported
+      source_says: "blood-vessel line is MotherSafe's; breastfeeding line (reduce milk supply, irritable baby) is PBB's cold and flu page"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-and-flu-during-pregnancy
+      fixed_to: "attributed to MotherSafe and PBB respectively"
+    - claim: "nasal-spray safety and limits (3 days KEMH/healthdirect, 5 days MotherSafe), accidental exposure, steam/saline, check ingredients"
+      judgement: ok
+      source_says: "confirmed in KEMH, healthdirect, MotherSafe"
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+      fixed_to: "unchanged"
+
+- id: throat-lozenges-and-gargles
+  file: content/drafts/throat-lozenges-and-gargles.md
+  verdict: ok
+  problems: []
+  # KEMH (lozenges safe at recommended dose; benzydamine not unless doctor directs; povidone-iodine avoid, thyroid),
+  # healthdirect (avoid povidone-iodine and benzydamine; too many lozenges cause diarrhoea) and MotherSafe
+  # (benzydamine lozenges best avoided; iodine gargles long-term thyroid, short-term not anticipated but generally not
+  # recommended; benzydamine lozenges may be used while breastfeeding) all confirmed; views already kept separate.
+
+- id: codeine-and-opioids
+  file: content/drafts/codeine-and-opioids.md
+  verdict: fix
+  problems:
+    - claim: "short-term use of some opioids is considered safe in pregnancy (summary and lead merged KEMH and MotherSafe)"
+      judgement: wrong
+      source_says: "KEMH: 'short-term use of some opioid medicines ... is considered safe'. MotherSafe: 'If needed for short-term or infrequent use, opioids may be considered if non-opioid medications did not bring relief or are not suitable.'"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Pain%20in%20Pregnancy.pdf
+      fixed_to: "both views stated and credited in summary and lead"
+    - claim: "Codeine isn't in any over-the-counter medicine."
+      judgement: wrong
+      source_says: "PBB (cold and flu page): 'Codeine is not found in over-the-counter medicines.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-and-flu-during-pregnancy
+      fixed_to: "'Pregnancy, Birth and Baby says codeine is not found in over-the-counter medicines.'"
+    - claim: "MotherSafe herbal-medicines page listed in sources"
+      judgement: unsupported
+      source_says: "no claim in the body comes from it"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/MSHerbalApril2020.pdf
+      fixed_to: "removed from sources"
+    - claim: "all other claims (withdrawal, dependence, side effects, paracetamol first, PBB headache codeine short-term, breastfeeding sleepy, MotherSafe numbers)"
+      judgement: ok
+      source_says: "confirmed in MotherSafe pain sheet, KEMH, PBB headaches and cold and flu pages"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/headaches-during-pregnancy
+      fixed_to: "unchanged"
+
+- id: cooking-with-alcohol
+  file: content/drafts/cooking-with-alcohol.md
+  verdict: fix
+  problems:
+    - claim: "the baby's blood alcohol reaches the same level as yours"
+      judgement: wrong
+      source_says: "'crosses the placenta producing levels in the developing baby's bloodstream that are as high as those in the mother'"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Alcohol%20in%20Pregnancy.pdf
+      fixed_to: "'producing levels in the baby's bloodstream as high as yours'"
+    - claim: "summary: any small amount before you knew is likely low risk"
+      judgement: wrong
+      source_says: "'likely to be low if a woman has consumed only small amounts of alcohol before she knew she was pregnant or during pregnancy'"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Alcohol%20in%20Pregnancy.pdf
+      fixed_to: "'after only small amounts of alcohol before you knew you were pregnant or during pregnancy'"
+    - claim: "If you're unsure about a dish, leave it"
+      judgement: unsupported
+      source_says: "sheet gives advice on alcohol intake only; says discuss concerns with doctor or midwife"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Alcohol%20in%20Pregnancy.pdf
+      fixed_to: "'ask your doctor or midwife'"
+    - claim: "If you've already eaten something, MotherSafe says the risk from small amounts is likely to be low (applied the drinking advice to food)"
+      judgement: unsupported
+      source_says: "the sheet covers alcohol consumed, not food cooked with it"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Alcohol%20in%20Pregnancy.pdf
+      fixed_to: "rewritten to 'already had some alcohol', adds that the sheet is about alcohol itself, not food cooked with it"
+    - claim: "'risk of harm grows with frequent drinking and large amounts in a short time'"
+      judgement: ok
+      source_says: "'risk of harm increases when alcohol is consumed frequently and in large amounts over a short period' (wording tightened)"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Alcohol%20in%20Pregnancy.pdf
+      fixed_to: "tightened to the source wording"
+
+- id: fasting
+  file: content/drafts/fasting.md
+  verdict: ok
+  problems: []
+  # Re-fetched PBB religious-fasting page: research limited; studies mixed (birth weight, preterm, amniotic fluid);
+  # dehydration and fatigue; check with doctor or midwife in lead-up; many doctors do not recommend fasting in 2nd/3rd
+  # trimester; rules vary, many religions allow exceptions; gestational diabetes; when to break the fast; water and diet;
+  # light-headed or dizzy at any time, contact a healthcare professional. All as drafted.
+
+- id: unpasteurised-juice
+  file: content/drafts/unpasteurised-juice.md
+  verdict: ok
+  problems: []
+  # Re-fetched FSANZ listeria page (unpasteurised fruit juices on avoid list; listeria grows in fridge; small amount can
+  # cause illness; rare but serious; miscarriage, premature, stillborn; 3 weeks, 3 to 70 days; mild symptoms; seek medical
+  # attention immediately) and PBB healthy-diet page (safest drinks water and milk; small amounts of juice fine).
+
+- id: kombucha-and-fermented-drinks
+  file: content/drafts/kombucha-and-fermented-drinks.md
+  verdict: fix
+  problems:
+    - claim: "Pregnancy, Birth and Baby lists them [kombucha, kefir, kvass and ginger beer] under alcohol on its foods-to-avoid page"
+      judgement: wrong
+      source_says: "PBB: 'Fermented drinks can contain small amounts of alcohol... These drinks include: kombucha, kefir, ginger beer' (no kvass). NSW Food Authority: 'Fermented drinks like kombucha, kvass, kefir and ginger beer can contain residual alcohol'; 'certain drinks that also present a higher risk'."
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/why-avoid-certain-foods
+      fixed_to: "NSWFA credited with all four; PBB credited with kombucha, kefir and ginger beer"
+  # Level note (not changed): no source tells you to avoid shop-bought kombucha outright. PBB: no safe level of alcohol; NSWFA:
+  # higher-risk drinks; MotherSafe: commercial products generally trace amounts but some recalled; home-brew should be avoided.
+  # Body keeps those separate; verdict 'avoid' left as drafted, for the owner to confirm.
+
+- id: energy-drinks
+  file: content/drafts/energy-drinks.md
+  verdict: ok
+  problems: []
+  # Re-fetched FSANZ caffeine page (320 mg/L; label not suitable for young children, pregnant or lactating women and
+  # individuals sensitive to caffeine; guarana must be labelled as caffeine) and PBB caffeine and foods-to-avoid pages
+  # (energy drinks not recommended; 80 mg/250 mL; 200 mg limit; risks; alternatives; sugar; tea and coffee within limit).
+
+- id: pre-workout-and-caffeine-powders
+  file: content/drafts/pre-workout-and-caffeine-powders.md
+  verdict: fix
+  problems:
+    - claim: "Australian pregnancy advice doesn't cover pre-workout, protein powder or other sports supplements by name"
+      judgement: unchecked
+      source_says: "no cited page names them; an absence claim cannot be confirmed from the sources"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+      fixed_to: "'we haven't found Australian pregnancy advice that names ...'"
+    - claim: "Never use pure caffeine powder."
+      judgement: unsupported
+      source_says: "FSANZ: pure and highly concentrated caffeine products are banned from retail sale in Australia and New Zealand; 'can have serious health effects, including death'"
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/caffeine-powders-and-high-caffeine-content-foods
+      fixed_to: "restated as the ban and FSANZ's warning"
+    - claim: "Ask before anything else, including protein powder"
+      judgement: unsupported
+      source_says: "PBB: 'best to speak to your doctor or pharmacist before taking any medicine or supplements'; protein powder not mentioned"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/caffeine-during-pregnancy
+      fixed_to: "'speak to your doctor or pharmacist before taking any supplement'"
+    - claim: "teaspoon equals 25 to 50 cups; 5% solid / 1% liquid ban; deaths; usually bought online; 200 mg limit; label rules; slimming medicines"
+      judgement: ok
+      source_says: "confirmed on FSANZ and PBB pages"
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/caffeine-powders-and-high-caffeine-content-foods
+      fixed_to: "unchanged"
+
+- id: herbal-tea
+  file: content/drafts/herbal-tea.md
+  verdict: ok
+  problems: []
+  # Re-fetched PBB herbal-teas page (last reviewed March 2025): 2 cups a day, vary types, check with doctor or pharmacist,
+  # no caffeine, ginger/peppermint/raspberry leaf likely safe, green tea has caffeine, dandelion/rose hip/chamomile not
+  # enough information, ask about teas to avoid; MotherSafe: 'considered safe to consume herbal teas in moderation'.
+
+- id: chamomile-tea
+  file: content/drafts/chamomile-tea.md
+  verdict: ok
+  problems: []
+  # Re-fetched PBB herbal-teas page: chamomile 'suggestion it could stimulate your uterus or lead to circulation problems';
+  # higher rates of preterm labour and miscarriage reported; best to avoid large quantities; check with doctor or pharmacist;
+  # 2 cups a day for herbal tea. As drafted.
+
+- id: medicines-before-you-knew
+  file: content/drafts/medicines-before-you-knew.md
+  verdict: fix
+  problems:
+    - claim: "Lots of people take something before they find out they're pregnant. It's often reassuring"
+      judgement: unsupported
+      source_says: "KEMH: in very early pregnancy a harmful exposure is most likely 'all or nothing' (miscarriage or no significant effect); first trimester birth defects; later growth problems, preterm birth, newborn withdrawal. No source says it is common or 'often reassuring'."
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+      fixed_to: "'If you took something before you found out you're pregnant, the answer depends on the medicine and when you took it...'"
+    - claim: "if you took [an anti-inflammatory] accidentally, MotherSafe says you can generally be reassured"
+      judgement: unsupported
+      source_says: "'Women who have accidentally used anti-inflammatory medicines can be generally reassured but there are various reasons to avoid NSAIDs at different stages of pregnancy.'"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Pain%20in%20Pregnancy.pdf
+      fixed_to: "added 'though there are various reasons to avoid them at different stages of pregnancy'"
+    - claim: "MotherSafe herbal-medicines page listed in sources"
+      judgement: unsupported
+      source_says: "no claim in the body comes from it"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/MSHerbalApril2020.pdf
+      fixed_to: "removed from sources"
+
+- id: anti-inflammatory-gels
+  file: content/drafts/anti-inflammatory-gels.md
+  verdict: ok
+  problems: []
+  # KEMH ('NOT recommended in pregnancy (especially in the third trimester)', topical included) and MotherSafe pain sheet
+  # (small amount absorbed, generally relatively safe; more absorbed over large area, broken skin, heat or covering; not in
+  # last 3 months unless doctor directs; non-drug first; paracetamol lowest dose shortest time) confirmed; views kept separate.
+
+- id: aspirin
+  file: content/drafts/aspirin.md
+  verdict: ok
+  problems: []
+  # healthdirect (NSAIDs such as ibuprofen and aspirin avoided unless doctor advises; low-dose aspirin for pre-eclampsia;
+  # speak to healthcare team; paracetamol for mild to moderate pain), MotherSafe (no longer recommended, medical supervision;
+  # accidental use generally reassured) and PBB cold and flu page (aspirin not safe while breastfeeding) confirmed.
+
+- id: migraine-medicines
+  file: content/drafts/migraine-medicines.md
+  verdict: ok
+  problems: []
+  # MotherSafe migraine sheet (paracetamol or opioids e.g. codeine recommended first choice; occasional sumatriptan generally
+  # safe, considerable data on sumatriptan only; NSAIDs no longer recommended; preventer, propranolol/cyproheptadine/
+  # amitriptyline; untreated migraine harms; frequent headaches late in pregnancy or within 4 weeks of birth) and PBB headaches
+  # page (call straightaway for very bad headache, vision, pain below ribs, vomiting, sudden swelling; after 20 weeks;
+  # sumatriptan needs prescription) confirmed. Note, not changed: PBB's page banner says a severe headache not usual for you
+  # means 'seek medical help immediately'; the draft uses the 'call straightaway' level from its 'When should I see my doctor' section.
+
+- id: antihistamines
+  file: content/drafts/antihistamines.md
+  verdict: fix
+  problems:
+    - claim: "oral decongestants such as pseudoephedrine and phenylephrine are not recommended in pregnancy (stated flatly, credited to no one)"
+      judgement: unsupported
+      source_says: "KEMH: 'Oral medicines to treat a blocked nose, such as pseudoephedrine or phenylephrine, are not recommended in pregnancy.' MotherSafe is more measured (no conclusive harm in first trimester; avoid in 2nd/3rd trimester with high blood pressure)."
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+      fixed_to: "'KEMH says ... not recommended in pregnancy (other sources differ; see Sudafed and oral decongestants)'"
+    - claim: "all other claims (older sedating at any stage; loratadine/desloratadine/cetirizine/levocetirizine/fexofenadine reasonable; healthdirect shortest time; sprays and eye drops preferred; drowsy/withdrawal at delivery; as needed; blocked nose sprays; breastfeeding)"
+      judgement: ok
+      source_says: "confirmed in KEMH, MotherSafe hay fever sheet and healthdirect"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/hayfeverinpregandbfjune2021.pdf
+      fixed_to: "unchanged"
+
+- id: cold-and-flu-tablets
+  file: content/drafts/cold-and-flu-tablets.md
+  verdict: fix
+  problems:
+    - claim: "oral decongestants that aren't recommended in pregnancy (summary and Why, merged all sources)"
+      judgement: wrong
+      source_says: "PBB: 'Oral decongestant medicines are not safe to use during pregnancy.' healthdirect: 'You should not use oral decongestants such as phenylephrine.' MotherSafe: no conclusive data of harm in first trimester; not in 2nd/3rd trimester with high blood pressure; check ingredients."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-and-flu-during-pregnancy
+      fixed_to: "PBB 'not safe' and healthdirect 'should not use' credited; MotherSafe 'more measured', pointing to oral-decongestants"
+    - claim: "Ibuprofen shouldn't be used in pregnancy unless your doctor has prescribed it"
+      judgement: wrong
+      source_says: "healthdirect: NSAIDs 'should be avoided during pregnancy unless advised by your doctor'. MotherSafe: 'no longer recommended in pregnancy and should only be used under medical supervision.'"
+      url: https://www.healthdirect.gov.au/medicines/medicines-during-pregnancy
+      fixed_to: "both wordings, credited"
+    - claim: "all other claims (treat symptoms individually; paracetamol 8 x 500 mg in 24 h and double-dosing via combination tablets; nasal sprays; dextromethorphan/guaifenesin/bromhexine; lozenges, honey, salt water; flu more serious, pneumonia, premature labour, stillbirth, antiviral earlier)"
+      judgement: ok
+      source_says: "confirmed in healthdirect, MotherSafe cold and pain sheets, PBB cold and flu page"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-and-flu-during-pregnancy
+      fixed_to: "unchanged"
+
+- id: reflux-medicines
+  file: content/drafts/reflux-medicines.md
+  verdict: fix
+  problems:
+    - claim: "Heartburn affects around 80% of pregnant people."
+      judgement: wrong
+      source_says: "MotherSafe: 'It has been estimated that 80% of pregnant women develop heartburn'. KEMH: 'Heartburn can develop in up to 80 percent of pregnant women.'"
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+      fixed_to: "'MotherSafe estimates that 80% of pregnant people get heartburn; KEMH says it can develop in up to 80%.'"
+    - claim: "all other claims (H2 blockers/famotidine safe when antacids not enough; PPIs widely used, no increased risk; omeprazole most follow-up, esomeprazole similar; KEMH omeprazole preferred PPI; ranitidine NDMA recall and very low risk; lifestyle steps; short PPI course OTC; urgent red flags; breastfeeding)"
+      judgement: ok
+      source_says: "confirmed in MotherSafe heartburn sheet, KEMH medicines page and KEMH nausea and vomiting leaflet ('Omeprazole is the preferred proton pump inhibitor (PPI) in pregnancy')"
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/heartburnpregbr2021.pdf
+      fixed_to: "unchanged"

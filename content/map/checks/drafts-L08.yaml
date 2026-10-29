@@ -1,0 +1,143 @@
+# Fact-check of the L08 batch of drafted Library entries (body-and-baby: 7 terms, 29 cards)
+# against their cited pages. Checked 2026-10-29.
+- id: term-nad
+  file: content/drafts/term-nad.md
+  verdict: unchecked
+  problems:
+    - claim: "(entry)"
+      judgement: unchecked
+      source_says: "no draft"
+      url: ""
+      fixed_to: "n/a"
+- id: card-extra-saliva
+  file: content/drafts/card-extra-saliva.md
+  verdict: unchecked
+  problems:
+    - claim: "(entry)"
+      judgement: unchecked
+      source_says: "no draft"
+      url: ""
+      fixed_to: "n/a"
+- id: term-special-care-nursery
+  file: content/drafts/term-special-care-nursery.md
+  verdict: fix
+  problems:
+    - claim: "they may be moved to the SCN or the NICU, depending on the care they need."
+      judgement: unsupported
+      source_says: "Once your baby is stable, they may be transferred to the NICU or SCN."
+      url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/premature-baby
+      fixed_to: "they may be transferred to the NICU or SCN."
+- id: term-iol
+  file: content/drafts/term-iol.md
+  verdict: fix
+  problems:
+    - claim: "a broad term for any medical intervention that starts labour artificially; might involve medication to open your cervix, breaking your waters, medicine to start contractions, or a combination"
+      judgement: unsupported
+      source_says: "BHC: Induced - when a healthcare professional tries to artificially 'start' a woman's labour. PBB glossary: ARM is a form of labour induction; a balloon catheter is a type of induction of labour."
+      url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth
+      fixed_to: "rewritten to the BHC definition plus ARM and balloon catheter as given by the PBB glossary; summary reworded to match"
+- id: card-only-five-percent-on-the-day
+  file: content/drafts/card-only-five-percent-on-the-day.md
+  verdict: fix
+  problems:
+    - claim: "babies are considered full term if they are born at any time from 37 weeks to 41 weeks"
+      judgement: wrong
+      source_says: "Babies are considered 'full term' if they are born at any time from 37 weeks of pregnancy (visible page text; the page's FAQ markup separately says 'between 39 and 41 weeks')."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date
+      fixed_to: "from 37 weeks of pregnancy"
+- id: term-nicu
+  file: content/drafts/term-nicu.md
+  verdict: ok
+- id: term-corrected-age
+  file: content/drafts/term-corrected-age.md
+  verdict: ok
+- id: term-lscs
+  file: content/drafts/term-lscs.md
+  verdict: ok
+- id: term-vbac
+  file: content/drafts/term-vbac.md
+  verdict: ok
+- id: term-arm-srom
+  file: content/drafts/term-arm-srom.md
+  verdict: ok
+- id: card-two-weeks-pregnant-before-conception
+  file: content/drafts/card-two-weeks-pregnant-before-conception.md
+  verdict: ok
+- id: card-eating-for-two
+  file: content/drafts/card-eating-for-two.md
+  verdict: ok
+- id: card-you-grow-an-organ
+  file: content/drafts/card-you-grow-an-organ.md
+  verdict: ok
+- id: card-baby-drinks-its-own-wee
+  file: content/drafts/card-baby-drinks-its-own-wee.md
+  verdict: ok
+- id: card-baby-hiccups
+  file: content/drafts/card-baby-hiccups.md
+  verdict: ok
+- id: card-baby-hears-your-heartbeat
+  file: content/drafts/card-baby-hears-your-heartbeat.md
+  verdict: ok
+- id: card-fingerprints-at-20-weeks
+  file: content/drafts/card-fingerprints-at-20-weeks.md
+  verdict: ok
+- id: card-practice-breathing
+  file: content/drafts/card-practice-breathing.md
+  verdict: ok
+- id: card-baby-is-furry
+  file: content/drafts/card-baby-is-furry.md
+  verdict: ok
+- id: card-born-covered-in-cream
+  file: content/drafts/card-born-covered-in-cream.md
+  verdict: ok
+- id: card-first-poo-is-already-made
+  file: content/drafts/card-first-poo-is-already-made.md
+  verdict: ok
+- id: card-sex-myths
+  file: content/drafts/card-sex-myths.md
+  verdict: ok
+- id: card-most-breech-babies-turn
+  file: content/drafts/card-most-breech-babies-turn.md
+  verdict: ok
+- id: card-the-bump-drops
+  file: content/drafts/card-the-bump-drops.md
+  verdict: ok
+- id: card-vivid-dreams
+  file: content/drafts/card-vivid-dreams.md
+  verdict: ok
+- id: card-nesting
+  file: content/drafts/card-nesting.md
+  verdict: ok
+- id: card-brain-fog
+  file: content/drafts/card-brain-fog.md
+  verdict: ok
+- id: card-colostrum-leaking
+  file: content/drafts/card-colostrum-leaking.md
+  verdict: ok
+- id: card-feet-grow
+  file: content/drafts/card-feet-grow.md
+  verdict: ok
+- id: card-skin-tags
+  file: content/drafts/card-skin-tags.md
+  verdict: ok
+- id: card-thick-hair
+  file: content/drafts/card-thick-hair.md
+  verdict: ok
+- id: card-everything-gets-darker
+  file: content/drafts/card-everything-gets-darker.md
+  verdict: ok
+- id: card-metallic-taste
+  file: content/drafts/card-metallic-taste.md
+  verdict: ok
+- id: card-you-are-doing-a-workout-sitting-down
+  file: content/drafts/card-you-are-doing-a-workout-sitting-down.md
+  verdict: ok
+- id: card-second-pregnancy-shows-earlier
+  file: content/drafts/card-second-pregnancy-shows-earlier.md
+  verdict: ok
+- id: card-fundal-height-matches-weeks
+  file: content/drafts/card-fundal-height-matches-weeks.md
+  verdict: ok
+- id: card-no-lotus-no-capsules
+  file: content/drafts/card-no-lotus-no-capsules.md
+  verdict: ok

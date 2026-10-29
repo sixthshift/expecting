@@ -1,0 +1,149 @@
+# Drafts M15 fact-check (mind-and-circumstances and money-and-work entries), 2026-10-29.
+# Each claim checked against the pages in sources: (PANDA, 1800RESPECT, Pregnancy Birth and Baby,
+# Services Australia, Gidget Foundation, state pages etc.), re-fetched as chk-M15-*.txt.
+- id: reproductive-coercion
+  file: content/drafts/reproductive-coercion.md
+  verdict: ok
+  note: "000, 1800RESPECT 1800 737 732, text 0458 737 732, 24/7, 13YARN 13 92 76, Lifeline 13 11 14, 10 days FDV leave all match 1800RESPECT and pregnancybirthbaby pages."
+- id: card-panda-male-counsellors
+  file: content/drafts/card-panda-male-counsellors.md
+  verdict: ok
+  note: "Confirmed on PANDA's own page (panda.org.au dads signs-and-symptoms): 'Almost 1 in 10 callers to our Helpline are men. We have male telephone counsellors available if you'd prefer to speak to another bloke'. Helpline 1300 726 306, 7 days a week. The earlier batch's miss was wrong; the card still has its point."
+- id: card-asked-about-safety
+  file: content/drafts/card-asked-about-safety.md
+  verdict: fix
+  problems:
+    - claim: "controlling behaviour, like checking up on you, controlling money or who you see"
+      judgement: unsupported
+      source_says: "Social abuse and isolation: controlling who you see, monitoring phone calls and emails; Financial abuse: taking control of all money"
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/family-violence-and-abuse/family-violence-during-pregnancy
+      fixed_to: "controlling behaviour, like monitoring your phone calls and emails, controlling your money or who you see"
+    - claim: "1800RESPECT (1800 737 732) is there 24/7"
+      judgement: unchecked
+      source_says: "available 24/7 (1800 737 732); 000 for immediate danger"
+      url: https://1800respect.org.au/reproductive-abuse
+      fixed_to: "kept; 1800RESPECT page added to sources"
+- id: first-nations-services
+  file: content/drafts/first-nations-services.md
+  verdict: ok
+  note: "Health Worker roles, AHLO, culturally safe care, ACCHO/NACCHO finder, Birthing on Country definition (pregnancybirthbaby page), research claims, state programs (Gidget page), 13YARN 24/7, text 0447 13 92 76 4pm-midnight, SMS4dads free all match their pages."
+- id: rural-and-remote
+  file: content/drafts/rural-and-remote.md
+  verdict: fix
+  problems:
+    - claim: "once you're 37 to 38 weeks you'll be advised to travel close to a hospital for the birth (remote NT)"
+      judgement: wrong
+      source_says: "Once you're 37-38 weeks pregnant, you will need to travel to hospital for the birth of your baby. Your local community clinic will arrange your transport and accommodation."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/rural-and-remote-services/maternity-services-in-remote-northern-territory
+      fixed_to: "you will need to travel to hospital for the birth; your local community clinic will arrange your transport and accommodation (summary changed to match; Qld stays 'advised to travel closer ... at 37 to 38 weeks')"
+    - claim: "Each state and territory has a scheme that pays back some of the cost (summary: every state has a scheme that pays back)"
+      judgement: wrong
+      source_says: "You may/might be able to claim some travel and accommodation costs through the scheme (each state page)"
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/rural-and-remote-services/maternity-services-in-rural-nsw
+      fixed_to: "Every state and the Northern Territory has a scheme you may be able to claim some of the cost from (ACT not on any cited page)"
+  note: "Scheme names and IPTAAS 1800 478 227 and SA PATS 1300 341 684 match; WA pay-the-difference matches; Gidget Start Talking 10 sessions per calendar year, GP referral with mental health treatment plan, video call, partners eligible match; Lifeline 24/7 on Gidget page, 13YARN 24/7 on its own site."
+- id: pregnancy-on-a-visa-pointer
+  file: content/drafts/pregnancy-on-a-visa-pointer.md
+  verdict: fix
+  problems:
+    - claim: "Otherwise your baby gets the same visa as you"
+      judgement: unsupported
+      source_says: "If your baby is born in Australia when you and their other parent are on a visa, the baby will automatically have the same visas as you and their other parent."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/pregnancy-care-on-a-visa-in-australia
+      fixed_to: "If you and the other parent are on visas, your baby automatically has the same visas as you"
+  note: "Reciprocal country list, student-visa exclusions, OVHC/OSHC, 12-month waits, full cost, TIS 131 450 all match."
+- id: card-partner-grief-counts
+  file: content/drafts/card-partner-grief-counts.md
+  verdict: ok
+  note: "Matches pregnancybirthbaby Experiencing a pregnancy loss, Partner grief section."
+- id: card-one-in-three-traumatic
+  file: content/drafts/card-one-in-three-traumatic.md
+  verdict: ok
+  note: "Up to 1 in 3, 'if it felt traumatic to you then it was', never too late, PANDA 1300 726 306 and Gidget 1300 851 758 all on the pregnancybirthbaby page; Gidget birth trauma page says 1 in 3 parents."
+- id: card-partner-trauma-too
+  file: content/drafts/card-partner-trauma-too.md
+  verdict: ok
+  note: "Partner trauma line on pregnancybirthbaby postpartum PTSD; examples (haemorrhage, emergency caesarean, NICU, left alone for hours), symptoms, 'may not realise they are struggling' and 'need to be strong' on birthtrauma.org.au; GP/doctor referral for counselling per the same page."
+- id: card-intrusive-thoughts-common
+  file: content/drafts/card-intrusive-thoughts-common.md
+  verdict: fix
+  problems:
+    - claim: "not psychosis, and the distress ... is itself a sign they come from anxiety"
+      judgement: wrong
+      source_says: "they are NOT usually an indicator of psychosis ... The distress is clinically relevant – a strong indicator that these thoughts are driven by anxiety and nothing more serious."
+      url: https://www.gidgetfoundation.org.au/fact-sheets/intrusive-thoughts-what-are-they-and-how-do-we-deal-with-them
+      fixed_to: "not usually an indicator of psychosis, and the distress they cause is a strong indicator they're driven by anxiety and nothing more serious"
+    - claim: "often about harm coming to the baby"
+      judgement: unsupported
+      source_says: "images, thoughts or impulses that are negative, unwanted and often upsetting ... can be violent, sexual and/or disturbing"
+      url: https://www.gidgetfoundation.org.au/fact-sheets/intrusive-thoughts-what-are-they-and-how-do-we-deal-with-them
+      fixed_to: "often violent or disturbing"
+- id: card-you-will-be-asked-about-your-mood
+  file: content/drafts/card-you-will-be-asked-about-your-mood.md
+  verdict: ok
+  note: "Royal Women's Hospital: most women screened in pregnancy and postnatal, about 15 per cent, shame/guilt, not in your control. Gidget: EPDS commonly used with a standard scoring guide."
+- id: card-support-person-helps
+  file: content/drafts/card-support-person-helps.md
+  verdict: ok
+  note: "Matches pregnancybirthbaby birth support partner page (length of labour, pain relief, assisted birth/caesarean, confidence; comfortable, safe, honest, calm, positive, willing)."
+- id: card-anxiety-in-dads
+  file: content/drafts/card-anxiety-in-dads.md
+  verdict: ok
+  note: "1 in 6 / around 1 in 5 anxiety, 1 in 10 depression from first trimester, symptoms, GP, PANDA 1300 726 306, Beyond Blue 1300 22 4636, Lifeline 13 11 14 per pregnancybirthbaby fathers-and-depression page. No PANDA hours stated in the card."
+- id: card-bereavement-leave-for-loss
+  file: content/drafts/card-bereavement-leave-for-loss.md
+  verdict: ok
+  note: "Fair Work Ombudsman: 2 days each time, miscarriage of employee or spouse/de facto, paid except casuals (unpaid), single 2-day period, 2 separate days or as agreed. Miscarriage Australia: some employers offer more, 2 days may not feel enough."
+- id: card-late-miscarriage-labour
+  file: content/drafts/card-late-miscarriage-labour.md
+  verdict: ok
+  note: "13 to 20 weeks, usually labour and birth, medicine to start labour, surgical in some cases, private space, see and hold baby: all on the pregnancybirthbaby late miscarriage page."
+- id: card-twins-more-appointments
+  file: content/drafts/card-twins-more-appointments.md
+  verdict: ok
+  note: "All on pregnancybirthbaby twin page (more checks and ultrasounds, placenta, before 37 weeks, hospital with twin services, may recommend against home birth or birth centre, NICU/SCN)."
+- id: card-free-counselling-exists
+  file: content/drafts/card-free-counselling-exists.md
+  verdict: fix
+  problems:
+    - claim: "summary: 10 Medicare bulk-billed sessions a year"
+      judgement: unsupported
+      source_says: "How to access counselling: 'at least 10 Medicare bulk-billed ... sessions per calendar year'; Gidget House: 'up to 10', 'a maximum of 10 sessions'"
+      url: https://www.gidgetfoundation.org.au/fact-sheets/how-to-access-counselling
+      fixed_to: "summary now credits both: at least 10 on one Gidget page, up to 10 on another (body already did)"
+  note: "Telehealth by video call, GP Mental Health Treatment Plan and referral, 30 minutes or so, 1300 851 758, eligibility (conception to baby 12 months, birth trauma, loss) match."
+- id: parental-leave-pay-sharing
+  file: content/drafts/parental-leave-pay-sharing.md
+  verdict: fix
+  problems:
+    - claim: "If your family gets 130 days and the birth mother wants 90, she can share no more than 40."
+      judgement: unsupported
+      source_says: "if you're eligible for 130 days and you want to share 40 days with the other parent, you can't claim more than 90 days for yourself."
+      url: https://www.servicesaustralia.gov.au/sharing-your-parental-leave-pay
+      fixed_to: "For example, if you're eligible for 130 days and want to share 40 with the other parent, you can't claim more than 90 for yourself."
+    - claim: "task approve-plp-sharing: opens 27, due 34"
+      judgement: unchecked
+      source_says: "no cited Services Australia page gives a week for approving sharing; it can only happen after the partner claims"
+      url: https://www.servicesaustralia.gov.au/sharing-your-parental-leave-pay
+      fixed_to: "left as is; checked: not added because the task's opens/due weeks have no source"
+  note: "Approval task through myGov, partner can only claim approved days, work test, reserved days, 20 days at same time, 2-year balance with forfeiture (changing-nominated-days page; the choose page only says 'must use within 2 years'), can't change days passed, employer-delivered impact, 136 150 all re-read on Services Australia and match."
+- id: parental-leave-pay-days-together
+  file: content/drafts/parental-leave-pay-days-together.md
+  verdict: ok
+  note: "Re-read on Services Australia exemptions page (updated 14 January 2026): 20 days from 1 July 2025 (10 before), each exemption, 14 days hospital, evidence list, families line 136 150 Mon-Fri 8am-8pm all match."
+- id: parental-leave-pay-employer-delivered
+  file: content/drafts/parental-leave-pay-employer-delivered.md
+  verdict: fix
+  problems:
+    - claim: "You claim Parental Leave Pay from Services Australia, but in many cases your employer delivers it to you with your regular pay."
+      judgement: unsupported
+      source_says: "There are two ways you can get Parental Leave Pay: we pay it to you directly; your employer pays it to you in line with your regular payment cycle."
+      url: https://www.servicesaustralia.gov.au/getting-your-parental-leave-pay
+      fixed_to: "There are two ways to get Parental Leave Pay: Services Australia pays it to you directly, or your employer pays it to you in line with your regular payment cycle."
+  note: "Employer conditions, continuous block of at least 8 weeks, agreement exception and opt-in before claim, changes moving payment, 15% PAYG, stillbirth option all match (page updated 21 May 2026)."
+- id: panda-hours-note
+  file: content/drafts/card-panda-male-counsellors.md
+  verdict: ok
+  note: "PANDA hours differ by source: PANDA's own site says 7 days a week (card keeps this, credited to PANDA); Gidget Foundation page says Mon-Fri 9am-7:30pm; pregnancybirthbaby fathers-and-depression says Monday to Saturday. Card states PANDA's own hours only."
+
+# Follow-up (main session): checked set on parental-leave-pay-sharing; a task's opens/due are best-by judgements and need no source (only a deadline does).

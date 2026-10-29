@@ -1,0 +1,210 @@
+# M02: fact-check of 20 can-i food drafts against their cited pages (NSW Food Authority, FSANZ, Pregnancy Birth and Baby), fetched fresh 2026-10-29.
+# All verdicts confirmed against the sources (liver: PBB says both 'avoid' and 'try to limit', both kept). Every draft now has checked: 2026-10-29.
+
+- id: bacon-and-cooked-ham
+  file: content/drafts/bacon-and-cooked-ham.md
+  verdict: fix
+  problems:
+    - claim: "Ham on a pizza, in a toastie or fried with eggs is fine when it's piping hot all the way through"
+      judgement: unsupported
+      source_says: "PBB: processed meats OK if cooked to at least 75°C and eaten straight away; no pizza/toastie example"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+      fixed_to: "Ham, salami and luncheon meat are fine when they're cooked to at least 75 °C and eaten straight away."
+    - claim: "Don't let it sit. Eat it soon after cooking rather than leaving it out"
+      judgement: unsupported
+      source_says: "NSW: eaten soon afterwards"
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+      fixed_to: "Eat it soon after cooking. It's the cold, stored version that's the risk."
+- id: hot-takeaway-chicken
+  file: content/drafts/hot-takeaway-chicken.md
+  verdict: ok
+- id: pate
+  file: content/drafts/pate.md
+  verdict: fix
+  problems:
+    - claim: "liver pâté is also very high in vitamin A / Liver is very high in vitamin A"
+      judgement: wrong
+      source_says: "PBB: liver and liver products contain a lot of vitamin A; foods very high in vitamin A 'might include liver and pâté'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+      fixed_to: "liver pâté 'may also be' very high; liver 'contains a lot of' vitamin A"
+    - claim: "outbreaks ... mostly from campylobacter"
+      judgement: unsupported
+      source_says: "FSANZ: livers need cooking all the way through, particularly for Campylobacter; page does not say outbreaks were mostly campylobacter"
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/poultryliver
+      fixed_to: "Reworded to the page: cook through to kill microorganisms, particularly campylobacter; searing not enough"
+    - claim: "Liver pâté of any kind still carries the vitamin A concern"
+      judgement: wrong
+      source_says: "PBB: foods very high in vitamin A might include liver and pâté"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+      fixed_to: "Pâté made from liver may also be very high in vitamin A."
+- id: liver
+  file: content/drafts/liver.md
+  verdict: fix
+  problems:
+    - claim: "so treat liver as something to leave off the menu, not something to panic over"
+      judgement: unsupported
+      source_says: "PBB gives 'Avoid liver or liver products' and, further down, 'Try to limit how much you eat during pregnancy' (both confirmed, both kept)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+      fixed_to: "cut the reassurance clause"
+    - claim: "Ask your pharmacist, doctor or midwife before taking any vitamin."
+      judgement: unsupported
+      source_says: "PBB: check the label or ask your pharmacist, midwife or doctor if a pregnancy multivitamin is suitable"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+      fixed_to: "Check the label or ask your pharmacist, midwife or doctor if a pregnancy multivitamin is suitable for you."
+- id: custard-and-desserts
+  file: content/drafts/custard-and-desserts.md
+  verdict: fix
+  problems:
+    - claim: "Mousse and other raw-egg desserts: skip home-made ones"
+      judgement: wrong
+      source_says: "NSW: raw egg in food (chocolate mousse) 'Do not eat (high risk)'; PBB: not mousses; no home-made qualifier"
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+      fixed_to: "don't eat them (NSW: do not eat (high risk))"
+    - claim: "Not sure what's in a dessert? choose something else"
+      judgement: unsupported
+      source_says: "no page says this"
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+      fixed_to: "cut"
+- id: oysters
+  file: content/drafts/oysters.md
+  verdict: fix
+  problems:
+    - claim: "mussels, clams, pipis and scallops; Grilled oysters count only if properly cooked through, not just warmed on top"
+      judgement: unsupported
+      source_says: "NSW: cooked fish and seafood OK cooked to at least 63°C and eaten hot; species and grilling not mentioned"
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+      fixed_to: "That goes for other cooked fish and seafood too."
+- id: safe-fish
+  file: content/drafts/safe-fish.md
+  verdict: ok
+- id: canned-fish
+  file: content/drafts/canned-fish.md
+  verdict: fix
+  problems:
+    - claim: "Tuna sandwiches made fresh at home are fine."
+      judgement: unsupported
+      source_says: "NSW: pre-prepared or pre-packaged sandwiches do not eat (high risk); nothing on home-made tuna sandwiches"
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+      fixed_to: "Tuna sandwiches: a pre-prepared or pre-packaged sandwich is on the NSW do-not-eat list."
+- id: rockmelon
+  file: content/drafts/rockmelon.md
+  verdict: fix
+  problems:
+    - claim: "fruit platters, whatever melon is in them"
+      judgement: unsupported
+      source_says: "NSW/FSANZ: pre-prepared or pre-packaged salads including fruit salad"
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+      fixed_to: "including fruit salads: pre-prepared or pre-packaged fruit salads are on the avoid list too."
+- id: salad-bars-and-buffets
+  file: content/drafts/salad-bars-and-buffets.md
+  verdict: fix
+  problems:
+    - claim: "A dish cooked to order and served hot beats one that has sat in a bain-marie."
+      judgement: unsupported
+      source_says: "FSANZ: if vulnerable, safest to eat only freshly prepared food; no bain-marie claim"
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+      fixed_to: "cut"
+- id: sprouts
+  file: content/drafts/sprouts.md
+  verdict: fix
+  problems:
+    - claim: "Sprouts scattered on top of soup, in a sandwich or roll... haven't been cooked through. Ask for them on the side"
+      judgement: unsupported
+      source_says: "NSW/PBB: do not eat raw or lightly cooked sprouts; no dish examples"
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+      fixed_to: "Watch for raw sprouts in a dish. Leave them off, or ask for them to be left out."
+- id: enoki-mushrooms
+  file: content/drafts/enoki-mushrooms.md
+  verdict: fix
+  problems:
+    - claim: "A quick swish in a hot pot may not get there, so leave them in."
+      judgement: unsupported
+      source_says: "FSANZ: cook until steaming hot; recommended to boil at least 2 minutes; no hot-pot mention"
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/listeria-monocytogenes-and-imported-fresh-enoki-mushrooms
+      fixed_to: "cut"
+    - claim: "overseas outbreak strain traced to enoki"
+      judgement: wrong
+      source_says: "a USA outbreak strain linked to enoki mushrooms"
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/listeria-monocytogenes-and-imported-fresh-enoki-mushrooms
+      fixed_to: "linked to enoki"
+- id: fruit-and-vegetables
+  file: content/drafts/fruit-and-vegetables.md
+  verdict: fix
+  problems:
+    - claim: "Gardening? Wear gloves and wash your hands afterwards."
+      judgement: wrong
+      source_says: "PBB toxoplasmosis: do not wash your hands after gardening is a risk; gloves are advised for raw meat only"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/toxoplasmosis
+      fixed_to: "Gardening? Wash your hands afterwards."
+    - claim: "Unwashed raw fruit and vegetables are one way"
+      judgement: wrong
+      source_says: "PBB toxoplasmosis: 'eat unwashed vegetables'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/toxoplasmosis
+      fixed_to: "Eating unwashed vegetables is one way"
+- id: leftovers
+  file: content/drafts/leftovers.md
+  verdict: fix
+  problems:
+    - claim: "Meal prep: cooking a week of lunches doesn't fit the one-day rule"
+      judgement: unsupported
+      source_says: "no page mentions meal prep (the one-day limit itself is confirmed)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+      fixed_to: "cut"
+- id: pre-packaged-sandwiches
+  file: content/drafts/pre-packaged-sandwiches.md
+  verdict: fix
+  problems:
+    - claim: "a toasted sandwich heated right through"
+      judgement: unsupported
+      source_says: "FSANZ: safest to eat only freshly prepared food; no toasted sandwich"
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+      fixed_to: "like a hot meal."
+- id: hummus-and-tahini
+  file: content/drafts/hummus-and-tahini.md
+  verdict: fix
+  problems:
+    - claim: "which surprises a lot of people"
+      judgement: unsupported
+      source_says: "no page says this"
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+      fixed_to: "cut"
+- id: raw-milk
+  file: content/drafts/raw-milk.md
+  verdict: fix
+  problems:
+    - claim: "Check labels on goats' milk and on imported or specialty cheeses"
+      judgement: unsupported
+      source_says: "NSW Raw milk: unpasteurised goats' milk allowed in NSW with an advisory statement it is unpasteurised; nothing on imported or specialty cheese labels"
+      url: https://www.foodauthority.nsw.gov.au/consumer/food-poisoning/raw-milk
+      fixed_to: "Check the label on goats' milk: in NSW, unpasteurised goats' milk must be labelled as unpasteurised."
+- id: peanuts-and-allergens
+  file: content/drafts/peanuts-and-allergens.md
+  verdict: ok
+- id: seaweed
+  file: content/drafts/seaweed.md
+  verdict: fix
+  problems:
+    - claim: "Don't use kelp or seaweed supplements for iodine"
+      judgement: wrong
+      source_says: "FSANZ: Kelp and seaweed supplements are not recommended as they contain varying amounts of iodine"
+      url: https://www.foodstandards.gov.au/consumer/nutrition/pregnancy/iodine-and-pregnancy
+      fixed_to: "Kelp and seaweed supplements aren't recommended for iodine."
+    - claim: "Go easy on kombu"
+      judgement: unsupported
+      source_says: "FSANZ: some seaweeds, particularly kombu, contained very high levels of iodine"
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/arseniciodine
+      fixed_to: "Kombu is the one FSANZ singles out for very high iodine."
+- id: takeaway-and-eating-out
+  file: content/drafts/takeaway-and-eating-out.md
+  verdict: fix
+  problems:
+    - claim: "ham or salami on a pizza that's piping hot"
+      judgement: unsupported
+      source_says: "PBB: processed meats OK if cooked to at least 75°C and eaten straight away"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+      fixed_to: "ham or salami only if cooked to at least 75 °C and eaten straight away"
+    - claim: "Delivery that turns up lukewarm ... is a leftovers question"
+      judgement: unsupported
+      source_says: "FSANZ: keep food either cold or hot, not lukewarm"
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+      fixed_to: "Keep food either cold or hot, not lukewarm (FSANZ). Anything you save for later is a leftovers question..."

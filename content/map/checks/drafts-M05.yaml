@@ -1,0 +1,201 @@
+# Batch M05: fact-check of 20 can-i drafts (exercise, activities, sex, skin) against their cited pages.
+# Checked 2026-10-29. Pages fetched fresh into the p2 scratch folder; MotherSafe/RANZCOG PDFs read as text.
+- id: scuba-diving
+  file: content/drafts/scuba-diving.md
+  verdict: fix
+  problems:
+    - claim: "diving to less than 18 metres is \"reasonably safe, but check with your doctor first\". It's the only Australian source we found that says so"
+      judgement: unsupported
+      source_says: "Activities to avoid include: ... Scuba diving – the changes in blood gases may harm your baby. Snorkelling is fine and scuba diving to depths of less than 18 metres (60 feet) is reasonably safe, but check with your doctor first."
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+      fixed_to: "Quoted exactly, as Better Health's travel page only, same bullet, under 'Activities to avoid include'; 'only source we found' replaced by 'none of the other sources listed here makes a depth exception'. Entry still leads with avoid (PBB, Royal Women's, Better Health exercise page all list scuba diving to avoid; verified)."
+- id: exercise-intensity-and-heart-rate
+  file: content/drafts/exercise-intensity-and-heart-rate.md
+  verdict: fix
+  problems:
+    - claim: "Better Health says not to use a target heart rate ... It also says to stay under 75 per cent of your maximum heart rate."
+      judgement: unsupported
+      source_says: "\"don't use your target heart rate to work out the intensity of your exercise ... always work at less than 75 per cent of your maximum heart rate\" (both on the same page, not reconciled)"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+      fixed_to: "Quoted the 75 per cent line and said the page gives both lines and doesn't reconcile them."
+    - claim: "Skip hot or humid days"
+      judgement: wrong
+      source_says: "Reduce your level of exercise on hot or humid days. Stay well hydrated."
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+      fixed_to: "Cut back on hot or humid days, stay well hydrated"
+- id: running
+  file: content/drafts/running.md
+  verdict: fix
+  problems:
+    - claim: "Expect to do less as the pregnancy goes on."
+      judgement: unsupported
+      source_says: "continue this level of activity throughout pregnancy, or until it becomes uncomfortable for you to do so"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+      fixed_to: "Carry on only while it's comfortable (Better Health quote)."
+    - claim: "If you didn't run before, start with lower-effort activities such as walking or swimming"
+      judgement: unsupported
+      source_says: "\"choose one that needs less effort\" (PBB sport); BH lists walking, swimming as generally safe, even for beginners"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
+      fixed_to: "choose something that needs less effort; Better Health lists walking and swimming as generally safe, even for beginners"
+    - claim: "Skip hot or humid days"
+      judgement: wrong
+      source_says: "\"Reduce your level of exercise on hot or humid days\" (BH)"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+      fixed_to: "Cut back on hot or humid days, stay well hydrated"
+  # Verified: BH lists jogging as generally safe; Royal Women's lists running among high-impact exercise to avoid; PBB exercise page says avoid high-impact/jumping/bouncing; all credited in the body. MotherSafe (not cited) also says to avoid high impact sport.
+- id: exercise-lying-on-your-back
+  file: content/drafts/exercise-lying-on-your-back.md
+  verdict: fix
+  problems:
+    - claim: "summary: From about 16 weeks ... reducing blood flow to the baby"
+      judgement: wrong
+      source_says: "\"Lying flat on your back, particularly after 28 weeks, can be dangerous ... reduce blood flow to your baby\" (the blood-flow line is only on the 28-week PBB page; the 16-week pages say light-headed/nauseous/dizzy)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+      fixed_to: "summary now says the weight can press on the big blood vessels and make you feel faint or light-headed (blood-flow line stays in the body, credited to the 28-week page)"
+    - claim: "Better Health says many exercises can be done lying on your side instead."
+      judgement: wrong
+      source_says: "some of these exercises can be modified by lying on your side"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+      fixed_to: "Better Health says some of these exercises can be modified by lying on your side; core exercises also given sitting, standing and hands-and-knees versions"
+    - claim: "If you feel faint on your back, turn onto your side."
+      judgement: unsupported
+      source_says: "(no cited page says this)"
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+      fixed_to: "cut"
+  # Verified: 16 weeks (Royal Women's, MotherSafe, PBB sport page); 28 weeks 'particularly' (PBB exercise page); both credited in the body.
+- id: cycling
+  file: content/drafts/cycling.md
+  verdict: fix
+  problems:
+    - claim: "(omitted) Pregnancy, Birth and Baby's own pages contradict each other on cycling"
+      judgement: unsupported
+      source_says: "Sport page: 'Medium intensity aerobic activity is also recommended, such as: brisk walking, cycling, swimming'. Exercise page: 'Avoid any activity that risks you falling ... Avoid: cycling'; myths page: 'Avoid exercises that put you at risk of a fall, such as horse riding, skiing or cycling'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
+      fixed_to: "Added a sentence in Why crediting each PBB page."
+    - claim: "an exercise bike or spin class"
+      judgement: unsupported
+      source_says: "stationary cycling (exercise bike)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+      fixed_to: "an exercise bike"
+    - claim: "skip hot or humid days"
+      judgement: wrong
+      source_says: "Reduce your level of exercise on hot or humid days. Stay well hydrated."
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+      fixed_to: "cut back on hot or humid days, stay well hydrated"
+  # Verified: RANZCOG, MotherSafe, PBB (exercise, myths) name cycling as a fall risk to avoid; Better Health lists cycling outdoors or stationary as generally safe.
+- id: skiing
+  file: content/drafts/skiing.md
+  verdict: fix
+  problems:
+    - claim: "\"Above 3,000 metres, Better Health says, there's less oxygen ... and you're more vulnerable to altitude sickness\" (and 2,000 m credited to 'Better Health')"
+      judgement: wrong
+      source_says: "Exercise page: 'high-altitude training at over 2000 m'. Travel page: 'High-altitude activities such as mountain climbing – at heights over 3,000 metres, the oxygen level in the air is low. This reduces the oxygen available to your baby. Pregnant women are also more vulnerable to developing altitude sickness.' PBB: 'avoid exercise at more than 2,000 metres above sea level until you have acclimatised.'"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+      fixed_to: "2,000 m credited to PBB and Better Health's exercise page; 3,000 m to Better Health's travel page, worded as it says."
+    - claim: "Check the altitude of any overseas resort before you book."
+      judgement: unsupported
+      source_says: "(no page says this)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+      fixed_to: "Compare the altitude of any resort with the 2,000 and 3,000 metre figures above."
+  # Verified: downhill skiing a fall risk (PBB, BH exercise, RANZCOG); Royal Women's lists 'water and snow skiing'; water-skiing line (BH travel); tummy-injury line (PBB bleeding page: 'contact your midwife or doctor immediately').
+- id: bleeding-after-sex
+  file: content/drafts/bleeding-after-sex.md
+  verdict: ok
+  # Verified against PBB bleeding page (visible text): 000 for 'very heavy bleeding, strong pain or feel very unwell'; 'contact your doctor urgently, or visit the nearest emergency department' for very heavy bleeding (2 pads/hr, golf-ball clots), strong stomach/shoulder pain, dizzy/faint, short of breath, bad-smelling discharge. Note: the page's embedded FAQ data uses different wording ('contact your obstetrician, birth unit or call an ambulance immediately'); draft follows the visible text. PBB sex page: ectropion, 'tell your health team', doctor might say no sex, symptoms list after sexual activity.
+- id: weights
+  file: content/drafts/weights.md
+  verdict: fix
+  problems:
+    - claim: "After 16 weeks, avoid exercises lying on your back; many can be done lying on your side instead."
+      judgement: wrong
+      source_says: "some of these exercises can be modified by lying on your side"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+      fixed_to: "Better Health says some of these exercises can be modified by lying on your side."
+    - claim: "Resistance training with light weights, or a 'Pump' class with light weights, is fine."
+      judgement: unsupported
+      source_says: "\"resistance training using light weights or low repetitions\" (PBB); 'Pump' class (with light weights) is listed as a group choice for the best abdominal workout (Royal Women's)"
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/the-abdominal-muscles
+      fixed_to: "credited each page"
+  # Verified: strengthening twice a week (PBB); low weights, medium-high reps, avoid heavy weights altogether, controlled stretching (BH); weightlifting listed to avoid by PBB (heavy equipment) and BH (abdominal trauma or pressure); wide squats/lunges (BH).
+- id: abdominal-exercises
+  file: content/drafts/abdominal-exercises.md
+  verdict: ok
+  # Verified against Royal Women's abdominal page (ineffective and inappropriate; baby rests on major blood vessels, dizziness; hands-and-knees exercise, counts, arm/leg progression, talk while doing; group classes) and BH (may worsen abdominal separation, painless splitting, common).
+- id: horse-riding
+  file: content/drafts/horse-riding.md
+  verdict: fix
+  problems:
+    - claim: "separates from the wall of the uterus"
+      judgement: wrong
+      source_says: "separating the placenta from the uterus"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+      fixed_to: "separates from the uterus"
+  # Verified: RANZCOG, PBB myths, MotherSafe, BH name horse riding as fall risk; BH travel placental abruption and trauma/death wording; tummy-injury line (PBB bleeding).
+- id: skydiving
+  file: content/drafts/skydiving.md
+  verdict: ok
+  # Verified: PBB 'large changes in pressure, such as scuba diving or skydiving'; 2,000 m until acclimatised; MotherSafe 'bungy jumping' first example; PBB sport list (fall, hit baby, high altitudes); no longer protected by pelvis in 2nd/3rd trimester.
+- id: skating-and-rollerblading
+  file: content/drafts/skating-and-rollerblading.md
+  verdict: ok
+  # Verified: BH 'falling – such as downhill skiing, horse riding and skating'; PBB sport page (fall, sudden movements, changes in direction; pelvis; ligaments); tummy-injury line (PBB bleeding).
+- id: rock-climbing
+  file: content/drafts/rock-climbing.md
+  verdict: fix
+  problems:
+    - claim: "Bouldering involves falling off the wall by design."
+      judgement: unsupported
+      source_says: "(no cited page says this)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
+      fixed_to: "cut"
+    - claim: "No Australian source we found names climbing"
+      judgement: unsupported
+      source_says: "(absence claim about sources beyond the cited ones; BH travel page names 'mountain climbing' under altitude, not cited here)"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+      fixed_to: "None of the sources listed here names climbing"
+  # Verified: PBB sport page (fall, sudden movements, high altitudes); PBB things-to-avoid (tripping, falling); BH (extreme balance, coordination, agility; check with healthcare professional); centre of gravity; ligaments.
+- id: surfing-and-water-sports
+  file: content/drafts/surfing-and-water-sports.md
+  verdict: fix
+  problems:
+    - claim: "A board or a fall at speed is where these water sports meet those rules."
+      judgement: unsupported
+      source_says: "(no cited page mentions surfing, wakeboarding, jet skis)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
+      fixed_to: "cut"
+    - claim: "none of the Australian sources we checked names these"
+      judgement: unsupported
+      source_says: "(absence claim)"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+      fixed_to: "none of the sources listed here names these"
+  # Verified: water-skiing to avoid (BH travel: 'coming off the skis could force water into the vagina'; Royal Women's: 'water and snow skiing'); PBB general rules.
+- id: hot-baths
+  file: content/drafts/hot-baths.md
+  verdict: ok
+  # Verified: PBB myths ('perfectly safe to have a warm bath ... avoid becoming too hot'; avoid saunas and spa baths); PBB things-to-avoid (hormones, blood supply, less effective at lowering temperature, avoid hot environments for long periods, stay hydrated); Royal Women's faint after hot bath.
+- id: standing-up-quickly
+  file: content/drafts/standing-up-quickly.md
+  verdict: ok
+  # Verified: Royal Women's fainting (get up quickly/stand long, lie or sit down, turn onto side, contact doctor if frequent); BH blood pressure drops in second trimester; Women's circulation/calf raises/stockings; PBB sport stop-and-see-doctor for dizzy or faint.
+- id: sex
+  file: content/drafts/sex.md
+  verdict: ok
+  # Verified against PBB sex page and myths: any stage unless told not to; protection (uterus, mucus plug, amniotic fluid); orgasm movement; no evidence of premature labour; when to avoid list; positions and 28 weeks; condom/dental dam; non-sexual intimacy; doctor symptoms after sex.
+- id: sunbeds
+  file: content/drafts/sunbeds.md
+  verdict: ok
+  # Verified: PBB things-to-avoid (UV, skin cancer incl. melanoma, commercial solariums illegal in Australia, skin more sensitive so best to avoid; fake tan creams fine, best to avoid spray tans, test small area); MotherSafe (spray tan protective measures, nose plugs/masks; sunscreen); PBB melasma (sunlight cause; SPF50/50+ water-resistant sunscreen, broad-rimmed hat). PBB and MotherSafe differ on spray tans and both are credited.
+- id: skincare-ingredients
+  file: content/drafts/skincare-ingredients.md
+  verdict: ok
+  # Verified against MotherSafe skin PDF (benzoyl peroxide, salicylic, glycolic safe; OTC vitamin A minimal; hydroquinone, minoxidil, tretinoin avoid; unbranded products; salicylic acid in other products confirm with MotherSafe; sunscreen) and PBB cosmetic page (salicylic acid peels avoid; stronger retinols e.g. compounded or prescription avoid; pharmacist; avoid products not essential or not proven safe).
+- id: acne-treatments
+  file: content/drafts/acne-treatments.md
+  verdict: fix
+  problems:
+    - claim: "it often flares in the first trimester and settles or clears by the third."
+      judgement: wrong
+      source_says: "Acne may flare up during your first trimester. Usually, it improves or may even disappear during your third trimester."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/skin-changes-during-pregnancy-acne
+      fixed_to: "it may flare in the first trimester and usually improves or may even go away by the third."
+  # Verified: safe actives, salicylic peels avoid, spironolactone and retinoids avoid, self-care tips, clindamycin/erythromycin, when to see doctor.

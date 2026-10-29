@@ -1,0 +1,129 @@
+# Fact-check of drafted Library entries (red-flag symptoms and food-safety can-i), batch B2.
+# Checked 2026-10-29 against the pages in each draft's `sources:`, fetched that day.
+# verdict: ok = every claim supported; fix = edited to what the source says.
+- id: feeling-very-unwell
+  file: content/drafts/feeling-very-unwell.md
+  verdict: fix
+  problems:
+    - claim: "summary: with an infection plus fever or trouble breathing, see a doctor urgently, go to emergency or call 000"
+      judgement: wrong
+      source_says: "If you have symptoms of sepsis such as infection, fever or difficulty breathing, see your doctor urgently, or go to your nearest emergency department or call triple zero (000) and ask for an ambulance."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/sepsis-during-pregnancy-and-after-childbirth
+      fixed_to: "with signs such as infection, fever or difficulty breathing, see your doctor urgently, go to emergency or call 000"
+  note: "The source gives one combined warning (doctor urgently / emergency / 000), kept under Call 000 in its own words. Other levels confirmed against healthdirect Warning signs."
+- id: chest-pain
+  file: content/drafts/chest-pain.md
+  verdict: fix
+  problems:
+    - claim: "summary: ... or chest pain with trouble breathing, means calling 000"
+      judgement: wrong
+      source_says: "If you or someone else is having trouble breathing or chest pain, call triple zero (000) and ask for an ambulance."
+      url: https://www.healthdirect.gov.au/pulmonary-embolism
+      fixed_to: "means calling 000, and so does chest pain or trouble breathing"
+  note: "The 10-minute rule is on healthdirect Chest pain (a general page, not pregnancy-specific), which is cited. That page also says see a doctor right away for chest pain over 10 minutes while resting; kept as in source."
+- id: painful-swollen-leg
+  file: content/drafts/painful-swollen-leg.md
+  verdict: ok
+  problems: []
+  note: "Hospital-now line matches PBB Swelling (pain, redness or warm limb: contact doctor, midwife or maternity hospital straightaway) and healthdirect Warning signs (pain or swelling in one leg: immediately). 'See your doctor immediately' line is PBB Leg cramps."
+- id: fall-or-blow-to-the-belly
+  file: content/drafts/fall-or-blow-to-the-belly.md
+  verdict: fix
+  problems:
+    - claim: "If you're the partner and you were there, or driving, the same applies to the pregnant parent: get them checked."
+      judgement: unsupported
+      source_says: "(no cited page says this)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+      fixed_to: cut
+  note: "Three levels confirmed: 000 (pain, firm/tightening uterus or vaginal bleeding after belly injury; PBB Injuries), hospital straight away (less movement, bleeding, pain after minor injury; nearest hospital for any injury; healthdirect: contact immediately), contact doctor (contractions, waters breaking)."
+- id: painful-urination
+  file: content/drafts/painful-urination.md
+  verdict: ok
+  problems: []
+- id: severe-vomiting
+  file: content/drafts/severe-vomiting.md
+  verdict: ok
+  problems: []
+- id: signs-of-preterm-labour
+  file: content/drafts/signs-of-preterm-labour.md
+  verdict: ok
+  problems: []
+  note: "000 line confirmed: PBB Backache says back pain with abdominal pains or cramps, pelvic/lower-back pressure or leaking fluid, call 000 immediately. Under 37 weeks any sign of labour: contact midwife, doctor or nearest birthing centre immediately (PBB Premature baby)."
+- id: soft-cheese
+  file: content/drafts/soft-cheese.md
+  verdict: ok
+  problems: []
+- id: listeria-foods
+  file: content/drafts/listeria-foods.md
+  verdict: ok
+  problems: []
+- id: deli-meats
+  file: content/drafts/deli-meats.md
+  verdict: ok
+  problems: []
+- id: cold-cooked-chicken
+  file: content/drafts/cold-cooked-chicken.md
+  verdict: ok
+  problems: []
+- id: rare-meat
+  file: content/drafts/rare-meat.md
+  verdict: fix
+  problems:
+    - claim: "That includes carpaccio and tartare."
+      judgement: unsupported
+      source_says: "You should not eat raw or rare meat. (carpaccio and tartare not named on any cited page)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+      fixed_to: cut
+- id: raw-eggs
+  file: content/drafts/raw-eggs.md
+  verdict: ok
+  problems: []
+- id: sushi
+  file: content/drafts/sushi.md
+  verdict: fix
+  problems:
+    - claim: "A cooked-tuna or avocado roll from the counter is still pre-prepared, chilled, ready-to-eat food. (and summary 'even with cooked fillings')"
+      judgement: unsupported
+      source_says: "Sushi, Store-bought: Do not eat (high risk). Sushi production increases Listeria risk; raw/undercooked fish raises risk further."
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+      fixed_to: "The rating covers store-bought sushi as a whole, not only the raw fish kind. (summary: dropped 'even with cooked fillings')"
+- id: sashimi-and-raw-fish
+  file: content/drafts/sashimi-and-raw-fish.md
+  verdict: fix
+  problems:
+    - claim: "\"Sashimi grade\" and freezing don't fix it."
+      judgement: unsupported
+      source_says: "FSANZ: sashimi grade is safest for those making raw dishes; freezing 7 days kills parasites but not bacteria; vulnerable people, including pregnant women, should not eat raw fish."
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/raw-fish-dishes
+      fixed_to: "Kept the freezing sentence; cut the sashimi-grade claim"
+- id: prawns
+  file: content/drafts/prawns.md
+  verdict: ok
+  problems: []
+  note: "FSANZ lists 'chilled cooked prawns' as higher risk (safer: freshly cooked or reheated to steaming hot); NSW: ready-to-eat chilled peeled prawns, do not eat (high risk); 63 degrees C for cooked seafood."
+- id: smoked-salmon
+  file: content/drafts/smoked-salmon.md
+  verdict: ok
+  problems: []
+- id: high-mercury-fish
+  file: content/drafts/high-mercury-fish.md
+  verdict: ok
+  problems: []
+  note: "Confirmed on NSW Food Authority Mercury and fish and FSANZ brochure: pregnant, 150 g serve; shark (flake) or billfish 1 per fortnight with no other fish; catfish or orange roughy 1 per week with no other fish; 2-3 serves a week of other fish and seafood (NSW wording; PBB also says 2 to 3 times a week)."
+- id: pre-cut-fruit-and-salads
+  file: content/drafts/pre-cut-fruit-and-salads.md
+  verdict: fix
+  problems:
+    - claim: "There's no exception for rinsing a bagged salad again, or eating it the day you buy it."
+      judgement: unsupported
+      source_says: "Pre-prepared or pre-packaged salads (including fruit salad; e.g. salad bars, smorgasbords): Do not eat (high risk)."
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+      fixed_to: cut
+- id: soft-serve
+  file: content/drafts/soft-serve.md
+  verdict: ok
+  problems: []
+- id: alcohol
+  file: content/drafts/alcohol.md
+  verdict: ok
+  problems: []

@@ -1,0 +1,1999 @@
+# "Can I…?": food, drink and medicines. Every can-i entry about what goes into her body.
+# Grouped by topic: food, drink, medicines. Verdict wording lives only in `covers`.
+# Sources were fetched and read on 2026-10-28; MotherSafe (Royal Hospital for Women) and KEMH
+# fact sheets are PDFs. Where a source is dated, the writer should re-check it before publishing.
+
+# ---------------------------------------------------------------------------
+# FOOD
+# ---------------------------------------------------------------------------
+
+- id: soft-cheese
+  title: Soft cheese
+  type: can-i
+  topic: food
+  ask: Can I eat brie, camembert or feta?
+  aliases: [brie, camembert, feta, fetta, ricotta, blue cheese, gorgonzola, goat cheese, chevre, soft cheeses, mould-ripened cheese]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: avoid unless cooked", "listeria grows in the fridge", "soft, semi-soft and surface-ripened cheeses", "fine if cooked to 75°C and eaten straight away (baked brie, feta on a hot pizza)", "listeria may contaminate the cheese during the manufacturing process"]
+  sources:
+    - title: Food Standards Australia New Zealand — Listeria in food
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+  related: [hard-and-safe-cheeses, listeria-foods, deli-meats]
+
+- id: hard-and-safe-cheeses
+  title: Hard cheese, cream cheese, haloumi and other cheeses
+  type: can-i
+  topic: food
+  ask: Which cheeses are fine?
+  aliases: [cheddar, tasty cheese, parmesan, cream cheese, cottage cheese, haloumi, halloumi, mozzarella, bocconcini, paneer, processed cheese, cheese slices, cheese spread]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: ["verdict: yes for hard cheeses; yes with care for pasteurised cream cheese, cottage cheese, haloumi and mozzarella", "store in the fridge, eat within two days of opening", "buy cheese packaged by the manufacturer rather than cut at a deli", "fresh mozzarella and bocconcini from a deli counter sit on the higher-risk list"]
+  sources:
+    - title: Food Standards Australia New Zealand — Food safety for vulnerable people
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+  related: [soft-cheese, listeria-foods]
+  notes: FSANZ lists mozzarella among the higher-risk soft cheeses; PBB's printable guide lists pasteurised mozzarella and haloumi as fine. The distinction is deli-cut and fresh (in brine) versus packaged and firm. Say so plainly.
+
+- id: listeria-foods
+  title: Listeria and the foods that carry it
+  type: can-i
+  topic: food
+  ask: What is listeria and why does everyone keep mentioning it?
+  aliases: [listeriosis, listeria, food poisoning in pregnancy]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: avoid the ready-to-eat, chilled, long-stored foods", "rare but can cause miscarriage, stillbirth or premature birth", "grows in the fridge, killed by cooking to 75°C", "symptoms can be mild and flu-like and start 3 days to 10 weeks after eating", "the one rule: freshly cooked and eaten hot is safe", "fridge at 5°C or colder, leftovers within a day", "call the midwife or GP if feverish after a risky food"]
+  sources:
+    - title: Food Standards Australia New Zealand — Listeria in food
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+    - title: NSW Food Authority — Why avoid certain foods
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/why-avoid-certain-foods
+  related: [soft-cheese, deli-meats, pate, sushi, pre-cut-fruit-and-salads, leftovers]
+
+- id: deli-meats
+  title: Ham, salami and other deli meats
+  type: can-i
+  topic: food
+  ask: Can I eat ham or salami?
+  aliases: [ham, salami, prosciutto, devon, luncheon meat, fritz, pastrami, cold meats, sandwich meat, chorizo, mortadella, cured meat, charcuterie]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: avoid cold", "listeria", "deli counters, sandwich bars and packaged sliced meats", "fine once cooked to 75°C and eaten straight away: ham on a hot pizza, bacon, a toasted ham sandwich"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+    - title: Food Standards Australia New Zealand — Listeria in food
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+  related: [bacon-and-cooked-ham, listeria-foods, pate]
+
+- id: bacon-and-cooked-ham
+  title: Bacon, hot ham and cooked sausages
+  type: can-i
+  topic: food
+  ask: Can I eat bacon?
+  aliases: [bacon, cooked ham, hot ham, sausages, hot dogs, frankfurts, ham pizza, toastie]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: ["verdict: yes when cooked through and eaten hot", "no pink left in sausages, pork or mince", "the heating is what makes processed meat safe (75°C)", "don't keep it warm for hours"]
+  sources:
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+  related: [deli-meats, rare-meat]
+
+- id: cold-cooked-chicken
+  title: Cold cooked chicken
+  type: can-i
+  topic: food
+  ask: Can I eat cold chicken from the supermarket?
+  aliases: [cold chicken, chicken sandwich, chicken wrap, diced chicken, sliced chicken, roast chicken cold, chicken salad]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: avoid cold", "listeria", "whole, portioned or diced ready-to-eat chicken", "sandwich bars", "reheat to steaming hot or cook fresh"]
+  sources:
+    - title: Food Standards Australia New Zealand — Food safety for vulnerable people
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+  related: [hot-takeaway-chicken, deli-meats, pre-packaged-sandwiches]
+
+- id: hot-takeaway-chicken
+  title: Hot takeaway chicken
+  type: can-i
+  topic: food
+  ask: Can I have a hot roast chook or fried chicken?
+  aliases: [roast chicken, hot chook, charcoal chicken, fried chicken, KFC, rotisserie chicken, chicken takeaway, stuffing]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: ["verdict: yes, eaten hot and straight away", "buy freshly cooked, not one that has sat in the warmer", "leftovers in the fridge and used within a day, reheated to steaming", "poultry stuffing only if cooked separately and eaten hot"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+  related: [cold-cooked-chicken, leftovers, takeaway-and-eating-out]
+
+- id: pate
+  title: Pâté and meat spreads
+  type: can-i
+  topic: food
+  ask: Can I eat pâté?
+  aliases: [pate, pâté, chicken liver pate, parfait, terrine, rillettes, meat paste, meat spread, liverwurst]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers: ["verdict: avoid", "two reasons: listeria in chilled pâté and vitamin A in liver", "canned and shelf-stable spreads are the lower-risk form, eaten within a day of opening", "undercooked chicken liver also carries campylobacter"]
+  sources:
+    - title: Food Standards Australia New Zealand — Listeria in food
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+    - title: Food Standards Australia New Zealand — Poultry liver dishes
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/poultryliver
+  related: [liver, deli-meats, vitamin-a-supplements]
+
+- id: liver
+  title: Liver and vitamin A
+  type: can-i
+  topic: food
+  ask: Can I eat liver?
+  aliases: [liver, lambs fry, chicken livers, offal, retinol, vitamin A foods, cod liver oil]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers: ["verdict: avoid", "liver is very high in retinol (vitamin A), which can cause birth defects in excess", "applies to liver products: pâté, parfait, cod liver oil", "beta-carotene from vegetables is not the concern", "vitamin A from eggs, dairy, orange vegetables and fish is fine"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+    - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+  related: [pate, vitamin-a-supplements, fish-oil]
+
+- id: rare-meat
+  title: Rare steak, pink burgers and undercooked meat
+  type: can-i
+  topic: food
+  ask: Can I have my steak rare?
+  aliases: [rare steak, medium rare, pink burger, undercooked meat, raw meat, carpaccio, steak tartare, kangaroo rare, pink pork, pink mince]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: avoid rare; cook through", "listeria, salmonella, toxoplasmosis", "no pink in pork, sausages, mince and burgers", "cooked meats (beef, pork, chicken, mince) cooked to at least 71°C (medium) and eaten hot", "toxoplasmosis is a common infection that can cause serious problems in the baby; a blood test can diagnose it if you have symptoms or exposure"]
+  sources:
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    - title: Pregnancy, Birth and Baby — Toxoplasmosis
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/toxoplasmosis
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+  related: [bacon-and-cooked-ham, fruit-and-vegetables, listeria-foods]
+  notes: Steak "cooked to medium" is NSW Food Authority wording; PBB says simply no raw or rare meat. Writers should not promise rare-but-seared is fine.
+
+- id: raw-eggs
+  title: Raw and runny eggs
+  type: can-i
+  topic: food
+  ask: Can I eat runny eggs or homemade mayo?
+  aliases: [raw egg, runny egg, soft boiled egg, poached egg, aioli, mayonnaise, homemade mayo, hollandaise, mousse, tiramisu, cake batter, cookie dough, eggnog, milkshake with egg, fried ice cream, custard]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: avoid raw and lightly cooked egg", "salmonella", "cook until yolk and white are firm (72°C)", "commercially made mayonnaise and aioli are fine if stored correctly", "no cracked or dirty eggs"]
+  sources:
+    - title: Food Standards Australia New Zealand — Food safety for vulnerable people
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+  related: [custard-and-desserts, listeria-foods]
+
+- id: custard-and-desserts
+  title: Custard, mousse and egg desserts
+  type: can-i
+  topic: food
+  ask: Can I eat custard or tiramisu?
+  aliases: [custard, creme brulee, crème brûlée, pavlova, meringue, mousse, tiramisu, cheesecake, panna cotta, egg desserts]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers: ["verdict: shop-bought carton custard yes; homemade and raw-egg desserts avoid", "cooked custard eaten hot is fine", "mousse, tiramisu and some cheesecakes use raw egg", "baked meringue is cooked; soft meringue may not be", "ask what's in it when eating out"]
+  sources:
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+  related: [raw-eggs, soft-serve]
+
+- id: sushi
+  title: Sushi
+  type: can-i
+  topic: food
+  ask: Can I eat sushi?
+  aliases: [sushi, sushi train, hand roll, nori roll, california roll, tuna roll, cooked sushi, vegetarian sushi, sushi rice]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: avoid shop-bought; homemade with cooked fillings is fine", "sushi production increases the listeria risk, and raw or undercooked fish raises it further", "even cooked-tuna or avocado sushi from a shop counts as pre-prepared chilled food", "make your own and eat it straight away"]
+  sources:
+    - title: Food Standards Australia New Zealand — Raw fish dishes
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/raw-fish-dishes
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+  related: [sashimi-and-raw-fish, seaweed, listeria-foods]
+
+- id: sashimi-and-raw-fish
+  title: Sashimi, ceviche and raw fish
+  type: can-i
+  topic: food
+  ask: Can I eat sashimi or ceviche?
+  aliases: [sashimi, ceviche, poke, poke bowl, gravlax, crudo, tartare, raw salmon, raw tuna, kokoda]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: avoid", "listeria and parasites", "freezing kills parasites but not listeria", "citrus-cured (ceviche) is still raw", "the same fish cooked is good food"]
+  sources:
+    - title: Food Standards Australia New Zealand — Raw fish dishes
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/raw-fish-dishes
+  related: [sushi, smoked-salmon, oysters, safe-fish]
+
+- id: oysters
+  title: Oysters and raw shellfish
+  type: can-i
+  topic: food
+  ask: Can I eat oysters?
+  aliases: [oysters, raw oysters, kilpatrick, mussels, clams, pipis, scallops, shellfish, vongole]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers: ["verdict: avoid raw; cooked through and hot is fine", "listeria and vibrio", "oysters kilpatrick are only safe if cooked right through, not warmed", "mussels and clams cooked until open and hot are fine"]
+  sources:
+    - title: Food Standards Australia New Zealand — Listeria in food
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+  related: [sashimi-and-raw-fish, prawns]
+
+- id: prawns
+  title: Prawns
+  type: can-i
+  topic: food
+  ask: Can I eat prawns?
+  aliases: [prawns, shrimp, prawn cocktail, cold prawns, Christmas prawns, cooked prawns, garlic prawns, lobster, crab, bugs, crayfish]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: avoid chilled ready-to-eat prawns; freshly cooked and hot is fine", "low in mercury"]
+  sources:
+    - title: Food Standards Australia New Zealand — Food safety for vulnerable people
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+    - title: Food Standards Australia New Zealand — Mercury in fish (brochure)
+      url: https://www.foodstandards.gov.au/sites/default/files/consumer/chemicals/mercury/Documents/Mercury%20in%20Fish%20brochure%20Dec%202020%20Final.pdf
+  related: [oysters, smoked-salmon, listeria-foods]
+
+- id: smoked-salmon
+  title: Smoked salmon and smoked seafood
+  type: can-i
+  topic: food
+  ask: Can I eat smoked salmon?
+  aliases: [smoked salmon, lox, smoked trout, cold smoked, hot smoked, smoked oysters, smoked mussels, salmon bagel]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: avoid chilled smoked seafood", "cold-smoked salmon is raw and ready-to-eat: listeria", "cooked into a hot dish (a quiche, a pasta eaten hot) is fine"]
+  sources:
+    - title: Food Standards Australia New Zealand — Listeria in food
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+    - title: Food Standards Australia New Zealand — Raw fish dishes
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/raw-fish-dishes
+  related: [sashimi-and-raw-fish, safe-fish, canned-fish]
+
+- id: high-mercury-fish
+  title: Flake, swordfish and other high-mercury fish
+  type: can-i
+  topic: food
+  ask: Can I eat flake from the fish and chip shop?
+  aliases: [flake, shark, swordfish, broadbill, marlin, orange roughy, deep sea perch, catfish, billfish, mercury, fish and chips, gemfish]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: limit: one 150 g portion a fortnight of shark (flake), swordfish, broadbill or marlin and no other fish that fortnight; one portion a week of orange roughy or catfish and no other fish that week", "mercury harms the developing nervous system", "flake is shark", "ask what the fish is", "cooking and canning don't remove mercury", "most Australian fish is low in mercury: keep eating fish"]
+  sources:
+    - title: Food Standards Australia New Zealand — Mercury in fish
+      url: https://www.foodstandards.gov.au/consumer/chemicals/mercury
+    - title: NSW Food Authority — Mercury and fish
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/mercury-and-fish
+  related: [safe-fish, canned-fish, fish-oil]
+  notes: FSANZ removed the "2–3 serves a week" line from its mercury table in 2025 because it is dietary advice, not a safety limit; NSW Food Authority still prints it. Quote the portion rules, and give 2–3 serves as healthy-eating guidance from FSANZ's pregnancy page.
+
+- id: safe-fish
+  title: Fish that is good to eat
+  type: can-i
+  topic: food
+  ask: Which fish can I eat, and how much?
+  aliases: [salmon, barramundi, snapper, bream, whiting, flathead, trout, sardines, mackerel, herring, ling, hoki, fish serves, omega-3 fish]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: ["verdict: yes, two to three serves a week of fish not on the mercury list", "cooked through and eaten hot", "salmon, sardines, mackerel, trout and herring are high in omega-3 and low in mercury", "iodine and protein", "no need to stop eating fish for mercury's sake"]
+  sources:
+    - title: Food Standards Australia New Zealand — Pregnancy and healthy eating
+      url: https://www.foodstandards.gov.au/consumer/nutrition/pregnancy/healthy-eating
+    - title: NSW Food Authority — Mercury and fish
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/mercury-and-fish
+  related: [high-mercury-fish, canned-fish, fish-oil]
+
+- id: canned-fish
+  title: Canned tuna and canned salmon
+  type: can-i
+  topic: food
+  ask: Can I eat tinned tuna?
+  aliases: [canned tuna, tinned tuna, tuna, tuna sandwich, canned salmon, tinned salmon, sardines in a can, tuna mornay, tuna in oil]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: ["verdict: yes", "canned tuna uses smaller, younger tuna and is lower in mercury than tuna steak", "shelf-stable and safe from listeria; refrigerate and eat within a day once opened", "counts toward the usual fish serves", "fresh tuna steak is a different fish: have it as a normal serve, cooked"]
+  sources:
+    - title: Food Standards Australia New Zealand — Mercury in fish (brochure)
+      url: https://www.foodstandards.gov.au/sites/default/files/consumer/chemicals/mercury/Documents/Mercury%20in%20Fish%20brochure%20Dec%202020%20Final.pdf
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+  related: [safe-fish, high-mercury-fish, canned-food]
+
+- id: rockmelon
+  title: Rockmelon
+  type: can-i
+  topic: food
+  ask: Can I eat rockmelon?
+  aliases: [rockmelon, cantaloupe, melon, honeydew, watermelon, fruit platter, pre-cut melon]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers: ["verdict: avoid", "listeria: the rough rind traps bacteria and cutting carries them into the flesh", "Australian outbreaks in 2018 are why it's named specifically", "watermelon and honeydew aren't on the avoid list but pre-cut melon from a shop is", "whole tree fruit washed at home is fine"]
+  sources:
+    - title: Food Standards Australia New Zealand — Listeria in food
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+  related: [pre-cut-fruit-and-salads, fruit-and-vegetables]
+  notes: The 2018 outbreak is background knowledge, not stated on the cited pages; cite only if a source for it is found.
+
+- id: pre-cut-fruit-and-salads
+  title: Pre-cut fruit and pre-packaged salads
+  type: can-i
+  topic: food
+  ask: Can I buy a fruit salad or a bagged salad?
+  aliases: [fruit salad, fruit cup, bagged salad, pre-washed salad, coleslaw, salad kit, cut fruit, ready salad, supermarket salad]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: avoid", "listeria in pre-prepared, chilled, long-stored produce", "includes pre-prepared or pre-packaged salads, including those from buffets and salad bars", "make it at home: wash, cut, eat, leftovers within a day", "pre-packaged salads are to be avoided, with no exception for washing them or eating them the same day"]
+  sources:
+    - title: Food Standards Australia New Zealand — Listeria in food
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+  related: [salad-bars-and-buffets, rockmelon, fruit-and-vegetables]
+
+- id: salad-bars-and-buffets
+  title: Salad bars, buffets and smorgasbords
+  type: can-i
+  topic: food
+  ask: Can I eat from a buffet?
+  aliases: [buffet, salad bar, smorgasbord, breakfast buffet, hotel buffet, all you can eat, bain marie, food court]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers: ["verdict: avoid the cold and lukewarm; hot, freshly cooked dishes are fine", "pre-prepared salads, cold meats, cut fruit and soft cheese are the usual suspects", "food left between 5°C and 60°C is the danger zone", "choose dishes cooked to order"]
+  sources:
+    - title: Food Standards Australia New Zealand — Listeria in food
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+    - title: Food Standards Australia New Zealand — Food safety for vulnerable people
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+  related: [pre-cut-fruit-and-salads, takeaway-and-eating-out]
+
+- id: sprouts
+  title: Bean sprouts and seed sprouts
+  type: can-i
+  topic: food
+  ask: Can I eat bean sprouts?
+  aliases: [bean sprouts, alfalfa, mung bean sprouts, snow pea sprouts, broccoli sprouts, microgreens, sprouts on pho, raw sprouts]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers: ["verdict: avoid raw or lightly cooked", "E. coli, salmonella and listeria grow in the warm, wet sprouting", "cooked through in a stir-fry is fine", "the sprouts on a bowl of pho or a sandwich are raw"]
+  sources:
+    - title: Food Standards Australia New Zealand — Listeria in food
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+  related: [enoki-mushrooms, fruit-and-vegetables]
+
+- id: enoki-mushrooms
+  title: Enoki mushrooms
+  type: can-i
+  topic: food
+  ask: Can I eat enoki mushrooms?
+  aliases: [enoki, enokitake, golden needle mushroom, hot pot mushrooms, raw mushrooms]
+  who: carrying
+  priority: 3
+  stakes: high
+  covers: ["verdict: avoid raw or lightly cooked; cook thoroughly", "listeria found on imported enoki", "the quick dip in a hot pot may not be enough", "other mushrooms: wash and cook as usual"]
+  sources:
+    - title: Food Standards Australia New Zealand — Food safety for vulnerable people
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+  related: [sprouts, fruit-and-vegetables]
+
+- id: fruit-and-vegetables
+  title: Fresh fruit and vegetables
+  type: can-i
+  topic: food
+  ask: Do I need to wash fruit and vegetables?
+  aliases: [salad, raw vegetables, unwashed vegetables, fruit, washing produce, toxoplasmosis, home grown vegetables, berries]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: ["verdict: yes, washed", "wash under running water, scrub skins, peel where you can", "toxoplasmosis from soil; listeria from the surface", "home-made salads eaten the same day", "frozen vegetables: cook before eating, don't use raw"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+    - title: Food Standards Australia New Zealand — Food safety for vulnerable people
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+  related: [pre-cut-fruit-and-salads, rockmelon, rare-meat]
+
+- id: leftovers
+  title: Leftovers
+  type: can-i
+  topic: food
+  ask: Can I eat leftovers?
+  aliases: [leftovers, reheating, meal prep, reheated rice, reheated pasta, fried rice, next-day curry, lunch from last night, food past use-by]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: ["verdict: yes, within a day and reheated to steaming hot", "straight into a covered container in the fridge", "the general 3–4 day rule is cut to one day in pregnancy", "rice and pasta: reheat once only; cooled rice grows toxin-forming bacteria", "fridge at 5°C or colder", "nothing past its use-by"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+    - title: Food Standards Australia New Zealand — Listeria in food
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+  related: [listeria-foods, hot-takeaway-chicken, takeaway-and-eating-out]
+  notes: Meal-prepping a week of lunches is common and conflicts with the one-day rule; say so and suggest freezing portions.
+
+- id: pre-packaged-sandwiches
+  title: Pre-made sandwiches and wraps
+  type: can-i
+  topic: food
+  ask: Can I grab a sandwich from the servo or the hospital cafe?
+  aliases: [sandwich, wrap, pre-packed sandwich, servo sandwich, cafe sandwich, sushi fridge, grab and go]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers: ["verdict: avoid pre-packaged chilled ones", "listeria from processing and storage", "a sandwich made fresh in front of you with safe fillings is fine", "the fillings matter: ham, chicken, salad, soft cheese are the problem"]
+  sources:
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+  related: [cold-cooked-chicken, deli-meats, takeaway-and-eating-out]
+
+- id: hummus-and-tahini
+  title: Hummus, tahini and sesame dips
+  type: can-i
+  topic: food
+  ask: Can I eat hummus?
+  aliases: [hummus, hommus, houmous, tahini, halva, halvah, sesame paste, dips, baba ganoush, tzatziki]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: ["verdict: avoid, store-bought or home-made", "salmonella and listeria have been found in tahini and sesame products", "FSANZ and PBB both list it, which surprises people", "other chilled dips are the same pre-prepared category; pasteurised dips without tahini are the safer alternative"]
+  sources:
+    - title: Food Standards Australia New Zealand — Food safety for vulnerable people
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+  related: [pre-cut-fruit-and-salads, listeria-foods]
+  notes: This is an Australian-specific warning (after sesame-linked outbreaks); overseas sites say hummus is fine. Expect pushback and explain why.
+
+- id: soft-serve
+  title: Soft-serve ice cream
+  type: can-i
+  topic: food
+  ask: Can I have a soft serve?
+  aliases: [soft serve, Maccas cone, McDonalds ice cream, thickshake, frozen yoghurt machine, froyo, slushie]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: avoid", "listeria: the machine holds the mix at a temperature where it grows", "packaged, hard-frozen ice cream is fine"]
+  sources:
+    - title: Food Standards Australia New Zealand — Listeria in food
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+  related: [ice-cream-and-gelato, raw-milk]
+
+- id: ice-cream-and-gelato
+  title: Ice cream and gelato
+  type: can-i
+  topic: food
+  ask: Can I eat ice cream?
+  aliases: [ice cream, gelato, gelati, Magnum, tub of ice cream, sorbet, fried ice cream]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers: ["verdict: yes for packaged, hard-frozen ice cream and gelato", "keep it frozen hard", "soft serve is the exception", "fried ice cream is a raw-egg batter risk"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+  related: [soft-serve, custard-and-desserts]
+
+- id: raw-milk
+  title: Unpasteurised (raw) milk and dairy
+  type: can-i
+  topic: food
+  ask: Can I drink raw milk?
+  aliases: [raw milk, unpasteurised milk, bath milk, farm milk, raw milk cheese, unpasteurised cheese, goat milk raw]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers: ["verdict: avoid", "listeria, salmonella, toxoplasmosis", "pasteurised milk, yoghurt and cream are fine", "raw drinking milk can't legally be sold as food in Australia, so this mostly means farm-gate and 'bath' milk, and imported raw-milk cheeses"]
+  sources:
+    - title: Food Standards Australia New Zealand — Food safety for vulnerable people
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+    - title: Pregnancy, Birth and Baby — Toxoplasmosis
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/toxoplasmosis
+  related: [milk-and-yoghurt, soft-cheese]
+  notes: The legal status of raw drinking milk is not on the cited pages; source it or drop the line.
+
+- id: milk-and-yoghurt
+  title: Milk, yoghurt and cream
+  type: can-i
+  topic: food
+  ask: Is dairy fine?
+  aliases: [milk, yoghurt, yogurt, cream, dairy, lactose free milk, calcium, probiotic yoghurt, Yakult, kefir]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers: ["verdict: yes, pasteurised", "a key source of calcium and iodine", "check the use-by and keep it cold", "kefir is a fermented drink with traces of alcohol: see fermented drinks"]
+  sources:
+    - title: Food Standards Australia New Zealand — Pregnancy and healthy eating
+      url: https://www.foodstandards.gov.au/consumer/nutrition/pregnancy/healthy-eating
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+  related: [raw-milk, soft-cheese, kombucha-and-fermented-drinks, calcium]
+
+- id: peanuts-and-allergens
+  title: Peanuts, nuts, eggs and other allergy foods
+  type: can-i
+  topic: food
+  ask: Should I avoid peanuts so the baby doesn't get allergies?
+  aliases: [peanuts, peanut butter, nuts, tree nuts, allergens, allergy prevention, egg allergy, shellfish allergy, soy, wheat]
+  priority: 2
+  stakes: medium
+  covers: ["verdict: yes, eat them", "avoiding allergens in pregnancy does not prevent allergy in the baby and isn't recommended", "only avoid foods you are allergic to yourself", "nuts are a good source of folate, calcium and omega-3", "introducing allergens to the baby by 12 months is the later advice"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+    - title: NSW Food Authority — Food allergies and pregnancy
+      url: https://www.foodauthority.nsw.gov.au/consumer/food-allergies/life-stages/pregnancy
+  related: [soy-foods]
+
+- id: honey
+  title: Honey
+  type: can-i
+  topic: food
+  ask: Can I eat honey?
+  aliases: [honey, manuka, honey and lemon, raw honey, honeycomb]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers: ["verdict: yes", "the honey warning is for babies under 12 months (botulism), not for pregnancy", "warm honey and lemon is the standard sore-throat remedy in pregnancy", "sugar, so a sometimes food"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Medicines during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/medicines-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — The common cold in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/docs/Cold%20in%20pregnancy%20and%20breastfeeding%20.pdf
+  related: [throat-lozenges-and-gargles, cold-and-flu-tablets]
+  notes: Neither source says "honey is safe in pregnancy" outright; both recommend honey-and-lemon drinks. Write it as a yes by implication and say the infant rule is different.
+
+- id: spicy-food
+  title: Spicy food
+  type: can-i
+  topic: food
+  ask: Can I eat spicy food?
+  aliases: [spicy, chilli, curry, hot sauce, vindaloo, spicy food labour, heartburn foods]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers: ["verdict: yes", "it doesn't harm the baby and doesn't start labour", "it can make heartburn and reflux worse, especially later on", "cravings for it are normal", "takeaway curries follow the usual fresh-and-hot rule"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Indigestion and heartburn in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/indigestion-and-heartburn-in-pregnancy
+    - title: Pregnancy, Birth and Baby — Food cravings during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/food-cravings-during-pregnancy
+  related: [antacids, takeaway-and-eating-out]
+  notes: The "doesn't start labour" line is folk-myth territory; the cited pages don't address it. Say only what they say unless a source is found.
+
+- id: seaweed
+  title: Seaweed, kelp and kombu
+  type: can-i
+  topic: food
+  ask: Can I eat seaweed?
+  aliases: [seaweed, nori, kelp, kombu, wakame, miso soup, seaweed snacks, seaweed salad, hijiki, dashi, kelp supplements]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers: ["verdict: limit brown seaweed (kelp, kombu, wakame, hijiki) to one serve a week; nori sheets and seaweed snacks in normal amounts are fine", "brown seaweed can carry very high iodine, enough to upset the thyroid", "kombu is the worst; hijiki also carries inorganic arsenic", "kelp supplements are not recommended as an iodine source: the dose varies wildly", "seaweed salad from a shop is a chilled pre-prepared food"]
+  sources:
+    - title: Food Standards Australia New Zealand — Pregnancy and healthy eating
+      url: https://www.foodstandards.gov.au/consumer/nutrition/pregnancy/healthy-eating
+    - title: Food Standards Australia New Zealand — Inorganic arsenic and iodine in seaweed
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/arseniciodine
+    - title: Food Standards Australia New Zealand — Iodine and pregnancy
+      url: https://www.foodstandards.gov.au/consumer/nutrition/pregnancy/iodine-and-pregnancy
+  related: [iodine, sushi]
+
+- id: hemp-seeds
+  title: Hemp seeds and hemp oil
+  type: can-i
+  topic: food
+  ask: Can I eat hemp seeds?
+  aliases: [hemp seeds, hemp hearts, hemp oil, hemp protein, hemp milk]
+  priority: 3
+  stakes: low
+  covers: ["verdict: yes, as a food", "legal low-THC hemp foods since 2017; they are not cannabis and have no drug effect", "a source of omega-3 and protein", "no pregnancy-specific advice exists either way; it's a seed", "CBD and cannabis products are a different question"]
+  sources:
+    - title: Food Standards Australia New Zealand — Hemp seeds as food
+      url: https://www.foodstandards.gov.au/consumer/our-safe-food-supply/hemp-seeds-food
+  related: [cannabis, fish-oil]
+
+- id: soy-foods
+  title: Soy, tofu and soy milk
+  type: can-i
+  topic: food
+  ask: Can I eat tofu and soy?
+  aliases: [soy, tofu, tempeh, soy milk, edamame, phytoestrogens, soy yoghurt]
+  priority: 3
+  stakes: low
+  covers: ["verdict: yes", "check use-by and storage like any chilled food", "calcium-fortified soy milk counts toward calcium", "phytoestrogen worries aren't backed by Australian advice"]
+  sources:
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+  related: [milk-and-yoghurt, calcium, peanuts-and-allergens]
+
+- id: canned-food
+  title: Canned and shelf-stable food
+  type: can-i
+  topic: food
+  ask: Is canned food fine?
+  aliases: [canned food, tinned food, tinned fruit, canned vegetables, baked beans, canned soup, long life, UHT, jars]
+  priority: 3
+  stakes: low
+  covers: ["verdict: yes", "heat processing kills the bugs; eat soon after opening", "once opened, move it to a clean sealed container in the fridge and use within a day or two", "canned pâté and spreads are the acceptable form"]
+  sources:
+    - title: NSW Food Authority — Foods to eat or avoid when pregnant
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+  related: [canned-fish, leftovers]
+
+- id: takeaway-and-eating-out
+  title: Takeaway and eating out
+  type: can-i
+  topic: food
+  ask: Can I still get takeaway?
+  aliases: [takeaway, take-away, eating out, restaurant, Uber Eats, Menulog, pizza, burgers, kebab, pho, Thai, cafe, food court, hot chips]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: ["verdict: yes, choosing dishes cooked to order and eaten hot", "the risky items are the same everywhere: cold meats, soft cheese, raw egg sauces, raw fish, pre-made salads, sprouts", "ask what's in a sauce or dressing", "delivery that arrives lukewarm after a long trip is a leftovers question", "if unsure, order the hot thing"]
+  sources:
+    - title: Food Standards Australia New Zealand — Food safety for vulnerable people
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+  related: [hot-takeaway-chicken, salad-bars-and-buffets, sushi, raw-eggs]
+
+- id: fasting
+  title: Fasting (Ramadan and other religious fasts)
+  type: can-i
+  topic: food
+  ask: Can I fast during Ramadan?
+  aliases: [fasting, Ramadan, Yom Kippur, Lent, religious fast, intermittent fasting, skipping meals]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers: ["verdict: ask your midwife or GP before the fast", "most faiths exempt or adjust for pregnancy", "evidence is mixed: some studies show no effect on birth weight, others lower amniotic fluid", "dehydration and fatigue are the practical risks, more so in a hot month", "stop and call if light-headed, dizzy, or the baby's movements change", "intermittent fasting for weight is not recommended in pregnancy"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Religious fasting, pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/religious-fasting-pregnancy-and-breastfeeding
+  related: [water]
+  notes: The intermittent-fasting line is an inference; the source is about religious fasting. Keep or source.
+
+- id: unpasteurised-juice
+  title: Fresh-pressed and unpasteurised juice
+  type: can-i
+  topic: food
+  ask: Can I get a juice from the juice bar?
+  aliases: [juice bar, fresh juice, cold pressed juice, Boost juice, unpasteurised juice, orange juice, apple cider, smoothie]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: ["verdict: avoid unpasteurised; pasteurised juice is fine", "listeria", "juice-bar juice made in front of you from washed whole fruit is lower risk than bottled 'cold-pressed' unpasteurised juice that has sat chilled", "check the label: most supermarket juice is pasteurised", "juice is sugar; small amounts"]
+  sources:
+    - title: Food Standards Australia New Zealand — Listeria in food
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+    - title: Pregnancy, Birth and Baby — Healthy diet during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/healthy-diet-during-pregnancy
+  related: [pre-cut-fruit-and-salads, soft-drink-and-sugar]
+  notes: The juice-bar-versus-bottled distinction is a judgement, not on the cited pages. FSANZ says only "unpasteurised fruit juices". Be careful.
+
+# ---------------------------------------------------------------------------
+# DRINK
+# ---------------------------------------------------------------------------
+
+- id: alcohol
+  title: Alcohol
+  type: can-i
+  topic: drink
+  ask: Can I have a glass of wine?
+  aliases: [alcohol, wine, beer, champagne, a glass of wine, one drink, drinking, spirits, cocktails, FASD, fetal alcohol]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: avoid; no safe amount, no safe time, no safe type", "NHMRC Guideline 3: women who are pregnant or planning a pregnancy should not drink alcohol", "passes through the placenta, which can't stop the alcohol reaching the baby", "miscarriage, stillbirth, premature birth, fetal alcohol spectrum disorder", "the partner stopping or cutting down helps", "lines to use when you're not telling people yet", "breastfeeding: not drinking is safest; the ABA's Feed Safe app"]
+  sources:
+    - title: NHMRC — Australian guidelines to reduce health risks from drinking alcohol
+      url: https://www.nhmrc.gov.au/health-advice/alcohol
+    - title: Pregnancy, Birth and Baby — Alcohol and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/alcohol-and-pregnancy
+  related: [alcohol-before-you-knew, kombucha-and-fermented-drinks, cooking-with-alcohol]
+  notes: Many friends and some older doctors will say "one is fine"; the entry must be kind and unambiguous. Australia's position is stricter than some overseas guidance.
+
+- id: alcohol-before-you-knew
+  title: Drinking before you knew you were pregnant
+  type: can-i
+  topic: drink
+  ask: I drank before I found out. Have I hurt the baby?
+  aliases: [drank before I knew, drinking in early pregnancy, big night before positive test, alcohol first weeks, guilt]
+  who: carrying
+  weeks: [1, 8]
+  priority: 1
+  stakes: high
+  covers: ["verdict: the risk from low-level drinking before you knew is likely low; stop now", "you might have drunk alcohol before you even knew you were pregnant", "talk to the midwife or GP if worried; NOFASD helpline 1800 860 613", "if you're concerned about your intake or finding it hard to stop, talk to your doctor or midwife, or call the ADIS 24-hour line 1800 250 015", "stopping at any time reduces the risk; call MotherSafe for individual advice"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Alcohol and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/alcohol-and-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Alcohol in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Alcohol%20in%20Pregnancy.pdf
+  related: [alcohol, medicines-before-you-knew]
+
+- id: cooking-with-alcohol
+  title: Cooking with wine and alcohol in food
+  type: can-i
+  topic: drink
+  ask: Can I eat a dish cooked with wine?
+  aliases: [cooking wine, red wine sauce, beer batter, rum balls, tiramisu alcohol, brandy custard, liqueur chocolates, vanilla extract]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers: ["verdict: long-simmered dishes are generally considered fine; avoid uncooked alcohol (rum balls, liqueur chocolates, boozy desserts)", "alcohol does not all cook off; the longer it simmers, the less remains", "no safe level means judgement, not panic", "home-brewed and fermented drinks are the bigger trap"]
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Alcohol in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Alcohol%20in%20Pregnancy.pdf
+  related: [alcohol, kombucha-and-fermented-drinks]
+  notes: The MotherSafe sheet covers home-brew and products with residual alcohol; it does not address cooking with wine directly. No Australian page found that does. Keep the verdict soft and sourced, or merge into the alcohol entry.
+
+- id: kombucha-and-fermented-drinks
+  title: Kombucha, kefir and ginger beer
+  type: can-i
+  topic: drink
+  ask: Can I drink kombucha?
+  aliases: [kombucha, kefir, ginger beer, kvass, water kefir, fermented drinks, non-alcoholic beer, zero alcohol wine, 0.5%, home brew]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: ["verdict: avoid", "fermentation leaves small, variable amounts of alcohol, sometimes above the label", "home-brewed is unregulated and should be avoided", "NSW Food Authority also flags contamination risk", "'zero alcohol' beer and wine: 0.0% is different from 'low' (up to 0.5%); read the label; no safe level is the rule"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+    - title: NSW Food Authority — Why avoid certain foods
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/why-avoid-certain-foods
+  related: [alcohol, milk-and-yoghurt]
+  notes: No Australian government page found that rules on zero-alcohol beer and wine. The 0.0 versus 0.5 point is labelling fact, not sourced advice; present it as such.
+
+- id: coffee-and-caffeine
+  title: Coffee and the caffeine limit
+  type: can-i
+  topic: drink
+  ask: Can I still have my coffee?
+  aliases: [coffee, caffeine, latte, flat white, espresso, instant coffee, double shot, long black, cold brew, how much coffee, 200mg]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: ["verdict: limit to 200 mg of caffeine a day from all sources", "roughly one or two espresso-based coffees, or three instant", "espresso: about 145 mg a shot; instant: about 80 mg a cup", "no double shots; cafe strength varies a lot", "too much is linked to miscarriage, low birth weight and stillbirth", "counts tea, cola, chocolate, energy drinks and some medicines", "withdrawal headaches last about a week"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Caffeine during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/caffeine-during-pregnancy
+    - title: Food Standards Australia New Zealand — Caffeine powders and high caffeine content foods
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/caffeine-powders-and-high-caffeine-content-foods
+  related: [tea, decaf, energy-drinks, cola-and-soft-drink, chocolate-and-hot-chocolate]
+  notes: PBB's own pages give two different equivalences (1–2 espresso and 2–3 instant on one page, 3 instant on another). Quote the mg figures and let the cups follow.
+
+- id: tea
+  title: Tea, green tea and matcha
+  type: can-i
+  topic: drink
+  ask: Can I drink tea?
+  aliases: [tea, black tea, English breakfast, green tea, matcha, chai, iced tea, bubble tea, milk tea, earl grey, how many cups of tea]
+  who: carrying
+  priority: 1
+  stakes: low
+  covers: ["verdict: yes, within the 200 mg caffeine limit", "10–50 mg a cup depending on strength; about four cups of medium-strength tea", "green tea and matcha are not herbal: they count", "chai from a cafe is black tea; the spices are fine", "bubble tea is tea plus a lot of sugar"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Caffeine during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/caffeine-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Herbal teas during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/herbal-teas-during-pregnancy-and-breastfeeding
+  related: [coffee-and-caffeine, herbal-tea, soft-drink-and-sugar]
+
+- id: decaf
+  title: Decaf coffee
+  type: can-i
+  topic: drink
+  ask: Is decaf fine?
+  aliases: [decaf, decaffeinated, decaf coffee, decaf tea, Swiss water]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers: ["verdict: yes", "2–4 mg of caffeine a cup", "a way to keep the ritual", "the decaffeinating process is not a concern in Australian advice"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Caffeine during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/caffeine-during-pregnancy
+  related: [coffee-and-caffeine]
+
+- id: chocolate-and-hot-chocolate
+  title: Chocolate and hot chocolate
+  type: can-i
+  topic: drink
+  ask: Does chocolate count toward caffeine?
+  aliases: [chocolate, hot chocolate, cocoa, Milo, dark chocolate, mocha, cacao]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers: ["verdict: yes, it counts, but barely", "about 20 mg per 100 g bar; dark chocolate more", "hot chocolate roughly 4 cups to reach 200 mg", "a mocha is coffee plus chocolate"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Caffeine during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/caffeine-during-pregnancy
+  related: [coffee-and-caffeine, soft-drink-and-sugar]
+
+- id: cola-and-soft-drink
+  title: Cola
+  type: can-i
+  topic: drink
+  ask: Can I drink Coke?
+  aliases: [cola, Coke, Pepsi, Coke Zero, Diet Coke, soft drink caffeine, cola morning sickness]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers: ["verdict: yes within the caffeine limit; a sometimes drink", "about 35 mg per 375 mL can", "flat cola is a common morning-sickness fallback; fine in small amounts", "sugar-free versions remove the sugar, not the caffeine"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Caffeine during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/caffeine-during-pregnancy
+  related: [coffee-and-caffeine, soft-drink-and-sugar, artificial-sweeteners]
+
+- id: soft-drink-and-sugar
+  title: Soft drink, cordial and sugary drinks
+  type: can-i
+  topic: drink
+  ask: Can I drink soft drink and juice?
+  aliases: [soft drink, lemonade, cordial, fizzy drink, sugary drinks, juice, flavoured milk, sports drink sugar, gestational diabetes drinks]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers: ["verdict: limit", "sugar-sweetened drinks are on the 'limit' list of the pregnancy diet", "small amounts of low-sugar soft drink, juice or mineral water are fine", "water is the default", "matters more with gestational diabetes"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Healthy diet during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/healthy-diet-during-pregnancy
+  related: [cola-and-soft-drink, water, artificial-sweeteners, unpasteurised-juice]
+
+- id: artificial-sweeteners
+  title: Artificial sweeteners and diet drinks
+  type: can-i
+  topic: drink
+  ask: Are artificial sweeteners safe?
+  aliases: [sweeteners, aspartame, sucralose, stevia, Equal, Splenda, diet drinks, sugar-free, Coke Zero, saccharin]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers: ["verdict: yes in normal amounts; no Australian pregnancy-specific limit", "sweeteners permitted in Australia are assessed for safety by FSANZ", "no advice to avoid them in pregnancy, and none to lean on them", "the better question is how much sweet drink overall"]
+  sources:
+    - title: Food Standards Australia New Zealand — Sweeteners
+      url: https://www.foodstandards.gov.au/consumer/additives/Sweeteners
+  related: [soft-drink-and-sugar, cola-and-soft-drink]
+  notes: The FSANZ page does not mention pregnancy at all. The entry must say so rather than imply a pregnancy clearance. Overseas sources are split on saccharin; don't import them.
+
+- id: energy-drinks
+  title: Energy drinks
+  type: can-i
+  topic: drink
+  ask: Can I have a Red Bull or a V?
+  aliases: [energy drink, Red Bull, V, Monster, Mother, guarana, taurine, caffeinated drinks]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: ["verdict: avoid", "not recommended in pregnancy; the label itself says not suitable for pregnant women", "about 80 mg per 250 mL can, often sold larger", "guarana is caffeine by another name", "lots of sugar"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+    - title: Food Standards Australia New Zealand — Caffeine
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/caffeine
+  related: [coffee-and-caffeine, pre-workout-and-caffeine-powders, cola-and-soft-drink]
+
+- id: pre-workout-and-caffeine-powders
+  title: Pre-workout, caffeine powders and protein powder
+  type: can-i
+  topic: drink
+  ask: Can I keep taking my pre-workout?
+  aliases: [pre-workout, caffeine powder, caffeine tablets, No-Doz, protein powder, protein shake, sports supplements, BCAA, creatine, fat burners]
+  who: carrying
+  priority: 3
+  stakes: high
+  covers: ["verdict: avoid pre-workout, caffeine powders and 'fat burners'; ask before protein powder", "pure and highly concentrated caffeine products are banned in Australia; the 200 mg limit covers all sources", "sports supplements are poorly labelled and may carry caffeine, guarana or herbs", "plain protein powder isn't addressed by Australian pregnancy advice: check the label for additives and ask a pharmacist"]
+  sources:
+    - title: Food Standards Australia New Zealand — Caffeine powders and high caffeine content foods
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/caffeine-powders-and-high-caffeine-content-foods
+    - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+  related: [energy-drinks, coffee-and-caffeine, herbal-supplements]
+  notes: Protein powder has no Australian source; the verdict is an "ask" by default.
+
+- id: herbal-tea
+  title: Herbal tea
+  type: can-i
+  topic: drink
+  ask: Can I drink herbal tea?
+  aliases: [herbal tea, herbal infusion, pregnancy tea, detox tea, rooibos, lemon and ginger tea, liquorice tea, dandelion tea, rosehip tea, hibiscus]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: ["verdict: limit to about two cups a day, vary the type, and ask about anything unusual", "herbal teas are herbal medicines with little safety research", "caffeine-free but not therefore safe; ingredients vary and may not match the label", "ginger and peppermint are the best-studied; chamomile in large amounts is the one to be careful with", "dandelion and rosehip: not enough known", "'detox', 'slimming' and 'pregnancy' blends: ask a pharmacist first"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Herbal teas during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/herbal-teas-during-pregnancy-and-breastfeeding
+    - title: MotherSafe (Royal Hospital for Women) — Herbal medicines in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/MSHerbalApril2020.pdf
+  related: [ginger, peppermint-tea, raspberry-leaf, chamomile-tea, herbal-supplements]
+  notes: Liquorice (root tea, sweets) has no Australian government advice; Finland advises against heavy intake. Flag it as unsourced rather than inventing a verdict.
+
+- id: ginger
+  title: Ginger and ginger tea
+  type: can-i
+  topic: drink
+  ask: Does ginger help with nausea, and is it safe?
+  aliases: [ginger, ginger tea, ginger tablets, ginger ale, ginger beer, ginger biscuits, crystallised ginger, ginger for morning sickness]
+  who: carrying
+  weeks: [5, 16]
+  priority: 1
+  stakes: low
+  covers: ["verdict: yes, in moderation (about 1 g a day as a supplement)", "traditional nausea remedy; studies find it safe at that dose", "KEMH's 2026 booklet no longer suggests it for hyperemesis: minimal benefit, can worsen symptoms", "ginger beer is a fermented drink: different answer", "if nausea is severe, see nausea medicines"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Herbal teas during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/herbal-teas-during-pregnancy-and-breastfeeding
+    - title: MotherSafe (Royal Hospital for Women) — Herbal medicines in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/MSHerbalApril2020.pdf
+    - title: KEMH — Nausea and vomiting in pregnancy (patient information)
+      url: https://www.kemh.health.wa.gov.au/~/media/HSPs/NMHS/Hospitals/WNHS/Documents/Patients-resources/Nausea-and-vomiting-in-pregnancy.pdf
+  related: [nausea-medicines, herbal-tea, kombucha-and-fermented-drinks]
+  notes: "Contested: PBB and MotherSafe say ginger helps; KEMH (2026) says it has minimal benefit and may worsen hyperemesis. Safe either way; the disagreement is about whether it works."
+
+- id: peppermint-tea
+  title: Peppermint tea
+  type: can-i
+  topic: drink
+  ask: Can I drink peppermint tea?
+  aliases: [peppermint tea, mint tea, peppermint for nausea, peppermint for wind]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers: ["verdict: yes, not in very large amounts", "one of the most used herbal medicines in pregnancy; studies show no harm", "helps nausea and wind", "can worsen reflux for some"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Herbal teas during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/herbal-teas-during-pregnancy-and-breastfeeding
+  related: [herbal-tea, ginger]
+  notes: The reflux line is not on the cited page.
+
+- id: raspberry-leaf
+  title: Raspberry leaf tea and tablets
+  type: can-i
+  topic: drink
+  ask: Should I drink raspberry leaf tea to prepare for labour?
+  aliases: [raspberry leaf, raspberry leaf tea, raspberry leaf tablets, labour prep tea, third trimester tea]
+  who: carrying
+  weeks: [32, 42]
+  priority: 2
+  stakes: low
+  covers: ["verdict: likely safe, but not shown to do anything", "the few studies found it safe and ineffective, so it can't be recommended", "don't start it early in pregnancy", "tell the midwife if taking it"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Herbal teas during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/herbal-teas-during-pregnancy-and-breastfeeding
+    - title: MotherSafe (Royal Hospital for Women) — Herbal medicines in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/MSHerbalApril2020.pdf
+  related: [herbal-tea, herbal-supplements]
+
+- id: chamomile-tea
+  title: Chamomile tea
+  type: can-i
+  topic: drink
+  ask: Can I drink chamomile tea before bed?
+  aliases: [chamomile, camomile, chamomile tea, sleepy tea, bedtime tea]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers: ["verdict: avoid large amounts; an occasional cup is a grey area", "a suggestion it may stimulate the uterus or affect the baby's circulation; higher preterm and miscarriage rates reported", "PBB lists it under 'not enough information'", "other sleep approaches first"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Herbal teas during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/herbal-teas-during-pregnancy-and-breastfeeding
+  related: [herbal-tea, sleeping-pills]
+
+- id: water
+  title: "Water: tap, bottled, filtered and overseas"
+  type: can-i
+  topic: drink
+  ask: Is tap water fine, and how much should I drink?
+  aliases: [water, tap water, bottled water, filtered water, tank water, boil water alert, how much water, hydration, mineral water, sparkling water, ice]
+  who: carrying
+  priority: 1
+  stakes: low
+  covers: ["verdict: yes, Australian tap water; no need for bottled unless there's a boil-water alert", "if the supply is unsafe: bottled, or boil for one minute and cool (also for teeth and ice)", "overseas: avoid tap water and ice", "stay hydrated; more in hot weather and with nausea", "sparkling and mineral water are fine", "tank water: check with the local council"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+    - title: KEMH — Nausea and vomiting in pregnancy (patient information)
+      url: https://www.kemh.health.wa.gov.au/~/media/HSPs/NMHS/Hospitals/WNHS/Documents/Patients-resources/Nausea-and-vomiting-in-pregnancy.pdf
+  related: [sports-and-electrolyte-drinks, fasting]
+  notes: KEMH gives "at least one to two litres a day" for nausea; no general daily figure is on the PBB page. Tank water line is unsourced.
+
+- id: sports-and-electrolyte-drinks
+  title: Sports drinks and electrolytes
+  type: can-i
+  topic: drink
+  ask: Can I drink Hydralyte or Powerade?
+  aliases: [Hydralyte, Gastrolyte, Powerade, Gatorade, electrolytes, rehydration, icy poles, oral rehydration]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers: ["verdict: yes", "oral rehydration solutions are the recommended fluid for vomiting and diarrhoea", "sports drinks, icy poles and diluted cordial are all suggested for nausea", "they are sugar and salt, not medicine; fine for the purpose", "can't keep anything down: emergency department"]
+  sources:
+    - title: KEMH — Nausea and vomiting in pregnancy (patient information)
+      url: https://www.kemh.health.wa.gov.au/~/media/HSPs/NMHS/Hospitals/WNHS/Documents/Patients-resources/Nausea-and-vomiting-in-pregnancy.pdf
+    - title: MotherSafe (Royal Hospital for Women) — Gastroenteritis in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/GastroPregBfeedFeb23.pdf
+  related: [water, nausea-medicines, anti-diarrhoea-medicines]
+
+# ---------------------------------------------------------------------------
+# MEDICINES AND SUPPLEMENTS
+# ---------------------------------------------------------------------------
+
+- id: medicines-in-pregnancy
+  title: "Medicines in pregnancy: the general rules"
+  type: can-i
+  topic: medicines
+  ask: How do I know if a medicine is safe?
+  aliases: [medicines, medication, is it safe, pregnancy category, category A, category C, MotherSafe, pharmacist, over the counter, OTC, drugs in pregnancy]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: ask your GP, midwife or pharmacist before any medicine, including over-the-counter and herbal", "most medicines are fine; a few harm the baby, and the stage of pregnancy matters", "lowest effective dose for the shortest time", "every pregnancy carries a 3–5% background chance of a birth difference regardless", "the KEMH Medicine Information line ((08) 6458 2723, 8:30am–4:30pm Mon–Fri, WA) and healthdirect 1800 022 222 (nurse, 24 hours, nationally) answer the phone", "don't stop a prescribed medicine on your own"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Medicines during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/medicines-during-pregnancy
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+    - title: TGA — Paracetamol use in pregnancy (defines category A)
+      url: https://www.tga.gov.au/news/media-releases/paracetamol-use-pregnancy
+  related: [prescription-medicines-ongoing, medicines-before-you-knew, paracetamol]
+  notes: The TGA's categorisation page itself sits behind a bot check and could not be fetched; the category-A definition is quoted from the TGA paracetamol release. The "B is not safer than C" caveat is widely stated by the TGA but needs its own page cited before publishing.
+
+- id: prescription-medicines-ongoing
+  title: Prescription medicines for ongoing conditions
+  type: can-i
+  topic: medicines
+  ask: I'm on medication for a long-term condition. Do I stop?
+  aliases: [epilepsy medicine, blood pressure tablets, thyroid medicine, thyroxine, diabetes medicine, metformin, insulin, inhalers, immunosuppressants, biologics, don't stop, chronic condition]
+  who: carrying
+  weeks: [1, 12]
+  priority: 1
+  stakes: high
+  covers: ["verdict: ask; don't stop without advice", "some must not be taken in pregnancy and others need adjusting, but stopping can harm you and the baby", "talk to your doctor when you are planning a pregnancy; discuss before starting, continuing, changing or stopping", "pregnancy changes how the body handles medicines; doses may change", "asthma, epilepsy, depression, diabetes, high blood pressure are the common ones", "your doctor, pharmacist or midwife can advise"]
+  sources:
+    - title: healthdirect — Medicines during pregnancy
+      url: https://www.healthdirect.gov.au/medicines/medicines-during-pregnancy
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+  related: [medicines-in-pregnancy, antidepressants, asthma-inhalers, isotretinoin]
+
+- id: medicines-before-you-knew
+  title: Medicines taken before you knew you were pregnant
+  type: can-i
+  topic: medicines
+  ask: I took ibuprofen (or something else) before I knew. Is that a problem?
+  aliases: [took medicine before I knew, early pregnancy exposure, the pill while pregnant, contraceptive pill, morning after pill, accidental exposure]
+  who: carrying
+  weeks: [1, 8]
+  priority: 1
+  stakes: medium
+  covers: ["verdict: usually reassuring; mention it at the first visit", "very early exposure tends to be 'all or nothing': either a miscarriage or no effect", "inadvertent NSAID use is not considered of concern", "a few medicines (isotretinoin, some epilepsy drugs) need a real conversation", "MotherSafe exists for exactly this call"]
+  sources:
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Pain in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Pain%20in%20Pregnancy.pdf
+  related: [alcohol-before-you-knew, ibuprofen-and-nsaids, isotretinoin]
+
+- id: paracetamol
+  title: Paracetamol
+  type: can-i
+  topic: medicines
+  ask: Can I take Panadol?
+  aliases: [paracetamol, Panadol, Panamax, Herron, Panadol Osteo, Tylenol, acetaminophen, headache tablets, pain relief, fever]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: yes, at the lowest effective dose for the shortest time", "the recommended first choice for pain and fever in pregnancy; TGA category A", "no more than 8 × 500 mg tablets (4 g) in 24 hours; watch for paracetamol hidden in cold and flu products", "untreated fever is itself a risk: treat it", "the 2025 autism/ADHD claim was rejected by the TGA, the Chief Medical Officer and regulators worldwide"]
+  sources:
+    - title: TGA — Paracetamol use in pregnancy
+      url: https://www.tga.gov.au/news/media-releases/paracetamol-use-pregnancy
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Fever and pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/2020feverp.pdf
+    - title: MotherSafe (Royal Hospital for Women) — Pain in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Pain%20in%20Pregnancy.pdf
+  related: [ibuprofen-and-nsaids, codeine-and-opioids, cold-and-flu-tablets, migraine-medicines]
+  notes: Contested in public, settled in Australian advice. Address the US September 2025 claim directly and calmly.
+
+- id: ibuprofen-and-nsaids
+  title: Ibuprofen and anti-inflammatories
+  type: can-i
+  topic: medicines
+  ask: Can I take Nurofen?
+  aliases: [ibuprofen, Nurofen, Advil, Nurofen Plus, naproxen, Naprogesic, diclofenac, Voltaren, NSAIDs, anti-inflammatory, period pain tablets, indomethacin, celecoxib, Mobic, meloxicam]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: avoid unless a doctor prescribes it", "no longer recommended at any stage; the reasons differ by trimester, with the third the most important", "an accidental dose is not cause for alarm", "paracetamol instead", "regular NSAID use can also delay ovulation while trying", "a doctor may still use a short course for a specific reason"]
+  sources:
+    - title: healthdirect — Ibuprofen
+      url: https://www.healthdirect.gov.au/medicines/ibuprofen
+    - title: MotherSafe (Royal Hospital for Women) — Pain in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Pain%20in%20Pregnancy.pdf
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+  related: [paracetamol, anti-inflammatory-gels, aspirin, medicines-before-you-knew]
+  notes: Ibuprofen is fine while breastfeeding, which confuses people; say the answer changes after the birth.
+
+- id: anti-inflammatory-gels
+  title: Voltaren gel and anti-inflammatory creams
+  type: can-i
+  topic: medicines
+  ask: Can I rub Voltaren on my back?
+  aliases: [Voltaren gel, Voltaren Emulgel, diclofenac gel, Nurofen gel, ibuprofen gel, Deep Heat, Dencorub, anti-inflammatory cream, topical NSAID]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: ["verdict: ask; KEMH says not recommended, especially in the third trimester; MotherSafe says generally relatively safe in small areas", "little is absorbed through skin unless used over large areas, broken skin, or under heat or wraps", "heat packs, physio and paracetamol first", "Deep Heat-style rubs are a different ingredient (methyl salicylate), also an NSAID relative: ask"]
+  sources:
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Pain in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Pain%20in%20Pregnancy.pdf
+  related: [ibuprofen-and-nsaids, paracetamol]
+  notes: The two hospital sources disagree in emphasis. Present both and land on "ask", leaning to avoid after 28 weeks.
+
+- id: aspirin
+  title: Aspirin
+  type: can-i
+  topic: medicines
+  ask: Can I take aspirin? My doctor mentioned low-dose aspirin.
+  aliases: [aspirin, Aspro, Disprin, Cartia, low dose aspirin, baby aspirin, 100mg aspirin, 150mg aspirin, pre-eclampsia aspirin]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers: ["verdict: not for pain; low-dose aspirin only when prescribed", "as a painkiller it is an NSAID: avoid", "low-dose aspirin is prescribed from early pregnancy for people at higher risk of pre-eclampsia", "always talk to the care team before taking it", "not safe while breastfeeding"]
+  sources:
+    - title: healthdirect — Medicines during pregnancy
+      url: https://www.healthdirect.gov.au/medicines/medicines-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Cold and flu during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-and-flu-during-pregnancy
+  related: [ibuprofen-and-nsaids, paracetamol]
+  notes: Pre-eclampsia prevention (who gets it, when to start) belongs to the tests-and-care area; link rather than explain.
+
+- id: codeine-and-opioids
+  title: Codeine and stronger painkillers
+  type: can-i
+  topic: medicines
+  ask: Can I take codeine?
+  aliases: [codeine, Panadeine Forte, Panadeine, Nurofen Plus, Mersyndol, oxycodone, Endone, tramadol, tapentadol, morphine, opioids, strong painkillers]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers: ["verdict: ask; short-term or occasional use on prescription is considered safe when paracetamol isn't enough", "codeine is prescription-only in Australia since 2018", "regular use late in pregnancy can cause withdrawal in the newborn; tell the baby's team", "dependence and tolerance with ongoing use", "constipation and drowsiness"]
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Pain in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Pain%20in%20Pregnancy.pdf
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+    - title: Pregnancy, Birth and Baby — Headaches during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/headaches-during-pregnancy
+  related: [paracetamol, migraine-medicines, ibuprofen-and-nsaids]
+  notes: The 2018 up-scheduling is background fact, not on the cited pages.
+
+- id: migraine-medicines
+  title: Migraine medicines
+  type: can-i
+  topic: medicines
+  ask: Can I take my migraine tablets?
+  aliases: [migraine, sumatriptan, Imigran, triptans, rizatriptan, Maxalt, zolmitriptan, migraine preventer, propranolol, topiramate, Cafergot, ergotamine]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers: ["verdict: ask; paracetamol (with or without codeine) first, sumatriptan if those fail", "sumatriptan has considerable safety data; other triptans less", "preventers need a review: some (e.g. topiramate, valproate) are not for pregnancy", "frequent or new severe headaches, or headache with visual changes after 20 weeks, is a call-now symptom (pre-eclampsia)", "ergotamine-type medicines are not used"]
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Migraine in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Migraine%20in%20Pregnancy%20and%20Breastfeeding.pdf
+    - title: Pregnancy, Birth and Baby — Headaches during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/headaches-during-pregnancy
+  related: [paracetamol, codeine-and-opioids, prescription-medicines-ongoing]
+  notes: The ergotamine and valproate lines are standard but not quoted from the MotherSafe sheet excerpt read; confirm against the full sheet. PBB headaches URL is under health-conditions-and-complications, not nutrition-and-lifestyle; fix the URL when writing.
+
+- id: antihistamines
+  title: Antihistamines
+  type: can-i
+  topic: medicines
+  ask: Can I take an antihistamine for hay fever?
+  aliases: [antihistamine, Telfast, fexofenadine, Zyrtec, cetirizine, Claratyne, loratadine, Polaramine, dexchlorpheniramine, Phenergan, promethazine, Restavit, doxylamine, hay fever tablets, allergy tablets, hives]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: ["verdict: yes, at recommended doses; sedating ones (Polaramine, Phenergan) have the longest safety record, and loratadine, cetirizine and fexofenadine are also considered reasonable", "nasal sprays and eye drops reach the baby less than tablets", "PBB says use non-sedating ones for the shortest time", "check with the pharmacist, especially combined products", "pregnancy rhinitis isn't allergy and antihistamines won't fix it"]
+  sources:
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Hay fever in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/hayfeverinpregandbfjune2021.pdf
+    - title: healthdirect — Medicines during pregnancy
+      url: https://www.healthdirect.gov.au/medicines/medicines-during-pregnancy
+  related: [nasal-sprays, oral-decongestants, sleeping-pills]
+
+- id: nasal-sprays
+  title: "Nasal sprays: saline, steroid and decongestant"
+  type: can-i
+  topic: medicines
+  ask: Can I use a nasal spray for a blocked nose?
+  aliases: [nasal spray, Fess, saline spray, Nasonex, Rhinocort, budesonide, mometasone, Flixonase, steroid nasal spray, Otrivin, oxymetazoline, xylometazoline, Drixine, Azep, azelastine, Dymista, blocked nose, pregnancy rhinitis]
+  who: carrying
+  priority: 1
+  stakes: low
+  covers: ["verdict: yes: saline any time; steroid sprays (budesonide, mometasone) are safe; decongestant sprays (Otrivin, Drixine) short term only, no more than 3 days", "very little is absorbed from a spray", "decongestant sprays cause rebound congestion if overused", "steam inhalation", "antihistamine sprays (azelastine) are fine too"]
+  sources:
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Hay fever in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/hayfeverinpregandbfjune2021.pdf
+  related: [oral-decongestants, antihistamines, cold-and-flu-tablets]
+  notes: KEMH says 3 days for decongestant sprays, MotherSafe says 5, PBB says saline no more than 5 days (which is odd). Use 3 days for decongestants and don't limit saline.
+
+- id: oral-decongestants
+  title: Sudafed and oral decongestants
+  type: can-i
+  topic: medicines
+  ask: Can I take Sudafed?
+  aliases: [Sudafed, pseudoephedrine, phenylephrine, Sudafed PE, Demazin, decongestant tablets, sinus tablets, Codral, Nurofen Cold and Flu, Lemsip]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: ["verdict: avoid", "oral decongestants are not recommended in pregnancy", "they constrict blood vessels; particularly avoid with high blood pressure or after 20 weeks", "use a nasal spray instead", "most 'cold and flu' and 'sinus' tablets contain one: read the box"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Cold and flu during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-and-flu-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — The common cold in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/docs/Cold%20in%20pregnancy%20and%20breastfeeding%20.pdf
+  related: [nasal-sprays, cold-and-flu-tablets, antihistamines]
+
+- id: cold-and-flu-tablets
+  title: Cold and flu tablets and combination products
+  type: can-i
+  topic: medicines
+  ask: Can I take Codral?
+  aliases: [Codral, Codral Day and Night, Nurofen Cold and Flu, Lemsip, Demazin, Dimetapp, cold and flu tablets, combination cold medicine, day and night tablets]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: ["verdict: avoid the combination; treat each symptom on its own", "they bundle paracetamol or ibuprofen with a decongestant and sometimes an antihistamine or caffeine", "paracetamol for aches, saline or steroid spray for the nose, a safe cough medicine for the cough", "ask the pharmacist to read the ingredients", "flu is more dangerous in pregnancy: see the GP early for antivirals"]
+  sources:
+    - title: healthdirect — Medicines during pregnancy
+      url: https://www.healthdirect.gov.au/medicines/medicines-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — The common cold in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/docs/Cold%20in%20pregnancy%20and%20breastfeeding%20.pdf
+  related: [paracetamol, oral-decongestants, cough-medicines, nasal-sprays]
+
+- id: cough-medicines
+  title: Cough medicines
+  type: can-i
+  topic: medicines
+  ask: Can I take something for a cough?
+  aliases: [cough medicine, cough syrup, Duro-Tuss, Benadryl, Bisolvon, bromhexine, Robitussin, guaifenesin, dextromethorphan, pholcodine, dry cough, chesty cough, cough lozenges]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: ["verdict: yes for some: dextromethorphan for a dry cough; bromhexine or guaifenesin for a chesty cough", "pholcodine products were cancelled in Australia in 2023 (anaesthesia reactions) even though PBB still lists it: don't use old bottles", "honey and lemon, steam, rest", "a cough with fever or breathlessness: see the GP"]
+  sources:
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+    - title: WA Department of Health — Pholcodine cough medicines cancelled by the TGA
+      url: https://health.wa.gov.au/News/2023/Pholcodine-cough-medicines-cancelled-by-the-TGA
+    - title: Pregnancy, Birth and Baby — Medicines during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/medicines-during-pregnancy
+  related: [cold-and-flu-tablets, throat-lozenges-and-gargles, honey]
+  notes: "Changing advice: PBB and healthdirect (reviewed September 2025) still name pholcodine as safe; it was withdrawn from sale in February 2023. Say so."
+
+- id: throat-lozenges-and-gargles
+  title: Throat lozenges and gargles
+  type: can-i
+  topic: medicines
+  ask: Can I use Strepsils or Betadine gargle?
+  aliases: [Strepsils, throat lozenges, Difflam, benzydamine, Betadine gargle, povidone-iodine, Cepacol, Anticol, Butter-Menthol, salt water gargle, sore throat spray]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: ["verdict: yes for ordinary antibacterial and anaesthetic lozenges at label doses; avoid Difflam (benzydamine) and Betadine (povidone-iodine) gargles", "povidone-iodine may affect the baby's thyroid", "too many lozenges cause diarrhoea", "salt water, honey and lemon"]
+  sources:
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+    - title: healthdirect — Medicines during pregnancy
+      url: https://www.healthdirect.gov.au/medicines/medicines-during-pregnancy
+  related: [cough-medicines, cold-and-flu-tablets, honey]
+
+- id: antacids
+  title: "Antacids: Gaviscon, Mylanta, Rennie and Quick-Eze"
+  type: can-i
+  topic: medicines
+  ask: Can I take Mylanta for heartburn?
+  aliases: [antacid, Gaviscon, Mylanta, Rennie, Quick-Eze, Gastrogel, Tums, heartburn tablets, reflux, indigestion, baking soda]
+  who: carrying
+  weeks: [14, 42]
+  priority: 1
+  stakes: low
+  covers: ["verdict: yes, at the recommended dose", "liquid or tablet; all are safe at label doses", "take iron tablets at a different time: antacids block absorption", "eat small meals, avoid lying down after eating, raise the bedhead", "heartburn that doesn't settle, or pain under the ribs with headache or swelling: call (pre-eclampsia)"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Indigestion and heartburn in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/indigestion-and-heartburn-in-pregnancy
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Heartburn in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/heartburnpregbr2021.pdf
+  related: [reflux-medicines, iron, spicy-food]
+  notes: The iron-antacid interaction is standard pharmacy advice, not on the cited pages.
+
+- id: reflux-medicines
+  title: "Stronger reflux medicines: famotidine, omeprazole, Nexium"
+  type: can-i
+  topic: medicines
+  ask: Antacids aren't working. Can I take Nexium?
+  aliases: [Nexium, esomeprazole, omeprazole, Losec, pantoprazole, Somac, famotidine, Pepcid, Ausfam, ranitidine, Zantac, PPI, H2 blocker, reflux tablets]
+  who: carrying
+  weeks: [14, 42]
+  priority: 2
+  stakes: medium
+  covers: ["verdict: ask; famotidine and omeprazole are considered safe and commonly prescribed when antacids fail", "omeprazole has the most follow-up data; esomeprazole is near-identical", "ranitidine was withdrawn (NDMA contamination) and is no longer the option", "a doctor or pharmacist chooses; some are pharmacy-only now"]
+  sources:
+    - title: KEMH — Nausea and vomiting in pregnancy (patient information)
+      url: https://www.kemh.health.wa.gov.au/~/media/HSPs/NMHS/Hospitals/WNHS/Documents/Patients-resources/Nausea-and-vomiting-in-pregnancy.pdf
+    - title: MotherSafe (Royal Hospital for Women) — Heartburn in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/heartburnpregbr2021.pdf
+  related: [antacids, nausea-medicines]
+
+- id: laxatives
+  title: Laxatives and fibre supplements
+  type: can-i
+  topic: medicines
+  ask: Can I take something for constipation?
+  aliases: [laxative, Metamucil, psyllium, Benefiber, Fybogel, Movicol, macrogol, Osmolax, lactulose, Actilax, Duphalac, Coloxyl, docusate, Coloxyl with Senna, senna, Senokot, Dulcolax, bisacodyl, Microlax, suppository, prune juice, constipation]
+  who: carrying
+  priority: 1
+  stakes: low
+  covers: ["verdict: yes: fibre (Metamucil, Fybogel) with plenty of water first; then docusate (Coloxyl), lactulose or Movicol; avoid regular senna or Dulcolax", "fibre, fluids, movement, go when you feel the urge", "iron tablets, antacids, nausea medicines and multivitamins make it worse: a change of brand may help", "stimulant laxatives for occasional use only", "haemorrhoids follow straining"]
+  sources:
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+    - title: KEMH — Nausea and vomiting in pregnancy (patient information)
+      url: https://www.kemh.health.wa.gov.au/~/media/HSPs/NMHS/Hospitals/WNHS/Documents/Patients-resources/Nausea-and-vomiting-in-pregnancy.pdf
+    - title: MotherSafe (Royal Hospital for Women) — Constipation in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/Constipation%20in%20Pregnancy%20and%20Breastfeedingfinal2025%20(002).pdf
+  related: [iron, haemorrhoid-treatments, antacids]
+
+- id: anti-diarrhoea-medicines
+  title: "Gastro: Imodium and rehydration"
+  type: can-i
+  topic: medicines
+  ask: Can I take Imodium?
+  aliases: [Imodium, loperamide, Gastro-Stop, Lomotil, gastro, diarrhoea, food poisoning, Gastrolyte, Hydralyte, stomach bug]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: ["verdict: fluids first; loperamide only for mild diarrhoea when needed, not in the first trimester, and ask", "oral rehydration solution every 5–10 minutes", "anti-diarrhoeals can prolong a real infection and are avoided for moderate or severe gastro", "fever, blood, or not keeping fluids down: see a doctor", "after a risky food, listeria symptoms can start weeks later: mention it"]
+  sources:
+    - title: healthdirect — Medicines during pregnancy
+      url: https://www.healthdirect.gov.au/medicines/medicines-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Gastroenteritis in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/GastroPregBfeedFeb23.pdf
+  related: [sports-and-electrolyte-drinks, listeria-foods, nausea-medicines]
+
+- id: nausea-medicines
+  title: Medicines for morning sickness
+  type: can-i
+  topic: medicines
+  ask: What can I take for nausea?
+  aliases: [morning sickness tablets, vitamin B6, pyridoxine, doxylamine, Restavit, Diclectin, Maxolon, metoclopramide, ondansetron, Zofran, Stemetil, prochlorperazine, Phenergan, cyclizine, Nausicalm, hyperemesis, antiemetic, sea bands]
+  who: carrying
+  weeks: [5, 20]
+  priority: 1
+  stakes: high
+  covers: ["verdict: yes, with your doctor, midwife or pharmacist: vitamin B6 first, then doxylamine at night, both over the counter", "prescription options: metoclopramide, prochlorperazine, promethazine, cyclizine; ondansetron reserved for when everything else fails", "add medicines rather than stopping ones that half-work", "if the multivitamin makes it worse, drop it but keep folate and iodine", "acupressure bands may help", "can't keep fluids down at all: go to the emergency department", "weight loss: contact your midwife or doctor", "very dark urine or not passing urine for more than 8 hours: see a doctor urgently"]
+  sources:
+    - title: KEMH — Nausea and vomiting in pregnancy (patient information)
+      url: https://www.kemh.health.wa.gov.au/~/media/HSPs/NMHS/Hospitals/WNHS/Documents/Patients-resources/Nausea-and-vomiting-in-pregnancy.pdf
+    - title: MotherSafe (Royal Hospital for Women) — Nausea and vomiting in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/NauseaAndVomitingInPregnancy_2024.pdf
+    - title: Pregnancy, Birth and Baby — Severe vomiting during pregnancy (hyperemesis gravidarum)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/severe-vomiting-during-pregnancy-hyperemesis-gravidarum
+  exists: content/items/morning-sickness.md
+  related: [ginger, sports-and-electrolyte-drinks, reflux-medicines, laxatives]
+  notes: The existing morning-sickness item covers the symptom; this entry is the medicines. Ondansetron is contested (small studies on oral clefts); KEMH's wording is the safe line.
+
+- id: thrush-treatments
+  title: Thrush treatments
+  type: can-i
+  topic: medicines
+  ask: Can I use Canesten?
+  aliases: [Canesten, clotrimazole, nystatin, Nilstat, thrush cream, pessary, fluconazole, Diflucan, oral thrush tablet, Canesoral, vaginal thrush, antifungal]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: ["verdict: yes for clotrimazole or nystatin cream or pessaries; avoid the single oral fluconazole tablet unless a doctor says so", "a 6-day clotrimazole course (or 14 days nystatin) rather than the 1-day one", "use the applicator with care, or not at all", "see the GP first to confirm it's thrush", "thrush is twice as common in pregnancy"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Vaginal thrush during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/vaginal-thrush-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Thrush in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/ThrushinPregnancyJuly152024.pdf
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+  related: [antibiotics, probiotics]
+
+- id: antibiotics
+  title: Antibiotics
+  type: can-i
+  topic: medicines
+  ask: Can I take antibiotics?
+  aliases: [antibiotics, amoxicillin, Amoxil, Augmentin, cephalexin, Keflex, penicillin, nitrofurantoin, Macrobid, trimethoprim, doxycycline, UTI antibiotics, infection]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: yes when prescribed; the doctor chooses one that's safe in pregnancy", "untreated infections (UTIs especially) are the greater risk", "UTIs are treated with antibiotics that are safe in pregnancy; for a specific antibiotic, contact MotherSafe or your healthcare provider"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Urinary tract infections (UTIs) during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/urinary-tract-infections-utis-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Urinary tract infection in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Urinary%20Tract%20Infection%20in%20Pregnancy%20and%20Breastfeeding.pdf
+  related: [uti-remedies, thrush-treatments, medicines-in-pregnancy]
+  notes: The doxycycline line is standard but not quoted from the sources read; the MotherSafe sheet says the common UTI antibiotics are not of concern. Source the exception or drop it.
+
+- id: uti-remedies
+  title: Ural, cranberry and UTI self-care
+  type: can-i
+  topic: medicines
+  ask: Can I take Ural for a UTI?
+  aliases: [Ural, Citravescent, urinary alkaliniser, cranberry, cranberry juice, cranberry tablets, Hiprex, UTI, burning wee, cystitis]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers: ["verdict: see the GP; a UTI in pregnancy needs antibiotics, not self-care", "limited safety data on urinary alkalinisers; cranberry in food amounts is likely safe but doesn't treat an infection", "UTIs climb to the kidneys more easily in pregnancy", "bacteria without symptoms is treated too", "drink water, wee after sex, no douching"]
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Urinary tract infection in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Urinary%20Tract%20Infection%20in%20Pregnancy%20and%20Breastfeeding.pdf
+    - title: Pregnancy, Birth and Baby — Urinary tract infections (UTIs) during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/urinary-tract-infections-utis-during-pregnancy
+  related: [antibiotics, water]
+
+- id: cold-sore-treatments
+  title: Cold sore creams and antivirals
+  type: can-i
+  topic: medicines
+  ask: Can I use Zovirax on a cold sore?
+  aliases: [Zovirax, aciclovir, acyclovir, cold sore cream, valaciclovir, Valtrex, famciclovir, Famvir, cold sores, herpes, Blistex]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers: ["verdict: yes: aciclovir cream at any stage; oral aciclovir or valaciclovir from the GP if severe", "famciclovir is not recommended (not enough data)", "ice, SPF lip balm, avoid triggers", "cold sores don't harm the baby in pregnancy; after the birth, no kissing the baby with an active sore"]
+  sources:
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+    - title: Pregnancy, Birth and Baby — Cold sores in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-sores-in-pregnancy
+  related: [medicines-in-pregnancy]
+
+- id: haemorrhoid-treatments
+  title: Haemorrhoid creams
+  type: can-i
+  topic: medicines
+  ask: Can I use haemorrhoid cream?
+  aliases: [haemorrhoid cream, Proctosedyl, Rectinol, Anusol, piles, haemorrhoids, hemorrhoids, suppositories]
+  who: carrying
+  weeks: [20, 42]
+  priority: 2
+  stakes: low
+  covers: ["verdict: yes: anaesthetic and steroid creams or suppositories (Proctosedyl, Rectinol) up to three times a day for no more than seven days", "best applied after a bowel motion", "treat the constipation", "warm baths, ice packs, don't strain"]
+  sources:
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Haemorrhoids in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/Haemorrhoids%20in%20Pregnancy%20and%20BreastfeedingDecember52025.pdf
+  related: [laxatives]
+
+- id: asthma-inhalers
+  title: Asthma inhalers and preventers
+  type: can-i
+  topic: medicines
+  ask: Can I keep using my Ventolin and preventer?
+  aliases: [Ventolin, salbutamol, puffer, inhaler, preventer, Seretide, Symbicort, Flixotide, Pulmicort, asthma, reliever, asthma action plan]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: yes, keep taking them", "most asthma medicines are considered safe; uncontrolled asthma is the danger to the baby (oxygen)", "poorly controlled asthma raises the risk of pre-eclampsia and growth problems", "review the action plan in pregnancy; asthma can get better or worse", "stay up to date with vaccinations: asthma can increase the risk of complications from some illnesses (MotherSafe names the flu and COVID-19 vaccines)"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Asthma and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/asthma-and-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Asthma in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Asthma%20in%20pregnancy%20and%20breastfeedingMarch72022F.pdf
+  related: [prescription-medicines-ongoing, nasal-sprays]
+
+- id: antidepressants
+  title: Antidepressants and anxiety medicines
+  type: can-i
+  topic: medicines
+  ask: Can I stay on my antidepressant?
+  aliases: [antidepressants, SSRI, sertraline, Zoloft, escitalopram, Lexapro, fluoxetine, Prozac, venlafaxine, Efexor, anxiety medication, stopping antidepressants, mental health medication]
+  priority: 1
+  stakes: high
+  covers: ["verdict: ask; many people stay on them, and stopping suddenly is not advised", "pregnancy is a high-risk time for relapse; untreated depression and anxiety carry their own risks", "don't stop in the third trimester on your own; some babies have short-lived adjustment symptoms after birth, planned for in hospital", "a review with the GP or psychiatrist, ideally before conception", "St John's wort and herbal alternatives are not recommended"]
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Depression and anxiety during pregnancy and while breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/depressanxietypregbr2021.pdf
+    - title: healthdirect — Antidepressants
+      url: https://www.healthdirect.gov.au/medicines/antidepressants
+  related: [prescription-medicines-ongoing, st-johns-wort, sleeping-pills]
+  notes: "Depression and anxiety themselves belong to the mental-health area; keep this to the medicine question and link out. Sensitive: never imply she should stop."
+
+- id: sleeping-pills
+  title: Sleeping tablets
+  type: can-i
+  topic: medicines
+  ask: Can I take something to sleep?
+  aliases: [sleeping tablets, sleeping pills, Restavit, doxylamine, temazepam, Temaze, Normison, benzodiazepines, Valium, diazepam, zolpidem, Stilnox, insomnia, can't sleep]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers: ["verdict: ask; sleep habits first; doxylamine (Restavit) is the usual over-the-counter choice and is not habit-forming", "benzodiazepines like temazepam only short term at the lowest dose: habit-forming and can cause withdrawal in the newborn", "herbal sleep remedies are not recommended", "treat the causes: heartburn, restless legs, needing to wee, worry"]
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Insomnia in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Insomnia%20inpregnancy%20and%20breastfeedingJMarch72022F.pdf
+    - title: healthdirect — Safe use of sleeping pills
+      url: https://www.healthdirect.gov.au/medicines/safe-use-of-sleeping-pills
+  related: [melatonin, antihistamines, chamomile-tea, antidepressants]
+
+- id: melatonin
+  title: Melatonin
+  type: can-i
+  topic: medicines
+  ask: Can I take melatonin?
+  aliases: [melatonin, Circadin, melatonin gummies, homeopathic melatonin, jet lag tablets]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers: ["verdict: ask; little information in pregnancy, no evidence of harm, but better-studied options exist", "prescription melatonin is used for insomnia; imported gummies are a different, unregulated product", "homeopathic 'melatonin' sold over the counter contains almost none", "sleep habits and doxylamine first"]
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Insomnia in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Insomnia%20inpregnancy%20and%20breastfeedingJMarch72022F.pdf
+  related: [sleeping-pills]
+
+- id: isotretinoin
+  title: Roaccutane (isotretinoin) and acne medicines
+  type: can-i
+  topic: medicines
+  ask: I'm on Roaccutane. What now?
+  aliases: [Roaccutane, isotretinoin, Oratane, Accutane, acne tablets, acne medication, retinoids, tretinoin, adapalene, Differin, doxycycline acne, pregnancy acne]
+  who: carrying
+  weeks: [1, 12]
+  priority: 2
+  stakes: high
+  covers: ["verdict: not safe; stop and call the prescriber today", "isotretinoin causes serious birth defects; it's one of the few medicines where this is certain", "contraception is required during and for a month after a course", "a positive test while on it: urgent conversation with the dermatologist and GP, and MotherSafe", "topical retinoid creams are poorly absorbed and not expected to be a concern, but are usually stopped", "pregnancy-safe acne care exists"]
+  sources:
+    - title: healthdirect — Isotretinoin (consumer medicine information)
+      url: https://www.healthdirect.gov.au/medicines/brand/amt,32171000168108/isotretinoin-apo
+    - title: MotherSafe (Royal Hospital for Women) — Vitamins and minerals in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/VitaminsmineralspandbupdateSept19.pdf
+  related: [vitamin-a-supplements, prescription-medicines-ongoing, medicines-before-you-knew]
+  notes: healthdirect's page says only "not considered safe"; the contraception rule and the term "birth defects" come from the product information, which the writer should cite directly. Retinol skincare more broadly is a products/body question for another area.
+
+- id: folic-acid
+  title: Folic acid
+  type: can-i
+  topic: medicines
+  ask: Do I need folic acid, and how much?
+  aliases: [folic acid, folate, 500mcg, 400mcg, 0.5mg, neural tube, spina bifida, pregnancy vitamins, when to stop folic acid]
+  who: carrying
+  weeks: [1, 13]
+  priority: 1
+  stakes: high
+  covers: ["verdict: yes: at least 400 micrograms a day (Australian tablets are usually 500 µg), from a month before conception to the end of week 12", "prevents most neural tube defects, which form before many people know they're pregnant", "started late: start now", "bread flour is fortified, but not enough on its own", "after 12 weeks it can stop", "an accidental extra tablet is nothing to worry about"]
+  sources:
+    - title: Food Standards Australia New Zealand — Folic acid/folate and pregnancy
+      url: https://www.foodstandards.gov.au/consumer/nutrition/pregnancy/folic-acidfolate-and-pregnancy
+    - title: Pregnancy, Birth and Baby — Folate and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/folate-and-pregnancy
+  related: [high-dose-folic-acid, iodine, pregnancy-multivitamins]
+
+- id: high-dose-folic-acid
+  title: High-dose (5 mg) folic acid
+  type: can-i
+  topic: medicines
+  ask: Should I be on the 5 mg folic acid?
+  aliases: [5mg folic acid, high dose folate, Megafol, folic acid diabetes, folic acid epilepsy, folic acid BMI, family history spina bifida]
+  who: carrying
+  weeks: [1, 13]
+  priority: 2
+  stakes: high
+  covers: ["verdict: ask; prescribed when risk is higher", "diabetes before pregnancy, BMI over 30, anti-epileptic or some antipsychotic medicines, a previous or family neural tube defect, malabsorption", "prescription only", "for some (multiples, malabsorption, obesity) continued through the pregnancy"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Vitamins and minerals in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/VitaminsmineralspandbupdateSept19.pdf
+  related: [folic-acid]
+
+- id: iodine
+  title: Iodine
+  type: can-i
+  topic: medicines
+  ask: Do I need an iodine supplement?
+  aliases: [iodine, 150mcg iodine, iodine supplement, thyroid, kelp tablets, iodised salt]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: yes: 150 micrograms a day while trying, pregnant and breastfeeding (NHMRC)", "the baby's brain and nervous system", "bread salt is iodised, but pregnancy needs more", "thyroid condition: ask the doctor first", "not kelp or seaweed tablets: the dose is unpredictable"]
+  sources:
+    - title: NHMRC — Iodine supplementation for pregnant and breastfeeding women
+      url: https://www.nhmrc.gov.au/about-us/publications/iodine-supplementation-pregnant-and-breastfeeding-women
+    - title: Food Standards Australia New Zealand — Iodine and pregnancy
+      url: https://www.foodstandards.gov.au/consumer/nutrition/pregnancy/iodine-and-pregnancy
+  related: [folic-acid, seaweed, pregnancy-multivitamins]
+
+- id: iron
+  title: Iron tablets
+  type: can-i
+  topic: medicines
+  ask: Should I take iron?
+  aliases: [iron, iron tablets, Ferro-grad, Ferro-Grad C, Maltofer, Ferrotabs, Fefol, iron supplement, anaemia, low iron, ferritin, iron constipation]
+  who: carrying
+  weeks: [14, 42]
+  priority: 1
+  stakes: medium
+  covers: ["verdict: ask; only if a blood test shows you need it", "needs rise in the second and third trimester; about one in four pregnancies in Australia is anaemic", "iron is checked at booking-in and around 28 weeks", "side effects: constipation, nausea, black stools; changing brand or taking it at night can help", "take with vitamin C, not with tea, coffee, calcium or antacids", "iron infusion if tablets don't work"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Anaemia in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/anaemia-in-pregnancy
+    - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+  related: [iron-infusion, laxatives, antacids, pregnancy-multivitamins]
+  notes: Timing of iron checks and the absorption tips are standard practice, not on the cited pages; the tests area may own the former.
+
+- id: iron-infusion
+  title: Iron infusion
+  type: can-i
+  topic: medicines
+  ask: Can I have an iron infusion while pregnant?
+  aliases: [iron infusion, IV iron, Ferinject, Monofer, iron injection, iron drip]
+  who: carrying
+  weeks: [14, 42]
+  priority: 3
+  stakes: medium
+  covers: ["verdict: yes, after the first trimester, when tablets haven't worked or iron is needed quickly", "avoided in the first trimester", "common late in pregnancy to avoid a transfusion at birth", "a small risk of reaction; done where it can be watched", "skin staining if it leaks"]
+  sources:
+    - title: healthdirect — Iron infusion
+      url: https://www.healthdirect.gov.au/medicines/iron-infusion
+    - title: Pregnancy, Birth and Baby — Anaemia in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/anaemia-in-pregnancy
+  related: [iron]
+
+- id: vitamin-d
+  title: Vitamin D
+  type: can-i
+  topic: medicines
+  ask: Do I need vitamin D?
+  aliases: [vitamin D, vitamin D3, cholecalciferol, Ostelin, 1000IU, vitamin D deficiency, sunlight, dark skin vitamin D, covered clothing]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: ["verdict: ask; a supplement if you're likely to be low, or as part of a pregnancy multivitamin", "PBB lists it among the supplements all pregnant women in Australia are advised to consider; a blood test if at risk", "higher risk: darker skin, covered clothing, little sun, indoor work", "400–1000 IU a day is the usual supplement range; no harm shown at those doses", "needed to use calcium"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Vitamin D in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/VitaminDpregbreastdec2020.pdf
+  related: [calcium, pregnancy-multivitamins]
+  notes: PBB's medicines page says all pregnant women are advised to take vitamin D; its vitamins page says only if likely to be low. Routine testing isn't recommended. Present it as "ask", with the risk factors.
+
+- id: calcium
+  title: Calcium
+  type: can-i
+  topic: medicines
+  ask: Do I need a calcium supplement?
+  aliases: [calcium, calcium tablets, Caltrate, dairy serves, bones, calcium pre-eclampsia]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers: ["verdict: usually no; food is enough (3–4 dairy serves or fortified alternatives a day)", "the body absorbs calcium more efficiently in pregnancy", "a supplement if diet is low or on medical advice; some evidence it lowers the chance of high blood pressure", "take apart from iron"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Vitamin D in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/VitaminDpregbreastdec2020.pdf
+  related: [vitamin-d, milk-and-yoghurt, iron]
+
+- id: fish-oil
+  title: Fish oil and omega-3
+  type: can-i
+  topic: medicines
+  ask: Should I take fish oil?
+  aliases: [fish oil, omega-3, DHA, EPA, krill oil, algal oil, cod liver oil, omega 3 pregnancy, premature birth omega-3]
+  who: carrying
+  weeks: [1, 20]
+  priority: 2
+  stakes: medium
+  covers: ["verdict: yes if you don't eat much oily fish; no need if you do", "about 1000 mg a day in total, started before 20 weeks, may lower the chance of premature birth in those with low intake", "no proven IQ benefit", "not cod liver oil: vitamin A", "fish oil is not a mercury source; choose a reputable brand", "algal oil for vegetarians", "too much may raise the risk of going overdue"]
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Omega-3 fats in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/Omega-3%20Fats%20in%20Pregnancy%20and%20Breastfeeding.pdf
+    - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+  related: [safe-fish, liver, pregnancy-multivitamins]
+  notes: The MotherSafe sheet says "too much may increase the risk of prematurity"; the "overdue" line is from elsewhere. Quote the sheet.
+
+- id: pregnancy-multivitamins
+  title: Pregnancy multivitamins
+  type: can-i
+  topic: medicines
+  ask: Should I take Elevit?
+  aliases: [Elevit, Blackmores Pregnancy, Swisse Pregnancy, pregnancy multivitamin, prenatal vitamins, multivitamin, which pregnancy vitamin, do I need a multivitamin]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: ["verdict: yes if it suits; what matters is folic acid and iodine, which every pregnancy formula contains", "a balanced diet does most of the work; a multivitamin is a safety net, not a requirement", "check it contains 150 µg iodine and at least 400 µg folic acid, and doesn't contain retinol vitamin A", "don't take a general multivitamin on top: doubling up", "if it causes nausea, take it at night with a snack, or switch to folate and iodine alone", "high-dose vitamins only on a doctor's advice"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+    - title: KEMH — Nausea and vomiting in pregnancy (patient information)
+      url: https://www.kemh.health.wa.gov.au/~/media/HSPs/NMHS/Hospitals/WNHS/Documents/Patients-resources/Nausea-and-vomiting-in-pregnancy.pdf
+  related: [folic-acid, iodine, vitamin-d, iron, vitamin-a-supplements]
+
+- id: vitamin-a-supplements
+  title: Vitamin A supplements
+  type: can-i
+  topic: medicines
+  ask: Is vitamin A dangerous in pregnancy?
+  aliases: [vitamin A, retinol, retinyl palmitate, beta-carotene, 10000 IU, high dose vitamin A, cod liver oil, vitamin A birth defects]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers: ["verdict: avoid vitamin A supplements; never more than 10,000 IU a day", "retinol in excess causes birth defects", "beta-carotene (the plant form) is not the concern", "food vitamin A from eggs, dairy, vegetables and fish is fine; liver is the exception", "pregnancy multivitamins are formulated for this; general multivitamins and cod liver oil may not be", "retinol in skincare is poorly absorbed and not expected to be a concern"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Vitamins and minerals in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/VitaminsmineralspandbupdateSept19.pdf
+  related: [liver, pate, isotretinoin, pregnancy-multivitamins, fish-oil]
+
+- id: high-dose-vitamins
+  title: High-dose vitamin C, E and other megadoses
+  type: can-i
+  topic: medicines
+  ask: Can I take high-dose vitamin C for a cold?
+  aliases: [vitamin C, high dose vitamin C, vitamin E, megadose, 1000mg vitamin C, immune boosters, zinc tablets, vitamin B complex]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers: ["verdict: avoid high doses; food covers vitamin C", "high doses of vitamin A, C and E can be harmful; PBB says not to take them as supplements in pregnancy", "very high vitamin C causes stomach cramps and diarrhoea", "vitamin C with iron helps absorption at normal doses", "only take a high-dose vitamin if a doctor recommends it"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+  related: [vitamin-a-supplements, pregnancy-multivitamins, cold-and-flu-tablets]
+
+- id: vitamin-b12
+  title: Vitamin B12 for vegetarians and vegans
+  type: can-i
+  topic: medicines
+  ask: I'm vegan. What do I need to add?
+  aliases: [B12, vitamin B12, vegan pregnancy, vegetarian pregnancy, plant-based pregnancy, iron vegan, omega-3 vegan]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: ["verdict: yes, a B12 supplement if vegetarian or vegan", "B12 comes from animal foods; it supports the baby's nervous system", "also watch iron, iodine, calcium and omega-3 (algal oil)", "a dietitian referral is reasonable", "soy, legumes, nuts and fortified foods do the rest"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Vitamins and minerals in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/VitaminsmineralspandbupdateSept19.pdf
+  related: [iron, iodine, fish-oil, soy-foods]
+
+- id: probiotics
+  title: Probiotics
+  type: can-i
+  topic: medicines
+  ask: Can I take probiotics?
+  aliases: [probiotics, Inner Health Plus, Yakult, probiotic yoghurt, gut health, probiotics thrush, probiotics GBS]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers: ["verdict: ask; a supplement like any other, with little pregnancy-specific evidence", "often suggested for recurrent thrush, low evidence", "probiotic foods (yoghurt, Yakult) are ordinary pasteurised foods and fine", "claims about preventing group B strep or allergy are not established"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Medicines during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/medicines-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Thrush in pregnancy
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/ThrushinPregnancyJuly152024.pdf
+  related: [thrush-treatments, herbal-supplements, milk-and-yoghurt]
+  notes: healthdirect's probiotics page says nothing about pregnancy. The GBS and allergy claims are unsourced here; drop them or find a source.
+
+- id: herbal-supplements
+  title: Herbal medicines and supplements
+  type: can-i
+  topic: medicines
+  ask: Can I take herbal supplements?
+  aliases: [herbal medicine, herbal supplements, naturopath, naturopathy, Chinese herbs, Chinese medicine, ayurvedic, essential oils ingested, natural remedies, health food shop, TCM]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: ["verdict: ask before any; 'natural' does not mean safe", "very little safety information; regulation of ingredients and doses is weaker than for medicines", "labels may not match contents", "some herbs may interact with prescribed medicines", "Chinese herbal medicine in pregnancy has limited research: ask the midwife or doctor", "discuss herbal products with your doctor, midwife or obstetrician"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Complementary therapy during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/complementary-therapy-during-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Herbal medicines in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/MSHerbalApril2020.pdf
+    - title: KEMH — Commonly used medicines and safety in pregnancy
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+  related: [herbal-tea, st-johns-wort, echinacea, raspberry-leaf, homeopathy]
+
+- id: st-johns-wort
+  title: St John's wort
+  type: can-i
+  topic: medicines
+  ask: Can I take St John's wort for my mood?
+  aliases: [St Johns wort, hypericum, herbal antidepressant, natural antidepressant]
+  priority: 3
+  stakes: high
+  covers: ["verdict: not recommended", "small studies suggest it may be safe, but not enough to recommend; interacts with many medicines", "depression and anxiety in pregnancy deserve proper treatment", "talk to the GP; PANDA and Beyond Blue"]
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Depression and anxiety during pregnancy and while breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/depressanxietypregbr2021.pdf
+    - title: MotherSafe (Royal Hospital for Women) — Herbal medicines in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/MSHerbalApril2020.pdf
+  related: [antidepressants, herbal-supplements]
+
+- id: echinacea
+  title: Echinacea and cold remedies from the health food shop
+  type: can-i
+  topic: medicines
+  ask: Can I take echinacea for a cold?
+  aliases: [echinacea, Armaforce, olive leaf, elderberry, zinc lozenges, garlic tablets, immune support, natural cold remedy]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers: ["verdict: ask; a few small studies found no increased risk from echinacea, but not enough to recommend", "complementary cold products are not advised: unknown safety, weak regulation", "rest, fluids, paracetamol, saline"]
+  sources:
+    - title: MotherSafe (Royal Hospital for Women) — Herbal medicines in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/MSHerbalApril2020.pdf
+    - title: MotherSafe (Royal Hospital for Women) — The common cold in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/docs/Cold%20in%20pregnancy%20and%20breastfeeding%20.pdf
+  related: [herbal-supplements, cold-and-flu-tablets, high-dose-vitamins]
+
+- id: homeopathy
+  title: Homeopathy
+  type: can-i
+  topic: medicines
+  ask: Are homeopathic remedies safe?
+  aliases: [homeopathy, homeopathic, arnica, Rescue Remedy, Bach flowers, homeopathic morning sickness]
+  priority: 3
+  stakes: low
+  covers: ["verdict: not harmful in themselves, but there is no reliable evidence they work for anything", "the risk is delaying real treatment", "tell your midwife what you're taking", "Rescue Remedy drops contain alcohol"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Complementary therapy during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/complementary-therapy-during-pregnancy
+  related: [herbal-supplements, melatonin]
+  notes: The Rescue Remedy alcohol line is product fact, unsourced here.
+
+- id: nicotine-replacement
+  title: Nicotine patches, gum and quitting smoking
+  type: can-i
+  topic: medicines
+  ask: Can I use nicotine patches to quit?
+  aliases: [nicotine patches, Nicabate, Nicorette, nicotine gum, nicotine lozenges, NRT, quit smoking, Quitline, Champix, varenicline, bupropion, Zyban, smoking in pregnancy]
+  priority: 1
+  stakes: high
+  covers: ["verdict: yes, with your doctor or pharmacist, if you can't quit without it", "safer than smoking, though nicotine still reaches the baby", "gum, lozenges and inhalers first; if a patch, take it off at night", "don't smoke while using NRT", "Champix (varenicline): not enough safety data; consult your doctor if NRT is ineffective", "Quitline 13 7848; it is always easier to quit if your partner stops smoking with you", "no safe amount of smoking in pregnancy"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Smoking and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/smoking-and-pregnancy
+    - title: MotherSafe (Royal Hospital for Women) — Smoking cessation and nicotine replacement therapy in pregnancy and breastfeeding
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/SmokNRTPregBfeedFeb23.pdf
+  related: [vaping, cannabis]
+  notes: Smoking itself (harms, passive smoke) sits on the border with the body/baby and activities areas; this entry owns the medicine.
+
+- id: vaping
+  title: Vaping
+  type: can-i
+  topic: medicines
+  ask: Is vaping safer than smoking while pregnant?
+  aliases: [vaping, vape, e-cigarette, e-cig, nicotine vape, zero nicotine vape, pharmacy vape, IGET, disposable vape]
+  priority: 1
+  stakes: high
+  covers: ["verdict: avoid; not safe in pregnancy", "nicotine plus other chemicals (formaldehyde, acetone, glycol); the few studies suggest poorer growth", "since July 2024 vapes are sold only through pharmacies, for quitting; over 20 mg/mL needs a prescription", "not a first-line quitting tool; the TGA hasn't assessed their safety", "NRT instead, with help"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Smoking and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/smoking-and-pregnancy
+    - title: Department of Health, Disability and Ageing — About vaping and e-cigarettes
+      url: https://www.health.gov.au/topics/smoking-vaping-and-tobacco/about-vaping
+    - title: healthdirect — Medicines to treat nicotine dependence
+      url: https://www.healthdirect.gov.au/medicines/medicines-to-treat-nicotine-dependence
+  related: [nicotine-replacement, cannabis]
+  notes: "Changing: the vaping laws changed in July and October 2024; check for later changes before publishing."
+
+- id: cannabis
+  title: Cannabis and CBD
+  type: can-i
+  topic: medicines
+  ask: Can I use cannabis for nausea or sleep?
+  aliases: [cannabis, marijuana, weed, pot, dope, THC, CBD oil, medicinal cannabis, cannabis morning sickness, cannabis gummies, edibles]
+  priority: 2
+  stakes: high
+  covers: ["verdict: avoid", "about a third of the cannabis in your system crosses the placenta", "linked to poorer growth, and learning, behaviour and memory problems later", "no link to birth defects, which isn't the same as safe", "it can make nausea worse (cannabis hyperemesis)", "medicinal cannabis and CBD: ask the prescriber; no Australian pregnancy clearance", "help to cut down is available without judgement; drug and alcohol services, and the hospital's own", "passes into breast milk at up to eight times blood levels"]
+  sources:
+    - title: The Royal Women's Hospital — Cannabis (marijuana, weed, dope) fact sheet
+      url: https://thewomens.org.au/images/uploads/fact-sheets/YAYB-Cannabis-070918.pdf
+    - title: Pregnancy, Birth and Baby — Medicines during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/medicines-during-pregnancy
+  related: [illicit-drugs, nausea-medicines, hemp-seeds, nicotine-replacement]
+  notes: "The RWH sheet is 2018; the hyperemesis point comes from a hospital fact sheet surfaced in search, not read in full. Sensitive: say child-protection reporting rules vary by state only if sourced."
+
+- id: illicit-drugs
+  title: "Other drugs: ice, MDMA, cocaine, heroin"
+  type: can-i
+  topic: medicines
+  ask: I used something at a party. What do I do?
+  aliases: [illicit drugs, ice, methamphetamine, MDMA, ecstasy, cocaine, heroin, ketamine, party drugs, recreational drugs, drug use pregnancy]
+  priority: 3
+  stakes: high
+  covers: ["verdict: avoid; they can harm you and the baby", "a one-off before you knew: tell the midwife or GP, without fear", "ongoing use: specialist pregnancy drug and alcohol services exist in every state and are not there to judge", "withdrawal can be managed safely with support", "MotherSafe takes these calls"]
+  sources:
+    - title: Pregnancy, Birth and Baby — Medicines during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/medicines-during-pregnancy
+    - title: The Royal Women's Hospital — Cannabis (marijuana, weed, dope) fact sheet
+      url: https://thewomens.org.au/images/uploads/fact-sheets/YAYB-Cannabis-070918.pdf
+  related: [cannabis, alcohol-before-you-knew, medicines-before-you-knew]
+  notes: Thin sources. PBB names cannabis, amphetamines, heroin and cocaine as not to be used; nothing drug-by-drug. Keep it one entry and point to services.

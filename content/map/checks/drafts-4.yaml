@@ -1,0 +1,172 @@
+# Fact-check of drafts batch 4 (travel, care, tests, labour), 2026-10-29.
+# Each draft's claims were checked against the pages in its sources (fetched that day);
+# fixes were made in the draft itself. All 21 carry `checked: 2026-10-29`.
+- id: travel-in-pregnancy
+  file: content/drafts/travel-in-pregnancy.md
+  verdict: ok
+  problems: []
+- id: airline-pregnancy-limits
+  file: content/drafts/airline-pregnancy-limits.md
+  verdict: fix
+  problems:
+    - claim: "From 28 weeks Qantas and Virgin Australia want a letter (summary and body)"
+      judgement: wrong
+      source_says: "Qantas: 'After 28 weeks, you need to carry a certificate or letter'. Virgin: 'If you are 28 weeks pregnant or more, you will be required to carry a letter'."
+      url: https://www.qantas.com/en-au/travel-information/specific-needs-assistance/fitness-to-fly
+      fixed_to: "Qantas after 28 weeks, Virgin Australia from 28 weeks, in summary and body"
+    - claim: "Overseas airlines can be stricter"
+      judgement: unsupported
+      source_says: "Smartraveller: 'Most airlines won't let you fly beyond 28 weeks of pregnancy.' (nothing about overseas airlines specifically)"
+      url: https://www.smartraveller.gov.au/before-you-go/health/pregnancy
+      fixed_to: "Other airlines can be stricter."
+    - claim: "Week limits table (36/32 weeks for 4 hours or more; 40/36 for under 4 hours), 10-day letter (Virgin), Qantas form 5 days before departure, RANZCOG not recommended beyond 36 weeks"
+      judgement: ok
+      source_says: "Confirmed exactly on the Qantas and Virgin pages as fetched 2026-10-29; Qantas: 'only our minimum requirements'; RANZCOG: 'Travel beyond 36 weeks' gestation is not recommended'."
+      url: https://www.virginaustralia.com/au/en/travel-info/specific-travel/specific-needs-assistance/flying-while-pregnant/
+      fixed_to: "unchanged"
+- id: travel-insurance
+  file: content/drafts/travel-insurance.md
+  verdict: ok
+  problems: []
+- id: seatbelt-position
+  file: content/drafts/seatbelt-position.md
+  verdict: fix
+  problems:
+    - claim: "Go to hospital straight away after any injury if the baby is moving less than normal, or you have vaginal bleeding or pain in your abdomen."
+      judgement: wrong
+      source_says: "'If your injury is less urgent, you can contact your doctor first. However, as with any injury, you should go to hospital if: your baby is not moving as much as normal; you have vaginal bleeding; you have pain in your abdomen' (no 'straight away'; the 000 level is separate and already in the draft)."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+      fixed_to: "Go to hospital after any injury if ..."
+    - claim: "Driving seat as far back from the wheel as possible reduces airbag impact (RANZCOG/MotherSafe wording not in listed sources)"
+      judgement: unsupported
+      source_says: "RANZCOG: 'Move your seat back from the steering wheel as much as is safe to do so to reduce the risk of airbag impact.'"
+      url: https://ranzcog.edu.au/womens-health/patient-information-resources/travelling-during-pregnancy
+      fixed_to: "RANZCOG page added to sources"
+- id: overseas-travel
+  file: content/drafts/overseas-travel.md
+  verdict: ok
+  problems: []
+- id: zika
+  file: content/drafts/zika.md
+  verdict: ok
+  problems:
+    - claim: "RANZCOG 'should avoid' vs healthdirect/Department of Health 'consider delaying'"
+      judgement: ok
+      source_says: "RANZCOG: 'Pregnant women should avoid travelling to Zika-affected countries.' healthdirect: 'The Department of Health advises anyone who is pregnant or planning pregnancy to consider delaying travelling to countries where the virus outbreak has been detected.' Draft keeps the two levels separate."
+      url: https://www.healthdirect.gov.au/conditions/viral-infections/zika-virus
+      fixed_to: "unchanged"
+- id: choosing-your-model-of-care
+  file: content/drafts/choosing-your-model-of-care.md
+  verdict: ok
+  problems: []
+- id: midwifery-group-practice
+  file: content/drafts/midwifery-group-practice.md
+  verdict: fix
+  problems:
+    - claim: "Places are limited."
+      judgement: unsupported
+      source_says: "Royal Women's: 'Due to the popularity of Caseload, you will need to check with the midwife at your pregnancy booking appointment to see if this option is available. It is not available in all locations.' (no statement that places are limited)"
+      url: https://thewomens.org.au/patients-visitors/clinics-and-services/pregnancy-birth/pregnancy-care-options
+      fixed_to: "cut; the following sentence already gives the Royal Women's wording"
+- id: private-obstetrician
+  file: content/drafts/private-obstetrician.md
+  verdict: ok
+  problems: []
+- id: choosing-a-hospital
+  file: content/drafts/choosing-a-hospital.md
+  verdict: ok
+  problems: []
+- id: what-medicare-covers
+  file: content/drafts/what-medicare-covers.md
+  verdict: ok
+  problems: []
+- id: private-health-insurance-and-pregnancy
+  file: content/drafts/private-health-insurance-and-pregnancy.md
+  verdict: fix
+  problems:
+    - claim: "task upgrade-to-family-policy opens: 24"
+      judgement: unsupported
+      source_says: "'Many funds will ask you to upgrade your policy to a family policy 1 to 3 months before your baby is born. Some funds may ask you to upgrade up to 12 months before' (3 months before the birth is about week 27, the task's due)."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+      fixed_to: "opens removed; due 27 kept. The due weeks of the other two tasks (8, 12) are editorial best-bys, no source gives a week."
+- id: combined-first-trimester-screening
+  file: content/drafts/combined-first-trimester-screening.md
+  verdict: fix
+  problems:
+    - claim: "Blood test between 10 and 13 weeks (summary and body)"
+      judgement: wrong
+      source_says: "RANZCOG: 'blood test between 10 and 13 weeks'. Pregnancy, Birth and Baby: 'a blood test between between 9 and week 13 of pregnancy'. The two sources differ."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/screening-for-down-syndrome
+      fixed_to: "Body names both ranges; summary says 'a blood test by week 13'. Task opens 10 and deadline 13 stand (RANZCOG start, both sources' end)."
+- id: nuchal-translucency-scan
+  file: content/drafts/nuchal-translucency-scan.md
+  verdict: ok
+  problems: []
+- id: nipt
+  file: content/drafts/nipt.md
+  verdict: fix
+  problems:
+    - claim: "More accurate than the nuchal translucency scan or combined screening; combined blood test covered by Medicare, scan may cost"
+      judgement: unsupported
+      source_says: "Said on the Pregnancy, Birth and Baby NT scan page and Down syndrome screening page, not on the listed sources."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/nuchal-translucency-scan
+      fixed_to: "both pages added to sources; text unchanged. NIPT $450 to $800 cost, ~99% (RANZCOG), from ~10 weeks and not covered by Medicare or private insurance confirmed."
+- id: carrier-screening
+  file: content/drafts/carrier-screening.md
+  verdict: fix
+  problems:
+    - claim: "Medicare covers the three-condition test (summary)"
+      judgement: wrong
+      source_says: "MBS factsheet: new items 'support testing in all Medicare eligible individuals who are pregnant or planning a pregnancy'; Pregnancy, Birth and Baby: 'You may be able to claim some money back through Medicare' and cost is $100 to more than $1,500. A rebate, not full cover."
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/pregnancy-planning/genetic-carrier-screening
+      fixed_to: "Medicare rebates the three-condition test"
+- id: partner-whooping-cough-booster
+  file: content/drafts/partner-whooping-cough-booster.md
+  verdict: ok
+  problems: []
+- id: gestational-diabetes
+  file: content/drafts/gestational-diabetes.md
+  verdict: fix
+  problems:
+    - claim: "test for type 2 diabetes every 3 years if you're not planning another pregnancy, and regularly if you are"
+      judgement: wrong
+      source_says: "'You should also have regular tests for type 2 diabetes, especially if you are planning another pregnancy. If you are not planning another pregnancy, you should have a test every 3 years.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/gestational-diabetes
+      fixed_to: "... and especially if you are."
+- id: rhd-negative
+  file: content/drafts/rhd-negative.md
+  verdict: fix
+  problems:
+    - claim: "Anti-D injections at 28 and 34 weeks, after the birth and after any sensitising event prevent it (summary); 'Anti-D at 28 and 34 weeks. An injection ...' (body)"
+      judgement: wrong
+      source_says: "'You may be offered an anti-D injection at 28 and 34 weeks of pregnancy if your blood is Rhesus negative'; 'it can usually be prevented with injections of ... anti-D'; 'a blood product made from plasma'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+      fixed_to: "'which you may be offered at 28 and 34 weeks ... usually prevent it'; body 'You may be offered an injection of anti-D immunoglobulin, a blood product made from plasma.'"
+- id: pre-eclampsia
+  file: content/drafts/pre-eclampsia.md
+  verdict: fix
+  problems:
+    - claim: "When to get help gave only 'See your midwife, doctor or pregnancy care provider straight away' for the symptoms"
+      judgement: wrong
+      source_says: "Warning on the page: 'Seek medical attention urgently or go to your local emergency department if you have symptoms such as a severe headache, blurred vision or sudden swelling of your hands, feet or face or pain under your ribcage.' (the 'see ... straight away' level for any symptom is also on the page)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
+      fixed_to: "Added the urgent / emergency department line above the straight-away list; both levels kept distinct."
+- id: when-to-go-to-hospital
+  file: content/drafts/when-to-go-to-hospital.md
+  verdict: fix
+  problems:
+    - claim: "'When to get help straight away' listed: any change in baby's movements, a fever, or contractions before 37 weeks: go to hospital or the birth centre"
+      judgement: wrong
+      source_says: "Pregnancy, Birth and Baby lists these in its ordinary 'You should go to hospital or the birth centre if' list, with no 'straight away'."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/going-to-hospital
+      fixed_to: "Moved into the 'go to the hospital or birth centre if' list, with waters breaking and bleeding as listed there too."
+    - claim: "The fluid is green, brown or blood-coloured: call your midwife or doctor for urgent advice."
+      judgement: wrong
+      source_says: "'If your water breaks and the fluid is green, brown or blood coloured, call your doctor, midwife or birthing unit immediately for advice, or go to hospital.' Before 37 weeks: 'contact your midwife or doctor and go to the hospital.' Also call immediately if waters break and they smell bad, temp 37.5 C or above, unwell, change in movements."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+      fixed_to: "Rewritten to the page's wording; added waters before 37 weeks and the call-immediately signs."
+    - claim: "If you've had a baby before, expect this labour to be quicker, and plan to leave sooner."
+      judgement: wrong
+      source_says: "'If you have had a baby before then you can expect that this labour to be quicker and may help you to plan when to go to hospital.'"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/going-to-hospital
+      fixed_to: "... you can expect this labour to be quicker, which may help you plan when to go to hospital."

@@ -1,0 +1,170 @@
+# Fact-check of drafts batch B3 (can-i: medicines, supplements, smoking/vaping,
+# activities, heat, sleep position, cat litter), 2026-10-29. Each claim checked
+# against the pages in `sources:`, fetched that day. Every draft ends `checked`.
+# Red Nose could not be fetched (403), so the sleep-position entry rests on
+# Pregnancy, Birth and Baby and RANZCOG only.
+
+- id: alcohol-before-you-knew
+  file: content/drafts/alcohol-before-you-knew.md
+  verdict: ok
+  problems: []
+
+- id: medicines-in-pregnancy
+  file: content/drafts/medicines-in-pregnancy.md
+  verdict: ok
+  problems: []
+
+- id: prescription-medicines-ongoing
+  file: content/drafts/prescription-medicines-ongoing.md
+  verdict: ok
+  problems: []
+
+- id: paracetamol
+  file: content/drafts/paracetamol.md
+  verdict: fix
+  problems:
+    - claim: "The usual dose is 2 × 500 mg tablets every 4 to 6 hours, and no more than 8 × 500 mg tablets (4 g) in 24 hours."
+      judgement: unsupported
+      source_says: "The recommended dose is 2 x 500 mg tablets or capsules every 4-6 hours (but no more than 8 x 500 mg tablets or capsules in 24 hours)."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Pain%20in%20Pregnancy.pdf
+      fixed_to: "'usual' changed to 'recommended'; doses unchanged and confirmed (KEMH also says no more than 8 x 500 mg in 24 hours)"
+
+- id: ibuprofen-and-nsaids
+  file: content/drafts/ibuprofen-and-nsaids.md
+  verdict: fix
+  problems:
+    - claim: "Avoid them unless your doctor tells you otherwise."
+      judgement: unsupported
+      source_says: "Non-steroidal anti-inflammatory drugs (NSAIDs), such as ibuprofen and aspirin should be avoided during pregnancy unless advised by your doctor. (healthdirect, Medicines during pregnancy); the cited ibuprofen page says only 'generally not recommended', MotherSafe 'no longer recommended ... only under medical supervision'"
+      url: https://www.healthdirect.gov.au/medicines/medicines-during-pregnancy
+      fixed_to: "wording kept; healthdirect Medicines during pregnancy added to sources: because it is the page that says 'avoided unless advised by your doctor'"
+
+- id: antibiotics
+  file: content/drafts/antibiotics.md
+  verdict: fix
+  problems:
+    - claim: "The commonest reason in pregnancy is a urinary tract infection (UTI)"
+      judgement: unsupported
+      source_says: "UTIs are the most common bacterial infection in pregnancy (not 'the commonest reason for antibiotics')"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/urinary-tract-infections-utis-during-pregnancy
+      fixed_to: "A common reason in pregnancy is a urinary tract infection (UTI), the most common bacterial infection in pregnancy. Note: the sources only cover UTI antibiotics."
+
+- id: asthma-inhalers
+  file: content/drafts/asthma-inhalers.md
+  verdict: ok
+  problems: []
+
+- id: antidepressants
+  file: content/drafts/antidepressants.md
+  verdict: fix
+  problems:
+    - claim: "(healthdirect Medicines Line left out)"
+      judgement: unsupported
+      source_says: "If you are pregnant or breastfeeding and would like to find out more about your medicines call Medicines Line on 1300 633 424."
+      url: https://www.healthdirect.gov.au/medicines/antidepressants
+      fixed_to: "added back as a line in 'What to do' (number is currently listed on the cited healthdirect page)"
+
+- id: folic-acid
+  file: content/drafts/folic-acid.md
+  verdict: fix
+  problems:
+    - claim: "keep going through the first trimester. You don't need it after that. / until the end of the first trimester"
+      judgement: unsupported
+      source_says: "PBB: start at least one month before you actively start trying and throughout your first trimester. FSANZ: at least one month before and three months after conception; you don't need supplements after that."
+      url: https://www.foodstandards.gov.au/consumer/nutrition/pregnancy/folic-acidfolate-and-pregnancy
+      fixed_to: "body now gives both, each credited; summary says 'through the first trimester'. Dose (at least 400 mcg, most come as 500 mcg, 5 mg higher dose until 12 weeks) confirmed."
+
+- id: iodine
+  file: content/drafts/iodine.md
+  verdict: ok
+  problems: []
+
+- id: herbal-supplements
+  file: content/drafts/herbal-supplements.md
+  verdict: ok
+  problems: []
+
+- id: nicotine-replacement
+  file: content/drafts/nicotine-replacement.md
+  verdict: fix
+  problems:
+    - claim: "Nicotine replacement therapy (NRT) is safer than smoking, but can still be harmful to the baby. It still delivers nicotine, but not the other harmful chemicals and carbon monoxide in cigarette smoke."
+      judgement: wrong
+      source_says: "PBB: 'NRT products are safer than smoking, but they can still be harmful to your baby.' MotherSafe: 'Although research is somewhat limited, it is generally felt that using NRT in pregnancy is likely to be less harmful than smoking cigarettes' (it contains no other chemicals or carbon monoxide); 'NRT should be used with medical advice and support.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/smoking-and-pregnancy
+      fixed_to: "two views stated separately, each credited to its source"
+
+- id: vaping
+  file: content/drafts/vaping.md
+  verdict: fix
+  problems:
+    - claim: "Adults can buy vapes of 20 mg/mL nicotine or less after talking with the pharmacist"
+      judgement: unsupported
+      source_says: "On 1 July 2024 vapes became pharmacy-only; from 1 October 2024, people 18 years and older can buy vapes with 20 mg/mL or less without a prescription from participating pharmacies, after talking with the pharmacist, where state and territory laws allow. Higher concentrations need a prescription. (Page still current 2026-10-29; TGA vaping hub confirms the Act commenced 1 July 2024.)"
+      url: https://www.health.gov.au/topics/smoking-vaping-and-tobacco/about-vaping
+      fixed_to: "date (1 October 2024), age (18+), 'participating pharmacies' and 'without a prescription' added; law otherwise unchanged and no 'as of' date needed"
+
+- id: contact-sports
+  file: content/drafts/contact-sports.md
+  verdict: ok
+  problems: []
+
+- id: falls-and-knocks
+  file: content/drafts/falls-and-knocks.md
+  verdict: fix
+  problems:
+    - claim: "summary and opening: needs checking at the nearest hospital, even if you feel fine"
+      judgement: unsupported
+      source_says: "Even a minor injury ... needs to be assessed. Any injury to the abdomen: go to the nearest hospital. Any trauma to your abdomen: contact your midwife or doctor immediately. If your injury is not an emergency, you can contact your GP, obstetrician or Urgent Care Clinic first; go to hospital if baby moves less, bleeding or abdominal pain. 'Even if you feel fine' is not in the sources."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+      fixed_to: "summary now 'contact your midwife or doctor immediately or go to the nearest hospital'; 'even if you feel fine' cut; the 'not an emergency' level added as its own bullet. Call 000 warning (pain, firm or tightening uterus, bleeding) confirmed unchanged. Verdict 'ask' kept."
+
+- id: hot-yoga
+  file: content/drafts/hot-yoga.md
+  verdict: ok
+  problems: []
+
+- id: saunas
+  file: content/drafts/saunas.md
+  verdict: fix
+  problems:
+    - claim: "Skip the sauna and steam room until after the birth. (title: Saunas and steam rooms)"
+      judgement: unsupported
+      source_says: "No cited page mentions steam rooms. PBB: 'Avoid saunas, hot tubs and heated spas during pregnancy.' Women's: 'no spas or saunas'. MotherSafe is less strict (up to 20 minutes in a sauna safe at any time, per a 2019 review); both views are in the body."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
+      fixed_to: "steam room cut from bullet and title; verdict avoid confirmed"
+
+- id: spas-and-hot-tubs
+  file: content/drafts/spas-and-hot-tubs.md
+  verdict: ok
+  problems: []
+
+- id: hot-weather
+  file: content/drafts/hot-weather.md
+  verdict: fix
+  problems:
+    - claim: "Call 000 for heatstroke"
+      judgement: wrong
+      source_says: "Get emergency medical care if you are experiencing symptoms of heatstroke; heatstroke requires immediate medical treatment (PBB). SA Health: in a medical emergency call 000."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/dealing-with-hot-weather-during-pregnancy-and-breastfeeding
+      fixed_to: "Get emergency medical care for heatstroke (call 000). Verdict 'limit' fits: no source says to avoid hot days, only to stay cool."
+
+- id: sleeping-on-your-back
+  file: content/drafts/sleeping-on-your-back.md
+  verdict: fix
+  problems:
+    - claim: "RANZCOG's 'up to 8 times' figure omitted"
+      judgement: unsupported
+      source_says: "Recent scientific studies have shown that women who go to sleep on their back have up to an 8 times higher chance of having a stillborn baby compared to women who go to sleep in another position."
+      url: https://ranzcog.edu.au/wp-content/uploads/Common-Questions-In-Pregnancy.pdf
+      fixed_to: "figure restored, credited to RANZCOG"
+    - claim: "go to sleep on your side from 28 weeks (urgency)"
+      judgement: unsupported
+      source_says: "From week 28 of your pregnancy, it is important that you sleep on your side to help reduce your risk of stillbirth. (PBB); RANZCOG: 'The best position to sleep ... particularly after 28 weeks, is on your side.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
+      fixed_to: "added PBB's 'important ... to help reduce your risk of stillbirth'. Red Nose / Safer Baby Bundle pages returned 403 / 404 and could not be loaded, so not added. Verdict avoid kept."
+
+- id: cat-litter
+  file: content/drafts/cat-litter.md
+  verdict: ok
+  problems: []

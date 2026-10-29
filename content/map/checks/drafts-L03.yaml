@@ -1,0 +1,271 @@
+# Fact-check of drafts for batch L03 (41 Library drafts), checked against the pages in each draft's sources.
+# Date: 2026-10-29. Source copies fetched by the drafter and re-read in full.
+- id: microwaves-and-devices
+  file: content/drafts/microwaves-and-devices.md
+  verdict: fix
+  problems:
+    - claim: "Radiation from phones, wifi and microwave ovens is the non-ionising kind, and the evidence doesn't link it to problems in pregnancy."
+      judgement: unsupported
+      source_says: "The ARPANSA review covers mobile phone use, distance to mobile base stations and some jobs; the microwave fact sheet covers microwave ovens. Neither page mentions wifi, laptops or 'non-ionising'."
+      url: https://www.arpansa.gov.au/effects-radiofrequency-electromagnetic-field-exposure-adverse-pregnancy-outcomes-human-observational-studies
+      fixed_to: "Intro rewritten to what the two pages say, and notes the sources do not cover wifi or laptops specifically."
+    - claim: "there was a small association with a baby being small for gestational age"
+      judgement: unsupported
+      source_says: "there was an association with SGA (RR 1.13, 95 % CI 1.02-1.24)"
+      url: https://www.arpansa.gov.au/effects-radiofrequency-electromagnetic-field-exposure-adverse-pregnancy-outcomes-human-observational-studies
+      fixed_to: "an association ... (relative risk 1.13); 'small' dropped"
+- id: reaching-above-your-head
+  file: content/drafts/reaching-above-your-head.md
+  verdict: fix
+  problems:
+    - claim: "The idea that raising your arms wraps the cord around the baby's neck is a common myth. Nothing you do when you stretch up, hang out the washing or reach for a high shelf acts on the cord."
+      judgement: unsupported
+      source_says: "Is it unsafe to hang washing on the line? Reaching up above your head and hanging washing on the line is safe. It is unlikely that it will affect your baby's umbilical cord in any way."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/common-myths-about-pregnancy
+      fixed_to: "Rewritten to the page's own question and answer; the neck and 'high shelf' claims removed."
+- id: bending-and-housework
+  file: content/drafts/bending-and-housework.md
+  verdict: fix
+  problems:
+    - claim: "Neither source puts bending, squatting or everyday housework off limits. / The sources don't ban bending or housework"
+      judgement: wrong
+      source_says: "Backache: Avoid heavy lifting and housework. Avoid prolonged standing. Rest frequently with legs elevated. (Royal Women's) / If you can, try to avoid heavy lifting, housework, and long periods of standing. (PBB sleep page). Neither page mentions bending or squatting."
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
+      fixed_to: "Summary and intro now say the sources don't mention bending or squatting, and that the backache advice includes avoiding housework."
+- id: antenatal-visit-schedule
+  file: content/drafts/antenatal-visit-schedule.md
+  verdict: fix
+  problems:
+    - claim: "summary: About 8 to 10 appointments for a first baby and 7 to 9 for later ones (no credit to the disagreeing first-visit page)"
+      judgement: unsupported
+      source_says: "Antenatal care page: first pregnancy about 8 to 10, earlier uncomplicated 7-9. First-visit page: Australian Pregnancy Care Guidelines advise 10 (first pregnancy) and 7 (been pregnant before)."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/your-first-antenatal-visit
+      fixed_to: "Summary now credits both figures; the body already did."
+- id: what-happens-at-each-visit
+  file: content/drafts/what-happens-at-each-visit.md
+  verdict: ok
+- id: fundal-height
+  file: content/drafts/fundal-height.md
+  verdict: ok
+- id: fetal-heartbeat-check
+  file: content/drafts/fetal-heartbeat-check.md
+  verdict: fix
+  problems:
+    - claim: "It's possible from about week 12 onwards."
+      judgement: unsupported
+      source_says: "checking your baby's heartbeat, possibly from week 12 onwards"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/checkups-and-scans-during-your-pregnancy
+      fixed_to: "It's possible from week 12 onwards."
+- id: questions-to-ask-at-appointments
+  file: content/drafts/questions-to-ask-at-appointments.md
+  verdict: fix
+  problems:
+    - claim: "When will I get the results? Who will contact me with them?"
+      judgement: unsupported
+      source_says: "When will I get the results?"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/questions-to-ask-your-doctor-about-tests-and-scans
+      fixed_to: "When will I get the results?"
+- id: partner-at-appointments
+  file: content/drafts/partner-at-appointments.md
+  verdict: ok
+- id: estimated-due-date
+  file: content/drafts/estimated-due-date.md
+  verdict: fix
+  problems:
+    - claim: "around 40 weeks after the first day of your last menstrual period (stated alone; the other source differs)"
+      judgement: unsupported
+      source_says: "Working-out-your-due-date page: 'Your baby is due around 40 weeks after the first day of your LMP'. Glossary on the same site: 'the EDD is roughly 40 weeks from conception'."
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+      fixed_to: "Kept the LMP wording (credited to the due-date page) and added that the glossary says roughly 40 weeks from conception."
+- id: vitamin-d-test
+  file: content/drafts/vitamin-d-test.md
+  verdict: ok
+- id: vaccines-in-one-visit
+  file: content/drafts/vaccines-in-one-visit.md
+  verdict: ok
+- id: hospital-tour
+  file: content/drafts/hospital-tour.md
+  verdict: fix
+  problems:
+    - claim: "Ask at an appointment or the hospital."
+      judgement: unsupported
+      source_says: "Page lists 'Can we tour the maternity facilities before the birth?' as a question to ask before deciding on a hospital or birthing centre; says nothing about where to ask."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/choosing-where-to-give-birth
+      fixed_to: "cut"
+    - claim: "task ask-about-hospital-tour had no opens/due"
+      judgement: unchecked
+      source_says: "No item in content/items/ covers a hospital tour. Going-to-hospital page suggests a practice run 'when you're in your third trimester' and a tour; the entry runs weeks 28-36."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/going-to-hospital
+      fixed_to: "due: 32 added (a best-by within the entry's weeks, mid third trimester)"
+- id: perineal-massage
+  file: content/drafts/perineal-massage.md
+  verdict: ok
+- id: doula
+  file: content/drafts/doula.md
+  verdict: ok
+- id: tens-machine
+  file: content/drafts/tens-machine.md
+  verdict: ok
+- id: term-transition
+  file: content/drafts/term-transition.md
+  verdict: fix
+  problems:
+    - claim: "cervix is around 8 to 10 centimetres dilated (stated without the glossary's different wording)"
+      judgement: unsupported
+      source_says: "Glossary: 'Transition phase is the third phase of the first stage of labour and is when the cervix becomes fully dilated, meaning ... 10 centimetres.' First-stage page: 'cervix will be around 8 to 10 centimetres dilated.'"
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+      fixed_to: "Kept 8 to 10 cm (first-stage page) and added the glossary's wording, credited."
+- id: term-urge-to-push
+  file: content/drafts/term-urge-to-push.md
+  verdict: fix
+  problems:
+    - claim: "With an epidural you may not feel the urge, or not as strongly, and your midwife will guide you."
+      judgement: wrong
+      source_says: "If you have had an epidural, you will not feel an urge to push, or the sensation may not be as strong. Your midwife will guide you regarding when to push and for how long."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-second-stage-of-labour
+      fixed_to: "Reworded to the page's own wording."
+- id: term-crowning
+  file: content/drafts/term-crowning.md
+  verdict: ok
+- id: term-third-stage
+  file: content/drafts/term-third-stage.md
+  verdict: ok
+- id: positions-for-labour
+  file: content/drafts/positions-for-labour.md
+  verdict: fix
+  problems:
+    - claim: "An upright position can mean you're less likely to have an epidural or a caesarean, a shorter first stage, less pain"
+      judgement: wrong
+      source_says: "You are less likely to have an epidural or a caesarean section. You may have shorter first stage of labour. You may have less pain during labour and birth."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/positions-for-labour-and-birth
+      fixed_to: "Reworded to the page's own certainty levels (may have a shorter first stage and less pain)."
+- id: term-dilated
+  file: content/drafts/term-dilated.md
+  verdict: fix
+  problems:
+    - claim: "The active phase ... begins when the cervix is ... open to 4 centimetres (stated without the glossary's different figures)"
+      judgement: unsupported
+      source_says: "Glossary: 'Latent phase ... cervix becomes thinner and begins to open (dilate) to around 4-6 centimetres'. First-stage page: active phase when cervix is 'open (dilated) to 4 centimetres'."
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+      fixed_to: "Kept 4 cm (first-stage page) and added the glossary's 4 to 6 cm for the latent phase, credited."
+- id: term-effaced
+  file: content/drafts/term-effaced.md
+  verdict: ok
+- id: term-posterior
+  file: content/drafts/term-posterior.md
+  verdict: ok
+- id: eating-and-drinking-in-labour
+  file: content/drafts/eating-and-drinking-in-labour.md
+  verdict: fix
+  problems:
+    - claim: "Hospitals have their own policies, so ask yours at an antenatal visit."
+      judgement: unsupported
+      source_says: "None of the three pages says anything about hospital policy on eating, or about asking at an antenatal visit."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-first-stage-of-labour
+      fixed_to: "cut (kept 'None of the sources sets rules ...')"
+- id: length-of-labour
+  file: content/drafts/length-of-labour.md
+  verdict: fix
+  problems:
+    - claim: "Second stage: it could last around 4 hours for a first baby and around 3 hours if you've had a baby before (stated alone)"
+      judgement: unsupported
+      source_says: "Slow-progress page: around 4 hours / around 3 hours. Second-stage page: 'birth is expected to happen within 3 hours of full dilatation if it is your first birth, or within 2 hours if you have given birth before.'"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-second-stage-of-labour
+      fixed_to: "Both figures kept, each credited to its page."
+- id: term-augmentation
+  file: content/drafts/term-augmentation.md
+  verdict: fix
+  problems:
+    - claim: "It may be done by breaking your waters, or with oxytocin, a medicine given into a vein."
+      judgement: unsupported
+      source_says: "Glossary: 'may be done by breaking your waters or giving a synthetic hormone called oxytocin.' Interventions page: 'done with intravenous medicines'."
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+      fixed_to: "Both descriptions kept and credited."
+- id: term-syntocinon
+  file: content/drafts/term-syntocinon.md
+  verdict: fix
+  problems:
+    - claim: "Syntocinon is a synthetic form of oxytocin, the hormone that contracts the uterus ... used to induce labour, or to strengthen contractions"
+      judgement: unsupported
+      source_says: "Glossary: 'Syntocinon is a medication that is used to induce labour. It is given through your vein ... bag ... continuously deliver a small amount ... may also be used during the third managed stage of labour to help birth the placenta.' No cited page says Syntocinon is oxytocin (the third-stage page says 'synthetic oxytocin' injection; the Women's says oxytocin is the hormone that causes contractions)."
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+      fixed_to: "Body rewritten to the glossary, with the oxytocin statements kept separate and credited; title changed to 'Syntocinon'; summary rewritten; Women's induction page added to sources."
+- id: breathing-and-relaxation
+  file: content/drafts/breathing-and-relaxation.md
+  verdict: ok
+- id: water-and-showers
+  file: content/drafts/water-and-showers.md
+  verdict: fix
+  problems:
+    - claim: "Not every hospital or birthing centre has a bath for pain relief."
+      judgement: unsupported
+      source_says: "Cited PBB non-medical page: 'Most hospitals and birthing centres have facilities that allow you to have a warm bath or shower during the first stage of labour ... Warm baths and showers may not be possible for some people during labour.' (The 'may not have a bath' wording is on a PBB second-stage page not cited here.)"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/non-medical-pain-relief-during-labour
+      fixed_to: "Rewritten to the PBB non-medical page's wording."
+    - claim: "early-labour and second-stage bath/shower advice credited to the Royal Women's (Managing pain in labour)"
+      judgement: unsupported
+      source_says: "That advice is on the Women's 'Stages of labour' page, not 'Managing pain in labour'."
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/stages-of-labour
+      fixed_to: "Stages of labour page added to sources."
+- id: massage-heat-and-movement
+  file: content/drafts/massage-heat-and-movement.md
+  verdict: fix
+  problems:
+    - claim: "A cold face washer can soothe if they feel hot."
+      judgement: unsupported
+      source_says: "Second stage: 'if you feel hot, a cold face washer can be very soothing' (Royal Women's Stages of labour, not a listed source)."
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/stages-of-labour
+      fixed_to: "Page added to sources; text kept."
+- id: sterile-water-injections
+  file: content/drafts/sterile-water-injections.md
+  verdict: fix
+  problems:
+    - claim: "It is one of the options for back pain when it persists through labour, alongside others such as heat, water, massage and TENS."
+      judgement: unsupported
+      source_says: "Royal Women's lists sterile water injections under 'Assisted non-medical pain relief' beside TENS; it does not say it is an option alongside heat, water and massage for back pain."
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
+      fixed_to: "The Royal Women's Hospital lists it under assisted non-medical pain relief, alongside TENS."
+    - claim: "It's your choice whether to have pain relief. RANZCOG says ..."
+      judgement: unsupported
+      source_says: "RANZCOG: you can 'change your mind about pain relief ... at any time'; 'choose one method or a few, or change from one to another'. Neither cited page has 'your choice whether to have pain relief'."
+      url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
+      fixed_to: "Reworded to RANZCOG's own wording."
+- id: nitrous-oxide-gas
+  file: content/drafts/nitrous-oxide-gas.md
+  verdict: ok
+- id: term-spinal-block
+  file: content/drafts/term-spinal-block.md
+  verdict: fix
+  problems:
+    - claim: "Healthdirect says almost all caesarean sections are done under regional anaesthesia ... which means you're awake to see your baby and don't feel pain."
+      judgement: unsupported
+      source_says: "Healthdirect: 'Almost all caesarean sections are performed under regional anaesthesia (either a spinal or epidural anaesthetic). This means you will be awake so you can see your baby.' The Royal Women's: 'A regional anaesthetic (spinal or epidural) allows you to stay awake ... without feeling pain.'"
+      url: https://www.healthdirect.gov.au/caesarean-section
+      fixed_to: "'don't feel pain' now credited to the Royal Women's. A spinal is defined only as a regional anaesthetic (spinal or epidural), as the Royal Women's and Healthdirect pages do; neither describes how a spinal differs from an epidural."
+- id: membrane-sweep
+  file: content/drafts/membrane-sweep.md
+  verdict: ok
+- id: term-ventouse
+  file: content/drafts/term-ventouse.md
+  verdict: ok
+- id: delayed-cord-clamping
+  file: content/drafts/delayed-cord-clamping.md
+  verdict: ok
+  # Both PBB pages (cord blood banking: "You can't do cord banking if you delay cord clamping"; third stage: midwife can collect cord blood after the cord is cut) are already kept and credited in the body.
+- id: cord-blood-banking
+  file: content/drafts/cord-blood-banking.md
+  verdict: fix
+  problems:
+    - claim: "Cord clamping. Pregnancy, Birth and Baby says you can't do cord blood banking if you delay cord clamping (stated alone, without the other PBB page)"
+      judgement: unsupported
+      source_says: "Cord blood page: 'You can't do cord banking if you delay cord clamping. This is because the cord must be clamped early.' Third-stage page: 'If you have arranged to bank or donate cord blood, you can discuss this with your midwife who can collect your baby's cord blood after the cord is cut.'"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-third-stage-of-labour
+      fixed_to: "Both kept, each credited; third-stage page added to sources."
+    - claim: "summary/When to decide: either way it must be arranged before the birth / Arrange it before the birth."
+      judgement: unsupported
+      source_says: "'To donate cord blood, you need to: arrange for cord blood banking before the birth; give birth in a participating collection hospital.' Nothing says private banking must be arranged before the birth."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/cord-blood-banking
+      fixed_to: "Limited to donation."
+- id: skin-to-skin
+  file: content/drafts/skin-to-skin.md
+  verdict: ok

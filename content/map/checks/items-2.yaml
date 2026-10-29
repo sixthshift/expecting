@@ -1,0 +1,159 @@
+# Fact-check of content/items/{flu-vaccine,whooping-cough-vaccine,rsv-vaccine,morning-sickness,baby-movements,antenatal-classes,hospital-bag}.md
+# against each item's source page, 2026-10-29.
+# Pages loaded: PBB morning sickness, antenatal classes, hospital bag checklist, baby movements, vaccinations-and-pregnancy; Safer Baby movements page.
+# health.gov.au and Handbook pages timed out in WebFetch but were loaded with curl and read for the three vaccine items.
+- id: flu-vaccine
+  file: content/items/flu-vaccine.md
+  verdict: ok
+  problems: []
+  # Department page (loaded via curl): flu recommended 'for every pregnancy and at any stage'; hospitalisation risk; 'Babies under 6 months are too young to have the influenza vaccination'; free through the NIP; same visit as whooping cough and RSV. Provider fee: PBB vaccinations-and-pregnancy.
+- id: whooping-cough-vaccine
+  file: content/items/whooping-cough-vaccine.md
+  verdict: ok
+  problems: []
+  # Department page: 'between 20 to 32 weeks of every pregnancy although it can be given up to the time of delivery'; 'serious disease for babies and can be deadly'; 'some protection until... first immunisations at 6 weeks'; free via NIP; same visit. Handbook pertussis page: transplacental antibody transfer. Fee: PBB.
+- id: rsv-vaccine
+  file: content/items/rsv-vaccine.md
+  verdict: fix
+  problems:
+    - claim: "in babies under 6 months it's a leading cause of hospital stays (summary and body)"
+      judgement: wrong
+      source_says: "Handbook RSV disease page: 'a leading cause of lower respiratory tract disease hospitalisation in infants aged <12 months'. Handbook recommendation page: 'most likely to be severe during the first 6 months of life, frequently requiring hospitalisation'; maternal vaccine reduces severe RSV in infants <6 months by around 70%."
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/respiratory-syncytial-virus-rsv
+      fixed_to: "summary: 'a leading cause of hospital stays in babies'; body: leading cause under 12 months, most likely severe in the first 6 months"
+    - claim: "a common cold-like virus"
+      judgement: unsupported
+      source_says: "Department: 'a common virus that can cause a range of severe respiratory illnesses such as bronchiolitis and pneumonia in babies'."
+      url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
+      fixed_to: "a common virus that can cause bronchiolitis and pneumonia in babies"
+    - claim: "protected from birth for up to about 6 months"
+      judgement: unsupported
+      source_says: "Department: 'protects them from birth and in their vulnerable early months'. (PBB says until 6 months old, but the cited sources give the 70% figure for <6 months only.)"
+      url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
+      fixed_to: "protected from birth, in their vulnerable early months"
+    - claim: "Some older material gives the window as 28–36 weeks; the current Handbook says... as soon as possible"
+      judgement: wrong
+      source_says: "Resolved: the Handbook says 'recommended in each pregnancy from 28 weeks gestation' and 'If a pregnant woman is not vaccinated by the end of 36 weeks gestation, they should receive the vaccine as soon as possible'. The Department page (current) says 'recommended for women at 28 to 36 weeks'. PBB's 28 to 38 is the outlier. So 28 to 36 is current, not older material."
+      url: https://immunisationhandbook.health.gov.au/recommendations/pregnant-women-are-recommended-to-receive-an-rsv-vaccine-during-each-pregnancy-to-protect-their-infant
+      fixed_to: "The Department of Health gives the window as 28 to 36 weeks; if 36 weeks has passed, the Handbook says to have it as soon as possible."
+    - claim: "where to get it: private obstetrician's rooms or GP; GP, antenatal clinic or some pharmacies"
+      judgement: unsupported
+      source_says: "Neither page says where it is given."
+      url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
+      fixed_to: "Ask them / ask at your next appointment where yours is done."
+  # Ok: Abrysvo single dose, from 28 weeks each pregnancy, funded under NIP, at least 2 weeks before birth for adequate protection, nirsevimab if birth <2 weeks after vaccine, same visit as flu and whooping cough.
+- id: morning-sickness
+  file: content/items/morning-sickness.md
+  verdict: fix
+  problems:
+    - claim: "if fluids aren't staying down, call promptly (summary); that's worth a prompt call (body)"
+      judgement: wrong
+      source_says: "'If you are vomiting and can't keep fluids down, see your doctor immediately.'"
+      url: https://www.pregnancybirthbaby.org.au/dealing-with-morning-sickness
+      fixed_to: "see your doctor immediately"
+    - claim: "That needs medical help, not toughing out."
+      judgement: unsupported
+      source_says: "The page only says to see a doctor immediately if vomiting and unable to keep fluids down."
+      url: https://www.pregnancybirthbaby.org.au/dealing-with-morning-sickness
+      fixed_to: cut
+    - claim: "For the partner: small, frequent snacks on hand, taking over cooking smells, and fewer questions about dinner go a long way."
+      judgement: unsupported
+      source_says: "The page has no tips for partners."
+      url: https://www.pregnancybirthbaby.org.au/dealing-with-morning-sickness
+      fixed_to: cut
+    - claim: "it can last to 14 to 20 weeks"
+      judgement: unsupported
+      source_says: "Page says it may extend to roughly weeks 14 to 20, and 'for some people... all the way through their pregnancy'."
+      url: https://www.pregnancybirthbaby.org.au/dealing-with-morning-sickness
+      fixed_to: "it can last to about 14 to 20 weeks, and for some people right through the pregnancy"
+  restored:
+    - claim: "For the partner: Better Health Victoria suggests preparing the meals, because cooking smells can make nausea worse, and encouraging dry crackers or plain sweet biscuits before getting out of bed or through the day, as hunger can intensify the symptoms, and drinking as much as possible."
+      url: https://www.betterhealth.vic.gov.au/health/ServicesAndSupport/pregnancy-support-fathers-partners-and-carers
+      source_says: "You can support your partner by: preparing meals - cooking smells can make nausea worse; encouraging her to snack on a few dry crackers or plain sweet biscuits before she gets out of bed or throughout the day as hunger can intensify morning sickness symptoms; encouraging her to drink as much as possible"
+  not_restored:
+    - claim: "That needs medical help, not toughing out."
+      reason: "Tone line; source's 'see your doctor immediately' already in the item."
+- id: baby-movements
+  file: content/items/baby-movements.md
+  verdict: ok
+  problems: []
+  # Safer Baby page: 16 to 24 weeks, 'every day, right up until their birth', 'without delay', 'not wasting their time'. Kick charts, no set number, regular by 28 weeks, dopplers/apps, eating or drinking are on PBB's baby-movements page (https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy), which also says contact 'immediately'; 'straight away' is fair for both.
+- id: antenatal-classes
+  file: content/items/antenatal-classes.md
+  verdict: fix
+  problems:
+    - claim: "the partner often gets as much out of it as anyone"
+      judgement: unsupported
+      source_says: "Page says only 'If you have a birth support partner, you can bring them along to the classes.'"
+      url: https://www.pregnancybirthbaby.org.au/antenatal-classes
+      fixed_to: cut; kept 'you can bring them along'
+    - claim: "meet other people due around the same time"
+      judgement: unsupported
+      source_says: "'you will meet other people who are expecting babies.'"
+      url: https://www.pregnancybirthbaby.org.au/antenatal-classes
+      fixed_to: "You'll also meet other people who are expecting babies."
+    - claim: "Your hospital or midwife can tell you what's on offer."
+      judgement: unsupported
+      source_says: "Page says check with your insurer about a payment towards the cost."
+      url: https://www.pregnancybirthbaby.org.au/antenatal-classes
+      fixed_to: "Check with your insurer about what they'll pay."
+  restored:
+    - claim: "classes help prepare you both for the birth; your midwife, obstetrician or GP can tell you about the classes at your hospital or birth centre"
+      url: https://www.healthywa.wa.gov.au/Articles/A_E/Childbirth-education-classes
+      source_says: "Childbirth education classes ... help prepare you and your partner for your birth. At your antenatal visit, your midwife, obstetrician or GP will let you know about childbirth education classes offered at your hospital or birth centre."
+  not_restored:
+    - claim: "the partner often gets as much out of it as anyone"
+      reason: "Not stated; only 'prepare you and your partner' restored."
+    - claim: "WA page says book for around 20 weeks"
+      reason: "Not added: the item follows PBB's 28 weeks; flagging the difference only."
+- id: hospital-bag
+  file: content/items/hospital-bag.md
+  verdict: fix
+  problems:
+    - claim: "Have the bag packed and by the door in the last few weeks — babies don't always wait for the due date (summary and body)"
+      judgement: unsupported
+      source_says: "The page does not say when to pack. It says 'Check with the hospital or birthing centre what you need to bring.' (weeks 34-38 and due 36 are our own scheduling.)"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-to-take-to-hospital-checklist
+      fixed_to: "summary and opening reworded to the check-with-the-hospital line"
+    - claim: "pillow from home (birth parent list)"
+      judgement: wrong
+      source_says: "Pillow is on the partner list."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-to-take-to-hospital-checklist
+      fixed_to: "moved to the support partner"
+    - claim: "birth plan, health fund details (unqualified); no antenatal card"
+      judgement: wrong
+      source_says: "'Birth plan (if you have one)', 'Insurance details (if you have it)', and 'Antenatal card'."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-to-take-to-hospital-checklist
+      fixed_to: "qualified with 'if you have them/one'; antenatal card added"
+    - claim: "a few outfits, including an easy one for going home (avoid fiddly buttons)"
+      judgement: unsupported
+      source_says: "Baby: baby clothes, onesie, hat, booties or socks."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-to-take-to-hospital-checklist
+      fixed_to: "baby clothes, a onesie, a hat, booties or socks"
+    - claim: "snacks, drinks, chargers, cash listed as support-partner items"
+      judgement: wrong
+      source_says: "They are on a general list, not the partner list (partner: change of clothes, swimwear, toiletries, pillow)."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-to-take-to-hospital-checklist
+      fixed_to: "partner: clothes, toiletries, pillow; snacks/chargers/cash noted as suiting everyone"
+    - claim: "Ask whether your support partner can stay overnight; not every ward allows it. Leave jewellery and valuables at home."
+      judgement: unsupported
+      source_says: "Neither is on the page."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-to-take-to-hospital-checklist
+      fixed_to: cut
+  restored:
+    - claim: "One NSW health service suggests having a bag packed and ready by around 28 weeks, just in case."
+      url: https://mlhd.health.nsw.gov.au/our-services/maternity-and-parenting-services/what-to-bring-to-hospital-when-you-are-having-a-ba
+      source_says: "It's a good idea to have a bag packed and ready by around 28 weeks, just in case. (Murrumbidgee Local Health District, NSW Health.) NB the item's weeks [34, 38] and task due 36 are unchanged; the page is earlier than that."
+    - claim: "your own pillow if you'd like one (birth parent list)"
+      url: https://www.northeasthealth.org.au/having-a-baby/maternity-ward/
+      source_says: "For mum: ... Your own pillow if you desire"
+    - claim: "Some hospitals ask you not to bring jewellery, credit cards or a large amount of money, and say they can't accept responsibility for any loss."
+      url: https://barwonhealth.org.au/maternity-services/having-your-baby/coming-to-hospital/what-to-bring
+      source_says: "Please do not bring jewellery, credit cards or a large amount of money to hospital. Barwon Health cannot accept responsibility for any loss."
+  not_restored:
+    - claim: "Have the bag packed by the door in the last few weeks"
+      reason: "The only official timing found is 28 weeks (above); no page says 'last few weeks'. QLD hospitals reportedly say 36 weeks but their pages could not be loaded."
+    - claim: "Ask whether your support partner can stay overnight; not every ward allows it"
+      reason: "One public hospital says partners are welcome; a private one charges. No source for 'not every ward allows it'."
+    - claim: "an easy going-home outfit, avoid fiddly buttons"
+      reason: "No official source found."

@@ -1,0 +1,94 @@
+# Fact-check of drafts, batch M16, 2026-10-29.
+# Every claim checked against the cited pages, all re-fetched on 2026-10-29 (Services Australia, Fair Work, Pregnancy Birth and Baby).
+# raisingchildren, rednose and productsafety were not needed. Tasks link-mygov-to-centrelink (due 26), get-own-medicare-card (due 30) and
+# register-medicare-safety-net-family (due 12) are best-bys; no page sets a deadline for them.
+- id: parental-leave-pay-self-employed
+  file: content/drafts/parental-leave-pay-self-employed.md
+  verdict: ok
+- id: newborn-supplement-and-upfront-payment
+  file: content/drafts/newborn-supplement-and-upfront-payment.md
+  verdict: fix
+  problems:
+    - claim: "If you are, they'll send a letter to your myGov inbox."
+      judgement: wrong
+      source_says: "If you're eligible, we'll let you know by sending you a letter to your myGov inbox."
+      url: https://www.servicesaustralia.gov.au/before-birth-your-baby
+      fixed_to: "If you're eligible, they'll let you know with a letter to your myGov inbox."
+- id: family-tax-benefit-a
+  file: content/drafts/family-tax-benefit-a.md
+  verdict: fix
+  problems:
+    - claim: "Immunisation bullet (FTB Part A may be reduced) with no source listed for it"
+      judgement: unsupported
+      source_says: "We may reduce your FTB Part A payments by up to $36.54 per fortnight for each child that doesn't meet the immunisation requirements."
+      url: https://www.servicesaustralia.gov.au/what-are-immunisation-requirements?context=22151
+      fixed_to: "claim kept; the immunisation page added to sources. Figures checked exact: $235.48, $75.60, $970.90, $80,000 supplement limit, $69,131, $123,078, $129,648, $136,218, $89,973."
+- id: family-tax-benefit-b
+  file: content/drafts/family-tax-benefit-b.md
+  verdict: ok
+- id: child-care-subsidy-claim
+  file: content/drafts/child-care-subsidy-claim.md
+  verdict: ok
+- id: immunisation-requirements-for-payments
+  file: content/drafts/immunisation-requirements-for-payments.md
+  verdict: ok
+- id: mygov-and-centrelink-setup
+  file: content/drafts/mygov-and-centrelink-setup.md
+  verdict: ok
+- id: medicare-own-card
+  file: content/drafts/medicare-own-card.md
+  verdict: ok
+- id: medicare-safety-net
+  file: content/drafts/medicare-safety-net.md
+  verdict: fix
+  problems:
+    - claim: "A couple has to register as a family to combine your costs"
+      judgement: wrong
+      source_says: "If you're part of a family or couple, you can register as a family to combine your costs... Even if all family members are on the same Medicare card, you'll still need to register."
+      url: https://www.servicesaustralia.gov.au/how-to-register-for-medicare-safety-nets
+      fixed_to: "A couple can register as a family to combine your costs... Even if you're both on the same Medicare card, you still need to register. (Summary changed the same way.)"
+- id: parenting-payment
+  file: content/drafts/parenting-payment.md
+  verdict: ok
+- id: multiple-birth-allowance
+  file: content/drafts/multiple-birth-allowance.md
+  verdict: ok
+- id: stillborn-baby-payment
+  file: content/drafts/stillborn-baby-payment.md
+  verdict: fix
+  problems:
+    - claim: "Your family's adjusted taxable income must be no more than $77,177 in the 6 months after the delivery."
+      judgement: wrong
+      source_says: "Deciding page: 'Your family must earn no more than $77,177.00 in the 6 months after your baby's delivery.' Who can get it page (updated 1 July 2026) and How much page (updated 4 Sept 2026): 'The limit is an income of $79,955.00 in the 6 months after your baby's birth.'"
+      url: https://www.servicesaustralia.gov.au/who-can-get-stillborn-baby-payment?context=22221
+      fixed_to: "Both figures kept, each credited ($77,177 per the deciding page, $79,955 per the Stillborn Baby Payment pages); Who can get it page added to sources. Payment $4,482.12, PLP up to $26,122.20 over 26 weeks confirmed. Worth confirming which applies before showing."
+- id: telling-your-employer
+  file: content/drafts/telling-your-employer.md
+  verdict: ok
+- id: extending-parental-leave
+  file: content/drafts/extending-parental-leave.md
+  verdict: ok
+- id: flexible-unpaid-parental-leave
+  file: content/drafts/flexible-unpaid-parental-leave.md
+  verdict: ok
+- id: safe-job-and-no-safe-job-leave
+  file: content/drafts/safe-job-and-no-safe-job-leave.md
+  verdict: fix
+  problems:
+    - claim: "Summary: paid at your base rate if you're entitled to unpaid parental leave and unpaid if you're not."
+      judgement: wrong
+      source_says: "No safe job leave is paid if the employee is entitled to unpaid parental leave and has complied with the notice and evidence requirements for taking unpaid parental leave."
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/entitlements-while-pregnant
+      fixed_to: "Summary now adds 'and have met its notice and evidence requirements' (body already had it). Fair Work (same ordinary hours) and Pregnancy, Birth and Baby (same pay rate and hours) already credited separately."
+- id: working-close-to-the-due-date
+  file: content/drafts/working-close-to-the-due-date.md
+  verdict: ok
+- id: special-maternity-leave
+  file: content/drafts/special-maternity-leave.md
+  verdict: ok
+- id: returning-to-work
+  file: content/drafts/returning-to-work.md
+  verdict: ok
+- id: flexible-work-request
+  file: content/drafts/flexible-work-request.md
+  verdict: ok

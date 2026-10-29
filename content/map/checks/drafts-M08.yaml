@@ -1,0 +1,200 @@
+# Fact-check of drafted Library entries, batch M08 (care.yaml: 20 entries).
+# Checked 2026-10-29 against fresh fetches of every cited page (PBB, RWH Sydney, Royal Women's Melbourne,
+# Immunisation Handbook, Services Australia, healthdirect, RANZCOG leaflet PDF).
+# Dated sources: the RANZCOG leaflet is (c) 09/2017 and the Royal Women's "Genetic testing in pregnancy" page
+# has dated parts (NIPT "only in some specialist centres", "best done in the first 16 weeks"). Nothing in a draft
+# rests on those dated parts: RANZCOG is used only for timeless points (screening cannot diagnose and may miss
+# babies; only diagnostic tests are definite) and as one credited window for serum screening; the RWH page is used
+# only for the 15-20 week window (also given by PBB) and, credited by name, trisomy 18 and "amniocentesis and ultrasound".
+# Windows: serum screening PBB Down syndrome page 15-20 (its page markup says 14-20), RWH 15-20, PBB NTD and
+# blood-tests pages 14-20, RANZCOG leaflet text 15-20 and table 14-20: all credited in second-trimester-serum-screening.
+# Hepatitis C: PBB routine, RWH at risk: both credited in hepatitis-c-screening and first-blood-tests.
+# Syphilis: exactly PBB (before 10 weeks; 26-28 weeks; 36 weeks or birth, whichever is earlier; at least 3 tests).
+# Cervical screening: "safe during pregnancy and should not be delayed" kept. TIS National 131 450 confirmed.
+# Booking "usually about 14 weeks" credited to the Royal Hospital for Women only.
+- id: pregnancy-care-without-medicare
+  file: content/drafts/pregnancy-care-without-medicare.md
+  verdict: fix
+  problems:
+    - claim: "Cover can include pregnancy and birth, but there's usually a waiting period of up to 12 months (OVHC and OSHC merged)"
+      judgement: wrong
+      source_says: "OVHC: 'You may need to wait up to 12 months for parts of the cover to start'; OSHC: 'usually a waiting period of 12 months ... covered for emergency treatment'; Medicare page: 'Many private health insurance funds have a waiting period of 12 months'"
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/pregnancy-care-on-a-visa-in-australia
+      fixed_to: "Split into OVHC (up to 12 months), funds generally (12 months) and OSHC (usually 12 months, emergency covered), each as its source words it"
+    - claim: "Services Australia lists which visas are included."
+      judgement: unsupported
+      source_says: "'on some types of temporary visas - see this list to find out if your visa is included' (no publisher named in the text)"
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/pregnancy-care-on-a-visa-in-australia
+      fixed_to: "check the list to see if your visa is included"
+    - claim: "If not, the baby has the same visa as you and must be added through the Department of Home Affairs."
+      judgement: wrong
+      source_says: "If neither parent is a citizen/PR the baby is not a citizen and has the same visa as you and the other parent; tell Home Affairs about the birth so the baby can be added"
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/pregnancy-care-on-a-visa-in-australia
+      fixed_to: "Reworded to the source"
+- id: confirming-the-pregnancy
+  file: content/drafts/confirming-the-pregnancy.md
+  verdict: fix
+  problems:
+    - claim: "Your GP is usually the first person you see."
+      judgement: wrong
+      source_says: "'likely to be the first health professional you see'"
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/the-role-of-your-gp
+      fixed_to: "Your GP is likely to be the first person you see."
+- id: booking-visit
+  file: content/drafts/booking-visit.md
+  verdict: fix
+  problems:
+    - claim: "Your GP sends the referral, and the hospital contacts you to arrange it. (stated as general)"
+      judgement: unsupported
+      source_says: "RHW: GP sends eReferral, 'we aim to contact you within 2-3 weeks'; booking 'usually ... about 14 weeks'. PBB says only that the GP gives a referral"
+      url: https://www.seslhd.health.nsw.gov.au/royal-hospital-for-women/services-clinics/directory/pregnancy
+      fixed_to: "Your GP refers you; hospital contact and about-14-weeks timing credited to the Royal Hospital for Women only"
+    - claim: "offer the blood tests if you haven't had them"
+      judgement: unsupported
+      source_says: "'You will also be offered a blood test to check your blood group and rhesus factor'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/your-first-antenatal-visit
+      fixed_to: "offer blood tests"
+    - claim: "summary: Bring your GP's results."
+      judgement: unsupported
+      source_says: "Only RHW says to bring the results"
+      url: https://www.seslhd.health.nsw.gov.au/royal-hospital-for-women/services-clinics/directory/pregnancy
+      fixed_to: "The Royal Hospital for Women asks you to bring your GP's results"
+    - claim: "task title: blood test and scan results"
+      judgement: unsupported
+      source_says: "RHW: GP confirms pregnancy (preferably by ultrasound), organises routine blood tests; 'bring all the above results'"
+      url: https://www.seslhd.health.nsw.gov.au/royal-hospital-for-women/services-clinics/directory/pregnancy
+      fixed_to: "Gather your GP's test results for the booking visit (no opens/due/deadline: none sourced)"
+- id: your-rights-in-pregnancy-care
+  file: content/drafts/your-rights-in-pregnancy-care.md
+  verdict: ok
+- id: first-blood-tests
+  file: content/drafts/first-blood-tests.md
+  verdict: fix
+  problems:
+    - claim: "Hepatitis C ... Sometimes added, offered by RWH to those at risk (PBB view missing)"
+      judgement: unsupported
+      source_says: "PBB lists hepatitis C among infection tests and says midwife/doctor may suggest it; RWH: 'For women who are at risk a blood test is also offered to check for ... hepatitis C'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+      fixed_to: "Both credited"
+    - claim: "Vitamin D offered to everyone"
+      judgement: unsupported
+      source_says: "PBB routine table lists vitamin D at first visit; RWH offers vitamin D 'for women who are at risk'"
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/your-first-pregnancy-check-up
+      fixed_to: "Both credited"
+    - claim: "Thalassaemia under 'Sometimes added'"
+      judgement: unsupported
+      source_says: "RWH lists thalassaemia among blood tests a GP can order, not as at-risk only"
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/your-first-pregnancy-check-up
+      fixed_to: "reworded to what RWH says"
+    - claim: "task have-first-blood-tests due: 12"
+      judgement: unsupported
+      source_says: "First visit 'before 10 weeks, ideally 6 to 8'; syphilis screen 'before 10 weeks'; no source gives 12"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/your-first-antenatal-visit
+      fixed_to: "due: 10 (no deadline)"
+- id: blood-group-and-antibodies
+  file: content/drafts/blood-group-and-antibodies.md
+  verdict: ok
+- id: full-blood-count
+  file: content/drafts/full-blood-count.md
+  verdict: ok
+- id: rubella-immunity
+  file: content/drafts/rubella-immunity.md
+  verdict: ok
+- id: hepatitis-b-screening
+  file: content/drafts/hepatitis-b-screening.md
+  verdict: fix
+  problems:
+    - claim: "with treatment, immunoglobulin and vaccines, most babies don't catch it"
+      judgement: unsupported
+      source_says: "'Most babies don't catch hepatitis B. Your doctor will also offer to give your baby ... immunoglobulin'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pregnancy-and-breastfeeding-with-hepatitis-b
+      fixed_to: "most babies don't catch it, and your baby is offered immunoglobulin and the vaccine"
+- id: hepatitis-c-screening
+  file: content/drafts/hepatitis-c-screening.md
+  verdict: ok
+- id: hiv-screening
+  file: content/drafts/hiv-screening.md
+  verdict: fix
+  problems:
+    - claim: "the risk of passing HIV to the baby is low"
+      judgement: wrong
+      source_says: "'Having an undetectable viral load reduces the risk of HIV transmission to your baby'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/hiv-and-pregnancy
+      fixed_to: "reduces the risk"
+    - claim: "gives your baby medicine for a few weeks after birth"
+      judgement: unsupported
+      source_says: "'about 2 weeks' if very low/low risk; '4 to 6 weeks' if higher"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/hiv-and-pregnancy
+      fixed_to: "about 2 weeks if the risk is low or 4 to 6 weeks if higher"
+- id: syphilis-screening
+  file: content/drafts/syphilis-screening.md
+  verdict: ok
+- id: urine-culture
+  file: content/drafts/urine-culture.md
+  verdict: ok
+- id: sti-screening
+  file: content/drafts/sti-screening.md
+  verdict: fix
+  problems:
+    - claim: "urine or swab test / usually with a urine sample or swab"
+      judgement: unsupported
+      source_says: "'tests usually involve one or more of: urine sample, swab, blood test, physical examination'; the age and circumstances wording is for 'other STIs'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/stis-and-pregnancy
+      fixed_to: "type of test depends on the STI: urine, swab or blood"
+- id: early-diabetes-test
+  file: content/drafts/early-diabetes-test.md
+  verdict: ok
+- id: cervical-screening-test
+  file: content/drafts/cervical-screening-test.md
+  verdict: fix
+  problems:
+    - claim: "whatever your age or screening history"
+      judgement: unsupported
+      source_says: "'abnormal vaginal bleeding or discharge; any signs or symptoms of cervical cancer, at any age'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/cervical-screening-during-pregnancy
+      fixed_to: "at any age"
+- id: paying-for-scans
+  file: content/drafts/paying-for-scans.md
+  verdict: ok
+- id: second-trimester-serum-screening
+  file: content/drafts/second-trimester-serum-screening.md
+  verdict: fix
+  problems:
+    - claim: "its neural tube defects page and RANZCOG's leaflet say 14 to 20"
+      judgement: wrong
+      source_says: "RANZCOG leaflet text 'between 15 and 20 weeks', its table '14-20'; PBB blood-tests page '14 to 20 weeks'; PBB Down syndrome page and RWH 15-20"
+      url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Prenatal-Screening-for-Chromosomal-and-Genetic-Conditions.pdf
+      fixed_to: "Sources differ; each window credited, RANZCOG leaflet credited with both"
+    - claim: "estimates the chance of ... trisomy 18"
+      judgement: unsupported
+      source_says: "Only RWH: 'risk of having a baby with Down syndrome, Trisomy 18 or neural tube defects'"
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/genetic-testing-in-pregnancy
+      fixed_to: "Trisomy 18 credited to the Royal Women's Hospital; dropped from summary"
+    - claim: "diagnostic test ... and an ultrasound"
+      judgement: unsupported
+      source_says: "PBB: information about CVS or amniocentesis and genetic counselling; RWH: 'offered amniocentesis and ultrasound'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/screening-for-down-syndrome
+      fixed_to: "ultrasound credited to the Royal Women's Hospital"
+- id: neural-tube-defect-screening
+  file: content/drafts/neural-tube-defect-screening.md
+  verdict: fix
+  problems:
+    - claim: "folic acid ... is the prevention"
+      judgement: wrong
+      source_says: "'significantly reduce the chances'; supplements 'reduce the risk ... by 70%'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/neural-tube-defect
+      fixed_to: "significantly reduces the chance"
+    - claim: "0.5 mg daily from planning through the first 3 months (no higher-risk dose)"
+      judgement: unsupported
+      source_says: "'extra folic acid supplement of 0.5mg daily'; at higher risk 'a higher dose supplement (5mg)'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/neural-tube-defect
+      fixed_to: "extra 0.5 mg daily, 5 mg if at higher risk"
+- id: screening-vs-diagnostic
+  file: content/drafts/screening-vs-diagnostic.md
+  verdict: fix
+  problems:
+    - claim: "they're only done if a screening test or scan shows something unusual"
+      judgement: unsupported
+      source_says: "CVS/amnio may be recommended after a screening result, if you have a child with a condition, or if carriers; 'most women have a screening test first' (RANZCOG)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/chorionic-villus-sampling-cvs
+      fixed_to: "most people have a screening test first; a doctor may recommend one after a higher-chance result, a previous child with a condition, or if you or your partner carry one"

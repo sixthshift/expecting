@@ -1,0 +1,192 @@
+# Fact-check of the M01 drafts (content/drafts/*.md) against the pages in each draft's `sources:`.
+# Batch M01, checked 2026-10-29.
+- id: heartburn
+  file: content/drafts/heartburn.md
+  verdict: ok
+- id: back-pain
+  file: content/drafts/back-pain.md
+  verdict: fix
+  problems:
+    - claim: "summary: ... numbness, weakness or loss of bladder or bowel control is a call to 000; body had only the 000 level for these symptoms"
+      judgement: wrong
+      source_says: "Cauda equina ... lost feeling or weakness in your limbs, 'pins and needles' or tingling, problems controlling bowels or bladder: call triple zero (000). Key facts: See your midwife or doctor if you are concerned, feel 'pins and needles' in your legs, or have leg weakness or incontinence."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/backache-in-pregnancy
+      fixed_to: "Kept the 000 level for cauda equina as the page frames it (summary reworded to the page's symptoms) and added the page's separate 'see your midwife or doctor if concerned, pins and needles in your legs, leg weakness or incontinence' line under See your doctor or midwife. Heading changed to the README's 'Call 000 or go to emergency'."
+- id: pelvic-girdle-pain
+  file: content/drafts/pelvic-girdle-pain.md
+  verdict: fix
+  problems:
+    - claim: "though it often comes back in later pregnancies"
+      judgement: wrong
+      source_says: "symptoms may return in future pregnancies"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/pelvic-pain-during-pregnancy
+      fixed_to: "though symptoms may return in future pregnancies"
+    - claim: "is often worse walking, getting in or out of a car, rolling over in bed, on stairs or standing up"
+      judgement: wrong
+      source_says: "pain might get worse when you walk at a fast pace or for a long distance, get in or out of a car, roll over in bed, go up or down stairs, stand up from sitting, have sex"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/pelvic-pain-during-pregnancy
+      fixed_to: "may get worse when you walk fast or a long way, get in or out of a car, ..."
+- id: round-ligament-pain
+  file: content/drafts/round-ligament-pain.md
+  verdict: ok
+  # only change: heading made the README's "Call 000 or go to emergency"
+- id: leg-cramps
+  file: content/drafts/leg-cramps.md
+  verdict: ok
+- id: breathlessness
+  file: content/drafts/breathlessness.md
+  verdict: fix
+  problems:
+    - claim: "summary: breathlessness that is new, getting worse, or comes with chest pain or a racing heart needs help straight away"
+      judgement: unsupported
+      source_says: "healthdirect warning signs: contact your doctor, midwife or hospital immediately if you have shortness of breath or a racing heartbeat. healthdirect SOB page: call 000 if can't speak, chest/arm/jaw pain, sweaty and pale, blue lips, drowsy or confused; unexplained breathing problems: see your doctor as soon as possible. No page frames 'new' breathlessness as urgent."
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+      fixed_to: "summary reworded to the two levels the pages give (contact doctor/midwife/hospital immediately about shortness of breath or racing heartbeat; call 000 if you can't speak, have chest pain or blue lips)"
+    - claim: "you ... need more of your usual asthma medicine"
+      judgement: wrong
+      source_says: "you are needing more of your usual asthma or lung medications"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pregnancy-rhinitis
+      fixed_to: "asthma or lung medications"
+    - claim: "'(as soon as possible)' under See your doctor; list without lead-in"
+      judgement: unsupported
+      source_says: "If you have unexplained breathing problems, see your doctor as soon as possible"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pregnancy-rhinitis
+      fixed_to: "added lead-in 'See your doctor if:' and 'see your doctor as soon as possible'. Heading changed to the README's 'Call 000 or go to emergency'. Other claims (week 20/29/36 notes, both healthdirect lists, rhinitis 000 line) confirmed."
+- id: frequent-urination
+  file: content/drafts/frequent-urination.md
+  verdict: ok
+- id: leaking-urine
+  file: content/drafts/leaking-urine.md
+  verdict: fix
+  problems:
+    - claim: "After 16 weeks, do them on your left side rather than flat on your back, or sitting or standing."
+      judgement: wrong
+      source_says: "You can do them lying down, or while sitting or standing. After week 16 of your pregnancy, it's best to lie on your left side, not flat on your back."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/incontinence-during-pregnancy
+      fixed_to: "You can do them lying down, sitting or standing; after 16 weeks it's best to lie on your left side, not flat on your back."
+    - claim: "A continence professional or physiotherapist can check you're doing them right."
+      judgement: unsupported
+      source_says: "Speak to a continence professional or a physiotherapist for guidance."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/incontinence-during-pregnancy
+      fixed_to: "Speak to a continence professional or a physiotherapist for guidance on using the right muscles."
+- id: vaginal-discharge
+  file: content/drafts/vaginal-discharge.md
+  verdict: fix
+  problems:
+    - claim: "It's called leucorrhoea, comes from higher levels of oestrogen and progesterone, and nearly everyone gets it."
+      judgement: unsupported
+      source_says: "PBB: more discharge than usual is called leucorrhoea, caused by higher oestrogen and progesterone (no 'nearly everyone'; the RWH sheet's 'almost all women' is not in the cited PBB/healthdirect claim and was not used)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/vaginal-discharge-during-pregnancy
+      fixed_to: "cut 'and nearly everyone gets it'. Other claims (show, waters, immediate contact, abnormal-discharge list, BV complications, healthdirect 'as soon as possible') confirmed."
+- id: pregnancy-rash
+  file: content/drafts/pregnancy-rash.md
+  verdict: ok
+- id: moles-changing
+  file: content/drafts/moles-changing.md
+  verdict: ok
+  # every claim (ABCDE-style list incl. 6 mm, 12 months, first trimester, itchy mole, scheduled checks, midwife referral, biopsy) is on the single cited PBB page
+- id: carpal-tunnel
+  file: content/drafts/carpal-tunnel.md
+  verdict: ok
+  # PBB page confirms every claim (1 in 2, 4 weeks, self-care list, splint "one of the best ways", steroid injection); healthdirect confirms the after-20-weeks "sudden, severe swelling in your hands, feet or face: contact your doctor, midwife or hospital immediately"
+- id: insomnia
+  file: content/drafts/insomnia.md
+  verdict: fix
+  problems:
+    - claim: "some people have disturbing dreams in the last couple of months"
+      judgement: wrong
+      source_says: "You may have disturbing dreams in late pregnancy"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/dealing-with-fatigue-during-your-pregnancy
+      fixed_to: "you may have disturbing dreams in late pregnancy"
+    - claim: "Your doctor will usually suggest non-medicine treatment first, such as cognitive behaviour therapy."
+      judgement: wrong
+      source_says: "Your doctor or midwife ... will likely recommend a non-medicine treatment first. This includes behavioural and psychological interventions.’; CBT ’is a treatment of choice for insomnia during pregnancy"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/insomnia-in-pregnancy-and-breastfeeding
+      fixed_to: "Your doctor or midwife will likely recommend a non-medicine treatment first, such as behavioural and psychological treatments; cognitive behaviour therapy is a treatment of choice."
+    - claim: "heading ## Call 000"
+      judgement: wrong
+      source_says: "The 000 line (suicidal thoughts and in immediate danger) is on the Dealing with fatigue page; Lifeline 13 11 14 on both it and the Insomnia page"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/dealing-with-fatigue-during-your-pregnancy
+      fixed_to: "heading changed to the README's 'Call 000 or go to emergency'; wording kept. All other claims (1 in 2, 28 weeks, stillbirth, side sleeping, hygiene list, melatonin/suvorexant/herbal, see-doctor list) confirmed."
+- id: snoring
+  file: content/drafts/snoring.md
+  verdict: fix
+  problems:
+    - claim: "summary: Snoring is a common pregnancy change"
+      judgement: unsupported
+      source_says: "During pregnancy you or your partner may notice ... snoring, sometimes for the first time in your life’ (no ’common’); see your doctor if you started snoring during pregnancy"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
+      fixed_to: "You may start snoring in pregnancy, sometimes for the first time in your life; ... see your doctor"
+    - claim: "If you share a bed, take your partner to the appointment: they can describe how you sleep."
+      judgement: wrong
+      source_says: "If you share a bedroom with someone, it's a good idea to take this person with you to the appointment. They can describe your sleep and whether it's noisy or disturbed."
+      url: https://www.healthdirect.gov.au/sleep-apnoea
+      fixed_to: "If you share a bedroom with someone, take them to the appointment: they can describe your sleep and whether it's noisy or disturbed."
+- id: sciatica
+  file: content/drafts/sciatica.md
+  verdict: fix
+  problems:
+    - claim: "urgent-care list had 'unintended weight loss' only (and omitted two other items)"
+      judgement: wrong
+      source_says: "seek urgent medical care if you have sudden lower back pain and you have: a history of cancer, have an autoimmune condition or have unintentionally lost weight; ... a history of intravenous drug abuse; are younger than 16 years of age or older than 50"
+      url: https://www.healthdirect.gov.au/sciatica
+      fixed_to: "list now gives the page's items in its wording. Heading 'Call 000' changed to the README's 'Call 000 or go to emergency'; the 000 sentence (cauda equina, PBB) and the see-your-doctor lines (4 weeks, worried) confirmed."
+- id: feeling-hot-and-overheating
+  file: content/drafts/feeling-hot-and-overheating.md
+  verdict: fix
+  problems:
+    - claim: "## Go to emergency / Get emergency medical care for signs of heatstroke (only level given; summary 'get emergency care ... hot, dry skin, confusion or a temperature over 40')"
+      judgement: wrong
+      source_says: "Call triple zero (000) immediately and ask for an ambulance if you are experiencing symptoms of heatstroke, such as hot, dry skin with no sweating or a rise in body temperature to above 40 °C. ... When to seek emergency care: Get emergency medical care if you are experiencing symptoms of heatstroke, such as: [list]. Heatstroke requires immediate medical treatment, as it can be life-threatening."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/dealing-with-hot-weather-during-pregnancy-and-breastfeeding
+      fixed_to: "Heading is the README's '## Call 000 or go to emergency'; both the page's 000/ambulance sentence and its 'get emergency medical care' list kept, each in the page's wording; summary reworded to the 000 level (hot dry skin with no sweating, over 40 °C). The 'life-threatening' sentence moved up beside the 000 line as the page places it (it is by 'immediate medical treatment')."
+- id: cold-or-flu
+  file: content/drafts/cold-or-flu.md
+  verdict: ok
+- id: racing-heartbeat
+  file: content/drafts/racing-heartbeat.md
+  verdict: fix
+  problems:
+    - claim: "summary: ... contact your doctor, midwife or hospital about straight away"
+      judgement: wrong
+      source_says: "Any time during pregnancy, contact your doctor, midwife or hospital immediately if you have ... shortness of breath or a racing heartbeat"
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+      fixed_to: "immediately"
+    - claim: "'See your doctor urgently if palpitations last more than a few minutes...' sat under 'Contact your hospital now'"
+      judgement: wrong
+      source_says: "healthdirect Heart palpitations: 'See your doctor urgently if you have heart palpitations that last more than a few minutes; happen often; family history of heart rhythm problems' (a see-your-doctor level, not hospital-now)"
+      url: https://www.healthdirect.gov.au/heart-palpitations
+      fixed_to: "moved to the See your doctor or midwife section. Heading 'Call 000' changed to the README's 'Call 000 or go to emergency'; 000 list lead-in now the page's 'along with these symptoms'. Sepsis (fast heart rate; see doctor urgently, ED or 000), self-care tips and causes confirmed."
+- id: weight-loss
+  file: content/drafts/weight-loss.md
+  verdict: fix
+  problems:
+    - claim: "## Go to emergency: The Royal Women's Hospital says to go to emergency if you can't keep food or fluids down."
+      judgement: wrong
+      source_says: "If you can't keep food or fluids down, go to the Women's Emergency Centre. (RWH advice to its own patients, naming its own centre; the generic line is 'If you or your baby require urgent medical attention, please contact your nearest emergency department.')"
+      url: https://www.thewomens.org.au/images/uploads/fact-sheets/Nausea_vomiting_hyperemesis_in_pregnancy_260721.pdf
+      fixed_to: "Heading is the README's 'Call 000 or go to emergency'; sentence now credits it as RWH telling its own patients to go to its Women's Emergency Centre"
+    - claim: "Contact your midwife or doctor if you're losing weight with frequent or uncontrollable vomiting, or nausea ... If you keep vomiting and keep losing weight, talk to your doctor or dietitian, who may suggest supplements."
+      judgement: wrong
+      source_says: "PBB HG: Contact your midwife or doctor if you: experience frequent or uncontrollable vomiting; have ongoing nausea that makes it difficult to eat and drink enough; you are losing weight (three separate triggers). RWH: if ongoing vomiting and continue to lose weight, talk with your dietitian or doctor; your dietitian may recommend supplements."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/severe-vomiting-during-pregnancy-hyperemesis-gravidarum
+      fixed_to: "the three triggers listed separately as the page gives them; RWH wording for the dietitian/supplements line"
+    - claim: "summary: ... see your doctor or midwife about soon, and losing a lot quickly or with ongoing vomiting needs a call to your doctor or hospital"
+      judgement: wrong
+      source_says: "healthdirect: see your doctor or midwife as soon as possible if you have weight loss. RWH: contact your doctor or the hospital if you have lost a lot of weight quickly (ongoing vomiting plus continued loss is 'talk with your dietitian or doctor')."
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+      fixed_to: "summary now 'as soon as possible ... if you've lost a lot quickly, contact your doctor or the hospital'. Heartburn ('see your doctor immediately' if losing weight) and pelvic pain ('immediately', losing weight without trying) lines confirmed; RWH 'contact your doctor or the hospital' list confirmed."
+- id: hard-and-safe-cheeses
+  file: content/drafts/hard-and-safe-cheeses.md
+  verdict: fix
+  problems:
+    - claim: "Pasteurised cream cheese, plain cottage cheese, cheese spreads and processed cheese are fine too, with a little care. (summary and opening stated them as fine; sources differ)"
+      judgement: wrong
+      source_says: "NSW Food Authority: 'Processed cheese, cheese spreads, cottage cheese, cream cheese, etc. Eat with caution: store in the fridge; eat within two days of opening.' PBB (foods to avoid page): 'Other types of cheese that you can eat are: cream cheese, cheese spreads, plain cottage cheese. These should be stored in the fridge and eaten within 2 days of opening.' PBB food guide: processed cheese, cottage and cream cheese (pasteurised): Yes. FSANZ: safer alternatives include pasteurised cream cheese, plain cottage cheese."
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+      fixed_to: "summary, opening and What to do now credit each: NSW 'eat with caution', PBB 'fine', FSANZ 'safer alternatives'; the 2-day fridge rule credited to NSW and PBB only (FSANZ says only to store in the fridge)."
+    - claim: "Food Standards Australia New Zealand lists mozzarella ... among the higher-risk soft and semi-soft cheeses, unless cooked to 75 °C inside. ... If you'd rather be cautious, eat mozzarella only cooked to at least 75 °C and eaten straight away"
+      judgement: unsupported
+      source_says: "FSANZ: higher risk: 'soft, semi soft and surface ripened cheeses, pre-packaged and delicatessen (e.g. brie, camembert, mozzarella, ricotta, feta and blue)'; safer alternatives: 'hard cheeses, pasteurised cream cheese, plain cottage cheese, baked soft cheeses (cooked to an internal temperature of 75°C)'. NSW: soft cheeses 'do not eat (high risk) unless thoroughly cooked to at least 75°C and eaten soon afterwards'. PBB: soft cheeses 'can eat if cooked to at least 75°C and eaten straight away'. Only FSANZ names mozzarella; PBB's food guide lists pasteurised mozzarella, halloumi and paneer as Yes (kept)."
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+      fixed_to: "FSANZ credited with 'baked soft cheeses cooked to 75 °C' as its safer alternative; the 'eaten straight away' advice credited to NSW/PBB for soft cheeses in general, not to mozzarella. Hard cheeses, listeria harms, pasteurised only, manufacturer-packaged (FSANZ), PBB mozzarella/haloumi/paneer Yes, and 'neither FSANZ nor NSW mentions haloumi or paneer' confirmed."

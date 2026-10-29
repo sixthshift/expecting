@@ -1,0 +1,277 @@
+- id: planned-caesarean
+  file: labour-and-birth.yaml
+  verdict: fix
+  problems:
+    - covers: "why it is advised (breech, placenta praevia, previous caesareans, twins, a health condition) and that it can also be your request"
+      judgement: wrong
+      source_says: "PBB and RANZCOG list a previous caesarean, a breech or sideways (transverse) baby, placenta praevia, other medical problems for you or the baby, and a twin pregnancy only where the first twin is breech. Twins in general are not listed. Choosing a caesarean without a medical reason is named too."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/planned-or-elective-caesarean
+    - covers: "what to ask, who will be there, skin to skin in theatre, delayed cord clamping, what happens if labour starts first"
+      judgement: unsupported
+      source_says: "Delayed cord clamping is not mentioned by PBB, RANZCOG or the Royal Women's. The rest is ok: one support person in theatre (not with a general anaesthetic), skin to skin on the operating table if the baby is well, and if labour starts you call the maternity unit immediately and it becomes an emergency caesarean. (Also ok: usually at 39 weeks or later, and RANZCOG C-Obs 23 says earlier means more neonatal respiratory problems; recovery 'by six weeks' and no driving until healed, up to 6 weeks.)"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/planned-or-elective-caesarean
+
+- id: emergency-caesarean
+  file: labour-and-birth.yaml
+  verdict: fix
+  problems:
+    - covers: "why (the baby's heart rate, labour not progressing, bleeding, cord prolapse)"
+      judgement: unsupported
+      source_says: "PBB, RANZCOG and the Royal Women's give concern for your or the baby's health or wellbeing, labour not progressing normally, severe bleeding, severe pre-eclampsia, or a life-threatening emergency. The baby's heart rate and cord prolapse are not named on any of the three pages."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/emergency-caesarean
+    - covers: "emergency ranges from within minutes to within hours and the team will say which"
+      judgement: wrong
+      source_says: "PBB gives four categories: Category 1 (urgent threat to life) usually within 30 minutes; Category 2 (problems, not immediately life threatening) usually within 60 minutes; Category 3 (baby needs to be born earlier than planned, no immediate risk) and Category 4 (at a time that suits you and the team) have no time given. Nothing about 'within hours' or the team saying which. If several are needed at once the order follows urgency, so you may wait even if told it is an emergency."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/emergency-caesarean
+    - covers: "usually an epidural top-up or a spinal and you stay awake"
+      judgement: unsupported
+      source_says: "PBB: 'You are usually awake during an emergency caesarean, but sometimes a general anaesthetic will be needed.' RANZCOG and the Royal Women's say epidural, spinal or general. An epidural top-up is not named."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/emergency-caesarean
+    - covers: "a general anaesthetic when there is no time and the partner then waits outside"
+      judgement: wrong
+      source_says: "PBB: sometimes a general anaesthetic will be needed; if so the partner will not be in the operating room because you will be asleep. 'No time' as the reason and 'waits outside' are not said."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/emergency-caesarean
+    - covers: "what the partner does (go with the baby, hold the phone, ask the questions after)"
+      judgement: unsupported
+      source_says: "None of the three pages describes what the partner does. They say one support person can be in theatre if you are awake, and (Royal Women's) a midwife stays with you and the baby in theatre and recovery."
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/caesarean-birth
+
+- id: vitamin-k
+  file: labour-and-birth.yaml
+  verdict: fix
+  problems:
+    - covers: "one injection in the thigh soon after birth is recommended for every baby"
+      judgement: unsupported
+      source_says: "PBB: Australian guidelines recommend one injection soon after birth ('within a few hours' on the first 24 hours page). The thigh is not mentioned on either page. Also ok: oral drops need 3 doses (at birth, 3 to 5 days, 4 weeks if fully breastfed), the body does not absorb them well, and premature or unwell babies cannot have them."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/vitamin-k-at-birth
+    - covers: "given only with your consent so it is on the birth preferences, decide before the day"
+      judgement: unsupported
+      source_says: "PBB: you need to give consent; your doctor or midwife will talk with you and offer it during the pregnancy, and give written information. Birth preferences or a birth plan are not mentioned. The recommendation is firm ('Health authorities in Australia recommend that all babies are given vitamin K') but parents can choose."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/vitamin-k-at-birth
+
+- id: card-waters-colour
+  file: labour-and-birth.yaml
+  verdict: fix
+  problems:
+    - covers: "green brown or blood-coloured means call the birth unit at once or go in, note the time and colour"
+      judgement: wrong
+      source_says: "PBB: if the fluid is any shade of green or brown (the baby may have passed meconium) 'speak with your doctor, midwife or birthing centre immediately and they will guide you on what to do next'; the summary says 'call your midwife or doctor for urgent advice'. Blood-coloured could be a sign of placental abruption (very rare); bleeding from the vagina is also a call-immediately sign. It does not say to go in without calling, or to note the time and colour. Normal fluid is 'usually clear, but can be yellow, straw coloured or pink'."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+
+- id: antenatal-depression
+  file: mind-and-circumstances.yaml
+  verdict: ok
+
+- id: antenatal-anxiety
+  file: mind-and-circumstances.yaml
+  verdict: ok
+
+- id: perinatal-mental-health-help
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "PANDA National Helpline 1300 726 306, 7 days, for expecting and new parents and their support people; not a crisis line"
+      judgement: unsupported
+      source_says: "The PANDA home page says 'Find someone to talk to, 7 days a week 1300 726 306' and 'PANDA is not a crisis service' (call Lifeline 13 11 14, 24/7), but gives no hours. 'Support people' is on the PANDA dads page ('as an expecting or new parent, or support person'), already in the map, now added as a source. Note: the Gidget miscarriage fact sheet still says the helpline is Mon-Fri 9am-7:30pm; PANDA's own site says 7 days."
+      url: https://www.panda.org.au/
+    - covers: "your GP can assess, treat and refer to a psychologist or psychiatrist; a perinatal mental health team exists in many hospitals"
+      judgement: unsupported
+      source_says: "PBB: your GP, midwife or obstetrician may refer you to a psychologist, psychiatrist or social worker; 'depending on your needs and the services available in your area' a perinatal mental health team referral may be offered. 'In many hospitals' is not said."
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/managing-pregnancy-with-a-mental-illness
+
+- id: mental-health-medication
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "stopping suddenly carries its own risk of relapse; the decision weighs that against the medicine"
+      judgement: unsupported
+      source_says: "PBB: do not stop or change your dose without discussing with your doctor; your doctor will discuss the risks and benefits of your options, 'as well as how stopping them might affect your mental health'. Relapse and stopping 'suddenly' are not said."
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/managing-pregnancy-with-a-mental-illness
+    - covers: "who decides: your GP, obstetrician or psychiatrist, sometimes a perinatal mental health team; bring the question to the booking-in visit"
+      judgement: unsupported
+      source_says: "PBB: talk to your doctor or midwife early on; if not coping, speak with your perinatal mental health team, midwife, GP or obstetrician; your doctor may suggest a referral to a perinatal team. A psychiatrist as the decider and the booking-in visit are not mentioned. (Also on the page: some medicines are safe, including most SSRIs; for others, such as valproic acid, it is not recommended. The entry correctly names no dose.)"
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/managing-pregnancy-with-a-mental-illness
+
+- id: after-the-birth-mood-heads-up
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "baby blues: up to 80 per cent of new mothers, tearful and overwhelmed around day 3 to 5, passes in days (the Royal Women's)"
+      judgement: unsupported
+      source_says: "The Royal Women's page gives 'up to 80 per cent' only. The 3 to 5 days and 'pass quickly on their own' come from the PBB baby blues page ('about 4 in every 5 people who give birth go through this, usually 3 to 5 days after the birth'). Attribution corrected."
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/baby-blues
+    - covers: "why it is in the pregnancy Library: learn the signs now, both of you, because the person it happens to is the last to see it"
+      judgement: unsupported
+      source_says: "PBB (partners page and postnatal depression): signs 'are often missed or dismissed as a normal part of life with a new baby'. Nothing says the person affected is the last to see it."
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/postnatal-depression
+    - covers: "the partner's job: notice, name it gently, help make the GP appointment, call PANDA themselves if unsure"
+      judgement: unsupported
+      source_says: "None of the four cited pages gives a partner's job. The Gidget check-in sheet supports checking in gently and encouraging a GP, midwife or mental health clinician, and PANDA's helpline is open to support people; both are existing map URLs, now added. Making the appointment and 'name it' are not said. (Ok: postnatal depression lasts longer than 2 weeks and interferes with daily life; baby blues 'if symptoms continue for 2 weeks or more'; EPDS is named by PBB; doctors check routinely after the birth.)"
+      url: https://www.gidgetfoundation.org.au/fact-sheets/how-to-check-in-with-an-expectant-or-new-parent
+
+- id: partner-perinatal-depression
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "it looks different in men: irritability, anger, withdrawing, working more, drinking more, physical complaints, as well as low mood"
+      judgement: unsupported
+      source_says: "PANDA dads page (the symptom tabs are in the page's embedded data): short-tempered, resentful, frustrated or angry; socially withdrawn; using alcohol or drugs to 'escape' or cope; high physical stress levels (headaches, muscle tension); sad, low, flat or numb. Gidget: physical symptoms such as headaches, irritability, difficulty concentrating. Working more is not on any cited page."
+      url: https://www.panda.org.au/articles/perinatal-anxiety-and-depression-in-dads-signs-and-symptoms
+    - covers: "barriers PANDA names: shame, stigma, the idea that your job is to be the strong one"
+      judgement: unsupported
+      source_says: "PANDA: 'Men can find it more difficult to reach out for help and support due to feelings of shame, cultural stigma and other barriers'. 'Your job is to be the strong one' is not said (one dad's story says 'I wanted to remain strong')."
+      url: https://www.panda.org.au/get-support/support-dads
+    - covers: "nobody screens the partner, so the partner has to notice it, or the other parent does"
+      judgement: unsupported
+      source_says: "PBB: 'By recognising the signs and symptoms of depression and anxiety in yourself or your partner, you can help your family recover', and signs are often missed or dismissed. It does not say nobody screens partners. (Ok: depression 1 in 10 fathers from the first trimester through the baby's first year, anxiety 1 in 6 in pregnancy and about 1 in 5 after; almost 1 in 10 PANDA callers are men and there are male counsellors; Lifeline 13 11 14 for crisis, 000 for danger.)"
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/fathers-and-depression
+
+- id: partner-learning-the-signs
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "the red flags, said plainly and owned by the partner: a change in the baby's movements, bleeding, severe headache or vision changes, fluid leaking, fever, itching (the body and symptoms agents hold each one)"
+      judgement: unsupported
+      source_says: "The only cited page, PBB on postpartum psychosis, covers none of these. It is a pointer to other entries; rewritten as a link-only phrase with no thresholds."
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/postpartum-psychosis
+    - covers: "the partner's rule: she may minimise; you call. The birth suite number is the call button"
+      judgement: unsupported
+      source_says: "Not on the cited page. PBB says that if someone close to you is having thoughts of self-harm or you are worried about your baby's safety, go to the nearest emergency department or call 000 and ask for an ambulance. 'She may minimise' is not a source claim."
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/postpartum-psychosis
+    - covers: "safety at home is a flag too: if the danger is you, or someone else, 1800RESPECT"
+      judgement: unsupported
+      source_says: "Not on the cited page. Gidget pages (already in the map) list 1800 737 732 as 24/7 support for domestic, family and sexual violence, without naming 1800RESPECT; 'if the danger is you' is not said. (Ok: the mental-health flags. PBB: postpartum psychosis can come on within hours of birth up to 12 weeks, signs include hallucinations, paranoia, delusions, planning to harm yourself or the baby; see a doctor urgently.)"
+      url: https://www.gidgetfoundation.org.au/fact-sheets/how-to-access-counselling
+
+- id: partner-leave-pointer
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "a pointer only: Parental Leave Pay now includes the partner (Dad and Partner Pay ended for births from 1 July 2023); some days are reserved for the partner and lost if unused"
+      judgement: unsupported
+      source_says: "Services Australia: Dad and Partner Pay applied to children born or adopted before 1 July 2023, claims closed 30 June 2024, and it combined with Parental Leave Pay into one payment for births from 1 July 2023. The Parental Leave Pay landing page says only 'You can choose how you use and share your Parental Leave Pay days'. Reserved days and losing them are not on either cited page (the sub-page 'How to choose and share your days' was not cited)."
+      url: https://www.servicesaustralia.gov.au/parental-leave-pay
+    - covers: "the Fair Work notice: 10 weeks' written notice, confirmed 4 weeks out, applies to the partner's unpaid parental leave too"
+      judgement: unsupported
+      source_says: "The Fair Work parental leave landing page gives no notice periods and says nothing about partners. PBB working during pregnancy (an existing map URL, now added) says 'You need to give your employer 10 weeks' notice if you are planning to take parental leave. You must give them written notice of your leave and return dates and confirm these at least 4 weeks before your leave starts.' Whether it applies to the partner is not stated."
+      url: https://www.fairwork.gov.au/leave/parental-leave
+    - covers: "the emotional point: take it; the first weeks home are when the help matters most and partners regret not taking it"
+      judgement: unsupported
+      source_says: "None of the three pages says anything about partners regretting not taking leave or when help matters most. Phrase removed."
+      url: https://www.fairwork.gov.au/leave/parental-leave
+
+- id: partner-supporting-her-mental-health
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "SMS4dads: practical support from the partner significantly improves recovery; most mums at risk turn to their partner first"
+      judgement: wrong
+      source_says: "SMS4dads: 'strong practical support from their partner can significantly improve their recovery. Research shows that many mums at risk of depression will seek support from their partner.' Many, not most, and not 'first'."
+      url: https://www.sms4dads.com.au/for-dads/tips-and-info/when-things-get-tough/
+    - covers: "the concrete things: book the GP, go with her, take the night, make the call to PANDA yourself if she won't"
+      judgement: unsupported
+      source_says: "SMS4dads suggests emotional support (tell her she is doing a great job), companionship, functional support (discuss it first, as un-negotiated help can go down badly) and help seeking (talk with her about whether to reach out). Beyond Blue: encourage your partner to see a health professional. Booking the GP, going with her, taking the night and calling PANDA 'if she won't' are not said, and the last cuts against 'discuss first'."
+      url: https://www.sms4dads.com.au/for-dads/tips-and-info/when-things-get-tough/
+    - covers: "when it is urgent: self-harm thoughts, psychosis signs, 000"
+      judgement: unsupported
+      source_says: "Beyond Blue: seek help immediately or call 000 for thoughts of suicide or harming yourself. Psychosis signs are not on the cited pages; they are on the PBB postpartum psychosis page (existing map URL, now added): see a doctor urgently; thoughts of self-harm or worry about the baby's safety means the emergency department or 000. (Ok: 'you are a support person, not a health professional'; listen without rushing to fix; support self-care; encourage professional help; look after yourself.)"
+      url: https://www.beyondblue.org.au/mental-health/parenting/pregnancy
+
+- id: telling-work-pointer
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "a pointer: no law says when you must tell your employer, but parental leave needs 10 weeks' written notice and dates confirmed 4 weeks out (PBB, Fair Work)"
+      judgement: unsupported
+      source_says: "PBB says all of it ('There is no law that requires you to inform your employer of your pregnancy at any specific time'; 10 weeks' notice, written, confirmed at least 4 weeks before). The Fair Work landing page gives none of it. Attribution corrected to PBB."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
+    - covers: "employers may not ask if you are pregnant or planning to be"
+      judgement: wrong
+      source_says: "PBB: 'Employers must ask job-specific questions when you are applying for a job. They are not allowed to ask if you're pregnant or planning a pregnancy.' It is stated for job applications, not generally. (Ok: sick leave kept for pregnancy illness and time off for check-ups, scans and tests; all employees including casuals can move to a safe job on the same pay and hours.)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
+
+- id: something-has-happened
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "the admin it quietly handles: claims and bookings in the Planner are shelved, not deleted; a note on which ones to cancel (classes, private cover changes) and which still apply (bereavement leave, Parental Leave Pay rules for stillbirth are the money agent's)"
+      judgement: unsupported
+      source_says: "Factual claims only. Red Nose 24/7 Support Line 1300 308 307 is ok (the page also says support is for anyone affected by miscarriage, ectopic pregnancy, stillbirth and newborn death). The three cited pages do not mention bereavement leave. Miscarriage Australia (existing map URL, now added) says under the Fair Work Act you are entitled to 2 days of paid bereavement leave if you or your partner have had a pregnancy loss. Private cover and class cancellations are not source claims. The rest of the entry is product behaviour and was not checked."
+      url: https://miscarriageaustralia.com.au/after-a-miscarriage/ive-just-miscarried-what-happens-now/taking-time-off-work/
+
+- id: miscarriage
+  file: mind-and-circumstances.yaml
+  verdict: ok
+
+- id: miscarriage-signs-what-to-do
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "call now: heavy bleeding, severe cramping, feeling very unwell, fainting or shoulder-tip pain (possible ectopic): emergency department or 000"
+      judgement: wrong
+      source_says: "PBB: call 000 or go to the nearest emergency department immediately for heavy bleeding (soaking 1 or more sanitary pads in an hour, or bleeding you can't catch or contain) or large clots, severe abdominal pain, shoulder-tip pain, smelly discharge, a fever or chills, feeling faint, dizzy or unwell; the what-to-do page adds shortness of breath or a fast heartbeat. The phrase left out the pad threshold, fever, smelly discharge and breathing or heartbeat. Miscarriage Australia: heavy bleeding, severe cramping or feeling very unwell means emergency department or 000."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-should-i-do-if-i-think-im-having-a-miscarriage
+    - covers: "otherwise: call your GP, midwife, early pregnancy unit or PBB 1800 882 436, same day; a scan and hCG bloods tell what is happening"
+      judgement: wrong
+      source_says: "PBB: if bleeding is not heavy and you feel well, contact your doctor or midwife 'straight away'; they may refer you to hospital or to an early pregnancy assessment service (EPAS, in major cities; may not be accessible in rural or regional areas), or arrange tests. A blood test and an ultrasound diagnose it (hCG is not named; a repeat in a few days if too early). 'Same day' is not said; the 1800 882 436 nurse line is not suggested for this."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-should-i-do-if-i-think-im-having-a-miscarriage
+    - covers: "the partner: drive, hold, call; don't minimise"
+      judgement: unsupported
+      source_says: "Only PBB's 'If you are alone, consider calling your partner or a friend for help and support.' (Note: Miscarriage Australia says about 1 in 4 women bleed in the first trimester, as the entry says; PBB says up to 2 in 5 have spotting or bleeding. Both agree it does not always mean miscarriage.)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/miscarriage
+
+- id: miscarriage-management-options
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "it is usually a genuine choice; what matters to people: speed, being at home or in hospital, avoiding an anaesthetic, certainty"
+      judgement: wrong
+      source_says: "Miscarriage Australia: 'The treatment you undergo will depend on your individual circumstances and the type of miscarriage.' PBB: medical management is usually not recommended with heavy blood loss, infection, high blood pressure or allergy; surgery is often recommended with heavy bleeding or infection. PBB gives reasons people prefer expectant (may feel more natural, help with grieving, sense of control) and surgical (limit pain and bleeding, not wait). Speed, home versus hospital, avoiding an anaesthetic and certainty are not listed."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/miscarriage
+    - covers: "decide-by: the doctor sets the window; a missed miscarriage can wait days, heavy bleeding or infection can't"
+      judgement: unsupported
+      source_says: "PBB: if the tissue has not passed after 1 to 2 weeks of waiting, speak to your doctor; medical or surgical treatment is sometimes needed to avoid heavy bleeding and prevent infection; emergency signs apply during waiting. No decide-by window, and nothing that a missed miscarriage can wait days."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/expectant-management-of-miscarriage
+    - covers: "the decision belongs to her; the partner's job is to understand each option well enough to help"
+      judgement: unsupported
+      source_says: "The PBB pages say 'you should discuss the different options with your doctor or midwife' and that you may choose. They say nothing about the partner's job. (Ok: the three options as named; expectant 7 to 14 days to start, bleeding about 2 weeks, follow-up; medical misoprostol alone or with mifepristone, usually at home, tissue passes about 4 to 6 hours after, bleeding up to 2 weeks; surgical a short D&C, about 10 minutes, often under general anaesthetic, check-up 4 to 6 weeks.)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/medical-management-of-miscarriage
+
+- id: after-a-miscarriage
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "trying again: often advised to wait for one normal cycle, and until you feel ready; there is no right time (PBB, Miscarriage Australia)"
+      judgement: wrong
+      source_says: "PBB after-miscarriage page: 'Your health team may recommend you wait until after you have had at least one normal menstrual cycle'; and 'It's safe to get pregnant again soon after a miscarriage — there's no medical need to wait', and it is possible to conceive before the first period. PBB surgical page: 'advised that you wait a few months to allow your menstrual cycle to re-establish'. 'Often advised' and 'no right time' are not said, and the Miscarriage Australia pages cited do not cover trying again."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-happens-after-miscarriage
+    - covers: "before 20 weeks there is no legal need for a funeral, but you can; no birth or death certificate, but every state offers an early pregnancy loss certificate (Red Nose has the how)"
+      judgement: wrong
+      source_says: "PBB: 'Generally' a miscarriage in the first 20 weeks is not formally registered, so no birth or death certificate, and legal obligations vary by state or territory; an optional early pregnancy loss certificate can be requested (Red Nose has the how). Miscarriage Australia: all states and territories have certificates of recognition. The phrase dropped 'generally' and the state variation. (Ok: bleeding usually stops within 2 weeks; see the doctor within 6 weeks; 2 days of paid bereavement leave for you or your partner under the Fair Work Act.)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-happens-after-miscarriage
+
+- id: ectopic-pregnancy
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "the signs to call now: abdominal or one-sided pain, shoulder-tip pain, bleeding, feeling faint; 000 or emergency"
+      judgement: wrong
+      source_says: "PBB: signs are vaginal bleeding or spotting, abdominal pain, back pain, shoulder tip pain, nausea and vomiting, a fast heart rate, dizziness or faintness, usually between weeks 4 and 12; 'If you have any of these symptoms while pregnant, go to the nearest emergency department or call triple zero (000) for an ambulance.' The phrase omitted back pain, nausea and vomiting and a fast heart rate. One-sided pain is on the Miscarriage Australia signs page (existing map URL), not on PBB."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/ectopic-pregnancy
+    - covers: "treatment is medicine or surgery (PBB); the follow-up bloods and what it means for the tube"
+      judgement: wrong
+      source_says: "PBB summary says medicine or surgery, but the page gives three: watch and wait (only if you are well or have little pain, it is small and has not ruptured, and hCG is low and falling), medicine (methotrexate injection; some need a second injection or surgery) and surgery (usually keyhole; sometimes open surgery or removal of the tube). Follow-up tests are needed. Tube-specific outcomes are not described beyond fertility being possibly affected. (Ok: implants outside the uterus, usually a tube, cannot survive, tube can tear and cause serious internal bleeding; Red Nose supports anyone affected by ectopic pregnancy; early scan in a later pregnancy; wait 2 months after surgery, 3 to 4 months after methotrexate.)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/ectopic-pregnancy
+
+- id: difficult-screening-result
+  file: mind-and-circumstances.yaml
+  verdict: fix
+  problems:
+    - covers: "the waiting is the hard part; the partner's role is to be in the room and hold the questions"
+      judgement: unsupported
+      source_says: "PBB suggests talking with your partner, a friend, family member or doctor, speaking with a genetic counsellor, and gives a list of questions to ask (why this test, accuracy, when and from whom you get results, options if positive). Nothing about the waiting or the partner's role in the room."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/screening-for-down-syndrome
+    - covers: "if a condition is confirmed: the choices are yours, continuing with support or termination for medical reasons; organisations exist for either path"
+      judgement: wrong
+      source_says: "PBB amniocentesis: it can help you make informed decisions about your pregnancy or prepare 'if your child has a genetic difference and you choose to continue the pregnancy'; a genetic counsellor can discuss your options. Termination is not named. Support named: Down Syndrome Australia (1300 881 935) and Through the Unexpected (unexpected news in pregnancy); nothing for a termination path. (Ok: screening estimates chance and cannot diagnose, a high-chance result means more likely not certain; next comes a conversation, possible genetic counselling and an offer of CVS or amniocentesis.)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/amniocentesis

@@ -1,0 +1,163 @@
+# Fact-check of 20 drafted Library entries (batch M06), 2026-10-29.
+# Each claim checked against its listed sources (pages re-fetched for figures, phone numbers and red flags).
+# Priority items: farm-animals-and-lambing (searched for official Australian advice on lambing/birthing animals),
+# bushfire-smoke (official page on staying indoors), dental-work (MotherSafe wording), lead years and dental x-rays credited to their sources.
+# Not fetchable (automated-fetch blocks, not worked around): Queensland Health Darling Downs HHS Q fever page, WorkSafe Qld, Agriculture Victoria.
+- id: cosmetic-surgery
+  file: content/drafts/cosmetic-surgery.md
+  verdict: ok
+- id: tattoos
+  file: content/drafts/tattoos.md
+  verdict: ok
+- id: insect-repellent
+  file: content/drafts/insect-repellent.md
+  verdict: fix
+  problems:
+    - claim: "stay inside when mosquitoes are most active"
+      judgement: wrong
+      source_says: "Avoid being outside at the times when mosquitoes are most active."
+      url: https://www.healthdirect.gov.au/accidents-and-injuries/bites-and-stings/mosquito-bites
+      fixed_to: "avoid being outside when mosquitoes are most active"
+    - claim: "fly screens without holes, or a net over the bed"
+      judgement: wrong
+      source_says: "Use insect screens ... make sure they do not have tears or holes. If you don't have insect screens, use mosquito nets to cover where you sleep."
+      url: https://www.healthdirect.gov.au/accidents-and-injuries/bites-and-stings/mosquito-bites
+      fixed_to: "insect screens without tears or holes, or mosquito nets over where you sleep if you don't have screens"
+- id: painting-and-renovating
+  file: content/drafts/painting-and-renovating.md
+  verdict: ok
+  # Lead-paint years already credited: PBB "before 1971", healthdirect "before 1970".
+- id: lead-exposure
+  file: content/drafts/lead-exposure.md
+  verdict: fix
+  problems:
+    - claim: "Avoid renovations that disturb lead paint."
+      judgement: wrong
+      source_says: '"You should avoid renovations that involve lead-based paint." (PBB toxic household products; the ''disturb'' wording is on a different PBB page that is not a listed source)'
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
+      fixed_to: "Avoid renovations that involve lead-based paint."
+  # Years: healthdirect "built before 1970"; PBB "before 1971" - both kept, each credited.
+- id: gardening
+  file: content/drafts/gardening.md
+  verdict: ok
+- id: pesticides
+  file: content/drafts/pesticides.md
+  verdict: ok
+- id: mould
+  file: content/drafts/mould.md
+  verdict: ok
+- id: gas-heaters
+  file: content/drafts/gas-heaters.md
+  verdict: ok
+- id: bushfire-smoke
+  file: content/drafts/bushfire-smoke.md
+  verdict: fix
+  problems:
+    - claim: "(no official page on staying indoors in smoke; drafter found none)"
+      judgement: unsupported
+      source_says: "Queensland Government: 'When smoke is in the air, but a fire is not directly threatening you, stay indoors and close all windows and doors.' NSW Health: 'If you are pregnant, you may be more sensitive to the effects of smoke. Brief exposure to bushfire smoke during pregnancy is unlikely to affect you or your baby. If you are continuously exposed to smoke for more than one week, it may increase the risk of outcomes such as preterm birth, lower birth weight and developing gestational diabetes.' Steps: talk to your doctor or midwife; take steps to reduce your exposure to all sources of smoke during pregnancy."
+      url: https://www.qld.gov.au/health/staying-healthy/environmental/after-a-disaster/bushfires/bushfire-smoke-and-your-health ; https://www.health.nsw.gov.au/environment/bushfire/Pages/know-high-risk.aspx
+      fixed_to: "Both pages added to sources; stay-indoors bullet, NSW Health sensitivity/one-week wording and reduce-exposure bullet added; summary updated. Verdict stays limit. No EPA page found that is pregnancy-specific."
+- id: farm-animals-and-lambing
+  file: content/drafts/farm-animals-and-lambing.md
+  verdict: fix
+  problems:
+    - claim: "Talk to your doctor before working with farm animals."
+      judgement: unsupported
+      source_says: "No readable official Australian page I could load says pregnant people should stay away from lambing/birthing animals. healthdirect Q fever: pregnant = higher chance of chronic Q fever; Q fever in pregnancy can lead to miscarriage, stillbirth, premature birth, low birth weight. NSW Health Q fever: breathing in bacteria 'while birthing, slaughtering or butchering infected animals (especially cattle, sheep or goats). These activities carry a very high risk of infection.' NSW Health Q fever page also lists pregnant women among those more at risk of complications."
+      url: https://www.health.nsw.gov.au/Infectious/factsheets/Pages/q-fever.aspx
+      fixed_to: "Lede reframed honestly: official pages we could read give no pregnancy-specific advice on lambing or farm work, so ask your doctor or midwife; NSW Health 'very high risk' wording and source added. Verdict stays ask."
+    - claim: "Don't drink unpasteurised milk."
+      judgement: wrong
+      source_says: "Drinking unpasteurised (unsterilised) milk may also increase your chance of developing Q fever."
+      url: https://www.healthdirect.gov.au/conditions/bacterial-infections/q-fever
+      fixed_to: "healthdirect says drinking it may also increase your chance of developing Q fever."
+    - claim: "(lead found, not loadable) Queensland Health, Darling Downs HHS news item 'Darling Downs and South West communities reminded of the risk of Q fever'"
+      judgement: unchecked
+      source_says: "Web-search summary only, NOT verified (page blocked automated fetch, Cloudflare; not worked around): reportedly advises pregnant women, or those who may be, to stay away from animals giving birth, recently given birth or aborted; not to help lamb, calve or kid; avoid birth products and contaminated bedding/clothing. Hand-check the page, and if it says this, it is the Australian official source for an avoid verdict."
+      url: https://www.darlingdowns.health.qld.gov.au/about-us/our-stories/news/darling-downs-and-south-west-communities-reminded-of-the-risk-of-q-fever
+      fixed_to: "not added to the draft; flagged for a human check"
+  # UK/Scotland pages (gov.uk, gov.scot) do say to avoid birthing animals (Chlamydia abortus, toxoplasmosis, listeria, Q fever) but are not Australian and were not used.
+- id: working-while-pregnant
+  file: content/drafts/working-while-pregnant.md
+  verdict: ok
+- id: standing-all-day
+  file: content/drafts/standing-all-day.md
+  verdict: ok
+- id: heavy-lifting
+  file: content/drafts/heavy-lifting.md
+  verdict: fix
+  problems:
+    - claim: "low weights and more repetitions"
+      judgement: wrong
+      source_says: "choose low weights and medium to high repetitions - avoid lifting heavy weights altogether"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+      fixed_to: "low weights and medium to high repetitions, and avoid lifting heavy weights altogether"
+    - claim: "Better Health Channel lists heavy lifting among the activities to avoid in pregnancy"
+      judgement: wrong
+      source_says: "listed under 'Exercises to avoid while pregnant'"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+      fixed_to: "among the exercises to avoid while pregnant"
+- id: shift-work
+  file: content/drafts/shift-work.md
+  verdict: fix
+  problems:
+    - claim: "Your employer's obligations include talking with you about working hours"
+      judgement: unsupported
+      source_says: '"You and your employer might also agree on different working hours." (SafeWork NSW)'
+      url: https://www.safework.nsw.gov.au/safety-starts-here/physical-safety-at-work-the-basics/pregnancy
+      fixed_to: "reworded to SafeWork NSW's wording"
+    - claim: "Pregnancy symptoms like morning sickness and fatigue can also make long or night shifts harder to manage."
+      judgement: unsupported
+      source_says: "You may need to manage pregnancy symptoms while at work, such as morning sickness or fatigue."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
+      fixed_to: "You may also need to manage pregnancy symptoms such as morning sickness or fatigue while at work (Pregnancy, Birth and Baby)."
+- id: chemicals-at-work
+  file: content/drafts/chemicals-at-work.md
+  verdict: fix
+  problems:
+    - claim: "Reduce exposure: keep the area well ventilated, wear gloves, wash your hands before eating, and store chemicals safely. / Don't rely on a mask."
+      judgement: unsupported
+      source_says: "The advice is PBB's for hairdressers (hair dye): lower exposure by opening windows, using gloves, washing hands before eating, storing and disposing of chemicals safely; masks may not fully protect you, so ventilation is still important."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
+      fixed_to: "credited to Pregnancy, Birth and Baby and framed as the hairdressing advice"
+- id: hairdressing-and-nail-salon-work
+  file: content/drafts/hairdressing-and-nail-salon-work.md
+  verdict: fix
+  problems:
+    - claim: "Ventilate: open windows and doors, especially while you colour."
+      judgement: unsupported
+      source_says: '"opening windows"; "wear gloves and work in a well-ventilated salon"'
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/hair-care-during-pregnancy
+      fixed_to: "open windows, and work in a well-ventilated salon (Pregnancy, Birth and Baby)"
+- id: radiation-at-work
+  file: content/drafts/radiation-at-work.md
+  verdict: fix
+  problems:
+    - claim: "...can approach or exceed 1 mSv a year, so raise it with your employer."
+      judgement: unsupported
+      source_says: "It is possible for people who fly very frequently, for example 10-20 hours per week on long haul flights, to approach and exceed a 1 millisievert (mSv) per year dose."
+      url: https://www.arpansa.gov.au/understanding-radiation/radiation-sources/more-radiation-sources/flying-and-health
+      fixed_to: "can approach and exceed 1 mSv a year. (advice clause cut)"
+- id: working-with-children
+  file: content/drafts/working-with-children.md
+  verdict: ok
+- id: dental-work
+  file: content/drafts/dental-work.md
+  verdict: fix
+  problems:
+    - claim: "MotherSafe names paracetamol and codeine as first choice; NSAIDs such as ibuprofen are no longer recommended in pregnancy except under medical supervision."
+      judgement: wrong
+      source_says: "Paracetamol and codeine for acute pain are considered the first choice in pregnancy. NSAIDs such as ibuprofen or diclofenac are no longer recommended in pregnancy and should only be used under medical supervision. Inadvertent use is not considered to be of concern."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/DentaltreatmentpregbreastNov2020.pdf
+      fixed_to: "MotherSafe wording restored, with the inadvertent-use line and MotherSafe phone numbers"
+    - claim: "X-rays: MotherSafe calls dental x-rays safe, with a lead apron; PBB says generally aren't recommended..."
+      judgement: wrong
+      source_says: "MotherSafe: dental X-rays are safe during pregnancy as the dose to the unborn baby is considered insignificant; usual practice is a lead apron. PBB: generally x-rays are not recommended during pregnancy, especially in the first trimester; however most dental x-rays are safe as they are very small radiation doses."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/looking-after-your-teeth-during-pregnancy
+      fixed_to: "each source credited with its own wording"
+    - claim: "ideally early; second trimester is often easiest"
+      judgement: wrong
+      source_says: "See your dentist at least once, ideally in the first or second trimester ... You might find the best time is the second trimester."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/looking-after-your-teeth-during-pregnancy
+      fixed_to: "PBB wording"

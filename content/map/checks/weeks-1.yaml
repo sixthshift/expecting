@@ -1,0 +1,335 @@
+# Fact-check of the week notes content/weeks/1.md to 21.md, 2026-10-29.
+# Each claim was read against the cited Pregnancy, Birth and Baby page (fetched with curl), plus the
+# infographic https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/how-big-is-your-baby-infographic
+# (fruit comparisons only: it gives no lengths or weights) and the already-checked items in content/items/.
+# `checked:` added to a note only where every claim is ok or fixed. Notes 6, 7, 12 and 20 keep size
+# figures (mm/cm, g) that no page gives, so they stay unchecked.
+- id: week-1
+  file: content/weeks/1.md
+  verdict: fix
+  problems:
+    - claim: "week 1 is that period: it happens before conception ... Nothing has started, but the count has."
+      judgement: unsupported
+      source_says: "pregnancy and due date is typically calculated according to the first day of your last period, before conception has even happened."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-1-4
+      fixed_to: "reworded to the source's counting statement"
+    - claim: "This is a normal period. There is nothing to notice ... most people only work out afterwards which week this was."
+      judgement: unsupported
+      source_says: "You probably won't notice any signs that you're pregnant just yet."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-1-4
+      fixed_to: "You probably will not notice any signs of pregnancy yet"
+    - claim: "a good moment to find out together how your GP and the local hospitals handle pregnancy care"
+      judgement: unsupported
+      source_says: "\"If the baby is planned, you might consider seeing your doctor to talk about genetic screening or to be tested for any sexually transmitted infections\"; no alcohol and no smoking are best."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-1-4
+      fixed_to: "doctor visit before conception, no alcohol, no smoking (as the source says)"
+- id: week-2
+  file: content/weeks/2.md
+  verdict: fix
+  problems:
+    - claim: "The egg that will be fertilised is maturing, and that is all."
+      judgement: unsupported
+      source_says: "\"Your pregnancy began when your egg was fertilised by sperm\" (nothing about maturing)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-1-4
+      fixed_to: "cut; kept the counting statement"
+    - claim: "\"no test that can tell you anything\" / \"the first visit, once there is a positive test, is a GP appointment; it is where the care options get laid out\""
+      judgement: unsupported
+      source_says: "\"Your baby will have the best possible start in life if you are healthy when you conceive\" (diet, exercise, no alcohol, no smoking); the GP visit is described on the week 5 and 6 pages, not here."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-1-4
+      fixed_to: "partner part rewritten to the healthy-before-conception advice"
+- id: week-3
+  file: content/weeks/3.md
+  verdict: fix
+  problems:
+    - claim: "It is a cluster of cells, far too small to see without a microscope."
+      judgement: unsupported
+      source_says: "Over the next 4 or 5 days, your fertilised egg continues to divide and travel down the fallopian tube towards your uterus."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-1-4
+      fixed_to: "cut"
+    - claim: "Your period is not due for another week, and a pregnancy test cannot tell you anything this early."
+      judgement: unsupported
+      source_says: "\"The first sign for many women is that they miss their period at the end of week 4.\" Test from the day after a missed period (week 5 page)."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-5
+      fixed_to: "reworded to the missed period at the end of week 4 and a test the day after"
+    - claim: "This is the week it begins; the first visit later on is a GP appointment"
+      judgement: unsupported
+      source_says: "The page covers weeks 1 to 4 together and gives no week for conception; it says nothing of a first visit."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-1-4
+      fixed_to: "'Around now it begins'; visit sentence cut"
+- id: week-4
+  file: content/weeks/4.md
+  verdict: ok
+  problems:
+    - claim: "Expect a mix of feelings on both sides"
+      judgement: unsupported
+      source_says: "\"you might be feeling all kinds of different emotions, from happiness and excitement, to worry and fear\" (about the person who missed the period)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-1-4
+      fixed_to: "Expect a mix of feelings"
+  # Test the day after a missed period, and seeing a doctor to confirm: week 5 page (loaded).
+- id: week-5
+  file: content/weeks/5.md
+  verdict: fix
+  problems:
+    - claim: "the care options, public, private or a midwifery group practice"
+      judgement: unsupported
+      source_says: "They may also be able to help you understand the different models of maternity care available to you"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-5
+      fixed_to: "the models of maternity care available, and an early dating scan"
+- id: week-6
+  file: content/weeks/6.md
+  verdict: fix
+  problems:
+    - claim: "source: raisingchildren.net.au (refuses fetches)"
+      judgement: unsupported
+      source_says: "re-checked against the Pregnancy, Birth and Baby week 6 page"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-6
+      fixed_to: "source switched"
+    - claim: "the neural tube is closing; the heart has started beating"
+      judgement: unsupported
+      source_says: "If you have an ultrasound in the sixth week, you may be able to see your baby's heart beating."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-6
+      fixed_to: "reworded to the source (double in size, tadpole, buds, jaw, eyes, vertebrae, heart on ultrasound)"
+    - claim: "morning sickness often starts around this week"
+      judgement: unsupported
+      source_says: "Not all women experience morning sickness ... at any time of day ... usually clears up by about 3 months into pregnancy."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-6
+      fixed_to: "cut"
+    - claim: "If you can't keep fluids down, call your GP or midwife today"
+      judgement: wrong
+      source_says: "If you're feeling very unwell or you have severe vomiting that doesn't stop, talk to your doctor or midwife."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-6
+      fixed_to: "talk to your doctor or midwife (source wording)"
+    - claim: "cooking smells, snacks; many people wait until after the 12-week scan"
+      judgement: unsupported
+      source_says: "\"Try to eat small frequent meals\"; see your doctor to confirm with a blood test; the week 13 page says many people share the news in the second trimester."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-13
+      fixed_to: "small frequent meals, walking, book the GP, wait until the second trimester"
+    - claim: "size length 0.5 (mm/cm)"
+      judgement: unchecked
+      source_says: "Only 'lentil seed' (infographic); no length given."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/how-big-is-your-baby-infographic
+      fixed_to: "kept, unchecked; like changed to 'a lentil seed'"
+  restored:
+    - claim: "Not everyone has morning sickness, but it is more likely between weeks 6 and 14"
+      url: https://www.healthdirect.gov.au/morning-sickness
+      source_says: "You are more likely to have morning sickness between weeks 6 and 14 of pregnancy."
+    - claim: "size length 0.3 cm (3 mm), a lentil seed"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-week-by-week
+      source_says: "Pregnancy week 6 The baby is now known as an embryo. It is around 3 mm in length."
+  not_restored:
+    - claim: "the neural tube is closing"
+      reason: "Better Health week 5 says only 'the evolving neural tube will eventually become the central nervous system'; nothing on closing"
+- id: week-7
+  file: content/weeks/7.md
+  verdict: fix
+  problems:
+    - claim: "About 1 cm long."
+      judgement: unchecked
+      source_says: "No length on the page; infographic says blueberry."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-7
+      fixed_to: "sentence cut from the text; size.length 1 kept in frontmatter, unchecked"
+    - claim: "Constipation is common about now."
+      judgement: wrong
+      source_says: "Some women have problems with constipation at this stage."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-7
+      fixed_to: "Some people have problems with constipation at this stage."
+    - claim: "The dating scan is usually arranged from that visit"
+      judgement: unsupported
+      source_says: "Dating scan item: most often done between 6 and 8 weeks; week 5 page: the doctor discusses the option of an early dating ultrasound."
+      url: https://www.pregnancybirthbaby.org.au/dating-scan
+      fixed_to: "ask about an early dating scan; most often 6 to 8 weeks"
+  not_restored:
+    - claim: "About 1 cm long; size length 1"
+      reason: "no official Australian page gives a week-7 length (Better Health jumps from 3 mm at week 6 to 1.3 cm at week 8); size removed, and with it 'like', since the schema needs a length"
+- id: week-8
+  file: content/weeks/8.md
+  verdict: ok
+  restored:
+    - claim: "size length 1.3 cm (new)"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-week-by-week
+      source_says: "Pregnancy week 8 The embryo is now around 1.3 cm in length."
+- id: week-9
+  file: content/weeks/9.md
+  verdict: ok
+- id: week-10
+  file: content/weeks/10.md
+  verdict: fix
+  problems:
+    - claim: "the window for the combined test closes at about 13 weeks"
+      judgement: unsupported
+      source_says: "Item first-trimester-screening (checked): blood test between 9 and 13 weeks, scan between 11 weeks and 13 weeks 6 days. The week 10 page says a scan around 12 weeks is often recommended and the tests are optional."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-10
+      fixed_to: "blood test 9 to 13 weeks, scan 11 weeks to 13 weeks 6 days"
+  restored:
+    - claim: "size length 2.5 cm (new)"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-week-by-week
+      source_says: "Pregnancy week 10 The embryo is now known as a fetus and is about 2.5 cm in length."
+- id: week-11
+  file: content/weeks/11.md
+  verdict: fix
+  problems:
+    - claim: "this is the last comfortable week to [decide]"
+      judgement: unsupported
+      source_says: "Item first-trimester-screening: blood test 9 to 13 weeks, scan 11 weeks to 13 weeks 6 days."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-11
+      fixed_to: "the actual windows"
+    - claim: "Vomiting that is hard to live with, or discharge ... are worth a call."
+      judgement: wrong
+      source_says: "\"If nausea or vomiting is causing you significant discomfort ... you should see your doctor.\" Discharge with smell, colour, itching or pain: \"see your doctor or midwife\"."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-11
+      fixed_to: "see your doctor / see your doctor or midwife (source wording)"
+  # note 11 has no ## fix to baby part; checked added (all else ok)
+- id: week-12
+  file: content/weeks/12.md
+  verdict: fix
+  problems:
+    - claim: "source: raisingchildren.net.au (refuses fetches)"
+      judgement: unsupported
+      source_says: "re-checked against the Pregnancy, Birth and Baby week 12 page"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-12
+      fixed_to: "source switched; text rewritten to that page"
+    - claim: "its chest makes practice breathing movements. Twenty tiny tooth buds sit in the gums. from here it is mostly growing."
+      judgement: unsupported
+      source_says: "Kidneys and digestive system are starting to function; swallowing the amniotic fluid and passing it back out as urine."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-12
+      fixed_to: "cut; title 'Fully formed, and practising' now 'Fully formed'"
+    - claim: "end of the first trimester; sickness and tiredness start to ease; a bump usually isn't showing; first time you'll see the baby move; many couples start telling people after the scan"
+      judgement: unsupported
+      source_says: "\"less pressure on your bladder ... less tired ... more energy\"; pelvic floor exercises; routine antenatal visits start around week 12; attend even when well."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-12
+      fixed_to: "rewritten to the page"
+    - claim: "size length 6, weight 18"
+      judgement: unchecked
+      source_says: "Only 'plum' (infographic); no length or weight."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/how-big-is-your-baby-infographic
+      fixed_to: "kept, unchecked; 'a plum' ok"
+  restored:
+    - claim: "Teeth are budding inside the gums."
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-week-by-week
+      source_says: "Pregnancy week 11 Teeth are budding inside the gums. (given at week 11, not 12; the number twenty is not given)"
+    - claim: "For most people morning sickness resolves by weeks 12 to 14, though 1 in 5 have it into the second trimester."
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-morning-sickness
+      source_says: "For most women, morning sickness begins around the fourth week of pregnancy and resolves by weeks 12 to 14. However, 1 in 5 women endures morning sickness into their second trimester"
+  not_restored:
+    - claim: "practice breathing movements"
+      reason: "Better Health puts breathing movements at week 24, PBB at week 28; no page puts them at week 12"
+    - claim: "a bump usually isn't showing yet"
+      reason: "no source; Better Health says only 'your pregnancy may be visible' in the second trimester"
+    - claim: "size length 6, weight 18, like a plum"
+      reason: "no official Australian page gives week-12 length or weight; size removed (the schema needs a length for 'like')"
+- id: week-13
+  file: content/weeks/13.md
+  verdict: fix
+  problems:
+    - claim: "which is why the 20-week scan can often show the sex"
+      judgement: wrong
+      source_says: "by the time you have your 20 week ultrasound, your doctor might be able to see the sex of your baby"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-13
+      fixed_to: "your doctor might be able to see the sex, if you want to know"
+    - claim: "If childcare is on the cards, the waiting lists open from about now."
+      judgement: unsupported
+      source_says: "Item childcare-waitlists (checked): many centres have waiting lists; start well before you think you may need care."
+      url: https://www.pregnancybirthbaby.org.au/child-care
+      fixed_to: "many centres have waiting lists, so start well before you think you will need care"
+- id: week-14
+  file: content/weeks/14.md
+  verdict: fix
+  problems:
+    - claim: "A pregnancy pillow is a small purchase that helps a lot. ... find out what parental leave your employer offers ... Parental Leave Pay ... childcare waiting lists"
+      judgement: unsupported
+      source_says: "Sleeping on your side or putting a pillow between your knees and under your bump; any physical activity is better than none."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-14
+      fixed_to: "exercise and pillow advice; leave and childcare stay in week 13 note"
+- id: week-15
+  file: content/weeks/15.md
+  verdict: fix
+  problems:
+    - claim: "this is the week to ask about it [second-trimester screening]"
+      judgement: unsupported
+      source_says: "From 15 weeks, you might be offered a blood test, known as maternal serum screening ... only offered if you didn't have prenatal screening in your first trimester."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-15
+      fixed_to: "maternal serum screening can be offered from this week, so ask about it"
+- id: week-16
+  file: content/weeks/16.md
+  verdict: ok
+- id: week-17
+  file: content/weeks/17.md
+  verdict: fix
+  problems:
+    - claim: "Probably bigger than the placenta now"
+      judgement: wrong
+      source_says: "might be bigger than their placenta now"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-17
+      fixed_to: "Might be bigger"
+    - claim: "Ask your midwife which ones she recommends"
+      judgement: wrong
+      source_says: "Your doctor or midwife will be able to suggest antenatal classes in your area."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-17
+      fixed_to: "doctor or midwife"
+- id: week-18
+  file: content/weeks/18.md
+  verdict: fix
+  problems:
+    - claim: "the sonographer will ask [about the sex]"
+      judgement: unsupported
+      source_says: "this detail will only be shared if you want to know."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-18
+      fixed_to: "the source says the sex is only shared if you want to know"
+- id: week-19
+  file: content/weeks/19.md
+  verdict: fix
+  problems:
+    - claim: "The midwife measures your tummy at each visit"
+      judgement: wrong
+      source_says: "Your doctor or midwife will feel and measure your tummy at your regular antenatal visits"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-19
+      fixed_to: "Your doctor or midwife will feel and measure"
+- id: week-20
+  file: content/weeks/20.md
+  verdict: fix
+  problems:
+    - claim: "source: raisingchildren.net.au (refuses fetches)"
+      judgement: unsupported
+      source_says: "re-checked against the Pregnancy, Birth and Baby week 20 page"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-20
+      fixed_to: "source switched; text rewritten to that page"
+    - claim: "like: a banana"
+      judgement: wrong
+      source_says: "20 weeks - mango"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/how-big-is-your-baby-infographic
+      fixed_to: "a mango"
+    - claim: "size length 16, weight 320"
+      judgement: unchecked
+      source_says: "No length or weight on any page loaded."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/how-big-is-your-baby-infographic
+      fixed_to: "kept, unchecked"
+    - claim: "The heart beats 120 to 160 times a minute"
+      judgement: unsupported
+      source_says: "Not on the page (it gives 150-180 at weeks 7 and 10)."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-20
+      fixed_to: "cut"
+    - claim: "the baby is moving a lot; first flutters often arrive around now; backache, hip ache; kicks you can feel from the outside a few weeks after; morphology scan is due about now"
+      judgement: unsupported
+      source_says: "Fundus roughly level with the belly button; breathless lying on back; round ligament pain; morphology scan can be done anytime between about 18 and 22 weeks."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-20
+      fixed_to: "rewritten to the page"
+  restored:
+    - claim: "You will start to feel your baby's movements between 16 and 24 weeks of pregnancy, and every baby is different."
+      url: https://www.saferbaby.org.au/preventative-steps/your-babys-movements-matter/
+      source_says: "You will start to feel your baby movements between 16 and 24 weeks of pregnancy, regardless of where your placenta lies. Every baby is different."
+  not_restored:
+    - claim: "The heart beats 120 to 160 times a minute"
+      reason: "only clinical CTG guidelines (NSW, WA, SA, RANZCOG) give a baseline of 110 to 160 bpm, for monitoring, not a week-20 fact for parents"
+    - claim: "size length 16, weight 320"
+      reason: "Better Health gives 21 cm 'in length' at week 20 with no weight, and its 24-week and 36-week figures are crown-to-heel, so 21 cm cannot be labelled head to bottom; size removed"
+    - claim: "kicks you can feel from the outside a few weeks after the first flutters"
+      reason: "no official page found"
+- id: week-21
+  file: content/weeks/21.md
+  verdict: fix
+  problems:
+    - claim: "the source says this is the time [for a trip away]"
+      judgement: wrong
+      source_says: "The second trimester is a good time to travel since you may not be able to do so later in your pregnancy."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-21
+      fixed_to: "the second trimester is a good time to travel"

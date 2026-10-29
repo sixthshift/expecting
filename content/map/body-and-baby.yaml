@@ -1,0 +1,3383 @@
+# The body changing, the baby, the glossary and "nobody tells you".
+# Format: content/map/README.md. Every source URL below loaded and says what the entry lists.
+
+# ---------------------------------------------------------------------------
+# The body changing (guides)
+# ---------------------------------------------------------------------------
+
+- id: how-your-body-changes
+  title: How your body changes in pregnancy
+  type: guide
+  topic: body
+  ask: What actually happens to my body while I'm pregnant?
+  aliases: [ body changes, what to expect physically, pregnancy changes overview ]
+  weeks: [ 1, 42 ]
+  who: carrying
+  priority: 1
+  stakes: low
+  covers: [ two drivers (the growing baby's size and pressure, and hormones), circulation and dizziness, swelling later on, softer ligaments and balance, needing to wee more, skin and breast changes, brain fog, mood, which changes to mention to the midwife ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Changes to your body during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
+  related: [ pregnancy-hormones, skin-in-pregnancy, breasts-and-colostrum, heart-and-blood-in-pregnancy, ligaments-and-joints-in-pregnancy ]
+
+- id: weight-gain-in-pregnancy
+  title: Weight gain in pregnancy
+  type: guide
+  topic: body
+  ask: How much weight should I put on?
+  aliases: [ pregnancy weight, how much weight, BMI pregnancy, weight chart ]
+  weeks: [ 1, 42 ]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: [ 11.5–16 kg is typical for a healthy pre-pregnancy BMI, the BMI-based ranges (12.5–18 / 11.5–16 / 7–11.5 / 5–9 kg) and the monthly rate in the second and third trimesters, about 0.5–2 kg in the first three months, where the weight goes (baby, placenta, fluid, blood, breasts), twins need their own plan, weight is checked at antenatal visits, losing weight early from sickness, risks of gaining much more or much less, it is a guide not a target ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Weight gain in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/weight-gain-in-pregnancy
+    - title: The Royal Women's Hospital — Weight and pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/weight-pregnancy
+  related: [ how-much-more-to-eat, eating-well-in-pregnancy, staying-active-in-pregnancy, term-bmi ]
+  notes: The Royal Women's gives lower BMI cut-offs for people of Asian background; say so. Weight is a sensitive subject; the app is never directive about her body.
+
+- id: the-trimesters
+  title: The three trimesters
+  type: guide
+  topic: body
+  ask: What are the trimesters and when does each one start?
+  aliases: [ first trimester, second trimester, third trimester, trimester dates ]
+  weeks: [ 1, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ first trimester to about 12–13 weeks, second about 13–26, third from about 27 to the birth, the cut-offs differ a little between sources, what each one is like (tiredness and sickness, then energy and movements, then the home stretch), why the first 12 weeks are counted from the last period ]
+  sources:
+    - title: Pregnancy, Birth and Baby — First trimester
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/first-trimester
+    - title: Pregnancy, Birth and Baby — Second trimester
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/second-trimester
+    - title: Pregnancy, Birth and Baby — Third trimester
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/third-trimester
+  related: [ counting-the-weeks, term-trimester, term-first-trimester, term-second-trimester, term-third-trimester ]
+  notes: Better Health Victoria puts the first trimester at 14 weeks and the second at 14–26; Pregnancy Birth and Baby says 12 and 13–26. Pick one and say others differ.
+
+- id: counting-the-weeks
+  title: How the weeks are counted
+  type: guide
+  topic: body
+  ask: Why am I "4 weeks pregnant" when I only conceived two weeks ago?
+  aliases: [ gestational age, weeks pregnant, 40 weeks, how far along, due date calculation, 38+1 ]
+  weeks: [ 1, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ counted from the first day of the last period not conception, 40 weeks is the convention, completed weeks plus days (38+1), the due date is 40 weeks from the LMP (add 7 days and 9 months), a dating scan can move it (crown–rump length before 13 weeks), irregular cycles and the pill, only about 5 in 100 babies arrive on the due date, term is 37 to 41 completed weeks and post-term is 42 or more, why an accurate date matters for care ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Working out your due date
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date
+    - title: Australian Institute of Health and Welfare — Mothers and babies glossary (gestational age, term, pre-term, post-term)
+      url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour (gestational age, EDD)
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+  related: [ term-gestational-age, term-edd, term-lmp, term-term, the-trimesters ]
+  exists: content/items/dating-scan.md
+  notes: The dating scan item covers the appointment; this covers the arithmetic. Timeline weeks in the app are completed weeks of gestation.
+
+- id: the-placenta
+  title: The placenta
+  type: guide
+  topic: body
+  ask: What does the placenta do, and where is mine?
+  aliases: [ placenta, afterbirth, anterior placenta, posterior placenta, low-lying placenta ]
+  weeks: [ 4, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ a temporary organ that starts forming at implantation, passes oxygen and nutrients and carries waste back, makes the pregnancy hormones, blocks some harmful substances but not alcohol or nicotine or some medicines, normal positions (top, sides, front, back), anterior placentas muffle movements, a low placenta usually moves up as the uterus grows, position checked at scans, twins may share one, birthed after the baby (third stage), what can go wrong in one line each (praevia, abruption, accreta, insufficiency, retained), taking it home or lotus birth have no proven benefit ]
+  sources:
+    - title: Pregnancy, Birth and Baby — About the placenta
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta
+    - title: The Royal Women's Hospital — Placenta problems
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/placenta-problems
+    - title: Pregnancy, Birth and Baby — Baby movements during pregnancy (anterior and posterior placenta)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
+  related: [ the-umbilical-cord, amniotic-fluid, term-anterior-placenta, term-posterior-placenta, term-placenta-praevia, twins-and-multiples ]
+  notes: Bleeding and the red flags for placental problems belong to the symptoms area; link, don't repeat.
+
+- id: amniotic-fluid
+  title: Amniotic fluid, the waters
+  type: guide
+  topic: body
+  ask: What are the waters and how much is there?
+  aliases: [ waters, amniotic sac, amniotic fluid index, AFI, too much fluid, too little fluid, polyhydramnios, oligohydramnios ]
+  weeks: [ 4, 42 ]
+  priority: 2
+  stakes: medium
+  covers: [ a watery liquid in the amniotic sac, made by the parent early and then mostly by the baby's urine and lung fluid, lets the baby move and helps lungs and gut and muscles develop, keeps the temperature even and cushions, 500–2000 mL is a healthy range and it peaks about 34 weeks, measured on ultrasound as the AFI, too much or too little can be a sign of a problem and what those words are, waters breaking is labour's subject ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Amniotic fluid
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/amniotic-fluid
+  related: [ the-placenta, term-amniotic-fluid, term-amniotic-sac, term-afi, term-polyhydramnios, term-oligohydramnios ]
+  notes: Waters breaking, PROM and PPROM are labour's; name them, link out.
+
+- id: the-uterus-in-pregnancy
+  title: The uterus and how it grows
+  type: guide
+  topic: body
+  ask: How big does my uterus get?
+  aliases: [ womb, uterus, fundus, fundal height, bump size, measuring the bump ]
+  weeks: [ 1, 42 ]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers: [ pear-shaped and its four parts (fundus, corpus, isthmus, cervix), three layers of the wall, grows greatly, fundus about level with the navel at 20 weeks and up to the ribcage by 36, fundal height measured from 24 weeks and roughly matches the week, what a bigger or smaller measurement leads to (a growth scan), Braxton Hicks as practice, how it contracts in labour and shrinks after ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, uterus
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-uterus
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 20 (fundus at the navel)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-20
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 36 (uterus at the ribcage, engagement)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-36
+  related: [ term-fundal-height, term-fundus, the-cervix-in-pregnancy, braxton-hicks-contractions, baby-size-and-growth ]
+
+- id: the-cervix-in-pregnancy
+  title: The cervix and the mucus plug
+  type: guide
+  topic: body
+  ask: What does the cervix do while I'm pregnant?
+  aliases: [ cervix, mucus plug, cervical length, short cervix, show ]
+  weeks: [ 1, 42 ]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: [ the channel between uterus and vagina, stays long and closed and firm through pregnancy, the mucus plug forms early and seals it against germs, cervical length is sometimes measured on the 16–24 week scan and under 25 mm is called short, in labour it softens and thins (effacement or ripening) and opens to 10 cm, the show and losing the plug are early signs ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, cervix
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-cervix
+  related: [ term-cervix, term-effacement, term-dilation, term-show, term-mucus-plug, term-short-cervix ]
+  notes: Treatment for a short cervix (progesterone, a stitch) is tests-and-care territory.
+
+- id: pregnancy-hormones
+  title: The hormones of pregnancy
+  type: guide
+  topic: body
+  ask: Which hormones are doing all this to me?
+  aliases: [ hormones, hCG, progesterone, oestrogen, relaxin, oxytocin, prolactin, hormonal ]
+  weeks: [ 1, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ hCG from the placenta (what the pregnancy test finds about 2 weeks after conception and what drives progesterone), progesterone and oestrogen (the placenta makes oestriol), relaxin softens ligaments and later the cervix, prostaglandins ripen the cervix, oxytocin for contractions and let-down and bonding, prolactin makes milk, endorphins and adrenaline in labour, how they explain tiredness and discharge and skin and mood and the loose joints, levels fall fast after birth ]
+  sources:
+    - title: Pregnancy, Birth and Baby — hCG levels
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/hcg-levels
+    - title: Pregnancy, Birth and Baby — What happens to your body in childbirth (how hormones help you give birth)
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-happens-to-your-body-in-childbirth
+    - title: healthdirect — Oestrogen
+      url: https://www.healthdirect.gov.au/anatomy/hormones/oestrogen
+    - title: healthdirect — Oxytocin
+      url: https://www.healthdirect.gov.au/anatomy/hormones/oxytocin
+    - title: Pregnancy, Birth and Baby — Let-down reflex (prolactin and oxytocin)
+      url: https://www.pregnancybirthbaby.org.au/babies/feeding-and-nutrition/let-down-reflex
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 11 (oestrogen and progesterone, discharge)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-11
+  related: [ term-hcg, term-progesterone, term-oestrogen, term-relaxin, term-oxytocin, term-prolactin, how-your-body-changes ]
+  notes: No single Australian page lists all the hormones; the entry is stitched from the pages above. Keep each hormone to a line or two.
+
+- id: heart-and-blood-in-pregnancy
+  title: Your heart, blood and circulation
+  type: guide
+  topic: body
+  ask: Why am I puffed and dizzy when I haven't done anything?
+  aliases: [ blood volume, heart rate pregnancy, palpitations, dizziness, breathless, low blood pressure, anaemia ]
+  weeks: [ 4, 42 ]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: [ blood volume rises to feed the placenta, the heart enlarges and beats faster so you are already doing a workout, vessels widen so blood pressure often drops in the middle months, light-headed on standing and why getting up slowly helps, blood pooling in the legs and varicose veins, lying on your back after 16 weeks presses on the big vessels, extra iron is needed and anaemia is the common shortfall, when breathlessness or palpitations need a call ]
+  sources:
+    - title: The Royal Women's Hospital — Active pregnancy (cardiac and circulation changes)
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+    - title: Pregnancy, Birth and Baby — Low blood pressure during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/low-blood-pressure-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Anaemia in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/anaemia-in-pregnancy
+  related: [ pregnancy-supplements, sleep-in-pregnancy, term-anaemia, term-haemoglobin ]
+  notes: Dizziness, swelling and palpitations as "is this normal?" belong to symptoms; here is the why.
+
+- id: skin-in-pregnancy
+  title: Your skin in pregnancy
+  type: guide
+  topic: body
+  ask: What's happening to my skin?
+  aliases: [ skin changes, linea nigra, melasma, chloasma, mask of pregnancy, stretch marks, pregnancy glow, acne, skin tags, moles, itchy skin, PEP, prurigo ]
+  weeks: [ 8, 42 ]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers: [ glow from extra blood flow or dryness and acne, darkening of areolae and moles and freckles and the vulva, linea nigra, melasma or chloasma on the face and sun protection, stretch marks and that creams do not prevent them, new moles and skin tags, spider and varicose veins, the itchy rashes with names (PEP, prurigo) versus the itch of the palms and soles that needs a call, most of it fades after birth ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Skin changes during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/skin-changes-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Changes to your skin during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-skin-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Skin changes during pregnancy, linea nigra
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/skin-changes-during-pregnancy-linea-nigra
+    - title: Pregnancy, Birth and Baby — Skin changes during pregnancy, melasma
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/skin-changes-during-pregnancy-melasma
+    - title: Pregnancy, Birth and Baby — Skin changes during pregnancy, melanocytic naevi
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/skin-changes-during-pregnancy-melanocytic-naevi
+  related: [ term-linea-nigra, term-melasma, term-stretch-marks, hair-and-nails-in-pregnancy, card-skin-tags ]
+  notes: Itching as a red flag (cholestasis) is the symptoms area's; one line and a link.
+
+- id: hair-and-nails-in-pregnancy
+  title: Hair and nails in pregnancy
+  type: guide
+  topic: body
+  ask: Why is my hair so thick, and will it fall out after?
+  aliases: [ hair growth, thicker hair, hair loss after birth, nails growing fast, body hair ]
+  weeks: [ 10, 42 ]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers: [ oestrogen keeps hair in its growing phase so it is thicker and sheds less, nails grow faster, hair in new places, the shed 2–4 months after birth is the catch-up and you will not go bald, back to normal by about 12 months, dye and treatments are a can-i question ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Hair care during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/hair-care-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 15 (hair and nails growing faster)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-15
+  related: [ skin-in-pregnancy, card-thick-hair ]
+
+- id: breasts-and-colostrum
+  title: Your breasts and the first milk
+  type: guide
+  topic: body
+  ask: Why are my breasts changing already, and what is the yellow stuff?
+  aliases: [ breast changes, sore breasts, nipples darker, areola, Montgomery glands, colostrum, leaking, antenatal expressing, bras ]
+  weeks: [ 4, 42 ]
+  who: carrying
+  priority: 1
+  stakes: low
+  covers: [ tender and heavier from the first weeks, veins show, areola and nipples darken and enlarge, the little bumps are Montgomery glands, colostrum is made from about 20 weeks (some sources say earlier) and may leak later on, breast pads, a fitted bra and avoiding hard underwire, antenatal expressing is a thing some people are advised to do from 36 weeks and who should ask, pain or redness or a lump needs a call ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Changes to your body during pregnancy (changes to your breasts)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour (colostrum)
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+    - title: Pregnancy, Birth and Baby — Antenatal expression of colostrum
+      url: https://www.pregnancybirthbaby.org.au/babies/feeding-and-nutrition/antenatal-expression-of-colostrum
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 7 (areola darker, nipples larger)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-7
+  related: [ term-colostrum, term-montgomery-glands, term-areola, card-colostrum-leaking ]
+  exists: content/items/feeding-plan.md
+  notes: Antenatal expressing as a task (and who it is recommended for, such as gestational diabetes) sits with feeding; here only what it is.
+
+- id: the-pelvic-floor
+  title: The pelvic floor
+  type: guide
+  topic: body
+  ask: What is the pelvic floor and do I really need to do the exercises?
+  aliases: [ pelvic floor, kegels, pelvic floor exercises, leaking wee, incontinence, prolapse, perineum ]
+  weeks: [ 1, 42 ]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: [ the sling of muscle from pubic bone to tailbone that holds bladder and uterus and bowel, the three openings pass through it, pregnancy weight and hormones and birth load it, why leaking and prolapse happen, how to find the muscles, the two exercises (slow holds up to 8 seconds and quick squeezes) three sets a day for life, a women's health physio if you can't feel them, the perineum and perineal massage are birth's ]
+  sources:
+    - title: The Royal Women's Hospital — The pelvic floor
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/the-pelvic-floor
+    - title: Pregnancy, Birth and Baby — Pelvic floor exercises
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/pelvic-floor-exercises
+    - title: Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, perineum and pelvic floor
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-perineum-pelvic-floor
+  related: [ term-pelvic-floor, term-perineum, term-prolapse, abdominal-muscles-and-separation, staying-active-in-pregnancy ]
+
+- id: posture-and-back-care
+  title: Posture and your back
+  type: guide
+  topic: body
+  ask: How do I stand, sit and lift without wrecking my back?
+  aliases: [ posture, back care, backache, lifting, sitting, sleeping position back, centre of gravity, support belt ]
+  weeks: [ 13, 42 ]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers: [ the bump shifts your centre of gravity and hormones soften the ligaments, how to stand and sit tall, bending and lifting with the legs, getting out of bed by rolling to the side, flat supportive shoes, a cushion behind the back and a support belt, the gentle exercises that hold the new posture, when pain is more than posture (pelvic girdle pain is a symptom entry) ]
+  sources:
+    - title: The Royal Women's Hospital — Back care and posture
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/back-care-posture
+    - title: Pregnancy, Birth and Baby — Backache in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/backache-in-pregnancy
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 30 (flat shoes, support belt, lifting)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-30
+  related: [ ligaments-and-joints-in-pregnancy, abdominal-muscles-and-separation, staying-active-in-pregnancy ]
+
+- id: ligaments-and-joints-in-pregnancy
+  title: Loose ligaments and aching joints
+  type: guide
+  topic: body
+  ask: Why do my hips and joints feel loose and wobbly?
+  aliases: [ relaxin, loose joints, round ligament pain, pelvic girdle pain, SPD, waddling, balance, feet growing ]
+  weeks: [ 13, 42 ]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers: [ pregnancy hormones soften the ligaments that hold joints together, the pelvis and lower back feel it most then feet and wrists and upper back, round ligaments on each side of the uterus stretch and can give sharp aches around 20 weeks, balance changes and the higher chance of a trip, why feet can spread a size, protecting joints when exercising (no high impact, a pool instead), a physio for pelvic girdle pain ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Changes to your body during pregnancy (joint pain and balance issues)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 20 (round ligaments)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-20
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 19 (feet grow as ligaments stretch)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-19
+    - title: The Royal Women's Hospital — Active pregnancy (joint changes)
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+    - title: Pregnancy, Birth and Baby — Pelvic pain during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/pelvic-pain-during-pregnancy
+  related: [ term-relaxin, term-round-ligament, term-pelvic-girdle-pain, posture-and-back-care, card-feet-grow ]
+  notes: Pelvic girdle pain as "is this normal / when to call" is the symptoms area's.
+
+- id: abdominal-muscles-and-separation
+  title: The abdominal muscles and separation (diastasis recti)
+  type: guide
+  topic: body
+  ask: Is it true my stomach muscles split?
+  aliases: [ diastasis recti, DRAM, abdominal separation, core, sit-ups, tummy muscles, mummy tummy ]
+  weeks: [ 13, 42 ]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers: [ the abdominals stretch over the uterus and work less well, the two halves part along the midline in most pregnancies and that is expected, sit-ups and crunches are ineffective and done on the back after 16 weeks, the draw-in exercise on hands and knees instead, pilates and fitball and aqua classes, checking the gap after birth and the physio, it mostly closes on its own over months ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Abdominal separation
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/abdominal-separation
+    - title: Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, abdominal muscles
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-abdominal-muscles
+    - title: The Royal Women's Hospital — The abdominal muscles
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/the-abdominal-muscles
+  related: [ term-diastasis-recti, the-pelvic-floor, staying-active-in-pregnancy ]
+
+- id: sleep-in-pregnancy
+  title: Sleep in pregnancy
+  type: guide
+  topic: body
+  ask: How am I supposed to sleep like this?
+  aliases: [ sleep, insomnia, can't sleep, sleeping position, sleep on your side, pillows, naps, vivid dreams ]
+  weeks: [ 1, 42 ]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: [ tiredness early then broken sleep later (toilet, heartburn, cramps, the bump), from 28 weeks sleep on your side (either side) to lower the risk of stillbirth and why (the back presses on the big vessels), waking on your back is fine just roll over, pillows between the knees and under the bump, naps, winding down and screens, vivid dreams are normal, when to mention insomnia or snoring ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Sleep during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Dealing with fatigue during your pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/dealing-with-fatigue-during-your-pregnancy
+    - title: Pregnancy, Birth and Baby — Insomnia in pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/insomnia-in-pregnancy-and-breastfeeding
+  related: [ heart-and-blood-in-pregnancy, card-vivid-dreams, card-sleep-on-your-side ]
+  notes: The side-sleeping advice is a stillbirth-prevention message (Safer Baby); say it plainly, without alarm. Insomnia as "is this normal" is symptoms'.
+
+- id: eating-well-in-pregnancy
+  title: Eating well in pregnancy
+  type: guide
+  topic: body
+  ask: What should I be eating?
+  aliases: [ healthy diet, nutrition, food groups, serves, what to eat, pregnancy diet, vegetarian pregnancy, vegan pregnancy ]
+  weeks: [ 1, 42 ]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: [ the five food groups and the recommended serves (the Royal Women's table), more variety not more volume, the nutrients that matter most (folate, iodine, iron, calcium, vitamin D, omega-3) and the foods that carry them, about 2.3 L of water a day, small frequent meals when a big one won't fit, vegetarian and vegan planning, snacks that help, fast food and sugary drinks, food safety is the can-i area's ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Healthy diet during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/healthy-diet-during-pregnancy
+    - title: The Royal Women's Hospital — Food and nutrition in pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/food-nutrition-in-pregnancy
+    - title: Pregnancy, Birth and Baby — Weight gain in pregnancy (fluids, food groups)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/weight-gain-in-pregnancy
+  related: [ how-much-more-to-eat, pregnancy-supplements, weight-gain-in-pregnancy ]
+  notes: Listeria, mercury, caffeine and alcohol are can-i entries; this is the positive side.
+
+- id: how-much-more-to-eat
+  title: Eating for two, or not
+  type: guide
+  topic: body
+  ask: How much extra do I actually need to eat?
+  aliases: [ eating for two, extra calories, kilojoules pregnancy, appetite, hungry all the time, cravings, aversions ]
+  weeks: [ 1, 42 ]
+  who: carrying
+  priority: 1
+  stakes: low
+  covers: [ you don't need to eat for two, little or no extra in the first trimester, a bit more vegetables and lean protein and wholegrains in the second and third, appetite swings with the hormones, cravings and aversions and the metallic taste, pica (craving non-food) and iron, smaller meals when the stomach is squashed ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Weight gain in pregnancy (how much more food should I eat)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/weight-gain-in-pregnancy
+    - title: Pregnancy, Birth and Baby — Food cravings during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/food-cravings-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Appetite changes and food aversions during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/appetite-changes-and-food-aversions-during-pregnancy
+  related: [ eating-well-in-pregnancy, weight-gain-in-pregnancy, card-eating-for-two, card-metallic-taste ]
+
+- id: pregnancy-supplements
+  title: Folate, iodine and the other supplements
+  type: guide
+  topic: body
+  ask: Which vitamins do I need to take?
+  aliases: [ folate, folic acid, iodine, iron, vitamin D, calcium, omega-3, pregnancy multivitamin, prenatal vitamins, supplements ]
+  weeks: [ 1, 42 ]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: [ folic acid and iodine are recommended for everyone in Australia, folate from before conception through the first 3 months to lower the chance of neural tube defects (and the higher dose some people need), iodine for the baby's brain, iron only when tests show it is low, vitamin D if you are low, calcium from food, omega-3, a pregnancy multivitamin versus single supplements, vitamin A and retinol to avoid, ask before adding anything ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Folate and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/folate-and-pregnancy
+    - title: The Royal Women's Hospital — Food and nutrition in pregnancy (important nutrients, supplements)
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/food-nutrition-in-pregnancy
+  related: [ eating-well-in-pregnancy, heart-and-blood-in-pregnancy, term-folate, term-neural-tube-defect ]
+  notes: Border with medicines (can-i). Doses change; mark last-checked.
+
+- id: staying-active-in-pregnancy
+  title: Staying active
+  type: guide
+  topic: body
+  ask: How much exercise is safe, and what should I avoid?
+  aliases: [ exercise, physical activity, sport, gym, running, swimming, walking, 150 minutes, overheating, lying on your back ]
+  weeks: [ 1, 42 ]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: [ start or continue unless told otherwise, about 30 minutes of moderate activity most days or 150 minutes a week, you are already doing a workout so keep it moderate, the changes that matter (heart, blood volume, loose joints, heat, balance), avoid lying flat on your back after 16 weeks, avoid overheating and heavy lifting and contact or fall risks, what helps (gestational diabetes, weight, mood, labour fitness), the stop-and-call signs, adjusting by trimester, specific activities are can-i entries ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Exercising during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+    - title: The Royal Women's Hospital — Active pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+    - title: Pregnancy, Birth and Baby — Weight gain in pregnancy (how much should I exercise)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/weight-gain-in-pregnancy
+  related: [ the-pelvic-floor, abdominal-muscles-and-separation, ligaments-and-joints-in-pregnancy, heart-and-blood-in-pregnancy ]
+  notes: General guidance only; running, cycling, yoga, weights, swimming and so on are the activities area's can-i entries.
+
+- id: braxton-hicks-contractions
+  title: Braxton Hicks, the practice contractions
+  type: guide
+  topic: body
+  ask: My belly keeps going hard. Is that labour?
+  aliases: [ Braxton Hicks, practice contractions, false labour, tightenings, belly goes hard ]
+  weeks: [ 20, 42 ]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers: [ painless irregular tightenings of the uterus lasting 20–90 seconds, from the second trimester and more often near the end, they do not open the cervix, they ease when you change position or activity or drink water, labour contractions get longer stronger and closer together, before 37 weeks contractions can be a sign of premature labour, so contact your doctor or midwife immediately for pain or discomfort in the pelvis, abdomen or lower back, if unsure call anyway ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Braxton Hicks contractions
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/braxton-hicks-contractions
+    - title: Pregnancy, Birth and Baby — Braxton Hicks or labour contractions
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/braxton-hicks-or-labour-contractions
+    - title: Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, uterus (how the uterus prepares)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-uterus
+  related: [ term-braxton-hicks, the-uterus-in-pregnancy, term-contraction ]
+  notes: Shared border with symptoms (is this normal) and labour (telling real contractions). Keep this to what they are; the "when to call" lines point to the red flags entry.
+
+# ---------------------------------------------------------------------------
+# The baby (guides)
+# ---------------------------------------------------------------------------
+
+- id: conception-to-embryo
+  title: From conception to embryo
+  type: guide
+  topic: baby
+  ask: What happens in the first weeks, before I even know?
+  aliases: [ conception, fertilisation, zygote, blastocyst, implantation, embryo, early development, two week wait ]
+  weeks: [ 1, 8 ]
+  priority: 2
+  stakes: low
+  covers: [ ovulation and fertilisation in the fallopian tube, the zygote divides as it travels, the blastocyst implants in the uterine lining about a week later, the layers that become baby and placenta, hCG starts and the test turns positive about two weeks after conception, by week 5–6 the heart is beating and by 8 weeks the embryo has the beginnings of every organ, why weeks 1–2 are counted before conception ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Conception, from fertilisation to embryo
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/conception/conception-from-fertilisation-to-embryo
+    - title: Pregnancy, Birth and Baby — Conception and fetal development
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/conception/conception-and-fetal-development
+    - title: Pregnancy, Birth and Baby — hCG levels
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/hcg-levels
+    - title: Better Health Channel — Pregnancy, week by week
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-week-by-week
+  related: [ term-zygote, term-blastocyst, term-embryo, term-implantation, counting-the-weeks, how-your-baby-develops ]
+
+- id: how-your-baby-develops
+  title: How your baby develops, stage by stage
+  type: guide
+  topic: baby
+  ask: What is the baby doing in there each trimester?
+  aliases: [ fetal development, baby development, embryo to fetus, organs forming, stages of development, what is my baby doing ]
+  weeks: [ 1, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ embryo until about 8 weeks then fetus, organs and limbs in place by about 12 weeks and mostly growing after, swallowing and peeing the amniotic fluid, practice breathing movements, taste buds and fingerprints and eyes and hair by the second trimester, sleep and wake cycles, hiccups and yawns, fat laid down in the third trimester, lanugo and vernix come and go, lungs and brain mature last, head-down and engaged near the end, the week notes carry the detail ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Conception and fetal development
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/conception/conception-and-fetal-development
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 12 (organs in place, swallowing, practice breathing)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-12
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 18 (yawn, hiccup, meconium)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-18
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 30 (fat stores, lanugo going)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-30
+    - title: Better Health Channel — Pregnancy, week by week
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-week-by-week
+  related: [ conception-to-embryo, the-babys-senses, the-babys-lungs, the-babys-brain, baby-size-and-growth, term-embryo, term-fetus ]
+  notes: One overview; the per-week detail lives in content/weeks, so don't duplicate it here.
+
+- id: the-babys-senses
+  title: What your baby can hear, see, taste and feel
+  type: guide
+  topic: baby
+  ask: Can the baby hear us yet?
+  aliases: [ baby hearing, can baby hear, baby see light, taste buds, talking to the bump, music, senses ]
+  weeks: [ 9, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ taste buds from about 9 weeks and telling sweet from bitter by 17, the ear bones form around 15 weeks and the baby hears your heartbeat and voice and digestion, sounds from outside from about 24 weeks, eyes respond to light from about 24 weeks and open around 26–27, touch and response to a firm hand on the belly, why talking and singing and reading are worth it for both of you, what the baby remembers of voices ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 9 (taste buds, inner ear)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-9
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 15 (starting to hear)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-15
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 17 (taste)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-17
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 24 (hears outside sounds, eyes respond to light)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-24
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 26 (suck, see, hear, taste, respond to touch)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-26
+  related: [ how-your-baby-develops, the-babys-brain, card-baby-hears-your-heartbeat ]
+  notes: The week pages disagree a little on when hearing starts (week 9 says "not until about 24 weeks", week 15 says "starting to hear"); say hearing develops across 15–24 weeks.
+
+- id: the-babys-lungs
+  title: The lungs, the last thing to be ready
+  type: guide
+  topic: baby
+  ask: Why do they say the lungs aren't ready until the end?
+  aliases: [ lungs, surfactant, practice breathing, breathing movements, lung maturity, steroid injections ]
+  weeks: [ 20, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ the baby gets all its oxygen from the placenta and the lungs are full of fluid, practice breathing movements from the second trimester, surfactant starts around 23–24 weeks and keeps building so the lungs can stay open after the first breath, lungs are mature by about 37 weeks, why prematurity means breathing help, why steroid injections are offered if an early birth is likely (tests-and-care covers the injection), the first breath at birth ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 23 (surfactant, practice breathing)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-23
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 24 (lungs growing branches)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-24
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 37 (fully mature lungs)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-37
+    - title: Pregnancy, Birth and Baby — Premature baby
+      url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/premature-baby
+  related: [ term-surfactant, viability-and-prematurity, amniotic-fluid, how-your-baby-develops ]
+
+- id: the-babys-brain
+  title: The baby's brain
+  type: guide
+  topic: baby
+  ask: When does the brain develop, and what helps it?
+  aliases: [ brain development, nervous system, myelin, neural tube, iodine, omega-3, folate brain ]
+  weeks: [ 3, 42 ]
+  priority: 2
+  stakes: medium
+  covers: [ the neural tube closes in the first month which is why folate matters before you know, nerves get their myelin coating from mid-pregnancy, rapid growth in the second half and especially the last trimester, the baby can recognise light and sound and pain by about 23 weeks, iodine and omega-3 and iron feed it, alcohol and smoking harm it, the brain keeps growing fast after birth (the first 1000 days) ]
+  sources:
+    - title: Pregnancy, Birth and Baby — How your baby's brain develops
+      url: https://www.pregnancybirthbaby.org.au/babies/growth-and-development/how-your-babys-brain-develops
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 18 (nervous system, myelin)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-18
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 23 (brain and nervous system developing rapidly)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-23
+    - title: Pregnancy, Birth and Baby — Folate and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/folate-and-pregnancy
+  related: [ pregnancy-supplements, the-babys-senses, term-neural-tube-defect ]
+
+- id: baby-movements
+  title: Your baby's movements
+  type: guide
+  topic: baby
+  ask: When will I feel the baby move, and what should it feel like?
+  aliases: [ kicks, movements, quickening, flutters, first kick, baby not moving, kick counts, anterior placenta movements ]
+  weeks: [ 16, 42 ]
+  priority: 1
+  stakes: high
+  covers: [ first felt around 16–24 weeks (often 20 in a first pregnancy and earlier in later ones), flutters and swishes then kicks and rolls, regular by 28 weeks and daily until birth, an anterior placenta muffles them, babies do not slow down at the end, get to know this baby's pattern instead of counting, any change means call now not tomorrow, home dopplers are not approved for sale in Australia and don't tell you the baby is well ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Baby movements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Fetal monitoring (home dopplers)
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/fetal-monitoring
+  related: [ the-placenta, term-quickening, term-anterior-placenta, card-anterior-placenta ]
+  exists: content/items/baby-movements.md
+  notes: The item exists and is strong; this entry only needs the "what it feels like by week" that the item skips. Reduced movements as a red flag is shared with symptoms.
+
+- id: viability-and-prematurity
+  title: Viability, and what "premature" means
+  type: guide
+  topic: baby
+  ask: From what week could the baby survive if born early?
+  aliases: [ viability, viable, premature, preterm, 24 weeks, NICU, special care nursery, born early, corrected age ]
+  weeks: [ 20, 42 ]
+  priority: 2
+  stakes: medium
+  covers: [ preterm is before 37 completed weeks and about 8 in 100 Australian babies are, extremely and very preterm (before 28 and before 32) usually need NICU and breathing help, 32–37 usually special care and mostly no long-term problems, around 24 weeks about 1 in 2 survive with expert care and the chance of disability is high, about 80% by 25 weeks, why every week counts, term is 37–41 and post-term 42, corrected age after an early birth, where the nearest NICU is (hospital's own guide) ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Premature baby
+      url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/premature-baby
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 24 (chance of survival)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-24
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 25 (chance of survival)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-25
+    - title: Australian Institute of Health and Welfare — Mothers and babies glossary (pre-term, term, post-term)
+      url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary
+    - title: Pregnancy, Birth and Baby — Corrected gestational age for premature babies
+      url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/corrected-gestational-age-for-premature-babies
+  related: [ the-babys-lungs, term-viable, term-premature, term-nicu, term-special-care-nursery, term-corrected-age ]
+  notes: Sensitive. Survival figures are from Pregnancy Birth and Baby's week pages; say "about" and keep the tone calm. Signs of preterm labour are symptoms' and labour's.
+
+- id: the-babys-position
+  title: Presentation, position and engagement
+  type: guide
+  topic: baby
+  ask: Which way up is the baby, and what does "engaged" mean?
+  aliases: [ baby position, head down, cephalic, vertex, breech, transverse, posterior, anterior, OA, OP, engaged, dropped, lightening, fifths, station ]
+  weeks: [ 28, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ presentation is which part comes first (cephalic or vertex, breech, transverse or shoulder) and position is which way the back of the head faces (anterior, lateral, posterior, left or right), checked by feeling the belly around 36 weeks and confirmed with a scan or in labour by the sutures and fontanelles, most babies are head-down by 37 weeks, anterior is the easiest for birth and posterior means a longer labour and backache, engagement is the head moving into the pelvis (often 36 weeks or later in a first pregnancy and often not until labour in later ones), the bump drops and breathing eases while the bladder suffers, fifths palpable and station as the midwife's measures, the position can still change in labour ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Presentation and position of baby through pregnancy and at birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/presentation-and-position-of-baby-through-pregnancy-and-at-birth
+    - title: The Royal Women's Hospital — Baby's position
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/babys-position
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 36 (engagement)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-36
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 37 (engagement)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-37
+    - title: Pregnancy, Birth and Baby — Vaginal examinations in pregnancy and birth (station)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/vaginal-examinations-in-pregnancy-and-birth
+  related: [ breech, term-cephalic, term-vertex, term-breech, term-transverse-lie, term-occiput-anterior, term-occiput-posterior, term-engagement, term-station, term-lightening ]
+  notes: The phrase "fifths palpable" is used on Australian antenatal records but no public page explaining it loaded; define it from the station page and the record's convention, and mark it to check.
+
+- id: breech
+  title: Breech, and turning the baby
+  type: guide
+  topic: baby
+  ask: My baby is breech. What happens now?
+  aliases: [ breech, bottom first, feet first, frank breech, complete breech, footling, ECV, turning the baby, moxibustion, breech birth ]
+  weeks: [ 32, 42 ]
+  priority: 2
+  stakes: high
+  covers: [ bottom or feet down, common mid-pregnancy and most turn by the last weeks, about 3 in 100 are still breech near term, the three kinds (frank or extended, complete or flexed, footling), what makes it more likely (low placenta, lots or little fluid, twins, uterus shape, a previous breech) and that usually no cause is found, ECV from 36 weeks turns about half with gentle pressure by an obstetrician where a caesarean is possible and about 1 in 200 need one straight after, anti-D after ECV if RhD negative, no evidence for moxibustion or exercises or chiropractic, the choice between a planned caesarean and a vaginal breech birth where the hospital has the skills, the decision is a labour-and-birth entry ]
+  sources:
+    - title: RANZCOG — Breech presentation at the end of your pregnancy
+      url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Breech-presentation-at-the-end-of-your-pregnancy.pdf
+    - title: Pregnancy, Birth and Baby — Breech pregnancy
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
+    - title: Pregnancy, Birth and Baby — External cephalic version (ECV)
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/external-cephalic-version-ecv
+    - title: Pregnancy, Birth and Baby — Malpresentation
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/malpresentation
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 35 (breech still common, most turn)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-35
+  related: [ the-babys-position, term-breech, term-ecv, term-frank-breech, term-footling-breech, term-malpresentation ]
+  notes: The birth decision (caesarean versus vaginal breech) belongs to labour and birth; anti-D after ECV links to the anti-D item.
+
+- id: baby-size-and-growth
+  title: How big is the baby, and how growth is checked
+  type: guide
+  topic: baby
+  ask: How big is the baby now, and how do they know it's growing well?
+  aliases: [ baby size, fruit size, how big, birth weight, growth scan, small baby, big baby, SGA, LGA, growth restriction, FGR, IUGR, fundal height ]
+  weeks: [ 5, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ a rough length and weight by stage (about 21 cm at 20 weeks, 33 cm at 24, 46 cm at 36, a term baby anywhere from about 2.9 to 4.2 kg), why the size of a plum comparisons are rough, crown–rump length early and head and femur and abdomen later, fundal height from 24 weeks as the screen, a growth scan when the measure is off, small for gestational age and fetal growth restriction versus large, low birthweight under 2.5 kg and high over 4.5 kg, the placenta's part, twins run smaller ]
+  sources:
+    - title: Better Health Channel — Pregnancy, week by week (lengths by stage)
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-week-by-week
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 40 (term birthweight range)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-40
+    - title: Pregnancy, Birth and Baby — Working out your due date (crown–rump length, later measurements)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date
+    - title: Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, uterus (fundal height)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-uterus
+    - title: Pregnancy, Birth and Baby — Placental insufficiency (fetal growth restriction)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placental-insufficiency
+    - title: Australian Institute of Health and Welfare — Mothers and babies glossary (birthweight, low and high birthweight, small for gestational age)
+      url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary
+  related: [ the-uterus-in-pregnancy, term-fundal-height, term-crown-rump-length, term-sga, term-lga, term-fgr, term-low-birthweight, the-placenta ]
+  notes: The app's week notes already carry size and a fruit comparison per week, so this entry explains how sizes are estimated rather than listing all 42. Growth charts (customised versus population) could not be sourced from an Australian page.
+
+- id: the-babys-heartbeat
+  title: The baby's heartbeat
+  type: guide
+  topic: baby
+  ask: When can we hear the heartbeat?
+  aliases: [ heartbeat, heart rate, fetal heart, doppler, pinard, 110 to 160, home doppler, CTG ]
+  weeks: [ 5, 42 ]
+  priority: 2
+  stakes: medium
+  covers: [ beating by about 5–6 weeks and seen on an early scan before it can be heard, heard with a doppler or Pinard horn at antenatal visits, a fast normal rate compared with an adult's, the 20-week scan checks rate and rhythm, CTG traces the heart rate against contractions later in pregnancy or in labour, home dopplers are not approved for sale in Australia and cannot tell you the baby is well, the old wives' tale about rate and sex ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Fetal monitoring
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/fetal-monitoring
+    - title: The Royal Women's Hospital — Checking your baby during labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/checking-your-baby-during-labour
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 18 (20-week scan checks heart rate and rhythm)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-18
+    - title: Better Health Channel — Pregnancy, week by week (the heart is beating)
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-week-by-week
+  related: [ term-ctg, term-doppler, term-pinard, baby-movements, card-home-dopplers ]
+  notes: The normal fetal heart-rate range (110–160) did not appear on a loaded Australian page; leave the number out or find it before writing.
+
+- id: finding-out-the-sex
+  title: Finding out the baby's sex
+  type: guide
+  topic: baby
+  ask: When and how can we find out if it's a boy or a girl?
+  aliases: [ boy or girl, gender, sex of the baby, gender reveal, NIPT sex, 20 week scan sex, keep it a surprise ]
+  weeks: [ 10, 22 ]
+  priority: 1
+  stakes: low
+  covers: [ external sex organs are formed by about 13–17 weeks, the morphology scan at 18–20 weeks can usually tell and you will be asked whether you want to know, it depends on the baby's position and is not guaranteed, NIPT from about 10 weeks reads the baby's DNA and can report sex chromosomes if you ask, deciding together and telling the sonographer, keeping it a surprise, heart rate and bump shape tell you nothing ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Morphology scan
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/morphology-scan
+    - title: Pregnancy, Birth and Baby — Non-invasive prenatal testing (NIPT)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/non-invasive-prenatal-testing-nipt
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 13 (sex organs developing, seen at the 20-week scan)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-13
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 17 (external sex organs fully formed)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-17
+  related: [ term-nipt, term-morphology-scan, card-sex-myths ]
+  exists: content/items/morphology-scan.md
+  notes: The tests area owns NIPT and the morphology scan as tests; this is only the sex question. Note that NIPT reporting sex is an option you choose, and that sex and gender are not the same thing.
+
+- id: twins-and-multiples
+  title: Twins and multiples
+  type: guide
+  topic: baby
+  ask: How do twins happen, and what's different about carrying them?
+  aliases: [ twins, triplets, multiples, identical, fraternal, DCDA, MCDA, MCMA, monochorionic, TTTS, vanishing twin, twin pregnancy ]
+  weeks: [ 6, 42 ]
+  priority: 3
+  stakes: medium
+  covers: [ fraternal from two eggs (always own placenta and sac) and identical from one egg that splits, DCDA and MCDA and MCMA explained by shared placenta and sac, the early scan tells which, shared-placenta twins need closer checks because of TTTS and cord tangling in MCMA, more of everything (sickness, tiredness, backache, anaemia, blood pressure, gestational diabetes), more appointments and scans, likely born before 37 weeks and at a hospital that can care for them, a vanishing twin on an early scan, weight gain and food for twins, the Australian Multiple Birth Association and Twins Research Australia ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Twin pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy
+    - title: Pregnancy, Birth and Baby — About the placenta (placentas in twin pregnancies)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta
+    - title: Pregnancy, Birth and Baby — Multiple pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy
+  related: [ the-placenta, term-dizygotic, term-monozygotic, term-dcda, term-mcda, term-mcma, term-ttts, term-vanishing-twin, weight-gain-in-pregnancy ]
+  notes: Giving birth to twins is labour's. Only shown when the household answers "twins or more".
+
+- id: the-umbilical-cord
+  title: The umbilical cord
+  type: guide
+  topic: baby
+  ask: What does the cord do, and what happens to it after birth?
+  aliases: [ umbilical cord, cord, cord around the neck, nuchal cord, cord blood, cord clamping, belly button, two vessel cord, single umbilical artery ]
+  weeks: [ 6, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ joins the baby to the placenta and carries oxygen and nutrients in and waste out, normally two arteries and a vein in a jelly, a single umbilical artery (two-vessel cord) is sometimes seen on the scan and usually means extra growth checks, a cord around the neck is common and usually harmless, cord prolapse as the rare emergency, clamping and cutting and who cuts it, cord blood banking as a choice, the stump dries and falls off to leave the navel ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour (umbilical cord)
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+    - title: Safer Care Victoria — Single umbilical artery
+      url: https://www.safercare.vic.gov.au/clinical-guidance/neonatal/single-umbilical-artery
+    - title: Pregnancy, Birth and Baby — Umbilical cord prolapse
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/umbilical-cord-prolapse
+    - title: Pregnancy, Birth and Baby — Cord blood banking
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/cord-blood-banking
+  related: [ the-placenta, term-umbilical-cord, term-single-umbilical-artery, term-cord-prolapse, term-nuchal-cord ]
+  notes: The "two arteries" fact is on the Safer Care page; the vein and "nuchal cord is common and usually harmless" were not on any Australian page that loaded. Delayed cord clamping is labour's.
+
+# ---------------------------------------------------------------------------
+# The glossary (terms). Ids are prefixed term- so they never clash with a guide.
+# Shared sources, anchored once:
+# ---------------------------------------------------------------------------
+
+- id: term-gestational-age
+  title: Gestational age
+  type: term
+  topic: body
+  ask: What does "gestational age" mean on my record?
+  aliases: [ gestation, GA, weeks gestation, how far along ]
+  priority: 1
+  stakes: low
+  covers: [ how far along you are in completed weeks from the first day of the last period, written as weeks plus days (38+1), can be set by ultrasound instead ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary } ]
+  related: [ counting-the-weeks, term-completed-weeks, term-lmp, term-edd ]
+
+- id: term-completed-weeks
+  title: Completed weeks (and 40+3)
+  type: term
+  topic: body
+  ask: What does 40+3 mean?
+  aliases: [ 40+3, plus days, weeks and days, completed weeks ]
+  priority: 1
+  stakes: low
+  covers: [ the number before the plus is whole weeks finished, the number after is days into the next week, 40+3 is three days past the due date, the app's weeks are completed weeks ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary } ]
+  related: [ term-gestational-age, counting-the-weeks ]
+
+- id: term-lmp
+  title: LMP, last menstrual period
+  type: term
+  topic: body
+  ask: Why do they keep asking the date of my last period?
+  aliases: [ LMP, LNMP, last period, last normal menstrual period ]
+  priority: 1
+  stakes: low
+  covers: [ the first day of the last period, the starting point for counting the weeks and the due date, less reliable with irregular cycles ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Working out your due date", url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date }, { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-edd, term-gestational-age, counting-the-weeks ]
+
+- id: term-edd
+  title: EDD, EDB and EDC, the due date
+  type: term
+  topic: body
+  ask: What's the difference between EDD, EDB and EDC?
+  aliases: [ EDD, EDB, EDC, estimated due date, estimated date of birth, estimated date of confinement, due date ]
+  priority: 1
+  stakes: low
+  covers: [ all three mean the due date, about 40 weeks from the LMP, confinement is the old word for the birth, only about 5 in 100 babies arrive on the day ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Pregnancy, Birth and Baby — Working out your due date", url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date } ]
+  related: [ term-lmp, counting-the-weeks, term-term ]
+  notes: EDC is in common use on Australian forms but no loaded page spells it out; the duedate page covers EDD and the glossary EBD.
+
+- id: term-trimester
+  title: Trimester
+  type: term
+  topic: body
+  ask: What is a trimester?
+  aliases: [ trimester, three trimesters ]
+  priority: 1
+  stakes: low
+  covers: [ a span of about three months, three of them, marked by different stages of development, cut-offs differ a little by source ]
+  sources: [ { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth }, { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ the-trimesters, term-first-trimester, term-second-trimester, term-third-trimester ]
+
+- id: term-first-trimester
+  title: First trimester
+  type: term
+  topic: body
+  ask: When does the first trimester end?
+  aliases: [ first trimester, T1 ]
+  priority: 1
+  stakes: low
+  covers: [ from the LMP to about 12–14 weeks depending on the source ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth }, { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary } ]
+  related: [ the-trimesters ]
+
+- id: term-second-trimester
+  title: Second trimester
+  type: term
+  topic: body
+  ask: When is the second trimester?
+  aliases: [ second trimester, T2, middle trimester ]
+  priority: 1
+  stakes: low
+  covers: [ about weeks 13–14 to 26 ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: [ the-trimesters ]
+
+- id: term-third-trimester
+  title: Third trimester
+  type: term
+  topic: body
+  ask: When does the third trimester start?
+  aliases: [ third trimester, T3, last trimester ]
+  priority: 1
+  stakes: low
+  covers: [ about week 26–27 until the birth ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: [ the-trimesters ]
+
+- id: term-term
+  title: Term, full term, early and late
+  type: term
+  topic: body
+  ask: What counts as "term"?
+  aliases: [ term, full term, at term, early term, late term, 37 weeks ]
+  priority: 1
+  stakes: medium
+  covers: [ term is 37–41 completed weeks (some sources say 37–42), before 37 is preterm and 42 or more is post-term, why 37 is not a target to aim for ]
+  sources: [ { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary }, { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-premature, term-post-term, term-overdue, counting-the-weeks ]
+
+- id: term-premature
+  title: Premature, preterm
+  type: term
+  topic: baby
+  ask: What is a premature baby?
+  aliases: [ premature, preterm, prem, born early, extremely preterm, very preterm, late preterm ]
+  priority: 1
+  stakes: medium
+  covers: [ born before 37 completed weeks, the sub-bands used in Australia (before 28, 28–31, 32–36) ]
+  sources: [ { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary }, { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ viability-and-prematurity, term-term ]
+
+- id: term-post-term
+  title: Post-term
+  type: term
+  topic: body
+  ask: What is post-term?
+  aliases: [ post-term, postdates, past 42 weeks, prolonged pregnancy ]
+  priority: 2
+  stakes: medium
+  covers: [ a birth at 42 or more completed weeks, why induction is discussed before then ]
+  sources: [ { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary }, { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-overdue, term-term ]
+
+- id: term-overdue
+  title: Overdue
+  type: term
+  topic: body
+  ask: When am I officially overdue?
+  aliases: [ overdue, late, past due date, 41 weeks ]
+  priority: 1
+  stakes: low
+  covers: [ past the due date into weeks 41–42, going past the date is common, what is offered (labour's subject) ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-post-term, term-edd ]
+
+- id: term-antenatal
+  title: Antenatal, prenatal, perinatal, postnatal
+  type: term
+  topic: body
+  ask: What's the difference between antenatal, perinatal and postnatal?
+  aliases: [ antenatal, prenatal, perinatal, postnatal, postpartum, antepartum ]
+  priority: 1
+  stakes: low
+  covers: [ antenatal and prenatal mean before birth, perinatal spans conception to the first year (or shortly before and after birth in statistics), postnatal and postpartum mean after birth to about 6–8 weeks ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth }, { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary } ]
+  related: [ term-gestational-age ]
+
+- id: term-gravida-para
+  title: G and P, gravida and parity (G2P1)
+  type: term
+  topic: body
+  ask: What does G2P1 on my file mean?
+  aliases: [ G2P1, gravida, para, parity, gravidity, G and P, obstetric history ]
+  priority: 1
+  stakes: low
+  covers: [ G counts pregnancies including this one, P counts previous pregnancies that ended in a live birth or stillbirth (not this one), a miscarriage raises G but not P, twins count once, how the midwife says it ]
+  sources: [ { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary } ]
+  related: [ term-primigravida, term-multipara, term-nullipara ]
+  notes: The AIHW glossary defines parity, primipara and multipara; the G/P shorthand itself was not on any loaded Australian page, so write the notation from the definitions and mark it to check.
+
+- id: term-primigravida
+  title: Primigravida, primipara, "primip"
+  type: term
+  topic: body
+  ask: The midwife called me a primip. What is that?
+  aliases: [ primigravida, primipara, primip, first pregnancy, first baby ]
+  priority: 1
+  stakes: low
+  covers: [ primigravida is pregnant for the first time, primipara (primip) has not had a previous pregnancy that ended in a live birth or stillbirth, why it changes what they expect (engagement, labour length) ]
+  sources: [ { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary } ]
+  related: [ term-gravida-para, term-multipara, term-nullipara ]
+
+- id: term-multipara
+  title: Multipara, multigravida, "multip"
+  type: term
+  topic: body
+  ask: What is a multip?
+  aliases: [ multipara, multigravida, multip, grand multipara, second baby ]
+  priority: 2
+  stakes: low
+  covers: [ has had at least one previous pregnancy that ended in a live birth or stillbirth, grand multipara for many, why later pregnancies show and move earlier and engage later ]
+  sources: [ { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary } ]
+  related: [ term-gravida-para, term-primigravida ]
+
+- id: term-nullipara
+  title: Nullipara, nulliparous
+  type: term
+  topic: body
+  ask: What does nulliparous mean?
+  aliases: [ nullipara, nulliparous, nullip ]
+  priority: 3
+  stakes: low
+  covers: [ has never given birth, used in guidelines where primipara is used in records ]
+  sources: [ { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary } ]
+  related: [ term-primigravida, term-gravida-para ]
+  notes: AIHW uses primipara for the same idea; nullipara appears in guidelines. Say both.
+
+- id: term-bmi
+  title: BMI
+  type: term
+  topic: body
+  ask: Why do they want my BMI?
+  aliases: [ BMI, body mass index, pre-pregnancy BMI ]
+  priority: 2
+  stakes: low
+  covers: [ weight divided by height squared, pre-pregnancy BMI sets the weight-gain guide and some care decisions, its limits ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Weight gain in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/weight-gain-in-pregnancy
+  related: [ weight-gain-in-pregnancy ]
+
+# --- The body ---
+
+- id: term-uterus
+  title: Uterus, womb
+  type: term
+  topic: body
+  ask: Is the womb the same as the uterus?
+  aliases: [ uterus, womb ]
+  priority: 1
+  stakes: low
+  covers: [ the same organ, pear-shaped, holds and grows the baby, its parts ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, uterus", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-uterus } ]
+  related: [ the-uterus-in-pregnancy, term-fundus, term-cervix ]
+
+- id: term-fundus
+  title: Fundus
+  type: term
+  topic: body
+  ask: What is the fundus?
+  aliases: [ fundus, top of the uterus ]
+  priority: 2
+  stakes: low
+  covers: [ the top of the uterus, where the fundal height is measured to, level with the navel around 20 weeks ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, uterus", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-uterus } ]
+  related: [ term-fundal-height, the-uterus-in-pregnancy ]
+
+- id: term-fundal-height
+  title: Fundal height (SFH)
+  type: term
+  topic: body
+  ask: Why do they measure my belly with a tape?
+  aliases: [ fundal height, SFH, symphysis-fundal height, measuring the bump, tape measure ]
+  priority: 1
+  stakes: low
+  covers: [ the distance from the pubic bone to the top of the uterus in centimetres, measured from about 24 weeks at each visit, roughly matches the week, what a reading off the curve leads to ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, uterus", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-uterus } ]
+  related: [ the-uterus-in-pregnancy, baby-size-and-growth ]
+
+- id: term-cervix
+  title: Cervix
+  type: term
+  topic: body
+  ask: Where exactly is the cervix?
+  aliases: [ cervix, neck of the womb, cervical ]
+  priority: 1
+  stakes: low
+  covers: [ the muscular channel between the uterus and the vagina, closed and sealed in pregnancy, opens in labour ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, cervix", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-cervix } ]
+  related: [ the-cervix-in-pregnancy, term-effacement, term-dilation ]
+
+- id: term-short-cervix
+  title: Short cervix
+  type: term
+  topic: body
+  ask: They said my cervix is short. What does that mean?
+  aliases: [ short cervix, cervical length, cervical insufficiency ]
+  priority: 3
+  stakes: high
+  covers: [ a cervical length under 25 mm on a scan at 16–24 weeks, raises the chance of preterm birth, treatments are offered (tests-and-care) ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, cervix", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-cervix } ]
+  related: [ the-cervix-in-pregnancy, term-premature ]
+
+- id: term-mucus-plug
+  title: Mucus plug
+  type: term
+  topic: body
+  ask: What is the mucus plug?
+  aliases: [ mucus plug, plug, cervical mucus ]
+  priority: 2
+  stakes: low
+  covers: [ thick mucus that seals the cervix from early pregnancy to keep germs out, comes away near labour as the show ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, cervix", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-cervix }, { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-show, the-cervix-in-pregnancy ]
+
+- id: term-show
+  title: The show (bloody show)
+  type: term
+  topic: body
+  ask: What is "a show"?
+  aliases:
+    - show
+    - bloody show
+    - the show
+    - losing the plug
+    - mucus plug
+  weeks: [ 36, 42 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - the mucus plug coming away as a pink or blood-streaked discharge
+    - a sign labour may be near but not that it has started
+    - heavy bleeding is different and needs a call
+    - the plug of mucus from the cervix
+    - pink or blood-streaked
+    - labour may be hours or days away
+    - bright red bleeding is different and a call
+  sources:
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+    - title: Pregnancy, Birth and Baby — Early signs of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
+  related:
+    - term-mucus-plug
+    - braxton-hicks-contractions
+    - signs-of-labour
+  notes: Early signs of labour as a whole belong to labour; this is just the word.
+
+- id: term-effacement
+  title: Effacement (ripening)
+  type: term
+  topic: body
+  ask: What is effacement?
+  aliases: [ effacement, effaced, ripening, ripe cervix, thinning, 50% effaced ]
+  priority: 2
+  stakes: low
+  covers: [ the cervix softening and thinning before and during labour, given as a percentage, happens alongside dilation ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, cervix", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-cervix }, { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-dilation, term-cervix ]
+  notes: Labour's area covers what it means for progress; here only the word.
+
+- id: term-dilation
+  title: Dilation
+  type: term
+  topic: body
+  ask: What does "4 centimetres dilated" mean?
+  aliases: [ dilation, dilated, dilate, centimetres dilated, 10 cm, fully dilated ]
+  priority: 1
+  stakes: low
+  covers: [ the cervix opening, measured in centimetres on a vaginal examination, 10 cm is fully open ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: [ term-effacement, term-vaginal-examination ]
+
+- id: term-vaginal-examination
+  title: Vaginal examination (VE, internal)
+  type: term
+  topic: body
+  ask: What is a VE?
+  aliases: [ VE, vaginal examination, internal examination, internal ]
+  priority: 2
+  stakes: low
+  covers: [ two gloved fingers to feel the cervix for dilation and effacement and the baby's station and position, always with consent, not routine in pregnancy ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-dilation, term-station ]
+
+- id: term-pelvic-floor
+  title: Pelvic floor
+  type: term
+  topic: body
+  ask: What is the pelvic floor?
+  aliases: [ pelvic floor, pelvic floor muscles, kegels ]
+  priority: 1
+  stakes: low
+  covers: [ the group of muscles that supports the bladder uterus and bowel ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ the-pelvic-floor ]
+
+- id: term-perineum
+  title: Perineum
+  type: term
+  topic: body
+  ask: What is the perineum?
+  aliases: [ perineum, perineal ]
+  priority: 1
+  stakes: low
+  covers: [ the skin and muscle between the vagina and the anus, where tears and episiotomies happen (birth's) ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: [ the-pelvic-floor ]
+
+- id: term-prolapse
+  title: Prolapse
+  type: term
+  topic: body
+  ask: What is a prolapse?
+  aliases: [ prolapse, pelvic organ prolapse ]
+  priority: 3
+  stakes: medium
+  covers: [ a pelvic organ sagging or bulging into the vagina when the pelvic floor is weakened ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ the-pelvic-floor ]
+
+- id: term-diastasis-recti
+  title: Diastasis recti (DRAM), abdominal separation
+  type: term
+  topic: body
+  ask: What is DRAM?
+  aliases: [ diastasis recti, DRAM, abdominal separation, separated abs, rectus diastasis ]
+  priority: 2
+  stakes: low
+  covers: [ partial or complete separation of the abdominal muscles along the midline ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ abdominal-muscles-and-separation ]
+
+- id: term-linea-nigra
+  title: Linea nigra
+  type: term
+  topic: body
+  ask: What is the dark line down my belly?
+  aliases: [ linea nigra, dark line, line on belly ]
+  priority: 1
+  stakes: low
+  covers: [ a dark vertical line down the middle of the abdomen from the hormones, fades after pregnancy ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ skin-in-pregnancy ]
+
+- id: term-melasma
+  title: Melasma, chloasma, the mask of pregnancy
+  type: term
+  topic: body
+  ask: What is chloasma?
+  aliases: [ melasma, chloasma, mask of pregnancy, pigmentation on face ]
+  priority: 2
+  stakes: low
+  covers: [ darker patches on the face and neck from the hormones, worse with sun, usually fades ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Changes to your body during pregnancy", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy } ]
+  related: [ skin-in-pregnancy ]
+
+- id: term-stretch-marks
+  title: Stretch marks (striae)
+  type: term
+  topic: body
+  ask: What are stretch marks?
+  aliases: [ stretch marks, striae, striae gravidarum ]
+  priority: 1
+  stakes: low
+  covers: [ narrow pink to purple streaks where the skin has stretched, belly breasts hips thighs, fade slowly to silver ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: [ skin-in-pregnancy ]
+
+- id: term-colostrum
+  title: Colostrum
+  type: term
+  topic: body
+  ask: What is colostrum?
+  aliases: [ colostrum, first milk, liquid gold ]
+  priority: 1
+  stakes: low
+  covers: [ thick sticky yellowish early milk made from about 20 weeks until a few days after birth ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ breasts-and-colostrum, term-antenatal-expressing ]
+
+- id: term-antenatal-expressing
+  title: Antenatal expressing
+  type: term
+  topic: body
+  ask: What is antenatal expressing?
+  aliases: [ antenatal expressing, expressing colostrum before birth, hand expressing in pregnancy ]
+  priority: 2
+  stakes: low
+  covers: [ expressing colostrum by hand before the baby is born, usually from about 36 weeks when advised ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-colostrum, breasts-and-colostrum ]
+
+- id: term-areola
+  title: Areola
+  type: term
+  topic: body
+  ask: What is the areola?
+  aliases: [ areola, dark area around nipple ]
+  priority: 3
+  stakes: low
+  covers: [ the darker ring around the nipple, darkens and widens in pregnancy ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Changes to your body during pregnancy", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy } ]
+  related: [ breasts-and-colostrum, term-montgomery-glands ]
+
+- id: term-montgomery-glands
+  title: Montgomery glands
+  type: term
+  topic: body
+  ask: What are the bumps on my areola?
+  aliases: [ Montgomery glands, Montgomery tubercles, bumps on areola ]
+  priority: 3
+  stakes: low
+  covers: [ small bumps on the areola that make an oily substance protecting the nipple, more visible in pregnancy ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Changes to your body during pregnancy", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy } ]
+  related: [ term-areola, breasts-and-colostrum ]
+
+- id: term-braxton-hicks
+  title: Braxton Hicks
+  type: term
+  topic: body
+  ask: Who was Braxton Hicks?
+  aliases: [ Braxton Hicks, practice contractions, false labour, tightenings ]
+  priority: 1
+  stakes: medium
+  covers: [ painless irregular tightenings of the uterus that come and go through pregnancy, named for the doctor who described them, how they differ from labour ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: [ braxton-hicks-contractions, term-contraction ]
+  notes: The name's origin (John Braxton Hicks, 1872) is not on an Australian page; either leave it out or cite a general reference.
+
+- id: term-contraction
+  title: Contraction
+  type: term
+  topic: body
+  ask: What is a contraction, exactly?
+  aliases: [ contraction, contractions, tightening, surge ]
+  priority: 1
+  stakes: low
+  covers: [ the uterus muscle tightening and relaxing, in labour they get stronger longer and closer together to open the cervix ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: [ term-braxton-hicks ]
+  notes: Timing contractions and the stages are labour's.
+
+- id: term-round-ligament
+  title: Round ligament (pain)
+  type: term
+  topic: body
+  ask: What is round ligament pain?
+  aliases: [ round ligament, round ligament pain, sharp pain in groin ]
+  priority: 2
+  stakes: medium
+  covers: [ the ligaments either side of the uterus that hold it in the pelvis, stretch as it grows, can give aching or a sharp stab especially on moving, other causes of pain exist so ask if worried ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 20
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-20
+  related: [ ligaments-and-joints-in-pregnancy ]
+
+- id: term-pelvic-girdle-pain
+  title: Pelvic girdle pain (PGP, SPD)
+  type: term
+  topic: body
+  ask: What is PGP or SPD?
+  aliases: [ pelvic girdle pain, PGP, SPD, symphysis pubis dysfunction, pubic bone pain ]
+  priority: 2
+  stakes: medium
+  covers: [ pain in the joints of the pelvis from the softened ligaments and the load, front or back, a physio helps ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pelvic pain during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/pelvic-pain-during-pregnancy
+    - { title: "Pregnancy, Birth and Baby — Changes to your body during pregnancy", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy }
+  related: [ ligaments-and-joints-in-pregnancy ]
+  notes: As a symptom (what helps, when to call) it is the symptoms area's.
+
+- id: term-relaxin
+  title: Relaxin
+  type: term
+  topic: body
+  ask: What is relaxin?
+  aliases: [ relaxin, loose ligaments hormone ]
+  priority: 2
+  stakes: low
+  covers: [ a hormone that softens ligaments and later the cervix so the pelvis can give in birth ]
+  sources:
+    - title: Pregnancy, Birth and Baby — What happens to your body in childbirth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-happens-to-your-body-in-childbirth
+  related: [ pregnancy-hormones, ligaments-and-joints-in-pregnancy ]
+
+- id: term-hcg
+  title: hCG
+  type: term
+  topic: body
+  ask: What is hCG?
+  aliases: [ hCG, beta hCG, human chorionic gonadotropin, pregnancy hormone ]
+  priority: 1
+  stakes: low
+  covers: [ the hormone the placenta makes that pregnancy tests detect, found in urine or blood about 2 weeks after conception, helps the body make progesterone ]
+  sources:
+    - { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }
+    - title: Pregnancy, Birth and Baby — hCG levels
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/hcg-levels
+  related: [ pregnancy-hormones ]
+
+- id: term-progesterone
+  title: Progesterone
+  type: term
+  topic: body
+  ask: What does progesterone do in pregnancy?
+  aliases: [ progesterone ]
+  priority: 2
+  stakes: low
+  covers: [ keeps the pregnancy going, driven by hCG early, behind tiredness and discharge and slower gut, sometimes given for a short cervix ]
+  sources:
+    - title: Pregnancy, Birth and Baby — hCG levels
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/hcg-levels
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 11
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-11
+  related: [ pregnancy-hormones ]
+
+- id: term-oestrogen
+  title: Oestrogen
+  type: term
+  topic: body
+  ask: What does oestrogen do in pregnancy?
+  aliases: [ oestrogen, estrogen, oestriol ]
+  priority: 2
+  stakes: low
+  covers: [ one of the main female hormones, in pregnancy mostly oestriol made by the placenta, behind thicker hair and darker skin and more discharge ]
+  sources:
+    - title: healthdirect — Oestrogen
+      url: https://www.healthdirect.gov.au/anatomy/hormones/oestrogen
+  related: [ pregnancy-hormones ]
+
+- id: term-oxytocin
+  title: Oxytocin
+  type: term
+  topic: body
+  ask: What is oxytocin?
+  aliases: [ oxytocin, love hormone, syntocinon ]
+  priority: 2
+  stakes: low
+  covers: [ the hormone that makes the uterus contract and the milk let down and helps bonding, Syntocinon is its synthetic form used to induce or speed labour and stop bleeding ]
+  sources:
+    - title: healthdirect — Oxytocin
+      url: https://www.healthdirect.gov.au/anatomy/hormones/oxytocin
+    - { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }
+  related: [ pregnancy-hormones ]
+
+- id: term-prolactin
+  title: Prolactin
+  type: term
+  topic: body
+  ask: What is prolactin?
+  aliases: [ prolactin, milk hormone ]
+  priority: 3
+  stakes: low
+  covers: [ the hormone that makes breast milk, rises through pregnancy ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Let-down reflex
+      url: https://www.pregnancybirthbaby.org.au/babies/feeding-and-nutrition/let-down-reflex
+  related: [ pregnancy-hormones, breasts-and-colostrum ]
+
+- id: term-anaemia
+  title: Anaemia
+  type: term
+  topic: body
+  ask: What is anaemia and why is it common in pregnancy?
+  aliases: [ anaemia, low iron, iron deficiency, low haemoglobin ]
+  priority: 1
+  stakes: medium
+  covers: [ too few healthy red cells or haemoglobin to carry oxygen, iron deficiency is the usual cause because blood volume rises, found on the routine bloods, iron tablets or an infusion (tests-and-care) ]
+  sources:
+    - { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }
+    - title: Pregnancy, Birth and Baby — Anaemia in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/anaemia-in-pregnancy
+  related: [ heart-and-blood-in-pregnancy, term-haemoglobin ]
+
+- id: term-haemoglobin
+  title: Haemoglobin (Hb)
+  type: term
+  topic: body
+  ask: What is Hb on my blood results?
+  aliases: [ Hb, haemoglobin, hemoglobin ]
+  priority: 2
+  stakes: low
+  covers: [ the protein in red cells that carries oxygen, the number checked for anaemia, falls a little in pregnancy as the blood dilutes ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Anaemia in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/anaemia-in-pregnancy
+    - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+  related: [ term-anaemia ]
+
+- id: term-folate
+  title: Folate and folic acid
+  type: term
+  topic: body
+  ask: Is folate the same as folic acid?
+  aliases: [ folate, folic acid, B9 ]
+  priority: 1
+  stakes: high
+  covers: [ folate is the B vitamin in food and folic acid the supplement form, needed before and in the first 3 months to lower the chance of neural tube defects ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: [ pregnancy-supplements, term-neural-tube-defect ]
+
+- id: term-neural-tube-defect
+  title: Neural tube defect, spina bifida
+  type: term
+  topic: baby
+  ask: What is a neural tube defect?
+  aliases: [ neural tube defect, NTD, spina bifida ]
+  priority: 2
+  stakes: high
+  covers: [ the spine or skull not closing in the first month, spina bifida the best known, folate lowers the chance, screened for at the morphology scan ]
+  sources: [ { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth }, { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-folate, the-babys-brain ]
+
+- id: term-hyperemesis
+  title: Hyperemesis gravidarum
+  type: term
+  topic: body
+  ask: What is hyperemesis?
+  aliases: [ hyperemesis, hyperemesis gravidarum, HG, severe morning sickness ]
+  priority: 2
+  stakes: high
+  covers: [ severe nausea and vomiting in pregnancy that can cause dehydration and needs treatment, not ordinary morning sickness ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: []
+  exists: content/items/morning-sickness.md
+  notes: Symptoms owns morning sickness and HG as "when to call"; this is the word.
+
+- id: term-rhd-anti-d
+  title: RhD negative, rhesus and anti-D
+  type: term
+  topic: body
+  ask: What does RhD negative mean?
+  aliases: [ RhD, rhesus, Rh negative, anti-D, blood group negative ]
+  priority: 1
+  stakes: high
+  covers: [ rhesus negative (RhD negative) blood group, why antibodies can form against an RhD-positive baby, anti-D injections prevent it ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: []
+  exists: content/items/anti-d.md
+
+- id: term-varicose-veins
+  title: Varicose veins
+  type: term
+  topic: body
+  ask: What are varicose veins?
+  aliases: [ varicose veins, vulval varicosities ]
+  priority: 2
+  stakes: low
+  covers: [ swollen twisted veins where blood pools, legs and vulva, common in pregnancy ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Pregnancy, Birth and Baby — Changes to your body during pregnancy", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy } ]
+  related: [ heart-and-blood-in-pregnancy ]
+  notes: Symptoms covers what helps.
+
+# --- The baby ---
+
+- id: term-zygote
+  title: Zygote
+  type: term
+  topic: baby
+  ask: What is a zygote?
+  aliases: [ zygote, fertilised egg ]
+  priority: 3
+  stakes: low
+  covers: [ the single cell made when egg and sperm join, carries both parents' DNA ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ conception-to-embryo, term-blastocyst ]
+
+- id: term-blastocyst
+  title: Blastocyst
+  type: term
+  topic: baby
+  ask: What is a blastocyst?
+  aliases: [ blastocyst, IVF blastocyst transfer ]
+  priority: 3
+  stakes: low
+  covers: [ the ball of cells about five days after fertilisation that implants in the uterus, its layers become baby and placenta, the stage transferred in IVF ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ conception-to-embryo, term-implantation ]
+
+- id: term-implantation
+  title: Implantation
+  type: term
+  topic: baby
+  ask: What is implantation?
+  aliases: [ implantation, implantation bleeding ]
+  priority: 2
+  stakes: low
+  covers: [ the blastocyst burrowing into the uterine lining about a week after fertilisation, when the placenta starts ]
+  sources: [ { title: "Pregnancy, Birth and Baby — About the placenta", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta }, { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ conception-to-embryo ]
+  notes: Implantation bleeding as a symptom is the symptoms area's.
+
+- id: term-embryo
+  title: Embryo
+  type: term
+  topic: baby
+  ask: When does an embryo become a fetus?
+  aliases: [ embryo, embryonic ]
+  priority: 1
+  stakes: low
+  covers: [ the name for the baby from conception to about 8 weeks, when the organs are being laid down ]
+  sources: [ { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth }, { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-fetus, how-your-baby-develops ]
+
+- id: term-fetus
+  title: Fetus (foetus)
+  type: term
+  topic: baby
+  ask: What is a fetus?
+  aliases: [ fetus, foetus, fetal, foetal ]
+  priority: 1
+  stakes: low
+  covers: [ the medical word for the unborn baby after the embryo stage, Australian spelling is fetus ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-embryo, how-your-baby-develops ]
+
+- id: term-in-utero
+  title: In utero
+  type: term
+  topic: baby
+  ask: What does in utero mean?
+  aliases: [ in utero, in the womb ]
+  priority: 3
+  stakes: low
+  covers: [ inside the uterus ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: [ term-uterus ]
+
+- id: term-viable
+  title: Viable, viability
+  type: term
+  topic: baby
+  ask: What does viable mean?
+  aliases: [ viable, viability, viable pregnancy ]
+  priority: 2
+  stakes: medium
+  covers: [ a baby that could be born with a reasonable chance of survival, or a pregnancy likely to continue, the two uses ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: [ viability-and-prematurity ]
+
+- id: term-crown-rump-length
+  title: Crown–rump length (CRL)
+  type: term
+  topic: baby
+  ask: What is CRL on my scan report?
+  aliases: [ CRL, crown-rump length, crown rump ]
+  priority: 2
+  stakes: low
+  covers: [ the length from head to bottom measured on an early scan to date the pregnancy ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Working out your due date", url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date } ]
+  related: [ counting-the-weeks, baby-size-and-growth ]
+
+- id: term-sga
+  title: Small for gestational age (SGA)
+  type: term
+  topic: baby
+  ask: What does small for gestational age mean?
+  aliases: [ SGA, small for dates, small baby ]
+  priority: 2
+  stakes: medium
+  covers: [ an estimated weight below the 10th percentile for the week, not the same as growth restriction, leads to closer monitoring ]
+  sources: [ { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary } ]
+  related: [ term-fgr, term-lga, baby-size-and-growth ]
+
+- id: term-lga
+  title: Large for gestational age (LGA), macrosomia
+  type: term
+  topic: baby
+  ask: What does large for dates mean?
+  aliases: [ LGA, large for dates, big baby, macrosomia ]
+  priority: 2
+  stakes: medium
+  covers: [ a baby measuring well above the expected size for the week, checked for causes such as gestational diabetes, high birthweight is 4.5 kg or more ]
+  sources: [ { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary } ]
+  related: [ term-sga, baby-size-and-growth ]
+  notes: AIHW defines high birthweight and SGA; the LGA percentile cut-off is not on a loaded Australian page.
+
+- id: term-fgr
+  title: Fetal growth restriction (FGR, IUGR)
+  type: term
+  topic: baby
+  ask: What is growth restriction?
+  aliases: [ FGR, IUGR, fetal growth restriction, intrauterine growth restriction, placental insufficiency ]
+  priority: 2
+  stakes: high
+  covers: [ the baby not growing as it should, often because the placenta is not working well, closer scans and sometimes an earlier birth ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Placental insufficiency
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placental-insufficiency
+  related: [ term-sga, the-placenta, baby-size-and-growth ]
+
+- id: term-low-birthweight
+  title: Low birthweight
+  type: term
+  topic: baby
+  ask: What counts as low birthweight?
+  aliases: [ low birthweight, LBW, under 2.5 kg ]
+  priority: 3
+  stakes: low
+  covers: [ under 2, 500 g at birth, high birthweight is 4, 500 g or more ]
+  sources: [ { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary }, { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ baby-size-and-growth ]
+
+- id: term-quickening
+  title: Quickening
+  type: term
+  topic: baby
+  ask: What is quickening?
+  aliases: [ quickening, first movements, flutters ]
+  priority: 2
+  stakes: low
+  covers: [ the old word for the first movements you feel, flutters or bubbles around 16–24 weeks ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Baby movements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
+  related: [ baby-movements ]
+
+- id: term-vernix
+  title: Vernix
+  type: term
+  topic: baby
+  ask: What is vernix?
+  aliases:
+    - vernix
+    - vernix caseosa
+    - white coating on baby
+    - white coating at birth
+    - waxy coating
+  priority: 2
+  stakes: low
+  covers:
+    - the white creamy coating that protects the skin in the fluid from about 19 weeks
+    - often still there at birth and less if overdue
+    - no need to wash it off
+    - the creamy coating that protected the skin in the waters
+    - more on an earlier baby and less past the due date
+    - no need to wash it off straight away
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 19
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-19
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 38
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-38
+    - title: Pregnancy, Birth and Baby — Baby's first 24 hours
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/babys-first-24-hours
+  related:
+    - term-lanugo
+    - how-your-baby-develops
+    - baby-first-days
+  notes: "after the birth: later phase"
+
+- id: term-lanugo
+  title: Lanugo
+  type: term
+  topic: baby
+  ask: What is lanugo?
+  aliases: [ lanugo, fine hair on baby, hairy baby ]
+  priority: 2
+  stakes: low
+  covers: [ the fine soft hair that covers the baby from about 15 weeks, thought to help keep it warm, mostly shed before birth and soon gone if not ]
+  sources:
+    - { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 15
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-15
+  related: [ term-vernix ]
+
+- id: term-meconium
+  title: Meconium
+  type: term
+  topic: baby
+  ask: What is meconium?
+  aliases:
+    - meconium
+    - first poo
+    - green waters
+    - meconium-stained liquor
+    - baby's first poo
+    - black sticky poo
+  priority: 1
+  stakes: medium
+  covers:
+    - the sticky dark green first poo that fills the bowel from mid-pregnancy
+    - usually passed after birth
+    - passed before birth it turns the waters green and the baby is watched more closely
+    - the baby's first dark sticky poo
+    - in the waters it can mean the baby is stressed so call if the fluid is green or brown
+    - the baby may be watched more closely after birth
+    - normal in the nappy for the first days
+  sources:
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+    - title: Better Health Channel — Medical terms and definitions during pregnancy and birth
+      url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 38
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-38
+    - title: Pregnancy, Birth and Baby — Waters breaking
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+  related:
+    - term-amniotic-fluid
+    - waters-breaking
+    - term-fetal-distress
+    - baby-first-days
+
+- id: term-surfactant
+  title: Surfactant
+  type: term
+  topic: baby
+  ask: What is surfactant?
+  aliases: [ surfactant, lung maturity ]
+  priority: 3
+  stakes: low
+  covers: [ the substance the lungs make from about 23–24 weeks that keeps the air sacs open after birth, why early babies need help breathing ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 23
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-23
+  related: [ the-babys-lungs ]
+
+- id: term-fontanelles
+  title: Fontanelles and sutures
+  type: term
+  topic: baby
+  ask: What are the soft spots?
+  aliases: [ fontanelle, fontanel, soft spot, sutures, skull bones ]
+  priority: 2
+  stakes: low
+  covers: [ the gaps between the skull bones that let the head mould through the pelvis, the midwife feels them to tell the position, they close over the first two years ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth }, { title: "Pregnancy, Birth and Baby — Presentation and position of baby through pregnancy and at birth", url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/presentation-and-position-of-baby-through-pregnancy-and-at-birth } ]
+  related: [ the-babys-position ]
+
+- id: term-amniotic-fluid
+  title: Amniotic fluid, liquor, the waters
+  type: term
+  topic: body
+  ask: Why does the midwife say "liquor"?
+  aliases: [ amniotic fluid, liquor, waters, fluid around baby ]
+  priority: 1
+  stakes: low
+  covers: [ the fluid around the baby in the sac, liquor is the clinical word, waters the everyday one ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth }, { title: "Pregnancy, Birth and Baby — Amniotic fluid", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/amniotic-fluid } ]
+  related: [ amniotic-fluid, term-amniotic-sac ]
+
+- id: term-amniotic-sac
+  title: Amniotic sac, membranes
+  type: term
+  topic: body
+  ask: What are the membranes?
+  aliases: [ amniotic sac, membranes, bag of waters, sac ]
+  priority: 2
+  stakes: low
+  covers: [ the thin membrane holding the fluid and baby, breaking of the membranes is the waters breaking ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: [ term-amniotic-fluid, amniotic-fluid ]
+
+- id: term-afi
+  title: Amniotic fluid index (AFI)
+  type: term
+  topic: body
+  ask: What is the AFI on my scan?
+  aliases: [ AFI, amniotic fluid index, fluid level, deepest pocket ]
+  priority: 3
+  stakes: low
+  covers: [ an ultrasound measure in centimetres of the pockets of fluid around the baby, a wide normal range ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Amniotic fluid", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/amniotic-fluid } ]
+  related: [ amniotic-fluid, term-polyhydramnios, term-oligohydramnios ]
+
+- id: term-polyhydramnios
+  title: Polyhydramnios
+  type: term
+  topic: body
+  ask: What is polyhydramnios?
+  aliases: [ polyhydramnios, too much fluid, excess amniotic fluid ]
+  priority: 3
+  stakes: medium
+  covers: [ more amniotic fluid than expected, sometimes a sign of a problem, what it leads to depends on cause and week ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Amniotic fluid", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/amniotic-fluid } ]
+  related: [ term-oligohydramnios, amniotic-fluid ]
+
+- id: term-oligohydramnios
+  title: Oligohydramnios
+  type: term
+  topic: body
+  ask: What is oligohydramnios?
+  aliases: [ oligohydramnios, low fluid, not enough amniotic fluid, anhydramnios ]
+  priority: 3
+  stakes: medium
+  covers: [ too little amniotic fluid (anhydramnios is none seen), sometimes a sign of a problem, closer monitoring ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Amniotic fluid", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/amniotic-fluid } ]
+  related: [ term-polyhydramnios, amniotic-fluid ]
+
+- id: term-placenta
+  title: Placenta, afterbirth
+  type: term
+  topic: body
+  ask: Is the afterbirth the placenta?
+  aliases: [ placenta, afterbirth ]
+  priority: 1
+  stakes: low
+  covers: [ the temporary organ on the uterine wall that feeds the baby through the cord, afterbirth is the placenta and membranes once delivered ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: [ the-placenta ]
+
+- id: term-anterior-placenta
+  title: Anterior placenta
+  type: term
+  topic: body
+  ask: What does an anterior placenta mean?
+  aliases: [ anterior placenta, placenta at the front ]
+  priority: 2
+  stakes: low
+  covers: [ the placenta on the front wall of the uterus, normal, movements felt later and softer, can make the sonographer's job and a caesarean plan a little different ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Baby movements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
+    - { title: "Pregnancy, Birth and Baby — About the placenta", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta }
+  related: [ term-posterior-placenta, the-placenta, baby-movements ]
+
+- id: term-posterior-placenta
+  title: Posterior placenta
+  type: term
+  topic: body
+  ask: What does a posterior placenta mean?
+  aliases: [ posterior placenta, placenta at the back ]
+  priority: 2
+  stakes: low
+  covers: [ the placenta on the back wall of the uterus, normal, movements often felt earlier and stronger ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Baby movements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
+    - { title: "Pregnancy, Birth and Baby — About the placenta", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta }
+  related: [ term-anterior-placenta, the-placenta ]
+
+- id: term-fundal-placenta
+  title: Fundal placenta
+  type: term
+  topic: body
+  ask: What is a fundal placenta?
+  aliases: [ fundal placenta, placenta at the top ]
+  priority: 3
+  stakes: low
+  covers: [ the placenta attached at the top of the uterus, the position shown as typical ]
+  sources: [ { title: "Pregnancy, Birth and Baby — About the placenta", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta } ]
+  related: [ term-anterior-placenta, term-fundus ]
+
+- id: term-low-lying-placenta
+  title: Low-lying placenta
+  type: term
+  topic: body
+  ask: My scan says low-lying placenta. Is that praevia?
+  aliases: [ low-lying placenta, low placenta, placenta near cervix ]
+  priority: 2
+  stakes: medium
+  covers: [ a placenta near the cervix on the 20-week scan, usually moves up as the uterus grows, rechecked later, praevia is when it still covers or sits close at term ]
+  sources: [ { title: "Pregnancy, Birth and Baby — About the placenta", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta } ]
+  related: [ term-placenta-praevia, the-placenta ]
+
+- id: term-placenta-praevia
+  title: Placenta praevia
+  type: term
+  topic: body
+  ask: What is placenta praevia?
+  aliases: [ placenta praevia, previa, placenta covering cervix ]
+  priority: 2
+  stakes: high
+  covers: [ the placenta partly or fully covering the cervix, can bleed, usually means a caesarean ]
+  sources:
+    - { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }
+    - title: The Royal Women's Hospital — Placenta problems
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/placenta-problems
+  related: [ term-low-lying-placenta, the-placenta ]
+  notes: Bleeding and management are symptoms' and tests-and-care's.
+
+- id: term-placental-abruption
+  title: Placental abruption
+  type: term
+  topic: body
+  ask: What is an abruption?
+  aliases: [ abruption, placental abruption, placenta coming away ]
+  priority: 2
+  stakes: high
+  covers: [ part or all of the placenta separating from the uterus before birth, pain and bleeding, an emergency ]
+  sources:
+    - { title: "Pregnancy, Birth and Baby — About the placenta", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta }
+    - title: The Royal Women's Hospital — Placenta problems
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/placenta-problems
+  related: [ the-placenta ]
+  notes: Red flags are the symptoms area's.
+
+- id: term-placenta-accreta
+  title: Placenta accreta
+  type: term
+  topic: body
+  ask: What is placenta accreta?
+  aliases: [ accreta, placenta accreta, increta, percreta ]
+  priority: 3
+  stakes: high
+  covers: [ the placenta growing too deeply into the uterine wall, more likely after a caesarean, risk of heavy bleeding at birth, planned care ]
+  sources: [ { title: "Pregnancy, Birth and Baby — About the placenta", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta } ]
+  related: [ the-placenta ]
+
+- id: term-retained-placenta
+  title: Retained placenta, retained products
+  type: term
+  topic: body
+  ask: What is a retained placenta?
+  aliases: [ retained placenta, retained products ]
+  priority: 3
+  stakes: medium
+  covers: [ all or part of the placenta staying in the uterus after birth ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Pregnancy, Birth and Baby — About the placenta", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta } ]
+  related: [ the-placenta ]
+
+- id: term-umbilical-cord
+  title: Umbilical cord
+  type: term
+  topic: baby
+  ask: What is the umbilical cord?
+  aliases: [ umbilical cord, cord ]
+  priority: 1
+  stakes: low
+  covers: [ joins baby and placenta, carries oxygen and nutrients, clamped and cut after birth leaving the stump that becomes the navel ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: [ the-umbilical-cord ]
+
+- id: term-single-umbilical-artery
+  title: Single umbilical artery, two-vessel cord
+  type: term
+  topic: baby
+  ask: My scan says two-vessel cord. What is that?
+  aliases: [ single umbilical artery, SUA, two vessel cord, 2 vessel cord ]
+  priority: 3
+  stakes: medium
+  covers: [ one cord artery instead of two, seen on the scan, sometimes linked with other findings, usually extra growth scans ]
+  sources:
+    - title: Safer Care Victoria — Single umbilical artery
+      url: https://www.safercare.vic.gov.au/clinical-guidance/neonatal/single-umbilical-artery
+  related: [ the-umbilical-cord ]
+  notes: The Safer Care page is written for clinicians; write the plain version carefully.
+
+- id: term-nuchal-cord
+  title: Nuchal cord, cord around the neck
+  type: term
+  topic: baby
+  ask: What if the cord is around the neck?
+  aliases: [ nuchal cord, cord around neck ]
+  priority: 3
+  stakes: low
+  covers: [ the cord looped around the baby's neck, what the midwife does at birth ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ the-umbilical-cord ]
+  notes: Not sourced, no loaded Australian page describes a nuchal cord. The glossary covers the cord only. Find a source before writing or drop.
+
+- id: term-cord-prolapse
+  title: Cord prolapse
+  type: term
+  topic: baby
+  ask: What is cord prolapse?
+  aliases: [ cord prolapse, prolapsed cord ]
+  priority: 3
+  stakes: high
+  covers: [ the cord slipping ahead of the baby after the waters break, rare, an emergency ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Umbilical cord prolapse
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/umbilical-cord-prolapse
+  related: [ the-umbilical-cord ]
+
+# --- Position and presentation ---
+
+- id: term-presentation
+  title: Presentation and lie
+  type: term
+  topic: baby
+  ask: What's the difference between presentation and position?
+  aliases: [ presentation, lie, longitudinal, presenting part ]
+  priority: 2
+  stakes: low
+  covers: [ presentation is the part of the baby facing the birth canal, position is which way the back of the head faces, lie is the baby's long axis against yours, people muddle the words ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Presentation and position of baby through pregnancy and at birth", url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/presentation-and-position-of-baby-through-pregnancy-and-at-birth }, { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary } ]
+  related: [ the-babys-position, term-cephalic, term-breech, term-transverse-lie ]
+
+- id: term-cephalic
+  title: Cephalic (Ceph)
+  type: term
+  topic: baby
+  ask: What does cephalic mean on my notes?
+  aliases: [ cephalic, ceph, head down, head first ]
+  priority: 1
+  stakes: low
+  covers: [ head-down, the usual and best presentation, written Ceph on the record ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Pregnancy, Birth and Baby — Presentation and position of baby through pregnancy and at birth", url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/presentation-and-position-of-baby-through-pregnancy-and-at-birth } ]
+  related: [ term-vertex, the-babys-position ]
+
+- id: term-vertex
+  title: Vertex (Vx)
+  type: term
+  topic: baby
+  ask: What is vertex presentation?
+  aliases: [ vertex, Vx, crown first ]
+  priority: 2
+  stakes: low
+  covers: [ head-down with the crown of the head leading, the most common kind of cephalic, versus brow and face ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Pregnancy, Birth and Baby — Presentation and position of baby through pregnancy and at birth", url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/presentation-and-position-of-baby-through-pregnancy-and-at-birth } ]
+  related: [ term-cephalic ]
+
+- id: term-breech
+  title: Breech (Br)
+  type: term
+  topic: baby
+  ask: What is breech?
+  aliases: [ breech, Br, bottom first, feet first ]
+  priority: 1
+  stakes: medium
+  covers: [ bottom or feet down, about 3 in 100 near term ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "RANZCOG — Breech presentation at the end of your pregnancy", url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Breech-presentation-at-the-end-of-your-pregnancy.pdf } ]
+  related: [ breech, term-frank-breech, term-footling-breech ]
+
+- id: term-frank-breech
+  title: Frank (extended) and complete (flexed) breech
+  type: term
+  topic: baby
+  ask: What is a frank breech?
+  aliases: [ frank breech, extended breech, complete breech, flexed breech ]
+  priority: 3
+  stakes: low
+  covers: [ frank or extended has the legs straight up by the face, complete or flexed is sitting cross-legged ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Presentation and position of baby through pregnancy and at birth", url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/presentation-and-position-of-baby-through-pregnancy-and-at-birth }, { title: "RANZCOG — Breech presentation at the end of your pregnancy", url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Breech-presentation-at-the-end-of-your-pregnancy.pdf }, { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary } ]
+  related: [ term-breech, term-footling-breech ]
+
+- id: term-footling-breech
+  title: Footling breech
+  type: term
+  topic: baby
+  ask: What is a footling breech?
+  aliases: [ footling, footling breech, incomplete breech ]
+  priority: 3
+  stakes: medium
+  covers: [ one or both feet hanging below the bottom, a reason a vaginal breech birth is not advised ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Presentation and position of baby through pregnancy and at birth", url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/presentation-and-position-of-baby-through-pregnancy-and-at-birth }, { title: "RANZCOG — Breech presentation at the end of your pregnancy", url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Breech-presentation-at-the-end-of-your-pregnancy.pdf } ]
+  related: [ term-breech ]
+
+- id: term-transverse-lie
+  title: Transverse lie, oblique lie
+  type: term
+  topic: baby
+  ask: What is a transverse lie?
+  aliases: [ transverse, transverse lie, oblique, sideways baby, shoulder presentation ]
+  priority: 3
+  stakes: medium
+  covers: [ the baby lying across the uterus rather than up and down, common before the third trimester, cannot be born vaginally if it stays ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Malpresentation
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/malpresentation
+  related: [ term-presentation, term-malpresentation ]
+
+- id: term-malpresentation
+  title: Malpresentation
+  type: term
+  topic: baby
+  ask: What is malpresentation?
+  aliases: [ malpresentation, unusual position, brow presentation, face presentation ]
+  priority: 3
+  stakes: medium
+  covers: [ any presentation other than head-down-crown-first as birth approaches, breech transverse brow and face ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Malpresentation
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/malpresentation
+  related: [ term-breech, term-transverse-lie ]
+
+- id: term-occiput-anterior
+  title: Occiput anterior (OA, LOA, ROA)
+  type: term
+  topic: baby
+  ask: What does LOA mean?
+  aliases: [ OA, LOA, ROA, occiput anterior, anterior position, back to front ]
+  priority: 2
+  stakes: low
+  covers: [ the occiput (back of the head) facing your front, left or right, the easiest position for birth ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Presentation and position of baby through pregnancy and at birth", url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/presentation-and-position-of-baby-through-pregnancy-and-at-birth } ]
+  related: [ term-occiput-posterior, term-occiput-transverse, the-babys-position ]
+
+- id: term-occiput-posterior
+  title: Occiput posterior (OP), "posterior baby", back-to-back
+  type: term
+  topic: baby
+  ask: What is a posterior baby?
+  aliases: [ OP, LOP, ROP, occiput posterior, posterior, back to back, spine to spine, sunny side up ]
+  priority: 1
+  stakes: low
+  covers: [ the back of the head against your spine so the baby faces your belly, longer labour and more backache, most turn in labour, hands-and-knees helps ]
+  sources:
+    - { title: "Pregnancy, Birth and Baby — Presentation and position of baby through pregnancy and at birth", url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/presentation-and-position-of-baby-through-pregnancy-and-at-birth }
+    - { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }
+    - title: The Royal Women's Hospital — Baby's position
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/babys-position
+  related: [ term-occiput-anterior, the-babys-position ]
+
+- id: term-occiput-transverse
+  title: Occiput transverse / lateral (OT, LOT, ROT)
+  type: term
+  topic: baby
+  ask: What is a lateral position?
+  aliases: [ OT, LOT, ROT, lateral, occiput transverse ]
+  priority: 3
+  stakes: low
+  covers: [ the back of the head facing your side, often on the way to anterior ]
+  sources:
+    - { title: "Pregnancy, Birth and Baby — Presentation and position of baby through pregnancy and at birth", url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/presentation-and-position-of-baby-through-pregnancy-and-at-birth }
+    - title: The Royal Women's Hospital — Baby's position
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/babys-position
+  related: [ term-occiput-anterior ]
+
+- id: term-engagement
+  title: Engaged, engagement
+  type: term
+  topic: baby
+  ask: What does "engaged" mean?
+  aliases: [ engaged, engagement, head engaged, not engaged, free, Eng, NE ]
+  priority: 1
+  stakes: low
+  covers: [ the widest part of the head settling into the pelvis, often from 36 weeks in a first pregnancy and not until labour in later ones, the bump drops ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 36
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-36
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 37
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-37
+  related: [ term-lightening, term-station, term-fifths, the-babys-position ]
+
+- id: term-lightening
+  title: Lightening, the bump dropping
+  type: term
+  topic: baby
+  ask: Has my bump dropped?
+  aliases: [ lightening, dropped, bump dropped, baby dropped ]
+  priority: 2
+  stakes: low
+  covers: [ the bump sitting lower once the head engages, easier breathing and more pressure on the bladder ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 36
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-36
+    - title: Better Health Channel — Pregnancy, week by week (engage or drop)
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-week-by-week
+  related: [ term-engagement ]
+
+- id: term-station
+  title: Station
+  type: term
+  topic: baby
+  ask: What is the station?
+  aliases: [ station, -2 station, 0 station, 1, spines, ischial spines ]
+  priority: 3
+  stakes: low
+  covers: [ how far the head has come down in the pelvis, felt on a vaginal examination, counted from the ischial spines (0) in minus above and plus below ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Vaginal examinations in pregnancy and birth
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/vaginal-examinations-in-pregnancy-and-birth
+  related: [ term-engagement, term-fifths ]
+  notes: The PBB page names station without the numbers; the minus/plus scale needs a source before writing.
+
+- id: term-fifths
+  title: Fifths palpable (3/5, 2/5)
+  type: term
+  topic: baby
+  ask: What does 3/5 mean on my record?
+  aliases: [ fifths, fifths palpable, 3/5, 2/5, 5/5, head palpable ]
+  priority: 3
+  stakes: low
+  covers: [ how much of the head the midwife can still feel above the pelvis in fifths, 5/5 is free and 2/5 or less is engaged ]
+  sources: []
+  related: [ term-engagement, term-station ]
+  notes: Not sourced, on Australian antenatal records but no public Australian page explaining it loaded. Find one before writing.
+
+- id: term-ecv
+  title: ECV, external cephalic version
+  type: term
+  topic: baby
+  ask: What is an ECV?
+  aliases: [ ECV, external cephalic version, turning the baby ]
+  priority: 2
+  stakes: medium
+  covers: [ an obstetrician turning a breech baby head-down with hands on the belly from 36 weeks, works about half the time, done where a caesarean is possible ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "RANZCOG — Breech presentation at the end of your pregnancy", url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Breech-presentation-at-the-end-of-your-pregnancy.pdf } ]
+  related: [ breech ]
+
+# --- Scans, tests and monitoring (the names only; the tests area owns the tests) ---
+
+- id: term-ultrasound
+  title: Ultrasound, sonographer
+  type: term
+  topic: tests
+  ask: What is a sonographer?
+  aliases: [ ultrasound, scan, sonographer, transvaginal, transabdominal ]
+  priority: 1
+  stakes: low
+  covers: [ sound waves making a picture, the person who does it, through the belly or (early) through the vagina ]
+  sources:
+    - { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }
+    - title: Pregnancy, Birth and Baby — Dating scan
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/dating-scan
+  related: [ term-dating-scan, term-morphology-scan ]
+
+- id: term-dating-scan
+  title: Dating scan
+  type: term
+  topic: tests
+  ask: What is a dating scan?
+  aliases: [ dating scan, early scan, 6 week scan, 8 week scan ]
+  priority: 1
+  stakes: low
+  covers: [ an ultrasound between about 6 and 14 weeks to set the due date by crown–rump length ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ counting-the-weeks ]
+  exists: content/items/dating-scan.md
+
+- id: term-nuchal-translucency
+  title: Nuchal translucency (NT)
+  type: term
+  topic: tests
+  ask: What is the nuchal translucency?
+  aliases: [ nuchal translucency, NT, NT scan, 12 week scan, neck fold ]
+  priority: 1
+  stakes: low
+  covers: [ a measurement of fluid at the back of the baby's neck on the 11–13 week scan, part of combined first trimester screening ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-cfts, term-nipt ]
+  exists: content/items/first-trimester-screening.md
+
+- id: term-cfts
+  title: Combined first trimester screening (CFTS)
+  type: term
+  topic: tests
+  ask: What is CFTS?
+  aliases: [ CFTS, combined screening, first trimester screening ]
+  priority: 2
+  stakes: low
+  covers: [ an ultrasound plus a blood test giving a chance of a chromosomal condition ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-nuchal-translucency, term-nipt ]
+  exists: content/items/first-trimester-screening.md
+
+- id: term-nipt
+  title: NIPT
+  type: term
+  topic: tests
+  ask: What is NIPT?
+  aliases: [ NIPT, non-invasive prenatal test, cell-free DNA, Harmony, Percept ]
+  priority: 1
+  stakes: low
+  covers: [ a blood test from about 10 weeks reading the baby's DNA in your blood for the chance of chromosomal conditions, can report sex if asked ]
+  sources:
+    - { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }
+    - title: Pregnancy, Birth and Baby — Non-invasive prenatal testing (NIPT)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/non-invasive-prenatal-testing-nipt
+  related: [ finding-out-the-sex, term-cfts ]
+  notes: Brand names are aliases only.
+
+- id: term-morphology-scan
+  title: Morphology scan, anomaly scan, 20-week scan
+  type: term
+  topic: tests
+  ask: Is the anomaly scan the same as the morphology scan?
+  aliases: [ morphology scan, anomaly scan, 20 week scan, 18 week scan, anatomy scan ]
+  priority: 1
+  stakes: low
+  covers: [ the same scan at about 18–22 weeks checking organs and growth and the placenta ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ finding-out-the-sex ]
+  exists: content/items/morphology-scan.md
+
+- id: term-amniocentesis
+  title: Amniocentesis
+  type: term
+  topic: tests
+  ask: What is an amnio?
+  aliases: [ amniocentesis, amnio ]
+  priority: 2
+  stakes: medium
+  covers: [ a needle sample of amniotic fluid to diagnose a genetic or chromosomal condition ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-cvs ]
+
+- id: term-cvs
+  title: CVS, chorionic villus sampling
+  type: term
+  topic: tests
+  ask: What is CVS?
+  aliases: [ CVS, chorionic villus sampling ]
+  priority: 2
+  stakes: medium
+  covers: [ a needle sample of placenta cells to diagnose a genetic or chromosomal condition, earlier than amniocentesis ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-amniocentesis ]
+
+- id: term-ogtt
+  title: OGTT, the glucose test
+  type: term
+  topic: tests
+  ask: What is the OGTT?
+  aliases: [ OGTT, GTT, glucose tolerance test, sugar test ]
+  priority: 1
+  stakes: low
+  covers: [ the blood test for gestational diabetes ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: [ term-gestational-diabetes ]
+  exists: content/items/glucose-tolerance-test.md
+
+- id: term-gestational-diabetes
+  title: Gestational diabetes (GDM)
+  type: term
+  topic: tests
+  ask: What is GDM?
+  aliases: [ GDM, gestational diabetes ]
+  priority: 1
+  stakes: medium
+  covers: [ diabetes that appears in pregnancy and usually goes after, found by the OGTT ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: [ term-ogtt ]
+  exists: content/items/glucose-tolerance-test.md
+
+- id: term-gbs
+  title: GBS, group B strep
+  type: term
+  topic: tests
+  ask: What is GBS?
+  aliases: [ GBS, group B strep, group B streptococcus, strep B ]
+  priority: 1
+  stakes: low
+  covers: [ a common bacterium checked by a swab at 35–37 weeks, antibiotics in labour if present ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: []
+  exists: content/items/group-b-strep-swab.md
+
+- id: term-pre-eclampsia
+  title: Pre-eclampsia (PET)
+  type: term
+  topic: tests
+  ask: What is pre-eclampsia?
+  aliases: [ pre-eclampsia, preeclampsia, PET, toxaemia ]
+  priority: 1
+  stakes: high
+  covers: [ high blood pressure with protein in the urine after 20 weeks ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: []
+  notes: Symptoms owns the red flags (headache, swelling, visual changes); this is the word.
+
+- id: term-ctg
+  title: CTG, cardiotocograph
+  type: term
+  topic: tests
+  ask: What is a CTG?
+  aliases:
+    - CTG
+    - cardiotocograph
+    - trace
+    - monitoring
+    - the belts
+    - the trace
+    - the monitor
+    - belts
+  priority: 1
+  stakes: low
+  covers:
+    - two sensors on belts recording the baby's heart rate and your contractions on a trace
+    - used in later pregnancy and labour
+    - two sensors on belts recording the baby's heart rate and the contractions
+    - read as a trace
+    - used in pregnancy and in labour
+    - continuous or for a set time
+  sources:
+    - title: Pregnancy, Birth and Baby — Fetal monitoring
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/fetal-monitoring
+    - title: The Royal Women's Hospital — Checking your baby during labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/checking-your-baby-during-labour
+  related:
+    - the-babys-heartbeat
+    - term-doppler
+    - monitoring-in-labour
+    - term-fetal-distress
+
+- id: term-doppler
+  title: Doppler
+  type: term
+  topic: tests
+  ask: What is the doppler?
+  aliases: [ doppler, fetal doppler, hand-held doppler, umbilical artery doppler ]
+  priority: 2
+  stakes: low
+  covers: [ the hand-held device for hearing the heartbeat at visits, also an ultrasound measure of blood flow in the cord, home dopplers are not approved for sale in Australia ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Fetal monitoring", url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/fetal-monitoring } ]
+  related: [ the-babys-heartbeat, term-pinard ]
+
+- id: term-pinard
+  title: Pinard horn
+  type: term
+  topic: tests
+  ask: What is the trumpet thing the midwife uses?
+  aliases: [ Pinard, pinard horn, ear trumpet, fetal stethoscope ]
+  priority: 3
+  stakes: low
+  covers: [ the small trumpet pressed on the belly to listen to the heartbeat without electronics ]
+  sources:
+    - { title: "Pregnancy, Birth and Baby — Fetal monitoring", url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/fetal-monitoring }
+    - title: The Royal Women's Hospital — Checking your baby during labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/checking-your-baby-during-labour
+  related: [ term-doppler ]
+
+- id: term-fhr
+  title: FHR and FMF
+  type: term
+  topic: tests
+  ask: What are FHR and FMF on my record?
+  aliases: [ FHR, FMF, FHH, fetal heart rate, fetal movements felt, fetal heart heard ]
+  priority: 3
+  stakes: low
+  covers: [ fetal heart rate (and heard), fetal movements felt, the shorthand at each visit ]
+  sources: []
+  related: [ the-babys-heartbeat, baby-movements ]
+  notes: Not sourced, record shorthand with no public Australian page loaded. Confirm against the household's own record before writing.
+
+- id: term-bp-and-urine
+  title: BP and urine dipstick
+  type: term
+  topic: tests
+  ask: Why do they check blood pressure and wee every visit?
+  aliases: [ BP, blood pressure, urine test, dipstick, protein in urine, MSU ]
+  priority: 2
+  stakes: medium
+  covers: [ blood pressure and a urine dip at each antenatal visit to catch pre-eclampsia and infection, MSU is a midstream urine sample sent to the lab ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Checkups, scans and tests during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/checkups-scans-and-tests-during-pregnancy
+  related: [ term-pre-eclampsia ]
+
+# --- Twins ---
+
+- id: term-dizygotic
+  title: Fraternal (dizygotic) twins
+  type: term
+  topic: baby
+  ask: What are dizygotic twins?
+  aliases: [ fraternal twins, dizygotic, non-identical, DZ ]
+  priority: 3
+  stakes: low
+  covers: [ two eggs and two sperm, each with its own placenta and sac, same or different sex ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Twin pregnancy", url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy } ]
+  related: [ twins-and-multiples, term-monozygotic ]
+
+- id: term-monozygotic
+  title: Identical (monozygotic) twins
+  type: term
+  topic: baby
+  ask: What are monozygotic twins?
+  aliases: [ identical twins, monozygotic, MZ ]
+  priority: 3
+  stakes: low
+  covers: [ one fertilised egg that splits, same genes and sex, may or may not share a placenta or sac ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Twin pregnancy", url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy } ]
+  related: [ term-dcda, term-mcda, term-mcma ]
+
+- id: term-dcda
+  title: DCDA twins
+  type: term
+  topic: baby
+  ask: What does DCDA mean?
+  aliases: [ DCDA, dichorionic diamniotic, di di twins ]
+  priority: 3
+  stakes: low
+  covers: [ each baby has its own placenta and sac, the most common and lowest-risk kind ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Twin pregnancy", url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy } ]
+  related: [ term-mcda, term-mcma ]
+
+- id: term-mcda
+  title: MCDA twins
+  type: term
+  topic: baby
+  ask: What does MCDA mean?
+  aliases: [ MCDA, monochorionic diamniotic, mono di twins, shared placenta ]
+  priority: 3
+  stakes: medium
+  covers: [ one shared placenta with separate sacs, needs closer checks for TTTS ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Twin pregnancy", url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy } ]
+  related: [ term-ttts, term-dcda ]
+
+- id: term-mcma
+  title: MCMA twins
+  type: term
+  topic: baby
+  ask: What does MCMA mean?
+  aliases: [ MCMA, monochorionic monoamniotic, mono mono twins ]
+  priority: 3
+  stakes: high
+  covers: [ one placenta and one sac, rare, cords can tangle, closely monitored ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Twin pregnancy", url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy } ]
+  related: [ term-mcda ]
+
+- id: term-ttts
+  title: TTTS, twin-to-twin transfusion syndrome
+  type: term
+  topic: baby
+  ask: What is TTTS?
+  aliases: [ TTTS, twin to twin transfusion ]
+  priority: 3
+  stakes: high
+  covers: [ in shared-placenta twins blood flows unevenly from one to the other, rare, treatable at a specialist centre, the warning signs ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Twin pregnancy", url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy } ]
+  related: [ term-mcda, twins-and-multiples ]
+
+- id: term-vanishing-twin
+  title: Vanishing twin
+  type: term
+  topic: baby
+  ask: What is a vanishing twin?
+  aliases: [ vanishing twin ]
+  priority: 3
+  stakes: medium
+  covers: [ an early scan shows twins and a later one shows one, an early miscarriage of one twin that usually does not affect the other ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Twin pregnancy", url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy } ]
+  related: [ twins-and-multiples ]
+  notes: Sensitive; the loss area may want to own the feelings side.
+
+# --- Other words the midwife uses ---
+
+- id: term-fetal-distress
+  title: Fetal distress
+  type: term
+  topic: baby
+  ask: What is fetal distress?
+  aliases:
+    - fetal distress
+    - baby in distress
+    - non-reassuring trace
+    - fetal compromise
+    - baby not coping
+    - heart rate dropping
+  priority: 2
+  stakes: high
+  covers:
+    - signs the baby is not coping
+    - usually from the heart-rate trace or meconium
+    - what is done next is labour's
+    - signs the baby may not be getting enough oxygen (a heart rate pattern
+    - meconium)
+    - what is done first (position
+    - fluids
+    - stopping the drip)
+    - why it can lead to an assisted birth or a caesarean quickly
+  sources:
+    - title: Pregnancy, Birth and Baby — Fetal distress
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/fetal-distress
+  related:
+    - term-ctg
+    - term-meconium
+    - monitoring-in-labour
+    - assisted-birth
+    - emergency-caesarean
+
+- id: term-apgar
+  title: Apgar score
+  type: term
+  topic: baby
+  ask: What is the Apgar score?
+  aliases:
+    - Apgar
+    - Apgar score
+    - 9 and 9
+    - Apgar 9
+    - score out of 10 at birth
+  priority: 2
+  stakes: low
+  covers:
+    - a check at 1 and 5 minutes after birth of colour pulse grimace tone and breathing out of 10
+    - 7–9 is typical
+    - lower means a hand is needed
+    - a quick 0 to 10 check at 1 and 5 minutes (and 10 if needed) of colour heart rate breathing tone and reflexes
+    - 7 and above is fine
+    - a low 1-minute score is common and means a bit of help
+    - it says nothing about the future
+  sources:
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+    - title: Better Health Channel — Medical terms and definitions during pregnancy and birth
+      url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth
+    - title: Pregnancy, Birth and Baby — Apgar score
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/apgar-score
+  related:
+    - newborn-checks
+  notes: "After-the-birth may own this; it is listed because it is a word people hear in antenatal classes. after the birth: later phase"
+
+- id: term-neonate
+  title: Neonate, newborn
+  type: term
+  topic: baby
+  ask: What is a neonate?
+  aliases: [ neonate, neonatal, newborn, first 28 days ]
+  priority: 3
+  stakes: low
+  covers: [ a baby in the first 28 days, neonatal means that period ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary } ]
+  related: [ term-nicu ]
+
+- id: term-nicu
+  title: NICU
+  type: term
+  topic: baby
+  ask: What is the NICU?
+  aliases:
+    - NICU
+    - neonatal intensive care
+    - intensive care nursery
+    - level 3 nursery
+    - intensive care for babies
+  priority: 2
+  stakes: low
+  covers:
+    - the hospital unit with specialist staff and equipment for very premature or sick newborns
+    - intensive care for very early or very sick babies with specialist staff and ventilators
+    - only at some hospitals so a transfer may be needed
+    - special care is the step down
+  sources:
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+    - title: Better Health Channel — Medical terms and definitions during pregnancy and birth
+      url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth
+    - title: Pregnancy, Birth and Baby — Premature baby
+      url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/premature-baby
+  related:
+    - term-special-care-nursery
+    - viability-and-prematurity
+    - special-care-nursery
+    - preterm-birth
+  notes: "after the birth: later phase"
+
+- id: term-special-care-nursery
+  title: Special care nursery (SCN)
+  type: term
+  topic: baby
+  ask: What is special care?
+  aliases: [ SCN, special care nursery, special care ]
+  priority: 2
+  stakes: low
+  covers: [ a step down from NICU for babies who need extra care but not intensive care ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: [ term-nicu ]
+
+- id: term-corrected-age
+  title: Corrected age
+  type: term
+  topic: baby
+  ask: What is corrected age?
+  aliases: [ corrected age, adjusted age ]
+  priority: 3
+  stakes: low
+  covers: [ a premature baby's age minus the weeks born early, used to track development ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Corrected gestational age for premature babies
+      url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/corrected-gestational-age-for-premature-babies
+  related: [ viability-and-prematurity ]
+
+- id: term-stillbirth
+  title: Stillbirth and miscarriage, the 20-week line
+  type: term
+  topic: baby
+  ask: Why is 20 weeks the line between miscarriage and stillbirth?
+  aliases: [ stillbirth, miscarriage, 20 weeks, 400 grams ]
+  priority: 2
+  stakes: high
+  covers: [ in Australia a loss before 20 weeks is a miscarriage and from 20 weeks (or 400 g) a stillbirth, why the line matters for registration and leave ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary } ]
+  related: []
+  notes: The loss area owns everything else about this; this is the definition only, written gently.
+
+- id: term-midwife-obstetrician
+  title: Midwife, obstetrician, OB, sonographer, MCH nurse
+  type: term
+  topic: care
+  ask: Who is who in my care?
+  aliases: [ midwife, obstetrician, OB, OBGYN, gynaecologist, sonographer, maternal child health nurse, MCHN, child health nurse, paediatrician ]
+  priority: 1
+  stakes: low
+  covers: [ what each does and when you meet them ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: []
+  exists: content/items/first-antenatal-visit.md
+  notes: Care (tests and care area) owns models of care; this is the who's-who glossary line.
+
+- id: term-lscs
+  title: LSCS, caesarean
+  type: term
+  topic: birth
+  ask: What does LSCS mean?
+  aliases: [ LSCS, lower segment caesarean section, c-section, caesarean, CS, el LSCS, em LSCS ]
+  priority: 2
+  stakes: low
+  covers: [ a caesarean through a cut in the lower part of the uterus, the usual kind, El and Em for elective and emergency ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth }, { title: "Australian Institute of Health and Welfare — Mothers and babies glossary", url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary } ]
+  related: []
+  notes: The "lower segment" expansion was not on a loaded Australian page; the glossaries define caesarean. Birth owns the subject.
+
+- id: term-vbac
+  title: VBAC
+  type: term
+  topic: birth
+  ask: What is VBAC?
+  aliases: [ VBAC, vaginal birth after caesarean ]
+  priority: 2
+  stakes: low
+  covers: [ a vaginal birth after a previous caesarean ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Better Health Channel — Medical terms and definitions during pregnancy and birth", url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth } ]
+  related: []
+  notes: Birth owns the decision.
+
+- id: term-iol
+  title: IOL, induction
+  type: term
+  topic: birth
+  ask: What is IOL?
+  aliases: [ IOL, induction, induced, being induced ]
+  priority: 1
+  stakes: low
+  covers: [ induction of labour, starting labour with medicine or by breaking the waters or a balloon ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour } ]
+  related: []
+  notes: Labour owns induction; this is the abbreviation.
+
+- id: term-arm-srom
+  title: ARM, SROM, PROM, PPROM
+  type: term
+  topic: birth
+  ask: What do ARM and SROM mean?
+  aliases: [ ARM, SROM, PROM, PPROM, rupture of membranes, breaking the waters ]
+  priority: 2
+  stakes: low
+  covers: [ artificial rupture (breaking the waters), spontaneous rupture, prelabour rupture, preterm prelabour rupture ]
+  sources: [ { title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour", url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour }, { title: "Pregnancy, Birth and Baby — Amniotic fluid", url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/amniotic-fluid } ]
+  related: [ term-amniotic-sac ]
+  notes: Labour owns what happens; the words only.
+
+- id: term-nad
+  title: NAD and other record shorthand
+  type: term
+  topic: body
+  ask: What does NAD mean on my notes?
+  aliases: [ NAD, nil abnormal detected, nothing abnormal detected, Hx, Ix, Rx, o/e ]
+  priority: 3
+  stakes: low
+  covers: [ nothing abnormal detected, and the common shorthand for history examination and treatment ]
+  sources: []
+  related: [ term-fhr ]
+  notes: Not sourced, general medical shorthand; no Australian pregnancy page loaded. Confirm against the household's own record before writing.
+
+# ---------------------------------------------------------------------------
+# "Nobody tells you" (cards): the body and the baby
+# ---------------------------------------------------------------------------
+
+- id: card-only-five-percent-on-the-day
+  title: Only about 5 in 100 babies arrive on their due date
+  type: card
+  topic: baby
+  ask: How likely is the baby to come on the due date?
+  aliases: [ due date odds, born on due date ]
+  weeks: [ 4, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ the due date is an estimate, term runs 37 to 41 weeks, plan for a window not a day ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Working out your due date
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date
+  related: [ counting-the-weeks, term-edd ]
+
+- id: card-two-weeks-pregnant-before-conception
+  title: You were "two weeks pregnant" before you conceived
+  type: card
+  topic: body
+  ask: Why are the weeks counted from my period?
+  aliases: [ counting from LMP, weeks 1 and 2 ]
+  weeks: [ 4, 12 ]
+  priority: 1
+  stakes: low
+  covers: [ weeks are counted from the last period, so a positive test already says four weeks ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Working out your due date
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date
+  related: [ counting-the-weeks ]
+
+- id: card-eating-for-two
+  title: You don't need to eat for two
+  type: card
+  topic: body
+  ask: Do I need to eat more?
+  aliases: [ eating for two, extra food ]
+  weeks: [ 4, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ little or no extra in the first trimester, a bit more vegetables protein and wholegrains later, variety over volume ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Weight gain in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/weight-gain-in-pregnancy
+    - title: The Royal Women's Hospital — Food and nutrition in pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/food-nutrition-in-pregnancy
+  related: [ how-much-more-to-eat ]
+
+- id: card-you-grow-an-organ
+  title: You grow a whole new organ, and then you give birth to it
+  type: card
+  topic: body
+  ask: What is the afterbirth?
+  aliases: [ placenta is an organ, afterbirth ]
+  weeks: [ 4, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ the placenta forms from implantation, feeds the baby and makes the hormones, and comes out after the baby as the third stage ]
+  sources:
+    - title: Pregnancy, Birth and Baby — About the placenta
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta
+  related: [ the-placenta ]
+
+- id: card-baby-drinks-its-own-wee
+  title: The baby drinks the waters, and most of the waters are the baby's wee
+  type: card
+  topic: baby
+  ask: Where does the amniotic fluid come from?
+  aliases: [ baby pees, swallowing amniotic fluid ]
+  weeks: [ 12, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ early on the parent makes the fluid, later the baby makes most of it as urine and lung fluid and swallows it, which helps the gut and lungs develop ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Amniotic fluid
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/amniotic-fluid
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 12
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-12
+  related: [ amniotic-fluid ]
+
+- id: card-baby-hiccups
+  title: The baby gets hiccups, and you can feel them
+  type: card
+  topic: baby
+  ask: Is that rhythmic twitch the baby hiccupping?
+  aliases: [ baby hiccups, hiccups in the womb, rhythmic twitching ]
+  weeks: [ 18, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ hiccups and yawns from about 18 weeks, from the diaphragm contracting, felt as regular little jolts later on, normal ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 18
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-18
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 28
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-28
+  related: [ how-your-baby-develops, baby-movements ]
+
+- id: card-baby-hears-your-heartbeat
+  title: The baby has been listening to your heartbeat for months
+  type: card
+  topic: baby
+  ask: Can the baby hear me?
+  aliases: [ baby hearing, talk to the bump ]
+  weeks: [ 15, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ hearing develops from about 15 weeks and outside sounds reach the baby by about 24, your heartbeat and voice and digestion are the soundtrack, talk sing and read ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 15
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-15
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 24
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-24
+  related: [ the-babys-senses ]
+
+- id: card-fingerprints-at-20-weeks
+  title: By 20 weeks the baby has fingerprints, and if a girl, all her eggs
+  type: card
+  topic: baby
+  ask: When do fingerprints form?
+  aliases: [ fingerprints, eggs in ovaries, permanent teeth ]
+  weeks: [ 17, 24 ]
+  priority: 2
+  stakes: low
+  covers: [ the ridges start about 17 weeks and are there by 20, permanent teeth sit under the baby teeth, a girl's ovaries already hold eggs ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 17
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-17
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 20
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-20
+  related: [ how-your-baby-develops ]
+
+- id: card-practice-breathing
+  title: The baby practises breathing, but gets no air until birth
+  type: card
+  topic: baby
+  ask: Does the baby breathe in there?
+  aliases: [ practice breathing, breathing movements ]
+  weeks: [ 12, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ breathing movements from the first trimester with fluid not air, all oxygen comes through the placenta, surfactant from about 23 weeks ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 23
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-23
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 12
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-12
+  related: [ the-babys-lungs ]
+
+- id: card-baby-is-furry
+  title: The baby is furry for a while
+  type: card
+  topic: baby
+  ask: Why would the baby have hair all over?
+  aliases: [ lanugo, fine hair, hairy baby ]
+  weeks: [ 15, 38 ]
+  priority: 2
+  stakes: low
+  covers: [ lanugo from about 15 weeks, thought to keep the baby warm, mostly shed before birth and the rest soon after ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 15
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-15
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 30
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-30
+  related: [ term-lanugo ]
+
+- id: card-born-covered-in-cream
+  title: Babies are born covered in a white cream, and it's good for them
+  type: card
+  topic: baby
+  ask: What is the white stuff on a newborn?
+  aliases: [ vernix, white coating ]
+  weeks: [ 19, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ vernix protects the skin in the fluid from about 19 weeks, usually still there at term and less if overdue ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 19
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-19
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 38
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-38
+  related: [ term-vernix ]
+
+- id: card-first-poo-is-already-made
+  title: The first nappy has been loading since halfway
+  type: card
+  topic: baby
+  ask: What is meconium?
+  aliases: [ meconium, first poo ]
+  weeks: [ 18, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ the bowel fills with sticky green meconium from about 18 weeks, usually passed after birth, if passed before it tints the waters green and the baby is watched ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 18
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-18
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 38
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-38
+  related: [ term-meconium ]
+
+- id: card-anterior-placenta
+  title: If the placenta is at the front, the kicks are muffled
+  type: card
+  topic: baby
+  ask: Why can't I feel the baby as much as my friend could?
+  aliases: [ anterior placenta, can't feel kicks ]
+  weeks: [ 16, 28 ]
+  priority: 1
+  stakes: medium
+  covers: [ an anterior placenta cushions the movements so they come later and softer, still learn this baby's pattern and call on any change ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Baby movements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
+  related: [ term-anterior-placenta, baby-movements ]
+
+- id: card-home-dopplers
+  title: Home dopplers aren't approved for sale in Australia
+  type: card
+  topic: baby
+  ask: Should I buy a doppler for reassurance?
+  aliases: [ home doppler, buy a doppler, fetal heart monitor ]
+  weeks: [ 12, 42 ]
+  priority: 1
+  stakes: high
+  covers: [ not approved and not recommended, hearing a heartbeat does not tell you the baby is well, movements and a call do ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Fetal monitoring
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/fetal-monitoring
+  related: [ the-babys-heartbeat, baby-movements ]
+
+- id: card-sex-myths
+  title: Heart rate, bump shape and cravings can't tell you the sex
+  type: card
+  topic: baby
+  ask: Does a fast heartbeat mean a girl?
+  aliases: [ boy or girl myths, carrying high, carrying low, heart rate girl ]
+  weeks: [ 8, 22 ]
+  priority: 2
+  stakes: low
+  covers: [ the myths and why they fail, the scan from 18 weeks and NIPT from 10 are the only ways ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Common myths about pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/common-myths-about-pregnancy
+    - title: Pregnancy, Birth and Baby — Morphology scan
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/morphology-scan
+  related: [ finding-out-the-sex ]
+  notes: Check the myths page lists these specific myths before writing; it loaded but the exact list was not read closely.
+
+- id: card-most-breech-babies-turn
+  title: Most breech babies turn themselves in the last month
+  type: card
+  topic: baby
+  ask: My baby is breech at 32 weeks. Should I worry?
+  aliases: [ breech early, will the baby turn ]
+  weeks: [ 28, 36 ]
+  priority: 2
+  stakes: low
+  covers: [ breech is common mid-pregnancy, most are head-down by 37 weeks, only about 3 in 100 stay breech, ECV from 36 if not ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 35
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-35
+    - title: RANZCOG — Breech presentation at the end of your pregnancy
+      url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Breech-presentation-at-the-end-of-your-pregnancy.pdf
+  related: [ breech ]
+
+- id: card-the-bump-drops
+  title: One day the bump sits lower and you can breathe again
+  type: card
+  topic: body
+  ask: Why can I suddenly breathe but need to wee constantly?
+  aliases: [ bump dropped, lightening, engaged ]
+  weeks: [ 34, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ the uterus reaches the ribcage by 36 weeks then the head engages and the bump drops, easier breathing and more bladder pressure, often later or not until labour in a second pregnancy ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 36
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-36
+  related: [ term-engagement, term-lightening ]
+
+- id: card-vivid-dreams
+  title: The dreams get very strange
+  type: card
+  topic: body
+  ask: Why are my dreams so vivid?
+  aliases: [ vivid dreams, weird dreams, nightmares pregnancy ]
+  weeks: [ 20, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ hormones and broken sleep make dreams vivid and easier to remember, normal, partners get them too though no Australian page says so ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 26
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-26
+  related: [ sleep-in-pregnancy ]
+
+- id: card-nesting
+  title: Nesting is real, and it can be a sign labour is near
+  type: card
+  topic: body
+  ask: Why do I suddenly need to clean the oven at 38 weeks?
+  aliases: [ nesting, burst of energy, cleaning frenzy ]
+  weeks: [ 34, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ a sudden burst of energy and urge to prepare is listed among the early signs of labour, enjoy it but don't climb ladders and rest too ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Giving birth, early signs of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
+  related: [ sleep-in-pregnancy ]
+
+- id: card-brain-fog
+  title: Pregnancy brain is a documented thing
+  type: card
+  topic: body
+  ask: Why can't I remember anything?
+  aliases: [ baby brain, pregnancy brain, brain fog, forgetful ]
+  weeks: [ 12, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ pregnancy can affect memory and concentration especially in the third trimester, lists and reminders and sleep help, it passes ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Changes to your body during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
+  related: [ how-your-body-changes ]
+
+- id: card-colostrum-leaking
+  title: Your breasts may leak months before the baby comes
+  type: card
+  topic: body
+  ask: Why is there yellow fluid from my nipples?
+  aliases: [ colostrum leaking, leaking breasts, breast pads ]
+  weeks: [ 14, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ colostrum can be made from about 14–20 weeks and leak later on, breast pads, it says nothing about how feeding will go ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 14
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-14
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 31
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-31
+  related: [ breasts-and-colostrum, term-colostrum ]
+
+- id: card-feet-grow
+  title: Your feet can grow a size, and it may not come back
+  type: card
+  topic: body
+  ask: Why don't my shoes fit?
+  aliases: [ feet grow, shoe size, bigger feet ]
+  weeks: [ 16, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ loosened ligaments and the extra weight spread the feet, plus swelling later, flat supportive shoes ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 19
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-19
+    - title: The Royal Women's Hospital — Active pregnancy (joint changes)
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+  related: [ ligaments-and-joints-in-pregnancy ]
+  notes: The word "permanently" is folk wisdom; the sources say the feet grow, not that it lasts. Phrase carefully.
+
+- id: card-skin-tags
+  title: Skin tags and new moles are part of the deal
+  type: card
+  topic: body
+  ask: Why am I growing skin tags?
+  aliases: [ skin tags, new moles, moles darker ]
+  weeks: [ 12, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ new skin tags and moles and darker existing moles are common, mention a changing mole to the doctor ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 14
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-14
+    - title: Pregnancy, Birth and Baby — Skin changes during pregnancy, melanocytic naevi
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/skin-changes-during-pregnancy-melanocytic-naevi
+  related: [ skin-in-pregnancy ]
+
+- id: card-thick-hair
+  title: The glorious hair goes, about three months after the birth
+  type: card
+  topic: body
+  ask: Will my hair fall out after the baby?
+  aliases: [ hair loss after birth, postpartum shedding, thick pregnancy hair ]
+  weeks: [ 12, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ oestrogen keeps hair in the growing phase so it is thicker now, the shed at 2–4 months after birth is the catch-up, no one goes bald, normal by about a year ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Hair care during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/hair-care-during-pregnancy
+  related: [ hair-and-nails-in-pregnancy ]
+
+- id: card-everything-gets-darker
+  title: Nipples, moles, armpits and the line down your belly all darken
+  type: card
+  topic: body
+  ask: Why is my skin getting darker in places?
+  aliases: [ darker nipples, linea nigra, pigmentation, dark patches ]
+  weeks: [ 8, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ pigmented skin darkens (areola, moles, freckles, vulva, inner thighs, armpits), the linea nigra, melasma on the face, mostly fades after ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Changes to your body during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 7
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-7
+  related: [ skin-in-pregnancy, term-linea-nigra ]
+
+- id: card-metallic-taste
+  title: Things taste like coins
+  type: card
+  topic: body
+  ask: Why does everything taste metallic?
+  aliases: [ metallic taste, dysgeusia, taste changes, smell changes ]
+  weeks: [ 4, 16 ]
+  priority: 2
+  stakes: low
+  covers: [ a sour or metallic taste that persists (dysgeusia) and a sharper sense of smell are early pregnancy signs driven by hormones, they fade ]
+  sources:
+    - title: Better Health Channel — Pregnancy, signs and symptoms
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-signs-and-symptoms
+    - title: Pregnancy, Birth and Baby — Early signs of pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/early-signs-of-pregnancy
+  related: [ how-much-more-to-eat ]
+
+- id: card-you-are-doing-a-workout-sitting-down
+  title: Your heart is doing a workout while you sit on the couch
+  type: card
+  topic: body
+  ask: Why am I puffed doing nothing?
+  aliases: [ heart rate up, blood volume, puffed ]
+  weeks: [ 8, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ blood volume rises and the heart enlarges and beats faster to supply the placenta, so you are already exercising, keep workouts moderate ]
+  sources:
+    - title: The Royal Women's Hospital — Active pregnancy (cardiac changes)
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
+  related: [ heart-and-blood-in-pregnancy ]
+
+- id: card-sleep-on-your-side
+  title: From 28 weeks, go to sleep on your side
+  type: card
+  topic: body
+  ask: Is it true I can't sleep on my back?
+  aliases: [ sleep on side, back sleeping, stillbirth risk sleep ]
+  weeks: [ 26, 42 ]
+  priority: 1
+  stakes: high
+  covers: [ from 28 weeks side-sleeping lowers the risk of stillbirth, either side, waking on your back is fine just roll over, the position you fall asleep in is the one you keep longest ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Sleep during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
+  related: [ sleep-in-pregnancy ]
+  notes: Shown as a heads-up at 27 weeks. Calm, not frightening.
+
+- id: card-round-ligament-stab
+  title: That sharp stab in the groin when you roll over has a name
+  type: card
+  topic: body
+  ask: What is the sharp pain when I turn in bed?
+  aliases: [ round ligament pain, groin stab, sharp pain turning ]
+  weeks: [ 14, 30 ]
+  priority: 2
+  stakes: medium
+  covers: [ round ligaments stretching with the uterus, worse on sudden movement, ease by moving slowly and stretching, other pains exist so ask if unsure ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at week 20
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-20
+  related: [ term-round-ligament ]
+
+- id: card-second-pregnancy-shows-earlier
+  title: Second time round, you show earlier and feel kicks sooner
+  type: card
+  topic: body
+  ask: Why am I showing so much earlier this time?
+  aliases: [ second pregnancy, showing earlier, bump earlier ]
+  weeks: [ 8, 24 ]
+  priority: 2
+  stakes: low
+  covers: [ stretched muscles from last time show the bump sooner, movements recognised earlier, engagement later ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Navigating a second pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/navigating-a-second-pregnancy
+  related: [ term-multipara ]
+
+- id: card-fundal-height-matches-weeks
+  title: Your bump in centimetres roughly equals your weeks
+  type: card
+  topic: body
+  ask: Why does the midwife measure my belly with a tape?
+  aliases: [ fundal height, tape measure, bump measurement ]
+  weeks: [ 24, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ from 24 weeks the pubic bone to fundus distance in cm tracks the week, off the curve means a scan not a verdict ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, uterus
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-uterus
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+  related: [ term-fundal-height ]
+
+- id: card-identical-twins-share-a-placenta
+  title: Identical twins may share a placenta, and that changes the care
+  type: card
+  topic: baby
+  ask: Why does it matter whether the twins share a placenta?
+  aliases: [ twins share placenta, monochorionic ]
+  weeks: [ 8, 42 ]
+  priority: 3
+  stakes: medium
+  covers: [ fraternal twins always have their own, identical may share, a shared placenta means more scans for TTTS, the early scan tells ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Twin pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy
+  related: [ twins-and-multiples ]
+
+- id: card-no-lotus-no-capsules
+  title: Eating the placenta and lotus birth have no proven benefit
+  type: card
+  topic: body
+  ask: Should I encapsulate my placenta?
+  aliases: [ placenta encapsulation, eating placenta, lotus birth ]
+  weeks: [ 28, 42 ]
+  priority: 3
+  stakes: low
+  covers: [ no evidence of benefit for either, lotus birth may raise infection risk, taking it home or burying it is your choice with basic hygiene ]
+  sources:
+    - title: Pregnancy, Birth and Baby — About the placenta
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta
+  related: [ the-placenta ]
+
+- id: card-extra-saliva
+  title: Some people make so much saliva they carry a cup
+  type: card
+  topic: body
+  ask: Why is my mouth watering all the time?
+  aliases: [ excess saliva, ptyalism, spitting, drooling pregnancy ]
+  weeks: [ 4, 16 ]
+  priority: 3
+  stakes: low
+  covers: [ ptyalism gravidarum, linked with nausea, eases after the first trimester for most ]
+  sources: []
+  related: [ how-your-body-changes ]
+  notes: Not sourced, no Australian government, hospital or college page about excess saliva in pregnancy loaded. Only overseas and commercial pages found. Write only if a source turns up.

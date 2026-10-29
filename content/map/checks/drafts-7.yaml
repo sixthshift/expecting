@@ -1,0 +1,192 @@
+# Drafts batch 7 (B7): money-and-work and body-and-baby drafts, fact-checked against their cited pages.
+# Checked 2026-10-29. Figure-bearing pages (Services Australia, Fair Work) re-fetched the same day.
+
+- id: medicare-enrol-baby
+  file: content/drafts/medicare-enrol-baby.md
+  verdict: fix
+  problems:
+    - claim: "Before the birth. If either of you is still on your own parents' Medicare card, you need to move to your own card before you can enrol the baby."
+      judgement: unsupported
+      source_says: "If you're on the same Medicare card as your parents, you need to transfer to your own Medicare card before enrolling your baby. (Nothing about 'before the birth' or 'either of you'.) All other claims ok: as soon as possible, Parent Pack, last page signed, 3 to 4 weeks, digital card in myGov app, 2 cards at most, lost-declaration proofs."
+      url: https://www.servicesaustralia.gov.au/enrolling-your-baby-medicare
+      fixed_to: "Your own card first. If you're still on your own parents' Medicare card, you need to transfer to your own card before you can enrol the baby."
+
+- id: unpaid-parental-leave
+  file: content/drafts/unpaid-parental-leave.md
+  verdict: fix
+  problems:
+    - claim: "If you've changed jobs, the 12 months starts again with the new employer: this is the rule that catches people who moved jobs while pregnant."
+      judgement: unsupported
+      source_says: "If, between having another child, they have started work with a new employer, they will need to work with that employer for at least 12 months before they can take parental leave. ('Catches people who moved jobs while pregnant' is not said.) 12 months + 12 requested, 130 days from 1 July 2026, 6 weeks before, end within 24 months, 10 weeks / 4 weeks, accrual and long service leave all ok."
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+      fixed_to: "If you started with a new employer between children, you need to work for that employer for at least 12 months before you can take parental leave."
+
+- id: employer-paid-parental-leave
+  file: content/drafts/employer-paid-parental-leave.md
+  verdict: ok
+  problems: []
+  note: "Earlier map fixes already in the text. 'Ask by about week 20' appears only as the task due, not as a claim. 3 months before the due date for choosing a start date ok (Services Australia claiming timeframes)."
+
+- id: partner-parental-leave
+  file: content/drafts/partner-parental-leave.md
+  verdict: fix
+  problems:
+    - claim: "If you've changed jobs, the 12 months starts again with the new employer."
+      judgement: unsupported
+      source_says: "Only said for someone who started with a new employer between having children; they need 12 months with that employer."
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+      fixed_to: "If you started with a new employer between children, you need to work for that employer for at least 12 months before you can take parental leave."
+  note: "Ok: start and end within 24 months; each up to 12 months, not at the same time needed; 20 reserved days and up to 20 at the same time from 1 July 2026 (Services Australia); notices; annual leave."
+
+- id: registering-the-birth
+  file: content/drafts/registering-the-birth.md
+  verdict: fix
+  problems:
+    - claim: "SA, Tasmania and the NT: myGov says you need to register within 60 days in all states and territories."
+      judgement: unsupported
+      source_says: "myGov: 'within 60 days ... required by Births, Deaths and Marriages Registries in all states and territories', but Access Canberra says 6 months for the ACT. The two disagree; both kept, each credited. SA, Tasmanian and NT registry pages are not cited and were not checked."
+      url: https://my.gov.au/en/services/raising-kids/having-a-baby/when-your-baby-is-born/register-your-baby-s-birth-and-get-their-birth-certificate
+      fixed_to: "myGov says births must be registered within 60 days in all states and territories (the ACT's own registry says 6 months, above)."
+  note: "Ok against fresh pages: myGov 60 days and free; NSW 'should' within 60 days, never too late, hospitals won't register, online form; Vic 'must' within 60 days, Service Victoria account, each parent separately; Qld 'must' 60 days, online/post/in person, both parents verify ID; WA 60 days, hospital or midwife gives information; ACT 6 months, Newborn Enrolment Trial at Centenary or North Canberra with consent form; PLP needs birth registered or applied to register; 'register as soon as possible, if you don't we may not be able to pay you'; NSW and WA passport use."
+
+- id: proof-of-birth
+  file: content/drafts/proof-of-birth.md
+  verdict: ok
+  problems: []
+  note: "Earlier map fixes already in the text. Parent Pack, back page, CRN and Medicare numbers, not a claim form, 56 days (claiming timeframes), can't be reissued, alternative proofs and letter contents all match Services Australia (re-fetched)."
+
+- id: cost-of-having-a-baby
+  file: content/drafts/cost-of-having-a-baby.md
+  verdict: fix
+  problems:
+    - claim: "Medicare covers doctor and midwife visits, routine ultrasounds, blood tests and having your baby in an approved facility."
+      judgement: unsupported
+      source_says: "PBB Medicare during pregnancy: 'Medicare covers many of the health care costs of having a baby, including doctor and midwife visits, ultrasounds, blood tests and having your baby in an approved facility.'"
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/medicare-during-pregnancy
+      fixed_to: "Medicare covers many of the costs of having a baby, including ..."
+    - claim: "hospital fees are separate, and depend on your cover and whether the hospital has an agreement with your insurer"
+      judgement: unsupported
+      source_says: "privatehealth.gov.au: medical fees are separate to hospital fees for accommodation, time in theatre and other hospital services; you may incur out-of-pocket costs for hospital fees. Nothing says they depend on a hospital-insurer agreement."
+      url: https://www.privatehealth.gov.au/health_insurance/howitworks/out_of_pocket.htm
+      fixed_to: "hospital fees (such as accommodation and theatre) are separate from the doctors' fees, and you may have out-of-pocket costs for them"
+    - claim: "The Medicare Safety Net. Register for it"
+      judgement: unsupported
+      source_says: "PBB: 'You may want to register for the Medicare Safety Net.'"
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+      fixed_to: "You may want to register for it"
+  note: "Ok: 75% MBS and insurer 25%, doctors free to charge more and 'no cap', gap, excess or co-payment, baby's nursery charged separately, uncovered items, high out-of-pocket without cover, private patient in a public hospital (no guaranteed single room), MBS item numbers and written estimate, 1800 882 436."
+
+- id: private-health-waiting-periods
+  file: content/drafts/private-health-waiting-periods.md
+  verdict: ok
+  problems: []
+  note: "Earlier map fix already in the text (no claim about switching funds). Re-checked against privatehealth.gov.au waiting periods (12 months max for pregnancy and birth, the mother must have served the full period before admission), product tiers (pregnancy and birth: Gold minimum; Silver and Bronze optional; Basic optional with restricted cover), surcharges page (rebate, LHC after the 1 July following the 31st birthday, MLS), and PBB (most policies 12 months; buy or upgrade 12 months before pregnancy; public care fully covered; family policy 1 to 3 months before, some up to 12)."
+
+- id: cot-and-safe-sleep-standards
+  file: content/drafts/cot-and-safe-sleep-standards.md
+  verdict: unchecked
+  problems:
+    - claim: "Red Nose says the standard is noted in the cot's instructions and often on a label"
+      judgement: unchecked
+      source_says: "Red Nose blocks automated fetches (bot check), and Product Safety Australia returned Access Denied, so this could not be confirmed. PBB says only that all new and second-hand cots must comply with AS/NZS 2172:2003 and that second-hand cots 'do not require safety labels' (that part is ok)."
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/newborn-to-1-year/what-is-a-safe-cot/
+      fixed_to: "kept, credited to Red Nose, unchecked"
+    - claim: "Red Nose: use a single firm, flat mattress that fits within 20 mm of the cot's sides and ends."
+      judgement: unchecked
+      source_says: "Red Nose page not loadable. PBB (checked): firm mattress, gap no more than 2 cm centred and no more than 4 cm pushed to one side."
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/newborn-to-1-year/what-is-a-safe-cot/
+      fixed_to: "kept, credited, unchecked"
+    - claim: "There are no current safety standards for bassinets in Australia."
+      judgement: wrong
+      source_says: "PBB safe sleep: 'Unlike cots, there are no current safety standards for bassinets in Australia.' Not attributed in the draft; now credited. (The map check noted no cited page gives a 19 January 2026 standard; Product Safety Australia could not be loaded to see whether anything newer applies.)"
+      url: https://www.pregnancybirthbaby.org.au/babies/sleep-and-settling/safe-sleep-for-babies
+      fixed_to: "Pregnancy, Birth and Baby says that, unlike cots, there are no current safety standards for bassinets in Australia."
+    - claim: "Checking the cot: bar spaces, gaps, protrusions apply to every cot"
+      judgement: unsupported
+      source_says: "PBB: 'a few different rules for used or second-hand cots: parts sticking out can be up to 8cm long, gaps between 3cm and 5cm are allowed, they do not require safety labels.'"
+      url: https://www.pregnancybirthbaby.org.au/babies/sleep-and-settling/cots
+      fixed_to: "added a sentence giving the second-hand differences, and said the checks are for buying a cot"
+  note: "Ok against PBB: AS/NZS 2172:2003 for new and second-hand cots, not all cots meet it, unsafe cot can cause injury or death, bar spaces 5 to 9.5 cm, gaps 3 to 5 cm and over 9.5 cm, protrusions over 5 cm, toeholds, depths 60 cm and 40 cm, plastic wrapping, no bumpers, pillows, doonas, loose bedding, lambswool or sheepskin, soft toys, room sharing 6 to 12 months, back sleeping, face and head uncovered, cot placement away from curtains and cords, mobiles, pictures and mirrors. The last mattress source (Red Nose second-hand mattress) is not used in the body."
+
+- id: second-hand-baby-gear
+  file: content/drafts/second-hand-baby-gear.md
+  verdict: unchecked
+  problems:
+    - claim: "Red Nose says using second-hand nursery furniture can reduce costs, but make sure the product is safe. Just because someone else owned it doesn't mean it's up to current safety standards."
+      judgement: unchecked
+      source_says: "Red Nose blocked (bot check). Supported by PBB only in part: 'you can save money by buying second hand, borrowing or recycling pre-used baby furniture and equipment', and for cots 'just because someone else owned the cot before you, it does not mean that it is up to current safety standards'."
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/second-hand-nursery-furniture/
+      fixed_to: "kept, unchecked"
+    - claim: "Check every item: full instructions and all parts, sturdy and stable, no rough repairs, damage or accident history. Check for recalls on the Product Safety Australia recalls list."
+      judgement: unchecked
+      source_says: "Not on the PBB pages loaded. Red Nose is blocked and Product Safety Australia returned Access Denied. (PBB, for second-hand cots only: all parts in good working order, full instructions, repair broken or loose bars, check old cots for lead-based paint.)"
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/second-hand-nursery-furniture/
+      fixed_to: "kept, unchecked"
+    - claim: "A used mattress is fine if it's firm, flat, clean, in good condition, right size, fitting within 20 mm of the sides."
+      judgement: unchecked
+      source_says: "Red Nose second-hand mattress page not loadable. PBB: 'a clean, firm mattress that fits tightly against the cot or bassinette sides'; gap no more than 2 cm centred, 4 cm pushed to one side."
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/is-it-safe-to-use-a-second-hand-mattress/
+      fixed_to: "kept, unchecked"
+  note: "Ok against PBB: second-hand cots must meet AS/NZS 2172:2003 and do not require safety labels; check old cots for lead-based paint; use only with all parts working and full instructions. PBB says to use a portable cot only if it meets the Australian standard (the draft's 'sold in Australia must meet' for portable cots rests on Red Nose)."
+
+- id: sleep-in-pregnancy
+  file: content/drafts/sleep-in-pregnancy.md
+  verdict: fix
+  problems:
+    - claim: "you start snoring, or have pauses in your breathing while you sleep"
+      judgement: wrong
+      source_says: "PBB fatigue page: 'you start snoring or have more pauses in your breathing during sleep'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/dealing-with-fatigue-during-your-pregnancy
+      fixed_to: "you start snoring, or have more pauses in your breathing while you sleep"
+    - claim: "heartburn or restless legs keep disturbing your sleep, or you still can't sleep after trying these tips"
+      judgement: unsupported
+      source_says: "Fatigue page: 'your sleep is disturbed by a health condition such as heartburn or restless legs syndrome'. Sleep page: see your doctor 'if you have trouble sleeping and you are worried it is affecting yours or your baby's health'. 'Still can't sleep after trying these tips' is not said."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
+      fixed_to: "your sleep is disturbed by a health condition such as heartburn or restless legs, or you have trouble sleeping and you're worried it's affecting your or your baby's health"
+  note: "Ok: more sleep needed, lighter sleep, from 28 weeks sleep on your side (night and naps, either side), back-lying and stillbirth wording, pillows, sleep hygiene points, heartburn red flags, 000, Lifeline 13 11 14, PANDA 1300 726 306."
+
+- id: pregnancy-supplements
+  file: content/drafts/pregnancy-supplements.md
+  verdict: fix
+  problems:
+    - claim: "Calcium: ... If you don't eat dairy or calcium-fortified milks, ask whether you need one."
+      judgement: unsupported
+      source_says: "PBB: your midwife or doctor may suggest calcium 'if your usual diet does not have enough or you have certain medical conditions'. Dairy and fortified milks are not mentioned in that context."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+      fixed_to: "Your midwife or doctor may suggest one if your usual diet doesn't have enough or you have certain medical conditions."
+    - claim: "Vitamin B12: recommended if you follow a vegetarian or vegan diet."
+      judgement: wrong
+      source_says: "PBB: midwife or doctor 'may suggest' B12 if you follow a vegetarian or vegan diet. Royal Women's: 'If you do not eat animal foods you will need to take a vitamin B12 supplement.' Wording differs; both kept, each credited."
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/food-nutrition-in-pregnancy
+      fixed_to: "your midwife or doctor may suggest it ... The Royal Women's Hospital says that if you eat no animal foods you will need to take it."
+  note: "Vitamin D disagreement kept separate and ok: PBB (some people; test, then maybe a supplement) vs Royal Women's (all pregnant women 400 IU / 10 mcg a day, extra tablet if blood test low). Folic acid 0.5 mg one month before and first 3 months, 400 mcg alternative, 5 mg higher dose list, iodine 150 mcg, kelp, iron, omega-3 and fish liver oils, multivitamin, avoid vitamins A, C, E, 10,000 IU vitamin A limit all ok."
+
+- id: braxton-hicks-contractions
+  file: content/drafts/braxton-hicks-contractions.md
+  verdict: ok
+  problems: []
+  note: "Every claim matches the PBB Braxton Hicks page (re-fetched; the red-flag callout is inside a callout block): 30 seconds up to 2 minutes there, 20 to 90 seconds on the uterus page (both kept, each credited); once or twice an hour, a few times a day; labour contractions open the cervix, become very regular, painful or need all your attention; before 37 weeks contact your doctor or midwife immediately for pelvis, abdomen or lower back pain or discomfort or any signs of labour; at any stage persistent abdominal pain, vaginal bleeding, baby's movements, very unwell; if in doubt don't hesitate to call; call midwife or go to hospital if waters break or contractions stronger, closer, more regular."
+
+- id: term-folate
+  file: content/drafts/term-folate.md
+  verdict: ok
+  problems: []
+  note: "PBB glossary (re-fetched): folate is a B group vitamin found in some foods, important leading up to pregnancy and for the first 3 months, can reduce the chance of neural tube defects (spina bifida); folic acid is the synthetic version taken as a supplement. Green leafy vegetables as an example is from PBB Folate and pregnancy / Better Health Channel (BHC calls folic acid 'found naturally in green leafy vegetables', which differs from PBB; the draft follows PBB)."
+
+- id: term-pre-eclampsia
+  file: content/drafts/term-pre-eclampsia.md
+  verdict: ok
+  problems: []
+  note: "PBB glossary (re-fetched): 'a pregnancy complication that can develop after 20 weeks of pregnancy. Symptoms include high blood pressure and protein in the urine.'"
+
+- id: card-home-dopplers
+  file: content/drafts/card-home-dopplers.md
+  verdict: ok
+  problems: []
+  note: "PBB fetal monitoring (re-fetched): not approved for sale in Australia, not recommended at home, only trained professionals, can falsely reassure, delay care, linked to serious harm including baby deaths; concerned about movements: contact midwife or doctor immediately, do not wait until the next day."
+
+- id: card-sleep-on-your-side
+  file: content/drafts/card-sleep-on-your-side.md
+  verdict: ok
+  problems: []
+  note: "PBB sleep during pregnancy (re-fetched): from 28 weeks doctors recommend sleeping on your side, night and naps, either or both sides; research shows it can reduce stillbirth risk; back-lying presses on major blood vessels and can reduce blood flow to the uterus; position you fall asleep in is usually the one you stay in longest; roll back onto your side."

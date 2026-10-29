@@ -1,0 +1,92 @@
+# Fact-check of M18 drafts (body-and-baby), 2026-10-29. Every claim checked against the pages in each draft's sources (re-fetched); RANZCOG breech PDF read from the drafter's saved text (pdf font-encoded; fetch tools lacking).
+# All 20 drafts checked; the drafter's earlier 11 included. Credited disagreements (term-term, term-premature, term-show, term-short-cervix, term-anaemia, viability) verified.
+- id: the-pelvic-floor
+  file: content/drafts/the-pelvic-floor.md
+  verdict: ok
+- id: eating-well-in-pregnancy
+  file: content/drafts/eating-well-in-pregnancy.md
+  verdict: ok
+- id: staying-active-in-pregnancy
+  file: content/drafts/staying-active-in-pregnancy.md
+  verdict: ok
+- id: the-babys-brain
+  file: content/drafts/the-babys-brain.md
+  verdict: ok
+- id: the-babys-position
+  file: content/drafts/the-babys-position.md
+  verdict: ok
+- id: baby-size-and-growth
+  file: content/drafts/baby-size-and-growth.md
+  verdict: ok
+- id: the-babys-heartbeat
+  file: content/drafts/the-babys-heartbeat.md
+  verdict: ok
+- id: term-premature
+  file: content/drafts/term-premature.md
+  verdict: ok
+- id: term-post-term
+  file: content/drafts/term-post-term.md
+  verdict: ok
+- id: term-short-cervix
+  file: content/drafts/term-short-cervix.md
+  verdict: ok
+- id: term-prolapse
+  file: content/drafts/term-prolapse.md
+  verdict: ok
+- id: term-braxton-hicks
+  file: content/drafts/term-braxton-hicks.md
+  verdict: ok
+- id: term-round-ligament
+  file: content/drafts/term-round-ligament.md
+  verdict: ok
+- id: term-pelvic-girdle-pain
+  file: content/drafts/term-pelvic-girdle-pain.md
+  verdict: ok
+- id: term-anaemia
+  file: content/drafts/term-anaemia.md
+  verdict: ok
+- id: viability-and-prematurity
+  file: content/drafts/viability-and-prematurity.md
+  verdict: fix
+  problems:
+    - claim: "Babies born at 37 to 42 weeks are term, and a birth at 42 weeks or more is post-term."
+      judgement: wrong
+      source_says: "PBB glossary: \"Full term is when the baby is born in weeks 37 to 42\"; AIHW glossary: term birth is \"37–41 completed weeks\", post-term \"42 or more completed weeks\" (sources disagree)"
+      url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary
+      fixed_to: "Pregnancy, Birth and Baby counts full term as weeks 37 to 42; the AIHW counts a term birth as 37–41 completed weeks and a post-term birth as 42 or more completed weeks."
+- id: breech
+  file: content/drafts/breech.md
+  verdict: fix
+  problems:
+    - claim: "most babies turn head down during the last month"
+      judgement: wrong
+      source_says: "Most babies turn to a head-down position before the last month of pregnancy"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
+      fixed_to: "most babies turn head down before the last month"
+- id: twins-and-multiples
+  file: content/drafts/twins-and-multiples.md
+  verdict: fix
+  problems:
+    - claim: "summary: a good chance they'll arrive before 37 weeks"
+      judgement: wrong
+      source_says: "you are more likely to have your babies earlier than expected; more likely to be born early (before 37 weeks)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy
+      fixed_to: "they are more likely to arrive before 37 weeks"
+- id: term-term
+  file: content/drafts/term-term.md
+  verdict: fix
+  problems:
+    - claim: "summary: 37–42 weeks in most health pages"
+      judgement: unsupported
+      source_says: "Only PBB glossary and Better Health Channel give 37–42; PBB due-date page body says full term is 'from 37 weeks' (its FAQ markup says 39–41, not used)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date
+      fixed_to: "37–42 weeks in Pregnancy, Birth and Baby and the Better Health Channel"
+- id: term-show
+  file: content/drafts/term-show.md
+  verdict: fix
+  problems:
+    - claim: "If you notice a show before 37 weeks, contact your midwife or doctor."
+      judgement: wrong
+      source_says: "Same page, two levels: 'If you notice early signs of labour before 37 weeks, contact your midwife or doctor and let them know' and, under When should I contact, 'Call your midwife or doctor straight away if your contractions start or you have other signs of labour before 37 weeks'"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
+      fixed_to: "both levels, each in its own wording"

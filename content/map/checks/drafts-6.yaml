@@ -1,0 +1,188 @@
+# Fact-check of drafted Library entries, batch B6 (loss, early birth and NICU, birth trauma,
+# family violence, three cards, Services Australia payments). Checked 2026-10-29 against the
+# pages in each draft's sources (fetched that day).
+- id: miscarriage
+  file: content/drafts/miscarriage.md
+  verdict: fix
+  problems:
+    - claim: "Partners can be deeply affected too, and the two of you may react in different ways."
+      judgement: unsupported
+      source_says: "Pregnancy loss can also affect your partner and children. ... You and your partner, if you have one, may react in different ways."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/experiencing-a-pregnancy-loss
+      fixed_to: "Pregnancy loss can affect your partner too, and the two of you may react in different ways. (PBB pregnancy-loss page added to sources.)"
+  notes: "All other claims confirmed: 1 in 4 before 14 weeks, 50-80% chromosomal, over 35, high chance of healthy pregnancy, types, 000 for very heavy bleeding/strong pain/unwell, Medicare Mental Health 1800 595 212 (PBB), Beyond Blue 1300 22 4636 (Gidget). checked set."
+- id: miscarriage-signs-what-to-do
+  file: content/drafts/miscarriage-signs-what-to-do.md
+  verdict: fix
+  problems:
+    - claim: "heavy bleeding (soaking more than 2 pads an hour) or you're passing large clots"
+      judgement: wrong
+      source_says: "Two PBB pages differ. 'What really happens' (and the PBB body list): 'heavy vaginal bleeding (soaking more than 2 pads per hour or passing large clots)'; the alert at the top of 'What should I do if I think I'm having a miscarriage?': 'heavy vaginal bleeding (soaking 1 or more sanitary pads in an hour, or bleeding you can't catch or contain)', with 000 or emergency."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-should-i-do-if-i-think-im-having-a-miscarriage
+      fixed_to: "heavy bleeding or passing large clots, with both PBB wordings given and credited."
+  notes: "Confirmed: 000 for unwell/dizzy/faint/trouble breathing; ED list (shoulder-tip, fever or chills, smelly discharge, shortness of breath or fast heartbeat, any concerns); EPAS in major cities, rural note; healthdirect 1800 022 222 24/7 and PBB 1800 882 436 7am-midnight (Miscarriage Australia page); pads not tampons, paracetamol, heat pack; 1 in 4 bleed in first trimester. checked set."
+- id: miscarriage-management-options
+  file: content/drafts/miscarriage-management-options.md
+  verdict: ok
+  problems: []
+  notes: "Every figure confirmed on the PBB expectant, medical, surgical and miscarriage pages: bleeding 7-14 days, eases in 1-2 days, spotting about 2 weeks, follow-up 7-10 days; misoprostol alone or with mifepristone, 4-6 hours, up to 2 weeks, blood test a week later; D&C about 10 minutes, 7-14 days, up to 3 in 100 infection; the see-doctor-or-ED list (1-2 pads an hour, golf-ball clots, 38 C, over 2 weeks); 4-6 week follow-up. checked set."
+- id: after-a-miscarriage
+  file: content/drafts/after-a-miscarriage.md
+  verdict: fix
+  problems:
+    - claim: "Every state and territory offers an optional certificate recognising early pregnancy loss, through its Births, Deaths and Marriages registry; Red Nose has information on applying."
+      judgement: unsupported
+      source_says: "You can ask for an optional certificate recognising early pregnancy loss. Red Nose Grief and Loss has information on applying for an early pregnancy loss certificate with your state or territory's Births, Deaths and Marriage Registry."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-happens-after-miscarriage
+      fixed_to: "You can ask for an optional certificate ... from your state or territory's registry; PBB says Red Nose has information on applying. (Rests on PBB's wording, not on a Red Nose page.)"
+    - claim: "PBB says it's safe to get pregnant again soon ... no medical need to wait, though your health team may suggest waiting until you feel emotionally and physically ready."
+      judgement: unchecked
+      source_says: "Same PBB page, in its funeral/legal section, also says: 'Your health team may recommend you wait until after you have had at least one normal menstrual cycle before trying for another pregnancy'. Surgical page: 'wait a few months to allow your menstrual cycle to re-establish'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-happens-after-miscarriage
+      fixed_to: "kept the current advice and added the one-normal-cycle line as PBB's other wording; D&C 'few months' kept (surgical page)."
+  notes: "Confirmed: bleeding up to 2 weeks; symptoms resolve; breasts may make milk near 20 weeks; see doctor within 6 weeks; check if miscarried at home; negative blood type and anti-D; ovulation before first period; 2 or more, fertility specialist; healthy pregnancy later; no legal registration under 20 weeks; funeral options; 2 days paid bereavement leave under the Fair Work Act (Miscarriage Australia's wording, includes partner); no need to tell workplace; grief triggers; health team can recommend a support group. Added from Fair Work Ombudsman (compassionate and bereavement leave): 2 days compassionate leave per occasion, unpaid for casuals, so the draft's 'paid' (Miscarriage Australia wording) now carries that caveat and the Fair Work page is in sources. checked set."
+- id: ectopic-pregnancy
+  file: content/drafts/ectopic-pregnancy.md
+  verdict: ok
+  problems: []
+  notes: "All claims confirmed on PBB Ectopic pregnancy: 1 in 100, signs and weeks 4-12, nearest ED or 000 for any of them while pregnant, hCG and ultrasound, watch-and-wait conditions and its ED triggers, methotrexate, keyhole/open surgery, follow-up tests, alcohol (3 months after methotrexate), Medicare-funded counselling, Red Nose 1300 308 307 24/7 (PBB's wording), partner, fertility, higher chance of another, wait 2 months / 3-4 months, early ultrasound. checked set."
+- id: stillbirth
+  file: content/drafts/stillbirth.md
+  verdict: fix
+  problems:
+    - claim: "Tell your doctor or midwife if you have heavy bleeding that doesn't stop, a fever, or painful, red, hot areas or lumps in your breasts."
+      judgement: wrong
+      source_says: "'See your doctor immediately if you have signs of mastitis ... a painful or warm breast, which may have a red patch on it; flu-like symptoms, such as a fever, aches or chills.' Bleeding: 'seek help from your doctor or midwife if it's more [than] 24 hours after the birth and the amount of blood suddenly increases, you notice that you are passing large blood clots, the blood becomes bright red, you feel dizzy, weak, sweaty or have trouble breathing, you have a high temperature, you are worried that your bleeding is not normal.' No mention of lumps."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/stillbirth-and-neonatal-death/your-body-after-stillbirth-or-neonatal-death
+      fixed_to: "Rewritten to the source's urgency: mastitis signs, see your doctor immediately; bleeding signs, seek help from doctor or midwife."
+  notes: "Confirmed: 20 weeks / 400 g definition, about 6 a day, often cause unknown, diagnosis by ultrasound, care team members, induce vaginal birth, go home a day or 2, time with baby and keepsakes, rituals, no rush, tests incl. autopsy, registration/Centrelink support, milk and easing, bleeding up to 6 weeks, doctor 8-12 weeks, parents at higher risk of anxiety/depression/PTSD, Red Nose 1300 308 307 (24/7 hours from PBB ectopic page, which is a PBB page), Gidget therapy for birthing and non-birthing parents, Lifeline 13 11 14, Safer Baby Bundle national initiative, side sleeping from 28 weeks, smoking. checked set."
+- id: when-the-baby-comes-early
+  file: content/drafts/when-the-baby-comes-early.md
+  verdict: ok
+  problems: []
+  notes: "Confirmed on PBB Premature baby: before 37 weeks, about 8 in 100, contact midwife/doctor/birthing centre immediately, slow or stop labour, each day inside better, 32-37 weeks SCN and most no serious long-term problems, before 32 weeks higher risk, help breathing, usually NICU at first, neonatal team at birth, transfer, kangaroo care, coping lines, regular checks, twins raise chance; corticosteroid injections mentioned. Miracle Babies Nurture Line 1300 622 243, free, 24 hour, run by parents (Miracle Babies page); Life's Little Treasures 1300 697 736 and PIPA 1300 773 672 (PBB). checked set."
+- id: baby-in-the-nicu
+  file: content/drafts/baby-in-the-nicu.md
+  verdict: ok
+  problems: []
+  notes: "Confirmed on Miracle Babies (my baby is in hospital; just for dads; Nurture Line 1300 622 243, free, 24 hour) and PBB Supporting parents of sick or premature babies (meals, parking, updates with consent, walk/coffee, housework, older children, pets, texts and cards, lonely, long stays); partner section matches Miracle Babies Just for Dads (consent to procedures, feeling torn, kangaroo care, expressing equipment, closed Facebook group); SMS4dads free messages incl. NICU set; PANDA 1300 726 306, Beyond Blue 1300 22 4636, MensLine 1300 78 99 78 on the PBB page. checked set."
+- id: birth-trauma
+  file: content/drafts/birth-trauma.md
+  verdict: fix
+  problems:
+    - claim: "Postpartum PTSD, which affects up to 1 in 10, ..."
+      judgement: unsupported
+      source_says: "Postpartum PTSD can happen to up to 1 in every 10 women 4 to 6 weeks after childbirth."
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/postpartum-ptsd
+      fixed_to: "which PBB says can happen to up to 1 in 10 women 4 to 6 weeks after childbirth"
+  notes: "Confirmed: up to 1 in 3; physical/psychological; causes list (PBB); felt traumatic = was; signs; partner effects (PBB, Birth Trauma Australia fathers page); PTSD 4 weeks or more and symptoms, untreated can turn into PTSD, doctor or psychologist diagnoses; going over notes may bring relief and may not work for everyone (Birth Trauma Australia); counselling/therapy/medication; ABTA peer support (PBB); never too late; obstetric violence examples and right to give or withdraw consent, complaints, AHPRA 1300 419 495 (PBB); PANDA 1300 726 306 and Gidget 1300 851 758 (PBB); Lifeline 13 11 14 or ED for self-harm/baby's safety (PBB). checked set."
+- id: loss-support-services
+  file: content/drafts/loss-support-services.md
+  verdict: fix
+  problems:
+    - claim: "Red Nose Grief and Loss: ... Free counselling and support groups after miscarriage, ectopic pregnancy, termination for medical reasons, stillbirth, the death of a newborn, and SIDS."
+      judgement: unchecked
+      source_says: "PBB: 'Red Nose Grief and Loss provides support for people affected by pregnancy loss. Call 1300 308 307 - 24 hours a day 7 days a week.' (another PBB page: 'pregnancy loss, stillbirth, baby or child death'). The detailed list rests only on the Red Nose page, which blocks automated fetches."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss-and-miscarriage/miscarriage-and-pregnancy-loss-support-services
+      fixed_to: "Free support by phone for people affected by pregnancy loss, stillbirth, or the death of a baby or child; Red Nose URL removed from sources; summary reworded to match."
+    - claim: "Bears of Hope has grief counsellors who have been through loss themselves ... guides for family, friends and employers who don't know what to say."
+      judgement: unsupported
+      source_says: "'Our grief counsellors ... They know this pain ... Free of charge.' Resource heading: 'For Family, Friends & Colleagues'."
+      url: https://www.bearsofhope.org.au/
+      fixed_to: "grief counsellors, free of charge, walk and talk groups, a guide for family, friends and colleagues."
+    - claim: "Gidget Foundation offers therapy ... for birthing and non-birthing parents, after pregnancy loss and stillbirth."
+      judgement: unsupported
+      source_says: "Gidget stillbirth fact sheet: 'Individual psychological therapy for parents affected by stillbirth ... Support is available to birthing and non-birthing parents.'"
+      url: https://www.gidgetfoundation.org.au/fact-sheets/stillbirth
+      fixed_to: "individual psychological therapy with a perinatal mental health clinician; for stillbirth, birthing and non-birthing parents."
+  notes: "Confirmed on PBB: Red Nose 1300 308 307 24/7; Pink Elephants Pregnancy Loss Helpline (PANDA) 1300 726 306 Mon-Fri 9am-7:30pm, Sat and public holidays 9am-4pm AEST; ForWhen 1300 24 23 22, 9am-4:30pm weekdays; Beyond Blue 1300 22 4636; 13YARN 13 92 76; Red Nose groups for non-birthing parents; Miscarriage Australia men's page. Pink Elephants moderated groups (miscarriage, TFMR, trying again, PAL) and Miscarriage Australia pages (women, men, LGBTIQA+, partners, family and friends) confirmed. Lifeline 13 11 14 on Gidget. checked set."
+- id: partner-after-a-loss
+  file: content/drafts/partner-after-a-loss.md
+  verdict: fix
+  problems:
+    - claim: "Red Nose Grief and Loss has information on men's grief, and runs support groups for non-birthing parents. Call 1300 308 307, 24 hours a day."
+      judgement: unchecked
+      source_says: "PBB support-services page: 'Red Nose offers support groups for non-birthing parents'; 'Red Nose Grief and Loss ... Call 1300 308 307 - 24 hours a day 7 days a week.' The men's grief information rests only on the Red Nose men's grief page (blocked)."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss-and-miscarriage/miscarriage-and-pregnancy-loss-support-services
+      fixed_to: "runs support groups for non-birthing parents (PBB's wording); line 1300 308 307, 24 hours a day, 7 days a week. Red Nose men's grief URL removed."
+  notes: "Confirmed: sadness, helplessness, anxiety; cultural beliefs; difficult journey/previous losses; strong for partner, isolated; not yet told others; rituals, friend, support group, professional; patience, intimacy, readiness (PBB); grieve differently/intensities, relief or confusion, invested from the beginning (Miscarriage Australia men's page); Fair Work page: compassionate leave if stillborn, or if spouse or de facto partner has a miscarriage; SMS4dads grieving dads set; Lifeline 13 11 14, Beyond Blue 1300 22 4636. checked set."
+- id: pregnancy-after-loss
+  file: content/drafts/pregnancy-after-loss.md
+  verdict: fix
+  problems:
+    - claim: "Fear about a future pregnancy, or about your body's ability to keep a baby safe, may come too."
+      judgement: unsupported
+      source_says: "Gidget: 'Anxiety, panic, intrusive thoughts or fear about future pregnancies or medical care'. Nothing on fear about the body's ability."
+      url: https://www.gidgetfoundation.org.au/fact-sheets/stillbirth
+      fixed_to: "Anxiety and fear about a future pregnancy or medical care may come too."
+    - claim: "Get support if you feel persistently numb, hopeless, panicked or overwhelmed, if you're avoiding appointments to the point it affects daily life, or if fear of the pregnancy is taking over. If you have thoughts of harming yourself, or feel you can't stay safe, call Lifeline on 13 11 14 or 000."
+      judgement: unsupported
+      source_says: "PBB: 'Seek counselling or support if you feel overwhelmed or your grief doesn't ease over time.' Gidget: 'If symptoms feel unmanageable, intensify, or affect your ability to function or feel safe, it is important to seek support.' PBB stress page: 'If you are having thoughts of self-harm or suicide, call Lifeline on 13 11 14 for immediate support.' Gidget: 'If you or your baby are in immediate danger, call 000.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/experiencing-a-pregnancy-loss
+      fixed_to: "Rewritten to those wordings (support, Lifeline 13 11 14 for self-harm or suicide thoughts, 000 for immediate danger)."
+  notes: "Confirmed on PBB pregnancy-after-stillbirth page: deciding when, medical reasons to wait, extra care list (more frequent and flexible appointments, extra ultrasounds, genetic testing, cervical length screening 16-24 weeks after spontaneous preterm birth), birth timing and plan, contact team between appointments, specialist clinics; stress page: pregnancy after loss is a source of stress; Gidget therapy incl. future pregnancy fears; Pink Elephants Pregnancy After Loss group; grief returns around due dates etc. checked set."
+- id: domestic-violence-in-pregnancy
+  file: content/drafts/domestic-violence-in-pregnancy.md
+  verdict: fix
+  problems:
+    - claim: "1800RESPECT supports the people helping, too."
+      judgement: unsupported
+      source_says: "1800RESPECT 'Supporting someone' page: ways to be supportive, and 'speaking with a 1800RESPECT counsellor' for support; no statement that it supports helpers as such."
+      url: https://1800respect.org.au/help-and-support/supporting-someone
+      fixed_to: "1800RESPECT's website has a page on supporting someone, and you can speak with one of its counsellors."
+  notes: "Confirmed: 000 for immediate danger (PBB, 1800RESPECT); can begin or get worse in pregnancy; never okay, always dangerous; types (emotional, financial, social, reproductive, physical, sexual) and warning signs (PBB); controlling partner at every appointment and call from car/supermarket/friend's phone (Gidget); 'put up with it' (Gidget coercive control); social workers and counsellors in maternity hospitals (PBB); 1800RESPECT 1800 737 732, free, 24/7, text 0458 737 732, online chat, video call, Quick Exit, incognito (1800RESPECT home); safety plan items and keep it private (1800RESPECT); PBB 1800 882 436, PANDA 1300 726 306, Lifeline 13 11 14, 13YARN 13 92 76; helping someone (PBB); 'Using violence' section on 1800RESPECT site. checked set."
+- id: card-miscarriage-not-your-fault
+  file: content/drafts/card-miscarriage-not-your-fault.md
+  verdict: ok
+  problems: []
+  notes: "Up to 1 in 4 before 14 weeks (PBB); 50-80% random chromosomal abnormalities, unlikely you caused it, high chance of a healthy pregnancy later (Miscarriage Australia); 'most of the time ... problem with the baby's development, not anything you did' (PBB). checked set."
+- id: card-one-in-ten-dads
+  file: content/drafts/card-one-in-ten-dads.md
+  verdict: ok
+  problems: []
+  notes: "PBB Fathers and depression: depression 1 in 10 fathers from the first trimester through the first year; anxiety 1 in 6 during partner's pregnancy; recognising signs in yourself or your partner can help your family recover. SMS4dads: free text messages for new and expecting dads; quote 'we need to be screening dads for depression, not just mums' (Richard, researcher). checked set."
+- id: card-red-nose-24-7
+  file: content/drafts/card-red-nose-24-7.md
+  verdict: fix
+  problems:
+    - claim: "It's for anyone grieving a baby, however early or late: after a miscarriage, an ectopic pregnancy, a termination for medical reasons, a stillbirth, or the death of a newborn. ... Partners, siblings and grandparents can call too. (Also the title's 'including partners and grandparents'.)"
+      judgement: unchecked
+      source_says: "PBB: 'Red Nose Grief and Loss provides support for people affected by pregnancy loss. Call 1300 308 307 - 24 hours a day 7 days a week.' / 'pregnancy loss, stillbirth, baby or child death.' / 'Red Nose offers support groups for non-birthing parents.' Nothing on siblings, grandparents, ectopic or termination for medical reasons; those rest only on the Red Nose page, which blocks automated fetches."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss-and-miscarriage/miscarriage-and-pregnancy-loss-support-services
+      fixed_to: "Cut to PBB's wording (pregnancy loss, stillbirth, death of a baby or child; groups for non-birthing parents). Title and summary reworded. Red Nose URL removed from sources. Number and 24/7 hours confirmed on PBB, so checked is set on the reduced card; if the siblings/grandparents claim is wanted back, it needs a Red Nose check by hand."
+  notes: "1300 308 307, 24 hours a day, 7 days a week, free: PBB support-services page."
+- id: parental-leave-pay
+  file: content/drafts/parental-leave-pay.md
+  verdict: ok
+  problems: []
+  notes: "Services Australia (printed 29 Oct 2026): $200.94 a day / $1,004.70 per 5-day week for 2026-27 ($189.62 / $948.10 in 2025-26); taxable; rate changes 1 July and is by financial year of the days, not birth date; 130 / 120 / 110 days by birth date (130 from 1 July 2026); 20 days reserved for a partner; twins get one child's days; eligibility list; employer usually delivers, sometimes Services Australia pays directly; claim up to 3 months before due date, one parent within 52 weeks, days used within 2 years; can take before, during or after paid or unpaid employer funded leave (claiming timeframes page). Not in the draft: a pre-birth claim lodged before 1 July 2026 starts at 120 days (+10 on proof of birth). checked set."
+- id: parental-leave-pay-work-test
+  file: content/drafts/parental-leave-pay-work-test.md
+  verdict: fix
+  problems:
+    - claim: "Part-time work counts."
+      judgement: unsupported
+      source_says: "Services Australia: 'You can include work for multiple employers, and combine approved activities to meet the work test.' It says nothing about part-time as such (330 hours is 'around one day a week')."
+      url: https://www.servicesaustralia.gov.au/work-requirements-for-parental-leave-pay
+      fixed_to: "cut; the multiple-employers sentence kept"
+  notes: "Confirmed (page updated 1 April 2026): 10 of 13 months (295 / 392 days), at least 330 hours, no more than a 12 week gap, many activities count incl. paid leave, self-employed may still meet it, 'birth mother' (Services Australia's term) must meet it and, if partnered, both parents must; exceptions list and documents provided when claiming online. Tasks check-work-test (due 20) has no deadline: fine. checked set."
+- id: parental-leave-pay-income-test
+  file: content/drafts/parental-leave-pay-income-test.md
+  verdict: ok
+  problems: []
+  notes: "Services Australia: individual adjusted taxable income $186,487 or less (2025-26; $180,007 in 2024-25); family test $386,525 or less (2025-26; $373,094 in 2024-25), partner is the person you're in a relationship with on the date you claim, single people tested against the family limit; year is the financial year before the earlier of birth or claim date; each parent tested separately; the $170,000 / $230,000 / $400,000 example. Task check-income-test (due 20) has no deadline: fine. checked set."
+- id: family-tax-benefit-claim
+  file: content/drafts/family-tax-benefit-claim.md
+  verdict: fix
+  problems:
+    - claim: "Apply for Family Assistance (including Paid Parental Leave)"
+      judgement: wrong
+      source_says: "'Apply for Family Assistance Payments (including Paid Parental Leave)'"
+      url: https://www.servicesaustralia.gov.au/how-to-claim-family-tax-benefit
+      fixed_to: "Apply for Family Assistance Payments (including Paid Parental Leave)"
+  notes: "Confirmed: fortnightly claim as early as 3 months before the expected birth and within 52 weeks of the birth; lump sum before 30 June of the next financial year; proof of birth needed before finalising; Part A choices incl. $123,078 base-rate threshold; Part B 2 choices and who they may suit; recommendation when claiming, change any time in myGov (linked account); balancing after year end and pays FTB owing; 12 months from end of financial year to confirm income or claim lump sum. Task choose-ftb-payment-choice (due 30) has no deadline: fine. checked set."
+- id: child-care-subsidy
+  file: content/drafts/child-care-subsidy.md
+  verdict: ok
+  problems: []
+  notes: "Services Australia: 90% up to $88,520; down 1% per $5,000 above to nil at $538,520; applies to the hourly fee or the hourly rate cap, whichever is lower; paid directly to the service; higher rate for more than one child aged 5 or younger; StartingBlocks calculator; from 5 January 2026 at least 72 hours a fortnight, 100 hours depending on recognised participation and circumstances; who can get it (13 or younger, not at secondary school, approved service, responsible for fees, residence and immunisation); approved care types; 5% withheld each fortnight, balanced at year end, underestimate may mean a debt, overestimate means outstanding amount including the withheld amount is paid. checked set."

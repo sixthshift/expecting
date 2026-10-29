@@ -1,0 +1,175 @@
+# Fact-check of the L01 batch of drafts (content/drafts/*.md) against their listed sources.
+# Checked 2026-10-29. Every claim (summary, verdict, headings, body) compared with the loaded source pages.
+- id: tiredness
+  file: content/drafts/tiredness.md
+  verdict: ok
+- id: sore-breasts
+  file: content/drafts/sore-breasts.md
+  verdict: ok
+- id: constipation
+  file: content/drafts/constipation.md
+  verdict: ok
+- id: haemorrhoids
+  file: content/drafts/haemorrhoids.md
+  verdict: ok
+- id: restless-legs
+  file: content/drafts/restless-legs.md
+  verdict: ok
+- id: varicose-veins
+  file: content/drafts/varicose-veins.md
+  verdict: ok
+- id: nosebleeds
+  file: content/drafts/nosebleeds.md
+  verdict: ok
+- id: bleeding-gums
+  file: content/drafts/bleeding-gums.md
+  verdict: ok
+- id: blocked-nose
+  file: content/drafts/blocked-nose.md
+  verdict: ok
+- id: thrush
+  file: content/drafts/thrush.md
+  verdict: ok
+- id: skin-darkening
+  file: content/drafts/skin-darkening.md
+  verdict: ok
+- id: linea-nigra
+  file: content/drafts/linea-nigra.md
+  verdict: ok
+- id: acne
+  file: content/drafts/acne.md
+  verdict: ok
+- id: vivid-dreams
+  file: content/drafts/vivid-dreams.md
+  verdict: ok
+- id: babys-hiccups
+  file: content/drafts/babys-hiccups.md
+  verdict: ok
+- id: food-cravings-and-aversions
+  file: content/drafts/food-cravings-and-aversions.md
+  verdict: ok
+- id: abdominal-separation
+  file: content/drafts/abdominal-separation.md
+  verdict: ok
+- id: leaking-colostrum
+  file: content/drafts/leaking-colostrum.md
+  verdict: ok
+- id: stretch-marks
+  file: content/drafts/stretch-marks.md
+  verdict: fix
+  problems:
+    - claim: "Under '## See your doctor or midwife': a very itchy rash in or around stretch marks can be polymorphic eruption of pregnancy (1 in 160, goes away 4 to 6 weeks after the birth)"
+      judgement: wrong
+      source_says: "Under 'Complications of stretch marks': Sometimes a very itchy rash can start in or around stretch marks on your abdomen. This is called polymorphic eruption of pregnancy and it affects 1 in 160 pregnant women. It will go away 4 to 6 weeks after your baby is born. (No advice to see a doctor is given for it; the see-your-doctor line is only 'If you are concerned about stretch marks ... talk to your doctor or midwife at your next antenatal appointment'.)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/stretch-marks
+      fixed_to: "Moved to a closing paragraph of 'What's usual' with no advice attached; the See-your-doctor heading keeps only the antenatal-appointment line."
+- id: brain-fog
+  file: content/drafts/brain-fog.md
+  verdict: fix
+  problems:
+    - claim: "Baby brain is real enough to have a name."
+      judgement: unsupported
+      source_says: "Brain fog — Pregnancy can affect brain function and memory, especially in the third trimester. This is sometimes known as 'brain fog'. (The page does not say 'baby brain'.)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
+      fixed_to: cut
+    - claim: "Tiredness can make it worse (also in summary: 'and tiredness makes it worse'); Pregnancy, Birth and Baby lists reduced concentration and alertness among the effects of fatigue."
+      judgement: unsupported
+      source_says: "Possible complications [of severe or ongoing tiredness]: increased risk of accidents or falls due to reduced concentration and alertness. (Nothing links tiredness to brain fog.)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/dealing-with-fatigue-during-your-pregnancy
+      fixed_to: "lists reduced concentration and alertness among the possible complications of severe or ongoing tiredness; summary clause cut"
+- id: ice-cream-and-gelato
+  file: content/drafts/ice-cream-and-gelato.md
+  verdict: ok
+- id: milk-and-yoghurt
+  file: content/drafts/milk-and-yoghurt.md
+  verdict: ok
+- id: honey
+  file: content/drafts/honey.md
+  verdict: ok
+- id: spicy-food
+  file: content/drafts/spicy-food.md
+  verdict: ok
+- id: soy-foods
+  file: content/drafts/soy-foods.md
+  verdict: ok
+- id: canned-food
+  file: content/drafts/canned-food.md
+  verdict: ok
+- id: tea
+  file: content/drafts/tea.md
+  verdict: ok
+- id: decaf
+  file: content/drafts/decaf.md
+  verdict: ok
+- id: chocolate-and-hot-chocolate
+  file: content/drafts/chocolate-and-hot-chocolate.md
+  verdict: ok
+- id: cola-and-soft-drink
+  file: content/drafts/cola-and-soft-drink.md
+  verdict: ok
+- id: soft-drink-and-sugar
+  file: content/drafts/soft-drink-and-sugar.md
+  verdict: ok
+- id: artificial-sweeteners
+  file: content/drafts/artificial-sweeteners.md
+  verdict: ok
+- id: ginger
+  file: content/drafts/ginger.md
+  verdict: ok
+- id: peppermint-tea
+  file: content/drafts/peppermint-tea.md
+  verdict: ok
+- id: sports-and-electrolyte-drinks
+  file: content/drafts/sports-and-electrolyte-drinks.md
+  verdict: ok
+- id: hemp-seeds
+  file: content/drafts/hemp-seeds.md
+  verdict: fix
+  problems:
+    - claim: "summary: low-THC hemp seed foods are legal and not a drug"
+      judgement: unsupported
+      source_says: "The Food Standards Code was amended in 2017 to permit the sale of low THC hemp seed foods. (The page does not call hemp 'not a drug'; it says hemp has no, or very low levels of, THC.)"
+      url: https://www.foodstandards.gov.au/consumer/our-safe-food-supply/hemp-seeds-food
+      fixed_to: "low-THC hemp seed foods are permitted for sale"
+    - claim: "Cannabis products are a different question."
+      judgement: unsupported
+      source_says: "Page says nothing about cannabis products in pregnancy."
+      url: https://www.foodstandards.gov.au/consumer/our-safe-food-supply/hemp-seeds-food
+      fixed_to: cut
+- id: raspberry-leaf
+  file: content/drafts/raspberry-leaf.md
+  verdict: fix
+  problems:
+    - claim: "If you'd like to try it, check with your doctor or midwife first."
+      judgement: unsupported
+      source_says: "Raspberry leaf is only said to be likely safe and not shown to help. The check-first advice is general to herbal teas: 'It's always a good idea to check with your doctor or pharmacist before you drink any herbal teas ...'; 'ask your doctor or midwife for advice on how to do so safely'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/herbal-teas-during-pregnancy-and-breastfeeding
+      fixed_to: "Credited to Pregnancy, Birth and Baby as general advice for any herbal tea (doctor or pharmacist; doctor or midwife for advice on drinking them safely)."
+    - claim: "if you're unsure about a product, especially tablets, ask your doctor, midwife or pharmacist"
+      judgement: unsupported
+      source_says: "Large amounts of some herbs may be harmful during pregnancy. (Nothing on tablets in the listed source; the MotherSafe herbal PDF text could not be read for raspberry leaf.)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/herbal-teas-during-pregnancy-and-breastfeeding
+      fixed_to: "Large amounts of some herbs may be harmful during pregnancy."
+- id: water
+  file: content/drafts/water.md
+  verdict: fix
+  problems:
+    - claim: "Pregnancy, Birth and Baby's guide says 7 to 9 glasses a day (cited sources: foods-to-avoid, healthy-diet pages)"
+      judgement: unsupported
+      source_says: "Neither cited page gives a glass count. Appetite page: 'your body also needs plenty of water (7 to 9 glasses each day)'; constipation page: 'drink at least 7 to 8 glasses a day and even more in hot or humid weather' (fluids)."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/appetite-changes-and-food-aversions-during-pregnancy
+      fixed_to: "Both figures stated, each credited; the two pages added to sources."
+- id: nasal-sprays
+  file: content/drafts/nasal-sprays.md
+  verdict: fix
+  problems:
+    - claim: "summary: decongestant sprays ... no more than 3 days at a time"
+      judgement: wrong
+      source_says: "KEMH: not more than three days at a time. PBB: not longer than 3 days. MotherSafe cold factsheet: 'should not be used for longer than 5 days'."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/docs/Cold%20in%20pregnancy%20and%20breastfeeding%20.pdf
+      fixed_to: "Summary now gives KEMH and PBB at 3 days and MotherSafe at 5; body credits each."
+    - claim: "Oral decongestants such as pseudoephedrine or phenylephrine are not recommended in pregnancy."
+      judgement: wrong
+      source_says: "KEMH: not recommended in pregnancy. PBB: 'You should not use oral decongestants such as phenylephrine.' MotherSafe: no conclusive data that they're harmful in the first trimester; do not use in the 2nd and 3rd trimester if you have high blood pressure."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/docs/Cold%20in%20pregnancy%20and%20breastfeeding%20.pdf
+      fixed_to: "Three sources stated separately, each credited."

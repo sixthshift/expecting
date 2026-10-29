@@ -1,0 +1,232 @@
+- id: soft-cheese
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "pasteurised doesn't make a soft cheese safe: the risk is after pasteurising"
+      judgement: unsupported
+      source_says: "Neither page says it. PBB: listeria 'may contaminate the cheese during the manufacturing process', and separately 'only drink and eat dairy products made from pasteurised milk'. FSANZ lists soft cheeses to avoid without mentioning pasteurisation. FSANZ's vulnerable-people page lists 'pasteurised cream cheese' as a safer alternative, so the sources do not state that pasteurised soft cheese is unsafe because of post-pasteurisation contamination. Reword to what PBB says (contamination can happen in manufacturing)."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+
+- id: listeria-foods
+  file: can-i-consume.yaml
+  verdict: ok
+  problems: []
+
+- id: deli-meats
+  file: can-i-consume.yaml
+  verdict: ok
+  problems: []
+
+- id: cold-cooked-chicken
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "sandwich bars and pre-packed salads"
+      judgement: unsupported
+      source_says: "Minor. The only cited page (FSANZ vulnerable populations) lists 'Chicken - pre-cooked, cold: purchased whole, portions, slices or diced', with 'freshly cooked' as the alternative. It does not mention sandwich bars or salads. Sandwich bars appear on the NSW Food Authority 'Foods to eat or avoid when pregnant' page ('Cold chicken or turkey (e.g. from sandwich bars): do not eat'), and pre-packaged salads are a separate avoid on FSANZ listeria and PBB; neither is cited here."
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+
+- id: rare-meat
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "toxoplasmosis is rare but can harm the baby; Australia doesn't screen for it"
+      judgement: wrong
+      source_says: "PBB toxoplasmosis page calls it 'a common infection' that is 'common in all parts of the world'; it does not say rare. It says infection in pregnancy can cause serious problems in the baby. Nothing about screening (it says a blood test can diagnose it if you have symptoms or exposure), so 'Australia doesn't screen' is unsupported too."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/toxoplasmosis
+    - covers: "no pink in pork, sausages, mince and burgers"
+      judgement: unsupported
+      source_says: "Not on either cited page. It is on PBB 'Foods to avoid when pregnant' ('make sure there is no pink left in pork, sausages and minced meat, including burgers'), which this entry does not cite. NSW says raw meat: do not eat; cooked meats cooked to at least 71 C (medium)."
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    - covers: "whole-muscle steak cooked to at least medium (71°C) and eaten hot"
+      judgement: unsupported
+      source_says: "NSW gives one rule for 'Cooked meats: beef, pork, chicken, mince': cook to at least 71 C (medium), eat while hot. It does not single out whole-muscle steak. PBB foods-to-avoid (not cited) says 'cook all meat and poultry to at least 75 C and eat it hot', and NSW's own home-cooked chicken line says 74 C. The sources disagree on the temperature; the notes already flag this."
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+
+- id: raw-eggs
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "commercial mayonnaise, aioli and custard in jars and cartons are pasteurised and fine"
+      judgement: unsupported
+      source_says: "FSANZ lists 'pasteurised eggs, cooked omelettes, hard boiled eggs, commercial custard and dressings e.g. mayonnaise, aioli' as the safer alternatives; PBB says commercially made mayonnaise is fine if stored correctly. Neither says they are pasteurised or that jars and cartons are the test. NSW (not cited) is stricter on custard: store-bought is 'eat with caution', can be eaten cold if freshly opened, reheat to 60 C and use within a day of opening."
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+    - covers: "Australian advice is stricter than the UK's lion-stamp rule; don't import it"
+      judgement: unsupported
+      source_says: "Neither cited page mentions the UK, the lion stamp or any comparison. Editorial, not from the sources."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+
+- id: sushi
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "the listeria risk is the chilled rice and storage, not only the raw fish"
+      judgement: unsupported
+      source_says: "Minor. NSW says 'Sushi production increases Listeria risk; raw/undercooked fish raises risk further' for store-bought sushi. Rice is not named as the cause. FSANZ raw fish page only says vulnerable people should not eat raw fish because of Listeria."
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    - covers: "seaweed in sushi is fine in normal amounts"
+      judgement: unsupported
+      source_says: "Neither cited page mentions seaweed. FSANZ has a separate 'Inorganic arsenic and iodine in seaweed' page, not cited here."
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/raw-fish-dishes
+
+- id: sashimi-and-raw-fish
+  file: can-i-consume.yaml
+  verdict: ok
+  problems: []
+
+- id: prawns
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "the Christmas prawn platter is the classic trap"
+      judgement: unsupported
+      source_says: "Minor, editorial. Sources say only that chilled cooked / cooked ready-to-eat prawns are to be avoided (FSANZ vulnerable page: 'chilled cooked prawns'; freshly cooked or thoroughly reheated to steaming hot is the safe option). Nothing about Christmas or platters."
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+    - covers: "same rule for crab, lobster and bugs"
+      judgement: unsupported
+      source_says: "Minor. The FSANZ vulnerable-people table covers 'seafood - chilled, ready-to-eat or raw' generally, and names only oysters, sushi, sashimi, ceviche, smoked seafood and chilled cooked prawns. Crab, lobster and bugs appear only in the mercury brochure, as crustacea that are low in mercury."
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
+
+- id: smoked-salmon
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "canned smoked seafood is shelf-stable and fine"
+      judgement: unsupported
+      source_says: "Neither cited page says it. FSANZ listeria says avoid 'smoked ready-to-eat seafood'; PBB says avoid smoked salmon. FSANZ vulnerable page (not cited) gives 'canned or shelf-stable' only for pates. NSW foods-to-eat-or-avoid (not cited) says canned fish is okay to eat, shelf-stable, once opened store in the fridge and use within a day."
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+    - covers: "cold-smoked salmon is raw and ready-to-eat: listeria"
+      judgement: unsupported
+      source_says: "Not on either cited page. It is on FSANZ 'Raw fish dishes', which lists cold smoked salmon among raw fish dishes (ready-to-eat raw fish such as cold smoked salmon is kept in the fridge and used before expiry), and says vulnerable people should not eat raw fish because of Listeria. Add that page."
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/raw-fish-dishes
+
+- id: high-mercury-fish
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "flake is shark: the default fish-and-chips fish in much of Australia"
+      judgement: unsupported
+      source_says: "Minor. FSANZ and NSW say shark (flake) is higher in mercury and name it in the table; neither says it is the default fish-and-chips fish. The portion rules, 150 g, the fortnight/week rules, 'ask what the fish is', and 'cooking and canning do not reduce mercury' are all on the FSANZ brochure and match. NSW also prints 2-3 serves per week for other fish, as the notes say."
+      url: https://www.foodstandards.gov.au/consumer/chemicals/mercury
+
+- id: pre-cut-fruit-and-salads
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "includes coleslaw and the salads from a deli"
+      judgement: unsupported
+      source_says: "Coleslaw is not named on either page. Both name 'pre-prepared or pre-packaged fruit or vegetable salads, including those from buffets and salad bars'. NSW 'why avoid' also lists 'pre-prepared vegetables and salads' and 'pre-cut fruit'."
+      url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+    - covers: "bagged leaves are a grey area: FSANZ says pre-packaged salads; wash and eat the same day if you do"
+      judgement: unsupported
+      source_says: "Both FSANZ and NSW say avoid pre-packaged salads, with no grey area and no allowance to eat them if washed and eaten the same day. FSANZ lists 'freshly prepared salads' as the safer alternative; NSW: home-made salads are okay if ingredients are washed well just before making and eating. The same-day provision is not in the sources and would tell someone it is acceptable to eat a bagged salad. Drop it or say avoid."
+      url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+
+- id: soft-serve
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "thickshakes from the same machine count"
+      judgement: unsupported
+      source_says: "Thickshakes are not mentioned on either page. FSANZ and PBB say only 'soft serve ice cream' (PBB: stored at a temperature that allows listeria to grow; you can eat frozen ice cream and gelato). NSW (not cited) adds the machines may be inadequately cleaned."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
+
+- id: alcohol
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "crosses the placenta; the baby's level matches yours"
+      judgement: unsupported
+      source_says: "Minor. PBB says alcohol 'passes from your blood through the placenta' and 'the placenta can't stop the alcohol from reaching your baby'. 'Baby's level matches yours' is on the SESLHD Royal Hospital for Women leaflet ('levels in the developing baby's bloodstream that are as high as those in the mother'), which is cited by alcohol-before-you-knew, not this entry. Everything else (Guideline 3 wording, no safe time/amount/type, miscarriage, stillbirth, premature birth, FASD, partner stopping, lines to use, breastfeeding, Feed Safe) is on the cited pages."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/alcohol-and-pregnancy
+
+- id: alcohol-before-you-knew
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "very common: most people find out at 4–6 weeks"
+      judgement: unsupported
+      source_says: "Neither page gives when people find out. PBB says only 'you might have drunk alcohol before you even knew you were pregnant'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/alcohol-and-pregnancy
+    - covers: "heavy drinking is worth mentioning at booking-in"
+      judgement: unsupported
+      source_says: "Neither page mentions booking-in. PBB: 'if you are concerned, speak to your doctor or midwife'. SESLHD: if concerned about your intake or finding it hard to reduce or stop, consider discussing with your doctor or midwife or a specialist alcohol counselling service (ADIS 24-hour line 1800 250 015). SESLHD also says chronic heavy drinkers are at increased risk of FASD and the risk is higher with frequent, large amounts and binge drinking."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Alcohol%20in%20Pregnancy.pdf
+    - covers: "no test can measure it; no action needed beyond stopping"
+      judgement: unsupported
+      source_says: "Neither page says there is no test. PBB: 'once you know you are pregnant, it's safest to stop drinking', and if concerned, talk to a doctor or midwife or call NOFASD. SESLHD: stopping at any time reduces the risk; call MotherSafe for individual advice. 'No action needed beyond stopping' leaves out the advice to talk to someone if worried, which the other phrases in this entry do include."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/alcohol-and-pregnancy
+
+- id: medicines-in-pregnancy
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "the TGA categories (A, B1–B3, C, D, X) are for prescribers: B is not safer than C"
+      judgement: unsupported
+      source_says: "The cited TGA page only defines category A for paracetamol ('taken by a large number of pregnant women... without any proven increase in the frequency of malformations'). It does not list the other categories, say they are for prescribers, or compare B with C. The notes already admit this."
+      url: https://www.tga.gov.au/news/media-releases/paracetamol-use-pregnancy
+    - covers: "MotherSafe (NSW, 1800 647 848) and the KEMH medicines line (WA) answer the phone; healthdirect 1800 022 222 nationally"
+      judgement: unsupported
+      source_says: "Partly. healthdirect 1800 022 222 (nurse, 24 hours) is on the PBB medicines page. KEMH gives its Medicine Information line (08) 6458 2723, 8:30am-4:30pm Mon-Fri, and only links MotherSafe by name. The MotherSafe number 1800 647 848 (NSW non-metro; Sydney metro (02) 9382 6539, Mon-Fri 9am-5pm) is on the SESLHD leaflets cited by other entries, not by this one."
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+
+- id: prescription-medicines-ongoing
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "best reviewed before conception; otherwise as early as possible"
+      judgement: unsupported
+      source_says: "Minor. healthdirect says 'if you take regular medicines, it's a good idea to talk to your doctor when you are planning a pregnancy'. 'As early as possible' once pregnant is not stated; KEMH says discuss before starting, continuing, changing or stopping."
+      url: https://www.healthdirect.gov.au/medicines/medicines-during-pregnancy
+    - covers: "the GP, specialist and obstetrician decide together"
+      judgement: unsupported
+      source_says: "Minor. Sources say 'your doctor' (healthdirect) and 'your healthcare providers' (KEMH: a doctor, pharmacist and/or midwife). No specialist-plus-obstetrician team is described."
+      url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
+
+- id: paracetamol
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "watch for paracetamol hidden in cold and flu products"
+      judgement: unsupported
+      source_says: "Not on any of the three cited pages. It is on the SESLHD 'Pain in Pregnancy' leaflet (cited by ibuprofen-and-nsaids): 'whilst taking regular paracetamol, you should not take any other medications containing paracetamol such as cold and flu tablets'."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Pain%20in%20Pregnancy.pdf
+    - covers: "if you need it every day, see the GP about why"
+      judgement: unsupported
+      source_says: "Not on any cited page. The MotherSafe fever leaflet says only to contact your doctor if you have a prolonged fever; TGA says to speak to a healthcare professional with questions. The other points (8 x 500 mg in 24 hours on KEMH, 1 g up to four times a day max 4 g on the MotherSafe fever leaflet, category A, untreated fever a risk, 2025 claim rejected by the TGA and CMO with other regulators) match."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/2020feverp.pdf
+
+- id: ibuprofen-and-nsaids
+  file: can-i-consume.yaml
+  verdict: ok
+  problems: []
+
+- id: nausea-medicines
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "can't keep fluids down, dark urine, weight loss: emergency department"
+      judgement: wrong
+      source_says: "Only the first is an emergency department instruction. PBB hyperemesis: 'go to your local emergency department if you can't keep fluids down at all'. Weight loss: PBB says 'contact your midwife or doctor'. Very dark urine or not passing urine for more than 8 hours: KEMH says 'see a doctor urgently'. SESLHD: if very unwell, you can also go to the emergency department."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/severe-vomiting-during-pregnancy-hyperemesis-gravidarum
+
+- id: antibiotics
+  file: can-i-consume.yaml
+  verdict: fix
+  problems:
+    - covers: "finish the course"
+      judgement: unsupported
+      source_says: "Not on either page. PBB mentions only a repeat urine test 'a few weeks after you finish your antibiotics' and says not to delay getting antibiotics."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/urinary-tract-infections-utis-during-pregnancy
+    - covers: "a few antibiotics are avoided (tetracyclines like doxycycline); the prescriber knows"
+      judgement: unsupported
+      source_says: "Not on either page (the notes already say so). PBB: UTIs are treated with antibiotics that are safe in pregnancy and the doctor chooses. SESLHD: the antibiotics commonly used for UTIs are not considered of concern in pregnancy or breastfeeding; for specific antibiotics contact MotherSafe or your healthcare provider."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Urinary%20Tract%20Infection%20in%20Pregnancy%20and%20Breastfeeding.pdf
+    - covers: "antibiotics don't help colds or flu"
+      judgement: unsupported
+      source_says: "Neither page says it. Both are about UTIs; SESLHD notes UTIs are caused by bacteria and treated with antibiotics."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Urinary%20Tract%20Infection%20in%20Pregnancy%20and%20Breastfeeding.pdf
+    - covers: "thrush can follow"
+      judgement: unsupported
+      source_says: "Neither page mentions thrush after antibiotics. SESLHD says only that breastfed babies may develop diarrhoea when their mothers take antibiotics."
+      url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Urinary%20Tract%20Infection%20in%20Pregnancy%20and%20Breastfeeding.pdf

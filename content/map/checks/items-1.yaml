@@ -1,0 +1,199 @@
+# Fact-check of built-in items (batch 1) against each item's source page, 2026-10-29.
+# Items: anti-d, dating-scan, first-trimester-screening, morphology-scan, glucose-tolerance-test,
+# group-b-strep-swab, first-antenatal-visit, booking-in. All pages loaded. Fixes applied in content/items/.
+- id: anti-d
+  file: content/items/anti-d.md
+  verdict: fix
+  problems:
+    - claim: "usually offered at about 28 and 34 weeks"
+      judgement: wrong
+      source_says: "You may be offered an anti-D injection at 28 and 34 weeks"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+      fixed_to: "may be offered at 28 and 34 weeks (summary too)"
+    - claim: "also offered after some events, such as heavy bleeding, an injury to the belly, or procedures like amniocentesis"
+      judgement: wrong
+      source_says: "Events listed: some tests in pregnancy, miscarriage, termination at 10+ weeks, obstetric haemorrhage (heavy, frequent bleeding), injury or accident to the abdomen, ECV, labour, ectopic or molar pregnancy; ideally within 72 hours. 'Not enough evidence' that bleeding in the first 12 weeks needs anti-D; always speak to your doctor or midwife about bleeding."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+      fixed_to: "may also be given after heavy, frequent bleeding, miscarriage, abdominal injury or some tests; ideally within 72 hours; early bleeding not shown to need it, speak to doctor or midwife"
+    - claim: "Early blood tests check the pregnant parent's blood group"
+      judgement: unsupported
+      source_says: "Not stated on the page."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+      fixed_to: "cut"
+    - claim: "so some people won't need the injections at all; RhD NIPT from about 11 weeks"
+      judgement: wrong
+      source_says: "Can be done from 11 weeks; it guides anti-D use, and a blood test is still needed after birth."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+      fixed_to: "from 11 weeks, can predict the baby's RhD type and guide whether anti-D is needed"
+    - claim: "rare these days because it can usually be prevented with anti-D injections"
+      judgement: wrong
+      source_says: "Haemolytic disease of the newborn is rare these days ... treatment is usually effective."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+      fixed_to: "It's rare these days, and treatment is usually effective."
+  restored:
+    - claim: "You'll have a blood test early in pregnancy to find out your blood group, and with it your Rhesus (RhD) factor: positive or negative."
+      url: https://www.pregnancybirthbaby.org.au/blood-tests-during-pregnancy
+      source_says: "You will have a blood test early in your pregnancy to find out which blood type you are. ... When you find out your blood group, you will also find out your 'Rhesus (RhD) factor'. You can be RhD positive or negative."
+- id: dating-scan
+  file: content/items/dating-scan.md
+  verdict: fix
+  problems:
+    - claim: "so it's the most accurate time to date a pregnancy"
+      judgement: unsupported
+      source_says: "At this point, most babies of the same gestational age are about the same size ... can provide an accurate estimated due date."
+      url: https://www.pregnancybirthbaby.org.au/dating-scan
+      fixed_to: "a dating scan can give an accurate estimated due date"
+    - claim: "often done between 6 and 8 weeks, though timing varies; check the pregnancy is in the uterus"
+      judgement: wrong
+      source_says: "most often ... usually between 6 and 8 weeks; check the pregnancy is not ectopic; check baby growing as expected; position of the placenta."
+      url: https://www.pregnancybirthbaby.org.au/dating-scan
+      fixed_to: "reworded to the source"
+    - claim: "the two can sometimes be combined at 11 to 13 weeks"
+      judgement: wrong
+      source_says: "you may be able to have both together, at one appointment between 11 and 13 weeks"
+      url: https://www.pregnancybirthbaby.org.au/dating-scan
+      fixed_to: "you may be able to have both at one appointment, between 11 and 13 weeks"
+    - claim: "Medicare covers part of the cost; some clinics charge a gap. Partners can usually come along."
+      judgement: wrong
+      source_says: "Medicare will cover the cost of your dating scan, but there may be out-of-pocket costs; you can bring a partner, family member or friend."
+      url: https://www.pregnancybirthbaby.org.au/dating-scan
+      fixed_to: "reworded to the source"
+- id: first-trimester-screening
+  file: content/items/first-trimester-screening.md
+  verdict: fix
+  problems:
+    - claim: "CFTS ... at about 11 to 14 weeks (body, summary 'about 10 to 14 weeks', task comment)"
+      judgement: wrong
+      source_says: "Screening for Down syndrome page: blood test between 9 and 13 weeks; nuchal translucency scan between 11 weeks and 13 weeks 6 days. The NIPT page cited as source gives no CFTS weeks. NIPT from about 10 weeks."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/screening-for-down-syndrome
+      fixed_to: "blood test 9 to 13 weeks, scan 11 weeks to 13 weeks 6 days; summary 'about 10 to 13 weeks'; deadline 13 kept (scan ends 13w6d), comment corrected"
+    - claim: "Medicare covers part of the cost"
+      judgement: wrong
+      source_says: "The combined first trimester blood test is covered by Medicare, but there may be costs for the ultrasound."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/screening-for-down-syndrome
+      fixed_to: "Medicare covers the blood test, but there may be costs for the ultrasound"
+  # Ok: optional; estimates chance not diagnose; NIPT from about 10 weeks, not covered by Medicare or private insurance, $450-800; CVS/amnio diagnostic; NT = fluid-filled space behind the neck.
+  # Note: the item's source is the NIPT page; CFTS weeks come from the Screening for Down syndrome page (could be added as a second source).
+- id: morphology-scan
+  file: content/items/morphology-scan.md
+  verdict: fix
+  problems:
+    - claim: "\"Morphology\" means body structure: ... checks the organs, and notes where the placenta is"
+      judgement: unsupported
+      source_says: "Page doesn't define the word; sometimes called a fetal anomaly scan. Looks at head and brain, spine, heart, abdomen, limbs; also placenta, umbilical cord, amniotic fluid."
+      url: https://www.pregnancybirthbaby.org.au/morphology-scan
+      fixed_to: "reworded to the source's list"
+    - claim: "tell the sonographer either way so there are no accidental reveals"
+      judgement: unsupported
+      source_says: "Only: the scan may be able to tell you the sex, depending on the baby's position, if you want to know."
+      url: https://www.pregnancybirthbaby.org.au/morphology-scan
+      fixed_to: "cut"
+    - claim: "Medicare covers part of the cost; some clinics charge a gap; there will be a follow-up plan"
+      judgement: wrong
+      source_says: "Medicare will cover the cost of a morphology scan, but there may be out-of-pocket costs. If an anomaly is found, you will be referred for further testing (another ultrasound or a diagnostic test)."
+      url: https://www.pregnancybirthbaby.org.au/morphology-scan
+      fixed_to: "reworded to the source"
+  # Task due 16 is a best-by within weeks; the source gives no booking time.
+  not_restored:
+    - claim: "tell the sonographer either way so there are no accidental reveals"
+      reason: "Only a private radiology clinic page and forums say to tell the sonographer; Mater says 'if you wish to know, the sonographer can notify you'. No official page for the advice."
+- id: glucose-tolerance-test
+  file: content/items/glucose-tolerance-test.md
+  verdict: fix
+  problems:
+    - claim: "usually a fasting blood test (summary)"
+      judgement: unsupported
+      source_says: "OGTT: fast 8 to 10 hours, glucose drink, samples at 1 and 2 hours."
+      url: https://www.pregnancybirthbaby.org.au/gestational-diabetes
+      fixed_to: "a fasting blood test, a sugary drink and two hours at the lab"
+    - claim: "bring a book — and something to eat afterwards"
+      judgement: unsupported
+      source_says: "You will usually need to stay at the laboratory for the full duration of the test."
+      url: https://www.pregnancybirthbaby.org.au/gestational-diabetes
+      fixed_to: "You'll usually need to stay at the lab for the whole test."
+    - claim: "If it's diagnosed, the care team will help manage it, and there's usually a follow-up test after the birth."
+      judgement: wrong
+      source_says: "You will be offered a blood test to check your blood glucose levels before you go home, and again at the 6-week postnatal check."
+      url: https://www.pregnancybirthbaby.org.au/gestational-diabetes
+      fixed_to: "offered a blood glucose test before you go home after the birth, and again at the 6-week check"
+  # Ok: screening for all pregnancies at 24 to 28 weeks (deadline 28); earlier (before 20 weeks) for past GDM or first-trimester HbA1c; often no symptoms; 8 to 10 hour fast.
+  not_restored:
+    - claim: "bring a book and something to eat afterwards"
+      reason: "Only non-official sites say it; no official page found."
+- id: group-b-strep-swab
+  file: content/items/group-b-strep-swab.md
+  verdict: fix
+  problems:
+    - claim: "About 1 in 5 women carry it in the vagina ... Rarely, it can pass to a baby during birth and cause a serious infection."
+      judgement: wrong
+      source_says: "About 1 in 5 females have it in their vagina; a small chance it passes to the baby during birth; most babies who come into contact with it do not become unwell."
+      url: https://www.pregnancybirthbaby.org.au/group-b-strep-test
+      fixed_to: "reworded to the source (no 'women', no 'serious infection' claim)"
+    - claim: "can often be self-collected; timing gives the most accurate picture close to labour; some providers skip the swab"
+      judgement: wrong
+      source_says: "You can usually do this test yourself ... taken at 35 to 37 weeks to make sure it is the most accurate and to avoid overtreatment of antibiotics during labour. No standard practice in Australia; some providers don't test routinely but recommend antibiotics in labour if risk factors."
+      url: https://www.pregnancybirthbaby.org.au/group-b-strep-test
+      fixed_to: "reworded to the source"
+    - claim: "antibiotics through a drip during labour are usually recommended"
+      judgement: wrong
+      source_says: "Your team will probably recommend IV antibiotics when your waters break or labour starts if positive or risk factors; having antibiotics is your choice."
+      url: https://www.pregnancybirthbaby.org.au/group-b-strep-test
+      fixed_to: "will probably recommend antibiotics through a drip (IV) once your waters break or labour starts, and the choice is yours"
+- id: first-antenatal-visit
+  file: content/items/first-antenatal-visit.md
+  verdict: fix
+  problems:
+    - claim: "ideally around 6 to 8 weeks, and before 10 weeks (summary: 'is where you confirm the pregnancy')"
+      judgement: wrong
+      source_says: "It's best to have your first antenatal visit before 10 weeks ... ideally about 6 to 8 weeks pregnant."
+      url: https://www.pregnancybirthbaby.org.au/your-first-antenatal-visit
+      fixed_to: "best before 10 weeks, ideally at about 6 to 8; summary and task title no longer say 'confirm the pregnancy'"
+    - claim: "GP can confirm the pregnancy, order early blood tests, explain options and write a referral"
+      judgement: unsupported
+      source_says: "GP can explain your options and provide a referral to a maternity service or obstetrician. First appointment may be with a midwife or doctor."
+      url: https://www.pregnancybirthbaby.org.au/your-first-antenatal-visit
+      fixed_to: "explain options and give a referral"
+    - claim: "Public care (Medicare), GP shared care, Private care (OB or private midwife, out-of-pocket costs)"
+      judgement: unsupported
+      source_says: "Main carer could be an obstetrician, a midwife or midwife group, a public hospital maternity team, or shared care. The page doesn't mention Medicare; your midwife or doctor will tell you about the tests and costs."
+      url: https://www.pregnancybirthbaby.org.au/your-first-antenatal-visit
+      fixed_to: "list of the source's four options; Medicare and private-midwife claims cut"
+    - claim: "A private midwife doesn't usually need a referral; most other paths start with one"
+      judgement: wrong
+      source_says: "You can make an appointment directly with a midwifery service; you may not need a referral if the midwife is part of a group practice or private practice."
+      url: https://www.pregnancybirthbaby.org.au/your-first-antenatal-visit
+      fixed_to: "reworded to the source"
+  restored:
+    - claim: "your GP will confirm the pregnancy, can organise routine blood tests (restored to the first-visit paragraph)"
+      url: https://www.seslhd.health.nsw.gov.au/royal-hospital-for-women/services-clinics/directory/pregnancy
+      source_says: "your general practitioner who will: Confirm your pregnancy (preferably by ultrasound). Complete and forward an eReferral ... Organise routine blood tests. Discuss genetic screening options. (Also PBB maternity-care-in-australia: 'At your first antenatal appointment, the doctor or midwife will confirm that you are pregnant.')"
+- id: booking-in
+  file: content/items/booking-in.md
+  verdict: fix
+  problems:
+    - claim: "(no source) puts you on its list, starts your file; private obstetrician branch; 'a couple of weeks ... call the antenatal clinic'; places fill early"
+      judgement: unsupported
+      source_says: "Royal Women's: first visit is at the Pregnancy Booking Clinic, where staff record information and discuss your pregnancy; you need a GP referral, sent to your local maternity hospital 'which will make an appointment for you'; people outside the local area can't book unless high risk. Nothing on private obstetricians, waiting a couple of weeks, or places filling early. Two guessed PBB URLs 404'd; no PBB page on booking in was found."
+      url: https://www.thewomens.org.au/patients-visitors/clinics-and-services/pregnancy-birth/booking-pregnancy-care
+      fixed_to: "rewritten to the source; source block added; the {% if %} obstetrician branch and the fill-early paragraph cut; summary reworded. Task due 12 kept as a best-by (the page gives no timing). Source is one Melbourne hospital, so local rules vary."
+  restored:
+    - claim: "Rewritten for anywhere in Australia: private obstetrician branch (book in at a hospital where your obstetrician works; GP referral to the obstetrician; check the fund; extra costs such as anaesthetist or paediatrician fees), public branch (local maternity hospital for your area, models of care incl. midwifery group practice), source changed to this page"
+      url: https://www.pregnancybirthbaby.org.au/maternity-care-in-australia
+      source_says: "If you want to give birth in a hospital or birth centre, it's a good idea to book as early as possible. ... If you decide to give birth in a private hospital, you will need a private obstetrician or GP obstetrician. You will need to book in to one of the hospitals where your doctor works. ... The first step is to see your GP for a referral to an obstetrician. ... Usually there are extra costs that your insurance doesn't cover. This may include a fee for an anaesthetist or paediatrician. ... If you decide to give birth in a public hospital, you may book at the local maternity hospital for your area."
+    - claim: "If you haven't heard, call the antenatal clinic; Royal Hospital for Women says to call if not heard 4 weeks after seeing your GP; booking appointment usually at about 14 weeks (timing varies)"
+      url: https://www.seslhd.health.nsw.gov.au/royal-hospital-for-women/services-clinics/directory/pregnancy
+      source_says: "Once we have received the eReferral from your GP we aim to contact you within 2-3 weeks ... If you have not heard from us after 4 weeks from seeing your GP please contact the Antenatal Outpatients Department ... Your hospital booking appointment will usually be conducted when you are about 14 weeks pregnant."
+    - claim: "Birth centres are usually in demand, so book in as soon as you know you are pregnant; you may need a doctor's referral or be able to refer yourself"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/having-a-baby-at-a-birthing-centre
+      source_says: "Each birthing centre is different. You may need a doctor's referral or be able to refer yourself. Birthing centres are usually in demand, so it's a good idea to book in as soon as you know that you are pregnant."
+    - claim: "WA Family Birth Centre (King Edward Memorial Hospital): due to high demand places are limited, book in early"
+      url: https://www.healthywa.wa.gov.au/Articles/F_I/Having-a-baby-at-the-Family-Birth-Centre-King-Edward-Memorial-Hospital
+      source_says: "Due to high demand, places in the Family Birth Centre are limited so please book in early."
+    - claim: "Private midwife / homebirth: you can also book in to your local hospital, just in case complications arise"
+      url: https://www.pregnancybirthbaby.org.au/maternity-care-in-australia
+      source_says: "If you are planning to have a homebirth ... You can book in to your local hospital as well, just in case complications arise."
+  not_restored:
+    - claim: "Midwifery group practices fill early"
+      reason: "No official page found saying so; only birth centres (PBB, WA Health) are sourced. Left out."
+    - claim: "Some hospitals take bookings only from their local area, unless high risk"
+      reason: "Kept from the earlier Royal Women's wording; not re-checked on a national page."

@@ -1,0 +1,130 @@
+# Drafts batch M17, fact-checked 2026-10-29 against the pages in each draft's sources.
+# Fetched fresh: Fair Work, Services Australia, state registries, passports.gov.au, Moneysmart, ATO, Pregnancy Birth and Baby, Royal Women's, Kidsafe QLD/SA.
+# Not fetched (blocked, by rule): raisingchildren, Red Nose, ACCC, productsafety.gov.au.
+# Resumed: the last four (second-hand-car-seat, pram, amniotic-fluid, the-cervix-in-pregnancy) checked 2026-10-29 against their sources; pram sources are PBB only (its ACCC, Red Nose and Product Safety Australia links not fetched).
+- id: casual-employees-parental-leave
+  file: content/drafts/casual-employees-parental-leave.md
+  verdict: ok
+- id: pregnancy-discrimination-at-work
+  file: content/drafts/pregnancy-discrimination-at-work.md
+  verdict: ok
+- id: leave-after-loss
+  file: content/drafts/leave-after-loss.md
+  verdict: ok
+- id: birth-certificate
+  file: content/drafts/birth-certificate.md
+  verdict: fix
+  problems:
+    - claim: "registering is free"
+      judgement: unsupported
+      source_says: "Victoria: There is no fee to register. NSW and ACT pages do not say it is free."
+      url: https://www.bdm.vic.gov.au/births/register-a-birth
+      fixed_to: "Victoria says there's no fee to register"
+    - claim: "There's a fee (for the certificate); summary 'costs extra'"
+      judgement: wrong
+      source_says: "Victoria: Digital birth certificates are free but there is a cost for paper or commemorative certificates."
+      url: https://www.bdm.vic.gov.au/births/register-a-birth
+      fixed_to: "Paper certificates have a fee; summary says a paper one costs extra"
+- id: baby-passport
+  file: content/drafts/baby-passport.md
+  verdict: fix
+  problems:
+    - claim: "Allow at least 6 weeks from lodging (source not listed)"
+      judgement: unsupported
+      source_says: "Child passport: Allow at least 6 weeks from lodging your application to get your child's new passport."
+      url: https://www.passports.gov.au/help/processing-times
+      fixed_to: "claim kept; processing-times page added to sources"
+- id: wills-and-guardianship
+  file: content/drafts/wills-and-guardianship.md
+  verdict: ok
+  # the ASIC 60% / 10% figures come from the Moneysmart life-cover page, which is listed
+- id: life-insurance-and-income-protection
+  file: content/drafts/life-insurance-and-income-protection.md
+  verdict: ok
+  # the ASIC 60% figure is on the Moneysmart life-cover page, which is listed
+- id: adding-baby-to-private-health-cover
+  file: content/drafts/adding-baby-to-private-health-cover.md
+  verdict: fix
+  problems:
+    - claim: "the answer is in your fund's rules, not a law"
+      judgement: unsupported
+      source_says: "Every fund has different policies about covering newborn babies."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+      fixed_to: "the answer is in your fund's rules"
+    - claim: "Is there a deadline for adding the baby after the birth? Check your fund's own rule."
+      judgement: unsupported
+      source_says: "Sources give only the 1 to 3 months before the birth (some up to 12 months) upgrade timing; no after-birth deadline."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+      fixed_to: cut
+- id: budgeting-for-leave
+  file: content/drafts/budgeting-for-leave.md
+  verdict: fix
+  problems:
+    - claim: "Excel version you can share between devices"
+      judgement: wrong
+      source_says: "Use our Excel spreadsheet version if you want to access your budget across multiple devices."
+      url: https://moneysmart.gov.au/budgeting/budget-planner
+      fixed_to: "an Excel version you can use across multiple devices"
+- id: childcare-types
+  file: content/drafts/childcare-types.md
+  verdict: ok
+- id: baby-capsule-hire
+  file: content/drafts/baby-capsule-hire.md
+  verdict: fix
+  problems:
+    - claim: "Kidsafe Queensland long-term capsule hire for up to 6 months without extra charges"
+      judgement: wrong
+      source_says: "Hire Britax Unity carrier and base for up to 6 months: $110 + $60 refundable deposit. Additional per-month fees apply to extend hire beyond 6 months."
+      url: https://kidsafeqld.com.au/child-car-seat-hire/
+      fixed_to: "up to 6 months at one fee, plus a refundable deposit, with additional per-month fees to extend beyond that"
+  # Kidsafe SA (1 week to 6 months, free installation, refundable deposit, low birth weight/premature capsules) and Kidsafe QLD short-term (convertible, birth to 4 years, up to 4 weeks, fitters) confirmed. PBB car seat claims confirmed.
+- id: bassinet
+  file: content/drafts/bassinet.md
+  verdict: fix
+  problems:
+    - claim: "PBB 'no current safety standards for bassinets' stands alone; the map says a mandatory standard started 19 January 2026"
+      judgement: unsupported
+      source_says: "NSW Department of Education: From 19 January 2026, new mandatory safety standards for infant sleep products will be taking effect across Australia (design, construction, warning labels). The page does not name bassinets. PBB: Unlike cots, there are no current safety standards for bassinets in Australia."
+      url: https://education.nsw.gov.au/early-childhood-education/leadership/news/new-mandatory-safety-standards-on-infant-sleep-products
+      fixed_to: "PBB statement kept and credited; NSW Education statement added and credited, with a note that it does not name bassinets. The bassinet-specific start date remains unconfirmed by an official page that loaded (ACCC/productsafety blocked)."
+  # Other claims (room sharing, 6 to 12 months, firm mattress, soft bedding, positioning devices, roll to cot, swaddling) confirmed on PBB.
+- id: portable-cot
+  file: content/drafts/portable-cot.md
+  verdict: fix
+  problems:
+    - claim: "Portable folding cots have a mandatory standard, so look for the safety warning statements when you buy."
+      judgement: unsupported
+      source_says: "PBB cots page: Only use a portable cot if it meets the Australian Safety Standards... based on AS/NZS 2195:1999. (No mention of a mandatory standard or warning statements.)"
+      url: https://www.pregnancybirthbaby.org.au/babies/sleep-and-settling/cots
+      fixed_to: cut
+  # Temporary use, 15 kg, AS/NZS 2195:1999, locking mechanism, mattress and bedding claims confirmed on PBB. Note: the 2024 infant sleep standards reportedly replace the older folding-cot standard; not confirmed from a loaded official page, so PBB's wording is kept.
+- id: weight-gain-in-pregnancy
+  file: content/drafts/weight-gain-in-pregnancy.md
+  verdict: fix
+  problems:
+    - claim: "The Royal Women's has guidance on weight for twin pregnancies."
+      judgement: unsupported
+      source_says: "The Royal Women's page does not mention twins; PBB lists twins or multiples as a factor."
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/weight-pregnancy
+      fixed_to: cut
+  # BMI ranges, per-month ranges, Asian cut-offs (18.5-22.9, 23-27.5, over 27.5, under 7 kg) and first-trimester average confirmed.
+- id: the-placenta
+  file: content/drafts/the-placenta.md
+  verdict: ok
+  # 000 for severe bleeding or significant pain; immediately for severe abdominal pain, bleeding without pain, contractions before 37 weeks, trauma; as soon as possible for bleeding in late pregnancy: all match PBB. Royal Women's wording credited separately.
+- id: heart-and-blood-in-pregnancy
+  file: content/drafts/heart-and-blood-in-pregnancy.md
+  verdict: ok
+  # Early pregnancy faint/dizzy/bleeding/pain: emergency or 000 (ectopic); dizzy or faint: call midwife or 1800 882 436; checks at antenatal visits: all match the low blood pressure page.
+- id: second-hand-car-seat
+  file: content/drafts/second-hand-car-seat.md
+  verdict: ok
+- id: pram
+  file: content/drafts/pram.md
+  verdict: ok
+- id: amniotic-fluid
+  file: content/drafts/amniotic-fluid.md
+  verdict: ok
+- id: the-cervix-in-pregnancy
+  file: content/drafts/the-cervix-in-pregnancy.md
+  verdict: ok

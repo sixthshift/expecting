@@ -1,0 +1,1544 @@
+# Money, leave, work, government and paperwork, and gear.
+# Every figure below (rates, income limits, days of leave, thresholds) is the
+# 2026–27 value or the value for a child born from 1 July 2026, and most of them
+# change each 1 July (Medicare Safety Net thresholds each 1 January). Writers
+# check them against the source on the day they write.
+
+# ---------------------------------------------------------------------------
+# Government payments
+# ---------------------------------------------------------------------------
+
+- id: parental-leave-pay
+  title: Parental Leave Pay
+  type: payment
+  topic: money
+  ask: What is Parental Leave Pay and how much do we get?
+  aliases: [ PLP, paid parental leave, PPL, government maternity pay, Centrelink parental leave ]
+  weeks: [ 20, 42 ]
+  priority: 1
+  stakes: high
+  covers:
+    - the government's payment while you care for a newborn, claimed through Services Australia (in many cases your employer delivers it); not your employer's own leave
+    - for a child born from 1 July 2026 a family gets up to 130 days (26 weeks of weekdays); 120 for a child born from 1 July 2025
+    - paid at the national minimum wage, $200.94 a day ($1,004.70 a 5-day week) in 2026–27, taxable
+    - the rate follows the financial year the days are taken in, not the birth date
+    - needs the work test, the income test, residence rules and the birth registered or applied for
+    - you can't work on a Parental Leave Pay day
+    - "twins or more: one set of days, for one child"
+    - can be taken before, during or after employer-paid leave, annual leave or long service leave
+  sources:
+    - title: Services Australia — Parental Leave Pay
+      url: https://www.servicesaustralia.gov.au/parental-leave-pay
+    - title: Services Australia — How much Parental Leave Pay you can get
+      url: https://www.servicesaustralia.gov.au/how-much-parental-leave-pay-you-can-get
+    - title: Services Australia — Paid Parental Leave scheme changes
+      url: https://www.servicesaustralia.gov.au/paid-parental-leave-scheme-changes
+    - title: Services Australia — Claiming timeframes for Parental Leave Pay
+      url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay
+  related: [ parental-leave-pay-claim, parental-leave-pay-work-test, parental-leave-pay-income-test, partner-reserved-days, parental-leave-pay-sharing, parental-leave-pay-superannuation, unpaid-parental-leave ]
+  notes: Changes yearly. The daily rate changes each 1 July with the minimum wage; the number of days stepped up on 1 July 2024 (110), 2025 (120) and 2026 (130). Tailor by `work` for each parent.
+
+- id: parental-leave-pay-claim
+  title: Claim Parental Leave Pay before the birth
+  type: payment
+  topic: money
+  ask: When can we claim Parental Leave Pay?
+  aliases: [ pre-birth claim, claim PLP, Apply for Family Assistance, myGov claim ]
+  weeks: [ 27, 36 ]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - claim up to 3 months before the due date, in myGov under Apply for Family Assistance (including Paid Parental Leave)
+    - claiming early lets you choose the start date and gives an employer time to register and opt in
+    - after the birth, add the baby's details and proof of birth within 56 days
+    - to be paid from the birth date, claim and give proof of birth within 14 weeks or 100 days of it
+    - the first parent must claim within 52 weeks of the birth; the other has 2 years; all days used within 2 years
+    - the same claim covers Family Tax Benefit
+    - a pre-birth claim submitted before 1 July 2026 shows 120 days until proof of birth confirms a birth from 1 July 2026, then 130
+  sources:
+    - title: Services Australia — Claiming timeframes for Parental Leave Pay
+      url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay
+    - title: Services Australia — How to claim Parental Leave Pay
+      url: https://www.servicesaustralia.gov.au/how-to-claim-parental-leave-pay
+  related: [ parental-leave-pay, proof-of-birth, mygov-and-centrelink-setup, family-tax-benefit-claim ]
+  exists: content/items/parental-leave-pay-claim.md
+
+- id: parental-leave-pay-work-test
+  title: The work test for Parental Leave Pay
+  type: payment
+  topic: money
+  ask: Do I qualify for Parental Leave Pay if I've only worked part-time, or changed jobs?
+  aliases: [ work test, 330 hours, 10 of 13 months, eligibility for PLP ]
+  weeks: [ 16, 30 ]
+  priority: 1
+  stakes: high
+  covers:
+    - worked 10 of the 13 months before the birth, at least 330 hours in those 10 months (about a day a week)
+    - no gap of more than 12 weeks between work days
+    - several employers, paid leave and self-employment all count
+    - the birth mother must pass it; for a partner to get days, both the partner and the birth mother must pass it
+    - exceptions for pregnancy-related illness, complications, premature birth and dangerous jobs
+  sources:
+    - title: Services Australia — Work requirements for Parental Leave Pay
+      url: https://www.servicesaustralia.gov.au/work-requirements-for-parental-leave-pay
+    - title: Services Australia — Meeting the work test
+      url: https://www.servicesaustralia.gov.au/meeting-work-test-for-parental-leave-pay
+    - title: Services Australia — Exceptions to the work test
+      url: https://www.servicesaustralia.gov.au/exceptions-to-work-test-for-parental-leave-pay
+  related: [ parental-leave-pay, parental-leave-pay-self-employed, parental-leave-pay-income-test ]
+  notes: The 13 months is counted back from the birth, so a late-pregnancy job change or a long unpaid break can fail it; say so plainly, early.
+
+- id: parental-leave-pay-income-test
+  title: The income test for Parental Leave Pay
+  type: payment
+  topic: money
+  ask: Do we earn too much for Parental Leave Pay?
+  aliases: [ income limit, adjusted taxable income, family income test ]
+  weeks: [ 16, 30 ]
+  priority: 1
+  stakes: high
+  covers:
+    - individual adjusted taxable income of $186,487 or less in 2025–26 (the financial year before the birth or the claim, whichever is earlier)
+    - "if over that, a family test: $386,525 or less for you and your partner together"
+    - each claiming parent is tested in their own right; one can qualify when the other doesn't
+    - a single parent's income is tested against the family limit
+  sources:
+    - title: Services Australia — Meeting the income test for Parental Leave Pay
+      url: https://www.servicesaustralia.gov.au/meeting-income-test-for-parental-leave-pay
+  related: [ parental-leave-pay, parental-leave-pay-work-test ]
+  notes: Changes yearly, each 1 July. Which financial year is tested depends on the claim date, which is a reason to claim before the birth if income is rising.
+
+- id: partner-reserved-days
+  title: The partner's reserved Parental Leave Pay days
+  type: payment
+  topic: partner
+  ask: How much Parental Leave Pay does the partner get?
+  aliases: [ reserved days, use it or lose it, partner leave pay, dad's leave pay ]
+  weeks: [ 26, 34 ]
+  who: partner
+  priority: 1
+  stakes: high
+  covers:
+    - for a child born from 1 July 2026, 20 of the 130 days are reserved for the partner (15 from 1 July 2025, 10 from 1 July 2024)
+    - the days are reserved for the partner to use; you decide together how to use the rest
+    - the partner claims in their own name and must pass the work and income tests
+    - up to 20 days can be taken at the same time as the other parent
+  sources:
+    - title: Services Australia — How much Parental Leave Pay you can get
+      url: https://www.servicesaustralia.gov.au/how-much-parental-leave-pay-you-can-get
+    - title: Services Australia — Work requirements for Parental Leave Pay
+      url: https://www.servicesaustralia.gov.au/work-requirements-for-parental-leave-pay
+    - title: Services Australia — Meeting the income test for Parental Leave Pay
+      url: https://www.servicesaustralia.gov.au/meeting-income-test-for-parental-leave-pay
+  related: [ parental-leave-pay, parental-leave-pay-sharing, partner-parental-leave ]
+  exists: content/items/partner-reserved-days.md
+  notes: Changes yearly by birth date.
+
+- id: parental-leave-pay-sharing
+  title: Sharing Parental Leave Pay between you
+  type: payment
+  topic: money
+  ask: How do we split the Parental Leave Pay days between us?
+  aliases: [ share PLP, approve sharing, days at the same time, concurrent days ]
+  weeks: [ 26, 36 ]
+  who: together
+  priority: 1
+  stakes: medium
+  covers:
+    - the birth mother claims first and approves sharing in myGov when the partner claims
+    - claim only the days you'll take yourself; the rest can be shared or left in the balance
+    - days can be a single block, several blocks or single days, within 2 years of the birth
+    - up to 20 days can be taken together; more with an exemption
+    - nominated days can be changed later
+  sources:
+    - title: Services Australia — Sharing your Parental Leave Pay
+      url: https://www.servicesaustralia.gov.au/sharing-your-parental-leave-pay
+    - title: Services Australia — How to choose and share your days
+      url: https://www.servicesaustralia.gov.au/how-to-choose-and-share-your-parental-leave-pay-days
+  related: [ partner-reserved-days, parental-leave-pay-days-together, parental-leave-pay-employer-delivered ]
+  notes: A decision in all but name. The app's `work` answers for each parent decide who can claim.
+
+- id: parental-leave-pay-days-together
+  title: Taking more Parental Leave Pay days together
+  type: payment
+  topic: money
+  ask: Can we both be on leave pay at the same time for longer than 20 days?
+  aliases: [ exemption, caesarean exemption, twins, NICU, concurrent leave ]
+  weeks: [ 30, 42 ]
+  who: together
+  priority: 3
+  stakes: medium
+  covers:
+    - the limit of 20 days together (10 for a child born before 1 July 2025) can be lifted
+    - "automatic grounds: a multiple birth, a stillbirth or death"
+    - "with evidence: a caesarean or a complication at birth, a baby in hospital 14 days or more, a child's or parent's medical condition"
+    - ask in the claim or by calling the families line later
+  sources:
+    - title: Services Australia — Exemptions to the limit for taking days at the same time
+      url: https://www.servicesaustralia.gov.au/exemptions-to-limit-for-taking-days-parental-leave-pay-same-time
+  related: [ parental-leave-pay-sharing ]
+  notes: Tailor by `birth` (a planned caesarean is a ground) and `babies`.
+
+- id: parental-leave-pay-employer-delivered
+  title: Who pays the Parental Leave Pay, and the tax on it
+  type: payment
+  topic: money
+  ask: Does my employer pay the leave pay or does Centrelink?
+  aliases: [ employer delivered, continuous block, 8 weeks, PAYG, 15 per cent tax ]
+  weeks: [ 27, 36 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - the employer delivers it if you've worked for them a year, the first block is at least 8 weeks of weekdays and starts within a year of the birth
+    - otherwise Services Australia pays fortnightly in arrears; always for the self-employed
+    - the employer must register with Services Australia before you claim to opt in when not required
+    - changing nominated days can move payment from the employer to Services Australia
+    - "taxable: Services Australia withholds 15% unless you ask for more; an employer withholds at your usual rate"
+    - no super from the employer on these days (the ATO pays it instead)
+  sources:
+    - title: Services Australia — Getting your Parental Leave Pay
+      url: https://www.servicesaustralia.gov.au/getting-your-parental-leave-pay
+    - title: Services Australia — Paid Parental Leave scheme for employers
+      url: https://www.servicesaustralia.gov.au/paid-parental-leave-scheme-for-employers
+  related: [ parental-leave-pay, parental-leave-pay-claim, parental-leave-pay-superannuation, budgeting-for-leave ]
+  notes: Tailor by `work` and `paidLeave`. The 15% default often under-withholds at higher incomes; warn about tax time.
+
+- id: parental-leave-pay-superannuation
+  title: Super on Parental Leave Pay
+  type: payment
+  topic: money
+  ask: Do we get superannuation on Parental Leave Pay?
+  aliases: [ PPLSC, super on leave pay, ATO super contribution ]
+  weeks: [ 27, 42 ]
+  priority: 2
+  stakes: low
+  covers:
+    - for a child born from 1 July 2025, the ATO pays 12% super on Parental Leave Pay, with interest, as a lump sum after the financial year ends
+    - nothing to claim; it goes to the fund your super already goes to
+    - keep name and address matching across the ATO, Services Australia and the fund
+    - "shared days: each parent's contribution goes to their own fund"
+  sources:
+    - title: ATO — Paid Parental Leave Superannuation Contribution
+      url: https://www.ato.gov.au/individuals-and-families/super-for-individuals-and-families/super/growing-and-keeping-track-of-your-super/how-to-save-more-in-your-super/government-super-contributions/paid-parental-leave-superannuation-contribution
+    - title: Services Australia — Paid Parental Leave scheme changes
+      url: https://www.servicesaustralia.gov.au/paid-parental-leave-scheme-changes
+  related: [ parental-leave-pay, wills-and-guardianship ]
+  notes: The rate follows the super guarantee; the first payments were due in 2026–27.
+
+- id: parental-leave-pay-self-employed
+  title: Parental Leave Pay when you're self-employed
+  type: payment
+  topic: work
+  ask: Can I get Parental Leave Pay if I run my own business?
+  aliases: [ sole trader, ABN, contractor leave pay, self-employed maternity leave ]
+  weeks: [ 16, 36 ]
+  priority: 2
+  stakes: high
+  covers:
+    - "yes: hours worked for reward count toward the work test, even at a loss, including partnerships and trusts"
+    - Services Australia pays you directly
+    - you can't work on a Parental Leave Pay day, including on the business
+    - there is no unpaid parental leave entitlement to request; the leave is whatever you arrange
+    - an independent contractor is not an employee and gets no Fair Work parental leave
+  sources:
+    - title: Services Australia — Self-employed parents and the work test
+      url: https://www.servicesaustralia.gov.au/self-employed-parents-work-test-for-parental-leave-pay
+    - title: Services Australia — What can affect your Parental Leave Pay
+      url: https://www.servicesaustralia.gov.au/what-affects-your-parental-leave-pay
+    - title: Fair Work Ombudsman — Independent contractors
+      url: https://www.fairwork.gov.au/find-help-for/independent-contractors
+  related: [ parental-leave-pay-work-test, parental-leave-pay-employer-delivered, unpaid-parental-leave ]
+  notes: "Shown by `work: self-employed`. The \"more than one hour is work\" rule bites for people who answer email."
+
+- id: newborn-supplement-and-upfront-payment
+  title: The Newborn Upfront Payment and Newborn Supplement
+  type: payment
+  topic: money
+  ask: Is there still a baby bonus?
+  aliases: [ baby bonus, newborn payment, Newborn Supplement, lump sum for a baby ]
+  weeks: [ 27, 42 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - "a lump sum of $708 plus up to 13 weeks of extra Family Tax Benefit Part A: up to $2,125.76 for a first child, $709.80 for later ones"
+    - only if nobody gets Parental Leave Pay for this child, so most working households choose between the two
+    - "no separate claim: it comes with the Family Tax Benefit claim, which can be lodged 3 months before the due date"
+    - not taxable; paid the way your FTB is paid
+  sources:
+    - title: Services Australia — Newborn Upfront Payment and Newborn Supplement
+      url: https://www.servicesaustralia.gov.au/newborn-upfront-payment-and-newborn-supplement
+    - title: Services Australia — How much you can get
+      url: https://www.servicesaustralia.gov.au/how-much-newborn-upfront-payment-and-newborn-supplement-you-can-get
+    - title: Services Australia — How to claim
+      url: https://www.servicesaustralia.gov.au/how-to-claim-newborn-upfront-payment-and-newborn-supplement
+  related: [ parental-leave-pay, family-tax-benefit-a, family-tax-benefit-claim ]
+  notes: Changes yearly. The Baby Bonus people remember ended in 2014; this is what replaced it. Which is better depends on income and the work test; a household that fails the PLP work test should know this exists.
+
+- id: family-tax-benefit-a
+  title: Family Tax Benefit Part A
+  type: payment
+  topic: money
+  ask: Will we get Family Tax Benefit?
+  aliases: [ FTB A, FTB Part A, family payment, Centrelink family tax benefit ]
+  weeks: [ 27, 42 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - paid per child, by family income; maximum $235.48 a fortnight for a child 0–12, base rate $75.60
+    - full rate up to $69,131 family income, tapering by 20 cents in the dollar, then by 30 cents over $123,078 until nil
+    - a yearly supplement after balancing, up to $970.90 a child in 2026–27
+    - the child must meet immunisation requirements or the rate is cut
+    - the maximum rate brings a Health Care Card automatically
+  sources:
+    - title: Services Australia — Family Tax Benefit
+      url: https://www.servicesaustralia.gov.au/family-tax-benefit
+    - title: Services Australia — FTB Part A payment rates
+      url: https://www.servicesaustralia.gov.au/family-tax-benefit-part-payment-rates?context=22151
+    - title: Services Australia — Income test for FTB Part A
+      url: https://www.servicesaustralia.gov.au/income-test-for-family-tax-benefit-part?context=22151
+    - title: Services Australia — Health Care Card
+      url: https://www.servicesaustralia.gov.au/health-care-card
+  related: [ family-tax-benefit-b, family-tax-benefit-claim, immunisation-requirements-for-payments, newborn-supplement-and-upfront-payment, medicare-safety-net ]
+  notes: Changes yearly, each 1 July. Many two-income households get nothing; say so rather than leave them guessing.
+
+- id: family-tax-benefit-b
+  title: Family Tax Benefit Part B
+  type: payment
+  topic: money
+  ask: Is there a payment for a family with one income while one of us is home?
+  aliases: [ FTB B, FTB Part B, single income family payment ]
+  weeks: [ 27, 42 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - for couples with one main income and a child under 13, or single parents
+    - nothing if the higher earner is over $124,327
+    - the lower earner can earn $7,154 before it tapers by 20 cents in the dollar; cuts out at $35,661 while the youngest is under 5
+    - up to $200.34 a fortnight while the youngest is under 5, plus a yearly supplement up to $478.15 in 2026–27
+    - not paid on days Parental Leave Pay is paid
+  sources:
+    - title: Services Australia — Income test for FTB Part B
+      url: https://www.servicesaustralia.gov.au/income-test-for-family-tax-benefit-part-b
+    - title: Services Australia — FTB Part B payment rates
+      url: https://www.servicesaustralia.gov.au/family-tax-benefit-part-b-payment-rates?context=22151
+  related: [ family-tax-benefit-a, family-tax-benefit-claim, parental-leave-pay, budgeting-for-leave ]
+  notes: Changes yearly. The parent on leave is the "secondary earner" for the year, which is why it often starts once leave pay stops.
+
+- id: family-tax-benefit-claim
+  title: Claiming Family Tax Benefit
+  type: payment
+  topic: money
+  ask: How and when do we claim Family Tax Benefit?
+  aliases: [ claim FTB, fortnightly or lump sum, income estimate, balancing ]
+  weeks: [ 27, 42 ]
+  priority: 1
+  stakes: high
+  covers:
+    - claim as early as 3 months before the due date, in the same myGov claim as Parental Leave Pay
+    - "fortnightly: claim within 52 weeks of the birth and give an income estimate; a lump sum: by 30 June of the following financial year"
+    - payment choices (all, base rate, or nothing until balancing) to avoid an overpayment debt
+    - balanced after the end of the financial year; 12 months from the end of it to confirm income or claim a lump sum
+    - proof of birth finishes the claim
+  sources:
+    - title: Services Australia — How to claim Family Tax Benefit
+      url: https://www.servicesaustralia.gov.au/how-to-claim-family-tax-benefit
+    - title: Services Australia — Payment choices for FTB
+      url: https://www.servicesaustralia.gov.au/payment-choices-for-ftb
+    - title: Services Australia — Time limits for lump sum claims and confirming income
+      url: https://www.servicesaustralia.gov.au/time-limits-for-submitting-lump-sum-claims-and-confirming-income-for-family-tax-benefit
+  related: [ family-tax-benefit-a, family-tax-benefit-b, parental-leave-pay-claim, proof-of-birth, mygov-and-centrelink-setup ]
+  notes: Stakes high because the lump-sum deadline and the 52-week deadline are hard, and the overpayment debt is a real surprise in year one.
+
+- id: child-care-subsidy
+  title: The Child Care Subsidy
+  type: payment
+  topic: money
+  ask: How much will childcare actually cost us after the subsidy?
+  aliases: [ CCS, childcare rebate, childcare subsidy percentage, 3 Day Guarantee, activity test ]
+  weeks: [ 12, 42 ]
+  priority: 1
+  stakes: high
+  covers:
+    - paid straight to an approved service to cut the fees; the percentage falls with family income from 90% up to $88,520, by 1% per $5,000, to nil at $538,520
+    - from 5 January 2026 every eligible family gets at least 72 hours a fortnight of subsidised care; up to 100 with more recognised activity
+    - your percentage applies to your hourly fee or the hourly rate cap, whichever is lower
+    - "only approved care: centre-based day care, family day care, outside school hours care, in home care"
+    - 5% is withheld each fortnight against an overpayment; the child must meet immunisation requirements
+  sources:
+    - title: Services Australia — Child Care Subsidy
+      url: https://www.servicesaustralia.gov.au/child-care-subsidy
+    - title: Services Australia — Your income can affect Child Care Subsidy
+      url: https://www.servicesaustralia.gov.au/your-income-can-affect-child-care-subsidy
+    - title: Services Australia — Hours of subsidised child care
+      url: https://www.servicesaustralia.gov.au/hours-subsidised-child-care-for-child-care-subsidy
+    - title: Services Australia — Who can get Child Care Subsidy
+      url: https://www.servicesaustralia.gov.au/who-can-get-child-care-subsidy
+  related: [ child-care-subsidy-claim, childcare-types, childcare-waitlists, immunisation-requirements-for-payments ]
+  notes: Changes yearly (the family income thresholds and hourly rate caps usually change each 1 July). From 5 January 2026 every eligible family gets at least 72 hours a fortnight; older articles describe the old rules. StartingBlocks has a calculator.
+
+- id: child-care-subsidy-claim
+  title: Claiming the Child Care Subsidy before care starts
+  type: payment
+  topic: money
+  ask: When should we apply for the Child Care Subsidy?
+  aliases: [ claim CCS, confirm enrolment, Complying Written Arrangement, backdated 28 days ]
+  weeks: [ 30, 42 ]
+  priority: 2
+  stakes: high
+  covers:
+    - "claim in myGov before the first day of care: it can only be backdated to a CCS fortnight starting no more than 28 days before the claim"
+    - until it's approved you pay full fees
+    - the service lodges an enrolment and you confirm it online; the child must attend within 26 weeks or it lapses
+    - each person liable for the fees claims in their own right
+    - 14% care (2 nights a fortnight) and residence rules
+  sources:
+    - title: Services Australia — How to claim Child Care Subsidy
+      url: https://www.servicesaustralia.gov.au/how-to-claim-child-care-subsidy
+    - title: Services Australia — Confirm enrolment for Child Care Subsidy
+      url: https://www.servicesaustralia.gov.au/confirm-enrolment-for-child-care-subsidy
+  related: [ child-care-subsidy, childcare-waitlists ]
+  notes: "Shown by `childcare: yes`. The care itself starts after the birth; the heads-up here is that the claim must be in before day one."
+
+- id: immunisation-requirements-for-payments
+  title: Immunisation and your payments
+  type: payment
+  topic: paperwork
+  ask: Do the baby's vaccinations affect our Centrelink payments?
+  aliases: [ no jab no pay, immunisation requirements, Australian Immunisation Register, AIR, catch-up schedule ]
+  weeks: [ 36, 42 ]
+  priority: 2
+  stakes: high
+  covers:
+    - Family Tax Benefit Part A and the Child Care Subsidy need the child up to date with the childhood schedule, on a catch-up, or with a medical exemption on the register
+    - FTB Part A is cut by up to $36.54 a fortnight per child; CCS stops after 63 days and needs a new claim
+    - checked automatically against the Australian Immunisation Register using the child's Medicare number; nothing to send
+    - the baby is added to the register when enrolled in Medicare
+  sources:
+    - title: Services Australia — What are immunisation requirements (Family Tax Benefit)
+      url: https://www.servicesaustralia.gov.au/what-are-immunisation-requirements?context=22151
+    - title: Services Australia — Australian Immunisation Register
+      url: https://www.servicesaustralia.gov.au/australian-immunisation-register
+  related: [ family-tax-benefit-a, child-care-subsidy, medicare-enrol-baby ]
+  notes: The penalty amount changes yearly. The baby's own schedule (6 weeks, 4 months, 6 months) belongs to the postpartum content; here it's the money.
+
+- id: mygov-and-centrelink-setup
+  title: Setting up myGov and Centrelink before the claim
+  type: payment
+  topic: paperwork
+  ask: What do I need set up before I can claim anything?
+  aliases: [ myGov, Customer Reference Number, CRN, link Centrelink, prove identity, Express Plus Centrelink ]
+  weeks: [ 20, 27 ]
+  priority: 1
+  stakes: medium
+  covers:
+    - a myGov account linked to Centrelink and to Medicare, for each parent who will claim or approve sharing
+    - a Centrelink Customer Reference Number, which can be issued online after proving identity in myGov
+    - some identity checks still need a service centre visit; do it before week 27, not in the week you want to claim
+    - the Express Plus Centrelink app for tracking the claim and uploading proof of birth
+    - the partner needs their own linked account to approve shared Parental Leave Pay days
+  sources:
+    - title: Services Australia — Before the birth of your baby
+      url: https://www.servicesaustralia.gov.au/before-birth-your-baby
+    - title: Services Australia — Setting up online accounts for Centrelink
+      url: https://www.servicesaustralia.gov.au/setting-up-online-accounts-for-centrelink
+    - title: Services Australia — How to prove your identity with Centrelink
+      url: https://www.servicesaustralia.gov.au/how-to-prove-your-identity-with-centrelink
+  related: [ parental-leave-pay-claim, family-tax-benefit-claim, medicare-own-card ]
+  notes: Both parents, so `who` is left open. A long-standing household often has one parent who has never dealt with Centrelink.
+
+- id: medicare-enrol-baby
+  title: Enrolling the baby in Medicare
+  type: payment
+  topic: paperwork
+  ask: How do we get the baby on Medicare and get their Medicare card?
+  aliases: [ baby Medicare card, Newborn Child Declaration, enrol newborn, add baby to Medicare card ]
+  weeks: [ 36, 42 ]
+  priority: 1
+  stakes: high
+  covers:
+    - as soon as possible after the birth; the baby can go on both parents' cards (two cards at most)
+    - the Newborn Child Declaration from the hospital's Parent Pack, signed by the doctor or midwife, does it, in the Centrelink claim or on its own in the Medicare online account
+    - a new card arrives in 3 to 4 weeks; a digital card is immediate in the myGov app
+    - enrolment also adds the baby to the Australian Immunisation Register and can register them for My Health Record and the Safety Net family
+    - lost the declaration? the birth certificate instead
+  sources:
+    - title: Services Australia — Enrolling your baby in Medicare
+      url: https://www.servicesaustralia.gov.au/enrolling-your-baby-medicare
+    - title: Pregnancy, Birth and Baby — Adding your new baby to Medicare
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/adding-your-newborn-to-medicare
+  related: [ proof-of-birth, medicare-own-card, immunisation-requirements-for-payments, medicare-safety-net, my-health-record-for-baby ]
+  notes: An after-the-birth task; the weeks are the heads-up. Private patients need the number for the baby's own hospital bills too.
+
+- id: medicare-own-card
+  title: Your own Medicare card before the baby comes
+  type: payment
+  topic: paperwork
+  ask: I'm still on my parents' Medicare card. Does that matter?
+  aliases: [ own Medicare card, transfer Medicare card, copy to partner's card, two Medicare cards ]
+  weeks: [ 20, 34 ]
+  priority: 3
+  stakes: medium
+  covers:
+    - you must be on your own card before you can enrol the baby
+    - online in the Medicare account, or by form; the card takes 3 to 4 weeks, the digital one is immediate
+    - a person can be on at most two cards, so the baby can be on both parents' cards
+    - check the Safety Net registration when the card changes
+  sources:
+    - title: Services Australia — Have your own Medicare card and number
+      url: https://www.servicesaustralia.gov.au/have-your-own-medicare-card-and-number-if-youre-15-or-older-and-enrolled-medicare
+    - title: Services Australia — Before the birth of your baby
+      url: https://www.servicesaustralia.gov.au/before-birth-your-baby
+  related: [ medicare-enrol-baby, medicare-safety-net ]
+
+- id: medicare-safety-net
+  title: The Medicare Safety Net
+  type: payment
+  topic: money
+  ask: Is there a cap on what we pay out of pocket for scans and specialists?
+  aliases:
+    - safety net
+    - Extended Medicare Safety Net
+    - EMSN
+    - register as a family
+    - gap
+    - out of pocket
+    - extended Medicare safety net
+  weeks: [ 6, 42 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - "out-of-hospital costs only: GP, obstetrician's rooms, scans and bloods, not the hospital stay"
+    - "2026 thresholds: $594.40 gap for everyone (then 100% of the schedule fee), $2,699.10 out of pocket (then 80% back), $861.20 for concession and FTB A families"
+    - counted per calendar year, 1 January to 31 December, so a pregnancy spanning two years counts twice
+    - register as a couple or family (a form or a call), once; add the baby when enrolling them
+    - only verified, fully paid accounts count
+    - once out-of-hospital costs pass a threshold in a calendar year, Medicare pays more of each bill
+    - register as a family so both parents' bills count together, singles are registered automatically
+    - obstetrician consultations and scans count, hospital bills do not
+    - thresholds reset on 1 January
+  sources:
+    - title: Services Australia — Medicare Safety Nets
+      url: https://www.servicesaustralia.gov.au/medicare-safety-nets
+    - title: Services Australia — What are the thresholds
+      url: https://www.servicesaustralia.gov.au/what-are-medicare-safety-nets-thresholds
+    - title: Services Australia — How to register for Medicare Safety Nets
+      url: https://www.servicesaustralia.gov.au/how-to-register-for-medicare-safety-nets
+    - title: Pregnancy, Birth and Baby — Private health insurance and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+  related:
+    - cost-of-having-a-baby
+    - private-health-waiting-periods
+    - medicare-enrol-baby
+    - what-medicare-covers
+    - obstetrician-out-of-pocket-costs
+  notes: Thresholds change each 1 January. A private-obstetrician pregnancy usually crosses the extended threshold; registering as a family early is the whole task. Medicare for the scans and the obstetrician's fees themselves are in tests and care. Thresholds change each year; the entry must say to check the current figure, not quote one.
+  who: together
+
+- id: dad-and-partner-pay
+  title: Dad and Partner Pay is gone
+  type: card
+  topic: partner
+  ask: Is there a separate two weeks' pay for dads?
+  aliases: [ Dad and Partner Pay, DAPP, dad's two weeks ]
+  who: partner
+  priority: 3
+  stakes: low
+  covers:
+    - the two-week Dad and Partner Pay ended for births from 1 July 2023 and claims closed 30 June 2024
+    - it was folded into Parental Leave Pay, where the partner now has reserved days instead
+    - older articles, friends and some employers still describe the old scheme
+  sources:
+    - title: Services Australia — Dad and Partner Pay
+      url: https://www.servicesaustralia.gov.au/dad-and-partner-pay
+  related: [ partner-reserved-days, parental-leave-pay ]
+
+- id: parenting-payment
+  title: Parenting Payment
+  type: payment
+  topic: money
+  ask: Is there income support if neither of us is working?
+  aliases: [ Parenting Payment, income support for parents, Centrelink parenting ]
+  weeks: [ 36, 42 ]
+  priority: 3
+  stakes: medium
+  covers:
+    - the main income support payment for a young child's main carer, under income and asset tests
+    - separate from Family Tax Benefit and Parental Leave Pay, and only claimable after the birth
+    - first payment usually within two weeks of the decision; waiting periods can apply
+  sources:
+    - title: Services Australia — Parenting Payment
+      url: https://www.servicesaustralia.gov.au/parenting-payment
+  related: [ family-tax-benefit-a, parental-leave-pay ]
+  notes: "Shown when `work: not-working` for the carrying parent. Rates change twice a year."
+
+- id: multiple-birth-allowance
+  title: Multiple Birth Allowance
+  type: payment
+  topic: money
+  ask: Is there extra help for triplets or more?
+  aliases: [ triplets payment, multiple birth allowance ]
+  weeks: [ 27, 42 ]
+  priority: 3
+  stakes: medium
+  covers:
+    - for triplets, quadruplets or more, checked automatically with the Family Tax Benefit claim
+    - twins don't qualify, and Parental Leave Pay is for one child only, but the Newborn Supplement is paid per child
+  sources:
+    - title: Services Australia — Before the birth of your baby
+      url: https://www.servicesaustralia.gov.au/before-birth-your-baby
+    - title: Services Australia — How much Newborn Upfront Payment and Newborn Supplement you can get
+      url: https://www.servicesaustralia.gov.au/how-much-newborn-upfront-payment-and-newborn-supplement-you-can-get
+  related: [ family-tax-benefit-claim, newborn-supplement-and-upfront-payment ]
+  notes: "Shown by `babies: more`. The allowance's own page refused to load; cite it once it does."
+
+- id: stillborn-baby-payment
+  title: The Stillborn Baby Payment
+  type: payment
+  topic: loss
+  ask: Is there a payment after a stillbirth?
+  aliases: [ Stillborn Baby Payment, stillbirth payment ]
+  priority: 3
+  stakes: medium
+  covers:
+    - a one-off $4,482.12 for a stillborn baby, under an income test or with FTB Part A eligibility
+    - "or Parental Leave Pay instead, if you pass its tests: you choose between them"
+    - leave from work and employer-paid leave can't be cancelled by the employer because of a stillbirth
+  sources:
+    - title: Services Australia — Stillborn Baby Payment
+      url: https://www.servicesaustralia.gov.au/stillborn-baby-payment
+    - title: Services Australia — Deciding between Parental Leave Pay and Stillborn Baby Payment
+      url: https://www.servicesaustralia.gov.au/deciding-between-parental-leave-pay-and-stillborn-baby-payment
+    - title: Fair Work Ombudsman — Stillbirth, premature birth or death of a child
+      url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/stillbirth-premature-birth-or-death-of-a-child
+  related: [ parental-leave-pay, leave-after-loss ]
+  notes: Never surfaced on the timeline; reached only from the loss path. The amount changes yearly. The experience itself belongs to the loss area; this is only the money.
+
+# ---------------------------------------------------------------------------
+# Work
+# ---------------------------------------------------------------------------
+
+- id: unpaid-parental-leave
+  title: "Unpaid parental leave: the 12 months you're entitled to"
+  type: payment
+  topic: work
+  ask: How much leave can I take from work?
+  aliases: [ maternity leave, NES parental leave, 12 months leave, unpaid leave, continuous parental leave ]
+  weeks: [ 12, 30 ]
+  priority: 1
+  stakes: high
+  covers:
+    - under the National Employment Standards each parent can take up to 12 months' unpaid leave, and request up to 12 more
+    - eligible after 12 months with the employer before the due date; casuals if regular and systematic for 12 months with an expectation of more
+    - one continuous period, starting up to 6 weeks before the due date (earlier if the employer agrees) and ending within 24 months of the birth
+    - both parents can take it, including at the same time
+    - paid leave entitlements don't usually accrue on unpaid leave; long service leave depends on the state
+  sources:
+    - title: Fair Work Ombudsman — Parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave
+    - title: Fair Work Ombudsman — Types of parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/types-of-parental-leave
+    - title: Fair Work Ombudsman — Applying for parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+    - title: Fair Work Ombudsman — Accruing and taking other leave during parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/accruing-and-taking-other-leave-during-parental-leave
+  related: [ employer-leave-notice, extending-parental-leave, flexible-unpaid-parental-leave, employer-paid-parental-leave, parental-leave-pay, partner-parental-leave ]
+  notes: "Shown by `work: employee`. The 12-months-of-service rule is the one that catches people who changed jobs while pregnant."
+
+- id: employer-leave-notice
+  title: Telling your employer about parental leave
+  type: payment
+  topic: work
+  ask: When do I have to tell work I'm taking leave?
+  aliases: [ 10 weeks notice, 4 weeks notice, written notice, leave dates ]
+  weeks: [ 24, 34 ]
+  priority: 1
+  stakes: high
+  covers:
+    - "at least 10 weeks before the leave starts, in writing: how much and the start and end dates"
+    - "at least 4 weeks before: confirm or change the dates"
+    - the employer can ask for evidence such as a medical certificate with the due date
+    - if 10 weeks isn't possible, as soon as you can; the leave is still yours
+    - flexible days need 10 weeks' notice of how many and 4 weeks' notice of which days
+  sources:
+    - title: Fair Work Ombudsman — Applying for parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+  related: [ unpaid-parental-leave, telling-your-employer, partner-parental-leave, parental-leave-pay-claim ]
+  exists: content/items/employer-leave-notice.md
+
+- id: telling-your-employer
+  title: Telling work you're pregnant
+  type: guide
+  topic: work
+  ask: When do I have to tell my employer I'm pregnant?
+  aliases: [ announce pregnancy at work, tell my boss, when to tell work ]
+  weeks: [ 8, 20 ]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - no legal duty to tell until the 10-week leave notice, though a safe-job transfer or sick leave may need a certificate earlier
+    - treating you differently because you're pregnant is unlawful adverse action under the Fair Work Act
+    - "what to ask: the workplace's own paid leave policy, how leave pay is delivered, flexible work later"
+    - "practical timing: after the 12-week scan is common; earlier if the job has hazards"
+  sources:
+    - title: Fair Work Ombudsman — Protection from discrimination at work
+      url: https://www.fairwork.gov.au/employee-entitlements/protections-at-work/protection-from-discrimination-at-work
+    - title: Fair Work Ombudsman — Entitlements while pregnant
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/entitlements-while-pregnant
+    - title: Pregnancy, Birth and Baby — Working during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
+  related: [ employer-leave-notice, safe-job-and-no-safe-job-leave, pregnancy-discrimination-at-work, employer-paid-parental-leave ]
+  notes: Directive only about the paperwork; the "when to tell people" feelings belong to relationships.
+
+- id: employer-paid-parental-leave
+  title: Your employer's own paid parental leave
+  type: payment
+  topic: work
+  ask: Does my workplace pay maternity leave on top of the government's?
+  aliases: [ company maternity leave, employer paid leave, enterprise agreement parental leave, paid primary carer leave ]
+  weeks: [ 16, 28 ]
+  priority: 1
+  stakes: high
+  covers:
+    - comes from an agreement, employment contract or workplace policy, and the rules depend on it; ask the employer first
+    - Parental Leave Pay can be taken before, during or after employer funded leave, and a person can get both during the leave period
+    - can't be refused or cancelled because of a stillbirth or death
+  sources:
+    - title: Fair Work Ombudsman — Payment during parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/payment-during-parental-leave
+    - title: Services Australia — Claiming timeframes for Parental Leave Pay
+      url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay
+  related: [ parental-leave-pay, unpaid-parental-leave, budgeting-for-leave, parental-leave-pay-employer-delivered ]
+  notes: The `paidLeave` question exists for this; a "yes" changes the order of pay and the start date of the government claim.
+
+- id: extending-parental-leave
+  title: Extending parental leave to two years
+  type: payment
+  topic: work
+  ask: Can I take longer than 12 months off?
+  aliases: [ second year of leave, extend maternity leave, 24 months, request further leave ]
+  weeks: [ 30, 42 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - within the first 12 months, extend up to 12 total with 4 weeks' notice before the current end date
+    - beyond 12 months, a written request for up to 12 more; the employer must answer in writing within 21 days and can only refuse on reasonable business grounds after discussing it
+    - total no more than 24 months from the birth, and each parent has their own 24 months
+    - disputes can go to the Fair Work Commission
+  sources:
+    - title: Fair Work Ombudsman — Extending parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/extending-parental-leave
+  related: [ unpaid-parental-leave, returning-to-work, flexible-work-request ]
+  notes: Decided after the birth; mapped here so the first notice can leave room for it.
+
+- id: flexible-unpaid-parental-leave
+  title: Flexible parental leave days
+  type: payment
+  topic: work
+  ask: Can I take my leave as single days instead of one block?
+  aliases: [ flexible days, 130 flexible days, single days of leave, part-time return ]
+  weeks: [ 24, 36 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - up to 130 of the 12 months can be single days or short blocks (120 for a child born before 1 July 2026), unpaid
+    - taken any time within 24 months of the birth, including before the birth up to 6 weeks out
+    - 10 weeks' notice of the total and 4 weeks' notice of the dates
+    - no keeping in touch days on flexible leave
+  sources:
+    - title: Fair Work Ombudsman — Types of parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/types-of-parental-leave
+    - title: Fair Work Ombudsman — Applying for parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+  related: [ unpaid-parental-leave, parental-leave-pay-sharing, keeping-in-touch-days, partner-parental-leave ]
+  notes: Changes by birth date, mirroring the Parental Leave Pay days.
+
+- id: safe-job-and-no-safe-job-leave
+  title: A safe job, or no-safe-job leave
+  type: payment
+  topic: work
+  ask: What if my job isn't safe while I'm pregnant?
+  aliases: [ safe job, no safe job leave, light duties, hazards at work, workplace risk pregnancy ]
+  weeks: [ 4, 40 ]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - every pregnant employee, including casuals and those under 12 months' service, can be moved to a safe job on the same hours and pay
+    - evidence a reasonable person would accept; the employer may require a medical certificate
+    - "no safe job available: paid no-safe-job leave at base rate if you're entitled to parental leave, unpaid if not"
+    - the transfer lasts until it's safe to go back or the pregnancy ends; you return to the original job after leave
+    - safety concerns go to the state work health and safety regulator
+  sources:
+    - title: Fair Work Ombudsman — Entitlements while pregnant
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/entitlements-while-pregnant
+    - title: Pregnancy, Birth and Baby — Working during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
+  related: [ working-close-to-the-due-date, pregnancy-discrimination-at-work, returning-to-work ]
+  notes: What counts as a hazard (chemicals, lifting, shift work, radiation) is for the activities "Can I…?" area; this is the entitlement.
+
+- id: working-close-to-the-due-date
+  title: Working in the last six weeks
+  type: can-i
+  topic: work
+  ask: Can I keep working right up to my due date?
+  aliases: [ work until due date, last 6 weeks, medical certificate fit for work, directed to start leave ]
+  weeks: [ 30, 40 ]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "yes, if you're fit: the employer can ask for a medical certificate within 7 days saying so once you're inside 6 weeks of the due date"
+    - no certificate, or not fit, and the employer can require leave to start
+    - a certificate saying fit but not for this job means a safe job or no-safe-job leave
+    - leave can start up to 6 weeks before the due date, or earlier by agreement
+  sources:
+    - title: Fair Work Ombudsman — Entitlements while pregnant
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/entitlements-while-pregnant
+    - title: Fair Work Ombudsman — Types of parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/types-of-parental-leave
+  related: [ safe-job-and-no-safe-job-leave, employer-leave-notice, unpaid-parental-leave ]
+
+- id: special-maternity-leave
+  title: Unpaid special parental leave
+  type: payment
+  topic: work
+  ask: Is there leave for a pregnancy-related illness, separate from my parental leave?
+  aliases: [ special maternity leave, pregnancy illness leave, hyperemesis leave ]
+  weeks: [ 4, 40 ]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers:
+    - unpaid leave for an employee unfit for work because of a pregnancy-related illness, or a pregnancy loss after 12 weeks that isn't a stillbirth
+    - it doesn't come off the 12 months of parental leave
+    - needs the same eligibility as unpaid parental leave; paid personal leave can be used first
+    - the employer can ask for a medical certificate
+  sources:
+    - title: Fair Work Ombudsman — Entitlements while pregnant
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/entitlements-while-pregnant
+  related: [ unpaid-parental-leave, safe-job-and-no-safe-job-leave, leave-after-loss ]
+
+- id: keeping-in-touch-days
+  title: Keeping in touch days
+  type: payment
+  topic: work
+  ask: Can I go into work for a day while I'm on leave without ending it?
+  aliases: [ KIT days, keeping in touch, 10 days, training day on maternity leave ]
+  weeks: [ 34, 42 ]
+  priority: 3
+  stakes: low
+  covers:
+    - up to 10 paid days of work during the first 12 months of continuous leave, and 10 more in an extended period, by agreement
+    - "for anything that helps the return: training, planning days, a handover"
+    - paid as normal, and leave accrues on them; the leave period doesn't end
+    - not on flexible leave days; not within 14 days of the birth unless you ask
+  sources:
+    - title: Fair Work Ombudsman — Keeping in touch days
+      url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/keeping-in-touch-days
+  related: [ unpaid-parental-leave, returning-to-work, parental-leave-pay ]
+  notes: A day worked is also a day you can't be paid Parental Leave Pay for; say so.
+
+- id: returning-to-work
+  title: Going back to work
+  type: guide
+  topic: work
+  ask: Do I get my old job back after leave?
+  aliases: [ return to work, same job, redundancy on maternity leave, breastfeeding at work, expressing at work ]
+  weeks: [ 34, 42 ]
+  priority: 2
+  stakes: high
+  covers:
+    - the right to return to the job you had before leave, or before a safe-job transfer or reduced hours; a replacement doesn't change that
+    - a fixed-term contract that ends during leave does
+    - significant changes to the job during leave must be discussed with you; a job that no longer exists may be a redundancy
+    - breastfeeding and expressing at work are protected; breaks and a private space are best practice
+    - ending leave early needs the employer's agreement; an employer can only call you back if you no longer care for the child, with 4 weeks' notice and not within 6 weeks of the birth
+  sources:
+    - title: Fair Work Ombudsman — Returning to work from parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave/after-parental-leave/returning-to-work-from-parental-leave
+    - title: Fair Work Ombudsman — Ending parental leave early
+      url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/ending-parental-leave-early
+    - title: Fair Work Ombudsman — Replacement employees
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/replacement-employees
+    - title: Pregnancy, Birth and Baby — Returning to work
+      url: https://www.pregnancybirthbaby.org.au/womens-health/wellbeing-and-lifestyle/returning-to-work
+  related: [ flexible-work-request, extending-parental-leave, keeping-in-touch-days, childcare-types, child-care-subsidy-claim ]
+  notes: The emotional side of going back belongs to mental health; this is the entitlement and the admin (childcare claim before day one).
+
+- id: flexible-work-request
+  title: Asking for flexible work
+  type: payment
+  topic: work
+  ask: Can I come back part-time or work from home?
+  aliases: [ flexible working arrangements, part-time after baby, work from home request, 21 days, reasonable business grounds ]
+  weeks: [ 30, 42 ]
+  priority: 2
+  stakes: high
+  covers:
+    - "a legal right to ask, in writing with reasons, if you've been there 12 months (casuals: regular and systematic) and are pregnant or a parent of a child of school age or younger"
+    - the employer must reply in writing within 21 days and can only refuse on reasonable business grounds after genuinely trying to agree an alternative
+    - part-time, different hours, job share, working from home all count
+    - unresolved disputes can go to the Fair Work Commission; templates on the Fair Work site
+  sources:
+    - title: Fair Work Ombudsman — Flexible working arrangements
+      url: https://www.fairwork.gov.au/employment-conditions/flexibility-in-the-workplace/flexible-working-arrangements
+    - title: Fair Work Ombudsman — Flexible work after parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave/after-parental-leave/flexible-work-after-parental-leave
+  related: [ returning-to-work, extending-parental-leave, pregnancy-discrimination-at-work ]
+  notes: Both parents can ask; the partner asking is the under-used one.
+
+- id: partner-parental-leave
+  title: The partner's leave from work
+  type: guide
+  topic: partner
+  ask: How much time off does the partner get, and how do they arrange it?
+  aliases: [ paternity leave, partner leave, dad's leave, secondary carer leave, two weeks off ]
+  weeks: [ 20, 34 ]
+  who: partner
+  priority: 1
+  stakes: high
+  covers:
+    - the same 10-week and 4-week notice, and the same 12-months-of-service rule
+    - "the money: the 20 reserved Parental Leave Pay days, up to 20 days paid at the same time as the other parent, plus any employer-paid partner leave, annual leave or flexible days"
+    - a casual partner is eligible for unpaid leave only if working regularly and systematically for at least 12 months, with a reasonable expectation of continuing work
+  sources:
+    - title: Fair Work Ombudsman — Parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave
+    - title: Fair Work Ombudsman — Applying for parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+    - title: Services Australia — How much Parental Leave Pay you can get
+      url: https://www.servicesaustralia.gov.au/how-much-parental-leave-pay-you-can-get
+  related: [ partner-reserved-days, employer-leave-notice, unpaid-parental-leave, flexible-unpaid-parental-leave, parental-leave-pay-sharing ]
+  notes: Tailor by `work.partner` and `paidLeave.partner`. The app's leaveStart date for the partner drives their notice deadlines.
+
+- id: casual-employees-parental-leave
+  title: Parental leave as a casual
+  type: payment
+  topic: work
+  ask: I'm a casual. Do I get parental leave at all?
+  aliases: [ casual maternity leave, regular and systematic, casual employee rights ]
+  weeks: [ 12, 30 ]
+  priority: 2
+  stakes: high
+  covers:
+    - unpaid parental leave and a flexible work request if you've worked regularly and systematically for 12 months and would reasonably have kept going
+    - the right to a safe job regardless of service
+    - no paid leave to draw on, so Parental Leave Pay is usually the only income
+    - the work test counts casual hours like any other
+  sources:
+    - title: Fair Work Ombudsman — Casual employees
+      url: https://www.fairwork.gov.au/starting-employment/types-of-employees/casual-employees
+    - title: Fair Work Ombudsman — Applying for parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+  related: [ unpaid-parental-leave, parental-leave-pay-work-test, safe-job-and-no-safe-job-leave ]
+  notes: The facts file has no "casual" answer under `work`; consider adding one, since the plan differs.
+
+- id: pregnancy-discrimination-at-work
+  title: Pregnancy discrimination at work
+  type: guide
+  topic: work
+  ask: Can they demote me, cut my hours or let me go because I'm pregnant?
+  aliases: [ discrimination, adverse action, sacked while pregnant, demoted on maternity leave, general protections ]
+  weeks: [ 4, 42 ]
+  priority: 2
+  stakes: high
+  covers:
+    - "the Fair Work Act bans adverse action for pregnancy, family responsibilities and breastfeeding: dismissal, demotion, cut hours, refused hiring"
+    - the right to return to the same job and to request flexible work are entitlements, and penalising their use is also adverse action
+    - the Sex Discrimination Act's positive duty on employers
+    - "where to go: the Fair Work Ombudsman, the Fair Work Commission (strict time limits after a dismissal), the Australian Human Rights Commission"
+  sources:
+    - title: Fair Work Ombudsman — Protection from discrimination at work
+      url: https://www.fairwork.gov.au/employee-entitlements/protections-at-work/protection-from-discrimination-at-work
+  related: [ telling-your-employer, safe-job-and-no-safe-job-leave, returning-to-work, flexible-work-request ]
+  notes: The Human Rights Commission's pregnancy-and-work pages refused automated fetches; cite them once they load. Keep the 21-day dismissal application limit if the Commission's page is cited.
+
+- id: leave-after-loss
+  title: Leave from work after a loss
+  type: payment
+  topic: loss
+  ask: What leave is there if the baby dies, or we lose the pregnancy?
+  aliases: [ compassionate leave miscarriage, stillbirth leave, bereavement leave ]
+  priority: 3
+  stakes: medium
+  covers:
+    - paid compassionate leave for a miscarriage (before 20 weeks) or a stillbirth, for both parents
+    - after a stillbirth or a death in the first 24 months, up to 12 months' unpaid parental leave still stands and the employer can't cancel it; you can cancel it with 4 weeks' notice
+    - employer-paid parental leave can't be withdrawn because of it
+    - unpaid special parental leave for a loss after 12 weeks that isn't a stillbirth
+  sources:
+    - title: Fair Work Ombudsman — Stillbirth, premature birth or death of a child
+      url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/stillbirth-premature-birth-or-death-of-a-child
+    - title: Fair Work Ombudsman — Accruing and taking other leave during parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/accruing-and-taking-other-leave-during-parental-leave
+  related: [ stillborn-baby-payment, special-maternity-leave ]
+  notes: Reached only from the loss path, never shown on the timeline. Written in the loss area's voice.
+
+# ---------------------------------------------------------------------------
+# Paperwork
+# ---------------------------------------------------------------------------
+
+- id: registering-the-birth
+  title: Registering the birth
+  type: payment
+  topic: paperwork
+  ask: How do we register the baby's birth, and by when?
+  aliases: [ birth registration, register baby, Births Deaths and Marriages, BDM, 60 days, birth registration statement ]
+  weeks: [ 36, 42 ]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - the parents register it, not the hospital, with the state or territory registry where the baby is born; free
+    - within 60 days in every state and territory (the ACT allows 6 months); late is still accepted
+    - Parental Leave Pay requires the birth registered or applied for; proof of birth for Medicare enrolment can be the Newborn Child Declaration or a birth certificate; a birth certificate is needed for ID such as a passport
+    - online forms in NSW, Queensland and the ACT; registration records the baby's name, so decide the name first
+    - the ACT's Newborn Enrolment Trial registers through myGov from two Canberra hospitals
+  sources:
+    - title: myGov — Register your baby's birth and get their birth certificate
+      url: https://my.gov.au/en/services/raising-kids/having-a-baby/when-your-baby-is-born/register-your-baby-s-birth-and-get-their-birth-certificate
+    - title: NSW Government — Register the birth of your baby
+      url: https://www.nsw.gov.au/family-and-relationships/births/register-a-birth
+    - title: Births, Deaths and Marriages Victoria — Register a birth
+      url: https://www.bdm.vic.gov.au/births/register-a-birth
+    - title: Queensland Government — Register a birth
+      url: https://www.qld.gov.au/law/births-deaths-marriages-and-divorces/birth-registration-and-adoption-records/register-a-birth
+    - title: WA Government — Birth registration and certificates
+      url: https://www.wa.gov.au/service/justice/civil-law/birth-registration-and-certificates
+    - title: Access Canberra — Birth registration
+      url: https://www.accesscanberra.act.gov.au/births-relationships-and-deaths/births/birth-registration
+    - title: Services Australia — Parental Leave Pay
+      url: https://www.servicesaustralia.gov.au/parental-leave-pay
+  related: [ birth-certificate, proof-of-birth, parental-leave-pay, baby-passport, medicare-enrol-baby ]
+  notes: Tailor by `state`; one passage per state with its registry's link and form. The SA, Tasmanian and NT registry pages refused automated fetches (Cloudflare); the myGov page's 60 days covers them until their own pages load. An after-the-birth deadline, counted in days from the birth.
+
+- id: birth-certificate
+  title: The birth certificate
+  type: payment
+  topic: paperwork
+  ask: Do we need to order a birth certificate, and what does it cost?
+  aliases: [ birth certificate, commemorative certificate, digital birth certificate, order certificate ]
+  weeks: [ 36, 42 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - registration is the law; the certificate is optional but is the baby's primary ID for a passport, school and bank accounts
+    - order it with the registration, for a fee set by each state; Victoria issues a free digital one as well
+    - commemorative certificates are souvenirs, not ID
+    - it's also the fallback proof of birth for Centrelink and Medicare if the Newborn Child Declaration is lost
+  sources:
+    - title: NSW Government — Register the birth of your baby
+      url: https://www.nsw.gov.au/family-and-relationships/births/register-a-birth
+    - title: Births, Deaths and Marriages Victoria — Register a birth
+      url: https://www.bdm.vic.gov.au/births/register-a-birth
+    - title: Access Canberra — Apply for a birth certificate
+      url: https://www.accesscanberra.act.gov.au/births-relationships-and-deaths/births/apply-for-a-birth-certificate
+  related: [ registering-the-birth, baby-passport, proof-of-birth ]
+  notes: Fees change yearly and differ by state; don't quote them, link them.
+
+- id: proof-of-birth
+  title: The Parent Pack and proof of birth
+  type: payment
+  topic: paperwork
+  ask: What's the form the hospital gives us, and what do we do with it?
+  aliases: [ Newborn Child Declaration, Parent Pack, proof of birth, doctor or midwife declaration, 56 days ]
+  weeks: [ 36, 42 ]
+  priority: 1
+  stakes: high
+  covers:
+    - the hospital or midwife gives a Parent Pack with a Newborn Child Declaration; the doctor or midwife completes the Proof of Birth declaration on the back page
+    - it is proof of birth for the pre-birth claim (within 56 days), a new claim, and Medicare enrolment; it can't be reissued
+    - add your CRN and Medicare number on the back page
+    - "lost it: a birth certificate, or a letter from the doctor or midwife who attended, including a home birth"
+    - it is not itself a claim and not a birth registration
+  sources:
+    - title: Services Australia — When your baby arrives
+      url: https://www.servicesaustralia.gov.au/when-your-baby-arrives
+    - title: Services Australia — Proving your child's birth or adoption
+      url: https://www.servicesaustralia.gov.au/proving-your-childs-birth-or-adoption
+    - title: Services Australia — Claiming timeframes for Parental Leave Pay
+      url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay
+  related: [ parental-leave-pay-claim, family-tax-benefit-claim, medicare-enrol-baby, registering-the-birth ]
+  notes: One of the two things to check before leaving hospital, with the car seat. Belongs in the hospital bag item's paperwork line.
+
+- id: baby-passport
+  title: A passport for the baby
+  type: guide
+  topic: paperwork
+  ask: How do we get the baby a passport?
+  aliases: [ child passport, baby passport photo, parental consent passport, travel with newborn ]
+  weeks: [ 38, 42 ]
+  priority: 3
+  stakes: medium
+  covers:
+    - needs the full birth certificate naming both parents, proof of citizenship, two photos to the guidelines and a guarantor who has known the child a year
+    - every person with parental responsibility consents, witnessed, on the form; without it, court orders or a slow special-circumstances assessment
+    - lodged in person at a participating post office; valid 5 years for under-16s
+    - "allow weeks: order the certificate first"
+  sources:
+    - title: Australian Passport Office — Child passport
+      url: https://www.passports.gov.au/child-passport
+    - title: Australian Passport Office — Parental consent
+      url: https://www.passports.gov.au/consent
+  related: [ birth-certificate, registering-the-birth ]
+  notes: Only for households planning travel in the first year; fees change each January. The photo of a newborn with eyes open is the famous hurdle.
+
+- id: wills-and-guardianship
+  title: Wills, guardianship and who gets your super
+  type: guide
+  topic: paperwork
+  ask: Do we need a will now, and how do we name a guardian?
+  aliases: [ will, guardian for the baby, testamentary guardian, enduring power of attorney, binding death benefit nomination, intestate ]
+  weeks: [ 20, 36 ]
+  who: together
+  priority: 2
+  stakes: high
+  covers:
+    - having a child is the standard trigger to make or update a will; dying without one leaves the state's formula to decide
+    - a will can name a guardian for the child, and should name an executor
+    - "super and its life insurance sit outside the will: make a binding nomination with each fund, which lapses every 3 years unless non-lapsing"
+    - enduring powers of attorney and guardianship for yourselves
+    - public trustees and online will services for simple estates; a lawyer for anything blended or complex
+  sources:
+    - title: Moneysmart — Wills and powers of attorney
+      url: https://moneysmart.gov.au/wills-and-powers-of-attorney
+    - title: Moneysmart — Life insurance cover
+      url: https://moneysmart.gov.au/how-life-insurance-works/life-cover
+  related: [ life-insurance-and-income-protection, parental-leave-pay-superannuation ]
+  notes: State law differs on wills and guardianship; link each state's public trustee rather than describe the rules. Keep the tone practical, not morbid.
+
+- id: life-insurance-and-income-protection
+  title: Life insurance and income protection
+  type: guide
+  topic: money
+  ask: Should we get life insurance now there's a baby coming?
+  aliases: [ life cover, income protection, TPD, insurance through super, how much cover ]
+  weeks: [ 16, 36 ]
+  who: together
+  priority: 2
+  stakes: medium
+  covers:
+    - life cover matters when someone depends on your income; most people already have some through super, often less than a family needs
+    - "how much: what the family would need to pay off and live on, less what super, savings and leave balances would provide"
+    - income protection replaces part of your pay if you can't work; check waiting and benefit periods, and whether pregnancy is excluded
+    - nominate a beneficiary or the trustee decides; fewer than half of members have
+    - disclose the pregnancy honestly when applying
+  sources:
+    - title: Moneysmart — Life insurance cover
+      url: https://moneysmart.gov.au/how-life-insurance-works/life-cover
+    - title: Moneysmart — Income protection insurance
+      url: https://moneysmart.gov.au/how-life-insurance-works/income-protection-insurance
+  related: [ wills-and-guardianship, budgeting-for-leave ]
+  notes: Not advice; point at the Moneysmart calculator and a licensed adviser.
+
+- id: adding-baby-to-private-health-cover
+  title: Adding the baby to your health fund
+  type: payment
+  topic: money
+  ask: When do we have to add the baby to our private health insurance?
+  aliases: [ family policy, add newborn to health fund, single parent family cover, baby cover from birth ]
+  weeks: [ 30, 42 ]
+  priority: 2
+  stakes: high
+  covers:
+    - a baby isn't covered by a singles or couples policy; funds ask you to move to a family policy, commonly 1 to 3 months before the birth, some up to 12 months before so congenital conditions are covered
+    - most funds cover a newborn from birth without waiting periods only if added within their deadline, often counted in weeks from the birth; miss it and waiting periods apply
+    - a baby born in a private hospital may be admitted in their own right (special care nursery), which is where the gap appears
+    - tell the fund of any change in family circumstances; family policies may have no extra premium for children
+  sources:
+    - title: Pregnancy, Birth and Baby — Private health insurance and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+    - title: privatehealth.gov.au — Managing your policy
+      url: https://www.privatehealth.gov.au/health_insurance/howitworks/managing_your_policy.htm
+  related: [ private-health-waiting-periods, cost-of-having-a-baby, medicare-enrol-baby ]
+  notes: "Shown by `cover: yes`. The time limit is the fund's own rule, not law, and the loaded pages give no single figure; the writer must say \"check your fund's deadline\" and may quote a fund's PDS as an example. A task with a deadline from the birth."
+
+- id: my-health-record-for-baby
+  title: My Health Record and the baby's health record book
+  type: guide
+  topic: paperwork
+  ask: What is the baby's blue book, and should we set up My Health Record?
+  aliases: [ blue book, child health record, infant health record, My Health Record newborn, red book, green book ]
+  weeks: [ 36, 42 ]
+  priority: 3
+  stakes: low
+  covers:
+    - the state's paper child health record comes in the hospital's pack; take it to every check and immunisation
+    - My Health Record for the baby can be created from the Newborn Child Declaration at Medicare enrolment
+    - the parent's own record holds the pregnancy's test results if their providers upload
+  sources:
+    - title: Pregnancy, Birth and Baby — Your baby's infant health record
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/infant-health-record
+    - title: Pregnancy, Birth and Baby — My Health Record
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/my-health-record
+    - title: Services Australia — Enrolling your baby in Medicare
+      url: https://www.servicesaustralia.gov.au/enrolling-your-baby-medicare
+  related: [ medicare-enrol-baby ]
+  notes: Tailor the book's name by `state` (blue in NSW and Qld, green in Victoria, and so on); verify each.
+
+# ---------------------------------------------------------------------------
+# Money and planning
+# ---------------------------------------------------------------------------
+
+- id: cost-of-having-a-baby
+  title: "What having a baby costs: public or private"
+  type: guide
+  topic: money
+  ask: How much does it cost to have a baby in Australia?
+  aliases: [ cost of pregnancy, public vs private cost, out of pocket pregnancy, gap fees, hospital bill ]
+  weeks: [ 4, 16 ]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - "public patient in a public hospital, birth centre or public homebirth program, with a Medicare card: most pregnancy care costs are covered by Medicare; sometimes an out-of-pocket cost where the full cost isn't covered (some antenatal tests, such as NIPT)"
+    - "private: Medicare pays 75% of the schedule fee in hospital and the fund the other 25% if your policy covers it, but doctors can charge above the schedule (the gap, with no cap), and hospital costs, any excess or co-payment, and the baby's nursery care are charged separately"
+    - "private patient in a public hospital: no single room guaranteed, still the fees"
+    - "what to ask for: informed financial consent and an estimate of costs, preferably in writing, before admission; the Medicare Safety Net (more back from Medicare once you spend above a certain amount in a calendar year)"
+  sources:
+    - title: Pregnancy, Birth and Baby — What is the difference between public and private care in pregnancy?
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/what-is-the-difference-between-public-and-private-care-in-pregnancy
+    - title: Pregnancy, Birth and Baby — Medicare during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/medicare-during-pregnancy
+    - title: privatehealth.gov.au — Out of pocket costs
+      url: https://www.privatehealth.gov.au/health_insurance/howitworks/out_of_pocket.htm
+    - title: Pregnancy, Birth and Baby — Private health insurance and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+  related: [ private-health-waiting-periods, medicare-safety-net, budgeting-for-leave, adding-baby-to-private-health-cover ]
+  notes: Border with tests and care, which owns the models of care decision, Medicare for scans and the obstetrician's fee schedule; this entry is the household budget view and links there. Tailor by `care` and `cover`.
+
+- id: private-health-waiting-periods
+  title: Private health cover and the 12-month wait
+  type: guide
+  topic: money
+  ask: We've just taken out health insurance. Does it cover this pregnancy?
+  aliases: [ waiting period pregnancy, 12 month wait obstetrics, Gold cover, hospital cover tiers, Lifetime Health Cover, Medicare Levy Surcharge ]
+  weeks: [ 1, 8 ]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - the maximum waiting period for pregnancy and birth is 12 months, and it runs from when the cover (or the upgrade) started; a baby due inside it means going public or paying
+    - only Gold policies must include pregnancy and birth; Silver and Bronze may exclude or restrict it
+    - the Lifetime Health Cover loading from the 1 July after your 31st birthday, the Medicare Levy Surcharge above the income threshold and the rebate are the reasons people hold cover anyway
+    - cover for the baby is a separate question
+  sources:
+    - title: privatehealth.gov.au — Waiting periods
+      url: https://www.privatehealth.gov.au/health_insurance/howitworks/waiting_periods.htm
+    - title: privatehealth.gov.au — Product tiers
+      url: https://www.privatehealth.gov.au/health_insurance/howitworks/producttiers.htm
+    - title: privatehealth.gov.au — Government surcharges and incentives
+      url: https://www.privatehealth.gov.au/health_insurance/surcharges_incentives/index.htm
+    - title: Pregnancy, Birth and Baby — Private health insurance and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+  related: [ cost-of-having-a-baby, adding-baby-to-private-health-cover, medicare-safety-net ]
+  notes: Really a preconception item; in a pregnancy-only app it lands in week 1 as "too late to start, but here's what you have". The `cover` question's "unsure" answer should point here. Surcharge thresholds change yearly.
+
+- id: budgeting-for-leave
+  title: Budgeting for the leave
+  type: guide
+  topic: money
+  ask: How do we plan our money for a year on one income?
+  aliases: [ budget for maternity leave, income on leave, cash flow, how long can we afford ]
+  weeks: [ 16, 30 ]
+  who: together
+  priority: 1
+  stakes: medium
+  covers:
+    - "lay the income out week by week: employer-paid leave, the 130 days of Parental Leave Pay at $1,004.70 a week before tax, annual and long service leave, then nothing"
+    - "what starts and stops: FTB Part B only after leave pay days end, FTB Part A by income, the Child Care Subsidy when care starts"
+    - "the quiet costs of leave: super stops except the ATO's contribution, 15% withholding may under-tax, the fund premium rises for a family policy"
+    - fixed costs to renegotiate before the income drops; Moneysmart's budget planner
+  sources:
+    - title: Moneysmart — How to do a budget
+      url: https://moneysmart.gov.au/budgeting/how-to-do-a-budget
+    - title: Moneysmart — Budget planner
+      url: https://moneysmart.gov.au/budgeting/budget-planner
+    - title: Services Australia — How much Parental Leave Pay you can get
+      url: https://www.servicesaustralia.gov.au/how-much-parental-leave-pay-you-can-get
+  related: [ parental-leave-pay, employer-paid-parental-leave, family-tax-benefit-b, child-care-subsidy, parental-leave-pay-employer-delivered ]
+  notes: "Changes yearly (the rate). Tailor by `paidLeave` and `work` for each parent. A candidate for a Drawer tool later: a leave calculator."
+
+# ---------------------------------------------------------------------------
+# Childcare
+# ---------------------------------------------------------------------------
+
+- id: childcare-waitlists
+  title: Childcare waiting lists
+  type: moment
+  topic: paperwork
+  ask: Do we really have to put the baby on a childcare waitlist before they're born?
+  aliases: [ daycare waitlist, waiting list, StartingBlocks, childcare places ]
+  weeks: [ 12, 30 ]
+  priority: 1
+  stakes: high
+  covers:
+    - many centres have waiting lists, so join the lists of the centres you may wish your child to attend well before you think you will need care
+    - join the lists of several centres, not just the first choice
+    - StartingBlocks lists services, their quality rating and a subsidy calculator
+  sources:
+    - title: Pregnancy, Birth and Baby — Child care, what are my options?
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/support-and-financial-services/child-care
+    - title: StartingBlocks
+      url: https://www.startingblocks.gov.au/
+  related: [ childcare-types, child-care-subsidy, child-care-subsidy-claim ]
+  exists: content/items/childcare-waitlists.md
+
+- id: childcare-types
+  title: Which kind of childcare
+  type: decision
+  topic: paperwork
+  ask: Long day care, family day care, a nanny or the grandparents?
+  aliases: [ long day care, family day care, nanny, au pair, occasional care, grandparent care, in home care ]
+  weeks: [ 12, 30 ]
+  who: together
+  priority: 1
+  stakes: medium
+  covers:
+    - "long day care: centre-based, from 6 weeks, long hours, subsidised, quality-rated, the longest waits"
+    - "family day care: an educator's home, smaller groups, flexible hours, subsidised, registered under the same national rules"
+    - "nannies and au pairs: unregulated, in your home, no subsidy (In Home Care is a narrow exception)"
+    - "grandparents and friends: free and unsubsidised; the cost is theirs"
+    - "decide by: hours needed, the return date, cost after subsidy, how far the waits run"
+  sources:
+    - title: Pregnancy, Birth and Baby — Child care, what are my options?
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/support-and-financial-services/child-care
+    - title: Services Australia — Who can get Child Care Subsidy
+      url: https://www.servicesaustralia.gov.au/who-can-get-child-care-subsidy
+    - title: Pregnancy, Birth and Baby — Returning to work
+      url: https://www.pregnancybirthbaby.org.au/womens-health/wellbeing-and-lifestyle/returning-to-work
+  related: [ childcare-waitlists, child-care-subsidy, returning-to-work ]
+  notes: "Shown by `childcare: yes` or `unsure`. Decide-by about week 24, because the waitlists depend on it."
+
+# ---------------------------------------------------------------------------
+# Gear: the safety standards, not a shopping guide
+# ---------------------------------------------------------------------------
+
+- id: car-seat
+  title: The car seat
+  type: moment
+  topic: gear
+  ask: What car seat do we need to bring the baby home?
+  aliases:
+    - car seat
+    - capsule
+    - infant restraint
+    - AS/NZS 1754
+    - rear-facing
+    - fitting station
+    - baby capsule
+    - infant car seat
+    - car seat fitting
+  weeks: [ 30, 37 ]
+  priority: 1
+  stakes: high
+  covers:
+    - must meet AS/NZS 1754; babies up to 6 months of age must be in an approved rear-facing car seat, by law
+    - rear-facing for as long as they fit, not just to 6 months
+    - fitted correctly, by the instructions or an authorised fitter; never in front of an airbag
+    - no swaddling in the seat
+    - rear-facing and compliant
+    - fitted and checked before labour
+    - the car seat is on the hospital's going-home checklist (transport and baby car seat arranged)
+  sources:
+    - title: Pregnancy, Birth and Baby — Car and road safety for babies and children
+      url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
+    - title: Kidsafe NSW — Child car seats
+      url: https://www.kidsafensw.org/road-safety/child-restraints/
+    - title: King Edward Memorial Hospital — Going home
+      url: https://www.kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Going-home
+  related:
+    - baby-capsule-hire
+    - second-hand-car-seat
+    - second-hand-baby-gear
+    - going-home
+    - hospital-bag
+  exists: content/items/car-seat.md
+  who: partner
+
+- id: second-hand-car-seat
+  title: A second-hand car seat
+  type: can-i
+  topic: gear
+  ask: Can we use a hand-me-down car seat?
+  aliases: [ used car seat, borrowed capsule, old car seat, car seat expiry ]
+  weeks: [ 28, 37 ]
+  priority: 2
+  stakes: high
+  covers:
+    - "only if you know its history: never crashed, undamaged, under 10 years old, with its label showing AS/NZS 1754 and the instructions"
+    - a seat that has been in a crash is thrown away
+    - check the recalls list before using it
+    - a borrowed capsule from a hire scheme is the safer version of the same idea
+  sources:
+    - title: Pregnancy, Birth and Baby — Car and road safety for babies and children
+      url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
+  related: [ car-seat, baby-capsule-hire, second-hand-baby-gear ]
+
+- id: baby-capsule-hire
+  title: Hiring a baby capsule
+  type: guide
+  topic: gear
+  ask: Should we buy a capsule or hire one?
+  aliases: [ capsule hire, Kidsafe hire, infant carrier hire, car seat hire ]
+  weeks: [ 30, 36 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - a capsule is outgrown in about 6 months; Kidsafe and some hospitals and councils hire them, with fitting by an accredited fitter included
+    - long-term capsule hire and short-term seat hire, often 3 or 6 months; book before the due date
+    - the alternative is a convertible seat from birth, which stays rear-facing to about 4 years
+  sources:
+    - title: Kidsafe Queensland — Child car seat hire
+      url: https://www.kidsafeqld.com.au/road-safety/child-restraint-hire
+    - title: Mater Mothers — Kidsafe
+      url: https://matermothers.org.au/hospitals/services/kidsafe
+    - title: Kidsafe SA
+      url: https://www.kidsafesa.com.au/road-safety/child-restraint-hire/
+  related: [ car-seat, second-hand-car-seat ]
+  notes: "Tailor by `state`: each Kidsafe is its own body with its own prices and booking line. Prices change; link, don't quote."
+
+- id: pram
+  title: The pram and the safety standard
+  type: guide
+  topic: gear
+  ask: What should we check when buying a pram?
+  aliases: [ pram, stroller, AS/NZS 2088, five-point harness, tether strap, pram cover ]
+  weeks: [ 24, 36 ]
+  priority: 2
+  stakes: medium
+  covers:
+    - "prams and strollers sold in Australia, new or second-hand, must meet the mandatory standard based on AS/NZS 2088: a 5-point harness, a tether strap, working brakes, warning labels"
+    - under 6 months only in a pram or a stroller that reclines to at least 130 degrees
+    - "never cover the pram with a dry cloth or plastic in the heat: it traps heat and cuts airflow; shade, a damp muslin checked every 20 minutes, or timing"
+    - "second-hand: check the harness, brakes, folding locks and the label"
+  sources:
+    - title: Pregnancy, Birth and Baby — Prams and strollers
+      url: https://www.pregnancybirthbaby.org.au/babies/daily-care/prams-and-strollers
+    - title: Red Nose — Parents unaware of the risks of covering prams with dry fabric
+      url: https://rednose.org.au/news/parents-unaware-of-the-risks-of-covering-prams-with-dry-fabric/
+    - title: "Red Nose — Product safety for babies: how do I know what's safe?"
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/12-months-and-beyond/product-safety-how-do-i-know-what-is-safe/
+  related: [ second-hand-baby-gear, baby-capsule-hire ]
+  notes: Product Safety Australia's own standard page refuses automated fetches; cite it when it loads.
+
+- id: cot-and-safe-sleep-standards
+  title: A safe cot
+  type: guide
+  topic: gear
+  ask: What makes a cot safe, and which standard should it meet?
+  aliases: [ cot, AS/NZS 2172, safe cot, cot mattress, cot bumpers, safe sleep, infant sleep products standard ]
+  weeks: [ 24, 38 ]
+  priority: 1
+  stakes: high
+  covers:
+    - cots sold in Australia, new or second-hand, must meet the mandatory standard (AS/NZS 2172:2003); the instructions note it and it is often on a label, but second-hand cots do not require safety labels (PBB)
+    - one firm, flat mattress fitting within 20 mm of the sides; no bumpers, pillows or soft bedding
+    - no gaps, toeholds or protrusions; the right depth with the base at its lowest
+    - the baby sleeps in their own cot or bassinet in the parents' room for the first 6 to 12 months, on their back, face uncovered
+    - never a cot of unknown standard, however handsome
+  sources:
+    - title: Red Nose — What is a safe cot?
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/newborn-to-1-year/what-is-a-safe-cot/
+    - title: Pregnancy, Birth and Baby — Cots
+      url: https://www.pregnancybirthbaby.org.au/babies/sleep-and-settling/cots
+    - title: Pregnancy, Birth and Baby — Safe sleep for babies
+      url: https://www.pregnancybirthbaby.org.au/babies/sleep-and-settling/safe-sleep-for-babies
+    - title: Red Nose — Is it safe to use a second-hand mattress?
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/is-it-safe-to-use-a-second-hand-mattress/
+  related: [ bassinet, portable-cot, second-hand-baby-gear ]
+  notes: The safe-sleep practice (back, face clear, smoke-free) is after-the-birth content; here it's the product. Product Safety Australia's standards pages refused automated fetches; Red Nose refers to mandatory standards for infant sleep products without a date, and PBB says there is no current safety standard for bassinets in Australia; the 19 January 2026 start date is unchecked until a Product Safety Australia page loads.
+
+- id: bassinet
+  title: A bassinet for the first months
+  type: guide
+  topic: gear
+  ask: Is a bassinet safe, and when do we move the baby to the cot?
+  aliases: [ bassinet, bassinette, moses basket, co-sleeper, smart bassinet, bedside sleeper ]
+  weeks: [ 28, 38 ]
+  priority: 2
+  stakes: high
+  covers:
+    - sides at least 300 mm above the mattress base, breathable mesh on all four sides, a firm flat mattress no thicker than 75 mm that fits exactly
+    - no padded sides, trims or ribbons; no cardboard bassinets
+    - from 19 January 2026 bassinets are covered by mandatory standards
+    - move to a cot at the first sign of rolling, around 4 months
+    - "smart bassinets that rock or swing: the same rules, plus the maker's limits"
+  sources:
+    - title: Red Nose — What is a safe bassinet?
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/what-is-a-safe-bassinet/
+    - title: Red Nose — Smart bassinets
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/smart-bassinets/
+    - title: Pregnancy, Birth and Baby — What you will need for your baby
+      url: https://www.pregnancybirthbaby.org.au/babies/daily-care/what-you-will-need-for-baby
+  related: [ cot-and-safe-sleep-standards, portable-cot, second-hand-baby-gear ]
+
+- id: portable-cot
+  title: Portable and folding cots
+  type: guide
+  topic: gear
+  ask: Can the baby sleep in a portacot?
+  aliases: [ portacot, travel cot, folding cot, porta cot ]
+  weeks: [ 30, 42 ]
+  priority: 3
+  stakes: medium
+  covers:
+    - must meet the mandatory standard; check the label or manual
+    - only the mattress it came with, never an extra one; mesh intact, locks working, assembled to the instructions
+    - a weight limit, usually 15 kg; no bedding with exposed elastic
+    - fine for sleeping, not only travel, while it's in good repair
+  sources:
+    - title: Red Nose — Portable and folding cots
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/newborn-to-1-year/portable-and-folding-cots/
+    - title: Red Nose — Second-hand nursery furniture
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/second-hand-nursery-furniture/
+  related: [ cot-and-safe-sleep-standards, second-hand-baby-gear ]
+
+- id: second-hand-baby-gear
+  title: Second-hand baby gear and recalls
+  type: can-i
+  topic: gear
+  ask: Is it OK to buy baby things second-hand?
+  aliases: [ second hand, hand-me-downs, marketplace, recalls, Product Safety Australia, used cot, used mattress ]
+  weeks: [ 20, 38 ]
+  priority: 1
+  stakes: high
+  covers:
+    - "yes for most things, and it can reduce costs, as long as the item is safe: full instructions, all parts, sturdy and stable, no rough repairs, no damage or accident history"
+    - check the Product Safety Australia recalls list by product and model before using or buying
+    - cots and portacots must meet their standard even second-hand; the instructions note it and it is often on a label
+    - a used mattress is fine if firm, flat, clean, undamaged and the right size; no rough repairs, no flaking old paint
+    - "car seats: a separate, stricter answer"
+  sources:
+    - title: Red Nose — Second-hand nursery furniture
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/second-hand-nursery-furniture/
+    - title: Red Nose — Is it safe to use a second-hand mattress?
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/is-it-safe-to-use-a-second-hand-mattress/
+    - title: Pregnancy, Birth and Baby — What you will need for your baby
+      url: https://www.pregnancybirthbaby.org.au/babies/daily-care/what-you-will-need-for-baby
+  related: [ second-hand-car-seat, cot-and-safe-sleep-standards, pram, portable-cot ]
+  notes: "Product Safety Australia (productsafety.gov.au) refused every automated fetch, so its recalls and standards pages are named but not yet cited; add them once a page loads. Verdict shape: yes, with the three exceptions."
+
+- id: what-you-need-for-the-baby
+  title: What you actually need before the birth
+  type: guide
+  topic: gear
+  ask: What do we have to have ready, and what can wait?
+  aliases: [ newborn checklist, baby essentials, nursery list, what to buy ]
+  weeks: [ 24, 36 ]
+  who: together
+  priority: 2
+  stakes: low
+  covers:
+    - "the four that can't wait: a fitted car seat, a safe place to sleep with a fitting mattress, nappies and wipes, a way to feed (and the plan B)"
+    - clothes by season and laundry, not by the shop's list; maternity pads for the parent
+    - "what can wait until you know: the pram, a carrier, a monitor, the change table"
+    - borrowing and second-hand for almost all of it; the standards for the few that matter
+    - "the non-gear: frozen meals, online groceries, the numbers saved"
+  sources:
+    - title: Pregnancy, Birth and Baby — What you will need for your baby
+      url: https://www.pregnancybirthbaby.org.au/babies/daily-care/what-you-will-need-for-baby
+  related: [ car-seat, cot-and-safe-sleep-standards, second-hand-baby-gear, pram, bassinet ]
+  notes: "Deliberately short: the brief is the safety essentials, not a shopping guide. The hospital bag and the feeding plan are existing items in other areas and should be linked, not repeated."

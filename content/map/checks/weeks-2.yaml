@@ -1,0 +1,595 @@
+# Fact-check of the week notes content/weeks/22.md to 42.md (pregnancy weeks 22-42).
+# Checked 2026-10-29 against each note's source page (loaded with curl): Pregnancy, Birth and Baby
+# "Pregnancy at week N" pages for 22-40, the PBB "Overdue" page for 41-42, and the PBB "How big is your
+# baby" infographic for the fruit comparisons. Task mentions checked against the already-checked items in
+# content/items/ (antenatal-classes, employer-leave-notice, partner-reserved-days, parental-leave-pay-claim,
+# rsv-vaccine, whooping-cough-vaccine, anti-d, glucose-tolerance-test, baby-movements, car-seat,
+# feeding-plan, numbers-to-save, group-b-strep-swab, hospital-bag).
+# Common fix: "call the birth unit" became the source's own wording (contact/tell your doctor or midwife,
+# immediately or straight away as the source says). "she/her" for the pregnant parent became "the pregnant parent".
+# Weeks 22-27 and 29-40 carry no size figures. Week 28's length and weight are the one unchecked claim.
+- id: week-22
+  file: content/weeks/22.md
+  verdict: fix
+  problems:
+    - claim: "\"Haemorrhoids can start about now\""
+      judgement: unsupported
+      source_says: "\"Some women may develop haemorrhoids during pregnancy.\" (no week given)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-22
+      fixed_to: "\"Some people develop haemorrhoids during pregnancy\""
+    - claim: "\"Bloating, varicose veins, backache, bleeding gums and stretch marks are all common\""
+      judgement: unsupported
+      source_says: "\"You may also have a range of pregnancy discomforts, including bloating and gas, varicose veins, backache, bleeding gums and stretch marks.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-22
+      fixed_to: "\"are among the discomforts you may have\""
+    - claim: "\"painful, regular or getting stronger contractions, or pain or pressure in the pelvis, tummy or lower back, are a call to the birth unit\""
+      judgement: wrong
+      source_says: "\"could be a sign of premature labour. Always contact your doctor or midwife if you have contractions along with pain, pressure or discomfort in your pelvis, abdomen or lower back.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-22
+      fixed_to: "\"contact your doctor or midwife wording; partner section says call the doctor or midwife\""
+    - claim: "\"Antenatal classes are best booked by this week\""
+      judgement: unsupported
+      source_says: "\"Not on the week-22 page. The checked antenatal-classes item (PBB Antenatal classes) says book a course for around 28 weeks, and book early because classes often fill up quickly.\""
+      url: https://www.pregnancybirthbaby.org.au/antenatal-classes
+      fixed_to: "\"Antenatal classes often fill up quickly, so book now for a course around 28 weeks.\""
+    - claim: "\"Lifeline is 13 11 14\""
+      judgement: ok
+      source_says: "\"Lifeline on 131 114 (same number, written the usual way)\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-22
+      fixed_to: "\"unchanged\""
+- id: week-23
+  file: content/weeks/23.md
+  verdict: fix
+  problems:
+    - claim: "\"knows your heartbeat and your voice\""
+      judgement: wrong
+      source_says: "\"they will know the sound of your heartbeat and voice\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-23
+      fixed_to: "\"will know your heartbeat and your voice\""
+    - claim: "\"start writing it down\" (the plan for help)"
+      judgement: unsupported
+      source_says: "\"Source suggests thinking about what practical help you can ask for from family and friends; nothing about writing it down.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-23
+      fixed_to: "\"cut; kept 'who you can ask for help from family and friends'\""
+    - claim: "\"pelvic floor exercises ... now and after the birth\""
+      judgement: ok
+      source_says: "\"do these exercises every day throughout your pregnancy and continue after you have your baby\" (made explicit)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-23
+      fixed_to: "\"every day through the pregnancy and after the birth\""
+- id: week-24
+  file: content/weeks/24.md
+  verdict: fix
+  problems:
+    - claim: "\"title: Movements you can count on\""
+      judgement: unsupported
+      source_says: "\"Safer Baby advice (checked baby-movements item) is not to count kicks; get to know the baby's own pattern.\""
+      url: https://www.saferbaby.org.au/preventative-steps/your-babys-movements-matter/
+      fixed_to: "\"Feeling the baby move\""
+    - claim: "\"A baby born now has about a one in two chance of surviving ... the weeks ahead matter.\""
+      judgement: unsupported
+      source_says: "\"Preterm babies born at 24 weeks have about a 1 in 2 chance of surviving if they are delivered in hospital and receive expert care in a neonatal unit. However, they would have a high chance of having a disability.\" Nothing on 'the weeks ahead matter'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-24
+      fixed_to: "\"figure kept with the source's conditions; last clause cut\""
+    - claim: "\"if you have not [felt the baby move], that is a call\""
+      judgement: wrong
+      source_says: "\"If you haven't felt your baby moving yet \u2013 see your doctor or midwife.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-24
+      fixed_to: "\"see your doctor or midwife\""
+    - claim: "\"Contractions getting stronger ... or the baby's movements slowing or stopping: call the birth unit\""
+      judgement: wrong
+      source_says: "\"Always seek medical attention if you experience: contractions that become stronger, more frequent or that last longer; persistent pain or pressure in your tummy, back or pelvis; vaginal bleeding; your baby's movements slowing or stopping\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-24
+      fixed_to: "\"Always seek medical attention for ...\""
+    - claim: "\"written notice of parental leave to each of your employers is due soon\""
+      judgement: unsupported
+      source_says: "\"Checked employer-leave-notice item (Fair Work): written notice at least 10 weeks before leave starts.\""
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+      fixed_to: "\"needed at least 10 weeks before leave starts\""
+    - claim: "\"she is allowed to say no, and so are you on her behalf\""
+      judgement: unsupported
+      source_says: "\"speak up if this makes you feel uncomfortable ... people ask for your verbal consent before touching you\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-24
+      fixed_to: "\"the pregnant parent can speak up; people should ask for consent first (on-her-behalf clause cut)\""
+    - claim: "\"fasting beforehand\""
+      judgement: ok
+      source_says: "\"after you have fasted for 8 to 12 hours\" (figure added)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-24
+      fixed_to: "\"fasting for 8 to 12 hours\""
+- id: week-25
+  file: content/weeks/25.md
+  verdict: fix
+  problems:
+    - claim: "\"occasionally [heartburn] is a sign of pre-eclampsia\""
+      judgement: wrong
+      source_says: "\"Sometimes this can be a symptom of a more serious condition, such as pre-eclampsia.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-25
+      fixed_to: "\"sometimes it can be a symptom of a more serious condition, such as pre-eclampsia\""
+    - claim: "\"about an 80 per cent chance of surviving with expert care\""
+      judgement: ok
+      source_says: "\"about an 80% chance of surviving if they were born now and receive expert care in a neonatal unit\" (neonatal unit added)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-25
+      fixed_to: "\"adds 'in a neonatal unit'\""
+- id: week-26
+  file: content/weeks/26.md
+  verdict: fix
+  problems:
+    - claim: "\"anti-D is offered at the 26 to 28 week visit and again at 34 to 36 weeks\""
+      judgement: wrong
+      source_says: "\"Disagrees with the checked anti-d item (PBB Rhesus D negative page): anti-D may be offered at 28 and 34 weeks. (The week-26 page itself says 26-28 and 34-36.)\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+      fixed_to: "\"anti-D may be offered at 28 and 34 weeks\""
+    - claim: "\"Vivid dreams often start about now\""
+      judgement: wrong
+      source_says: "\"From now and into the third trimester, you might start having some vivid dreams.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-26
+      fixed_to: "\"you may start having vivid dreams\""
+    - claim: "\"Your own Parental Leave Pay has reserved days that only you can use\""
+      judgement: unsupported
+      source_says: "\"Checked partner-reserved-days item: 20 days 'reserved for them to use'.\""
+      url: https://www.servicesaustralia.gov.au/how-much-parental-leave-pay-you-can-get
+      fixed_to: "\"days reserved for you to use\""
+    - claim: "\"written notice to the employer is due by week 28\""
+      judgement: unsupported
+      source_says: "\"Fair Work: at least 10 weeks before leave starts (checked employer-leave-notice item).\""
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+      fixed_to: "\"needed at least 10 weeks before leave starts\""
+    - claim: "\"the testicles have usually descended\""
+      judgement: ok
+      source_says: "\"In boys, the testicles are usually fully descended now.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-26
+      fixed_to: "\"wording matched\""
+- id: week-27
+  file: content/weeks/27.md
+  verdict: fix
+  problems:
+    - claim: "\"The whooping cough vaccine is offered now\""
+      judgement: unsupported
+      source_says: "\"If you haven't already had one, now is the time to have a whooping cough (pertussis) vaccination ... free to all pregnant women through the National Immunisation Program.\" Checked item: recommended 20 to 32 weeks."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-27
+      fixed_to: "\"If you have not already had it, now is the time (recommended 20 to 32 weeks)\""
+    - claim: "\"The whooping cough vaccine is hers to book, usually with the GP\""
+      judgement: unsupported
+      source_says: "\"Nothing on where; checked item says ask your midwife or OB.\""
+      url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
+      fixed_to: "\"the pregnant parent's to book (GP clause cut)\""
+    - claim: "\"Next week the employer's written notice is due.\""
+      judgement: unsupported
+      source_says: "\"At least 10 weeks before leave starts (Fair Work, checked item).\""
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+      fixed_to: "\"needed at least 10 weeks before leave starts\""
+    - claim: "\"pre-birth claim ... can be lodged in myGov from now\""
+      judgement: ok
+      source_says: "\"Checked parental-leave-pay-claim item: claim up to 3 months before the due date (about week 27). Added the 3 months.\""
+      url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay
+      fixed_to: "\"adds '(up to 3 months before the due date)'\""
+- id: week-28
+  file: content/weeks/28.md
+  verdict: unchecked
+  problems:
+    - claim: "\"source: raisingchildren.net.au (403 on fetch)\""
+      judgement: unsupported
+      source_says: "\"Could not be loaded. Re-checked against the PBB week-28 page and source switched to it.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-28
+      fixed_to: "\"source: PBB Pregnancy at week 28\""
+    - claim: "\"like: an eggplant\""
+      judgement: wrong
+      source_says: "\"Week-by-week food comparison: 22-24 weeks eggplant, 25-28 weeks papaya\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/how-big-is-your-baby-infographic
+      fixed_to: "\"a papaya\""
+    - claim: "\"length 25 cm, weight 1000 g\""
+      judgement: unchecked
+      source_says: "\"PBB gives no length or weight for week 28 (only a fruit comparison). Kept as is.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-28
+      fixed_to: "\"unchanged, unchecked\""
+    - claim: "\"Gaining weight quickly from here. Eyelashes are growing, a creamy coating called vernix protects the skin, lungs maturing though they aren't ready yet\""
+      judgement: unsupported
+      source_says: "\"Major organ systems are now fully developed. Lungs are mature enough to breathe air and are producing surfactant.\" Nothing on weight gain, eyelashes or vernix at week 28."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-28
+      fixed_to: "\"rewritten from the page: organs, lungs and surfactant, practising breathing, voices, startle, hiccups, breech\""
+    - claim: "\"Movements should feel regular and strong\""
+      judgement: unsupported
+      source_says: "\"Checked baby-movements item (Safer Baby): by about 28 weeks movements become regular. Nothing on 'strong'.\""
+      url: https://www.saferbaby.org.au/preventative-steps/your-babys-movements-matter/
+      fixed_to: "\"Movements become regular by about now\""
+    - claim: "\"Tiredness often comes back\""
+      judgement: unsupported
+      source_says: "\"Many women find things get more uncomfortable in their third trimester: back pain and leg cramps, indigestion and heartburn, swollen hands and feet.\" Tiredness not mentioned."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-28
+      fixed_to: "\"cut tiredness and breathlessness; the page's own list used\""
+    - claim: "\"If they slow down, change or stop, call your birth unit straight away\""
+      judgement: ok
+      source_says: "\"if you are concerned about your baby's movements, contact your midwife or doctor immediately. Do not wait until the next day.\" (changed/stopped from the Safer Baby item)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-28
+      fixed_to: "\"contact your midwife or doctor immediately; do not wait until the next day\""
+    - claim: "\"the glucose test, the RSV and whooping cough vaccines, and anti-D\""
+      judgement: ok
+      source_says: "\"PBB 28: anti-D now and at 34-36 weeks, glucose test 'may also be offered ... at 28 weeks'. RSV and whooping cough not on the page; checked items give RSV from 28 weeks and whooping cough 20-32 weeks; anti-D item says may be offered at 28 and 34 weeks.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-28
+      fixed_to: "\"windows added from the items\""
+    - claim: "\"Parental Leave Pay can be claimed before the birth, and your employer needs notice of your leave\""
+      judgement: ok
+      source_says: "\"Checked items: claim up to 3 months before the due date; written notice 10 weeks before leave starts.\""
+      url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay
+      fixed_to: "\"adds 'at least 10 weeks before it starts'\""
+    - claim: "\"ask how the baby's movements usually feel, so you can both notice a change\""
+      judgement: unsupported
+      source_says: "\"Page says talking or singing to the baby is a nice way for you and your partner to bond.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-28
+      fixed_to: "\"replaced with the bonding line\""
+  restored:
+    - claim: "size length 25 cm, weight 1000 g"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-week-by-week
+      source_says: "Pregnancy week 28 Your baby now weighs about 1 kg (1,000 g) ... and measures about 25 cm (10 inches) from crown to rump."
+  not_restored:
+    - claim: "Eyelashes are growing, a creamy coating called vernix protects the skin"
+      reason: "Better Health puts eyelashes at week 16 and vernix at week 24; none says so at week 28"
+    - claim: "Gaining weight quickly from here; tiredness often comes back"
+      reason: "no official page found for week 28"
+- id: week-29
+  file: content/weeks/29.md
+  verdict: fix
+  problems:
+    - claim: "\"About 1 kg, and roughly a third of what it will weigh at full term\""
+      judgement: wrong
+      source_says: "\"They are now about a third of the size they will be if they are born at full term.\" No weight given."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-29
+      fixed_to: "\"About a third of the size it will be at full term (1 kg cut)\""
+    - claim: "\"the RSV vaccine is hers to book by next week, the Parental Leave Pay claim goes in next week too\""
+      judgement: unsupported
+      source_says: "\"Checked items: RSV from 28 weeks (28-36); pre-birth claim task due week 30; written notice 10 weeks before leave starts.\""
+      url: https://immunisationhandbook.health.gov.au/recommendations/pregnant-women-are-recommended-to-receive-an-rsv-vaccine-during-each-pregnancy-to-protect-their-infant
+      fixed_to: "\"RSV can be booked from 28 weeks; claim due by about week 30; notice at least 10 weeks before leave\""
+    - claim: "\"The eyelids open\""
+      judgement: ok
+      source_says: "\"Their eyelids can now open\" (wording matched)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-29
+      fixed_to: "\"can open\""
+    - claim: "\"asthma getting worse is worth raising\""
+      judgement: ok
+      source_says: "\"symptoms can get worse when you're pregnant ... Talk to your doctor about your asthma medications\" (wording matched)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-29
+      fixed_to: "\"reworded to the source\""
+- id: week-30
+  file: content/weeks/30.md
+  verdict: fix
+  problems:
+    - claim: "\"Any concern about [movements] is a call to the birth unit, at any stage.\""
+      judgement: wrong
+      source_says: "\"if you are concerned about your baby's movements, contact your midwife or doctor immediately.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-30
+      fixed_to: "\"contact your midwife or doctor immediately\""
+    - claim: "\"the employer's written notice of leave had to be in by now\""
+      judgement: unsupported
+      source_says: "\"Checked item: at least 10 weeks before leave starts; about week 30 only if leave starts at the due date.\""
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+      fixed_to: "\"needed at least 10 weeks before leave starts, which is about now if leave starts at the due date\""
+    - claim: "\"The RSV vaccine is hers to book this week\""
+      judgement: unsupported
+      source_says: "\"Checked item: from 28 weeks.\""
+      url: https://immunisationhandbook.health.gov.au/recommendations/pregnant-women-are-recommended-to-receive-an-rsv-vaccine-during-each-pregnancy-to-protect-their-infant
+      fixed_to: "\"The RSV vaccine can be booked from 28 weeks\""
+    - claim: "\"flat shoes, a cushion behind the back and care with lifting all help\""
+      judgement: ok
+      source_says: "\"You may also want to consider wearing flat shoes ... support your back with a cushion ... Take extra care with lifting.\" (softened to 'can help', good posture and gentle exercise added)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-30
+      fixed_to: "\"reworded\""
+- id: week-31
+  file: content/weeks/31.md
+  verdict: fix
+  problems:
+    - claim: "\"Anxiety and depression are common in pregnancy and after, and treatable.\""
+      judgement: unsupported
+      source_says: "\"anxiety and depression are common during pregnancy and after the birth, and it's important to seek help.\" 'Treatable' not on this page."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-31
+      fixed_to: "\"common ... and it is important to seek help\""
+    - claim: "\"Feeling very emotional or stressed is worth saying.\""
+      judgement: ok
+      source_says: "\"If you feel very emotional and stressed, have a chat to your doctor or midwife\" (made explicit)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-31
+      fixed_to: "\"reworded\""
+    - claim: "\"PANDA 1300 726 306 and Beyond Blue 1300 22 4636\""
+      judgement: ok
+      source_says: "\"PANDA on 1300 726 306 or beyondblue on 1300 22 4636\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-31
+      fixed_to: "\"unchanged\""
+- id: week-32
+  file: content/weeks/32.md
+  verdict: fix
+  problems:
+    - claim: "\"The signs of premature labour ... any of them is a call to the birth unit.\""
+      judgement: wrong
+      source_says: "\"Keep a watch out for any signs of premature labour, such as contractions, your waters breaking, bleeding, a 'show' of mucus from your vagina or a sudden decrease or change in your baby's movements.\" Movements: \"contact your midwife or doctor immediately.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-32
+      fixed_to: "\"keep a watch out for the signs; movements concern: contact your midwife or doctor immediately\""
+    - claim: "\"If the whooping cough vaccine has not happened, now is the time\""
+      judgement: wrong
+      source_says: "\"it's very important to have it now. ... it's also a good idea to have a flu shot too\" depending on the season."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-32
+      fixed_to: "\"it is very important to have it now; flu shot a good idea depending on the season\""
+    - claim: "\"Plan your reserved Parental Leave Pay days; they are yours alone to take.\""
+      judgement: unsupported
+      source_says: "\"Checked item: reserved for them to use.\""
+      url: https://www.servicesaustralia.gov.au/how-much-parental-leave-pay-you-can-get
+      fixed_to: "\"reserved for you to use\""
+    - claim: "\"Learn the signs ... so you know what a call looks like\""
+      judgement: unsupported
+      source_says: "\"Source says only to keep a watch out for signs of premature labour.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-32
+      fixed_to: "\"so you can keep a watch out too\""
+    - claim: "\"Antenatal classes should be done or under way.\""
+      judgement: unsupported
+      source_says: "\"Checked antenatal-classes item: book a course for around 28 weeks, and book early because classes fill up quickly.\""
+      url: https://www.pregnancybirthbaby.org.au/antenatal-classes
+      fixed_to: "\"Antenatal classes often fill up quickly, so check yours is booked.\""
+- id: week-33
+  file: content/weeks/33.md
+  verdict: fix
+  problems:
+    - claim: "\"storing iron in its liver, enough for about six months\""
+      judgement: wrong
+      source_says: "\"storing iron in their liver, which they will use for about 6 months after they are born\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-33
+      fixed_to: "\"which it will use for about six months after the birth\""
+    - claim: "\"Swelling that suddenly gets much worse ... call the birth unit straight away\""
+      judgement: wrong
+      source_says: "\"Contact your doctor or midwife straight away if the swelling suddenly gets much worse, if you have it first thing in the morning, or if your face or hands are swollen.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-33
+      fixed_to: "\"contact your doctor or midwife straight away\""
+    - claim: "\"a sudden change, or no movement, is a call, immediately\""
+      judgement: wrong
+      source_says: "\"talk to your doctor or midwife immediately.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-33
+      fixed_to: "\"talk to your doctor or midwife immediately\""
+    - claim: "\"It makes you a second pair of eyes for a change.\""
+      judgement: unsupported
+      source_says: "\"Nothing on the partner's role at this week.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-33
+      fixed_to: "cut"
+- id: week-34
+  file: content/weeks/34.md
+  verdict: fix
+  problems:
+    - claim: "\"the plates stay unfused for a long while after birth\""
+      judgement: ok
+      source_says: "\"this won't happen until long after they are born\" (wording matched)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-34
+      fixed_to: "\"will not fuse until long after birth\""
+    - claim: "\"the second anti-D injection is offered at your next check-up\""
+      judgement: wrong
+      source_says: "\"Page: 'you will be offered your second injection of anti-D ... at your next check-up'. Checked anti-d item: 'may be offered' at 28 and 34 weeks.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+      fixed_to: "\"a second anti-D injection may be offered at 34 weeks\""
+    - claim: "\"Weight is checked at visits\""
+      judgement: wrong
+      source_says: "\"Your doctor or midwife may be monitoring your weight.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-34
+      fixed_to: "\"Your weight may be checked at visits\""
+    - claim: "\"Confirm your leave dates ... due by about now and must be at least four weeks before leave starts\""
+      judgement: ok
+      source_says: "\"Checked employer-leave-notice item: confirm dates at least 4 weeks before leave starts.\""
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+      fixed_to: "\"'due by about now' cut\""
+- id: week-35
+  file: content/weeks/35.md
+  verdict: fix
+  problems:
+    - claim: "\"A bad headache, tummy pain, blurry vision or sudden swelling ... can be signs of pre-eclampsia: call the birth unit straight away\""
+      judgement: wrong
+      source_says: "\"One serious complication that can develop in late pregnancy is pre-eclampsia ... See your doctor straight away if you develop: a bad headache, pain in the tummy, blurry vision, sudden swelling of your hands or feet\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-35
+      fixed_to: "\"See your doctor straight away if you develop ...\""
+    - claim: "\"Have the hospital bag mostly packed and in the car by next week\""
+      judgement: unsupported
+      source_says: "\"it's a good idea to get a few things ready a few weeks ahead of time.\" Checked hospital-bag item: pack by week 36."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-35
+      fixed_to: "\"Get the hospital bag packed: the source says a few weeks ahead\""
+    - claim: "\"The Group B strep swab is offered from now until 37 weeks, so expect it at the next visit\""
+      judgement: unsupported
+      source_says: "\"Checked group-b-strep-swab item: many providers offer a swab at about 35 to 37 weeks; no standard practice in Australia.\""
+      url: https://www.pregnancybirthbaby.org.au/group-b-strep-test
+      fixed_to: "\"Many providers offer a swab at about 35 to 37 weeks, so ask about it at the next visit\""
+    - claim: "\"make sure your leave can flex around [visits]\""
+      judgement: unsupported
+      source_says: "\"Nothing about leave at this week.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-35
+      fixed_to: "cut"
+    - claim: "\"if not in the next week or two, a procedure to turn the baby (ECV) may be suggested\""
+      judgement: ok
+      source_says: "\"your doctor or midwife may recommend a procedure known as external cephalic version (ECV)\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-35
+      fixed_to: "\"'recommended'\""
+  not_restored:
+    - claim: "Have the hospital bag mostly packed and in the car by next week"
+      reason: "the PBB birth bag checklist is an image with no week; the 'by week 36' in the hospital-bag item is our own, so the source's 'a few weeks ahead' stays"
+- id: week-36
+  file: content/weeks/36.md
+  verdict: fix
+  problems:
+    - claim: "\"About 2.5 kg\""
+      judgement: unsupported
+      source_says: "\"No weight given on the week-36 page (only a fruit comparison, 33-36 weeks honeydew).\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-36
+      fixed_to: "cut"
+    - claim: "\"Discharge that is smelly, green or brown, or itchy or sore, is worth a call, as is any concern about movements.\""
+      judgement: wrong
+      source_says: "\"tell your doctor or midwife if the discharge is smelly, green or brown, or if it's making you itchy or sore.\" Movements: \"contact your midwife or doctor immediately\"."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-36
+      fixed_to: "\"tell your doctor or midwife ...; movements: contact your midwife or doctor immediately\""
+    - claim: "\"The Group B strep test may be offered this week\""
+      judgement: ok
+      source_says: "\"You may be offered a test this week group B streptococcus\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-36
+      fixed_to: "\"'A test for group B strep may be offered this week'\""
+    - claim: "\"from next week the baby can arrive any time\""
+      judgement: unsupported
+      source_says: "\"In just one week's time, your baby will be considered full term.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-36
+      fixed_to: "\"from next week the baby is considered full term\""
+  not_restored:
+    - claim: "About 2.5 kg"
+      reason: "no official Australian page gives a week-36 weight (Better Health gives 46 cm only, crown-to-heel by the look of it, so no size added)"
+- id: week-37
+  file: content/weeks/37.md
+  verdict: fix
+  problems:
+    - claim: "\"A change in the baby's movements, or a slowing down, is a call to the birth unit, immediately.\""
+      judgement: wrong
+      source_says: "\"if you are concerned about your baby's movements, contact your midwife or doctor immediately. A slowing down of movement may be a sign that your baby is unwell.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-37
+      fixed_to: "\"contact your midwife or doctor immediately\""
+    - claim: "\"If she has not stopped work, the source says now is the time\""
+      judgement: wrong
+      source_says: "\"If you haven't already stopped working, you will probably want to stop now.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-37
+      fixed_to: "\"they will probably want to now\""
+    - claim: "\"Stock the fridge and freezer\""
+      judgement: unsupported
+      source_says: "\"stock the fridge for when you come home with your new baby\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-37
+      fixed_to: "\"Stock the fridge\""
+- id: week-38
+  file: content/weeks/38.md
+  verdict: fix
+  problems:
+    - claim: "\"Fluid leaking, bleeding, or a change in movements is a call to the birth unit.\""
+      judgement: unsupported
+      source_says: "\"Not on the week-38 page. It says: your doctor or midwife will have discussed when to go to hospital; give them a call when you think you are in labour.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-38
+      fixed_to: "\"replaced with the page's call-when-you-think-you-are-in-labour advice\""
+    - claim: "\"A burst of energy in the last weeks is common\""
+      judgement: wrong
+      source_says: "\"some women get a burst of energy in the last few weeks of pregnancy ... be careful not to overexert yourself\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-38
+      fixed_to: "\"Some people get a burst of energy\""
+    - claim: "\"Bag in the car, phone charged\""
+      judgement: unsupported
+      source_says: "\"Nothing on the page; checked hospital-bag item says pack by week 36.\""
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-to-take-to-hospital-checklist
+      fixed_to: "\"cut; 'bag should be packed by now' kept\""
+  restored:
+    - claim: "If you are unsure whether to stay home or go in, ring and speak to a midwife. If your waters break or you start bleeding from the vagina, go to hospital immediately."
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-labour
+      source_says: "If you are unsure whether to stay home or go to the hospital, ring and speak to one of the midwives. If your waters break or if you start bleeding from the vagina, go immediately to hospital."
+  not_restored:
+    - claim: "Bag in the car, phone charged"
+      reason: "no source found"
+- id: week-39
+  file: content/weeks/39.md
+  verdict: fix
+  problems:
+    - claim: "\"Fresh bleeding is a call to the birth unit, straight away.\""
+      judgement: wrong
+      source_says: "\"if you notice you're bleeding it's important to call the doctor or midwife straight away\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-39
+      fixed_to: "\"If you notice you are bleeding, call your doctor or midwife straight away\""
+    - claim: "\"a good layer of fat under the skin\""
+      judgement: ok
+      source_says: "\"They will have a lot of fat underneath their skin and they will be covered in creamy white vernix.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-39
+      fixed_to: "\"wording matched\""
+- id: week-40
+  file: content/weeks/40.md
+  verdict: fix
+  problems:
+    - claim: "\"do not let anyone tell her the date meant anything\""
+      judgement: unsupported
+      source_says: "\"Only a small number of babies are actually born on their due date.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-40
+      fixed_to: "\"Only a small number of babies are born on their due date, so keep the plan ready.\""
+    - claim: "\"A change in the baby's pattern of movements can mean it is unwell: call the birth unit immediately.\""
+      judgement: wrong
+      source_says: "\"it may be a sign that they are unwell. If you are concerned ... contact your doctor or midwife immediately.\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-40
+      fixed_to: "\"may be a sign; contact your doctor or midwife immediately\""
+    - claim: "\"Feeling fed up and uncomfortable is normal\""
+      judgement: wrong
+      source_says: "\"you may be feeling fed up and uncomfortable, but there is usually no need to worry\""
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-40
+      fixed_to: "\"understandable\""
+    - claim: "\"the hospital may ask for consent beforehand\""
+      judgement: ok
+      source_says: "\"You may have already given your consent to these tests before you go to hospital\" (reworded)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-40
+      fixed_to: "\"consent may be asked for before you go to hospital\""
+- id: week-41
+  file: content/weeks/41.md
+  verdict: fix
+  problems:
+    - claim: "\"Fully ready, and still growing.\""
+      judgement: unsupported
+      source_says: "\"The PBB Overdue page says nothing about the baby's development.\""
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+      fixed_to: "cut; replaced with the page's definition (about 40 weeks, full term from 37, overdue at 42)"
+    - claim: "\"Past the due date the placenta can gradually supply less, which is why checks step up from here.\""
+      judgement: wrong
+      source_says: "\"If your pregnancy goes overdue, there is a risk that your placenta won't function well enough to supply your baby with oxygen and nutrients.\" Overdue is defined as 42 weeks, not 41."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+      fixed_to: "\"if it goes overdue (42 weeks), there is a risk the placenta will not work well enough; 'gradually' cut\""
+    - claim: "\"Going past the date is common, more so in a first pregnancy.\""
+      judgement: unsupported
+      source_says: "\"Your pregnancy is more likely to go overdue if you have never given birth before, are over 30, living with obesity, gone overdue before, or it runs in the family.\" 'Common' not stated."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+      fixed_to: "\"You are more likely to go overdue if you have never given birth before.\""
+    - claim: "\"Any change in the baby's movements ... is a call to the birth unit straight away.\""
+      judgement: wrong
+      source_says: "\"Let your doctor or midwife know straight away if you notice any changes in your baby's movements. This could mean that the movements suddenly speed up, slow down or stop altogether.\""
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+      fixed_to: "\"Let your doctor or midwife know straight away\""
+    - claim: "\"Keep the plan live: the baby can still come on its own any day.\""
+      judgement: unsupported
+      source_says: "\"Not on the page.\""
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+      fixed_to: "cut"
+    - claim: "\"membrane sweep, possibly twice a week checks, ultrasound, CTG, induction when risks of continuing outweigh risks of inducing, the choice is yours\""
+      judgement: ok
+      source_says: "\"all stated on the Overdue page (checks are 'recommended' if overdue, 'might recommend these tests 2 times a week')\""
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+      fixed_to: "\"kept, framed as 'if it happens'\""
+  restored:
+    - claim: "Going past the due date is very common: only about 5 per cent of babies arrive on the exact date."
+      url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/overdue-babies
+      source_says: "It is very common for pregnant women to go beyond their due date. In fact, only about 5 per cent of women actually give birth on the exact date they are due."
+  not_restored:
+    - claim: "Fully ready, and still growing; the placenta supplies less 'gradually'; the baby can still come any day"
+      reason: "no official page found"
+- id: week-42
+  file: content/weeks/42.md
+  verdict: fix
+  problems:
+    - claim: "\"The risk to the baby rises the longer it goes on, though it stays low in Australia\""
+      judgement: wrong
+      source_says: "\"The risk of stillbirth or neonatal death gets higher the longer you go overdue. But the risk is still low in Australia.\""
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+      fixed_to: "\"names stillbirth or neonatal death\""
+    - claim: "\"the chance of a large baby or breathing trouble grows\""
+      judgement: wrong
+      source_says: "\"there may also be a higher chance of: breathing problems for your baby, having a large baby\""
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+      fixed_to: "\"there may be a higher chance of ...\""
+    - claim: "\"Most people will have been offered induction by now, if it has not already happened.\""
+      judgement: unsupported
+      source_says: "\"Not on the page; it says induction 'may' be suggested if labour doesn't start.\""
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+      fixed_to: "cut"
+    - claim: "\"if they show a risk, induction is recommended\""
+      judgement: wrong
+      source_says: "\"If tests show that your baby's health is at risk, your doctor or midwife may recommend inducing labour.\""
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+      fixed_to: "\"induction may be recommended\""
+    - claim: "\"A change, in either direction, or a stop, is a call to the birth unit straight away.\""
+      judgement: wrong
+      source_says: "\"Let your doctor or midwife know straight away if you notice any changes in your baby's movements.\""
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+      fixed_to: "\"Let your doctor or midwife know straight away\""
+    - claim: "\"ask for the plan in writing / keep the bag in the car / It will be days now, one way or the other.\""
+      judgement: unsupported
+      source_says: "\"Source suggests asking for written information on the options; nothing on the bag or 'days now'.\""
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+      fixed_to: "\"written information kept; bag and 'days now' cut\""
+  restored:
+    - claim: "Induction is often offered after 41 weeks, though the timing depends on your health and your doctor's or hospital's policy."
+      url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/overdue-babies
+      source_says: "will often offer an induction after 41 weeks but the timing will depend on your health and your doctor's (or hospital's) policy. Some policies allow inductions between 7 and 10 days after your due date. Others allow it to go up to 2 weeks."
+  not_restored:
+    - claim: "Most people will have been offered induction by now; bag in the car; it will be days now"
+      reason: "no page says it; PBB says induction 'may' be suggested, and Better Health says policies vary"

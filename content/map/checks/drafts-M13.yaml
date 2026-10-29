@@ -1,0 +1,172 @@
+# Drafts check, batch M13 (mind-and-circumstances), 20 ids. Every claim checked against the cited pages, fetched 2026-10-29.
+# Helplines confirmed on each organisation's own site where it could be loaded (PANDA, MensLine, Lifeline, Beyond Blue,
+# Medicare Mental Health, 1800RESPECT, Miracle Babies, Children by Choice). MSI Australia and Red Nose block fetches and were not worked around.
+- id: partner-mental-health-support
+  file: content/drafts/partner-mental-health-support.md
+  verdict: fix
+  problems:
+    - claim: "PANDA's site says the line is open 7 days a week; MensLine's page lists it as Monday to Saturday."
+      judgement: unsupported
+      source_says: "PANDA: 'Find someone to talk to, 7 days a week'; 'we're open until 7:30pm Monday - Friday and on weekends 9am - 4pm (AEST/AEDT)'. MensLine's page says 'Call PANDA on 1300 726 306 Monday to Saturday'."
+      url: https://www.panda.org.au/articles/what-can-dads-expect-when-calling-panda
+      fixed_to: "PANDA's own hours used (7 days; to 7:30pm Mon-Fri, 9am-4pm weekends); MensLine's differing Mon-Sat noted as superseded"
+    - claim: "free psychological sessions (up to 10 a calendar year, subject to Medicare eligibility)"
+      judgement: unsupported
+      source_says: "Not on the cited free-dads-video page; Gidget's expectant-dads page says 'free* individual psychological therapy ... Up to 10 individual sessions per calendar year ... subject to meeting relevant Medicare eligibility requirements'"
+      url: https://www.gidgetfoundation.org.au/becoming-a-parent/pregnancy-for-expectant-dads-and-non-birthing-partners
+      fixed_to: "claim kept; that page added to sources"
+    - claim: "PANDA lists feeling low ... (signs list)"
+      judgement: unsupported
+      source_says: "List is on PANDA's signs-and-symptoms page, not the cited support-dads page (it confirms short-tempered/resentful, panic, headaches/muscle tension, sleep and appetite changes)"
+      url: https://www.panda.org.au/articles/perinatal-anxiety-and-depression-in-dads-signs-and-symptoms
+      fixed_to: "claim kept; page added to sources"
+  notes: "PANDA 1300 726 306, MensLine 1300 78 99 78 (24/7), Lifeline 13 11 14 (24/7), Beyond Blue 1300 22 4636 (24/7) confirmed on their own sites. PANDA 'not a crisis service' confirmed. checked added."
+- id: postpartum-psychosis-signs
+  file: content/drafts/postpartum-psychosis-signs.md
+  verdict: fix
+  problems:
+    - claim: "the Royal Women's puts it at about 1 in 1000 births"
+      judgement: unsupported
+      source_says: "Royal Women's: 'Fortunately it is very rare'; no figure on either page"
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy/post-partum-psychosis
+      fixed_to: "(the Royal Women's says very rare)"
+    - claim: "not sleeping, or feeling no need to sleep, sometimes for days"
+      judgement: wrong
+      source_says: "Royal Women's: 'feeling like you need less sleep and perhaps going days without sleeping'; PBB: 'being unable to sleep, sometimes for days'"
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy/post-partum-psychosis
+      fixed_to: "not being able to sleep, sometimes for days, or feeling like you need less sleep"
+    - claim: "urgent-review level and 000 level stated without crediting which source says which"
+      judgement: unsupported
+      source_says: "Two levels kept apart: Royal Women's 'psychiatric emergency ... immediate treatment'; PBB 'arrange a doctor or mental health professional to see them urgently', and separately 'thoughts of self-harm or worried about your baby's safety: nearest hospital emergency department or call triple zero (000) and ask for an ambulance'"
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/postpartum-psychosis
+      fixed_to: "wording kept, each level now credited (Women's emergency framing; PBB urgent review; PBB 000 for self-harm/baby's safety). GP/ED start points attributed to PBB, hospital where baby was born to Women's."
+  notes: "Lifeline 13 11 14 as given on PBB page; Beyond Blue 1300 22 4636 and PANDA 1300 726 306 confirmed on their own sites. Other claims (up to 12 weeks, risk factors, treatment, CAT team, ECT) ok. checked added."
+- id: existing-mental-illness
+  file: content/drafts/existing-mental-illness.md
+  verdict: fix
+  problems:
+    - claim: "Know the plan, and see the signs of postpartum psychosis."
+      judgement: unsupported
+      source_says: "Royal Women's bipolar page says only 'Your treatment must be a collaborative process between you, your partner and your treating GP or psychiatrist'; no advice to know the plan or see the signs"
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy/bipolar-disorder-pregnancy
+      fixed_to: "cut"
+  notes: "All other claims (planning, perinatal team, higher complication risks, do not stop medicines, SSRIs, valproic acid, bipolar first-month relapse risk, eating-disorder monitoring and relapse, ADHD, when to see a doctor, Beyond Blue 1300 22 4636) ok against the cited pages. checked added."
+- id: late-miscarriage
+  file: content/drafts/late-miscarriage.md
+  verdict: fix
+  problems:
+    - claim: "Many people don't know this."
+      judgement: unsupported
+      source_says: "Neither page says it (PBB: 'you will usually need to go through labour and birth. This can be very difficult emotionally.')"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-is-a-late-miscarriage
+      fixed_to: "cut"
+  notes: "Three bleeding thresholds kept, each credited and confirmed: PBB top warning 'Call 000 or nearest ED immediately ... soaking 1 or more sanitary pads in an hour'; PBB elsewhere 'Go straight to your nearest hospital emergency department ... filling more than 2 pads per hour'; Miscarriage Australia 'go to emergency or call 000 immediately ... soaking 1 to 2 pads in an hour', golf-ball clots. Also confirmed: 1-2 in 100 (MA), mifepristone then misoprostol 48 h after 15 weeks (MA), 4-6 week check, 2 weeks bleeding, ongoing bleeding/fever/pain seek help straight away (PBB), 2-weeks-on review (MA), Beyond Blue 1300 22 4636, Medicare Mental Health 1800 595 212, Lifeline 13 11 14 (PBB page; 000 for immediate risk). checked added."
+- id: blighted-ovum
+  file: content/drafts/blighted-ovum.md
+  verdict: ok
+  notes: "All claims confirmed against PBB (1 in 8 before 20 weeks, before 12 weeks, random chromosome problems, options, pads not tampons, no extra testing after one, 000 + ambulance list, Beyond Blue 1300 22 4636, Red Nose Grief and Loss 1300 308 307 as printed on the PBB page) and Miscarriage Australia (symptoms present early may diminish). PBB also carries a separate top callout ('very heavy bleeding, strong pain or feel very unwell: call 000 immediately and ask for an ambulance'); draft uses the page's warning list, which is not softer. checked added."
+- id: molar-pregnancy
+  file: content/drafts/molar-pregnancy.md
+  verdict: ok
+  notes: "All claims confirmed against PBB molar pregnancy page (complete/partial, hCG, symptoms, D&C under general anaesthetic, home same day, invasive mole, choriocarcinoma, weekly hCG then monthly for another 6 months, wait for all-clear, contraception, emotional support). checked added."
+- id: partner-role-first-trimester
+  file: content/drafts/partner-role-first-trimester.md
+  verdict: ok
+  notes: "All claims confirmed against PBB supporting-your-partner (announce at end of first trimester, appointments, mood swings, morning sickness advice, alcohol/smoking, 000/emergency if thinking about suicide, PANDA and MensLine numbers), PBB fathers-and-depression (1 in 6 anxiety, 1 in 10 depression, risk factors, Lifeline 13 11 14 for self-harm/suicide) and Gidget (common experiences list). checked added."
+- id: partner-feeling-left-out
+  file: content/drafts/partner-feeling-left-out.md
+  verdict: fix
+  problems:
+    - claim: "You can call PANDA on 1300 726 306, MensLine on 1300 78 99 78, or Lifeline on 13 11 14 any time."
+      judgement: wrong
+      source_says: "PANDA: 'we're open until 7:30pm Monday - Friday and on weekends 9am - 4pm (AEST/AEDT)'; PBB being-a-dad page says PANDA 'Mon to Fri, 9am - 7.30pm AEST'; MensLine 'free professional 24/7 telephone counselling'; Lifeline 24/7"
+      url: https://www.panda.org.au/articles/what-can-dads-expect-when-calling-panda
+      fixed_to: "MensLine and Lifeline any time; PANDA with its own hours (7 days: to 7:30pm Mon-Fri, 9am-4pm weekends AEST/AEDT); PANDA page added to sources"
+  notes: "All other claims (hearing fully working around week 25, bonding ideas, MensLine on the outside advice, 'try not to give the baby back every time they cry', talk to a healthcare professional if very tired/irritable/angry/overwhelmed/can't cope, speak up before feelings build) confirmed. checked added."
+- id: birth-support-person
+  file: content/drafts/birth-support-person.md
+  verdict: fix
+  problems:
+    - claim: "A doula doesn't replace the birth support partner; they work with you, and can support you too."
+      judgement: wrong
+      source_says: "PBB doula page: 'If you have a birth support partner, your doula won't replace them during labour and birth. Rather they can work with your partner to support you.' (written to the birthing person; no 'support you too')"
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/what-does-a-birth-doula-do
+      fixed_to: "A doula doesn't replace the birth support partner; they work with the partner to support the person giving birth."
+  notes: "Confirmed: good support can reduce length of labour, pain relief, assisted birth/caesarean; tour the facility; how many support people allowed; backup person; honest if you can't; advocate; doulas not medical, unregulated, private fee; early/late labour tasks; rest and snacks. checked added."
+- id: partner-after-the-birth
+  file: content/drafts/partner-after-the-birth.md
+  verdict: fix
+  problems:
+    - claim: "Partners get postnatal anxiety and depression too; Gidget puts it at around 1 in 10 new dads."
+      judgement: wrong
+      source_says: "Gidget: 'around 1 in 10 new dads experience perinatal anxiety or depression'"
+      url: https://www.gidgetfoundation.org.au/fact-sheets/looking-after-yourself-as-a-new-dad
+      fixed_to: "Partners get postnatal anxiety and depression too; Gidget says around 1 in 10 new dads experience perinatal anxiety or depression."
+  notes: "Confirmed: 8 to 12 feeds a day, up to an hour, up to 6 weeks; discomfort after 30 to 60 seconds; night feeds, smell of milk, visitors, bottle tasks; baby blues and signs; talk to doctor if very tired/irritable/angry/overwhelmed/can't cope; two weeks or more; services list; discuss tasks and finances early (PBB). checked added."
+- id: arguments-and-stress
+  file: content/drafts/arguments-and-stress.md
+  verdict: ok
+  notes: "All claims confirmed against Gidget relationship-tips (no-one totally prepared, conflict essential, repair, positive statements, listen don't fix, partner/mum tips, stress can increase risk of domestic violence; 1800 737 732 24/7 listed), PBB feelings-relationships-and-pregnancy (talk early, parenting styles, sexual needs, money, family violence can begin or get worse in pregnancy, unwanted advice) and PBB difficult-conversations (right time, stop if angry/emotional/overwhelmed, I statements, old issues, next steps, compromise; Relationships Australia 1300 364 277, MensLine 1300 78 99 78, Family Relationships Advice Line 1800 050 321). 1800RESPECT 1800 737 732 and 24 hours a day, 7 days a week confirmed on 1800respect.org.au; Relationships Australia 1300 364 277 confirmed on relationships.org.au. checked added."
+- id: relationship-breakdown
+  file: content/drafts/relationship-breakdown.md
+  verdict: ok
+  notes: "All claims confirmed against PBB co-parenting (Family Law Act, May 2024 changes, parenting plan, consent order approved by court and neither parent needs to attend, family relationship centre, straight to court if abuse/violence risk or very urgent, child support assessment on both incomes, legal advice), PBB single-parenting (angry/hurt/hopeless, keep negative feelings to yourself, eat/exercise/sleep, Services Australia and parenting payment, Medicare Mental Health 1800 595 212, PANDA 1300 726 306, Beyond Blue 1300 22 4636), PBB feelings-relationships (find your people, antenatal classes for single people, midwife services) and PBB difficult-conversations (phone/video/email if unsafe; Relationships Australia and Family Relationships Advice Line numbers on the co-parenting page). checked added."
+- id: family-overseas
+  file: content/drafts/family-overseas.md
+  verdict: ok
+  notes: "All claims confirmed against PBB raising-a-child-when-family-is-overseas (short but frequent contact, conflict over distance, parents' groups, community, 1800 882 436 via TIS, Child Care Subsidy), PBB cultural-practices (right to culturally fitting care, cultural liaison officers, multicultural health workers, female doctor/midwife, free interpreters), PANDA languages page ('resources translated into 40 languages') and Gidget multicultural-families (signs list, trained interpreter preferred, free bulk-billed sessions with GP referral and Mental Health Treatment Plan, free interpreter via TIS, Lifeline 13 11 14 24-hour crisis, 000 for urgent medical help). checked added."
+- id: building-your-village
+  file: content/drafts/building-your-village.md
+  verdict: ok
+  notes: "All claims confirmed against Gidget building-a-support-network (isolation raises vulnerability, support-network checklist, types of support, maternal health centre groups, social media unreliable), Gidget supporter fact sheet (1 in 5 mums and 1 in 10 partners/dads, warning signs, 'families would be better off without them', meal/park/check before visiting) and PBB single-parenting (other single parents, council, swap). Lifeline 13 11 14 24/7 and 000 as listed on Gidget. checked added."
+- id: single-and-solo-parents
+  file: content/drafts/single-and-solo-parents.md
+  verdict: ok
+  notes: "All claims confirmed against Gidget single-parents fact sheet (time off, money, sleep, isolation, 'good enough', upside), PBB single-parenting (reasons, just as happy, consistent/sensitive care is Gidget's wording and also kept, babysitting, council, Services Australia, parenting payment, Medicare Mental Health 1800 595 212, PANDA 1300 726 306, Beyond Blue 1300 22 4636), PBB feelings-relationships (birth support, single-people classes, plan ahead) and PBB birth-support-partner (calm, positive, advocate, comfortable and safe, backup). checked added."
+- id: unplanned-pregnancy
+  file: content/drafts/unplanned-pregnancy.md
+  verdict: fix
+  problems:
+    - claim: "MSI Australia (PBB gives 1300 003 707 for appointments and 1300 405 568 on another page)"
+      judgement: unchecked
+      source_says: "msiaustralia.org.au returns 403 to automated fetches (not worked around). Healthdirect's MSI clinic listings give 1300 003 707. 1300 405 568 appears only on one PBB page and on no official page I could load."
+      url: https://www.healthdirect.gov.au/australian-health-services/healthcare-service/city-2601-act/msi-canberra-abortion-contraception-clinic/family-counselling-service/e9487485-c841-4e9d-aad3-d1c8af130f93
+      fixed_to: "MSI Australia: 1300 003 707 to make an appointment, with the PBB 1300 405 568 discrepancy noted; Healthdirect page added to sources"
+    - claim: "Children by Choice: 1800 177 725 (PBB's abortion page lists it as nationwide; its unplanned pregnancy page as Queensland only)"
+      judgement: unchecked
+      source_says: "Both statements are what the two PBB pages say (abortion page: '1800 177 725 (nationwide) or if you are in Queensland (07) 3357 5377'; making-decisions page: 'for Queensland residents only - free call'). childrenbychoice.org.au returns 403 to automated fetches (not worked around), so coverage could not be confirmed on its own site; Queensland Health (Townsville HHS) confirms the service exists as free all-options pregnancy counselling but gives no number or coverage."
+      url: https://townsville.health.qld.gov.au/services/womens-health/termination-of-pregnancy
+      fixed_to: "kept as is, both PBB statements credited; coverage still to confirm on Children by Choice's own site"
+  notes: "All other claims confirmed: options, adoption (permanently transfers rights, pre-adoption counselling, around 30 days after signing, nothing confirmed until after birth, both birth parents must consent per PBB making-decisions, exceptions on adoption page), foster/kinship definitions, abortion safe and does not affect ability to have children, legal in all states and territories with limits, 9 weeks medical, 14 weeks surgical, approval after 20 weeks, 22 to 24 weeks second doctor, 1800 My Options 1800 696 784 (PBB; 1800myoptions.org.au also blocked), 1800RESPECT 1800 737 732 (own site confirmed), PANDA 1300 726 306, Lifeline 13 11 14, Beyond Blue 1300 22 4636. checked added: every claim matches a page loaded, with the Children by Choice coverage question open as noted."
+- id: termination-for-medical-reasons
+  file: content/drafts/termination-for-medical-reasons.md
+  verdict: fix
+  problems:
+    - claim: "If you have worrying symptoms, contact your healthcare provider or go to the nearest emergency department."
+      judgement: unsupported
+      source_says: "PBB abortion page: 'If you think you have an infection, get urgent medical attention' (infection symptoms: fever, chills, feeling unwell, unpleasant-smelling vaginal discharge); no general 'worrying symptoms' line on either page"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/abortion/abortion
+      fixed_to: "If you think you have an infection after a termination (fever, chills, feeling unwell, unpleasant-smelling vaginal discharge), get urgent medical attention."
+    - claim: "Ask your hospital what applies to you."
+      judgement: unsupported
+      source_says: "Not on either page"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/abortion/abortion
+      fixed_to: "cut"
+  notes: "Confirmed: Gidget (definition, shock, feelings list, rituals and keepsakes, partners grieve differently, self-care list, when to seek extra support, GP/obstetrician/midwife, Gidget therapy for pregnancy loss such as termination, other organisations listed, Lifeline 13 11 14 and Beyond Blue 1300 22 4636 24/7, 000 for immediate danger) and PBB (medicine or surgical depending on weeks, approval if more than 20 weeks, law varies, counselling before and after optional). checked added."
+- id: neonatal-death
+  file: content/drafts/neonatal-death.md
+  verdict: ok
+  notes: "All claims confirmed against PBB neonatal death page (within 4 weeks, most in first week, stillbirth from 20 weeks, about 700 a year, risk factors, autopsy consent and coroner exception, how detailed, no cause even after autopsy, memories, take as long as you like, take baby home or visit funeral home, register birth and death, social worker or child health nurse, Family Tax Benefit bereavement payment up to 14 weeks, breast milk, see your doctor if painful/swollen/warm or fever, milk bank, grief physical effects, grieve in private, Red Nose 1300 308 307, ForWhen 1300 24 23 22, Beyond Blue 1300 22 4636), Gidget baby-infant-loss (waves and anniversaries, differing grief not loving less, one trusted person to update family, meals/transport/paperwork, seek support if unmanageable) and Miracle Babies (memory box). Miracle Babies Nurture Line 1300 622 243 confirmed on miraclebabies.org.au ('24hr family support helpline'; bereavement page: 'free family support helpline, available 24/7'); the same Miracle Babies page lists Red Nose Grief and Loss Support Line 1300 308 307 as 24/7 and Lifeline 13 11 14 as 24/7 (Red Nose's own site blocks fetches, not tried). checked added."
+- id: recurrent-miscarriage
+  file: content/drafts/recurrent-miscarriage.md
+  verdict: ok
+  notes: "All claims confirmed: Miscarriage Australia (definition updated to two losses before 20 weeks, not necessarily consecutive; 1-2%; testing not common unless recurrent or relevant history; recurrent miscarriage clinics) and PBB (tests list, causes list, treatment list, supportive care and early frequent monitoring, 1 in 5 may have another, emotional impact, Beyond Blue 1300 22 4636, Medicare Mental Health 1800 595 212, Lifeline 13 11 14, 000). The 000 bleeding threshold (soaking 1 or more pads an hour) is PBB's top warning for this page, quoted as written. checked added."
+- id: chemical-pregnancy
+  file: content/drafts/chemical-pregnancy.md
+  verdict: unchecked
+  problems:
+    - claim: "(whole entry)"
+      judgement: unchecked
+      source_says: "no draft"
+      url: ""
+      fixed_to: "n/a, the drafter skipped this id; no file exists"

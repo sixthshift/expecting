@@ -1,0 +1,199 @@
+# Fact-check of 20 drafted Library entries (batch M09) against their listed sources,
+# fetched 2026-10-29. Note: the Royal Women's genetic-testing page is undated and
+# older (it says NIPT is only in specialist centres), so its miscarriage figures
+# were cut rather than kept. ok = every claim supported; fix = edited to match sources.
+# All 20 carry checked: 2026-10-29.
+- id: high-chance-result
+  file: content/drafts/high-chance-result.md
+  verdict: ok
+- id: cvs
+  file: content/drafts/cvs.md
+  verdict: fix
+  problems:
+    - claim: "The Royal Women's Hospital puts it at 1 in 100."
+      judgement: unsupported
+      source_says: "PBB (current): 'Having a CVS can slightly increase that risk' (no figure). RWH page is undated and outdated on genetic testing (says NIPT only in some specialist centres), so its 1% figure can't be credited as current."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/chorionic-villus-sampling-cvs
+      fixed_to: "cut (RWH source removed from sources:)"
+- id: amniocentesis
+  file: content/drafts/amniocentesis.md
+  verdict: fix
+  problems:
+    - claim: "the Royal Women's Hospital puts it at 1 in 200"
+      judgement: unsupported
+      source_says: "PBB (current): 'a very small risk of miscarriage' (no figure). RWH page undated/outdated."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/amniocentesis
+      fixed_to: "cut (RWH source removed from sources:)"
+- id: genetic-counselling
+  file: content/drafts/genetic-counselling.md
+  verdict: ok
+- id: rhd-nipt
+  file: content/drafts/rhd-nipt.md
+  verdict: fix
+  problems:
+    - claim: "summary: ... so only those who need anti-D get it."
+      judgement: unsupported
+      source_says: "If your baby's blood type is RhD negative, 'you might not need anti-D injections'; if you can't get the test you'll still be offered them."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+      fixed_to: "predict RhD positive or negative; if negative, you might not need anti-D injections."
+- id: third-trimester-bloods
+  file: content/drafts/third-trimester-bloods.md
+  verdict: fix
+  problems:
+    - claim: "You can catch it after a negative test"
+      judgement: unsupported
+      source_says: "Page only says 'If you have had syphilis and recovered in the past, you can still get it again.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/syphilis-and-pregnancy
+      fixed_to: "cut"
+    - claim: "Most of your blood tests are done at the first antenatal visit"
+      judgement: unsupported
+      source_says: "'In early pregnancy, usually at your first antenatal visit, you will have tests for' blood type, iron/haemoglobin, infections."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+      fixed_to: "Many of your blood tests are done early in pregnancy, usually at your first antenatal visit, but a few are repeated around the third trimester."
+- id: growth-scans
+  file: content/drafts/growth-scans.md
+  verdict: fix
+  problems:
+    - claim: "If the baby isn't growing as expected, closer monitoring with more scans, and sometimes advice to give birth at a major hospital, or an induction or caesarean..."
+      judgement: unsupported
+      source_says: "'If your doctor suspects that you have placental insufficiency, they will closely monitor...extra ultrasound scans...may recommend that you give birth in a major hospital...' and induction/caesarean 'if there are signs that your baby is not well'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placental-insufficiency
+      fixed_to: "If your doctor suspects placental insufficiency (the placenta not working well), closer monitoring with more scans, sometimes advice to give birth at a major hospital, and an induction or caesarean before your due date if there are signs the baby isn't well."
+- id: ctg-monitoring
+  file: content/drafts/ctg-monitoring.md
+  verdict: fix
+  problems:
+    - claim: "before and after turning a breech baby (ECV), for example, for 20 to 40 minutes"
+      judgement: wrong
+      source_says: "Before an ECV 'You will be connected to a fetal monitor (CTG)... for 20 to 40 minutes'; after, heart rate is also monitored (no duration given)."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/external-cephalic-version-ecv
+      fixed_to: "before turning a breech baby (ECV), for example, for 20 to 40 minutes."
+- id: babys-position-check
+  file: content/drafts/babys-position-check.md
+  verdict: fix
+  problems:
+    - claim: "[breech] is common and normal until about 35 to 36 weeks"
+      judgement: unsupported
+      source_says: "'Most babies lie in a breech position until late pregnancy'; 'Most babies turn to a head-down position before the last month.'"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
+      fixed_to: "Most babies lie breech until late pregnancy, and most turn head down before the last month."
+- id: past-your-due-date-appointment
+  file: content/drafts/past-your-due-date-appointment.md
+  verdict: ok
+- id: covid-vaccine-in-pregnancy
+  file: content/drafts/covid-vaccine-in-pregnancy.md
+  verdict: fix
+  problems:
+    - claim: "The Handbook, updated in October 2026, says all pregnant people can consider a dose..."
+      judgement: unsupported
+      source_says: "Handbook table: 'Not routinely recommended, but all pregnant women can consider a dose of COVID-19 vaccine from 20 weeks gestation in each pregnancy.' COVID-19 chapter 'updated on 01 October 2026'."
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/covid-19
+      fixed_to: "Handbook wording quoted, with the chapter's update date."
+    - claim: "PBB says if already vaccinated, another dose isn't routinely recommended, but you can still choose one, especially if you're in a high-risk group."
+      judgement: wrong
+      source_says: "PBB (last reviewed July 2025): 'If you are already vaccinated for COVID-19, you do not need to be vaccinated again during pregnancy. You can still choose to have the COVID-19 vaccine if that is your preference, or if you are in a high risk group.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/vaccinations-and-pregnancy
+      fixed_to: "Credited to PBB with its review date, noted as differing from the Handbook; 'you don't need another dose... can still choose one if you're in a high-risk group or it's your preference'."
+    - claim: "that risk appears much lower in those who have been vaccinated"
+      judgement: wrong
+      source_says: "'This risk appears to be substantially reduced during the Omicron period in women who have been vaccinated.'"
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/covid-19
+      fixed_to: "appears substantially reduced in those who have been vaccinated (in the Omicron period)"
+    - claim: "Babies under 6 months have been hospitalised more than older children in some countries, though their illness has mostly been mild."
+      judgement: wrong
+      source_says: "'Hospitalisation rates among infants aged <6 months in some countries during the Omicron period were higher than any other paediatric age groups however overall infant disease severity remained low.'"
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/covid-19
+      fixed_to: "In some countries babies under 6 months were hospitalised more than any other age group of children, though overall their illness severity stayed low."
+    - claim: "Side effects are similar...; pregnant people are slightly more likely to have a sore arm, and less likely to have a fever or tiredness."
+      judgement: unsupported
+      source_says: "Applies to 'an original mRNA COVID-19 vaccine'; 'slightly more likely to report injection site pain, and less likely to report generalised symptoms such as fever or tiredness.'"
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/covid-19
+      fixed_to: "reworded to 'after an original mRNA vaccine... were... report'."
+- id: live-vaccines-to-avoid
+  file: content/drafts/live-vaccines-to-avoid.md
+  verdict: fix
+  problems:
+    - claim: "Contraindicated list (no rotavirus)"
+      judgement: unsupported
+      source_says: "Handbook table 'contraindicated in pregnancy: live attenuated vaccines' also lists Rotavirus: 'not registered or recommended for use in adolescents or adults.'"
+      url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
+      fixed_to: "added 'rotavirus (not registered or recommended for adults anyway)'"
+    - claim: "yellow fever: If travel ... is unavoidable, the Handbook says to weigh the risks and benefits of the vaccine."
+      judgement: unsupported
+      source_says: "Table ('Not recommended'): 'if travel to a country with a risk of yellow fever virus transmission is unavoidable, pregnant women should receive yellow fever vaccine.' Text section: 'weigh the risks and benefits of yellow fever vaccination.'"
+      url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
+      fixed_to: "Both given: the table says pregnant women should receive the vaccine, the guidance says to weigh risks and benefits."
+- id: partner-flu-vaccine
+  file: content/drafts/partner-flu-vaccine.md
+  verdict: fix
+  problems:
+    - claim: "task get-partner-flu-vaccine (opens 4, who partner)"
+      judgement: unsupported
+      source_says: "Duplicate: content/items/partner-prep.md already has task partner-vaccines ('Get the whooping cough booster (if due) and this year's flu vaccine', opens 28, due 36, who partner), and its body covers the flu vaccine."
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/influenza-flu
+      fixed_to: "cut (tasks block removed)"
+    - claim: "Pregnant people are one of those groups [high risk], and babies are among those more likely to get severe flu."
+      judgement: unsupported
+      source_says: "Handbook says household contacts of people in high-risk groups are recommended annual vaccine because they 'can transmit influenza to people who have a higher risk of complications'; it doesn't call pregnancy a high-risk group in that sentence (it separately recommends vaccine in each pregnancy and notes increased risk of illness/death for women with flu in pregnancy). Nothing on babies being more likely to get severe flu."
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/influenza-flu
+      fixed_to: "reworded to the Handbook's household-contact and pregnancy statements; baby claim cut; summary reworded"
+    - claim: "If you had last year's vaccine late in the year, you're still recommended to get the new season's one."
+      judgement: unsupported
+      source_says: "Handbook says protection requires annual vaccination; the 'late in the year' case is not stated for partners."
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/influenza-flu
+      fixed_to: "cut"
+    - claim: "Where, and the cost: free under the NIP for certain groups...; a fee may be charged"
+      judgement: unsupported
+      source_says: "Handbook says NIP-funded for specific groups, none of which is a partner; no statement about fees on the page. Off topic for household contacts."
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/influenza-flu
+      fixed_to: "cut"
+- id: anaemia-in-pregnancy
+  file: content/drafts/anaemia-in-pregnancy.md
+  verdict: fix
+  problems:
+    - claim: "but it's the blood test that tells"
+      judgement: unsupported
+      source_says: "Not stated; page lists symptoms and says anaemia is diagnosed by blood tests (full blood count)."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/anaemia-in-pregnancy
+      fixed_to: "cut"
+- id: low-platelets
+  file: content/drafts/low-platelets.md
+  verdict: fix
+  problems:
+    - claim: "summary: mild, harmless and gone after the birth"
+      judgement: wrong
+      source_says: "'usually mild and goes away after your baby is born. It doesn't usually cause any problems for you or your baby.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/low-platelets-during-pregnancy
+      fixed_to: "usually mild, gone after the birth and not usually a problem for you or the baby"
+- id: uti-found-on-testing
+  file: content/drafts/uti-found-on-testing.md
+  verdict: ok
+- id: low-lying-placenta
+  file: content/drafts/low-lying-placenta.md
+  verdict: fix
+  problems:
+    - claim: "Call 000 ... if the bleeding is heavy, or you have pain or contractions with it."
+      judgement: wrong
+      source_says: "'If the bleeding is heavy and if you have pain or contractions with the bleeding call triple zero (000)...'; page top: 'If the bleeding or pain are severe, call triple zero (000) and ask for an ambulance.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-praevia
+      fixed_to: "Call 000 if the bleeding or pain is severe. Also call 000 ... if the bleeding is heavy and you have pain or contractions with it."
+    - claim: "Contact your doctor or midwife straight away"
+      judgement: unsupported
+      source_says: "Warning: 'If you experience bleeding during your pregnancy, contact your midwife or doctor immediately.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-praevia
+      fixed_to: "Contact your doctor or midwife immediately"
+- id: high-blood-pressure-in-pregnancy
+  file: content/drafts/high-blood-pressure-in-pregnancy.md
+  verdict: ok
+- id: breech-baby
+  file: content/drafts/breech-baby.md
+  verdict: fix
+  problems:
+    - claim: "Breech is normal until 35 or 36 weeks / common and normal until about 35 to 36 weeks"
+      judgement: unsupported
+      source_says: "'Most babies lie in a breech position until late pregnancy'; 'Most babies turn to a head-down position before the last month of pregnancy.'"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
+      fixed_to: "Most babies lie breech until late pregnancy, and most turn head down before the last month."
+- id: small-for-dates
+  file: content/drafts/small-for-dates.md
+  verdict: ok

@@ -1,0 +1,209 @@
+# Fact-check of M10 drafts (content/drafts) against their cited sources, 2026-10-29.
+# One entry per draft, appended as each is done.
+- id: timing-contractions
+  file: content/drafts/timing-contractions.md
+  verdict: fix
+  problems:
+    - claim: "Pregnancy, Birth and Baby: call your birth unit when contractions are painful and regular (2 or more in 10 minutes), or stronger and regular at around 3 to 4 minutes apart, or labour can no longer be managed at home."
+      judgement: wrong
+      source_says: "Contractions page: contact the birth unit ... if your contractions become painful and regular (2 or more contractions in 10 minutes). First stage page: if you have had a normal and uncomplicated pregnancy, contact the birth unit ... when your contractions are stronger and regular (around 3 to 4 minutes apart) or you can no longer manage at home."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-first-stage-of-labour
+      fixed_to: "split into two PBB bullets, one per page, the second with its 'normal and uncomplicated pregnancy' condition"
+    - claim: "The Royal Women's Hospital: when there's less than 3 to 5 minutes between each contraction"
+      judgement: unsupported
+      source_says: "When there is less than three to five minutes between each wave it is time to go to the hospital."
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/stages-of-labour
+      fixed_to: "less than three to five minutes between each wave (contraction)"
+    - claim: "RANZCOG: regular and 5 minutes apart, or the pregnant parent feels ready"
+      judgement: ok
+      source_says: "your contractions are regular and five minutes apart / you feel ready to come into hospital (RANZCOG Labour and Birth leaflet, 07/2016)"
+      url: https://ranzcog.edu.au/wp-content/uploads/Labour-Birth.pdf
+      fixed_to: "wording tightened only; the three thresholds are kept separate and credited"
+- id: waters-before-labour
+  file: content/drafts/waters-before-labour.md
+  verdict: fix
+  problems:
+    - claim: "If you carry GBS, RANZCOG recommends antibiotics and planned birth as soon as practical"
+      judgement: wrong
+      source_says: "Recommendation 2: prophylactic antibiotics and early planned birth. Plain-language summary: have labour induced straight away. (Induction within 24 hours 'where practical' is the general recommendation for everyone.)"
+      url: https://ranzcog.edu.au/wp-content/uploads/Term-PROM.pdf
+      fixed_to: "antibiotics and an early planned birth (its plain-language summary says labour induced straight away)"
+    - claim: "Planned early birth leads to fewer infections ... and greater satisfaction, without more caesareans (stated as fact)"
+      judgement: unsupported
+      source_says: "RANZCOG conclusion: planned early birth leads to reduced maternal infections, reduced neonatal infections and greater maternal satisfaction without an increase in caesarean section."
+      url: https://ranzcog.edu.au/wp-content/uploads/Term-PROM.pdf
+      fixed_to: "credited to RANZCOG, wording as its conclusion; statement dated July 2021, review due July 2026, now stated in the text"
+  notes: "70/85/95% at 24/48/96 h, 1 in 12 (8%), PBB 24-96 h and 24-48 h, 18 h vital signs, 37.5 C, red flags all confirmed."
+- id: active-labour
+  file: content/drafts/active-labour.md
+  verdict: ok
+  notes: "PBB 4 cm active phase, 3-4 min / ~60 s, 'normal and uncomplicated', 4-6 cm; RANZCOG C-Obs 31 5 cm, 18 h / 12 h, 4-hourly VE (with exceptions) all confirmed; sources credited separately."
+- id: second-stage
+  file: content/drafts/second-stage.md
+  verdict: ok
+  notes: "PBB 3 h / 2 h, epidural 1 h passive + 1-2 h pushing, call a doctor after 2 h / 1 h; RANZCOG C-Obs 31 GPP 3 (escalate at 2 h / 1 h, reasonable to support another hour), Rec 3 (not solely time frames), Rec 4 (upright) confirmed. C-Obs 31 is the July 2017 version v2 (interim update, v3.2)."
+- id: water-birth
+  file: content/drafts/water-birth.md
+  verdict: fix
+  problems:
+    - claim: "If you have the injection to help the placenta out, RANZCOG suggests getting out of the pool for it."
+      judgement: unsupported
+      source_says: "For active management of third stage best practice suggests that the woman should be assisted to exit the birth pool/bath after birth in water to an environment where the management of third stage can be safely performed (RANZCOG C-Obs 24, 4.6.4). No mention of an injection."
+      url: https://ranzcog.edu.au/wp-content/uploads/Water-Immersion-Labour-Birth.pdf
+      fixed_to: "If the placenta stage is actively managed, RANZCOG says best practice is to be helped out of the pool or bath after the birth, so it can be managed safely."
+    - claim: "Water birth may increase the chance of infection, or of you or the baby getting too hot. (read as both sources)"
+      judgement: unsupported
+      source_says: "PBB only; RANZCOG says no evidence of increased maternal, fetal or neonatal risk."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/water-birth
+      fixed_to: "credited to Pregnancy, Birth and Baby"
+    - claim: "'not if the waters have broken' (bare quote)"
+      judgement: ok
+      source_says: "'spending time in a warm bath, shower or pool (not if the waters have broken)' (PBB contractions page); no other source says more"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-contractions
+      fixed_to: "quoted in full, with 'ask your midwife or doctor'; RANZCOG's C-Obs 24 is dated (current March 2021, review due March 2024), now stated in the text"
+  notes: "43% to 39% epidural/regional analgesia, telemetry for continuous monitoring, doppler otherwise, oxytocin may not be possible, 37 weeks / single baby / head down / not excessively overweight, leave water for heart-rate change, rare emergencies confirmed. 'Ask your midwife or doctor' in the waters line is mine from PBB's general advice to discuss with them."
+- id: twins-birth
+  file: content/drafts/twins-birth.md
+  verdict: fix
+  problems:
+    - claim: "Queensland's clinical guideline recommends planning the birth after 37 weeks."
+      judgement: unsupported
+      source_says: "In uncomplicated twin pregnancy (monochorionic or dichorionic), plan birth after 37+0 weeks. Also: consider all clinical circumstances and consult with expert practitioner regarding mode and timing of birth, and indications for IOL."
+      url: https://www.health.qld.gov.au/__data/assets/pdf_file/0020/641423/g-iol.pdf
+      fixed_to: "wording as Queensland's, 37+0, uncomplicated (monochorionic or dichorionic), plus the consult-an-expert line"
+  notes: "PBB: before 38 weeks, about 1 in 3 vaginal, about twice as likely caesarean, staff, epidural reason, second baby, caesarean reasons, co-bedding all confirmed."
+- id: large-for-dates
+  file: content/drafts/large-for-dates.md
+  verdict: fix
+  problems:
+    - claim: "A baby measuring bigger or smaller than normal can be part of what makes a pregnancy higher risk"
+      judgement: unsupported
+      source_says: "Causes related to your baby: 'having a baby that is measuring small at your pre-natal checks'. Risks to your baby may include 'differences in growth — being smaller or bigger than normal'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/what-is-a-higher-risk-pregnancy
+      fixed_to: "PBB lists differences in growth (smaller or bigger than normal) among the risks to the baby in a higher-risk pregnancy; closer watching as before"
+    - claim: "above the 97th centile, or reaches set weights (3500 g at around 36 weeks, 3700 g at 37, 3900 g at 38)"
+      judgement: unchecked
+      source_says: "Qld g-iol Table 13: 'Discuss IOL from 38+0 weeks if USS EFW at 36 weeks or more is greater than 97th centile or: 3500 g at approximately 36 weeks / 3700 g at approximately 37 / 3900 g at approximately 38'. The text layer of the PDF (read directly, not just the drafter's extraction) has no symbol before 3500/3700/3900 and the SFH line reads 'equals 3 cm more than expected'; a '>=' or '>' before the weights, if drawn, is not in the file's text, so the exact comparison cannot be stated."
+      url: https://www.health.qld.gov.au/__data/assets/pdf_file/0020/641423/g-iol.pdf
+      fixed_to: "'greater than the 97th centile, or reaches set weights (the guideline lists 3500 g at approximately 36 weeks, 3700 g at approximately 37, 3900 g at approximately 38)'; no >= or > asserted for the weights. 'equals 3 cm more' kept as '3 cm more than expected' as in the draft. Elective CS >4500 g with diabetes / >5000 g without: text says 'Greater than', ok."
+  notes: "definition 4000-4500 g at 40 weeks or above 90th centile, <10% ultrasound error, USS for SFH 3 cm more from 36 weeks, no universal USS, IOL on exam alone not recommended, IOL research (shoulder dystocia RR 0.60, fracture RR 0.20, 3rd/4th degree tears up), PBB GDM >4.5 kg and previous large baby, slow progress 'very large for gestational age' confirmed."
+- id: twins-found-at-a-scan
+  file: content/drafts/twins-found-at-a-scan.md
+  verdict: fix
+  problems:
+    - claim: "A multiple pregnancy can increase costs significantly in the private system. ... need nursery care, sometimes for days or weeks"
+      judgement: unsupported
+      source_says: "A multiple pregnancy can increase your costs significantly ... Some multiple births involve care in the NICU for days or weeks, which can be very expensive."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+      fixed_to: "'can increase your costs significantly ... care in the NICU for days or weeks'"
+  notes: "types of twins, DCDA/MCDA/MCMA, more checks, home birth/birth centre advice, twice as likely list, TTTS (rare) and warning wording 'Contact your doctor immediately', vanishing twin all confirmed."
+- id: higher-risk-pregnancy
+  file: content/drafts/higher-risk-pregnancy.md
+  verdict: ok
+  notes: "All claims match the PBB high-risk page and the PBB models-of-care page (public hospital high-risk model, twins / previous caesarean examples, MGP wording)."
+- id: stages-of-labour
+  file: content/drafts/stages-of-labour.md
+  verdict: ok
+  notes: "PBB 4-10 cm active phase, 3-4 min, 8-10 cm transition, up to 3 h second stage; RWH up to two hours pushing, third stage up to 30 min / 1 h, cord clamping; RANZCOG leaflet (07/2016) 12 h / 8 h first stage confirmed. The 4 cm (PBB) vs 5 cm (RANZCOG C-Obs 31) split is handled in active-labour; this entry only gives PBB's 4 cm."
+- id: early-labour
+  file: content/drafts/early-labour.md
+  verdict: fix
+  problems:
+    - claim: "Call your hospital or birth centre when contractions are stronger and regular (around 3 to 4 minutes apart), or you can no longer manage at home."
+      judgement: unsupported
+      source_says: "If you have had a normal and uncomplicated pregnancy, you should contact the birth unit ... when your contractions are stronger and regular (around 3 to 4 minutes apart) or you can no longer manage at home."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-first-stage-of-labour
+      fixed_to: "credited to PBB with its 'normal and uncomplicated pregnancy' condition, plus a pointer to timing-contractions where RWH (3-5 min), PBB contractions page (2+ in 10 min) and RANZCOG (5 min apart) are kept separate"
+  notes: "RWH 'greenish or bloody ... see a doctor or contact your hospital immediately', research says labour better at home, 000 list, before 37 weeks wording all confirmed."
+- id: birth-preferences
+  file: content/drafts/birth-preferences.md
+  verdict: fix
+  problems:
+    - claim: "The third stage: an injection to help the placenta out, or waiting for it without one; whether you'd like the cord clamped later, or your partner to cut it."
+      judgement: unsupported
+      source_says: "RANZCOG: a birth plan 'may include wishes about the type of birth environment you would prefer, the birth of your baby and placenta, and what pain relief you may want.' No cited page lists injection, cord clamping or cutting the cord as birth-plan items."
+      url: https://ranzcog.edu.au/wp-content/uploads/Labour-Birth.pdf
+      fixed_to: "The birth itself: RANZCOG says a birth plan may include wishes about the birth of your baby and the placenta."
+    - claim: "There's no set time. You can start any time in pregnancy, and an antenatal class can help."
+      judgement: unsupported
+      source_says: "There is no specific time to prepare your birth preferences. ... You may find it helpful to join a labour and birth class."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/making-a-birth-plan
+      fixed_to: "There's no specific time to prepare your birth preferences. A labour and birth class can help."
+  notes: "Not everyone makes one, research on satisfaction, change your mind even in labour, check realistic, spare copy, RWH/RANZCOG rigid-plan disappointment, RWH together-plan empowers partner, option list all confirmed."
+- id: support-person
+  file: content/drafts/support-person.md
+  verdict: ok
+  notes: "PBB role-of-support-partner (options, backup, doula, honesty, advocate, hospital limits, 'discuss it beforehand', part of labour / more than one), RWH (not too many people), RANZCOG leaflet (anxious partner may stay outside for some of labour), PBB emergency caesarean ('usually one support person'; not if general anaesthetic) all confirmed."
+- id: antenatal-expressing
+  file: content/drafts/antenatal-expressing.md
+  verdict: fix
+  problems:
+    - claim: "A little, or nothing at first, is normal."
+      judgement: unsupported
+      source_says: "Don't feel discouraged if you only express a small amount, or don't express anything at first. Colostrum is usually made in small amounts."
+      url: https://www.pregnancybirthbaby.org.au/babies/feeding-and-nutrition/antenatal-expression-of-colostrum
+      fixed_to: "Don't be discouraged if you only express a little, or nothing at first; colostrum is usually made in small amounts."
+  notes: "From about 16 weeks, who it can help, who shouldn't (full list), not before 36 weeks, hand technique, 2-3 minutes, twice a day same syringe, storage 2 weeks / 3 months / 6-12 months, stop with contractions or bleeding, cool bag or esky, name and date of birth all confirmed. Task due 36 matches 'after 36 weeks'."
+- id: contractions
+  file: content/drafts/contractions.md
+  verdict: fix
+  problems:
+    - claim: "(omission) the page's 000 warning was missing under When to get help"
+      judgement: unsupported
+      source_says: "Warning: Call triple zero (000) and ask for an ambulance in any of the following situations: if your labour is progressing quickly and you think you may not make it to your planned birthing place in time; if you have heavy bleeding from your vagina; if you have a severe headache or blurred vision (signs of pre-eclampsia)"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-contractions
+      fixed_to: "added as the first paragraph of When to get help, in the page's wording"
+  notes: "Every existing claim confirmed: wave / 15-20 s peak and no residual pain (RANZCOG leaflet); 2-3 min / 50-60 s active labour, few hours first baby, pain locations, stay home if comfortable and normal pregnancy, comfort measures, the 'contact birth unit or midwife' list, before 37 weeks wording, Braxton Hicks table (PBB). Note the 2-in-10-minutes threshold is from this page; other thresholds are kept in timing-contractions."
+- id: false-labour
+  file: content/drafts/false-labour.md
+  verdict: ok
+  notes: "PBB Braxton Hicks infographic (table, easing tips, when to call), PBB body-in-childbirth (more regular nearer the birth, don't change cervix, midwife can tell by VE), PBB contractions (second trimester, night, uncomfortable in third), RANZCOG (disappear with change of position/activity such as warm bath or shower) and the before-37-weeks wording all confirmed."
+- id: support-person-role
+  file: content/drafts/support-person-role.md
+  verdict: fix
+  problems:
+    - claim: "You may also notice something the team should know: tell them."
+      judgement: unsupported
+      source_says: "No cited page says this (PBB support-partner page: express your needs and wishes to the maternity team, discuss what the team advises, let you know what is happening, update family, help you make decisions)."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
+      fixed_to: "cut"
+    - claim: "They may tell you to leave the room. That's fine."
+      judgement: unsupported
+      source_says: "RWH: it is important that you have people with you who make you feel safe and free to express what you need in the moment, even if that includes telling them to leave the room!"
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/preparing-for-labour
+      fixed_to: "They need to feel free to say what they need, even if that means telling you to leave the room."
+  notes: "Before the day, early labour (dim lights, calming music, massage, snacks, hot/cold packs, breathing, water: PBB first stage), second stage (sips of water, positions, advocating), massage may irritate (PBB non-medical pain relief), not too many people (RWH), look after yourself, after the birth all confirmed."
+- id: monitoring-in-labour
+  file: content/drafts/monitoring-in-labour.md
+  verdict: ok
+  notes: "RANZCOG leaflet v3 2025 (IA 15-30 min early / every 5 min or after each contraction when pushing, CTG discs and belts, admission CTG, advantages/disadvantages, FSE, concerns steps, fetal blood sample, scalp stimulation), PBB fetal monitoring (not recommended routinely when low-risk, FSE conditions, talk before labour often third trimester, 'doesn't feel right' line), RWH managing pain (epidural: CTG continuously) and RWH induction (oxytocin: CTG throughout) confirmed."
+- id: vaginal-examinations
+  file: content/drafts/vaginal-examinations.md
+  verdict: fix
+  problems:
+    - claim: "You can talk with your midwife or doctor about how you'd prefer to be assessed."
+      judgement: unsupported
+      source_says: "PBB second stage: 'There are signs and behaviours your midwife and doctor can assess for them to know if you may be in the second stage of labour — some of these do not involve vaginal examination.' Nothing about choosing how to be assessed."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-second-stage-of-labour
+      fixed_to: "cut; sentence now as PBB's"
+    - claim: "Up to about 4 cm is the latent (early) phase."
+      judgement: unsupported
+      source_says: "RANZCOG C-Obs 31: latent phase ... slower progression of dilation <=4 cm; PBB first stage gives no cm for latent."
+      url: https://ranzcog.edu.au/wp-content/uploads/Care-Labour-Absence-Pregnancy-Complications.pdf
+      fixed_to: "Up to 4 cm is the latent (early) phase, in RANZCOG's guideline."
+  notes: "SCV (offer a VE about every 4 h; before narcotic / epidural / confirm full dilatation if in doubt; more often than 4-hourly could increase infection risk; consent written or verbal; painful and confronting, dignity and privacy), RANZCOG GPP 2 (not more often than 4-hourly, more if concerns or woman's wishes; slow labour <2 cm in 4 h from 5 cm; active 5 cm), PBB (4 cm active, VE with consent on arrival, Braxton Hicks VE, 10 cm second stage, progress also looks at contractions, descent, wellbeing, birth preferences) confirmed."
+- id: slow-progress
+  file: content/drafts/slow-progress.md
+  verdict: fix
+  problems:
+    - claim: "RANZCOG calls this augmentation (oxytocin drip only)"
+      judgement: wrong
+      source_says: "Augmentation may be required when labour starts naturally, but the contractions are not regular or strong enough to dilate the cervix ... You may need to have your waters broken or intravenous fluid (a drip) with an artificial hormone to increase your contractions."
+      url: https://ranzcog.edu.au/wp-content/uploads/Labour-Birth.pdf
+      fixed_to: "RANZCOG calls breaking the waters or a drip with an artificial hormone augmentation: it may be needed when labour has started but contractions aren't regular or strong enough to open the cervix"
+    - claim: "Things to try first ... If that isn't enough, your team may offer (a sequence)"
+      judgement: unsupported
+      source_says: "PBB: 'Things you can try to help your labour progress include: changing positions, moving around, relaxation, pain relief'; separately 'Depending on what stage of labour you are at and your personal situation, interventions ... can include: breaking your waters, oxytocin, manual rotation, episiotomy, instrumental birth ...'. No order is stated."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/slow-progress-in-labour
+      fixed_to: "'Things you can try' and 'Depending on the stage of labour and your situation, your team may offer'; summary reworded the same way"
+  notes: "PBB 8-18 h / 5-12 h active, <2 cm in 4 h, latent >20 h / 14 h, second stage 2 h / 1 h and 90 min / 30 min, causes list, manual rotation, forceps/vacuum/episiotomy/emergency caesarean, your choice, risks; RANZCOG C-Obs 31 slow labour <2 cm in 4 h from 5 cm, Rec 2b (amniotomy not routine, amniotomy + oxytocin may be considered in slow labour with uncertain effect), Rec 3 (not solely time frames), GPP 3 (reasonable to support an additional hour of active pushing) confirmed."

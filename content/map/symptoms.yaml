@@ -1,0 +1,1706 @@
+# "Is this normal?": symptoms during the pregnancy.
+#
+# Every entry is `type: symptom`. `covers` lists what the cited source says is
+# usual, then its thresholds in its own words: "mention at next visit", "see
+# doctor or midwife", "call birth unit today / contact immediately", and
+# "call now / 000". Nothing in `covers` is our judgement. Where a source gives
+# no threshold, `notes` says so. Red flags are `stakes: high`, `priority: 1`.
+#
+# Abbreviations in source titles: PBB = Pregnancy, Birth and Baby
+# (pregnancybirthbaby.org.au, Healthdirect Australia); RWH = the Royal Women's
+# Hospital, Melbourne. Every URL below was fetched and read on 2026-10-28.
+
+# ---------------------------------------------------------------------------
+# Common: usually nothing to worry about
+# ---------------------------------------------------------------------------
+
+- id: nausea-and-vomiting
+  title: Nausea and vomiting (morning sickness)
+  type: symptom
+  topic: body
+  ask: "Is it normal to feel sick all day, not just in the morning?"
+  aliases: [morning sickness, nausea, feeling sick, throwing up, vomiting, queasy, all-day sickness]
+  weeks: [4, 20]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "can happen at any time of day; most common between weeks 6 and 14, can last to 14 to 20 weeks"
+    - "usually starts around week 6 and settles by about 14 to 16 weeks (RWH)"
+    - "no research shows it harms the baby"
+    - "see doctor or midwife: nausea or vomiting causing a lot of discomfort, or you think it is hyperemesis"
+    - "see doctor: very dark urine, blood in vomit, extreme tiredness, a large amount of weight loss, can't keep fluids down"
+    - "see your doctor immediately if vomiting and can't keep fluids down"
+    - "RWH: if nothing works, you feel exhausted, or you are vomiting and losing weight, see your doctor or midwife"
+  sources:
+    - title: PBB — Morning sickness
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/dealing-with-morning-sickness
+    - title: RWH — Common concerns in early pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
+    - title: RWH — Coping with nausea, vomiting and hyperemesis in pregnancy (fact sheet, July 2026)
+      url: https://www.thewomens.org.au/images/uploads/fact-sheets/Nausea_vomiting_hyperemesis_in_pregnancy_260721.pdf
+  related: [severe-vomiting, food-cravings-and-aversions, tiredness]
+  exists: content/items/morning-sickness.md
+
+- id: tiredness
+  title: Tiredness and fatigue
+  type: symptom
+  topic: body
+  ask: "Why am I so exhausted, and when does it get better?"
+  aliases: [fatigue, exhausted, no energy, sleepy all the time, wiped out]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: low
+  covers:
+    - "common; feeling tired is very common especially in the first 12 weeks; energy often improves after 14 weeks"
+    - "returns late in pregnancy from carrying more weight and poorer sleep"
+    - "can be a symptom of anaemia (low iron), common in pregnancy"
+    - "see doctor or midwife: exhausted and more rest does not help; new snoring or pauses in breathing during sleep; sleep disturbed by heartburn or restless legs; feeling anxious or depressed"
+    - "from 28 weeks, sleep on your side, not your back"
+  sources:
+    - title: PBB — Dealing with fatigue during your pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/dealing-with-fatigue-during-your-pregnancy
+    - title: PBB — Early signs of pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/early-signs-of-pregnancy
+  related: [insomnia, snoring, restless-legs]
+
+- id: sore-breasts
+  title: Sore, swollen or changing breasts
+  type: symptom
+  topic: body
+  ask: "My breasts are sore and bigger. Is that normal?"
+  aliases: [tender breasts, sore boobs, breast pain, nipples darker, breast changes, breasts bigger]
+  weeks: [4, 42]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "sore or swollen breasts are an early sign of pregnancy; in the first trimester breasts become tender, larger and heavier"
+    - "nipples and areola darken (pigmentation affects nearly every woman)"
+    - "a supportive bra may help with discomfort"
+    - "speak to midwife or doctor: significant pain, redness or a lump"
+  sources:
+    - title: PBB — Changes to your body during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
+    - title: PBB — First trimester
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/first-trimester
+    - title: RWH — Coping with common discomforts of pregnancy (fact sheet, April 2018)
+      url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
+  related: [leaking-colostrum, skin-darkening]
+
+- id: heartburn
+  title: Heartburn and indigestion
+  type: symptom
+  topic: body
+  ask: "Why do I get heartburn every night, and what can I take?"
+  aliases: [reflux, indigestion, acid, burning chest, dyspepsia, sour taste]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "8 in 10 pregnant people get heartburn or indigestion at some point; hormones relax the valve and the uterus presses on the stomach"
+    - "small frequent meals, eat slowly, don't lie down after eating, raise the head of the bed"
+    - "see doctor: symptoms don't go away with medicine; heartburn that doesn't settle with antacids after 20 weeks can be pre-eclampsia (pain under the ribs)"
+    - "see doctor immediately: vomiting blood, losing weight, painful or difficult swallowing, short of breath, chest pain"
+    - "see doctor if severe, persistent or getting worse"
+  sources:
+    - title: PBB — Indigestion and heartburn in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/indigestion-and-heartburn-in-pregnancy
+    - title: PBB — Pre-eclampsia
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
+  related: [pain-under-the-ribs, signs-of-pre-eclampsia, insomnia]
+  notes: "Which antacids are safe belongs to the medicines area; this entry only says when heartburn stops being just heartburn."
+
+- id: constipation
+  title: Constipation
+  type: symptom
+  topic: body
+  ask: "I'm constipated. Is it the iron tablets?"
+  aliases: [can't poo, hard stools, bunged up, straining, bloated]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: low
+  covers:
+    - "very common: up to 2 in 5; hormones slow the gut; iron tablets and supplements are a common cause"
+    - "fibre, water, exercise; ask about a different iron tablet"
+    - "see doctor: severe constipation, or not improving with lifestyle changes"
+    - "urgent care: constipation with unexplained weight loss, bleeding from the rectum or blood in the stool, severe abdominal pain, cramping or bloating, or vomiting"
+  sources:
+    - title: PBB — Constipation during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/constipation-during-pregnancy
+    - title: RWH — Common concerns in early pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
+  related: [haemorrhoids, abdominal-pain]
+
+- id: haemorrhoids
+  title: Haemorrhoids (piles)
+  type: symptom
+  topic: body
+  ask: "Is it normal to get piles when pregnant?"
+  aliases: [piles, itchy bottom, bleeding from bottom, blood on toilet paper, sore anus]
+  weeks: [13, 42]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "common; more so in the second and third trimesters as the uterus presses on the veins; usually settle after birth"
+    - "may itch, ache, feel sore and bleed a little"
+    - "avoid constipation: fibre, water; may worsen in the pushing stage"
+    - "see doctor: pain when passing stools or blood on the paper or in the stool, to rule out a more serious cause"
+    - "RWH: talk to midwife or doctor about an ointment or suppository if bleeding and pain persist"
+  sources:
+    - title: PBB — Haemorrhoids during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/haemorrhoids-during-pregnancy
+    - title: RWH — Coping with common discomforts of pregnancy (fact sheet, April 2018)
+      url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
+  related: [constipation, varicose-veins]
+
+- id: back-pain
+  title: Back pain
+  type: symptom
+  topic: body
+  ask: "My lower back aches all the time. Is that just pregnancy?"
+  aliases: [backache, sore back, lower back pain, bad back]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "common, up to 7 in 10, especially in the third trimester; ligaments loosen and the baby's weight pulls the spine forward; often worse at night"
+    - "walking, swimming, stretching and strengthening; posture; physiotherapy"
+    - "see doctor or midwife: pain that disrupts your day, happens while exercising, is new to you, or you have pins and needles, leg weakness or incontinence"
+    - "see doctor or midwife: back pain with painful urination, blood in urine, nausea and vomiting or bowel/bladder changes (can be a UTI)"
+    - "call 000: symptoms of preterm labour or cauda equina syndrome (sudden loss of bladder or bowel control, numbness in the genital area)"
+  sources:
+    - title: PBB — Backache in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/backache-in-pregnancy
+    - title: RWH — Back care & posture
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/back-care-posture
+    - title: healthdirect — Sciatica
+      url: https://www.healthdirect.gov.au/sciatica
+  related: [pelvic-girdle-pain, sciatica, signs-of-preterm-labour, urinary-tract-infection]
+
+- id: pelvic-girdle-pain
+  title: Pelvic girdle pain
+  type: symptom
+  topic: body
+  ask: "It hurts to walk, roll over in bed or climb stairs. What is this?"
+  aliases: [PGP, SPD, symphysis pubis dysfunction, pelvic instability, hip pain, pubic bone pain, groin pain, pain down there]
+  weeks: [14, 42]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "very common; usually starts between 14 and 30 weeks; not dangerous for you or the baby; usually gone within 3 months of birth"
+    - "pain in the pelvis, hips or thighs, mild to severe, making sitting, standing or walking hard"
+    - "see doctor and physiotherapist: modify activities, a support garment, exercise program; extended bed rest is not recommended"
+    - "see doctor immediately: pain without movement, unexpected fever, bleeding or fluid leaking, losing weight, trouble controlling bladder or bowels, numbness or weakness in the legs, a fall or injury"
+  sources:
+    - title: PBB — Pelvic pain during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/pelvic-pain-during-pregnancy
+  related: [back-pain, round-ligament-pain, sciatica]
+  notes: "The RWH fact sheet Pregnancy-related pelvic girdle pain (PDF) exists but its text could not be extracted; cite it only once read."
+
+- id: round-ligament-pain
+  title: Round ligament pain
+  type: symptom
+  topic: body
+  ask: "I get a sharp stabbing pain in my groin when I stand up or sneeze. Is that normal?"
+  aliases: [sharp groin pain, stabbing pain in side, pulling pain in belly, ligament pain]
+  weeks: [10, 30]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "common; most often in the second trimester; sudden sharp pain, cramping or a pulling feeling in the lower belly or groin lasting minutes to hours"
+    - "not dangerous for you or the baby; eases after birth"
+    - "see doctor if it continues, to rule out other causes"
+    - "seek immediate medical care: pain with bleeding or discharge, contractions or lower back pressure, severe pain that doesn't go away, chills or fever, lightheadedness, trouble walking, nausea or vomiting not from morning sickness"
+    - "call 000: vaginal bleeding, strong pain or feeling very unwell"
+  sources:
+    - title: PBB — Round ligament pain
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/round-ligament-pain
+  related: [abdominal-pain, pelvic-girdle-pain, braxton-hicks]
+
+- id: leg-cramps
+  title: Leg cramps
+  type: symptom
+  topic: body
+  ask: "Why do I wake up with cramp in my calf?"
+  aliases: [calf cramp, night cramps, cramp in leg, foot cramp, charley horse]
+  weeks: [13, 42]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "up to 3 in 10; usually calves, also thighs and feet; usually at night, second and third trimesters"
+    - "pull toes up towards the ankle, rub the muscle, walk, heat pack; stretch calves before bed, drink water; calcium supplements not shown to help (RWH)"
+    - "see doctor immediately: leg pain that doesn't go away, or a leg that is red, warm or swollen (can be a blood clot)"
+  sources:
+    - title: PBB — Leg cramps during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/leg-cramps-during-pregnancy
+    - title: RWH — Coping with common discomforts of pregnancy (fact sheet, April 2018)
+      url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
+  related: [painful-swollen-leg, restless-legs, insomnia]
+
+- id: restless-legs
+  title: Restless legs
+  type: symptom
+  topic: body
+  ask: "My legs feel crawly and I have to keep moving them at night. Is that pregnancy?"
+  aliases: [RLS, restless legs syndrome, crawly legs, jumpy legs, can't keep legs still]
+  weeks: [27, 42]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "more likely in pregnancy, especially the third trimester; common in late pregnancy and most of the time goes away after the baby is born"
+    - "burning, tingling, aching, crawling feelings with an urge to move; worse in the evening and at night"
+    - "see doctor if you have symptoms"
+    - "PBB: see doctor or midwife if sleep is disturbed by restless legs"
+  sources:
+    - title: healthdirect — Restless legs syndrome
+      url: https://www.healthdirect.gov.au/restless-legs-syndrome
+    - title: PBB — Dealing with fatigue during your pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/dealing-with-fatigue-during-your-pregnancy
+  related: [leg-cramps, insomnia, tiredness]
+  notes: "healthdirect's page is general, with one pregnancy paragraph; it gives no pregnancy-specific threshold beyond 'see your doctor'."
+
+- id: swollen-feet-and-ankles
+  title: Swollen feet, ankles and fingers
+  type: symptom
+  topic: body
+  ask: "My feet and rings are tight by evening. When is swelling a worry?"
+  aliases: [oedema, puffy feet, swollen ankles, fluid retention, rings tight, swollen hands, cankles]
+  weeks: [20, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "common: 8 in 10 (RWH); worse at the end of the day and the end of pregnancy; usually goes down overnight"
+    - "gradual mild swelling needs no doctor; avoid long standing, rest with legs up, loose shoes, compression stockings"
+    - "RWH: tell doctor or midwife if swelling is more than slight, not relieved by rest, or in other parts of the body"
+    - "contact doctor, midwife or maternity hospital immediately: sudden swelling of face, hands or feet, or swelling with a severe headache, vision changes, pain below the ribs, vomiting or heartburn not eased by antacids (pre-eclampsia)"
+    - "contact straight away: one arm or leg more swollen than the other with pain, redness or warmth (blood clot)"
+    - "healthdirect, after 20 weeks: contact doctor, midwife or hospital immediately for swelling in the legs that doesn't improve overnight"
+    - "healthdirect, earlier in pregnancy: see doctor or midwife as soon as possible for swelling in the legs that doesn't improve overnight"
+  sources:
+    - title: PBB — Swelling during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/swelling-during-pregnancy
+    - title: RWH — Coping with common discomforts of pregnancy (fact sheet, April 2018)
+      url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+  related: [sudden-swelling, painful-swollen-leg, carpal-tunnel, signs-of-pre-eclampsia]
+
+- id: varicose-veins
+  title: Varicose veins
+  type: symptom
+  topic: body
+  ask: "I've got bulging veins on my legs (and down there). Will they go?"
+  aliases: [bulging veins, vulval varicose veins, veins on legs, spider veins, aching legs]
+  weeks: [1, 42]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "up to 4 in 10; often start in the first trimester; legs, also vulva and rectum; legs ache more by the end of the day"
+    - "usually better by the time the baby is 3 to 4 months old; surgery or laser not recommended during pregnancy"
+    - "compression stockings fitted professionally, ankle exercises, legs up, lie on the left side"
+  sources:
+    - title: PBB — Varicose veins
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/varicose-veins
+  related: [haemorrhoids, swollen-feet-and-ankles, painful-swollen-leg]
+  notes: "PBB gives no 'when to call' for varicose veins themselves; the red flag for a leg is the painful, red, warm, one-sided swelling under painful-swollen-leg."
+
+- id: headaches
+  title: Headaches
+  type: symptom
+  topic: body
+  ask: "I keep getting headaches. Can I take something, and when is it serious?"
+  aliases: [headache, migraine, sore head, tension headache]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "mild headaches are common in the first few months (hormones) and usually ease as pregnancy goes on; triggers: poor sleep, stress, dehydration, low blood sugar, eye strain"
+    - "up to 7 in 10 migraine sufferers improve, usually in the second and third trimesters"
+    - "rest and rehydration; paracetamol if it doesn't settle"
+    - "a headache after 20 weeks can be a sign of pre-eclampsia"
+    - "call doctor or midwife straight away: a very bad headache, blurred vision, pain below the ribs, vomiting, sudden swelling of face, hands or feet"
+    - "seek medical help immediately: a severe headache that is not usual for you"
+    - "healthdirect: call 000 for a sudden severe headache, or a headache with vomiting, confusion, neck stiffness or vision changes"
+  sources:
+    - title: PBB — Headaches during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/headaches-during-pregnancy
+    - title: healthdirect — Headaches
+      url: https://www.healthdirect.gov.au/headaches
+  related: [severe-headache, vision-changes, signs-of-pre-eclampsia]
+
+- id: dizziness-and-fainting
+  title: Dizziness and feeling faint
+  type: symptom
+  topic: body
+  ask: "I nearly fainted standing up. Is low blood pressure normal in pregnancy?"
+  aliases: [lightheaded, faint, fainting, passing out, low blood pressure, hypotension, dizzy, woozy, blacked out]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "blood pressure commonly falls in the first and second trimesters and rises back by birth"
+    - "most likely getting up quickly, after a hot bath, standing too long; in late pregnancy lying on your back can make you faint, turn onto your side (RWH)"
+    - "sit or lie down at the first sign; drink water, stand slowly, eat regularly"
+    - "tell midwife or doctor at your next check if you notice symptoms of low blood pressure"
+    - "RWH: contact doctor or midwife for frequent dizziness or fainting"
+    - "before 20 weeks, contact doctor, midwife or hospital immediately for dizziness or fainting (healthdirect warning signs)"
+    - "early pregnancy with fainting, dizziness, bleeding or abdominal pain: go straight to emergency or call 000 (possible ectopic pregnancy)"
+  sources:
+    - title: PBB — Low blood pressure during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/low-blood-pressure-during-pregnancy
+    - title: RWH — Common concerns in early pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: healthdirect — Fainting
+      url: https://www.healthdirect.gov.au/fainting
+  related: [cramping-and-pain-in-early-pregnancy, shoulder-tip-pain, racing-heartbeat, heavy-bleeding]
+  notes: "PBB's own low-blood-pressure page says 'tell your midwife at your next check', while healthdirect's warning-signs page says contact immediately for dizziness or fainting before 20 weeks. Give both, by context (with bleeding or pain it is the ectopic rule)."
+
+- id: breathlessness
+  title: Feeling short of breath
+  type: symptom
+  topic: body
+  ask: "I get puffed climbing the stairs. Is that the baby pushing up?"
+  aliases: [short of breath, puffed, can't catch breath, breathless, winded]
+  weeks: [13, 42]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - "you may feel short of breath if you are pregnant (healthdirect)"
+    - "see doctor: becoming short of breath with less effort; breathless with a tight chest or needing more asthma medicine (PBB)"
+    - "contact doctor, midwife or hospital immediately: shortness of breath or a racing heartbeat (healthdirect warning signs)"
+    - "seek help immediately: short of breath with chest pain, difficulty talking, wheezing or fever, drowsy, or getting worse"
+    - "call 000: severe difficulty breathing, drowsy, pale and sweaty or turning blue; breathing problems that are very bad and come on quickly"
+  sources:
+    - title: healthdirect — Shortness of breath
+      url: https://www.healthdirect.gov.au/shortness-of-breath
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: PBB — Pregnancy rhinitis
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pregnancy-rhinitis
+  related: [chest-pain, racing-heartbeat, painful-swollen-leg, blocked-nose]
+  notes: "No Australian source read explains ordinary pregnancy breathlessness (why, which weeks) beyond healthdirect's one line; the writer will need a pregnancy-specific page, or keep it to the thresholds."
+
+- id: nosebleeds
+  title: Nosebleeds
+  type: symptom
+  topic: body
+  ask: "I've never had nosebleeds before. Why now?"
+  aliases: [bleeding nose, epistaxis, blood nose]
+  weeks: [1, 42]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "more common in pregnancy because of hormones; usually manageable at home"
+    - "sit up, lean forward, pinch below the bridge for 10 minutes; don't tilt the head back"
+    - "if bleeding restarts, get medical advice; if it doesn't stop after 20 minutes, seek medical help"
+    - "go to hospital or call an ambulance: lasts longer than 20 minutes, a large amount of blood, swallowed a lot of blood and vomited more than once, started after hitting your head, trouble breathing, weak or dizzy"
+    - "see doctor if you lose a lot of blood (possible bleeding or clotting disorder)"
+  sources:
+    - title: PBB — Nosebleeds during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/nosebleeds-during-pregnancy
+  related: [blocked-nose, bleeding-gums]
+
+- id: bleeding-gums
+  title: Bleeding gums
+  type: symptom
+  topic: body
+  ask: "My gums bleed when I brush. Is that pregnancy?"
+  aliases: [gum disease, gingivitis, sore gums, swollen gums, bleeding when brushing]
+  weeks: [1, 42]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "swollen, inflamed gums that bleed are common in pregnancy; can lead to periodontitis"
+    - "see a dentist at least once in pregnancy, ideally first or second trimester; most dental treatment is safe, tell them you are pregnant"
+    - "after vomiting, rinse with water and wait 30 minutes before brushing"
+    - "see dentist as soon as possible for toothache or any change in the mouth; dental problems should be treated without delay"
+  sources:
+    - title: PBB — Looking after your teeth during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/looking-after-your-teeth-during-pregnancy
+    - title: PBB — Injuries during pregnancy (teeth problems)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+    - title: healthdirect — Gum disease
+      url: https://www.healthdirect.gov.au/gum-disease
+  related: [nosebleeds, nausea-and-vomiting]
+
+- id: blocked-nose
+  title: Blocked or runny nose (pregnancy rhinitis)
+  type: symptom
+  topic: body
+  ask: "I've had a stuffy nose for weeks but I'm not sick. What is it?"
+  aliases: [pregnancy rhinitis, stuffy nose, congestion, snuffly, sinus, runny nose, hay fever]
+  weeks: [1, 42]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "1 in 5; not an infection, not contagious; most common in the second trimester; lasts at least 6 weeks, usually gone within 2 weeks of birth"
+    - "can affect sleep; saline sprays; ask doctor or pharmacist which medicines are safe"
+    - "see doctor: breathless, chest feels very tight, needing more asthma medicine"
+    - "see doctor as soon as possible for unexplained breathing problems; call 000 if very bad and sudden"
+  sources:
+    - title: PBB — Pregnancy rhinitis
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pregnancy-rhinitis
+    - title: PBB — Sleep during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
+  related: [nosebleeds, snoring, breathlessness]
+
+- id: frequent-urination
+  title: Needing to wee all the time
+  type: symptom
+  topic: body
+  ask: "I'm up five times a night to wee. Normal?"
+  aliases: [weeing a lot, frequent urination, overactive bladder, up at night to wee, peeing constantly]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "common at every stage; hormones early, the baby pressing on the bladder later; harder to empty fully in late pregnancy"
+    - "pelvic floor exercises; speak to doctor or midwife if it affects daily life"
+    - "see doctor: pain or scalding when passing urine may mean infection (RWH)"
+    - "seek care straight away if anything green or brown in leaked fluid (may be amniotic fluid, not urine)"
+  sources:
+    - title: PBB — Frequent urination during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/frequent-urination-during-pregnancy
+    - title: RWH — Coping with common discomforts of pregnancy (fact sheet, April 2018)
+      url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
+  related: [leaking-urine, urinary-tract-infection, painful-urination, fluid-leaking]
+
+- id: leaking-urine
+  title: Leaking wee when you cough or sneeze
+  type: symptom
+  topic: body
+  ask: "I leak a bit when I laugh or sneeze. Is that normal, and will it stop?"
+  aliases: [incontinence, bladder weakness, leaking, wet myself, stress incontinence, leaking wind]
+  weeks: [20, 42]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "very common: about 1 in 3 have urinary incontinence in pregnancy or after birth; highest in the third trimester; bowel or wind leakage about 1 in 4 in late pregnancy"
+    - "pelvic floor exercises; tell doctor or midwife so they can advise; a continence physiotherapist can help"
+    - "most pelvic floors recover within 3 to 6 months of birth, but leaking in pregnancy may not get better on its own"
+    - "see doctor: burning, stinging or pain when going to the toilet; any change in the vaginal or anal area needs an urgent check-up"
+    - "see doctor or midwife if you think you have a prolapse (heaviness or dragging in the vagina)"
+    - "seek care straight away if the leak could be waters: green or brown fluid"
+  sources:
+    - title: PBB — Incontinence during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/incontinence-during-pregnancy
+    - title: PBB — Frequent urination during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/frequent-urination-during-pregnancy
+  related: [frequent-urination, fluid-leaking, painful-urination]
+
+- id: vaginal-discharge
+  title: More discharge than usual
+  type: symptom
+  topic: body
+  ask: "I've got a lot more discharge. Is that normal, and what colour is a worry?"
+  aliases: [discharge, leucorrhoea, wetness, white discharge, smelly discharge, green discharge, BV, bacterial vaginosis]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "more discharge is normal in pregnancy (leucorrhoea): clear or white, no strong smell; nearly all women (RWH)"
+    - "a 'show' is sticky, mucus, maybe bloodstained, shortly before labour"
+    - "see doctor or midwife: different colour, consistency or smell from your usual (thrush or bacterial vaginosis; some infections cause complications)"
+    - "healthdirect: see doctor or midwife as soon as possible for unusual discharge; BV in pregnancy needs treatment"
+    - "contact doctor or midwife immediately: any bleeding, bright red blood not mixed with mucus, or fluid leaking"
+  sources:
+    - title: PBB — Vaginal discharge during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/vaginal-discharge-during-pregnancy
+    - title: healthdirect — Bacterial vaginosis
+      url: https://www.healthdirect.gov.au/bacterial-vaginosis
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+  related: [thrush, fluid-leaking, spotting-and-bleeding-in-early-pregnancy]
+
+- id: thrush
+  title: Thrush
+  type: symptom
+  topic: body
+  ask: "Itchy and sore down there with white discharge. Is it thrush, and can I treat it?"
+  aliases: [vaginal thrush, yeast infection, candida, itchy vagina, itchy vulva, cottage cheese discharge]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: low
+  covers:
+    - "common yeast infection in pregnancy: vaginal pain, itch and discharge; does not harm the baby"
+    - "see doctor for treatment before using over-the-counter medicines, to make sure nothing else is causing it; speak to the pharmacist"
+    - "see doctor: first time with these symptoms, symptoms continue after treatment, painful sex after treatment, frequent thrush, pelvic or vulval pain, unusual bleeding"
+  sources:
+    - title: PBB — Thrush during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/vaginal-thrush-during-pregnancy
+    - title: RWH — Common concerns in early pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
+  related: [vaginal-discharge, itchy-skin, urinary-tract-infection]
+
+- id: urinary-tract-infection
+  title: Urinary tract infection (UTI)
+  type: symptom
+  topic: body
+  ask: "Could I have a UTI, and does it matter more in pregnancy?"
+  aliases: [UTI, bladder infection, cystitis, kidney infection, pyelonephritis, burning wee]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "the most common bacterial infection in pregnancy: 1 in 10; can be present with no symptoms, which is why urine is tested at the first visit"
+    - "symptoms: burning or pain weeing, needing to go more, leaking, feeling the bladder is still full, cloudy, bloody or smelly urine, pain low in the belly, fever; cramping that feels like early labour"
+    - "kidney infection: fever above 38°C and back pain"
+    - "see midwife or doctor if you have any UTI symptoms; don't delay antibiotics, infection can develop quickly"
+  sources:
+    - title: PBB — Urinary tract infections (UTIs) during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/urinary-tract-infections-utis-during-pregnancy
+  related: [painful-urination, back-pain, fever, frequent-urination]
+
+- id: itchy-skin
+  title: Itchy skin
+  type: symptom
+  topic: body
+  ask: "My belly is so itchy. When is itching a problem?"
+  aliases: [itching, itchy belly, itchy all over, pruritus, scratching]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "common: the skin over the belly stretches and itches; itchy vagina may be thrush, itchy anus may be haemorrhoids"
+    - "itching without a rash, especially palms and soles, can be cholestasis; usually third trimester"
+    - "itchy rashes: eczema, prurigo (first or second trimester), PEP (late third trimester, first pregnancy)"
+    - "tell doctor or midwife if you feel itchy; see doctor or midwife for itchy skin even without a rash (PBB)"
+    - "RWH: contact doctor or midwife for persistent itching, it can be a sign of a more serious problem"
+    - "healthdirect: after 20 weeks, contact doctor, midwife or hospital immediately for extreme itchiness, especially hands and feet"
+  sources:
+    - title: PBB — Itching during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/itching-during-pregnancy
+    - title: RWH — Common concerns in early pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+  related: [itchy-palms-and-soles, pregnancy-rash, stretch-marks, thrush]
+
+- id: pregnancy-rash
+  title: Itchy rashes of pregnancy (PEP, prurigo, eczema)
+  type: symptom
+  topic: body
+  ask: "I've got an itchy bumpy rash on my belly. What is it?"
+  aliases: [PEP, PUPPP, polymorphic eruption, prurigo, eczema, hives, bumpy rash, rash on stretch marks, atopic eruption]
+  weeks: [1, 42]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "eczema is the most common skin condition of pregnancy; some get it for the first time (atopic eruption of pregnancy)"
+    - "prurigo: harmless dry bumpy rash on belly, arms or legs, usually first or second trimester"
+    - "PEP: 1 in 160, itchy red spots starting on the belly, often in stretch marks, usually weeks 36 to 39 of a first pregnancy; not harmful; gone within weeks of birth"
+    - "see doctor or midwife for any itchy rash, to rule out causes that can harm the baby; moisturisers, steroid creams and antihistamines can be used"
+    - "see doctor if treatment isn't working or the rash is making you anxious"
+  sources:
+    - title: PBB — Polymorphic eruption of pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/polymorphic-eruption-of-pregnancy
+    - title: PBB — Prurigo of pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/skin-changes-during-pregnancy-prurigo-of-pregnancy
+    - title: PBB — Eczema during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/eczema-during-pregnancy-and-breastfeeding
+  related: [itchy-skin, itchy-palms-and-soles, stretch-marks]
+
+- id: stretch-marks
+  title: Stretch marks
+  type: symptom
+  topic: body
+  ask: "Can I stop stretch marks, and do they fade?"
+  aliases: [striae, stretchmarks, tiger stripes, red lines on belly]
+  weeks: [20, 42]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "very common, about 90 per cent (RWH); belly, thighs, breasts, hips, upper arms; often appear in the third trimester, more likely with fast weight gain"
+    - "red, pink or purple at first; won't disappear but fade to pale silvery lines after birth"
+    - "nothing applied to the skin prevents them (RWH); talk to doctor or midwife at your next antenatal appointment if they bother you"
+  sources:
+    - title: PBB — Stretch marks in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/stretch-marks
+    - title: RWH — Coping with common discomforts of pregnancy (fact sheet, April 2018)
+      url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
+  related: [itchy-skin, pregnancy-rash, linea-nigra]
+
+- id: skin-darkening
+  title: Skin darkening and melasma
+  type: symptom
+  topic: body
+  ask: "Brown patches on my face and darker nipples. Is this the mask of pregnancy?"
+  aliases: [melasma, chloasma, mask of pregnancy, pigmentation, brown patches, dark patches on face, darker nipples, darker armpits]
+  weeks: [13, 42]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "melasma is very common, usually second or third trimester: symmetrical brown patches on forehead, cheeks, nose, upper lip; hormones and sun"
+    - "pigmented areas darken in nearly every woman: moles, freckles, areola, genitals, inner thighs, armpits (RWH); fade after birth over time"
+    - "no health problem for you or the baby, but can be hard emotionally; sunscreen and sun protection help and prevent it returning"
+    - "see doctor or midwife about brown patches, especially if on areas other than the face"
+  sources:
+    - title: PBB — Melasma (chloasma)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/skin-changes-during-pregnancy-melasma
+    - title: RWH — Coping with common discomforts of pregnancy (fact sheet, April 2018)
+      url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
+  related: [linea-nigra, moles-changing, sore-breasts]
+
+- id: linea-nigra
+  title: The dark line down your belly (linea nigra)
+  type: symptom
+  topic: body
+  ask: "What's the dark line down the middle of my belly?"
+  aliases: [linea nigra, pregnancy line, dark line on belly, line on tummy]
+  weeks: [10, 42]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "often develops in the first trimester; gets darker and wider as pregnancy goes on; sun makes it darker"
+    - "not dangerous, no treatment; usually fades after birth but may not disappear; may return next pregnancy"
+    - "see doctor for any other dark areas of skin on the belly"
+  sources:
+    - title: PBB — Linea nigra
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/skin-changes-during-pregnancy-linea-nigra
+  related: [skin-darkening, stretch-marks]
+
+- id: acne
+  title: Pregnancy acne
+  type: symptom
+  topic: body
+  ask: "My skin has broken out like a teenager's. Will it settle?"
+  aliases: [pimples, breakouts, spots, acne flare]
+  weeks: [1, 42]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "likely to flare in the first trimester; usually improves or disappears by the third trimester"
+    - "only use acne treatments that are safe in pregnancy; avoid products with vitamin A (retinol)"
+    - "see doctor or midwife if not controlled with non-prescription products, moderate to severe, or causing distress"
+  sources:
+    - title: PBB — Acne during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/skin-changes-during-pregnancy-acne
+    - title: PBB — Changes to your skin during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-skin-during-pregnancy
+  related: [skin-darkening, pregnancy-rash]
+  notes: "Which acne medicines are safe belongs to the medicines area."
+
+- id: moles-changing
+  title: Moles getting bigger or darker
+  type: symptom
+  topic: body
+  ask: "My moles look bigger and darker. Is that pregnancy or something to check?"
+  aliases: [moles, naevi, mole changed, new mole, dark mole, skin cancer check]
+  weeks: [1, 42]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - "moles can get larger and darker in pregnancy, especially first trimester, on the belly and breasts as skin stretches"
+    - "moles can become melanoma; keep checking them"
+    - "see doctor: asymmetrical, irregular border, different colours, larger than 6 mm, raised, or changed in size, shape or colour during pregnancy; an itchy mole is a sign to look out for"
+  sources:
+    - title: PBB — Moles (melanocytic naevi) during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/skin-changes-during-pregnancy-melanocytic-naevi
+  related: [skin-darkening]
+
+- id: carpal-tunnel
+  title: Numb, tingling hands (carpal tunnel)
+  type: symptom
+  topic: body
+  ask: "My hands are numb and tingly, worse at night. Is that pregnancy?"
+  aliases: [carpal tunnel, pins and needles in hands, numb fingers, tingling fingers, wrist pain, weak grip]
+  weeks: [13, 42]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "common: up to 1 in 2; more in the second and third trimesters; swelling presses on the nerve; usually goes after birth"
+    - "pins and needles, pain, numbness, weakness, burning fingers, pain into the arm or shoulder"
+    - "see doctor or midwife if you have symptoms; physiotherapist or occupational therapist for exercises and a wrist splint"
+    - "speak to doctor or midwife if hands or feet are more swollen than usual (swelling may be a sign of high blood pressure)"
+  sources:
+    - title: PBB — Carpal tunnel syndrome and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/carpal-tunnel-syndrome-and-pregnancy
+  related: [swollen-feet-and-ankles, sudden-swelling, insomnia]
+
+- id: insomnia
+  title: Can't sleep
+  type: symptom
+  topic: body
+  ask: "I can't get comfortable or stay asleep. What helps, and which side should I sleep on?"
+  aliases: [insomnia, can't sleep, waking at night, sleep problems, poor sleep, sleep position, sleeping on back]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers:
+    - "sleep issues affect about 1 in 2 pregnancies and may worsen as pregnancy progresses; sleep is lighter, you wake more, you need more sleep"
+    - "late pregnancy: toilet trips, heartburn, kicks, discomfort; disturbing dreams in the last months (RWH)"
+    - "from 28 weeks sleep on your side to reduce the risk of stillbirth; don't worry if you wake on your back, just roll over"
+    - "pregnancy pillow, sleep hygiene, manage the symptoms waking you; behavioural treatments first; herbal remedies not recommended; suvorexant not recommended"
+    - "see doctor if trouble sleeping is affecting you or the baby's health, or still a problem after trying these tips"
+    - "see doctor if you started snoring in pregnancy"
+    - "see doctor if heartburn wakes you and you also have swelling, headache or distorted vision"
+  sources:
+    - title: PBB — Sleep during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
+    - title: PBB — Insomnia in pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/insomnia-in-pregnancy-and-breastfeeding
+    - title: RWH — Coping with common discomforts of pregnancy (fact sheet, April 2018)
+      url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
+  related: [tiredness, vivid-dreams, snoring, restless-legs, leg-cramps, heartburn, frequent-urination]
+
+- id: vivid-dreams
+  title: Vivid dreams and nightmares
+  type: symptom
+  topic: body
+  ask: "Why are my dreams so vivid and weird?"
+  aliases: [weird dreams, nightmares, bad dreams, disturbing dreams, pregnancy dreams]
+  weeks: [1, 42]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "you may dream more than usual in pregnancy: unusual dreams or nightmares; can relate to stress or broken sleep"
+    - "RWH: disturbing dreams or nightmares in the last couple of months can be anxiety about birth and parenthood"
+    - "regular schedule, sleep position, pregnancy pillow; if dreams disturb you, talk to your partner or a friend, consider a counsellor"
+  sources:
+    - title: PBB — Sleep during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
+    - title: RWH — Coping with common discomforts of pregnancy (fact sheet, April 2018)
+      url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
+  related: [insomnia]
+  notes: "No source gives a threshold; neither gives a cause beyond stress and broken sleep. Keep it short. Anxiety itself belongs to the mental-health area."
+
+- id: snoring
+  title: Snoring that started in pregnancy
+  type: symptom
+  topic: body
+  ask: "I've started snoring. Does that matter?"
+  aliases: [snoring, sleep apnoea, stopping breathing in sleep, gasping at night]
+  weeks: [13, 42]
+  who: carrying
+  priority: 3
+  stakes: medium
+  covers:
+    - "speak to doctor if you started snoring during pregnancy: it could be a sign of other problems affecting you and the baby"
+    - "see doctor or midwife: more pauses in breathing during sleep, or exhausted and rest doesn't help"
+    - "healthdirect: see doctor for any symptoms of obstructive sleep apnoea; a sleep study can diagnose it"
+  sources:
+    - title: PBB — Sleep during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
+    - title: PBB — Dealing with fatigue during your pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/dealing-with-fatigue-during-your-pregnancy
+    - title: healthdirect — Obstructive sleep apnoea
+      url: https://www.healthdirect.gov.au/sleep-apnoea
+  related: [insomnia, tiredness, blocked-nose]
+
+- id: braxton-hicks
+  title: Braxton Hicks (practice contractions)
+  type: symptom
+  topic: body
+  ask: "My belly keeps going tight and hard. Is that labour?"
+  aliases: [practice contractions, false labour, tightenings, belly goes hard, Braxton Hicks, false contractions]
+  weeks: [20, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "normal; irregular, usually about 30 seconds (up to 2 minutes), uncomfortable but not usually painful; no more than once or twice an hour, a few times a day"
+    - "can happen from early on but usually felt from the second trimester, most in the third; stop with a change of position, a walk, a warm shower"
+    - "labour contractions: regular, closer together, longer, stronger over time, painful or need all your attention"
+    - "call midwife or doctor or go to hospital: waters break, or contractions getting stronger, closer together and more regular; call if they don't ease up"
+    - "before 37 weeks, contact doctor or midwife immediately for pain or discomfort in the pelvis, belly or lower back, or any sign of labour"
+    - "any stage, contact immediately: persistent belly pain, vaginal bleeding, concern about movements, feeling very unwell"
+  sources:
+    - title: PBB — Braxton Hicks contractions
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/braxton-hicks-contractions
+    - title: PBB — Braxton Hicks or labour contractions?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/braxton-hicks-or-labour-contractions
+  related: [signs-of-preterm-labour, abdominal-pain, fluid-leaking]
+  notes: "The signs of labour at term are the labour area's; this entry ends at 'is it labour: call'."
+
+- id: babys-hiccups
+  title: The baby's hiccups
+  type: symptom
+  topic: baby
+  ask: "I feel rhythmic little jumps. Is the baby hiccupping?"
+  aliases: [baby hiccups, hiccups in the womb, rhythmic twitching, jerky movements]
+  weeks: [20, 42]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "when you are pregnant you may feel your baby hiccupping; hiccups are a reflex"
+    - "no treatment needed"
+  sources:
+    - title: PBB — Hiccups
+      url: https://www.pregnancybirthbaby.org.au/babies/daily-care/hiccups
+  related: [not-felt-baby-move-yet, reduced-movements]
+  notes: "The only Australian source found says just one line about hiccups in the womb (PBB's general hiccups page). No source read says when they start or whether a change matters. Write it short and don't invent weeks; the 20–42 range is a placeholder for the timeline, not from the source."
+
+- id: food-cravings-and-aversions
+  title: Cravings, going off foods and taste changes
+  type: symptom
+  topic: body
+  ask: "I can't stand coffee and I crave pickles. Normal?"
+  aliases: [cravings, aversions, gone off food, metallic taste, taste changes, pica, craving ice, craving dirt]
+  weeks: [4, 27]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "very common; aversions mostly in the first trimester, cravings mostly in the second (weeks 13 to 27); common aversions: coffee and tea, meat, fatty or spicy food, eggs, strong smells"
+    - "foods taste different; usually settles as pregnancy goes on, try important foods again later (RWH)"
+    - "cravings don't predict the baby's sex"
+    - "see doctor if nausea stops you eating well: vomiting, can't keep food or fluids down, weight loss"
+    - "speak to midwife or doctor if you crave non-food items (chalk, clay, ice)"
+  sources:
+    - title: PBB — Appetite changes and food aversions during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/appetite-changes-and-food-aversions-during-pregnancy
+    - title: PBB — Food cravings during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/food-cravings-during-pregnancy
+    - title: RWH — Common concerns in early pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
+  related: [nausea-and-vomiting, severe-vomiting]
+  notes: "Border with the food area: this entry is the symptom (is it normal); what to eat is theirs."
+
+- id: brain-fog
+  title: Forgetfulness and brain fog
+  type: symptom
+  topic: body
+  ask: "Is 'baby brain' real? I keep forgetting things."
+  aliases: [baby brain, pregnancy brain, forgetful, can't concentrate, foggy]
+  weeks: [1, 42]
+  who: carrying
+  priority: 3
+  stakes: low
+  covers:
+    - "pregnancy can affect brain function and memory, especially in the third trimester; sometimes called brain fog"
+    - "tiredness reduces concentration and alertness; see doctor or midwife if exhaustion doesn't improve with rest"
+  sources:
+    - title: PBB — Changes to your body during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
+    - title: PBB — Dealing with fatigue during your pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/dealing-with-fatigue-during-your-pregnancy
+  related: [tiredness, insomnia]
+  notes: "PBB gives one sentence and no threshold. A single card may serve better than a full entry."
+
+- id: abdominal-separation
+  title: Abdominal muscle separation
+  type: symptom
+  topic: body
+  ask: "There's a gap or bulge down the middle of my belly when I sit up. What is it?"
+  aliases: [diastasis recti, DRAM, split tummy muscles, abdominal separation, doming, coning]
+  weeks: [27, 42]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "common in the later stages of pregnancy; the two long muscles of the abdomen separate; often gets better by itself"
+    - "more likely after more than one pregnancy or with extra weight"
+    - "see doctor, midwife or physiotherapist to check it and for the right exercises; a supportive brace or underwear can help"
+  sources:
+    - title: PBB — Abdominal separation
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/abdominal-separation
+  related: [back-pain, pelvic-girdle-pain]
+
+- id: sciatica
+  title: Sciatica (pain down the leg)
+  type: symptom
+  topic: body
+  ask: "Shooting pain from my bum down one leg. Is that sciatica?"
+  aliases: [sciatica, shooting leg pain, pain down leg, pinched nerve, numb leg, buttock pain]
+  weeks: [13, 42]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "pregnancy changes to muscles and ligaments can increase the risk of sciatica"
+    - "see doctor if you have symptoms"
+    - "seek urgent care: sudden lower back pain with trouble controlling bladder or bowels, numbness in the genital or anal area, tingling, numbness or weakness in the legs, severe pain lying down or at night, or recent fever"
+  sources:
+    - title: healthdirect — Sciatica
+      url: https://www.healthdirect.gov.au/sciatica
+    - title: PBB — Backache in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/backache-in-pregnancy
+  related: [back-pain, pelvic-girdle-pain]
+  notes: "healthdirect's sciatica page is general, with one pregnancy sentence."
+
+- id: feeling-hot-and-overheating
+  title: Feeling hot, sweaty and overheated
+  type: symptom
+  topic: body
+  ask: "I'm always hot and sweaty. Is overheating bad for the baby?"
+  aliases: [hot flushes, sweating, overheating, heat exhaustion, heatstroke, hot weather, can't cool down]
+  weeks: [1, 42]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - "body temperature naturally rises in pregnancy, so you are more sensitive to heat"
+    - "avoid overheating, especially in the first trimester, when it can affect the baby's growth and development"
+    - "heat exhaustion: heavy sweating, very thirsty, headache; lie down somewhere cool, loosen clothes, hands and feet in cool water"
+    - "see doctor or urgent care: dizziness, nausea, fast pulse, shortness of breath"
+    - "call 000: heatstroke, hot dry skin with no sweating, temperature above 40°C, severe dehydration, rapid breathing, vomiting, confusion or slurred speech, loss of consciousness or seizures"
+  sources:
+    - title: PBB — Dealing with hot weather during pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/dealing-with-hot-weather-during-pregnancy-and-breastfeeding
+  related: [fever, dizziness-and-fainting, swollen-feet-and-ankles]
+  notes: "Saunas, hot baths and exercise in heat belong to the activities area."
+
+- id: leaking-colostrum
+  title: Leaking from the nipples
+  type: symptom
+  topic: body
+  ask: "Is it normal to leak yellowish fluid from my nipples before the baby comes?"
+  aliases: [colostrum, leaking breasts, leaking nipples, first milk, wet patches on bra]
+  weeks: [16, 42]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers:
+    - "colostrum (first milk) is made from about 16 weeks; you may find it leaks from your nipples, or notice nothing"
+    - "don't express colostrum before 36 weeks; not advised if at risk of premature birth, as stimulating the breasts may trigger labour; talk to doctor or midwife first"
+  sources:
+    - title: PBB — Antenatal expression of colostrum
+      url: https://www.pregnancybirthbaby.org.au/babies/feeding-and-nutrition/antenatal-expression-of-colostrum
+  related: [sore-breasts]
+  notes: "Antenatal expressing as a task (who should, how) is the feeding area's; this entry is only 'leaking is normal'. Bleeding from a nipple has no threshold in the source read."
+
+- id: cold-or-flu
+  title: A cold or the flu
+  type: symptom
+  topic: body
+  ask: "I've got a cold. Do I need to see anyone, and is it the flu?"
+  aliases: [cold, flu, influenza, cough, sore throat, sick, COVID, virus]
+  weeks: [1, 42]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "colds are not dangerous for you or the baby and get better in a few days"
+    - "flu is more serious: pregnant people are more likely to become seriously unwell, especially in the second or third trimester; a fever is 38°C or higher"
+    - "see doctor if you think you have the flu: antiviral medicine works best early; call ahead, ask about telehealth"
+    - "see doctor if worried about symptoms; speak to doctor or pharmacist before taking cold medicines"
+    - "the flu vaccine is free in pregnancy"
+  sources:
+    - title: PBB — Cold and flu during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-and-flu-during-pregnancy
+  related: [fever, feeling-very-unwell, blocked-nose]
+  notes: "The flu vaccine is a moment in the tests-and-care area; which cold medicines are safe is the medicines area."
+
+- id: not-felt-baby-move-yet
+  title: Haven't felt the baby move yet
+  type: symptom
+  topic: baby
+  ask: "I'm 22 weeks and haven't felt anything. Should I worry?"
+  aliases: [quickening, first movements, first kicks, flutters, when will I feel the baby, no movements yet, anterior placenta]
+  weeks: [16, 24]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "usually first felt by about 20 weeks, earlier in a later pregnancy; regular by 28 weeks"
+    - "an anterior placenta can mean movements are felt around 20 weeks and feel less strong"
+    - "if you have not felt your baby move by 24 weeks, contact your doctor or midwife"
+  sources:
+    - title: PBB — Baby movements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
+    - title: PBB — Braxton Hicks contractions (movements banner)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/braxton-hicks-contractions
+  related: [reduced-movements, babys-hiccups]
+  notes: "Border with the body-and-baby area, which may describe first movements as development; this entry is the threshold (24 weeks)."
+
+# ---------------------------------------------------------------------------
+# Signs to act on
+# ---------------------------------------------------------------------------
+
+- id: spotting-and-bleeding-in-early-pregnancy
+  title: Spotting or bleeding before 20 weeks
+  type: symptom
+  topic: body
+  ask: "I've had some spotting. Am I losing the baby?"
+  aliases: [spotting, bleeding, brown discharge, pink discharge, blood when I wipe, implantation bleeding, light bleeding, early pregnancy bleeding]
+  weeks: [1, 20]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "common: 1 in 4 bleed in early pregnancy and many go on to have a healthy baby (RWH); light spotting does not always mean miscarriage"
+    - "causes: implantation bleeding, miscarriage, ectopic pregnancy, molar pregnancy"
+    - "contact doctor or midwife for spotting or bleeding at any stage; note the amount, colour, clots, pain; keep the pad"
+    - "if bleeding is not heavy and you feel well, contact doctor or midwife straight away; you may be referred to an early pregnancy assessment service"
+    - "go to emergency: heavy bleeding or large clots, strong abdominal pain, shoulder tip pain, fever or chills, dizzy or faint, smelly discharge, short of breath or fast heartbeat"
+    - "call 000: heavy bleeding (soaking 1 or more pads an hour or can't contain it), severe pain, shoulder tip pain, feeling faint, dizzy or unwell, trouble breathing"
+    - "Rh negative: after a miscarriage, ask whether you need anti-D"
+  sources:
+    - title: PBB — Bleeding during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
+    - title: PBB — What should I do if I think I'm having a miscarriage?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-should-i-do-if-i-think-im-having-a-miscarriage
+    - title: RWH — Bleeding in early pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/early-pregnancy-problems/bleeding-in-early-pregnancy
+  related: [heavy-bleeding, cramping-and-pain-in-early-pregnancy, shoulder-tip-pain, bleeding-after-20-weeks]
+  notes: "Miscarriage as an event, and what happens next, belong to the loss area; this entry stops at 'call'. The two PBB pages give different 000 thresholds for 'heavy': 2 pads an hour (bleeding page) and 1 or more pads an hour (miscarriage page). Use the more cautious one and say so."
+
+- id: bleeding-after-20-weeks
+  title: Bleeding in later pregnancy
+  type: symptom
+  topic: body
+  ask: "I'm 30 weeks and bleeding. What do I do?"
+  aliases: [bleeding late pregnancy, bleeding third trimester, bright red blood, placenta praevia bleeding, abruption, bleeding after sex, show]
+  weeks: [20, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "bleeding after 20 weeks may be a sign something needs medical attention; often the placenta: placenta praevia (painless bleeding after 28 weeks), placental abruption (bleeding with constant pain, not in waves; back pain; contractions; the baby moving less; pain may be mild or absent), vasa praevia"
+    - "a 'show' is mucus, possibly bloodstained; bright red blood not mixed with mucus is probably not a show: contact doctor or midwife immediately"
+    - "contact doctor, midwife or birth unit immediately for any bleeding; tell them if you have a low-lying placenta"
+    - "contact obstetrician or birth unit, or call an ambulance, immediately: soaking 2 pads an hour or clots, strong pain in the tummy or shoulder, dizzy or faint, short of breath"
+    - "call 000: very heavy bleeding, strong pain, or feeling very unwell; placenta praevia with heavy bleeding and pain or contractions; abruption with severe bleeding or pain"
+    - "after any blow to the belly, bleeding, pain or a tightening uterus: call 000"
+  sources:
+    - title: PBB — Bleeding during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
+    - title: PBB — Placental abruption
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placental-abruption
+    - title: PBB — Placenta praevia
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-praevia
+    - title: PBB — Vaginal discharge during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/vaginal-discharge-during-pregnancy
+    - title: RWH — Placenta problems
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/placenta-problems
+  related: [heavy-bleeding, abdominal-pain, fall-or-blow-to-the-belly, reduced-movements, fluid-leaking]
+  notes: "Placenta praevia and abruption as conditions (what they are, what happens) are terms for the tests-and-care or body-and-baby areas; this entry is the symptom and the call."
+
+- id: heavy-bleeding
+  title: Heavy bleeding
+  type: symptom
+  topic: body
+  ask: "How much bleeding is 'heavy'? When is it 000?"
+  aliases: [soaking pads, clots, gushing blood, haemorrhage, bleeding a lot, golf ball clots]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "call 000 and ask for an ambulance: very heavy bleeding, strong pain or feeling very unwell"
+    - "contact obstetrician, birth unit or an ambulance immediately: bleeding soaking 2 pads an hour or passing clots (the size of golf balls), strong tummy or shoulder pain, dizzy or faint, short of breath, discharge that smells bad"
+    - "miscarriage page: 000 or emergency for soaking 1 or more pads in an hour, or bleeding you can't catch or contain"
+    - "keep the pads or stained clothes to show the doctor or midwife"
+  sources:
+    - title: PBB — Bleeding during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
+    - title: PBB — What should I do if I think I'm having a miscarriage?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-should-i-do-if-i-think-im-having-a-miscarriage
+  related: [spotting-and-bleeding-in-early-pregnancy, bleeding-after-20-weeks, shoulder-tip-pain]
+  notes: "The two PBB pages disagree on the pad count (2 an hour vs 1 an hour); use 1 and note it. This entry exists so the pad threshold has one home; the two bleeding entries link to it."
+
+- id: abdominal-pain
+  title: Pain in your belly
+  type: symptom
+  topic: body
+  ask: "My tummy hurts. Which pains are normal and which aren't?"
+  aliases: [tummy pain, stomach pain, belly pain, cramps, cramping, sharp pain, stomach ache, abdominal pain, pain low down]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "common; often nothing serious: round ligament pain, constipation, Braxton Hicks; some pains need investigating"
+    - "pregnancy causes that are serious: ectopic pregnancy, miscarriage, pre-eclampsia and HELLP, placental abruption; plus non-pregnancy causes (appendicitis, UTI, gallstones)"
+    - "seek urgent care: pain with persistent diarrhoea or vomiting or dehydration, preterm labour, vaginal bleeding, fewer movements, signs of infection, or after trauma to the stomach"
+    - "call 000 or go to emergency: severe pain with signs of preterm labour, bleeding or infection, or after trauma to the abdomen"
+    - "healthdirect: call doctor or midwife straight away for severe abdominal pain; after 20 weeks, pain under the ribs: contact immediately (healthdirect); it can be a sign of pre-eclampsia (PBB)"
+  sources:
+    - title: PBB — Pre-eclampsia
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
+    - title: PBB — Abdominal pain in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/abdominal-pain-in-pregnancy
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+  related: [cramping-and-pain-in-early-pregnancy, round-ligament-pain, pain-under-the-ribs, braxton-hicks, constipation, signs-of-preterm-labour, bleeding-after-20-weeks]
+
+- id: cramping-and-pain-in-early-pregnancy
+  title: Cramping or one-sided pain before 20 weeks
+  type: symptom
+  topic: body
+  ask: "Period-like cramps at 7 weeks. Is this a miscarriage or an ectopic?"
+  aliases: [cramps early pregnancy, period pain when pregnant, one-sided pain, ectopic pregnancy, pain in one side, implantation cramps]
+  weeks: [1, 20]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "implantation can cause some cramping and light bleeding; get medical help for vaginal bleeding or abdominal pain in the first trimester"
+    - "ectopic pregnancy is about 1 in 100, usually 6 to 8 weeks after the last period; symptoms between weeks 4 and 12: bleeding or spotting, tummy pain, back pain, shoulder tip pain, nausea, fast heart rate, dizziness or faintness"
+    - "any ectopic symptoms: go to the nearest emergency department or call triple zero (000) for an ambulance"
+    - "heavy bleeding, strong pain or feeling unwell: call triple zero (000)"
+    - "contact doctor, midwife or hospital immediately (before 20 weeks): severe pain or cramping low in the belly, or pain in the tip of one shoulder, especially with bleeding; dizziness; fainting"
+    - "go to emergency or call 000: abdominal pain, shoulder tip pain, heavy bleeding, dizziness or fainting"
+  sources:
+    - title: PBB — Ectopic pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/ectopic-pregnancy
+    - title: healthdirect — Ectopic pregnancy
+      url: https://www.healthdirect.gov.au/ectopic-pregnancy
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: PBB — First trimester
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/first-trimester
+  related: [spotting-and-bleeding-in-early-pregnancy, shoulder-tip-pain, dizziness-and-fainting, abdominal-pain]
+  notes: "Ectopic pregnancy and miscarriage as events, and their treatment, belong to the loss area."
+
+- id: shoulder-tip-pain
+  title: Pain in the tip of the shoulder
+  type: symptom
+  topic: body
+  ask: "Why would a sore shoulder matter in early pregnancy?"
+  aliases: [shoulder tip pain, shoulder pain, pain in shoulder when lying down]
+  weeks: [1, 20]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "pain in the tip of one shoulder is a sign of an ectopic pregnancy (internal bleeding)"
+    - "go to the emergency department or call 000 for shoulder tip pain while pregnant, on its own or with spotting, tummy or back pain, a fast heartbeat or dizziness (healthdirect, ectopic pregnancy)"
+  sources:
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: healthdirect — Ectopic pregnancy
+      url: https://www.healthdirect.gov.au/ectopic-pregnancy
+    - title: PBB — Bleeding during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
+  related: [cramping-and-pain-in-early-pregnancy, spotting-and-bleeding-in-early-pregnancy, heavy-bleeding]
+  notes: "Nobody expects a shoulder to be a pregnancy sign; a card as well as the entry."
+
+- id: severe-headache
+  title: A severe headache that won't go
+  type: symptom
+  topic: body
+  ask: "I have a headache that paracetamol isn't touching. Is that pre-eclampsia?"
+  aliases: [bad headache, headache won't go away, worst headache, headache and blurred vision, pre-eclampsia headache]
+  weeks: [20, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "after 20 weeks, a headache that doesn't get better with simple pain relief can be pre-eclampsia"
+    - "contact doctor, midwife or hospital immediately: a headache not relieved by simple pain-relieving medicine, with or without vision changes, sudden swelling, pain under the ribs"
+    - "seek medical help immediately: a severe headache that is not usual for you (PBB)"
+    - "call 000: a sudden severe headache, or a headache with vomiting, confusion, neck stiffness or vision changes (healthdirect); heavy bleeding, severe headache or blurred vision in labour (PBB)"
+    - "RWH: persistent headaches unrelieved by over-the-counter medications could indicate pre-eclampsia"
+  sources:
+    - title: "PBB — Giving birth: early signs of labour"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: PBB — Headaches during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/headaches-during-pregnancy
+    - title: healthdirect — Headaches
+      url: https://www.healthdirect.gov.au/headaches
+    - title: RWH — High blood pressure & preeclampsia
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/preeclampsia
+  related: [headaches, vision-changes, sudden-swelling, pain-under-the-ribs, signs-of-pre-eclampsia]
+
+- id: vision-changes
+  title: Blurred vision, flashing lights or spots
+  type: symptom
+  topic: body
+  ask: "I'm seeing spots and flashes. Is that serious?"
+  aliases: [blurred vision, flashing lights, seeing spots, floaters, vision problems, eyesight blurry, auras]
+  weeks: [20, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "after 20 weeks, vision changes such as flashing lights or blurry eyesight are a sign of pre-eclampsia"
+    - "contact doctor, midwife or hospital immediately (healthdirect); call doctor or midwife straight away (PBB)"
+    - "seek medical attention urgently or go to emergency: blurred vision with a severe headache, sudden swelling or pain under the ribs"
+    - "call 000: a headache with vision changes (healthdirect); severe headache or blurred vision in labour (PBB)"
+    - "outside labour, blurred vision with a severe headache: seek medical attention urgently or go to emergency (PBB pre-eclampsia)"
+  sources:
+    - title: healthdirect — Headaches
+      url: https://www.healthdirect.gov.au/headaches
+    - title: "PBB — Giving birth: early signs of labour"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: PBB — Pre-eclampsia
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
+    - title: PBB — Headaches during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/headaches-during-pregnancy
+  related: [severe-headache, sudden-swelling, pain-under-the-ribs, signs-of-pre-eclampsia]
+
+- id: sudden-swelling
+  title: Sudden swelling of the face, hands or feet
+  type: symptom
+  topic: body
+  ask: "My face and hands puffed up overnight. Is that pre-eclampsia?"
+  aliases: [swollen face, puffy face, swollen hands, sudden swelling, swelling overnight, pre-eclampsia swelling]
+  weeks: [20, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "gradual ankle swelling that goes down overnight is normal; sudden or severe swelling of the hands, feet or face is not"
+    - "contact doctor, midwife or hospital immediately: sudden, severe swelling in hands, feet or face; swelling in the legs that doesn't improve overnight (healthdirect)"
+    - "contact immediately (PBB): sudden swelling of face, hands or feet, especially with headache, vision changes, pain below the ribs, vomiting, high blood pressure, or heartburn not eased by antacids"
+    - "speak to midwife or doctor: swelling early in the day, or in the fingers, hands and face"
+    - "RWH: tell doctor or midwife if swelling is more than slight, not relieved by rest, or elsewhere on the body"
+  sources:
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: PBB — Swelling during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/swelling-during-pregnancy
+    - title: PBB — Changes to your body during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
+    - title: RWH — Coping with common discomforts of pregnancy (fact sheet, April 2018)
+      url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
+  related: [swollen-feet-and-ankles, severe-headache, vision-changes, signs-of-pre-eclampsia, painful-swollen-leg]
+
+- id: pain-under-the-ribs
+  title: Pain under the ribs or in the upper belly
+  type: symptom
+  topic: body
+  ask: "A sharp pain under my right ribs that won't go, like heartburn that antacids don't fix. What is it?"
+  aliases: [rib pain, pain under ribs, upper abdominal pain, epigastric pain, pain under right ribs, heartburn not going away]
+  weeks: [20, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "after 20 weeks, pain under the ribs or in the upper tummy, or heartburn that doesn't go away with antacids, is a sign of severe pre-eclampsia"
+    - "contact doctor, midwife or hospital immediately (healthdirect); call doctor or midwife straight away (PBB headaches)"
+    - "seek medical attention urgently or go to emergency: pain under the ribcage with severe headache, blurred vision or sudden swelling"
+    - "see doctor if heartburn doesn't go away with medicine"
+  sources:
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: PBB — Pre-eclampsia
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
+    - title: PBB — Indigestion and heartburn in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/indigestion-and-heartburn-in-pregnancy
+  related: [heartburn, severe-headache, signs-of-pre-eclampsia, abdominal-pain]
+  notes: "The baby's feet under the ribs is a common cause of rib pain late on, but no source read says so; don't write it as fact."
+
+- id: signs-of-pre-eclampsia
+  title: The signs of pre-eclampsia
+  type: symptom
+  topic: body
+  ask: "What are the warning signs of pre-eclampsia?"
+  aliases: [pre-eclampsia, preeclampsia, toxaemia, high blood pressure in pregnancy, HELLP, protein in urine]
+  weeks: [20, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "a serious condition, usually sudden, after at least 20 weeks (or the first days after birth); about 1 in 8 pregnancies has higher blood pressure than normal"
+    - "most people notice no symptoms; it is usually found at a routine antenatal check (blood pressure, urine)"
+    - "signs of severe pre-eclampsia: sudden swelling of hands, face and feet; headaches not eased by simple pain relief; flashing lights or spots; severe pain below the ribs or upper tummy; heartburn not eased by antacids; feeling very unwell"
+    - "see midwife, doctor or care provider straight away for any of these; seek medical attention urgently or go to emergency"
+    - "RWH: can get worse very quickly; HELLP is the severe form and needs urgent medical attention"
+    - "call 000 in labour with severe headache or blurred vision"
+  sources:
+    - title: "PBB — Giving birth: early signs of labour"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
+    - title: PBB — Pre-eclampsia
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
+    - title: PBB — High blood pressure in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/high-blood-pressure-in-pregnancy
+    - title: healthdirect — Pre-eclampsia
+      url: https://www.healthdirect.gov.au/pre-eclampsia
+    - title: RWH — High blood pressure & preeclampsia
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/preeclampsia
+    - title: PBB — Low blood pressure during pregnancy (140/90 definition)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/low-blood-pressure-during-pregnancy
+  related: [severe-headache, vision-changes, sudden-swelling, pain-under-the-ribs, headaches, heartburn]
+  notes: "Pre-eclampsia as a condition (risk factors, aspirin, treatment, what the blood pressure numbers mean) belongs to the tests-and-care area as a term or guide; this entry is the symptom list and the call. RANZCOG has a pre-eclampsia pamphlet but it is behind a print portal; no RANZCOG page loaded."
+
+- id: itchy-palms-and-soles
+  title: Itchy palms and soles (cholestasis)
+  type: symptom
+  topic: body
+  ask: "The palms of my hands and soles of my feet itch like mad at night, with no rash. What is it?"
+  aliases: [cholestasis, obstetric cholestasis, ICP, itchy hands and feet, itching without rash, itching at night, bile acids, liver itch]
+  weeks: [20, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "cholestasis affects the liver; uncommon; usually starts in the third trimester; itch without a rash, often starting on palms and soles and spreading"
+    - "see doctor or midwife for itchy skin without a rash after 20 weeks; tell them if the itch is worst on hands or feet, or you or a family member had cholestasis before"
+    - "healthdirect: after 20 weeks, contact doctor, midwife or hospital immediately for extreme itchiness, especially hands and feet"
+    - "diagnosed by blood tests (bile acids, liver); repeated every week or two; treated with ursodeoxycholic acid; birth may be recommended earlier"
+    - "increases the risk of fetal distress, preterm labour and stillbirth, more so with higher bile acids; any change in movements: contact midwife or doctor immediately, do not wait until the next day"
+  sources:
+    - title: PBB — Cholestasis
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cholestasis
+    - title: PBB — Itching during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/itching-during-pregnancy
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: RWH — Common concerns in early pregnancy (itching)
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
+  related: [itchy-skin, pregnancy-rash, reduced-movements]
+  notes: "PBB's cholestasis page says 'see your midwife or doctor'; healthdirect's warning-signs page says 'contact immediately'. Give the stronger one. The intent doc names this as the example symptom entry."
+
+- id: fluid-leaking
+  title: Fluid leaking from the vagina
+  type: symptom
+  topic: body
+  ask: "I keep feeling wet. Is it wee, discharge, or my waters?"
+  aliases: [waters breaking, waters broke, leaking fluid, gush, trickle, wet underwear, PROM, PPROM, membranes ruptured, green waters, meconium]
+  weeks: [20, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "waters can gush or trickle; may feel like wetting yourself; usually clear, can be straw-coloured or pink; hard to tell from discharge or urine, a midwife can test it"
+    - "contact doctor or midwife immediately for any fluid leaking from the vagina (PBB discharge, healthdirect: clear fluid leaking)"
+    - "before 37 weeks (PPROM, 4 in 100): put on a pad, call doctor or midwife immediately, go to hospital; antibiotics and monitoring"
+    - "at term before labour: put on a pad, contact midwife, doctor or birth centre; most go into labour naturally within 24 to 96 hours"
+    - "call immediately or go to hospital: fluid green, brown or blood-coloured; smells bad; bleeding; temperature 37.5°C or above; feeling unwell or flu-like; a change in the baby's movements; regular painful contractions or belly pain"
+    - "call an ambulance and get on hands and knees, bottom up, if you feel something in the vagina after the waters break (cord prolapse)"
+    - "seek care straight away for anything green or brown in leaked fluid, even if you thought it was urine"
+  sources:
+    - title: "PBB — Giving birth: waters breaking"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+    - title: PBB — Waters breaking early
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/waters-breaking-early
+    - title: PBB — Vaginal discharge during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/vaginal-discharge-during-pregnancy
+    - title: PBB — Frequent urination during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/frequent-urination-during-pregnancy
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+  related: [vaginal-discharge, leaking-urine, signs-of-preterm-labour, fever, reduced-movements, braxton-hicks]
+  notes: "Waters breaking at term as part of labour (what happens next, when to go in) is the labour area's; this entry is the symptom and the call, at any week."
+
+- id: reduced-movements
+  title: The baby is moving less, or differently
+  type: symptom
+  topic: baby
+  ask: "The baby's been quiet today. Should I wait and see?"
+  aliases: [baby quiet, baby not moving, fewer kicks, reduced movements, less movement, movements changed, kick counts, baby not kicking, decreased fetal movements]
+  weeks: [24, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "get to know your baby's own pattern; regular by 28 weeks; babies move every day right up to birth and during labour; no set number of movements"
+    - "babies sleep in 20 to 40 minute cycles (occasionally up to 90) and don't move while asleep"
+    - "contact midwife, hospital birth unit or doctor immediately if concerned about the pattern or movements decrease; do not wait until the next day; if you can't reach them, go to the nearest birth unit or emergency"
+    - "go to the local hospital immediately if the baby has stopped moving or is moving less than usual (healthdirect); seek help immediately"
+    - "contact again even if already checked; you are not wasting their time; reduced movements are linked to stillbirth"
+    - "after any injury, go to hospital if the baby is moving less"
+  sources:
+    - title: PBB — Injuries during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+    - title: PBB — Baby movements during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: Safer Baby (Stillbirth CRE) — Your baby's movements matter
+      url: https://www.saferbaby.org.au/preventative-steps/your-babys-movements-matter/
+  related: [not-felt-baby-move-yet, fall-or-blow-to-the-belly, itchy-palms-and-soles, fluid-leaking]
+  exists: content/items/baby-movements.md
+  notes: "The existing item is a card; this entry is the full symptom with the sleep-cycle fact and the 'call again' line. Both must end at the birth unit's number."
+
+- id: fever
+  title: Fever
+  type: symptom
+  topic: body
+  ask: "I've got a temperature. When do I need to call?"
+  aliases: [temperature, high temperature, fever, chills, shivering, hot and cold, 38 degrees, feverish]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "a fever is 38°C or higher (healthdirect, PBB cold and flu); a kidney infection gives a fever above 38°C with back pain"
+    - "contact doctor, midwife or hospital immediately: fever or chills at any time in pregnancy (healthdirect warning signs)"
+    - "fever or chills while pregnant: contact doctor, midwife or hospital immediately (healthdirect warning signs)"
+    - "call 000 for fever with confusion or drowsiness, difficulty breathing, or seizures (healthdirect fever)"
+    - "with waters broken: call immediately for 37.5°C or above"
+    - "fever in pregnancy increases the baby's chance of congenital anomalies and miscarriage; sepsis needs urgent treatment: see doctor urgently, emergency, or 000 for fever with infection or difficulty breathing"
+  sources:
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: healthdirect — Fever
+      url: https://www.healthdirect.gov.au/fever
+    - title: "PBB — Giving birth: waters breaking"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+    - title: PBB — Sepsis during pregnancy and after childbirth
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/sepsis-during-pregnancy-and-after-childbirth
+    - title: PBB — Urinary tract infections (UTIs) during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/urinary-tract-infections-utis-during-pregnancy
+  related: [cold-or-flu, feeling-very-unwell, urinary-tract-infection, fluid-leaking]
+  notes: "Sources disagree on the number: 38°C in general (healthdirect, PBB), 37.5°C once the waters have broken (PBB). The old NSW Health Having a Baby book said 37.8°C but has been withdrawn and did not load. State both thresholds with their context."
+
+- id: feeling-very-unwell
+  title: Feeling very unwell (sepsis)
+  type: symptom
+  topic: body
+  ask: "I feel really sick, shivery and my heart is racing. Could it be sepsis?"
+  aliases: [sepsis, septic, infection, feeling awful, flu-like, shivering, fast heartbeat and fever, something isn't right]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "sepsis is a big immune reaction to any infection, including pregnancy-related ones; rare but one of the biggest causes of severe illness and death in pregnancy and after birth"
+    - "symptoms include fever, tummy pain, a faster than normal heart rate, difficulty breathing; the baby's heart rate may be fast"
+    - "see doctor or midwife as soon as possible for symptoms of infection, any symptom of sepsis, or feeling unwell in pregnancy"
+    - "see doctor urgently, go to emergency or call 000: fever or difficulty breathing with infection"
+    - "even if not sure and something just doesn't feel right, get checked (healthdirect)"
+  sources:
+    - title: PBB — Sepsis during pregnancy and after childbirth
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/sepsis-during-pregnancy-and-after-childbirth
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+  related: [fever, racing-heartbeat, breathlessness, abdominal-pain]
+
+- id: chest-pain
+  title: Chest pain
+  type: symptom
+  topic: body
+  ask: "I've got chest pain. Is it heartburn or something worse?"
+  aliases: [chest pain, tight chest, pain in chest, heart attack, pressure in chest]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "call 000 and ask for an ambulance: chest pain that is severe, getting worse, or has lasted 10 minutes"
+    - "call 000: chest pain with trouble breathing (pulmonary embolism; pregnancy and the weeks after birth raise the risk of clots)"
+    - "see doctor immediately if heartburn comes with chest pain, breathlessness, vomiting blood or difficulty swallowing"
+    - "call 000: palpitations with chest pain, shortness of breath, dizziness or fainting"
+  sources:
+    - title: healthdirect — Chest pain
+      url: https://www.healthdirect.gov.au/chest-pain
+    - title: healthdirect — Pulmonary embolism
+      url: https://www.healthdirect.gov.au/pulmonary-embolism
+    - title: PBB — Indigestion and heartburn in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/indigestion-and-heartburn-in-pregnancy
+    - title: healthdirect — Heart palpitations
+      url: https://www.healthdirect.gov.au/heart-palpitations
+  related: [breathlessness, racing-heartbeat, heartburn, painful-swollen-leg]
+  notes: "healthdirect's chest-pain page is general, not pregnancy-specific; its 10-minute rule is the only stated threshold."
+
+- id: racing-heartbeat
+  title: Racing or pounding heart
+  type: symptom
+  topic: body
+  ask: "My heart keeps racing and skipping. Is that normal in pregnancy?"
+  aliases: [palpitations, heart racing, pounding heart, skipped beats, fast heartbeat, fluttering heart]
+  weeks: [1, 42]
+  who: carrying
+  priority: 2
+  stakes: high
+  covers:
+    - "contact doctor, midwife or hospital immediately: shortness of breath or a racing heartbeat (healthdirect warning signs)"
+    - "palpitations are common and usually not serious, but see doctor so your heart can be checked"
+    - "see doctor urgently: palpitations lasting more than a few minutes, happening often, or a family history of heart rhythm problems"
+    - "call 000: palpitations with chest pain, shortness of breath, dizziness or fainting"
+    - "a fast heart rate is also a sign of ectopic pregnancy (early) and sepsis"
+  sources:
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: healthdirect — Heart palpitations
+      url: https://www.healthdirect.gov.au/heart-palpitations
+    - title: PBB — Sepsis during pregnancy and after childbirth
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/sepsis-during-pregnancy-and-after-childbirth
+  related: [breathlessness, chest-pain, dizziness-and-fainting, feeling-very-unwell]
+  notes: "No source read says ordinary pregnancy raises the resting heart rate; don't write it without one."
+
+- id: painful-swollen-leg
+  title: One painful, red or swollen leg (a clot)
+  type: symptom
+  topic: body
+  ask: "One calf is swollen, warm and sore. Is that a clot?"
+  aliases: [DVT, blood clot, deep vein thrombosis, swollen calf, one leg swollen, red hot leg, pulmonary embolism, VTE]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "pregnancy and the weeks after birth increase the risk of blood clots; some DVTs have no symptoms"
+    - "contact doctor, midwife or maternity hospital straight away: one arm or leg more swollen than the other with pain, redness or warmth"
+    - "contact immediately: pain or swelling in one leg (healthdirect warning signs)"
+    - "see doctor immediately: leg pain that doesn't go away, or a leg that is red, warm or swollen (PBB leg cramps); see doctor straight away for signs of DVT"
+    - "call 000: chest pain, trouble breathing (a clot in the lung)"
+  sources:
+    - title: healthdirect — Pulmonary embolism
+      url: https://www.healthdirect.gov.au/pulmonary-embolism
+    - title: PBB — Swelling during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/swelling-during-pregnancy
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: healthdirect — Deep vein thrombosis
+      url: https://www.healthdirect.gov.au/deep-vein-thrombosis
+    - title: PBB — Leg cramps during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/leg-cramps-during-pregnancy
+  related: [leg-cramps, swollen-feet-and-ankles, chest-pain, breathlessness, varicose-veins]
+
+- id: fall-or-blow-to-the-belly
+  title: A fall, a car accident or a blow to the belly
+  type: symptom
+  topic: body
+  ask: "I slipped and landed on my front. Do I need to be checked?"
+  aliases: [fell over, fall, car accident, seatbelt, hit in the stomach, bump to belly, trauma, knocked, domestic violence]
+  weeks: [1, 42]
+  priority: 1
+  stakes: high
+  covers:
+    - "contact doctor, midwife or hospital immediately after any hit or blow to the stomach: a fall, car accident or family violence; even a minor injury needs assessing"
+    - "for any injury to the abdomen go to the nearest hospital and say you are pregnant; you may be monitored for at least 4 hours for placental abruption"
+    - "call 000: pain in the abdomen, a firm or tightening uterus, or vaginal bleeding after an injury"
+    - "any injury to the belly: go to the nearest hospital; after any injury, go to hospital if the baby moves less, there is vaginal bleeding or belly pain"
+    - "after an injury, contractions or waters breaking: contact your doctor (000 in an emergency)"
+    - "belly pain, a firm or tightening uterus, or vaginal bleeding after an injury: call 000"
+    - "wear the seatbelt under the bump; 1800 RESPECT (1800 737 732) for family violence"
+  sources:
+    - title: PBB — Injuries during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: PBB — Bleeding during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
+  related: [reduced-movements, bleeding-after-20-weeks, abdominal-pain, fluid-leaking]
+  notes: "For both parents: the partner may be the one driving. Family violence support belongs with the relationships area; keep the number here only as the line the source gives."
+
+- id: painful-urination
+  title: Burning or pain when you wee
+  type: symptom
+  topic: body
+  ask: "It stings when I wee. Do I need to see someone today?"
+  aliases: [burning wee, stinging wee, pain weeing, dysuria, blood in urine, cloudy urine, smelly wee, UTI symptoms]
+  weeks: [1, 42]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "pain or a burning feeling when passing urine, needing to go more, cloudy, bloody or smelly urine, low tummy pain: a UTI, the most common bacterial infection in pregnancy"
+    - "see midwife or doctor for any UTI symptoms; don't delay antibiotics (healthdirect: see as soon as possible for urgency, pain or burning when urinating)"
+    - "fever above 38°C with back pain means the infection may have reached the kidneys"
+    - "RWH: any pain or scalding when you pass urine may mean infection, see your doctor"
+  sources:
+    - title: PBB — Urinary tract infections (UTIs) during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/urinary-tract-infections-utis-during-pregnancy
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: RWH — Coping with common discomforts of pregnancy (fact sheet, April 2018)
+      url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
+  related: [urinary-tract-infection, frequent-urination, fever, back-pain, thrush]
+
+- id: severe-vomiting
+  title: Can't keep anything down (hyperemesis)
+  type: symptom
+  topic: body
+  ask: "I'm vomiting everything, even water. When is it hyperemesis?"
+  aliases: [hyperemesis gravidarum, HG, can't keep fluids down, vomiting all day, dehydrated, severe morning sickness, losing weight]
+  weeks: [4, 20]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "hyperemesis is severe nausea and vomiting that makes eating and drinking enough hard; begins between 4 and 10 weeks, improves by about 20 weeks for most, some all pregnancy"
+    - "contact midwife or doctor: frequent or uncontrollable vomiting, ongoing nausea that stops you eating and drinking enough, losing weight"
+    - "contact doctor or hospital (RWH): lost a lot of weight quickly, not getting enough fluids, weren't eating well before pregnancy, worried about yourself or the baby"
+    - "go to emergency if you can't keep fluids down at all (IV fluids); RWH: if you can't keep food or fluids down, go to the Women's Emergency Centre"
+    - "contact doctor, midwife or hospital immediately for severe nausea or vomiting (healthdirect warning signs)"
+    - "can lead to dehydration, weight loss, low vitamins, depression and anxiety; many need IV fluids at some point; treatable with medicines"
+  sources:
+    - title: PBB — Severe vomiting during pregnancy (hyperemesis gravidarum)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/severe-vomiting-during-pregnancy-hyperemesis-gravidarum
+    - title: RWH — Coping with nausea, vomiting and hyperemesis in pregnancy (fact sheet, July 2026)
+      url: https://www.thewomens.org.au/images/uploads/fact-sheets/Nausea_vomiting_hyperemesis_in_pregnancy_260721.pdf
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+  related: [nausea-and-vomiting, food-cravings-and-aversions, tiredness]
+  notes: "Anti-nausea medicines by name belong to the medicines area; the mental-health toll of HG to the mental-health area."
+
+- id: signs-of-preterm-labour
+  title: Signs of labour before 37 weeks
+  type: symptom
+  topic: body
+  ask: "I'm 33 weeks and getting regular tightenings and backache. Is this labour?"
+  aliases: [preterm labour, premature labour, early labour, contractions before 37 weeks, period pain at 30 weeks, pressure down below, baby coming early]
+  weeks: [20, 37]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - "about 8 in 100 babies are born before 37 weeks; often no known cause; it may be possible to slow or stop labour, and every day inside helps"
+    - "early signs of labour: period-like cramps, low backache, frequent or loose bowel motions, a change in discharge, a bloodstained show, waters breaking"
+    - "contact midwife, doctor or nearest birthing unit immediately if under 37 weeks with any sign of labour; contact immediately for pain or discomfort in the pelvis, belly or lower back"
+    - "contact doctor, midwife or hospital immediately: regular, painful contractions before 37 weeks (PBB second and third trimester)"
+    - "call midwife or doctor straight away: contractions or other signs of labour before 37 weeks; bleeding; waters green or brown; strong pressure in the vagina or bottom or an urge to push"
+    - "call 000: symptoms of preterm labour with severe back pain (PBB backache)"
+  sources:
+    - title: PBB — Premature baby
+      url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/premature-baby
+    - title: "PBB — Giving birth: early signs of labour"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
+    - title: PBB — Braxton Hicks contractions
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/braxton-hicks-contractions
+    - title: PBB — Third trimester
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/third-trimester
+    - title: PBB — Backache in pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/backache-in-pregnancy
+  related: [braxton-hicks, fluid-leaking, bleeding-after-20-weeks, abdominal-pain, back-pain]
+  notes: "The signs of labour at term, and what preterm birth means for the baby, belong to the labour area; this entry is the before-37-weeks call."
+
+- id: weight-loss
+  title: Losing weight in pregnancy
+  type: symptom
+  topic: body
+  ask: "I've lost weight instead of gaining. Is that a problem?"
+  aliases: [losing weight, weight loss, not gaining weight, scales going down]
+  weeks: [1, 42]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers:
+    - "a small amount of weight loss while unwell with nausea is unlikely to harm the baby; weight is regained quickly once eating normally (RWH)"
+    - "see doctor or midwife as soon as possible for weight loss (healthdirect warning signs)"
+    - "contact midwife or doctor if you are losing weight with vomiting; RWH: contact doctor or hospital if you have lost a lot of weight quickly"
+    - "see doctor for constipation with unexplained weight loss, or pelvic pain while losing weight without trying"
+  sources:
+    - title: healthdirect — Warning signs during pregnancy
+      url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+    - title: RWH — Coping with nausea, vomiting and hyperemesis in pregnancy (fact sheet, July 2026)
+      url: https://www.thewomens.org.au/images/uploads/fact-sheets/Nausea_vomiting_hyperemesis_in_pregnancy_260721.pdf
+    - title: PBB — Severe vomiting during pregnancy (hyperemesis gravidarum)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/severe-vomiting-during-pregnancy-hyperemesis-gravidarum
+  related: [severe-vomiting, nausea-and-vomiting, food-cravings-and-aversions]
+  notes: "Expected weight gain (11 to 16 kg, PBB third trimester) is the food area's or a term; this is only the symptom."

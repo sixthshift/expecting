@@ -1,0 +1,278 @@
+- id: nipt
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "results in about a week, occasionally no result and a redraw"
+      judgement: unsupported
+      source_says: "Neither the PBB NIPT page nor the RANZCOG leaflet says how long results take or that a result can fail and need a redraw. (The cost of 450 to 800 dollars, not covered by Medicare or private insurance, plus a doctor's appointment for the referral, the 99 percent Down syndrome figure, from 10 weeks, genome-wide versus targeted, and the separate 11 to 13 week ultrasound are all ok.)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/non-invasive-prenatal-testing-nipt
+
+- id: carrier-screening
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "since 1 November 2023 Medicare covers the three-condition test once per lifetime, the pregnant partner first, then the other partner for CF and SMA if needed"
+      judgement: unsupported
+      source_says: "The MBS factsheet confirms items 73451 and 73452 from 1 November 2023, the pregnant or planning person first for CF, SMA and fragile X, then the partner for CF and SMA only. 'Once per lifetime' is not on either cited page."
+      url: https://www.mbsonline.gov.au/internet/mbsonline/publishing.nsf/Content/0FAE1338D92EA3A3CA258A6F0001701A/$File/FS%20-%20Reproductive%20carrier%20testing%20for%20cystic%20fibrosis,%20spinal%20muscular%20atrophy%20and%20fragile%20X%20syndrome.pdf
+    - covers: "expanded panels of hundreds of conditions cost from a few hundred dollars and are not rebated"
+      judgement: wrong
+      source_says: "PBB: carrier screening costs 'from $100 to more than $1,500' depending on provider and number of conditions, and you may claim some money back through Medicare depending on family history and tests ordered. It does not price expanded panels separately or say they are not rebated."
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/pregnancy-planning/genetic-carrier-screening
+
+- id: morphology-scan
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "book it early, slots go, and a referral is needed"
+      judgement: unsupported
+      source_says: "Neither PBB page mentions booking early, limited slots or a referral."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/morphology-scan
+    - covers: "Medicare rebates it, gaps vary, public hospital imaging is often bulk-billed"
+      judgement: unsupported
+      source_says: "The first half is ok ('Medicare will cover the cost of a morphology scan, but there may be out-of-pocket costs depending on where you go'). Bulk-billing in public hospital imaging is not said on either page."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/morphology-scan
+    - covers: "what happens if something is seen, a repeat or specialist scan, and that many findings resolve"
+      judgement: unsupported
+      source_says: "PBB: around 1 or 2 in 100 scans find a possible anomaly and you are referred for 'another ultrasound or a diagnostic test'. Nothing about findings resolving, or a specialist scan. (Timing: the morphology page says 18 to 20 weeks, the ultrasound page says ideally 20 weeks, between 18 and 22.)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/morphology-scan
+
+- id: glucose-tolerance-test
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "bring something to do and something to eat after, some feel sick"
+      judgement: unsupported
+      source_says: "PBB says you fast, have a blood test, the drink, then blood tests at 1 and 2 hours, and must stay at the collection centre for the 2-hour test. Nothing about bringing things or feeling sick."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/gestational-diabetes
+    - covers: "Medicare covers it, book the morning slot early"
+      judgement: unsupported
+      source_says: "Neither page says Medicare covers the OGTT or that morning slots fill. 'Usually done in the morning, so you can fast overnight' is on the blood tests page. The Medicare during pregnancy page (cited elsewhere in the map) says Medicare may help with the cost of pregnancy blood tests, not the OGTT by name."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+    - covers: "the third-trimester bloods are usually drawn at the same visit"
+      judgement: unsupported
+      source_says: "The blood tests page says a full blood count is offered at the first visit and again at around 28 weeks, and that around the third trimester you may be tested again for gestational diabetes and haemoglobin and may need more blood group tests. It does not say they are drawn at the same visit as the OGTT."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+
+- id: anti-d
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "also after any sensitising event, bleeding, a fall or knock, amniocentesis, within 72 hours"
+      judgement: wrong
+      source_says: "PBB: 'There is not enough evidence to say that RhD negative women who bleed in their first 12 weeks of pregnancy need anti-D. However, if the bleeding happens again, is heavy or comes with stomach pain or serious injuries to the pelvis, anti-D may be recommended.' Sensitising events listed: CVS or amniocentesis, miscarriage, termination at 10 weeks or more, obstetric haemorrhage, injury or accident to the abdomen, ECV, labour, ectopic or molar pregnancy. Anti-D 'should be given within 72 hours... However, it can still be given after this time.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+    - covers: "free in the public system, a blood product, what to expect"
+      judgement: unsupported
+      source_says: "'A blood product made from plasma' is ok. Cost is not mentioned for anti-D on either page (the free RhD NIPT is also not stated; PBB says only that Medicare changes made the RhD NIPT easier to get)."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+
+- id: flu-vaccine
+  file: care.yaml
+  verdict: ok
+
+- id: whooping-cough-vaccine
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "it cuts whooping cough in young babies by about 90 percent until their own vaccines at 6 weeks"
+      judgement: wrong
+      source_says: "Handbook: vaccination in pregnancy 'reduces the risk of pertussis in young infants (aged 3-4 months) by 90%'. Department of Health: 'Babies will have some protection until they can have their first immunisations at 6 weeks of age.' The 90 percent figure is not tied to the 6-week window."
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/pertussis-whooping-cough
+    - covers: "at the GP, a pharmacy or the antenatal clinic"
+      judgement: unsupported
+      source_says: "Neither page says where to get the vaccine (the Department page only points to a 'Getting vaccinated' page). (20 to 32 weeks every pregnancy, free under the NIP, and 'as soon as possible and at any time up to delivery' if missed are ok; the Handbook adds that given within 2 weeks of delivery the newborn may not be adequately protected.)"
+      url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
+
+- id: rsv-vaccine
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "Abrysvo, a single dose from 28 weeks, best by the end of 36, free under the NIP since 2025"
+      judgement: unsupported
+      source_says: "Single dose from 28 weeks, 'administration by the end of 36 weeks gestation is encouraged', and funded under the NIP are ok. 'Since 2025' is not stated on either page."
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/respiratory-syncytial-virus-rsv
+    - covers: "protects the baby from birth for about 6 months against RSV, the top cause of hospital stays in babies"
+      judgement: wrong
+      source_says: "Handbook: RSV 'is a leading cause of lower respiratory tract disease hospitalisation in infants aged <12 months', not the top cause. Maternal vaccination 'reduces the risk of severe RSV disease in infants <6 months of age by around 70%'. The Department page says it protects the baby 'from birth' and 'in their vulnerable early months'."
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/respiratory-syncytial-virus-rsv
+
+- id: partner-whooping-cough-booster
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "grandparents and carers too"
+      judgement: unsupported
+      source_says: "Handbook: 'Adult household contacts and carers of infants aged <6 months are recommended' dTpa at least 2 weeks before close contact if the last dose was more than 10 years ago. Grandparents are not named."
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/pertussis-whooping-cough
+    - covers: "not free for adults under the NIP, a GP or pharmacy charges for the vaccine, some states fund it"
+      judgement: unsupported
+      source_says: "The page says only that vaccination 'for certain groups of people is funded under the National Immunisation Program and by states and territories', and that dTpa is funded for pregnant women. Nothing on partner or household funding, charges or state programs."
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/pertussis-whooping-cough
+    - covers: "check the Immunisation Register for the last dose"
+      judgement: unsupported
+      source_says: "The Immunisation Register is not mentioned on the cited page."
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/pertussis-whooping-cough
+    - covers: "notes: Some states have funded partner or household dTpa at times"
+      judgement: unsupported
+      source_says: "Not on the cited page; note reworded to say funding for partners is not on the page."
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/pertussis-whooping-cough
+
+- id: gestational-diabetes
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "extra visits and growth scans, and the talk about timing the birth"
+      judgement: unsupported
+      source_says: "PBB: 'you may need more frequent antenatal appointments' and 'strongly recommended that you give birth with the support of a consultant-led maternity team in a hospital'. Neither PBB nor the Women's mentions growth scans or timing the birth."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/gestational-diabetes
+
+- id: rhd-negative
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "about 17 in 100 Australians, a mismatch with a positive baby can make antibodies that affect this or a later pregnancy"
+      judgement: wrong
+      source_says: "17 in 100 is ok. PBB: the antibodies 'usually won't affect your first pregnancy' and can cause serious complications for 'your next baby, like severe anaemia, brain damage and even death in some cases'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+    - covers: "the plan, antibody screens, anti-D at 28 and 34 weeks and after the birth, the baby's cord blood group"
+      judgement: unsupported
+      source_says: "Anti-D at 28 and 34 weeks, after birth if the baby is positive, and cord blood testing are ok. Antibody screening in pregnancy is not described on either page (the blood tests page only lists titles of other pages about it and says you 'may also need more tests relating to your blood group')."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
+    - covers: "sensitising events, any bleeding, a fall or car bump, CVS or amniocentesis, call and get anti-D within 72 hours"
+      judgement: wrong
+      source_says: "Same as the anti-D entry: bleeding in the first 12 weeks is not shown to need anti-D; heavy, repeated or painful bleeding, or an injury to the abdomen, may. 'Should be given within 72 hours... it can still be given after this time.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+    - covers: "it does not affect how you give birth"
+      judgement: unsupported
+      source_says: "Neither page says anything about how an RhD negative person gives birth."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
+
+- id: pre-eclampsia
+  file: care.yaml
+  verdict: fix
+  problems:
+    - covers: "high blood pressure with protein in the urine or organ signs, after 20 weeks, why every visit checks both"
+      judgement: wrong
+      source_says: "PBB: blood pressure is checked at every antenatal visit; if it is high, 'your doctor will suggest some tests', including a urine test for protein and blood tests. Urine protein is not checked at every visit on the page. The Women's lists protein in urine as a sign; it also says pre-eclampsia can happen in the second half of pregnancy or the first few days after the birth."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
+    - covers: "low-dose aspirin from early pregnancy for those at higher risk, and calcium"
+      judgement: unsupported
+      source_says: "PBB: 'your doctor may recommend you take low-dose aspirin during pregnancy' if at increased risk; 'calcium or vitamin D supplements'. 'From early pregnancy' is not said."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
+    - covers: "the assessment unit and what happens there"
+      judgement: unsupported
+      source_says: "Neither page mentions an assessment unit. PBB says only that you may be advised to go to hospital for rest and monitoring."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
+
+- id: when-to-go-to-hospital
+  file: labour-and-birth.yaml
+  verdict: fix
+  problems:
+    - covers: "call straight away if the waters break, for bleeding, for green or brown fluid, or if the baby's movements change"
+      judgement: wrong
+      source_says: "Better Health Channel: 'If your waters break or if you start bleeding from the vagina, go immediately to hospital.' PBB Going to hospital lists waters breaking, bleeding, fever, any change in baby's movements and contractions before 37 weeks as reasons to go to hospital or birth centre. KEMH: waters breaking, regular contractions or blood loss, 'call KEMH or your midwife immediately'. PBB waters page: green, brown or blood-coloured fluid, call immediately for advice, or go to hospital. So the sources say call or go, not just call. (The 5 minutes apart / far away / not comfortable at home line is Better Health Channel and is ok; PBB gives a different rule for the first labour, at least 3 contractions in 10 minutes.)"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-labour
+
+- id: getting-to-hospital
+  file: labour-and-birth.yaml
+  verdict: fix
+  problems:
+    - covers: "where to park and which entrance after hours, phone charged and the birth unit's number saved, the bags and the pregnancy record, if the baby is coming in the car pull over and call 000"
+      judgement: unsupported
+      source_says: "Ok on the cited pages: route and an alternative plan, fuel, car seat fitted, where to park, contact numbers in your phone and your partner's, paperwork. Not on them: which entrance after hours, a charged phone, 'the pregnancy record' by name, pulling over. The Early signs of labour page (already cited in the map, signs-of-labour) says: 'Call triple zero (000) and ask for an ambulance if you think you may not make it to your planned place of birth before the baby is born'; kept in that form with that page added as a source."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/going-to-hospital
+
+- id: signs-of-labour
+  file: labour-and-birth.yaml
+  verdict: ok
+
+- id: waters-breaking
+  file: labour-and-birth.yaml
+  verdict: fix
+  problems:
+    - covers: "note the time colour and smell"
+      judgement: unsupported
+      source_says: "Colour (green, brown or blood coloured is urgent) and a bad smell as a warning sign are on the page. Noting the time is not. (24 to 48 hours, GBS antibiotics and 18 hours or more are ok; the page also says at term most go into labour within 24 to 96 hours, and before 37 weeks to go to hospital.)"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+
+- id: pain-relief
+  file: labour-and-birth.yaml
+  verdict: fix
+  problems:
+    - covers: "most people use more than one and change their mind on the day"
+      judgement: unsupported
+      source_says: "The sources say you 'can choose one method or a few' and that changing your mind is 'very normal'. Nothing says most people use more than one."
+      url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
+    - covers: "decide the preferences by about 36 weeks, not the outcome"
+      judgement: unsupported
+      source_says: "RANZCOG and PBB say to discuss preferences with your care providers and support people 'before you go into labour' and put them in the birth plan, with alternatives in case circumstances change. No week is given."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/pain-relief-during-labour
+
+- id: epidural
+  file: labour-and-birth.yaml
+  verdict: fix
+  problems:
+    - covers: "the most effective relief, usually within 20 to 30 minutes, and you stay awake and aware"
+      judgement: wrong
+      source_says: "PBB: 'It usually takes between 25 to 40 minutes for the epidural to be set up and take full effect so that you are pain free.' It calls an epidural 'very effective', not the most effective. Awake and aware is ok."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/epidural
+    - covers: "the trade-offs, a drip, continuous CTG, a catheter, less or no mobility, a longer second stage and a higher chance of forceps or vacuum"
+      judgement: wrong
+      source_says: "PBB: an epidural 'may extend the second stage of labour and increase your chance of needing an assisted delivery' and does not make a caesarean more likely. RANZCOG: 'Modern epidural techniques may slightly lengthen your labour but do not impact the chance of you needing assistance with the birth or caesarean birth.' The sources disagree, and PBB says 'may', not 'higher'. Drip, continuous CTG, catheter and staying in bed are ok."
+      url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
+    - covers: "side effects, a drop in blood pressure, itching, shivering, fever, patchy relief, a headache in about 1 in 100"
+      judgement: wrong
+      source_says: "PBB lists: blood pressure may fall, you may shake or feel itchy, may be harder to push, may not get full pain relief, back bruised for a couple of days; complications: 'rarely' a bad headache within 24 to 48 hours, a small chance of skin infection, 'very rarely' permanent nerve damage or paralysis. No fever and no 1 in 100 figure on any cited page."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/epidural
+    - covers: "you can ask for one at most points but not always get it at once, the anaesthetist may be in theatre"
+      judgement: unsupported
+      source_says: "PBB: you can have one 'at any stage of labour if there are no medical reasons', and not in birth centres or at home births. Nothing about delays or the anaesthetist being in theatre."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/epidural
+    - covers: "notes: the assisted-birth link is [shown]"
+      judgement: wrong
+      source_says: "The note says current sources show the assisted-birth link. PBB says it may increase the chance; RANZCOG says it does not change it. Note reworded to say the sources disagree. (Twins, high blood pressure, a likely caesarean, and prolonged labour as reasons it may be recommended are ok; so is anaesthetist, local anaesthetic and an opioid, topped up.)"
+      url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
+
+- id: induction
+  file: labour-and-birth.yaml
+  verdict: fix
+  problems:
+    - covers: "why it is offered (overdue, waters broken without labour, diabetes, high blood pressure, growth concerns, age) and that it is an offer"
+      judgement: unsupported
+      source_says: "Age is not a listed reason on PBB, RANZCOG or the Women's. The others are ok (PBB: overdue at 41 to 42 weeks, waters broken without contractions after 24 to 48 hours, diabetes, blood pressure problems, growth concerns)."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/induced-labour
+    - covers: "the methods in order, a sweep, prostaglandin gel or pessary, a balloon catheter, breaking the waters, an oxytocin drip"
+      judgement: wrong
+      source_says: "The sources give no fixed order: the method is chosen after an examination of the cervix and may be one or a combination (PBB, RANZCOG, the Women's). A membrane sweep is not part of induction on any of the three induction pages (it is offered separately on the PBB Overdue page)."
+      url: https://ranzcog.edu.au/wp-content/uploads/Induction-Labour.pdf
+    - covers: "what it changes about pain relief, positions and the chance of assisted birth or caesarean"
+      judgement: wrong
+      source_says: "PBB: with induction there is a higher chance of continuous monitoring, more vaginal examinations and seeking pain relief sooner; 'no difference in how often forceps or vacuum is used'; 'no restriction on the type of pain relief'. RANZCOG: 'does not increase the chances of obstetric interventions' when performed appropriately. The Women's: induction for reasons other than prolonged pregnancy 'may increase the chance that you will need an emergency caesarean', and oxytocin plus CTG makes it hard to move around."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/induced-labour
+    - covers: "notes: induction rates are high and rising in Australia"
+      judgement: unsupported
+      source_says: "The Women's says 'approximately one-third of women have an induction of labour'. Nothing about a rising rate. Note reworded. (A day or more, staying in hospital, contractions that can be stronger, and the questions to ask are ok.)"
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/induction-of-labour
+
+- id: overdue
+  file: labour-and-birth.yaml
+  verdict: fix
+  problems:
+    - covers: "extra monitoring (a CTG, an ultrasound of the fluid) from about 41 weeks, a sweep then an induction are offered and when each hospital offers them"
+      judgement: unsupported
+      source_says: "PBB: if overdue (42 weeks) checks may include an ultrasound scan and a CTG, perhaps twice a week; it does not say the scan measures fluid. Better Health Channel: from one week past the due date, closely monitored with CTG and ultrasound. A sweep and then induction are offered (ok). When each hospital offers them is not on any page."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+    - covers: "notes: induction offered at 41 weeks at most hospitals, 41+3 or later at some"
+      judgement: unsupported
+      source_says: "Better Health Channel: overdue babies are 'generally induced once it is 2 weeks past its expected date'. PBB induction: overdue 41 to 42 weeks. The Women's: more than 10 to 12 days beyond the due date. The 41+3 figure is not on any page. Note reworded to the source figures. (Full term 37 to 42, overdue past 42, about 5 in 100 babies, home remedies without evidence, and your choice are ok.)"
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/baby-due-date
+
+- id: assisted-birth
+  file: labour-and-birth.yaml
+  verdict: fix
+  problems:
+    - covers: "the higher chance of a serious tear"
+      judgement: wrong
+      source_says: "PBB lists 'a perineal tear (injury to the skin or muscle between your vagina and anus)' among risks, with bruising and pelvic floor injury; it does not say serious or a higher chance. RANZCOG: bruising might 'not be any worse than a spontaneous birth', and an episiotomy is used 'to minimise any tearing'. (About 1 in 10, first birth, vacuum, forceps, episiotomy and marks that fade are ok; RANZCOG says it is sometimes done in theatre, which the entry's 'usually in the birth room' does not say.)"
+      url: https://ranzcog.edu.au/wp-content/uploads/Assisted-Birth.pdf

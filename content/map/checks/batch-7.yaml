@@ -1,0 +1,230 @@
+# Batch 7: money-and-work (employer leave, partner leave, registering the birth, proof of birth, cost, private
+# health waiting periods, childcare waitlists, car seat, cot, second-hand gear) and body-and-baby (sleep,
+# supplements, Braxton Hicks, baby movements, four terms and cards).
+# Checked 2026-10-29 against the pages as they read that day. Fixes applied to the map the same day.
+# Services Australia figures on the cited pages (130 days from 1 July 2026, 20 reserved, up to 20 at the same
+# time, $200.94 a day, 56 days to tell, 14 weeks or 100 days) match the map. The SA, Tasmanian and NT registry
+# pages are not cited and were not checked. The Product Safety Australia pages are not cited.
+
+- id: employer-paid-parental-leave
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "comes from an award, enterprise agreement, contract or policy, not the law; some pay nothing, some pay months at full pay"
+      judgement: unsupported
+      source_says: "FWO: 'Employers can provide parental leave payments in agreements, employment contracts, or workplace policies. The rules ... will depend on the relevant agreement, contract or policy.' No award is named, and nothing says some pay nothing or pay months at full pay (the example is 12 weeks at usual wage)."
+      url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/payment-during-parental-leave
+    - covers: "can be taken before, after or alongside Parental Leave Pay, and often requires a minimum service period and a return-to-work promise"
+      judgement: unsupported
+      source_says: "Services Australia: you can take Parental Leave Pay 'before, during or after any paid or unpaid employer funded leave' (maternity or parental leave, annual leave, long service leave). Neither page mentions a minimum service period or a return-to-work promise."
+      url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay
+    - covers: "paid leave may accrue annual leave; check the policy"
+      judgement: unsupported
+      source_says: "The FWO page only links to 'Accruing and taking other leave during parental leave'; it says nothing about accrual itself."
+      url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/payment-during-parental-leave
+    - covers: "some employers top the government payment up to full pay, and some require you to claim it to get the top-up"
+      judgement: unsupported
+      source_says: "Neither page mentions top-ups or a requirement to claim to get one. FWO's example has both payments received during the leave period."
+      url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/payment-during-parental-leave
+
+- id: partner-parental-leave
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "the same 12 months of unpaid leave, the same 10-week and 4-week notice, and the same 12-months-of-service rule"
+      judgement: unsupported
+      source_says: "FWO: at least 10 weeks' written notice, confirm dates at least 4 weeks before, and at least 12 months with the employer. The cited pages do not state the 12 months of unpaid leave (12 months appears only as one person's plan in an example)."
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+    - covers: "the two of you can be on unpaid leave at the same time, for as long as you like"
+      judgement: unsupported
+      source_says: "Nothing on the cited FWO pages about both parents being on unpaid leave together or for how long."
+      url: https://www.fairwork.gov.au/leave/parental-leave
+    - covers: "the common shape: a block around the birth, then flexible days later"
+      judgement: unsupported
+      source_says: "FWO has an example of flexible days taken after a return to work, but nothing about a 'common shape'."
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+    - covers: "a casual or self-employed partner has the leave pay but not the leave entitlement"
+      judgement: wrong
+      source_says: "FWO: casual employees are eligible for unpaid parental leave if they have worked on a regular and systematic basis for at least 12 months with a reasonable expectation of continuing work. Self-employed people are not covered on the cited pages. (The 20 reserved days and up to 20 days at the same time match Services Australia.)"
+      url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
+
+- id: registering-the-birth
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "Parental Leave Pay requires the birth registered or applied for, and a Medicare enrolment and the passport need the certificate"
+      judgement: wrong
+      source_says: "Services Australia: Parental Leave Pay needs the birth registered or applied to register. For Medicare enrolment, proof of birth can be the Newborn Child Declaration or a birth certificate, so the certificate is not required. NSW and WA say the registration or certificate is used for a passport."
+      url: https://www.servicesaustralia.gov.au/when-your-baby-arrives
+    - covers: "online in most states with the hospital's record; the baby's name goes on it, so decide the name first"
+      judgement: unsupported
+      source_says: "NSW and Queensland have online forms; the ACT has an online form and the trial. WA says the hospital or midwife gives information on how to register. Nothing says registration uses the hospital's record. NSW says registration records the baby's given names."
+      url: https://www.nsw.gov.au/family-and-relationships/births/register-a-birth
+    # ok: parents register not the hospital (NSW); free (myGov, NSW, Vic, Qld); 60 days (myGov, NSW, Vic, Qld, WA), ACT 6 months, late still accepted (NSW); ACT Newborn Enrolment Trial. myGov says 60 days in all states and territories, which the ACT page contradicts.
+
+- id: proof-of-birth
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "the hospital or midwife gives a Parent Pack with a Newborn Child Declaration; the doctor or midwife signs the back page before you go home"
+      judgement: unsupported
+      source_says: "Services Australia: 'You'll get a Parent Pack from your hospital or midwife ... Make sure your doctor or midwife completes the Proof of Birth declaration on the back page.' 'Before you go home' is not said."
+      url: https://www.servicesaustralia.gov.au/when-your-baby-arrives
+    - covers: "it is proof of birth for the pre-birth claim (within 56 days), a new claim, and Medicare enrolment; it can't be reissued"
+      judgement: unsupported
+      source_says: "The cited pages do not give 56 days. It is on the claiming timeframes page (already in the map): 'When your child comes into your care, you need to tell us within 56 days' with their details and proof of birth. Kept, and that page added to the sources. Rest ok."
+      url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay
+    - covers: "add your CRN and Medicare number on the back page; upload it in myGov under Add Newborn or in the Express Plus app"
+      judgement: unsupported
+      source_says: "Services Australia says to include the Customer Reference Number and Medicare numbers on the back page. Nothing on the cited pages about uploading in myGov, 'Add Newborn' or the Express Plus app."
+      url: https://www.servicesaustralia.gov.au/when-your-baby-arrives
+
+- id: cost-of-having-a-baby
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "public patient in a public hospital or birth centre: the care and the stay are covered by Medicare; gaps only where a provider charges above the schedule (some scans, NIPT)"
+      judgement: wrong
+      source_says: "PBB: with a Medicare card at a public hospital, birth centre or public homebirth program, 'most of your pregnancy care costs are covered by Medicare. Sometimes, you may have to pay an out-of-pocket cost if the complete cost of the service is not covered.' Routine ultrasounds are covered; some antenatal tests such as NIPT are not. 'Gaps only where a provider charges above the schedule' is not said."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/what-is-the-difference-between-public-and-private-care-in-pregnancy
+    - covers: "private: Medicare pays 75% of the schedule fee in hospital and the fund the rest of the schedule, but the obstetrician's and anaesthetist's fees above it, the management fee, the excess and the baby's own admission are yours"
+      judgement: unsupported
+      source_says: "privatehealth.gov.au: Medicare pays 75% of the MBS fee and the insurer the other 25% 'if you are eligible'; doctors can charge more with no cap (the gap); hospital fees and any excess or co-payment are separate. No 'management fee'. The baby's nursery care being charged separately is on the PBB private health page (already in the map, now added as a source)."
+      url: https://www.privatehealth.gov.au/health_insurance/howitworks/out_of_pocket.htm
+    - covers: "what to ask for: informed financial consent and an itemised estimate before booking; the Safety Net for out-of-hospital costs"
+      judgement: unsupported
+      source_says: "privatehealth.gov.au: ask before going to hospital for the MBS item numbers and an estimate, 'preferably ... in writing', and see the Ombudsman's Informed Financial Consent factsheet. 'Itemised' and 'out-of-hospital' are not said; the Medicare Safety Net (more back once you spend above a certain amount in a calendar year) is on the PBB private health page."
+      url: https://www.privatehealth.gov.au/health_insurance/howitworks/out_of_pocket.htm
+    - covers: "the things nobody budgets: classes, a capsule, the pram, the parking"
+      judgement: unsupported
+      source_says: "None of the cited pages lists classes, a capsule, a pram or parking. PBB only points to the Royal Women's Hospital page on hidden costs."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/what-is-the-difference-between-public-and-private-care-in-pregnancy
+    # ok: private patient in a public hospital: no single room guaranteed, still responsible for hospital, medical and diagnostic costs.
+
+- id: private-health-waiting-periods
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "switching funds at the same or lower level doesn't restart the wait"
+      judgement: unsupported
+      source_says: "None of the four pages mentions switching funds. They say waiting periods apply when you start a policy or increase your level of cover."
+      url: https://www.privatehealth.gov.au/health_insurance/howitworks/waiting_periods.htm
+    # ok: 12 months maximum for pregnancy and birth; only Gold includes pregnancy and birth (Silver and Bronze optional); LHC loading after the 1 July following the 31st birthday; Medicare Levy Surcharge; rebate; baby cover a separate question.
+
+- id: childcare-waitlists
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "many centres have waits of a year or more, so join lists in the second trimester for a place in the first or second year"
+      judgement: wrong
+      source_says: "PBB: 'Many centres have waiting lists. ... it is a good idea to join the list of the centres you may wish to your child to attend. It's best to start this process well before you think you may need care.' No wait length and no trimester."
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/support-and-financial-services/child-care
+    - covers: "several centres, not just the first choice; some charge a waitlist fee"
+      judgement: unsupported
+      source_says: "PBB says to join the lists of the centres you may wish your child to attend. Nothing about waitlist fees."
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/support-and-financial-services/child-care
+    - covers: "the subsidy claim comes later, before care starts"
+      judgement: unsupported
+      source_says: "Neither page says when to claim the Child Care Subsidy. (StartingBlocks lists services, quality ratings and a subsidy calculator: ok.)"
+      url: https://www.startingblocks.gov.au/
+
+- id: car-seat
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "must meet AS/NZS 1754; babies under 6 months travel rear-facing in an approved restraint with an inbuilt harness, by law"
+      judgement: wrong
+      source_says: "PBB: 'Babies up to 6 months of age must be secured in an approved rear-facing car seat'; the restraint must meet AS/NZS 1754. 'Inbuilt harness' appears only for forward-facing seats for ages 4 to under 7."
+      url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
+    - covers: "some hospitals check it before discharge"
+      judgement: unsupported
+      source_says: "KEMH's going-home checklist lists 'Transport and baby car seat arranged'; it does not say the hospital checks the seat."
+      url: https://www.kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Going-home
+    # ok: rear-facing as long as possible (height-based); fitted by instructions or an authorised fitting station; a rear-facing seat can't be used in the front with a passenger airbag; never swaddle in the restraint; must have a restraint secured in the car before the baby arrives (PBB, what you will need). The Kidsafe NSW page is a thin index and states none of these.
+
+- id: cot-and-safe-sleep-standards
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "cots sold in Australia, new or second-hand, must meet the mandatory standard (AS/NZS 2172) and carry the label; from 19 January 2026 new mandatory standards cover infant sleep products including bassinets"
+      judgement: wrong
+      source_says: "PBB: all new and second-hand cots must comply with AS/NZS 2172:2003, and second-hand cots 'do not require safety labels'. Red Nose: the standard is noted in the instructions and often on a label. Neither gives 19 January 2026, and PBB says 'there are no current safety standards for bassinets in Australia'."
+      url: https://www.pregnancybirthbaby.org.au/babies/sleep-and-settling/cots
+    - covers: "one firm, flat mattress fitting within 20 mm of the sides; no second mattress, bumpers, pillows or soft bedding"
+      judgement: unsupported
+      source_says: "Red Nose: a single firm, flat mattress within 20 mm of sides and ends; no bumpers or soft bedding. PBB lists pillows, doonas and bumpers as items to keep out. 'No second mattress' is not said. (PBB gives the gap as no more than 2 cm centred, 4 cm pushed to one side.)"
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/newborn-to-1-year/what-is-a-safe-cot/
+    # ok: no gaps (3 to 5 cm, over 9.5 cm), toeholds or protrusions (over 5 cm); depth at least 60 cm at the lower height, 40 cm at the upper; own cot in the parents' room for the first 6 to 12 months, on the back, face and head uncovered; never a cot not known to meet the standard.
+
+- id: second-hand-baby-gear
+  file: money-and-work.yaml
+  verdict: fix
+  problems:
+    - covers: "yes for most things, and it saves a lot; the exceptions are anything that holds the baby in a car or asleep unless it meets the current standard and shows it"
+      judgement: unsupported
+      source_says: "Red Nose: 'Using second-hand nursery furniture can reduce costs, but make sure the product is safe' and 'a great option'. It names no exceptions. PBB says to save money by buying second hand but check cots and bassinets are safe."
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/second-hand-nursery-furniture/
+    - covers: "cots, portacots and prams must meet their standards even second-hand; look for the label and the instructions"
+      judgement: unsupported
+      source_says: "Red Nose: all new and second-hand cots sold in Australia must meet the standard for cots or portacots, noted in the instructions and 'often on a label'. Prams are not mentioned on any cited page."
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/second-hand-nursery-furniture/
+    # ok: check Product Safety Australia for recalls; used mattress firm, flat, clean, good condition, within 20 mm; rough repairs and chipped old paint (lead risk); car seats a separate answer (PBB: unknown history, under 10 years, undamaged).
+
+- id: sleep-in-pregnancy
+  file: body-and-baby.yaml
+  verdict: ok
+
+- id: pregnancy-supplements
+  file: body-and-baby.yaml
+  verdict: ok
+  # PBB: all pregnant women recommended folic acid and iodine; 0.5 mg folic acid daily from at least a month before and for the first 3 months (or 400 mcg); 5 mg only if the doctor recommends it (diabetes, overweight or obesity, anticonvulsants, neural tube defect in the family, poor absorption); iodine 150 mcg; vitamin A not above 10,000 IU a day. The map states none of these doses.
+
+- id: braxton-hicks-contractions
+  file: body-and-baby.yaml
+  verdict: fix
+  problems:
+    - covers: "before 37 weeks painful or regular tightenings need a call, if unsure call anyway"
+      judgement: wrong
+      source_says: "PBB: 'If you're less than 37 weeks pregnant, contractions can be a sign of premature labour. Contact your doctor or midwife immediately if you feel pain or discomfort in your pelvis, abdomen or lower back.' Also contact immediately for persistent abdominal pain, bleeding or concern about movements. 'Immediately' is the urgency; 'painful or regular' is not the wording."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/braxton-hicks-contractions
+    # ok in substance: 20 to 90 seconds is from the uterus page; the Braxton Hicks page says about 30 seconds, up to 2 minutes, and 'usually aren't painful'. Not felt until the second trimester, most often the third; eased by changing position, walking, a bath, water; do not dilate the cervix.
+
+- id: baby-movements
+  file: body-and-baby.yaml
+  verdict: fix
+  problems:
+    - covers: "the partner's part"
+      judgement: unsupported
+      source_says: "Neither page says anything about the partner's part in baby movements."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
+    # ok: usually by week 20 (earlier if not the first); regular by week 28; no set number, counting kicks no longer recommended; babies keep moving until birth; 'contact ... immediately. Do not wait until the next day'; home dopplers not approved for sale and not recommended. Worth adding: PBB (Braxton Hicks page) says if you have not felt the baby move by 24 weeks, contact your doctor or midwife.
+
+- id: term-folate
+  file: body-and-baby.yaml
+  verdict: ok
+
+- id: term-rhd-anti-d
+  file: body-and-baby.yaml
+  verdict: fix
+  problems:
+    - covers: "a blood group without the D antigen"
+      judgement: unsupported
+      source_says: "The PBB glossary says rhesus negative (RhD negative) blood; it does not mention the D antigen. The antibody and anti-D parts are ok: antibodies destroy the baby's blood cells only when the mother is RhD negative and the baby RhD positive, and anti-D injections prevent it."
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+
+- id: term-pre-eclampsia
+  file: body-and-baby.yaml
+  verdict: fix
+  problems:
+    - covers: "why blood pressure and urine are checked every visit"
+      judgement: unsupported
+      source_says: "The glossary says only: 'a pregnancy complication that can develop after 20 weeks of pregnancy. Symptoms include high blood pressure and protein in the urine.'"
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+
+- id: card-home-dopplers
+  file: body-and-baby.yaml
+  verdict: ok
+
+- id: card-sleep-on-your-side
+  file: body-and-baby.yaml
+  verdict: ok

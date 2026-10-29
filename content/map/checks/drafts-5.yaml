@@ -1,0 +1,243 @@
+# Drafts batch 5 (labour and birth; mind and circumstances): claim-by-claim check of
+# content/drafts/<id>.md against the pages in each draft's `sources:`. 2026-10-29.
+# Only problems are listed; verdict ok means every claim was found on a cited page.
+- id: getting-to-hospital
+  file: content/drafts/getting-to-hospital.md
+  verdict: ok
+  problems: []
+- id: signs-of-labour
+  file: content/drafts/signs-of-labour.md
+  verdict: ok
+  problems: []
+- id: waters-breaking
+  file: content/drafts/waters-breaking.md
+  verdict: fix
+  problems:
+    - claim: "summary: ... or waters breaking before 37 weeks, means calling immediately"
+      judgement: wrong
+      source_says: "If your waters break before 37 weeks, contact your midwife or doctor and go to the hospital. (Green/brown/blood coloured: call ... immediately for advice, or go to hospital.)"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+      fixed_to: "separated: colour = calling immediately; before 37 weeks = contact midwife or doctor and go to hospital"
+    - claim: "Notice the smell too: a bad smell is a warning sign."
+      judgement: unsupported
+      source_says: "Only 'your waters smell bad' in the call-immediately list (kept there)."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+      fixed_to: cut
+    - claim: "they can check with a speculum examination, or test the fluid for amniotic proteins"
+      judgement: wrong
+      source_says: "will examine your vagina using a speculum. If they are still not sure, they can check for amniotic fluid proteins"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+      fixed_to: "speculum first; if still not sure, test for proteins"
+    - claim: "24 to 96 hours labour / 24 to 48 hours birth"
+      judgement: ok
+      source_says: "most people will go into labour naturally within 24 to 96 hours ... Most people will give birth within 24 to 48 hours of their waters breaking (both PBB, kept as given)"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+      fixed_to: unchanged
+- id: epidural
+  file: content/drafts/epidural.md
+  verdict: fix
+  problems:
+    - claim: "very effective relief / very effective pain relief (summary and opening)"
+      judgement: unsupported
+      source_says: "An epidural ... takes away the pain of contractions, it can be effective for hours"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/epidural
+      fixed_to: "can take away the pain of contractions"
+    - claim: "assisted birth: PBB 'may increase' vs RANZCOG 'no change'; no caesarean increase"
+      judgement: ok
+      source_says: "PBB: may extend second stage and increase your chance of needing an assisted delivery; RANZCOG: modern epidurals may slightly lengthen labour but do not impact the chance of assistance with the birth or caesarean birth"
+      url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
+      fixed_to: unchanged
+- id: induction
+  file: content/drafts/induction.md
+  verdict: fix
+  problems:
+    - claim: "If it doesn't [work], your team may suggest another method, going home until later, or a caesarean."
+      judgement: unsupported
+      source_says: "If your induction does not work, your midwife or doctor may suggest another method or recommend a caesarean section."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/induced-labour
+      fixed_to: "another method or recommend a caesarean (going home cut)"
+    - claim: "about one in three have one"
+      judgement: ok
+      source_says: "Approximately one-third of women have an induction of labour."
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/induction-of-labour
+      fixed_to: unchanged
+- id: overdue
+  file: content/drafts/overdue.md
+  verdict: ok
+  problems: []
+- id: assisted-birth
+  file: content/drafts/assisted-birth.md
+  verdict: ok
+  problems: []
+- id: planned-caesarean
+  file: content/drafts/planned-caesarean.md
+  verdict: ok
+  problems: []
+- id: emergency-caesarean
+  file: content/drafts/emergency-caesarean.md
+  verdict: ok
+  problems: []
+  # PANDA 1300 726 306, Beyond Blue 1300 22 4636, Lifeline 13 11 14 all given on the cited PBB page (no hours claimed).
+- id: vitamin-k
+  file: content/drafts/vitamin-k.md
+  verdict: ok
+  problems: []
+- id: card-waters-colour
+  file: content/drafts/card-waters-colour.md
+  verdict: ok
+  problems: []
+- id: antenatal-depression
+  file: content/drafts/antenatal-depression.md
+  verdict: fix
+  problems:
+    - claim: "For help and support any time, call Lifeline on 13 11 14."
+      judgement: wrong
+      source_says: "If you, or someone you know, is having suicidal thoughts and is in immediate danger, call triple zero (000). For help and support, call Lifeline on 13 11 14 or PANDA on 1300 726 306."
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/depression-and-pregnancy
+      fixed_to: "PBB wording ('any time' dropped, PANDA added); Beyond Blue's own wording added alongside, credited: 'Seek help immediately or call 000 if you are having thoughts of suicide or harming yourself.'"
+    - claim: "PANDA helpline on 1300 726 306 (7 days a week)"
+      judgement: unsupported
+      source_says: "PANDA home page: 7 days a week; PANDA contact page: Monday to Friday 9am-7.30pm, Saturday 9am-4pm (AEST/AEDT). The sources disagree, so hours dropped here and given with both in perinatal-mental-health-help."
+      url: https://www.panda.org.au/contact-us
+      fixed_to: "number only"
+    - claim: "at least 2 weeks; trapped"
+      judgement: ok
+      source_says: "PBB anxiety page: 'If you have depression, you may have these symptoms for at least 2 weeks ... feeling trapped'"
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/anxiety-and-pregnancy
+      fixed_to: unchanged
+- id: antenatal-anxiety
+  file: content/drafts/antenatal-anxiety.md
+  verdict: fix
+  problems:
+    - claim: "(Call 000 section carried only PBB's wording)"
+      judgement: unsupported
+      source_says: "Beyond Blue: 'Seek help immediately or call 000 if you are having thoughts of suicide or harming yourself.' PBB: 'If ... is having suicidal thoughts and is in immediate danger, call triple zero (000). For help and support, call Lifeline on 13 11 14.'"
+      url: https://www.beyondblue.org.au/mental-health/parenting/pregnancy
+      fixed_to: "kept PBB wording, added Beyond Blue's, credited"
+  # All other claims (30 per cent, symptoms, CBT/relaxation/mindfulness, self-care tips, when to see GP) found on PBB, Royal Women's, Beyond Blue and Gidget pages. Headings are the README's.
+- id: perinatal-mental-health-help
+  file: content/drafts/perinatal-mental-health-help.md
+  verdict: fix
+  problems:
+    - claim: "PANDA National Helpline ... open 7 days a week"
+      judgement: unsupported
+      source_says: "PANDA home page: 'open 7 days a week'. PANDA contact page: 'Monday to Friday, 9am - 7.30pm; Saturday, 9am - 4pm (AEST/AEDT); open all public holidays, except Christmas Day'. Gidget pages: 'Mon-Fri 9am-7:30pm'."
+      url: https://www.panda.org.au/contact-us
+      fixed_to: "both given, each credited; 7-days removed from the summary; contact page added to sources"
+    - claim: "Lifeline ... 24/7 crisis support and suicide prevention"
+      judgement: unsupported
+      source_says: "Lifeline: 'chat to a Lifeline crisis supporter anytime by calling 13 11 14'; text 0477 13 11 14 'Available 24/7'"
+      url: https://www.lifeline.org.au/get-help
+      fixed_to: "crisis support, 24/7; text line 24/7"
+    - claim: "You get 10 free sessions a calendar year under Medicare."
+      judgement: wrong
+      source_says: "Start Talking: '10 support sessions free of charge within a calendar year'; How to access counselling: 'at least 10 Medicare bulk-billed psychological counselling sessions per calendar year'"
+      url: https://www.gidgetfoundation.org.au/fact-sheets/how-to-access-counselling
+      fixed_to: "both wordings, credited"
+    - claim: "people who have had a pregnancy loss or a traumatic birth"
+      judgement: wrong
+      source_says: "Start Talking: 'pregnancy or childbirth-related loss, such as stillbirth, miscarriage or termination within the last 12 months'; counselling page: 'have been through a traumatic birth'"
+      url: https://www.gidgetfoundation.org.au/support/start-talking-telehealth
+      fixed_to: "loss in the last 12 months, or a traumatic birth"
+    - claim: "Beyond Blue 1300 22 4636, 24/7 ... trained professional; GP/social worker referral"
+      judgement: ok
+      source_says: "Beyond Blue talk-to-a-counsellor: 'open 24/7'; PBB helplines list: 'Speak to a trained mental health professional'; PBB depression page: GP, midwife or obstetrician may refer to psychologist, psychiatrist, social worker; PANDA: GP 'non-judgemental support, assessment, diagnosis, ongoing care and treatment'. Beyond Blue talk-to-a-counsellor, PBB depression and PANDA contact pages added to sources. Gidget 1300 851 758, 13YARN 13 92 76 (24/7), Lifeline 13 11 14, PANDA 1300 726 306 confirmed on loaded pages."
+      url: https://www.beyondblue.org.au/get-support/talk-to-a-counsellor
+      fixed_to: unchanged
+- id: mental-health-medication
+  file: content/drafts/mental-health-medication.md
+  verdict: fix
+  problems:
+    - claim: "The Royal Women's Hospital says ... there are safe and effective treatment options in pregnancy and while breastfeeding."
+      judgement: wrong
+      source_says: "There are a number of safe and effective treatment options for depression during pregnancy and while breastfeeding."
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy
+      fixed_to: "'... treatment options for depression during pregnancy and while breastfeeding.'"
+    - claim: "To talk to someone now, call Beyond Blue on 1300 22 4636."
+      judgement: wrong
+      source_says: "If you need to talk to someone about your mental health, call Beyond Blue on 1300 22 4636."
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/managing-pregnancy-with-a-mental-illness
+      fixed_to: "'To talk to someone about your mental health, call Beyond Blue ...'"
+- id: after-the-birth-mood-heads-up
+  file: content/drafts/after-the-birth-mood-heads-up.md
+  verdict: fix
+  problems:
+    - claim: "Call 000 if anyone is having thoughts of suicide or harming themselves or the baby and is in immediate danger. For support, call Lifeline on 13 11 14."
+      judgement: wrong
+      source_says: "Baby blues: 'If you, or someone you know, is having suicidal thoughts and is in immediate danger, call triple zero (000). To talk to someone now, call Suicide Call Back Service 1300 659 467 or Lifeline on 13 11 14.' and 'If you are having thoughts of harming yourself or your baby, call Lifeline on 13 11 14 or call triple zero (000) for immediate support.' Postnatal depression: 'For help and support, call Lifeline on 13 11 14 or PANDA on 1300 726 306.'"
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/baby-blues
+      fixed_to: "each statement as the pages give it (the 'immediate danger' condition no longer attached to harming yourself/baby), Suicide Call Back Service number added"
+    - claim: "partner quote: 'I've noticed you don't seem like yourself. How have you been feeling?'"
+      judgement: wrong
+      source_says: "'I've noticed that you don't seem like yourself. How have you been feeling lately?'"
+      url: https://www.gidgetfoundation.org.au/fact-sheets/how-to-check-in-with-an-expectant-or-new-parent
+      fixed_to: "exact quote"
+- id: partner-perinatal-depression
+  file: content/drafts/partner-perinatal-depression.md
+  verdict: fix
+  problems:
+    - claim: "PANDA helpline on 1300 726 306, 7 days a week"
+      judgement: unsupported
+      source_says: "PANDA home page: 7 days a week; PANDA contact page: Mon-Fri 9am-7.30pm, Sat 9am-4pm (AEST/AEDT); Gidget: Mon-Fri 9am-7:30pm. Sources disagree; hours dropped here (given with both in perinatal-mental-health-help)."
+      url: https://www.panda.org.au/contact-us
+      fixed_to: "number only"
+  # Headings are the README's. Statistics (1 in 10, 1 in 6, 1 in 5), signs, 'almost 1 in 10 callers are men / male counsellors', 'men find it more difficult to reach out' confirmed on PBB fathers page and PANDA pages. Lifeline for thoughts of self-harm/suicide 'for immediate support' is PBB's wording; PANDA gives 000 for immediate danger.
+- id: partner-learning-the-signs
+  file: content/drafts/partner-learning-the-signs.md
+  verdict: fix
+  problems:
+    - claim: "sign list (severe headache or vision changes, fluid leaking, itching) cited only to going-to-hospital page, postpartum psychosis and Gidget"
+      judgement: unsupported
+      source_says: "Headache/vision: early-signs page ('heavy bleeding, a severe headache or blurred vision' under Call triple zero); waters: waters-breaking page; itching: 'It is important to tell your doctor or midwife if you feel itchy'; fever, bleeding, movements: going-to-hospital page"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
+      fixed_to: "those three PBB pages added to sources; text unchanged"
+  # Crisis wording: self-harm/baby's safety -> ED or 000 is PBB postpartum psychosis's Warning, as written; Lifeline 24/7 crisis support and suicide prevention and 1800 737 732 24/7 (sexual assault, domestic and family violence) are on Gidget's access page; 000 for immediate danger likewise.
+- id: partner-supporting-her-mental-health
+  file: content/drafts/partner-supporting-her-mental-health.md
+  verdict: fix
+  problems:
+    - claim: "\"There's no right or wrong way to feel right now. ...\""
+      judgement: wrong
+      source_says: "\"There's no right or wrong way to feel during this time. How has it really been for you?\""
+      url: https://www.gidgetfoundation.org.au/fact-sheets/how-to-check-in-with-an-expectant-or-new-parent
+      fixed_to: "exact quote"
+    - claim: "The PANDA helpline is there for support people as well."
+      judgement: unchecked
+      source_says: "PANDA contact page: 'expecting parent, new parent, or support person looking for ... space to talk, the PANDA National Helpline is available on 1300 726 306'"
+      url: https://www.panda.org.au/contact-us
+      fixed_to: "contact page added to sources"
+- id: something-has-happened
+  file: content/drafts/something-has-happened.md
+  verdict: fix
+  problems:
+    - claim: "Red Nose Grief and Loss, 1300 308 307, 24/7 support for anyone affected by miscarriage, ectopic pregnancy, stillbirth or the death of a baby."
+      judgement: unchecked
+      source_says: "Red Nose blocks automated fetches (not worked around). PBB helplines list gives 'Red Nose Grief and Loss 1300 308 307 - Pregnancy and infant grief and loss support' with no hours."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/pregnancy-helpline-numbers
+      fixed_to: "number and PBB's description only; 24/7 and the miscarriage/ectopic/stillbirth scope cut; Red Nose page removed from sources"
+    - claim: "Lifeline, 13 11 14, if you're in crisis. If anyone is at immediate risk of harm, call 000."
+      judgement: wrong
+      source_says: "If you or someone close to you is in crisis, or is at immediate risk of harm, call triple zero (000). To talk to someone now, call Lifeline on 13 11 14."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/experiencing-a-pregnancy-loss
+      fixed_to: "PBB wording"
+    - claim: "under the Fair Work Act you're entitled to 2 days of paid bereavement leave if you or your partner have had a pregnancy loss"
+      judgement: wrong
+      source_says: "Fair Work Ombudsman: all employees, including casuals, are entitled to 2 days compassionate (bereavement) leave each time: miscarriage (before 20 weeks) of the employee or their spouse/de facto partner, or a stillbirth in the immediate family or household. Full-time and part-time employees receive paid leave; casual employees receive unpaid leave. Awards and agreements can give additional entitlements. (Miscarriage Australia says '2 days of paid bereavement leave'.)"
+      url: https://www.fairwork.gov.au/leave/compassionate-and-bereavement-leave
+      fixed_to: "Fair Work's wording incl. paid for full/part-time, unpaid for casuals; Fair Work page added to sources"
+    - claim: "a psychologist or counsellor with bereavement training"
+      judgement: wrong
+      source_says: "an experienced professional with bereavement training. A Psychologist or other health professional can support you"
+      url: https://www.gidgetfoundation.org.au/fact-sheets/a-guide-to-coping-with-reminders-of-your-pregnancy-and-or-child-loss
+      fixed_to: "an experienced professional with bereavement training, such as a psychologist"
+  # Product paragraphs (What Expecting does, When you're ready list) are app behaviour, not claims. Body, feelings, partner grief, reminders confirmed on PBB loss page and Gidget reminders page.
+- id: pain-relief
+  file: content/drafts/pain-relief.md
+  verdict: fix
+  problems:
+    - claim: "Sterile water injections ... a bee-sting feeling, with no side effects for you or the baby."
+      judgement: wrong
+      source_says: "RANZCOG: 'The injections cause a short bee sting sensation and may help your lower back pain without any side effects for you or your baby.' (Royal Women's: 'a strong stinging sensation, like a bee sting ... up to 30 seconds')"
+      url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
+      fixed_to: "'may help lower back pain, without any side effects for you or your baby (RANZCOG)'"
+  # Other claims (gas, opioids, epidural, TENS, water 4 hours after opioids, no epidural at home birth, plan B, changing your mind) found on PBB, RANZCOG and Royal Women's pages.

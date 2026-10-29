@@ -1,0 +1,208 @@
+# Check M12: drafts fact-checked against their cited pages (fetched 2026-10-29).
+# Mental-health entries first, then labour-and-birth entries.
+- id: intrusive-thoughts
+  file: content/drafts/intrusive-thoughts.md
+  verdict: fix
+  problems:
+    - claim: "For new parents they're often about harm coming to the baby."
+      judgement: wrong
+      source_says: "Among new parents, these thoughts can relate to harming or witnessing harm to their baby or others."
+      url: https://www.gidgetfoundation.org.au/fact-sheets/intrusive-thoughts-what-are-they-and-how-do-we-deal-with-them
+      fixed_to: "For new parents they can be about harming, or seeing harm come to, the baby or others."
+    - claim: "The Gidget Foundation (1300 851 758) offers free specialist counselling."
+      judgement: unsupported
+      source_says: "free ongoing specialist counselling ... Up to 10 individual sessions per calendar year. ... subject to meeting relevant Medicare eligibility requirements."
+      url: https://www.gidgetfoundation.org.au/fact-sheets/intrusive-thoughts-what-are-they-and-how-do-we-deal-with-them
+      fixed_to: "added the 10-session and Medicare-eligibility limits"
+  notes: "000 lines confirmed under the emergency heading: page says 'contact your healthcare provider immediately or call 000' and 'if you or your baby are not safe, call 000 or have someone take you to an emergency room'. Lifeline 13 11 14 is on the page (banner, 24/7 crisis support)."
+- id: stress-in-pregnancy
+  file: content/drafts/stress-in-pregnancy.md
+  verdict: fix
+  problems:
+    - claim: "It can come from an unplanned pregnancy, a previous loss or hard birth,"
+      judgement: wrong
+      source_says: "having a pregnancy that is unplanned or unwanted; becoming pregnant after previous negative experiences with a pregnancy, birth or parenthood, such as a miscarriage or the death of a baby"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/stress-and-pregnancy
+      fixed_to: "unplanned or unwanted pregnancy, previous negative experiences with a pregnancy, birth or parenthood (such as a miscarriage or the death of a baby)"
+  notes: "Lifeline line ('If you are having thoughts of self-harm or suicide, call Lifeline on 13 11 14 for immediate support') is a banner on the page with no 000 instruction, so it stays out of the 000 heading. It sits as a bold line under 'See your doctor or midwife'; 'immediate support' is stronger than that heading, so the caller may want it moved or shown as a callout above the headings."
+- id: tokophobia
+  file: content/drafts/tokophobia.md
+  verdict: fix
+  problems:
+    - claim: "miscarriage, stillbirth, termination, fertility problems or the death of a baby"
+      judgement: wrong
+      source_says: "a traumatic birth experience, a miscarriage, a stillbirth, a termination of pregnancy, fertility challenges, neonatal death"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/fear-of-childbirth
+      fixed_to: "neonatal death"
+  notes: "Everything else matches the page, including Lifeline/Beyond Blue/PANDA numbers (no 000 on this page; none used)."
+- id: previous-trauma-and-pregnancy
+  file: content/drafts/previous-trauma-and-pregnancy.md
+  verdict: fix
+  problems:
+    - claim: "Persistent overwhelm, stress or intrusive trauma memories are clear signs you may need support; getting it early can stop things getting worse."
+      judgement: unsupported
+      source_says: "If you identify with any of the symptoms, it's a good time to reach out to a perinatal mental health clinician ... Early identification and intervention are so important."
+      url: https://www.gidgetfoundation.org.au/fact-sheets/complex-trauma-during-the-perinatal-period
+      fixed_to: "If you notice symptoms of complex trauma, such as those above, it's a good time to reach out to a perinatal mental health clinician; start with someone you trust. Early identification and intervention are so important, according to the Gidget Foundation."
+    - claim: "the Gidget Foundation offers free psychological therapy for expectant and new parents"
+      judgement: unsupported
+      source_says: "free individual psychological therapy ... Up to 10 individual sessions per calendar year ... subject to Medicare eligibility"
+      url: https://www.gidgetfoundation.org.au/fact-sheets/complex-trauma-during-the-perinatal-period
+      fixed_to: "added the limits"
+  notes: "Helplines (1800RESPECT, PANDA, Beyond Blue, Medicare Mental Health 1800 595 212, Bravehearts 1800 272 831) all appear on cited pages; no 000 on them and none added."
+- id: worry-and-sleep
+  file: content/drafts/worry-and-sleep.md
+  verdict: fix
+  problems:
+    - claim: "Under 'Call 000 or go to emergency': 'If you're extremely distressed or having suicidal thoughts, call Lifeline on 13 11 14 or the Suicide Call Back Service on 1300 659 467 for immediate support.'"
+      judgement: wrong
+      source_says: "Insomnia page: 'Warning: If you are extremely distressed or having suicidal thoughts call Lifeline 13 11 14 or Suicide Call Back Service 1300 659 467 for immediate support.' (no 000). Mental wellbeing page: 'If you or someone you know, is having suicidal thoughts and is in immediate danger, call triple zero (000). For help and support call Lifeline on 13 11 14.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/insomnia-in-pregnancy-and-breastfeeding
+      fixed_to: "000 heading keeps only the mental wellbeing page's 000 line plus its Lifeline line; the extremely-distressed Lifeline/Suicide Call Back line moved, in bold, under 'See your doctor or midwife'"
+    - claim: "trouble sleeping that goes on after trying these tips"
+      judgement: unsupported
+      source_says: "If you have problems with insomnia, seek medical advice and treatment."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/insomnia-in-pregnancy-and-breastfeeding
+      fixed_to: "problems with insomnia (Pregnancy, Birth and Baby says to seek medical advice and treatment)"
+  notes: "Same level caveat as stress-in-pregnancy for the moved line: 'immediate support' is stronger than the doctor/midwife heading."
+- id: mental-health-screening-epds
+  file: content/drafts/mental-health-screening-epds.md
+  verdict: fix
+  problems:
+    - claim: "It isn't a test you can fail."
+      judgement: unsupported
+      source_says: "(not on any cited page)"
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy/depression-pregnancy
+      fixed_to: cut
+    - claim: "At some point your midwife or doctor will hand you a short questionnaire"
+      judgement: unsupported
+      source_says: "most women in Australia will be screened for depression. You will be screened using a questionnaire that asks a number of set questions about how you are feeling."
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy/depression-pregnancy
+      fixed_to: "reworded to the page's words"
+    - claim: "Your answers are how the people caring for you know whether to offer more."
+      judgement: unsupported
+      source_says: "Your answers will let the health professional know whether or not you have symptoms of depression."
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy/depression-pregnancy
+      fixed_to: "Your answers let the health professional know whether or not you have symptoms of depression."
+    - claim: "Some private hospitals (in Sydney and Melbourne so far) ... one-on-one emotional wellbeing appointment"
+      judgement: unsupported
+      source_says: "a routine inclusion of antenatal care at the following private hospitals: Kareena (Caringbah NSW), Mater (North Sydney), North Shore Private (St Leonards), St Vincent's Private (Fitzroy VIC)"
+      url: https://www.gidgetfoundation.org.au/support/emotional-wellbeing-screening-progam
+      fixed_to: "Selected private hospitals (four in NSW and Victoria so far)"
+    - claim: "If you've been feeling miserable most of the day on most days, or have thoughts of harming yourself, the Royal Women's says to see your GP."
+      judgement: unsupported
+      source_says: "'feeling depressed or miserable consistently for most of the day and for most days of the week' and 'thoughts of harming yourself' are listed as symptoms; 'If you feel that you may have symptoms, visit your GP.' Disclaimer: 'if you require urgent care you should go to the nearest Emergency Dept.'"
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy/depression-pregnancy
+      fixed_to: "reworded to say these are listed symptoms and that the page says visit your GP if you think you may have symptoms"
+  notes: "CONFIRMED: Gidget's screening page says 'The National Perinatal Mental Health Guidelines were reviewed and updated in 2023 ... New additions to the 2023 Guideline include screening and psychosocial assessment for fathers and non-birthing partners.' The draft's line stands. EPDS 'commonly used screening questionnaire in the perinatal period with a standard scoring guide' and Q10 self-harm also confirmed. 15 per cent figure confirmed on the Women's mental health page. No 000 on the pages; none added (only the Women's disclaimer about the emergency department)."
+- id: retained-placenta
+  file: content/drafts/retained-placenta.md
+  verdict: fix
+  problems:
+    - claim: "Your doctor will likely recommend antibiotics afterwards, especially if you had a fever or needed surgery."
+      judgement: wrong
+      source_says: "If you needed help to deliver your placenta, especially if you had a fever or needed surgery, it's likely your doctor will also recommend antibiotics to prevent infection."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/retained-placenta
+      fixed_to: "If you needed help to deliver your placenta, especially if you had a fever or needed surgery, your doctor will likely recommend antibiotics to prevent infection."
+  notes: "Red flags confirmed: 000 only when bleeding or pain becomes severe; contact doctor/medical team as soon as possible for heavy bleeding or pain in days or weeks after birth, many large clots, or bleeding heavier, bright red or foul-smelling. 30 min / 1 hour thresholds, 2 in 100, 5 to 60 minutes confirmed."
+- id: first-feed
+  file: content/drafts/first-feed.md
+  verdict: ok
+- id: hepatitis-b-birth-dose
+  file: content/drafts/hepatitis-b-birth-dose.md
+  verdict: fix
+  problems:
+    - claim: "usually as part of a combined vaccine"
+      judgement: unsupported
+      source_says: "3 subsequent doses of a hepatitis B-containing vaccine at 2, 4 and 6 months of age"
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/hepatitis-b
+      fixed_to: "as part of a hepatitis B-containing vaccine"
+  notes: "Confirmed: 24 h preferred and within 7 days, no birth-dose catch-up (3-dose course instead), 2-month dose from 6 weeks, free under NIP, HBIG within 12 h preferably and certainly within 48 h, blood test 3-12 months after course and not before 9 months, newborns tolerate very well, can be given with vitamin K."
+- id: newborn-bloodspot-screening
+  file: content/drafts/newborn-bloodspot-screening.md
+  verdict: ok
+- id: special-care-nursery
+  file: content/drafts/special-care-nursery.md
+  verdict: fix
+  problems:
+    - claim: "Grief, anxiety, guilt or being overwhelmed are all natural."
+      judgement: wrong
+      source_says: "It is natural to feel: grief, anxiety, disbelief, guilt (hospital page); feelings may range from being overwhelmed by the equipment ... (SCN page)"
+      url: https://www.pregnancybirthbaby.org.au/babies/health-and-wellbeing/having-a-baby-with-health-problems-at-birth
+      fixed_to: "Grief, anxiety, disbelief or guilt are all natural, and you may feel overwhelmed by the equipment."
+  notes: "Everything else confirmed (almost 1 in 5, SCN vs NICU, transfer by road or air, visitors 2 or 3, kangaroo care incl. ventilated babies and 2 staff, discharge criteria, Miracle Babies 24-hour Nurture line 1300 622 243, PANDA)."
+- id: going-home
+  file: content/drafts/going-home.md
+  verdict: fix
+  problems:
+    - claim: "The two sources give slightly different ranges. PBB says 4 to 24 hours vaginal, 48 to 72 hours caesarean; KEMH 4 hours vaginal, 24 to 72 hours caesarean."
+      judgement: unsupported
+      source_says: "Two other PBB pages (Your first few days after giving birth; Mum's first 24 hours after birth) say 'You may be able to go home 4 to 6 hours after a vaginal birth in a public hospital or birth centre' and 'You may need to stay in hospital longer if: assisted delivery, caesarean, you are unwell, your baby is unwell'; private hospital 'might be able to stay longer'."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-first-few-days-after-giving-birth
+      fixed_to: "kept all credited: the at-home page's 4 to 24 h / 48 to 72 h, the two other PBB pages' 4 to 6 h, and KEMH; both pages added to sources"
+    - claim: "It can be sooner than people expect."
+      judgement: unsupported
+      source_says: "(not on any cited page)"
+      url: https://www.kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Going-home
+      fixed_to: cut
+    - claim: "Beyond Blue on 1300 224 636"
+      judgement: ok
+      source_says: "Page prints 1300 224 636 (same digits as 1300 22 4636)"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/being-at-home-with-your-baby-after-giving-birth
+      fixed_to: "written 1300 22 4636 to match the other entries"
+  notes: "KEMH confirmed: from 4 hours after an uncomplicated vaginal birth, 24 to 72 hours after a caesarean, discharge checklist. Admin (Medicare, register within 60 days in most states and territories), first child health nurse visit about 10 days after getting home confirmed."
+- id: first-days-mum
+  file: content/drafts/first-days-mum.md
+  verdict: ok
+  notes: "Credited disagreements confirmed. Lochia: PBB 'up to 6 weeks' (first few days page and 24-hour page); RANZCOG 'may continue for about two months'. Large clots: PBB 'tell your midwife'; RANZCOG 'contact your midwife or doctor or present to an emergency facility' and save the pad. Blues: RANZCOG 'if you have the blues for more than a few days ... call your doctor or midwife right away' (peak around day 4, ease up in under two weeks); PBB 'still having the blues 2 weeks after giving birth ... call your doctor'. Thoughts of hurting yourself or the baby: PBB 'call your doctor', RANZCOG 'call your doctor or midwife right away'. Red-flag list (sudden heavy bleeding, high temperature, chest pain, calf pain, severe headache, blurred vision, vomiting) is PBB's 'talk to your doctor or midwife straight away ... signs you need immediate treatment'. No 000 on these pages."
+- id: term-lochia
+  file: content/drafts/term-lochia.md
+  verdict: fix
+  problems:
+    - claim: "Expect it for up to 6 weeks."
+      judgement: unsupported
+      source_says: "PBB: 'up to 6 weeks'. RANZCOG: 'may continue for about two months'."
+      url: https://ranzcog.edu.au/wp-content/uploads/First-Few-Weeks-Following-Birth.pdf
+      fixed_to: "both credited; RANZCOG added to sources"
+    - claim: "Use maternity pads or period underwear, not tampons or cups."
+      judgement: wrong
+      source_says: "use maternity pads or period underwear until your 6-week check. Using internal period products like tampons and menstrual cups may increase your chance of getting an infection."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/mums-first-24-hours-after-birth
+      fixed_to: "Use maternity pads or period underwear until your 6-week check: tampons and menstrual cups may increase the chance of infection."
+    - claim: "If you pass large clots or notice a bad smell, tell your midwife."
+      judgement: wrong
+      source_says: "PBB: tell your midwife. RANZCOG: 'contact your midwife or doctor or present to an emergency facility' (save the pad)."
+      url: https://ranzcog.edu.au/wp-content/uploads/First-Few-Weeks-Following-Birth.pdf
+      fixed_to: "both credited; bad smell kept as tell your midwife (PBB)"
+- id: caesarean-recovery
+  file: content/drafts/caesarean-recovery.md
+  verdict: fix
+  problems:
+    - claim: "Pregnancy, Birth and Baby says you'll usually stay 2 to 5 days; KEMH says 24 to 72 hours."
+      judgement: unsupported
+      source_says: "PBB being-at-home page: 'likely to go home ... 48 to 72 hours after a caesarean section'. Recovery page: 'usually stay in hospital for 2 to 5 days'. KEMH: 'between 24 and 72 hours after a caesarean birth'."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/being-at-home-with-your-baby-after-giving-birth
+      fixed_to: "all three credited; being-at-home page added to sources"
+  notes: "Everything else matches (fever 38 C or more, redness or swelling, smelly discharge, pain when you wee, heavy bleeding: contact doctor or midwife straight away; staples about 7 days; driving 2 to 6 weeks; wound pain easing 3 to 6 months; avoid lifting more than your baby)."
+- id: baby-first-days
+  file: content/drafts/baby-first-days.md
+  verdict: fix
+  problems:
+    - claim: "When your baby is usually between 48 and 72 hours old, you'll be offered the heel prick test"
+      judgement: unsupported
+      source_says: "Your baby in the first few days: 'usually when they're between 48 and 72 hours old'. Newborn bloodspot screening page: 'done within the first 72 hours after birth'."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/neonatal-screening-test
+      fixed_to: "Usually when your baby is between 48 and 72 hours old (the newborn screening page says within the first 72 hours)"
+  notes: "Heel prick timing: no real conflict between the two PBB pages; no draft in M12 credits a heel-prick disagreement (card-heel-prick-72-hours is outside this batch). Other facts (Apgar at 1 and 5 minutes, 14 to 17 hours sleep, 8 to 12 feeds in 24 hours then 8 to 14 or more, meconium, wet nappy within 24 hours, up to 10% weight loss, Infant Health Record colours, cord care) confirmed."
+- id: card-epidural-package
+  file: content/drafts/card-epidural-package.md
+  verdict: ok
+- id: card-morphine-drowsy
+  file: content/drafts/card-morphine-drowsy.md
+  verdict: ok
+- id: card-partner-speaks
+  file: content/drafts/card-partner-speaks.md
+  verdict: ok
+- id: card-vitamin-k-consent
+  file: content/drafts/card-vitamin-k-consent.md
+  verdict: ok

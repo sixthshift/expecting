@@ -1,0 +1,226 @@
+# L06 check of glossary-term drafts (body-and-baby), 2026-10-29. Each claim checked against the cited pages (re-fetched into scratchpad/p2/chk-L06-*.txt); thin or undefined terms searched for a fuller defining page.
+- id: term-overdue
+  file: content/drafts/term-overdue.md
+  verdict: fix
+  problems:
+    - claim: 'Your due date is an estimate (the EDD), so "overdue" marks a point on the calendar.'
+      judgement: unsupported
+      source_says: '(glossary defines overdue only as beyond the estimated due date to 41 to 42 weeks)'
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+      fixed_to: 'cut'
+- id: term-antenatal
+  file: content/drafts/term-antenatal.md
+  verdict: fix
+  problems:
+    - claim: 'Antenatal and prenatal both mean before birth (so does antepartum), as in "antenatal appointments". [summary lacked perinatal/postnatal]'
+      judgement: unsupported
+      source_says: "PBB: antenatal is the time from conception and during pregnancy; BHC: prenatal means 'before birth' (alternative terms antenatal, antepartum). Perinatal kept credited to PBB and AIHW as drafted."
+      url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth
+      fixed_to: 'Reworded: PBB credited for the antenatal definition; summary widened. Perinatal both ways unchanged.'
+- id: term-gravida-para
+  file: content/drafts/term-gravida-para.md
+  verdict: unchecked
+  problems:
+    - claim: 'G (gravida) not defined'
+      judgement: unchecked
+      source_says: 'No Australian official page loaded defines gravida or the G2P1 shorthand; AIHW/METeOR define parity only (live births or stillbirths, excluding current pregnancy). A web search said a Queensland Health pregnancy record defines gravida, but the PDF could not be read here.'
+      url: https://meteor.aihw.gov.au/content/501710
+      fixed_to: "Summary truncated at 'stands for parity:' fixed; body reduced to the AIHW parity definition. Gravida left out; no checked: line."
+- id: term-primigravida
+  file: content/drafts/term-primigravida.md
+  verdict: fix
+  problems:
+    - claim: '"Primip" is short for primipara.'
+      judgement: unsupported
+      source_says: "AIHW: 'first-time mother: Pregnant woman who has had no previous pregnancy resulting in a live birth or stillbirth. Also primipara.' No page defines primigravida or the abbreviation."
+      url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary
+      fixed_to: "Defined as AIHW's first-time mother / primipara; abbreviation claim cut. No page defining primigravida found (AIHW, METeOR, Better Health, healthdirect searched)."
+- id: term-multipara
+  file: content/drafts/term-multipara.md
+  verdict: fix
+  problems:
+    - claim: '"Multip" is short for multipara.'
+      judgement: unsupported
+      source_says: "AIHW: 'multipara: A pregnant woman who has had at least one previous pregnancy resulting in a live birth or stillbirth.' Abbreviation and multigravida not defined."
+      url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary
+      fixed_to: 'Abbreviation claim cut; AIHW definition kept.'
+- id: term-nullipara
+  file: content/drafts/term-nullipara.md
+  verdict: fix
+  problems:
+    - claim: 'Its nearest term is primipara [editorial]'
+      judgement: unsupported
+      source_says: 'AIHW does not define nullipara. No page found that defines it. METeOR says a primipara has a parity of 0.'
+      url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary
+      fixed_to: 'Reworded to say AIHW does not define it and gives the first-time mother / primipara definition. Still undefined.'
+- id: term-bmi
+  file: content/drafts/term-bmi.md
+  verdict: ok
+- id: term-uterus
+  file: content/drafts/term-uterus.md
+  verdict: fix
+  problems:
+    - claim: "summary 'Yes:' (truncated)"
+      judgement: wrong
+      source_says: 'Uterus (also known as womb) sits in the middle of pelvis, pear-shaped, 4 parts.'
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-uterus
+      fixed_to: 'Summary rewritten.'
+- id: term-fundus
+  file: content/drafts/term-fundus.md
+  verdict: ok
+- id: term-fundal-height
+  file: content/drafts/term-fundal-height.md
+  verdict: ok
+- id: term-cervix
+  file: content/drafts/term-cervix.md
+  verdict: ok
+- id: term-mucus-plug
+  file: content/drafts/term-mucus-plug.md
+  verdict: ok
+- id: term-effacement
+  file: content/drafts/term-effacement.md
+  verdict: ok
+- id: term-dilation
+  file: content/drafts/term-dilation.md
+  verdict: ok
+- id: term-vaginal-examination
+  file: content/drafts/term-vaginal-examination.md
+  verdict: fix
+  problems:
+    - claim: 'A vaginal examination (VE) is an internal check by your midwife.'
+      judgement: unsupported
+      source_says: "PBB only says a midwife can tell Braxton Hicks from labour by doing a vaginal examination; 'internal check' not stated."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-happens-to-your-body-in-childbirth
+      fixed_to: 'Reworded to what PBB says.'
+- id: term-pelvic-floor
+  file: content/drafts/term-pelvic-floor.md
+  verdict: fix
+  problems:
+    - claim: '(one-line definition only)'
+      judgement: unchecked
+      source_says: "PBB Pelvic floor exercises: 'Your pelvic floor is a group of muscles that support your bladder, uterus and bowel. These muscles form a sling that attaches to your pubic bone at the front and your tailbone at the back. Your urethra, vagina and anus pass through the pelvic floor... extra job during pregnancy, to support your growing baby. During labour and birth, your pelvic floor muscles need to relax and stretch'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/pelvic-floor-exercises
+      fixed_to: 'Expanded; source added.'
+- id: term-perineum
+  file: content/drafts/term-perineum.md
+  verdict: ok
+- id: term-diastasis-recti
+  file: content/drafts/term-diastasis-recti.md
+  verdict: fix
+  problems:
+    - claim: '(one-sentence definition only)'
+      judgement: unchecked
+      source_says: "PBB Abdominal separation: 'when these 2 long muscles [rectus abdominis, chest to pelvis] separate from each other... may happen in the later stages of your pregnancy. It's a natural adaption to your growing baby... often gets better in the weeks and months after having your baby.'"
+      url: https://www.pregnancybirthbaby.org.au/abdominal-separation
+      fixed_to: 'Expanded; source added.'
+- id: term-linea-nigra
+  file: content/drafts/term-linea-nigra.md
+  verdict: ok
+- id: term-melasma
+  file: content/drafts/term-melasma.md
+  verdict: ok
+- id: term-stretch-marks
+  file: content/drafts/term-stretch-marks.md
+  verdict: fix
+  problems:
+    - claim: "summary 'Stretch marks are common in pregnancy:' (truncated)"
+      judgement: wrong
+      source_says: 'Summary ended at a colon.'
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+      fixed_to: 'Summary completed.'
+- id: term-colostrum
+  file: content/drafts/term-colostrum.md
+  verdict: fix
+  problems:
+    - claim: "summary 'Colostrum is the first milk your body makes:' (truncated)"
+      judgement: wrong
+      source_says: 'Summary ended at a colon.'
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+      fixed_to: 'Summary completed.'
+- id: term-antenatal-expressing
+  file: content/drafts/term-antenatal-expressing.md
+  verdict: ok
+- id: term-areola
+  file: content/drafts/term-areola.md
+  verdict: fix
+  problems:
+    - claim: 'The areola is the area around your nipple.'
+      judgement: unsupported
+      source_says: "Drafter's own. healthdirect (breast uplift): 'the areola (the darker area around your nipple)'."
+      url: https://www.healthdirect.gov.au/procedures/surgery/breast-uplift
+      fixed_to: "Now 'the darker area around your nipple', healthdirect added as source (page is about surgery; the only Australian official wording found)."
+- id: term-montgomery-glands
+  file: content/drafts/term-montgomery-glands.md
+  verdict: ok
+- id: term-contraction
+  file: content/drafts/term-contraction.md
+  verdict: ok
+- id: term-relaxin
+  file: content/drafts/term-relaxin.md
+  verdict: ok
+- id: term-hcg
+  file: content/drafts/term-hcg.md
+  verdict: ok
+- id: term-progesterone
+  file: content/drafts/term-progesterone.md
+  verdict: ok
+- id: term-oestrogen
+  file: content/drafts/term-oestrogen.md
+  verdict: ok
+- id: term-oxytocin
+  file: content/drafts/term-oxytocin.md
+  verdict: fix
+  problems:
+    - claim: 'plays a role in how you form emotional bonds, including with your child; The synthetic form given to induce labour is called Syntocinon.'
+      judgement: wrong
+      source_says: "healthdirect: 'plays a role in how you form emotional bonds with others'. PBB glossary lists Syntocinon as a medication used to induce labour and separately 'a synthetic hormone called oxytocin'; neither page links the two."
+      url: https://www.healthdirect.gov.au/anatomy/hormones/oxytocin
+      fixed_to: "'with others'; Syntocinon sentence cut."
+- id: term-prolactin
+  file: content/drafts/term-prolactin.md
+  verdict: ok
+- id: term-haemoglobin
+  file: content/drafts/term-haemoglobin.md
+  verdict: ok
+- id: term-varicose-veins
+  file: content/drafts/term-varicose-veins.md
+  verdict: ok
+- id: term-zygote
+  file: content/drafts/term-zygote.md
+  verdict: fix
+  problems:
+    - claim: "summary 'A zygote is a fertilised egg:' (truncated)"
+      judgement: wrong
+      source_says: 'Summary ended at a colon.'
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+      fixed_to: 'Summary completed.'
+- id: term-blastocyst
+  file: content/drafts/term-blastocyst.md
+  verdict: ok
+- id: term-implantation
+  file: content/drafts/term-implantation.md
+  verdict: fix
+  problems:
+    - claim: '(thin: 2 sentences)'
+      judgement: unchecked
+      source_says: "PBB conception page: egg 'implants itself to the wall of your uterus, then conception is complete. If it is not successful then a pregnancy does not occur, your hormones will decrease and the lining of your uterus will shed.' Weeks 1-4: 'By the end of the fourth week, the embryo implants itself into your uterus.' PBB placenta: 'starts forming at the time your fertilised egg implants'."
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/conception/conception-and-fetal-development
+      fixed_to: 'Expanded; two sources added.'
+- id: term-embryo
+  file: content/drafts/term-embryo.md
+  verdict: fix
+  problems:
+    - claim: '(BHC only: until the eighth week)'
+      judgement: unchecked
+      source_says: "PBB conception page: 'embryonic (week 4 to 10)'. BHC: 'from the time of conception until the eighth week'. Both kept, each credited."
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/conception/conception-and-fetal-development
+      fixed_to: 'Added PBB stage; source added.'
+- id: term-fetus
+  file: content/drafts/term-fetus.md
+  verdict: fix
+  problems:
+    - claim: '(one sentence, 12 words)'
+      judgement: unchecked
+      source_says: "PBB conception page: 'fetal (week 11) until birth - your baby and their organs continue to develop'."
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/conception/conception-and-fetal-development
+      fixed_to: 'Added; source added. Glossary does define fetus (12 words); no longer definition found.'

@@ -1,0 +1,60 @@
+# Fact-check of drafts-M20 (12 drafts: 9 terms, 3 cards, body-and-baby.yaml), 2026-10-29.
+# Every claim checked against the pages in each draft's sources (re-fetched today).
+# Key points: term-stillbirth credits PBB ("after 20 weeks") separately from AIHW / Fair Work / BDM Victoria
+# (20 weeks or 400 g); term-ttts warning signs are the page's "contact your doctor immediately";
+# card-round-ligament-stab red flags are the page's "seek medical care immediately";
+# term-bp-and-urine says urine is tested at routine checks if blood pressure is raised, as PBB says.
+
+- id: term-amniocentesis
+  file: content/drafts/term-amniocentesis.md
+  verdict: ok
+- id: term-cvs
+  file: content/drafts/term-cvs.md
+  verdict: ok
+- id: term-bp-and-urine
+  file: content/drafts/term-bp-and-urine.md
+  verdict: ok
+- id: term-mcda
+  file: content/drafts/term-mcda.md
+  verdict: ok
+- id: term-mcma
+  file: content/drafts/term-mcma.md
+  verdict: ok
+- id: term-ttts
+  file: content/drafts/term-ttts.md
+  verdict: ok
+- id: term-vanishing-twin
+  file: content/drafts/term-vanishing-twin.md
+  verdict: ok
+- id: term-fetal-distress
+  file: content/drafts/term-fetal-distress.md
+  verdict: ok
+- id: term-stillbirth
+  file: content/drafts/term-stillbirth.md
+  verdict: fix
+  problems:
+    - claim: "In Australia, losing a baby before 20 weeks is a miscarriage; the birth of a baby without signs of life after 20 weeks is a stillbirth. The AIHW and Fair Work definitions also count a baby of 400 grams or more."
+      judgement: wrong
+      source_says: "PBB glossary: 'Stillbirth is the birth of a baby without signs of life after 20 weeks'; 'Miscarriage is the loss of a baby before 20 weeks'. AIHW: 'fetal death (stillbirth) ... 20 or more completed weeks of gestation or of 400 grams or more birthweight'. Fair Work: 'at least 400 grams or reached at least 20 weeks gestation'. BDM Victoria: 'carried in the womb for 20 weeks or more, or weighing over 400 grams'."
+      url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary
+      fixed_to: "each source credited with its own definition; BDM Victoria added"
+    - claim: "summary: that line decides whether the birth is registered and what leave applies"
+      judgement: unsupported
+      source_says: "BDM Victoria: stillbirth registration is required by law; an early pregnancy loss 'can't be registered' but can have a recognition certificate. Fair Work: stillbirth gives up to 12 months' unpaid parental leave. No page says the 20-week line decides 'what leave applies'."
+      url: https://www.bdm.vic.gov.au/register-birth-baby-who-died
+      fixed_to: "summary reworded to the registration point only"
+- id: card-anterior-placenta
+  file: content/drafts/card-anterior-placenta.md
+  verdict: fix
+  problems:
+    - claim: "summary: call straight away about any change"
+      judgement: wrong
+      source_says: "PBB: 'if you are concerned about your baby's movement pattern or notice a decrease in their movements, contact your midwife, hospital birth unit or doctor immediately. Do not wait until the next day.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
+      fixed_to: "call immediately if you're concerned or notice a decrease"
+- id: card-round-ligament-stab
+  file: content/drafts/card-round-ligament-stab.md
+  verdict: ok
+- id: card-identical-twins-share-a-placenta
+  file: content/drafts/card-identical-twins-share-a-placenta.md
+  verdict: ok

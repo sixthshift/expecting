@@ -1,0 +1,2244 @@
+# The Library's map: getting ready for the birth, labour, the birth itself, and the
+# first days after. See README.md for the entry format. Entries marked
+# "after the birth: later phase" are mapped now and written for the version after
+# the pregnancy. Every source URL below was fetched and read on 2026-10-28; the
+# RANZCOG leaflets are the PDFs linked from ranzcog.edu.au/womens-health/patient-information/.
+
+# ---------------------------------------------------------------------------
+# Getting ready
+# ---------------------------------------------------------------------------
+
+- id: birth-preferences
+  title: Birth preferences (the birth plan)
+  type: decision
+  topic: birth
+  ask: Do we need a birth plan, and what goes in it?
+  aliases: [ birth plan, birth preferences, birth wishes, birth choices ]
+  weeks: [ 30, 36 ]
+  who: together
+  priority: 1
+  stakes: medium
+  covers:
+    - "preferences, not a script: labour rarely follows a plan"
+    - pain relief, who is in the room, positions, monitoring, skin to skin, cord clamping, the third stage, vitamin K
+    - what you want if things change (induction, caesarean)
+    - write it together so the partner can speak for you
+    - talk it through with the midwife so it is realistic for your hospital
+    - decide by about 36 weeks
+  sources:
+    - title: Pregnancy, Birth and Baby — Birth choices and making a birth plan
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/making-a-birth-plan
+    - title: The Royal Women's Hospital — Preparing for labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/preparing-for-labour
+  related: [ pain-relief, support-person, third-stage-placenta, delayed-cord-clamping, vitamin-k, support-person-role ]
+  notes: Keep it short and about choices the hospital actually offers. Birth trauma is often tied to plans that could not be followed; say plainly that preferences can change on the day.
+
+- id: antenatal-classes
+  title: Antenatal classes
+  type: moment
+  topic: birth
+  ask: Should we do antenatal classes, and when?
+  aliases:
+    - birth classes
+    - childbirth education
+    - parenting classes
+    - hypnobirthing
+    - calmbirth
+    - hospital classes
+    - hypnobirthing classes
+  weeks: [ 20, 32 ]
+  who: together
+  priority: 1
+  stakes: medium
+  covers:
+    - hospital-run and private classes
+    - labour
+    - pain relief
+    - feeding
+    - they book out so book early
+    - course around 28 to 32 weeks
+    - what they cover, labour, birth, feeding, the first weeks
+    - hospital classes versus private ones, costs, both public and private patients may pay
+    - they fill, book around 20 to 24 weeks for a course near 28 to 34
+  sources:
+    - title: Pregnancy, Birth and Baby — Antenatal classes
+      url: https://www.pregnancybirthbaby.org.au/antenatal-classes
+    - title: Pregnancy, Birth and Baby — Antenatal classes
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/antenatal-classes
+  related:
+    - birth-preferences
+    - support-person-role
+    - hospital-tour
+    - antenatal-visit-schedule
+  exists: content/items/antenatal-classes.md
+
+- id: hospital-bag
+  title: The hospital bag
+  type: moment
+  topic: birth
+  ask: What do we pack for the hospital?
+  aliases: [ birth bag, labour bag, what to take to hospital, packing list ]
+  weeks: [ 34, 38 ]
+  who: together
+  priority: 1
+  stakes: low
+  covers: [ packed and by the door by 36 weeks, a bag for her, a bag for the baby, a bag for the partner, documents and the pregnancy record, the car seat fitted ]
+  sources:
+    - title: Pregnancy, Birth and Baby — What to take to hospital checklist
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-to-take-to-hospital-checklist
+  related: [ car-seat, getting-to-hospital, going-home ]
+  exists: content/items/hospital-bag.md
+
+- id: hospital-tour
+  title: The hospital tour
+  type: moment
+  topic: birth
+  ask: Can we look around the birth unit before the day?
+  aliases:
+    - maternity tour
+    - birth unit tour
+    - virtual tour
+    - orientation
+    - hospital orientation
+    - see the birth suite
+  weeks: [ 28, 36 ]
+  who: together
+  priority: 2
+  stakes: low
+  covers:
+    - where to park and which entrance after hours
+    - the birth suite and the ward
+    - what the hospital allows (water
+    - partners overnight)
+    - many hospitals now run it as a video
+    - book it with the antenatal clinic
+    - many hospitals run tours or online tours of the birth unit and postnatal ward, usually booked
+    - what to look at, where to park and enter after hours, where to go in labour, visiting rules, the postnatal rooms
+    - ask at a visit, or the hospital website, around 28 to 34 weeks
+  sources:
+    - title: Pregnancy, Birth and Baby — Going to hospital
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/going-to-hospital
+    - title: Pregnancy, Birth and Baby — Choosing where to give birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/choosing-where-to-give-birth
+  related:
+    - getting-to-hospital
+    - when-to-go-to-hospital
+    - antenatal-classes
+    - choosing-a-hospital
+  notes: Border with the labour file's "going to hospital"; this is only the tour as an appointment to book.
+
+- id: perineal-massage
+  title: Perineal massage
+  type: guide
+  topic: birth
+  ask: Does perineal massage actually help, and how do I do it?
+  aliases: [ perineum massage, perineal stretching, preventing tears ]
+  weeks: [ 34, 40 ]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers: [ from 34 to 35 weeks, a few times a week, may lower the chance of a tear or episiotomy in a first birth, how to do it (or the partner can), when not to (bleeding, infection, low-lying placenta, short cervix) ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Perineal massage
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/perineal-massage
+    - title: Pregnancy, Birth and Baby — How to do a perineal massage
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/how-to-do-a-perineal-massage
+  related: [ perineal-tears, episiotomy ]
+
+- id: support-person
+  title: Who will be at the birth
+  type: decision
+  topic: birth
+  ask: Who should be in the room, and how many people can we have?
+  aliases: [ birth partner, support people, mum at the birth, doula, student midwife ]
+  weeks: [ 28, 36 ]
+  who: together
+  priority: 1
+  stakes: medium
+  covers: [ the partner, a second support person, a doula, hospital limits on numbers, one person in theatre for a caesarean, who stays if the partner has to leave ]
+  sources:
+    - title: Pregnancy, Birth and Baby — The role of a birth support partner
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
+    - title: Pregnancy, Birth and Baby — Non-medical pain relief during labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/non-medical-pain-relief-during-labour
+  related: [ doula, support-person-role, birth-preferences, emergency-caesarean ]
+
+- id: doula
+  title: Doulas
+  type: guide
+  topic: birth
+  ask: What does a doula do, and is it worth it?
+  aliases: [ birth doula, postnatal doula, birth support worker ]
+  weeks: [ 20, 34 ]
+  priority: 3
+  stakes: low
+  covers: [ non-medical support before, during and after the birth, not a midwife and gives no clinical care, privately paid, how they fit with the partner and the hospital, book early ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Birth doulas, what do they do?
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/what-does-a-birth-doula-do
+  related: [ support-person, support-person-role ]
+
+- id: antenatal-expressing
+  title: Expressing colostrum before the birth
+  type: moment
+  topic: feeding
+  ask: Should I express colostrum before the baby comes?
+  aliases: [ antenatal expression, colostrum harvesting, hand expressing in pregnancy, colostrum syringes ]
+  weeks: [ 36, 40 ]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: [ from about 36 weeks and only if your midwife or doctor agrees, who it is suggested for (gestational diabetes, a planned caesarean, a baby expected in special care), hand expression into syringes and freezing, bring it in the hospital bag, stop if contractions start ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Antenatal expression of colostrum
+      url: https://www.pregnancybirthbaby.org.au/babies/feeding-and-nutrition/antenatal-expression-of-colostrum
+  related: [ first-feed, planned-caesarean, special-care-nursery, hospital-bag ]
+  notes: Border with the feeding area, which owns breastfeeding; this entry stops at the hospital bag.
+
+- id: when-to-go-to-hospital
+  title: When to go to hospital
+  type: guide
+  topic: labour
+  ask: How do we know it's time to go in?
+  aliases: [ when to call the hospital, 5-1-1, contractions 5 minutes apart, going in too early, sent home from hospital ]
+  weeks: [ 36, 42 ]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - call the birth unit first, any time you are worried; they will ask questions and help you decide
+    - go in when contractions are about 5 minutes apart, or you live far away, or you no longer feel comfortable at home (Better Health Channel)
+    - call the birth unit or go to hospital straight away if the waters break, for bleeding, for green, brown or blood-coloured fluid, or if the baby's movements change (Better Health Channel says go immediately for waters or bleeding, KEMH and Pregnancy, Birth and Baby say call immediately)
+    - being checked and sent home in early labour is common and not a failure
+    - "second and later labours are often faster: plan to leave earlier"
+  sources:
+    - title: Better Health Channel — Pregnancy, labour
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-labour
+    - title: Pregnancy, Birth and Baby — Going to hospital
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/going-to-hospital
+    - title: King Edward Memorial Hospital — Giving birth
+      url: https://www.kemh.health.wa.gov.au/Pregnancy-and-Birth/Giving-birth
+  related: [ signs-of-labour, timing-contractions, waters-breaking, early-labour, getting-to-hospital, numbers-to-save ]
+  notes: The "5-1-1" rule is American; Australian sources say "about 5 minutes apart" and "ring and ask". Hospitals differ, so the entry should send them to their own birth unit's advice. A change in the baby's movements is always a call, never a wait.
+
+- id: getting-to-hospital
+  title: Getting to the hospital
+  type: guide
+  topic: labour
+  ask: What's the partner's plan for getting us there?
+  aliases: [ the drive, parking at the hospital, after-hours entrance, birth on the way ]
+  weeks: [ 36, 42 ]
+  who: partner
+  priority: 1
+  stakes: high
+  covers: [ the route and a backup, fuel and the car seat already fitted, where to park, the birth unit's number saved in both phones, the bags and the paperwork, call 000 and ask for an ambulance if you think you won't make it to the hospital before the baby is born ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Going to hospital
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/going-to-hospital
+    - title: Pregnancy, Birth and Baby — The role of a birth support partner
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
+    - title: Pregnancy, Birth and Baby — Early signs of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
+  related: [ when-to-go-to-hospital, hospital-bag, car-seat, hospital-tour ]
+
+- id: tens-machine
+  title: The TENS machine
+  type: guide
+  topic: labour
+  ask: Is a TENS machine worth hiring?
+  aliases: [ TENS, TENS hire, obstetric TENS, electrodes for labour ]
+  weeks: [ 34, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ pads on the lower back, pulses you control, best started in early labour at home, hire or buy and learn it before the day, not in water, no harm and many find it helps though evidence is limited ]
+  sources:
+    - title: Pregnancy, Birth and Baby — TENS
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/tens
+    - title: The Royal Women's Hospital — Managing pain in labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
+  related: [ pain-relief, early-labour, water-and-showers ]
+
+- id: twins-birth
+  title: Giving birth to twins
+  type: guide
+  topic: special-circumstances
+  ask: How is a twin birth different?
+  aliases: [ twin birth, multiple birth, twins vaginal or caesarean ]
+  weeks: [ 28, 38 ]
+  priority: 3
+  stakes: high
+  covers: [ usually earlier, often 37 to 38 weeks, vaginal birth or caesarean depends on how the first twin lies, more people in the room and continuous monitoring, an epidural is often suggested, the second twin may need help or a caesarean ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Giving birth to twins
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/multiple/giving-birth-to-twins
+  related: [ planned-caesarean, monitoring-in-labour, epidural ]
+  notes: Twin pregnancy itself belongs to the body-and-baby and tests-and-care areas; this is the birth only.
+
+# ---------------------------------------------------------------------------
+# Labour
+# ---------------------------------------------------------------------------
+
+- id: signs-of-labour
+  title: The signs of labour
+  type: guide
+  topic: labour
+  ask: How will I know labour has started?
+  aliases: [ am I in labour, early signs of labour, labour starting, pre-labour ]
+  weeks: [ 36, 42 ]
+  priority: 1
+  stakes: high
+  covers: [ period-like cramps and low backache, loose bowels, a show, the waters breaking, contractions that get longer stronger and closer, Braxton Hicks are not labour, before 37 weeks any of these is a call ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Early signs of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
+    - title: Pregnancy, Birth and Baby — Labour, the signs and stages
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/labour-the-signs-and-stages
+  related: [ term-show, waters-breaking, contractions, false-labour, when-to-go-to-hospital, preterm-birth ]
+
+- id: waters-breaking
+  title: Waters breaking
+  type: guide
+  topic: labour
+  ask: My waters broke, what now?
+  aliases: [ waters broke, rupture of membranes, PROM, amniotic fluid leaking, gush or trickle ]
+  weeks: [ 37, 42 ]
+  priority: 1
+  stakes: high
+  covers: [ a gush or a slow trickle, note the colour and smell, call the birth unit, green brown or bloody fluid is urgent, most labours start within 24 to 48 hours, antibiotics if GBS positive, after 18 hours the baby is watched for infection ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Waters breaking
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+  related: [ waters-before-labour, waters-breaking-early, term-meconium, group-b-strep-swab, when-to-go-to-hospital ]
+
+- id: waters-before-labour
+  title: "Waters broken, no labour: wait or induce"
+  type: decision
+  topic: labour
+  ask: My waters have broken but nothing's happening. Do we wait?
+  aliases: [ term PROM, prelabour rupture of membranes, waiting after waters break, induction after waters break ]
+  weeks: [ 37, 42 ]
+  priority: 2
+  stakes: high
+  covers: [ expectant management versus induction, most go into labour on their own within a day or two, infection risk rises with time, GBS changes the advice, hospitals differ on how long they will wait ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Waters breaking
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+    - title: RANZCOG — Term Prelabour Rupture of Membranes (C-Obs 36)
+      url: https://ranzcog.edu.au/wp-content/uploads/Term-PROM.pdf
+  related: [ waters-breaking, induction, group-b-strep-swab ]
+  notes: Contested in practice, the waiting window varies by hospital (often 18 to 24 hours, sometimes longer). Send them to their own birth unit's policy.
+
+- id: contractions
+  title: Contractions
+  type: guide
+  topic: labour
+  ask: What do contractions feel like, and how do I know they're real?
+  aliases: [ surges, tightenings, labour pains, how contractions feel ]
+  weeks: [ 36, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ a tightening that builds peaks and fades, period pain and backache at first, real ones get longer stronger and closer together and don't stop when you move, Braxton Hicks are irregular and ease with rest ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Contractions
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-contractions
+    - title: Pregnancy, Birth and Baby — Braxton Hicks or labour contractions
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/braxton-hicks-or-labour-contractions
+  related: [ timing-contractions, false-labour, signs-of-labour ]
+
+- id: timing-contractions
+  title: Timing contractions
+  type: guide
+  topic: labour
+  ask: How do I time contractions, and what do I tell the hospital?
+  aliases: [ contraction timer, how far apart, how long contractions last, counting contractions ]
+  weeks: [ 36, 42 ]
+  who: partner
+  priority: 1
+  stakes: medium
+  covers: [ time from the start of one to the start of the next, how long each lasts, note it for an hour not a minute, the birth unit will ask how often how long and how strong, apps are fine but a watch works ]
+  sources:
+    - title: The Royal Women's Hospital — Stages of labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/stages-of-labour
+    - title: Pregnancy, Birth and Baby — Contractions
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-contractions
+  related: [ contractions, when-to-go-to-hospital, support-person-role ]
+
+- id: false-labour
+  title: False labour and Braxton Hicks
+  type: guide
+  topic: labour
+  ask: Is this labour or Braxton Hicks?
+  aliases: [ practice contractions, Braxton Hicks, false alarm, prodromal labour ]
+  weeks: [ 30, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ irregular short and uncomfortable rather than painful, walking doesn't make them stronger and lying down may stop them, more frequent near the end, real labour gets closer and stronger, a vaginal examination can tell them apart, call if unsure ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Braxton Hicks or labour contractions
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/braxton-hicks-or-labour-contractions
+    - title: Pregnancy, Birth and Baby — What happens to your body in childbirth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-happens-to-your-body-in-childbirth
+  related: [ contractions, signs-of-labour, early-labour ]
+
+- id: stages-of-labour
+  title: The stages of labour
+  type: guide
+  topic: labour
+  ask: What actually happens in labour, start to finish?
+  aliases: [ phases of labour, first second third stage, how labour works, labour overview ]
+  weeks: [ 30, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ first stage (latent then active then transition) to 10 cm, second stage the pushing and the birth, third stage the placenta, what the cervix does, what the midwife checks at each, every labour is different ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Labour, the signs and stages
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/labour-the-signs-and-stages
+    - title: The Royal Women's Hospital — Stages of labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/stages-of-labour
+    - title: RANZCOG — Labour and Birth (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Labour-Birth.pdf
+  related: [ early-labour, active-labour, term-transition, second-stage, third-stage-placenta, length-of-labour ]
+
+- id: early-labour
+  title: Early labour, at home
+  type: guide
+  topic: labour
+  ask: What do we do in early labour?
+  aliases: [ latent phase, latent labour, pre-labour, early labour at home, how long is early labour ]
+  weeks: [ 36, 42 ]
+  who: together
+  priority: 1
+  stakes: medium
+  covers: [ can last hours or days, stay home as long as you're comfortable, rest and sleep if it's night, light snacks and water, a bath or shower a TENS and moving about, the partner keeps the house calm and the car ready, call the birth unit for reassurance ]
+  sources:
+    - title: Pregnancy, Birth and Baby — First stage of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-first-stage-of-labour
+    - title: The Royal Women's Hospital — Stages of labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/stages-of-labour
+  related: [ when-to-go-to-hospital, tens-machine, eating-and-drinking-in-labour, support-person-role ]
+
+- id: active-labour
+  title: Active labour
+  type: guide
+  topic: labour
+  ask: What's active labour, and what happens in the birth suite?
+  aliases: [ established labour, first stage, active phase, 4 cm, 6 cm ]
+  weeks: [ 37, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ regular strong contractions and the cervix opening steadily, what the midwife does on arrival (questions, the baby's heartbeat, blood pressure, perhaps a vaginal examination), progress is measured in centimetres and time, moving and changing position, pain relief choices come up here ]
+  sources:
+    - title: Pregnancy, Birth and Baby — First stage of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-first-stage-of-labour
+    - title: RANZCOG — Labour and Birth (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Labour-Birth.pdf
+  related: [ stages-of-labour, vaginal-examinations, monitoring-in-labour, positions-for-labour, pain-relief, slow-progress ]
+
+- id: term-transition
+  title: Transition
+  type: term
+  topic: labour
+  ask: What is transition in labour?
+  aliases: [ transition phase, 8 to 10 cm, the end of the first stage ]
+  weeks: [ 37, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ the last part of the first stage as the cervix reaches 10 cm, often the most intense and shortest, shaking nausea and I can't do this are typical, the partner's cue to stay close and say little ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+    - title: Pregnancy, Birth and Baby — Labour, the signs and stages
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/labour-the-signs-and-stages
+  related: [ stages-of-labour, support-person-role, term-urge-to-push ]
+
+- id: second-stage
+  title: "The second stage: pushing and the birth"
+  type: guide
+  topic: birth
+  ask: What happens when it's time to push?
+  aliases: [ pushing, second stage of labour, giving birth, the baby coming out, how long is pushing ]
+  weeks: [ 37, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ from fully dilated to the birth, the urge to push and pushing with contractions, upright positions help, the midwife guides the head out slowly (crowning), the baby onto your chest, when an epidural changes the pushing, the time limits hospitals use before suggesting help ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Second stage of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-second-stage-of-labour
+    - title: Pregnancy, Birth and Baby — Understanding vaginal birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/understanding-vaginal-birth
+  related: [ term-urge-to-push, term-crowning, positions-for-labour, assisted-birth, perineal-tears, skin-to-skin ]
+
+- id: term-urge-to-push
+  title: The urge to push
+  type: term
+  topic: labour
+  ask: What does the urge to push feel like?
+  aliases: [ bearing down, pushing urge, needing to poo in labour ]
+  weeks: [ 37, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ a strong involuntary pressure like needing to open the bowels, marks the second stage, may be dulled by an epidural, tell the midwife when it starts ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+    - title: Pregnancy, Birth and Baby — Second stage of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-second-stage-of-labour
+  related: [ second-stage, term-transition, epidural ]
+
+- id: term-crowning
+  title: Crowning
+  type: term
+  topic: birth
+  ask: What is crowning?
+  aliases: [ the head crowning, ring of fire, head visible ]
+  weeks: [ 37, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ the baby's head visible at the opening and no longer slipping back, a burning stretch, the midwife may ask you to pant rather than push to protect the perineum ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+    - title: Pregnancy, Birth and Baby — Perineal tears
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/perineal-tears
+  related: [ second-stage, perineal-tears ]
+
+- id: term-third-stage
+  title: The third stage
+  type: term
+  topic: birth
+  ask: What is the third stage of labour?
+  aliases: [ third stage, delivering the placenta, afterbirth ]
+  weeks: [ 37, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ from the baby's birth to the placenta and membranes coming away, usually 5 to 60 minutes, active or physiological, the cord is clamped in this stage ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Third stage of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-third-stage-of-labour
+    - title: Pregnancy, Birth and Baby — Retained placenta
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/retained-placenta
+  related: [ third-stage-placenta, delayed-cord-clamping, retained-placenta ]
+
+- id: positions-for-labour
+  title: Positions for labour and birth
+  type: guide
+  topic: labour
+  ask: What positions help in labour?
+  aliases: [ active birth, upright birth, birth ball, all fours, squatting, side-lying, birth stool ]
+  weeks: [ 30, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ upright and moving helps labour and the baby's descent, walking leaning kneeling all fours squatting side-lying, a ball a shower a pool, what an epidural or continuous monitoring limits, lying flat on your back is the one to avoid ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Positions for labour and birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/positions-for-labour-and-birth
+  related: [ second-stage, breathing-and-relaxation, water-and-showers, epidural, support-person-role ]
+
+- id: support-person-role
+  title: The support person's job in labour
+  type: guide
+  topic: partner
+  ask: What am I actually meant to do during labour?
+  aliases: [ birth partner role, what the partner does, supporting her in labour, advocate ]
+  weeks: [ 34, 42 ]
+  who: partner
+  priority: 1
+  stakes: medium
+  covers: [ know the preferences and speak for her when she can't, time contractions and make the calls, water snacks a cool cloth and massage, keep the room calm and the questions few, go with the baby if they are taken anywhere, eat and rest yourself it can be a long day, you may be asked to step out for some procedures ]
+  sources:
+    - title: Pregnancy, Birth and Baby — The role of a birth support partner
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
+    - title: The Royal Women's Hospital — Preparing for labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/preparing-for-labour
+  related: [ birth-preferences, timing-contractions, getting-to-hospital, massage-heat-and-movement, emergency-caesarean ]
+
+- id: monitoring-in-labour
+  title: Monitoring the baby in labour
+  type: decision
+  topic: labour
+  ask: Will the baby be monitored the whole time?
+  aliases: [ CTG, intermittent auscultation, continuous monitoring, doppler in labour, fetal heart rate monitoring, wireless CTG ]
+  weeks: [ 34, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ intermittent listening with a doppler for an uncomplicated labour, continuous CTG when there are risk factors or an epidural or induction, what each does to moving around, an admission CTG at some hospitals, a fetal scalp clip if the trace is unclear, it is your choice and you can ask why ]
+  sources:
+    - title: RANZCOG — Monitoring the Baby's Heart Rate in Labour (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Monitoring-Babys-Heart-Rate-Labour.pdf
+    - title: Pregnancy, Birth and Baby — Fetal monitoring
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/fetal-monitoring
+    - title: The Royal Women's Hospital — Checking your baby during labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/checking-your-baby-during-labour
+  related: [ term-ctg, term-fetal-distress, epidural, induction, positions-for-labour ]
+
+- id: vaginal-examinations
+  title: Vaginal examinations in labour
+  type: guide
+  topic: labour
+  ask: How often will I be examined, and can I say no?
+  aliases: [ VE, internal examination, how dilated am I, cervical check, centimetres dilated ]
+  weeks: [ 37, 42 ]
+  priority: 2
+  stakes: medium
+  covers: [ checks how open and thin the cervix is and where the baby's head sits, usually about every 4 hours in active labour, always with your consent and you can decline or ask for a different examiner, what the numbers mean and don't (they can't predict how long is left) ]
+  sources:
+    - title: RANZCOG — Labour and Birth (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Labour-Birth.pdf
+    - title: Safer Care Victoria — Care during labour and birth
+      url: https://www.safercare.vic.gov.au/best-practice-improvement/clinical-guidance/maternity/care-during-labour-and-birth
+  related: [ term-dilated, term-effaced, active-labour, slow-progress ]
+
+- id: term-dilated
+  title: Dilated
+  type: term
+  topic: labour
+  ask: What does "4 centimetres dilated" mean?
+  aliases: [ dilation, dilatation, 10 cm, fully dilated, cm dilated ]
+  weeks: [ 36, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ how far the cervix has opened measured in centimetres, 10 cm is fully dilated and the start of the second stage, the number can't tell you how long is left ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+  related: [ term-effaced, vaginal-examinations, stages-of-labour ]
+
+- id: term-effaced
+  title: Effaced
+  type: term
+  topic: labour
+  ask: What does effaced mean?
+  aliases: [ effacement, cervix thinning, ripe cervix, cervix softening ]
+  weeks: [ 36, 42 ]
+  priority: 3
+  stakes: low
+  covers: [ the cervix shortening and thinning before and during the first stage, given as a percentage, happens with or before dilation, ripe or favourable is what induction depends on ]
+  sources:
+    - title: Pregnancy, Birth and Baby — First stage of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-first-stage-of-labour
+    - title: Pregnancy, Birth and Baby — What happens to your body in childbirth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-happens-to-your-body-in-childbirth
+  related: [ term-dilated, induction, membrane-sweep ]
+
+- id: term-posterior
+  title: Posterior (back-to-back)
+  type: term
+  topic: labour
+  ask: What does it mean if the baby is posterior?
+  aliases: [ OP, occiput posterior, back-to-back, back labour, sunny side up ]
+  weeks: [ 34, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ the baby's back against your back, often a longer labour with more backache, many turn during labour, all fours and leaning forward may help, more likely to need help with the birth ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+    - title: Pregnancy, Birth and Baby — Presentation and position of baby through pregnancy and at birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/presentation-and-position-of-baby-through-pregnancy-and-at-birth
+  related: [ positions-for-labour, sterile-water-injections, assisted-birth, slow-progress ]
+  notes: The baby's position in pregnancy (engaged, cephalic, lie) belongs to the body-and-baby area; this is the labour meaning only.
+
+- id: eating-and-drinking-in-labour
+  title: Eating and drinking in labour
+  type: guide
+  topic: labour
+  ask: Can I eat during labour?
+  aliases: [ food in labour, snacks in labour, drinking in labour, nil by mouth, sports drinks in labour ]
+  weeks: [ 36, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ light snacks and water in early labour to keep energy up, appetite usually goes as labour builds, sips and ice, why some hospitals limit food once an epidural or a likely caesarean is in play, the partner packs the snacks for both of you ]
+  sources:
+    - title: Pregnancy, Birth and Baby — First stage of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-first-stage-of-labour
+    - title: The Royal Women's Hospital — Stages of labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/stages-of-labour
+    - title: Pregnancy, Birth and Baby — The role of a birth support partner
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
+  related: [ early-labour, epidural, hospital-bag ]
+  notes: Hospital policies differ on eating once in the birth suite, especially with an epidural; the sources support snacks in early labour and say nothing stricter. Don't promise a hospital's rule.
+
+- id: length-of-labour
+  title: How long labour takes
+  type: guide
+  topic: labour
+  ask: How long will labour be?
+  aliases: [ average labour length, how long is labour, first labour length, long labour ]
+  weeks: [ 34, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ nobody can say in advance, the latent phase alone can be hours or days, a first labour is usually the longest and later ones faster, what counts as slow and when the team steps in, what an epidural does to the second stage ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Going to hospital
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/going-to-hospital
+    - title: Pregnancy, Birth and Baby — First stage of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-first-stage-of-labour
+    - title: Pregnancy, Birth and Baby — Slow progress in labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/slow-progress-in-labour
+  related: [ stages-of-labour, early-labour, slow-progress ]
+
+- id: slow-progress
+  title: Slow progress and augmentation
+  type: guide
+  topic: labour
+  ask: What happens if labour stalls?
+  aliases: [ augmentation, failure to progress, labour not progressing, speeding up labour, stalled labour ]
+  weeks: [ 37, 42 ]
+  priority: 2
+  stakes: high
+  covers: [ what slow means (roughly less than 2 cm in 4 hours from 5 cm in the RANZCOG guideline), reasons (position, contractions, a tired or dehydrated body), options in order (move, fluids, breaking the waters, an oxytocin drip, turning the baby by hand), when it ends in an assisted birth or a caesarean ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Slow progress in labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/slow-progress-in-labour
+    - title: RANZCOG — Care in Labour in the Absence of Pregnancy Complications (C-Obs 31)
+      url: https://ranzcog.edu.au/wp-content/uploads/Care-Labour-Absence-Pregnancy-Complications.pdf
+  related: [ term-augmentation, breaking-the-waters, oxytocin-drip, assisted-birth, emergency-caesarean, length-of-labour ]
+
+- id: term-augmentation
+  title: Augmentation
+  type: term
+  topic: labour
+  ask: What is augmentation of labour?
+  aliases: [ augmenting labour, speeding up labour, the drip in labour ]
+  weeks: [ 37, 42 ]
+  priority: 3
+  stakes: low
+  covers: [ strengthening a labour that has already started as opposed to inducing one, usually by breaking the waters or an oxytocin drip ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Slow progress in labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/slow-progress-in-labour
+    - title: Pregnancy, Birth and Baby — Interventions during labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/interventions-during-labour
+  related: [ slow-progress, oxytocin-drip, induction ]
+
+- id: water-birth
+  title: Labouring and giving birth in water
+  type: decision
+  topic: birth
+  ask: Can I have a water birth?
+  aliases: [ birth pool, water immersion, bath in labour, giving birth in the pool ]
+  weeks: [ 28, 38 ]
+  priority: 2
+  stakes: medium
+  covers: [ labouring in water is widely available and birthing in it less so, who it is offered to (uncomplicated pregnancy at term), what rules it out (continuous monitoring, an epidural, some opioids), the water temperature and getting out if needed, ask your hospital early because not all have a pool ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Water birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/water-birth
+    - title: RANZCOG — Water Immersion During Labour and Birth (C-Obs 24)
+      url: https://ranzcog.edu.au/wp-content/uploads/Water-Immersion-Labour-Birth.pdf
+    - title: The Royal Women's Hospital — Managing pain in labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
+  related: [ water-and-showers, pain-relief, birth-preferences, monitoring-in-labour ]
+  notes: Evidence supports water for pain in the first stage; birth in water is accepted by RANZCOG with conditions, but hospital policy varies and some units don't offer it. Don't present it as a right.
+
+- id: shoulder-dystocia
+  title: Shoulder dystocia
+  type: guide
+  topic: birth
+  ask: What is shoulder dystocia?
+  aliases: [ stuck shoulders, shoulder stuck at birth, McRoberts ]
+  weeks: [ 37, 42 ]
+  priority: 3
+  stakes: high
+  covers: [ the head is born but a shoulder catches, an emergency the team drills for, sudden position changes and pressure above the pubic bone, sometimes an episiotomy, risks to the baby's arm and to the mother, more likely with a big baby or diabetes ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Shoulder dystocia
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/shoulder-dystocia
+  related: [ second-stage, episiotomy, birth-injury-to-the-baby ]
+
+- id: cord-prolapse
+  title: Cord prolapse
+  type: guide
+  topic: birth
+  ask: What is a cord prolapse?
+  aliases: [ umbilical cord prolapse, cord coming first ]
+  weeks: [ 34, 42 ]
+  priority: 3
+  stakes: high
+  covers: [ the cord slips below the baby after the waters break, rare but an emergency, more likely with breech or a baby not engaged, knees-to-chest and call 000 if at home, usually an immediate caesarean ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Umbilical cord prolapse
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/umbilical-cord-prolapse
+  related: [ waters-breaking, breech-birth, emergency-caesarean ]
+
+- id: birth-injury-to-the-baby
+  title: Birth injuries to the baby
+  type: guide
+  topic: baby
+  ask: Can the baby be hurt during the birth?
+  aliases: [ birth trauma baby, bruising from forceps, cephalhaematoma, broken collarbone at birth, Erb's palsy ]
+  weeks: [ 37, 42 ]
+  priority: 3
+  stakes: medium
+  covers: [ most are minor and heal (bruises, swelling of the scalp, marks from forceps or the vacuum cup), a broken collarbone or nerve stretch after a difficult birth, what is checked and followed up ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Birth injury to the baby
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/birth-injury-to-the-baby
+  related: [ assisted-birth, shoulder-dystocia, newborn-checks ]
+  notes: Emotional birth trauma for the parents is the mental-health area's.
+
+- id: term-syntocinon
+  title: Syntocinon (oxytocin)
+  type: term
+  topic: labour
+  ask: What is Syntocinon?
+  aliases: [ oxytocin, Pitocin, the drip, synthetic oxytocin ]
+  weeks: [ 37, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ a synthetic form of the hormone that drives contractions, given by drip to induce or strengthen labour and by injection after the birth to deliver the placenta and limit bleeding ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+    - title: Pregnancy, Birth and Baby — Third stage of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-third-stage-of-labour
+  related: [ oxytocin-drip, third-stage-placenta, induction ]
+
+# ---------------------------------------------------------------------------
+# Pain relief
+# ---------------------------------------------------------------------------
+
+- id: pain-relief
+  title: Pain relief in labour
+  type: decision
+  topic: labour
+  ask: What are my options for pain relief, and do I have to decide now?
+  aliases: [ pain management in labour, drug-free labour, natural birth, epidural or not, pain relief options ]
+  weeks: [ 30, 38 ]
+  who: carrying
+  priority: 1
+  stakes: high
+  covers:
+    - the ladder, from movement water and breathing through TENS and sterile water injections to gas, opioids and an epidural
+    - what each does, what it costs you (mobility, monitoring, side effects) and what it does to the baby
+    - you can use more than one, and it is normal to change your mind on the day
+    - the partner knows the preferences and the order
+    - discuss the preferences with your midwife or doctor before labour, with a plan B, not the outcome
+  sources:
+    - title: Pregnancy, Birth and Baby — Pain relief during labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/pain-relief-during-labour
+    - title: RANZCOG — Pain Relief in Labour and Childbirth (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
+    - title: The Royal Women's Hospital — Managing pain in labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
+  related: [ breathing-and-relaxation, water-and-showers, massage-heat-and-movement, tens-machine, sterile-water-injections, nitrous-oxide-gas, morphine-and-opioids, epidural, birth-preferences ]
+  notes: The most contested ground in birth. Write it without a side; the sources are even-handed and so should we be. Never imply a drug-free birth is better or that an epidural is a failure.
+
+- id: breathing-and-relaxation
+  title: Breathing and relaxation
+  type: guide
+  topic: labour
+  ask: Do breathing techniques really help?
+  aliases: [ breathing for labour, relaxation, hypnobirthing, mindfulness in labour, visualisation, music in labour ]
+  weeks: [ 30, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ slow breathing through each contraction and letting go between, fear and tension make pain worse, practise before the day, music a dim room and few interruptions, works alongside everything else, hypnobirthing and calmbirth are versions of this ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Non-medical pain relief during labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/non-medical-pain-relief-during-labour
+    - title: RANZCOG — Pain Relief in Labour and Childbirth (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
+  related: [ pain-relief, positions-for-labour, antenatal-classes, support-person-role ]
+
+- id: water-and-showers
+  title: Water, baths and showers
+  type: guide
+  topic: labour
+  ask: Does a bath or shower help with the pain?
+  aliases: [ shower in labour, bath in labour, warm water, birth pool for pain ]
+  weeks: [ 36, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ warm water eases tension and backache and many find it the best drug-free relief, a shower at home in early labour, a bath or pool in the birth suite, not with a TENS on, what rules the pool out ]
+  sources:
+    - title: The Royal Women's Hospital — Managing pain in labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
+    - title: Pregnancy, Birth and Baby — Non-medical pain relief during labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/non-medical-pain-relief-during-labour
+  related: [ water-birth, pain-relief, early-labour, tens-machine ]
+
+- id: massage-heat-and-movement
+  title: Massage, heat and moving about
+  type: guide
+  topic: labour
+  ask: What can my partner do for the pain?
+  aliases: [ massage in labour, heat pack, hip squeeze, counter-pressure, walking in labour, birth ball ]
+  weeks: [ 34, 42 ]
+  who: partner
+  priority: 1
+  stakes: low
+  covers: [ firm pressure on the lower back and the hip squeeze, heat packs and cold packs, walking rocking and the ball, touch between contractions as much as during, ask what she wants and expect it to change, a cool cloth and sips of water ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Non-medical pain relief during labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/non-medical-pain-relief-during-labour
+    - title: The Royal Women's Hospital — Managing pain in labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
+  related: [ support-person-role, positions-for-labour, pain-relief ]
+
+- id: sterile-water-injections
+  title: Sterile water injections
+  type: guide
+  topic: labour
+  ask: What are sterile water injections?
+  aliases: [ water injections for back pain, intradermal water injections, injections in the lower back ]
+  weeks: [ 36, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ four small injections of sterile water just under the skin of the lower back, for back pain in labour, sting sharply for under a minute then may relieve for an hour or two, no drug and no effect on the baby, offered by midwives at some hospitals and not all ]
+  sources:
+    - title: The Royal Women's Hospital — Managing pain in labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
+    - title: RANZCOG — Pain Relief in Labour and Childbirth (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
+  related: [ term-posterior, pain-relief, tens-machine ]
+  notes: The Royal Women's notes there is not enough evidence that they reduce the need for other pain relief; say so.
+
+- id: nitrous-oxide-gas
+  title: Gas (nitrous oxide)
+  type: guide
+  topic: labour
+  ask: What does the gas do?
+  aliases: [ gas and air, Entonox, laughing gas, nitrous, the gas ]
+  weeks: [ 36, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ nitrous oxide mixed with oxygen through a mouthpiece or mask, breathe it as a contraction starts and it is gone between, takes the edge off rather than removing pain, you control it, safe for the baby and doesn't affect labour or breast milk, nausea dizziness and light-headedness, not with pernicious anaemia or B12 deficiency ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Gas (Entonox)
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/gas-entonox
+    - title: RANZCOG — Pain Relief in Labour and Childbirth (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
+  related: [ pain-relief, morphine-and-opioids, epidural ]
+
+- id: morphine-and-opioids
+  title: Morphine and other opioids
+  type: guide
+  topic: labour
+  ask: Will they give me morphine, and what does it do to the baby?
+  aliases: [ pethidine, morphine injection, opioids in labour, narcotics, fentanyl, remifentanil ]
+  weeks: [ 36, 42 ]
+  priority: 2
+  stakes: medium
+  covers: [ a strong painkiller by injection, lasts a few hours and helps you rest more than it removes pain, drowsiness nausea and vomiting and trouble emptying the bladder, can cross to the baby and make them slower to breathe or feed if given close to the birth, why the timing matters, some hospitals use fentanyl or remifentanil instead ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pain relief during labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/pain-relief-during-labour
+    - title: The Royal Women's Hospital — Managing pain in labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
+    - title: RANZCOG — Pain Relief in Labour and Childbirth (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
+  related: [ pain-relief, nitrous-oxide-gas, epidural, first-feed ]
+  notes: "Pethidine is still in some hospitals' leaflets but morphine is now the usual; check the local hospital. The effect on the baby's breathing and first feed is real but timing-dependent: say both."
+
+- id: epidural
+  title: The epidural
+  type: guide
+  topic: labour
+  ask: What does an epidural involve, and what are the trade-offs?
+  aliases: [ epidural block, spinal, combined spinal-epidural, walking epidural, epidural side effects, epidural and pushing ]
+  weeks: [ 30, 42 ]
+  priority: 1
+  stakes: high
+  covers:
+    - a fine tube in the lower back by an anaesthetist, local anaesthetic and an opioid topped up as needed
+    - very effective relief, it usually takes 25 to 40 minutes to set up and take full effect, and you stay awake and aware
+    - the trade-offs, a drip, continuous CTG, a catheter, less or no mobility, pushing may be harder and the second stage longer; the sources disagree on forceps or vacuum (Pregnancy, Birth and Baby says the chance may increase, RANZCOG says modern epidurals may slightly lengthen labour but do not change the chance of an assisted birth or caesarean)
+    - side effects, a drop in blood pressure, itching or shaking, patchy or incomplete relief, a bruised back for a couple of days, and rarely a bad headache within 24 to 48 hours, a skin infection or permanent nerve damage
+    - when it is recommended anyway (twins, high blood pressure, a likely caesarean)
+    - you can ask for one at almost any stage of labour if there is no medical reason against it, not in birth centres or home births
+  sources:
+    - title: Pregnancy, Birth and Baby — Epidural
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/epidural
+    - title: RANZCOG — Pain Relief in Labour and Childbirth (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
+    - title: The Royal Women's Hospital — Managing pain in labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
+  related: [ pain-relief, term-spinal-block, monitoring-in-labour, assisted-birth, second-stage, positions-for-labour ]
+  notes: Contested, write the trade-offs from the sources and not from folklore. The epidural is not shown to raise the chance of a caesarean in the current sources; on the assisted-birth link the sources disagree (Pregnancy, Birth and Baby says the chance may increase, RANZCOG says it does not change). Check the exact figures against the RANZCOG leaflet when writing.
+
+- id: term-spinal-block
+  title: Spinal block
+  type: term
+  topic: birth
+  ask: What's the difference between a spinal and an epidural?
+  aliases: [ spinal anaesthetic, spinal, spinal for caesarean ]
+  weeks: [ 34, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ a single injection into the fluid around the spinal cord, works fast and completely for an hour or two, the usual anaesthetic for a caesarean, an epidural is a tube left in and topped up, a combined spinal-epidural does both ]
+  sources:
+    - title: RANZCOG — Caesarean Section (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Caesarean-Section.pdf
+    - title: Pregnancy, Birth and Baby — Epidural
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/epidural
+  related: [ epidural, planned-caesarean, caesarean-what-happens ]
+
+# ---------------------------------------------------------------------------
+# Interventions
+# ---------------------------------------------------------------------------
+
+- id: induction
+  title: Induction of labour
+  type: decision
+  topic: labour
+  ask: They've offered an induction. Should we?
+  aliases: [ being induced, IOL, induced labour, induction at 39 weeks, induction for overdue, declining induction ]
+  weeks: [ 37, 42 ]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - why it is offered (overdue, waters broken without labour, diabetes, high blood pressure, growth concerns) and that it is an offer
+    - the methods, chosen after an examination of the cervix and often combined, prostaglandin gel or pessary, a balloon catheter, breaking the waters, an oxytocin drip
+    - it can take a day or more, usually means staying in and continuous monitoring, and contractions can come on harder
+    - what it changes, contractions can be stronger and pain relief may be needed sooner (no restriction on the type), less movement with a drip and monitor, no difference in forceps or vacuum (Pregnancy, Birth and Baby), RANZCOG says no increase in interventions, the Women's says induction for reasons other than prolonged pregnancy may increase the chance of an emergency caesarean
+    - the questions to ask, why now, what if we wait, what are the alternatives
+  sources:
+    - title: Pregnancy, Birth and Baby — Induced labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/induced-labour
+    - title: RANZCOG — Induction of Labour (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Induction-Labour.pdf
+    - title: The Royal Women's Hospital — Induction of labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/induction-of-labour
+  related: [ membrane-sweep, prostaglandin, balloon-catheter, breaking-the-waters, oxytocin-drip, overdue, waters-before-labour, monitoring-in-labour, caesarean-what-happens ]
+  notes: Contested, induction rates are high in Australia (about one in three, the Women's) and some people feel pushed. Keep to the sources on when it is advised, make the right to decline and to ask "what if we wait" plain, and don't editorialise either way.
+
+- id: membrane-sweep
+  title: The stretch and sweep
+  type: guide
+  topic: labour
+  ask: What is a stretch and sweep?
+  aliases: [ membrane sweep, sweep, stretch and sweep, cervical sweep ]
+  weeks: [ 38, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ a finger swept around the cervix at a vaginal examination to release prostaglandins, offered from around 40 weeks and often before a formal induction, uncomfortable and can cause a show or spotting, may bring labour on within days or do nothing, can be repeated, your choice ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Stretch and sweep
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/stretch-and-sweep
+    - title: Pregnancy, Birth and Baby — Overdue
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+  related: [ induction, overdue, term-show ]
+
+- id: prostaglandin
+  title: Prostaglandin gel or pessary
+  type: guide
+  topic: labour
+  ask: What is the gel or pessary they use to induce?
+  aliases: [ Prostin, Cervidil, prostaglandin gel, pessary induction, cervical ripening ]
+  weeks: [ 37, 42 ]
+  priority: 2
+  stakes: medium
+  covers: [ a synthetic hormone placed in the vagina to soften and open the cervix, a gel repeated about every 6 hours or a pessary on a tape released over 12 to 24 hours, lie down for 30 to 40 minutes and the baby is monitored, often the first step of an induction and can take a day, not used after a previous caesarean at most hospitals, the risk of contractions too strong and what is done ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Induced labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/induced-labour
+    - title: RANZCOG — Induction of Labour (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Induction-Labour.pdf
+  related: [ induction, balloon-catheter, breaking-the-waters, vbac ]
+
+- id: balloon-catheter
+  title: The balloon catheter
+  type: guide
+  topic: labour
+  ask: What is a balloon induction?
+  aliases: [ Foley catheter induction, Cook balloon, cervical balloon, mechanical induction ]
+  weeks: [ 37, 42 ]
+  priority: 2
+  stakes: medium
+  covers: [ a thin tube with a small balloon inflated inside the cervix to press it open, no drug so used when prostaglandin isn't suitable (a previous caesarean), stays in for up to about 12 to 24 hours and some hospitals send you home with it, followed by breaking the waters and a drip ]
+  sources:
+    - title: RANZCOG — Induction of Labour (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Induction-Labour.pdf
+    - title: Pregnancy, Birth and Baby — Induced labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/induced-labour
+    - title: The Royal Women's Hospital — Induction of labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/induction-of-labour
+  related: [ induction, prostaglandin, breaking-the-waters, vbac ]
+
+- id: breaking-the-waters
+  title: Breaking the waters (ARM)
+  type: guide
+  topic: labour
+  ask: What does it mean when they break your waters?
+  aliases: [ ARM, artificial rupture of membranes, amniotomy, amnihook, breaking the waters ]
+  weeks: [ 37, 42 ]
+  priority: 2
+  stakes: medium
+  covers: [ a small hook through the cervix to release the fluid, during a vaginal examination and usually not painful, used to induce or to speed a slow labour, often followed by an oxytocin drip if contractions don't follow, once done there is no going back and labour is expected within hours ]
+  sources:
+    - title: The Royal Women's Hospital — Induction of labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/induction-of-labour
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+  related: [ induction, oxytocin-drip, slow-progress, waters-breaking ]
+
+- id: oxytocin-drip
+  title: The oxytocin drip
+  type: guide
+  topic: labour
+  ask: What is the drip they use to start or speed up labour?
+  aliases: [ Syntocinon drip, oxytocin infusion, the drip, Pitocin ]
+  weeks: [ 37, 42 ]
+  priority: 2
+  stakes: medium
+  covers: [ synthetic oxytocin through a cannula and turned up until contractions are regular, continuous CTG the whole time, contractions can come on harder and faster than a natural labour so many choose an epidural, the drip is slowed or stopped if the baby's heart rate reacts, usually keeps running until after the placenta ]
+  sources:
+    - title: The Royal Women's Hospital — Induction of labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/induction-of-labour
+    - title: Pregnancy, Birth and Baby — Induced labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/induced-labour
+  related: [ induction, term-syntocinon, slow-progress, monitoring-in-labour, epidural ]
+
+- id: overdue
+  title: Going past the due date
+  type: guide
+  topic: labour
+  ask: I'm past my due date. What happens now?
+  aliases: [ overdue, post-dates, 41 weeks, 42 weeks, prolonged pregnancy, late baby ]
+  weeks: [ 40, 42 ]
+  priority: 1
+  stakes: high
+  covers: [ full term is 37 to 42 weeks and overdue formally means past 42, only about 5 in 100 babies get there, extra monitoring (a CTG, an ultrasound scan) from about a week past the due date, often twice a week, a sweep then an induction are offered, the home remedies people suggest and what the evidence says, it stays your choice ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Overdue
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+    - title: Better Health Channel — Baby due date
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/baby-due-date
+    - title: Pregnancy, Birth and Baby — Common myths about giving birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/common-myths-about-giving-birth
+  related: [ induction, membrane-sweep, monitoring-in-labour, baby-movements ]
+  notes: When induction is offered for being overdue (the sources say 41 to 42 weeks, or about 10 to 14 days past the due date) differs by hospital and has shifted in recent years; the sources describe it loosely. Check the household's hospital, not a national rule.
+
+- id: assisted-birth
+  title: "Assisted birth: vacuum and forceps"
+  type: guide
+  topic: birth
+  ask: What happens if the baby needs help coming out?
+  aliases: [ instrumental birth, ventouse, vacuum birth, kiwi cup, forceps delivery, assisted delivery ]
+  weeks: [ 37, 42 ]
+  priority: 1
+  stakes: high
+  covers: [ about 1 in 10 babies in Australia and New Zealand and most often in a first birth, why (a long second stage, the baby's heart rate, exhaustion), the vacuum cup on the head and pulling with your pushes, forceps around the head, usually in the birth room with a local or epidural and an episiotomy with forceps, marks on the baby's head that fade, a risk of a perineal tear, bruising and pelvic floor injury, when it becomes a caesarean instead ]
+  sources:
+    - title: RANZCOG — Assisted Birth (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Assisted-Birth.pdf
+    - title: Pregnancy, Birth and Baby — Assisted birth (forceps or ventouse)
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/assisted-delivery-forceps-or-ventouse
+    - title: The Royal Women's Hospital — Assisted birth
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/assisted-birth
+  related: [ term-ventouse, episiotomy, perineal-tears, second-stage, epidural, emergency-caesarean, birth-injury-to-the-baby ]
+
+- id: term-ventouse
+  title: Ventouse
+  type: term
+  topic: birth
+  ask: What is a ventouse?
+  aliases: [ vacuum cup, vacuum extraction, kiwi, suction cup birth ]
+  weeks: [ 37, 42 ]
+  priority: 3
+  stakes: low
+  covers: [ a soft cup attached to the baby's head by suction so the doctor can pull as you push, leaves a swelling (a chignon) that goes down in days ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
+      url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
+    - title: RANZCOG — Assisted Birth (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Assisted-Birth.pdf
+  related: [ assisted-birth ]
+
+- id: episiotomy
+  title: Episiotomy
+  type: guide
+  topic: birth
+  ask: Will I be cut?
+  aliases: [ episiotomy, the cut, perineal cut, stitches after birth ]
+  weeks: [ 34, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ a cut in the perineum to widen the opening, not routine in Australia, done to speed a birth for the baby's sake or with forceps where it lowers the chance of a severe tear, local anaesthetic first and stitches after, healing care and pain relief, you can say in advance that you'd rather not unless needed ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Episiotomy
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/episiotomy
+  related: [ perineal-tears, assisted-birth, perineal-massage, first-days-mum ]
+
+- id: perineal-tears
+  title: "Tears: the degrees, and what they mean"
+  type: guide
+  topic: birth
+  ask: How likely am I to tear, and how bad is it?
+  aliases: [ perineal tear, first degree tear, second degree tear, third degree tear, fourth degree tear, grazes, labial tear, stitches ]
+  weeks: [ 34, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ most first births involve some tear or graze, first degree skin only and often no stitches, second degree into the muscle and usually stitched in the room, third and fourth degree reach the anal sphincter and are repaired in theatre with follow-up, what raises the chance (first baby, forceps, a big or posterior baby, Southeast Asian background), what lowers it (warm compress, perineal massage, a slow head), recovery and when to speak up about pain or incontinence ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Perineal tears
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/perineal-tears
+    - title: Pregnancy, Birth and Baby — Birth injury to the mother
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/birth-injury-to-the-mother
+  related: [ term-oasis, episiotomy, perineal-massage, assisted-birth, term-crowning, first-days-mum ]
+  notes: Pelvic floor recovery and incontinence beyond the first days belong to the body area.
+
+- id: term-oasis
+  title: OASIS (third and fourth degree tears)
+  type: term
+  topic: birth
+  ask: What is an OASI tear?
+  aliases: [ OASI, obstetric anal sphincter injury, severe tear, 3rd degree tear, 4th degree tear ]
+  weeks: [ 37, 42 ]
+  priority: 3
+  stakes: medium
+  covers: [ a tear reaching the muscle around the anus (third) or its lining (fourth), repaired in theatre under anaesthetic, antibiotics laxatives and physio follow-up, affects a few in every hundred vaginal births and more with forceps, counts in planning the next birth ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Perineal tears
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/perineal-tears
+    - title: Pregnancy, Birth and Baby — Birth injury to the mother
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/birth-injury-to-the-mother
+  related: [ perineal-tears, assisted-birth, episiotomy ]
+
+- id: breech-birth
+  title: A breech baby
+  type: decision
+  topic: birth
+  ask: The baby is breech. What are our options?
+  aliases: [ breech presentation, bottom first, frank breech, footling breech, breech at 36 weeks, turning the baby ]
+  weeks: [ 34, 40 ]
+  who: together
+  priority: 2
+  stakes: high
+  covers: [ common and normal until about 35 to 36 weeks, about 3 in 100 still breech at term, the kinds (frank, complete, footling), the options, an ECV to turn the baby, a planned caesarean (the usual advice in Australia), or a vaginal breech birth where a hospital and doctor are experienced in it, decide by about 37 weeks ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Breech pregnancy
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
+    - title: RANZCOG — Breech Presentation at the End of Your Pregnancy (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Breech-Presentation-End-of-Pregnancy.pdf
+  related: [ ecv, planned-caesarean, term-posterior, malpresentation ]
+  notes: Vaginal breech birth is contested, offered by few Australian hospitals and only with experienced staff. Present it as an option that exists, not one to expect. Moxibustion and other turning methods lack good evidence; say so without scorn.
+
+- id: ecv
+  title: Turning a breech baby (ECV)
+  type: guide
+  topic: birth
+  ask: What is an ECV, and does it work?
+  aliases:
+    - external cephalic version
+    - turning the baby
+    - version
+    - ECV procedure
+  weeks: [ 36, 38 ]
+  priority: 2
+  stakes: high
+  covers:
+    - an obstetrician pressing on the belly to turn the baby head-down
+    - from about 36 to 37 weeks in hospital with a CTG before and after and often a drug to relax the uterus
+    - works roughly half the time and some babies turn back
+    - uncomfortable rather than painful
+    - about 1 in 200 need an emergency caesarean on the day
+    - anti-D if RhD negative
+    - an obstetrician turns the baby by hand through the belly from 37 weeks, from 36 for a first baby, RANZCOG says offer from 37+0
+    - about half work, a few turn back, rarely an emergency caesarean follows
+    - the day, a scan, CTG before and after, a muscle relaxant, up to a few hours in hospital
+    - who cannot have one, a low placenta, bleeding, twins, some previous caesareans need a conversation
+    - anti-D if RhD negative, and the partner can come
+  sources:
+    - title: Pregnancy, Birth and Baby — External cephalic version (ECV)
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/external-cephalic-version-ecv
+    - title: RANZCOG — Breech Presentation at the End of Your Pregnancy (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Breech-Presentation-End-of-Pregnancy.pdf
+    - title: RANZCOG — Management of breech presentation (clinical guidance statement)
+      url: https://ranzcog.edu.au/wp-content/uploads/Management-Breech-Presentation.pdf
+  related:
+    - breech-birth
+    - planned-caesarean
+    - anti-d
+    - breech-baby
+    - ctg-monitoring
+    - babys-position-check
+    - rhd-negative
+
+- id: malpresentation
+  title: "Other positions: transverse and oblique"
+  type: guide
+  topic: birth
+  ask: What if the baby is lying sideways?
+  aliases: [ transverse lie, oblique lie, unstable lie, malpresentation, brow presentation, face presentation ]
+  weeks: [ 36, 40 ]
+  priority: 3
+  stakes: high
+  covers: [ lying across or at an angle rather than head or bottom down, why a vaginal birth isn't possible if it stays, an ECV or a planned caesarean, the risk of cord prolapse if the waters break so when to come in at once ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Malpresentation
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/malpresentation
+  related: [ breech, ecv, cord-prolapse, planned-caesarean ]
+
+- id: planned-caesarean
+  title: A planned caesarean
+  type: decision
+  topic: birth
+  ask: We're being offered a planned caesarean. What do we need to know?
+  aliases: [ elective caesarean, planned c-section, booked caesarean, caesarean at 39 weeks, caesarean for breech ]
+  weeks: [ 30, 39 ]
+  who: together
+  priority: 1
+  stakes: high
+  covers:
+    - why it is advised (a previous caesarean, a breech or sideways baby, a twin pregnancy where the first twin is breech, placenta praevia, other medical problems for you or the baby) and that it can also be your request
+    - usually booked at 39 weeks or later because earlier means more breathing trouble for the baby
+    - what it means for the next pregnancy, recovery of 6 weeks, no driving for a while, help at home
+    - the trade-offs against a planned vaginal birth, in the sources' words
+    - what to ask, who will be there, skin to skin in theatre, what happens if labour starts first (call the maternity unit at once; it becomes an emergency caesarean)
+  sources:
+    - title: Pregnancy, Birth and Baby — Planned or elective caesarean
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/planned-or-elective-caesarean
+    - title: RANZCOG — Caesarean Section (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Caesarean-Section.pdf
+    - title: RANZCOG — Timing of Planned Caesarean Section at Term (C-Obs 23)
+      url: https://ranzcog.edu.au/wp-content/uploads/Timing-Planned-Caesarean-Section.pdf
+  related: [ caesarean-what-happens, caesarean-on-request, breech-birth, vbac, caesarean-recovery, antenatal-expressing, term-spinal-block ]
+  notes: Contested in tone more than fact. Say plainly that a caesarean is a birth and that a planned one at 39 weeks is safe and common; keep the trade-offs to what the sources say.
+
+- id: caesarean-what-happens
+  title: What happens in a caesarean
+  type: guide
+  topic: birth
+  ask: What actually happens in the operating theatre?
+  aliases: [ caesarean procedure, c-section step by step, in theatre, caesarean anaesthetic, caesarean with partner ]
+  weeks: [ 30, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ fasting and the gown, a spinal or epidural so you are awake (a general anaesthetic sometimes), the screen, a catheter and a drip, pressure and tugging but no pain, the baby out within minutes and the rest about 40 minutes more, one support person who sits by your head, skin to skin and the first feed in theatre or recovery, the midwife who stays with you, the first hours in recovery ]
+  sources:
+    - title: RANZCOG — Caesarean Section (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Caesarean-Section.pdf
+    - title: The Royal Women's Hospital — Caesarean birth
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/caesarean-birth
+    - title: Pregnancy, Birth and Baby — Caesarean
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/caesarean
+  related: [ planned-caesarean, emergency-caesarean, term-spinal-block, skin-to-skin, breastfeeding-after-caesarean, caesarean-recovery ]
+
+- id: emergency-caesarean
+  title: An emergency caesarean
+  type: guide
+  topic: birth
+  ask: What happens if it becomes a caesarean during labour?
+  aliases: [ emergency c-section, unplanned caesarean, category 1 caesarean, crash caesarean, caesarean under general anaesthetic ]
+  weeks: [ 37, 42 ]
+  priority: 1
+  stakes: high
+  covers: [ "why: concern for your health or the baby's health, labour not progressing normally, severe bleeding, pre-eclampsia, or a medical emergency", "how fast depends on the category: Category 1 (an urgent threat to life) usually within 30 minutes, Category 2 (not immediately life threatening) within 60 minutes, Category 3 (no immediate risk) and Category 4 (a time that suits you and the team); if several are needed at once the most urgent goes first", "you are usually awake, and one support person such as the partner can be in the theatre", "sometimes a general anaesthetic is needed, and then the partner is not in the theatre because you are asleep", "the feelings afterwards are common and worth talking through; it can be traumatic for some parents and support people" ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Emergency caesarean
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/emergency-caesarean
+    - title: RANZCOG — Caesarean Section (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Caesarean-Section.pdf
+    - title: The Royal Women's Hospital — Caesarean birth
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/caesarean-birth
+  related: [ caesarean-what-happens, term-fetal-distress, slow-progress, support-person-role, caesarean-recovery ]
+  notes: Birth trauma and debriefing belong to the mental-health area; link to it rather than cover it.
+
+- id: caesarean-on-request
+  title: Choosing a caesarean without a medical reason
+  type: decision
+  topic: birth
+  ask: Can I just ask for a caesarean?
+  aliases: [ maternal request caesarean, elective caesarean by choice, caesarean for fear of birth, CBMR ]
+  weeks: [ 20, 36 ]
+  who: carrying
+  priority: 3
+  stakes: high
+  covers: [ RANZCOG's position that a well-informed request can be supported after counselling, what the counselling covers (risks now and for future pregnancies, the alternatives, support for fear of birth), public hospitals vary and private is more likely to agree, a second opinion is reasonable, decide early enough to book ]
+  sources:
+    - title: RANZCOG — Caesarean Birth on Maternal Request (C-Obs 39)
+      url: https://ranzcog.edu.au/wp-content/uploads/Caesarean-Birth-Maternal-Request.pdf
+    - title: Pregnancy, Birth and Baby — Planned or elective caesarean
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/planned-or-elective-caesarean
+  related: [ planned-caesarean, caesarean-what-happens ]
+  notes: Contested and sensitive. Fear of childbirth itself is the mental-health area's; this entry is the pathway, not the feeling. C-Obs 39 is a clinical guideline, so translate its stance carefully.
+
+- id: vbac
+  title: Vaginal birth after a caesarean
+  type: decision
+  topic: birth
+  ask: I had a caesarean last time. Can I have a vaginal birth?
+  aliases: [ VBAC, NBAC, TOLAC, next birth after caesarean, repeat caesarean, birth after caesarean ]
+  weeks: [ 12, 36 ]
+  who: together
+  priority: 2
+  stakes: high
+  covers: [ most people with one previous caesarean can plan a vaginal birth, about 3 in 4 who try succeed and the rest have a caesarean in labour, the small risk of the scar opening (RANZCOG puts it at about 1 in 122 to 500) and why continuous monitoring and a hospital with theatre access are advised, what rules it out (a vertical scar, a previous rupture), induction after a caesarean is handled differently, a planned repeat caesarean is the other option with its own risks, decide by about 36 weeks ]
+  sources:
+    - title: RANZCOG — Birth After Caesarean (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Birth-After-Caesarean-Pamphlet.pdf
+    - title: Pregnancy, Birth and Baby — Vaginal birth after caesarean (VBAC)
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/vaginal-birth-after-caesarean-vbac
+    - title: The Royal Women's Hospital — Caesarean birth
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/caesarean-birth
+  related: [ planned-caesarean, induction, balloon-catheter, monitoring-in-labour, water-birth ]
+  notes: Contested, hospitals and obstetricians differ in enthusiasm, and the figures differ by source. Quote the RANZCOG leaflet's numbers and date them.
+
+- id: preterm-birth
+  title: If the baby comes early
+  type: guide
+  topic: special-circumstances
+  ask: What happens if I go into labour before 37 weeks?
+  aliases: [ premature birth, preterm labour, early labour before 37 weeks, premmie, steroids for lungs, 34 weeks ]
+  weeks: [ 22, 37 ]
+  priority: 2
+  stakes: high
+  covers: [ about 8 in 100 babies, any sign of labour before 37 weeks is an immediate call, what the hospital does (checks, steroid injections for the baby's lungs, sometimes medicine to slow labour and magnesium for the brain, a transfer to a hospital with a NICU), how the birth differs and who is in the room, the baby's likely path (32 to 37 weeks usually a special care nursery, earlier a NICU), the partner's job when the baby goes to the nursery ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Premature baby
+      url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/premature-baby
+    - title: Pregnancy, Birth and Baby — Special care nursery (SCN)
+      url: https://www.pregnancybirthbaby.org.au/babies/health-and-wellbeing/special-care-nursery
+  related: [ waters-breaking-early, special-care-nursery, term-nicu, signs-of-labour ]
+  notes: The signs of preterm labour as a symptom, and what to watch for week by week, belong to the symptoms area; this is what happens once it is labour. Steroids and magnesium are described in the sources loosely; check figures against a clinical source when writing.
+
+- id: waters-breaking-early
+  title: Waters breaking before 37 weeks (PPROM)
+  type: guide
+  topic: special-circumstances
+  ask: My waters broke but I'm not full term. What happens?
+  aliases: [ PPROM, preterm prelabour rupture of membranes, leaking fluid early, waters broke at 34 weeks ]
+  weeks: [ 22, 37 ]
+  priority: 3
+  stakes: high
+  covers: [ call and go to hospital straight away, how they confirm it is amniotic fluid, antibiotics and steroids, watching for infection, staying in or going home with checks, why labour may be left to start or be induced depending on the weeks, most give birth within a week or so ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Waters breaking early
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/waters-breaking-early
+  related: [ waters-breaking, preterm-birth, special-care-nursery ]
+
+- id: third-stage-placenta
+  title: "Delivering the placenta: active or physiological"
+  type: decision
+  topic: birth
+  ask: Do I want the injection for the placenta?
+  aliases: [ third stage management, Syntocinon injection after birth, natural third stage, physiological third stage, active third stage, afterbirth ]
+  weeks: [ 30, 38 ]
+  who: carrying
+  priority: 2
+  stakes: medium
+  covers: [ active, an oxytocin injection as the baby is born and the cord guided out within minutes with less bleeding, physiological, no drug and the placenta comes with contractions and gravity in up to an hour, active is the usual recommendation and what most hospitals do, when physiological isn't advised (bleeding risk, an induced or augmented labour), what to write in the preferences, the placenta is checked and you can ask to see or keep it ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Third stage of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-third-stage-of-labour
+    - title: RANZCOG — Care in Labour in the Absence of Pregnancy Complications (C-Obs 31)
+      url: https://ranzcog.edu.au/wp-content/uploads/Care-Labour-Absence-Pregnancy-Complications.pdf
+  related: [ term-third-stage, delayed-cord-clamping, retained-placenta, term-syntocinon, birth-preferences ]
+  notes: PBB says the evidence comparing the two is limited; RANZCOG recommends active management. Say both, and that it stays a choice where there is no bleeding risk.
+
+- id: delayed-cord-clamping
+  title: Delayed cord clamping
+  type: guide
+  topic: birth
+  ask: Should we ask for delayed cord clamping?
+  aliases: [ deferred cord clamping, optimal cord clamping, waiting for the cord to stop pulsing, who cuts the cord ]
+  weeks: [ 30, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ waiting at least a minute or until the cord stops pulsing so the baby gets more blood, now usual practice in Australia for a well baby including at caesarean, when it is cut sooner (the baby needs help), the partner can cut the cord, how it fits with cord blood banking ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Third stage of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-third-stage-of-labour
+    - title: Pregnancy, Birth and Baby — Cord blood banking
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/cord-blood-banking
+  related: [ third-stage-placenta, cord-blood-banking, birth-preferences, planned-caesarean ]
+
+- id: cord-blood-banking
+  title: Cord blood banking
+  type: decision
+  topic: birth
+  ask: Should we bank or donate the cord blood?
+  aliases: [ cord blood, cord blood donation, private cord blood bank, stem cells from the cord ]
+  weeks: [ 28, 36 ]
+  who: together
+  priority: 3
+  stakes: low
+  covers: [ public donation is free and only at some hospitals, private banking is paid and for the family's own use, what the stem cells can and can't be used for, how collection works with delayed cord clamping, arrange it before the birth ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Cord blood banking
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/cord-blood-banking
+  related: [ delayed-cord-clamping, birth-preferences ]
+
+- id: retained-placenta
+  title: A retained placenta
+  type: guide
+  topic: birth
+  ask: What if the placenta doesn't come out?
+  aliases: [ retained placenta, manual removal of placenta, placenta stuck ]
+  weeks: [ 37, 42 ]
+  priority: 3
+  stakes: high
+  covers: [ the placenta not delivered within about 30 minutes of active or 60 of physiological management, why it matters (bleeding), what is tried (the injection, emptying the bladder, feeding the baby, pulling gently on the cord), removal by hand in theatre under a spinal or general, heavy bleeding in the weeks after is a call ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Retained placenta
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/retained-placenta
+  related: [ third-stage-placenta, term-third-stage ]
+
+# ---------------------------------------------------------------------------
+# Straight after the birth (mapped now, written for the later phase)
+# ---------------------------------------------------------------------------
+
+- id: skin-to-skin
+  title: Skin to skin
+  type: guide
+  topic: after-the-birth
+  ask: What is skin to skin, and does it happen after a caesarean?
+  aliases: [ skin-to-skin contact, kangaroo care, baby on chest after birth, bare chest ]
+  weeks: [ 40, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ the baby naked on your bare chest straight after birth and for at least the first hour, warmth heart rate breathing and the first feed, encouraged in theatre after a caesarean unless you had a general anaesthetic, the partner can do it too and should if she can't, the checks and weighing can wait or happen on your chest, keeps going in the days after and in the nursery ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Baby's first 24 hours
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/babys-first-24-hours
+    - title: Australian Breastfeeding Association — Skin-to-skin contact
+      url: https://www.breastfeeding.asn.au/resources/skin-skin-contact
+    - title: RANZCOG — Caesarean Section (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Caesarean-Section.pdf
+    - title: Pregnancy, Birth and Baby — What is kangaroo care?
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/what-is-kangaroo-care
+  related: [ term-golden-hour, first-feed, caesarean-what-happens, special-care-nursery, birth-preferences ]
+  notes: "after the birth: later phase"
+
+- id: term-golden-hour
+  title: The golden hour
+  type: term
+  topic: after-the-birth
+  ask: What is the golden hour?
+  aliases: [ first hour after birth, golden hour, the first hour ]
+  weeks: [ 40, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ the first hour or so after birth kept for skin to skin and the first feed with checks delayed or done on the chest, why it is protected, it is a goal and not a rule (a baby who needs help comes first) ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Baby's first 24 hours
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/babys-first-24-hours
+    - title: Australian Breastfeeding Association — Skin-to-skin contact and your baby's first feed
+      url: https://www.breastfeeding.asn.au/resources/skin-to-skin-first-feed
+  related: [ skin-to-skin, first-feed, newborn-checks ]
+  notes: "after the birth: later phase. The sources describe the first hour but don't use the phrase \"golden hour\"; define it as the common name, not a clinical term."
+
+- id: first-feed
+  title: The first feed
+  type: guide
+  topic: feeding
+  ask: How does the first breastfeed happen?
+  aliases: [ first breastfeed, breast crawl, baby-led attachment, colostrum at birth, first feed after birth ]
+  weeks: [ 40, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ most babies are ready to feed within the first hour or so during skin to skin, left on the chest the baby moves and roots towards the breast on their own, the midwife helps with position and attachment, colostrum in small amounts is all they need, if the first feed is delayed (a sleepy baby, a nursery stay) hand expressing keeps things going, opioids in labour can make the baby slower to start, formula is a fine plan B and the plan was made at 36 weeks ]
+  sources:
+    - title: Australian Breastfeeding Association — Skin-to-skin contact and your baby's first feed
+      url: https://www.breastfeeding.asn.au/resources/skin-to-skin-first-feed
+    - title: Australian Breastfeeding Association — Baby-led attachment
+      url: https://www.breastfeeding.asn.au/resources/baby-led-attachment
+    - title: Pregnancy, Birth and Baby — Baby's first 24 hours
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/babys-first-24-hours
+  related: [ skin-to-skin, term-golden-hour, breastfeeding-after-caesarean, antenatal-expressing, feeding-plan, morphine-and-opioids ]
+  notes: "after the birth: later phase. Border with the feeding area, which owns everything after the first feed."
+
+- id: breastfeeding-after-caesarean
+  title: Feeding after a caesarean
+  type: guide
+  topic: feeding
+  ask: Can I breastfeed straight after a caesarean?
+  aliases: [ breastfeeding after c-section, feeding in recovery, positions after caesarean, milk coming in after caesarean ]
+  weeks: [ 40, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ skin to skin and a first feed in theatre or recovery are usual, positions that keep the baby off the wound (lying on your side, the football hold), milk may take a little longer to come in, pain relief given is compatible with feeding, ask for help with lifting the baby ]
+  sources:
+    - title: Australian Breastfeeding Association — Breastfeeding after a caesarean birth
+      url: https://www.breastfeeding.asn.au/resources/breastfeeding-after-caesarean
+    - title: RANZCOG — Caesarean Section (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Caesarean-Section.pdf
+  related: [ first-feed, caesarean-what-happens, caesarean-recovery, antenatal-expressing ]
+  notes: "after the birth: later phase"
+
+- id: vitamin-k
+  title: Vitamin K for the baby
+  type: decision
+  topic: after-the-birth
+  ask: Why does the baby get a vitamin K injection?
+  aliases: [ vitamin K injection, Konakion, vitamin K drops, VKDB, newborn vitamin K ]
+  weeks: [ 40, 42 ]
+  who: together
+  priority: 1
+  stakes: high
+  covers: [ "newborns do not get enough vitamin K and a rare bleeding disorder (VKDB) can cause a brain bleed", "Australian guidelines recommend one injection of vitamin K for every baby soon after birth (within a few hours)", "oral drops exist but need 3 doses, are not absorbed as well, and some babies cannot have them, including premature or unwell babies", "it is given only with your consent; your doctor or midwife will talk it through with you during the pregnancy" ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Vitamin K at birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/vitamin-k-at-birth
+    - title: Pregnancy, Birth and Baby — Baby's first 24 hours
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/babys-first-24-hours
+  related: [ hepatitis-b-birth-dose, newborn-checks, birth-preferences ]
+  notes: "after the birth: later phase. Some people decline; the sources are firm that the injection is recommended. State the recommendation and the consent plainly without lecturing."
+
+- id: hepatitis-b-birth-dose
+  title: The hepatitis B vaccine at birth
+  type: moment
+  topic: after-the-birth
+  ask: Why is the baby vaccinated on day one?
+  aliases: [ hep B birth dose, newborn hepatitis B vaccine, first vaccine, birth dose ]
+  weeks: [ 40, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ a free dose for every newborn preferably within 24 hours of birth and up to 7 days, protects against infection from carriers in the household and starts the childhood schedule, given in hospital with your consent, extra immunoglobulin if the mother has hepatitis B, the next doses at 6 weeks 4 months and 6 months ]
+  sources:
+    - title: Australian Immunisation Handbook — Hepatitis B
+      url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/hepatitis-b
+  related: [ vitamin-k, newborn-checks, going-home ]
+  notes: "after the birth: later phase. The rest of the baby's schedule belongs to the later newborn content."
+
+- id: newborn-checks
+  title: The newborn checks
+  type: guide
+  topic: after-the-birth
+  ask: What do they check on the baby after the birth?
+  aliases: [ newborn examination, baby check, head to toe check, weighing the baby, hip check, hearing test, newborn screening ]
+  weeks: [ 40, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ Apgar at 1 and 5 minutes, weight length and head on your chest or soon after, a head-to-toe examination by a doctor or midwife in the first day or two (heart, hips, eyes, spine, genitals), the hearing screen, the heel prick bloodspot test within 72 hours, the state's baby book, what each is for and that each needs your agreement ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Baby's first 24 hours
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/babys-first-24-hours
+    - title: Pregnancy, Birth and Baby — Newborn bloodspot screening (neonatal screening test)
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/neonatal-screening-test
+    - title: Pregnancy, Birth and Baby — Your baby in the first few days
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-baby-in-the-first-few-days
+  related: [ term-apgar, newborn-bloodspot-screening, vitamin-k, hepatitis-b-birth-dose, baby-first-days ]
+  notes: "after the birth: later phase"
+
+- id: newborn-bloodspot-screening
+  title: The heel prick test
+  type: moment
+  topic: after-the-birth
+  ask: What is the heel prick test for?
+  aliases: [ heel prick, newborn bloodspot screening, Guthrie test, NBS, PKU test ]
+  weeks: [ 40, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ a few drops of blood from the heel onto a card within 48 to 72 hours, screens for rare treatable conditions, free and recommended and needs your consent, hold or feed the baby during it, you hear only if something needs follow-up, done at home by the midwife if you've left hospital ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Newborn bloodspot screening (neonatal screening test)
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/neonatal-screening-test
+  related: [ newborn-checks, going-home ]
+  notes: "after the birth: later phase. Also a test, so the tests-and-care area may want to cross-link."
+
+- id: special-care-nursery
+  title: A stay in the special care nursery
+  type: guide
+  topic: after-the-birth
+  ask: What happens if the baby goes to special care?
+  aliases: [ SCN, special care, nursery stay, NICU, baby taken to the nursery, neonatal unit ]
+  weeks: [ 34, 42 ]
+  priority: 2
+  stakes: high
+  covers: [ why babies go (early, small, breathing, low sugar, jaundice, infection), special care versus intensive care, the partner goes with the baby, visiting and kangaroo care any time, expressing to keep milk going, the staff and the machines explained, going home when feeding breathing and temperature are stable, support for parents ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Special care nursery (SCN)
+      url: https://www.pregnancybirthbaby.org.au/babies/health-and-wellbeing/special-care-nursery
+    - title: Pregnancy, Birth and Baby — Having a baby with health problems at birth
+      url: https://www.pregnancybirthbaby.org.au/babies/health-and-wellbeing/having-a-baby-with-health-problems-at-birth
+    - title: Pregnancy, Birth and Baby — What is kangaroo care?
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/what-is-kangaroo-care
+  related: [ term-nicu, preterm-birth, skin-to-skin, first-feed, going-home ]
+  notes: "after the birth: later phase"
+
+- id: hospital-stay
+  title: How long you stay in hospital
+  type: guide
+  topic: after-the-birth
+  ask: How long will we be in hospital after the birth?
+  aliases: [ length of stay, early discharge, going home after 4 hours, postnatal ward, how many nights in hospital ]
+  weeks: [ 36, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ from a few hours to a few days, KEMH quotes from 4 hours after an uncomplicated vaginal birth and 24 to 72 hours after a caesarean, private hospitals usually longer, what has to be done before you leave (checks, feeding, a wee, the paperwork), midwife home visits after an early discharge, whether the partner can stay overnight varies so ask ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Having a baby in hospital
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/having-a-baby-in-hospital
+    - title: King Edward Memorial Hospital — Going home
+      url: https://www.kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Going-home
+  related: [ going-home, first-days-mum, caesarean-recovery, hospital-tour ]
+  notes: "after the birth: later phase. Stays vary by hospital and state; give the shape, not a promise."
+
+- id: going-home
+  title: Going home
+  type: guide
+  topic: after-the-birth
+  ask: What has to happen before they let us go home?
+  aliases: [ discharge, discharge checklist, leaving hospital with the baby, first drive home, midwife home visit ]
+  weeks: [ 40, 42 ]
+  who: together
+  priority: 1
+  stakes: medium
+  covers: [ the discharge checklist (checks done, feeding going, pain managed, the car seat fitted, the baby book and the paperwork, follow-up booked), the midwife or child health visits in the first week, who to call at 3 am, the partner drives and the baby's seat is checked, what to have ready at home ]
+  sources:
+    - title: King Edward Memorial Hospital — Going home
+      url: https://www.kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Going-home
+    - title: Pregnancy, Birth and Baby — Being at home with your baby after giving birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/being-at-home-with-your-baby-after-giving-birth
+  related: [ hospital-stay, car-seat, numbers-to-save, newborn-bloodspot-screening, first-days-mum ]
+  notes: "after the birth: later phase. Birth registration, Medicare and Centrelink belong to the money-and-paperwork area; link only."
+
+- id: first-days-mum
+  title: Her first days after the birth
+  type: guide
+  topic: after-the-birth
+  ask: What does the first day or two feel like for her?
+  aliases: [ after the birth, first 24 hours after birth, bleeding after birth, afterpains, first wee after birth, stitches care, postnatal ward ]
+  weeks: [ 40, 42 ]
+  who: carrying
+  priority: 1
+  stakes: medium
+  covers: [ bleeding (lochia) heavy at first and for up to 6 weeks, afterpains especially while feeding, the first wee and poo and why they matter, stitches and ice and warm water, the shakes exhaustion and a flood of feelings, what the midwives check (the uterus, the wound, blood pressure), when to call (large clots, a bad smell, fever, heavy bleeding) ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Your first few days after giving birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-first-few-days-after-giving-birth
+    - title: Pregnancy, Birth and Baby — Mum's first 24 hours after birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/mums-first-24-hours-after-birth
+    - title: RANZCOG — The First Few Weeks Following Birth (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/First-Few-Weeks-Following-Birth.pdf
+  related: [ term-lochia, term-afterpains, perineal-tears, caesarean-recovery, hospital-stay ]
+  notes: "after the birth: later phase. Stops at the hospital door; recovery over the weeks, the pelvic floor and mood belong to the body and mental-health areas."
+
+- id: term-lochia
+  title: Lochia
+  type: term
+  topic: after-the-birth
+  ask: What is lochia?
+  aliases: [ postpartum bleeding, bleeding after birth, lochia rubra, lochia serosa, lochia alba ]
+  weeks: [ 40, 42 ]
+  priority: 2
+  stakes: medium
+  covers: [ the bleeding from the uterus after birth, bright and heavy for 3 to 4 days then browner then yellow-white, up to about 6 weeks, after a caesarean too, maternity pads not tampons, large clots or a bad smell are a call ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Your first few days after giving birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-first-few-days-after-giving-birth
+  related: [ first-days-mum, hospital-bag ]
+  notes: "after the birth: later phase"
+
+- id: term-afterpains
+  title: Afterpains
+  type: term
+  topic: after-the-birth
+  ask: Why am I still having contractions after the birth?
+  aliases: [ after-birth pains, afterpains, cramps when breastfeeding, uterus contracting after birth ]
+  weeks: [ 40, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ the uterus contracting back down for a few days, worse while feeding and after a second or later baby, simple pain relief and a heat pack ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Your first few days after giving birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-first-few-days-after-giving-birth
+  related: [ first-days-mum, first-feed ]
+  notes: "after the birth: later phase"
+
+- id: caesarean-recovery
+  title: The first days after a caesarean
+  type: guide
+  topic: after-the-birth
+  ask: What is recovery like after a caesarean?
+  aliases: [ c-section recovery, after a caesarean, caesarean wound, getting up after caesarean, driving after caesarean ]
+  weeks: [ 40, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ the catheter and the drip out within a day, up and walking early, pain relief that is fine for feeding, the wound and the dressing, wind pain, lifting nothing heavier than the baby, 24 to 72 hours in hospital, about 6 weeks to recover and ask before driving, help at home is not optional ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Recovery after a caesarean
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/recovery-after-a-caesarean
+    - title: RANZCOG — Caesarean Section (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Caesarean-Section.pdf
+    - title: King Edward Memorial Hospital — Going home
+      url: https://www.kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Going-home
+  related: [ caesarean-what-happens, planned-caesarean, emergency-caesarean, breastfeeding-after-caesarean, hospital-stay, first-days-mum ]
+  notes: "after the birth: later phase. Recovery beyond the hospital stay belongs to the body area."
+
+- id: baby-first-days
+  title: The baby's first days
+  type: guide
+  topic: after-the-birth
+  ask: What's normal for a newborn in the first couple of days?
+  aliases: [ newborn first days, vernix, meconium, newborn weight loss, sleepy newborn, jaundice, cluster feeding night two ]
+  weeks: [ 40, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ blood and vernix at birth, the first poo black and sticky turning to mustard yellow, a sleepy first day then a hungry second night, losing a little weight then regaining it, mild jaundice from day 2 or 3 and when it is checked, the cord stump, the hearing and heel prick tests, the state's baby book, safe sleep from the first night ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Baby's first 24 hours
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/babys-first-24-hours
+    - title: Pregnancy, Birth and Baby — Your baby in the first few days
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-baby-in-the-first-few-days
+  related: [ term-vernix, term-meconium, newborn-checks, first-feed, going-home ]
+  notes: "after the birth: later phase. Everything after the first few days belongs to the later newborn content."
+
+# ---------------------------------------------------------------------------
+# "Nobody tells you": labour and the birth
+# ---------------------------------------------------------------------------
+
+- id: card-labour-can-take-days
+  title: Early labour can last days, not hours
+  type: card
+  topic: labour
+  ask: How long can early labour go on?
+  aliases: [ latent phase, long early labour, days of contractions ]
+  weeks: [ 36, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ the latent phase can last many hours or even days, that is normal and not a stall, rest eat and stay home ]
+  sources:
+    - title: Pregnancy, Birth and Baby — First stage of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-first-stage-of-labour
+  related: [ early-labour, length-of-labour ]
+
+- id: card-sent-home
+  title: You may be sent home from the hospital
+  type: card
+  topic: labour
+  ask: Why would the hospital send me home in labour?
+  aliases: [ sent home in early labour, not far enough along, go home and come back ]
+  weeks: [ 36, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ being checked and sent home in early labour is common practice, it isn't a judgement, plan for it so it doesn't deflate you ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Going to hospital
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/going-to-hospital
+  related: [ when-to-go-to-hospital, early-labour ]
+
+- id: card-nobody-knows-how-long
+  title: Nobody can tell you how long labour will take
+  type: card
+  topic: labour
+  ask: Why can't they say how long labour will be?
+  aliases: [ how long will labour take, first labour longest ]
+  weeks: [ 34, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ it is impossible to say in advance, first babies usually take longest, a later labour is often quicker so leave earlier ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Going to hospital
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/going-to-hospital
+  related: [ length-of-labour, when-to-go-to-hospital ]
+
+- id: card-waters-colour
+  title: Green or brown waters are a call, right now
+  type: card
+  topic: labour
+  ask: What colour should the waters be?
+  aliases: [ green waters, brown waters, meconium in waters, colour of amniotic fluid ]
+  weeks: [ 36, 42 ]
+  priority: 1
+  stakes: high
+  covers: [ "usually clear, but can be yellow, straw-coloured or pink", "green or brown (the baby may have passed meconium) or blood-coloured: speak to your midwife, doctor or birthing centre immediately and they will guide you on what to do next" ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Waters breaking
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+  related: [ waters-breaking, term-meconium ]
+
+- id: card-waters-not-first
+  title: Waters often don't break first
+  type: card
+  topic: labour
+  ask: Does labour start with the waters breaking?
+  aliases: [ waters breaking in labour, gush in public, waters breaking late ]
+  weeks: [ 36, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ the films are wrong, the waters can break before labour or not until well into it or be broken for you, a trickle is as common as a gush ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Waters breaking
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
+    - title: Pregnancy, Birth and Baby — Early signs of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
+  related: [ waters-breaking, signs-of-labour, breaking-the-waters ]
+
+- id: card-upright-helps
+  title: Lying on your back is the one position not to pick
+  type: card
+  topic: labour
+  ask: Does it matter what position I give birth in?
+  aliases: [ upright birth, active birth, lying on back in labour ]
+  weeks: [ 30, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ upright and moving helps labour and the baby and is backed by research, flat on your back was the habit not the evidence, even with an epidural side-lying beats flat ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Positions for labour and birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/positions-for-labour-and-birth
+  related: [ positions-for-labour, second-stage ]
+
+- id: card-gas-side-effects
+  title: The gas can make you dizzy and sick, and that's it
+  type: card
+  topic: labour
+  ask: Is the gas bad for the baby?
+  aliases: [ gas side effects, gas safe for baby, nitrous nausea ]
+  weeks: [ 36, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ gas is safe for the baby and doesn't affect labour or breast milk, the side effects are yours, nausea vomiting dizziness and light-headedness, and they stop when you stop ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Gas (Entonox)
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/gas-entonox
+  related: [ nitrous-oxide-gas, pain-relief ]
+
+- id: card-epidural-package
+  title: An epidural comes with a drip, a catheter and a monitor
+  type: card
+  topic: labour
+  ask: What else happens when I have an epidural?
+  aliases: [ epidural and catheter, epidural and monitoring, epidural drip ]
+  weeks: [ 30, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ an epidural means continuous monitoring of you and the baby, a drip because it can drop your blood pressure, and usually a catheter because you can't feel your bladder, worth knowing before you choose and still a good choice ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Epidural
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/epidural
+  related: [ epidural, monitoring-in-labour ]
+
+- id: card-morphine-drowsy
+  title: Morphine makes you drowsy, and it stays in the baby too
+  type: card
+  topic: labour
+  ask: What does morphine do in labour?
+  aliases: [ morphine in labour, opioid side effects, pethidine and baby ]
+  weeks: [ 36, 42 ]
+  priority: 2
+  stakes: medium
+  covers: [ opioids can bring drowsiness nausea vomiting and trouble emptying the bladder, they cross to the baby so timing near the birth matters, they take the edge off rather than the pain away ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Pain relief during labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/pain-relief-during-labour
+    - title: The Royal Women's Hospital — Managing pain in labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
+  related: [ morphine-and-opioids, pain-relief ]
+
+- id: card-sterile-water
+  title: Four tiny stings in the back can ease back labour
+  type: card
+  topic: labour
+  ask: What are the water injections for back pain?
+  aliases: [ sterile water injections, back labour relief ]
+  weeks: [ 36, 42 ]
+  priority: 3
+  stakes: low
+  covers: [ sterile water injected under the skin in four spots in the lower back, sharp for a few seconds then relief for a while, no drug, not every hospital offers it so ask ]
+  sources:
+    - title: The Royal Women's Hospital — Managing pain in labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
+  related: [ sterile-water-injections, term-posterior ]
+
+- id: card-one-in-ten-assisted
+  title: About 1 in 10 babies arrive with forceps or a vacuum cup
+  type: card
+  topic: birth
+  ask: How common is an assisted birth?
+  aliases: [ forceps rate, vacuum rate, instrumental birth common ]
+  weeks: [ 34, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ almost one baby in ten in Australia and New Zealand, most often in a first birth, usually to avoid a caesarean, worth reading about before the day so it isn't a shock ]
+  sources:
+    - title: RANZCOG — Assisted Birth (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Assisted-Birth.pdf
+  related: [ assisted-birth ]
+
+- id: card-episiotomy-not-routine
+  title: You won't be cut as a matter of course
+  type: card
+  topic: birth
+  ask: Is an episiotomy routine?
+  aliases: [ routine episiotomy, will I be cut ]
+  weeks: [ 34, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ an episiotomy is done for a reason, usually with forceps or vacuum where it lowers the chance of a severe tear, or to hurry a birth for the baby, and you can say in advance how you feel about it ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Episiotomy
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/episiotomy
+  related: [ episiotomy, perineal-tears ]
+
+- id: card-tears-first-baby
+  title: Tearing is more likely with a first baby, and most tears are small
+  type: card
+  topic: birth
+  ask: Will I tear?
+  aliases: [ tearing first baby, small tears, grazes ]
+  weeks: [ 34, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ a first baby a big baby or an instrumental birth make a tear more likely, most are first or second degree and stitched in the room, warm compresses and a slow head help, the serious ones are a few in a hundred ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Perineal tears
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/perineal-tears
+  related: [ perineal-tears, perineal-massage ]
+
+- id: card-breech-at-30-weeks
+  title: Breech at 30 weeks means nothing yet
+  type: card
+  topic: birth
+  ask: The scan says breech. Should I worry?
+  aliases: [ breech early, breech 28 weeks, baby not head down ]
+  weeks: [ 26, 36 ]
+  priority: 1
+  stakes: low
+  covers: [ it is normal to be breech until about 35 to 36 weeks, most turn by the last month, only about 3 in 100 are still breech at term, that is when the conversation starts ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Breech pregnancy
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
+  related: [ breech, ecv ]
+
+- id: card-overdue-is-42
+  title: Overdue officially starts at 42 weeks
+  type: card
+  topic: labour
+  ask: When am I actually overdue?
+  aliases: [ due date passed, 40 weeks and nothing, overdue meaning ]
+  weeks: [ 38, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ full term runs to 42 weeks and the due date is a midpoint not a deadline, only about 5 in 100 get to 42, extra checks and an offer of induction come first ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Overdue
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
+    - title: Better Health Channel — Baby due date
+      url: https://www.betterhealth.vic.gov.au/health/healthyliving/baby-due-date
+  related: [ overdue, induction ]
+
+- id: card-induction-takes-time
+  title: An induction can take more than a day
+  type: card
+  topic: labour
+  ask: How long does an induction take?
+  aliases: [ induction length, induction two days, gel then balloon then drip ]
+  weeks: [ 37, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ it often starts with a gel repeated every 6 hours or a pessary left for 12 to 24 hours before the waters and the drip, you may need more than one method, pack for a couple of nights ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Induced labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/induced-labour
+    - title: RANZCOG — Induction of Labour (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Induction-Labour.pdf
+  related: [ induction, prostaglandin, hospital-bag ]
+
+- id: card-placenta-is-a-stage
+  title: The placenta is a whole stage of labour
+  type: card
+  topic: birth
+  ask: What happens after the baby is out?
+  aliases: [ delivering the placenta, afterbirth, third stage ]
+  weeks: [ 37, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ after the baby there is still the placenta, 5 to 60 minutes with an injection or contractions, the midwife checks it is complete, you can ask to see it ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Third stage of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-third-stage-of-labour
+    - title: Pregnancy, Birth and Baby — Retained placenta
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/retained-placenta
+  related: [ third-stage-placenta, term-third-stage ]
+
+- id: card-cord-waits
+  title: The cord is usually left until it stops pulsing
+  type: card
+  topic: birth
+  ask: When do they cut the cord?
+  aliases: [ cord clamping timing, cord stops pulsating, partner cuts the cord ]
+  weeks: [ 34, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ clamping usually waits until the cord stops pulsating about a minute after birth so the baby gets more blood, the partner can cut it, say if you want it that way at a caesarean too ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Third stage of labour
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-third-stage-of-labour
+  related: [ delayed-cord-clamping, support-person-role ]
+
+- id: card-skin-to-skin-in-theatre
+  title: Skin to skin happens in theatre too
+  type: card
+  topic: birth
+  ask: Can I hold the baby straight after a caesarean?
+  aliases: [ skin to skin caesarean, holding baby in theatre, bonding after c-section ]
+  weeks: [ 34, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ unless you've had a general anaesthetic skin to skin is encouraged straight after a caesarean with warm blankets over you both, and if you can't the partner can ]
+  sources:
+    - title: RANZCOG — Caesarean Section (patient information)
+      url: https://ranzcog.edu.au/wp-content/uploads/Caesarean-Section.pdf
+    - title: The Royal Women's Hospital — Caesarean birth
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/caesarean-birth
+  related: [ skin-to-skin, caesarean-what-happens ]
+
+- id: card-partner-speaks
+  title: There'll be a moment she can't speak for herself. That's your job.
+  type: card
+  topic: partner
+  ask: What is the partner for in labour?
+  aliases: [ advocate in labour, speaking for her, birth partner job ]
+  weeks: [ 34, 42 ]
+  who: partner
+  priority: 1
+  stakes: medium
+  covers: [ a birth plan written together lets the partner advocate when she can't, know the preferences and the order of pain relief, ask the questions and repeat the answers to her ]
+  sources:
+    - title: The Royal Women's Hospital — Preparing for labour
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/preparing-for-labour
+    - title: Pregnancy, Birth and Baby — The role of a birth support partner
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
+  related: [ support-person-role, birth-preferences ]
+
+- id: card-partner-pack-snacks
+  title: Partners, pack your own snacks
+  type: card
+  topic: partner
+  ask: What should the partner bring for themselves?
+  aliases: [ partner bag, snacks for the partner, long labour partner ]
+  weeks: [ 34, 42 ]
+  who: partner
+  priority: 2
+  stakes: low
+  covers: [ supporting a labour is exhausting and can run a day or more, bring snacks and water for yourself and take breaks when you can, you're no use fainting ]
+  sources:
+    - title: Pregnancy, Birth and Baby — The role of a birth support partner
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
+  related: [ support-person-role, hospital-bag ]
+
+- id: card-vitamin-k-consent
+  title: The vitamin K injection needs your yes
+  type: card
+  topic: after-the-birth
+  ask: Do I have to agree to the vitamin K shot?
+  aliases: [ vitamin K consent, declining vitamin K ]
+  weeks: [ 36, 42 ]
+  priority: 1
+  stakes: medium
+  covers: [ every baby is offered a vitamin K injection within a few hours of birth and it is given only with your permission, decide before the day and put it in the preferences ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Baby's first 24 hours
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/babys-first-24-hours
+  related: [ vitamin-k, birth-preferences ]
+  notes: "after the birth: later phase"
+
+- id: card-home-in-four-hours
+  title: You can be home four hours after the birth
+  type: card
+  topic: after-the-birth
+  ask: How soon can we leave hospital?
+  aliases: [ early discharge, home same day, 4 hours after birth ]
+  weeks: [ 36, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ after an uncomplicated vaginal birth some hospitals send you home from about 4 hours if you and the baby are well, with midwife visits at home, a caesarean means 1 to 3 nights ]
+  sources:
+    - title: King Edward Memorial Hospital — Going home
+      url: https://www.kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Going-home
+  related: [ hospital-stay, going-home ]
+  notes: "after the birth: later phase"
+
+- id: card-bleed-six-weeks
+  title: You bleed for up to six weeks after the birth
+  type: card
+  topic: after-the-birth
+  ask: How long is the bleeding after birth?
+  aliases: [ bleeding after birth, lochia six weeks, maternity pads ]
+  weeks: [ 34, 42 ]
+  priority: 1
+  stakes: low
+  covers: [ heavy and red for the first days then browner then pale for up to 6 weeks, after a caesarean as well, pack the big pads, large clots or a bad smell are a call ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Your first few days after giving birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-first-few-days-after-giving-birth
+  related: [ term-lochia, first-days-mum, hospital-bag ]
+  notes: "after the birth: later phase"
+
+- id: card-afterpains
+  title: The contractions don't stop when the baby is out
+  type: card
+  topic: after-the-birth
+  ask: Why do I still have cramps after the birth?
+  aliases: [ afterpains, cramps while breastfeeding, uterus shrinking ]
+  weeks: [ 36, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ afterpains are the uterus shrinking back over a few days, sharper while feeding and with a second baby, simple pain relief helps ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Your first few days after giving birth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-first-few-days-after-giving-birth
+  related: [ term-afterpains, first-days-mum ]
+  notes: "after the birth: later phase"
+
+- id: card-first-poo-black
+  title: The first nappy is black and sticky
+  type: card
+  topic: after-the-birth
+  ask: Why is the baby's poo black?
+  aliases: [ meconium nappy, black poo newborn, first poo ]
+  weeks: [ 36, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ the first poos are meconium, black tar that is hard to wipe, turning green then mustard yellow over the first days, entirely normal ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Baby's first 24 hours
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/babys-first-24-hours
+    - title: Pregnancy, Birth and Baby — Your baby in the first few days
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-baby-in-the-first-few-days
+  related: [ term-meconium, baby-first-days ]
+  notes: "after the birth: later phase"
+
+- id: card-heel-prick-72-hours
+  title: The heel prick happens before you've worked out the nappies
+  type: card
+  topic: after-the-birth
+  ask: When is the heel prick test?
+  aliases: [ heel prick timing, bloodspot 72 hours, newborn screening day 2 ]
+  weeks: [ 36, 42 ]
+  priority: 2
+  stakes: low
+  covers: [ the bloodspot screen is done within the first 72 hours, often on day 2 or 3 or at home by the midwife, feeding or holding the baby eases it, you only hear back if something needs a look ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Newborn bloodspot screening (neonatal screening test)
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/neonatal-screening-test
+  related: [ newborn-bloodspot-screening, newborn-checks ]
+  notes: "after the birth: later phase"
+
+- id: card-apgar-is-quick
+  title: The Apgar is a glance, not a grade
+  type: card
+  topic: after-the-birth
+  ask: What does an Apgar score mean for the baby?
+  aliases: [ Apgar meaning, low Apgar, Apgar 7 ]
+  weeks: [ 36, 42 ]
+  priority: 3
+  stakes: low
+  covers: [ scored at 1 and 5 minutes on colour heart rate breathing tone and reflexes, a low first score just means a little help, it predicts nothing about the child ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Apgar score
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/apgar-score
+  related: [ term-apgar, newborn-checks ]
+  notes: "after the birth: later phase"
+
+- id: card-perineal-massage-from-34
+  title: Perineal massage starts at 34 weeks, not before
+  type: card
+  topic: birth
+  ask: When do I start perineal massage?
+  aliases: [ perineal massage timing, 34 weeks massage ]
+  weeks: [ 32, 36 ]
+  who: carrying
+  priority: 2
+  stakes: low
+  covers: [ from 34 to 35 weeks a few times a week may lower the chance of a tear in a first birth, not before 34 and not with bleeding a low placenta a short cervix or an infection ]
+  sources:
+    - title: Pregnancy, Birth and Baby — Perineal massage
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/perineal-massage
+  related: [ perineal-massage, perineal-tears ]

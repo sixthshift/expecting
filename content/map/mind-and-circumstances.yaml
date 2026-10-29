@@ -1,0 +1,2630 @@
+# The mind, relationships, the partner, loss, and special circumstances.
+# Every source URL below was fetched on 2026-10-28/29 and read. Pages on panda.org.au,
+# beyondblue.org.au and healthdirect.gov.au render by JavaScript: curl gets an empty
+# shell, so open them in a browser when writing. COPE (cope.org.au) refuses automated
+# fetches (403) and Raising Children too; neither is cited. sands.org.au now redirects
+# to rednose.org.au: Sands is part of Red Nose Grief and Loss.
+#
+# Voice for this file: gentle, never cheerful after bad news, nothing clinical decided
+# here ("ask your midwife or OB"), and every "call now" ends at a phone number.
+
+# ---------------------------------------------------------------------------
+# Mental health
+# ---------------------------------------------------------------------------
+
+- id: antenatal-depression
+  title: Depression during pregnancy
+  type: symptom
+  topic: mental-health
+  ask: "I feel low all the time. Is this just pregnancy?"
+  aliases: [antenatal depression, prenatal depression, perinatal depression, feeling low, hopeless, numb, PNDA]
+  weeks: [1, 42]
+  priority: 1
+  stakes: high
+  covers:
+    - "up to 1 in 10 people have depression during pregnancy (PBB); the Royal Women's puts depression or anxiety together at about 15 per cent"
+    - "the signs: low mood or numbness, no pleasure in things, withdrawing, sleep and appetite changes, recurring negative thoughts, wanting to escape"
+    - "the line between a bad week and depression: symptoms that persist for 2 weeks or more and interrupt daily life"
+    - "shame and guilt keep people quiet because they are 'supposed to be joyful' (the Royal Women's); it is not something you control"
+    - "untreated illness affects you and the baby; safe and effective treatments exist in pregnancy"
+    - "where to start: your GP or midwife, the PANDA helpline 1300 726 306, Beyond Blue 1300 22 4636"
+    - "call now: thoughts of self-harm or suicide, Lifeline 13 11 14, 000 in danger"
+  sources:
+    - title: Pregnancy, Birth and Baby — Depression and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/depression-and-pregnancy
+    - title: The Royal Women's Hospital — Mental health & pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy
+    - title: Beyond Blue — Pregnancy (antenatal depression and anxiety)
+      url: https://www.beyondblue.org.au/mental-health/parenting/pregnancy
+    - title: PANDA — Support for expecting parents
+      url: https://www.panda.org.au/get-support/support-expecting-a-baby
+  related: [antenatal-anxiety, perinatal-mental-health-help, mental-health-screening-epds, mental-health-medication, partner-perinatal-depression]
+  notes: "Never score or diagnose. The app's mood log rule (two low weeks suggests talking to someone and shows PANDA) hangs off this entry."
+
+- id: antenatal-anxiety
+  title: Anxiety during pregnancy
+  type: symptom
+  topic: mental-health
+  ask: "I can't stop worrying about the baby. Is that normal?"
+  aliases: [antenatal anxiety, panic attacks, constant worry, on edge, racing heart, OCD in pregnancy, perinatal anxiety]
+  weeks: [1, 42]
+  priority: 1
+  stakes: high
+  covers:
+    - "some anxiety is a normal reaction to pregnancy; as many as 30 per cent of pregnant women feel some level of it (the Royal Women's)"
+    - "when it is more: worry that interrupts thoughts or daily tasks, panic attacks, tension, a tight chest, trouble falling asleep"
+    - "it can start in pregnancy or worsen an existing disorder (GAD, OCD, panic, social anxiety, PTSD)"
+    - "people assume it is a normal part of pregnancy and don't ask for help (PBB)"
+    - "treated well with psychological therapies: CBT, relaxation, mindfulness; medication sometimes, decided with your doctor"
+    - "the simple self-help the sources give: breathing, bedtime routine, limiting unhelpful social media (Gidget)"
+    - "where to start: GP or midwife, PANDA 1300 726 306"
+  sources:
+    - title: Pregnancy, Birth and Baby — Anxiety and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/anxiety-and-pregnancy
+    - title: The Royal Women's Hospital — Anxiety & pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy/anxiety-pregnancy
+    - title: Gidget Foundation — Tips for managing anxiety and stress for new and expectant parents
+      url: https://www.gidgetfoundation.org.au/fact-sheets/tips-for-managing-anxiety-and-stress-for-new-and-expectant-parents
+  related: [antenatal-depression, worry-and-sleep, intrusive-thoughts, tokophobia, perinatal-mental-health-help]
+
+- id: perinatal-mental-health-help
+  title: Where to get help for your mental health
+  type: guide
+  topic: mental-health
+  ask: "Who do I actually call if I'm not coping?"
+  aliases: [PANDA, Gidget Foundation, Beyond Blue, Lifeline, helpline, counsellor, psychologist, mental health care plan]
+  weeks: [1, 42]
+  priority: 1
+  stakes: high
+  covers:
+    - "PANDA National Helpline 1300 726 306, 7 days, for expecting and new parents and their support people; not a crisis line"
+    - "Gidget Foundation: free perinatal psychology (up to 10 Medicare bulk-billed sessions a year) at Gidget Houses or by telehealth; needs a GP referral and a Mental Health Care Plan"
+    - "Beyond Blue 1300 22 4636, 24/7"
+    - "your GP can assess, treat and refer to a psychologist or psychiatrist; depending on the services where you live, your doctor may refer you to a perinatal mental health team"
+    - "PANDA's online checklist ('How are you going?') if you are not sure it is 'bad enough'"
+    - "crisis: Lifeline 13 11 14 (24/7), 13YARN 13 92 76 for Aboriginal and Torres Strait Islander people, 000 in immediate danger"
+    - "the partner can call too, about you or about themselves"
+  sources:
+    - title: PANDA — home (National Helpline)
+      url: https://www.panda.org.au/
+    - title: PANDA — Mental health checklist
+      url: https://www.panda.org.au/checklists
+    - title: Gidget Foundation — How to access counselling
+      url: https://www.gidgetfoundation.org.au/fact-sheets/how-to-access-counselling
+    - title: Gidget Foundation — Start Talking telehealth
+      url: https://www.gidgetfoundation.org.au/support/start-talking-telehealth
+    - title: Pregnancy, Birth and Baby — Who can I call for information and advice?
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/pregnancy-helpline-numbers
+    - title: Lifeline — Get help
+      url: https://www.lifeline.org.au/get-help
+    - title: 13YARN
+      url: https://www.13yarn.org.au/
+    - title: PANDA — Support for dads
+      url: https://www.panda.org.au/get-support/support-dads
+  related: [antenatal-depression, antenatal-anxiety, partner-mental-health-support, loss-support-services]
+  notes: "Helpline hours change: PANDA's own site says 7 days; Gidget's pages still quote older weekday hours. Confirm on panda.org.au when writing. This is the entry the call button and the mood log point at."
+
+- id: mental-health-screening-epds
+  title: The mood questions at your appointments
+  type: guide
+  topic: mental-health
+  ask: "Why is the midwife asking me how I'm feeling with a questionnaire?"
+  aliases: [EPDS, Edinburgh Postnatal Depression Scale, Edinburgh scale, mental health screening, psychosocial assessment, mood questionnaire]
+  weeks: [8, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "during pregnancy and again after the birth, most women in Australia are screened for depression (the Royal Women's)"
+    - "the usual tool is the Edinburgh Postnatal Depression Scale (EPDS), a short questionnaire with a standard scoring guide, used in pregnancy as well as after"
+    - "it is a screen, not a diagnosis; a high score means a conversation and a referral, not a label"
+    - "answer honestly: it is how the hospital finds the people it can help, and the questions include one about self-harm"
+    - "partners are not routinely screened, which is why the partner's own signs are in this Library"
+  sources:
+    - title: The Royal Women's Hospital — Mental health & pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy
+    - title: Gidget Foundation — Screening and assessment for PNDA
+      url: https://www.gidgetfoundation.org.au/health-professionals/screening-and-assessment-for-pnda
+    - title: Gidget Foundation — Emotional wellbeing screening program
+      url: https://www.gidgetfoundation.org.au/support/emotional-wellbeing-screening-progam
+  related: [antenatal-depression, antenatal-anxiety, partner-perinatal-depression]
+  notes: "The authoritative text is the COPE National Perinatal Mental Health Guideline and the Department of Health Pregnancy Care Guidelines; both sites blocked automated fetches, so the writer should open them in a browser to confirm the recommended timing of the EPDS in pregnancy before stating it."
+
+- id: mood-swings
+  title: Mood swings
+  type: symptom
+  topic: mental-health
+  ask: "Why am I crying one minute and furious the next?"
+  aliases: [moody, tearful, irritable, crying for no reason, hormones, emotional]
+  weeks: [4, 42]
+  priority: 1
+  stakes: low
+  covers:
+    - "ups and downs are normal for expectant parents; abrupt mood swings are on PBB's list of common feelings"
+    - "the partner's version: try not to take it personally (PBB's advice to partners)"
+    - "when it is more than a swing: low or anxious most days for two weeks, or it stops you functioning"
+  sources:
+    - title: Pregnancy, Birth and Baby — Feelings, relationships and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/feelings-relationships-and-pregnancy
+    - title: Pregnancy, Birth and Baby — Supporting your partner during their pregnancy
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/supporting-your-partner-during-pregnancy
+  related: [antenatal-depression, arguments-and-stress, card-mood-swings-not-personal]
+
+- id: worry-and-sleep
+  title: Lying awake worrying
+  type: symptom
+  topic: mental-health
+  ask: "I can't sleep because my mind won't stop. What helps?"
+  aliases: [insomnia, can't sleep, 3am worry, racing mind, sleep and anxiety]
+  weeks: [1, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "the worry side of poor sleep, not the physical side (that is the body entries): worry about the baby, money, the birth, how the relationship will change (PBB's common concerns)"
+    - "what the sources suggest: a wind-down routine, less screen time before bed, rest when you can, breathing exercises"
+    - "when sleeplessness travels with low mood or constant worry it is a mental-health sign, not a sleep problem"
+  sources:
+    - title: Pregnancy, Birth and Baby — Mental wellbeing during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/mental-wellbeing-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Insomnia in pregnancy and breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/insomnia-in-pregnancy-and-breastfeeding
+    - title: Gidget Foundation — Tips for managing anxiety and stress for new and expectant parents
+      url: https://www.gidgetfoundation.org.au/fact-sheets/tips-for-managing-anxiety-and-stress-for-new-and-expectant-parents
+  related: [antenatal-anxiety, stress-in-pregnancy]
+  notes: "Side-sleeping from 28 weeks and the physical causes of insomnia belong to the body agent; link, don't repeat."
+
+- id: stress-in-pregnancy
+  title: Stress
+  type: symptom
+  topic: mental-health
+  ask: "Is my stress harming the baby?"
+  aliases: [stressed, overwhelmed, work stress, burnout, cortisol]
+  weeks: [1, 42]
+  priority: 1
+  stakes: medium
+  covers:
+    - "everyday stress is normal; it becomes a problem when it is constant, overwhelming and you can't cope (PBB)"
+    - "the guilt loop: worrying that worry harms the baby; what PBB actually says (too much, chronic stress can affect you both; it is the chronic kind that matters)"
+    - "common triggers PBB names, including a previous bad pregnancy or loss"
+    - "talk to your midwife or doctor if it is significant; the help entry"
+  sources:
+    - title: Pregnancy, Birth and Baby — Stress and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/stress-and-pregnancy
+  related: [antenatal-anxiety, arguments-and-stress, worry-and-sleep]
+
+- id: intrusive-thoughts
+  title: "Scary thoughts you didn't ask for"
+  type: symptom
+  topic: mental-health
+  ask: "I keep imagining something terrible happening to the baby. Am I going mad?"
+  aliases: [intrusive thoughts, scary thoughts, unwanted thoughts, OCD, harm thoughts]
+  weeks: [1, 42]
+  priority: 2
+  stakes: high
+  covers:
+    - "more than 80 per cent of expectant and new parents have intrusive thoughts from time to time (Gidget)"
+    - "what they are: unwanted, negative images or impulses, fleeting or persistent; having them is not wanting them"
+    - "when to get help: they are constant, distressing, or you start avoiding things because of them"
+    - "say it plainly: if you feel you might act on a thought, or you have thoughts of harming yourself, that is a call now (Lifeline 13 11 14, 000)"
+  sources:
+    - title: Gidget Foundation — Intrusive thoughts, what are they and how do we deal with them?
+      url: https://www.gidgetfoundation.org.au/fact-sheets/intrusive-thoughts-what-are-they-and-how-do-we-deal-with-them
+  related: [antenatal-anxiety, perinatal-mental-health-help, card-intrusive-thoughts-common]
+  notes: "Sensitive: reassure that the thoughts are common without reassuring where it should send someone to a phone."
+
+- id: tokophobia
+  title: Fear of giving birth
+  type: guide
+  topic: mental-health
+  ask: "I'm terrified of the birth. Is that normal, and what can I do?"
+  aliases: [tokophobia, fear of childbirth, scared of labour, birth anxiety, afraid of pain]
+  weeks: [12, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "it is common to feel anxious about pain, interventions or harm to the baby; for a very small number it becomes overwhelming, which is tokophobia (PBB)"
+    - "what helps per PBB: knowing what to expect, a flexible birth plan, knowing the pain-relief options in advance, and that you can change your mind"
+    - "talk to your midwife or doctor; counselling and a referral exist for the severe kind"
+    - "a previous traumatic birth or sexual assault can be behind it; both have their own entries"
+    - "the partner can help by coming to the classes and knowing the plan"
+  sources:
+    - title: Pregnancy, Birth and Baby — Fear of childbirth
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/fear-of-childbirth
+  related: [previous-trauma-and-pregnancy, pregnancy-after-birth-trauma, birth-support-person, antenatal-anxiety]
+  notes: "Pain relief options and the birth plan itself are the labour agent's; this entry is the fear."
+
+- id: previous-trauma-and-pregnancy
+  title: When pregnancy brings old trauma back
+  type: guide
+  topic: mental-health
+  ask: "Examinations and the birth are bringing back things I'd rather not think about. What can I ask for?"
+  aliases: [trauma-informed care, sexual assault survivor, childhood abuse, PTSD, triggers, examinations]
+  weeks: [1, 42]
+  priority: 2
+  stakes: high
+  covers:
+    - "pregnancy, antenatal checks, vaginal examinations, birth and breastfeeding can trigger memories of earlier abuse; loss of control over your body is a common trigger (Gidget)"
+    - "you can ask for trauma-informed care: being asked before you are touched, choices explained, neutral language, no judgement (PBB)"
+    - "you do not have to tell the whole story; you can tell your midwife what you need (who examines you, a support person present, stopping when you say)"
+    - "write your needs into the birth plan and the hospital notes; prepare a list before appointments"
+    - "where the sources send you: the Royal Women's names sexual assault survivors as needing particular support; 1800RESPECT 1800 737 732 for past sexual assault too; PANDA; Gidget"
+  sources:
+    - title: Pregnancy, Birth and Baby — What is trauma-informed care?
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-rights/what-is-trauma-informed-care
+    - title: Gidget Foundation — Parenting after childhood sexual abuse
+      url: https://www.gidgetfoundation.org.au/fact-sheets/parenting-after-childhood-sexual-abuse
+    - title: Gidget Foundation — Complex trauma during the perinatal period
+      url: https://www.gidgetfoundation.org.au/fact-sheets/complex-trauma-during-the-perinatal-period
+    - title: The Royal Women's Hospital — Anxiety & pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy/anxiety-pregnancy
+  related: [tokophobia, birth-trauma, pregnancy-after-birth-trauma, domestic-violence-in-pregnancy]
+
+- id: mental-health-medication
+  title: Antidepressants and other mental health medicines in pregnancy
+  type: guide
+  topic: mental-health
+  ask: "Do I have to stop my antidepressants now I'm pregnant?"
+  aliases: [antidepressants, SSRIs, sertraline, mood stabilisers, lithium, antipsychotics, stopping medication]
+  weeks: [1, 42]
+  priority: 1
+  stakes: high
+  covers:
+    - "the verdict is ask: do not stop or change a dose without talking to your doctor first (PBB)"
+    - "some medicines are safe in pregnancy, others need changing; your doctor may adjust them when you are planning or newly pregnant"
+    - "your doctor explains the risks and benefits of the treatment options, including how stopping a medicine might affect your mental health, so you can make an informed decision together"
+    - "the Royal Women's: safe and effective treatment options exist in pregnancy and while breastfeeding"
+    - "who to ask: your doctor or midwife, early on (when planning a pregnancy or as soon as you are pregnant); your doctor may refer you to a perinatal mental health team"
+  sources:
+    - title: Pregnancy, Birth and Baby — Managing pregnancy with a mental illness
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/managing-pregnancy-with-a-mental-illness
+    - title: The Royal Women's Hospital — Mental health & pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy
+  related: [existing-mental-illness, antenatal-depression]
+  notes: "Border: the medicines agent owns 'Can I take X?'. This entry is the stop-or-continue question and points to the doctor; it never names a safe dose."
+
+- id: existing-mental-illness
+  title: Pregnancy with an existing mental illness
+  type: guide
+  topic: mental-health
+  ask: "I have bipolar disorder. What does that mean for my pregnancy?"
+  aliases: [bipolar, schizophrenia, eating disorder, ADHD, borderline, perinatal mental health team, psychiatrist]
+  weeks: [1, 42]
+  priority: 2
+  stakes: high
+  covers:
+    - "planning ahead keeps you well: tell your care team early, ask for a referral to a perinatal mental health team (PBB)"
+    - "different conditions affect pregnancy differently; the doctor plans care with your wishes, culture and health in mind"
+    - "bipolar disorder: for some, birth triggers a first episode, and postpartum psychosis risk is higher, so a plan for after the birth matters (the Royal Women's)"
+    - "eating disorders and body image in pregnancy: the Royal Women's and Gidget both cover it; weight checks can be hard; say so"
+    - "ADHD and medication: ask, don't stop (Gidget sheet)"
+    - "the partner's part: know the plan and the early signs"
+  sources:
+    - title: Pregnancy, Birth and Baby — Managing pregnancy with a mental illness
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/managing-pregnancy-with-a-mental-illness
+    - title: The Royal Women's Hospital — Mental health & pregnancy (bipolar, schizophrenia, eating disorders)
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy
+    - title: Gidget Foundation — ADHD during pregnancy and early motherhood
+      url: https://www.gidgetfoundation.org.au/fact-sheets/adhd-during-pregnancy-and-early-motherhood
+  related: [mental-health-medication, postpartum-psychosis-signs, mental-health-screening-epds]
+
+- id: gender-disappointment
+  title: "Feeling let down by the baby's sex"
+  type: guide
+  topic: mental-health
+  ask: "We found out and I'm disappointed. I feel awful for feeling it."
+  aliases: [gender disappointment, wanted a girl, wanted a boy, guilt about the sex, NIPT result]
+  weeks: [10, 24]
+  priority: 3
+  stakes: low
+  covers:
+    - "it is real and hard to talk about (Gidget); imagining the child is part of becoming a parent, so a different answer is a small loss"
+    - "early testing and reveal parties make it more common, not less"
+    - "it usually passes with bonding; it is not a verdict on you as a parent"
+    - "when it doesn't lift, it can sit on top of depression; the help entry"
+  sources:
+    - title: Gidget Foundation — Gender disappointment
+      url: https://www.gidgetfoundation.org.au/fact-sheets/gender-disappointment
+  related: [bonding-before-birth, antenatal-depression, card-gender-disappointment-real]
+  notes: "The app's theme question (boy, girl, surprise) lands here if it stirs something."
+
+- id: bonding-before-birth
+  title: Not feeling bonded yet
+  type: guide
+  topic: mental-health
+  ask: "Everyone says they love their baby already. I don't feel anything. Is something wrong with me?"
+  aliases: [bonding, attachment, don't feel pregnant, don't feel connected, talking to the bump]
+  weeks: [6, 42]
+  priority: 2
+  stakes: low
+  covers:
+    - "bonding starts in pregnancy for some and later for others; PBB's ways in: talking or reading to the baby, feeling movements, the partner and siblings joining in"
+    - "after IVF or a previous loss, holding back is common self-protection (Gidget assisted reproduction)"
+    - "the partner can bond before the birth too, and it is good for them (PBB)"
+    - "when 'nothing' is part of feeling low generally, see depression"
+  sources:
+    - title: Pregnancy, Birth and Baby — Bonding with your baby during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/bonding-with-your-baby-during-pregnancy
+    - title: Gidget Foundation — Assisted reproduction
+      url: https://www.gidgetfoundation.org.au/fact-sheets/assisted-reproduction
+  related: [gender-disappointment, pregnancy-after-loss, ivf-pregnancy, card-not-bonded-yet]
+
+- id: after-the-birth-mood-heads-up
+  title: Your mood after the birth, what to expect
+  type: guide
+  topic: mental-health
+  ask: "What's the difference between baby blues and postnatal depression?"
+  aliases: [baby blues, postnatal depression, PND, postnatal anxiety, day three, fourth trimester mood]
+  weeks: [34, 42]
+  priority: 1
+  stakes: high
+  covers:
+    - "baby blues: up to 80 per cent of new mothers (the Royal Women's); usually 3 to 5 days after the birth, tearful, anxious or overwhelmed, and usually passes quickly on its own (PBB)"
+    - "postnatal depression and anxiety: persistent, more than two weeks, interferes with daily life; you will be screened again after the birth (EPDS)"
+    - "why it is in the pregnancy Library: learn the signs now, both of you; signs are often missed or dismissed as a normal part of life with a new baby (PBB)"
+    - "the partner's job: notice changes and check in gently, encourage her to speak with a GP or midwife; the PANDA helpline is open to support people too"
+    - "the postnatal version proper belongs to the after-the-birth pillar when it is built"
+  sources:
+    - title: Pregnancy, Birth and Baby — Baby blues
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/baby-blues
+    - title: Pregnancy, Birth and Baby — Postnatal depression
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/postnatal-depression
+    - title: Pregnancy, Birth and Baby — Postnatal anxiety
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/postnatal-anxiety
+    - title: The Royal Women's Hospital — Mental health & pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy
+    - title: Gidget Foundation — How to check in with an expectant or new parent
+      url: https://www.gidgetfoundation.org.au/fact-sheets/how-to-check-in-with-an-expectant-or-new-parent
+    - title: PANDA — Support for dads
+      url: https://www.panda.org.au/get-support/support-dads
+  related: [postpartum-psychosis-signs, partner-after-the-birth, partner-perinatal-depression, mental-health-screening-epds]
+
+- id: postpartum-psychosis-signs
+  title: Postpartum psychosis, the signs to know
+  type: guide
+  topic: mental-health
+  ask: "What is postpartum psychosis and how would we know?"
+  aliases: [postpartum psychosis, puerperal psychosis, confusion after birth, not sleeping at all, hallucinations]
+  weeks: [34, 42]
+  who: partner
+  priority: 2
+  stakes: high
+  covers:
+    - "rare, sudden, in the first 12 weeks after birth; affects thoughts, behaviour, sleep, mood and perception (PBB)"
+    - "it is an emergency that needs a psychiatrist and hospital treatment, and recovery with treatment is likely"
+    - "higher risk with bipolar disorder or a previous episode: a plan before the birth"
+    - "written for the partner because the person affected often can't see it: if she seems confused, not sleeping at all, or believes things that aren't true, call 000 or go to emergency"
+  sources:
+    - title: Pregnancy, Birth and Baby — Postpartum psychosis
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/postpartum-psychosis
+    - title: The Royal Women's Hospital — Mental health & pregnancy (post-partum psychosis)
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy
+  related: [after-the-birth-mood-heads-up, existing-mental-illness, partner-learning-the-signs]
+
+# --- Partners' mental health ---
+
+- id: partner-perinatal-depression
+  title: Depression and anxiety in dads and partners
+  type: symptom
+  topic: partner
+  ask: "Can the partner get antenatal depression too?"
+  aliases: [paternal depression, dads depression, partner anxiety, perinatal depression in men, fathers and depression]
+  weeks: [1, 42]
+  who: partner
+  priority: 1
+  stakes: high
+  covers:
+    - "depression affects 1 in 10 fathers from the first trimester through the baby's first year; anxiety 1 in 6 during the pregnancy and about 1 in 5 after (PBB)"
+    - "it can look different in men: short-tempered, resentful or angry, socially withdrawn, using alcohol or drugs to escape or cope, physical signs such as headaches and muscle tension, as well as low, flat or numb mood (PANDA, Gidget)"
+    - "barriers PANDA names: men can find it harder to reach out because of feelings of shame, cultural stigma and other barriers"
+    - "recognising the signs in yourself or your partner is how it gets found: they are often missed or dismissed as a normal part of life with a new baby (PBB)"
+    - "PANDA 1300 726 306 has male counsellors; almost 1 in 10 PANDA callers are men"
+    - "crisis: Lifeline 13 11 14, 000"
+  sources:
+    - title: Pregnancy, Birth and Baby — Fathers and depression
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/fathers-and-depression
+    - title: PANDA — Perinatal anxiety and depression in dads, signs and symptoms
+      url: https://www.panda.org.au/articles/perinatal-anxiety-and-depression-in-dads-signs-and-symptoms
+    - title: PANDA — Support for dads
+      url: https://www.panda.org.au/get-support/support-dads
+    - title: Gidget Foundation — Looking after yourself as a new dad
+      url: https://www.gidgetfoundation.org.au/fact-sheets/looking-after-yourself-as-a-new-dad
+  related: [partner-mental-health-support, antenatal-depression, card-one-in-ten-dads]
+  notes: "Write for any partner, not only men; the sources are mostly about dads. Keep the 'non-birth parent' entry linked."
+
+- id: partner-mental-health-support
+  title: Where partners get help for themselves
+  type: guide
+  topic: partner
+  ask: "Where can a dad talk to someone without making it about her?"
+  aliases: [MensLine, SMS4Dads, Dadspace, PANDA dads, men's helpline, dads group]
+  weeks: [1, 42]
+  who: partner
+  priority: 2
+  stakes: medium
+  covers:
+    - "PANDA 1300 726 306 (male counsellors on request; PANDA says what dads can expect from a call)"
+    - "SMS4Dads: free text messages timed to the due date, with messages for NICU dads and for dads with a distressed partner, and a check-in that connects you to help"
+    - "MensLine Australia: counselling for men, including first-time dads"
+    - "Gidget: a free dads video, dad-specific support, and the same free counselling sessions"
+    - "Beyond Blue and Lifeline are for partners too"
+  sources:
+    - title: PANDA — Support for dads
+      url: https://www.panda.org.au/get-support/support-dads
+    - title: SMS4dads — How it works
+      url: https://www.sms4dads.com.au/how-it-works/
+    - title: SMS4dads — When things get tough
+      url: https://www.sms4dads.com.au/for-dads/tips-and-info/when-things-get-tough/
+    - title: MensLine Australia — First time dad
+      url: https://mensline.org.au/being-a-dad/first-time-dad/
+    - title: Gidget Foundation — Free dads video
+      url: https://www.gidgetfoundation.org.au/resources/free-dads-video
+  related: [partner-perinatal-depression, perinatal-mental-health-help, card-panda-male-counsellors]
+  notes: "Confirm MensLine's number on their site when writing; it was not captured on the page fetched."
+
+# ---------------------------------------------------------------------------
+# The partner
+# ---------------------------------------------------------------------------
+
+- id: partner-role-first-trimester
+  title: The partner in the first trimester
+  type: guide
+  topic: partner
+  ask: "She's pregnant. What am I supposed to do now?"
+  aliases: [expectant dad, non-birth parent, first trimester partner, what can I do, support early pregnancy]
+  weeks: [4, 13]
+  who: partner
+  priority: 1
+  stakes: medium
+  covers:
+    - "the quiet weeks: often nobody else knows, she may be exhausted and sick, and you are the only support"
+    - "PBB's practical list: help and listen when she is tired or sick, offer to come to appointments, cut back on alcohol yourself, don't take mood swings personally"
+    - "the admin you can own now: booking in, the GP visit, private cover questions, work notice timing (pointers to the care and money agents)"
+    - "the sources' stat: you can feel anxious too, 1 in 6 partners do, and it starts in the first trimester"
+    - "if it ends in miscarriage, the partner's grief counts; the loss entries"
+  sources:
+    - title: Pregnancy, Birth and Baby — Supporting your partner during their pregnancy
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/supporting-your-partner-during-pregnancy
+    - title: Gidget Foundation — Pregnancy for expectant dads and non-birthing partners
+      url: https://www.gidgetfoundation.org.au/becoming-a-parent/pregnancy-for-expectant-dads-and-non-birthing-partners
+    - title: Pregnancy, Birth and Baby — Fathers and depression
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/fathers-and-depression
+  related: [partner-role-second-trimester, partner-going-to-appointments, partner-feeling-left-out, partner-after-a-loss]
+
+- id: partner-role-second-trimester
+  title: The partner in the middle
+  type: guide
+  topic: partner
+  ask: "What's my job in the second trimester?"
+  aliases: [second trimester partner, morphology scan partner, feeling the kicks, antenatal classes partner]
+  weeks: [14, 27]
+  who: partner
+  priority: 1
+  stakes: medium
+  covers:
+    - "the scan is the moment: go to the morphology scan; it is where partners say the pregnancy became real"
+    - "feeling movements from the outside usually comes later for the partner than for her; patience, not disappointment"
+    - "book the antenatal classes together (classes welcome support partners and partners get a lot from them)"
+    - "start the leave conversation with your own employer (pointer to the money and work entries)"
+    - "the childcare waitlists and the big purchases are shared admin you can drive"
+  sources:
+    - title: Pregnancy, Birth and Baby — Supporting your partner during their pregnancy
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/supporting-your-partner-during-pregnancy
+    - title: Pregnancy, Birth and Baby — Bonding with your baby during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/bonding-with-your-baby-during-pregnancy
+  related: [partner-role-first-trimester, partner-role-third-trimester, partner-leave-pointer]
+  exists: content/items/antenatal-classes.md
+
+- id: partner-role-third-trimester
+  title: The partner in the home stretch
+  type: guide
+  topic: partner
+  ask: "What should I be doing before the birth?"
+  aliases: [third trimester partner, birth plan partner, hospital bag partner, car seat, go time]
+  weeks: [28, 42]
+  who: partner
+  priority: 1
+  stakes: medium
+  covers:
+    - "know the plan: the birth preferences, the hospital route, who to call, where the bag is; the labour agent's entries say what, this says that it is yours to know"
+    - "learn the red flags and the birth suite number; the partner is often the one who makes the call"
+    - "the own vaccines (whooping cough, flu) for the people around the baby: pointer"
+    - "confirm leave dates with your employer at least 4 weeks out (Fair Work)"
+    - "the first weeks home: what the partner's leave is for, and sharing the nights"
+  sources:
+    - title: Pregnancy, Birth and Baby — The role of a birth support partner
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
+    - title: Pregnancy, Birth and Baby — Partner's guide to bringing a baby home
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/partners-guide-to-bringing-baby-home
+    - title: Fair Work Ombudsman — Parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave
+  related: [birth-support-person, partner-learning-the-signs, partner-after-the-birth, partner-leave-pointer]
+  exists: content/items/partner-reserved-days.md
+
+- id: partner-going-to-appointments
+  title: Going to the appointments
+  type: guide
+  topic: partner
+  ask: "Should I go to every appointment? Will they even talk to me?"
+  aliases: [partner at appointments, dads at the midwife, scan appointment, booking in partner, time off for appointments]
+  weeks: [6, 42]
+  who: partner
+  priority: 2
+  stakes: low
+  covers:
+    - "PBB: offer to go; the scans and the booking-in visit are the ones to be at if you can't do all"
+    - "what to do there: bring the questions list (the Planner), ask your own, take notes; the questions you ask are logged in the app"
+    - "work: she is entitled to time off for check-ups; the partner's time off depends on their leave and employer (pointer)"
+    - "if you feel invisible in the room: Gidget's page for non-birthing partners; say you want to be involved"
+  sources:
+    - title: Pregnancy, Birth and Baby — Supporting your partner during their pregnancy
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/supporting-your-partner-during-pregnancy
+    - title: Gidget Foundation — Pregnancy for expectant dads and non-birthing partners
+      url: https://www.gidgetfoundation.org.au/becoming-a-parent/pregnancy-for-expectant-dads-and-non-birthing-partners
+    - title: Pregnancy, Birth and Baby — Working during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
+  related: [partner-feeling-left-out, partner-role-first-trimester]
+
+- id: partner-feeling-left-out
+  title: Feeling left out
+  type: guide
+  topic: partner
+  ask: "Everything is about her and the baby. Where do I fit?"
+  aliases: [left out, on the outside, not my body, invisible partner, bystander]
+  weeks: [4, 42]
+  who: partner
+  priority: 1
+  stakes: medium
+  covers:
+    - "the research in intent.md: partners say appointments, classes and reading leave them out and they are unsure of their role; this entry answers it"
+    - "MensLine's ways in: ask what help she needs, talk to friends who are fathers, take on the house, the calls, the shops"
+    - "bond before the birth: talk to the bump, come to the scan, feel the kicks (PBB)"
+    - "own something: Expecting assigns tasks to the partner for a reason"
+    - "when left-out becomes low or resentful for weeks, see the partner depression entry"
+  sources:
+    - title: MensLine Australia — First time dad
+      url: https://mensline.org.au/being-a-dad/first-time-dad/
+    - title: Pregnancy, Birth and Baby — Becoming a dad
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/being-a-dad
+    - title: Pregnancy, Birth and Baby — Bonding with your baby during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/bonding-with-your-baby-during-pregnancy
+  related: [partner-perinatal-depression, partner-going-to-appointments, card-partner-left-out]
+
+- id: partner-learning-the-signs
+  title: The signs the partner must know
+  type: guide
+  topic: partner
+  ask: "What are the things that mean I call the hospital, not wait and see?"
+  aliases: [red flags partner, when to call, warning signs, emergency pregnancy, birth suite number]
+  weeks: [20, 42]
+  who: partner
+  priority: 1
+  stakes: high
+  covers:
+    - "the red flags are owned by the partner but held by the symptoms entries (a change in the baby's movements, bleeding, severe headache or vision changes, fluid leaking, fever, itching); this entry links to them and states no thresholds"
+    - "the partner's rule: if you are worried, you call; the birth suite number is the call button"
+    - "the mental-health flags: thoughts of self-harm, and after the birth the psychosis signs"
+    - "safety at home is a flag too: 1800RESPECT 1800 737 732, 24/7 support for domestic, family and sexual violence"
+  sources:
+    - title: Pregnancy, Birth and Baby — Postpartum psychosis
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/postpartum-psychosis
+    - title: Gidget Foundation — How to access counselling (urgent help numbers)
+      url: https://www.gidgetfoundation.org.au/fact-sheets/how-to-access-counselling
+  related: [postpartum-psychosis-signs, birth-support-person, domestic-violence-in-pregnancy]
+  notes: "Border: the clinical content of each red flag belongs to the symptoms agent (bleeding, movements, pre-eclampsia). This entry is the partner's lens on them; link out rather than restate thresholds."
+
+- id: birth-support-person
+  title: Being the birth support person
+  type: guide
+  topic: partner
+  ask: "What does a birth partner actually do in the room?"
+  aliases: [birth support partner, birth partner, support person, advocate, doula]
+  weeks: [28, 42]
+  who: partner
+  priority: 1
+  stakes: medium
+  covers:
+    - "PBB: a support partner makes the birth more positive and reduces the chance of needing pain relief, an assisted birth or a caesarean"
+    - "the jobs: reassurance, breathing, massage, positions, and speaking between her and the team; being her advocate when she can't"
+    - "learn what to expect first (classes, the labour entries); discuss the birth plan beforehand and what to do if it changes"
+    - "look after yourself: eat, rest, it can be long; be prepared to be flexible"
+    - "a doula is a non-medical companion who can be there as well, not instead (PBB)"
+    - "if the birth goes badly, the partner can be traumatised too; the birth trauma entry"
+  sources:
+    - title: Pregnancy, Birth and Baby — The role of a birth support partner
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
+    - title: Pregnancy, Birth and Baby — Birth doulas, what do they do?
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/what-does-a-birth-doula-do
+    - title: Pregnancy, Birth and Baby — Birth choices and making a birth plan
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/making-a-birth-plan
+  related: [partner-role-third-trimester, birth-trauma, tokophobia, card-support-person-helps]
+  notes: "The stages of labour, pain relief and the plan's contents are the labour agent's."
+
+- id: partner-leave-pointer
+  title: "The partner's own leave"
+  type: guide
+  topic: partner
+  ask: "How much leave does the partner get, and when do I tell work?"
+  aliases: [partner leave, dad leave, paternity leave, Dad and Partner Pay, reserved days, concurrent leave]
+  weeks: [20, 36]
+  who: partner
+  priority: 1
+  stakes: high
+  covers:
+    - "a pointer only: Parental Leave Pay now includes the partner (Dad and Partner Pay and Parental Leave Pay combined into one payment for births from 1 July 2023); you can choose how you use and share your days"
+    - "the notice for parental leave: 10 weeks' notice, in writing with the leave and return dates, confirmed at least 4 weeks before the leave starts (PBB)"
+    - "everything with a number lives in the money and work entries"
+  sources:
+    - title: Services Australia — Parental Leave Pay
+      url: https://www.servicesaustralia.gov.au/parental-leave-pay
+    - title: Services Australia — Dad and Partner Pay (ended)
+      url: https://www.servicesaustralia.gov.au/dad-and-partner-pay
+    - title: Fair Work Ombudsman — Parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave
+    - title: Pregnancy, Birth and Baby — Working during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
+  related: [partner-role-third-trimester, partner-after-the-birth]
+  exists: content/items/partner-reserved-days.md
+  notes: "Border: money and work agent owns the entitlement, amounts and deadlines. Keep this to the pointer and the why."
+
+- id: partner-after-the-birth
+  title: The partner in the first weeks home
+  type: guide
+  topic: partner
+  ask: "What's my job once we're home?"
+  aliases: [bringing baby home partner, nights, visitors, feeding support partner, first weeks dad]
+  weeks: [36, 42]
+  who: partner
+  priority: 1
+  stakes: medium
+  covers:
+    - "PBB's partner guide: share the care so you both bond and support each other; help with feeding by supporting her and taking the baby after feeds"
+    - "run the house and the gate: visitors, meals, the phone"
+    - "watch her mood and your own; the baby blues peak around day 3 to 5; ask for help if you are overwhelmed"
+    - "the partner's guide to breastfeeding exists (feeding agent); you are not a bystander there either"
+    - "the first days proper belong to the after-the-birth pillar; this is the preview"
+  sources:
+    - title: Pregnancy, Birth and Baby — Partner's guide to bringing a baby home
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/partners-guide-to-bringing-baby-home
+    - title: Pregnancy, Birth and Baby — A partner's guide to breastfeeding
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/a-partners-guide-to-breastfeeding
+    - title: Gidget Foundation — Looking after yourself as a new dad
+      url: https://www.gidgetfoundation.org.au/fact-sheets/looking-after-yourself-as-a-new-dad
+  related: [after-the-birth-mood-heads-up, partner-leave-pointer, partner-perinatal-depression]
+
+- id: partner-supporting-her-mental-health
+  title: Supporting a partner who is struggling
+  type: guide
+  topic: partner
+  ask: "She's not herself and I don't know what to say."
+  aliases: [supporting partner depression, what to say, how to help, partner anxious, listen don't fix]
+  weeks: [1, 42]
+  who: partner
+  priority: 1
+  stakes: high
+  covers:
+    - "you are a support person, not a health professional; you don't need the answers (Beyond Blue)"
+    - "listen without rushing to fix; support her self-care; encourage professional help; look after yourself"
+    - "SMS4dads: strong practical support from the partner can significantly improve recovery; many mums at risk of depression will seek support from their partner"
+    - "the concrete things (SMS4dads): tell her she is doing a great job, sit with her, offer practical help but agree it with her first, and talk with her about whether to reach out for help; encourage her to see a health professional (Beyond Blue)"
+    - "when it is urgent: self-harm thoughts, psychosis signs, 000"
+  sources:
+    - title: Beyond Blue — Pregnancy (partners and family)
+      url: https://www.beyondblue.org.au/mental-health/parenting/pregnancy
+    - title: SMS4dads — When things get tough
+      url: https://www.sms4dads.com.au/for-dads/tips-and-info/when-things-get-tough/
+    - title: Gidget Foundation — How to check in with an expectant or new parent
+      url: https://www.gidgetfoundation.org.au/fact-sheets/how-to-check-in-with-an-expectant-or-new-parent
+    - title: Pregnancy, Birth and Baby — Postpartum psychosis
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/postpartum-psychosis
+  related: [antenatal-depression, partner-learning-the-signs, perinatal-mental-health-help]
+
+# ---------------------------------------------------------------------------
+# Relationships and life
+# ---------------------------------------------------------------------------
+
+- id: telling-people
+  title: Telling people, and when
+  type: guide
+  topic: relationships
+  ask: "When should we tell people we're pregnant?"
+  aliases: [announcing, 12 weeks, twelve week rule, telling family, telling friends, keeping it quiet, announcement]
+  weeks: [4, 16]
+  priority: 1
+  stakes: low
+  covers:
+    - "there is no rule; the '12-week' convention follows the fall in miscarriage risk after the first trimester (PBB: up to 1 in 4 pregnancies end before 14 weeks)"
+    - "PBB's framing: decide by how you would want to handle a miscarriage, in private or with support; telling a few people early means support if it happens"
+    - "tell close family and friends first, and in private; friends who are struggling to conceive or have lost a baby may find it hard, so tell them gently and before others"
+    - "the partner gets a say: whose family hears first, and the friend you each want to tell"
+    - "work is its own entry"
+  sources:
+    - title: Pregnancy, Birth and Baby — When to tell people you are pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/when-to-tell-people-you-are-pregnant
+    - title: Pregnancy, Birth and Baby — Miscarriage
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/miscarriage
+  related: [telling-work-pointer, miscarriage, grandparents-and-boundaries, card-telling-no-rule]
+  notes: "The quiet first weeks mode in intent.md rests on this entry."
+
+- id: telling-work-pointer
+  title: Telling work
+  type: guide
+  topic: relationships
+  ask: "When do I have to tell my employer?"
+  aliases: [telling my boss, employer, notice, pregnancy at work, discrimination]
+  weeks: [8, 30]
+  priority: 1
+  stakes: high
+  covers:
+    - "a pointer: no law says when you must tell your employer, but parental leave needs 10 weeks' written notice and dates confirmed 4 weeks out (PBB)"
+    - "you keep your sick leave for pregnancy illness and can take time off for check-ups and scans (PBB)"
+    - "when you apply for a job, employers may not ask if you are pregnant or planning a pregnancy; you are protected by law against discrimination because of pregnancy"
+    - "the emotional side: fear of being sidelined is real; safe-work adjustments are a right"
+    - "the entitlements, deadlines and the partner's notice are the money and work entries"
+  sources:
+    - title: Pregnancy, Birth and Baby — Working during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
+    - title: Fair Work Ombudsman — Parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave
+  related: [telling-people, partner-leave-pointer]
+  exists: content/items/employer-leave-notice.md
+  notes: "Border: money and work agent owns the rules. Keep to the 'when to tell' feeling and the pointer."
+
+- id: sex-and-intimacy
+  title: Sex, closeness and feeling wanted
+  type: guide
+  topic: relationships
+  ask: "We've barely touched each other since the test. Is that normal?"
+  aliases: [intimacy, libido, desire, don't want sex, partner scared to, closeness, affection]
+  weeks: [4, 42]
+  priority: 1
+  stakes: low
+  covers:
+    - "the emotional side, not the 'can I' (that is the activities agent): desire can rise, fall or vanish by trimester, and it is OK if either of you doesn't want to (PBB)"
+    - "the partner's fear of hurting the baby is common and unfounded unless the care team has said otherwise (PBB)"
+    - "intimacy is wider than sex: Gidget's 'nurture emotional intimacy', talk about what has changed, no pressure"
+    - "after the birth it changes again; name that now so nobody is blindsided"
+  sources:
+    - title: Pregnancy, Birth and Baby — Sex during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sex-during-pregnancy
+    - title: Gidget Foundation — Intimacy
+      url: https://www.gidgetfoundation.org.au/fact-sheets/intimacy
+    - title: Pregnancy, Birth and Baby — Sex and intimacy after having a baby
+      url: https://www.pregnancybirthbaby.org.au/womens-health/wellbeing-and-lifestyle/sex-and-intimacy-after-having-a-baby
+  related: [arguments-and-stress, partner-feeling-left-out]
+  notes: "Border: the 'Can I have sex?' verdict, bleeding and placenta praevia caveats are the activities and symptoms agents'."
+
+- id: arguments-and-stress
+  title: Arguments, resentment and the relationship under strain
+  type: guide
+  topic: relationships
+  ask: "We're fighting more than ever. Is pregnancy wrecking us?"
+  aliases: [fighting, arguing, resentment, relationship stress, communication, counselling, Relationships Australia]
+  weeks: [4, 42]
+  priority: 1
+  stakes: medium
+  covers:
+    - "a baby changes a relationship, guaranteed; unpreparedness is the main cause of early dissatisfaction (Gidget)"
+    - "Gidget's tips: listen without fixing, respect different communication styles, treat conflict as something to work through, not a verdict"
+    - "the usual fault lines: who does what, money, in-laws, sex, fear"
+    - "good communication nurtures the relationship (PBB); PBB's tips"
+    - "when it is not just arguing: fear, control, isolation; the family violence entry"
+    - "help exists: Relationships Australia, couples counselling, Gidget's couples work"
+  sources:
+    - title: Gidget Foundation — Relationship tips
+      url: https://www.gidgetfoundation.org.au/fact-sheets/relationship-tips
+    - title: Pregnancy, Birth and Baby — Feelings, relationships and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/feelings-relationships-and-pregnancy
+    - title: Pregnancy, Birth and Baby — Having difficult conversations
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/relationships-and-support/having-difficult-conversations
+  related: [sex-and-intimacy, domestic-violence-in-pregnancy, mood-swings, relationship-breakdown]
+
+- id: relationship-breakdown
+  title: If the relationship ends during the pregnancy
+  type: guide
+  topic: relationships
+  ask: "We've split up and I'm pregnant. What now?"
+  aliases: [separation, breakup, co-parenting, single during pregnancy, split up]
+  weeks: [4, 42]
+  priority: 3
+  stakes: medium
+  covers:
+    - "PBB's co-parenting page: the things to think about when the relationship breaks up, the child's needs first"
+    - "the practical: who comes to the birth, what the app shows each of you, and the single-parent supports"
+    - "legal advice and payments are pointers (money agent, state legal aid)"
+    - "support: Relationships Australia, MensLine for the partner, the help entry"
+  sources:
+    - title: Pregnancy, Birth and Baby — Co-parenting, things to consider when your relationship breaks up
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/relationships-and-support/co-parenting
+    - title: Pregnancy, Birth and Baby — Single parenting
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/relationships-and-support/single-parenting
+  related: [single-and-solo-parents, arguments-and-stress]
+  notes: "The app is built for one household with two parents. A split is the case where that assumption breaks; note it for the product, not just the content."
+
+- id: preparing-an-older-child
+  title: Preparing your child for the baby
+  type: guide
+  topic: relationships
+  ask: "How do we get our toddler ready for a new baby?"
+  aliases: [siblings, toddler and new baby, big brother, big sister, jealousy, regression, second child]
+  weeks: [16, 42]
+  priority: 2
+  stakes: low
+  covers:
+    - "PBB: talk to your first child about the changes; toddlers often feel left out, blame the baby, or regress, and that is normal"
+    - "before the birth: talk about going away to have 'our baby' and the arrangements for them; a hospital visit to meet the baby is a good idea"
+    - "the practical timing PBB raises: toilet training before the baby if you can; who minds them when labour starts (a Planner task)"
+    - "the partner's role: the older child is often the partner's job during the birth and the first days"
+    - "the sibling rivalry page is for later"
+  sources:
+    - title: Pregnancy, Birth and Baby — Toddler and the new baby
+      url: https://www.pregnancybirthbaby.org.au/children/behaviours-and-emotions/toddler-and-the-new-baby
+    - title: Pregnancy, Birth and Baby — Navigating a second pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/navigating-a-second-pregnancy
+  related: [second-pregnancy-feels-different, card-older-child-regresses]
+
+- id: second-pregnancy-feels-different
+  title: A second pregnancy is different
+  type: guide
+  topic: relationships
+  ask: "Why does this pregnancy feel nothing like the first?"
+  aliases: [second pregnancy, next baby, not my first, guilt about first child, tired with a toddler]
+  weeks: [4, 42]
+  priority: 2
+  stakes: low
+  covers:
+    - "more tired, less time, and guilt about not giving the first child or this pregnancy full attention (PBB)"
+    - "sickness and symptoms may differ from the first time"
+    - "ask for help and rest when you can; the village entry"
+    - "the admin is different too: fewer classes, a known hospital, the car seat question (pointers)"
+  sources:
+    - title: Pregnancy, Birth and Baby — Navigating a second pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/navigating-a-second-pregnancy
+  related: [preparing-an-older-child, building-your-village]
+  notes: "The app's 'is this your first' fact tailors this one."
+
+- id: pets-and-the-baby
+  title: Getting the pets ready
+  type: guide
+  topic: relationships
+  ask: "How do we get the dog ready for a baby?"
+  aliases: [dog and baby, cat and baby, pets, pram walking, obedience training, cat litter]
+  weeks: [20, 42]
+  priority: 2
+  stakes: low
+  covers:
+    - "PBB's before-the-birth list: obedience training, practise walking the dog with the pram, change routines early so the baby isn't blamed"
+    - "introductions on the day: let the pet smell the baby's things first; never leave the baby alone with a pet"
+    - "the toxoplasmosis and cat-litter point is the food-and-safety agent's; link"
+  sources:
+    - title: Pregnancy, Birth and Baby — Getting your pets ready for baby to arrive
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/parenting-skills-and-daily-life/getting-your-pets-ready-for-baby-to-arrive
+    - title: Pregnancy, Birth and Baby — Pets in the family
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/parenting-skills-and-daily-life/pets-in-the-family
+  related: [card-pets-need-prep]
+
+- id: grandparents-and-boundaries
+  title: Grandparents, in-laws and boundaries
+  type: guide
+  topic: relationships
+  ask: "How do we handle the grandparents without a war?"
+  aliases: [grandparents, in-laws, mother-in-law, boundaries, visitors, unsolicited advice, overbearing family]
+  weeks: [12, 42]
+  priority: 1
+  stakes: low
+  covers:
+    - "Gidget's sheet for grandparents, siblings and friends: ask what support the parents want, check before visiting, respect their need for space, offer practical help (a meal), and generally avoid parenting advice"
+    - "the village has changed: many live far from family; grandparents are more needed and more fraught (Gidget)"
+    - "agree the boundaries as a couple first, then each of you handles your own family"
+    - "the birth: who is told when, who visits in hospital, who waits; put it in the plan"
+    - "when family is overseas, the separate entry"
+  sources:
+    - title: Gidget Foundation — How can support people help expectant and new parents?
+      url: https://www.gidgetfoundation.org.au/fact-sheets/how-can-support-people-help-expectant-and-new-parents
+    - title: Gidget Foundation — Strategies for managing advice
+      url: https://www.gidgetfoundation.org.au/adjusting-to-parenthood/managing-advice
+    - title: Pregnancy, Birth and Baby — Having difficult conversations
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/relationships-and-support/having-difficult-conversations
+  related: [everyone-has-advice, family-overseas, telling-people, card-village-has-changed]
+  notes: "Raising Children's grandparent pages refused automated fetches; if a writer opens them in a browser they are a good second source."
+
+- id: everyone-has-advice
+  title: Everyone has an opinion
+  type: guide
+  topic: relationships
+  ask: "How do I deal with all the advice?"
+  aliases: [unsolicited advice, old wives tales, mum groups, social media, comparison, Instagram]
+  weeks: [4, 42]
+  priority: 2
+  stakes: low
+  covers:
+    - "Gidget's strategies for managing advice: decide whose advice you take, thank and move on, pick one trusted source"
+    - "social media: limit the unhelpful feeds (Gidget's anxiety tips); comparison fuels worry"
+    - "myths: PBB keeps a page of common pregnancy myths; point to the 'Can I' shelf for the real answers"
+  sources:
+    - title: Gidget Foundation — Strategies for managing advice
+      url: https://www.gidgetfoundation.org.au/adjusting-to-parenthood/managing-advice
+    - title: Gidget Foundation — Tips for managing anxiety and stress for new and expectant parents
+      url: https://www.gidgetfoundation.org.au/fact-sheets/tips-for-managing-anxiety-and-stress-for-new-and-expectant-parents
+  related: [grandparents-and-boundaries, antenatal-anxiety]
+
+- id: family-overseas
+  title: Having a baby with your family overseas
+  type: guide
+  topic: relationships
+  ask: "Our families are overseas. How do we do this without them?"
+  aliases: [migrant parents, family overseas, no family nearby, alone in Australia, interpreter, multicultural]
+  weeks: [4, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "PBB: share rituals and milestones by video, regular calls; build a local network deliberately; childcare choices for the return to work"
+    - "Gidget's multicultural families sheet: adjusting to a new language and system on top of pregnancy; ask for an interpreter or bilingual professional; your culture belongs in your care"
+    - "hospitals provide free interpreters (PBB cultural practices)"
+    - "loneliness is a mental-health risk; the help entry, and PANDA in languages other than English"
+  sources:
+    - title: Pregnancy, Birth and Baby — Raising a child when your family is overseas
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/relationships-and-support/raising-a-child-when-your-family-is-overseas
+    - title: Gidget Foundation — Multicultural families
+      url: https://www.gidgetfoundation.org.au/fact-sheets/multicultural-families
+    - title: Pregnancy, Birth and Baby — Cultural practices and preferences when having a baby
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/cultural-practices-and-preferences-when-having-a-baby
+    - title: PANDA — Support in languages other than English
+      url: https://www.panda.org.au/get-support/support-in-languages-other-than-english
+  related: [building-your-village, grandparents-and-boundaries, pregnancy-on-a-visa-pointer]
+
+- id: building-your-village
+  title: Building your village
+  type: guide
+  topic: relationships
+  ask: "Who's going to help us? We don't have anyone."
+  aliases: [support network, village, mothers group, new parents group, friends with babies, isolation]
+  weeks: [12, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "Gidget: the village has changed; build one on purpose: antenatal classes, parents' groups, neighbours, one or two reliable friends"
+    - "what to ask for, concretely: meals, a school run, an hour's sleep, parking money at the hospital (PBB's NICU list applies to everyone)"
+    - "the partner's mates count as the partner's village"
+    - "single parents: other single parents are the best source (PBB)"
+  sources:
+    - title: Gidget Foundation — The importance of a support network
+      url: https://www.gidgetfoundation.org.au/adjusting-to-parenthood/building-a-support-network
+    - title: Gidget Foundation — How can support people help expectant and new parents?
+      url: https://www.gidgetfoundation.org.au/fact-sheets/how-can-support-people-help-expectant-and-new-parents
+    - title: Pregnancy, Birth and Baby — Single parenting
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/relationships-and-support/single-parenting
+  related: [grandparents-and-boundaries, family-overseas, single-and-solo-parents]
+
+- id: single-and-solo-parents
+  title: Doing it on your own
+  type: guide
+  topic: special-circumstances
+  ask: "I'm having this baby on my own. What's different?"
+  aliases: [single mother, solo parent, single by choice, no partner, sole parent]
+  weeks: [4, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "Gidget: without a helpful support it is harder to look after yourself, get to appointments or take a night off; take turns with other single parents, use council and childcare options"
+    - "the birth: choose a support person early (a friend, relative or doula) and write them into the plan"
+    - "isolation is the risk; the help entries, and PBB's note that other single parents are the best support"
+    - "payments and legal advice are pointers (money agent)"
+    - "the app: 'who's holding each phone' can be one person; the partner lens simply isn't shown"
+  sources:
+    - title: Gidget Foundation — Support and connection for single parents
+      url: https://www.gidgetfoundation.org.au/fact-sheets/support-and-connection-for-single-parents
+    - title: Pregnancy, Birth and Baby — Single parenting
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/relationships-and-support/single-parenting
+  related: [building-your-village, birth-support-person, relationship-breakdown]
+
+- id: unplanned-pregnancy
+  title: An unplanned pregnancy and the decision
+  type: guide
+  topic: relationships
+  ask: "This wasn't planned and I don't know what I want to do."
+  aliases: [unplanned, unexpected pregnancy, options, keep the baby, abortion, adoption, 1800 My Options]
+  weeks: [4, 12]
+  priority: 3
+  stakes: high
+  covers:
+    - "PBB: the options are continuing and keeping the baby, abortion, or birth and adoption, foster or kinship care; take your time; see a doctor soon"
+    - "abortion is legal in all states and territories; timing laws differ; medical abortion up to 9 weeks, surgical later (PBB abortion page), so the window matters"
+    - "counselling that is non-directive exists; pressure from anyone is a flag (reproductive coercion entry)"
+    - "the app can't be cheerful here; this is a 'something has happened' sibling path"
+  sources:
+    - title: Pregnancy, Birth and Baby — Making decisions about unplanned pregnancies
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/making-decisions-about-pregnancy
+    - title: Pregnancy, Birth and Baby — Abortion
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/abortion/abortion
+    - title: Pregnancy, Birth and Baby — Deciding to give a baby or child up for adoption
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/adoption-and-surrogacy/deciding-to-give-a-child-up-for-adoption
+  related: [reproductive-coercion, something-has-happened, adoption-pointers]
+  notes: "Probably rare for this household (the app assumes a wanted pregnancy) but a complete reference has it. State abortion timing laws differ: say so, don't tabulate."
+
+# ---------------------------------------------------------------------------
+# Loss and hard news
+# ---------------------------------------------------------------------------
+
+- id: something-has-happened
+  title: Something has happened
+  type: guide
+  topic: loss
+  ask: "We've lost the baby. Make it stop."
+  aliases: [we lost the baby, pause the app, bad news, loss, miscarriage app, stop the timeline]
+  weeks: [1, 42]
+  priority: 1
+  stakes: high
+  covers:
+    - "the app's path, mapped: one tap from settings or the capture button says 'something has happened'; it pauses the timeline, hides the week notes, the baby's size, the countdown and every task; nothing cheerful is shown again until you choose"
+    - "what it shows instead: a quiet page with the support lines (Red Nose 1300 308 307 24/7, PANDA, Lifeline), the partner's note, and the three or four next-step entries below"
+    - "it asks nothing it doesn't need: the week it happened is already known; a name for the baby is optional"
+    - "the next steps it offers, in order: what happens to your body now; the medical choices if they are still open; time off work; the certificate and ways to remember; telling people; the partner's grief; trying again, when you are ready"
+    - "the admin it quietly handles: claims and bookings in the Planner are shelved, not deleted; a note on which ones to cancel (classes, private cover changes) and which still apply (bereavement leave, Parental Leave Pay rules for stillbirth are the money agent's)"
+    - "later: a way to mark the due date and anniversaries gently, and a restart for a pregnancy after loss that carries the history"
+    - "for a scary result that isn't a loss (a high-chance screen, a NICU admission), the same quiet mode with different next steps"
+  sources:
+    - title: Pregnancy, Birth and Baby — Experiencing a pregnancy loss
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/experiencing-a-pregnancy-loss
+    - title: Red Nose — Grief and loss support
+      url: https://rednose.org.au/grief-and-loss-support/overview/
+    - title: Gidget Foundation — A guide to coping with reminders of your pregnancy and/or child loss
+      url: https://www.gidgetfoundation.org.au/fact-sheets/a-guide-to-coping-with-reminders-of-your-pregnancy-and-or-child-loss
+    - title: Miscarriage Australia — Taking time off work
+      url: https://miscarriageaustralia.com.au/after-a-miscarriage/ive-just-miscarried-what-happens-now/taking-time-off-work/
+  related: [miscarriage, after-a-miscarriage, loss-support-services, partner-after-a-loss, remembering-the-baby, loss-and-work, pregnancy-after-loss, difficult-screening-result, baby-in-the-nicu]
+  notes: "This is the product entry intent.md promises ('designed in from the start'). The content is the voice and the order of next steps; the mode itself is code. Nothing here says 'at least', 'you can try again' or 'it was for the best'."
+
+- id: miscarriage
+  title: Miscarriage
+  type: guide
+  topic: loss
+  ask: "What is a miscarriage, and how common is it?"
+  aliases: [miscarriage, pregnancy loss, early loss, lost the baby, threatened miscarriage, missed miscarriage]
+  weeks: [4, 20]
+  priority: 1
+  stakes: high
+  covers:
+    - "a pregnancy loss before 20 weeks; up to 1 in 4 pregnancies end in miscarriage before 14 weeks (PBB)"
+    - "the types the sources name: threatened, inevitable, incomplete, complete, missed, and the anembryonic (blighted ovum) kind"
+    - "why: around 50 to 80 per cent are random chromosomal, more often over 35; it is unlikely you did anything to cause it (Miscarriage Australia)"
+    - "signs and what to do are the next entry; the choices after are the one after"
+    - "grief, guilt and the partner's grief are real; the support lines"
+  sources:
+    - title: Pregnancy, Birth and Baby — Miscarriage
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/miscarriage
+    - title: Miscarriage Australia — Why have I had a miscarriage?
+      url: https://miscarriageaustralia.com.au/having-a-miscarriage/why-have-i-had-a-miscarriage/
+    - title: Miscarriage Australia — Types of miscarriage
+      url: https://miscarriageaustralia.com.au/understanding-miscarriage/types-of-miscarriage/
+    - title: Gidget Foundation — Miscarriage and pregnancy loss
+      url: https://www.gidgetfoundation.org.au/fact-sheets/miscarriage-pregnancy-loss
+  related: [miscarriage-signs-what-to-do, miscarriage-management-options, after-a-miscarriage, chemical-pregnancy, blighted-ovum, something-has-happened, card-miscarriage-not-your-fault]
+  notes: "Border: bleeding and cramping as symptoms (is this normal, when to call) are the symptoms agent's; this file owns the event once it is happening or has happened."
+
+- id: miscarriage-signs-what-to-do
+  title: "I think I'm having a miscarriage"
+  type: guide
+  topic: loss
+  ask: "I'm bleeding and cramping. What do I do right now?"
+  aliases: [am I miscarrying, bleeding early pregnancy, cramping, passing clots, what to do, emergency department]
+  weeks: [4, 20]
+  priority: 1
+  stakes: high
+  covers:
+    - "bleeding and lower abdominal pain are the usual signs, but about 1 in 4 bleed in the first trimester and not all bleeding is a miscarriage (Miscarriage Australia)"
+    - "call now, 000 or the nearest emergency department immediately: heavy bleeding (soaking 1 or more pads in an hour, or bleeding you can't contain) or large clots, severe abdominal pain, shoulder-tip pain (possible ectopic), smelly discharge, fever or chills, feeling faint, dizzy or unwell, shortness of breath or a fast heartbeat (PBB)"
+    - "otherwise, if the bleeding is not heavy and you feel well: contact your doctor or midwife straight away; they may refer you to hospital or to an early pregnancy assessment service (mostly in major cities), or arrange tests; a blood test and an ultrasound show what is happening (PBB)"
+    - "what you might actually see and feel, in plain words (PBB's page on that)"
+    - "the partner: PBB says that if you are alone, consider calling your partner or a friend for help and support"
+  sources:
+    - title: Pregnancy, Birth and Baby — What should I do if I think I'm having a miscarriage?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-should-i-do-if-i-think-im-having-a-miscarriage
+    - title: Pregnancy, Birth and Baby — Miscarriage, what you might actually see and feel
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-really-happens-during-a-miscarriage
+    - title: Miscarriage Australia — Am I having a miscarriage?
+      url: https://miscarriageaustralia.com.au/having-a-miscarriage/signs-of-miscarriage/
+  related: [miscarriage, ectopic-pregnancy, miscarriage-management-options]
+  notes: "Ends at the call button. Never reassure."
+
+- id: miscarriage-management-options
+  title: After the diagnosis, the three options
+  type: decision
+  topic: loss
+  ask: "They've offered to wait, tablets or surgery. How do we choose?"
+  aliases: [expectant management, medical management, surgical management, D&C, misoprostol, curette, wait and see]
+  weeks: [4, 20]
+  priority: 1
+  stakes: high
+  covers:
+    - "the three, as the sources state them: expectant (waiting for it to happen naturally), medical (medicine to help the tissue pass), surgical (a short procedure)"
+    - "what each involves, how long, the bleeding and pain to expect, and the follow-up, drawn from PBB's three pages"
+    - "which options are open depends on your circumstances and the type of miscarriage, and your doctor discusses them with you; PBB names what some people prefer: expectant management because it may feel more natural, help with grieving and give a sense of control; surgical to limit pain and bleeding or not to wait"
+    - "timing: if the tissue has not passed after 1 to 2 weeks of waiting, speak to your doctor; medical or surgical treatment is sometimes needed to avoid heavy bleeding and prevent infection; the emergency signs apply throughout"
+    - "the choice is made together with your doctor or midwife"
+  sources:
+    - title: Pregnancy, Birth and Baby — What is expectant management of miscarriage?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/expectant-management-of-miscarriage
+    - title: Pregnancy, Birth and Baby — What is medical management of miscarriage?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/medical-management-of-miscarriage
+    - title: Pregnancy, Birth and Baby — What is surgical management of miscarriage?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/surgical-management-of-miscarriage
+    - title: Miscarriage Australia — What are the options for treatment and care?
+      url: https://miscarriageaustralia.com.au/having-a-miscarriage/what-are-the-options-for-treatment-and-care/
+  related: [miscarriage, after-a-miscarriage]
+  notes: "Clinical: present the options as the sources do, no recommendation. 'Ask your doctor which are open to you.'"
+
+- id: after-a-miscarriage
+  title: After a miscarriage, what happens to your body and what comes next
+  type: guide
+  topic: loss
+  ask: "What happens now, physically and practically?"
+  aliases: [after miscarriage, bleeding after, period after miscarriage, check-up, trying again, follow-up]
+  weeks: [4, 20]
+  priority: 1
+  stakes: high
+  covers:
+    - "bleeding usually stops within 2 weeks; book a GP check-up within 6 weeks (PBB)"
+    - "trying again: your health team may recommend waiting for at least one normal menstrual cycle and until you feel emotionally and physically ready, though PBB also says there is no medical need to wait and you can get pregnant before your first period; after surgery (D&C) PBB advises waiting a few months for your cycle to re-establish"
+    - "before 20 weeks there is no legal need for a funeral, burial or cremation, but you can; generally the birth and death are not formally registered, so no birth or death certificate, but every state and territory has an optional early pregnancy loss certificate (Red Nose has the how); legal obligations vary by state or territory and your health team will tell you"
+    - "the admin: 2 days' paid bereavement leave for a pregnancy loss, for either of you (Miscarriage Australia citing Fair Work); the work entry"
+    - "grief has no timetable; counselling if it doesn't ease; the support lines"
+  sources:
+    - title: Pregnancy, Birth and Baby — What happens after a miscarriage
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-happens-after-miscarriage
+    - title: Miscarriage Australia — Taking time off work
+      url: https://miscarriageaustralia.com.au/after-a-miscarriage/ive-just-miscarried-what-happens-now/taking-time-off-work/
+    - title: Miscarriage Australia — Ways to remember your baby
+      url: https://miscarriageaustralia.com.au/after-a-miscarriage/ive-just-miscarried-what-happens-now/ways-to-remember-your-baby/
+    - title: Miscarriage Australia — Coping with grief and loss
+      url: https://miscarriageaustralia.com.au/after-a-miscarriage/ive-just-miscarried-what-happens-now/coping-with-grief-and-loss-after-miscarriage/
+    - title: Pregnancy, Birth and Baby — What is surgical management of miscarriage?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/surgical-management-of-miscarriage
+  related: [miscarriage, remembering-the-baby, loss-and-work, pregnancy-after-loss, partner-after-a-loss]
+
+- id: chemical-pregnancy
+  title: A chemical pregnancy
+  type: guide
+  topic: loss
+  ask: "The test was positive and then my period came. Was that a miscarriage?"
+  aliases: [chemical pregnancy, biochemical pregnancy, very early loss, faint positive then period]
+  weeks: [4, 6]
+  priority: 2
+  stakes: medium
+  covers:
+    - "a very early loss, soon after a positive test, before anything shows on a scan; Miscarriage Australia's terminology page defines it"
+    - "it counts: it is a miscarriage, and grief for it is legitimate even if nobody else knew"
+    - "common, and usually no treatment; see a doctor if bleeding is heavy or you feel unwell"
+    - "with IVF, it is a known outcome of a transfer; the clinic's follow-up"
+  sources:
+    - title: Miscarriage Australia — Terminology
+      url: https://miscarriageaustralia.com.au/terminology/
+    - title: Miscarriage Australia — Types of miscarriage
+      url: https://miscarriageaustralia.com.au/understanding-miscarriage/types-of-miscarriage/
+  related: [miscarriage, ivf-pregnancy, loss-support-services]
+  notes: "PBB has no page for this; the Miscarriage Australia pages carry it. Keep clinical claims to what they say."
+
+- id: blighted-ovum
+  title: A blighted ovum
+  type: guide
+  topic: loss
+  ask: "The scan showed a sac but no baby. What does that mean?"
+  aliases: [blighted ovum, anembryonic pregnancy, empty sac, no heartbeat, no embryo]
+  weeks: [5, 12]
+  priority: 2
+  stakes: high
+  covers:
+    - "a sac and placenta grow but no embryo develops; the body usually miscarries in the first trimester (PBB)"
+    - "pregnancy symptoms can be present early and fade; a repeat scan is often needed to be sure"
+    - "the same three management options as any miscarriage"
+    - "it was never going to develop; nothing you did"
+  sources:
+    - title: Pregnancy, Birth and Baby — Blighted ovum (anembryonic pregnancy)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/blighted-ovum
+  related: [miscarriage, miscarriage-management-options]
+
+- id: ectopic-pregnancy
+  title: Ectopic pregnancy
+  type: guide
+  topic: loss
+  ask: "What is an ectopic pregnancy and why is it an emergency?"
+  aliases: [ectopic, tubal pregnancy, shoulder tip pain, methotrexate, fallopian tube]
+  weeks: [4, 12]
+  priority: 1
+  stakes: high
+  covers:
+    - "the pregnancy implants outside the uterus, usually in a fallopian tube; it cannot continue, and a tube can tear and bleed internally (PBB)"
+    - "the signs, usually between weeks 4 and 12: vaginal bleeding or spotting, abdominal pain (or pain on one side), back pain, shoulder-tip pain, nausea and vomiting, a fast heart rate, dizziness or faintness; any of these while pregnant means the nearest emergency department or 000 for an ambulance"
+    - "treatment depends on your situation: watch and wait (only if you are well or have little pain, it is small and has not ruptured, and hCG is low and falling), medicine (a methotrexate injection) or surgery (usually keyhole, sometimes the tube is removed), with follow-up tests (PBB); what it means for future fertility is a question for your doctor"
+    - "it is a loss and a medical emergency at once; grief and fright together; Red Nose supports ectopic loss specifically"
+    - "future pregnancies: an early scan next time; ask your doctor"
+  sources:
+    - title: Pregnancy, Birth and Baby — Ectopic pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/ectopic-pregnancy
+    - title: Red Nose — Grief and loss support (who it is for)
+      url: https://rednose.org.au/grief-and-loss-support/overview/
+    - title: Miscarriage Australia — Am I having a miscarriage? (signs of ectopic pregnancy)
+      url: https://miscarriageaustralia.com.au/having-a-miscarriage/signs-of-miscarriage/
+  related: [miscarriage-signs-what-to-do, loss-support-services, pregnancy-after-loss]
+
+- id: molar-pregnancy
+  title: Molar pregnancy
+  type: guide
+  topic: loss
+  ask: "They said it's a molar pregnancy. What is that and why the follow-up?"
+  aliases: [molar pregnancy, hydatidiform mole, gestational trophoblastic disease, hCG follow-up, choriocarcinoma]
+  weeks: [4, 16]
+  priority: 3
+  stakes: high
+  covers:
+    - "rare; abnormal tissue grows instead of a baby, making high hCG; it must be removed, and ongoing follow-up matters (PBB)"
+    - "the follow-up: weekly hCG blood tests until normal, then monthly for another 6 months; rarely the tissue becomes a cancer that needs more treatment"
+    - "you are usually asked not to become pregnant until follow-up ends: ask how long"
+    - "a loss with a long tail; support for the waiting"
+  sources:
+    - title: Pregnancy, Birth and Baby — Molar pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/molar-pregnancy
+  related: [miscarriage, loss-support-services, pregnancy-after-loss]
+
+- id: late-miscarriage
+  title: Late miscarriage
+  type: guide
+  topic: loss
+  ask: "We lost the baby at 16 weeks. Why do they say I have to give birth?"
+  aliases: [late miscarriage, second trimester loss, 13 to 20 weeks, labour after loss, induced]
+  weeks: [13, 20]
+  priority: 2
+  stakes: high
+  covers:
+    - "a loss between about 13 and 20 weeks; much less common, 1 to 2 in 100 (Miscarriage Australia)"
+    - "you will usually need to go through labour and birth, often with medicine to start it; sometimes a surgical procedure instead (PBB)"
+    - "being on a labour ward is hard; ask for a private space and extra support (PBB)"
+    - "the choices offered: seeing and holding the baby, photos, naming, funeral options; nothing is required"
+    - "investigations into the cause may be offered; the next pregnancy entry"
+  sources:
+    - title: Pregnancy, Birth and Baby — What is a late miscarriage?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-is-a-late-miscarriage
+    - title: Miscarriage Australia — Late miscarriage
+      url: https://miscarriageaustralia.com.au/understanding-miscarriage/late-miscarriage/
+  related: [stillbirth, remembering-the-baby, loss-support-services, card-late-miscarriage-labour]
+
+- id: recurrent-miscarriage
+  title: Recurrent miscarriage
+  type: guide
+  topic: loss
+  ask: "This is our second loss. Will anyone investigate?"
+  aliases: [recurrent miscarriage, repeated miscarriage, two losses, three losses, recurrent miscarriage clinic]
+  weeks: [4, 20]
+  priority: 3
+  stakes: high
+  covers:
+    - "Australia's definition was updated to two losses before 20 weeks, consecutive or not (Miscarriage Australia); testing is not usually offered before that"
+    - "often no cause is found; even then, supportive care and early, frequent monitoring next time can help (PBB)"
+    - "specialist recurrent miscarriage clinics exist in some hospitals; ask for a referral"
+    - "you are not to blame (PBB); the mental-health toll of repeated loss; Beyond Blue and Medicare Mental Health numbers PBB gives"
+  sources:
+    - title: Pregnancy, Birth and Baby — What is a recurrent miscarriage?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-is-a-recurrent-miscarriage
+    - title: Miscarriage Australia — Recurrent miscarriage
+      url: https://miscarriageaustralia.com.au/understanding-miscarriage/recurrent-miscarriage/
+  related: [miscarriage, pregnancy-after-loss, loss-support-services]
+
+- id: difficult-screening-result
+  title: A worrying screening result
+  type: guide
+  topic: loss
+  ask: "The screening came back high chance. What happens now?"
+  aliases: [high risk result, high chance, increased chance, NIPT result, abnormal scan, genetic counselling, CVS, amniocentesis]
+  weeks: [10, 24]
+  priority: 1
+  stakes: high
+  covers:
+    - "a screen estimates chance; it cannot diagnose; a high-chance result means more likely, not certain (PBB)"
+    - "what comes next: a conversation with your doctor or midwife, a genetic counsellor, and the offer of a diagnostic test (CVS or amniocentesis), each with its own window (the tests agent's entries)"
+    - "before the test, talk it through with your partner, a friend or family member, your doctor or a genetic counsellor; PBB lists questions to ask (why this test, how accurate, when and from whom you get results, your options if the result is positive)"
+    - "if a condition is confirmed: the choices about the pregnancy are yours, and a genetic counsellor can talk through the options; PBB names Down Syndrome Australia (1300 881 935) and Through the Unexpected for information and support"
+    - "the app's quiet mode applies here without a loss"
+  sources:
+    - title: Pregnancy, Birth and Baby — Screening for Down syndrome
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/screening-for-down-syndrome
+    - title: Pregnancy, Birth and Baby — Genetic counselling
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/pregnancy-planning/genetic-counselling
+    - title: Pregnancy, Birth and Baby — Amniocentesis
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/amniocentesis
+  related: [termination-for-medical-reasons, something-has-happened, antenatal-anxiety]
+  exists: content/items/first-trimester-screening.md
+  notes: "Border: the tests themselves (NIPT, CVS, amnio, their timing and accuracy) are the tests agent's. This is the feeling and the path."
+
+- id: termination-for-medical-reasons
+  title: Termination for medical reasons
+  type: guide
+  topic: loss
+  ask: "We've been told the baby won't survive. What are our choices and who helps?"
+  aliases: [TFMR, termination for medical reasons, medical termination, fatal diagnosis, ending a wanted pregnancy]
+  weeks: [12, 30]
+  priority: 2
+  stakes: high
+  covers:
+    - "a wanted pregnancy ended because of a diagnosis; Gidget's sheet names the particular grief: a decision you made, isolation, guilt, and people not knowing what to say"
+    - "the process is set by weeks and by state law: medicine or surgery; after 20 weeks approval may be needed (PBB abortion page); ask the hospital what applies"
+    - "you can ask for the same bereavement care as any loss: seeing the baby, photos, a name, a funeral"
+    - "support: Red Nose explicitly includes medical termination; Gidget's counselling; Bears of Hope"
+    - "the partner's grief and the decision's weight on both of you"
+  sources:
+    - title: Gidget Foundation — Termination for medical reasons
+      url: https://www.gidgetfoundation.org.au/fact-sheets/termination-for-medical-reasons
+    - title: Pregnancy, Birth and Baby — Abortion
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/abortion/abortion
+    - title: Red Nose — Grief and loss support (who it is for)
+      url: https://rednose.org.au/grief-and-loss-support/overview/
+  related: [difficult-screening-result, remembering-the-baby, loss-support-services, partner-after-a-loss]
+  notes: "The most sensitive entry in the file. Written as a loss, never as a procedure; no state law table."
+
+- id: stillbirth
+  title: Stillbirth
+  type: guide
+  topic: loss
+  ask: "What is a stillbirth, and what happens if it is us?"
+  aliases: [stillbirth, stillborn, baby died before birth, no heartbeat late pregnancy, 20 weeks]
+  weeks: [20, 42]
+  priority: 1
+  stakes: high
+  covers:
+    - "a baby who dies after 20 weeks of pregnancy, or at 400 grams or more if the weeks aren't known; about 6 babies a day in Australia (PBB)"
+    - "what happens: the birth, usually induced; time with the baby; the choices (photos, hand and footprints, naming, a funeral or memorial when you are ready (no rush), registration); the investigations offered, including an autopsy, which are your choice"
+    - "your body after: milk comes in, bleeding, a check-up about 8 to 12 weeks after the birth; PBB has a page for it"
+    - "reducing risk is the body and baby agents' (movements, side sleeping from 28 weeks, smoking): link, don't repeat; the Safer Baby Bundle is the national programme"
+    - "support: Red Nose 1300 308 307 (24/7), Gidget, the Stillbirth CRE's parent pages, the hospital's bereavement midwife"
+    - "the next pregnancy has its own entry"
+  sources:
+    - title: Pregnancy, Birth and Baby — What is a stillbirth?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/stillbirth-and-neonatal-death/what-is-a-stillbirth
+    - title: Pregnancy, Birth and Baby — Your body after stillbirth or neonatal death
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/stillbirth-and-neonatal-death/your-body-after-stillbirth-or-neonatal-death
+    - title: Gidget Foundation — Stillbirth
+      url: https://www.gidgetfoundation.org.au/fact-sheets/stillbirth
+    - title: Red Nose — Grief and loss support
+      url: https://rednose.org.au/grief-and-loss-support/overview/
+    - title: Stillbirth CRE — The Safer Baby Bundle
+      url: https://stillbirthcre.org.au/about-us/our-work/the-safer-baby-bundle/
+  related: [neonatal-death, remembering-the-baby, loss-support-services, pregnancy-after-loss, something-has-happened]
+  notes: "Confirm the funeral and registration rules per state when writing; PBB says only that the hospital will give information and support about registering the baby's birth and death. Say 'ask the hospital's bereavement team' rather than state a table."
+
+- id: neonatal-death
+  title: When a baby dies after birth
+  type: guide
+  topic: loss
+  ask: "Our baby was born alive and died. What is this called and who helps?"
+  aliases: [neonatal death, newborn death, died in NICU, first 28 days, baby died after birth]
+  weeks: [20, 42]
+  priority: 2
+  stakes: high
+  covers:
+    - "a death in the first 28 days; not common, about 700 a year in Australia (PBB)"
+    - "different from stillbirth in the paperwork (a birth and a death certificate) and the same in grief"
+    - "the choices and the investigations, as for stillbirth; the NICU's bereavement care; Miracle Babies supports bereaved NICU families"
+    - "support: Red Nose, Gidget's baby and infant loss sheet, Miracle Babies"
+  sources:
+    - title: Pregnancy, Birth and Baby — What is a neonatal death?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/stillbirth-and-neonatal-death/how-to-deal-with-a-neonatal-death
+    - title: Gidget Foundation — Baby and infant loss
+      url: https://www.gidgetfoundation.org.au/fact-sheets/baby-infant-loss
+    - title: Miracle Babies — Supporting bereaved families
+      url: https://www.miraclebabies.org.au/content/supporting-bereaved-families/gon1s8
+  related: [stillbirth, baby-in-the-nicu, loss-support-services]
+
+- id: when-the-baby-comes-early
+  title: When the baby comes early
+  type: guide
+  topic: loss
+  ask: "I'm 31 weeks and in labour. What happens to the baby?"
+  aliases: [premature, preterm, early labour, born early, 32 weeks, 37 weeks, special care nursery]
+  weeks: [20, 37]
+  priority: 1
+  stakes: high
+  covers:
+    - "before 37 weeks is premature; between 32 and 37 weeks babies may need care in a special care nursery and most have no serious long-term problems; before 32 weeks the risk of health and developmental problems is higher, many need help breathing, and they are usually cared for in a NICU at first (PBB)"
+    - "you may be moved to a hospital with a NICU, or the baby transferred after birth; what that means for the partner and the drive"
+    - "the shock of a birth you didn't plan; Miracle Babies will talk to you before the birth if you have been warned (NurtureLine 1300 622 243, 24 hours)"
+    - "the signs of preterm labour and the steroid injections are the labour agent's; link"
+    - "twins and multiples are more likely to be early; the multiples entry"
+  sources:
+    - title: Pregnancy, Birth and Baby — Premature baby
+      url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/premature-baby
+    - title: Miracle Babies — I'm pregnant
+      url: https://www.miraclebabies.org.au/content/im-pregnant/gns21k
+  related: [baby-in-the-nicu, twins-and-multiples-support, something-has-happened]
+  notes: "Border: signs of preterm labour, steroids, magnesium, are the labour agent's. This is the feeling and the support."
+
+- id: baby-in-the-nicu
+  title: Your baby in the NICU
+  type: guide
+  topic: loss
+  ask: "Our baby is in intensive care. How do we survive this?"
+  aliases: [NICU, special care nursery, SCN, neonatal intensive care, kangaroo care, expressing, parking]
+  weeks: [20, 42]
+  priority: 1
+  stakes: high
+  covers:
+    - "the mixed feelings Miracle Babies names (overwhelmed, guilty, scared, oddly congratulated); you don't have to do it alone"
+    - "the days are long: PBB's list of what helps, written for the people around you (meals, parking vouchers, older children, pets, fresh air)"
+    - "the partner in the NICU: often torn between leaving the mother and following the baby, asked to consent to procedures; the things dads can do (talking, singing, nappies, cares); Miracle Babies' dads page and SMS4dads' NICU messages"
+    - "feeding and kangaroo care are the feeding and baby agents'; the money (parking, travel, accommodation schemes) is the money agent's"
+    - "NurtureLine 1300 622 243, 24 hours; PANDA"
+  sources:
+    - title: Miracle Babies — My baby is in the hospital
+      url: https://www.miraclebabies.org.au/content/my-baby-is-in-the-hospital/gnsbaw
+    - title: Miracle Babies — Just for dads
+      url: https://www.miraclebabies.org.au/content/just-for-dads/goajxs
+    - title: Miracle Babies — NurtureLine
+      url: https://www.miraclebabies.org.au/content/nurtureline/gjncnc
+    - title: Pregnancy, Birth and Baby — Supporting parents of sick or premature babies
+      url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/supporting-parents-of-sick-or-premature-babies
+    - title: SMS4dads — Home (NICU messages)
+      url: https://www.sms4dads.com.au/
+  related: [when-the-baby-comes-early, neonatal-death, partner-mental-health-support, building-your-village]
+
+- id: birth-trauma
+  title: When the birth was traumatic
+  type: guide
+  topic: mental-health
+  ask: "The birth was horrible and I can't stop thinking about it. Is that normal?"
+  aliases: [birth trauma, traumatic birth, flashbacks, postpartum PTSD, debrief, Birth Trauma Australia, obstetric violence]
+  weeks: [36, 42]
+  priority: 1
+  stakes: high
+  covers:
+    - "up to 1 in 3 people see their birth as traumatic in some way (PBB, Gidget); it can be physical (injury) or psychological (fear, helplessness, not being heard), and it can happen to the partner who watched"
+    - "the difference between a hard birth you process and PTSD: flashbacks, nightmares, numbness, avoidance lasting 4 weeks or more; up to 1 in 10 (PBB postpartum PTSD)"
+    - "what helps: a birth debrief with the hospital, counselling, Birth Trauma Australia's peer support, Gidget"
+    - "obstetric violence and your rights: PBB has a page; you can complain"
+    - "it is in the pregnancy Library so both of you know it exists before the birth and the partner knows the signs"
+  sources:
+    - title: Pregnancy, Birth and Baby — Traumatic childbirth experience
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/birth-trauma-emotional
+    - title: Pregnancy, Birth and Baby — Postpartum PTSD
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/postpartum-ptsd
+    - title: Gidget Foundation — Birth trauma
+      url: https://www.gidgetfoundation.org.au/fact-sheets/birth-trauma
+    - title: Birth Trauma Australia — What is birth-related trauma?
+      url: https://birthtrauma.org.au/what-is-birth-trauma/
+    - title: Birth Trauma Australia — Fathers and partners
+      url: https://birthtrauma.org.au/fathers-and-partners/
+    - title: Pregnancy, Birth and Baby — Obstetric violence
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-rights/obstetric-violence
+  related: [pregnancy-after-birth-trauma, birth-support-person, tokophobia, card-one-in-three-traumatic, card-partner-trauma-too]
+  notes: "Physical birth injuries (tears, prolapse) are the body and birth agents'."
+
+- id: loss-support-services
+  title: Who to call after a loss
+  type: guide
+  topic: loss
+  ask: "Who can we talk to who understands?"
+  aliases: [Red Nose, Sands, Pink Elephants, Bears of Hope, Miscarriage Australia, grief counselling, support group, Stillbirth Foundation]
+  weeks: [1, 42]
+  priority: 1
+  stakes: high
+  covers:
+    - "Red Nose Grief and Loss, 1300 308 307, 24/7, free counselling and groups for miscarriage, ectopic, medical termination, stillbirth, newborn death and SIDS"
+    - "Pink Elephants: peer support for early pregnancy loss, private online communities, resources written by women who have been there, a workplace programme"
+    - "Miscarriage Australia: plain information, pages for men and for LGBTIQA+ partners"
+    - "Bears of Hope: free grief counselling and groups"
+    - "Gidget: free perinatal counselling after loss; PANDA for the mental-health side"
+    - "the hospital's bereavement midwife or social worker; Stillbirth CRE's parent pages"
+    - "crisis: Lifeline 13 11 14"
+  sources:
+    - title: Red Nose — Grief and loss support
+      url: https://rednose.org.au/grief-and-loss-support/overview/
+    - title: Red Nose — Find support
+      url: https://rednose.org.au/grief-and-loss-support/find-support/
+    - title: Pink Elephants Support Network — home
+      url: https://www.pinkelephants.org.au/
+    - title: Pink Elephants — Peer support, private online communities
+      url: https://www.pinkelephants.org.au/page/74/peer-support-private-support-groups
+    - title: Miscarriage Australia — home
+      url: https://miscarriageaustralia.com.au/
+    - title: Bears of Hope — home
+      url: https://www.bearsofhope.org.au/
+    - title: Pregnancy, Birth and Baby — Miscarriage and pregnancy loss support services
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/miscarriage-and-pregnancy-loss-support-services
+  related: [something-has-happened, miscarriage, stillbirth, partner-after-a-loss]
+
+- id: partner-after-a-loss
+  title: "The partner's grief"
+  type: guide
+  topic: loss
+  ask: "It didn't happen to my body. Am I allowed to be this upset?"
+  aliases: [partner grief, dads and miscarriage, men and loss, supporting her after loss, grieving differently]
+  weeks: [1, 42]
+  who: partner
+  priority: 1
+  stakes: high
+  covers:
+    - "grief without having carried the baby is normal (PBB partners page); sadness, helplessness, anxiety; cultural beliefs shape it"
+    - "partners often park their feelings to be the support, then feel it later, sometimes when planning the next baby (PBB)"
+    - "men can grieve differently and just as deeply (Red Nose men's grief); Miscarriage Australia's page for men; SMS4dads' grieving dads messages"
+    - "look after yourself as well as her; compassionate leave is available to you too if your partner has a miscarriage or stillbirth (Fair Work)"
+    - "support services are for partners: Red Nose, PANDA"
+  sources:
+    - title: Pregnancy, Birth and Baby — Partners and miscarriage
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/partners-and-miscarriage
+    - title: Red Nose — Men's grief
+      url: https://rednose.org.au/grief-and-loss-support/mens-grief/
+    - title: Miscarriage Australia — For men
+      url: https://miscarriageaustralia.com.au/finding-miscarriage-support/for-partners/for-men/
+    - title: Miscarriage Australia — For LGBTIQA+
+      url: https://miscarriageaustralia.com.au/finding-miscarriage-support/for-partners/for-lgbtiqa/
+    - title: Pregnancy, Birth and Baby — Experiencing a pregnancy loss
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/experiencing-a-pregnancy-loss
+    - title: Fair Work Ombudsman — Accruing and taking other leave during parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/accruing-and-taking-other-leave-during-parental-leave
+  related: [loss-support-services, something-has-happened, card-partner-grief-counts]
+
+- id: supporting-someone-after-a-loss
+  title: What to say to someone who has lost a baby
+  type: guide
+  topic: loss
+  ask: "My sister just miscarried. What do I say?"
+  aliases: [what to say, supporting a friend, grandparents grief, don't say, acknowledge]
+  weeks: [1, 42]
+  priority: 3
+  stakes: medium
+  covers:
+    - "Gidget: you don't need perfect words; a simple honest acknowledgement beats silence; listen without reassuring or problem-solving; use the baby's name if they have shared it"
+    - "the things not to say, as the sources put them ('at least', 'you can try again', 'everything happens for a reason')"
+    - "practical help over advice; keep turning up after the first fortnight; remember the due date"
+    - "Pink Elephants' guide for loved ones; Miscarriage Australia's page for family and friends"
+  sources:
+    - title: Gidget Foundation — How to support a parent through grief and loss
+      url: https://www.gidgetfoundation.org.au/fact-sheets/how-to-support-a-parent-through-grief-loss
+    - title: Miscarriage Australia — Supporting someone who's had a miscarriage
+      url: https://miscarriageaustralia.com.au/finding-miscarriage-support/for-family-and-friends/supporting-someone-after-miscarriage/
+    - title: Pink Elephants — home (support someone you love)
+      url: https://www.pinkelephants.org.au/
+  related: [loss-support-services, grandparents-and-boundaries]
+  notes: "Written for the reader who is helping, including a grandparent; shareable."
+
+- id: remembering-the-baby
+  title: Ways to remember
+  type: guide
+  topic: loss
+  ask: "Is there anything official for a baby lost before 20 weeks?"
+  aliases: [early pregnancy loss certificate, commemorative certificate, naming the baby, memorial, funeral, keepsakes, Births Deaths and Marriages]
+  weeks: [1, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "every state and territory offers a certificate recognising early pregnancy loss (Miscarriage Australia lists them; Red Nose has the how); it is optional and not a legal document"
+    - "naming the baby can help (Miscarriage Australia); keepsakes, a plant, a piece of jewellery, a ritual"
+    - "after 20 weeks the choices widen and some are required: registration, a funeral; the hospital guides it"
+    - "Gidget's guide to the reminders: the due date, baby showers, pregnant friends, social media; go at your own pace"
+  sources:
+    - title: Miscarriage Australia — Ways to remember your baby
+      url: https://miscarriageaustralia.com.au/after-a-miscarriage/ive-just-miscarried-what-happens-now/ways-to-remember-your-baby/
+    - title: Pregnancy, Birth and Baby — What happens after a miscarriage
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-happens-after-miscarriage
+    - title: Gidget Foundation — A guide to coping with reminders of your pregnancy and/or child loss
+      url: https://www.gidgetfoundation.org.au/fact-sheets/a-guide-to-coping-with-reminders-of-your-pregnancy-and-or-child-loss
+  related: [after-a-miscarriage, stillbirth, something-has-happened, card-loss-certificate-exists]
+  notes: "The certificate names differ by state (Victoria's is 'Early Pregnancy Loss Commemorative Certificate', NSW 'Recognition of Early Pregnancy Loss'); the household's state fact can pick the right one."
+
+- id: loss-and-work
+  title: Time off work after a loss
+  type: guide
+  topic: loss
+  ask: "Can I take leave for a miscarriage, and does my partner get any?"
+  aliases: [bereavement leave miscarriage, compassionate leave, time off after loss, telling work about a loss, workplace support]
+  weeks: [1, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "a pointer: under the Fair Work Act you and your partner are each entitled to 2 days' paid compassionate leave for a pregnancy loss; some employers give more (Miscarriage Australia); the money and work agent has the rules"
+    - "after a stillbirth, parental leave and Parental Leave Pay rules still apply in part (money agent)"
+    - "telling work when they may not have known you were pregnant; you can say as little as you like"
+    - "Pink Elephants' workplace programme can approach your employer, named or anonymously; Red Nose has guidance for employers and colleagues"
+    - "Gidget: make a flexible plan to return"
+  sources:
+    - title: Miscarriage Australia — Taking time off work
+      url: https://miscarriageaustralia.com.au/after-a-miscarriage/ive-just-miscarried-what-happens-now/taking-time-off-work/
+    - title: Pink Elephants — home (workplace support programme)
+      url: https://www.pinkelephants.org.au/
+    - title: Red Nose — Employers and colleagues
+      url: https://rednose.org.au/grief-and-loss-support/employers-and-colleagues/
+    - title: Fair Work Ombudsman — Parental leave
+      url: https://www.fairwork.gov.au/leave/parental-leave
+  related: [after-a-miscarriage, telling-work-pointer, card-bereavement-leave-for-loss]
+  notes: "Border: the entitlement text and the stillbirth leave rules are the money and work agent's; confirm the 2 days against fairwork.gov.au's compassionate leave page when writing."
+
+- id: grief-and-anniversaries
+  title: The due date and the anniversaries
+  type: guide
+  topic: loss
+  ask: "The due date is coming and I'm dreading it."
+  aliases: [due date after loss, anniversary, triggers, baby shower, pregnant friends, grief later]
+  weeks: [1, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "Gidget: the loss is at some level always with you; triggers (pregnant women, babies, the due date, social media) are faced at your own pace"
+    - "plan the day rather than be ambushed by it; tell the people who matter what you want"
+    - "the app's part: it can mark the date quietly and say nothing cheerful; it never resurfaces the old timeline"
+    - "grief that does not ease, or returns as depression, is a reason to call"
+  sources:
+    - title: Gidget Foundation — A guide to coping with reminders of your pregnancy and/or child loss
+      url: https://www.gidgetfoundation.org.au/fact-sheets/a-guide-to-coping-with-reminders-of-your-pregnancy-and-or-child-loss
+    - title: Pregnancy, Birth and Baby — Experiencing a pregnancy loss
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/experiencing-a-pregnancy-loss
+  related: [something-has-happened, remembering-the-baby, pregnancy-after-loss]
+
+# ---------------------------------------------------------------------------
+# Special circumstances
+# ---------------------------------------------------------------------------
+
+- id: ivf-pregnancy
+  title: Pregnant after IVF
+  type: guide
+  topic: special-circumstances
+  ask: "We did IVF. Is this pregnancy different, and why don't I feel happy?"
+  aliases: [IVF, assisted reproduction, fertility treatment, embryo transfer, after infertility, rainbow pregnancy]
+  weeks: [4, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "the emotional side Gidget names: after years of trying, joy comes with dread, guilt about not enjoying it, holding back from bonding, anger at delays and losses along the way"
+    - "the handover from the clinic to ordinary antenatal care around the end of the first trimester, and feeling abandoned by it"
+    - "PBB: what IVF is, and that the pregnancy itself is cared for like any other unless there are other risks; the clinic's early scans"
+    - "the partner who went through it too"
+    - "costs and Medicare are the money agent's; the biology is the baby agent's"
+  sources:
+    - title: Gidget Foundation — Assisted reproduction
+      url: https://www.gidgetfoundation.org.au/fact-sheets/assisted-reproduction
+    - title: Pregnancy, Birth and Baby — All about in vitro fertilisation (IVF)
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/fertility/ivf
+    - title: Gidget Foundation — Coping with infertility
+      url: https://www.gidgetfoundation.org.au/fact-sheets/coping-with-infertility
+  related: [bonding-before-birth, pregnancy-after-loss, chemical-pregnancy, antenatal-anxiety]
+
+- id: twins-and-multiples-support
+  title: Expecting twins or more, the support side
+  type: guide
+  topic: special-circumstances
+  ask: "It's twins. Where do we even start?"
+  aliases: [twins, triplets, multiples, AMBA, multiple birth club, twin pregnancy support]
+  weeks: [8, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "the shock and the recalibration; AMBA's 'finding out it's twins' and its booklet for expecting parents"
+    - "more appointments and scans, more likely to be early, hospital rather than birth centre (PBB); the admin doubles: two of everything, two car seats, the leave sums (pointers)"
+    - "AMBA: mothers of multiples have poorer emotional health on average and higher PNDA risk; the local multiple birth club is the village"
+    - "Gidget's sheet: higher-risk by default, isolation, the pelvic floor, connect with AMBA"
+    - "the biology, the scans and the birth are the baby, tests and labour agents'"
+  sources:
+    - title: Australian Multiple Birth Association — Expecting twins, triplets, multiples
+      url: https://www.amba.org.au/support/information/expecting
+    - title: Australian Multiple Birth Association — Perinatal mental health
+      url: https://www.amba.org.au/support/information/perinatal-mental-health
+    - title: Australian Multiple Birth Association — Getting support
+      url: https://www.amba.org.au/support/getting-support
+    - title: Pregnancy, Birth and Baby — Pregnant with twins
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy
+    - title: Gidget Foundation — Multiple births
+      url: https://www.gidgetfoundation.org.au/fact-sheets/multiple-births
+  related: [when-the-baby-comes-early, baby-in-the-nicu, told-higher-risk, card-twins-more-appointments]
+
+- id: older-parent-35
+  title: Pregnant at 35 and over
+  type: guide
+  topic: special-circumstances
+  ask: "I'm 37. Am I a 'geriatric' pregnancy?"
+  aliases: [advanced maternal age, over 35, geriatric pregnancy, older mother, older parents]
+  weeks: [4, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "many people 35 and over conceive naturally and have healthy pregnancies (PBB); the label is a statistical one"
+    - "what changes: a higher chance of miscarriage and chromosome differences, so screening conversations are more pointed; being over 35 is on PBB's higher-risk list, which means closer monitoring, not a problem"
+    - "the term 'geriatric' is out of date; you can ask them not to use it"
+    - "the partner's age matters less but isn't nothing; ask"
+  sources:
+    - title: Pregnancy, Birth and Baby — Trying for pregnancy after 35
+      url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/fertility/trying-for-pregnancy-after-35
+    - title: Pregnancy, Birth and Baby — What is a high risk pregnancy?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/what-is-a-higher-risk-pregnancy
+    - title: Pregnancy, Birth and Baby — Miscarriage (chance rises with age)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/miscarriage
+  related: [older-parent-40, difficult-screening-result, told-higher-risk]
+
+- id: older-parent-40
+  title: Pregnant after 40
+  type: guide
+  topic: special-circumstances
+  ask: "What's actually different about being pregnant at 42?"
+  aliases: [over 40, pregnancy after 40, 40 plus, older mum]
+  weeks: [4, 42]
+  priority: 3
+  stakes: medium
+  covers:
+    - "PBB: some conditions are more common with age and the team watches more closely: high blood pressure, gestational diabetes, a higher chance of caesarean; the chromosome-difference chance rises but stays relatively low overall"
+    - "what that means for the plan: more appointments, possibly an obstetrician, a conversation about timing of birth (the labour agent's)"
+    - "the social side: being the oldest in the class, and not caring"
+  sources:
+    - title: Pregnancy, Birth and Baby — Being pregnant after 40
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/being-pregnant-after-40
+  related: [older-parent-35, told-higher-risk]
+
+- id: young-parent
+  title: Having a baby young
+  type: guide
+  topic: special-circumstances
+  ask: "I'm 19 and pregnant. What support is there?"
+  aliases: [teenage pregnancy, young mum, young dad, under 20, Brave Foundation, school and pregnancy]
+  weeks: [4, 42]
+  priority: 3
+  stakes: medium
+  covers:
+    - "PBB's questions to think through: who supports you, who to tell first, telling your parents"
+    - "you can keep studying with support; housing and money help exists (PBB teenage parents page; the money agent for the payments)"
+    - "under 17 is on the higher-risk list, which means more care, not judgement"
+    - "young dads count too; the partner entries apply"
+  sources:
+    - title: Pregnancy, Birth and Baby — Teenage pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/teenage-pregnancy
+    - title: Pregnancy, Birth and Baby — Support for teenage parents
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/support-and-financial-services/support-for-teenage-parents
+  related: [telling-people, building-your-village, told-higher-risk]
+
+- id: pregnancy-after-loss
+  title: Pregnant again after a loss
+  type: guide
+  topic: special-circumstances
+  ask: "We're pregnant again after the miscarriage and I'm terrified."
+  aliases: [pregnancy after miscarriage, pregnancy after stillbirth, rainbow baby, anxious pregnancy, after loss]
+  weeks: [4, 42]
+  priority: 1
+  stakes: high
+  covers:
+    - "the anxiety is expected, not a flaw; grief can return around due dates, anniversaries and appointments (Gidget); PBB's stress page names a previous loss as a trigger"
+    - "extra care exists: more frequent appointments and extra ultrasounds to check growth, and after stillbirth or neonatal death specialist clinics throughout Australia (PBB); share your worries and preferences with your doctor"
+    - "sometimes there is a medical reason to wait (test results); follow that advice (PBB)"
+    - "the app: starting a new pregnancy after 'something has happened' should carry the history and let you switch the cheerful parts off"
+    - "the partner's held-back grief can surface now (PBB)"
+    - "Pink Elephants' Pregnancy After Loss group; Gidget's counselling, which covers fears about a future pregnancy"
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy after a stillbirth or neonatal death
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/stillbirth-and-neonatal-death/pregnancy-after-a-stillbirth-or-neonatal-death
+    - title: Miscarriage Australia — Trying for another baby
+      url: https://miscarriageaustralia.com.au/after-a-miscarriage/looking-to-the-future/trying-for-another-baby/
+    - title: Pregnancy, Birth and Baby — Stress and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/stress-and-pregnancy
+    - title: Pregnancy, Birth and Baby — Experiencing a pregnancy loss (partner grief)
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/experiencing-a-pregnancy-loss
+    - title: Gidget Foundation — Stillbirth
+      url: https://www.gidgetfoundation.org.au/fact-sheets/stillbirth
+  related: [something-has-happened, antenatal-anxiety, bonding-before-birth, loss-support-services]
+
+- id: pregnancy-after-birth-trauma
+  title: Pregnant again after a traumatic birth
+  type: guide
+  topic: special-circumstances
+  ask: "Last time was awful. How do I face another birth?"
+  aliases: [birth after birth trauma, next birth, fear after traumatic birth, elective caesarean after trauma, debrief]
+  weeks: [4, 42]
+  priority: 2
+  stakes: high
+  covers:
+    - "fear of being pregnant or giving birth again is understandable; processing the last birth can reduce it (Birth Trauma Australia)"
+    - "what to ask for: a debrief of the last birth, a plan that names what went wrong and what you want different, continuity of carer if possible, the right to choose the mode of birth after discussion (the labour agent's VBAC and caesarean entries)"
+    - "tell the new team early; trauma-informed care is something you can request"
+    - "Birth Trauma Australia's peer support; Gidget; PANDA"
+  sources:
+    - title: Birth Trauma Australia — Birth after birth trauma
+      url: https://birthtrauma.org.au/birth-after-birth-trauma/
+    - title: Birth Trauma Australia — Peer2Peer support
+      url: https://birthtrauma.org.au/peer2peer-support/
+    - title: Pregnancy, Birth and Baby — What is trauma-informed care?
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-rights/what-is-trauma-informed-care
+  related: [birth-trauma, tokophobia, previous-caesarean-pointer, previous-trauma-and-pregnancy]
+
+- id: previous-caesarean-pointer
+  title: After a previous caesarean
+  type: guide
+  topic: special-circumstances
+  ask: "I had a caesarean last time. Do I have to again?"
+  aliases: [VBAC, previous caesarean, repeat caesarean, vaginal birth after caesarean]
+  weeks: [12, 36]
+  priority: 2
+  stakes: medium
+  covers:
+    - "a pointer: VBAC is an option for many; the decision is made with your doctor, weighing the reasons last time and the risks either way (PBB)"
+    - "the emotional part: feeling you failed last time, or dreading a repeat; both are common and neither is true"
+    - "the clinical content, the success rates and the decision are the labour and birth agent's"
+  sources:
+    - title: Pregnancy, Birth and Baby — Vaginal birth after caesarean (VBAC)
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/vaginal-birth-after-caesarean-vbac
+  related: [pregnancy-after-birth-trauma, birth-trauma]
+  notes: "Border: labour agent owns VBAC proper. Keep this to the pointer and the feeling."
+
+- id: told-higher-risk
+  title: Being told your pregnancy is higher risk
+  type: guide
+  topic: special-circumstances
+  ask: "They've called me 'high risk'. What does that actually mean?"
+  aliases: [high risk pregnancy, higher risk, obstetric care, extra monitoring, complicated pregnancy]
+  weeks: [4, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "PBB's list of what puts you there: age under 17 or over 35, pre-existing conditions (epilepsy, diabetes, asthma, kidney, heart, autoimmune, anything with ongoing care), twins, diabetes or high blood pressure in pregnancy, previous complications"
+    - "what it changes: more appointments, an obstetrician rather than midwife-only care, possibly a hospital with a NICU; it does not mean something will go wrong"
+    - "the mental load of being watched; ask what each extra test is for"
+    - "the conditions themselves are pointers below; the clinical entries are the care agent's"
+  sources:
+    - title: Pregnancy, Birth and Baby — What is a high risk pregnancy?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/what-is-a-higher-risk-pregnancy
+  related: [pre-existing-diabetes-pointer, epilepsy-pointer, thyroid-pointer, autoimmune-pointer, older-parent-35, twins-and-multiples-support]
+
+- id: pre-existing-diabetes-pointer
+  title: Pregnant with type 1 or type 2 diabetes
+  type: guide
+  topic: special-circumstances
+  ask: "I have type 1 diabetes. Who looks after me now?"
+  aliases: [type 1 diabetes pregnancy, type 2 diabetes pregnancy, pre-existing diabetes, insulin pregnancy, diabetes team]
+  weeks: [1, 42]
+  priority: 3
+  stakes: high
+  covers:
+    - "a pointer to your doctor: a health team manages it; keeping blood sugar at target lowers the risk of complications; seeing the doctor while planning gives the best start (PBB)"
+    - "what to expect: an endocrinologist and obstetrician, more scans, medicine or insulin changes, a plan for the birth"
+    - "it is not gestational diabetes; that is the tests agent's entry"
+    - "the mental load: a condition you already manage, now with a baby riding on the numbers; the help entries"
+  sources:
+    - title: Pregnancy, Birth and Baby — Pre-existing diabetes and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/diabetes-during-pregnancy
+  related: [told-higher-risk]
+  exists: content/items/glucose-tolerance-test.md
+  notes: "Pointer only: never dose advice."
+
+- id: epilepsy-pointer
+  title: Pregnant with epilepsy
+  type: guide
+  topic: special-circumstances
+  ask: "I have epilepsy. Is my medication safe for the baby?"
+  aliases: [epilepsy pregnancy, anti-seizure medication, valproate, seizures in pregnancy, neurologist]
+  weeks: [1, 42]
+  priority: 3
+  stakes: high
+  covers:
+    - "a pointer: epilepsy is on PBB's higher-risk list; the rule is talk to your neurologist and obstetrician, and never stop medicine on your own"
+    - "what the team will discuss: which medicines, doses that may change in pregnancy, folate, seizure safety"
+    - "Epilepsy Action Australia's National Epilepsy Line and its pregnancy fact sheet are where to read more"
+  sources:
+    - title: Pregnancy, Birth and Baby — What is a high risk pregnancy?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/what-is-a-higher-risk-pregnancy
+  related: [told-higher-risk, mental-health-medication]
+  notes: "Epilepsy Action Australia's page (epilepsy.org.au/fact_sheets/epilepsy-and-pregnancy/) loaded but its content is a downloadable fact sheet; the writer should read it in a browser before citing it. Medicine specifics are the medicines agent's."
+
+- id: thyroid-pointer
+  title: Pregnant with a thyroid condition
+  type: guide
+  topic: special-circumstances
+  ask: "I'm on thyroxine. Does pregnancy change anything?"
+  aliases: [thyroid pregnancy, hypothyroidism, hyperthyroidism, thyroxine, Hashimoto's, Graves]
+  weeks: [1, 42]
+  priority: 3
+  stakes: medium
+  covers:
+    - "a pointer: thyroid levels are checked by blood test and medicines adjusted if needed (PBB); tell your doctor early and ask how often to test"
+    - "who is tested in pregnancy and why, per PBB"
+    - "keep taking what you are prescribed unless your doctor changes it"
+  sources:
+    - title: Pregnancy, Birth and Baby — Thyroid dysfunction and pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/thyroid-dysfunction-and-pregnancy
+  related: [told-higher-risk]
+
+- id: autoimmune-pointer
+  title: Pregnant with an autoimmune condition
+  type: guide
+  topic: special-circumstances
+  ask: "I have lupus. What should I be asking?"
+  aliases: [autoimmune pregnancy, lupus, rheumatoid arthritis, Crohn's, MS, rheumatologist, flare]
+  weeks: [1, 42]
+  priority: 3
+  stakes: medium
+  covers:
+    - "a pointer: autoimmune disease is on PBB's higher-risk list; the plan is made with your specialist, ideally before conception, to get symptoms controlled (healthdirect on lupus)"
+    - "the questions to bring: which medicines to continue, flare risk, what the baby is checked for (healthdirect notes neonatal lupus from certain antibodies)"
+    - "nothing clinical decided here"
+  sources:
+    - title: Pregnancy, Birth and Baby — What is a high risk pregnancy?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/what-is-a-higher-risk-pregnancy
+    - title: healthdirect — Lupus
+      url: https://www.healthdirect.gov.au/conditions/joint-and-muscle-diseases/lupus
+  related: [told-higher-risk, mental-health-medication]
+
+- id: disability-and-pregnancy
+  title: Pregnancy and parenting with a disability
+  type: guide
+  topic: special-circumstances
+  ask: "I have a disability. Will they assume I can't do this?"
+  aliases: [disability, parenting with disability, NDIS, accessible maternity care, wheelchair, deaf, blind, chronic illness]
+  weeks: [1, 42]
+  priority: 3
+  stakes: medium
+  covers:
+    - "Gidget: parents with disability face assumptions and stereotypes, and bring real strengths (adaptability, problem-solving); discrimination is common and not acceptable"
+    - "what to ask for: accessible appointments and rooms, an interpreter (Auslan), adapted equipment, a care plan that names your supports"
+    - "NDIS and supports are pointers; 1800RESPECT's disability inclusion work if safety is a concern"
+    - "the partner may be the one with the disability; the same applies"
+  sources:
+    - title: Gidget Foundation — Parenting with disability
+      url: https://www.gidgetfoundation.org.au/fact-sheets/parenting-with-disability
+  related: [told-higher-risk, building-your-village]
+
+- id: lgbtqia-families
+  title: Rainbow families, the pregnancy
+  type: guide
+  topic: special-circumstances
+  ask: "We're two mums. What will be different at the hospital?"
+  aliases: [LGBTQIA+, rainbow family, same-sex parents, two mums, two dads, non-birth mother, donor, trans pregnancy, queer parents]
+  weeks: [1, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "PBB: rainbow families form through donation, co-parenting, surrogacy and adoption; children do as well as any"
+    - "Gidget: inclusive care matters; choose professionals and classes that use inclusive language; forms and assumptions are tiring; set boundaries; find affirming community (Rainbow Families' groups)"
+    - "the non-birth parent's legal recognition on the birth certificate varies: Rainbow Families' legal resources and the state registry; a pointer, not advice"
+    - "the app: 'partner' and 'carrying' are the only roles; nothing assumes a dad"
+    - "support: QLife (LGBTIQ+ Health Australia), Rainbow Families, PANDA"
+  sources:
+    - title: Pregnancy, Birth and Baby — Same-sex parents, two dads, two mums
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/relationships-and-support/same-sex-parents
+    - title: Gidget Foundation — Rainbow families
+      url: https://www.gidgetfoundation.org.au/fact-sheets/rainbow-families
+    - title: Gidget Foundation — LGBTQIA+ families
+      url: https://www.gidgetfoundation.org.au/adjusting-to-parenthood/lgbtqi-families-and-same-sex-parents
+    - title: Rainbow Families — Resources for families
+      url: https://www.rainbowfamilies.com.au/for_families
+    - title: LGBTIQ+ Health Australia — home (QLife)
+      url: https://www.lgbtiqhealth.org.au/
+  related: [non-birth-parent, surrogacy, partner-feeling-left-out]
+
+- id: non-birth-parent
+  title: The non-birth parent
+  type: guide
+  topic: partner
+  ask: "I'm the non-birth mum. Every page says 'dad'. Where's my role?"
+  aliases: [non-birth parent, non-birthing partner, non-biological parent, co-mother, non-gestational parent]
+  weeks: [1, 42]
+  who: partner
+  priority: 2
+  stakes: medium
+  covers:
+    - "everything in the partner entries applies; Gidget's page is written for dads and non-birthing partners together"
+    - "the particular things: being asked who you are in the room, forms with 'father', explaining your family (Gidget: you don't owe everyone an explanation)"
+    - "miscarriage as the non-birth partner: Miscarriage Australia's LGBTIQA+ page"
+    - "legal parentage and the birth certificate: a pointer to Rainbow Families and the state registry"
+  sources:
+    - title: Gidget Foundation — Pregnancy for expectant dads and non-birthing partners
+      url: https://www.gidgetfoundation.org.au/becoming-a-parent/pregnancy-for-expectant-dads-and-non-birthing-partners
+    - title: Gidget Foundation — Rainbow families
+      url: https://www.gidgetfoundation.org.au/fact-sheets/rainbow-families
+    - title: Miscarriage Australia — For LGBTIQA+
+      url: https://miscarriageaustralia.com.au/finding-miscarriage-support/for-partners/for-lgbtiqa/
+  related: [lgbtqia-families, partner-feeling-left-out, partner-after-a-loss]
+
+- id: surrogacy
+  title: Surrogacy in Australia
+  type: guide
+  topic: special-circumstances
+  ask: "How does surrogacy work here, and what's the emotional side?"
+  aliases: [surrogacy, surrogate, intended parents, altruistic surrogacy, commercial surrogacy, parentage order]
+  weeks: [1, 42]
+  priority: 3
+  stakes: high
+  covers:
+    - "only altruistic surrogacy is legal: paying a surrogate is illegal, though pregnancy costs can be reimbursed; each state has its own law, so get legal advice before starting (PBB)"
+    - "counselling for everyone involved is required or strongly expected (PBB); the intended parents become legal parents through a parentage order after the birth"
+    - "the relationship is the heart of it (Rainbow Families' process chart)"
+    - "the app's case: the household may be the intended parents, not the person carrying; the roles and the week notes need care"
+  sources:
+    - title: Pregnancy, Birth and Baby — Surrogacy
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/adoption-and-surrogacy/surrogacy
+    - title: Rainbow Families — Australian Surrogacy Process Chart
+      url: https://www.rainbowfamilies.com.au/australian_surrogacy_process_chart
+    - title: Surrogacy Australia — home
+      url: https://www.surrogacyaustralia.org/
+  related: [lgbtqia-families, adoption-pointers]
+  notes: "No state law table; say the laws differ and point to legal advice."
+
+- id: adoption-pointers
+  title: Adoption, pointers
+  type: guide
+  topic: special-circumstances
+  ask: "How does adoption work in Australia?"
+  aliases: [adoption, adopting, placing a baby for adoption, foster care, kinship care]
+  weeks: [1, 42]
+  priority: 3
+  stakes: medium
+  covers:
+    - "two directions, both pointers: adopting a child (PBB's how-does-adoption-work page: state-run, slow, mostly older children) and placing a baby (PBB's page on deciding; counselling and time are built in)"
+    - "Parental Leave Pay applies to adoption (money agent)"
+  sources:
+    - title: Pregnancy, Birth and Baby — How does adoption work?
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/adoption-and-surrogacy/how-does-adoption-work
+    - title: Pregnancy, Birth and Baby — Deciding to give a baby or child up for adoption
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/adoption-and-surrogacy/deciding-to-give-a-child-up-for-adoption
+  related: [unplanned-pregnancy, surrogacy]
+
+- id: domestic-violence-in-pregnancy
+  title: Family violence during pregnancy
+  type: guide
+  topic: special-circumstances
+  ask: "My partner has started scaring me since I got pregnant. Is that a thing?"
+  aliases: [domestic violence, family violence, intimate partner violence, abuse, coercive control, 1800RESPECT, safety plan, not safe at home]
+  weeks: [1, 42]
+  priority: 1
+  stakes: high
+  covers:
+    - "family violence can start or get worse in pregnancy (PBB); it includes control, isolation, threats and money, not only hitting (Gidget's coercive control sheet)"
+    - "talk with your doctor, midwife or a support organisation; if you can't speak to a midwife or doctor directly (for example a controlling partner insists on attending every appointment), call a specialist service"
+    - "1800RESPECT 1800 737 732, 24/7, free, confidential; text 0458 737 732; online chat and video"
+    - "safety planning (1800RESPECT), and the Quick Exit button pattern the app should copy on this page"
+    - "in danger now: 000"
+    - "the partner reading this: 1800RESPECT also has pages for people worried about their own behaviour"
+  sources:
+    - title: Pregnancy, Birth and Baby — Family violence during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/family-violence-and-abuse/family-violence-during-pregnancy
+    - title: Gidget Foundation — Understanding family violence and abuse during pregnancy
+      url: https://www.gidgetfoundation.org.au/becoming-a-parent/understanding-family-violence-and-abuse-during-pregnancy
+    - title: Gidget Foundation — Coercive control
+      url: https://www.gidgetfoundation.org.au/fact-sheets/coercive-control
+    - title: 1800RESPECT — home
+      url: https://1800respect.org.au/
+    - title: 1800RESPECT — Safety planning
+      url: https://1800respect.org.au/help-and-support/safety-planning
+    - title: 1800RESPECT — Supporting someone
+      url: https://1800respect.org.au/help-and-support/supporting-someone
+  related: [reproductive-coercion, arguments-and-stress, partner-learning-the-signs, perinatal-mental-health-help]
+  notes: "The app is shared between both parents, which is exactly the problem here: this page must be reachable without leaving a trace in the shared store (no 'saved' card, no log entry). Flag for the product."
+
+- id: reproductive-coercion
+  title: Reproductive coercion
+  type: guide
+  topic: special-circumstances
+  ask: "He made me get pregnant. Does that count as abuse?"
+  aliases: [reproductive abuse, reproductive coercion, forced pregnancy, contraception sabotage, pressured into abortion]
+  weeks: [1, 42]
+  priority: 3
+  stakes: high
+  covers:
+    - "1800RESPECT: being stopped from making your own reproductive choices, including being pressured into pregnancy or an abortion, birth control sabotaged or hidden, emergency contraception withheld"
+    - "it is a form of family violence; the same supports apply"
+    - "a pregnancy you were forced into is a reason to talk to someone before telling anyone else"
+  sources:
+    - title: 1800RESPECT — Reproductive abuse
+      url: https://1800respect.org.au/reproductive-abuse
+    - title: Pregnancy, Birth and Baby — Domestic violence and abusive relationships
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/family-violence-and-abuse/domestic-violence-and-abusive-relationships
+  related: [domestic-violence-in-pregnancy, unplanned-pregnancy]
+
+- id: first-nations-services
+  title: Aboriginal and Torres Strait Islander families
+  type: guide
+  topic: special-circumstances
+  ask: "Is there culturally safe pregnancy care for us?"
+  aliases: [Aboriginal, Torres Strait Islander, First Nations, Birthing on Country, Aboriginal health worker, 13YARN, Koori maternity, culturally safe]
+  weeks: [1, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "Aboriginal and Torres Strait Islander Health Workers can be part of your care: culturally safe support through pregnancy and after, and a bridge to services (PBB)"
+    - "Birthing on Country: the model and where it runs; ask the hospital or the local ACCHO what exists near you"
+    - "Gidget's First Nations pregnancy and birthing page; Red Nose's First Nations information; SMS4Deadly Dads for the partner"
+    - "13YARN 13 92 76, 24/7, for crisis support by Aboriginal and Torres Strait Islander crisis supporters"
+    - "the money side (Medicare and PBS arrangements for Indigenous Australians) is the money agent's"
+  sources:
+    - title: Pregnancy, Birth and Baby — What do Aboriginal and Torres Strait Islander Health Workers do?
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/what-do-aboriginal-and-torres-strait-islander-health-workers-do
+    - title: Birthing on Country — home
+      url: https://www.birthingoncountry.com/
+    - title: Gidget Foundation — First Nations pregnancy and birthing
+      url: https://www.gidgetfoundation.org.au/becoming-a-parent/first-nations-pregnancy-and-birthing
+    - title: Red Nose — Information and support for First Nations people
+      url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/information-and-support-for-first-nations-people/
+    - title: 13YARN
+      url: https://www.13yarn.org.au/
+    - title: SMS4dads — home (Deadly Dads)
+      url: https://www.sms4dads.com.au/
+  related: [perinatal-mental-health-help, building-your-village]
+
+- id: rural-and-remote
+  title: Having a baby far from the hospital
+  type: guide
+  topic: special-circumstances
+  ask: "The nearest maternity unit is three hours away. How does that work?"
+  aliases: [rural, remote, regional, travel for birth, patient travel scheme, accommodation, telehealth, flying doctor]
+  weeks: [1, 42]
+  priority: 3
+  stakes: high
+  covers:
+    - "PBB's rural maternity services page: how care is arranged, when you may be asked to relocate near the hospital before the due date, and the state travel and accommodation subsidies (the money agent has the schemes)"
+    - "Gidget's rural sheet: isolation, distance from services, telehealth counselling as the way in"
+    - "the partner's logistics: the drive, the leave, the older children"
+    - "a plan for labour starting early and far from help belongs to the labour agent; link"
+  sources:
+    - title: Pregnancy, Birth and Baby — Maternity services in rural Australia
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/rural-and-remote-services/maternity-services-in-rural-australia
+    - title: Gidget Foundation — Parenting in a rural or remote location
+      url: https://www.gidgetfoundation.org.au/fact-sheets/parenting-in-a-rural-or-remote-location
+    - title: Gidget Foundation — Start Talking telehealth
+      url: https://www.gidgetfoundation.org.au/support/start-talking-telehealth
+  related: [building-your-village, when-the-baby-comes-early]
+
+- id: pregnancy-on-a-visa-pointer
+  title: Pregnant on a visa
+  type: guide
+  topic: special-circumstances
+  ask: "We're on a temporary visa. Can we even use the public hospital?"
+  aliases: [visa, no Medicare, overseas visitor, reciprocal health care, student visa pregnancy, temporary resident]
+  weeks: [1, 42]
+  priority: 3
+  stakes: high
+  covers:
+    - "a pointer: PBB's page on pregnancy and newborn care on a visa; whether Medicare, a reciprocal agreement or insurance covers you decides the cost, and public hospitals bill overseas visitors"
+    - "the emotional side: a pregnancy abroad with no family and a bill; the family-overseas entry"
+    - "the rules and costs are the money and care agents'"
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy and newborn care on a visa in Australia
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/pregnancy-care-on-a-visa-in-australia
+  related: [family-overseas]
+
+# ---------------------------------------------------------------------------
+# Nobody tells you: the emotional side
+# ---------------------------------------------------------------------------
+
+- id: card-two-weeks-before-you-existed
+  title: "You were 'two weeks pregnant' before you conceived"
+  type: card
+  topic: mental-health
+  ask: "Why does the app say week 5 when we only just found out?"
+  aliases: [counting weeks, last period, week 4, dating]
+  weeks: [4, 6]
+  priority: 2
+  stakes: low
+  covers:
+    - "weeks are counted from the last period, so weeks 1 and 2 happen before conception and most people find out at week 4 or 5 (PBB weeks 1 to 4)"
+    - "which is why the timeline starts with weeks nobody lived through"
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnancy at weeks 1 to 4
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-1-4
+  related: [telling-people]
+
+- id: card-miscarriage-not-your-fault
+  title: Up to 1 in 4 pregnancies end early, and it is almost never something you did
+  type: card
+  topic: loss
+  ask: "Did I cause the miscarriage?"
+  aliases: [my fault, caused it, lifted something, stress caused miscarriage]
+  weeks: [4, 14]
+  priority: 1
+  stakes: high
+  covers:
+    - "up to 1 in 4 pregnancies end in miscarriage before 14 weeks (PBB); 50 to 80 per cent are random chromosomal (Miscarriage Australia)"
+    - "it is unlikely you did anything to cause it"
+  sources:
+    - title: Pregnancy, Birth and Baby — Miscarriage
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/miscarriage
+    - title: Miscarriage Australia — Why have I had a miscarriage?
+      url: https://miscarriageaustralia.com.au/having-a-miscarriage/why-have-i-had-a-miscarriage/
+  related: [miscarriage]
+  notes: "Only shown on the quiet path, never as a filler card."
+
+- id: card-partner-grief-counts
+  title: The partner grieves too, often later
+  type: card
+  topic: loss
+  ask: "Why is he only upset now, months after?"
+  aliases: [partner grief later, delayed grief]
+  weeks: [1, 42]
+  who: partner
+  priority: 2
+  stakes: medium
+  covers:
+    - "partners often shelve their feelings to be the support and feel them later, sometimes when planning the next baby (PBB)"
+  sources:
+    - title: Pregnancy, Birth and Baby — Experiencing a pregnancy loss
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/experiencing-a-pregnancy-loss
+  related: [partner-after-a-loss]
+
+- id: card-one-in-ten-dads
+  title: 1 in 10 dads get depression, starting in the first trimester
+  type: card
+  topic: partner
+  ask: "Do dads get antenatal depression?"
+  aliases: [dads depression stat, 1 in 10 fathers]
+  weeks: [4, 42]
+  who: partner
+  priority: 1
+  stakes: high
+  covers:
+    - "depression affects 1 in 10 fathers from the first trimester through the first year; anxiety 1 in 6 during the pregnancy (PBB)"
+    - "a researcher argues dads should be screened for depression, not just mums (SMS4dads)"
+  sources:
+    - title: Pregnancy, Birth and Baby — Fathers and depression
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/fathers-and-depression
+    - title: SMS4dads — Home (loss, NICU and dads' messages)
+      url: https://www.sms4dads.com.au/
+  related: [partner-perinatal-depression]
+
+- id: card-panda-male-counsellors
+  title: PANDA has male counsellors, and nearly 1 in 10 callers are men
+  type: card
+  topic: partner
+  ask: "Is the PANDA line only for mums?"
+  aliases: [PANDA dads, men call PANDA]
+  weeks: [1, 42]
+  who: partner
+  priority: 2
+  stakes: medium
+  covers:
+    - "1300 726 306; you can ask for a male counsellor; almost 1 in 10 helpline callers are men (PANDA)"
+  sources:
+    - title: PANDA — Perinatal anxiety and depression in dads, signs and symptoms
+      url: https://www.panda.org.au/articles/perinatal-anxiety-and-depression-in-dads-signs-and-symptoms
+  related: [partner-mental-health-support]
+
+- id: card-one-in-three-traumatic
+  title: Up to 1 in 3 people find their birth traumatic
+  type: card
+  topic: mental-health
+  ask: "Is it normal to feel traumatised by a 'normal' birth?"
+  aliases: [birth trauma stat, 1 in 3 births]
+  weeks: [30, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "up to 1 in 3 see their birth as traumatic in some way (PBB, Gidget); it need not have been medically dramatic"
+    - "a debrief and support exist"
+  sources:
+    - title: Pregnancy, Birth and Baby — Traumatic childbirth experience
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/birth-trauma-emotional
+    - title: Gidget Foundation — Birth trauma
+      url: https://www.gidgetfoundation.org.au/fact-sheets/birth-trauma
+  related: [birth-trauma]
+
+- id: card-partner-trauma-too
+  title: The partner who watched can be traumatised by the birth too
+  type: card
+  topic: partner
+  ask: "Can the partner get PTSD from the birth?"
+  aliases: [partner birth trauma, witnessed birth]
+  weeks: [30, 42]
+  who: partner
+  priority: 2
+  stakes: medium
+  covers:
+    - "the non-pregnant partner can experience psychological trauma after birth (PBB postpartum PTSD); Birth Trauma Australia has a page for fathers and partners"
+  sources:
+    - title: Pregnancy, Birth and Baby — Postpartum PTSD
+      url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/postpartum-ptsd
+    - title: Birth Trauma Australia — Fathers and partners
+      url: https://birthtrauma.org.au/fathers-and-partners/
+  related: [birth-trauma, birth-support-person]
+
+- id: card-not-bonded-yet
+  title: "Not feeling bonded yet is common, and it isn't a verdict"
+  type: card
+  topic: mental-health
+  ask: "Shouldn't I love the baby already?"
+  aliases: [no bond, don't feel it yet]
+  weeks: [6, 30]
+  priority: 2
+  stakes: low
+  covers:
+    - "bonding starts in pregnancy for some, later for others; partners and siblings can start too (PBB)"
+  sources:
+    - title: Pregnancy, Birth and Baby — Bonding with your baby during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/bonding-with-your-baby-during-pregnancy
+  related: [bonding-before-birth]
+
+- id: card-intrusive-thoughts-common
+  title: "More than 80 per cent of expectant parents have scary thoughts they didn't choose"
+  type: card
+  topic: mental-health
+  ask: "Why do I keep picturing something awful?"
+  aliases: [scary thoughts common]
+  weeks: [8, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "more than 80 per cent of expectant and new parents have intrusive thoughts from time to time (Gidget); having one is not wanting it"
+  sources:
+    - title: Gidget Foundation — Intrusive thoughts, what are they and how do we deal with them?
+      url: https://www.gidgetfoundation.org.au/fact-sheets/intrusive-thoughts-what-are-they-and-how-do-we-deal-with-them
+  related: [intrusive-thoughts]
+
+- id: card-mood-swings-not-personal
+  title: The mood swings are not about you
+  type: card
+  topic: partner
+  ask: "Why is she so angry with me?"
+  aliases: [mood swings partner, don't take it personally]
+  weeks: [4, 42]
+  who: partner
+  priority: 1
+  stakes: low
+  covers:
+    - "PBB's advice to partners: she may have mood swings; try not to take it personally"
+  sources:
+    - title: Pregnancy, Birth and Baby — Supporting your partner during their pregnancy
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/supporting-your-partner-during-pregnancy
+  related: [mood-swings]
+
+- id: card-you-will-be-asked-about-your-mood
+  title: "The midwife will hand you a mood questionnaire, and it's worth answering honestly"
+  type: card
+  topic: mental-health
+  ask: "What's the questionnaire about how I feel?"
+  aliases: [EPDS card, mood questions]
+  weeks: [8, 20]
+  priority: 2
+  stakes: medium
+  covers:
+    - "most women in Australia are screened for depression in pregnancy and again after (the Royal Women's); the usual tool is the EPDS (Gidget)"
+  sources:
+    - title: The Royal Women's Hospital — Mental health & pregnancy
+      url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy
+    - title: Gidget Foundation — Screening and assessment for PNDA
+      url: https://www.gidgetfoundation.org.au/health-professionals/screening-and-assessment-for-pnda
+  related: [mental-health-screening-epds]
+
+- id: card-asked-about-safety
+  title: "You may be asked if you feel safe at home. It's routine, and it's a door."
+  type: card
+  topic: special-circumstances
+  ask: "Why did the midwife ask if I'm safe at home?"
+  aliases: [safe at home question, asked alone]
+  weeks: [8, 20]
+  priority: 2
+  stakes: high
+  covers:
+    - "family violence can start or get worse in pregnancy, so care teams ask; you can talk to your doctor or midwife, or 1800RESPECT (PBB)"
+  sources:
+    - title: Pregnancy, Birth and Baby — Family violence during pregnancy
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/family-violence-and-abuse/family-violence-during-pregnancy
+  related: [domestic-violence-in-pregnancy]
+  notes: "Never saved to the shared deck; see the family violence entry's note."
+
+- id: card-support-person-helps
+  title: A good support person lowers the odds of needing pain relief, forceps or a caesarean
+  type: card
+  topic: partner
+  ask: "Does it matter who's in the room?"
+  aliases: [birth partner matters, support person outcomes]
+  weeks: [28, 42]
+  who: partner
+  priority: 1
+  stakes: medium
+  covers:
+    - "PBB: a birth support partner can make the birth more positive and reduce the chance of needing pain relief, an assisted birth or a caesarean"
+  sources:
+    - title: Pregnancy, Birth and Baby — The role of a birth support partner
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
+  related: [birth-support-person]
+
+- id: card-gender-disappointment-real
+  title: "Being disappointed by the baby's sex is real, common, and passes"
+  type: card
+  topic: mental-health
+  ask: "Am I a terrible person for being disappointed?"
+  aliases: [gender disappointment card]
+  weeks: [10, 24]
+  priority: 3
+  stakes: low
+  covers:
+    - "Gidget: it is real but hard to discuss; early testing and reveals make it more common"
+  sources:
+    - title: Gidget Foundation — Gender disappointment
+      url: https://www.gidgetfoundation.org.au/fact-sheets/gender-disappointment
+  related: [gender-disappointment]
+
+- id: card-anxiety-in-dads
+  title: 1 in 6 partners are anxious during the pregnancy
+  type: card
+  topic: partner
+  ask: "Is it normal for the dad to be the anxious one?"
+  aliases: [dads anxiety stat]
+  weeks: [4, 42]
+  who: partner
+  priority: 2
+  stakes: medium
+  covers:
+    - "anxiety affects 1 in 6 fathers during their partner's pregnancy and about 1 in 5 after (PBB)"
+  sources:
+    - title: Pregnancy, Birth and Baby — Fathers and depression
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/fathers-and-depression
+  related: [partner-perinatal-depression]
+
+- id: card-telling-no-rule
+  title: "There is no 12-week rule, only a question: who would you want around if it went wrong?"
+  type: card
+  topic: relationships
+  ask: "Do we have to wait 12 weeks to tell people?"
+  aliases: [12 week rule myth]
+  weeks: [4, 12]
+  priority: 1
+  stakes: low
+  covers:
+    - "PBB frames the timing by how you would want to handle a miscarriage, privately or with support; telling a few people early means support if it happens"
+  sources:
+    - title: Pregnancy, Birth and Baby — When to tell people you are pregnant
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/when-to-tell-people-you-are-pregnant
+  related: [telling-people]
+
+- id: card-partner-left-out
+  title: "Most partners feel on the outside at some point. That's a cue to grab something, not step back."
+  type: card
+  topic: partner
+  ask: "Is it normal to feel useless?"
+  aliases: [feel useless, outside]
+  weeks: [4, 42]
+  who: partner
+  priority: 1
+  stakes: low
+  covers:
+    - "MensLine's first-time dad page: if you feel she has the greater role and you are on the outside, there are ways in (ask what help she needs, take the house, bond with the baby)"
+  sources:
+    - title: MensLine Australia — First time dad
+      url: https://mensline.org.au/being-a-dad/first-time-dad/
+  related: [partner-feeling-left-out]
+
+- id: card-loss-certificate-exists
+  title: Every state offers a certificate for a baby lost before 20 weeks
+  type: card
+  topic: loss
+  ask: "Is there anything official for an early loss?"
+  aliases: [early pregnancy loss certificate card]
+  weeks: [4, 20]
+  priority: 2
+  stakes: low
+  covers:
+    - "a loss before 20 weeks isn't registered, but an optional early pregnancy loss certificate exists in every state and territory (PBB, Miscarriage Australia)"
+  sources:
+    - title: Pregnancy, Birth and Baby — What happens after a miscarriage
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-happens-after-miscarriage
+    - title: Miscarriage Australia — Ways to remember your baby
+      url: https://miscarriageaustralia.com.au/after-a-miscarriage/ive-just-miscarried-what-happens-now/ways-to-remember-your-baby/
+  related: [remembering-the-baby]
+  notes: "Quiet path only."
+
+- id: card-bereavement-leave-for-loss
+  title: Both of you can take paid compassionate leave for a miscarriage
+  type: card
+  topic: loss
+  ask: "Can my partner take leave for my miscarriage?"
+  aliases: [bereavement leave card, 2 days leave]
+  weeks: [4, 20]
+  priority: 2
+  stakes: medium
+  covers:
+    - "2 days' paid leave for a pregnancy loss, for you or your partner, under the Fair Work Act; some employers give more (Miscarriage Australia)"
+  sources:
+    - title: Miscarriage Australia — Taking time off work
+      url: https://miscarriageaustralia.com.au/after-a-miscarriage/ive-just-miscarried-what-happens-now/taking-time-off-work/
+  related: [loss-and-work]
+  notes: "Quiet path only. Confirm wording against Fair Work's compassionate leave page."
+
+- id: card-late-miscarriage-labour
+  title: A loss after about 13 weeks usually means going through labour
+  type: card
+  topic: loss
+  ask: "Why do I have to give birth after a miscarriage?"
+  aliases: [late miscarriage labour card]
+  weeks: [13, 20]
+  priority: 3
+  stakes: high
+  covers:
+    - "for a late miscarriage you will usually need to go through labour and birth, often started with medicine; you can ask for a private space on the ward (PBB)"
+  sources:
+    - title: Pregnancy, Birth and Baby — What is a late miscarriage?
+      url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-is-a-late-miscarriage
+  related: [late-miscarriage]
+  notes: "Quiet path only."
+
+- id: card-twins-more-appointments
+  title: Twins means more appointments, more scans, and probably an earlier birth
+  type: card
+  topic: special-circumstances
+  ask: "What changes with twins?"
+  aliases: [twins card]
+  weeks: [8, 36]
+  priority: 2
+  stakes: medium
+  covers:
+    - "more antenatal appointments and ultrasounds; more likely to be born before 37 weeks; a hospital that can care for twins (PBB)"
+  sources:
+    - title: Pregnancy, Birth and Baby — Pregnant with twins
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy
+  related: [twins-and-multiples-support]
+
+- id: card-village-has-changed
+  title: "The village has changed: most people now live far from the family that used to be it"
+  type: card
+  topic: relationships
+  ask: "Why does everyone say it takes a village when we don't have one?"
+  aliases: [village card, no family nearby]
+  weeks: [12, 42]
+  priority: 2
+  stakes: low
+  covers:
+    - "Gidget: so many live away from their families of origin that the village has to be built; ask grandparents and friends for the specific help you want"
+  sources:
+    - title: Gidget Foundation — How can support people help expectant and new parents?
+      url: https://www.gidgetfoundation.org.au/fact-sheets/how-can-support-people-help-expectant-and-new-parents
+  related: [building-your-village, grandparents-and-boundaries]
+
+- id: card-older-child-regresses
+  title: "Your toddler may go backwards when the baby comes. That's normal."
+  type: card
+  topic: relationships
+  ask: "Why has our toddler started acting like a baby?"
+  aliases: [regression card, toddler jealous]
+  weeks: [24, 42]
+  priority: 2
+  stakes: low
+  covers:
+    - "toddlers often feel left out, blame the baby, or regress; a hospital visit to meet the baby helps (PBB)"
+  sources:
+    - title: Pregnancy, Birth and Baby — Toddler and the new baby
+      url: https://www.pregnancybirthbaby.org.au/children/behaviours-and-emotions/toddler-and-the-new-baby
+  related: [preparing-an-older-child]
+
+- id: card-pets-need-prep
+  title: Walk the dog with the empty pram now
+  type: card
+  topic: relationships
+  ask: "How do we get the dog used to the pram?"
+  aliases: [pram and dog card]
+  weeks: [24, 40]
+  priority: 3
+  stakes: low
+  covers:
+    - "PBB: practise walking the dog on the lead while pushing the pram, and book obedience training before the baby comes"
+  sources:
+    - title: Pregnancy, Birth and Baby — Getting your pets ready for baby to arrive
+      url: https://www.pregnancybirthbaby.org.au/parenting-and-family/parenting-skills-and-daily-life/getting-your-pets-ready-for-baby-to-arrive
+  related: [pets-and-the-baby]
+
+- id: card-free-counselling-exists
+  title: "Free perinatal counselling exists: up to 10 bulk-billed sessions a year through Gidget"
+  type: card
+  topic: mental-health
+  ask: "Can we afford a psychologist?"
+  aliases: [free psychologist, Gidget House, bulk billed]
+  weeks: [1, 42]
+  priority: 2
+  stakes: medium
+  covers:
+    - "Gidget Foundation offers up to 10 Medicare bulk-billed sessions a year with a perinatal specialist, in person or by telehealth; you need a GP Mental Health Care Plan and referral"
+  sources:
+    - title: Gidget Foundation — How to access counselling
+      url: https://www.gidgetfoundation.org.au/fact-sheets/how-to-access-counselling
+    - title: Gidget Foundation — Gidget House
+      url: https://www.gidgetfoundation.org.au/support/gidget-house
+  related: [perinatal-mental-health-help]
+
+- id: card-red-nose-24-7
+  title: There is a 24-hour line for anyone grieving a baby, at any stage, including partners and grandparents
+  type: card
+  topic: loss
+  ask: "Who can I call at 3am after a loss?"
+  aliases: [Red Nose 1300 308 307, grief line]
+  weeks: [1, 42]
+  priority: 1
+  stakes: high
+  covers:
+    - "Red Nose Grief and Loss, 1300 308 307, 24/7; for miscarriage, ectopic, medical termination, stillbirth and newborn death; for parents, siblings and grandparents (Red Nose)"
+  sources:
+    - title: Red Nose — Grief and loss support
+      url: https://rednose.org.au/grief-and-loss-support/overview/
+  related: [loss-support-services]
+  notes: "Quiet path only."

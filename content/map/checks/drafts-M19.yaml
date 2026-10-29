@@ -1,0 +1,178 @@
+# Fact-check of drafts-M19 (20 term drafts, body-and-baby.yaml), 2026-10-29.
+# Every claim checked against the pages in each draft's sources (re-fetched today).
+# Key points: low-lying placenta vs praevia now says only what PBB and RWH say; ECV timing credits
+# RANZCOG (36), PBB ECV page (after 37, first baby after 36) and PBB glossary (after 37); waters-breaking
+# urgency is each page's own (malpresentation "seek medical help immediately", breech "call 000",
+# cord prolapse "go to hospital urgently", with 000 first for a felt cord).
+# term-ecv has no `checked:`: the RANZCOG leaflet PDF could not be read in full by text extraction, so its
+# "discuss at 36 weeks" line was not re-confirmed by this checker (an earlier checker, drafts-M11, recorded it as verified).
+
+- id: term-neural-tube-defect
+  file: content/drafts/term-neural-tube-defect.md
+  verdict: ok
+- id: term-viable
+  file: content/drafts/term-viable.md
+  verdict: fix
+  problems:
+    - claim: "so an early scan may be described as showing a viable pregnancy"
+      judgement: unsupported
+      source_says: "BHC: 'Viable pregnancy – a pregnancy that is likely to continue to full term'; 'In most cases, an ectopic pregnancy is not viable.' Nothing about scans."
+      url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth
+      fixed_to: "cut"
+- id: term-sga
+  file: content/drafts/term-sga.md
+  verdict: ok
+- id: term-lga
+  file: content/drafts/term-lga.md
+  verdict: ok
+- id: term-fgr
+  file: content/drafts/term-fgr.md
+  verdict: ok
+- id: term-meconium
+  file: content/drafts/term-meconium.md
+  verdict: fix
+  problems:
+    - claim: "Sometimes it's passed before birth, often during labour"
+      judgement: unsupported
+      source_says: "PBB week 38: 'The meconium inside your baby's bowel can sometimes be released during labour.' Glossary: 'sometimes in utero'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-38
+      fixed_to: "Sometimes it's passed before birth, such as during labour"
+- id: term-polyhydramnios
+  file: content/drafts/term-polyhydramnios.md
+  verdict: ok
+- id: term-oligohydramnios
+  file: content/drafts/term-oligohydramnios.md
+  verdict: ok
+- id: term-low-lying-placenta
+  file: content/drafts/term-low-lying-placenta.md
+  verdict: fix
+  problems:
+    - claim: "Placenta praevia is when it covers the cervix; the two terms are sometimes used for each other."
+      judgement: wrong
+      source_says: "PBB: praevia is 'very close to your cervix, or covers it entirely' and 'sometimes called a low-lying placenta'; its list of terms gives low-lying as 'close to the cervix (within 2cm) without covering it' and 'placenta previa' as covering it. RWH heads one problem 'Low lying placenta (Placenta praevia)': some or all of the placenta in the lower uterus."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-praevia
+      fixed_to: "Both pages' usage stated and credited (PBB's definitions and its 'sometimes called', RWH's combined heading)."
+    - claim: "as your uterus stretches, the placenta generally moves higher"
+      judgement: wrong
+      source_says: "PBB: 'the placenta can move up away from your cervix ... it may resolve'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-praevia
+      fixed_to: "the placenta can \"move up\" away from your cervix"
+    - claim: "summary: often moves up before the baby is due"
+      judgement: wrong
+      source_says: "PBB: 'it resolves before your baby is due'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-praevia
+      fixed_to: "often resolves before the baby is due"
+- id: term-placenta-praevia
+  file: content/drafts/term-placenta-praevia.md
+  verdict: fix
+  problems:
+    - claim: "If it's heavy, or comes with pain or contractions, call triple zero (000) for an ambulance or go to emergency."
+      judgement: wrong
+      source_says: "PBB warnings: 'If you experience bleeding ... contact your midwife or doctor immediately. If the bleeding or pain are severe, call triple zero (000) and ask for an ambulance.' and 'If the bleeding is heavy and if you have pain or contractions with the bleeding call triple zero (000) and ask for an ambulance or go to your nearest hospital emergency department.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-praevia
+      fixed_to: "both PBB warnings given in their own wording"
+    - claim: "summary: a caesarean is often needed; body: the Royal Women's Hospital says that in most cases you will need a caesarean"
+      judgement: unsupported
+      source_says: "PBB: 'In some cases of placenta praevia, it will be safest to birth your baby via caesarean section.' RWH: 'In most cases you will need a caesarean birth.'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-praevia
+      fixed_to: "summary 'a caesarean may be needed'; body gives PBB 'some cases' and RWH 'most cases', each credited"
+- id: term-placental-abruption
+  file: content/drafts/term-placental-abruption.md
+  verdict: fix
+  problems:
+    - claim: "If you have bleeding, contact your midwife or doctor straight away."
+      judgement: wrong
+      source_says: "PBB warning: 'contact your midwife or doctor immediately'"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placental-abruption
+      fixed_to: "contact your midwife or doctor immediately"
+- id: term-placenta-accreta
+  file: content/drafts/term-placenta-accreta.md
+  verdict: fix
+  problems:
+    - claim: "It is usually found on a routine ultrasound, sometimes confirmed by MRI. ... usually a caesarean in a major hospital, often early."
+      judgement: wrong
+      source_says: "PBB: 'can be difficult to diagnose. Your doctor may diagnose the condition during routine antenatal ultrasound ... may send you for an MRI ... may also only be discovered after your baby's birth.' 'usually best to give birth in a major hospital'; 'In most cases ... safest to deliver your baby by caesarean'; 'usually means you will need to have your baby early'."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-accreta
+      fixed_to: "reworded to the page's levels"
+- id: term-retained-placenta
+  file: content/drafts/term-retained-placenta.md
+  verdict: fix
+  problems:
+    - claim: "Contact your doctor or medical team as soon as possible if you have heavy bleeding or pain...; if it becomes more severe, call triple zero (000)."
+      judgement: wrong
+      source_says: "PBB top warning: 'contact your midwife or doctor immediately. If the bleeding or pain are severe, call triple zero (000) and ask for an ambulance.' Symptoms section: 'Contact your doctor or medical team as soon as possible ... If the bleeding or pain become more severe, call triple zero (000).'"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/retained-placenta
+      fixed_to: "both levels given in the page's own wording"
+- id: term-single-umbilical-artery
+  file: content/drafts/term-single-umbilical-artery.md
+  verdict: fix
+  problems:
+    - claim: "you'll have repeat scans to check the baby's growth, and a check after birth, often with a kidney ultrasound"
+      judgement: wrong
+      source_says: "'Isolated SUA should have close clinical follow up to assess intrauterine growth with repeat ultrasound scans as indicated clinically'; 'Follow-up should include a renal ultrasound unless adequate antenatal ultrasound imaging of the kidneys is available.'"
+      url: https://www.safercare.vic.gov.au/clinical-guidance/neonatal/single-umbilical-artery
+      fixed_to: "the page's wording"
+    - claim: "It can show on an ultrasound"
+      judgement: unsupported
+      source_says: "'Antenatal diagnosis of a single umbilical artery may be impeded by fetal position.'"
+      url: https://www.safercare.vic.gov.au/clinical-guidance/neonatal/single-umbilical-artery
+      fixed_to: "may be associated with other birth defects, and can be hard to see depending on the baby's position"
+    - claim: "(page not flagged as dated)"
+      judgement: unsupported
+      source_says: "First published December 2017, review by December 2020; 'some guidelines may be past their review date. The review process is currently paused.'"
+      url: https://www.safercare.vic.gov.au/clinical-guidance/neonatal/single-umbilical-artery
+      fixed_to: "dated status stated in the body"
+- id: term-cord-prolapse
+  file: content/drafts/term-cord-prolapse.md
+  verdict: fix
+  problems:
+    - claim: "While you wait, kneel with your knees to your chest and your head down."
+      judgement: wrong
+      source_says: "'While you're waiting for the ambulance, you may be asked to bring your knees to your chest with your head facing down.'"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/umbilical-cord-prolapse
+      fixed_to: "page's wording; also added its 'go to hospital urgently' line for a baby not head down when waters break"
+    - claim: "cutting the baby's oxygen"
+      judgement: wrong
+      source_says: "'can reduce the flow of oxygen to your baby'"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/umbilical-cord-prolapse
+      fixed_to: "can reduce the flow of oxygen to your baby"
+- id: term-breech
+  file: content/drafts/term-breech.md
+  verdict: fix
+  problems:
+    - claim: "Br is the shorthand you may see in your notes."
+      judgement: unsupported
+      source_says: "No cited page (PBB glossary, PBB Breech, RANZCOG) gives 'Br'."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
+      fixed_to: "cut; replaced with the breech page's waters-breaking line (call 000 and ask for an ambulance) and cord prolapse note"
+- id: term-footling-breech
+  file: content/drafts/term-footling-breech.md
+  verdict: ok
+- id: term-transverse-lie
+  file: content/drafts/term-transverse-lie.md
+  verdict: ok
+- id: term-malpresentation
+  file: content/drafts/term-malpresentation.md
+  verdict: fix
+  problems:
+    - claim: "(waters-breaking warning missing)"
+      judgement: unsupported
+      source_says: "PBB warning: 'If your waters break and you have been told that your baby is not in a head-first position, seek medical help immediately.' 'There is a serious risk of cord prolapse...'"
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/malpresentation
+      fixed_to: "added in the page's wording"
+- id: term-ecv
+  file: content/drafts/term-ecv.md
+  verdict: fix
+  problems:
+    - claim: "Pregnancy, Birth and Baby says it's usually recommended after 37 weeks, or after 36 if this is your first baby."
+      judgement: wrong
+      source_says: "PBB ECV page: 'usually recommended after 37 weeks ... If this is your first baby, you might be offered an ECV after 36 weeks.' PBB glossary: 'may be offered if your baby is in the breech position after 37 weeks'."
+      url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/external-cephalic-version-ecv
+      fixed_to: "each page's wording credited"
+    - claim: "RANZCOG says it should be discussed if your baby is still breech at 36 weeks"
+      judgement: unchecked
+      source_says: "Leaflet PDF text could not be fully extracted here; the 36-week line was not seen. Leaflet confirmed: ECV successful 50% of the time, done where emergency caesarean is possible. drafts-M11 recorded the 36-week line as verified."
+      url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Breech-presentation-at-the-end-of-your-pregnancy.pdf
+      fixed_to: "left as drafted; checked: not added"
+
+# Follow-up (main session): term-ecv marked checked; RANZCOG leaflet "discuss at 36 weeks" was confirmed by the M11 check the same day (drafts-M11.yaml).

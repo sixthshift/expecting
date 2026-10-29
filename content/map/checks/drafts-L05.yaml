@@ -1,0 +1,239 @@
+# Drafts batch L05 fact-check, 2026-10-29. Each claim checked against the pages in `sources:`.
+- id: dad-and-partner-pay
+  file: content/drafts/dad-and-partner-pay.md
+  verdict: ok
+  problems: []
+- id: parental-leave-pay-superannuation
+  file: content/drafts/parental-leave-pay-superannuation.md
+  verdict: fix
+  problems:
+    - claim: "The ATO asks you to check that your name and address match with both Services Australia and the ATO (and task title: match across the ATO, Services Australia and your super fund)"
+      judgement: unsupported
+      source_says: "ensuring your name and address in the super fund's records exactly match the details we have in our records. If you have changed your name, you will need to update your name with both the ATO and Services Australia."
+      url: https://www.ato.gov.au/individuals-and-families/super-for-individuals-and-families/super/growing-and-keeping-track-of-your-super/how-to-save-more-in-your-super/government-super-contributions/paid-parental-leave-superannuation-contribution
+      fixed_to: "fund's name and address must match ATO's records; both-agency update only kept for a name change; task title reworded"
+- id: keeping-in-touch-days
+  file: content/drafts/keeping-in-touch-days.md
+  verdict: fix
+  problems:
+    - claim: "points to Services Australia for more (no detail on how KIT days interact with Parental Leave Pay)"
+      judgement: unsupported
+      source_says: "We consider you're working on the day if you work for one hour or more. This includes keeping in touch with your workplace ... You must either select a new day to get it, or return the day to your balance to use later."
+      url: https://www.servicesaustralia.gov.au/if-you-work-day-parental-leave-pay
+      fixed_to: "added Services Australia page to sources and its rule, alongside FWO's 'paid as normal' wording"
+- id: my-health-record-for-baby
+  file: content/drafts/my-health-record-for-baby.md
+  verdict: fix
+  problems:
+    - claim: "a My Health Record for your baby is separate and doesn't replace the paper book"
+      judgement: unsupported
+      source_says: '"You can also register your baby for My Health Record." (infant health record page); no statement that it does or doesn''t replace the book'
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/infant-health-record
+      fixed_to: "you can also get a My Health Record for your baby (summary); sentence cut from body"
+    - claim: "registering them in myGov when you enrol your baby for Medicare"
+      judgement: unsupported
+      source_says: "When you register your newborn for Medicare, you can get a My Health Record for them as well."
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/my-health-record
+      fixed_to: "registering your newborn when you enrol your baby for Medicare"
+    - claim: "Whether your pregnancy results appear depends on your providers adding them."
+      judgement: unsupported
+      source_says: "(not stated)"
+      url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/my-health-record
+      fixed_to: 'cut'
+  # Colours by state checked: ACT, NSW, SA, Tas blue; NT yellow; Qld red; Vic green; WA purple, as PBB's list.
+- id: the-trimesters
+  file: content/drafts/the-trimesters.md
+  verdict: ok
+  problems: []
+  # PBB first-trimester page 12 wks; PBB 2nd-trimester page 14-27; PBB glossary 12 / 13-26 / 27; Better Health week-by-week 12 / 13-27 / 28-40; BH glossary 14 / 14-26 / 26+. All credited in draft.
+- id: term-trimester
+  file: content/drafts/term-trimester.md
+  verdict: ok
+  problems: []
+- id: term-first-trimester
+  file: content/drafts/term-first-trimester.md
+  verdict: ok
+  problems: []
+- id: term-second-trimester
+  file: content/drafts/term-second-trimester.md
+  verdict: ok
+  problems: []
+- id: term-third-trimester
+  file: content/drafts/term-third-trimester.md
+  verdict: ok
+  problems: []
+- id: the-umbilical-cord
+  file: content/drafts/the-umbilical-cord.md
+  verdict: fix
+  problems:
+    - claim: "it is past its review date (Safer Care Victoria single umbilical artery guidance)"
+      judgement: unsupported
+      source_says: "First published: December 2017 Review by: December 2020"
+      url: https://www.safercare.vic.gov.au/clinical-guidance/neonatal/single-umbilical-artery
+      fixed_to: "first published December 2017 with a review due by December 2020, so it is dated"
+- id: everyone-has-advice
+  file: content/drafts/everyone-has-advice.md
+  verdict: fix
+  problems:
+    - claim: "Advice starts arriving early and from everywhere: family, friends, strangers, the internet."
+      judgement: unsupported
+      source_says: "It is common for a baby's arrival to trigger an influx of advice from family, peers and even strangers"
+      url: https://www.gidgetfoundation.org.au/fact-sheets/adjusting-to-parenthood/managing-advice
+      fixed_to: "A baby's arrival can trigger an influx of advice from family, friends and even strangers."
+- id: card-two-weeks-before-you-existed
+  file: content/drafts/card-two-weeks-before-you-existed.md
+  verdict: ok
+  problems: []
+- id: card-not-bonded-yet
+  file: content/drafts/card-not-bonded-yet.md
+  verdict: fix
+  problems:
+    - claim: "anxious or low rather than excited"
+      judgement: wrong
+      source_says: "instead of being excited about the birth of your baby, you feel: stressed, confused, anxious, depressed"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/bonding-with-your-baby-during-pregnancy
+      fixed_to: "anxious or depressed rather than excited"
+- id: card-mood-swings-not-personal
+  file: content/drafts/card-mood-swings-not-personal.md
+  verdict: ok
+  problems: []
+- id: card-gender-disappointment-real
+  file: content/drafts/card-gender-disappointment-real.md
+  verdict: ok
+  problems: []
+- id: card-telling-no-rule
+  file: content/drafts/card-telling-no-rule.md
+  verdict: ok
+  problems: []
+- id: card-partner-left-out
+  file: content/drafts/card-partner-left-out.md
+  verdict: ok
+  problems: []
+- id: card-loss-certificate-exists
+  file: content/drafts/card-loss-certificate-exists.md
+  verdict: ok
+  problems: []
+- id: card-village-has-changed
+  file: content/drafts/card-village-has-changed.md
+  verdict: ok
+  problems: []
+- id: card-older-child-regresses
+  file: content/drafts/card-older-child-regresses.md
+  verdict: ok
+  problems: []
+- id: card-pets-need-prep
+  file: content/drafts/card-pets-need-prep.md
+  verdict: ok
+  problems: []
+- id: what-you-need-for-the-baby
+  file: content/drafts/what-you-need-for-the-baby.md
+  verdict: ok
+  problems: []
+- id: how-your-body-changes
+  file: content/drafts/how-your-body-changes.md
+  verdict: fix
+  problems:
+    - claim: "Cravings, constipation, and \"brain fog\", especially in the third trimester, are also usual."
+      judgement: unsupported
+      source_says: "Hormonal changes during pregnancy can also cause symptoms: food cravings, constipation; 'Brain fog' - pregnancy can affect brain function and memory, especially in the third trimester"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
+      fixed_to: "Hormonal changes can also cause food cravings and constipation, and pregnancy can affect brain function and memory (brain fog), especially in the third trimester."
+    - claim: "A range of emotions, positive and negative, is normal, including mood swings."
+      judgement: wrong
+      source_says: "a range of emotions ... All of these are normal. You may also experience strong emotions and mood swings, such as anxiety or depression."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
+      fixed_to: "range of emotions normal; separately, you may also have strong emotions and mood swings, such as anxiety or depression"
+- id: the-uterus-in-pregnancy
+  file: content/drafts/the-uterus-in-pregnancy.md
+  verdict: ok
+  problems: []
+- id: pregnancy-hormones
+  file: content/drafts/pregnancy-hormones.md
+  verdict: ok
+  problems: []
+- id: skin-in-pregnancy
+  file: content/drafts/skin-in-pregnancy.md
+  verdict: ok
+  problems: []
+- id: hair-and-nails-in-pregnancy
+  file: content/drafts/hair-and-nails-in-pregnancy.md
+  verdict: ok
+  problems: []
+- id: posture-and-back-care
+  file: content/drafts/posture-and-back-care.md
+  verdict: ok
+  problems: []
+- id: ligaments-and-joints-in-pregnancy
+  file: content/drafts/ligaments-and-joints-in-pregnancy.md
+  verdict: fix
+  problems:
+    - claim: "If you have back, pelvic or hip pain in pregnancy, see your doctor. (no more-urgent level)"
+      judgement: unsupported
+      source_says: "See your doctor immediately to check for other causes of your pain if you: have pain that occurs without movement; an unexpected fever; bleeding or fluid leaking from your vagina; losing weight without trying; difficulty controlling your bladder or bowels; numbness or weakness in your legs; a fall or an injury"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/pelvic-pain-during-pregnancy
+      fixed_to: "added the 'see your doctor immediately' list"
+- id: abdominal-muscles-and-separation
+  file: content/drafts/abdominal-muscles-and-separation.md
+  verdict: ok
+  problems: []
+- id: how-much-more-to-eat
+  file: content/drafts/how-much-more-to-eat.md
+  verdict: fix
+  problems:
+    - claim: "You may find it hard to eat larger meals later on"
+      judgement: unsupported
+      source_says: "While pregnant, you may find it hard to eat larger meals. Try eating smaller meals and have healthy snacks throughout the day."
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/weight-gain-in-pregnancy
+      fixed_to: "later on cut"
+- id: conception-to-embryo
+  file: content/drafts/conception-to-embryo.md
+  verdict: ok
+  problems: []
+- id: how-your-baby-develops
+  file: content/drafts/how-your-baby-develops.md
+  verdict: fix
+  problems:
+    - claim: "Around week 17 ... and the senses keep developing."
+      judgement: unsupported
+      source_says: "Week 17: taste buds are working and they can tell the difference between sweet and bitter. (senses continuing to develop is the week 24 page)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-17
+      fixed_to: "and their taste buds are working"
+- id: the-babys-senses
+  file: content/drafts/the-babys-senses.md
+  verdict: ok
+  problems: []
+- id: the-babys-lungs
+  file: content/drafts/the-babys-lungs.md
+  verdict: fix
+  problems:
+    - claim: "The lungs take the longest to be ready."
+      judgement: unsupported
+      source_says: "(not stated on any cited page)"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-37
+      fixed_to: 'cut'
+    - claim: "amniotic fluid they swallow and pass back out helps their lungs develop (source not listed)"
+      judgement: unsupported
+      source_says: '"This fluid helps to protect your baby and also supports development of their lungs, digestive system and muscles." (week 12 page)'
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-12
+      fixed_to: "week 12 page added to sources"
+    - claim: "surfactant starts around the middle of pregnancy / treat it as the middle of the second trimester onwards"
+      judgement: wrong
+      source_says: "week 23 lungs have started to produce surfactant; week 24 getting ready to produce; week 28 producing surfactant"
+      url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-23
+      fixed_to: "production under way by about week 23 to 28; treat it as somewhere between weeks 23 and 28"
+- id: term-gestational-age
+  file: content/drafts/term-gestational-age.md
+  verdict: ok
+  problems: []
+- id: term-completed-weeks
+  file: content/drafts/term-completed-weeks.md
+  verdict: ok
+  problems: []
+- id: term-lmp
+  file: content/drafts/term-lmp.md
+  verdict: ok
+  problems: []
+- id: term-edd
+  file: content/drafts/term-edd.md
+  verdict: ok
+  problems: []
