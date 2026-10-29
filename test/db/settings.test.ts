@@ -1,15 +1,15 @@
 import { expect, test } from "vitest";
-import { HouseholdRepo } from "../../src/db/models/household/repo";
+import { SettingsRepo } from "../../src/db/models/settings/repo";
 import { useTestDb } from "./helpers";
 
 const db = useTestDb();
 
 test("empty until a date is entered", () => {
-  expect(new HouseholdRepo(db()).get()).toEqual({ dueDate: null, baby: "unknown", onboardedAt: null });
+  expect(new SettingsRepo(db()).get()).toEqual({ dueDate: null, baby: "unknown", onboardedAt: null });
 });
 
 test("updates change only the fields given", () => {
-  const repo = new HouseholdRepo(db());
+  const repo = new SettingsRepo(db());
   repo.update({ dueDate: "2027-03-01" });
   repo.update({ baby: "boy" });
   expect(repo.get()).toEqual({ dueDate: "2027-03-01", baby: "boy", onboardedAt: null });
@@ -17,11 +17,11 @@ test("updates change only the fields given", () => {
   expect(repo.get()).toEqual({ dueDate: null, baby: "girl", onboardedAt: null });
 });
 
-test("there is only ever one household row", () => {
-  expect(() => db().run("INSERT INTO household (id, updated_at) VALUES (2, 'x')")).toThrow(/CHECK/);
+test("there is only ever one settings row", () => {
+  expect(() => db().run("INSERT INTO settings (id, updated_at) VALUES (2, 'x')")).toThrow(/CHECK/);
 });
 
 test("the baby is boy, girl or unknown, and nothing else", () => {
-  new HouseholdRepo(db()).update({ baby: "boy" });
-  expect(() => db().run("UPDATE household SET baby = 'twins'")).toThrow(/CHECK/);
+  new SettingsRepo(db()).update({ baby: "boy" });
+  expect(() => db().run("UPDATE settings SET baby = 'twins'")).toThrow(/CHECK/);
 });

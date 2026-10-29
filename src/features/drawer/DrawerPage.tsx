@@ -1,22 +1,20 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { Baby, Camera, ChevronRight, Luggage, Siren, Timer } from "lucide-react";
-import { useMemo } from "react";
+import { useExtras } from "../../api/rpc/extras";
+import { useNames } from "../../api/rpc/names";
+import { usePeople } from "../../api/rpc/people";
 import { Coming } from "../../components/Coming";
-import { todayISO } from "../../lib/dates";
+import { extrasOn } from "../../lib/extras";
 import { PillarHeader } from "../app/PillarLayout";
-import { householdQuery, namesQuery } from "../household/load";
-import { workOut } from "../household/workOut";
 import { NamesGame } from "../names/NamesGame";
 import { extra } from "../settings/model/extras";
 
 /** The handy things, each for its moment: Emergency info, the names (with the Choosing a name extra), the bump photos, the bag, the contractions. */
 export function DrawerPage() {
-  const { data: names } = useSuspenseQuery(namesQuery);
-  const { data: state } = useSuspenseQuery(householdQuery);
-  const today = todayISO();
-  const { extras } = useMemo(() => workOut(state, today), [state, today]);
-  const other = state.people.find((p) => p.id !== state.me?.id) ?? null;
+  const { data: names } = useNames();
+  const { me, people } = usePeople().data;
+  const { data: extras } = useExtras({ select: extrasOn });
+  const other = people.find((p) => p.id !== me?.id) ?? null;
   const naming = extra("choosing-names");
 
   return (

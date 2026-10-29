@@ -1,14 +1,13 @@
 import { Badge } from "@sixthshift/design-system/badge";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
-import { useMemo } from "react";
-import { todayISO } from "../../lib/dates";
+import { useChecklist } from "../../api/rpc/checklist";
+import { usePeople } from "../../api/rpc/people";
+import { useNow } from "../../api/rpc/settings";
 import { whose } from "../../lib/people";
 import { toDoNow, whenToDo } from "../../lib/todo";
-import { householdQuery } from "../household/load";
-import { workOut } from "../household/workOut";
 import { TaskRow } from "./TaskRow";
+import { useTasks } from "./useTasks";
 
 /** How many To do now shows before handing over to the Planner. */
 const SHOWN = 5;
@@ -19,11 +18,12 @@ const SHOWN = 5;
  * is in the Planner.
  */
 export function ToDoNow() {
-  const { data: state } = useSuspenseQuery(householdQuery);
-  const today = todayISO();
-  const { now, tasks } = useMemo(() => workOut(state, today), [state, today]);
+  const { me, people } = usePeople().data;
+  const { data: checklist } = useChecklist();
+  const now = useNow();
+  const tasks = useTasks();
   if (now === null) return null;
-  const list = toDoNow(tasks, state.ticks, now);
+  const list = toDoNow(tasks, checklist.ticks, now);
   const shown = list.slice(0, SHOWN);
 
   return (
@@ -51,7 +51,7 @@ export function ToDoNow() {
                     <span>{whenToDo(entry, now)}</span>
                   )}
                   {/* Both of yours is the usual; only one person's job says whose. */}
-                  {entry.task.who === "together" ? null : <span>{whose(entry.task.who, state.me, state.people)}</span>}
+                  {entry.task.who === "together" ? null : <span>{whose(entry.task.who, me, people)}</span>}
                 </span>
               }
               action={

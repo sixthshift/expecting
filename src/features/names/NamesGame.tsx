@@ -5,7 +5,7 @@ import { type FormEvent, useState } from "react";
 import { addName, removeName, voteName } from "../../api/rpc/names";
 import { type NamesView, nextToVote } from "../../lib/names";
 import type { Person } from "../../lib/people";
-import { useAction } from "../household/useAction";
+import { useAction } from "../app/useAction";
 
 /**
  * The names game: either of you adds names, and each votes on your own phone.

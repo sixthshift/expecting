@@ -3,12 +3,12 @@ import { ProgressBar } from "@sixthshift/design-system/progress-bar";
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
-import { saveHousehold } from "../../api/rpc/household";
+import { saveSettings } from "../../api/rpc/settings";
 import { DateForm } from "../../components/DateForm";
 import { sizeLabel, type WeekNote } from "../../content/weeks";
 import { daysBetween, formatDate, type ISODate, todayISO } from "../../lib/dates";
 import { dueDateBounds, gestationLabel, type Position, TERM_DAYS, WEEKS, type Week, weekDates, weekFromNow, weekLabel } from "../../lib/timeline";
-import { useAction } from "../household/useAction";
+import { useAction } from "../app/useAction";
 
 /** Where you are: "28+0 · 84 days to go · due Wed, 20 Jan 2027". */
 export function NowLine({ position, dueDate, today, small }: { position: Position; dueDate: ISODate; today: ISODate; small?: boolean }): ReactNode {
@@ -89,7 +89,7 @@ function WeekStepper({ week, now }: { week: Week; now: Week }) {
 /** No due date yet (onboarding skipped it). Entering one places "now". */
 export function Welcome() {
   const today = todayISO();
-  const [save] = useAction((dueDate: ISODate | null) => saveHousehold({ data: { dueDate } }));
+  const [save] = useAction((dueDate: ISODate | null) => saveSettings({ data: { dueDate } }));
   return (
     <Card size="lg" className="my-6 max-w-lg">
       <DateForm

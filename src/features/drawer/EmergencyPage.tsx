@@ -2,17 +2,18 @@ import { Button } from "@sixthshift/design-system/button";
 import { FormField } from "@sixthshift/design-system/form-field";
 import { Input } from "@sixthshift/design-system/input";
 import { Textarea } from "@sixthshift/design-system/textarea";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, Pencil, Phone } from "lucide-react";
-import { type FormEvent, useMemo, useState } from "react";
-import { saveEmergency } from "../../api/rpc/emergency";
-import { formatDate, isISODate, todayISO } from "../../lib/dates";
+import { type FormEvent, useState } from "react";
+import { saveEmergency, useEmergency } from "../../api/rpc/emergency";
+import { useAnswers } from "../../api/rpc/facts";
+import { usePeople } from "../../api/rpc/people";
+import { usePosition, useSettings } from "../../api/rpc/settings";
+import { formatDate, isISODate } from "../../lib/dates";
 import { ALWAYS, EMERGENCY, EMERGENCY_FIELDS, EMERGENCY_MAX, type EmergencyField, type EmergencyInfo, telHref } from "../../lib/emergency";
+import { factsOf } from "../../lib/facts";
 import { gestationLabel } from "../../lib/timeline";
-import { emergencyQuery, householdQuery } from "../household/load";
-import { useAction } from "../household/useAction";
-import { workOut } from "../household/workOut";
+import { useAction } from "../app/useAction";
 import { question, UNSURE } from "../settings/model/facts";
 
 /** The answers a doctor or paramedic would ask about, as the page shows them. */
@@ -30,7 +31,7 @@ const FROM_ANSWERS: readonly { id: string; label: string }[] = [
  * doctor will ask and the numbers you'll be asked for. Both of you fill it in.
  */
 export function EmergencyPage() {
-  const { data: emergency } = useSuspenseQuery(emergencyQuery);
+  const { data: emergency } = useEmergency();
   const [editing, setEditing] = useState(false);
 
   return (
@@ -55,17 +56,18 @@ export function EmergencyPage() {
 }
 
 function EmergencyView({ emergency }: { emergency: EmergencyInfo }) {
-  const { data: state } = useSuspenseQuery(householdQuery);
-  const today = todayISO();
-  const { position, facts } = useMemo(() => workOut(state, today), [state, today]);
-  const carrying = state.people.find((p) => p.role === "carrying");
-  const { dueDate } = state.household;
+  const { data: settings } = useSettings();
+  const { people } = usePeople().data;
+  const position = usePosition();
+  const { data: facts } = useAnswers({ select: factsOf });
+  const carrying = people.find((p) => p.role === "carrying");
+  const { dueDate } = settings;
   const answered = FROM_ANSWERS.flatMap(({ id, label }) => {
     const value = facts[id];
     const said = value && value !== UNSURE ? question(id)?.answers[value] : undefined;
     return said ? [{ id, label, said }] : [];
   });
-  const changedBy = emergency.changed?.by ? state.people.find((p) => p.id === emergency.changed?.by)?.name : undefined;
+  const changedBy = emergency.changed?.by ? people.find((p) => p.id === emergency.changed?.by)?.name : undefined;
   const changedOn = emergency.changed ? emergency.changed.at.slice(0, 10) : undefined;
 
   return (

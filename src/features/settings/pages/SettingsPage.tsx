@@ -1,21 +1,21 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { Button } from "@sixthshift/design-system/button";
 import { cn } from "@sixthshift/design-system/utils";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { getRouteApi } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
-import { saveHousehold } from "../../../api/rpc/household";
+import { useEffect, useState } from "react";
+import { useExtras } from "../../../api/rpc/extras";
+import { useAnswers } from "../../../api/rpc/facts";
+import { usePeople } from "../../../api/rpc/people";
+import { saveSettings, useNow, usePosition, useSettings } from "../../../api/rpc/settings";
 import { Page, Section } from "../../../components/Page";
 import { daysBetween, formatDate, todayISO } from "../../../lib/dates";
-import { asksFor, isSettled, latestByKey } from "../../../lib/facts";
+import { asksFor, factsOf, isSettled, latestByKey } from "../../../lib/facts";
 import type { Person, Role } from "../../../lib/people";
 import { gestationLabel } from "../../../lib/timeline";
 import { COMMIT, VERSION } from "../../../lib/version";
-import { DueDateForm } from "../../household/DueDateForm";
-import { householdQuery } from "../../household/load";
-import { useAction } from "../../household/useAction";
-import { workOut } from "../../household/workOut";
+import { useAction } from "../../app/useAction";
 import { ColourChoice } from "../components/colour/ColourChoice";
+import { DueDateForm } from "../components/dueDate/DueDateForm";
 import { ExtrasList } from "../components/extras/ExtrasList";
 import { FactRow } from "../components/facts/FactsForm";
 import { SettingList, SettingRow } from "../components/SettingRow";
@@ -43,15 +43,19 @@ const SECTIONS = [
  */
 export function SettingsPage() {
   const { ask } = route.useSearch();
-  const [save] = useAction((data: Parameters<typeof saveHousehold>[0]["data"]) => saveHousehold({ data }));
-  const { data: state } = useSuspenseQuery(householdQuery);
+  const [save] = useAction((data: Parameters<typeof saveSettings>[0]["data"]) => saveSettings({ data }));
+  const { data: settings } = useSettings();
+  const { data: answers } = useAnswers();
+  const { data: choices } = useExtras();
+  const { data: facts } = useAnswers({ select: factsOf });
+  const position = usePosition();
+  const now = useNow();
   const today = todayISO();
-  const { facts, position, now } = useMemo(() => workOut(state, today), [state, today]);
-  const { me, people } = state;
-  const { dueDate, baby } = state.household;
+  const { me, people } = usePeople().data;
+  const { dueDate, baby } = settings;
 
   const asks = asksFor(facts);
-  const latest = latestByKey(state.answers);
+  const latest = latestByKey(answers);
   const unsettled = asks.filter((a) => !isSettled(a, latest[a.key]));
   const total = asks.length + 1;
   const answered = total - unsettled.length - (dueDate ? 0 : 1);
@@ -199,7 +203,7 @@ export function SettingsPage() {
 
           <Section id="settings-extras" title="Extras" className="scroll-mt-6">
             <p className="-mt-1 text-sm text-fg-subtle">The parts of Expecting you choose. Each is off until one of you turns it on, and off means gone.</p>
-            <ExtrasList choices={state.extras} people={people} highlight={ask?.startsWith("extra:") ? ask.slice("extra:".length) : undefined} />
+            <ExtrasList choices={choices} people={people} highlight={ask?.startsWith("extra:") ? ask.slice("extra:".length) : undefined} />
           </Section>
 
           <Section id="settings-phone" title="This phone" className="scroll-mt-6">

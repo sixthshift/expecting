@@ -3,14 +3,14 @@ import { eq } from "drizzle-orm";
 import type { ISODate } from "../../../lib/dates";
 import type { Baby } from "../../../lib/theme";
 import { orm } from "../../connection/client";
-import { household } from "./schema";
+import { settings } from "./schema";
 
-/** The household's settings. Its answers are facts, in their own table (`../facts`). */
-export type Household = { dueDate: ISODate | null; baby: Baby; onboardedAt: string | null };
+/** The settings: the due date, the baby's colours, when onboarding finished. The answers are facts, in their own table (`../facts`). */
+export type Settings = { dueDate: ISODate | null; baby: Baby; onboardedAt: string | null };
 
 const ID = 1;
 
-export class HouseholdRepo {
+export class SettingsRepo {
   private readonly db;
 
   constructor(db: Database) {
@@ -18,8 +18,8 @@ export class HouseholdRepo {
   }
 
   /** The settings; no due date and the baby unknown before anything is entered. */
-  get(): Household {
-    const row = this.db.select().from(household).where(eq(household.id, ID)).get();
+  get(): Settings {
+    const row = this.db.select().from(settings).where(eq(settings.id, ID)).get();
     return {
       dueDate: (row?.dueDate as ISODate | null) ?? null,
       baby: row?.baby ?? "unknown",
@@ -28,7 +28,7 @@ export class HouseholdRepo {
   }
 
   /** Change the fields given; leave the rest. */
-  update(changes: Partial<Household>, now: Date = new Date()): Household {
+  update(changes: Partial<Settings>, now: Date = new Date()): Settings {
     const next = { ...this.get(), ...changes };
     const values = {
       id: ID,
@@ -38,10 +38,10 @@ export class HouseholdRepo {
       updatedAt: now.toISOString(),
     };
     this.db
-      .insert(household)
+      .insert(settings)
       .values(values)
       .onConflictDoUpdate({
-        target: household.id,
+        target: settings.id,
         set: {
           dueDate: values.dueDate,
           baby: values.baby,

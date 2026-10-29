@@ -1,27 +1,30 @@
 import { Spinner } from "@sixthshift/design-system/spinner";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { getRouteApi, Link } from "@tanstack/react-router";
 import { ArrowLeft, CalendarRange } from "lucide-react";
-import { Suspense, use, useMemo } from "react";
+import { Suspense, use } from "react";
+import { useChecklist } from "../../api/rpc/checklist";
+import { useExtras } from "../../api/rpc/extras";
+import { useAnswers } from "../../api/rpc/facts";
 import { builtInItems } from "../../content";
 import type { Item } from "../../content/schema";
-import { todayISO } from "../../lib/dates";
+import { extrasOn } from "../../lib/extras";
+import { factsOf } from "../../lib/facts";
 import { weekLabel } from "../../lib/timeline";
-import { householdQuery } from "../household/load";
-import { workOut } from "../household/workOut";
 import { extra } from "../settings/model/extras";
 import { ItemCard } from "./ItemCard";
 import { pageOf } from "./pageOf";
 import { Related } from "./Related";
+import { useItems } from "./useItems";
 
 const route = getRouteApi("/app/library/$itemId");
 
 /** One item on its own page, with the way to its week on the timeline. */
 export function LibraryItemPage() {
   const { itemId } = route.useParams();
-  const { data: state } = useSuspenseQuery(householdQuery);
-  const today = todayISO();
-  const { items, facts, extras } = useMemo(() => workOut(state, today), [state, today]);
+  const { data: checklist } = useChecklist();
+  const items = useItems();
+  const { data: facts } = useAnswers({ select: factsOf });
+  const { data: extras } = useExtras({ select: extrasOn });
   const item = items.find((i) => i.id === itemId);
   // Hidden by an answer, rather than not there at all: say so, and open settings at it.
   const hidden = item ? undefined : builtInItems.find((i) => i.id === itemId);
@@ -43,7 +46,7 @@ export function LibraryItemPage() {
               </p>
             }
           >
-            <Page item={item} ticks={state.ticks} />
+            <Page item={item} ticks={checklist.ticks} />
           </Suspense>
         </div>
       ) : (

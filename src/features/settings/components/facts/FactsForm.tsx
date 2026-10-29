@@ -1,20 +1,17 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { RadioButtonGroup } from "@sixthshift/design-system/radio-button-group";
 import { Select } from "@sixthshift/design-system/select";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
-import { useMemo } from "react";
+import { useExtras } from "../../../../api/rpc/extras";
 import { saveAnswer } from "../../../../api/rpc/facts";
 import { DateForm } from "../../../../components/DateForm";
 import { builtInItems } from "../../../../content";
 import { formatDate, type ISODate, todayISO } from "../../../../lib/dates";
-import { inExtras } from "../../../../lib/extras";
+import { extrasOn, inExtras } from "../../../../lib/extras";
 import { type Answer, decides, isSettled, nextAsked } from "../../../../lib/facts";
 import type { Person } from "../../../../lib/people";
 import type { Week } from "../../../../lib/timeline";
-import { householdQuery } from "../../../household/load";
-import { useAction } from "../../../household/useAction";
-import { workOut } from "../../../household/workOut";
+import { useAction } from "../../../app/useAction";
 import { type Ask, askedOf, type FactQuestion, UNSURE } from "../../model/facts";
 import { SettingRow } from "../SettingRow";
 
@@ -47,9 +44,7 @@ export function FactRow({
   const value = last?.value ?? undefined;
   const settled = isSettled(a, last);
   const again = dueDate && !settled ? nextAsked(a, last, dueDate) : null;
-  const { data: state } = useSuspenseQuery(householdQuery);
-  const today = todayISO();
-  const { extras } = useMemo(() => workOut(state, today), [state, today]);
+  const { data: extras } = useExtras({ select: extrasOn });
   // What it decides among everything that could show: not an extra that's off.
   const uses = open ? decides(a.question.id, builtInItems).filter((i) => inExtras(i.extra, extras)) : [];
 

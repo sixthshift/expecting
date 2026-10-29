@@ -1,14 +1,11 @@
 import { Card } from "@sixthshift/design-system/card";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
-import { useMemo } from "react";
-import { saveAnswer } from "../../../../api/rpc/facts";
+import { saveAnswer, useAnswers } from "../../../../api/rpc/facts";
+import { usePeople } from "../../../../api/rpc/people";
+import { useNow, useSettings } from "../../../../api/rpc/settings";
 import { DateForm } from "../../../../components/DateForm";
-import { todayISO } from "../../../../lib/dates";
 import { questionsDue } from "../../../../lib/facts";
-import { householdQuery } from "../../../household/load";
-import { useAction } from "../../../household/useAction";
-import { workOut } from "../../../household/workOut";
+import { useAction } from "../../../app/useAction";
 import { AnswerInput, askedOfIn } from "./FactsForm";
 
 /** How many questions This week asks at once; the rest wait their turn. */
@@ -20,13 +17,14 @@ const SHOWN = 3;
  * a few weeks. Every answer can be changed in settings.
  */
 export function AskNow() {
-  const { data: state } = useSuspenseQuery(householdQuery);
-  const today = todayISO();
-  const { now } = useMemo(() => workOut(state, today), [state, today]);
+  const { data: settings } = useSettings();
+  const { data: answers } = useAnswers();
+  const { people } = usePeople().data;
+  const now = useNow();
   const [save] = useAction((key: string, answer: string | null) => saveAnswer({ data: { key, answer } }));
-  const { dueDate } = state.household;
+  const { dueDate } = settings;
   if (now === null || !dueDate) return null;
-  const due = questionsDue({ answers: state.answers, now, dueDate });
+  const due = questionsDue({ answers, now, dueDate });
   if (due.length === 0) return null;
   const more = due.length - SHOWN;
 
@@ -38,7 +36,7 @@ export function AskNow() {
       <p className="text-sm text-fg-subtle">Your answers decide what's on your plan, and when.</p>
       <div className="flex flex-col gap-3">
         {due.slice(0, SHOWN).map((a) => {
-          const label = askedOfIn(a, state.people);
+          const label = askedOfIn(a, people);
           return (
             <Card key={a.key}>
               <fieldset className="flex flex-col items-start gap-2">

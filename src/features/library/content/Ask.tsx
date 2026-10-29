@@ -1,6 +1,6 @@
 import { Check, MessageCircleQuestion, Plus } from "lucide-react";
 import { addQuestion } from "../../../api/rpc/questions";
-import { useAction } from "../../household/useAction";
+import { useAction } from "../../app/useAction";
 import { useContentContext } from "./context";
 
 /** `{% ask "…" /%}`: a question worth asking at an appointment, added to your list in one tap. */

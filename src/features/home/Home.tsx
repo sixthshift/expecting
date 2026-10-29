@@ -1,21 +1,22 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { getRouteApi, Link } from "@tanstack/react-router";
 import { CalendarRange, ChevronRight, Settings } from "lucide-react";
-import { useMemo } from "react";
+import { useChecklist } from "../../api/rpc/checklist";
+import { useQuestions } from "../../api/rpc/questions";
+import { useNow, usePosition, useSettings } from "../../api/rpc/settings";
 import { weekNotes } from "../../content";
 import { asks } from "../../content/schema";
 import { noteFor } from "../../content/weeks";
 import { todayISO } from "../../lib/dates";
 import { askedWeeks } from "../../lib/timelineMap";
-import { householdQuery, questionsQuery } from "../household/load";
-import { workOut } from "../household/workOut";
 import { ItemList } from "../library/ItemList";
+import { useItems } from "../library/useItems";
 import { AskedQuestion, QuestionsWaiting } from "../questions/questions";
 import { OfferExtra } from "../settings/components/extras/OfferExtra";
 import { AskNow } from "../settings/components/facts/AskNow";
 import { ComingUp } from "../tasks/ComingUp";
 import { TaskRow } from "../tasks/TaskRow";
 import { ToDoNow } from "../tasks/ToDoNow";
+import { useTasks } from "../tasks/useTasks";
 import { WeekNote } from "../weeks/WeekNote";
 import { Hero, Welcome } from "./Now";
 
@@ -32,12 +33,16 @@ import { Hero, Welcome } from "./Now";
 const route = getRouteApi("/app/");
 
 export function Home() {
-  const { data: state } = useSuspenseQuery(householdQuery);
-  const { data: questions } = useSuspenseQuery(questionsQuery);
+  const { data: settings } = useSettings();
+  const { data: checklist } = useChecklist();
+  const position = usePosition();
+  const now = useNow();
+  const items = useItems();
+  const tasks = useTasks();
+  const { data: questions } = useQuestions();
   const today = todayISO();
-  const { position, now, items, tasks } = useMemo(() => workOut(state, today), [state, today]);
   const { at } = route.useSearch();
-  const { dueDate } = state.household;
+  const { dueDate } = settings;
   // The week shown: this one, or the one peeked at (only once there is a this week).
   const week = now === null ? null : (at ?? now);
   const peeking = week !== now;
@@ -116,7 +121,7 @@ export function Home() {
                     <TaskRow
                       key={task.id}
                       task={task}
-                      ticked={Boolean(state.ticks[task.id])}
+                      ticked={Boolean(checklist.ticks[task.id])}
                       meta={task.deadline === week ? "deadline" : undefined}
                       action={
                         task.itemId ? (

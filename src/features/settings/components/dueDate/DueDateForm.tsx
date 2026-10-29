@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { DateForm } from "../../components/DateForm";
-import { addDays, type ISODate, todayISO } from "../../lib/dates";
-import { dueDateBounds, TERM_DAYS } from "../../lib/timeline";
+import { DateForm } from "../../../../components/DateForm";
+import { addDays, type ISODate, todayISO } from "../../../../lib/dates";
+import { dueDateBounds, TERM_DAYS } from "../../../../lib/timeline";
 
 type Props = {
   value: ISODate | null;

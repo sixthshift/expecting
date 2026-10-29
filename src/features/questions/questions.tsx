@@ -10,7 +10,7 @@ import { type FormEvent, useState } from "react";
 import { addQuestion, deleteQuestion, markAsked, reopenQuestion } from "../../api/rpc/questions";
 import { formatDate, todayISO } from "../../lib/dates";
 import type { Question } from "../../lib/questions";
-import { useAction } from "../household/useAction";
+import { useAction } from "../app/useAction";
 
 export function AddQuestion() {
   const [text, setText] = useState("");

@@ -1,12 +1,11 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
-import { useMemo } from "react";
-import { todayISO } from "../../lib/dates";
+import { useChecklist } from "../../api/rpc/checklist";
+import { usePeople } from "../../api/rpc/people";
+import { useNow } from "../../api/rpc/settings";
 import { whose } from "../../lib/people";
 import { weekLabel } from "../../lib/timeline";
 import { comingUp } from "../../lib/todo";
-import { householdQuery } from "../household/load";
-import { workOut } from "../household/workOut";
+import { useTasks } from "./useTasks";
 
 /** How many Coming up shows; the Planner has the rest. */
 const SHOWN = 5;
@@ -16,11 +15,12 @@ const SHOWN = 5;
  * nothing arrives as a surprise. Each one goes to why it matters.
  */
 export function ComingUp() {
-  const { data: state } = useSuspenseQuery(householdQuery);
-  const today = todayISO();
-  const { now, tasks } = useMemo(() => workOut(state, today), [state, today]);
+  const { me, people } = usePeople().data;
+  const { data: checklist } = useChecklist();
+  const now = useNow();
+  const tasks = useTasks();
   if (now === null) return null;
-  const list = comingUp(tasks, state.ticks, now).slice(0, SHOWN);
+  const list = comingUp(tasks, checklist.ticks, now).slice(0, SHOWN);
   if (list.length === 0) return null;
 
   return (
@@ -37,7 +37,7 @@ export function ComingUp() {
                 <span className="text-fg-normal">{task.title}</span>
                 <span className="text-xs text-fg-subtle">
                   {deadline ? "deadline" : "best done by then"}
-                  {task.who === "together" ? null : ` · ${whose(task.who, state.me, state.people)}`}
+                  {task.who === "together" ? null : ` · ${whose(task.who, me, people)}`}
                 </span>
               </span>
             </>

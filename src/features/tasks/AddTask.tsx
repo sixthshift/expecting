@@ -5,7 +5,7 @@ import { type FormEvent, useState } from "react";
 import { addOwnTask, deleteOwnTask } from "../../api/rpc/checklist";
 import type { Task } from "../../content/schema";
 import { type Week, weekLabel } from "../../lib/timeline";
-import { useAction } from "../household/useAction";
+import { useAction } from "../app/useAction";
 
 /** A task of our own, for the odd thing Expecting couldn't know: added in the Planner, for this week. */
 export function AddTask({ week }: { week: Week }) {

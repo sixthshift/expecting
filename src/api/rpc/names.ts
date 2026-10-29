@@ -1,6 +1,7 @@
 // The names game. Every call is as the person holding this phone: the server
 // only ever returns their own votes, and the matches.
 
+import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { NamesRepo } from "../../db/models/names/repo";
@@ -38,3 +39,12 @@ export const removeName = createServerFn({ method: "POST" })
     player();
     new NamesRepo(getDb()).remove(data.id);
   });
+
+/** The names game, as this phone's person sees it. */
+export type Names = Awaited<ReturnType<typeof getNames>>;
+export const namesQuery = queryOptions({ queryKey: ["names"], queryFn: () => getNames() });
+
+/** namesQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
+export function useNames<TData = Names>(options?: Omit<UseSuspenseQueryOptions<Names, Error, TData, string[]>, "queryKey" | "queryFn">) {
+  return useSuspenseQuery({ ...namesQuery, ...options } as UseSuspenseQueryOptions<Names, Error, TData, string[]>);
+}

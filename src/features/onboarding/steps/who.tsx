@@ -10,8 +10,7 @@ import { Choices } from "../parts";
 import type { Advance, Screen, StepContext } from "../step";
 
 /** Who's holding this phone: someone new, or one of the household's people. */
-export function whoStep({ state, advance }: StepContext): Screen {
-  const { people } = state;
+export function whoStep({ people, advance }: StepContext): Screen {
   return people.length === 0
     ? {
         title: "Welcome to Expecting. Who's holding this phone?",

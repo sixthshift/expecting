@@ -2,6 +2,7 @@
 // password can say they are anyone. It is a cookie naming a person, so Expecting
 // can say who logged something and speak to each of you.
 
+import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { deleteCookie, getRequest, setCookie } from "@tanstack/react-start/server";
 import { z } from "zod";
@@ -10,7 +11,7 @@ import { PeopleRepo } from "../../db/models/people/repo";
 import { type Person, ROLES, type Role } from "../../lib/people";
 import { isHttps } from "../../server/auth/cookie";
 import { getDb } from "../../server/core/db";
-import { PERSON_COOKIE } from "../../server/core/person";
+import { PERSON_COOKIE, personId } from "../../server/core/person";
 
 function remember(person: Person) {
   setCookie(PERSON_COOKIE, person.id, {
@@ -21,6 +22,13 @@ function remember(person: Person) {
     maxAge: SESSION_DAYS * 86_400,
   });
 }
+
+/** The two of you, and who's holding this phone (null until it says). */
+export const getPeople = createServerFn({ method: "GET" }).handler(() => {
+  const people = new PeopleRepo(getDb());
+  const id = personId();
+  return { me: id ? people.get(id) : null, people: people.list() };
+});
 
 /** "I'm Jason": this device is someone already in the household. */
 export const becomePerson = createServerFn({ method: "POST" })
@@ -52,3 +60,11 @@ export const addPerson = createServerFn({ method: "POST" })
 export const forgetPerson = createServerFn({ method: "POST" }).handler(() => {
   deleteCookie(PERSON_COOKIE, { path: "/" });
 });
+
+export type People = Awaited<ReturnType<typeof getPeople>>;
+export const peopleQuery = queryOptions({ queryKey: ["people"], queryFn: () => getPeople() });
+
+/** peopleQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
+export function usePeople<TData = People>(options?: Omit<UseSuspenseQueryOptions<People, Error, TData, string[]>, "queryKey" | "queryFn">) {
+  return useSuspenseQuery({ ...peopleQuery, ...options } as UseSuspenseQueryOptions<People, Error, TData, string[]>);
+}

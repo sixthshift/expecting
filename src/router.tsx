@@ -19,7 +19,7 @@ export function getRouter() {
 
   return createRouter({
     routeTree,
-    // The loaders' way to the queries (src/features/household/load.ts).
+    // The loaders' way to the queries (each beside its server functions, in src/api/rpc/).
     context: { queryClient },
     Wrap: ({ children }) => <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>,
     // Off: the timeline decides where it opens (this week, or ?at=), and a

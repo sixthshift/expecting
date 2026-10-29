@@ -10,11 +10,11 @@ import { SkipButton } from "../parts";
 import type { Advance, Screen, StepContext } from "../step";
 
 /** The extras onboarding offers (`onboarding: true`): any to turn on now. Adding decides every one (those not chosen, off); a skip decides none, so This week can offer each in its week, as it does every extra onboarding doesn't offer. */
-export function extrasStep({ state, advance }: StepContext): Screen {
+export function extrasStep({ answers, extras, advance }: StepContext): Screen {
   return {
     title: "Anything else you'd like?",
     lead: "Expecting can do a few extra things. Choose any that suit you; you can change them in settings.",
-    body: <Extras offered={extrasFor(factsOf(state.answers)).filter((e) => e.onboarding)} on={extrasOn(state.extras)} onDone={advance} />,
+    body: <Extras offered={extrasFor(factsOf(answers)).filter((e) => e.onboarding)} on={extrasOn(extras)} onDone={advance} />,
   };
 }
 

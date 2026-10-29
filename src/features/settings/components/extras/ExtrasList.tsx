@@ -1,14 +1,13 @@
 import { Switch } from "@sixthshift/design-system/switch";
 import { cn } from "@sixthshift/design-system/utils";
-import { useSuspenseQuery } from "@tanstack/react-query";
-import { useMemo, useState } from "react";
-import { setExtras } from "../../../../api/rpc/extras";
+import { useState } from "react";
+import { setExtras, useExtras } from "../../../../api/rpc/extras";
+import { useAnswers } from "../../../../api/rpc/facts";
 import { formatDate, todayISO } from "../../../../lib/dates";
-import { type Choice, extrasFor } from "../../../../lib/extras";
+import { type Choice, extrasFor, extrasOn } from "../../../../lib/extras";
+import { factsOf } from "../../../../lib/facts";
 import type { Person } from "../../../../lib/people";
-import { householdQuery } from "../../../household/load";
-import { useAction } from "../../../household/useAction";
-import { workOut } from "../../../household/workOut";
+import { useAction } from "../../../app/useAction";
 import { EXTRA_GROUPS, type ExtraGroup } from "../../model/extras";
 import { SettingList } from "../SettingRow";
 
@@ -19,9 +18,8 @@ import { SettingList } from "../SettingRow";
  * `highlight` marks the one a link opened settings at.
  */
 export function ExtrasList({ choices, people, highlight }: { choices: readonly Choice[]; people: readonly Person[]; highlight?: string }) {
-  const { data: state } = useSuspenseQuery(householdQuery);
-  const today = todayISO();
-  const { facts, extras } = useMemo(() => workOut(state, today), [state, today]);
+  const { data: facts } = useAnswers({ select: factsOf });
+  const { data: extras } = useExtras({ select: extrasOn });
   const [save] = useAction((id: string, on: boolean) => setExtras({ data: [{ id, on }] }));
   const [pending, setPending] = useState<string | null>(null);
 

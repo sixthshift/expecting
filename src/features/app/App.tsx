@@ -1,9 +1,9 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { useLocation } from "@tanstack/react-router";
 import { useEffect, useMemo } from "react";
-import { todayISO } from "../../lib/dates";
-import { householdQuery, questionsQuery } from "../household/load";
-import { workOut } from "../household/workOut";
+import { useAnswers } from "../../api/rpc/facts";
+import { useQuestions } from "../../api/rpc/questions";
+import { useNow, useSettings } from "../../api/rpc/settings";
+import { factsOf } from "../../lib/facts";
 import { ContentContext } from "../library/content/context";
 import { PillarLayout } from "./PillarLayout";
 import { PILLARS } from "./pillars";
@@ -14,11 +14,11 @@ import { useExpectingTheme } from "./useExpectingTheme";
  * context content renders against, then the pillars in their layout.
  */
 export function App() {
-  const { data: state } = useSuspenseQuery(householdQuery);
-  const { data: questions } = useSuspenseQuery(questionsQuery);
-  const today = todayISO();
-  const { now, facts } = useMemo(() => workOut(state, today), [state, today]);
-  useExpectingTheme(state.household.baby);
+  const { data: settings } = useSettings();
+  const now = useNow();
+  const { data: facts } = useAnswers({ select: factsOf });
+  const { data: questions } = useQuestions();
+  useExpectingTheme(settings.baby);
   const { pathname } = useLocation();
 
   // A new pillar starts at its top; the timeline places itself (this week, or ?at=).

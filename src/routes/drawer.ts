@@ -1,5 +1,5 @@
 import { createRoute, lazyRouteComponent } from "@tanstack/react-router";
-import { namesQuery } from "../features/household/load";
+import { namesQuery } from "../api/rpc/names";
 import { app } from "./app";
 
 /** The Drawer, with the names game as this phone's person sees it. */

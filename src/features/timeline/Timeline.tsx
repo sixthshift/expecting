@@ -1,15 +1,16 @@
 import { Button } from "@sixthshift/design-system/button";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { LocateFixed } from "lucide-react";
 import { useEffect, useMemo } from "react";
+import { useChecklist } from "../../api/rpc/checklist";
+import { useQuestions } from "../../api/rpc/questions";
+import { useNow, useSettings } from "../../api/rpc/settings";
 import { weekNotes } from "../../content";
-import { todayISO } from "../../lib/dates";
 import type { Week } from "../../lib/timeline";
 import { mapWeeks, mapWindows } from "../../lib/timelineMap";
 import { PillarHeader } from "../app/PillarLayout";
 import { Welcome } from "../home/Now";
-import { householdQuery, questionsQuery } from "../household/load";
-import { workOut } from "../household/workOut";
+import { useItems } from "../library/useItems";
+import { useTasks } from "../tasks/useTasks";
 import { WeekMap } from "./WeekMap";
 import { WindowsChart } from "./WindowsChart";
 
@@ -28,13 +29,15 @@ function scrollToWeek(week: Week, smooth: boolean) {
  * desktop, a trimester each.
  */
 export function Timeline({ at }: { at: Week | undefined }) {
-  const { data: state } = useSuspenseQuery(householdQuery);
-  const { data: questions } = useSuspenseQuery(questionsQuery);
-  const today = todayISO();
-  const { now, items, tasks } = useMemo(() => workOut(state, today), [state, today]);
-  const { dueDate } = state.household;
-  const windows = useMemo(() => mapWindows(items, state.ticks, now), [items, state.ticks, now]);
-  const weeks = mapWeeks({ notes: weekNotes, windows, tasks, ticks: state.ticks, questions, now, dueDate });
+  const { data: settings } = useSettings();
+  const { data: checklist } = useChecklist();
+  const now = useNow();
+  const items = useItems();
+  const tasks = useTasks();
+  const { data: questions } = useQuestions();
+  const { dueDate } = settings;
+  const windows = useMemo(() => mapWindows(items, checklist.ticks, now), [items, checklist.ticks, now]);
+  const weeks = mapWeeks({ notes: weekNotes, windows, tasks, ticks: checklist.ticks, questions, now, dueDate });
 
   // Open at the top, where the chart has today on it; or at the week asked for, on a phone.
   useEffect(() => {

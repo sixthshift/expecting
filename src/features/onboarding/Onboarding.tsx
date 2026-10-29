@@ -1,13 +1,15 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { getRouteApi, Outlet, useMatch, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, Baby } from "lucide-react";
-import { useEffect, useRef } from "react";
-import { finishOnboarding } from "../../api/rpc/household";
+import { type ReactNode, useEffect, useRef } from "react";
+import { useExtras } from "../../api/rpc/extras";
+import { useAnswers } from "../../api/rpc/facts";
+import { usePeople } from "../../api/rpc/people";
+import { finishOnboarding, useSettings } from "../../api/rpc/settings";
 import { type Step, stepAfter } from "../../lib/onboarding";
 import { Redirect } from "../app/Redirect";
+import { useAction } from "../app/useAction";
 import { useExpectingTheme } from "../app/useExpectingTheme";
-import { householdQuery, onboardingLeft } from "../household/load";
-import { useAction } from "../household/useAction";
+import { onboardingLeft } from "./left";
 import { stepAt, stepHref } from "./paths";
 import type { Screen, StepContext } from "./step";
 import { babyStep } from "./steps/baby";
@@ -25,10 +27,10 @@ import { whoStep } from "./steps/who";
 
 const nextRoute = getRouteApi("/onboarding/");
 
-/** Around every step: the household's colours. */
+/** Around every step: the baby's colours. */
 export function OnboardingLayout() {
-  const { data: state } = useSuspenseQuery(householdQuery);
-  useExpectingTheme(state.household.baby);
+  const { data: settings } = useSettings();
+  useExpectingTheme(settings.baby);
   return <Outlet />;
 }
 
@@ -37,9 +39,11 @@ export function OnboardingLayout() {
  * next one still to ask, from what's known now; else the first.
  */
 export function OnboardingNext() {
-  const { data: state } = useSuspenseQuery(householdQuery);
+  const { data: settings } = useSettings();
+  const { data: answers } = useAnswers();
+  const { data: people } = usePeople();
   const { after } = nextRoute.useSearch();
-  const steps = onboardingLeft(state);
+  const steps = onboardingLeft({ me: people.me, onboardedAt: settings.onboardedAt, answers });
   const next = after ? stepAfter(steps, after as Step) : steps[0];
   return <Redirect href={next ? stepHref(next) : "/"} />;
 }
@@ -49,15 +53,18 @@ let shownOne = false;
 
 /** One step, the one the URL names. A step that isn't (or is no longer) asked goes on to the one that is. */
 export function OnboardingStep() {
-  const { data: state } = useSuspenseQuery(householdQuery);
+  const { data: settings } = useSettings();
+  const { data: answers } = useAnswers();
+  const { data: extras } = useExtras();
+  const { data: people } = usePeople();
   const navigate = useNavigate();
   // This page's own match, not the location: while a navigation away is pending, the location is already
   // the next one, and this page, still drawn, would take it for a step that isn't there.
   const current = stepAt(useMatch({ strict: false, select: (match) => match.pathname }));
-  const steps = onboardingLeft(state);
+  const steps = onboardingLeft({ me: people.me, onboardedAt: settings.onboardedAt, answers });
 
   /** Save, reload what's known, then on to whatever's next. */
-  const [save] = useAction(async (step?: () => Promise<unknown>) => {
+  const [save, saving] = useAction(async (step?: () => Promise<unknown>) => {
     await step?.();
   });
 
@@ -68,12 +75,18 @@ export function OnboardingStep() {
     shownOne = true;
   }, []);
 
-  if (!current || !steps.includes(current)) return <Redirect href="/onboarding" />;
+  // A save refetches what's known a query at a time, so midway this step can look answered (this phone
+  // known, the household not yet): keep it drawn until the save is in and has chosen where to go.
+  const drawn = useRef<ReactNode>(null);
+  if (!current || !steps.includes(current)) return saving && drawn.current ? drawn.current : <Redirect href="/onboarding" />;
 
   const index = steps.indexOf(current);
   const previous = steps[index - 1];
   const screen = renderStep(current, {
-    state,
+    settings,
+    answers,
+    extras,
+    people: people.people,
     advance: async (step) => {
       if (await save(step)) await navigate({ to: "/onboarding", search: { after: current } });
     },
@@ -82,7 +95,7 @@ export function OnboardingStep() {
     },
   });
 
-  return (
+  drawn.current = (
     <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] lg:max-w-lg lg:justify-center">
       <header className="flex items-center gap-3">
         {previous ? (
@@ -131,6 +144,7 @@ export function OnboardingStep() {
       </section>
     </main>
   );
+  return drawn.current;
 }
 
 /** The screen for a step. Each step is its own file in steps/. */

@@ -1,7 +1,7 @@
 import { toast } from "@sixthshift/design-system/overlay";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { isLoggedOut } from "../../lib/errors";
-import { loggedOut } from "../app/loggedOut";
+import { loggedOut } from "./loggedOut";
 
 /**
  * A change to the household: run `save`, then refetch whatever the app has on

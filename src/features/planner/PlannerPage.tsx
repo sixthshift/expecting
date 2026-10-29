@@ -1,22 +1,24 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { Card } from "@sixthshift/design-system/card";
 import { ProgressBar } from "@sixthshift/design-system/progress-bar";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, ChevronRight } from "lucide-react";
-import { type ReactNode, useMemo, useState } from "react";
+import { type ReactNode, useState } from "react";
+import { useChecklist } from "../../api/rpc/checklist";
+import { usePeople } from "../../api/rpc/people";
+import { useQuestions } from "../../api/rpc/questions";
+import { useNow } from "../../api/rpc/settings";
 import type { Item, Task } from "../../content/schema";
-import { todayISO } from "../../lib/dates";
 import { whose } from "../../lib/people";
 import { type Ahead, planTasks, type Stage, stagesAhead } from "../../lib/planner";
 import { WEEKS, type Week, weekLabel } from "../../lib/timeline";
 import { type ToDo, whenToDo } from "../../lib/todo";
 import { PillarHeader } from "../app/PillarLayout";
-import { householdQuery, questionsQuery } from "../household/load";
-import { workOut } from "../household/workOut";
+import { useItems } from "../library/useItems";
 import { AddQuestion, AskedQuestion, OpenQuestion } from "../questions/questions";
 import { AddTask, DeleteOwnTask } from "../tasks/AddTask";
 import { TaskRow } from "../tasks/TaskRow";
+import { useTasks } from "../tasks/useTasks";
 
 const week = (w: Week) => weekLabel(w).toLowerCase();
 
@@ -36,20 +38,22 @@ const AHEAD_AT: Record<Ahead["at"], (w: Week) => string> = {
  * appointment.
  */
 export function PlannerPage() {
-  const { data: state } = useSuspenseQuery(householdQuery);
-  const { data: questions } = useSuspenseQuery(questionsQuery);
-  const today = todayISO();
-  const { now, tasks, items } = useMemo(() => workOut(state, today), [state, today]);
+  const { me, people } = usePeople().data;
+  const { data: checklist } = useChecklist();
+  const now = useNow();
+  const tasks = useTasks();
+  const items = useItems();
+  const { data: questions } = useQuestions();
   // Ticked during this visit: they stay where they were until the next one.
   const [tickedHere, setTickedHere] = useState<ReadonlySet<string>>(new Set());
-  const plan = planTasks(tasks, state.ticks, tickedHere, now);
+  const plan = planTasks(tasks, checklist.ticks, tickedHere, now);
   const stages = stagesAhead(plan);
   const open = questions.filter((q) => !q.askedAt);
   const asked = questions.filter((q) => q.askedAt);
-  const deadlines = [plan.next, ...plan.now].filter((t) => t?.why === "deadline" && !state.ticks[t.task.id]).length;
+  const deadlines = [plan.next, ...plan.now].filter((t) => t?.why === "deadline" && !checklist.ticks[t.task.id]).length;
 
   const stay = (task: Task) => (ticked: boolean) => ticked && setTickedHere((ids) => new Set(ids).add(task.id));
-  const whoseIs = (task: Task) => (task.who === "together" ? null : <span>{whose(task.who, state.me, state.people)}</span>);
+  const whoseIs = (task: Task) => (task.who === "together" ? null : <span>{whose(task.who, me, people)}</span>);
   const why = (task: Task) =>
     task.origin === "own" ? (
       <DeleteOwnTask task={task} />
@@ -69,7 +73,7 @@ export function PlannerPage() {
       <TaskRow
         key={task.id}
         task={task}
-        ticked={Boolean(state.ticks[task.id])}
+        ticked={Boolean(checklist.ticks[task.id])}
         stack
         meta={
           <span className="flex flex-wrap items-center gap-x-2">
@@ -121,7 +125,7 @@ export function PlannerPage() {
           {now !== null && plan.next ? (
             <NextUp
               task={plan.next.task}
-              ticked={Boolean(state.ticks[plan.next.task.id])}
+              ticked={Boolean(checklist.ticks[plan.next.task.id])}
               item={items.find((i) => i.id === plan.next?.task.itemId)}
               meta={
                 <>

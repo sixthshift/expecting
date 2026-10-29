@@ -1,19 +1,16 @@
 import { SearchInput } from "@sixthshift/design-system/search-input";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { getRouteApi, Link, useNavigate } from "@tanstack/react-router";
 import { Sparkles } from "lucide-react";
 import type { ReactNode } from "react";
-import { useMemo } from "react";
+import { useNow } from "../../api/rpc/settings";
 import type { Item } from "../../content/schema";
-import { todayISO } from "../../lib/dates";
 import { arrangeLibrary, type Shelf as ShelfData } from "../../lib/library";
 import { PillarHeader } from "../app/PillarLayout";
-import { householdQuery } from "../household/load";
-import { workOut } from "../household/workOut";
 import { CanIDoor, IsThisNormalDoor, NobodyTellsYouDoor } from "./Doors";
 import { rangeLabel } from "./ItemCard";
 import { ItemList } from "./ItemList";
 import { RightNow } from "./RightNow";
+import { useItems } from "./useItems";
 
 /** Whether an item matches what was typed: every word, in its title, the question it answers, its other names or its summary. */
 function matches(item: Item, query: string): boolean {
@@ -37,9 +34,8 @@ const SURPRISE_ANCHOR = "nobody-tells-you";
  * turns up on its week; here it can be found without knowing when.
  */
 export function LibraryPage() {
-  const { data: state } = useSuspenseQuery(householdQuery);
-  const today = todayISO();
-  const { items, now } = useMemo(() => workOut(state, today), [state, today]);
+  const items = useItems();
+  const now = useNow();
   const { q = "" } = route.useSearch();
   const navigate = useNavigate();
   const results = q.trim() ? items.filter((i) => matches(i, q)) : null;

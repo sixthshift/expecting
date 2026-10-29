@@ -14,14 +14,14 @@ import type { Advance, Screen, StepContext } from "../step";
  * unless it's already answered, so This week asks it again only once its week
  * has come, not straight away.
  */
-export function questionStep({ state, advance }: StepContext, key: string): Screen {
+export function questionStep({ answers, people, advance }: StepContext, key: string): Screen {
   const a = ask(key)!;
-  const last = latestByKey(state.answers)[key];
+  const last = latestByKey(answers)[key];
   const value = last?.value ?? undefined;
   const save = (answer: string | null) => () => saveAnswer({ data: { key, answer } });
-  const answers = Object.entries(a.question.answers).map(([value, label]) => ({ value, label }));
+  const options = Object.entries(a.question.answers).map(([value, label]) => ({ value, label }));
   return {
-    title: askedOfIn(a, state.people),
+    title: askedOfIn(a, people),
     lead: "It tailors what Expecting shows you. Skip it and you'll see everything, and be asked again when it matters.",
     body: (
       <div className="flex flex-col gap-4">
@@ -34,10 +34,10 @@ export function questionStep({ state, advance }: StepContext, key: string): Scre
             requireChange={false}
             onSave={(date) => advance(save(date))}
           />
-        ) : answers.length <= 4 ? (
-          <Choices options={answers} value={value} onChoose={(answer) => advance(save(answer))} />
+        ) : options.length <= 4 ? (
+          <Choices options={options} value={value} onChoose={(answer) => advance(save(answer))} />
         ) : (
-          <ChooseFromList ask={a} name={askedOfIn(a, state.people)} value={value} onDone={advance} />
+          <ChooseFromList ask={a} name={askedOfIn(a, people)} value={value} onDone={advance} />
         )}
         <SkipButton onClick={() => advance(last ? undefined : save(null))} />
       </div>

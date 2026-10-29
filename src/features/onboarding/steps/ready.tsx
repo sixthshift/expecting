@@ -1,17 +1,15 @@
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
-import { formatDate, todayISO } from "../../../lib/dates";
+import { formatDate, type ISODate, todayISO } from "../../../lib/dates";
 import { gestationLabel, positionOn, weekLabel } from "../../../lib/timeline";
-import type { HouseholdState } from "../../household/load";
 import type { Screen, StepContext } from "../step";
 
 /** Done: where Expecting will open, and in. */
-export function readyStep({ state, finish }: StepContext): Screen {
-  return { title: "You're all set", lead: <ReadyLine state={state} />, body: <Ready onOpen={finish} /> };
+export function readyStep({ settings, finish }: StepContext): Screen {
+  return { title: "You're all set", lead: <ReadyLine dueDate={settings.dueDate} />, body: <Ready onOpen={finish} /> };
 }
 
-function ReadyLine({ state }: { state: HouseholdState }) {
-  const { dueDate } = state.household;
+function ReadyLine({ dueDate }: { dueDate: ISODate | null }) {
   if (!dueDate) return "Expecting opens at the start. Add the due date when you have it, and it opens at your week.";
   const position = positionOn(todayISO(), dueDate);
   return (

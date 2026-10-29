@@ -1,3 +1,4 @@
+import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { QuestionsRepo } from "../../db/models/questions/repo";
@@ -22,3 +23,12 @@ export const reopenQuestion = createServerFn({ method: "POST" })
 export const deleteQuestion = createServerFn({ method: "POST" })
   .validator(id)
   .handler(({ data }) => new QuestionsRepo(getDb()).delete(data.id));
+
+/** The questions for the next appointment. */
+export type Questions = Awaited<ReturnType<typeof listQuestions>>;
+export const questionsQuery = queryOptions({ queryKey: ["questions"], queryFn: () => listQuestions() });
+
+/** questionsQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
+export function useQuestions<TData = Questions>(options?: Omit<UseSuspenseQueryOptions<Questions, Error, TData, string[]>, "queryKey" | "queryFn">) {
+  return useSuspenseQuery({ ...questionsQuery, ...options } as UseSuspenseQueryOptions<Questions, Error, TData, string[]>);
+}

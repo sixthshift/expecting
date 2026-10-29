@@ -1,9 +1,9 @@
 import { sql } from "drizzle-orm";
 import { check, integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
-/** The household's one row of settings. `id` is always 1. */
-export const household = sqliteTable(
-  "household",
+/** The one row of settings. `id` is always 1. */
+export const settings = sqliteTable(
+  "settings",
   {
     id: integer("id").primaryKey(),
     dueDate: text("due_date"),
@@ -15,5 +15,5 @@ export const household = sqliteTable(
     onboardedAt: text("onboarded_at"),
     updatedAt: text("updated_at").notNull(),
   },
-  (t) => [check("household_single_row", sql`${t.id} = 1`), check("household_baby", sql`${t.baby} IN ('boy', 'girl', 'unknown')`)]
+  (t) => [check("settings_single_row", sql`${t.id} = 1`), check("settings_baby", sql`${t.baby} IN ('boy', 'girl', 'unknown')`)]
 );

@@ -3,10 +3,10 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { Hospital, type LucideIcon, MessageCircleQuestion, Phone, Siren, Stethoscope } from "lucide-react";
 import type { ReactNode } from "react";
+import { emergencyQuery } from "../../../api/rpc/emergency";
 import type { SYMPTOM_LEVELS } from "../../../content/schema";
 import type { Section } from "../../../content/sections";
 import { telHref } from "../../../lib/emergency";
-import { emergencyQuery } from "../../household/load";
 import { Ask } from "./Ask";
 import { ItemBody } from "./ItemBody";
 
