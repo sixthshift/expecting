@@ -1,9 +1,9 @@
 import { Card } from "@sixthshift/design-system/card";
 import { Link } from "@tanstack/react-router";
-import { saveAnswer, useAnswers } from "../../../../api/rpc/facts";
+import { factsSaves, useAnswers } from "../../../../api/rpc/facts";
 import { usePeople } from "../../../../api/rpc/people";
 import { useNow, useSettings } from "../../../../api/rpc/settings";
-import { useAction } from "../../../../app/hooks/useAction";
+import { useSave } from "../../../../app/hooks/useSave";
 import { DateForm } from "../../../../components/DateForm";
 import { questionsDue } from "../../../../lib/facts";
 import { AnswerInput, askedOfIn } from "./FactsForm";
@@ -21,7 +21,8 @@ export function AskNow() {
   const { data: answers } = useAnswers();
   const { people } = usePeople().data;
   const now = useNow();
-  const [save] = useAction((key: string, answer: string | null) => saveAnswer({ data: { key, answer } }));
+  const saveAnswer = useSave(factsSaves.saveAnswer);
+  const save = async (key: string, answer: string | null) => saveAnswer({ key, answer });
   const { dueDate } = settings;
   if (now === null || !dueDate) return null;
   const due = questionsDue({ answers, now, dueDate });

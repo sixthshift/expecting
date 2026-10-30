@@ -16,9 +16,10 @@ export class QuestionsRepo {
     return this.db.select().from(question).orderBy(asc(question.createdAt)).all();
   }
 
-  add(text: string, now: Date = new Date()): Question {
-    const row: Question = { id: crypto.randomUUID(), text, answer: null, askedAt: null, createdAt: now.toISOString() };
-    this.db.insert(question).values(row).run();
+  /** Add a question, by the id the phone gave it; one already here (the same save, sent twice) is left as it is. */
+  add(text: string, now: Date = new Date(), id: string = crypto.randomUUID()): Question {
+    const row: Question = { id, text, answer: null, askedAt: null, createdAt: now.toISOString() };
+    this.db.insert(question).values(row).onConflictDoNothing().run();
     return row;
   }
 

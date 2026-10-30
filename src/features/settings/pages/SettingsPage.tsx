@@ -7,8 +7,8 @@ import { useExtras } from "../../../api/rpc/extras";
 import { useAnswers } from "../../../api/rpc/facts";
 import { usePeople } from "../../../api/rpc/people";
 import { useQuiet } from "../../../api/rpc/quiet";
-import { saveSettings, useNow, usePosition, useSettings } from "../../../api/rpc/settings";
-import { useAction } from "../../../app/hooks/useAction";
+import { settingsSaves, useNow, usePosition, useSettings } from "../../../api/rpc/settings";
+import { useSave } from "../../../app/hooks/useSave";
 import { Page, Section } from "../../../components/Page";
 import { daysBetween, formatDate, todayISO } from "../../../lib/dates";
 import { asksFor, factsOf, isSettled, latestByKey } from "../../../lib/facts";
@@ -48,7 +48,7 @@ const SECTIONS = [
  */
 export function SettingsPage() {
   const { ask } = route.useSearch();
-  const [save] = useAction((data: Parameters<typeof saveSettings>[0]["data"]) => saveSettings({ data }));
+  const save = useSave(settingsSaves.saveSettings);
   const { data: settings } = useSettings();
   const { data: answers } = useAnswers();
   const { data: choices } = useExtras();
@@ -178,7 +178,7 @@ export function SettingsPage() {
                         submitLabel="Save due date"
                         description="Expecting opens at its week. It never hides any week."
                         onSave={async (date) => {
-                          await save({ dueDate: date });
+                          save({ dueDate: date });
                           setOpen(null);
                         }}
                       />
@@ -190,7 +190,7 @@ export function SettingsPage() {
                           Sets Expecting's colours. Anyone who sees the screen sees them, so keeping it a surprise is an answer too.
                         </span>
                       </div>
-                      <ColourChoice value={baby} onChoose={(next) => save({ baby: next })} />
+                      <ColourChoice value={baby} onChoose={async (next) => save({ baby: next })} />
                     </div>
                     {rows(once)}
                   </SettingList>

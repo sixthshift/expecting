@@ -2,22 +2,22 @@ import { Button } from "@sixthshift/design-system/button";
 import { Input } from "@sixthshift/design-system/input";
 import { Plus, Trash2 } from "lucide-react";
 import { type FormEvent, useState } from "react";
-import { addOwnTask, deleteOwnTask } from "../../../../api/rpc/checklist";
-import { useAction } from "../../../../app/hooks/useAction";
+import { checklistSaves } from "../../../../api/rpc/checklist";
+import { useSave } from "../../../../app/hooks/useSave";
 import type { Task } from "../../../../content/schema";
+import { newId } from "../../../../lib/outbox";
 import { type Week, weekLabel } from "../../../../lib/timeline";
 
 /** A task of our own, for the odd thing Expecting couldn't know: added in the Planner, for this week. */
 export function AddTask({ week }: { week: Week }) {
   const [title, setTitle] = useState("");
-  const [add, saving] = useAction(async () => {
-    await addOwnTask({ data: { title, week } });
-    setTitle("");
-  });
+  const add = useSave(checklistSaves.addOwnTask);
 
-  async function submit(event: FormEvent) {
+  function submit(event: FormEvent) {
     event.preventDefault();
-    if (title.trim().length > 0) await add();
+    if (title.trim().length === 0) return;
+    add({ id: newId(), title, week });
+    setTitle("");
   }
 
   return (
@@ -30,7 +30,7 @@ export function AddTask({ week }: { week: Week }) {
         maxLength={200}
         className="flex-1"
       />
-      <Button type="submit" variant="outline" iconOnly aria-label="Add task" loading={saving} disabled={title.trim().length === 0}>
+      <Button type="submit" variant="outline" iconOnly aria-label="Add task" disabled={title.trim().length === 0}>
         <Plus aria-hidden size={16} />
       </Button>
     </form>
@@ -38,9 +38,9 @@ export function AddTask({ week }: { week: Week }) {
 }
 
 export function DeleteOwnTask({ task }: { task: Task }) {
-  const [remove, removing] = useAction(() => deleteOwnTask({ data: { id: task.id } }));
+  const remove = useSave(checklistSaves.deleteOwnTask);
   return (
-    <Button variant="ghost" size="sm" iconOnly aria-label={`Delete "${task.title}"`} loading={removing} onClick={remove}>
+    <Button variant="ghost" size="sm" iconOnly aria-label={`Delete "${task.title}"`} onClick={() => remove({ id: task.id })}>
       <Trash2 aria-hidden size={16} />
     </Button>
   );

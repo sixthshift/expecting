@@ -35,11 +35,10 @@ export class NamesRepo {
     };
   }
 
-  /** Add a name; one already in the game (whatever its case) is left as it is. Returns its id. */
-  add(name: string, addedBy: string | null, now: Date = new Date()): string {
+  /** Add a name, by the id the phone gave it; one already in the game (whatever its case: the same save, sent twice, too) is left as it is. Returns its id. */
+  add(name: string, addedBy: string | null, now: Date = new Date(), id: string = crypto.randomUUID()): string {
     const existing = this.db.select({ id: babyName.id }).from(babyName).where(sql`lower(${babyName.name}) = lower(${name})`).get();
     if (existing) return existing.id;
-    const id = crypto.randomUUID();
     this.db.insert(babyName).values({ id, name, addedBy, addedAt: now.toISOString() }).run();
     return id;
   }

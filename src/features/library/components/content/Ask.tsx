@@ -1,12 +1,13 @@
 import { Check, MessageCircleQuestion, Plus } from "lucide-react";
-import { addQuestion } from "../../../../api/rpc/questions";
-import { useAction } from "../../../../app/hooks/useAction";
+import { questionsSaves } from "../../../../api/rpc/questions";
+import { useSave } from "../../../../app/hooks/useSave";
+import { newId } from "../../../../lib/outbox";
 import { useContentContext } from "./context";
 
 /** `{% ask "…" /%}`: a question worth asking at an appointment, added to your list in one tap. */
 export function Ask({ primary: text }: { primary: string }) {
   const { openQuestions } = useContentContext();
-  const [add, saving] = useAction(() => addQuestion({ data: { text } }));
+  const add = useSave(questionsSaves.addQuestion);
   const onList = openQuestions.includes(text);
 
   return (
@@ -20,8 +21,7 @@ export function Ask({ primary: text }: { primary: string }) {
       ) : (
         <button
           type="button"
-          onClick={add}
-          disabled={saving}
+          onClick={() => add({ id: newId(), text })}
           aria-label={`Add to your questions: ${text}`}
           className="flex min-h-9 shrink-0 items-center gap-1 rounded-full border border-border-normal px-3 text-xs font-medium hover:bg-bg-normal-hovered disabled:opacity-60"
         >

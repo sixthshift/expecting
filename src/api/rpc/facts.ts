@@ -7,7 +7,9 @@ import { z } from "zod";
 import { FactsRepo } from "../../db/models/facts/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
 import { ask, factKey, isAnswer } from "../../features/settings/model/facts";
+import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
+import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
 
 /** Every answer's latest, for questions still asked: one whose question has gone is left out. */
@@ -29,11 +31,26 @@ export const saveAnswer = createServerFn({ method: "POST" })
     const { question, about } = ask(data.key)!;
     const id = personId();
     const answeredBy = id && new PeopleRepo(db).get(id) ? id : null;
-    return new FactsRepo(db).answer({ question: question.id, about, value: data.answer, answeredBy });
+    return new FactsRepo(db).answer({ question: question.id, about, value: data.answer, answeredBy }, madeAt());
   });
 
 export type Answers = Awaited<ReturnType<typeof getAnswers>>;
 export const answersQuery = queryOptions({ queryKey: ["answers"], queryFn: () => getAnswers() });
+
+/** The answers' save, through the outbox (src/app/model/outbox.ts): it shows at once, and is sent when it can be. */
+export const factsSaves = {
+  saveAnswer: save({
+    key: "saveAnswer",
+    query: answersQuery.queryKey,
+    send: (data: { key: string; answer: string | null }, made) => saveAnswer({ data, headers: stamped(made) }),
+    apply: (answers: Answers, { key, answer }, made) => {
+      const asked = ask(key);
+      if (!asked) return answers;
+      const others = answers.filter((a) => factKey(a.question, a.about) !== key);
+      return [...others, { question: asked.question.id, about: asked.about, value: answer, answeredBy: made.by, answeredAt: made.at }];
+    },
+  }),
+};
 
 /** answersQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
 export function useAnswers<TData = Answers>(options?: Omit<UseSuspenseQueryOptions<Answers, Error, TData, string[]>, "queryKey" | "queryFn">) {

@@ -7,21 +7,21 @@ import { Textarea } from "@sixthshift/design-system/textarea";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, MessageCircleQuestion, Trash2 } from "lucide-react";
 import { type FormEvent, useState } from "react";
-import { addQuestion, deleteQuestion, markAsked, reopenQuestion } from "../../../../api/rpc/questions";
-import { useAction } from "../../../../app/hooks/useAction";
+import { questionsSaves } from "../../../../api/rpc/questions";
+import { useSave } from "../../../../app/hooks/useSave";
 import { formatDate, todayISO } from "../../../../lib/dates";
+import { newId } from "../../../../lib/outbox";
 import type { Question } from "../../../../lib/questions";
 
 export function AddQuestion() {
   const [text, setText] = useState("");
-  const [add, saving] = useAction(async () => {
-    await addQuestion({ data: { text } });
-    setText("");
-  });
+  const add = useSave(questionsSaves.addQuestion);
 
-  async function submit(event: FormEvent) {
+  function submit(event: FormEvent) {
     event.preventDefault();
-    if (text.trim().length > 0) await add();
+    if (text.trim().length === 0) return;
+    add({ id: newId(), text });
+    setText("");
   }
 
   return (
@@ -35,7 +35,7 @@ export function AddQuestion() {
         rows={2}
         maxLength={1000}
       />
-      <Button type="submit" intent="brand" loading={saving} disabled={text.trim().length === 0} className="self-start">
+      <Button type="submit" intent="brand" disabled={text.trim().length === 0} className="self-start">
         Add question
       </Button>
     </form>
@@ -45,11 +45,11 @@ export function AddQuestion() {
 export function OpenQuestion({ question }: { question: Question }) {
   const [answering, setAnswering] = useState(false);
   const [answer, setAnswer] = useState(question.answer ?? "");
-  const [markAsAsked, saving] = useAction(() => markAsked({ data: { id: question.id, answer } }));
+  const markAsked = useSave(questionsSaves.markAsked);
 
-  async function save(event: FormEvent) {
+  function save(event: FormEvent) {
     event.preventDefault();
-    await markAsAsked();
+    markAsked({ id: question.id, answer });
   }
 
   return (
@@ -69,7 +69,7 @@ export function OpenQuestion({ question }: { question: Question }) {
             rows={2}
           />
           <div className="flex gap-2">
-            <Button type="submit" intent="brand" size="sm" loading={saving}>
+            <Button type="submit" intent="brand" size="sm">
               Save as asked
             </Button>
             <Button type="button" variant="ghost" size="sm" onClick={() => setAnswering(false)}>
@@ -87,7 +87,7 @@ export function OpenQuestion({ question }: { question: Question }) {
 }
 
 export function AskedQuestion({ question }: { question: Question }) {
-  const [reopen, reopening] = useAction(() => reopenQuestion({ data: { id: question.id } }));
+  const reopen = useSave(questionsSaves.reopenQuestion);
   return (
     <Card size="sm">
       <div className="flex items-start gap-2">
@@ -97,7 +97,7 @@ export function AskedQuestion({ question }: { question: Question }) {
       {question.answer ? <p className="mt-1 whitespace-pre-wrap text-fg-normal">{question.answer}</p> : null}
       <div className="mt-2 flex items-center justify-between gap-2 text-xs text-fg-subtle">
         <span>Asked {formatDate(todayISO(new Date(question.askedAt!)), { day: "numeric", month: "short", year: "numeric" })}</span>
-        <Button variant="ghost" size="sm" loading={reopening} onClick={reopen}>
+        <Button variant="ghost" size="sm" onClick={() => reopen({ id: question.id })}>
           Ask again
         </Button>
       </div>
@@ -106,9 +106,9 @@ export function AskedQuestion({ question }: { question: Question }) {
 }
 
 function DeleteButton({ id, text }: { id: string; text: string }) {
-  const [remove, removing] = useAction(() => deleteQuestion({ data: { id } }));
+  const remove = useSave(questionsSaves.deleteQuestion);
   return (
-    <Button variant="ghost" size="sm" iconOnly aria-label={`Delete "${text}"`} loading={removing} onClick={remove}>
+    <Button variant="ghost" size="sm" iconOnly aria-label={`Delete "${text}"`} onClick={() => remove({ id })}>
       <Trash2 aria-hidden size={16} />
     </Button>
   );

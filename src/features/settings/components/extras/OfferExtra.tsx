@@ -1,10 +1,10 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Link } from "@tanstack/react-router";
 import { Sparkles } from "lucide-react";
-import { setExtras, useExtras } from "../../../../api/rpc/extras";
+import { extrasSaves, useExtras } from "../../../../api/rpc/extras";
 import { useAnswers } from "../../../../api/rpc/facts";
 import { useNow } from "../../../../api/rpc/settings";
-import { useAction } from "../../../../app/hooks/useAction";
+import { useSave } from "../../../../app/hooks/useSave";
 import { extraToOffer } from "../../../../lib/extras";
 import { factsOf } from "../../../../lib/facts";
 
@@ -17,7 +17,8 @@ export function OfferExtra() {
   const { data: choices } = useExtras();
   const now = useNow();
   const { data: facts } = useAnswers({ select: factsOf });
-  const [save, pending] = useAction((id: string, on: boolean) => setExtras({ data: [{ id, on }] }));
+  const setExtras = useSave(extrasSaves.setExtras);
+  const save = (id: string, on: boolean) => setExtras([{ id, on }]);
   if (now === null) return null;
   const extra = extraToOffer(choices, now, facts);
   if (!extra) return null;
@@ -37,10 +38,10 @@ export function OfferExtra() {
         </div>
       </div>
       <div className="flex flex-wrap items-center gap-2">
-        <Button intent="brand" size="sm" disabled={pending} onClick={() => save(extra.id, true)}>
+        <Button intent="brand" size="sm" onClick={() => save(extra.id, true)}>
           Add it
         </Button>
-        <Button variant="ghost" size="sm" disabled={pending} onClick={() => save(extra.id, false)}>
+        <Button variant="ghost" size="sm" onClick={() => save(extra.id, false)}>
           No thanks
         </Button>
         <Link to="/settings" search={{ ask: `extra:${extra.id}` }} className="ml-auto text-xs text-fg-subtle underline hover:text-fg-normal">

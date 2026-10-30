@@ -7,9 +7,11 @@ import { useMemo } from "react";
 import { z } from "zod";
 import { SettingsRepo } from "../../db/models/settings/repo";
 import { type ISODate, isISODate, todayISO } from "../../lib/dates";
+import { save, stamped } from "../../lib/outbox";
 import { BABY, type Baby } from "../../lib/theme";
 import { positionOn } from "../../lib/timeline";
 import { getDb } from "../../server/core/db";
+import { madeAt } from "../../server/core/madeAt";
 
 const isoDate = z
   .string()
@@ -28,7 +30,7 @@ export const saveSettings = createServerFn({ method: "POST" })
       })
       .strict()
   )
-  .handler(({ data }) => new SettingsRepo(getDb()).update(data));
+  .handler(({ data }) => new SettingsRepo(getDb()).update(data, madeAt()));
 
 /** Onboarding is done: from now on, a new device is only asked who it is. */
 export const finishOnboarding = createServerFn({ method: "POST" }).handler(() => {
@@ -40,6 +42,16 @@ export const finishOnboarding = createServerFn({ method: "POST" }).handler(() =>
 export type Settings = Awaited<ReturnType<typeof getSettings>>;
 
 export const settingsQuery = queryOptions({ queryKey: ["settings"], queryFn: () => getSettings() });
+
+/** The settings' save, through the outbox (src/app/model/outbox.ts): it shows at once, and is sent when it can be. Onboarding's finish isn't one: it waits on the server. */
+export const settingsSaves = {
+  saveSettings: save({
+    key: "saveSettings",
+    query: settingsQuery.queryKey,
+    send: (data: { dueDate?: ISODate | null; baby?: Baby }, made) => saveSettings({ data, headers: stamped(made) }),
+    apply: (settings: Settings, changes) => ({ ...settings, ...Object.fromEntries(Object.entries(changes).filter(([, v]) => v !== undefined)) }),
+  }),
+};
 
 /** settingsQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
 export function useSettings<TData = Settings>(options?: Omit<UseSuspenseQueryOptions<Settings, Error, TData, string[]>, "queryKey" | "queryFn">) {

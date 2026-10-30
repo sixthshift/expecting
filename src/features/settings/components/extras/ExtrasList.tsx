@@ -1,9 +1,8 @@
 import { Switch } from "@sixthshift/design-system/switch";
 import { cn } from "@sixthshift/design-system/utils";
-import { useState } from "react";
-import { setExtras, useExtras } from "../../../../api/rpc/extras";
+import { extrasSaves, useExtras } from "../../../../api/rpc/extras";
 import { useAnswers } from "../../../../api/rpc/facts";
-import { useAction } from "../../../../app/hooks/useAction";
+import { useSave } from "../../../../app/hooks/useSave";
 import { formatDate, todayISO } from "../../../../lib/dates";
 import { type Choice, extrasFor, extrasOn } from "../../../../lib/extras";
 import { factsOf } from "../../../../lib/facts";
@@ -20,8 +19,7 @@ import { SettingList } from "../SettingRow";
 export function ExtrasList({ choices, people, highlight }: { choices: readonly Choice[]; people: readonly Person[]; highlight?: string }) {
   const { data: facts } = useAnswers({ select: factsOf });
   const { data: extras } = useExtras({ select: extrasOn });
-  const [save] = useAction((id: string, on: boolean) => setExtras({ data: [{ id, on }] }));
-  const [pending, setPending] = useState<string | null>(null);
+  const setExtras = useSave(extrasSaves.setExtras);
 
   const offered = extrasFor(facts, extras);
 
@@ -51,19 +49,7 @@ export function ExtrasList({ choices, people, highlight }: { choices: readonly C
                       <span className="text-xs text-fg-subtle">{e.pitch}</span>
                       {choice ? <span className="text-xs text-fg-subtle">{changedBy(choice, people)}</span> : null}
                     </div>
-                    <Switch
-                      id={control}
-                      checked={on}
-                      pending={pending === e.id}
-                      onCheckedChange={async (next) => {
-                        setPending(e.id);
-                        try {
-                          await save(e.id, next);
-                        } finally {
-                          setPending(null);
-                        }
-                      }}
-                    />
+                    <Switch id={control} checked={on} onCheckedChange={(next) => setExtras([{ id: e.id, on: next }])} />
                   </div>
                 );
               })}

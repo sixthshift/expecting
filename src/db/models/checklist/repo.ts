@@ -35,9 +35,10 @@ export class ChecklistRepo {
     return this.db.select({ id: ownTask.id }).from(ownTask).where(eq(ownTask.id, id)).get() !== undefined;
   }
 
-  addOwnTask(task: { title: string; week: Week }, now: Date = new Date()): OwnTaskRow {
-    const row: OwnTaskRow = { id: crypto.randomUUID(), ...task, createdAt: now.toISOString() };
-    this.db.insert(ownTask).values(row).run();
+  /** Add a task, by the id the phone gave it; one already here (the same save, sent twice) is left as it is. */
+  addOwnTask(task: { id?: string; title: string; week: Week }, now: Date = new Date()): OwnTaskRow {
+    const row: OwnTaskRow = { ...task, id: task.id ?? crypto.randomUUID(), createdAt: now.toISOString() };
+    this.db.insert(ownTask).values(row).onConflictDoNothing().run();
     return row;
   }
 

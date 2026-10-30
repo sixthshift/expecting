@@ -3,8 +3,8 @@ import { ProgressBar } from "@sixthshift/design-system/progress-bar";
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
-import { saveSettings } from "../../../../api/rpc/settings";
-import { useAction } from "../../../../app/hooks/useAction";
+import { settingsSaves } from "../../../../api/rpc/settings";
+import { useSave } from "../../../../app/hooks/useSave";
 import { DateForm } from "../../../../components/DateForm";
 import { sizeLabel, type WeekNote } from "../../../../content/weeks";
 import { daysBetween, formatDate, type ISODate, todayISO } from "../../../../lib/dates";
@@ -89,7 +89,7 @@ function WeekStepper({ week, now }: { week: Week; now: Week }) {
 /** No due date yet (onboarding skipped it). Entering one places "now". */
 export function Welcome() {
   const today = todayISO();
-  const [save] = useAction((dueDate: ISODate | null) => saveSettings({ data: { dueDate } }));
+  const save = useSave(settingsSaves.saveSettings);
   return (
     <Card size="lg" className="my-6 max-w-lg">
       <DateForm
@@ -98,7 +98,7 @@ export function Welcome() {
         value={null}
         submitLabel="Start"
         {...dueDateBounds(today)}
-        onSave={save}
+        onSave={async (dueDate: ISODate | null) => save({ dueDate })}
       />
     </Card>
   );

@@ -1,11 +1,14 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRouter } from "@tanstack/react-router";
+import { outboxCaches, queueSaves } from "./app/model/outbox";
 import { LoadingPage } from "./components/loading/Loading";
 import { isLoggedOut } from "./lib/errors";
 import { routeTree } from "./routes/tree";
 
 export function getRouter() {
-  const queryClient = new QueryClient({
+  const queryClient: QueryClient = new QueryClient({
+    // Every save goes through the outbox, and is shown over what's fetched until it's sent.
+    ...outboxCaches(() => queryClient),
     defaultOptions: {
       queries: {
         // Fresh for half a minute: moving between pillars doesn't refetch, and a phone
@@ -17,11 +20,12 @@ export function getRouter() {
         // Once more after a failure, unless the session has ended: no point asking again.
         retry: (count, error) => count < 1 && !isLoggedOut(error),
       },
-      // A save with no connection fails at once and says so (useAction's toast), rather than wait, its
-      // spinner turning, for the connection to come back. Nothing queues it yet.
+      // What isn't a save (logging in, who's holding the phone, onboarding's finish) fails at once with no
+      // connection, and says so (useAction's toast). A save waits for one (queueSaves).
       mutations: { networkMode: "always" },
     },
   });
+  queueSaves(queryClient);
 
   return createRouter({
     routeTree,

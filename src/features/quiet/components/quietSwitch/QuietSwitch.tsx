@@ -2,8 +2,8 @@ import { Button } from "@sixthshift/design-system/button";
 import { cn } from "@sixthshift/design-system/utils";
 import { useState } from "react";
 import { usePeople } from "../../../../api/rpc/people";
-import { clearQuiet, setQuiet, useQuiet } from "../../../../api/rpc/quiet";
-import { useAction } from "../../../../app/hooks/useAction";
+import { quietSaves, useQuiet } from "../../../../api/rpc/quiet";
+import { useSave } from "../../../../app/hooks/useSave";
 import { formatDate, todayISO } from "../../../../lib/dates";
 import { QUIET_KINDS, QUIET_LABELS, type QuietKind, WAY_BACK } from "../../../../lib/quiet";
 
@@ -19,8 +19,9 @@ export function QuietSwitch() {
   const [choosing, setChoosing] = useState(false);
   const [kind, setKind] = useState<QuietKind | null>(null);
   const [leaving, setLeaving] = useState(false);
-  const [set, setting] = useAction((next: QuietKind) => setQuiet({ data: { kind: next } }));
-  const [clear, clearing] = useAction(() => clearQuiet());
+  const setQuiet = useSave(quietSaves.setQuiet);
+  const set = (next: QuietKind) => setQuiet({ kind: next });
+  const clear = useSave(quietSaves.clearQuiet);
 
   if (quiet) {
     const by = people.find((p) => p.id === quiet.setBy)?.name;
@@ -39,7 +40,13 @@ export function QuietSwitch() {
                 : "Bring Expecting back as it was? The weeks, the countdown and the tasks return for both of you."}
             </p>
             <div className="flex flex-wrap gap-2">
-              <Button intent="brand" loading={clearing} onClick={async () => (await clear()) && setLeaving(false)}>
+              <Button
+                intent="brand"
+                onClick={() => {
+                  clear(null);
+                  setLeaving(false);
+                }}
+              >
                 Yes, bring them back
               </Button>
               <Button variant="outline" onClick={() => setLeaving(false)}>
@@ -50,7 +57,7 @@ export function QuietSwitch() {
         ) : (
           <div className="flex flex-wrap gap-2">
             {quiet.kind === "news" ? (
-              <Button variant="outline" loading={setting} onClick={() => set("loss")}>
+              <Button variant="outline" onClick={() => set("loss")}>
                 We've lost the baby
               </Button>
             ) : null}
@@ -104,7 +111,15 @@ export function QuietSwitch() {
         ))}
       </div>
       <div className="flex flex-wrap gap-2">
-        <Button intent="brand" disabled={kind === null} loading={setting} onClick={async () => kind && (await set(kind)) && setChoosing(false)}>
+        <Button
+          intent="brand"
+          disabled={kind === null}
+          onClick={() => {
+            if (!kind) return;
+            set(kind);
+            setChoosing(false);
+          }}
+        >
           Make Expecting quiet
         </Button>
         <Button

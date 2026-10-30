@@ -55,3 +55,12 @@ test("a name is in the game once, whatever its case; removing it takes its votes
   expect(repo.view(jason.id).names).toEqual([]);
   expect(db().query("SELECT count(*) AS n FROM name_vote").get()).toEqual({ n: 0 });
 });
+
+test("a name keeps the id its phone gave it; sent twice, it is the one name", () => {
+  const jason = new PeopleRepo(db()).add("Jason", "partner");
+  const repo = new NamesRepo(db());
+  const id = "11111111-1111-4111-8111-111111111111";
+  expect(repo.add("Ada", jason.id, new Date(), id)).toBe(id);
+  expect(repo.add("Ada", jason.id, new Date(), id)).toBe(id);
+  expect(repo.view(jason.id).names).toEqual([{ id, name: "Ada", mine: null }]);
+});

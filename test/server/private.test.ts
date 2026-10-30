@@ -37,13 +37,13 @@ const UUID = "00000000-0000-4000-8000-000000000000";
  */
 const WRITES: Record<string, ((x: string) => unknown) | null> = {
   "checklist.ts:setTicked": (x) => ({ taskId: x, ticked: true }),
-  "checklist.ts:addOwnTask": (x) => ({ title: x, week: 20 }),
+  "checklist.ts:addOwnTask": (x) => ({ id: UUID, title: x, week: 20 }),
   "checklist.ts:deleteOwnTask": (x) => ({ id: x }),
-  "questions.ts:addQuestion": (x) => ({ text: x }),
+  "questions.ts:addQuestion": (x) => ({ id: UUID, text: x }),
   "questions.ts:markAsked": (x) => ({ id: UUID, answer: x }),
   "questions.ts:reopenQuestion": (x) => ({ id: x }),
   "questions.ts:deleteQuestion": (x) => ({ id: x }),
-  "names.ts:addName": (x) => ({ name: x }),
+  "names.ts:addName": (x) => ({ id: UUID, name: x }),
   "names.ts:voteName": (x) => ({ id: x, liked: true }),
   "names.ts:removeName": (x) => ({ id: x }),
   "facts.ts:saveAnswer": (x) => ({ key: "cover", answer: x }),

@@ -5,12 +5,12 @@ import { Input } from "@sixthshift/design-system/input";
 import { Textarea } from "@sixthshift/design-system/textarea";
 import { Pencil, Phone, TriangleAlert } from "lucide-react";
 import { type FormEvent, useState } from "react";
-import { saveEmergency, useEmergency } from "../../../api/rpc/emergency";
+import { emergencySaves, useEmergency } from "../../../api/rpc/emergency";
 import { useAnswers } from "../../../api/rpc/facts";
 import { usePeople } from "../../../api/rpc/people";
 import { useQuiet } from "../../../api/rpc/quiet";
 import { useSettings } from "../../../api/rpc/settings";
-import { useAction } from "../../../app/hooks/useAction";
+import { useSave } from "../../../app/hooks/useSave";
 import { formatDate, isISODate, todayISO } from "../../../lib/dates";
 import { ALWAYS, EMERGENCY, EMERGENCY_FIELDS, EMERGENCY_MAX, type EmergencyInfo, TICKED, telHref } from "../../../lib/emergency";
 import { factsOf } from "../../../lib/facts";
@@ -199,12 +199,13 @@ function CallRow({ label, about, phone }: { label: string; about?: string; phone
 
 function EmergencyForm({ emergency, done }: { emergency: EmergencyInfo; done: () => void }) {
   const [draft, setDraft] = useState<Record<string, string>>(() => Object.fromEntries(EMERGENCY_FIELDS.map((f) => [f.id, emergency.values[f.id] ?? ""])));
-  const [save, saving] = useAction((values: Record<string, string>) => saveEmergency({ data: values }));
+  const save = useSave(emergencySaves.saveEmergency);
   const set = (id: string) => (e: { target: { value: string } }) => setDraft((d) => ({ ...d, [id]: e.target.value }));
 
-  async function submit(e: FormEvent) {
+  function submit(e: FormEvent) {
     e.preventDefault();
-    if (await save(draft)) done();
+    save(draft);
+    done();
   }
 
   return (
@@ -238,10 +239,8 @@ function EmergencyForm({ emergency, done }: { emergency: EmergencyInfo; done: ()
         </fieldset>
       ))}
       <div className="sticky bottom-[max(1rem,env(safe-area-inset-bottom))] flex gap-3">
-        <Button type="submit" disabled={saving}>
-          {saving ? "Saving…" : "Save"}
-        </Button>
-        <Button type="button" variant="outline" onClick={done} disabled={saving}>
+        <Button type="submit">Save</Button>
+        <Button type="button" variant="outline" onClick={done}>
           Cancel
         </Button>
       </div>

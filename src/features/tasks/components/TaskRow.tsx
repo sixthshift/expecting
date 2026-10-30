@@ -1,12 +1,13 @@
 import { Checkbox } from "@sixthshift/design-system/checkbox";
-import { type ReactNode, useState } from "react";
-import { setTicked } from "../../../api/rpc/checklist";
-import { useAction } from "../../../app/hooks/useAction";
+import type { ReactNode } from "react";
+import { checklistSaves } from "../../../api/rpc/checklist";
+import { useSave } from "../../../app/hooks/useSave";
 import type { Task } from "../../../content/schema";
 
 /**
- * One task with its tick. The tick shows at once and is saved behind it; a
- * failed save puts it back. Ticking here ticks it everywhere it appears.
+ * One task with its tick. The tick shows at once, everywhere the task
+ * appears, and is saved behind it, whenever there's a connection; one the
+ * server turns away is put back.
  */
 export function TaskRow({
   task,
@@ -25,26 +26,19 @@ export function TaskRow({
   /** Told of each tick or untick as it is made, before it is saved. */
   onTick?: (ticked: boolean) => void;
 }) {
-  const [optimistic, setOptimistic] = useState<boolean | null>(null);
-  const checked = optimistic ?? ticked;
-  const [save] = useAction((next: boolean) => setTicked({ data: { taskId: task.id, ticked: next } }));
+  const save = useSave(checklistSaves.setTicked);
 
-  async function change(next: boolean) {
-    setOptimistic(next);
+  function change(next: boolean) {
     onTick?.(next);
-    try {
-      await save(next);
-    } finally {
-      setOptimistic(null);
-    }
+    save({ taskId: task.id, ticked: next });
   }
 
   return (
     <div className={stack ? "flex min-h-11 flex-wrap items-center gap-x-3 pb-2 lg:flex-nowrap lg:pb-0" : "flex min-h-11 items-center gap-3"}>
       <Checkbox
-        checked={checked}
+        checked={ticked}
         onCheckedChange={change}
-        label={<span className={checked ? "text-fg-subtle line-through" : undefined}>{task.title}</span>}
+        label={<span className={ticked ? "text-fg-subtle line-through" : undefined}>{task.title}</span>}
         labelClassName="flex-1 min-h-11 items-center"
         className="shrink-0"
       />

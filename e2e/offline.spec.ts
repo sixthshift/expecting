@@ -1,12 +1,14 @@
 // Offline: once the service worker has the app (src/pwa/worker.js), a phone
 // with no connection still opens it, every built-in item reads, and what was
-// last fetched is on screen. Hospital Wi-Fi is the case.
+// last fetched is on screen. A save made offline waits on the phone, through
+// a reload, and goes once there's a connection (src/app/model/outbox.ts).
+// Hospital Wi-Fi is the case.
 import { expect, test } from "./fixtures";
 
-// Offline, the save's request fails, and the browser says so in the console.
+// Offline, a save's request fails, and the browser says so in the console; the save waits.
 test.use({ allowedErrors: [/ERR_INTERNET_DISCONNECTED|Failed to fetch/] });
 
-test("the app opens and reads with no connection", async ({ page, context, open }) => {
+test("the app opens, reads and saves with no connection", async ({ page, context, open }) => {
   await open("/");
   // The worker controls the page, and has fetched the items' pages after the app.
   await page.waitForFunction(
@@ -33,12 +35,37 @@ test("the app opens and reads with no connection", async ({ page, context, open 
   await page.goto("/library/rsv-vaccine");
   await expect(page.getByRole("heading", { level: 1, name: "The RSV vaccine" })).toBeVisible();
 
-  // A save fails at once and says so, rather than wait for a connection; the tick goes back.
+  // A save waits for a connection: it shows at once, and outlasts closing the app.
   await open("/planner");
   const tick = page.getByRole("checkbox").first();
   const was = await tick.isChecked();
   await tick.click();
-  await expect(page.getByText("That didn't save")).toBeVisible();
-  await expect(tick).toBeChecked({ checked: was });
+  await expect(tick).toBeChecked({ checked: !was });
+  const question = "Can we bring our own pillows?";
+  await page.getByRole("textbox", { name: "New question" }).fill(question);
+  await page.getByRole("button", { name: "Add question" }).click();
+  await expect(page.getByText(question)).toBeVisible();
+  await page.reload();
+  await expect(page.getByText(question)).toBeVisible();
+  await expect(page.getByText("That didn't save")).toHaveCount(0);
+
+  // Back online, it goes: once nothing waits on this phone, another page has it from the server.
   await context.setOffline(false);
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () =>
+          new Promise<number>((resolve) => {
+            const open = indexedDB.open("expecting-outbox");
+            open.onsuccess = () => {
+              const count = open.result.transaction("saves").objectStore("saves").count();
+              count.onsuccess = () => resolve(count.result);
+            };
+          })
+      )
+    )
+    .toBe(0);
+  const other = await context.newPage();
+  await other.goto("/planner", { waitUntil: "networkidle" });
+  await expect(other.getByText(question)).toBeVisible();
 });

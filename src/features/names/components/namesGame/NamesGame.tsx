@@ -2,9 +2,10 @@ import { Button } from "@sixthshift/design-system/button";
 import { Input } from "@sixthshift/design-system/input";
 import { Heart, Plus, Trash2, X } from "lucide-react";
 import { type FormEvent, useState } from "react";
-import { addName, removeName, voteName } from "../../../../api/rpc/names";
-import { useAction } from "../../../../app/hooks/useAction";
+import { namesSaves } from "../../../../api/rpc/names";
+import { useSave } from "../../../../app/hooks/useSave";
 import { type NamesView, nextToVote } from "../../../../lib/names";
+import { newId } from "../../../../lib/outbox";
 import type { Person } from "../../../../lib/people";
 
 /**
@@ -13,8 +14,10 @@ import type { Person } from "../../../../lib/people";
  * name the other would hate. Only your own votes are ever shown to you.
  */
 export function NamesGame({ view, other }: { view: NamesView; other: Person | null }) {
-  const [vote, voting] = useAction((id: string, liked: boolean) => voteName({ data: { id, liked } }));
-  const [remove] = useAction((id: string) => removeName({ data: { id } }));
+  const saveVote = useSave(namesSaves.voteName);
+  const vote = (id: string, liked: boolean) => saveVote({ id, liked });
+  const saveRemove = useSave(namesSaves.removeName);
+  const remove = (id: string) => saveRemove({ id });
   const next = nextToVote(view);
   const left = view.names.filter((n) => n.mine === null).length;
   const liked = view.names.filter((n) => n.mine === true);
@@ -58,10 +61,10 @@ export function NamesGame({ view, other }: { view: NamesView; other: Person | nu
           <span className="text-xs text-fg-subtle">{left === 1 ? "1 name to go" : `${left} names to go`}</span>
           <p className="font-display text-4xl font-semibold text-fg-strong">{next.name}</p>
           <div className="flex gap-3">
-            <Button variant="outline" size="lg" disabled={voting} onClick={() => vote(next.id, false)} aria-label={`Pass on ${next.name}`}>
+            <Button variant="outline" size="lg" onClick={() => vote(next.id, false)} aria-label={`Pass on ${next.name}`}>
               <X aria-hidden size={18} /> Pass
             </Button>
-            <Button intent="brand" size="lg" disabled={voting} onClick={() => vote(next.id, true)} aria-label={`Like ${next.name}`}>
+            <Button intent="brand" size="lg" onClick={() => vote(next.id, true)} aria-label={`Like ${next.name}`}>
               <Heart aria-hidden size={18} /> Like
             </Button>
           </div>
@@ -99,14 +102,13 @@ export function NamesGame({ view, other }: { view: NamesView; other: Person | nu
 
 function AddName() {
   const [name, setName] = useState("");
-  const [add, saving] = useAction(async () => {
-    await addName({ data: { name } });
-    setName("");
-  });
+  const add = useSave(namesSaves.addName);
 
-  async function submit(event: FormEvent) {
+  function submit(event: FormEvent) {
     event.preventDefault();
-    if (name.trim().length > 0) await add();
+    if (name.trim().length === 0) return;
+    add({ id: newId(), name });
+    setName("");
   }
 
   return (
@@ -119,7 +121,7 @@ function AddName() {
         maxLength={60}
         className="flex-1"
       />
-      <Button type="submit" variant="outline" iconOnly aria-label="Add name" loading={saving} disabled={name.trim().length === 0}>
+      <Button type="submit" variant="outline" iconOnly aria-label="Add name" disabled={name.trim().length === 0}>
         <Plus aria-hidden size={16} />
       </Button>
     </form>

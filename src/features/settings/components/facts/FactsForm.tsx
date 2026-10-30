@@ -2,8 +2,8 @@ import { Badge } from "@sixthshift/design-system/badge";
 import { RadioButtonGroup } from "@sixthshift/design-system/radio-button-group";
 import { Select } from "@sixthshift/design-system/select";
 import { useExtras } from "../../../../api/rpc/extras";
-import { saveAnswer } from "../../../../api/rpc/facts";
-import { useAction } from "../../../../app/hooks/useAction";
+import { factsSaves } from "../../../../api/rpc/facts";
+import { useSave } from "../../../../app/hooks/useSave";
 import { DateForm } from "../../../../components/DateForm";
 import { builtInItems } from "../../../../content";
 import { formatDate, type ISODate, todayISO } from "../../../../lib/dates";
@@ -39,7 +39,8 @@ export function FactRow({
   open: boolean;
   onToggle: () => void;
 }) {
-  const [save] = useAction((key: string, answer: string | null) => saveAnswer({ data: { key, answer } }));
+  const saveAnswer = useSave(factsSaves.saveAnswer);
+  const save = async (key: string, answer: string | null) => saveAnswer({ key, answer });
   const label = askedOfIn(a, people);
   const value = last?.value ?? undefined;
   const settled = isSettled(a, last);

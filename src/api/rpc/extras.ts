@@ -7,7 +7,9 @@ import { z } from "zod";
 import { ExtrasRepo } from "../../db/models/extras/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
 import { EXTRAS, extra } from "../../features/settings/model/extras";
+import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
+import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
 
 /** The extras someone has decided on, for extras still offered. */
@@ -23,11 +25,25 @@ export const setExtras = createServerFn({ method: "POST" })
     const id = personId();
     const changedBy = id && new PeopleRepo(db).get(id) ? id : null;
     const repo = new ExtrasRepo(db);
-    return data.map((c) => repo.set({ ...c, changedBy }));
+    const at = madeAt();
+    return data.map((c) => repo.set({ ...c, changedBy }, at));
   });
 
 export type Choices = Awaited<ReturnType<typeof getExtras>>;
 export const extrasQuery = queryOptions({ queryKey: ["extras"], queryFn: () => getExtras() });
+
+/** The extras' save, through the outbox (src/app/model/outbox.ts): it shows at once, and is sent when it can be. */
+export const extrasSaves = {
+  setExtras: save({
+    key: "setExtras",
+    query: extrasQuery.queryKey,
+    send: (data: { id: string; on: boolean }[], made) => setExtras({ data, headers: stamped(made) }),
+    apply: (choices: Choices, changes, made) => [
+      ...choices.filter((c) => !changes.some((n) => n.id === c.id)),
+      ...changes.map((n) => ({ id: n.id, on: n.on, changedBy: made.by, changedAt: made.at })),
+    ],
+  }),
+};
 
 /** extrasQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
 export function useExtras<TData = Choices>(options?: Omit<UseSuspenseQueryOptions<Choices, Error, TData, string[]>, "queryKey" | "queryFn">) {

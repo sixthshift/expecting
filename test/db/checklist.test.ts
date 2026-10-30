@@ -23,3 +23,11 @@ test("own tasks are added, found, and deleted with their tick", () => {
   expect(repo.ownTasks()).toEqual([]);
   expect(repo.ticks()).toEqual({});
 });
+
+test("an own task keeps the id its phone gave it, and the same save sent twice adds it once", () => {
+  const repo = new ChecklistRepo(db());
+  const id = "11111111-1111-4111-8111-111111111111";
+  repo.addOwnTask({ id, title: "Ask Mum about the cot", week: 30 }, new Date("2026-10-01T00:00:00Z"));
+  repo.addOwnTask({ id, title: "Ask Mum about the cot", week: 30 }, new Date("2026-10-02T00:00:00Z"));
+  expect(repo.ownTasks()).toEqual([{ id, title: "Ask Mum about the cot", week: 30, createdAt: "2026-10-01T00:00:00.000Z" }]);
+});

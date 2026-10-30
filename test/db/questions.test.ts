@@ -21,3 +21,11 @@ test("an empty answer is no answer", () => {
   repo.markAsked(q.id, "   ");
   expect(repo.list()[0]!.answer).toBeNull();
 });
+
+test("a question keeps the id its phone gave it, and the same save sent twice adds it once", () => {
+  const repo = new QuestionsRepo(db());
+  const id = "11111111-1111-4111-8111-111111111111";
+  repo.add("Is the RSV vaccine free?", new Date("2026-10-01T00:00:00Z"), id);
+  repo.add("Is the RSV vaccine free?", new Date("2026-10-02T00:00:00Z"), id);
+  expect(repo.list()).toEqual([{ id, text: "Is the RSV vaccine free?", answer: null, askedAt: null, createdAt: "2026-10-01T00:00:00.000Z" }]);
+});
