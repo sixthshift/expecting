@@ -34,7 +34,7 @@ export function DrawerPage() {
         </span>
         <span className="flex min-w-0 flex-1 flex-col gap-0.5">
           <span className="font-display text-xl font-semibold text-fg-strong">Emergency info</span>
-          <span className="text-sm text-fg-subtle">Who to call, what a doctor will ask, and the numbers you'll need, on one page.</span>
+          <span className="text-sm text-fg-subtle">The calls, and everything a doctor will ask, on one screen to hand over.</span>
         </span>
         <ChevronRight aria-hidden size={18} className="shrink-0 text-fg-subtle" />
       </Link>

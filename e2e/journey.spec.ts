@@ -555,20 +555,24 @@ test("the names game: a name is a match only when you both like it, on your own 
   await expect(page.getByRole("region", { name: "Baby names" })).toHaveCount(0);
 });
 
-test("Emergency info: filled in once, it's the call button and the details in a hurry", async ({ page, open }) => {
+test("Emergency info: filled in once, it's the call button and the handover in a hurry", async ({ page, open }) => {
   await open("/drawer");
   await page.getByRole("link", { name: /^Emergency info/ }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Emergency info" })).toBeVisible();
-  // Before anything is filled in, the numbers that are the same for everyone are there to call.
+  // Before anything is filled in, 000 is there to call, and the card says what's still blank.
   await expect(page.getByRole("link", { name: "Call 000" })).toHaveAttribute("href", "tel:000");
+  await expect(page.getByText(/^Still blank: Full name, Date of birth, Allergies/)).toBeVisible();
 
   await page.getByRole("button", { name: "Edit" }).click();
   await page.getByRole("textbox", { name: "Birth suite" }).fill("(02) 9999 0000");
+  await page.getByRole("textbox", { name: "Allergies" }).fill("Penicillin");
   await page.getByRole("textbox", { name: "Blood group" }).fill("O negative");
   await page.getByRole("button", { name: "Save" }).click();
 
-  await expect(page.getByRole("link", { name: "Call (02) 9999 0000" })).toHaveAttribute("href", "tel:0299990000");
-  await expect(page.getByText("O negative")).toBeVisible();
+  await expect(page.getByRole("link", { name: "Call the birth suite" })).toHaveAttribute("href", "tel:0299990000");
+  const card = page.getByRole("region", { name: "For whoever is treating her" });
+  await expect(card.getByText("Penicillin")).toBeVisible();
+  await expect(card.getByText("O negative")).toBeVisible();
   await expect(page.getByText(/^Last changed by Jason on/)).toBeVisible();
 });
 

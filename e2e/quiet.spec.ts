@@ -41,7 +41,7 @@ test("hard news quiets every pillar, and becomes a loss", async ({ page, open })
   await expect(page.getByText(/put away while Expecting is quiet/)).toBeVisible();
   await expect(page.getByText("Bump booth")).toBeHidden();
   await open("/drawer/emergency");
-  await expect(page.getByText(/pregnancy loss/)).toBeVisible();
+  await expect(page.getByText(/^Pregnancy loss/)).toBeVisible();
 });
 
 test("a loss set by mistake brings Expecting back as it was", async ({ page, open }) => {

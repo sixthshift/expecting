@@ -1,10 +1,9 @@
-// Emergency info: the one page to open when something goes wrong, or labour starts.
-// Who to call, what a doctor will ask, and the numbers you'll be asked for,
-// in the order you'd want them. The fields are fixed here; their values are
-// shared by both of you, and blank until one of you fills
-// one in.
+// Emergency info: the one page to open when something goes wrong, or labour starts,
+// and to hand to whoever is treating her. The fields are fixed here, in the
+// order the form asks them; their values are shared by both of you, and blank
+// until one of you fills one in. Ids are stored: never rename one.
 
-export type EmergencyKind = "phone" | "line" | "lines";
+export type EmergencyKind = "phone" | "line" | "lines" | "date" | "tick";
 
 export type EmergencyField = {
   id: string;
@@ -16,35 +15,60 @@ export type EmergencyField = {
 
 export type EmergencyGroup = { id: string; title: string; fields: readonly EmergencyField[] };
 
+/** A tick's value when it's ticked; unticked, it has none. */
+export const TICKED = "yes";
+
 export const EMERGENCY: readonly EmergencyGroup[] = [
   {
-    id: "call",
-    title: "Who to call",
+    id: "who",
+    title: "Who it's for",
     fields: [
-      { id: "birthSuitePhone", label: "Birth suite", kind: "phone", hint: "The number to ring when labour starts, or something feels wrong" },
-      { id: "hospital", label: "Hospital", kind: "lines", hint: "Its name, and the address for the car" },
-      { id: "carer", label: "Midwife or obstetrician", kind: "line" },
-      { id: "carerPhone", label: "Their number", kind: "phone" },
-      { id: "gp", label: "GP", kind: "line" },
-      { id: "gpPhone", label: "GP's number", kind: "phone" },
-      { id: "support", label: "Someone else to call", kind: "lines", hint: "A parent or friend: their name and number" },
+      { id: "fullName", label: "Full name", kind: "line", hint: "As on her Medicare card and the hospital's letters" },
+      { id: "dateOfBirth", label: "Date of birth", kind: "date" },
     ],
   },
   {
     id: "health",
     title: "What a doctor will ask",
     fields: [
+      { id: "allergies", label: "Allergies", kind: "lines", hint: "Medicines, latex, foods, and what happens" },
+      { id: "noKnownAllergies", label: "No known allergies", kind: "tick" },
       { id: "bloodGroup", label: "Blood group", kind: "line", hint: "For example, O negative" },
-      { id: "allergies", label: "Allergies", kind: "lines", hint: "Medicines, latex, foods; or none" },
-      { id: "medications", label: "Medicines taken", kind: "lines", hint: "Including vitamins and supplements" },
-      { id: "conditions", label: "Anything else they should know", kind: "lines", hint: "Conditions, past surgery, this pregnancy's complications" },
+      {
+        id: "pregnancy",
+        label: "This pregnancy",
+        kind: "lines",
+        hint: "Anything found so far: diabetes, blood pressure, a low-lying placenta, the GBS swab; or nothing",
+      },
+      { id: "pastPregnancies", label: "Past pregnancies", kind: "lines", hint: "Births, losses and terminations, and how each baby was born" },
+      { id: "medications", label: "Medicines taken", kind: "lines", hint: "Including vitamins and supplements; or none" },
+      { id: "conditions", label: "Health history", kind: "lines", hint: "Conditions and past surgery; or none" },
     ],
   },
   {
-    id: "numbers",
-    title: "Numbers you'll be asked for",
+    id: "booked",
+    title: "Where she's booked",
     fields: [
+      { id: "hospital", label: "Hospital", kind: "lines", hint: "Its name, and the address for the car" },
+      { id: "birthSuitePhone", label: "Birth suite", kind: "phone", hint: "The number to ring when labour starts, or something feels wrong" },
       { id: "hospitalRecord", label: "Hospital record number", kind: "line", hint: "The URN or MRN on the hospital's letters" },
+      { id: "carer", label: "Midwife or obstetrician", kind: "line" },
+      { id: "carerPhone", label: "Their number", kind: "phone" },
+    ],
+  },
+  {
+    id: "call",
+    title: "Who else to call",
+    fields: [
+      { id: "gp", label: "GP", kind: "line" },
+      { id: "gpPhone", label: "GP's number", kind: "phone" },
+      { id: "support", label: "Someone else to call", kind: "lines", hint: "A parent or friend: their name and number" },
+    ],
+  },
+  {
+    id: "desk",
+    title: "For the front desk",
+    fields: [
       { id: "medicare", label: "Medicare", kind: "line", hint: "Card number and the number beside the name" },
       { id: "healthFund", label: "Private health fund", kind: "line", hint: "The fund, and the membership number" },
     ],
