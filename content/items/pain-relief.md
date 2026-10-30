@@ -4,7 +4,7 @@ title: Pain relief in labour
 type: decision
 topic: labour
 ask: What are my options for pain relief, and do I have to decide now?
-aliases: [pain management in labour, drug-free labour, natural birth, epidural or not, pain relief options]
+aliases: [pain management in labour, drug-free labour, natural birth, vaginal birth, epidural or not, pain relief options]
 weeks: [30, 38]
 who: carrying
 stakes: high

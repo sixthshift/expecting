@@ -105,7 +105,7 @@ export const QUESTION_LIST = [
     ask: "How are you planning to give birth?",
     asked: "onboarding",
     week: 32,
-    answers: { natural: "A natural birth", caesarean: "A planned caesarean", unsure: "Not sure yet" },
+    answers: { vaginal: "A vaginal birth", caesarean: "A planned caesarean", unsure: "Not sure yet" },
   },
 
   // Notice to an employer, or the self-employed's own leave and claim; for the
