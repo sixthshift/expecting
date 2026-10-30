@@ -18,7 +18,7 @@ export const timelineSearch = z.object({
 });
 
 /** This week: a week to peek at instead (`29`), the same way. */
-export const homeSearch = timelineSearch;
+export const thisWeekSearch = timelineSearch;
 
 /**
  * The Library: what was typed in its search; the door open (`can-i`), the topic (`food`), a can-i's verdict

@@ -55,7 +55,7 @@ The first version of Expecting is the pregnancy alone: weeks 1–42, from the du
 ```
 src/
   app/          the app itself, not a domain: the document, the frame around the pillars (App, PillarLayout, PILLARS), the error and not-found pages, useAction; in a feature's shape
-  features/     a folder per domain: its pages and its parts (home, timeline, library, planner, journal, drawer, names, weeks, tasks, questions, settings, onboarding, auth)
+  features/     a folder per domain: its pages and its parts (thisWeek, timeline, library, planner, journal, drawer, names, weeks, tasks, questions, settings, onboarding, auth)
   components/   generic parts with no domain: Page, DateForm, Coming
   lib/          pure rules and types: no React, no router, no store
   content/      the built-in items, bundled

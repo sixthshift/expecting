@@ -23,7 +23,7 @@ import { Hero, Welcome } from "../components/now/Now";
 import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
 
 /**
- * Home, This week: what you open the app for. Where you are first, then what
+ * This week, home: what you open the app for. Where you are first, then what
  * to do now, the week's note (read as you), the week's heads-up, what
  * Expecting needs to know, what's worth knowing this week, and what's coming. On a desktop the
  * week sits on the left and the doing on the right; on a phone it's one
@@ -34,7 +34,7 @@ import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
  */
 const route = getRouteApi("/app/");
 
-export function Home() {
+export function ThisWeek() {
   const { data: settings } = useSettings();
   const { data: checklist } = useChecklist();
   const position = usePosition();

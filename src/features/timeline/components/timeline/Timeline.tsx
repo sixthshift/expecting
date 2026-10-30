@@ -8,9 +8,9 @@ import { PillarHeader } from "../../../../app/components/layout/PillarLayout";
 import { weekNotes } from "../../../../content";
 import type { Week } from "../../../../lib/timeline";
 import { mapWeeks, mapWindows } from "../../../../lib/timelineMap";
-import { Welcome } from "../../../home/components/now/Now";
 import { useItems } from "../../../library/hooks/useItems";
 import { useTasks } from "../../../tasks/hooks/useTasks";
+import { Welcome } from "../../../thisWeek/components/now/Now";
 import { WeekMap } from "../weekMap/WeekMap";
 import { WindowsChart } from "../windowsChart/WindowsChart";
 
