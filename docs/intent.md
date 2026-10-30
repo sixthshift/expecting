@@ -197,7 +197,7 @@ What this asks of the app, not yet built:
   - every tag and its attributes;
   - every `$question` and every answer it is compared with;
   - every `when:`.
-- **YAML for content that is only lists:** the categories, the log's entry types. The questions and the extras were YAML once; they drive behaviour, so they are typed lists in the code (`src/features/settings/model/facts.data.ts`, `src/features/settings/model/extras.data.ts`).
+- **YAML for content that is only lists:** the Library's map (`content/map/`), the log's entry types. The questions and the extras were YAML once; they drive behaviour, so they are typed lists in the code (`src/features/settings/model/facts.data.ts`, `src/features/settings/model/extras.data.ts`).
 
 *Built on `timeline`: the format, `ask`, `window` and `if`, and the checks.*
 
@@ -213,9 +213,11 @@ There isn't one shape of content. There are several, all Markdoc, all tagged wit
 | **Can I…?** | A thing, a verdict (yes, limit, avoid, ask), why, a source | Soft cheese: avoid, listeria |
 | **Symptoms** | A symptom, what's usual, when to mention it, when to call, the red flags | Itchy palms late in pregnancy: call |
 | **Decisions** | Options and trade-offs, a decide-by week, what you chose and why | Public, private or midwifery group practice |
+| **Money and leave** | What you can claim, when and how | Parental Leave Pay, Family Tax Benefit |
 | **Guides** | The long reads | Labour, feeding, recovery, the newborn |
+| **Terms** | A word you'll hear, in a sentence or two | Effaced, CTG, Anti-D |
 
-*Built: moments, the 22 items so far, which are almost all appointments and paperwork, each with a one-sentence summary of why it matters; and a note for each of the 42 weeks, all still draft. The Library opens by the question you came with: search, then a door each for "Can I…?", "Is this normal?" and Nobody tells you, then what's open right now, then every topic. Nobody tells you is live; the other two doors say "Coming". Not built: "Can I…?" and "Is this normal?" themselves, and the cards. They are the biggest gaps, because they are the reasons people open a pregnancy app.*
+*Built: every type, 893 entries in all, drafted from the Library's map (`content/map/`) and all but 38 checked against their sources by a second reader, all still draft until we review them; and a note for each of the 42 weeks. The Library opens by the question you came with: search, then a door per type and a quiet one for when it's hard, then what's open right now, then every topic. Each entry's page is drawn by its type: a can-i's verdict, a symptom's levels most urgent first with a call button for each. On This week: what's worth knowing as each week starts, and a card as a heads-up. Not built: what you chose in a decision and why, and our own entries of the new types.*
 
 ### Cards: "nobody tells you"
 
@@ -225,16 +227,19 @@ There isn't one shape of content. There are several, all Markdoc, all tagged wit
 - **as a heads-up:** one card on this week, just before it matters;
 - **as fillers** wherever the app makes you wait or has nothing to show: loading, an empty view, after a save, and the appointment waiting room (when you open Expecting on appointment day: your questions, then a few cards "while you wait").
 
+*Built: the cards behind the Library's Nobody tells you door, and a heads-up on This week: one card a week, the one covering it that started nearest, none twice. Not built: the deck that remembers what you've seen and saves, and the fillers.*
+
 ### Every item
 
 - **Weeks:** the range it applies to, such as 28–36, within weeks 1–42.
-- **Topics:** body, baby, food and safety, tests and appointments, birth, feeding, money and work, feelings, gear, paperwork. Several per item.
+- **Topic:** one shelf per item, from the map's: food, drink, medicines, activities, body, baby, tests, appointments, care, labour, birth, after the birth, feeding, mental health, relationships, loss, money, work, paperwork, baby gear, partner, travel, special circumstances, and celebrations for the extras.
 - **When:** who it is for, by your answers. Empty for everyone.
 - **Body:** a short explanation. Practical, with a bit of warmth. Plain words, no jargon left undefined.
-- **Source:** an optional link, preferring Australian sources: Pregnancy, Birth and Baby (healthdirect), Services Australia, RANZCOG (the college of obstetricians), state health departments.
+- **Sources:** every page a claim comes from, preferring Australian sources: Pregnancy, Birth and Baby (healthdirect), Services Australia, RANZCOG (the college of obstetricians), state health departments.
 - **Last checked:** when the source was last confirmed. Entitlements change every financial year.
 - **Linked tasks:** optional. "Book the RSV vaccine" belongs to the item that explains the RSV vaccine.
 - **Draft:** set on every item Claude drafts, and cleared only once we have reviewed it. Drafts show with a marker.
+- **Private:** an entry about family violence or reproductive coercion is read and searched like any other, but leaves no trace in the space you share: nothing to save from it, never offered unasked, not in the address bar, and a quick exit.
 
 ### Two origins, one shape
 
@@ -288,7 +293,7 @@ A decision has:
 - who decides;
 - what you chose and why.
 
-It is the one place the two of you most act together, and the record of "what we chose and why" outlasts the choice. *Not built.*
+It is the one place the two of you most act together, and the record of "what we chose and why" outlasts the choice. *Built: the decisions as Library entries, each with its options and what to weigh, and a decide-by week, from a source, becoming a task to decide by then. Not built: who decides, and what you chose and why.*
 
 ## The log
 

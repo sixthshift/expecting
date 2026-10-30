@@ -1,12 +1,13 @@
-# Drafts
+# Writing an entry
 
-Library entries written from the map (`content/map/*.yaml`). They have moved
-to `content/items/<id>.md`, beside the items, and the app loads them (marked
-draft); this folder keeps the format they were written to and `REVIEW.md`, the
-calls for the review pass, until the plan in `docs/plan-content-types.md`
-retires it. `src/content/parse.ts` checks the shapes below.
+How a Library entry (`content/items/<id>.md`) is written: its frontmatter and
+the shape of its body by type. `src/content/schema.ts` and
+`src/content/parse.ts` check both, so a file that breaks them fails the gate.
+Most entries were drafted from the map (`content/map/*.yaml`); `REVIEW.md`,
+beside this file, holds the calls left for the review pass. Week notes are
+`content/weeks/<week>.md` (`src/content/weeks.ts`).
 
-One file per map entry, the name its map id. Ids are stable: never rename one.
+One file per entry, named for its id (the map's id, where it came from the map). Ids are stable: never rename one.
 
 ## Frontmatter
 
@@ -23,7 +24,8 @@ who: carrying                    # optional, from the map
 stakes: high
 summary: "One sentence: the answer, or why it matters."
 verdict: avoid                   # can-i only: yes | limit | avoid | ask
-decide_by: 20                    # decision only: the week to decide by, from a source
+decide_by: 20                    # decision only: the week to decide by, from a source, within its weeks; it becomes a task
+private: true                    # family violence and the like only: leaves no trace (docs/architecture.md, Content)
 sources:                         # every page a claim in the body comes from
   - title: Publisher — Page title
     url: https://...
@@ -48,8 +50,11 @@ its own urgency wording: never softer, never stronger, never merged.
   Red flags under `## When to get help`.
 - `decision`: `## The options`, `## Things to weigh`, `## When to decide`.
 - `moment`, `payment`: what it is, when, what to do and by when; tasks in
-  frontmatter as in `content/items/` if there are any.
+  frontmatter if there are any (`tasks:`, each an `id`, `title` and
+  optionally `opens`, `due`, `deadline` and `who`; see CLAUDE.md, Content).
 - `card`: no headings; a paragraph or two.
 - `term`: no headings; one or two short paragraphs.
 
-Checks live in `content/map/checks/drafts-<n>.yaml`, as for the map.
+Check records live in `content/map/checks/`, as for the map. Records from
+before 2026-10-30 name files in `content/drafts/`, where the entries were
+drafted; they are the same entries, now in `content/items/`.

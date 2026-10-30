@@ -213,6 +213,13 @@ item's page leads back to its door.
    `CLAUDE.md` (Content constraint: types, topics, `private`). Retire
    `content/drafts/` once empty.
 
+**Done 2026-10-30: step 7.** `docs/intent.md` (the content types, Every
+item, Cards and Decisions), `docs/architecture.md` (the Library row and
+Content) and `CLAUDE.md` (the types and topics) say what's built.
+`content/drafts/` is gone: its writing guide is `content/README.md`, and the
+review list `content/REVIEW.md`. Check records from before keep naming
+`content/drafts/<id>.md`; the README says where those files went.
+
 ## Not in this plan
 
 The cards deck and fillers (`docs/intent.md`, Cards), inline links from a

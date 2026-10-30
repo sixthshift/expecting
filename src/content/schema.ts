@@ -62,7 +62,7 @@ export const VERDICTS = ["yes", "limit", "avoid", "ask"] as const;
 
 export type Verdict = (typeof VERDICTS)[number];
 
-/** A symptom's levels, most urgent first: the four content/drafts/README.md names, after what's usual. */
+/** A symptom's levels, most urgent first: the four content/README.md names, after what's usual. */
 export const SYMPTOM_LEVELS = [
   "Call 000 or go to emergency",
   "Contact your hospital now",
