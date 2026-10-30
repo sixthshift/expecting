@@ -8,7 +8,8 @@ import { TERM_DAYS, WEEKS, type Week } from "./timeline";
 
 export type JournalEntry = {
   id: string;
-  kind: "note" | "movement";
+  /** A note, a movement, or a letter to the baby (a note, written to them). */
+  kind: "note" | "movement" | "letter";
   day: string;
   /** HH:MM, if given. */
   time: string | null;
@@ -93,9 +94,9 @@ export function matches(entry: JournalEntry, query: string): boolean {
     .every((word) => body.includes(word));
 }
 
-/** Whether an entry is a note (the Journal's notes, searched and listed as words). */
+/** Whether an entry is words: a note, or a letter to the baby. */
 export function isNote(entry: JournalEntry): boolean {
-  return entry.kind === "note";
+  return entry.kind === "note" || entry.kind === "letter";
 }
 
 /**

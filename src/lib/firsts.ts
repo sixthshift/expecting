@@ -1,0 +1,132 @@
+// The firsts: the moments people look back on most, each marked on its day
+// by either of you, with a question asked once it's marked and answered by
+// each of you in your own words. Some are suggested from what's kept or done,
+// only ever as a question to confirm, never marked on their own: a first is
+// yours to claim. One said no to is put aside (`day` null) and not asked again.
+
+import type { AppetiteEntry } from "./appetite";
+import { type ISODate, todayISO } from "./dates";
+import type { JournalEntry } from "./journal";
+import type { Person } from "./people";
+import type { Photo } from "./photos";
+
+export const FIRST_KEYS = [
+  "found-out",
+  "heartbeat",
+  "first-scan",
+  "told-family",
+  "first-craving",
+  "showing",
+  "boy-or-girl",
+  "first-kick",
+  "felt-outside",
+  "first-outfit",
+  "cot-up",
+  "bag-packed",
+] as const;
+export type FirstKey = (typeof FIRST_KEYS)[number];
+
+export type FirstDef = {
+  key: FirstKey;
+  /** As it's marked: "Felt the first kick". */
+  title: string;
+  /** Asked once it's marked, of each of you. */
+  question: string;
+  /** Only when you know whether it's a boy or a girl. */
+  knowing?: true;
+};
+
+/** In the order they usually come. */
+export const FIRSTS: readonly FirstDef[] = [
+  { key: "found-out", title: "Found out", question: "How did you find out, and who knew first?" },
+  { key: "heartbeat", title: "Heard the heartbeat", question: "What did it sound like to you?" },
+  { key: "first-scan", title: "The first scan", question: "What was it like seeing them?" },
+  { key: "told-family", title: "Told the family", question: "Who did you tell first, and how did they take it?" },
+  { key: "first-craving", title: "The first craving", question: "What was it, and how badly?" },
+  { key: "showing", title: "Started showing", question: "Who noticed first?" },
+  { key: "boy-or-girl", title: "Found out boy or girl", question: "Did you guess right?", knowing: true },
+  { key: "first-kick", title: "Felt the first kick", question: "Where were you, and what did it feel like?" },
+  { key: "felt-outside", title: "Felt from the outside", question: "Who felt it, and what did they say?" },
+  { key: "first-outfit", title: "Bought the first outfit", question: "What is it, and who chose it?" },
+  { key: "cot-up", title: "The cot is up", question: "Where is it, and who put it together?" },
+  { key: "bag-packed", title: "The bag is packed", question: "What's the one thing you made sure went in?" },
+];
+
+export function isFirstKey(key: string): key is FirstKey {
+  return (FIRST_KEYS as readonly string[]).includes(key);
+}
+
+export function firstOf(key: FirstKey): FirstDef {
+  return FIRSTS.find((f) => f.key === key)!;
+}
+
+/** The ticks that suggest a first: its task, done. */
+export const FIRST_TICKS: Partial<Record<FirstKey, string>> = { "cot-up": "set-up-cot-in-your-room", "bag-packed": "pack-hospital-bag" };
+
+/** One of you's words for a first. */
+export type FirstWords = { by: string; body: string; editedAt: string };
+
+/** A first as kept: marked on its day, or put aside (null). */
+export type FirstMark = { key: FirstKey; day: string | null; by: string | null; createdAt: string; words: FirstWords[] };
+
+/** Whether a first is marked (not put aside). */
+export function isMarked(mark: FirstMark): mark is FirstMark & { day: string } {
+  return mark.day !== null;
+}
+
+/** The firsts that can be marked: all, but boy or girl only when you know. */
+export function firstsOffered(knowing: boolean): FirstDef[] {
+  return FIRSTS.filter((f) => !f.knowing || knowing);
+}
+
+/** A first suggested from what's kept or done: which, the day, and why. */
+export type Suggestion = { key: FirstKey; day: ISODate; why: string };
+
+/** The earliest of `items` by day, then time. */
+function earliest<T extends { day: string; time: string | null }>(items: readonly T[]): T | undefined {
+  return [...items].sort((a, b) => a.day.localeCompare(b.day) || (a.time ?? "").localeCompare(b.time ?? ""))[0];
+}
+
+/**
+ * The firsts suggested by what's kept or done, in FIRSTS's order, leaving
+ * out any marked or put aside: the first scan photo, the first bump photo,
+ * the first movement, the first one kept by the partner, the first craving,
+ * and the cot and bag ticks. Never while something has happened.
+ */
+export function suggestFirsts({
+  marks,
+  journal,
+  photos,
+  appetite,
+  ticks,
+  people,
+  quiet,
+}: {
+  marks: readonly FirstMark[];
+  journal: readonly JournalEntry[];
+  photos: readonly Photo[];
+  appetite: readonly AppetiteEntry[];
+  ticks: Record<string, string>;
+  people: readonly Person[];
+  quiet: boolean;
+}): Suggestion[] {
+  if (quiet) return [];
+  const kept = new Set(marks.map((m) => m.key));
+  const partners = new Set(people.filter((p) => p.role === "partner").map((p) => p.id));
+  const movements = journal.filter((e) => e.kind === "movement");
+  const found: Partial<Record<FirstKey, { day: string; why: string } | undefined>> = {};
+  const from = (item: { day: string } | undefined, why: string) => (item ? { day: item.day, why } : undefined);
+  found["first-scan"] = from(earliest(photos.filter((p) => p.kind === "scan")), "Your first scan photo");
+  found.showing = from(earliest(photos.filter((p) => p.kind === "bump")), "Your first bump photo");
+  found["first-kick"] = from(earliest(movements), "The first movement you kept");
+  found["felt-outside"] = from(earliest(movements.filter((e) => e.by !== null && partners.has(e.by))), "The first movement the partner kept");
+  found["first-craving"] = from(earliest(appetite.filter((e) => e.kind === "craving")), "The first craving you kept");
+  for (const [key, task] of Object.entries(FIRST_TICKS) as [FirstKey, string][]) {
+    const at = ticks[task];
+    if (at) found[key] = { day: todayISO(new Date(at)), why: "Ticked off in the Planner" };
+  }
+  return FIRSTS.flatMap((f) => {
+    const s = found[f.key];
+    return s && !kept.has(f.key) ? [{ key: f.key, day: s.day as ISODate, why: s.why }] : [];
+  });
+}

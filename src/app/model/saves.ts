@@ -8,7 +8,8 @@ import { emergencySaves } from "../../api/rpc/emergency";
 import { extrasSaves } from "../../api/rpc/extras";
 import { factsSaves } from "../../api/rpc/facts";
 import { feelingsSaves } from "../../api/rpc/feelings";
-import { journalSaves } from "../../api/rpc/journal";
+import { firstsSaves } from "../../api/rpc/firsts";
+import { journalSaves, journalSeenSaves } from "../../api/rpc/journal";
 import { namesSaves } from "../../api/rpc/names";
 import { papersSaves } from "../../api/rpc/papers";
 import { photosSaves } from "../../api/rpc/photos";
@@ -30,6 +31,8 @@ export const SAVES: readonly AnySave[] = [
   emergencySaves,
   quietSaves,
   journalSaves,
+  journalSeenSaves,
+  firstsSaves,
   feelingsSaves,
   appetiteSaves,
   photosSaves,

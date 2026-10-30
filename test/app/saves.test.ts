@@ -38,6 +38,7 @@ const movement = {
   editedAt: null,
 };
 const journal = [note, movement];
+const firsts = [{ key: "first-kick", day: "2026-07-14", by: made.by, createdAt: made.at, words: [{ by: "x", body: "At work", editedAt: made.at }] }];
 const own = { id: ID, by: made.by, day: "2026-10-30", time: "21:10", step: "low", words: ["tired"], note: "Long day", createdAt: made.at };
 const theirs = {
   id: "33333333-3333-4333-8333-333333333333",
@@ -145,6 +146,23 @@ const CASES: Record<string, [unknown, unknown[]]> = {
   editNote: [journal, [{ id: ID, day: "2026-10-29", time: null, body: "First kick, I think " }]],
   restoreNote: [[], [note]],
   deleteNote: [journal, [{ id: ID }]],
+  markJournalSeen: [null, [undefined]],
+  markFirst: [
+    firsts,
+    [
+      { key: "first-kick", day: "2026-07-12" },
+      { key: "first-scan", day: "2026-05-01" },
+    ],
+  ],
+  setFirstAside: [firsts, [{ key: "first-scan" }, { key: "first-kick" }]],
+  unmarkFirst: [firsts, [{ key: "first-kick" }]],
+  setFirstWords: [
+    firsts,
+    [
+      { key: "first-kick", body: " On the couch " },
+      { key: "first-kick", body: " " },
+    ],
+  ],
   addMovement: [journal, [{ id: "22222222-2222-4222-8222-222222222222", day: "2026-10-30", time: "21:40", body: " ", different: true }]],
   editMovement: [
     journal,

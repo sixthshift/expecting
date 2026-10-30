@@ -7,8 +7,8 @@ export const journalEntry = sqliteTable(
   "journal_entry",
   {
     id: text("id").primaryKey(),
-    /** note or movement (the other kinds come later). */
-    kind: text("kind", { enum: ["note", "movement"] }).notNull(),
+    /** note, movement, or letter (a note to the baby). */
+    kind: text("kind", { enum: ["note", "movement", "letter"] }).notNull(),
     /** The day it happened, YYYY-MM-DD. */
     day: text("day").notNull(),
     /** The time it happened, HH:MM, if given. */
@@ -23,9 +23,17 @@ export const journalEntry = sqliteTable(
     editedAt: text("edited_at"),
   },
   (t) => [
-    check("journal_entry_kind", sql`${t.kind} IN ('note', 'movement')`),
+    check("journal_entry_kind", sql`${t.kind} IN ('note', 'movement', 'letter')`),
     check("journal_entry_body", sql`${t.kind} = 'movement' OR length(trim(${t.body})) > 0`),
     check("journal_entry_different", sql`${t.kind} = 'movement' OR ${t.different} = 0`),
     index("journal_entry_day").on(t.day),
   ]
 );
+
+/** When each of you last opened the Journal, for "since you looked". */
+export const journalSeen = sqliteTable("journal_seen", {
+  personId: text("person_id")
+    .primaryKey()
+    .references(() => person.id, { onDelete: "cascade" }),
+  seenAt: text("seen_at").notNull(),
+});

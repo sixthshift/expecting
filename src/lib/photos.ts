@@ -82,14 +82,20 @@ export function bumpWeeks(photos: readonly Photo[], dueDate: ISODate | null): Bu
   return [...byWeek.entries()].sort(([a], [b]) => a - b).map(([week, photo]) => ({ week, photo }));
 }
 
+/** How many weeks of bump photos make a series: before then, nothing asks for this week's. */
+export const BUMP_SERIES = 2;
+
 /**
  * The week whose bump photo is still to take: this week, until one is kept
- * in it. None while something has happened (the row offers nothing then),
- * and none without a due date.
+ * in it, once you've started a series (bump photos in two weeks): nothing
+ * asks you to start a habit you never began. None while something has
+ * happened (the row offers nothing then), and none without a due date.
  */
 export function bumpToTake(photos: readonly Photo[], { now, dueDate, quiet }: { now: Week | null; dueDate: ISODate | null; quiet: boolean }): Week | null {
   if (quiet || now === null || !dueDate) return null;
-  return bumpWeeks(photos, dueDate).some((b) => b.week === now) ? null : now;
+  const weeks = bumpWeeks(photos, dueDate);
+  if (weeks.some((b) => b.week === now) || weeks.length < BUMP_SERIES) return null;
+  return now;
 }
 
 /** The two weeks side by side opens on: the first bump week and the latest. Null with fewer than two. */

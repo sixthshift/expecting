@@ -74,3 +74,26 @@ test("a note still needs words, and is never marked as different", () => {
     db().run("INSERT INTO journal_entry (id, kind, day, body, different, created_at) VALUES ('a', 'note', '2026-10-30', 'Hi', 1, '2026-10-30T00:00:00Z')")
   ).toThrow(/CHECK/);
 });
+
+test("a letter to the baby is a note's kind: kept, changed back to a note, and needing its words", () => {
+  const repo = new JournalRepo(db());
+  repo.add({ id: ID, day: "2026-10-30", time: null, body: "Dear you", kind: "letter" }, null);
+  expect(repo.list()[0]).toMatchObject({ kind: "letter", body: "Dear you" });
+  repo.edit({ id: ID, day: "2026-10-30", time: null, body: "Dear you, again" }, null);
+  expect(repo.list()[0]).toMatchObject({ kind: "letter", body: "Dear you, again" });
+  repo.edit({ id: ID, day: "2026-10-30", time: null, body: "Just a note", kind: "note" }, null);
+  expect(repo.list()[0]).toMatchObject({ kind: "note" });
+  expect(() => db().run("INSERT INTO journal_entry (id, kind, day, time, body, created_at) VALUES ('b', 'letter', '2026-10-30', NULL, '  ', 'x')")).toThrow();
+});
+
+test("when each of you last opened the Journal, never going back", () => {
+  const people = new PeopleRepo(db());
+  const sam = people.add("Sam", "carrying");
+  const repo = new JournalRepo(db());
+  expect(repo.seen(sam.id)).toBeNull();
+  repo.markSeen(sam.id, "2026-10-30T10:00:00.000Z");
+  repo.markSeen(sam.id, "2026-10-29T10:00:00.000Z");
+  expect(repo.seen(sam.id)).toBe("2026-10-30T10:00:00.000Z");
+  repo.markSeen(sam.id, "2026-10-31T10:00:00.000Z");
+  expect(repo.seen(sam.id)).toBe("2026-10-31T10:00:00.000Z");
+});
