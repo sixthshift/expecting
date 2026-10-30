@@ -46,7 +46,7 @@ Partners say the appointments, the classes and the reading all leave them out, a
 
 - **Both parents, as one household.** One shared space. Everything either of you adds, the other sees and can edit. One password, no accounts.
 - **But each with a name.** Each device says who is holding it ("I'm Jason"), once. That needs no account. It is what lets Expecting say who logged something, run the names game, show the partner's lens, and tell one of you what the other added since you last looked. *Built: who's who. Not built: what uses it.*
-- **In the baby's colours.** One question (boy, girl, or don't know / keeping it a surprise) sets the theme: blue, pink, or both. *Built.*
+- **In the baby's colours.** One question (boy, girl, or don't know / keeping it a surprise) sets the theme: blue, pink, or both. Light or dark is each phone's own, matching the phone unless you choose. *Built.*
 - **On a phone and on a computer, for different moments.**
   - **The phone** is for reacting: a lookup at 2am, at the appointment, go time. On a phone it installs to the home screen and opens like an app.
   - **The desktop** is for the two of you planning together: decisions, reading, paperwork. It uses the room: the same app laid out for a big screen, not a phone column in the middle of one. *Built, for the timeline.*

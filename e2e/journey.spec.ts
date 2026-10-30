@@ -245,6 +245,38 @@ test("the answer to boy or girl sets the colours, and they survive a reload", as
   await expect.poll(theme).toBe("baby-purple");
 });
 
+test("a phone in dark mode opens dark, and the switch on this phone keeps its choice", async ({ page }) => {
+  const mode = () => page.evaluate(() => document.documentElement.dataset.theme);
+  const page_ = () => page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+  await page.emulateMedia({ colorScheme: "dark" });
+
+  // Dark before anything is drawn: the shell's boot script paints it, not the app.
+  await page.goto("/settings", { waitUntil: "domcontentloaded" });
+  expect(await mode()).toBe("dark");
+  await page.waitForLoadState("networkidle");
+  expect(await page_()).toBe("rgb(21, 19, 24)");
+  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute("content", "#151318");
+
+  // Chosen by hand, it holds against the phone, and over a reload.
+  await page.getByRole("radio", { name: "Light" }).click();
+  await expect.poll(mode).toBe("light");
+  await page.reload({ waitUntil: "domcontentloaded" });
+  expect(await mode()).toBe("light");
+  await page.waitForLoadState("networkidle");
+
+  // The palette still follows the household in the dark.
+  await page.getByRole("radio", { name: "Dark" }).click();
+  await expect.poll(mode).toBe("dark");
+  await page.getByRole("radio", { name: "Boy" }).click();
+  await expect.poll(page_).toBe("rgb(15, 20, 25)");
+  await page.getByRole("radio", { name: "Don't know / surprise" }).click();
+  await expect.poll(page_).toBe("rgb(21, 19, 24)");
+
+  await page.getByRole("radio", { name: "System" }).click();
+  await page.emulateMedia({ colorScheme: "light" });
+  await expect.poll(mode).toBe("light");
+});
+
 test("an answer in settings tailors an item, and clearing it puts it back", async ({ page, open }) => {
   const rsv = page.locator("#item-rsv-vaccine");
 

@@ -5,10 +5,10 @@ import { useExtras } from "../../../api/rpc/extras";
 import { useAnswers } from "../../../api/rpc/facts";
 import { usePeople } from "../../../api/rpc/people";
 import { finishOnboarding, useSettings } from "../../../api/rpc/settings";
+import { Redirect } from "../../../app/components/Redirect";
+import { useAction } from "../../../app/hooks/useAction";
+import { useBabyTheme } from "../../../app/hooks/useBabyTheme";
 import { type Step, stepAfter } from "../../../lib/onboarding";
-import { Redirect } from "../../app/components/Redirect";
-import { useAction } from "../../app/hooks/useAction";
-import { useExpectingTheme } from "../../app/hooks/useExpectingTheme";
 import { babyStep } from "../components/steps/baby";
 import { dueStep } from "../components/steps/due";
 import { extrasStep } from "../components/steps/extras";
@@ -30,7 +30,7 @@ const nextRoute = getRouteApi("/onboarding/");
 /** Around every step: the baby's colours. */
 export function OnboardingLayout() {
   const { data: settings } = useSettings();
-  useExpectingTheme(settings.baby);
+  useBabyTheme(settings.baby);
   return <Outlet />;
 }
 

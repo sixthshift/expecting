@@ -9,11 +9,11 @@ import { saveEmergency, useEmergency } from "../../../api/rpc/emergency";
 import { useAnswers } from "../../../api/rpc/facts";
 import { usePeople } from "../../../api/rpc/people";
 import { usePosition, useSettings } from "../../../api/rpc/settings";
+import { useAction } from "../../../app/hooks/useAction";
 import { formatDate, isISODate } from "../../../lib/dates";
 import { ALWAYS, EMERGENCY, EMERGENCY_FIELDS, EMERGENCY_MAX, type EmergencyField, type EmergencyInfo, telHref } from "../../../lib/emergency";
 import { factsOf } from "../../../lib/facts";
 import { gestationLabel } from "../../../lib/timeline";
-import { useAction } from "../../app/hooks/useAction";
 import { question, UNSURE } from "../../settings/model/facts";
 
 /** The answers a doctor or paramedic would ask about, as the page shows them. */

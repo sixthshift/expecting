@@ -1,8 +1,9 @@
 import type { QueryClient } from "@tanstack/react-query";
-import { createRootRouteWithContext, Outlet } from "@tanstack/react-router";
-import { Document } from "../features/app/pages/Document";
-import { ErrorPage } from "../features/app/pages/ErrorPage";
-import { NotFound } from "../features/app/pages/NotFound";
+import { createRootRouteWithContext } from "@tanstack/react-router";
+import { Document } from "../app/pages/Document";
+import { ErrorPage } from "../app/pages/ErrorPage";
+import { NotFound } from "../app/pages/NotFound";
+import { Root } from "../app/pages/Root";
 import appCss from "../styles/index.css?url";
 
 /** What every loader is handed: the queries, which hold what the app has loaded. */
@@ -24,8 +25,9 @@ export const rootRoute = createRootRouteWithContext<RouterContext>()({
     ],
   }),
   shellComponent: Document,
-  // Each page brings its own frame: the app's pillars theirs, onboarding and login a plain page.
-  component: Outlet,
+  // This phone's mode, then each page brings its own frame: the app's pillars
+  // theirs, onboarding and login a plain page.
+  component: Root,
   notFoundComponent: NotFound,
   errorComponent: ErrorPage,
 });

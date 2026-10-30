@@ -5,7 +5,7 @@ import { answersQuery } from "../api/rpc/facts";
 import { peopleQuery } from "../api/rpc/people";
 import { questionsQuery } from "../api/rpc/questions";
 import { settingsQuery } from "../api/rpc/settings";
-import { App } from "../features/app/pages/App";
+import { App } from "../app/pages/App";
 import { onboardingLeft } from "../features/onboarding/model/left";
 import { rootRoute } from "./root";
 

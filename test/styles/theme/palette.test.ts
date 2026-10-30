@@ -27,3 +27,19 @@ test("600 and darker read on white, at AA for body text", () => {
     expect(contrast(t.hex, "#ffffff"), `${t.family}-${t.step} ${t.hex}`).toBeGreaterThanOrEqual(4.5);
   }
 });
+
+// The dark blocks lean on the other end: text in colour is the 300s on a
+// surface (mist-900), and fills are the 400s with dark text (mist-950) on them.
+const hexOf = (family: string, step: number) => tokens.find((t) => t.family === family && t.step === step)!.hex;
+
+test("in the dark, 300 and lighter read on a surface, at AA for body text", () => {
+  for (const t of tokens.filter((t) => t.step <= 300)) {
+    expect(contrast(t.hex, hexOf("mist", 900)), `${t.family}-${t.step} ${t.hex}`).toBeGreaterThanOrEqual(4.5);
+  }
+});
+
+test("in the dark, 400 and lighter take dark text, at AA for body text", () => {
+  for (const t of tokens.filter((t) => t.step <= 400)) {
+    expect(contrast(t.hex, hexOf("mist", 950)), `${t.family}-${t.step} ${t.hex}`).toBeGreaterThanOrEqual(4.5);
+  }
+});

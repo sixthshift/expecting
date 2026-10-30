@@ -3,9 +3,9 @@ import { Input } from "@sixthshift/design-system/input";
 import { Plus, Trash2 } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { addOwnTask, deleteOwnTask } from "../../../../api/rpc/checklist";
+import { useAction } from "../../../../app/hooks/useAction";
 import type { Task } from "../../../../content/schema";
 import { type Week, weekLabel } from "../../../../lib/timeline";
-import { useAction } from "../../../app/hooks/useAction";
 
 /** A task of our own, for the odd thing Expecting couldn't know: added in the Planner, for this week. */
 export function AddTask({ week }: { week: Week }) {

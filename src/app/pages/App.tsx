@@ -1,13 +1,13 @@
 import { useLocation } from "@tanstack/react-router";
 import { useEffect, useMemo } from "react";
-import { useAnswers } from "../../../api/rpc/facts";
-import { useQuestions } from "../../../api/rpc/questions";
-import { useNow, useSettings } from "../../../api/rpc/settings";
-import { factsOf } from "../../../lib/facts";
-import { ContentContext } from "../../library/components/content/context";
+import { useAnswers } from "../../api/rpc/facts";
+import { useQuestions } from "../../api/rpc/questions";
+import { useNow, useSettings } from "../../api/rpc/settings";
+import { ContentContext } from "../../features/library/components/content/context";
+import { factsOf } from "../../lib/facts";
 import { PillarLayout } from "../components/layout/PillarLayout";
 import { PILLARS } from "../components/layout/pillars";
-import { useExpectingTheme } from "../hooks/useExpectingTheme";
+import { useBabyTheme } from "../hooks/useBabyTheme";
 
 /**
  * Around every pillar: the household's colours and the
@@ -18,7 +18,7 @@ export function App() {
   const now = useNow();
   const { data: facts } = useAnswers({ select: factsOf });
   const { data: questions } = useQuestions();
-  useExpectingTheme(settings.baby);
+  useBabyTheme(settings.baby);
   const { pathname } = useLocation();
 
   // A new pillar starts at its top; the timeline places itself (this week, or ?at=).

@@ -45,7 +45,8 @@ for (const [id, name, who] of [
   ["baby-pink", "Baby Pink", "A girl"],
   ["baby-purple", "Baby Purple", "Don't know, or a surprise · the default"],
 ] as const) {
-  const css = await Bun.file(new URL(`${id}.css`, THEME_DIR)).text();
+  // The light block only: the dark one, after it, sets the same tokens again.
+  const css = (await Bun.file(new URL(`${id}.css`, THEME_DIR)).text()).split("/* In the dark")[0]!;
   const tokens: Record<string, string> = {};
   for (const m of css.matchAll(/(--[\w-]+):\s*([^;]+);/g)) tokens[m[1]!] = m[2]!.trim();
   themes.push({ id, name, for: who, tokens });

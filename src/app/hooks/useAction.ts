@@ -1,6 +1,6 @@
 import { toast } from "@sixthshift/design-system/overlay";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { isLoggedOut } from "../../../lib/errors";
+import { isLoggedOut } from "../../lib/errors";
 import { loggedOut } from "../model/loggedOut";
 
 /**

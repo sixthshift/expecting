@@ -3,9 +3,9 @@ import { Baby, Camera, ChevronRight, Luggage, Siren, Timer } from "lucide-react"
 import { useExtras } from "../../../api/rpc/extras";
 import { useNames } from "../../../api/rpc/names";
 import { usePeople } from "../../../api/rpc/people";
+import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { Coming } from "../../../components/Coming";
 import { extrasOn } from "../../../lib/extras";
-import { PillarHeader } from "../../app/components/layout/PillarLayout";
 import { NamesGame } from "../../names/components/namesGame/NamesGame";
 import { extra } from "../../settings/model/extras";
 

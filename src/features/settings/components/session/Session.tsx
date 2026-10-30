@@ -3,11 +3,11 @@ import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { forgetPerson } from "../../../../api/rpc/people";
 import { logout } from "../../../../api/rpc/session";
+import { useAction } from "../../../../app/hooks/useAction";
 import type { Person } from "../../../../lib/people";
-import { useAction } from "../../../app/hooks/useAction";
 
 /** Who's holding this phone, the household it's shared with, and the way out. */
-export function ThisPhone({ me, people }: { me: Person | null; people: readonly Person[] }) {
+export function Session({ me, people }: { me: Person | null; people: readonly Person[] }) {
   const navigate = useNavigate();
   const [leaving, setLeaving] = useState(false);
   const [forget, forgetting] = useAction(() => forgetPerson());

@@ -1,8 +1,8 @@
 import { Checkbox } from "@sixthshift/design-system/checkbox";
 import { type ReactNode, useState } from "react";
 import { setTicked } from "../../../api/rpc/checklist";
+import { useAction } from "../../../app/hooks/useAction";
 import type { Task } from "../../../content/schema";
-import { useAction } from "../../app/hooks/useAction";
 
 /**
  * One task with its tick. The tick shows at once and is saved behind it; a

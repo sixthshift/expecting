@@ -11,7 +11,9 @@
 // with the pastels. To rework the colours, change the spec below and rerun.
 //
 // It also prints a contrast report: which steps can carry text on white, and
-// which can take white text — the pastels themselves cannot.
+// which can take white text — the pastels themselves cannot — and, for the dark
+// mode, which steps carry text on the dark page and a dark surface, and which
+// fills take dark text.
 
 const STEPS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as const;
 type Step = (typeof STEPS)[number];
@@ -172,6 +174,18 @@ if (import.meta.main) {
     const onWhite = STEPS.filter((s) => contrast(steps[s], "#ffffff") >= 4.5);
     console.log(
       `  ${name.padEnd(8)} text on white from ${onWhite[0] ?? "—"}; white text on ${onWhite[0] ?? "—"}+ · 300 vs white ${contrast(steps[300], "#ffffff").toFixed(2)}`
+    );
+  }
+
+  // The dark mode's ground: mist-950 is as dark as the page gets in the
+  // palette (each theme's page is a touch darker), mist-900 the surface on it.
+  const mist = families.find((f) => f.name === "mist")!.steps;
+  const upTo = (steps: Record<Step, string>, on: string) => STEPS.filter((s) => contrast(steps[s], on) >= 4.5).at(-1) ?? "—";
+  console.log("\nin the dark (page mist-950, surface mist-900):");
+  for (const { name, steps } of families) {
+    const darkText = STEPS.filter((s) => contrast(steps[s], mist[950]) >= 4.5);
+    console.log(
+      `  ${name.padEnd(8)} text on the page up to ${upTo(steps, mist[950])}, on a surface up to ${upTo(steps, mist[900])}; dark text on ${darkText.at(-1) ?? "—"} and lighter · 400 vs mist-950 ${contrast(steps[400], mist[950]).toFixed(2)}`
     );
   }
 }

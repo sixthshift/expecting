@@ -4,7 +4,7 @@
  * Both ends at once: lilac (#E2B9DB), the colour between blue and pink, as the brand, and a blue-to-pink accent like the reference's gradient circles.
  *
  * A complete theme for the design system: every semantic token it reads, in
- * light mode (Expecting has no dark mode yet), pointed at src/styles/theme/palette.css.
+ * light mode and in dark, pointed at src/styles/theme/palette.css.
  * The neutral (mist), success (sea), warning (peach) and danger (cherry) are
  * the same in all three themes; the brand and the accent are
  * this theme's own. Applied by `data-expecting-theme` on <html> (src/lib/theme.ts), or on any
@@ -14,7 +14,8 @@
  *   --expecting-accent-from/-to       the accent's two colours, for gradients
  *   --expecting-accent-soft-from/-to  the same, pale. Sparingly: the page stays
  *                                  near-white, and colour comes in accents
- *   --expecting-page                  the page: white, at most a temperature
+ *   --expecting-page                  the page: white, at most a temperature;
+ *                                  by night a near-black, the temperature kept
  */
 
 :root,
@@ -206,4 +207,203 @@
   --border-danger-pressed: var(--color-cherry-500);
   --border-danger-disabled: var(--color-cherry-200);
   --focus-ring: var(--color-lilac-500);
+}
+
+/* In the dark: the same tokens, for night, applied when `data-theme="dark"` is
+   on <html> (the design system's mode, chosen per phone). Surfaces rise from
+   the page in mist, lighter as they come forward, and hovering goes lighter
+   too. Fills are the pastels themselves (400) with dark text on them, tints
+   the 950s, text in colour the 300s: colour stays in accents, dimmer than by
+   day, so nothing glows. */
+:root[data-theme="dark"],
+:root[data-theme="dark"][data-expecting-theme="baby-purple"],
+/* A preview of the theme inside another, in the dark. */
+[data-theme="dark"] [data-expecting-theme="baby-purple"] {
+  color-scheme: dark;
+
+  /* The page: a near-black with a breath of lilac, as mist-950 but deeper. */
+  --expecting-page: #151318;
+  --expecting-accent-from: var(--color-sky-400);
+  --expecting-accent-to: var(--color-blossom-400);
+  --expecting-accent-soft-from: var(--color-sky-950);
+  --expecting-accent-soft-to: var(--color-blossom-950);
+
+  --bg-strong: var(--color-mist-100);
+  --bg-strong-hovered: var(--color-mist-50);
+  --bg-strong-pressed: white;
+  --bg-strong-disabled: var(--color-mist-600);
+  --bg-normal: var(--color-mist-900);
+  --bg-normal-hovered: var(--color-mist-800);
+  --bg-normal-pressed: var(--color-mist-700);
+  --bg-normal-disabled: var(--color-mist-900);
+  --bg-subtle: var(--color-mist-800);
+  --bg-subtle-hovered: var(--color-mist-700);
+  --bg-subtle-pressed: var(--color-mist-600);
+  --bg-subtle-disabled: var(--color-mist-800);
+  --bg-brand-subtle: var(--color-lilac-950);
+  --bg-brand-subtle-hovered: var(--color-lilac-900);
+  --bg-brand-subtle-pressed: var(--color-lilac-800);
+  --bg-brand-subtle-disabled: var(--color-lilac-950);
+  --bg-brand: var(--color-lilac-400);
+  --bg-brand-hovered: var(--color-lilac-300);
+  --bg-brand-pressed: var(--color-lilac-200);
+  --bg-brand-disabled: var(--color-lilac-700);
+  --bg-brand-strong: var(--color-lilac-300);
+  --bg-brand-strong-hovered: var(--color-lilac-200);
+  --bg-brand-strong-pressed: var(--color-lilac-100);
+  --bg-brand-strong-disabled: var(--color-lilac-600);
+  --bg-success-subtle: var(--color-sea-950);
+  --bg-success-subtle-hovered: var(--color-sea-900);
+  --bg-success-subtle-pressed: var(--color-sea-800);
+  --bg-success-subtle-disabled: var(--color-sea-950);
+  --bg-success: var(--color-sea-400);
+  --bg-success-hovered: var(--color-sea-300);
+  --bg-success-pressed: var(--color-sea-200);
+  --bg-success-disabled: var(--color-sea-700);
+  --bg-success-strong: var(--color-sea-300);
+  --bg-success-strong-hovered: var(--color-sea-200);
+  --bg-success-strong-pressed: var(--color-sea-100);
+  --bg-success-strong-disabled: var(--color-sea-600);
+  --bg-warning-subtle: var(--color-peach-950);
+  --bg-warning-subtle-hovered: var(--color-peach-900);
+  --bg-warning-subtle-pressed: var(--color-peach-800);
+  --bg-warning-subtle-disabled: var(--color-peach-950);
+  --bg-warning: var(--color-peach-400);
+  --bg-warning-hovered: var(--color-peach-300);
+  --bg-warning-pressed: var(--color-peach-200);
+  --bg-warning-disabled: var(--color-peach-700);
+  --bg-warning-strong: var(--color-peach-300);
+  --bg-warning-strong-hovered: var(--color-peach-200);
+  --bg-warning-strong-pressed: var(--color-peach-100);
+  --bg-warning-strong-disabled: var(--color-peach-600);
+  --bg-danger-subtle: var(--color-cherry-950);
+  --bg-danger-subtle-hovered: var(--color-cherry-900);
+  --bg-danger-subtle-pressed: var(--color-cherry-800);
+  --bg-danger-subtle-disabled: var(--color-cherry-950);
+  --bg-danger: var(--color-cherry-400);
+  --bg-danger-hovered: var(--color-cherry-300);
+  --bg-danger-pressed: var(--color-cherry-200);
+  --bg-danger-disabled: var(--color-cherry-700);
+  --bg-danger-strong: var(--color-cherry-300);
+  --bg-danger-strong-hovered: var(--color-cherry-200);
+  --bg-danger-strong-pressed: var(--color-cherry-100);
+  --bg-danger-strong-disabled: var(--color-cherry-600);
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  --fg-strong: var(--color-mist-50);
+  --fg-strong-hovered: white;
+  --fg-strong-pressed: white;
+  --fg-strong-disabled: var(--color-mist-500);
+  --fg-on-strong: var(--color-mist-900);
+  --fg-on-strong-hovered: var(--color-mist-950);
+  --fg-on-strong-pressed: black;
+  --fg-on-strong-disabled: var(--color-mist-400);
+  --fg-normal: var(--color-mist-100);
+  --fg-normal-hovered: var(--color-mist-50);
+  --fg-normal-pressed: var(--color-mist-50);
+  --fg-normal-disabled: var(--color-mist-500);
+  --fg-subtle: var(--color-mist-400);
+  --fg-subtle-hovered: var(--color-mist-300);
+  --fg-subtle-pressed: var(--color-mist-200);
+  --fg-subtle-disabled: var(--color-mist-600);
+  --fg-brand: var(--color-lilac-300);
+  --fg-brand-hovered: var(--color-lilac-200);
+  --fg-brand-pressed: var(--color-lilac-100);
+  --fg-brand-disabled: var(--color-lilac-600);
+  --fg-on-brand-subtle: var(--color-lilac-300);
+  --fg-on-brand-subtle-hovered: var(--color-lilac-200);
+  --fg-on-brand-subtle-pressed: var(--color-lilac-100);
+  --fg-on-brand-subtle-disabled: var(--color-lilac-600);
+  --fg-on-brand: var(--color-mist-950);
+  --fg-on-brand-hovered: var(--color-mist-950);
+  --fg-on-brand-pressed: black;
+  --fg-on-brand-disabled: var(--color-mist-400);
+  --fg-on-brand-strong: var(--color-mist-950);
+  --fg-on-brand-strong-hovered: var(--color-mist-950);
+  --fg-on-brand-strong-pressed: black;
+  --fg-on-brand-strong-disabled: var(--color-mist-500);
+  --fg-success: var(--color-sea-300);
+  --fg-success-hovered: var(--color-sea-200);
+  --fg-success-pressed: var(--color-sea-100);
+  --fg-success-disabled: var(--color-sea-600);
+  --fg-on-success-subtle: var(--color-sea-300);
+  --fg-on-success-subtle-hovered: var(--color-sea-200);
+  --fg-on-success-subtle-pressed: var(--color-sea-100);
+  --fg-on-success-subtle-disabled: var(--color-sea-600);
+  --fg-on-success: var(--color-mist-950);
+  --fg-on-success-hovered: var(--color-mist-950);
+  --fg-on-success-pressed: black;
+  --fg-on-success-disabled: var(--color-mist-400);
+  --fg-on-success-strong: var(--color-mist-950);
+  --fg-on-success-strong-hovered: var(--color-mist-950);
+  --fg-on-success-strong-pressed: black;
+  --fg-on-success-strong-disabled: var(--color-mist-500);
+  --fg-warning: var(--color-peach-300);
+  --fg-warning-hovered: var(--color-peach-200);
+  --fg-warning-pressed: var(--color-peach-100);
+  --fg-warning-disabled: var(--color-peach-600);
+  --fg-on-warning-subtle: var(--color-peach-300);
+  --fg-on-warning-subtle-hovered: var(--color-peach-200);
+  --fg-on-warning-subtle-pressed: var(--color-peach-100);
+  --fg-on-warning-subtle-disabled: var(--color-peach-600);
+  --fg-on-warning: var(--color-mist-950);
+  --fg-on-warning-hovered: var(--color-mist-950);
+  --fg-on-warning-pressed: black;
+  --fg-on-warning-disabled: var(--color-mist-400);
+  --fg-on-warning-strong: var(--color-mist-950);
+  --fg-on-warning-strong-hovered: var(--color-mist-950);
+  --fg-on-warning-strong-pressed: black;
+  --fg-on-warning-strong-disabled: var(--color-mist-500);
+  --fg-danger: var(--color-cherry-300);
+  --fg-danger-hovered: var(--color-cherry-200);
+  --fg-danger-pressed: var(--color-cherry-100);
+  --fg-danger-disabled: var(--color-cherry-600);
+  --fg-on-danger-subtle: var(--color-cherry-300);
+  --fg-on-danger-subtle-hovered: var(--color-cherry-200);
+  --fg-on-danger-subtle-pressed: var(--color-cherry-100);
+  --fg-on-danger-subtle-disabled: var(--color-cherry-600);
+  --fg-on-danger: var(--color-mist-950);
+  --fg-on-danger-hovered: var(--color-mist-950);
+  --fg-on-danger-pressed: black;
+  --fg-on-danger-disabled: var(--color-mist-400);
+  --fg-on-danger-strong: var(--color-mist-950);
+  --fg-on-danger-strong-hovered: var(--color-mist-950);
+  --fg-on-danger-strong-pressed: black;
+  --fg-on-danger-strong-disabled: var(--color-mist-500);
+  --border-strong: var(--color-mist-100);
+  --border-strong-hovered: var(--color-mist-50);
+  --border-strong-pressed: white;
+  --border-strong-disabled: var(--color-mist-600);
+  --border-normal: var(--color-mist-700);
+  --border-normal-hovered: var(--color-mist-600);
+  --border-normal-pressed: var(--color-mist-500);
+  --border-normal-disabled: var(--color-mist-800);
+  --border-subtle: var(--color-mist-800);
+  --border-subtle-hovered: var(--color-mist-700);
+  --border-subtle-pressed: var(--color-mist-600);
+  --border-subtle-disabled: var(--color-mist-900);
+  --border-brand-subtle: var(--color-lilac-800);
+  --border-brand-subtle-hovered: var(--color-lilac-700);
+  --border-brand-subtle-pressed: var(--color-lilac-600);
+  --border-brand-subtle-disabled: var(--color-lilac-900);
+  --border-brand: var(--color-lilac-400);
+  --border-brand-hovered: var(--color-lilac-300);
+  --border-brand-pressed: var(--color-lilac-200);
+  --border-brand-disabled: var(--color-lilac-800);
+  --border-brand-strong: var(--color-lilac-300);
+  --border-brand-strong-hovered: var(--color-lilac-200);
+  --border-brand-strong-pressed: var(--color-lilac-100);
+  --border-brand-strong-disabled: var(--color-lilac-600);
+  --border-success: var(--color-sea-700);
+  --border-success-hovered: var(--color-sea-600);
+  --border-success-pressed: var(--color-sea-500);
+  --border-success-disabled: var(--color-sea-800);
+  --border-warning: var(--color-peach-700);
+  --border-warning-hovered: var(--color-peach-600);
+  --border-warning-pressed: var(--color-peach-500);
+  --border-warning-disabled: var(--color-peach-800);
+  --border-danger: var(--color-cherry-700);
+  --border-danger-hovered: var(--color-cherry-600);
+  --border-danger-pressed: var(--color-cherry-500);
+  --border-danger-disabled: var(--color-cherry-800);
+  --focus-ring: var(--color-lilac-400);
 }

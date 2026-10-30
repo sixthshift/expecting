@@ -7,37 +7,39 @@ import { useExtras } from "../../../api/rpc/extras";
 import { useAnswers } from "../../../api/rpc/facts";
 import { usePeople } from "../../../api/rpc/people";
 import { saveSettings, useNow, usePosition, useSettings } from "../../../api/rpc/settings";
+import { useAction } from "../../../app/hooks/useAction";
 import { Page, Section } from "../../../components/Page";
 import { daysBetween, formatDate, todayISO } from "../../../lib/dates";
 import { asksFor, factsOf, isSettled, latestByKey } from "../../../lib/facts";
 import type { Person, Role } from "../../../lib/people";
 import { gestationLabel } from "../../../lib/timeline";
 import { COMMIT, VERSION } from "../../../lib/version";
-import { useAction } from "../../app/hooks/useAction";
+import { Appearance } from "../components/appearance/Appearance";
 import { ColourChoice } from "../components/colour/ColourChoice";
 import { DueDateForm } from "../components/dueDate/DueDateForm";
 import { ExtrasList } from "../components/extras/ExtrasList";
 import { FactRow } from "../components/facts/FactsForm";
 import { SettingList, SettingRow } from "../components/SettingRow";
-import { ThisPhone } from "../components/thisPhone/ThisPhone";
+import { Session } from "../components/session/Session";
 import { type Ask, GROUPS, type Group } from "../model/facts";
 
 const route = getRouteApi("/app/settings");
 
 const DUE_DATE = "dueDate";
 
-/** The sections, in order: the question groups, the extras, then this phone. */
+/** The sections, in order: the question groups, the extras, then this phone's: its appearance and its session. */
 const SECTIONS = [
   ...(Object.entries(GROUPS) as [Group, string][]).map(([id, title]) => ({ id, title })),
   { id: "extras", title: "Extras" },
-  { id: "phone", title: "This phone" },
+  { id: "appearance", title: "Appearance" },
+  { id: "session", title: "Session" },
 ];
 
 /**
  * Everything Expecting has been told, grouped and readable at a glance: the
  * due date and colours with the pregnancy, every question in
  * src/features/settings/model/facts.data.ts in its group (each of yours under your name), how many
- * are settled and the next to answer; the extras; then this phone. `?ask=cover` opens at a
+ * are settled and the next to answer; the extras; then this phone's appearance and session. `?ask=cover` opens at a
  * question (or `?ask=extra:babymoon` at an extra), as a hidden item's page links
  * here.
  */
@@ -112,7 +114,7 @@ export function SettingsPage() {
                 {answered === total ? "Every question answered" : `${answered} of ${total} answered`}
               </p>
               <p className="text-sm text-fg-normal">Each answer tailors what Expecting tells you to do, and when. Change any of them here.</p>
-              {/* Onboarding's bar, on white so it shows on the tint. */}
+              {/* Onboarding's bar, on a surface so it shows on the tint. */}
               <div
                 role="progressbar"
                 aria-label="Questions answered"
@@ -206,8 +208,12 @@ export function SettingsPage() {
             <ExtrasList choices={choices} people={people} highlight={ask?.startsWith("extra:") ? ask.slice("extra:".length) : undefined} />
           </Section>
 
-          <Section id="settings-phone" title="This phone" className="scroll-mt-6">
-            <ThisPhone me={me} people={people} />
+          <Section id="settings-appearance" title="Appearance" className="scroll-mt-6">
+            <Appearance />
+          </Section>
+
+          <Section id="settings-session" title="Session" className="scroll-mt-6">
+            <Session me={me} people={people} />
           </Section>
 
           <p className="text-xs text-fg-subtle">

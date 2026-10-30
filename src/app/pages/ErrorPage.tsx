@@ -1,8 +1,8 @@
 import { Button } from "@sixthshift/design-system/button";
 import { type ErrorComponentProps, useRouter } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { Page } from "../../../components/Page";
-import { isLoggedOut } from "../../../lib/errors";
+import { Page } from "../../components/Page";
+import { isLoggedOut } from "../../lib/errors";
 import { loggedOut } from "../model/loggedOut";
 
 /** A page that couldn't load: try again. If the session has ended, off to log in instead. */

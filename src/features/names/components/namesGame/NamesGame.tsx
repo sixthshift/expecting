@@ -3,9 +3,9 @@ import { Input } from "@sixthshift/design-system/input";
 import { Heart, Plus, Trash2, X } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { addName, removeName, voteName } from "../../../../api/rpc/names";
+import { useAction } from "../../../../app/hooks/useAction";
 import { type NamesView, nextToVote } from "../../../../lib/names";
 import type { Person } from "../../../../lib/people";
-import { useAction } from "../../../app/hooks/useAction";
 
 /**
  * The names game: either of you adds names, and each votes on your own phone.
