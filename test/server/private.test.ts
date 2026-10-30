@@ -54,6 +54,8 @@ const WRITES: Record<string, ((x: string) => unknown) | null> = {
   "settings.ts:saveSettings": (x) => ({ dueDate: x }),
   "settings.ts:finishOnboarding": null,
   "emergency.ts:saveEmergency": (x) => ({ carerPhone: x, notes: x }),
+  "quiet.ts:setQuiet": (x) => ({ kind: x }),
+  "quiet.ts:clearQuiet": null,
 };
 
 /** The session's own: choosing the password and logging in, which save only a hash and must never be refused. */

@@ -1,7 +1,7 @@
-import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import type { Item, Task } from "../../../../content/schema";
 import { type QuietKind, setInMotion } from "../../../../lib/quiet";
+import { ItemLink } from "../../../library/components/ItemLink";
 
 /**
  * The Planner's To do while Expecting is quiet: nothing to do, the list put
@@ -62,14 +62,10 @@ function Done({ id, title, lead, tasks, more }: { id: string; title: string; lea
         {tasks.map((task) => (
           <li key={task.id}>
             {task.itemId ? (
-              <Link
-                to="/library/$itemId"
-                params={{ itemId: task.itemId }}
-                className="flex min-h-12 items-center justify-between gap-3 px-4 py-2 text-fg-normal hover:bg-bg-normal-hovered"
-              >
+              <ItemLink itemId={task.itemId} className="flex min-h-12 items-center justify-between gap-3 px-4 py-2 text-fg-normal hover:bg-bg-normal-hovered">
                 {task.title}
                 <ChevronRight aria-hidden size={16} className="shrink-0 text-fg-subtle" />
-              </Link>
+              </ItemLink>
             ) : (
               <span className="flex min-h-12 items-center px-4 py-2 text-fg-normal">{task.title}</span>
             )}
@@ -77,10 +73,10 @@ function Done({ id, title, lead, tasks, more }: { id: string; title: string; lea
         ))}
       </ul>
       {more ? (
-        <Link to="/library/$itemId" params={{ itemId: more.id }} className="flex min-h-11 w-fit items-center gap-1 text-sm text-fg-subtle hover:text-fg-normal">
+        <ItemLink itemId={more.id} className="flex min-h-11 w-fit items-center gap-1 text-sm text-fg-subtle hover:text-fg-normal">
           {more.label}
           <ChevronRight aria-hidden size={16} />
-        </Link>
+        </ItemLink>
       ) : null}
     </section>
   );

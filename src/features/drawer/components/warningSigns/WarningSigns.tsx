@@ -1,11 +1,11 @@
 import { Spinner } from "@sixthshift/design-system/spinner";
-import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { Suspense, use } from "react";
 import { builtInItems } from "../../../../content";
 import type { Item } from "../../../../content/schema";
 import { sectionsOf } from "../../../../content/sections";
 import { ItemBody } from "../../../library/components/content/ItemBody";
+import { ItemLink } from "../../../library/components/ItemLink";
 import { pageOf } from "../../../library/model/pageOf";
 
 /** The guide the list comes from: written and sourced once, in content/items/warning-signs.md. */
@@ -37,10 +37,10 @@ export function WarningSigns() {
       >
         <Signs item={guide} />
       </Suspense>
-      <Link to="/library/$itemId" params={{ itemId: guide.id }} className="flex min-h-11 w-fit items-center gap-1 text-sm text-fg-subtle hover:text-fg-normal">
+      <ItemLink itemId={guide.id} className="flex min-h-11 w-fit items-center gap-1 text-sm text-fg-subtle hover:text-fg-normal">
         All the warning signs, and each in full
         <ChevronRight aria-hidden size={16} />
-      </Link>
+      </ItemLink>
     </section>
   );
 }
