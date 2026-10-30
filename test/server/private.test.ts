@@ -56,6 +56,20 @@ const WRITES: Record<string, ((x: string) => unknown) | null> = {
   "emergency.ts:saveEmergency": (x) => ({ carerPhone: x, notes: x }),
   "quiet.ts:setQuiet": (x) => ({ kind: x }),
   "quiet.ts:clearQuiet": null,
+  "journal.ts:addNote": (x) => ({ id: UUID, day: "2026-10-30", time: null, body: x }),
+  "journal.ts:editNote": (x) => ({ id: UUID, day: "2026-10-30", time: null, body: x }),
+  "journal.ts:restoreNote": (x) => ({
+    id: UUID,
+    kind: "note",
+    day: "2026-10-30",
+    time: null,
+    body: x,
+    by: null,
+    createdAt: "2026-10-30T00:00:00.000Z",
+    editedBy: null,
+    editedAt: null,
+  }),
+  "journal.ts:deleteNote": (x) => ({ id: x }),
 };
 
 /** The session's own: choosing the password and logging in, which save only a hash and must never be refused. */

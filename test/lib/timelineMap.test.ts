@@ -1,6 +1,7 @@
 import { describe, expect, test } from "vitest";
 import type { Item, Task } from "../../src/content/schema";
 import type { ISODate } from "../../src/lib/dates";
+import type { JournalEntry } from "../../src/lib/journal";
 import type { Question } from "../../src/lib/questions";
 import { type MapInput, mapWeeks, mapWindows, trimester } from "../../src/lib/timelineMap";
 
@@ -71,6 +72,7 @@ describe("the weeks", () => {
     tasks: [task("gtt-task", 26, "gtt"), task("rsv-task", 30, "rsv"), task("snacks", 28, null), task("done", 28, null)],
     ticks: { done: "2026-10-28T00:00:00Z" },
     questions: [],
+    journal: [],
     now: 28,
     dueDate: "2027-01-19" as ISODate,
   };
@@ -103,6 +105,22 @@ describe("the weeks", () => {
     const asked: Question = { id: "q", text: "?", answer: null, askedAt: "2026-10-29T01:00:00Z", createdAt: "2026-10-01T00:00:00Z" };
     const w = mapWeeks({ ...input, questions: [asked] });
     expect(w.filter((m) => m.asked > 0).map((m) => m.week)).toEqual([28]);
+  });
+
+  test("a note counts in the week of its day, and one from before the pregnancy in none", () => {
+    const note = (id: string, day: string): JournalEntry => ({
+      id,
+      kind: "note",
+      day,
+      time: null,
+      body: "…",
+      by: null,
+      createdAt: "2026-10-30T00:00:00Z",
+      editedBy: null,
+      editedAt: null,
+    });
+    const w = mapWeeks({ ...input, journal: [note("a", "2026-10-30"), note("b", "2026-11-02"), note("c", "2026-01-01")] });
+    expect(w.filter((m) => m.kept > 0).map((m) => [m.week, m.kept])).toEqual([[28, 2]]);
   });
 });
 

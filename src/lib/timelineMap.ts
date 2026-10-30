@@ -2,7 +2,7 @@
 // is tested apart from the screen.
 //
 //   every week, 1 to 42, one line each: its note's title or a landmark, what
-//   opens, what's to do, what's done; a week's detail is This week's (/?at=)
+//   opens, what's to do, what's done, what was kept in the Journal; a week's detail is This week's (/?at=)
 //   the windows: each item that asks something of you, drawn across its weeks,
 //   so what overlaps and what's open now can be seen at a glance
 //   landmarks: the moments people mark, halfway, full term, the due date
@@ -10,6 +10,7 @@
 import { asks, type DatedItem, type Item, type Task } from "../content/schema";
 import type { WeekNote } from "../content/weeks";
 import { type ISODate, todayISO } from "./dates";
+import { type JournalEntry, placeOf } from "./journal";
 import type { Question } from "./questions";
 import { allWeeks, positionOn, type Week } from "./timeline";
 
@@ -55,6 +56,8 @@ export type MapWeek = {
   slipped: boolean;
   /** Questions asked at an appointment this week. */
   asked: number;
+  /** Entries kept in the Journal on its days. */
+  kept: number;
 };
 
 export type MapInput = {
@@ -63,12 +66,14 @@ export type MapInput = {
   tasks: readonly Task[];
   ticks: Record<string, string>;
   questions: readonly Question[];
+  journal: readonly JournalEntry[];
   now: Week | null;
   dueDate: ISODate | null;
 };
 
-export function mapWeeks({ notes, windows, tasks, ticks, questions, now, dueDate }: MapInput): MapWeek[] {
+export function mapWeeks({ notes, windows, tasks, ticks, questions, journal, now, dueDate }: MapInput): MapWeek[] {
   const asked = askedWeeks(questions, dueDate);
+  const kept = dueDate ? journal.map((e) => placeOf(e.day as ISODate, dueDate)) : [];
   return allWeeks().map((week) => {
     const due = tasks.filter((t) => t.due === week);
     const toDo = due.filter((t) => !ticks[t.id]).length;
@@ -84,6 +89,7 @@ export function mapWeeks({ notes, windows, tasks, ticks, questions, now, dueDate
       done: due.length - toDo,
       slipped: isPast && toDo > 0,
       asked: [...asked.values()].filter((w) => w === week).length,
+      kept: kept.filter((w) => w === week).length,
     };
   });
 }

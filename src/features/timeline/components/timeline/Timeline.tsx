@@ -2,6 +2,7 @@ import { Button } from "@sixthshift/design-system/button";
 import { LocateFixed } from "lucide-react";
 import { useEffect, useMemo } from "react";
 import { useChecklist } from "../../../../api/rpc/checklist";
+import { useJournal } from "../../../../api/rpc/journal";
 import { useQuestions } from "../../../../api/rpc/questions";
 import { useNow, useSettings } from "../../../../api/rpc/settings";
 import { PillarHeader } from "../../../../app/components/layout/PillarLayout";
@@ -35,9 +36,10 @@ export function Timeline({ at }: { at: Week | undefined }) {
   const items = useItems();
   const tasks = useTasks();
   const { data: questions } = useQuestions();
+  const { data: journal } = useJournal();
   const { dueDate } = settings;
   const windows = useMemo(() => mapWindows(items, checklist.ticks, now), [items, checklist.ticks, now]);
-  const weeks = mapWeeks({ notes: weekNotes, windows, tasks, ticks: checklist.ticks, questions, now, dueDate });
+  const weeks = mapWeeks({ notes: weekNotes, windows, tasks, ticks: checklist.ticks, questions, journal, now, dueDate });
 
   // Open at the top, where the chart has today on it; or at the week asked for, on a phone.
   useEffect(() => {

@@ -88,7 +88,7 @@ The modes sort into six pillars, by whose a thing is and what you do with it:
 - **Records live in the Journal:** a scan is something that happened, dated, on the timeline. A separate Vault for medical papers stays an option.
 - **Outside every pillar:** the capture button (one "+" that files a kick, a question or a photo into the right pillar) and the call button.
 
-*Built: the frame, This week, the Timeline, Library and Planner. The Journal and the Drawer say what's coming.*
+*Built: the frame, This week, the Timeline, Library and Planner, the Journal's notes and the Drawer's names game. The rest of the Journal and the Drawer say what's coming.*
 
 ### The app changes shape
 
@@ -319,7 +319,7 @@ The entry types are content (a YAML file), so adding one is a content change. Ea
 - **It notices mood gently.** If the mood entries stay low for a fortnight, it suggests talking to someone and shows the PANDA helpline. It never scores or diagnoses.
 - **It is also fun.** "You craved pickles 14 times." By the birth, it is half the story.
 
-*Not built.*
+*Built: notes, in the Journal, added there (the capture button comes with movements, when it has more than one thing to file). Either of you can change any note, and it says who did; on the timeline a note marks its week, and This week shows a week's notes only when you peek at it. Not built: the other entries and the capture button.*
 
 ## Baby names
 

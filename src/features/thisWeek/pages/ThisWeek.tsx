@@ -2,6 +2,7 @@ import { getRouteApi, Link } from "@tanstack/react-router";
 import { CalendarRange, ChevronRight } from "lucide-react";
 import { useMemo } from "react";
 import { useChecklist } from "../../../api/rpc/checklist";
+import { useJournal } from "../../../api/rpc/journal";
 import { useQuestions } from "../../../api/rpc/questions";
 import { useQuiet } from "../../../api/rpc/quiet";
 import { useNow, usePosition, useSettings } from "../../../api/rpc/settings";
@@ -9,8 +10,10 @@ import { PhoneCorner } from "../../../app/components/layout/PillarLayout";
 import { weekNotes } from "../../../content";
 import { noteFor } from "../../../content/weeks";
 import { todayISO } from "../../../lib/dates";
+import { entriesIn } from "../../../lib/journal";
 import { headsUps, worthKnowing } from "../../../lib/library";
 import { askedWeeks } from "../../../lib/timelineMap";
+import { Note } from "../../journal/components/notes/notes";
 import { ItemLink } from "../../library/components/ItemLink";
 import { useItems } from "../../library/hooks/useItems";
 import { AskedQuestion, QuestionsWaiting } from "../../questions/components/questions/questions";
@@ -34,7 +37,8 @@ import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
  * column, the doing first.
  *
  * A peek at another week (?at=29) shows that week instead: its note, its
- * heads-up, what's worth knowing, and what's best done then. What to do now stays with now.
+ * heads-up, what's worth knowing, what's best done then, and the notes kept
+ * then. What to do now stays with now; this week's notes stay in the Journal.
  *
  * While something has happened, none of it: support and the next steps instead.
  */
@@ -53,6 +57,7 @@ function Week() {
   const items = useItems();
   const tasks = useTasks();
   const { data: questions } = useQuestions();
+  const { data: journal } = useJournal();
   const today = todayISO();
   const { at } = route.useSearch();
   const { dueDate } = settings;
@@ -70,6 +75,7 @@ function Week() {
   const openQuestions = questions.filter((q) => !q.askedAt).length;
   const askedIn = askedWeeks(questions, dueDate);
   const asked = questions.filter((q) => week !== null && askedIn.get(q.id) === week);
+  const kept = peeking && week !== null ? entriesIn(journal, week, dueDate) : [];
 
   return (
     <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
@@ -103,6 +109,16 @@ function Week() {
               </h2>
               {asked.map((q) => (
                 <AskedQuestion key={q.id} question={q} />
+              ))}
+            </section>
+          ) : null}
+          {kept.length > 0 ? (
+            <section aria-labelledby="kept" className="order-4 flex flex-col gap-2 lg:order-0">
+              <h2 id="kept" className="text-lg font-display font-semibold text-fg-strong">
+                Kept that week
+              </h2>
+              {kept.map((entry) => (
+                <Note key={entry.id} entry={entry} />
               ))}
             </section>
           ) : null}

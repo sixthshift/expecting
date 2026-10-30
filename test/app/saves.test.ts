@@ -12,6 +12,8 @@ const checklist = { ticks: { "book-rsv-vaccine": "2026-10-01T00:00:00.000Z" }, o
 const questions = [{ id: ID, text: "Free?", answer: null, askedAt: null, createdAt: made.at }];
 const names = { names: [{ id: ID, name: "Ada", mine: null }], matches: [{ id: ID, name: "Ada" }], together: true };
 const settings = { dueDate: "2027-03-01", baby: "surprise", onboardedAt: made.at };
+const note = { id: ID, kind: "note", day: "2026-10-30", time: "07:30", body: "First kick!", by: made.by, createdAt: made.at, editedBy: null, editedAt: null };
+const journal = [note];
 const emergency = { values: { carerPhone: "0400 000 000" }, changed: null };
 
 /** For each save: data as fetched, and inputs to apply over it. */
@@ -57,6 +59,10 @@ const CASES: Record<string, [unknown, unknown[]]> = {
   saveEmergency: [emergency, [{ carerPhone: "", notes: "Allergic to penicillin  " }, { carerPhone: "0400 000 000" }]],
   setQuiet: [null, [{ kind: "news" }, { kind: "loss" }]],
   clearQuiet: [{ kind: "news", setBy: null, setAt: made.at }, [null]],
+  addNote: [journal, [{ id: "22222222-2222-4222-8222-222222222222", day: "2026-10-29", time: null, body: " Told Mum " }]],
+  editNote: [journal, [{ id: ID, day: "2026-10-29", time: null, body: "First kick, I think " }]],
+  restoreNote: [[], [note]],
+  deleteNote: [journal, [{ id: ID }]],
 };
 
 test("every save has its cases here", () => {
@@ -81,5 +87,16 @@ test("a save changes what it says, and nothing it doesn't", () => {
   expect(byKey.addName!.apply(names, { id: "22222222-2222-4222-8222-222222222222", name: "ADA" }, made).names).toEqual([{ id: ID, name: "Ada", mine: true }]);
   expect(byKey.saveSettings!.apply(settings, { baby: "boy" }, made)).toEqual({ ...settings, baby: "boy" });
   expect(byKey.saveEmergency!.apply(emergency, { carerPhone: "" }, made)).toEqual({ values: {}, changed: { by: made.by, at: made.at } });
+  expect(byKey.addNote!.apply([], { id: ID, day: "2026-10-29", time: null, body: " Told Mum " }, made)).toEqual([
+    { id: ID, kind: "note", day: "2026-10-29", time: null, body: "Told Mum", by: made.by, createdAt: made.at, editedBy: null, editedAt: null },
+  ]);
+  expect(byKey.editNote!.apply(journal, { id: ID, day: "2026-10-29", time: null, body: "Kick " }, made)[0]).toEqual({
+    ...note,
+    day: "2026-10-29",
+    time: null,
+    body: "Kick",
+    editedBy: made.by,
+    editedAt: made.at,
+  });
   expect(byKey.setQuiet!.apply({ kind: "loss", setBy: null, setAt: made.at }, { kind: "news" }, made)).toMatchObject({ kind: "loss" });
 });
