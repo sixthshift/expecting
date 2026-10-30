@@ -14,6 +14,7 @@ import { useSettings } from "../../../../api/rpc/settings";
 import { formatDate, type ISODate, todayISO } from "../../../../lib/dates";
 import { placeOf } from "../../../../lib/journal";
 import { callsToMake, type NowCard, type RecapSpan } from "../../../../lib/journalNow";
+import { hasRecap } from "../../../../lib/recap";
 import { cravingThread, lensOf, type StoryItem, summarise } from "../../../../lib/story";
 import { weekLabel } from "../../../../lib/timeline";
 import { TooSick } from "../appetite/appetite";
@@ -115,7 +116,8 @@ function Since({ card }: { card: Extract<NowCard, { kind: "since" }> }) {
 function RecapCard({ span, items, onOpened }: { span: RecapSpan; items: readonly StoryItem[]; onOpened: (key: string) => void }) {
   const recap = useRecap(span, items);
   const [open, setOpen] = useState(false);
-  if (!recap) return null;
+  // Nothing kept or done in those weeks: nothing to give back.
+  if (!recap || !hasRecap(recap)) return null;
   return (
     <Card size="sm" className="flex flex-col gap-2">
       <p className="font-display text-lg font-semibold text-fg-strong">{span.title}, kept</p>

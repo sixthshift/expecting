@@ -78,5 +78,7 @@ describe("the cards", () => {
     const position = { week: 14, gestationDays: 101 };
     expect(nowCards({ ...base, position })[0]).toMatchObject({ kind: "recap", span: { key: "first" } });
     expect(nowCards({ ...base, position, recapsOpened: ["first"] })).toEqual([]);
+    // Nothing kept or done in those weeks: no recap to offer.
+    expect(nowCards({ ...base, position, recapsOpened: [], recapHas: () => false })).toEqual([]);
   });
 });

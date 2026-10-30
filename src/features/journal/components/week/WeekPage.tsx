@@ -2,12 +2,14 @@
 // anything is kept. The week, its note's title and the baby this week (from
 // the week notes); around now, the firsts whose weeks take this one in, each
 // an invitation with its question, answered in your own words; the Keep row;
-// and what's kept this week, as the diary draws it. Then still to come in
-// your story. Nothing about the baby while something has happened.
+// and what's kept this week, as the diary draws it. Then the places
+// Expecting has made ready, and what's already happened that can still be
+// kept. Nothing about the baby while something has happened.
 
 import { Button } from "@sixthshift/design-system/button";
+import { Modal } from "@sixthshift/design-system/modal";
 import { Textarea } from "@sixthshift/design-system/textarea";
-import { Star } from "lucide-react";
+import { Camera, FileText, Star } from "lucide-react";
 import { type ReactNode, useState } from "react";
 import { firstsSaves } from "../../../../api/rpc/firsts";
 import { usePeople } from "../../../../api/rpc/people";
@@ -16,21 +18,25 @@ import { weekNotes } from "../../../../content";
 import { babyLead, noteFor, sizeLabel } from "../../../../content/weeks";
 import { type ISODate, todayISO } from "../../../../lib/dates";
 import type { FirstDef } from "../../../../lib/firsts";
+import type { Place } from "../../../../lib/places";
 import type { StoryDay } from "../../../../lib/story";
 import { type Week, weekLabel } from "../../../../lib/timeline";
+import { CaptureSheet } from "../../../capture/components/CaptureSheet";
 import { useOnThisPhone } from "../../hooks/useOnThisPhone";
 import { DayField } from "../firsts/firsts";
+import { AddPhoto } from "../photos/AddPhoto";
 import { Days } from "../story/Story";
 
 /** A first that's around now: what, its question, and your words for it; kept, it's marked today (or the day you say). */
-function AroundNowFirst({ first, week, onNotYet }: { first: FirstDef; week: Week; onNotYet: () => void }) {
+function AroundNowFirst({ first, week, onNotYet, past = false }: { first: FirstDef; week: Week; onNotYet?: () => void; past?: boolean }) {
   const { data: people } = usePeople();
   const mark = useSave(firstsSaves.markFirst);
   const setWords = useSave(firstsSaves.setFirstWords);
-  const [writing, setWriting] = useState(false);
+  // One that's already happened is written at once, on the day it was.
+  const [writing, setWriting] = useState(past);
   const [body, setBody] = useState("");
   const [day, setDay] = useState<ISODate>(todayISO());
-  const [choosingDay, setChoosingDay] = useState(false);
+  const [choosingDay, setChoosingDay] = useState(past);
 
   function keep() {
     mark({ key: first.key, day });
@@ -61,7 +67,7 @@ function AroundNowFirst({ first, week, onNotYet }: { first: FirstDef; week: Week
               autosize
               rows={2}
               maxLength={10_000}
-              autoFocus
+              autoFocus={!past}
             />
           ) : null}
           {choosingDay ? <DayField value={day} onChange={setDay} /> : null}
@@ -81,9 +87,11 @@ function AroundNowFirst({ first, week, onNotYet }: { first: FirstDef; week: Week
           <Button intent="brand" size="sm" onClick={() => setWriting(true)}>
             {people.me ? "Write it" : "Mark it"}
           </Button>
-          <Button variant="ghost" size="sm" onClick={onNotYet} aria-label={`Not yet: ${first.title}`}>
-            Not yet
-          </Button>
+          {onNotYet ? (
+            <Button variant="ghost" size="sm" onClick={onNotYet} aria-label={`Not yet: ${first.title}`}>
+              Not yet
+            </Button>
+          ) : null}
         </div>
       )}
       <span className="sr-only">
@@ -152,27 +160,86 @@ export function WeekPage({
   );
 }
 
-/** Still to come in your story: the next firsts, and the weeks they usually come in. */
-export function StillToCome({ firsts }: { firsts: readonly FirstDef[] }) {
+/** A place Expecting has made ready: its sentence, and the place itself as the way in. */
+function PlaceReady({ place }: { place: Place }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <li>
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="flex w-full items-center gap-4 rounded-xl border border-dashed border-border-normal p-4 text-left hover:bg-bg-normal-hovered focus-visible:ring-2 focus-visible:ring-border-focus"
+      >
+        <span aria-hidden className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-bg-subtle text-fg-subtle">
+          {place.kind === "paper" ? <FileText size={20} /> : <Camera size={20} />}
+        </span>
+        <span className="text-fg-normal">{place.says}</span>
+      </button>
+      {open && place.kind === "paper" ? <CaptureSheet initial="paper" onClose={() => setOpen(false)} /> : null}
+      {open && place.kind !== "paper" ? (
+        <Modal
+          size="sm"
+          align="top"
+          closable
+          onOpenChange={(o) => (o ? null : setOpen(false))}
+          aria-label={place.kind === "bump" ? "A bump photo" : "The scan"}
+        >
+          <Modal.Header>
+            <h2 className="font-display text-lg font-semibold text-fg-strong">{place.kind === "bump" ? "A bump photo" : "The scan"}</h2>
+          </Modal.Header>
+          <Modal.Body className="px-6 pb-6">
+            <AddPhoto kind={place.kind === "bump" ? "bump" : "scan"} onAdded={() => setOpen(false)} />
+          </Modal.Body>
+        </Modal>
+      ) : null}
+    </li>
+  );
+}
+
+/** The places ready now, each said once, quietly. */
+export function Places({ places }: { places: readonly Place[] }) {
+  if (places.length === 0) return null;
+  return (
+    <ul aria-label="Ready for you" className="flex flex-col gap-3">
+      {places.map((p) => (
+        <PlaceReady key={p.key} place={p} />
+      ))}
+    </ul>
+  );
+}
+
+/** Some of this has already happened: the firsts whose weeks are past, to keep on the day they were. */
+export function AlreadyHappened({ firsts, week }: { firsts: readonly FirstDef[]; week: Week }) {
+  const [open, setOpen] = useState(false);
   if (firsts.length === 0) return null;
   return (
-    <section aria-labelledby="to-come" className="flex flex-col gap-2">
-      <h3 id="to-come" className="text-sm font-semibold text-fg-strong">
-        Still to come in your story
+    <section aria-labelledby="already" className="flex flex-col gap-3">
+      <h3 id="already" className="text-sm font-semibold text-fg-strong">
+        Already happened
       </h3>
-      <ol className="flex flex-col">
-        {firsts.map((f) => (
-          <li key={f.key} className="flex items-baseline gap-3 py-1">
-            <span className="w-20 shrink-0 text-sm text-fg-subtle tabular-nums">
-              Wk {f.weeks[0]}–{f.weeks[1]}
-            </span>
-            <span className="flex items-center gap-2 text-fg-normal">
-              <Star aria-hidden size={14} className="text-fg-subtle" />
-              {f.title}
-            </span>
-          </li>
-        ))}
-      </ol>
+      <p className="text-sm text-fg-normal">Some of this has already happened. You can still keep it, on the day it was.</p>
+      {open ? (
+        <ul className="flex flex-col gap-3">
+          {firsts.map((f) => (
+            <AroundNowFirst key={f.key} first={f} week={week} past />
+          ))}
+        </ul>
+      ) : (
+        <ul className="flex flex-wrap gap-2">
+          {firsts.map((f) => (
+            <li key={f.key}>
+              <button
+                type="button"
+                onClick={() => setOpen(true)}
+                className="flex min-h-9 items-center gap-1.5 rounded-full border border-border-subtle px-3 text-sm text-fg-normal hover:bg-bg-normal-hovered"
+              >
+                <Star aria-hidden size={14} className="text-fg-subtle" />
+                {f.title}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </section>
   );
 }

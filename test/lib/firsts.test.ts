@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 import { builtInTasks } from "../../src/content";
-import { aroundNow, FIRST_TICKS, FIRSTS, firstsOffered, stillToCome, suggestFirsts } from "../../src/lib/firsts";
+import { alreadyHappened, aroundNow, FIRST_TICKS, FIRSTS, firstsOffered, suggestFirsts } from "../../src/lib/firsts";
 import { appetite, entry, first, photo } from "./storyFixtures";
 
 const people = [
@@ -43,19 +43,17 @@ test("never one marked or put aside, and none while something has happened", () 
   expect(suggestFirsts({ ...none, photos, quiet: true })).toEqual([]);
 });
 
-test("around now: the firsts whose weeks take this one in, two at most; still to come: the next three", () => {
+test("around now: the firsts whose weeks take this one in, two at most; already happened: those whose weeks are past", () => {
   const at = (now: number | null, marks = [] as ReturnType<typeof first>[]) => ({ now, marks, knowing: false, quiet: false });
   expect(aroundNow(at(4)).map((f) => f.key)).toEqual(["found-out"]);
   expect(aroundNow(at(12)).map((f) => f.key)).toEqual(["first-craving", "first-scan"]);
   expect(aroundNow(at(12, [first("first-craving", "2026-05-01"), first("first-scan", null)])).map((f) => f.key)).toEqual(["heartbeat", "told-family"]);
   expect(aroundNow({ ...at(4), quiet: true })).toEqual([]);
   expect(aroundNow(at(null))).toEqual([]);
-  expect(stillToCome(at(4)).map((f) => [f.key, f.weeks[0]])).toEqual([
-    ["first-craving", 5],
-    ["first-scan", 7],
-    ["heartbeat", 8],
-  ]);
-  expect(stillToCome(at(37))).toEqual([]);
+  expect(alreadyHappened(at(4))).toEqual([]);
+  expect(alreadyHappened(at(14)).map((f) => f.key)).toEqual(["found-out", "first-scan"]);
+  expect(alreadyHappened(at(15, [first("found-out", "2026-04-01"), first("first-scan", null)])).map((f) => f.key)).toEqual(["first-craving", "heartbeat"]);
+  expect(alreadyHappened({ ...at(30), quiet: true })).toEqual([]);
   // Boy or girl only when you know.
   expect(aroundNow(at(20)).some((f) => f.key === "boy-or-girl")).toBe(false);
   expect(aroundNow({ ...at(19), knowing: true, marks: [first("showing", "2026-01-01")] }).map((f) => f.key)).toEqual(["first-kick", "boy-or-girl"]);

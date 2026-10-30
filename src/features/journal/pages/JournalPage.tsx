@@ -9,17 +9,20 @@ import { useChecklist } from "../../../api/rpc/checklist";
 import { useFeelings } from "../../../api/rpc/feelings";
 import { useFirsts } from "../../../api/rpc/firsts";
 import { journalSeenSaves, useJournal, useJournalSeen } from "../../../api/rpc/journal";
+import { usePapers } from "../../../api/rpc/papers";
 import { usePeople } from "../../../api/rpc/people";
 import { usePhotos } from "../../../api/rpc/photos";
 import { useQuiet } from "../../../api/rpc/quiet";
 import { useNow, usePosition, useSettings } from "../../../api/rpc/settings";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { useSave } from "../../../app/hooks/useSave";
+import { contents, young } from "../../../lib/chapters";
 import { todayISO } from "../../../lib/dates";
-import { aroundNow, stillToCome, suggestFirsts } from "../../../lib/firsts";
+import { alreadyHappened, aroundNow, suggestFirsts } from "../../../lib/firsts";
 import { nowCards, type RecapSpan, recapsSoFar } from "../../../lib/journalNow";
 import { kindsOffered } from "../../../lib/photos";
-import { hasRecap } from "../../../lib/recap";
+import { placesReady } from "../../../lib/places";
+import { hasRecap, recapOf } from "../../../lib/recap";
 import {
   foldedWhileQuiet,
   inWeek,
@@ -37,6 +40,7 @@ import {
 import type { Week } from "../../../lib/timeline";
 import { FeelingsLens } from "../../feelings/components/history/Feelings";
 import { AppetiteLens } from "../components/appetite/appetite";
+import { BookCover, BookLine } from "../components/book/Book";
 import { FirstsLens } from "../components/firsts/firsts";
 import { KeepRow } from "../components/keep/KeepRow";
 import { Lately } from "../components/lately/Lately";
@@ -48,7 +52,7 @@ import { PhotosLens } from "../components/photos/photos";
 import { RecapViewer, useRecap } from "../components/recap/Recap";
 import { StoryList } from "../components/story/Story";
 import { PregnancyZoom, WeeksZoom } from "../components/story/Zoom";
-import { StillToCome, WeekPage } from "../components/week/WeekPage";
+import { AlreadyHappened, Places, WeekPage } from "../components/week/WeekPage";
 import { useOnThisPhone } from "../hooks/useOnThisPhone";
 import { useStory } from "../hooks/useStory";
 
@@ -167,6 +171,7 @@ export function JournalPage() {
   const { data: photos } = usePhotos();
   const { data: firsts } = useFirsts();
   const { data: checklist } = useChecklist();
+  const { data: papers } = usePapers();
   const { data: seen } = useJournalSeen();
   const position = usePosition();
   const now = useNow();
@@ -207,6 +212,7 @@ export function JournalPage() {
     dueDate,
     quiet: isQuiet,
     recapsOpened: opened,
+    recapHas: (span) => (dueDate ? hasRecap(recapOf({ span, dueDate, firsts, photos, appetite, journal, items })) : false),
   });
   const patterns = patternsKept({ journal, appetite, feelings, photos, today, dueDate, me: people.me?.id ?? null, quiet: isQuiet });
   const name = (id: string | null) => (id === null ? null : (people.people.find((p) => p.id === id)?.name ?? null));
@@ -216,7 +222,11 @@ export function JournalPage() {
   // A first suggested from what's kept is asked on Now, with its day; around now asks the rest.
   const suggested = new Set(cards.flatMap((c) => (c.kind === "first" ? [c.suggestion.key] : [])));
   const around = aroundNow({ now, marks: firsts, knowing, quiet: isQuiet }).filter((f) => !suggested.has(f.key));
-  const toCome = stillToCome({ now, marks: firsts, knowing, quiet: isQuiet });
+  const past = alreadyHappened({ now, marks: firsts, knowing, quiet: isQuiet });
+  const places = placesReady({ now, photos, papers, dueDate, quiet: isQuiet });
+  const chapters = contents({ items, dueDate, now });
+  // The book, while the Journal is young, on the page; after, one line at the top. Nothing of it while something has happened.
+  const book = isQuiet || !dueDate ? null : young(items) ? "cover" : "line";
   const searching = words.trim().length > 0;
   const thisWeek = now !== null && dueDate && lens === "all" && !zoom && !isQuiet ? storyGroups(inWeek(shown, now, dueDate), dueDate) : [];
   const thisWeekDays = thisWeek.flatMap((g) => (g.kind === "group" ? g.days : []));
@@ -227,13 +237,16 @@ export function JournalPage() {
       <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1fr)_20rem] lg:grid-rows-[auto_1fr] lg:gap-x-10">
         <div className="flex min-w-0 flex-col gap-6 lg:col-start-1 lg:row-start-1">
           <Calls />
+          {book === "line" ? <BookLine lines={chapters} /> : null}
           {/* While something has happened, no week counted and nothing about the baby: the story, as kept. */}
           {now !== null && dueDate && !isQuiet ? (
             <WeekPage week={now} quiet={isQuiet} around={around} days={searching ? [] : thisWeekDays} keep={<KeepRow />} />
           ) : (
             <KeepRow />
           )}
-          <StillToCome firsts={toCome} />
+          {now !== null ? <Places places={places} /> : null}
+          {now !== null ? <AlreadyHappened firsts={past} week={now} /> : null}
+          {book === "cover" ? <BookCover lines={chapters} /> : null}
         </div>
 
         <aside

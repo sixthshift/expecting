@@ -57,7 +57,9 @@ test("hard news quiets every pillar, and becomes a loss", async ({ page, open })
   // No week counted, nothing about the baby, and no firsts to write.
   await expect(page.getByRole("region", { name: "This week" })).toBeHidden();
   await expect(page.getByRole("region", { name: "Around now" })).toBeHidden();
-  await expect(page.getByRole("region", { name: "Still to come in your story" })).toBeHidden();
+  await expect(page.getByRole("region", { name: "Already happened" })).toBeHidden();
+  await expect(page.getByRole("link", { name: /^Our pregnancy/ })).toBeHidden();
+  await expect(page.getByRole("region", { name: "Your book" })).toBeHidden();
   await expect(page.getByRole("radio", { name: "Movements" })).toBeHidden();
   await expect(page.getByRole("list", { name: "Keep" }).getByRole("button", { name: "Moved" })).toBeHidden();
   await expect(page.getByRole("list", { name: "Keep" }).getByRole("button", { name: "Note" })).toBeVisible();

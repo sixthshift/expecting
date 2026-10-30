@@ -10,7 +10,7 @@ import type { Suggestion } from "./firsts";
 import type { JournalEntry } from "./journal";
 import { placeOf } from "./journal";
 import type { Person } from "./people";
-import { type StoryItem, TRIMESTERS, type Trimester } from "./story";
+import { type StoryItem, TRIMESTERS } from "./story";
 import { type Position, WEEKS, type Week } from "./timeline";
 
 /** At most this many cards, beside a call. */
@@ -29,7 +29,7 @@ export function callsToMake(journal: readonly JournalEntry[], appetite: readonly
 }
 
 /** A recap to open: a trimester's, or the whole pregnancy's. */
-export type RecapSpan = { key: Trimester["key"] | "whole"; title: string; from: Week; to: Week };
+export type RecapSpan = { key: string; title: string; from: Week; to: Week };
 
 export const WHOLE: RecapSpan = { key: "whole", title: "Your pregnancy", from: WEEKS.first, to: WEEKS.last };
 
@@ -85,6 +85,7 @@ export function nowCards({
   dueDate,
   quiet,
   recapsOpened,
+  recapHas = () => true,
 }: {
   items: readonly StoryItem[];
   kept: StoryItem | null;
@@ -98,6 +99,8 @@ export function nowCards({
   quiet: boolean;
   /** The recaps this phone has opened: one opened isn't offered again. */
   recapsOpened: readonly string[];
+  /** Whether a recap has anything in it: one with nothing kept or done isn't offered. */
+  recapHas?: (span: RecapSpan) => boolean;
 }): NowCard[] {
   if (quiet) return [];
   const cards: NowCard[] = [];
@@ -115,7 +118,7 @@ export function nowCards({
 
   const now = position?.week ?? null;
   const recap = recapDue(now);
-  if (recap && !recapsOpened.includes(recap.key)) cards.push({ kind: "recap", span: recap });
+  if (recap && !recapsOpened.includes(recap.key) && recapHas(recap)) cards.push({ kind: "recap", span: recap });
 
   if (position && dueDate && now !== null && now > WEEKS.first && position.gestationDays % 7 < LAST_WEEK_DAYS) {
     const last = now - 1;

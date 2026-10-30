@@ -67,7 +67,12 @@ test("this week's page, before anything else: the week, around now's firsts to w
   const around = page.getByRole("region", { name: "Around now" });
   await expect(around.getByText("The cot is up")).toBeVisible();
   await expect(around.getByText("Where is it, and who put it together?")).toBeVisible();
-  await expect(page.getByRole("region", { name: "Still to come in your story" }).getByText("The bag is packed")).toBeVisible();
+  // What's already happened can still be kept, on the day it was.
+  const already = page.getByRole("region", { name: "Already happened" });
+  await expect(already.getByText("Some of this has already happened. You can still keep it, on the day it was.")).toBeVisible();
+  await expect(already.getByRole("button", { name: "Found out" })).toBeVisible();
+  // Under way, the book is one line at the top.
+  await expect(page.getByRole("link", { name: /^Our pregnancy · \d+ chapters? begun/ })).toHaveAttribute("href", "/journal/book");
 
   const cot = around.getByRole("listitem").filter({ hasText: "The cot is up" });
   await cot.getByRole("button", { name: "Write it" }).click();
@@ -143,11 +148,17 @@ test("zoomed out to the weeks, a week opens the story at it; the search finds an
   await expect(story.getByText("Painted the nursery yellow")).toBeHidden();
 });
 
-test("the book: the pregnancy, a chapter a trimester, to print", async ({ page, open }) => {
+test("the book: your names on its cover, its contents, and a chapter for each part, written in and filled, to print", async ({ page, open }) => {
   await open("/journal/book");
   await expect(page.getByRole("heading", { name: "Our pregnancy", level: 1 })).toBeVisible();
-  const third = page.getByRole("region", { name: "Third trimester" });
-  await expect(third.getByText("Bought the first outfit")).toBeVisible();
-  await expect(third.getByText("Dear little one, we can't wait")).toBeVisible();
+  await expect(page.getByText("Sam & Jason")).toBeVisible();
+  const contents = page.getByRole("list", { name: "Contents" });
+  await expect(contents.getByRole("listitem").filter({ hasText: "Getting ready" })).toContainText("Begun");
+  await expect(contents.getByRole("listitem").filter({ hasText: "The last weeks" })).toContainText("Still to come");
+  const ready = page.getByRole("region", { name: "Getting ready" });
+  await expect(ready.getByText("Bought the first outfit")).toBeVisible();
+  await expect(ready.getByText("Dear little one, we can't wait")).toBeVisible();
+  // Expecting has written its weeks in.
+  await expect(page.getByRole("region", { name: "Finding out" }).getByText("Week 4")).toBeVisible();
   await expect(page.getByRole("button", { name: "Print or save as a PDF" })).toBeEnabled();
 });

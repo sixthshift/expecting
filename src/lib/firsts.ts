@@ -137,9 +137,6 @@ export function suggestFirsts({
 /** How many firsts "around now" offers at once. */
 export const AROUND_NOW = 2;
 
-/** How many "still to come" looks ahead to. */
-export const TO_COME = 3;
-
 /** Not yet marked or put aside, and offered (boy or girl only when you know). */
 function open(marks: readonly FirstMark[], knowing: boolean): FirstDef[] {
   const kept = new Set(marks.map((m) => m.key));
@@ -158,11 +155,22 @@ export function aroundNow({ now, marks, knowing, quiet }: { now: Week | null; ma
     .slice(0, AROUND_NOW);
 }
 
-/** The next firsts to come, soonest first: what the story still has ahead. Never while something has happened. */
-export function stillToCome({ now, marks, knowing, quiet }: { now: Week | null; marks: readonly FirstMark[]; knowing: boolean; quiet: boolean }): FirstDef[] {
+/**
+ * The firsts whose weeks are past, not yet marked or put aside, in the order
+ * they come: some of this has already happened, and can still be kept, on
+ * the day it was. Never while something has happened.
+ */
+export function alreadyHappened({
+  now,
+  marks,
+  knowing,
+  quiet,
+}: {
+  now: Week | null;
+  marks: readonly FirstMark[];
+  knowing: boolean;
+  quiet: boolean;
+}): FirstDef[] {
   if (quiet || now === null) return [];
-  return open(marks, knowing)
-    .filter((f) => f.weeks[0] > now)
-    .sort((a, b) => a.weeks[0] - b.weeks[0])
-    .slice(0, TO_COME);
+  return open(marks, knowing).filter((f) => f.weeks[1] < now);
 }

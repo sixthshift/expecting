@@ -183,7 +183,7 @@ Expecting already knows, and what you keep is written into it:
   words, kept today or the day you say) or Not yet (put off on this phone
   for the week). One suggested from what's kept is asked on Now instead.
 - **Still to come in your story** (`stillToCome`): the next three firsts and
-  their weeks.
+  their weeks. (Folded into the book's contents in the third pass.)
 - **A diary, not rows** (`Story.tsx`): the day in the margin, the words
   running as writing, photos large, a craving a chip ("Pickles, twice": a
   day's same craving is one line), sickness one line a day; no card and no
@@ -293,9 +293,10 @@ No book cover, no contents, no places, no catching up: nothing about what
 the pregnancy would have become. The book stays at `/journal/book` as it
 was, and the Journal is as the second pass left it.
 
-Screenshots of it (2026-10-31), from a copy of the e2e database: week 4
-with nothing kept and week 22 with a few things, on a phone and a desktop,
-in [`screenshots/journal/`](screenshots/journal/).
+Screenshots of it after the third pass (2026-10-31), from a copy of the e2e
+database: week 6 with nothing kept, week 14 opened for the first time, and
+week 22 with a few things, on a phone and a desktop, and the book at week
+6, in [`screenshots/journal/`](screenshots/journal/) (`week-*`, `book-*`).
 
 ## Steps
 

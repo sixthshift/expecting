@@ -69,7 +69,7 @@ beforeEach(() => {
 const offered = () =>
   within(screen.getByRole("dialog"))
     .getAllByRole("listitem")
-    .map((li) => li.textContent);
+    .map((li) => li.querySelector("[data-choice]")?.textContent);
 
 describe("CaptureSheet", () => {
   it("offers all ten, in their fixed order", () => {

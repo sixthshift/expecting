@@ -1,12 +1,17 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft, Printer } from "lucide-react";
+import { usePeople } from "../../../api/rpc/people";
 import { useQuiet } from "../../../api/rpc/quiet";
-import { PillarHeader } from "../../../app/components/layout/PillarLayout";
-import type { RecapSpan } from "../../../lib/journalNow";
+import { useNow, useSettings } from "../../../api/rpc/settings";
+import { CHAPTERS, type Chapter, contents } from "../../../lib/chapters";
+import { formatDate } from "../../../lib/dates";
 import { hasRecap, recapParts } from "../../../lib/recap";
-import { type StoryItem, TRIMESTERS } from "../../../lib/story";
+import type { StoryItem } from "../../../lib/story";
+import { type Week, weekLabel } from "../../../lib/timeline";
+import { Contents } from "../components/book/Book";
 import { RecapPartView, useRecap } from "../components/recap/Recap";
+import { weekTitle } from "../components/story/Story";
 import { useStory } from "../hooks/useStory";
 
 const PART_TITLE = {
@@ -19,57 +24,102 @@ const PART_TITLE = {
   done: "What you got done",
 } as const;
 
-/** A trimester, as a chapter: its parts, each only when it has something. Nothing at all when it has none. */
-function Chapter({ span, items }: { span: RecapSpan; items: readonly StoryItem[] }) {
-  const recap = useRecap(span, items);
-  if (!recap || !hasRecap(recap)) return null;
+/** The weeks of a chapter so far, as Expecting has written them: each week's title. */
+function WeeksWritten({ from, to }: { from: Week; to: Week }) {
+  const weeks = Array.from({ length: Math.max(0, to - from + 1) }, (_, i) => from + i);
+  if (weeks.length === 0) return null;
   return (
-    <section aria-labelledby={`chapter-${span.key}`} className="flex break-inside-avoid-page flex-col gap-6">
-      <h2 id={`chapter-${span.key}`} className="font-display text-2xl font-semibold text-fg-strong">
-        {span.title}
-      </h2>
-      {recapParts(recap).map((part) => (
-        <section key={part} aria-label={PART_TITLE[part]} className="flex break-inside-avoid flex-col gap-3">
-          <h3 className="text-sm font-semibold tracking-wide text-fg-subtle uppercase">{PART_TITLE[part]}</h3>
-          {/* The flipbook prints as its last frame. */}
-          <RecapPartView recap={recap} part={part} />
-        </section>
+    <ol className="flex flex-col text-sm text-fg-subtle">
+      {weeks.map((w) => (
+        <li key={w} className="flex gap-3">
+          <span className="w-16 shrink-0 tabular-nums">{weekLabel(w)}</span>
+          <span>{weekTitle(w)}</span>
+        </li>
       ))}
+    </ol>
+  );
+}
+
+/** A chapter: its weeks so far, written, then what you kept in them, each part only when it has something. */
+function ChapterPage({ chapter, items, now }: { chapter: Chapter; items: readonly StoryItem[]; now: Week | null }) {
+  const weeks = chapter.weeks ?? [1, 1];
+  const recap = useRecap({ key: chapter.key, title: chapter.title, from: weeks[0], to: weeks[1] }, items);
+  const reached = chapter.weeks !== null && now !== null && now >= weeks[0];
+  return (
+    <section aria-labelledby={`chapter-${chapter.key}`} className="flex break-inside-avoid-page flex-col gap-5">
+      <h2 id={`chapter-${chapter.key}`} className="font-display text-2xl font-semibold text-fg-strong">
+        {chapter.title}
+      </h2>
+      {chapter.weeks === null ? (
+        <p className="text-fg-subtle">This chapter comes with the birth.</p>
+      ) : !reached ? (
+        <p className="text-fg-subtle">Still to come: {`weeks ${weeks[0]}–${weeks[1]}`}.</p>
+      ) : (
+        <>
+          <WeeksWritten from={weeks[0]} to={Math.min(weeks[1], now ?? weeks[1])} />
+          {recap && hasRecap(recap)
+            ? recapParts(recap).map((part) => (
+                <section key={part} aria-label={PART_TITLE[part]} className="flex break-inside-avoid flex-col gap-3">
+                  <h3 className="text-sm font-semibold tracking-wide text-fg-subtle uppercase">{PART_TITLE[part]}</h3>
+                  {/* The flipbook prints as its last frame. */}
+                  <RecapPartView recap={recap} part={part} />
+                </section>
+              ))
+            : null}
+        </>
+      )}
     </section>
   );
 }
 
 /**
- * The book: the whole pregnancy on one page, a chapter a trimester, made
- * from what's kept and done, to print or save as a PDF from the phone's or
- * computer's own print. Nothing to write: it's made as you go. While
- * something has happened, what the Journal folds away isn't in it.
+ * The book: the pregnancy, a chapter a part of it, begun by Expecting from
+ * the first visit (each week's title, as written) and filled by what you
+ * keep; to print or save as a PDF from the phone's or computer's own print.
+ * While something has happened, only a line: everything kept is in the
+ * Journal, as it was.
  */
 export function BookPage() {
   const items = useStory();
   const { data: quiet } = useQuiet();
-  const any = items.length > 0;
+  const { data: settings } = useSettings();
+  const { data: people } = usePeople();
+  const now = useNow();
+  const names = [...people.people].sort((a, b) => Number(b.role === "carrying") - Number(a.role === "carrying")).map((p) => p.name);
+  const lines = contents({ items, dueDate: settings.dueDate, now });
+
   return (
     <main className="mx-auto max-w-3xl px-4 pb-16 md:px-8">
       <Link to="/journal" className="mt-4 flex min-h-11 items-center gap-1 text-sm text-fg-subtle print:hidden">
         <ChevronLeft aria-hidden size={16} /> The Journal
       </Link>
-      <PillarHeader title="Our pregnancy" lead="Made from what you kept and did, a chapter a trimester." />
-      {quiet ? null : (
-        <div className="mb-8 print:hidden">
-          <Button variant="outline" size="sm" onClick={() => window.print()} disabled={!any}>
-            <Printer aria-hidden size={16} /> Print or save as a PDF
-          </Button>
-        </div>
+      {quiet ? (
+        <p className="py-10 text-fg-subtle">Everything you kept is in the Journal, as it was.</p>
+      ) : (
+        <>
+          <header className="my-8 flex flex-col gap-2 rounded-2xl bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) px-6 py-12 text-center">
+            <h1 className="font-display text-4xl font-semibold text-fg-strong">Our pregnancy</h1>
+            {names.length > 0 ? <p className="text-fg-normal">{names.join(" & ")}</p> : null}
+            {settings.dueDate ? <p className="text-sm text-fg-subtle">Due {formatDate(settings.dueDate, { month: "long", year: "numeric" })}</p> : null}
+          </header>
+          <div className="mb-10 flex flex-col gap-4">
+            <h2 className="text-sm font-semibold tracking-wide text-fg-subtle uppercase">Contents</h2>
+            <Contents lines={lines} />
+            <Button variant="outline" size="sm" className="self-start print:hidden" onClick={() => window.print()}>
+              <Printer aria-hidden size={16} /> Print or save as a PDF
+            </Button>
+          </div>
+          {settings.dueDate ? (
+            <div className="flex flex-col gap-14">
+              {CHAPTERS.map((c) => (
+                <ChapterPage key={c.key} chapter={c} items={items} now={now} />
+              ))}
+            </div>
+          ) : (
+            <p className="text-fg-subtle">With a due date, Expecting writes the weeks in.</p>
+          )}
+        </>
       )}
-      <div className="flex flex-col gap-12">
-        {quiet ? (
-          <p className="text-fg-subtle">Everything you kept is in the Journal, as it was.</p>
-        ) : (
-          TRIMESTERS.map((t) => <Chapter key={t.key} span={{ key: t.key, title: t.title, from: t.from, to: t.to }} items={items} />)
-        )}
-        {!any && !quiet ? <p className="text-fg-subtle">As you keep things, and tick them off, they gather here.</p> : null}
-      </div>
     </main>
   );
 }
