@@ -36,9 +36,13 @@ concurrency:
   group: docker-${{ github.ref }}
   cancel-in-progress: false
 
+# Each job has a limit a few times its usual length, so a hang (the arm64
+# build under emulation has stopped mid-build once) fails the run within the
+# hour instead of holding main's queue for Actions' default six.
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
       - uses: oven-sh/setup-bun@v2
@@ -53,6 +57,7 @@ jobs:
   # Beside the test job, not after it, so the gate takes the longer of the two.
   e2e:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
       - uses: oven-sh/setup-bun@v2
@@ -73,6 +78,7 @@ jobs:
   image:
     needs: [test, e2e]
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
       # The bump commit and its tag go back to main.
       contents: write

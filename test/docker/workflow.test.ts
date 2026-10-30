@@ -16,7 +16,7 @@ type Workflow = {
   on: { push?: { branches?: string[]; tags?: string[] }; pull_request?: unknown };
   permissions?: Record<string, string>;
   concurrency?: { group?: string; "cancel-in-progress"?: boolean };
-  jobs: Record<string, { needs?: string | string[]; permissions?: Record<string, string>; steps: Step[] }>;
+  jobs: Record<string, { needs?: string | string[]; "timeout-minutes"?: number; permissions?: Record<string, string>; steps: Step[] }>;
 };
 
 /** The step whose `uses` starts with `action`, or undefined. Pure. */
@@ -41,6 +41,11 @@ describe("triggers", () => {
   test("may write packages", () => {
     expect(workflow.permissions?.packages).toBe("write");
   });
+});
+
+// Actions' default is six hours; a hung build would hold main's queue that long.
+test("every job has a time limit", () => {
+  for (const [name, job] of Object.entries(workflow.jobs)) expect(job["timeout-minutes"], name).toBeGreaterThan(0);
 });
 
 describe("test job", () => {
