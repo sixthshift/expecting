@@ -8,13 +8,15 @@ import { type FormEvent, useState } from "react";
 import { saveEmergency, useEmergency } from "../../../api/rpc/emergency";
 import { useAnswers } from "../../../api/rpc/facts";
 import { usePeople } from "../../../api/rpc/people";
+import { useQuiet } from "../../../api/rpc/quiet";
 import { usePosition, useSettings } from "../../../api/rpc/settings";
 import { useAction } from "../../../app/hooks/useAction";
-import { formatDate, isISODate } from "../../../lib/dates";
+import { formatDate, isISODate, todayISO } from "../../../lib/dates";
 import { ALWAYS, EMERGENCY, EMERGENCY_FIELDS, EMERGENCY_MAX, type EmergencyField, type EmergencyInfo, telHref } from "../../../lib/emergency";
 import { factsOf } from "../../../lib/facts";
-import { gestationLabel } from "../../../lib/timeline";
+import { gestationLabel, positionOn } from "../../../lib/timeline";
 import { question, UNSURE } from "../../settings/model/facts";
+import { WarningSigns } from "../components/warningSigns/WarningSigns";
 
 /** The answers a doctor or paramedic would ask about, as the page shows them. */
 const FROM_ANSWERS: readonly { id: string; label: string }[] = [
@@ -27,8 +29,8 @@ const FROM_ANSWERS: readonly { id: string; label: string }[] = [
 
 /**
  * Emergency info: the one page to open when something goes wrong, or labour starts.
- * The pregnancy at a glance, who to call (each number a call button), what a
- * doctor will ask and the numbers you'll be asked for. Both of you fill it in.
+ * The pregnancy at a glance, who to call (each number a call button) and when
+ * (the warning signs), what a doctor will ask and the numbers you'll be asked for. Both of you fill it in.
  */
 export function EmergencyPage() {
   const { data: emergency } = useEmergency();
@@ -62,6 +64,10 @@ function EmergencyView({ emergency }: { emergency: EmergencyInfo }) {
   const { data: facts } = useAnswers({ select: factsOf });
   const carrying = people.find((p) => p.role === "carrying");
   const { dueDate } = settings;
+  // After a loss the pregnancy stops counting: a doctor needs the weeks it ended at, and when.
+  const { data: quiet } = useQuiet();
+  const lostOn = quiet?.kind === "loss" ? todayISO(new Date(quiet.setAt)) : null;
+  const lostAt = lostOn && dueDate ? positionOn(lostOn, dueDate) : null;
   const answered = FROM_ANSWERS.flatMap(({ id, label }) => {
     const value = facts[id];
     const said = value && value !== UNSURE ? question(id)?.answers[value] : undefined;
@@ -78,9 +84,17 @@ function EmergencyView({ emergency }: { emergency: EmergencyInfo }) {
       >
         <p className="font-display text-xl font-semibold text-fg-strong">
           {carrying ? `${carrying.name}, ` : ""}
-          {position ? `${gestationLabel(position.gestationDays)} weeks pregnant` : "pregnant"}
+          {lostOn
+            ? `pregnancy loss${lostAt ? ` at ${gestationLabel(lostAt.gestationDays)} weeks` : ""}`
+            : position
+              ? `${gestationLabel(position.gestationDays)} weeks pregnant`
+              : "pregnant"}
         </p>
-        {dueDate ? <p className="text-fg-normal">Due {formatDate(dueDate)}</p> : null}
+        {lostOn ? (
+          <p className="text-fg-normal">On or before {formatDate(lostOn)}</p>
+        ) : dueDate ? (
+          <p className="text-fg-normal">Due {formatDate(dueDate)}</p>
+        ) : null}
         {answered.length > 0 ? (
           <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
             {answered.map((a) => (
@@ -116,6 +130,7 @@ function EmergencyView({ emergency }: { emergency: EmergencyInfo }) {
               ))}
             </ul>
           ) : null}
+          {group.id === "call" ? <WarningSigns /> : null}
         </section>
       ))}
 

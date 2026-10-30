@@ -110,9 +110,13 @@ The most important button in the app is personal: **your** birth suite's number,
 - **"Is this normal?"** ends at it whenever the answer is "call".
 - **The red flags,** said plainly, lead to it: a change in the baby's movements, bleeding, a severe headache or vision changes, fluid leaking, fever, itching.
 
+*Built: the call button on every pillar (its number from Emergency info), and "Is this normal?": each symptom's levels, most urgent first, each with its call; and the red flags as one list (`warning-signs`, from healthdirect), on Emergency info under who to call and in the Library, each sign with its own page. Not built: the contacts the number would come from.*
+
 ### When things go wrong
 
 Some pregnancies end in miscarriage, and screening sometimes brings bad news. An app that keeps cheerfully showing "the size of a lemon" after a loss is cruel. Expecting has a quiet "something has happened" path: it pauses the timeline and offers support. It is designed in from the start, not bolted on later.
+
+*Built: a loss or hard news, from the guide or Settings, quiets every pillar for both of you, with support and the next steps in their place, and a way back ([architecture](architecture.md#something-has-happened)). Not built: moving on to a new pregnancy, and marking the due date and anniversaries.*
 
 ## The timeline
 

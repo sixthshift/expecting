@@ -7,6 +7,7 @@ import { type ReactNode, useState } from "react";
 import { useChecklist } from "../../../api/rpc/checklist";
 import { usePeople } from "../../../api/rpc/people";
 import { useQuestions } from "../../../api/rpc/questions";
+import { useQuiet } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import type { Item, Task } from "../../../content/schema";
@@ -16,6 +17,7 @@ import { WEEKS, type Week, weekLabel } from "../../../lib/timeline";
 import { type ToDo, whenToDo } from "../../../lib/todo";
 import { useItems } from "../../library/hooks/useItems";
 import { AddQuestion, AskedQuestion, OpenQuestion } from "../../questions/components/questions/questions";
+import { PutAside } from "../../quiet/components/putAside/PutAside";
 import { AddTask, DeleteOwnTask } from "../../tasks/components/addTask/AddTask";
 import { TaskRow } from "../../tasks/components/TaskRow";
 import { useTasks } from "../../tasks/hooks/useTasks";
@@ -35,7 +37,8 @@ const AHEAD_AT: Record<Ahead["at"], (w: Week) => string> = {
  * What to do and what to ask. To do starts somewhere: the one thing to do
  * next, then the rest of what to do now, with what's ahead, missed and done
  * folded away (src/lib/planner.ts). Beside it, the questions for the next
- * appointment.
+ * appointment. While something has happened, nothing to do: the list is put
+ * aside, with what was already set in motion.
  */
 export function PlannerPage() {
   const { me, people } = usePeople().data;
@@ -44,6 +47,7 @@ export function PlannerPage() {
   const tasks = useTasks();
   const items = useItems();
   const { data: questions } = useQuestions();
+  const { data: quiet } = useQuiet();
   // Ticked during this visit: they stay where they were until the next one.
   const [tickedHere, setTickedHere] = useState<ReadonlySet<string>>(new Set());
   const plan = planTasks(tasks, checklist.ticks, tickedHere, now);
@@ -98,80 +102,87 @@ export function PlannerPage() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
-      <PillarHeader title="Planner" lead="What to do and what to ask, so nothing sneaks up on you." />
+      <PillarHeader
+        title="Planner"
+        lead={quiet ? "Nothing needs doing. What's here is for when you want it." : "What to do and what to ask, so nothing sneaks up on you."}
+      />
       <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start lg:gap-10">
-        <section aria-labelledby="todo" className="flex flex-col gap-6">
-          <div className="flex flex-col gap-2">
-            <h2 id="todo" className="text-lg font-display font-semibold text-fg-strong">
-              To do
-            </h2>
-            {plan.progress.total > 0 ? (
-              <div className="flex max-w-md flex-col gap-1">
-                <ProgressBar completed={plan.progress.done} total={plan.progress.total} showFraction={false} label="Done so far" />
-                <p className="text-sm text-fg-subtle">
-                  {plan.progress.done} of {plan.progress.total} done
-                  {now === null
-                    ? null
-                    : deadlines > 0
-                      ? ` · ${deadlines === 1 ? "a deadline" : `${deadlines} deadlines`} close`
-                      : plan.next
-                        ? " · nothing urgent"
-                        : " · nothing to do right now"}
-                </p>
-              </div>
+        {quiet ? (
+          <PutAside kind={quiet.kind} tasks={tasks} ticks={checklist.ticks} items={items} />
+        ) : (
+          <section aria-labelledby="todo" className="flex flex-col gap-6">
+            <div className="flex flex-col gap-2">
+              <h2 id="todo" className="text-lg font-display font-semibold text-fg-strong">
+                To do
+              </h2>
+              {plan.progress.total > 0 ? (
+                <div className="flex max-w-md flex-col gap-1">
+                  <ProgressBar completed={plan.progress.done} total={plan.progress.total} showFraction={false} label="Done so far" />
+                  <p className="text-sm text-fg-subtle">
+                    {plan.progress.done} of {plan.progress.total} done
+                    {now === null
+                      ? null
+                      : deadlines > 0
+                        ? ` · ${deadlines === 1 ? "a deadline" : `${deadlines} deadlines`} close`
+                        : plan.next
+                          ? " · nothing urgent"
+                          : " · nothing to do right now"}
+                  </p>
+                </div>
+              ) : null}
+            </div>
+
+            {now !== null && plan.next ? (
+              <NextUp
+                task={plan.next.task}
+                ticked={Boolean(checklist.ticks[plan.next.task.id])}
+                item={items.find((i) => i.id === plan.next?.task.itemId)}
+                meta={
+                  <>
+                    {whenNow(plan.next, now)}
+                    {whoseIs(plan.next.task)}
+                  </>
+                }
+              />
             ) : null}
-          </div>
+            {now !== null && !plan.next ? <p className="text-fg-normal">Nothing needs doing right now. What's ahead is below, when you want a look.</p> : null}
 
-          {now !== null && plan.next ? (
-            <NextUp
-              task={plan.next.task}
-              ticked={Boolean(checklist.ticks[plan.next.task.id])}
-              item={items.find((i) => i.id === plan.next?.task.itemId)}
-              meta={
-                <>
-                  {whenNow(plan.next, now)}
-                  {whoseIs(plan.next.task)}
-                </>
-              }
-            />
-          ) : null}
-          {now !== null && !plan.next ? <p className="text-fg-normal">Nothing needs doing right now. What's ahead is below, when you want a look.</p> : null}
+            {now !== null && plan.now.length > 0 ? (
+              <Group title="Also now" count={plan.now.length}>
+                {plan.now.map((entry) => row(entry.task, whenNow(entry, now)))}
+              </Group>
+            ) : null}
 
-          {now !== null && plan.now.length > 0 ? (
-            <Group title="Also now" count={plan.now.length}>
-              {plan.now.map((entry) => row(entry.task, whenNow(entry, now)))}
-            </Group>
-          ) : null}
+            {stages.length > 0 ? (
+              <section aria-labelledby="horizon" className="flex flex-col gap-3">
+                <h3 id="horizon" className="text-sm font-semibold text-fg-normal">
+                  {now === null ? "To do" : "On the horizon"}
+                </h3>
+                {stages.map((stage) => (
+                  <StageCard key={stage.end} stage={stage} now={now}>
+                    {stage.ahead.map(({ task, week: w, at }) => row(task, <span>{AHEAD_AT[at](w)}</span>))}
+                    {stage.done.map((task) => row(task, null))}
+                  </StageCard>
+                ))}
+              </section>
+            ) : null}
 
-          {stages.length > 0 ? (
-            <section aria-labelledby="horizon" className="flex flex-col gap-3">
-              <h3 id="horizon" className="text-sm font-semibold text-fg-normal">
-                {now === null ? "To do" : "On the horizon"}
-              </h3>
-              {stages.map((stage) => (
-                <StageCard key={stage.end} stage={stage} now={now}>
-                  {stage.ahead.map(({ task, week: w, at }) => row(task, <span>{AHEAD_AT[at](w)}</span>))}
-                  {stage.done.map((task) => row(task, null))}
-                </StageCard>
-              ))}
-            </section>
-          ) : null}
+            {plan.earlier.length > 0 ? (
+              <Group title="Missed earlier" count={plan.earlier.length} folded>
+                {plan.earlier.map((task) => row(task, <span>was due {week(task.due)}</span>))}
+              </Group>
+            ) : null}
 
-          {plan.earlier.length > 0 ? (
-            <Group title="Missed earlier" count={plan.earlier.length} folded>
-              {plan.earlier.map((task) => row(task, <span>was due {week(task.due)}</span>))}
-            </Group>
-          ) : null}
+            {plan.done.length > 0 ? (
+              <Group title="Done" count={plan.done.length} folded>
+                {plan.done.map((task) => row(task, null))}
+              </Group>
+            ) : null}
 
-          {plan.done.length > 0 ? (
-            <Group title="Done" count={plan.done.length} folded>
-              {plan.done.map((task) => row(task, null))}
-            </Group>
-          ) : null}
-
-          {/* Expecting knows what needs doing; this is for the odd thing it couldn't. */}
-          <AddTask week={now ?? WEEKS.first} />
-        </section>
+            {/* Expecting knows what needs doing; this is for the odd thing it couldn't. */}
+            <AddTask week={now ?? WEEKS.first} />
+          </section>
+        )}
 
         <section id="questions" aria-labelledby="questions-heading" className="flex scroll-mt-6 flex-col gap-4 lg:sticky lg:top-6">
           <h2 id="questions-heading" className="text-lg font-display font-semibold text-fg-strong">

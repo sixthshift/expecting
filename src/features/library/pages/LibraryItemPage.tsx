@@ -10,7 +10,9 @@ import type { Item } from "../../../content/schema";
 import { extrasOn } from "../../../lib/extras";
 import { factsOf } from "../../../lib/facts";
 import { DOOR_INFO, doorOf } from "../../../lib/library";
+import { QUIET_ITEM } from "../../../lib/quiet";
 import { weekLabel } from "../../../lib/timeline";
+import { QuietSwitch } from "../../quiet/components/quietSwitch/QuietSwitch";
 import { extra } from "../../settings/model/extras";
 import { ItemCard } from "../components/ItemCard";
 import { Related } from "../components/related/Related";
@@ -85,12 +87,13 @@ export function LibraryItemPage() {
   );
 }
 
-/** The item with its page, once loaded: the card, its week on the timeline, and what it links to. */
+/** The item with its page, once loaded: the card, its week on the timeline, and what it links to. Something has happened's guide has its switch. */
 function Page({ item, ticks }: { item: Item; ticks: Record<string, string> }) {
   const page = use(pageOf(item));
   return (
     <>
       <ItemCard item={item} page={page} ticks={ticks} />
+      {item.id === QUIET_ITEM ? <QuietSwitch /> : null}
       {item.from !== null ? (
         <Link to="/timeline" search={{ at: item.from }} className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal">
           <CalendarRange aria-hidden size={16} className="text-fg-brand" />

@@ -4,6 +4,7 @@ import { extrasQuery } from "../api/rpc/extras";
 import { answersQuery } from "../api/rpc/facts";
 import { peopleQuery } from "../api/rpc/people";
 import { questionsQuery } from "../api/rpc/questions";
+import { quietQuery } from "../api/rpc/quiet";
 import { settingsQuery } from "../api/rpc/settings";
 import { App } from "../app/pages/App";
 import { onboardingLeft } from "../features/onboarding/model/left";
@@ -25,6 +26,7 @@ export const app = createRoute({
       queryClient.ensureQueryData(extrasQuery),
       queryClient.ensureQueryData(checklistQuery),
       queryClient.ensureQueryData(questionsQuery),
+      queryClient.ensureQueryData(quietQuery),
     ]);
     if (onboardingLeft({ me: people.me, onboardedAt: settings.onboardedAt, answers }).length > 0) throw redirect({ to: "/onboarding" });
   },

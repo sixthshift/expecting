@@ -2,13 +2,14 @@ import { cn } from "@sixthshift/design-system/utils";
 import { Link, Outlet } from "@tanstack/react-router";
 import { Baby, type LucideIcon, Settings } from "lucide-react";
 import type { AppPath } from "../../model/paths";
+import { CallBirthSuite } from "./CallBirthSuite";
 
 /** One pillar in the navigation: where it lives (`/planner`) and what it's called. */
 export type Pillar = { to: AppPath; label: string; icon: LucideIcon };
 
 /**
  * The layout the pillars are drawn in. Desktop: a sidebar on the left with
- * the pillars and settings. Phone: a tab bar under the thumb, its height in
+ * the pillars, the call button and settings. Phone: a tab bar under the thumb, its height in
  * `--tab-bar` so what sits above it (the timeline's scrubber) can.
  */
 export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
@@ -20,11 +21,14 @@ export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
           Expecting
         </p>
         <PillarNav pillars={pillars} layout="list" />
+        <div className="mt-auto">
+          <CallBirthSuite layout="row" />
+        </div>
         <Link
           to="/settings"
           activeProps={{ "aria-current": "page", className: "bg-bg-brand-subtle font-medium text-fg-on-brand-subtle" }}
           inactiveProps={{ className: "text-fg-subtle hover:bg-bg-subtle-hovered hover:text-fg-normal" }}
-          className="mt-auto flex min-h-11 items-center gap-3 rounded-md px-3 text-sm"
+          className="flex min-h-11 items-center gap-3 rounded-md px-3 text-sm"
         >
           <Settings aria-hidden size={18} />
           Settings
@@ -76,7 +80,7 @@ function PillarNav({ pillars, layout }: { pillars: readonly Pillar[]; layout: "l
   );
 }
 
-/** The top of a pillar's page: its name, and on a phone the way to settings (the desktop has it in the sidebar). */
+/** The top of a pillar's page: its name, and on a phone the call button and the way to settings (the desktop has them in the sidebar). */
 export function PillarHeader({ title, lead }: { title: string; lead?: string }) {
   return (
     <header className="flex items-start justify-between gap-3 pt-[max(1.5rem,env(safe-area-inset-top))] pb-5 lg:pt-10 lg:pb-8">
@@ -84,9 +88,19 @@ export function PillarHeader({ title, lead }: { title: string; lead?: string }) 
         <h1 className="text-2xl font-display font-semibold text-fg-strong lg:text-3xl">{title}</h1>
         {lead ? <p className="max-w-prose text-fg-subtle">{lead}</p> : null}
       </div>
-      <Link to="/settings" aria-label="Settings" className="-mr-2 flex size-11 shrink-0 items-center justify-center rounded-md text-fg-subtle lg:hidden">
+      <PhoneCorner />
+    </header>
+  );
+}
+
+/** The top corner of a pillar on a phone: the call button, then settings. The desktop has both in the sidebar. */
+export function PhoneCorner() {
+  return (
+    <div className="-mr-2 flex shrink-0 items-center lg:hidden">
+      <CallBirthSuite layout="icon" />
+      <Link to="/settings" aria-label="Settings" className="flex size-11 shrink-0 items-center justify-center rounded-md text-fg-subtle">
         <Settings aria-hidden size={20} />
       </Link>
-    </header>
+    </div>
   );
 }

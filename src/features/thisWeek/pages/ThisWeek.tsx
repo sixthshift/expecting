@@ -1,9 +1,11 @@
 import { getRouteApi, Link } from "@tanstack/react-router";
-import { CalendarRange, ChevronRight, Settings } from "lucide-react";
+import { CalendarRange, ChevronRight } from "lucide-react";
 import { useMemo } from "react";
 import { useChecklist } from "../../../api/rpc/checklist";
 import { useQuestions } from "../../../api/rpc/questions";
+import { useQuiet } from "../../../api/rpc/quiet";
 import { useNow, usePosition, useSettings } from "../../../api/rpc/settings";
+import { PhoneCorner } from "../../../app/components/layout/PillarLayout";
 import { weekNotes } from "../../../content";
 import { noteFor } from "../../../content/weeks";
 import { todayISO } from "../../../lib/dates";
@@ -11,6 +13,7 @@ import { headsUps, worthKnowing } from "../../../lib/library";
 import { askedWeeks } from "../../../lib/timelineMap";
 import { useItems } from "../../library/hooks/useItems";
 import { AskedQuestion, QuestionsWaiting } from "../../questions/components/questions/questions";
+import { QuietWeek } from "../../quiet/components/quietWeek/QuietWeek";
 import { OfferExtra } from "../../settings/components/extras/OfferExtra";
 import { AskNow } from "../../settings/components/facts/AskNow";
 import { ComingUp } from "../../tasks/components/comingUp/ComingUp";
@@ -31,10 +34,17 @@ import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
  *
  * A peek at another week (?at=29) shows that week instead: its note, its
  * heads-up, what's worth knowing, and what's best done then. What to do now stays with now.
+ *
+ * While something has happened, none of it: support and the next steps instead.
  */
 const route = getRouteApi("/app/");
 
 export function ThisWeek() {
+  const { data: quiet } = useQuiet();
+  return quiet ? <QuietWeek quiet={quiet} /> : <Week />;
+}
+
+function Week() {
   const { data: settings } = useSettings();
   const { data: checklist } = useChecklist();
   const position = usePosition();
@@ -68,9 +78,7 @@ export function ThisWeek() {
         ) : (
           <h1 className="text-2xl font-display font-semibold text-fg-strong lg:text-3xl">This week</h1>
         )}
-        <Link to="/settings" aria-label="Settings" className="-mr-2 flex size-11 shrink-0 items-center justify-center rounded-md text-fg-subtle lg:hidden">
-          <Settings aria-hidden size={20} />
-        </Link>
+        <PhoneCorner />
       </header>
       {!dueDate ? <Welcome /> : null}
 

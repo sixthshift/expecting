@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useExtras } from "../../../api/rpc/extras";
 import { useAnswers } from "../../../api/rpc/facts";
 import { usePeople } from "../../../api/rpc/people";
+import { useQuiet } from "../../../api/rpc/quiet";
 import { saveSettings, useNow, usePosition, useSettings } from "../../../api/rpc/settings";
 import { useAction } from "../../../app/hooks/useAction";
 import { Page, Section } from "../../../components/Page";
@@ -14,6 +15,7 @@ import { asksFor, factsOf, isSettled, latestByKey } from "../../../lib/facts";
 import type { Person, Role } from "../../../lib/people";
 import { gestationLabel } from "../../../lib/timeline";
 import { COMMIT, VERSION } from "../../../lib/version";
+import { QuietSwitch } from "../../quiet/components/quietSwitch/QuietSwitch";
 import { Appearance } from "../components/appearance/Appearance";
 import { ColourChoice } from "../components/colour/ColourChoice";
 import { DueDateForm } from "../components/dueDate/DueDateForm";
@@ -27,10 +29,11 @@ const route = getRouteApi("/app/settings");
 
 const DUE_DATE = "dueDate";
 
-/** The sections, in order: the question groups, the extras, then this phone's: its appearance and its session. */
+/** The sections, in order: the question groups, the extras, something has happened, then this phone's: its appearance and its session. */
 const SECTIONS = [
   ...(Object.entries(GROUPS) as [Group, string][]).map(([id, title]) => ({ id, title })),
   { id: "extras", title: "Extras" },
+  { id: "quiet", title: "Something has happened" },
   { id: "appearance", title: "Appearance" },
   { id: "session", title: "Session" },
 ];
@@ -39,8 +42,8 @@ const SECTIONS = [
  * Everything Expecting has been told, grouped and readable at a glance: the
  * due date and colours with the pregnancy, every question in
  * src/features/settings/model/facts.data.ts in its group (each of yours under your name), how many
- * are settled and the next to answer; the extras; then this phone's appearance and session. `?ask=cover` opens at a
- * question (or `?ask=extra:babymoon` at an extra), as a hidden item's page links
+ * are settled and the next to answer (not while something has happened); the extras; something has happened; then this phone's appearance and session. `?ask=cover` opens at a
+ * question (or `?ask=extra:babymoon` at an extra, `?ask=quiet` at something has happened), as a hidden item's page links
  * here.
  */
 export function SettingsPage() {
@@ -54,6 +57,7 @@ export function SettingsPage() {
   const now = useNow();
   const today = todayISO();
   const { me, people } = usePeople().data;
+  const { data: quiet } = useQuiet();
   const { dueDate, baby } = settings;
 
   const asks = asksFor(facts);
@@ -108,33 +112,35 @@ export function SettingsPage() {
         </nav>
 
         <div className="flex min-w-0 flex-col gap-8">
-          <div className="flex flex-col gap-4 rounded-xl bg-linear-to-r from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) p-4 sm:flex-row sm:items-center sm:gap-6 sm:p-5">
-            <div className="flex flex-1 flex-col gap-2">
-              <p className="font-display text-lg font-semibold text-fg-strong">
-                {answered === total ? "Every question answered" : `${answered} of ${total} answered`}
-              </p>
-              <p className="text-sm text-fg-normal">Each answer tailors what Expecting tells you to do, and when. Change any of them here.</p>
-              {/* Onboarding's bar, on a surface so it shows on the tint. */}
-              <div
-                role="progressbar"
-                aria-label="Questions answered"
-                aria-valuemin={0}
-                aria-valuemax={total}
-                aria-valuenow={answered}
-                className="mt-1 h-1.5 overflow-hidden rounded-full bg-bg-normal"
-              >
+          {quiet ? null : (
+            <div className="flex flex-col gap-4 rounded-xl bg-linear-to-r from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) p-4 sm:flex-row sm:items-center sm:gap-6 sm:p-5">
+              <div className="flex flex-1 flex-col gap-2">
+                <p className="font-display text-lg font-semibold text-fg-strong">
+                  {answered === total ? "Every question answered" : `${answered} of ${total} answered`}
+                </p>
+                <p className="text-sm text-fg-normal">Each answer tailors what Expecting tells you to do, and when. Change any of them here.</p>
+                {/* Onboarding's bar, on a surface so it shows on the tint. */}
                 <div
-                  className="h-full rounded-full bg-linear-to-r from-(--expecting-accent-from) to-(--expecting-accent-to) motion-safe:transition-[width] motion-safe:duration-500"
-                  style={{ width: `${(answered / total) * 100}%` }}
-                />
+                  role="progressbar"
+                  aria-label="Questions answered"
+                  aria-valuemin={0}
+                  aria-valuemax={total}
+                  aria-valuenow={answered}
+                  className="mt-1 h-1.5 overflow-hidden rounded-full bg-bg-normal"
+                >
+                  <div
+                    className="h-full rounded-full bg-linear-to-r from-(--expecting-accent-from) to-(--expecting-accent-to) motion-safe:transition-[width] motion-safe:duration-500"
+                    style={{ width: `${(answered / total) * 100}%` }}
+                  />
+                </div>
               </div>
+              {next ? (
+                <Button intent="brand" onClick={() => goTo(next)} className="self-start sm:self-center">
+                  Answer the next one
+                </Button>
+              ) : null}
             </div>
-            {next ? (
-              <Button intent="brand" onClick={() => goTo(next)} className="self-start sm:self-center">
-                Answer the next one
-              </Button>
-            ) : null}
-          </div>
+          )}
 
           {(Object.entries(GROUPS) as [Group, string][]).map(([group, title]) => {
             const inGroup = asks.filter((a) => a.question.group === group);
@@ -206,6 +212,12 @@ export function SettingsPage() {
           <Section id="settings-extras" title="Extras" className="scroll-mt-6">
             <p className="-mt-1 text-sm text-fg-subtle">The parts of Expecting you choose. Each is off until one of you turns it on, and off means gone.</p>
             <ExtrasList choices={choices} people={people} highlight={ask?.startsWith("extra:") ? ask.slice("extra:".length) : undefined} />
+          </Section>
+
+          <Section id="settings-quiet" title="Something has happened" className="scroll-mt-6">
+            <div id="setting-quiet" className="scroll-mt-6">
+              <QuietSwitch />
+            </div>
           </Section>
 
           <Section id="settings-appearance" title="Appearance" className="scroll-mt-6">

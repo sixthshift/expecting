@@ -1,5 +1,6 @@
 import { SearchInput } from "@sixthshift/design-system/search-input";
 import { getRouteApi, useNavigate } from "@tanstack/react-router";
+import { useQuiet } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { search } from "../../../lib/library";
@@ -18,10 +19,13 @@ const route = getRouteApi("/app/library");
  * right now, the topics, and the quiet door for when it's hard. A door or a
  * topic opens in place (`?door=can-i`, `?topic=food`), narrowed by chips. Each
  * item also turns up on its week; here it can be found without knowing when.
+ * While something has happened, the quiet door comes first, and nothing is
+ * open right now.
  */
 export function LibraryPage() {
   const items = useItems();
   const now = useNow();
+  const { data: quiet } = useQuiet();
   const narrowing = route.useSearch();
   const { q = "", door, topic } = narrowing;
   const navigate = useNavigate();
@@ -53,10 +57,11 @@ export function LibraryPage() {
         </section>
       ) : (
         <div className="flex flex-col gap-10 lg:gap-12">
+          {quiet ? <HardDoor items={items} /> : null}
           <Doors items={items} />
-          {now !== null ? <RightNow items={items} now={now} /> : null}
+          {now !== null && !quiet ? <RightNow items={items} now={now} /> : null}
           <Topics items={items} />
-          <HardDoor items={items} />
+          {quiet ? null : <HardDoor items={items} />}
         </div>
       )}
     </main>

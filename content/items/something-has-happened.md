@@ -27,11 +27,11 @@ We're so sorry. Whatever has happened, you don't need to do anything here right 
 
 ## What Expecting does
 
-When either of you says "something has happened", from Settings or the capture button, Expecting goes quiet. The timeline pauses. The week notes, the baby's size, the countdown and every task are put away. Nothing cheerful comes back until you choose.
+When either of you says "something has happened", here or in Settings, Expecting goes quiet for both of you. The timeline pauses. The week notes, the baby's size, the countdown and every task are put away. Nothing cheerful comes back until you choose.
 
 It won't ask you anything it doesn't need. It already knows the week. A name for the baby is yours to give, or not.
 
-Bookings and claims in the Planner are put aside, not deleted. When you're ready, there's a note on which ones you might want to cancel and which may still matter.
+Everything to do in the Planner is put aside, not deleted. When you're ready, it lists what you'd already booked or claimed: what you might want to cancel, and what may still matter.
 
 The same quiet mode is there for news that isn't a loss but turns everything over, such as a worrying screening result or a baby in intensive care, with next steps that fit.
 
