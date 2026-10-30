@@ -1,6 +1,6 @@
-import { Link } from "@tanstack/react-router";
 import { ChevronDown } from "lucide-react";
 import type { Group } from "../../../../lib/library";
+import { ItemLink } from "../ItemLink";
 
 const letterId = (letter: string) => `letter-${letter === "#" ? "other" : letter}`;
 
@@ -37,9 +37,9 @@ export function Glossary({ groups }: { groups: readonly Group[] }) {
                   <div className="flex flex-col gap-2 px-4 pb-4">
                     {item.aliases.length > 0 ? <p className="text-sm text-fg-subtle">Also called {item.aliases.join(", ")}</p> : null}
                     {item.summary ? <p className="text-fg-normal">{item.summary}</p> : null}
-                    <Link to="/library/$itemId" params={{ itemId: item.id }} className="w-fit text-sm font-medium text-fg-brand underline">
+                    <ItemLink itemId={item.id} className="w-fit text-sm font-medium text-fg-brand underline">
                       Read more about {item.title}
-                    </Link>
+                    </ItemLink>
                   </div>
                 </details>
               </li>

@@ -100,7 +100,8 @@ function Body({ item, page }: { item: Item; page: ItemPage }) {
   return (
     <div className="flex flex-col gap-6">
       {/* Someone wondering whether to worry sees when to first. */}
-      {levels.length > 0 ? <Triage levels={levels} question={item.ask ?? `About ${item.title.toLowerCase()}`} /> : null}
+      {/* A private entry offers nothing to add to the Planner: the list is shared. */}
+      {levels.length > 0 ? <Triage levels={levels} question={item.private ? null : (item.ask ?? `About ${item.title.toLowerCase()}`)} /> : null}
       {usual.map((s) => (
         <Part key={s.title ?? ""} section={s} />
       ))}

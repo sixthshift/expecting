@@ -1,8 +1,8 @@
 import { cn } from "@sixthshift/design-system/utils";
-import { Link } from "@tanstack/react-router";
 import type { CSSProperties } from "react";
 import { WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
 import { LANDMARKS, type MapWindow, TRIMESTERS, trimester, type WindowState } from "../../../../lib/timelineMap";
+import { ItemLink } from "../../../library/components/ItemLink";
 
 const SPAN = WEEKS.last - WEEKS.first + 1;
 const WEEK_LIST = Array.from({ length: SPAN }, (_, i) => i + WEEKS.first);
@@ -105,9 +105,8 @@ export function WindowsChart({ windows, now }: { windows: readonly MapWindow[]; 
             const place = { "--start": x(w.from), "--end": `calc(100% - ${x(w.to + 1)})` } as CSSProperties;
             return (
               <li key={w.item.id}>
-                <Link
-                  to="/library/$itemId"
-                  params={{ itemId: w.item.id }}
+                <ItemLink
+                  itemId={w.item.id}
                   aria-label={`${w.item.title}, weeks ${w.from} to ${w.to}, ${STATE[w.state]}`}
                   className="group flex flex-col gap-1 rounded-sm py-0.5 lg:h-8 lg:flex-row lg:items-center lg:gap-0 lg:py-0"
                   style={place}
@@ -127,7 +126,7 @@ export function WindowsChart({ windows, now }: { windows: readonly MapWindow[]; 
                       style={{ left: x(w.from), width: width(w.from, w.to) }}
                     />
                   </span>
-                </Link>
+                </ItemLink>
               </li>
             );
           })}

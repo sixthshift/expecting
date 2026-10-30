@@ -1,7 +1,6 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { Card } from "@sixthshift/design-system/card";
 import { ProgressBar } from "@sixthshift/design-system/progress-bar";
-import { Link } from "@tanstack/react-router";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { type ReactNode, useState } from "react";
 import { useChecklist } from "../../../api/rpc/checklist";
@@ -15,6 +14,7 @@ import { whose } from "../../../lib/people";
 import { type Ahead, planTasks, type Stage, stagesAhead } from "../../../lib/planner";
 import { WEEKS, type Week, weekLabel } from "../../../lib/timeline";
 import { type ToDo, whenToDo } from "../../../lib/todo";
+import { ItemLink } from "../../library/components/ItemLink";
 import { useItems } from "../../library/hooks/useItems";
 import { AddQuestion, AskedQuestion, OpenQuestion } from "../../questions/components/questions/questions";
 import { PutAside } from "../../quiet/components/putAside/PutAside";
@@ -62,14 +62,9 @@ export function PlannerPage() {
     task.origin === "own" ? (
       <DeleteOwnTask task={task} />
     ) : task.itemId ? (
-      <Link
-        to="/library/$itemId"
-        params={{ itemId: task.itemId }}
-        aria-label={`Why: ${task.title}`}
-        className="shrink-0 px-1 text-xs text-fg-subtle underline hover:text-fg-normal"
-      >
+      <ItemLink itemId={task.itemId} aria-label={`Why: ${task.title}`} className="shrink-0 px-1 text-xs text-fg-subtle underline hover:text-fg-normal">
         Why
-      </Link>
+      </ItemLink>
     ) : null;
 
   function row(task: Task, when: ReactNode) {
@@ -221,15 +216,14 @@ function NextUp({ task, ticked, item, meta }: { task: Task; ticked: boolean; ite
           <span className="flex flex-wrap items-center gap-x-2 text-sm text-fg-subtle">{meta}</span>
           {item?.summary ? <p className="max-w-prose text-fg-normal">{item.summary}</p> : null}
           {item ? (
-            <Link
-              to="/library/$itemId"
-              params={{ itemId: item.id }}
+            <ItemLink
+              itemId={item.id}
               aria-label={`Why: ${task.title}`}
               className="flex min-h-11 w-fit items-center gap-1 text-sm text-fg-subtle hover:text-fg-normal"
             >
               Why it matters, and how
               <ChevronRight aria-hidden size={16} />
-            </Link>
+            </ItemLink>
           ) : null}
         </div>
       </Card>

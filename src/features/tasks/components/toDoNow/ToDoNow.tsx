@@ -6,6 +6,7 @@ import { usePeople } from "../../../../api/rpc/people";
 import { useNow } from "../../../../api/rpc/settings";
 import { whose } from "../../../../lib/people";
 import { toDoNow, whenToDo } from "../../../../lib/todo";
+import { ItemLink } from "../../../library/components/ItemLink";
 import { useTasks } from "../../hooks/useTasks";
 import { TaskRow } from "../TaskRow";
 
@@ -56,14 +57,9 @@ export function ToDoNow() {
               }
               action={
                 entry.task.itemId ? (
-                  <Link
-                    to="/library/$itemId"
-                    params={{ itemId: entry.task.itemId }}
-                    aria-label={`Why: ${entry.task.title}`}
-                    className="shrink-0 px-1 text-xs text-fg-subtle underline"
-                  >
+                  <ItemLink itemId={entry.task.itemId} aria-label={`Why: ${entry.task.title}`} className="shrink-0 px-1 text-xs text-fg-subtle underline">
                     Why
-                  </Link>
+                  </ItemLink>
                 ) : null
               }
             />

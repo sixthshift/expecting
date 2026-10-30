@@ -1,7 +1,7 @@
 import { Spinner } from "@sixthshift/design-system/spinner";
-import { getRouteApi, Link } from "@tanstack/react-router";
+import { getRouteApi, Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { ArrowLeft, CalendarRange } from "lucide-react";
-import { Suspense, use } from "react";
+import { Suspense, use, useEffect } from "react";
 import { useChecklist } from "../../../api/rpc/checklist";
 import { useExtras } from "../../../api/rpc/extras";
 import { useAnswers } from "../../../api/rpc/facts";
@@ -15,6 +15,7 @@ import { weekLabel } from "../../../lib/timeline";
 import { QuietSwitch } from "../../quiet/components/quietSwitch/QuietSwitch";
 import { extra } from "../../settings/model/extras";
 import { ItemCard } from "../components/ItemCard";
+import { QuickExit } from "../components/private/QuickExit";
 import { Related } from "../components/related/Related";
 import { useItems } from "../hooks/useItems";
 import { pageOf } from "../model/pageOf";
@@ -37,10 +38,12 @@ export function LibraryItemPage() {
 
   return (
     <main className="mx-auto max-w-3xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-8">
-      {/* Back to the door it's behind, where it was most likely found. */}
+      {item?.private ? <Private itemId={item.id} /> : null}
+      {/* Back to the door it's behind, where it was most likely found; from a private entry, in its place in the history. */}
       <Link
         to="/library"
         search={item ? { door: doorOf(item) } : {}}
+        replace={item?.private}
         className="-ml-2 mb-4 flex min-h-11 w-fit items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal"
       >
         <ArrowLeft aria-hidden size={16} /> {item ? DOOR_INFO[doorOf(item)].title : "Library"}
@@ -95,7 +98,12 @@ function Page({ item, ticks }: { item: Item; ticks: Record<string, string> }) {
       <ItemCard item={item} page={page} ticks={ticks} />
       {item.id === QUIET_ITEM ? <QuietSwitch /> : null}
       {item.from !== null ? (
-        <Link to="/timeline" search={{ at: item.from }} className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal">
+        <Link
+          to="/timeline"
+          search={{ at: item.from }}
+          replace={item.private}
+          className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal"
+        >
           <CalendarRange aria-hidden size={16} className="text-fg-brand" />
           See {weekLabel(item.from).toLowerCase()} on the timeline
         </Link>
@@ -103,4 +111,20 @@ function Page({ item, ticks }: { item: Item; ticks: Record<string, string> }) {
       <Related ids={page.related} />
     </>
   );
+}
+
+/**
+ * A private entry's page: the quick exit, and its address kept out of the
+ * address bar. Every link to one already masks it (ItemLink); one typed in or
+ * opened from outside the app is masked here, in its place.
+ */
+function Private({ itemId }: { itemId: string }) {
+  const navigate = useNavigate();
+  // Shown by its own address: not while leaving, when the location is already the next page's and this one is still drawn.
+  const bare = useRouterState({ select: (s) => s.location.pathname === `/library/${itemId}` && s.location.maskedLocation === undefined });
+  useEffect(() => {
+    // A state of its own, or the router would take it for the same place and change nothing.
+    if (bare) navigate({ to: "/library/$itemId", params: { itemId }, mask: { to: "/library" }, state: (s) => ({ ...s, masked: true }), replace: true });
+  }, [bare, itemId, navigate]);
+  return <QuickExit />;
 }

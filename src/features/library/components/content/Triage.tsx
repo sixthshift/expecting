@@ -23,9 +23,10 @@ const LOOK: Record<Level, { box: string; heading: string; Icon: LucideIcon }> = 
 /**
  * A symptom's levels, most urgent first, each with what to do about it in one
  * tap: 000, the birth suite's number, your midwife's or GP's from Emergency
- * info, or the question added to your list for the next visit.
+ * info, or the question added to your list for the next visit (none from a
+ * private entry: the list is shared).
  */
-export function Triage({ levels, question }: { levels: readonly Section[]; question: string }) {
+export function Triage({ levels, question }: { levels: readonly Section[]; question: string | null }) {
   return (
     <section aria-labelledby="when-to-get-help" className="flex flex-col gap-3">
       <h2 id="when-to-get-help" className="text-lg font-display font-semibold text-fg-strong">
@@ -49,7 +50,7 @@ export function Triage({ levels, question }: { levels: readonly Section[]; quest
   );
 }
 
-function Action({ level, question }: { level: Level; question: string }) {
+function Action({ level, question }: { level: Level; question: string | null }) {
   const { data } = useQuery(emergencyQuery);
   const values = data?.values ?? {};
   switch (level) {
@@ -79,7 +80,7 @@ function Action({ level, question }: { level: Level; question: string }) {
         </Actions>
       ) : null;
     case "Mention it at your next visit":
-      return <Ask primary={question} />;
+      return question === null ? null : <Ask primary={question} />;
   }
 }
 

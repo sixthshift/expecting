@@ -52,3 +52,10 @@ declare module "@tanstack/react-start" {
     router: ReturnType<typeof getRouter>;
   }
 }
+
+// What a page keeps in its history entry: a private entry's page marks its address masked (LibraryItemPage).
+declare module "@tanstack/history" {
+  interface HistoryState {
+    masked?: boolean;
+  }
+}

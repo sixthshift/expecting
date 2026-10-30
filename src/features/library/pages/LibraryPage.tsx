@@ -1,5 +1,6 @@
 import { SearchInput } from "@sixthshift/design-system/search-input";
 import { getRouteApi, useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
 import { useQuiet } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
@@ -27,9 +28,18 @@ export function LibraryPage() {
   const now = useNow();
   const { data: quiet } = useQuiet();
   const narrowing = route.useSearch();
-  const { q = "", door, topic } = narrowing;
+  const { q: inAddress = "", door, topic } = narrowing;
   const navigate = useNavigate();
+  // Words that find a private entry are held here, not in the address, which the browser's history keeps.
+  const [held, setHeld] = useState<string | null>(null);
+  const q = held ?? inAddress;
   const results = q.trim() ? search(items, q) : null;
+
+  function onSearch(value: string) {
+    const findsPrivate = value.trim() !== "" && search(items, value).some((i) => i.private);
+    setHeld(findsPrivate ? value : null);
+    navigate({ to: ".", search: { q: findsPrivate ? undefined : value || undefined }, replace: true });
+  }
 
   if (!results && (door || topic)) {
     return (
@@ -44,7 +54,7 @@ export function LibraryPage() {
       <PillarHeader title="Library" lead="Everything Expecting knows, to read any time. Each piece also turns up on its week." />
       <SearchInput
         value={q}
-        onValueChange={(value) => navigate({ to: ".", search: { q: value || undefined }, replace: true })}
+        onValueChange={onSearch}
         placeholder="Can I eat brie? Is spotting normal?"
         aria-label="Search the library"
         className="mb-8 h-12 text-base"

@@ -222,6 +222,20 @@ describe("types", () => {
     expect(() => typed("type: symptom\ntopic: body", body)).toThrow(message);
   });
 
+  test("a private entry is read like any other", () => {
+    expect(typed("type: guide\ntopic: special-circumstances\nweeks: [1, 42]\nprivate: true").private).toBe(true);
+    expect(typed("type: guide\ntopic: special-circumstances").private).toBe(false);
+  });
+
+  test.each([
+    ["tasks", "weeks: [8, 20]\ntasks:\n  - id: t\n    title: T", "Words.", /a private entry has no tasks/],
+    ["a when", "when: { cover: no }", "Words.", /no when/],
+    ["an extra", "extra: baby-shower", "Words.", /no extra/],
+    ["a question to add", "", '{% ask "Am I safe?" /%}', /a private entry has no \{% ask %\}/],
+  ])("a private entry leaves no trace: rejects %s", (_name, fields, body, message) => {
+    expect(() => typed(`type: guide\ntopic: special-circumstances\nprivate: true\n${fields}`, body)).toThrow(message);
+  });
+
   test("related names another item", () => {
     const a = item("id: a\ntitle: A\ntype: term\ntopic: body\nrelated: [b]");
     const b = item("id: b\ntitle: B\ntype: term\ntopic: body\nrelated: [a]");

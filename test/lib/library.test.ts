@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import type { DatedItem, Item, Topic } from "../../src/content/schema";
-import { behind, DOOR_INFO, doorOf, headsUps, rightNow, search, standingLabel, topicByDoor, topicsIn, worthKnowing } from "../../src/lib/library";
+import { behind, DOOR_INFO, doorOf, headsUps, namesPrivate, rightNow, search, standingLabel, topicByDoor, topicsIn, worthKnowing } from "../../src/lib/library";
 
 function item(id: string, from: number, topic: Topic, surprise = false): DatedItem {
   return {
@@ -195,5 +195,31 @@ describe("heads-ups", () => {
   test("never a hard topic or a private card, nor anything but a card", () => {
     const ups = headsUps([card("loss", 5, 5, { topic: "loss" }), card("safety", 5, 5, { private: true }), { ...card("guide", 5, 5), type: "guide" }]);
     expect(ups.size).toBe(0);
+  });
+});
+
+describe("names a private entry", () => {
+  const safety = entry("domestic-violence-in-pregnancy", { title: "Family violence during pregnancy", ask: "Is that a thing?", private: true });
+  const open = entry("braxton-hicks", { title: "Braxton Hicks", ask: "Is this labour?" });
+  const items = [safety, open];
+
+  test.each([
+    ["its id", "domestic-violence-in-pregnancy"],
+    ["its id, inside other words", "see domestic-violence-in-pregnancy later"],
+    ["its title", "Family violence during pregnancy"],
+    ["its title, in another case and spacing", "  family  VIOLENCE during pregnancy "],
+    ["its question", "Is that a thing?"],
+    ["the question a page would add for it", "About family violence during pregnancy"],
+  ])("%s", (_name, text) => {
+    expect(namesPrivate(text, items)).toBe(true);
+  });
+
+  test.each([
+    ["an open entry's title", "Braxton Hicks"],
+    ["an open entry's question", "Is this labour?"],
+    ["your own words about it", "Can we talk about family violence at the next visit?"],
+    ["nothing", "  "],
+  ])("not %s", (_name, text) => {
+    expect(namesPrivate(text, items)).toBe(false);
   });
 });

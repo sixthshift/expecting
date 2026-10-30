@@ -33,11 +33,13 @@ export function parseIndex({ file, frontmatter, variables }: IndexHalf): Item {
 }
 
 /** An item's page half, its body parsed and checked against its type's shape. Throws a ContentError naming the file on any problem. */
-export function parsePage(file: string, { frontmatter, body }: PageHalf, type: ItemType): ItemPage {
+export function parsePage(file: string, { frontmatter, body }: PageHalf, { type, private: secret }: Pick<Item, "type" | "private">): ItemPage {
   const fm = check(file, pageSchema, frontmatter);
   if (body.length === 0) throw new ContentError(file, "the body is empty");
   const { ast, problems } = parseBody(body);
   problems.push(...checkShape(type, body));
+  // A question added to the Planner is shared: a private entry offers none.
+  if (secret && /\{%\s*ask\b/.test(body)) problems.push("a private entry has no {% ask %}: the question would be saved where both of you see it");
   if (problems.length > 0) throw new ContentError(file, `in the body, ${problems.join("; ")}`);
   return { sources: fm.sources, related: fm.related, checked: fm.checked ?? null, body, doc: ast };
 }
@@ -46,7 +48,7 @@ export function parsePage(file: string, { frontmatter, body }: PageHalf, type: I
 export function parseItem(file: string, source: string): Item & ItemPage {
   const { index, page } = splitItem(file, source);
   const item = parseIndex(index);
-  return { ...item, ...parsePage(file, page, item.type) };
+  return { ...item, ...parsePage(file, page, item) };
 }
 
 /** The `##` sections a type must have. */

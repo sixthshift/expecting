@@ -82,6 +82,11 @@ describe("decides", () => {
     expect(ids("firstBaby")).toEqual([]);
   });
 
+  test("never a private entry: settings is seen on both phones", () => {
+    const secret = { ...builtInItems.find((i) => i.id === "rsv-vaccine")!, id: "secret", private: true };
+    expect(decides("cover", [secret])).toEqual([]);
+  });
+
   test("a name is matched whole: $cove is not $cover", () => {
     expect(ids("cove")).toEqual([]);
   });

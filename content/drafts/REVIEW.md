@@ -54,8 +54,28 @@ detail.
 - Family violence and reproductive coercion entries (`card-asked-about-safety`,
   `reproductive-coercion`, `domestic-violence-in-pregnancy`): the map notes
   say these are never saved to the shared space, because the app is shared
-  between both parents. The drafts have no field for that; it has to be built
-  when the new types are wired in.
+  between both parents. Built: they are `private: true` (see
+  `docs/architecture.md`, Content).
+- **Candidates for `private`**, not marked; decide in review:
+  - `previous-trauma-and-pregnancy`: past abuse and sexual assault (its
+    aliases say "sexual assault survivor", "childhood abuse"). Strongest
+    candidate: reading it may disclose something to the other parent.
+  - `relationship-breakdown`: separating during the pregnancy, and going to
+    court "if the child may be at risk of abuse or violence". Someone
+    planning to leave may not want it seen.
+  - `arguments-and-stress`: the relationship under strain; points to
+    1800RESPECT. Probably stays open (it's written for both of you), but its
+    family violence paragraph links to the private entry.
+  - `unplanned-pregnancy`: the decision to continue or not, including
+    abortion; read alongside `reproductive-coercion`, it may be one someone
+    can't be seen reading.
+  - Mention family violence in passing and are meant for both of you, so
+    likely stay open: `booking-visit` (the screen that asks about it),
+    `partner-learning-the-signs`, `fall-or-blow-to-the-belly`,
+    `young-parent` ("not safe at home"), `parental-leave-pay-work-test`
+    (the work test's exemptions).
+  - A private entry can't have tasks, a `decide_by`, a `when`, an extra or an
+    `{% ask %}`; none of the first four has any, so marking one is one line.
 
 ## Duplicates (not merged)
 

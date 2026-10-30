@@ -3,7 +3,7 @@
 // section its type needs or a related id that isn't there fails here rather
 // than on a page.
 import { describe, expect, test } from "vitest";
-import { builtInItems, builtInTasks, loadPage } from "../../src/content";
+import { builtInItems, builtInTasks, isPrivateItem, loadPage } from "../../src/content";
 import { parseAll } from "../../src/content/parse";
 import { isDated } from "../../src/content/schema";
 
@@ -40,4 +40,11 @@ test("every task falls due within its item's range", () => {
 
 test("the checklist is every linked task", () => {
   expect(builtInTasks.length).toBe(builtInItems.reduce((n, i) => n + i.tasks.length, 0));
+});
+
+test("family violence and reproductive coercion are private", () => {
+  const ids = builtInItems.filter((i) => i.private).map((i) => i.id);
+  expect(ids).toEqual(expect.arrayContaining(["domestic-violence-in-pregnancy", "reproductive-coercion", "card-asked-about-safety"]));
+  for (const id of ids) expect(isPrivateItem(id)).toBe(true);
+  expect(isPrivateItem("rsv-vaccine")).toBe(false);
 });

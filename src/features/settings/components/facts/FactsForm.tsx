@@ -1,7 +1,6 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { RadioButtonGroup } from "@sixthshift/design-system/radio-button-group";
 import { Select } from "@sixthshift/design-system/select";
-import { Link } from "@tanstack/react-router";
 import { useExtras } from "../../../../api/rpc/extras";
 import { saveAnswer } from "../../../../api/rpc/facts";
 import { useAction } from "../../../../app/hooks/useAction";
@@ -12,6 +11,7 @@ import { extrasOn, inExtras } from "../../../../lib/extras";
 import { type Answer, decides, isSettled, nextAsked } from "../../../../lib/facts";
 import type { Person } from "../../../../lib/people";
 import type { Week } from "../../../../lib/timeline";
+import { ItemLink } from "../../../library/components/ItemLink";
 import { type Ask, askedOf, type FactQuestion, UNSURE } from "../../model/facts";
 import { SettingRow } from "../SettingRow";
 
@@ -93,13 +93,12 @@ export function FactRow({
             <ul className="flex flex-wrap gap-2">
               {uses.map((item) => (
                 <li key={item.id}>
-                  <Link
-                    to="/library/$itemId"
-                    params={{ itemId: item.id }}
+                  <ItemLink
+                    itemId={item.id}
                     className="inline-flex min-h-9 items-center rounded-full border border-border-subtle bg-bg-normal px-3 text-sm text-fg-normal hover:border-border-brand-hovered"
                   >
                     {item.title}
-                  </Link>
+                  </ItemLink>
                 </li>
               ))}
             </ul>

@@ -1,9 +1,9 @@
 import { Badge } from "@sixthshift/design-system/badge";
-import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import type { Item } from "../../../../content/schema";
 import { rightNow, type Standing, standingLabel } from "../../../../lib/library";
 import type { Week } from "../../../../lib/timeline";
+import { ItemLink } from "../ItemLink";
 
 const intent: Record<Standing["kind"], "warning" | "brand" | "neutral"> = { closing: "warning", left: "brand", open: "neutral" };
 
@@ -30,13 +30,13 @@ export function RightNow({ items, now }: { items: readonly Item[]; now: Week }) 
       <ul className="grid gap-px overflow-hidden rounded-xl border border-border-subtle bg-border-subtle lg:grid-cols-2">
         {shown.map(({ item, standing }) => (
           <li key={item.id} className="bg-bg-normal lg:last:odd:col-span-2">
-            <Link to="/library/$itemId" params={{ itemId: item.id }} className="flex h-full flex-col items-start gap-1 px-4 py-3 hover:bg-bg-normal-hovered">
+            <ItemLink itemId={item.id} className="flex h-full flex-col items-start gap-1 px-4 py-3 hover:bg-bg-normal-hovered">
               <Badge size="sm" variant="soft" intent={intent[standing.kind]}>
                 {standingLabel(standing, now)}
               </Badge>
               <span className="text-fg-strong">{item.title}</span>
               {item.summary ? <span className="text-sm text-fg-normal">{item.summary}</span> : null}
-            </Link>
+            </ItemLink>
           </li>
         ))}
       </ul>

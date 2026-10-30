@@ -149,6 +149,13 @@ export const indexSchema = z
     for (const message of checkWhen(fm.when)) ctx.addIssue({ code: "custom", path: ["when"], message });
     if (fm.extra !== undefined && !extra(fm.extra))
       ctx.addIssue({ code: "custom", path: ["extra"], message: `"${fm.extra}" is not an extra in extras.data.ts` });
+    if (fm.private) {
+      // Leaves no trace in the space you share: nothing to tick, nothing that turns on a shared answer or an extra.
+      if (fm.tasks.length > 0) ctx.addIssue({ code: "custom", path: ["tasks"], message: "a private entry has no tasks: a tick is shared" });
+      if (fm.decide_by !== undefined) ctx.addIssue({ code: "custom", path: ["decide_by"], message: "a private entry has no decide_by: it would be a task" });
+      if (Object.keys(fm.when).length > 0) ctx.addIssue({ code: "custom", path: ["when"], message: "a private entry is for everyone: no when" });
+      if (fm.extra !== undefined) ctx.addIssue({ code: "custom", path: ["extra"], message: "a private entry is for everyone: no extra" });
+    }
     if ((fm.type === "can-i") !== (fm.verdict !== undefined)) {
       ctx.addIssue({ code: "custom", path: ["verdict"], message: "a can-i has a verdict, and nothing else does" });
     }

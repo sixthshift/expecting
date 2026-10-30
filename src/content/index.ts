@@ -21,7 +21,7 @@ export async function loadPage(item: Item): Promise<ItemPage> {
   const file = `items/${item.id}.md`;
   const load = pages[`../../content/${file}`];
   if (!load) throw new Error(`No page for ${item.id}`);
-  return parsePage(file, await load(), item.type);
+  return parsePage(file, await load(), item);
 }
 
 const weekFiles = import.meta.glob<string>("../../content/weeks/*.md", { query: "?raw", eager: true, import: "default" });
@@ -35,6 +35,13 @@ const taskIds = new Set(builtInTasks.map((t) => t.id));
 
 export function isBuiltInTaskId(id: string): boolean {
   return taskIds.has(id);
+}
+
+const privateIds = new Set(builtInItems.filter((i) => i.private).map((i) => i.id));
+
+/** Whether the entry `id` is private: read, but leaves no trace in the space you share. */
+export function isPrivateItem(id: string): boolean {
+  return privateIds.has(id);
 }
 
 /** By their weeks, then title; those without weeks last. */

@@ -72,6 +72,46 @@ Each step ends with the gate green (`check`, `test`, `lint`, `e2e`).
   else with weeks is in the Library only. 321 items cover week 28 and 101
   start at week 1, so step 5 has to choose what earns a place on a week.
 
+**Done 2026-10-30: step 6.** `private: true` on `domestic-violence-in-pregnancy`,
+`reproductive-coercion` and `card-asked-about-safety`. Every way one could
+be recorded or shown, and what each does (the rule is in
+`docs/architecture.md`, Content):
+
+- **Saving.** None of the three had tasks or an `{% ask %}`, and now none
+  can: the content rules refuse a private entry with tasks, a `decide_by`
+  (a task), a `when` or an extra (shared answers and switches, and settings
+  lists what they change), or an `{% ask %}`. A symptom's "Mention it at your
+  next visit" offers no question for one. The server refuses any function's
+  input naming one, in function middleware after the gate, so a write path
+  added later is covered; the questions are stored as text, so "names" is the
+  id anywhere, or the title, question or "About …" as the whole string. Words
+  typed by hand are left alone: blocking "family violence" in your own
+  question would be the app deciding what you may ask.
+  `test/server/private.test.ts` runs all 18 write paths through it and fails
+  on a 19th it doesn't list.
+- **Offered unasked.** Already kept off This week (step 5). Right now and the
+  Timeline show only what asks something of you, which a private entry can't.
+  Settings' "What this answer changes" leaves them out (`decides`).
+- **Browser history and the address bar.** Every link to an entry is now
+  `ItemLink`, which masks a private one's address as `/library` and, from a
+  private page, replaces it instead of pushing. One opened by its address is
+  masked in place. Search words that find a private entry stay out of `?q=`
+  (held on the page; a reload loses them, which is the point).
+- **Quick exit.** Sticky at the top of the page, and Esc: to This week,
+  replacing the history entry, so Back lands where the reading started (the
+  Library, with no search words). Chosen over another site: instant, offline,
+  works in the installed app, and looks like nothing.
+- **Not a trace, so unchanged.** The service worker fetches every page chunk
+  up front, so a private one's presence in the cache says nothing; no server
+  function's answer names one; the document title is always "Expecting";
+  there is no "recently read" or saved list to keep them out of.
+- **Left for the review** (in `content/drafts/REVIEW.md`):
+  `previous-trauma-and-pregnancy`, `relationship-breakdown`,
+  `arguments-and-stress`, `unplanned-pregnancy` may want `private`.
+  `booking-visit`, `partner-learning-the-signs` and
+  `fall-or-blow-to-the-belly` mention family violence in passing and are
+  meant for both of you; they stay open.
+
 **Done 2026-10-30: step 5.** Decided with Jason:
 
 - **Worth knowing on This week** (and on a peeked week) is what starts that

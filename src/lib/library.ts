@@ -333,3 +333,23 @@ export function headsUps(items: readonly Item[]): Map<Week, DatedItem> {
   }
   return byWeek;
 }
+
+/** Text as `namesPrivate` compares it: lower case, its spaces single, trimmed. */
+function plain(text: string): string {
+  return text.toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+/**
+ * Whether `text`, saved to the space both phones share, would name a private
+ * entry: its id anywhere in it, or its title, its question, or the question a
+ * page would add for it ("About …") as the whole of it. What someone types in
+ * their own words is theirs to save; what the app would write for them from a
+ * private entry, it never does.
+ */
+export function namesPrivate(text: string, items: readonly Item[]): boolean {
+  const said = plain(text);
+  if (said === "") return false;
+  return items.some(
+    (item) => item.private && (said.includes(item.id) || [item.title, item.ask, `About ${item.title}`].some((name) => name !== null && plain(name) === said))
+  );
+}

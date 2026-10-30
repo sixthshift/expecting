@@ -189,6 +189,43 @@ test("the Library finds things, names first", async ({ page, open }) => {
   await expect(page.getByRole("navigation", { name: "Ways in" })).toBeHidden();
 });
 
+test("a private entry is read, and leaves no trace: not in the address, not in the history, nothing to save, and a quick way out", async ({ page, open }) => {
+  await open("/library");
+  // Words that find it stay out of the address the browser's history keeps.
+  await page.getByLabel("Search the library").fill("family violence");
+  const results = page.getByRole("region", { name: "Results" });
+  await expect(results.getByRole("link", { name: /Family violence during pregnancy/ })).toBeVisible();
+  await expect(page).not.toHaveURL(/q=/);
+
+  await results.getByRole("link", { name: /Family violence during pregnancy/ }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "Family violence during pregnancy" })).toBeVisible();
+  // Its address is the Library's.
+  await expect(page).toHaveURL(/\/library$/);
+  await expect(page.getByRole("button", { name: /Add to your questions/ })).toHaveCount(0);
+
+  // On to another private entry: still the Library's address, and one place in the history.
+  await page
+    .getByRole("region", { name: "Related" })
+    .getByRole("link", { name: /Reproductive coercion/ })
+    .click();
+  await expect(page.getByRole("heading", { level: 1, name: "Reproductive coercion" })).toBeVisible();
+  await expect(page).toHaveURL(/\/library$/);
+
+  // Out to This week, and Back doesn't return to it.
+  await page.getByRole("button", { name: "Quick exit" }).click();
+  await expect(page).toHaveURL(/\/$/);
+  await page.goBack();
+  await expect(page.getByLabel("Search the library")).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: /Reproductive coercion|Family violence/ })).toHaveCount(0);
+
+  // Opened by its own address, it is masked in place; Esc leaves it too.
+  await open("/library/card-asked-about-safety");
+  await expect(page.getByRole("heading", { level: 1, name: /You'll be asked about home/ })).toBeVisible();
+  await expect(page).toHaveURL(/\/library$/);
+  await page.keyboard.press("Escape");
+  await expect(page).toHaveURL(/\/$/);
+});
+
 test("the Library's home lists no entries: its doors, what's open right now, and its topics", async ({ page, open }) => {
   await open("/library");
   const doors = page.getByRole("navigation", { name: "Ways in" });

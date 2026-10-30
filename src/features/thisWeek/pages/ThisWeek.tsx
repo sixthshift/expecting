@@ -11,6 +11,7 @@ import { noteFor } from "../../../content/weeks";
 import { todayISO } from "../../../lib/dates";
 import { headsUps, worthKnowing } from "../../../lib/library";
 import { askedWeeks } from "../../../lib/timelineMap";
+import { ItemLink } from "../../library/components/ItemLink";
 import { useItems } from "../../library/hooks/useItems";
 import { AskedQuestion, QuestionsWaiting } from "../../questions/components/questions/questions";
 import { QuietWeek } from "../../quiet/components/quietWeek/QuietWeek";
@@ -139,14 +140,9 @@ function Week() {
                       meta={task.deadline === week ? "deadline" : undefined}
                       action={
                         task.itemId ? (
-                          <Link
-                            to="/library/$itemId"
-                            params={{ itemId: task.itemId }}
-                            aria-label={`Why: ${task.title}`}
-                            className="shrink-0 px-1 text-xs text-fg-subtle underline"
-                          >
+                          <ItemLink itemId={task.itemId} aria-label={`Why: ${task.title}`} className="shrink-0 px-1 text-xs text-fg-subtle underline">
                             Why
-                          </Link>
+                          </ItemLink>
                         ) : null
                       }
                     />

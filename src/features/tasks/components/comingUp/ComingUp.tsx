@@ -1,10 +1,10 @@
-import { Link } from "@tanstack/react-router";
 import { useChecklist } from "../../../../api/rpc/checklist";
 import { usePeople } from "../../../../api/rpc/people";
 import { useNow } from "../../../../api/rpc/settings";
 import { whose } from "../../../../lib/people";
 import { weekLabel } from "../../../../lib/timeline";
 import { comingUp } from "../../../../lib/todo";
+import { ItemLink } from "../../../library/components/ItemLink";
 import { useTasks } from "../../hooks/useTasks";
 
 /** How many Coming up shows; the Planner has the rest. */
@@ -45,9 +45,9 @@ export function ComingUp() {
           return (
             <li key={task.id}>
               {task.itemId ? (
-                <Link to="/library/$itemId" params={{ itemId: task.itemId }} className="flex min-h-11 items-baseline gap-3 py-1.5 hover:text-fg-strong">
+                <ItemLink itemId={task.itemId} className="flex min-h-11 items-baseline gap-3 py-1.5 hover:text-fg-strong">
                   {row}
-                </Link>
+                </ItemLink>
               ) : (
                 <div className="flex min-h-11 items-baseline gap-3 py-1.5">{row}</div>
               )}
