@@ -1,5 +1,6 @@
-// Who may in: a request with a live session cookie, or any request when the
-// dev server runs without a password. Everything else is sent to log in.
+// Who may in: a request with a live session cookie, or any request when
+// EXPECTING_LOGIN=off. Everything else is sent to log in, or, before the
+// household has a password, to choose one (the same page, /login).
 //
 // Two checks share the rule. Pages and /api/* are judged by path, in request
 // middleware. A server function's path is a generated id, so it is judged by
@@ -9,17 +10,17 @@
 import { SessionRepo } from "../../db/models/auth/repo";
 import { getDb } from "../core/db";
 import { readSessionCookie } from "./cookie";
-import { type AuthMode, authMode, LoginLimiter } from "./password";
+import { LoginLimiter, loginRequired } from "./password";
 
-let mode: AuthMode | undefined;
+let required: boolean | undefined;
 
-/** The auth mode, read from the environment once. Throws in production without a hash. */
-export function auth(): AuthMode {
-  if (!mode) {
-    mode = authMode();
-    if (!mode.enabled) console.warn("expecting: EXPECTING_PASSWORD_HASH is not set, so the dev server needs no login.");
+/** Whether logins are on, read from the environment once. Throws on a value that is neither on nor off. */
+export function loginOn(): boolean {
+  if (required === undefined) {
+    required = loginRequired();
+    if (!required) console.warn("expecting: EXPECTING_LOGIN=off, so anyone who reaches it gets in without a password.");
   }
-  return mode;
+  return required;
 }
 
 export const limiter = new LoginLimiter();
@@ -30,7 +31,7 @@ const OPEN = new Set(["/login", "/api/health"]);
 /** Where Start serves server functions. Those requests are judged by `refuseFunction`. */
 const SERVER_FN_BASE = process.env.TSS_SERVER_FN_BASE ?? "/api/rpc/";
 
-/** Files whose server functions anyone may call: logging in and out. Relative to the project root. */
+/** Files whose server functions anyone may call: choosing the password, logging in and out. Relative to the project root. */
 const OPEN_FUNCTIONS = new Set(["src/api/rpc/session.ts"]);
 
 export function isOpenPath(pathname: string): boolean {
@@ -42,7 +43,7 @@ export function isOpenFunction(filename: string): boolean {
 }
 
 export function hasSession(request: Request): boolean {
-  if (!auth().enabled) return true;
+  if (!loginOn()) return true;
   const token = readSessionCookie(request);
   return token !== null && new SessionRepo(getDb()).check(token);
 }
@@ -55,9 +56,11 @@ function unauthorised(): Response {
  * Null to let the request through; otherwise the response that turns it away.
  * A page load is redirected to /login (remembering where it was going), and
  * an API call gets a bare 401. Server functions pass on to `refuseFunction`.
+ * With logins off, /login has nothing to ask, so it sends you on.
  */
 export function gate(request: Request): Response | null {
   const url = new URL(request.url);
+  if (!loginOn() && url.pathname === "/login") return Response.redirect(new URL(safeNext(url.searchParams.get("next")), url), 302);
   if (url.pathname.startsWith(SERVER_FN_BASE) || isOpenPath(url.pathname) || hasSession(request)) return null;
   const wantsPage = request.method === "GET" && (request.headers.get("accept") ?? "").includes("text/html");
   if (wantsPage) {

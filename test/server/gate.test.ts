@@ -3,8 +3,8 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 
-// The gate with a password set, against a real database in a temp DATA_DIR.
-// It reads both once, so the module is loaded fresh after the env is set.
+// The gate against a real database in a temp DATA_DIR. The database is
+// opened once, so the module is loaded fresh after the env is set.
 let dir: string;
 let gateModule: typeof import("../../src/server/auth/gate");
 let db: typeof import("../../src/server/core/db");
@@ -13,7 +13,6 @@ let SessionRepo: typeof import("../../src/db/models/auth/repo").SessionRepo;
 beforeAll(async () => {
   dir = mkdtempSync(join(tmpdir(), "expecting-gate-"));
   vi.stubEnv("DATA_DIR", dir);
-  vi.stubEnv("EXPECTING_PASSWORD_HASH", await Bun.password.hash("correct horse", { algorithm: "argon2id" }));
   vi.resetModules();
   gateModule = await import("../../src/server/auth/gate");
   db = await import("../../src/server/core/db");

@@ -15,10 +15,10 @@ const PORT = 9967;
 // there to open afterwards.
 export const DATA_DIR = join(tmpdir(), "expecting-e2e");
 
-// The household password the specs log in with, and its hash for the server.
-// A test-only secret: it guards an empty temp database and nothing else.
+// The household password the specs log in with, chosen by global-setup.ts on
+// the empty database's first visit. A test-only secret: it guards an empty
+// temp database and nothing else.
 export const PASSWORD = "e2e-household-password";
-const PASSWORD_HASH = "$argon2id$v=19$m=65536,t=2,p=1$7BpMMtKZx4uufmv7FwJG0knPd7YnDocvUPTbygU4RY8$TuCvldWmrwpkPabnqaeu2WG5glIs74sr2rZ7a4VUe38";
 
 export default defineConfig({
   testDir: ".",
@@ -26,6 +26,8 @@ export default defineConfig({
   workers: 1,
   forbidOnly: Boolean(process.env.CI),
   retries: 0,
+  // After the server is up, before any spec: the first visit, which chooses the password.
+  globalSetup: "./global-setup.ts",
   reporter: process.env.CI ? [["list"], ["html", { open: "never", outputFolder: "../playwright-report" }]] : "list",
   outputDir: "../test-results",
   use: {
@@ -48,7 +50,7 @@ export default defineConfig({
     // Never another server: one already running has a database these specs did not make.
     reuseExistingServer: false,
     timeout: 120_000,
-    env: { PORT: String(PORT), DATA_DIR, EXPECTING_PASSWORD_HASH: PASSWORD_HASH },
+    env: { PORT: String(PORT), DATA_DIR },
     stdout: "ignore",
     stderr: "pipe",
   },

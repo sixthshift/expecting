@@ -20,7 +20,7 @@ The dev server runs on http://localhost:9966, bound to all interfaces so the dev
 
 The first start creates `./data/` and migrates `expecting.db`.
 
-Without `EXPECTING_PASSWORD_HASH` the dev server needs no login and warns that it doesn't. To try the login, run `bun run password` and put the `.env` line it prints into `.env`. Bun expands `$` in `.env` even inside quotes, so each one is escaped as `\$`.
+The first visit to a new `./data` asks you to choose the household password, as the image does. Deleting `./data` starts again. `EXPECTING_LOGIN=off` in `.env` does without the password.
 
 In VS Code, the `dev` task (`Cmd/Ctrl+Shift+B`) runs the same command in a dedicated panel.
 
@@ -35,7 +35,7 @@ bun run lint    # Biome
 bun run e2e     # Playwright over the production build
 ```
 
-`bun test` is a different runner and will not work. `bun run e2e` builds the app and serves it on port 9967 over an empty database, so the dev server can stay up. It needs Playwright's Chromium once per machine: `bunx playwright install chromium`. On a bare Debian container, also `bunx playwright install-deps chromium` for its system libraries. The server under test gets a fixed test-only password hash (`e2e/playwright.config.ts`), and `e2e/fixtures.ts` logs each page in first.
+`bun test` is a different runner and will not work. `bun run e2e` builds the app and serves it on port 9967 over an empty database, so the dev server can stay up. It needs Playwright's Chromium once per machine: `bunx playwright install chromium`. On a bare Debian container, also `bunx playwright install-deps chromium` for its system libraries. `e2e/global-setup.ts` chooses a test-only password on the empty database's first visit (`PASSWORD` in `e2e/playwright.config.ts`), and `e2e/fixtures.ts` logs each page in with it.
 
 Tests live in `test/`, mirroring `src/`. A file named `*.dom.test.tsx` runs under happy-dom with Testing Library; everything else runs in plain `node`. Name a file `.dom.test.tsx` only when it presses something.
 

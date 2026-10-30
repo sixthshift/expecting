@@ -23,20 +23,21 @@ content/ (in the repo, bundled at build) ──▶ built-in items
 
 ## Access: one shared password
 
-- No users, no accounts. One password, set as an environment variable and stored only as a hash.
+- No users, no accounts. One password, chosen on the first visit and stored only as its argon2id hash, in the database (`password`, one row).
+- Until it is chosen, `/login` asks for it, and whoever reaches it first chooses it. Accepted because it is self-hosted on the household's own network: the household sets it straight after starting the container, and if someone beat them to it, they delete the data folder and start again. There is no way to change or reset it in the app; a new database is the reset. Chosen over a hash in an environment variable, which made setup a command to run and a `$`-quoting trap in `.env`.
 - Logging in sets a long-lived, HTTP-only session cookie, so a phone stays logged in for months.
 - Chosen over **no auth** (garnish's choice), because this data is personal and the app is meant to be reachable from a phone at the hospital. Chosen over **two accounts**, because nothing needs to be private from the other parent.
 - Login attempts are rate limited: ten failures in fifteen minutes locks that client out, in memory.
 - Sessions are rows holding the SHA-256 of the cookie's token, so a copy of the database is not a login. A session lives 400 days from its last use.
 - Every request passes request middleware, which judges it by path: pages without a session redirect to `/login`, other `/api/*` calls get a 401, and only `/login` and `/api/health` are open.
-- Server functions answer under `/api/rpc/`, each at a generated id, so request middleware lets those calls on, and function middleware judges each one by the file it is defined in: without a session, only `src/api/rpc/session.ts` answers. That file holds `login` and `logout`, ordinary server functions like the rest, so the app has one way of calling the server, and `src/api/rest/` is left for callers that aren't the app.
-- Without `EXPECTING_PASSWORD_HASH` the dev server runs open; a production server refuses to start.
+- Server functions answer under `/api/rpc/`, each at a generated id, so request middleware lets those calls on, and function middleware judges each one by the file it is defined in: without a session, only `src/api/rpc/session.ts` answers. That file holds `choosePassword`, `login` and `logout`, ordinary server functions like the rest, so the app has one way of calling the server, and `src/api/rest/` is left for callers that aren't the app.
+- `EXPECTING_LOGIN=off` turns logins off: every request gets through, `/login` sends you on, and Settings offers no Log out. For a household that keeps it on a LAN it trusts and would rather not have a password at all. On is the default, so leaving the variable out never opens anything, and a value that is neither `on` nor `off` is an error rather than a guess. The dev server reads it too. Turning it back on later asks for a password on the next visit if none was ever chosen.
 
 ### Who's holding the phone
 
 - The household's people are rows (`person`: a name, and `carrying` or `partner`). A device says which one it is once, and remembers it in a `expecting_person` cookie (`src/api/rpc/people.ts`).
 - That cookie is not authentication: anyone past the password can say they are anyone. It is how Expecting can say who logged something and speak to each of you.
-- It is separate from the session cookie, so it works on a dev server running open, and logging out doesn't forget who you are.
+- It is separate from the session cookie, so it works with logins off just as with them on, and logging out doesn't forget who you are.
 
 Open, and it decides the PWA: a service worker and installing to the home screen need HTTPS, which plain `http://<lan-host>:9966` is not. Tailscale (`tailscale serve` gives HTTPS on a `*.ts.net` name) is the easiest way to get both. Also open: whether expecting is reachable outside the LAN, and how — a VPN such as Tailscale, or public through the reverse proxy. The password is needed either way; a public route raises the bar for everything else.
 

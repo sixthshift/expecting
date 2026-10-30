@@ -4,31 +4,19 @@ A companion for one household through the pregnancy, running on your own network
 
 **Early days.** What's here: onboarding for both of you, this week (where you are and what matters now), the timeline (every week), the Library, the Planner (a checklist that ticks everywhere, your own tasks, questions for appointments), and built-in content tailored by your answers (all still drafts until reviewed). Not yet: the Journal and the Drawer's handy things (they say what's coming), photos, contacts, appointments, installing to the home screen, or offline use.
 
-There are no accounts: one household password, and each phone stays logged in for months. Even so, keep it off the public internet. A VPN such as Tailscale is the intended way in from outside home.
+There are no accounts: one household password (or none, if you turn logins off), and each phone stays logged in for months. Even so, keep it off the public internet. A VPN such as Tailscale is the intended way in from outside home.
 
 ## Quick start
 
-You need a machine on your network with [Docker](https://docs.docker.com/get-docker/) and Compose. Pick the household password and make its hash (from a checkout, with Bun):
-
-```bash
-bun run password
-```
-
-Put the line it prints for Compose into `docker/.env`. The single quotes matter, because the hash is full of `$`:
-
-```bash
-EXPECTING_PASSWORD_HASH='$argon2id$v=19$m=65536,t=2,p=1$...'
-```
-
-Then, from `docker/`:
+You need a machine on your network with [Docker](https://docs.docker.com/get-docker/) and Compose. From `docker/`:
 
 ```bash
 docker compose up -d
 ```
 
-The container refuses to start without the hash.
+Open `http://<that machine>:9966`. The first visit asks you to choose the household password; after that, every phone and computer logs in with it. Until it is chosen, whoever reaches the page first chooses it, so do it straight away. If someone else got there first, or you forget it, stop the container and delete `docker/data/` to start again (which deletes everything else too).
 
-Open `http://<that machine>:9966`.
+If it stays on a home network you trust and you'd rather have no password, put `EXPECTING_LOGIN=off` in `docker/.env` and run `docker compose up -d` again. Each phone still says who's holding it.
 
 The image is `ghcr.io/sixthshift/expecting:latest`, which GitHub Actions publishes on every push to `main`. Until that has happened once there is nothing to pull; build one locally instead ([development](docs/development.md#building-the-image)).
 

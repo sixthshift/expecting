@@ -1,28 +1,24 @@
 import { existsSync } from "node:fs";
 import { describe, expect, test } from "vitest";
-import { SessionRepo } from "../../src/db/models/auth/repo";
+import { PasswordRepo, SessionRepo } from "../../src/db/models/auth/repo";
 import { readSessionCookie, sessionCookieOptions } from "../../src/server/auth/cookie";
 import { isOpenFunction, isOpenPath, safeNext } from "../../src/server/auth/gate";
-import { authMode, LoginLimiter, verifyPassword } from "../../src/server/auth/password";
+import { hashPassword, LoginLimiter, loginRequired, verifyPassword } from "../../src/server/auth/password";
 import { useTestDb } from "../db/helpers";
 
-describe("authMode", () => {
-  test("a hash turns logins on", async () => {
-    const hash = await Bun.password.hash("correct horse", { algorithm: "argon2id" });
-    const mode = authMode({ EXPECTING_PASSWORD_HASH: hash }, true);
-    expect(mode).toEqual({ enabled: true, hash });
-    expect(await verifyPassword("correct horse", hash)).toBe(true);
-    expect(await verifyPassword("wrong horse", hash)).toBe(false);
-  });
+test("a password's hash checks the password and nothing else, salted afresh each time", async () => {
+  const hash = await hashPassword("correct horse");
+  expect(hash).toMatch(/^\$argon2id\$/);
+  expect(await verifyPassword("correct horse", hash)).toBe(true);
+  expect(await verifyPassword("wrong horse", hash)).toBe(false);
+  expect(await hashPassword("correct horse")).not.toBe(hash);
+});
 
-  test("no hash runs open in dev and refuses in production", () => {
-    expect(authMode({}, false)).toEqual({ enabled: false });
-    expect(() => authMode({}, true)).toThrow(/EXPECTING_PASSWORD_HASH is not set/);
-  });
-
-  test("a plain password where the hash belongs is refused", () => {
-    expect(() => authMode({ EXPECTING_PASSWORD_HASH: "hunter2" }, false)).toThrow(/not a password hash/);
-  });
+test("logins are on unless EXPECTING_LOGIN is off, and a value that is neither is refused", () => {
+  expect(loginRequired({})).toBe(true);
+  expect(loginRequired({ EXPECTING_LOGIN: "on" })).toBe(true);
+  expect(loginRequired({ EXPECTING_LOGIN: " OFF " })).toBe(false);
+  expect(() => loginRequired({ EXPECTING_LOGIN: "false" })).toThrow(/on or off/);
 });
 
 test("ten failures lock a client out until they age out", () => {
@@ -98,5 +94,20 @@ describe("sessions", () => {
     // Used on 1 Dec, so it lives 400 days from then.
     expect(repo.check(token, new Date("2027-12-01T00:00:00Z"))).toBe(true);
     expect(repo.check(token, new Date("2029-02-01T00:00:00Z"))).toBe(false);
+  });
+});
+
+describe("the password", () => {
+  const db = useTestDb();
+
+  test("is unset in a new database", () => {
+    expect(new PasswordRepo(db()).hash()).toBeNull();
+  });
+
+  test("is chosen once: whoever is first keeps it", () => {
+    const repo = new PasswordRepo(db());
+    expect(repo.choose("$argon2id$first")).toBe(true);
+    expect(repo.choose("$argon2id$second")).toBe(false);
+    expect(repo.hash()).toBe("$argon2id$first");
   });
 });

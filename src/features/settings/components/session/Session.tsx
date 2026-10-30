@@ -2,13 +2,14 @@ import { Button } from "@sixthshift/design-system/button";
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { forgetPerson } from "../../../../api/rpc/people";
-import { logout } from "../../../../api/rpc/session";
+import { logout, useAccess } from "../../../../api/rpc/session";
 import { useAction } from "../../../../app/hooks/useAction";
 import type { Person } from "../../../../lib/people";
 
-/** Who's holding this phone, the household it's shared with, and the way out. */
+/** Who's holding this phone, the household it's shared with, and the way out (with logins on). */
 export function Session({ me, people }: { me: Person | null; people: readonly Person[] }) {
   const navigate = useNavigate();
+  const { data: login } = useAccess({ select: (access) => access.login });
   const [leaving, setLeaving] = useState(false);
   const [forget, forgetting] = useAction(() => forgetPerson());
 
@@ -54,9 +55,11 @@ export function Session({ me, people }: { me: Person | null; people: readonly Pe
           >
             Someone else is using it
           </Button>
-          <Button variant="outline" onClick={() => setLeaving(true)}>
-            Log out
-          </Button>
+          {login ? (
+            <Button variant="outline" onClick={() => setLeaving(true)}>
+              Log out
+            </Button>
+          ) : null}
         </div>
       )}
     </div>

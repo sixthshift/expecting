@@ -1,22 +1,21 @@
-// The one shared password, held only as a hash in EXPECTING_PASSWORD_HASH
-// (`bun run password` makes one).
-
-export type AuthMode = { enabled: true; hash: string } | { enabled: false };
+// The one shared password, held only as an argon2id hash in the database
+// (PasswordRepo), chosen by whoever visits first, unless EXPECTING_LOGIN=off
+// turns logins off altogether.
 
 /**
- * Whether logins are required. Without a hash the dev server runs open, with
- * a warning; a production server refuses to start, so a forgotten variable
- * fails the deploy rather than exposing the data.
+ * Whether the gate asks for the password: EXPECTING_LOGIN is `on` (the
+ * default) or `off`. Anything else throws, so a typo is an error rather than
+ * a guess at which way it meant. Pure.
  */
-export function authMode(env: Record<string, string | undefined> = process.env, production = import.meta.env.PROD): AuthMode {
-  const hash = env.EXPECTING_PASSWORD_HASH?.trim();
-  if (hash) {
-    if (!hash.startsWith("$argon2") && !hash.startsWith("$2"))
-      throw new Error("EXPECTING_PASSWORD_HASH is not a password hash. Make one with `bun run password`.");
-    return { enabled: true, hash };
-  }
-  if (production) throw new Error("EXPECTING_PASSWORD_HASH is not set. Make one with `bun run password` and set it in the environment.");
-  return { enabled: false };
+export function loginRequired(env: Record<string, string | undefined> = process.env): boolean {
+  const value = env.EXPECTING_LOGIN?.trim().toLowerCase() || "on";
+  if (value === "on") return true;
+  if (value === "off") return false;
+  throw new Error(`EXPECTING_LOGIN is "${env.EXPECTING_LOGIN}": set it to on or off.`);
+}
+
+export function hashPassword(password: string): Promise<string> {
+  return Bun.password.hash(password, { algorithm: "argon2id" });
 }
 
 export function verifyPassword(password: string, hash: string): Promise<boolean> {

@@ -1,7 +1,7 @@
 import type { Database } from "bun:sqlite";
 import { eq, lt } from "drizzle-orm";
 import { orm } from "../../connection/client";
-import { session } from "./schema";
+import { password, session } from "./schema";
 
 /** How long a session lives without being used. Matches the cookie's lifetime. */
 export const SESSION_DAYS = 400;
@@ -58,5 +58,24 @@ export class SessionRepo {
       .delete(session)
       .where(lt(session.lastSeenAt, new Date(now.getTime() - SESSION_DAYS * DAY_MS).toISOString()))
       .run();
+  }
+}
+
+export class PasswordRepo {
+  private readonly db;
+
+  constructor(db: Database) {
+    this.db = orm(db);
+  }
+
+  /** The password's hash; null until one has been chosen. */
+  hash(): string | null {
+    return this.db.select().from(password).where(eq(password.id, 1)).get()?.hash ?? null;
+  }
+
+  /** Store the first password's hash. False, and nothing changes, when one is already set. */
+  choose(hash: string, now: Date = new Date()): boolean {
+    const chosen = this.db.insert(password).values({ id: 1, hash, setAt: now.toISOString() }).onConflictDoNothing().returning().get();
+    return chosen !== undefined;
   }
 }

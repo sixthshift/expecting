@@ -3,7 +3,10 @@
 # publishes (.github/workflows/docker.yml); nothing is built here. Set
 # EXPECTING_IMAGE to run another, e.g. one built locally with
 # `docker build -f docker/Dockerfile -t expecting:local .`. No `version` key:
-# Compose v2 ignores it.
+# Compose v2 ignores it. The household password is chosen on the first visit
+# and kept in the database; EXPECTING_LOGIN=off in docker/.env does without it.
+# test/docker/compose.test.ts asserts the image, service name, port, volume,
+# DATA_DIR and EXPECTING_LOGIN.
 services:
   expecting:
     image: ${EXPECTING_IMAGE:-ghcr.io/sixthshift/expecting:latest}
@@ -14,8 +17,8 @@ services:
       - ${EXPECTING_DATA_DIR:-./data}:/data
     environment:
       DATA_DIR: /data
-      # The household password's hash, from `bun run password`. Put it in
-      # docker/.env in single quotes: EXPECTING_PASSWORD_HASH='$argon2id$...'.
-      # The server refuses to start without it.
-      EXPECTING_PASSWORD_HASH: ${EXPECTING_PASSWORD_HASH:?set EXPECTING_PASSWORD_HASH in docker/.env (bun run password makes one)}
+      # on (the default) asks for the household password, chosen on the first
+      # visit; off lets anyone who reaches it in, for a LAN you trust. Each
+      # phone still says who's holding it either way.
+      EXPECTING_LOGIN: ${EXPECTING_LOGIN:-on}
     restart: unless-stopped
