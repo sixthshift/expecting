@@ -57,8 +57,10 @@ export type MapWeek = {
   slipped: boolean;
   /** Questions asked at an appointment this week. */
   asked: number;
-  /** Entries kept in the Journal on its days. */
+  /** Notes kept in the Journal on its days. */
   kept: number;
+  /** Whether a movement was kept on its days: a mark, never a count. */
+  moved: boolean;
   /** How each of you felt that week, one step each (weekStep), for whoever checked in. */
   felt: Step[];
 };
@@ -78,7 +80,7 @@ export type MapInput = {
 export function mapWeeks({ notes, windows, tasks, ticks, questions, journal, feelings, now, dueDate }: MapInput): MapWeek[] {
   const asked = askedWeeks(questions, dueDate);
   const feelers = [...new Set(feelings.map((f) => f.by))].sort();
-  const kept = dueDate ? journal.map((e) => placeOf(e.day as ISODate, dueDate)) : [];
+  const placed = dueDate ? journal.map((e) => ({ kind: e.kind, place: placeOf(e.day as ISODate, dueDate) })) : [];
   return allWeeks().map((week) => {
     const due = tasks.filter((t) => t.due === week);
     const toDo = due.filter((t) => !ticks[t.id]).length;
@@ -94,7 +96,8 @@ export function mapWeeks({ notes, windows, tasks, ticks, questions, journal, fee
       done: due.length - toDo,
       slipped: isPast && toDo > 0,
       asked: [...asked.values()].filter((w) => w === week).length,
-      kept: kept.filter((w) => w === week).length,
+      kept: placed.filter((e) => e.kind === "note" && e.place === week).length,
+      moved: placed.some((e) => e.kind === "movement" && e.place === week),
       felt: felt(feelings, feelers, week, dueDate),
     };
   });

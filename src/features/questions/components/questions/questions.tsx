@@ -13,7 +13,8 @@ import { formatDate, todayISO } from "../../../../lib/dates";
 import { newId } from "../../../../lib/outbox";
 import type { Question } from "../../../../lib/questions";
 
-export function AddQuestion() {
+/** A question for the next appointment. `onAdded` once it's on the list (the capture sheet closes). */
+export function AddQuestion({ onAdded }: { onAdded?: () => void }) {
   const [text, setText] = useState("");
   const add = useSave(questionsSaves.addQuestion);
 
@@ -22,6 +23,7 @@ export function AddQuestion() {
     if (text.trim().length === 0) return;
     add({ id: newId(), text });
     setText("");
+    onAdded?.();
   }
 
   return (

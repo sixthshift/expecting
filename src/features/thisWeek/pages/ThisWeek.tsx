@@ -15,6 +15,7 @@ import { headsUps, worthKnowing } from "../../../lib/library";
 import { askedWeeks } from "../../../lib/timelineMap";
 import { CheckIn } from "../../feelings/components/checkIn/CheckIn";
 import { HardFortnight } from "../../feelings/components/fortnight/HardFortnight";
+import { Movement } from "../../journal/components/movements/movements";
 import { Note } from "../../journal/components/notes/notes";
 import { ItemLink } from "../../library/components/ItemLink";
 import { useItems } from "../../library/hooks/useItems";
@@ -119,9 +120,7 @@ function Week() {
               <h2 id="kept" className="text-lg font-display font-semibold text-fg-strong">
                 Kept that week
               </h2>
-              {kept.map((entry) => (
-                <Note key={entry.id} entry={entry} />
-              ))}
+              {kept.map((entry) => (entry.kind === "movement" ? <Movement key={entry.id} entry={entry} /> : <Note key={entry.id} entry={entry} />))}
             </section>
           ) : null}
           {starting.length > 0 ? (

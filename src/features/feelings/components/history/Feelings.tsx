@@ -12,16 +12,14 @@ import { Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { feelingsSaves, useFeelings } from "../../../../api/rpc/feelings";
 import { usePeople } from "../../../../api/rpc/people";
-import { useQuiet } from "../../../../api/rpc/quiet";
 import { useSave } from "../../../../app/hooks/useSave";
 import { addDays, formatDate, type ISODate, todayISO } from "../../../../lib/dates";
 import { type Feeling, feelingsOf, isOwn, type OwnFeeling, STEP_LABEL, type Step, stepsByDay, wordsUsed } from "../../../../lib/feelings";
-import { formatTime, timeNow } from "../../../../lib/journal";
-import { newId } from "../../../../lib/outbox";
+import { formatTime } from "../../../../lib/journal";
+import { CheckInNow } from "../checkIn/CheckInNow";
 import { Face } from "../Face";
 import { MoreWords } from "../MoreWords";
 import { StepPicker } from "../StepPicker";
-import { Support, supportItem } from "../Support";
 
 /** How many days the dots look back. */
 const DAYS = 28;
@@ -36,31 +34,14 @@ function dayLabel(day: ISODate, today: ISODate): string {
 export function FeelingsSection() {
   const { data: people } = usePeople();
   const { data: feelings } = useFeelings();
-  const { data: quiet } = useQuiet();
-  const add = useSave(feelingsSaves.addFeeling);
-  const change = useSave(feelingsSaves.changeFeeling);
   const today = todayISO();
   const [day, setDay] = useState<ISODate>(today);
-  // The check-in just made here, open for its words until done.
-  const [justMade, setJustMade] = useState<string | null>(null);
   const me = people.me;
   const mine = me ? feelingsOf(feelings.filter(isOwn), me.id) : [];
-  const made = mine.find((f) => f.id === justMade);
   const words = wordsUsed(mine, addDays(today, 1 - DAYS)).slice(0, 5);
   // You first, then the other.
   const rows = [...people.people].sort((a, b) => Number(b.id === me?.id) - Number(a.id === me?.id));
   const onDay = feelings.filter((f) => f.day === day);
-
-  function checkIn(step: Step) {
-    if (made) {
-      change({ id: made.id, day: made.day, time: made.time, step, words: made.words, note: made.note });
-      return;
-    }
-    const id = newId();
-    add({ id, day: today, time: timeNow(), step, words: [], note: null });
-    setJustMade(id);
-    setDay(today);
-  }
 
   return (
     <section aria-labelledby="feelings" className="flex max-w-2xl flex-col gap-4">
@@ -70,21 +51,7 @@ export function FeelingsSection() {
 
       {me ? (
         <Card size="sm">
-          <div className="flex flex-col gap-3">
-            <p className="text-sm text-fg-normal">{mine.length > 0 ? "Check in again, as often as you like." : "How are you right now?"}</p>
-            <StepPicker label="How are you right now?" value={made?.step ?? null} onChoose={checkIn} />
-            {made ? (
-              <MoreWords
-                key={made.id}
-                feeling={made}
-                onDone={(more) => {
-                  change({ id: made.id, day: made.day, time: made.time, step: made.step, ...more });
-                  setJustMade(null);
-                }}
-              />
-            ) : null}
-            {made?.step === "rough" ? <Support itemId={supportItem(me.role, Boolean(quiet))} /> : null}
-          </div>
+          <CheckInNow me={me} onKept={() => setDay(today)} />
         </Card>
       ) : (
         <p className="text-sm text-fg-subtle">Say who's holding this phone, in Settings, to check in.</p>

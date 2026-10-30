@@ -22,7 +22,7 @@ import { newId } from "../../../../lib/outbox";
 type Draft = { day: ISODate; time: string | null; body: string };
 
 /** "Today, 2:15 pm", "Tue 27 Oct, 2:15 pm". */
-function when(day: string, time: string | null, today: ISODate = todayISO()): string {
+export function when(day: string, time: string | null, today: ISODate = todayISO()): string {
   const date =
     day === today
       ? "Today"
@@ -98,12 +98,18 @@ function NoteForm({ initial, submitLabel, onSave, onCancel }: { initial?: Draft;
   );
 }
 
-/** A new note: today, now, unless you say otherwise. Both of you see it. */
-export function AddNote() {
+/** A new note: today, now, unless you say otherwise. Both of you see it. `onAdded` once it's kept (the capture sheet closes). */
+export function AddNote({ onAdded }: { onAdded?: () => void }) {
   const add = useSave(journalSaves.addNote);
   return (
     <div className="flex flex-col gap-2">
-      <NoteForm submitLabel="Keep it" onSave={(draft) => add({ id: newId(), ...draft })} />
+      <NoteForm
+        submitLabel="Keep it"
+        onSave={(draft) => {
+          add({ id: newId(), ...draft });
+          onAdded?.();
+        }}
+      />
       <p className="text-xs text-fg-subtle">You both see every note.</p>
     </div>
   );

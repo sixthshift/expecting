@@ -8,8 +8,8 @@ import type { Task } from "../../../../content/schema";
 import { newId } from "../../../../lib/outbox";
 import { type Week, weekLabel } from "../../../../lib/timeline";
 
-/** A task of our own, for the odd thing Expecting couldn't know: added in the Planner, for this week. */
-export function AddTask({ week }: { week: Week }) {
+/** A task of our own, for the odd thing Expecting couldn't know: added in the Planner, for this week. `onAdded` once it's kept (the capture sheet closes). */
+export function AddTask({ week, onAdded }: { week: Week; onAdded?: () => void }) {
   const [title, setTitle] = useState("");
   const add = useSave(checklistSaves.addOwnTask);
 
@@ -18,6 +18,7 @@ export function AddTask({ week }: { week: Week }) {
     if (title.trim().length === 0) return;
     add({ id: newId(), title, week });
     setTitle("");
+    onAdded?.();
   }
 
   return (

@@ -3,16 +3,19 @@
 // as it's read, so a due date moved by the dating scan moves the entry's week
 // and never its day.
 
-import { daysBetween, type ISODate } from "./dates";
+import { addDays, daysBetween, type ISODate } from "./dates";
 import { TERM_DAYS, WEEKS, type Week } from "./timeline";
 
 export type JournalEntry = {
   id: string;
-  kind: "note";
+  kind: "note" | "movement";
   day: string;
   /** HH:MM, if given. */
   time: string | null;
+  /** A note's words; a movement's, if any (empty without). */
   body: string;
+  /** A movement felt as slower, weaker or stopped. Always false for a note. */
+  different: boolean;
   by: string | null;
   createdAt: string;
   editedBy: string | null;
@@ -88,4 +91,55 @@ export function matches(entry: JournalEntry, query: string): boolean {
     .split(/\s+/)
     .filter(Boolean)
     .every((word) => body.includes(word));
+}
+
+/** Whether an entry is a note (the Journal's notes, searched and listed as words). */
+export function isNote(entry: JournalEntry): boolean {
+  return entry.kind === "note";
+}
+
+/**
+ * The week movements are first offered: where `baby-movements` starts, as
+ * first movements come between 16 and 24 weeks. Logging one is harmless, so
+ * once any is kept, or with no due date to tell, they are offered anyway.
+ */
+export const MOVEMENTS_FROM: Week = 16;
+
+/** Whether movements are offered: never while something has happened. */
+export function movementsOffered({ now, quiet, entries }: { now: Week | null; quiet: boolean; entries: readonly JournalEntry[] }): boolean {
+  if (quiet) return false;
+  return now === null || now >= MOVEMENTS_FROM || entries.some((e) => e.kind === "movement");
+}
+
+/** How many days the movements' pattern looks back, today among them. */
+export const PATTERN_DAYS = 14;
+
+/** A day of movements: each at its time of day, and whether it felt different. */
+export type PatternDay = { day: ISODate; moved: { id: string; time: string; different: boolean }[] };
+
+/**
+ * The movements of the last fortnight, newest day first, each at its time
+ * of day, so the baby's own rhythm shows. Only days with one kept: a day
+ * without is a day nobody wrote one down, not a day without movement. No
+ * totals, and no line for what's usual.
+ */
+export function movementPattern(entries: readonly JournalEntry[], today: ISODate, days: number = PATTERN_DAYS): PatternDay[] {
+  const from = addDays(today, 1 - days);
+  const byDay = new Map<ISODate, PatternDay>();
+  for (const e of entries) {
+    if (e.kind !== "movement" || e.time === null || e.day < from || e.day > today) continue;
+    const day = e.day as ISODate;
+    const row = byDay.get(day) ?? { day, moved: [] };
+    row.moved.push({ id: e.id, time: e.time, different: e.different });
+    byDay.set(day, row);
+  }
+  return [...byDay.values()]
+    .sort((a, b) => b.day.localeCompare(a.day))
+    .map((row) => ({ ...row, moved: row.moved.sort((a, b) => a.time.localeCompare(b.time)) }));
+}
+
+/** How far through the day a time is, 0 to 1: where its dot sits. */
+export function dayFraction(time: string): number {
+  const [h, m] = time.split(":").map(Number) as [number, number];
+  return (h * 60 + m) / (24 * 60);
 }

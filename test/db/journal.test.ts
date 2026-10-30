@@ -46,3 +46,31 @@ test("a note outlives the person who wrote it", () => {
   db().run("DELETE FROM person WHERE id = ?", [sam.id]);
   expect(repo.list()[0]).toMatchObject({ body: "Told Mum", by: null });
 });
+
+test("a movement needs no words, can be marked as different, and is changed only as a movement", () => {
+  const people = new PeopleRepo(db());
+  const sam = people.add("Sam", "carrying");
+  const repo = new JournalRepo(db());
+  const moved = repo.addMovement({ id: ID, day: "2026-10-30", time: "21:15", body: "  ", different: false }, sam.id, new Date("2026-10-30T10:00:00Z"));
+  expect(moved).toMatchObject({ kind: "movement", body: "", different: false, by: sam.id });
+
+  repo.editMovement({ id: ID, day: "2026-10-30", time: "21:10", body: "Quieter than usual", different: true }, sam.id, new Date("2026-10-30T11:00:00Z"));
+  expect(repo.list()[0]).toMatchObject({ kind: "movement", time: "21:10", body: "Quieter than usual", different: true, editedAt: "2026-10-30T11:00:00.000Z" });
+
+  // A note's change doesn't reach a movement, nor a movement's a note.
+  repo.edit({ id: ID, day: "2026-10-01", time: null, body: "Not a note" }, sam.id);
+  expect(repo.list()[0]).toMatchObject({ day: "2026-10-30", body: "Quieter than usual" });
+  const NOTE = "22222222-2222-4222-8222-222222222222";
+  repo.add({ id: NOTE, day: "2026-10-30", time: null, body: "Told Mum" }, sam.id);
+  repo.editMovement({ id: NOTE, day: "2026-10-30", time: "09:00", body: "", different: true }, sam.id);
+  expect(repo.list().find((e) => e.id === NOTE)).toMatchObject({ kind: "note", body: "Told Mum", different: false });
+});
+
+test("a note still needs words, and is never marked as different", () => {
+  expect(() =>
+    db().run("INSERT INTO journal_entry (id, kind, day, body, created_at) VALUES ('a', 'note', '2026-10-30', '  ', '2026-10-30T00:00:00Z')")
+  ).toThrow(/CHECK/);
+  expect(() =>
+    db().run("INSERT INTO journal_entry (id, kind, day, body, different, created_at) VALUES ('a', 'note', '2026-10-30', 'Hi', 1, '2026-10-30T00:00:00Z')")
+  ).toThrow(/CHECK/);
+});

@@ -1,5 +1,7 @@
 // The Journal: what happens, kept. Shared, and either of you can change
 // anything in it; each entry says who wrote it and who changed it last.
+// Notes, and movements: a movement's words are optional, and it may be
+// marked as slower, weaker or stopped.
 
 import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
@@ -27,6 +29,24 @@ const note = z
   })
   .strict();
 
+const movement = z
+  .object({
+    id: z.uuid(),
+    day: z.string().refine(isISODate, "Not a date"),
+    time: z.string().regex(TIME),
+    body: z.string().trim().max(10_000),
+    different: z.boolean(),
+  })
+  .strict();
+
+/** What every entry keeps beside what was written: who and when. */
+const kept = {
+  by: z.uuid().nullable(),
+  createdAt: z.iso.datetime(),
+  editedBy: z.uuid().nullable(),
+  editedAt: z.iso.datetime().nullable(),
+};
+
 export const listJournal = createServerFn({ method: "GET" }).handler(() => new JournalRepo(getDb()).list());
 
 export const addNote = createServerFn({ method: "POST" })
@@ -37,21 +57,28 @@ export const editNote = createServerFn({ method: "POST" })
   .validator(note)
   .handler(({ data }) => new JournalRepo(getDb()).edit(data, known(personId()), madeAt()));
 
+// `different` defaults: a phone still running the build before movements sends a note without it.
 export const restoreNote = createServerFn({ method: "POST" })
-  .validator(
-    note
-      .extend({
-        kind: z.literal("note"),
-        by: z.uuid().nullable(),
-        createdAt: z.iso.datetime(),
-        editedBy: z.uuid().nullable(),
-        editedAt: z.iso.datetime().nullable(),
-      })
-      .strict()
-  )
+  .validator(note.extend({ kind: z.literal("note"), different: z.literal(false).default(false), ...kept }).strict())
   .handler(({ data }) => new JournalRepo(getDb()).restore({ ...data, by: known(data.by), editedBy: known(data.editedBy) }));
 
 export const deleteNote = createServerFn({ method: "POST" })
+  .validator(z.object({ id: z.uuid() }).strict())
+  .handler(({ data }) => new JournalRepo(getDb()).delete(data.id));
+
+export const addMovement = createServerFn({ method: "POST" })
+  .validator(movement)
+  .handler(({ data }) => new JournalRepo(getDb()).addMovement(data, known(personId()), madeAt()));
+
+export const editMovement = createServerFn({ method: "POST" })
+  .validator(movement)
+  .handler(({ data }) => new JournalRepo(getDb()).editMovement(data, known(personId()), madeAt()));
+
+export const restoreMovement = createServerFn({ method: "POST" })
+  .validator(movement.extend({ kind: z.literal("movement"), ...kept }).strict())
+  .handler(({ data }) => new JournalRepo(getDb()).restore({ ...data, by: known(data.by), editedBy: known(data.editedBy) }));
+
+export const deleteMovement = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid() }).strict())
   .handler(({ data }) => new JournalRepo(getDb()).delete(data.id));
 
@@ -60,6 +87,7 @@ export type Journal = Awaited<ReturnType<typeof listJournal>>;
 export const journalQuery = queryOptions({ queryKey: ["journal"], queryFn: () => listJournal() });
 
 type NoteInput = { id: string; day: string; time: string | null; body: string };
+type MovementInput = { id: string; day: string; time: string; body: string; different: boolean };
 
 /** The Journal's saves, through the outbox (src/app/model/outbox.ts): each shows at once, and is sent when it can be. */
 export const journalSaves = {
@@ -70,25 +98,56 @@ export const journalSaves = {
     apply: (journal: Journal, input, made) =>
       journal.some((e) => e.id === input.id)
         ? journal
-        : [...journal, { ...input, kind: "note" as const, body: input.body.trim(), by: made.by, createdAt: made.at, editedBy: null, editedAt: null }],
+        : [
+            ...journal,
+            { ...input, kind: "note" as const, body: input.body.trim(), different: false, by: made.by, createdAt: made.at, editedBy: null, editedAt: null },
+          ],
   }),
   editNote: save({
     key: "editNote",
     query: journalQuery.queryKey,
     send: (data: NoteInput, made) => editNote({ data, headers: stamped(made) }),
     apply: (journal: Journal, { id, day, time, body }, made) =>
-      journal.map((e) => (e.id === id ? { ...e, day, time, body: body.trim(), editedBy: made.by, editedAt: made.at } : e)),
+      journal.map((e) => (e.id === id && e.kind === "note" ? { ...e, day, time, body: body.trim(), editedBy: made.by, editedAt: made.at } : e)),
   }),
   restoreNote: save({
     key: "restoreNote",
     query: journalQuery.queryKey,
-    send: (data: JournalEntry, made) => restoreNote({ data, headers: stamped(made) }),
+    send: (data: JournalEntry, made) => restoreNote({ data: { ...data, kind: "note", different: false }, headers: stamped(made) }),
     apply: (journal: Journal, entry) => (journal.some((e) => e.id === entry.id) ? journal : [...journal, entry]),
   }),
   deleteNote: save({
     key: "deleteNote",
     query: journalQuery.queryKey,
     send: (data: { id: string }, made) => deleteNote({ data, headers: stamped(made) }),
+    apply: (journal: Journal, { id }) => journal.filter((e) => e.id !== id),
+  }),
+  addMovement: save({
+    key: "addMovement",
+    query: journalQuery.queryKey,
+    send: (data: MovementInput, made) => addMovement({ data, headers: stamped(made) }),
+    apply: (journal: Journal, input, made) =>
+      journal.some((e) => e.id === input.id)
+        ? journal
+        : [...journal, { ...input, kind: "movement" as const, body: input.body.trim(), by: made.by, createdAt: made.at, editedBy: null, editedAt: null }],
+  }),
+  editMovement: save({
+    key: "editMovement",
+    query: journalQuery.queryKey,
+    send: (data: MovementInput, made) => editMovement({ data, headers: stamped(made) }),
+    apply: (journal: Journal, { id, day, time, body, different }, made) =>
+      journal.map((e) => (e.id === id && e.kind === "movement" ? { ...e, day, time, body: body.trim(), different, editedBy: made.by, editedAt: made.at } : e)),
+  }),
+  restoreMovement: save({
+    key: "restoreMovement",
+    query: journalQuery.queryKey,
+    send: (data: JournalEntry & MovementInput, made) => restoreMovement({ data: { ...data, kind: "movement" }, headers: stamped(made) }),
+    apply: (journal: Journal, entry) => (journal.some((e) => e.id === entry.id) ? journal : [...journal, entry]),
+  }),
+  deleteMovement: save({
+    key: "deleteMovement",
+    query: journalQuery.queryKey,
+    send: (data: { id: string }, made) => deleteMovement({ data, headers: stamped(made) }),
     apply: (journal: Journal, { id }) => journal.filter((e) => e.id !== id),
   }),
 };

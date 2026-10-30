@@ -1,6 +1,7 @@
 import { cn } from "@sixthshift/design-system/utils";
-import { Link, Outlet } from "@tanstack/react-router";
+import { Link, Outlet, useLocation } from "@tanstack/react-router";
 import { Baby, type LucideIcon, Settings, Siren } from "lucide-react";
+import { CaptureButton } from "../../../features/capture/components/CaptureButton";
 import type { AppPath } from "../../model/paths";
 import { CallBirthSuite } from "./CallBirthSuite";
 
@@ -10,9 +11,14 @@ export type Pillar = { to: AppPath; label: string; icon: LucideIcon };
 /**
  * The layout the pillars are drawn in. Desktop: a sidebar on the left with
  * the pillars, the call button, Emergency info and settings. Phone: a tab bar under the thumb, its height in
- * `--tab-bar` so what sits above it (the timeline's scrubber) can.
+ * `--tab-bar` so what sits above it (the timeline's scrubber, the capture
+ * "+") can. The "+" is on the pillars only, not on settings or Emergency
+ * info: on a desktop at the top of the sidebar, on a phone floating above
+ * the tab bar, with room left under each page so it never covers the last row.
  */
 export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
+  const { pathname } = useLocation();
+  const onPillar = pillars.some(({ to }) => pathname === to || (to !== "/" && pathname.startsWith(`${to}/`)));
   return (
     <div className="[--tab-bar:calc(3.75rem+env(safe-area-inset-bottom))] lg:grid lg:grid-cols-[13rem_minmax(0,1fr)] lg:[--tab-bar:0px]">
       <aside className="sticky top-0 hidden h-dvh flex-col border-r border-border-subtle bg-bg-normal px-4 pt-6 pb-4 lg:flex">
@@ -20,6 +26,11 @@ export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
           <Baby aria-hidden size={22} className="text-fg-brand" />
           Expecting
         </p>
+        {onPillar ? (
+          <div className="mb-4">
+            <CaptureButton layout="row" />
+          </div>
+        ) : null}
         <PillarNav pillars={pillars} layout="list" />
         <div className="mt-auto">
           <CallBirthSuite layout="row" />
@@ -44,9 +55,11 @@ export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
         </Link>
       </aside>
 
-      <div className="min-w-0 pb-(--tab-bar)">
+      <div className={cn("min-w-0 pb-(--tab-bar)", onPillar && "max-lg:pb-[calc(var(--tab-bar)+4.5rem)]")}>
         <Outlet />
       </div>
+
+      {onPillar ? <CaptureButton layout="float" /> : null}
 
       <div className="fixed inset-x-0 bottom-0 z-30 border-t border-border-subtle bg-bg-normal/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden">
         <PillarNav pillars={pillars} layout="tabs" />

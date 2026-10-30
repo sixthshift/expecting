@@ -14,6 +14,7 @@ function line(w: MapWeek): { text: string; warn: boolean }[] {
   if (w.done > 0) parts.push({ text: `✓ ${w.done} done`, warn: false });
   if (w.asked > 0) parts.push({ text: w.asked === 1 ? "1 question asked" : `${w.asked} questions asked`, warn: false });
   if (w.kept > 0) parts.push({ text: w.kept === 1 ? "1 note" : `${w.kept} notes`, warn: false });
+  if (w.moved) parts.push({ text: "felt moving", warn: false });
   return parts;
 }
 

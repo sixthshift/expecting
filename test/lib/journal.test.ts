@@ -1,6 +1,18 @@
 import { describe, expect, test } from "vitest";
 import type { ISODate } from "../../src/lib/dates";
-import { entriesIn, formatTime, groupEntries, type JournalEntry, matches, newestFirst, placeOf, toTime } from "../../src/lib/journal";
+import {
+  dayFraction,
+  entriesIn,
+  formatTime,
+  groupEntries,
+  type JournalEntry,
+  matches,
+  movementPattern,
+  movementsOffered,
+  newestFirst,
+  placeOf,
+  toTime,
+} from "../../src/lib/journal";
 
 const entry = (id: string, day: string, time: string | null = null, createdAt = "2026-10-30T00:00:00Z"): JournalEntry => ({
   id,
@@ -8,6 +20,7 @@ const entry = (id: string, day: string, time: string | null = null, createdAt = 
   day,
   time,
   body: `Note ${id}`,
+  different: false,
   by: null,
   createdAt,
   editedBy: null,
@@ -78,4 +91,52 @@ test("times: kept as HH:MM, shown as on a clock", () => {
   expect(toTime(undefined)).toBeNull();
   expect(formatTime("00:05")).toBe("12:05 am");
   expect(formatTime("14:15")).toBe("2:15 pm");
+});
+
+describe("movements", () => {
+  const moved = (id: string, day: string, time: string | null, different = false): JournalEntry => ({
+    ...entry(id, day, time),
+    kind: "movement",
+    body: "",
+    different,
+  });
+
+  test("offered from week 16, before then once one is kept or with no due date to tell, and never while something has happened", () => {
+    expect(movementsOffered({ now: 15, quiet: false, entries: [] })).toBe(false);
+    expect(movementsOffered({ now: 16, quiet: false, entries: [] })).toBe(true);
+    expect(movementsOffered({ now: 14, quiet: false, entries: [moved("a", "2026-10-30", "21:00")] })).toBe(true);
+    expect(movementsOffered({ now: null, quiet: false, entries: [] })).toBe(true);
+    expect(movementsOffered({ now: 30, quiet: true, entries: [moved("a", "2026-10-30", "21:00")] })).toBe(false);
+  });
+
+  test("the pattern: the last fortnight's days with a movement, newest first, each in time order; notes and older days left out", () => {
+    const pattern = movementPattern(
+      [
+        moved("a", "2026-10-30", "21:15"),
+        moved("b", "2026-10-30", "07:40", true),
+        moved("c", "2026-10-28", "13:00"),
+        moved("d", "2026-10-16", "13:00"),
+        moved("e", "2026-10-17", "09:00"),
+        entry("n", "2026-10-30", "08:00"),
+      ],
+      "2026-10-30"
+    );
+    expect(pattern).toEqual([
+      {
+        day: "2026-10-30",
+        moved: [
+          { id: "b", time: "07:40", different: true },
+          { id: "a", time: "21:15", different: false },
+        ],
+      },
+      { day: "2026-10-28", moved: [{ id: "c", time: "13:00", different: false }] },
+      { day: "2026-10-17", moved: [{ id: "e", time: "09:00", different: false }] },
+    ]);
+  });
+
+  test("a time's place in the day", () => {
+    expect(dayFraction("00:00")).toBe(0);
+    expect(dayFraction("12:00")).toBe(0.5);
+    expect(dayFraction("18:00")).toBe(0.75);
+  });
 });

@@ -5,8 +5,10 @@ import { expect, test } from "./fixtures";
 
 test("a note is kept, changed, deleted and put back, and shows on its week", async ({ page, open }) => {
   await open("/journal");
-  await page.getByRole("textbox", { name: "New note" }).fill("Felt the first flutter on the bus");
-  await page.getByRole("button", { name: "Keep it" }).click();
+  // The Journal has movements' own "Keep it" too.
+  const notes = page.getByRole("region", { name: "Notes", exact: true });
+  await notes.getByRole("textbox", { name: "New note" }).fill("Felt the first flutter on the bus");
+  await notes.getByRole("button", { name: "Keep it" }).click();
   const note = page.getByText("Felt the first flutter on the bus");
   await expect(note).toBeVisible();
   await expect(page.getByText(/^You · Today, /)).toBeVisible();

@@ -7,16 +7,18 @@ import { useNow, useSettings } from "../../../api/rpc/settings";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { Coming } from "../../../components/Coming";
 import { formatDate, type ISODate } from "../../../lib/dates";
-import { type EntryGroup, groupEntries, matches } from "../../../lib/journal";
+import { type EntryGroup, groupEntries, isNote, matches, movementsOffered } from "../../../lib/journal";
 import { type Week, weekDates, weekLabel } from "../../../lib/timeline";
 import { FeelingsSection } from "../../feelings/components/history/Feelings";
+import { MovementsSection } from "../components/movements/movements";
 import { AddNote, Note } from "../components/notes/notes";
 
 /**
  * The pregnancy, kept: each entry on its day here, and on its week in the
- * timeline. Notes, newest first under their weeks, and how you're feeling;
- * the rest says what's coming. While something has happened, the notes and
- * the feelings stay, and nothing else is offered.
+ * timeline. Notes, newest first under their weeks, movements (from week 16)
+ * and how you're feeling; the rest says what's coming. While something has
+ * happened, the notes, the movements kept and the feelings stay, and nothing
+ * else is offered.
  */
 export function JournalPage() {
   const { data: journal } = useJournal();
@@ -24,7 +26,9 @@ export function JournalPage() {
   const { data: settings } = useSettings();
   const now = useNow();
   const [words, setWords] = useState("");
-  const found = journal.filter((e) => matches(e, words));
+  const notes = journal.filter(isNote);
+  const found = notes.filter((e) => matches(e, words));
+  const movements = movementsOffered({ now, quiet: Boolean(quiet), entries: journal });
   const groups = groupEntries(found, settings.dueDate);
 
   return (
@@ -39,11 +43,11 @@ export function JournalPage() {
             Notes
           </h2>
           <AddNote />
-          {journal.length > 1 ? (
+          {notes.length > 1 ? (
             // Words held on the page, not in the address: what you look for in your notes is yours.
             <SearchInput value={words} onValueChange={setWords} placeholder="Look through your notes" aria-label="Search your notes" />
           ) : null}
-          {journal.length > 0 && found.length === 0 ? <p className="text-fg-subtle">No note has those words.</p> : null}
+          {notes.length > 0 && found.length === 0 ? <p className="text-fg-subtle">No note has those words.</p> : null}
           {groups.map((group) => (
             <section key={group.key} aria-label={heading(group)} className="flex flex-col gap-2">
               <h3 className="flex items-baseline gap-2 text-sm font-semibold text-fg-strong">
@@ -57,6 +61,8 @@ export function JournalPage() {
           ))}
         </section>
 
+        <MovementsSection offered={movements} quiet={Boolean(quiet)} />
+
         <FeelingsSection />
 
         {quiet ? null : (
@@ -66,11 +72,15 @@ export function JournalPage() {
             </h2>
             <Coming
               things={[
-                {
-                  icon: Footprints,
-                  title: "Movements",
-                  about: "When you feel the baby move, so you know their usual pattern. Any change is a call, never a chart.",
-                },
+                ...(movements
+                  ? []
+                  : [
+                      {
+                        icon: Footprints,
+                        title: "Movements",
+                        about: "From week 16: when you feel the baby move, so you know their usual pattern. Any change is a call.",
+                      },
+                    ]),
                 { icon: IceCreamCone, title: "Cravings and sickness", about: "What and when. Useful when the midwife asks “since when?”, and fun later." },
                 { icon: Camera, title: "Photos and scans", about: "Bump photos and scan images, backed up." },
                 { icon: FileText, title: "Results and papers", about: "Blood tests, screening, letters, the birth plan, the discharge summary." },

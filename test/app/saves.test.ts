@@ -12,8 +12,32 @@ const checklist = { ticks: { "book-rsv-vaccine": "2026-10-01T00:00:00.000Z" }, o
 const questions = [{ id: ID, text: "Free?", answer: null, askedAt: null, createdAt: made.at }];
 const names = { names: [{ id: ID, name: "Ada", mine: null }], matches: [{ id: ID, name: "Ada" }], together: true };
 const settings = { dueDate: "2027-03-01", baby: "surprise", onboardedAt: made.at };
-const note = { id: ID, kind: "note", day: "2026-10-30", time: "07:30", body: "First kick!", by: made.by, createdAt: made.at, editedBy: null, editedAt: null };
-const journal = [note];
+const note = {
+  id: ID,
+  kind: "note",
+  day: "2026-10-30",
+  time: "07:30",
+  body: "First kick!",
+  different: false,
+  by: made.by,
+  createdAt: made.at,
+  editedBy: null,
+  editedAt: null,
+};
+const MOVED = "44444444-4444-4444-8444-444444444444";
+const movement = {
+  id: MOVED,
+  kind: "movement",
+  day: "2026-10-30",
+  time: "21:15",
+  body: "",
+  different: false,
+  by: made.by,
+  createdAt: made.at,
+  editedBy: null,
+  editedAt: null,
+};
+const journal = [note, movement];
 const own = { id: ID, by: made.by, day: "2026-10-30", time: "21:10", step: "low", words: ["tired"], note: "Long day", createdAt: made.at };
 const theirs = {
   id: "33333333-3333-4333-8333-333333333333",
@@ -73,6 +97,16 @@ const CASES: Record<string, [unknown, unknown[]]> = {
   editNote: [journal, [{ id: ID, day: "2026-10-29", time: null, body: "First kick, I think " }]],
   restoreNote: [[], [note]],
   deleteNote: [journal, [{ id: ID }]],
+  addMovement: [journal, [{ id: "22222222-2222-4222-8222-222222222222", day: "2026-10-30", time: "21:40", body: " ", different: true }]],
+  editMovement: [
+    journal,
+    [
+      { id: MOVED, day: "2026-10-30", time: "21:10", body: " Hiccups ", different: false },
+      { id: ID, day: "2026-10-30", time: "21:10", body: "", different: true },
+    ],
+  ],
+  restoreMovement: [[], [movement]],
+  deleteMovement: [journal, [{ id: MOVED }]],
   addFeeling: [feelings, [{ id: "22222222-2222-4222-8222-222222222222", day: "2026-10-30", time: null, step: "okay", words: ["calm", "calm"], note: " " }]],
   changeFeeling: [
     feelings,
@@ -107,8 +141,25 @@ test("a save changes what it says, and nothing it doesn't", () => {
   expect(byKey.saveSettings!.apply(settings, { baby: "boy" }, made)).toEqual({ ...settings, baby: "boy" });
   expect(byKey.saveEmergency!.apply(emergency, { carerPhone: "" }, made)).toEqual({ values: {}, changed: { by: made.by, at: made.at } });
   expect(byKey.addNote!.apply([], { id: ID, day: "2026-10-29", time: null, body: " Told Mum " }, made)).toEqual([
-    { id: ID, kind: "note", day: "2026-10-29", time: null, body: "Told Mum", by: made.by, createdAt: made.at, editedBy: null, editedAt: null },
+    {
+      id: ID,
+      kind: "note",
+      day: "2026-10-29",
+      time: null,
+      body: "Told Mum",
+      different: false,
+      by: made.by,
+      createdAt: made.at,
+      editedBy: null,
+      editedAt: null,
+    },
   ]);
+  expect(byKey.addMovement!.apply([], { id: ID, day: "2026-10-30", time: "21:40", body: " ", different: true }, made)).toEqual([
+    { id: ID, kind: "movement", day: "2026-10-30", time: "21:40", body: "", different: true, by: made.by, createdAt: made.at, editedBy: null, editedAt: null },
+  ]);
+  // A note and a movement are each changed only as what they are.
+  expect(byKey.editMovement!.apply(journal, { id: ID, day: "2026-10-30", time: "21:10", body: "", different: true }, made)).toEqual(journal);
+  expect(byKey.editNote!.apply(journal, { id: MOVED, day: "2026-10-29", time: null, body: "Kick" }, made)).toEqual(journal);
   expect(byKey.editNote!.apply(journal, { id: ID, day: "2026-10-29", time: null, body: "Kick " }, made)[0]).toEqual({
     ...note,
     day: "2026-10-29",

@@ -116,6 +116,7 @@ describe("the weeks", () => {
       day,
       time: null,
       body: "…",
+      different: false,
       by: null,
       createdAt: "2026-10-30T00:00:00Z",
       editedBy: null,
@@ -123,6 +124,13 @@ describe("the weeks", () => {
     });
     const w = mapWeeks({ ...input, journal: [note("a", "2026-10-30"), note("b", "2026-11-02"), note("c", "2026-01-01")] });
     expect(w.filter((m) => m.kept > 0).map((m) => [m.week, m.kept])).toEqual([[28, 2]]);
+    expect(w.some((m) => m.moved)).toBe(false);
+
+    // A movement marks its week, uncounted, and isn't a note.
+    const moved = (id: string, day: string): JournalEntry => ({ ...note(id, day), kind: "movement", body: "", time: "21:00" });
+    const m = mapWeeks({ ...input, journal: [note("a", "2026-10-30"), moved("b", "2026-10-30"), moved("c", "2026-10-31")] });
+    expect(m.filter((x) => x.moved).map((x) => x.week)).toEqual([28]);
+    expect(m.find((x) => x.week === 28)?.kept).toBe(1);
   });
 
   test("a week shows how each of you felt, one step each, and nothing for a week without", () => {

@@ -36,6 +36,21 @@ test("hard news quiets every pillar, and becomes a loss", async ({ page, open })
   await open("/");
   await expect(page.getByRole("heading", { name: "How you might feel" })).toBeVisible();
 
+  // The "+" never offers a movement, and nothing to do.
+  await page.getByRole("button", { name: "Add", exact: true }).click();
+  const sheet = page.getByRole("dialog");
+  await expect(sheet.getByRole("button", { name: "A note" })).toBeVisible();
+  await expect(sheet.getByRole("button", { name: "The baby moved" })).toBeHidden();
+  await expect(sheet.getByRole("button", { name: "Something to do" })).toBeHidden();
+  await sheet.getByRole("button", { name: "Close" }).click();
+  await expect(sheet).toBeHidden();
+
+  // The movements kept (plus.spec.ts kept some) are folded away, not shown on every visit.
+  await open("/journal");
+  await expect(page.getByRole("region", { name: "Movements" })).toBeHidden();
+  await page.getByRole("button", { name: "The movements you kept" }).click();
+  await expect(page.getByRole("region", { name: "Movements" }).getByRole("figure")).toBeVisible();
+
   // The Drawer is put away; Emergency info stops counting the weeks.
   await open("/drawer");
   await expect(page.getByText(/put away while Expecting is quiet/)).toBeVisible();

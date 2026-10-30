@@ -37,6 +37,15 @@ test("every pillar and settings is reachable", async ({ page, open }) => {
   await expect(page.getByRole("heading", { level: 1, name: "Settings" })).toBeVisible();
 });
 
+test("the + opens what to add, on a phone above the tab bar and on a desktop in the sidebar", async ({ page, open }) => {
+  await open("/timeline");
+  await page.getByRole("button", { name: "Add", exact: true }).click();
+  const sheet = page.getByRole("dialog");
+  await expect(sheet.getByRole("button", { name: "A note" })).toBeVisible();
+  await sheet.getByRole("button", { name: "Close" }).click();
+  await expect(sheet).toBeHidden();
+});
+
 test("Emergency info is one tap from every pillar, once", async ({ page, open }) => {
   for (const path of ["/", "/timeline", "/library", "/planner", "/journal", "/drawer"]) {
     await open(path);

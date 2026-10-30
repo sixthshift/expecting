@@ -88,7 +88,7 @@ The modes sort into six pillars, by whose a thing is and what you do with it:
 - **Records live in the Journal:** a scan is something that happened, dated, on the timeline. A separate Vault for medical papers stays an option.
 - **Outside every pillar:** the capture button (one "+" that files a kick, a question or a photo into the right pillar) and the call button.
 
-*Built: the frame, This week, the Timeline, Library and Planner, the Journal's notes and how you're feeling, and the Drawer's names game. The rest of the Journal and the Drawer say what's coming.*
+*Built: the frame, This week, the Timeline, Library and Planner, the Journal's notes, movements and how you're feeling, the Drawer's names game, and the capture "+" (a movement, a note, a feeling, a question or a task; photos wait for records). The rest of the Journal and the Drawer say what's coming.*
 
 ### The app changes shape
 
@@ -319,7 +319,7 @@ The entry types are content (a YAML file), so adding one is a content change. Ea
 - **It notices mood gently.** If the mood entries stay low for a fortnight, it suggests talking to someone and shows the PANDA helpline. It never scores or diagnoses.
 - **It is also fun.** "You craved pickles 14 times." By the birth, it is half the story.
 
-*Built: notes, in the Journal, added there (the capture button comes with movements, when it has more than one thing to file). Either of you can change any note, and it says who did; on the timeline a note marks its week, and This week shows a week's notes only when you peek at it. And mood, as how you're feeling: asked on This week, kept in the Journal, the step shared and the words only yours, with someone to talk to on a rough day and after a hard fortnight ([architecture](architecture.md#how-youre-feeling)). Not built: the other entries and the capture button.*
+*Built: the capture button, a "+" on every pillar (floating above a phone's tab bar, at the top of a desktop's sidebar), filing a movement, a note, a feeling, a question or a task into its pillar and leaving you where you were ([architecture](architecture.md#the-pillars)). Movements, from week 16: when, a few words if you want, and "slower, weaker or stopped?", which leads straight to the call; in the Journal the last fortnight as a dot at each time of day, never counted and never reassuring. Notes, in the Journal. Either of you can change any note, and it says who did; on the timeline a note marks its week, and This week shows a week's notes only when you peek at it. And mood, as how you're feeling: asked on This week, kept in the Journal, the step shared and the words only yours, with someone to talk to on a rough day and after a hard fortnight ([architecture](architecture.md#how-youre-feeling)). Not built: sickness, cravings, symptoms, photos, and the summary before an appointment.*
 
 ## Baby names
 
@@ -394,7 +394,7 @@ The core loop first, the thing you open every week; then the parts that stand al
 
 1. **Onboarding** and who's who. *Built.*
 2. **The driver:** tasks with a window and whose job they are, and This week opening with what to do now. Then the questions it needs asked in the week they matter, and the full admin inventory, grown together.
-3. **The weekly loop:** this week's note (*four weeks drafted*), the timeline as diary, and the capture button with movements, sickness, cravings, mood and notes.
+3. **The weekly loop:** this week's note (*four weeks drafted*), the timeline as diary, and the capture button with movements, sickness, cravings, mood and notes. *Built: the capture button, with movements, mood and notes.*
 4. **Safety:** the call button and the red flags.
 5. **Names:** self-contained and fun, and the first test of the feature switches.
 6. **Records,** once backups and access are settled.
