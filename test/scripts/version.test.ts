@@ -1,7 +1,7 @@
 // The release workflow's two decisions: how far the version moves for
 // the commits being shipped, and what the release says about them.
 import { describe, expect, test } from "vitest";
-import { bumpAcross, bumpFor, nextVersion, noteFor, releaseNotes, withVersion } from "../../scripts/version";
+import { bumpAcross, bumpFor, nextVersion, noteFor, releaseNotes, releaseVersion, withVersion } from "../../scripts/version";
 
 describe("bumpFor", () => {
   test("feat is a minor", () => {
@@ -38,6 +38,20 @@ describe("bumpAcross", () => {
 
   test("no commits is a patch", () => {
     expect(bumpAcross([])).toBe("patch");
+  });
+});
+
+describe("releaseVersion", () => {
+  test("the first release is the version package.json starts at, whatever the commits ask", () => {
+    expect(releaseVersion("0.1.0", ["feat!: a", "feat: b"], true)).toBe("0.1.0");
+  });
+
+  test("written back unchanged, package.json is as it was", () => {
+    expect(withVersion('{\n  "version": "0.1.0"\n}', "0.1.0")).toBe('{\n  "version": "0.1.0"\n}');
+  });
+
+  test("every release after moves on from it", () => {
+    expect(releaseVersion("0.1.0", ["feat: b"], false)).toBe("0.2.0");
   });
 });
 

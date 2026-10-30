@@ -131,7 +131,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "chore(release): v$VERSION [skip ci]"
+          # The first release keeps package.json's version, so there is nothing to commit, only to tag.
+          git diff --quiet || git commit -am "chore(release): v$VERSION [skip ci]"
           # Annotated, and both refs named on the push: --follow-tags alone
           # silently leaves a lightweight tag behind on the runner.
           git tag -a "v$VERSION" -m "expecting v$VERSION"

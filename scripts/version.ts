@@ -82,31 +82,39 @@ export function nextVersion(current: string, messages: readonly string[]): strin
   }
 }
 
-/** package.json with its version line rewritten, everything else byte for byte. Pure. */
-export function withVersion(packageJson: string, version: string): string {
-  const replaced = packageJson.replace(/^(\s*"version":\s*")[^"]*(")/m, `$1${version}$2`);
-  if (replaced === packageJson) throw new Error("package.json has no version field");
-  return replaced;
+/**
+ * The version to release: `current` advanced by `messages`, or, for the first release (no v* tag yet), `current`
+ * itself, so a repository starts at the version package.json was given. Pure.
+ */
+export function releaseVersion(current: string, messages: readonly string[], first: boolean): string {
+  return first ? current.trim() : nextVersion(current, messages);
 }
 
-/** The commit messages since the last v* tag, or the tip commit alone when there is no tag. */
-async function messagesSinceLastTag(): Promise<string[]> {
+/** package.json with its version line rewritten, everything else byte for byte. Pure. */
+export function withVersion(packageJson: string, version: string): string {
+  const field = /^(\s*"version":\s*")[^"]*(")/m;
+  if (!field.test(packageJson)) throw new Error("package.json has no version field");
+  return packageJson.replace(field, `$1${version}$2`);
+}
+
+/** The commit messages since the last v* tag, or every commit when there is none: the first release ships them all. */
+async function messagesSinceLastTag(): Promise<{ first: boolean; messages: string[] }> {
   const tag = (await $`git describe --tags --match "v*" --abbrev=0`.nothrow().quiet()).stdout.toString().trim();
-  const range = tag ? `${tag}..HEAD` : "-1";
-  const log = await $`git log ${range} --format=%B%x00`.quiet();
-  return log.stdout
+  const log = await $`git log ${tag ? `${tag}..HEAD` : "HEAD"} --format=%B%x00`.quiet();
+  const messages = log.stdout
     .toString()
     .split("\0")
     .map((message) => message.trim())
     .filter(Boolean);
+  return { first: !tag, messages };
 }
 
 if (import.meta.main) {
   const path = new URL("../package.json", import.meta.url).pathname;
   const source = await Bun.file(path).text();
   const current = (JSON.parse(source) as { version?: string }).version ?? "0.0.0";
-  const messages = await messagesSinceLastTag();
-  const version = nextVersion(current, messages);
+  const { first, messages } = await messagesSinceLastTag();
+  const version = releaseVersion(current, messages, first);
   await Bun.write(path, withVersion(source, version));
   console.log(version);
   // Outside the repo, so the release step's `git commit -am` cannot pick it up.
