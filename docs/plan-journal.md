@@ -195,6 +195,10 @@ Expecting already knows, and what you keep is written into it:
   page, no titles, no around now, nothing to come), only the weeks with
   something in them. The invitation line is gone: the page itself invites.
 
+Screenshots of it (2026-10-31), from a copy of the e2e database: week 4
+with nothing kept and week 22 with a few things, on a phone and a desktop,
+in [`screenshots/journal/`](screenshots/journal/).
+
 ## Steps
 
 Each ends with the gate green.
