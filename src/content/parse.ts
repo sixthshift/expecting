@@ -1,7 +1,8 @@
 import type { z } from "zod";
+import type { Week } from "../lib/timeline";
 import { ContentError, type IndexHalf, type PageHalf, splitItem } from "./file";
 import { parseBody } from "./markdoc";
-import { type IndexFrontmatter, type Item, type ItemPage, type ItemType, indexSchema, pageSchema, SYMPTOM_LEVELS } from "./schema";
+import { type IndexFrontmatter, type Item, type ItemPage, type ItemType, indexSchema, pageSchema, SYMPTOM_LEVELS, type Task } from "./schema";
 
 /** The folder built-in items live in: `content/items/<id>.md`. */
 const FOLDER = "items";
@@ -104,20 +105,45 @@ function toItem(fm: IndexFrontmatter, variables: string[]): Item {
     tasks:
       from === null || to === null
         ? []
-        : fm.tasks.map((t) => ({
-            id: t.id,
-            title: t.title,
-            opens: t.opens ?? from,
-            due: t.due ?? to,
-            deadline: (typeof t.deadline === "object" ? t.deadline.week : t.deadline) ?? null,
-            deadlineFrom: typeof t.deadline === "object" ? { fact: t.deadline.before, weeks: t.deadline.weeks } : null,
-            who: t.who,
-            itemId: fm.id,
-            origin: "built-in" as const,
-          })),
+        : [
+            ...fm.tasks.map((t) => ({
+              id: t.id,
+              title: t.title,
+              opens: t.opens ?? from,
+              due: t.due ?? to,
+              deadline: (typeof t.deadline === "object" ? t.deadline.week : t.deadline) ?? null,
+              deadlineFrom: typeof t.deadline === "object" ? { fact: t.deadline.before, weeks: t.deadline.weeks } : null,
+              who: t.who,
+              itemId: fm.id,
+              origin: "built-in" as const,
+            })),
+            ...decideTask(fm, from),
+          ],
     origin: "built-in" as const,
   };
   return from === null || to === null ? { ...fields, from: null, to: null } : { ...fields, from, to };
+}
+
+/**
+ * A decision with a week to decide by, from its source, asks you to decide: a task
+ * from its first week, best by that week, for whom it's written. Its id is the
+ * decision's with `decide-` before it, so a tick stays put.
+ */
+function decideTask(fm: IndexFrontmatter, from: Week): Task[] {
+  if (fm.decide_by === undefined) return [];
+  return [
+    {
+      id: `decide-${fm.id}`,
+      title: `Decide: ${fm.title}`,
+      opens: from,
+      due: fm.decide_by,
+      deadline: null,
+      deadlineFrom: null,
+      who: fm.who ?? "together",
+      itemId: fm.id,
+      origin: "built-in",
+    },
+  ];
 }
 
 /** Ids unique across items and their tasks. */

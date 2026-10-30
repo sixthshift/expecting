@@ -72,6 +72,31 @@ Each step ends with the gate green (`check`, `test`, `lint`, `e2e`).
   else with weeks is in the Library only. 321 items cover week 28 and 101
   start at week 1, so step 5 has to choose what earns a place on a week.
 
+**Done 2026-10-30: step 5.** Decided with Jason:
+
+- **Worth knowing on This week** (and on a peeked week) is what starts that
+  week and belongs to it (`worthKnowing` in `src/lib/library.ts`): anything
+  that asks something of you, plus entries whose window is 12 weeks or less
+  (`ON_A_WEEK`). Longer windows are any time, so they stay in the Library.
+  Never a card, a hard topic (loss, mental health, special circumstances) or
+  a private entry: those wait to be looked for. High stakes first, then what
+  asks something of you, then by title; five shown, then "Show all". Up to 26
+  start in one week (36), none in some.
+- **A heads-up a week** (`headsUps`): one card, under the week's note.
+  Walking the weeks in order, each takes the card covering it that started
+  nearest and hasn't been taken, so the same card shows on both phones all
+  week and none repeats. Every week but 3 has one with today's cards.
+- **A decision becomes a task only with a sourced `decide_by`**:
+  `decide-<id>`, "Decide: <title>", from the decision's first week, best by
+  `decide_by` (which must sit within its weeks), for whom it's written. No
+  decision has one yet: the review pass adds them where a source gives the
+  week. Decisions without one stay reading, on their week.
+- The drafts with `tasks:` already fed the Planner since step 2; ids are
+  checked unique across items and tasks.
+- The Timeline is unchanged: its windows are still what asks something of
+  you (now including decisions with a `decide_by`), and a week's line opens
+  that week on This week, where its reading is.
+
 **Done 2026-10-30: step 4.** The Library's home lists no entries: search,
 eight doors (one per type: Can I…?, Is this normal?, Nobody tells you, What
 does that mean?, What happens at…?, What do we decide?, What can we claim?,

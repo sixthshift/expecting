@@ -176,6 +176,14 @@ describe("types", () => {
     expect(typed("type: card\ntopic: body").surprise).toBe(true);
   });
 
+  test("a decision with a week to decide by asks you to decide, by then", () => {
+    const options = "## The options\n\nA.\n\n## Things to weigh\n\nB.\n\n## When to decide\n\nC.";
+    expect(typed("type: decision\ntopic: tests\nweeks: [10, 16]\nwho: carrying\ndecide_by: 13", options).tasks).toEqual([
+      { id: "decide-x", title: "Decide: X", opens: 10, due: 13, deadline: null, deadlineFrom: null, who: "carrying", itemId: "x", origin: "built-in" },
+    ]);
+    expect(typed("type: decision\ntopic: tests\nweeks: [10, 16]", options).tasks).toEqual([]);
+  });
+
   test("a symptom's levels, most urgent first, after what's usual", () => {
     expect(() => symptom("## Call 000 or go to emergency\n\nNow.\n\n## Mention it at your next visit\n\nLater.")).not.toThrow();
   });
@@ -186,6 +194,18 @@ describe("types", () => {
     ["a can-i without its why", "type: can-i\ntopic: food\nverdict: yes", "## What to do\n\nB.", /## Why/],
     ["a decision without its sections", "type: decision\ntopic: care", "## The options\n\nA.", /## Things to weigh, ## When to decide/],
     ["decide_by on anything but a decision", "type: guide\ntopic: care\ndecide_by: 20", "Words.", /only a decision/],
+    [
+      "decide_by without weeks",
+      "type: decision\ntopic: care\ndecide_by: 20",
+      "## The options\n\nA.\n\n## Things to weigh\n\nB.\n\n## When to decide\n\nC.",
+      /needs weeks/,
+    ],
+    [
+      "decide_by outside its weeks",
+      "type: decision\ntopic: care\nweeks: [10, 16]\ndecide_by: 20",
+      "## The options\n\nA.\n\n## Things to weigh\n\nB.\n\n## When to decide\n\nC.",
+      /within the decision's weeks, 10–16/,
+    ],
     ["a card with a heading", "type: card\ntopic: body", "## Why\n\nWords.", /a card has no headings/],
     ["a term that runs long", "type: term\ntopic: body", "Word. ".repeat(250), /stays short/],
     ["tasks without weeks", "type: moment\ntopic: body\ntasks:\n  - id: t\n    title: T", "Words.", /needs weeks/],

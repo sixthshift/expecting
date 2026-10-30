@@ -109,7 +109,7 @@ export const indexSchema = z
     stakes: z.enum(STAKES).optional(),
     /** A can-i's answer. */
     verdict: z.enum(VERDICTS).optional(),
-    /** A decision's week to decide by, from its source. */
+    /** A decision's week to decide by, from its source, within its weeks: it becomes a task, `decide-<id>`. */
     decide_by: z.number().int().optional(),
     /** Only for households whose answers match: `{ cover: "no", state: [vic, nsw] }`. See src/features/settings/model/facts.data.ts. */
     when: whenSchema.default({}),
@@ -154,8 +154,9 @@ export const indexSchema = z
     }
     if (fm.decide_by !== undefined) {
       if (fm.type !== "decision") ctx.addIssue({ code: "custom", path: ["decide_by"], message: "only a decision has a decide_by" });
-      else if (fm.decide_by < WEEKS.first || fm.decide_by > WEEKS.last) {
-        ctx.addIssue({ code: "custom", path: ["decide_by"], message: `decide_by is a week, ${WEEKS.first}–${WEEKS.last}` });
+      else if (!fm.weeks) ctx.addIssue({ code: "custom", path: ["decide_by"], message: "decide_by falls within the decision's weeks, so it needs weeks" });
+      else if (fm.decide_by < fm.weeks[0] || fm.decide_by > fm.weeks[1]) {
+        ctx.addIssue({ code: "custom", path: ["decide_by"], message: `decide_by is within the decision's weeks, ${fm.weeks[0]}–${fm.weeks[1]}` });
       }
     }
     if (!fm.weeks) {
