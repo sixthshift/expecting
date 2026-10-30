@@ -195,6 +195,104 @@ Expecting already knows, and what you keep is written into it:
   page, no titles, no around now, nothing to come), only the weeks with
   something in them. The invitation line is gone: the page itself invites.
 
+## The third pass: the book, already begun
+
+Jason, 2026-10-31: even early, nothing says what the Journal can be: there's
+no dream of how it could turn out. Show the potential, but classy, never
+pushy: the app working for them, not upselling them. And start early: all
+pregnancy journals do, and a moment not kept then is missed for good. The
+excitement isn't held back for the first trimester (only the quiet path
+turns it off).
+
+### The tone
+
+- **Doing, not asking.** Expecting has already begun the work and shows
+  what it's making; it never tells you to start a habit.
+- **Said once, then out of the way.** Prominent while the Journal is young,
+  then one quiet line. No repeated nudges, no counts of what's missing, no
+  streaks, no "don't miss out", no exclamation marks.
+- **Confident and understated:** "Kept for you." "Ready when you are." Never
+  "Don't forget!" or "Unlock".
+- **No made-up words.** The potential is shown with Expecting's own facts
+  (your names, your dates, each week's title) and the shape of the book,
+  never with sample entries that aren't yours.
+
+### The book, from the first visit
+
+Their book exists from day one, begun: the cover (Our pregnancy, your
+names, due month and year) and its contents. Expecting has already written
+the weeks so far from what it knows (each week's title, the baby that
+week); what you keep goes into it. It's the same book the recaps step
+through at a trimester's end and that prints at `/journal/book`: one idea,
+seen at different times, in place of three.
+
+### The chapters are the dream
+
+A pregnancy's chapters, by weeks (`CHAPTERS`, beside `FIRSTS`), each with
+the firsts that usually come in it:
+
+| Chapter | Weeks | Its moments |
+|---|---|---|
+| Finding out | 1–6 | Found out |
+| The first scan | 7–13 | The first scan, heard the heartbeat, the first craving |
+| Telling people | 14–17 | Told the family, the first outfit |
+| Halfway | 18–22 | Showing, found out boy or girl, the morphology scan |
+| Feeling them move | 23–27 | The first kick, felt from the outside |
+| Getting ready | 28–36 | The cot is up |
+| The last weeks | 37–42 | The bag is packed |
+| The birth | | Comes with the birth (out of the first version): drawn, never filled |
+
+On the contents page each chapter is one of: begun (something kept in its
+weeks, or one of its firsts marked: a mark, and what's in it), now (the
+chapter you're in), still to come (faint), or passed with nothing kept
+(faint, and its moments can still be kept, below). You see the whole shape
+of what it could become without being told to fill it.
+
+### Places ready
+
+At the moments that matter, Expecting has made a place and says so once, in
+a sentence, the place itself the way in, no shouting button
+(`PLACES`, typed, each from a Library entry's weeks):
+
+- the dating scan (`dating-scan`, weeks 6–13): "Your dating scan is usually
+  around now. There's a place ready for the picture." (a scan photo);
+- the morphology scan (`morphology-scan`, 16–20): the same;
+- the glucose test (`glucose-tolerance-test`, 24–28): "There's a place
+  ready for the result." (a paper about it);
+- the bump, from week 12, until one is kept: "If you'd like a bump series,
+  the same spot each week works best. Expecting lines them up."
+
+A place goes once it's used, or its weeks pass. Never one about the baby
+while something has happened.
+
+### Catching up, as a courtesy
+
+"Some of this has already happened. You can still keep it, on the day it
+was." The firsts whose weeks are past and that aren't marked or put aside,
+a short list, each marked on the day you say and answered in your words; it
+lands on its week. Opening the Journal for the first time at week 14 misses
+nothing for good.
+
+### Said once
+
+While the Journal is young (fewer than five things kept, ticks aside), the
+book's cover and contents sit under this week's page. After that they're
+one line at the top: "Our pregnancy · 4 chapters begun ›". Still to come in
+your story is folded into the contents (the chapters are what's to come).
+
+### The voice, in the Keep row
+
+Each way to keep says, in a few words, what it becomes, quietly under its
+label where there's room (the sheet's list, not the chips): a bump photo,
+"lined up week by week"; a letter, "for them to read one day"; a movement,
+"so you know their rhythm". Facts, not a pitch.
+
+### While something has happened
+
+No book cover, no contents, no places, no catching up: nothing about what
+the pregnancy would have become. The book stays at `/journal/book` as it
+was, and the Journal is as the second pass left it.
+
 Screenshots of it (2026-10-31), from a copy of the e2e database: week 4
 with nothing kept and week 22 with a few things, on a phone and a desktop,
 in [`screenshots/journal/`](screenshots/journal/).
