@@ -7,11 +7,13 @@ import { ContentContext } from "../../features/library/components/content/contex
 import { factsOf } from "../../lib/facts";
 import { PillarLayout } from "../components/layout/PillarLayout";
 import { PILLARS } from "../components/layout/pillars";
+import { WhatsNew } from "../components/WhatsNew";
 import { useBabyTheme } from "../hooks/useBabyTheme";
 
 /**
  * Around every pillar: the household's colours and the
- * context content renders against, then the pillars in their layout.
+ * context content renders against, then the pillars in their layout, and
+ * what's new once after an update.
  */
 export function App() {
   const { data: settings } = useSettings();
@@ -31,6 +33,7 @@ export function App() {
   return (
     <ContentContext.Provider value={content}>
       <PillarLayout pillars={PILLARS} />
+      <WhatsNew />
     </ContentContext.Provider>
   );
 }

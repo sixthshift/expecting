@@ -4,7 +4,9 @@
 // notes: GitHub's own generator lists merged pull requests, and this repo
 // pushes straight to main, so it has nothing to list. The rules live here as
 // pure functions so the workflow's decisions are testable; the CLI below is
-// what the workflow calls.
+// what the workflow calls. The household gets its own, shorter notes, bundled
+// into the app as content/releases/<version>.md and shown once after an update
+// (src/content/releases.ts): only what they would notice, new and fixed.
 import { appendFile } from "node:fs/promises";
 import { $ } from "bun";
 
@@ -55,6 +57,31 @@ export function releaseNotes(messages: readonly string[]): string {
     if (note) bySection.set(note.section, [...(bySection.get(note.section) ?? []), note.line]);
   }
   return SECTIONS.filter((section) => bySection.has(section))
+    .map((section) => `## ${section}\n\n${bySection.get(section)!.join("\n")}\n`)
+    .join("\n");
+}
+
+/** What's new's sections, by the commit types that go in them. */
+const WHATS_NEW = { feat: "New", fix: "Fixed", perf: "Fixed" } as const;
+
+/**
+ * The notes the app shows the household for `messages`, given newest first: what's new and what's fixed, each line
+ * its commit's subject with a capital; "" when there is neither, and the app shows nothing for that release. Pure.
+ */
+export function whatsNewNotes(messages: readonly string[]): string {
+  const bySection = new Map<string, string[]>();
+  for (const message of [...messages].reverse()) {
+    const header = (message.split("\n")[0] ?? "").trim();
+    const match = HEADER.exec(header);
+    const section = match ? WHATS_NEW[match[1]!.toLowerCase() as keyof typeof WHATS_NEW] : undefined;
+    if (!section) continue;
+    const subject = header.slice(match![0].length).trim();
+    if (subject === "") continue;
+    const line = `- ${subject[0]!.toUpperCase()}${subject.slice(1)}`;
+    bySection.set(section, [...(bySection.get(section) ?? []), line]);
+  }
+  return [...new Set(Object.values(WHATS_NEW))]
+    .filter((section) => bySection.has(section))
     .map((section) => `## ${section}\n\n${bySection.get(section)!.join("\n")}\n`)
     .join("\n");
 }
@@ -120,6 +147,9 @@ if (import.meta.main) {
   // Outside the repo, so the release step's `git commit -am` cannot pick it up.
   const notes = `${process.env.RUNNER_TEMP ?? "/tmp"}/release-notes.md`;
   await Bun.write(notes, releaseNotes(messages));
+  // In the repo, so the build bundles it and the release step commits it.
+  const whatsNew = whatsNewNotes(messages);
+  if (whatsNew) await Bun.write(new URL(`../content/releases/${version}.md`, import.meta.url).pathname, whatsNew);
   const output = process.env.GITHUB_OUTPUT;
   if (output) await appendFile(output, `version=${version}\nnotes=${notes}\n`);
 }

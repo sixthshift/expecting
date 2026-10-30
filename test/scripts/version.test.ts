@@ -1,7 +1,7 @@
 // The release workflow's two decisions: how far the version moves for
 // the commits being shipped, and what the release says about them.
 import { describe, expect, test } from "vitest";
-import { bumpAcross, bumpFor, nextVersion, noteFor, releaseNotes, releaseVersion, withVersion } from "../../scripts/version";
+import { bumpAcross, bumpFor, nextVersion, noteFor, releaseNotes, releaseVersion, whatsNewNotes, withVersion } from "../../scripts/version";
 
 describe("bumpFor", () => {
   test("feat is a minor", () => {
@@ -120,5 +120,21 @@ describe("releaseNotes", () => {
   test("nothing worth saying is empty", () => {
     expect(releaseNotes(["chore: tidy"])).toBe("");
     expect(releaseNotes([])).toBe("");
+  });
+});
+
+// What the app shows after an update (content/releases/<version>.md): only what a household would notice.
+describe("whatsNewNotes", () => {
+  test("lists what's new, then what's fixed, oldest first, each with a capital", () => {
+    const notes = whatsNewNotes(["fix: the swipe misses", "perf: the timeline opens faster", "feat(planner): propose a week", "feat: names game"]);
+    expect(notes).toBe("## New\n\n- Names game\n- Propose a week\n\n## Fixed\n\n- The timeline opens faster\n- The swipe misses\n");
+  });
+
+  test("leaves out housekeeping, refactors and anything unconventional", () => {
+    expect(whatsNewNotes(["chore(deps): bun 1.4.3", "refactor: settings shape", "ci: release notes", "Merge branch main"])).toBe("");
+  });
+
+  test("a breaking feat is still new to the household", () => {
+    expect(whatsNewNotes(["feat!: the Drawer"])).toBe("## New\n\n- The Drawer\n");
   });
 });

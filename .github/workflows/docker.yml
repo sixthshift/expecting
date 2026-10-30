@@ -13,6 +13,8 @@
 # is published as a GitHub release, its notes written by scripts/version.ts
 # from the commits since the last one (GitHub's generator lists pull requests,
 # and this repo pushes straight to main), with GitHub's compare link after them.
+# The bump also writes the household's notes, content/releases/<version>.md,
+# which the image bundles and the release commit carries.
 # docker/docker-compose.yml pulls the latest tag. test/docker/workflow.test.ts
 # asserts this contract.
 name: docker
@@ -131,8 +133,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # The first release keeps package.json's version, so there is nothing to commit, only to tag.
-          git diff --quiet || git commit -am "chore(release): v$VERSION [skip ci]"
+          # The household's notes for the release are a new file, so they are added by name. The first
+          # release keeps package.json's version, so there may be nothing to commit, only to tag.
+          git add package.json content/releases
+          git diff --cached --quiet || git commit -m "chore(release): v$VERSION [skip ci]"
           # Annotated, and both refs named on the push: --follow-tags alone
           # silently leaves a lightweight tag behind on the runner.
           git tag -a "v$VERSION" -m "expecting v$VERSION"
