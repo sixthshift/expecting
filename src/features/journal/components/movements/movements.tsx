@@ -143,9 +143,10 @@ export function MovementsChanged() {
  * felt as different keeps the call on screen until it's put away, so it
  * never closes on its own.
  */
-export function AddMovement({ onAdded }: { onAdded?: () => void }) {
+export function AddMovement({ onAdded }: { onAdded?: (id: string) => void }) {
   const add = useSave(journalSaves.addMovement);
-  const [changed, setChanged] = useState(false);
+  // The one just kept, felt as different: the call stays on screen until Done.
+  const [changed, setChanged] = useState<string | null>(null);
 
   if (changed) {
     return (
@@ -154,8 +155,8 @@ export function AddMovement({ onAdded }: { onAdded?: () => void }) {
         <Button
           variant="outline"
           onClick={() => {
-            setChanged(false);
-            onAdded?.();
+            setChanged(null);
+            onAdded?.(changed);
           }}
         >
           Done
@@ -168,9 +169,10 @@ export function AddMovement({ onAdded }: { onAdded?: () => void }) {
     <MovementForm
       submitLabel="Keep it"
       onSave={(draft) => {
-        add({ id: newId(), ...draft });
-        if (draft.different) setChanged(true);
-        else onAdded?.();
+        const id = newId();
+        add({ id, ...draft });
+        if (draft.different) setChanged(id);
+        else onAdded?.(id);
       }}
     />
   );
@@ -296,43 +298,25 @@ export function MovementPattern() {
 const LISTED = 8;
 
 /**
- * The Journal's movements: a new one (from week 16, never while something
- * has happened), the pattern, then each, newest first. Not drawn until
- * they're offered or one is kept. While something has happened, what was
- * kept is folded away behind one quiet line, opened only when asked: never
- * the baby's last movements on every visit, and never deleted.
+ * The Journal's Movements lens: the pattern, then each, newest first. New
+ * ones come in through the "+" (and the Journal's Keep row); the lens is
+ * there only once one is kept, and never while something has happened (the
+ * Journal folds them away then).
  */
-export function MovementsSection({ offered, quiet }: { offered: boolean; quiet: boolean }) {
+export function MovementsLens() {
   const { data: journal } = useJournal();
   const [all, setAll] = useState(false);
-  const [unfolded, setUnfolded] = useState(false);
   const movements = newestFirst(journal.filter((e) => e.kind === "movement"));
-  if (!offered && movements.length === 0) return null;
   const listed = all ? movements : movements.slice(0, LISTED);
-
-  if (quiet && !unfolded) {
-    return (
-      <Button variant="ghost" size="sm" className="self-start text-fg-subtle" onClick={() => setUnfolded(true)}>
-        The movements you kept
-      </Button>
-    );
-  }
 
   return (
     <section aria-labelledby="movements" className="flex max-w-2xl flex-col gap-4">
       <h2 id="movements" className="text-lg font-display font-semibold text-fg-strong">
         Movements
       </h2>
-      {offered ? (
-        <>
-          <p className="text-sm text-fg-subtle">
-            Get to know your baby's own pattern. There's no number to reach: what matters is a change. Either of you can keep one.
-          </p>
-          <Card size="sm">
-            <AddMovement />
-          </Card>
-        </>
-      ) : null}
+      <p className="text-sm text-fg-subtle">
+        Get to know your baby's own pattern. There's no number to reach: what matters is a change. Either of you can keep one.
+      </p>
       <MovementPattern />
       {listed.map((entry) => (
         <Movement key={entry.id} entry={entry} />

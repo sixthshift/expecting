@@ -5,7 +5,6 @@
 // docs/plan-results-papers.md.
 
 import { Button } from "@sixthshift/design-system/button";
-import { Card } from "@sixthshift/design-system/card";
 import { SearchInput } from "@sixthshift/design-system/search-input";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { Link } from "@tanstack/react-router";
@@ -14,7 +13,6 @@ import { usePapers } from "../../../../api/rpc/papers";
 import { useSettings } from "../../../../api/rpc/settings";
 import { kindsKept, ordered, PAPER_KIND_PLURAL, type Paper, type PaperKind, paperMatches } from "../../../../lib/papers";
 import type { QuietKind } from "../../../../lib/quiet";
-import { AddPaper } from "./AddPaper";
 import { PaperRow } from "./PaperRow";
 import { PaperViewer } from "./PaperViewer";
 
@@ -43,13 +41,13 @@ function PaperList({ papers, label }: { papers: Paper[]; label: string }) {
 }
 
 /**
- * The Journal's results and papers: a new one, then every one, handy first
- * and then newest by the date on it, with the kinds there are to filter by and
- * a search from five. Stays as it is while something has happened: papers are
- * admin, and there are more after a loss, not fewer (the form suggests
- * nothing pregnancy-forward then).
+ * The Journal's Papers lens: every one, handy first and then newest by the
+ * date on it, with the kinds there are to filter by and a search from five.
+ * New ones come in through the "+". Stays as it is while something has
+ * happened: papers are admin, and there are more after a loss, not fewer (the
+ * form suggests nothing pregnancy-forward then).
  */
-export function PapersSection({ quiet }: { quiet: QuietKind | null }) {
+export function PapersLens({ quiet }: { quiet: QuietKind | null }) {
   const { data: papers } = usePapers();
   const [words, setWords] = useState("");
   const [kind, setKind] = useState<PaperKind | "all">("all");
@@ -69,9 +67,6 @@ export function PapersSection({ quiet }: { quiet: QuietKind | null }) {
           ? "Results, letters, the papers from the hospital: photographed or saved as a PDF, kept for you both."
           : "Results, letters, the birth plan, the discharge summary: photographed or saved as a PDF, kept for you both and found in a moment. Expecting keeps them; it doesn't read them."}
       </p>
-      <Card size="sm">
-        <AddPaper />
-      </Card>
       {papers.length >= SEARCH_FROM ? (
         // Words held on the page, not in the address.
         <SearchInput value={words} onValueChange={setWords} placeholder="Look through your papers" aria-label="Search your papers" />

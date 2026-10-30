@@ -48,22 +48,26 @@ test("hard news quiets every pillar, and becomes a loss", async ({ page, open })
   await sheet.getByRole("button", { name: "Close" }).click();
   await expect(sheet).toBeHidden();
 
-  // The movements kept (plus.spec.ts kept some) are folded away, not shown on every visit.
+  // The movements, sickness and cravings and photos kept (plus.spec.ts, plus-sickness.spec.ts and
+  // photos.spec.ts kept some) are folded behind one quiet line, not shown on every visit, with no lens
+  // of their own, nothing new offered, and nothing shown first.
   await open("/journal");
-  await expect(page.getByRole("region", { name: "Movements" })).toBeHidden();
-  await page.getByRole("button", { name: "The movements you kept" }).click();
-  await expect(page.getByRole("region", { name: "Movements" }).getByRole("figure")).toBeVisible();
-  // As are the sickness and cravings (plus-sickness.spec.ts kept some), with nothing new offered.
-  await expect(page.getByRole("region", { name: "Sickness and cravings" })).toBeHidden();
-  await page.getByRole("button", { name: "The sickness and cravings you kept" }).click();
-  await expect(page.getByRole("region", { name: "Sickness and cravings" }).getByText("Craving: Pickles").first()).toBeVisible();
-  await expect(page.getByRole("region", { name: "Sickness and cravings" }).getByRole("button", { name: "Keep it" })).toBeHidden();
-  // And the photos and scans (photos.spec.ts kept a bump): opened, plain, no bump week by week and no frame for this week.
-  await expect(page.getByRole("region", { name: "Photos and scans" })).toBeHidden();
-  await page.getByRole("button", { name: "The photos and scans you kept" }).click();
-  const kept = page.getByRole("region", { name: "Photos and scans" });
+  const story = page.getByRole("list", { name: "The story" });
+  await expect(story.getByText("Felt moving")).toHaveCount(0);
+  await expect(story.getByText("Craving: Pickles")).toHaveCount(0);
+  await expect(page.getByRole("radio", { name: "Movements" })).toBeHidden();
+  await expect(page.getByRole("list", { name: "Keep" }).getByRole("button", { name: "Moved" })).toBeHidden();
+  await expect(page.getByRole("list", { name: "Keep" }).getByRole("button", { name: "Note" })).toBeVisible();
+  await expect(page.getByRole("region", { name: "Now" })).toBeHidden();
+  await expect(page.getByRole("region", { name: "Lately" })).toBeHidden();
+  await page.getByRole("button", { name: "What you kept before" }).click();
+  const kept = page.getByRole("region", { name: "What you kept before" });
+  await expect(kept.getByText("Felt moving").first()).toBeVisible();
+  await expect(kept.getByText("Craving: Pickles").first()).toBeVisible();
   await expect(kept.getByRole("img", { name: /^Bump photo, week 28/ })).toBeVisible();
-  await expect(kept.getByRole("region", { name: "Your bump, week by week" })).toBeHidden();
+  // Plain: no bump week by week, no frame for this week.
+  await expect(page.getByRole("region", { name: "Your bump, week by week" })).toBeHidden();
+  await expect(kept.getByRole("button", { name: "Add a photo" })).toBeVisible();
 
   // The Drawer is put away; Emergency info stops counting the weeks.
   await open("/drawer");

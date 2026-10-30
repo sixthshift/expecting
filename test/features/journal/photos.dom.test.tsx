@@ -56,7 +56,7 @@ vi.mock("../../../src/app/model/uploads", () => {
 });
 
 const { AddPhoto } = await import("../../../src/features/journal/components/photos/AddPhoto");
-const { PhotosSection } = await import("../../../src/features/journal/components/photos/photos");
+const { PhotosLens } = await import("../../../src/features/journal/components/photos/photos");
 const { FileProblemError } = await import("../../../src/app/model/uploads");
 
 const prepared = (takenAt: { day: string; time: string } | null) => ({
@@ -128,10 +128,10 @@ describe("AddPhoto", () => {
   });
 });
 
-describe("PhotosSection", () => {
-  it("the bump week by week, ending in this week's empty frame, and side by side from two weeks", () => {
+describe("PhotosLens", () => {
+  it("the bump week by week, ending in this week's empty frame, side by side and the scrubber from two weeks", () => {
     photos = [shot("a", "2026-07-08", "bump"), shot("b", "2026-09-02", "bump"), shot("c", "2026-09-03", "scan", "Morphology scan")];
-    render(<PhotosSection quiet={null} />);
+    render(<PhotosLens quiet={null} />);
     const row = screen.getByRole("region", { name: "Your bump, week by week" });
     expect(
       within(row)
@@ -140,20 +140,29 @@ describe("PhotosSection", () => {
     ).toEqual(["Week 12", "Week 20", "Week 28"]);
     expect(within(row).getByRole("button", { name: "Take week 28's bump photo" })).toBeTruthy();
     expect(within(row).getByRole("button", { name: /Side by side/ })).toBeTruthy();
+    expect(screen.getByRole("slider", { name: "Week" })).toBeTruthy();
     // Every photo under its week, newest first.
     expect(screen.getByRole("region", { name: "Week 20" })).toBeTruthy();
     expect(screen.getByRole("img", { name: /^Scan, week 20, .*Morphology scan$/ })).toBeTruthy();
   });
 
-  it("before the first bump photo, the frame alone with why", () => {
-    render(<PhotosSection quiet={null} />);
-    expect(screen.getByText(/Same spot, same pose, once a week/)).toBeTruthy();
+  it("one bump week isn't a series yet: no empty frame asking for this week's, no scrubber", () => {
+    photos = [shot("a", "2026-07-08", "bump")];
+    render(<PhotosLens quiet={null} />);
+    expect(screen.queryByRole("button", { name: /^Take week/ })).toBeNull();
+    expect(screen.queryByRole("slider")).toBeNull();
     expect(screen.queryByRole("button", { name: /Side by side/ })).toBeNull();
+  });
+
+  it("no bump photos, no bump row at all", () => {
+    photos = [shot("c", "2026-09-03", "scan")];
+    render(<PhotosLens quiet={null} />);
+    expect(screen.queryByRole("region", { name: "Your bump, week by week" })).toBeNull();
   });
 
   it("deleting asks first, and then goes from both phones", () => {
     photos = [shot("a", "2026-10-28", "other", "The first outfit")];
-    render(<PhotosSection quiet={null} />);
+    render(<PhotosLens quiet={null} />);
     fireEvent.click(screen.getByRole("img", { name: /The first outfit/ }).closest("button")!);
     const viewer = screen.getByRole("dialog");
     fireEvent.click(within(viewer).getByRole("button", { name: "Delete" }));
@@ -163,13 +172,12 @@ describe("PhotosSection", () => {
     expect(saved).toEqual([{ key: "deletePhoto", input: { id: "a" } }]);
   });
 
-  it("while something has happened, folded away; opened, plain, with a way to add one but never a bump after a loss", async () => {
+  it("while something has happened, plain, with a way to add one but never a bump after a loss", async () => {
     quiet = "loss";
     photos = [shot("a", "2026-07-08", "bump"), shot("b", "2026-09-02", "scan")];
-    render(<PhotosSection quiet={quiet} />);
-    expect(screen.queryByRole("region", { name: "Photos and scans" })).toBeNull();
-    fireEvent.click(screen.getByRole("button", { name: "The photos and scans you kept" }));
+    render(<PhotosLens quiet={quiet} />);
     expect(screen.getByRole("region", { name: "Photos and scans" })).toBeTruthy();
+    expect(screen.queryByRole("slider")).toBeNull();
     expect(screen.queryByRole("region", { name: "Your bump, week by week" })).toBeNull();
     expect(screen.queryByRole("button", { name: /Side by side/ })).toBeNull();
     expect(screen.getByRole("region", { name: "Week 12" })).toBeTruthy();
@@ -177,10 +185,5 @@ describe("PhotosSection", () => {
     choose();
     await screen.findByText("What is it?");
     expect(screen.queryByRole("radio", { name: "Bump" })).toBeNull();
-  });
-
-  it("with nothing kept, nothing at all while something has happened", () => {
-    render(<PhotosSection quiet="news" />);
-    expect(screen.queryByRole("button", { name: "The photos and scans you kept" })).toBeNull();
   });
 });

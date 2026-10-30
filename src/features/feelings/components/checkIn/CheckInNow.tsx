@@ -15,8 +15,8 @@ import { MoreWords } from "../MoreWords";
 import { StepPicker } from "../StepPicker";
 import { Support, supportItem } from "../Support";
 
-/** `onKept` as a new feeling is kept; `onDone` once its words are. */
-export function CheckInNow({ me, onKept, onDone }: { me: Person; onKept?: () => void; onDone?: () => void }) {
+/** `onKept` as a new feeling is kept; `onDone`, with its id, once its words are. */
+export function CheckInNow({ me, onKept, onDone }: { me: Person; onKept?: () => void; onDone?: (id: string) => void }) {
   const { data: feelings } = useFeelings();
   const { data: quiet } = useQuiet();
   const add = useSave(feelingsSaves.addFeeling);
@@ -48,7 +48,7 @@ export function CheckInNow({ me, onKept, onDone }: { me: Person; onKept?: () => 
           onDone={(more) => {
             change({ id: made.id, day: made.day, time: made.time, step: made.step, ...more });
             setJustMade(null);
-            onDone?.();
+            onDone?.(made.id);
           }}
         />
       ) : null}

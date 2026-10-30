@@ -50,8 +50,10 @@ test("Emergency info is one tap from every pillar, once", async ({ page, open })
   for (const path of ["/", "/timeline", "/library", "/planner", "/journal", "/drawer"]) {
     await open(path);
     // The call button calls once there's a number; it never doubles as a second way to Emergency info.
-    await expect(page.getByRole("link", { name: "Emergency info" }).filter({ visible: true })).toHaveCount(1);
-    await expect(page.locator('a[href="/emergency"]').filter({ visible: true })).toHaveCount(1);
+    // A call to make (the Journal keeps one on screen for a movement felt as different) has its own way there.
+    const frame = page.locator(':not([role="alert"] *)');
+    await expect(page.getByRole("link", { name: "Emergency info" }).filter({ visible: true }).and(frame)).toHaveCount(1);
+    await expect(page.locator('a[href="/emergency"]').filter({ visible: true }).and(frame)).toHaveCount(1);
   }
 });
 

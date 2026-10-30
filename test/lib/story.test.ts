@@ -139,3 +139,22 @@ test("says what can be kept while little is, never counting what was done, and n
   const kept = storyItems(sources({ journal: [entry("note", "2026-10-01"), entry("note", "2026-10-02"), entry("note", "2026-10-03")] }));
   expect(invites(kept, false)).toBe(false);
 });
+
+test("a few lines said in a phrase, movements never counted", async () => {
+  const { summarise, cravingThread } = await import("../../src/lib/story");
+  const items = storyItems(
+    sources({
+      journal: [entry("note", "2026-10-27"), entry("note", "2026-10-28"), entry("movement", "2026-10-28", { time: "09:00" })],
+      photos: [photo("scan", "2026-10-27")],
+    })
+  );
+  expect(summarise(items)).toBe("a scan, 2 notes and movements");
+  expect(summarise([])).toBe("");
+  const cravings = [
+    appetite("craving", "2026-09-01"),
+    appetite("craving", "2026-10-28", { what: " pickles " }),
+    appetite("craving", "2026-10-29", { what: "Ice" }),
+  ];
+  expect(cravingThread(cravings, cravings[1]!.id)).toEqual({ what: " pickles ", times: 2, first: "2026-09-01", before: "2026-09-01" });
+  expect(cravingThread(cravings, cravings[2]!.id)?.before).toBeNull();
+});

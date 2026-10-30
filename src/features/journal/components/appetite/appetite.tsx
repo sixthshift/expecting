@@ -220,7 +220,7 @@ function MoreAboutIt({ entry, onDone }: { entry: AppetiteEntry; onDone: (more: {
  * want, and Done (`onAdded`: the capture sheet closes). Can't keep fluids
  * down keeps the call on screen, and the sheet open, until Done.
  */
-export function AddSickness({ onAdded }: { onAdded?: () => void }) {
+export function AddSickness({ onAdded }: { onAdded?: (id: string) => void }) {
   const { data: entries } = useAppetite();
   const add = useSave(appetiteSaves.addAppetite);
   const edit = useSave(appetiteSaves.editAppetite);
@@ -250,7 +250,7 @@ export function AddSickness({ onAdded }: { onAdded?: () => void }) {
             onDone={(more) => {
               edit({ ...inputOf(made), ...more });
               setJustMade(null);
-              onAdded?.();
+              onAdded?.(made.id);
             }}
           />
         </>
@@ -271,33 +271,34 @@ const KIND_OPTIONS = [
  * for something that isn't food keeps the quiet word about it on screen
  * until Done.
  */
-export function AddCraving({ onAdded }: { onAdded?: () => void }) {
+export function AddCraving({ onAdded }: { onAdded?: (id: string) => void }) {
   const { data: entries } = useAppetite();
   const add = useSave(appetiteSaves.addAppetite);
   const [kind, setKind] = useState<"craving" | "off">("craving");
   const [what, setWhat] = useState("");
   // A craving for something that isn't food, just kept: the word about it, until Done.
-  const [notFoodKept, setNotFoodKept] = useState<string | null>(null);
+  const [notFoodKept, setNotFoodKept] = useState<{ id: string; what: string } | null>(null);
   const chips = cravingChips(entries, kind);
 
   function keep(text: string) {
     if (text.trim().length === 0) return;
-    add({ id: newId(), kind, day: todayISO(), time: timeNow(), how: null, what: text, note: null });
+    const id = newId();
+    add({ id, kind, day: todayISO(), time: timeNow(), how: null, what: text, note: null });
     setWhat("");
-    if (kind === "craving" && notFood(text)) setNotFoodKept(text.trim());
-    else onAdded?.();
+    if (kind === "craving" && notFood(text)) setNotFoodKept({ id, what: text.trim() });
+    else onAdded?.(id);
   }
 
   if (notFoodKept) {
     return (
       <div className="flex flex-col gap-3">
-        <p className="text-sm text-fg-normal">Kept: {notFoodKept}.</p>
-        <NotFood what={notFoodKept} />
+        <p className="text-sm text-fg-normal">Kept: {notFoodKept.what}.</p>
+        <NotFood what={notFoodKept.what} />
         <Button
           variant="outline"
           onClick={() => {
             setNotFoodKept(null);
-            onAdded?.();
+            onAdded?.(notFoodKept.id);
           }}
         >
           Done
@@ -597,49 +598,23 @@ export function AppetiteItem({ entry }: { entry: AppetiteEntry }) {
 const LISTED = 8;
 
 /**
- * The Journal's sickness and cravings: the two adds, sickness since when as
- * weeks of days, what's been craved and gone off, then each entry. While
- * something has happened nothing new is offered, and what was kept is
- * folded behind one quiet line, opened only when asked, never deleted.
+ * The Journal's Sickness & cravings lens: sickness since when as weeks of
+ * days, what's been craved and gone off, then each entry. New ones come in
+ * through the "+"; the lens is there only once one is kept, and never while
+ * something has happened (the Journal folds them away then).
  */
-export function AppetiteSection({ quiet }: { quiet: boolean }) {
+export function AppetiteLens() {
   const { data: entries } = useAppetite();
   const [all, setAll] = useState(false);
-  const [unfolded, setUnfolded] = useState(false);
   const listed = latestFirst(entries);
   const shown = all ? listed : listed.slice(0, LISTED);
-
-  if (quiet && entries.length === 0) return null;
-  if (quiet && !unfolded) {
-    return (
-      <Button variant="ghost" size="sm" className="self-start text-fg-subtle" onClick={() => setUnfolded(true)}>
-        The sickness and cravings you kept
-      </Button>
-    );
-  }
 
   return (
     <section aria-labelledby="appetite" className="flex max-w-2xl flex-col gap-4">
       <h2 id="appetite" className="text-lg font-display font-semibold text-fg-strong">
         Sickness and cravings
       </h2>
-      {quiet ? null : (
-        <>
-          <p className="text-sm text-fg-subtle">
-            When it comes and what you crave, so you can answer “since when?”, and laugh about it later. Either of you can keep one.
-          </p>
-          <div className="grid gap-3 lg:grid-cols-2">
-            <Card size="sm">
-              <h3 className="mb-2 text-sm font-semibold text-fg-strong">Sick or queasy</h3>
-              <AddSickness />
-            </Card>
-            <Card size="sm">
-              <h3 className="mb-2 text-sm font-semibold text-fg-strong">A craving</h3>
-              <AddCraving />
-            </Card>
-          </div>
-        </>
-      )}
+      <p className="text-sm text-fg-subtle">When it comes and what you crave, so you can answer “since when?”, and laugh about it later.</p>
       <SicknessWeeks />
       <Cravings />
       {shown.map((entry) => (

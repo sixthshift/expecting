@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 import type { ReactNode } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { AppetiteEntry } from "../../../src/lib/appetite";
@@ -50,17 +50,17 @@ vi.mock("../../../src/features/library/components/ItemLink", () => ({ ItemLink: 
 vi.mock("@sixthshift/design-system/overlay", () => ({ toast: () => undefined }));
 vi.mock("@tanstack/react-router", () => ({ Link: ({ children }: { children: ReactNode }) => <a href="/emergency">{children}</a> }));
 
-const { AppetiteItem, AppetiteSection } = await import("../../../src/features/journal/components/appetite/appetite");
+const { AddCraving, AppetiteItem, AppetiteLens } = await import("../../../src/features/journal/components/appetite/appetite");
 
 beforeEach(() => {
   appetite = [];
   saved.length = 0;
 });
 
-describe("AppetiteSection", () => {
+describe("AppetiteLens", () => {
   it("says since when, and draws the weeks as rows of days", () => {
     appetite = [kept(addDays(today, -9), { how: "queasy" }), kept(today)];
-    render(<AppetiteSection quiet={false} />);
+    render(<AppetiteLens />);
     expect(screen.getByText(/^Since /)).toBeTruthy();
     expect(screen.getByText(/Last: today, 3:10 am, threw up\./)).toBeTruthy();
     const rows = within(screen.getByRole("figure")).getAllByRole("listitem");
@@ -71,7 +71,7 @@ describe("AppetiteSection", () => {
 
   it("when she's been sick often, says so quietly, with the question to take along", () => {
     appetite = [0, 1, 2, 3].map((d) => kept(addDays(today, -d)));
-    render(<AppetiteSection quiet={false} />);
+    render(<AppetiteLens />);
     expect(screen.getByText(/Threw up on 4 of the last 7 days\. Being sick often is worth a call/)).toBeTruthy();
     expect(screen.queryByRole("alert")).toBeNull();
     fireEvent.click(screen.getByRole("button", { name: /^Add to your questions: I've been sick on 4 of the last 7 days/ }));
@@ -89,22 +89,15 @@ describe("AppetiteSection", () => {
       kept(today, { kind: "craving", how: null, what: "pickles" }),
       kept(today, { kind: "off", how: null, what: "Coffee" }),
     ];
-    render(<AppetiteSection quiet={false} />);
+    render(<AppetiteLens />);
     expect(screen.getByText("What you've craved")).toBeTruthy();
     expect(screen.getByText(/2 times/)).toBeTruthy();
     expect(screen.getByRole("heading", { name: "Gone off" })).toBeTruthy();
+    expect(screen.queryByRole("button", { name: "Keep Pickles again" })).toBeNull();
+    cleanup();
+    render(<AddCraving />);
     fireEvent.click(screen.getByRole("button", { name: "Keep Pickles again" }));
     expect(saved).toEqual([{ key: "addAppetite", input: expect.objectContaining({ kind: "craving", what: "Pickles" }) }]);
-  });
-
-  it("while something has happened, offers nothing and folds what was kept behind one quiet line", () => {
-    appetite = [kept(today, { kind: "craving", how: null, what: "Olives" })];
-    render(<AppetiteSection quiet />);
-    expect(screen.queryByText("Olives")).toBeNull();
-    fireEvent.click(screen.getByRole("button", { name: "The sickness and cravings you kept" }));
-    expect(screen.getAllByText(/Olives/).length).toBeGreaterThan(0);
-    expect(screen.queryByRole("button", { name: "Keep it" })).toBeNull();
-    expect(screen.queryByRole("radio", { name: /Queasy/ })).toBeNull();
   });
 });
 

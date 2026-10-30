@@ -1,12 +1,14 @@
 // The capture sheet: what to add, then its form, in the same sheet. Each
-// form is its pillar's own, reused: the Journal's note, movement, sickness and craving, photo, paper, the
-// check-in, the Planner's question and task. Once kept, the sheet closes and
-// a toast says where it went; you stay on the page you were on.
+// form is its pillar's own, reused: the Journal's note, movement, sickness and
+// craving, photo, paper, first, the check-in, the Planner's question and task.
+// Once kept, the sheet closes and a toast says where it went, with the way to
+// it; you stay on the page you were on. Kept from the Journal itself, there's
+// no toast: the Journal shows what was just kept (`?kept=`).
 
 import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";
 import { toast } from "@sixthshift/design-system/overlay";
-import { useNavigate } from "@tanstack/react-router";
+import { useLocation, useNavigate } from "@tanstack/react-router";
 import {
   Camera,
   ChevronLeft,
@@ -18,6 +20,7 @@ import {
   MessageCircleQuestion,
   NotebookPen,
   Smile,
+  Star,
   Waves,
 } from "lucide-react";
 import { useState } from "react";
@@ -29,6 +32,7 @@ import { movementsOffered } from "../../../lib/journal";
 import { WEEKS } from "../../../lib/timeline";
 import { CheckInNow } from "../../feelings/components/checkIn/CheckInNow";
 import { AddCraving, AddSickness } from "../../journal/components/appetite/appetite";
+import { MarkFirst } from "../../journal/components/firsts/firsts";
 import { AddMovement } from "../../journal/components/movements/movements";
 import { AddNote } from "../../journal/components/notes/notes";
 import { AddPaper } from "../../journal/components/papers/AddPaper";
@@ -45,28 +49,39 @@ const CHOICE: Record<Capture, { label: string; icon: LucideIcon }> = {
   photo: { label: "A photo or scan", icon: Camera },
   paper: { label: "A result or paper", icon: FileText },
   feeling: { label: "How I'm feeling", icon: Smile },
+  first: { label: "A first", icon: Star },
   question: { label: "A question to ask", icon: MessageCircleQuestion },
   task: { label: "Something to do", icon: ListChecks },
 };
 
-export function CaptureSheet({ onClose }: { onClose: () => void }) {
+/** `initial`: open on that one's form (the Journal's Keep row). */
+export function CaptureSheet({ initial = null, onClose }: { initial?: Capture | null; onClose: () => void }) {
   const { data: people } = usePeople();
   const { data: quiet } = useQuiet();
   const { data: journal } = useJournal();
   const now = useNow();
   const navigate = useNavigate();
-  const [chosen, setChosen] = useState<Capture | null>(null);
+  const { pathname } = useLocation();
+  const [chosen, setChosen] = useState<Capture | null>(initial);
   const choices = captureChoices({
     holding: Boolean(people.me),
     quiet: Boolean(quiet),
     movements: movementsOffered({ now, quiet: Boolean(quiet), entries: journal }),
   });
 
-  /** Kept: close, and say where it went, with the way there. */
-  function filed(capture: Capture) {
+  /** Kept: close, and say where it went, with the way there; in the Journal, show it there as just kept. */
+  function filed(capture: Capture, id?: string) {
     const { pillar, to } = FILED_IN[capture];
     onClose();
-    toast({ title: `In the ${pillar}`, action: "See it", onAction: () => navigate({ to }) });
+    if (to === "/journal" && pathname === "/journal") {
+      navigate({ to: "/journal", search: { kept: id } });
+      return;
+    }
+    toast({
+      title: `In the ${pillar}`,
+      action: "See it",
+      onAction: () => (to === "/journal" ? navigate({ to: "/journal", search: { kept: id } }) : navigate({ to })),
+    });
   }
 
   return (
@@ -101,19 +116,21 @@ export function CaptureSheet({ onClose }: { onClose: () => void }) {
             })}
           </ul>
         ) : chosen === "movement" ? (
-          <AddMovement onAdded={() => filed("movement")} />
+          <AddMovement onAdded={(id) => filed("movement", id)} />
         ) : chosen === "sick" ? (
-          <AddSickness onAdded={() => filed("sick")} />
+          <AddSickness onAdded={(id) => filed("sick", id)} />
         ) : chosen === "craving" ? (
-          <AddCraving onAdded={() => filed("craving")} />
+          <AddCraving onAdded={(id) => filed("craving", id)} />
         ) : chosen === "note" ? (
-          <AddNote onAdded={() => filed("note")} />
+          <AddNote onAdded={(id) => filed("note", id)} />
         ) : chosen === "photo" ? (
-          <AddPhoto onAdded={() => filed("photo")} />
+          <AddPhoto onAdded={(id) => filed("photo", id)} />
         ) : chosen === "paper" ? (
-          <AddPaper onAdded={() => filed("paper")} />
+          <AddPaper onAdded={(id) => filed("paper", id)} />
         ) : chosen === "feeling" && people.me ? (
-          <CheckInNow me={people.me} onDone={() => filed("feeling")} />
+          <CheckInNow me={people.me} onDone={(id) => filed("feeling", id)} />
+        ) : chosen === "first" ? (
+          <MarkFirst onAdded={(key) => filed("first", key)} />
         ) : chosen === "question" ? (
           <AddQuestion onAdded={() => filed("question")} />
         ) : chosen === "task" ? (

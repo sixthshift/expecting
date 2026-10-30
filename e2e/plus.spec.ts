@@ -20,11 +20,15 @@ test("a movement is kept from any pillar, lands in the Journal, and marks its we
   await expect(page.getByText("In the Journal")).toBeVisible();
   await expect(page).toHaveURL(/\/planner$/);
 
+  // "See it" opens the Journal on it, just kept, on the fortnight's pattern.
   await page.getByRole("button", { name: "See it" }).click();
-  await expect(page).toHaveURL(/\/journal$/);
-  const movements = page.getByRole("region", { name: "Movements" });
-  await expect(movements.getByText("Hiccups after dinner")).toBeVisible();
-  await expect(movements.getByRole("figure")).toBeVisible();
+  await expect(page).toHaveURL(/\/journal\?kept=/);
+  const now = page.getByRole("region", { name: "Now" });
+  await expect(now.getByText("Just kept")).toBeVisible();
+  await expect(now.getByText("Hiccups after dinner")).toBeVisible();
+  await expect(now.getByRole("figure")).toBeVisible();
+  await open("/journal?show=movements");
+  await expect(page.getByRole("region", { name: "Movements" }).getByText("Hiccups after dinner")).toBeVisible();
 
   await open("/timeline");
   await expect(page.locator("[data-week]").filter({ hasText: "felt moving" })).toHaveCount(1);
@@ -41,7 +45,10 @@ test("a movement felt as slower, weaker or stopped keeps the call on screen unti
   await dialog.getByRole("button", { name: "Done" }).click();
   await expect(dialog).toBeHidden();
 
+  // On the Journal the call stays first for today and tomorrow.
   await open("/journal");
+  await expect(page.getByRole("alert").filter({ hasText: "Call your midwife or birth unit now." })).toBeVisible();
+  await open("/journal?show=movements");
   await expect(page.getByRole("region", { name: "Movements" }).getByText("· slower, weaker or stopped")).toBeVisible();
 });
 
@@ -69,7 +76,7 @@ test("a note, a feeling, a question and a task each go to their pillar", async (
   await expect(page).toHaveURL(/\/library$/);
 
   await open("/journal");
-  await expect(page.getByText("Bought the cot")).toBeVisible();
+  await expect(page.getByRole("list", { name: "The story" }).getByText("Bought the cot")).toBeVisible();
   await open("/planner");
   await expect(page.getByText("Do we need a car seat fitted?")).toBeVisible();
   await expect(page.getByText("Pack the hospital bag")).toBeVisible();

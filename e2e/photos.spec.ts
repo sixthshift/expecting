@@ -1,5 +1,5 @@
 // Photos and scans: a scan photographed from the "+", a bump photo from the
-// Journal's empty frame for this week, each kept by whoever is holding the
+// Journal's Keep row, each kept by whoever is holding the
 // phone, sent up with its save and drawn back from the server behind the
 // gate. The Journal shows them by week and the bump week by week, the
 // timeline marks the week, and deleting asks first. Runs after the journey
@@ -48,7 +48,7 @@ test('a scan from the "+", kept by week in the Journal, drawn from the server, a
   await expect(page.getByText("In the Journal")).toBeVisible();
   await expect(page).toHaveURL(/\/planner$/);
 
-  await open("/journal");
+  await open("/journal?show=photos");
   const section = page.getByRole("region", { name: "Photos and scans" });
   const scan = section.getByRole("img", { name: /^Scan, week 28, .*20-week scan, all well$/ });
   await expect(scan).toBeVisible();
@@ -59,20 +59,20 @@ test('a scan from the "+", kept by week in the Journal, drawn from the server, a
   await expect(page.locator('[data-week="28"]')).toContainText("scan");
 });
 
-test("this week's bump photo from its empty frame, then opened, and its original downloads only with a session", async ({ page, open, playwright }) => {
+test("a bump photo from the Keep row, then opened, and its original downloads only with a session", async ({ page, open, playwright }) => {
   await open("/journal");
-  const row = page.getByRole("region", { name: "Your bump, week by week" });
-  await row.getByRole("button", { name: "Take week 28's bump photo" }).click();
+  await page.getByRole("list", { name: "Keep" }).getByRole("button", { name: "Photo" }).click();
   const sheet = page.getByRole("dialog");
   await sheet.getByLabel("Take a photo").setInputFiles(await picture(page, "bump.jpg"));
-  // From the frame, it's a bump already.
-  await expect(sheet.getByText("What is it?")).toBeHidden();
+  await sheet.getByRole("radio", { name: "Bump" }).click();
   await sheet.getByRole("button", { name: "Keep it" }).click();
   await expect(sheet).toBeHidden();
-  await expect(row.getByRole("button", { name: "Take week 28's bump photo" })).toBeHidden();
+  // One week isn't a series yet: no frame asks for the next.
+  await open("/journal?show=photos");
+  const row = page.getByRole("region", { name: "Your bump, week by week" });
   await expect(row.getByRole("img", { name: "Your bump at week 28" })).toBeVisible();
+  await expect(row.getByRole("button", { name: /^Take week/ })).toBeHidden();
 
-  await open("/journal");
   const bump = page.getByRole("region", { name: "Your bump, week by week" }).getByRole("img", { name: "Your bump at week 28" });
   await expect.poll(() => drawn(bump)).toBe(true);
   await bump.click();
@@ -92,7 +92,7 @@ test("this week's bump photo from its empty frame, then opened, and its original
 });
 
 test("deleting asks first, and then it's gone from the Journal", async ({ page, open }) => {
-  await open("/journal");
+  await open("/journal?show=photos");
   const section = page.getByRole("region", { name: "Photos and scans" });
   await section.getByRole("img", { name: /^Scan, week 28/ }).click();
   const viewer = page.getByRole("dialog");
@@ -102,7 +102,7 @@ test("deleting asks first, and then it's gone from the Journal", async ({ page, 
   await expect(viewer).toBeHidden();
   await expect(section.getByRole("img", { name: /^Scan, week 28/ })).toBeHidden();
 
-  await open("/journal");
+  await open("/journal?show=photos");
   await expect(page.getByRole("region", { name: "Photos and scans" }).getByRole("img", { name: /^Scan, week 28/ })).toBeHidden();
   // The bump stays, for quiet.spec.ts to find folded away.
   await expect(page.getByRole("region", { name: "Your bump, week by week" }).getByRole("img", { name: "Your bump at week 28" })).toBeVisible();

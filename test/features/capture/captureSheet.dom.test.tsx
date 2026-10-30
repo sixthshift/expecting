@@ -33,7 +33,7 @@ vi.mock("../../../src/api/rpc/questions", () => ({ questionsSaves: { addQuestion
 vi.mock("../../../src/api/rpc/checklist", () => ({ checklistSaves: { addOwnTask: { key: "addOwnTask" } } }));
 vi.mock("../../../src/api/rpc/people", () => ({ usePeople: () => ({ data: { me, people: [SAM] } }) }));
 vi.mock("../../../src/api/rpc/quiet", () => ({ useQuiet: () => ({ data: quiet }) }));
-vi.mock("../../../src/api/rpc/settings", () => ({ useNow: () => now, useSettings: () => ({ data: { dueDate: null } }) }));
+vi.mock("../../../src/api/rpc/settings", () => ({ useNow: () => now, useSettings: () => ({ data: { dueDate: null, baby: "unknown" } }) }));
 vi.mock("../../../src/app/hooks/useSave", () => ({
   useSave: (save: { key: string }) => (input: { id: string }) => {
     saved.push({ key: save.key, input });
@@ -43,8 +43,13 @@ vi.mock("../../../src/app/hooks/useSave", () => ({
 vi.mock("../../../src/app/components/layout/CallBirthSuite", () => ({ CallBirthSuite: () => <a href="tel:0390000000">Call the birth suite</a> }));
 vi.mock("../../../src/features/library/components/ItemLink", () => ({ ItemLink: ({ children }: { children: ReactNode }) => children }));
 vi.mock("@sixthshift/design-system/overlay", () => ({ toast: (t: { title: string }) => toasts.push(t) }));
+// Where the sheet was opened: kept from the Journal itself, there's no toast, the Journal shows it.
+let pathname = "/";
+const navigated: unknown[] = [];
+vi.mock("../../../src/api/rpc/firsts", () => ({ firstsSaves: { markFirst: { key: "markFirst" } }, useFirsts: () => ({ data: [] }) }));
 vi.mock("@tanstack/react-router", () => ({
-  useNavigate: () => () => undefined,
+  useNavigate: () => (to: unknown) => navigated.push(to),
+  useLocation: () => ({ pathname }),
   Link: ({ children }: { children: ReactNode }) => <a href="/emergency">{children}</a>,
 }));
 
@@ -57,6 +62,8 @@ beforeEach(() => {
   saved.length = 0;
   appetite = [];
   toasts.length = 0;
+  pathname = "/";
+  navigated.length = 0;
 });
 
 const offered = () =>
@@ -65,7 +72,7 @@ const offered = () =>
     .map((li) => li.textContent);
 
 describe("CaptureSheet", () => {
-  it("offers all nine, in their fixed order", () => {
+  it("offers all ten, in their fixed order", () => {
     render(<CaptureSheet onClose={() => undefined} />);
     expect(offered()).toEqual([
       "The baby moved",
@@ -75,6 +82,7 @@ describe("CaptureSheet", () => {
       "A photo or scan",
       "A result or paper",
       "How I'm feeling",
+      "A first",
       "A question to ask",
       "Something to do",
     ]);
@@ -84,7 +92,16 @@ describe("CaptureSheet", () => {
     me = null;
     now = 12;
     render(<CaptureSheet onClose={() => undefined} />);
-    expect(offered()).toEqual(["Sick or queasy", "A craving", "A note", "A photo or scan", "A result or paper", "A question to ask", "Something to do"]);
+    expect(offered()).toEqual([
+      "Sick or queasy",
+      "A craving",
+      "A note",
+      "A photo or scan",
+      "A result or paper",
+      "A first",
+      "A question to ask",
+      "Something to do",
+    ]);
   });
 
   it("while something has happened, never a movement, sickness, a craving or a photo, and nothing to do; a paper still", () => {
@@ -179,7 +196,7 @@ describe("CaptureSheet", () => {
     render(<CaptureSheet onClose={() => undefined} />);
     fireEvent.click(screen.getByRole("button", { name: "A note" }));
     fireEvent.click(screen.getByRole("button", { name: "Back to what to add" }));
-    expect(offered()).toHaveLength(9);
+    expect(offered()).toHaveLength(10);
   });
 
   it("a photo: the camera one tap away, the phone's own picker beside it", () => {
@@ -201,5 +218,26 @@ describe("CaptureSheet", () => {
     const picker = screen.getByLabelText("Choose a file") as HTMLInputElement;
     expect(picker.multiple).toBe(true);
     expect(picker.accept).toBe("image/*,application/pdf");
+  });
+
+  it("kept from the Journal itself: no toast, the Journal shows it as just kept", () => {
+    pathname = "/journal";
+    const onClose = vi.fn();
+    render(<CaptureSheet initial="note" onClose={onClose} />);
+    fireEvent.change(screen.getByRole("textbox", { name: "New note" }), { target: { value: "Hiccups" } });
+    fireEvent.click(screen.getByRole("button", { name: "Keep it" }));
+    const { input } = saved[0] as { input: { id: string; kind: string } };
+    expect(input.kind).toBe("note");
+    expect(onClose).toHaveBeenCalled();
+    expect(toasts).toEqual([]);
+    expect(navigated).toEqual([{ to: "/journal", search: { kept: input.id } }]);
+  });
+
+  it("a first: which, when, then its question", () => {
+    render(<CaptureSheet initial="first" onClose={() => undefined} />);
+    expect(screen.queryByRole("button", { name: "Found out boy or girl" })).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Felt the first kick" }));
+    fireEvent.click(screen.getByRole("button", { name: "Mark it" }));
+    expect(saved).toEqual([{ key: "markFirst", input: { key: "first-kick", day: expect.any(String) } }]);
   });
 });

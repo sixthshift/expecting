@@ -312,3 +312,69 @@ export const INVITE_BELOW = 3;
 export function invites(items: readonly StoryItem[], quiet: boolean): boolean {
   return !quiet && items.filter((i) => i.kind !== "done").length < INVITE_BELOW;
 }
+
+/** "a scan, 2 notes and movements": what a few lines hold, a phrase each kind. Movements are never counted. */
+export function summarise(items: readonly StoryItem[]): string {
+  const count = (pred: (i: StoryItem) => boolean) => items.filter(pred).length;
+  const phrase = (n: number, one: string, many: string) => (n === 0 ? null : n === 1 ? one : `${n} ${many}`);
+  const photos = items.flatMap((i) => (i.kind === "photo" ? [i.photo] : []));
+  const sick = count((i) => i.kind === "appetite" && i.entry.kind === "sick");
+  const parts = [
+    phrase(
+      count((i) => i.kind === "first"),
+      "a first",
+      "firsts"
+    ),
+    phrase(photos.filter((p) => p.kind === "scan").length, "a scan", "scans"),
+    phrase(photos.filter((p) => p.kind !== "scan").length, "a photo", "photos"),
+    phrase(
+      count((i) => i.kind === "letter"),
+      "a letter",
+      "letters"
+    ),
+    phrase(
+      count((i) => i.kind === "note"),
+      "a note",
+      "notes"
+    ),
+    phrase(
+      count((i) => i.kind === "paper"),
+      "a paper",
+      "papers"
+    ),
+    phrase(
+      count((i) => i.kind === "appetite" && i.entry.kind !== "sick"),
+      "a craving",
+      "cravings"
+    ),
+    sick > 0 ? "sickness" : null,
+    items.some((i) => i.kind === "movements") ? "movements" : null,
+    phrase(
+      count((i) => i.kind === "feeling"),
+      "a check-in",
+      "check-ins"
+    ),
+    phrase(
+      count((i) => i.kind === "done"),
+      "a thing done",
+      "things done"
+    ),
+  ].filter((p): p is string => p !== null);
+  if (parts.length <= 1) return parts[0] ?? "";
+  return `${parts.slice(0, -1).join(", ")} and ${parts.at(-1)}`;
+}
+
+/** A craving's thread: how many times it's been kept, since when, and the last time before this one. */
+export function cravingThread(entries: readonly AppetiteEntry[], id: string): { what: string; times: number; first: ISODate; before: ISODate | null } | null {
+  const entry = entries.find((e) => e.id === id);
+  if (!entry || entry.kind === "sick" || !entry.what) return null;
+  const key = (what: string) => what.trim().toLocaleLowerCase("en-AU").replace(/\s+/g, " ");
+  const same = entries.filter((e) => e.kind === entry.kind && e.what && key(e.what) === key(entry.what!));
+  const days = same.map((e) => e.day).sort();
+  const before = same
+    .filter((e) => e.id !== id && (e.day < entry.day || (e.day === entry.day && e.createdAt < entry.createdAt)))
+    .map((e) => e.day)
+    .sort()
+    .at(-1);
+  return { what: entry.what, times: same.length, first: days[0] as ISODate, before: (before as ISODate | undefined) ?? null };
+}

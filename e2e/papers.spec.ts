@@ -49,7 +49,7 @@ test('a photographed result of two pages from the "+", about the glucose test, k
   await expect(page.getByText("In the Journal")).toBeVisible();
   await expect(page).toHaveURL(/\/planner$/);
 
-  await open("/journal");
+  await open("/journal?show=papers");
   const section = page.getByRole("region", { name: "Results and papers" });
   const row = section.getByRole("button", { name: /^Glucose tolerance test/ });
   await expect(row).toContainText("Result · Dated today · Week 28 · 2 pages");
@@ -72,17 +72,22 @@ test('a photographed result of two pages from the "+", about the glucose test, k
   await expect(page.locator('[data-week="28"]')).toContainText("result");
 });
 
-test("a PDF letter from the Journal, opened behind the gate", async ({ page, open, playwright }) => {
+test("a PDF letter from the Journal's Keep row, opened behind the gate", async ({ page, open, playwright }) => {
   await open("/journal");
-  const section = page.getByRole("region", { name: "Results and papers" });
-  await section.getByLabel("Choose a file").setInputFiles(pdf("Referral.pdf"));
-  await expect(section.getByRole("img", { name: "Page 1: Referral.pdf" })).toBeVisible();
-  await section.getByRole("radio", { name: "Letter or referral" }).click();
-  await section.getByRole("textbox", { name: "Its name" }).fill("Referral to the hospital");
-  await section.getByRole("button", { name: "Keep it" }).click();
+  await page.getByRole("list", { name: "Keep" }).getByRole("button", { name: "Paper" }).click();
+  const form = page.getByRole("dialog");
+  await form.getByLabel("Choose a file").setInputFiles(pdf("Referral.pdf"));
+  await expect(form.getByRole("img", { name: "Page 1: Referral.pdf" })).toBeVisible();
+  await form.getByRole("radio", { name: "Letter or referral" }).click();
+  await form.getByRole("textbox", { name: "Its name" }).fill("Referral to the hospital");
+  await form.getByRole("button", { name: "Keep it" }).click();
+  await expect(form).toBeHidden();
 
-  await expect(section.getByRole("button", { name: /^Referral to the hospital/ })).toContainText("Letter or referral · Dated today");
-  await open("/journal");
+  // Just kept, and in its lens.
+  await expect(page.getByRole("region", { name: "Now" }).getByRole("button", { name: /^Referral to the hospital/ })).toContainText(
+    "Letter or referral · Dated today"
+  );
+  await open("/journal?show=papers");
   await page
     .getByRole("region", { name: "Results and papers" })
     .getByRole("button", { name: /^Referral to the hospital/ })
@@ -101,7 +106,7 @@ test("a PDF letter from the Journal, opened behind the gate", async ({ page, ope
 });
 
 test("deleting asks first, and then it's gone", async ({ page, open }) => {
-  await open("/journal");
+  await open("/journal?show=papers");
   const section = page.getByRole("region", { name: "Results and papers" });
   await section.getByRole("button", { name: /^Referral to the hospital/ }).click();
   const viewer = page.getByRole("dialog", { name: "Referral to the hospital" });
@@ -111,7 +116,7 @@ test("deleting asks first, and then it's gone", async ({ page, open }) => {
   await expect(viewer).toBeHidden();
   await expect(section.getByRole("button", { name: /^Referral to the hospital/ })).toBeHidden();
 
-  await open("/journal");
+  await open("/journal?show=papers");
   await expect(page.getByRole("region", { name: "Results and papers" }).getByRole("button", { name: /^Referral to the hospital/ })).toBeHidden();
   // The handy result stays.
   await expect(page.getByRole("region", { name: "Results and papers" }).getByRole("button", { name: /^Glucose tolerance test/ })).toBeVisible();

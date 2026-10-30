@@ -4,19 +4,19 @@
 // or delete one. See docs/plan-photos-scans.md.
 
 import { Button } from "@sixthshift/design-system/button";
-import { Card } from "@sixthshift/design-system/card";
 import { Modal } from "@sixthshift/design-system/modal";
 import { Camera, Columns2 } from "lucide-react";
 import { useState } from "react";
 import { usePhotos } from "../../../../api/rpc/photos";
 import { useNow, useSettings } from "../../../../api/rpc/settings";
 import { formatDate, type ISODate } from "../../../../lib/dates";
-import { type BumpWeek, bumpToTake, bumpWeeks, kindsOffered, type PhotoGroup, type PhotoKind, photoGroups } from "../../../../lib/photos";
+import { BUMP_SERIES, type BumpWeek, bumpToTake, bumpWeeks, kindsOffered, type PhotoGroup, type PhotoKind, photoGroups } from "../../../../lib/photos";
 import type { QuietKind } from "../../../../lib/quiet";
 import { type Week, weekDates, weekLabel } from "../../../../lib/timeline";
 import { AddPhoto } from "./AddPhoto";
 import { describePhoto, PhotoViewer, SideBySide } from "./PhotoViewer";
 import { Picture } from "./Picture";
+import { Scrubber } from "./Scrubber";
 
 /** How many weeks are shown before "Show every week". */
 const WEEKS_SHOWN = 6;
@@ -67,7 +67,6 @@ function BumpRow({
           </Button>
         ) : null}
       </div>
-      {weeks.length === 0 ? <p className="text-sm text-fg-subtle">Same spot, same pose, once a week, and by the birth you'll have the whole story.</p> : null}
       <ol className="-mx-1 flex gap-3 overflow-x-auto px-1 pb-2">
         {weeks.map((b) => (
           <li key={b.week} className="shrink-0">
@@ -107,32 +106,23 @@ function BumpRow({
 }
 
 /**
- * The Journal's photos and scans: a new one, the bump week by week, and
- * every one under its week. While something has happened, folded behind one
- * quiet line, opened only when asked, and then plain: the album by week, no
- * bump row, no empty frame, no side by side, and one way to add a photo
- * (never a bump after a loss). Never deleted.
+ * The Journal's Photos lens: the bump week by week (once there's a series:
+ * the row, the scrubber, side by side), and every one under its week. New
+ * ones come in through the "+". While something has happened it's only
+ * drawn inside the Journal's fold, and then plain: the album by week, no
+ * bump row, no empty frame, no scrubber, no side by side, and one way to add
+ * a photo (never a bump after a loss). Never deleted.
  */
-export function PhotosSection({ quiet }: { quiet: QuietKind | null }) {
+export function PhotosLens({ quiet }: { quiet: QuietKind | null }) {
   const { data: photos } = usePhotos();
   const { data: settings } = useSettings();
   const now = useNow();
-  const [unfolded, setUnfolded] = useState(false);
   const [all, setAll] = useState(false);
   const [viewing, setViewing] = useState<{ ids: string[]; index: number } | null>(null);
   const [adding, setAdding] = useState<{ kind?: PhotoKind } | null>(null);
   const [comparing, setComparing] = useState(false);
   const { dueDate } = settings;
   const kinds = kindsOffered(quiet);
-
-  if (quiet && photos.length === 0) return null;
-  if (quiet && !unfolded) {
-    return (
-      <Button variant="ghost" size="sm" className="self-start text-fg-subtle" onClick={() => setUnfolded(true)}>
-        The photos and scans you kept
-      </Button>
-    );
-  }
 
   const groups = photoGroups(photos, dueDate);
   const shown = all ? groups : groups.slice(0, WEEKS_SHOWN);
@@ -152,12 +142,9 @@ export function PhotosSection({ quiet }: { quiet: QuietKind | null }) {
       ) : (
         <>
           <p className="text-sm text-fg-subtle">
-            The bump, week by week, and the scans, kept at full size on your own server. Either of you can add one, and you both see them all.
+            The bump and the scans, kept at full size on your own server. Either of you can add one, and you both see them all.
           </p>
-          <Card size="sm">
-            <AddPhoto kinds={kinds} />
-          </Card>
-          {dueDate ? (
+          {dueDate && bumps.length > 0 ? (
             <BumpRow
               weeks={bumps}
               toTake={bumpToTake(photos, { now, dueDate, quiet: false })}
@@ -166,6 +153,7 @@ export function PhotosSection({ quiet }: { quiet: QuietKind | null }) {
               onCompare={() => setComparing(true)}
             />
           ) : null}
+          {bumps.length >= BUMP_SERIES ? <Scrubber weeks={bumps} /> : null}
         </>
       )}
       {shown.map((group) => (

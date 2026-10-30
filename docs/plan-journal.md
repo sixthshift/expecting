@@ -124,7 +124,7 @@ what was done (ticks). Each week's heading has its note's title
 - **Zoom** (`?zoom=`): Days (the story), Weeks (a tile a week under its
   trimester: the bump or a photo, a mark per kind, the firsts), Pregnancy
   (1–42 as one line, the firsts as landmarks, you are here). A tile opens
-  its week (`?at=`), as the timeline's week lines now do.
+  its week (`?at=`), the same key as the timeline's.
 - **The scrubber,** in Photos once there's a bump series: drag through the
   weeks, the bump changes, that week's story under it; and play it.
 
@@ -180,4 +180,6 @@ Each ends with the gate green.
 3. **The page.** Keep row, Now, Lately, lenses, search, zoom, the story;
    the sections split into a lens each; capture's `?kept=`.
 4. **Firsts, letters, recaps, the book, the scrubber.**
-5. **The timeline's weeks open the Journal at them.** e2e, docs.
+5. **e2e and docs.** Not done: a way from a timeline week to the Journal at it
+   (the week's line already opens This week at that week; a second link inside
+   it isn't possible, so it wants its own design).

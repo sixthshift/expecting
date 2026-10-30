@@ -50,7 +50,7 @@ function weekOf(day: ISODate, dueDate: ISODate | null): string | null {
  * `kinds` is what it can be (never a bump after a loss). `onAdded` once kept
  * (the capture sheet closes).
  */
-export function AddPhoto({ kind: preset, kinds = PHOTO_KINDS, onAdded }: { kind?: PhotoKind; kinds?: readonly PhotoKind[]; onAdded?: () => void }) {
+export function AddPhoto({ kind: preset, kinds = PHOTO_KINDS, onAdded }: { kind?: PhotoKind; kinds?: readonly PhotoKind[]; onAdded?: (id: string) => void }) {
   const add = useSave(photosSaves.addPhoto);
   const { data: settings } = useSettings();
   const [shots, setShots] = useState<Shot[]>([]);
@@ -115,19 +115,22 @@ export function AddPhoto({ kind: preset, kinds = PHOTO_KINDS, onAdded }: { kind?
     event.preventDefault();
     if (!kind || shots.length === 0 || keeping) return;
     setKeeping(true);
+    let first: string | null = null;
     try {
       for (const shot of shots) {
         const fileId = newId();
         // On the phone first: the save that sends it may wait a long time for a connection.
         await keepOnPhone(fileId, shot);
         const at = choosing ? { day: day ?? today, time } : takenOn(shot.takenAt);
-        add({ id: newId(), fileId, kind, day: at.day, time: at.time, caption: caption.trim() || null });
+        const id = newId();
+        first ??= id;
+        add({ id, fileId, kind, day: at.day, time: at.time, caption: caption.trim() || null });
       }
     } finally {
       setKeeping(false);
     }
     reset();
-    onAdded?.();
+    if (first) onAdded?.(first);
   }
 
   if (shots.length === 0) {

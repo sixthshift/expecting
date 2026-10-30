@@ -4,6 +4,7 @@
 import { z } from "zod";
 import { TOPICS, type Topic, VERDICTS } from "../content/schema";
 import { DOORS } from "../lib/library";
+import { LENSES } from "../lib/story";
 import { parseWeekKey } from "../lib/timeline";
 
 /** The timeline: a week to open at instead of this one (`28`). */
@@ -33,6 +34,18 @@ export const librarySearch = z.object({
     .catch(undefined),
   verdict: z.enum(VERDICTS).optional().catch(undefined),
   for: z.literal("partner").optional().catch(undefined),
+});
+
+/**
+ * The Journal: the lens (`photos`), how far it's zoomed out (`weeks`,
+ * `pregnancy`), a week to open at (`22`, as the timeline's), and what the
+ * "+" just kept (its id), shown first. Anything unknown is dropped.
+ */
+export const journalSearch = z.object({
+  show: z.enum(LENSES).optional().catch(undefined),
+  zoom: z.enum(["weeks", "pregnancy"]).optional().catch(undefined),
+  at: timelineSearch.shape.at,
+  kept: z.string().max(100).optional().catch(undefined),
 });
 
 /** Settings: a question to open at (`cover`, `work.partner`). */

@@ -71,7 +71,7 @@ vi.mock("../../../src/app/model/uploads", () => {
 });
 
 const { AddPaper } = await import("../../../src/features/journal/components/papers/AddPaper");
-const { PapersSection, PapersToHand, PapersAbout } = await import("../../../src/features/journal/components/papers/papers");
+const { PapersLens, PapersToHand, PapersAbout } = await import("../../../src/features/journal/components/papers/papers");
 const { FileProblemError } = await import("../../../src/app/model/uploads");
 
 const photographed = (name: string) => ({
@@ -195,14 +195,14 @@ describe("AddPaper", () => {
   });
 });
 
-describe("PapersSection", () => {
+describe("PapersLens", () => {
   it("handy first, then newest by the date on it, and the kinds there are to filter by", () => {
     papers = [
       paper("Old result", { day: "2026-08-01" }),
       paper("Referral", { kind: "letter", day: "2026-10-01" }),
       paper("Birth plan", { kind: "plan", day: "2026-07-01", handy: true }),
     ];
-    render(<PapersSection quiet={null} />);
+    render(<PapersLens quiet={null} />);
     const list = screen.getByRole("list", { name: "Your papers" });
     expect(
       within(list)
@@ -215,7 +215,7 @@ describe("PapersSection", () => {
 
   it("opened: its pages, what it's about; deleting asks first, and then every page goes from both phones", () => {
     papers = [paper("GTT", { itemId: "glucose-tolerance-test", note: "Copy to the GP" })];
-    render(<PapersSection quiet={null} />);
+    render(<PapersLens quiet={null} />);
     fireEvent.click(screen.getByRole("button", { name: /^GTT/ }));
     const viewer = screen.getByRole("dialog");
     expect(within(viewer).getByRole("link", { name: "The glucose tolerance test" })).toBeTruthy();
@@ -230,7 +230,7 @@ describe("PapersSection", () => {
 
   it("kept handy or not, in one tap from the paper", () => {
     papers = [paper("Blood group")];
-    render(<PapersSection quiet={null} />);
+    render(<PapersLens quiet={null} />);
     fireEvent.click(screen.getByRole("button", { name: /^Blood group/ }));
     fireEvent.click(within(screen.getByRole("dialog")).getByRole("switch", { name: "Keep handy" }));
     expect(saved).toEqual([{ key: "editPaper", input: expect.objectContaining({ id: "Blood group", handy: true }) }]);

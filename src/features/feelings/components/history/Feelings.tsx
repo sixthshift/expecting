@@ -1,5 +1,5 @@
-// How you're feeling, kept: the Journal's section. Check in again at any
-// time; the last four weeks as rows of dots, a row each, the dot's strength
+// How you're feeling, kept: the Journal's Feelings lens. Check in through the
+// "+" (and This week) at any time; here, the last four weeks as rows of dots, a row each, the dot's strength
 // the step (no line chart: a line going down reads as a grade); under your own
 // row the words you used most; and a day's check-ins, your own with their
 // words, which only you can change or delete.
@@ -16,7 +16,6 @@ import { useSave } from "../../../../app/hooks/useSave";
 import { addDays, formatDate, type ISODate, todayISO } from "../../../../lib/dates";
 import { type Feeling, feelingsOf, isOwn, type OwnFeeling, STEP_LABEL, type Step, stepsByDay, wordsUsed } from "../../../../lib/feelings";
 import { formatTime } from "../../../../lib/journal";
-import { CheckInNow } from "../checkIn/CheckInNow";
 import { Face } from "../Face";
 import { MoreWords } from "../MoreWords";
 import { StepPicker } from "../StepPicker";
@@ -31,7 +30,7 @@ function dayLabel(day: ISODate, today: ISODate): string {
   return day === today ? "Today" : formatDate(day, { weekday: "short", day: "numeric", month: "short" });
 }
 
-export function FeelingsSection() {
+export function FeelingsLens() {
   const { data: people } = usePeople();
   const { data: feelings } = useFeelings();
   const today = todayISO();
@@ -48,14 +47,6 @@ export function FeelingsSection() {
       <h2 id="feelings" className="text-lg font-display font-semibold text-fg-strong">
         How you're feeling
       </h2>
-
-      {me ? (
-        <Card size="sm">
-          <CheckInNow me={me} onKept={() => setDay(today)} />
-        </Card>
-      ) : (
-        <p className="text-sm text-fg-subtle">Say who's holding this phone, in Settings, to check in.</p>
-      )}
 
       {feelings.length > 0 ? (
         <div className="flex flex-col gap-4">

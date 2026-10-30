@@ -68,7 +68,7 @@ function Pick({
  * then what it is, what it's about, its name, its date, and whether it's
  * handy. `onAdded` once kept (the capture sheet closes).
  */
-export function AddPaper({ onAdded }: { onAdded?: () => void }) {
+export function AddPaper({ onAdded }: { onAdded?: (id: string) => void }) {
   const add = useSave(papersSaves.addPaper);
   const { data: quietNow } = useQuiet();
   const quiet = quietNow?.kind ?? null;
@@ -127,6 +127,7 @@ export function AddPaper({ onAdded }: { onAdded?: () => void }) {
     event.preventDefault();
     if (!complete(draft) || pages.length === 0 || keeping) return;
     setKeeping(true);
+    const id = newId();
     try {
       const kept: PaperPage[] = [];
       for (const page of pages) {
@@ -136,7 +137,7 @@ export function AddPaper({ onAdded }: { onAdded?: () => void }) {
         kept.push({ fileId, type: page.type, name: page.name, size: page.size });
       }
       add({
-        id: newId(),
+        id,
         kind: draft.kind,
         title: draft.title.trim(),
         itemId: draft.itemId,
@@ -149,7 +150,7 @@ export function AddPaper({ onAdded }: { onAdded?: () => void }) {
       setKeeping(false);
     }
     reset();
-    onAdded?.();
+    onAdded?.(id);
   }
 
   const status = readying ? (

@@ -43,7 +43,7 @@ vi.mock("../../../src/features/library/components/ItemLink", () => ({ ItemLink: 
 vi.mock("@sixthshift/design-system/overlay", () => ({ toast: () => undefined }));
 vi.mock("@tanstack/react-router", () => ({ Link: ({ children }: { children: ReactNode }) => <a href="/emergency">{children}</a> }));
 
-const { Movement, MovementsSection } = await import("../../../src/features/journal/components/movements/movements");
+const { Movement, MovementsLens } = await import("../../../src/features/journal/components/movements/movements");
 
 beforeEach(() => {
   journal = [];
@@ -71,21 +71,12 @@ describe("Movement", () => {
   });
 });
 
-describe("MovementsSection", () => {
-  it("while something has happened, folds what was kept behind one quiet line, opened only when asked", () => {
+describe("MovementsLens", () => {
+  it('shows the pattern and each movement, and nothing to add: that\'s the "+"', () => {
     journal = [moved];
-    render(<MovementsSection offered={false} quiet />);
-    expect(screen.queryByText("Hiccups")).toBeNull();
-    expect(screen.queryByRole("figure")).toBeNull();
-    fireEvent.click(screen.getByRole("button", { name: "The movements you kept" }));
-    expect(screen.getByText("Hiccups")).toBeTruthy();
-    expect(screen.queryByRole("button", { name: "Keep it" })).toBeNull();
-  });
-
-  it("otherwise shows the pattern and each movement", () => {
-    journal = [moved];
-    render(<MovementsSection offered quiet={false} />);
+    render(<MovementsLens />);
     expect(screen.getByRole("figure")).toBeTruthy();
     expect(screen.getByText("Hiccups")).toBeTruthy();
+    expect(screen.queryByRole("button", { name: "Keep it" })).toBeNull();
   });
 });
