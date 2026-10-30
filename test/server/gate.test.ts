@@ -43,6 +43,12 @@ describe("without a session", () => {
     expect(gateModule.gate(request("/api/anything", { method: "POST" }))?.status).toBe(401);
   });
 
+  test("an upload's bytes are refused, as an <img> asks for them or a download", () => {
+    const id = "11111111-1111-4111-8111-111111111111";
+    expect(gateModule.gate(request(`/api/files/${id}/thumb`, { headers: { accept: "image/avif,image/webp,*/*" } }))?.status).toBe(401);
+    expect(gateModule.gate(request(`/api/files/${id}/original?download`))?.status).toBe(401);
+  });
+
   test("the login page and the health check are open", () => {
     expect(gateModule.gate(request("/login", { headers: { accept: "text/html" } }))).toBeNull();
     expect(gateModule.gate(request("/api/health"))).toBeNull();

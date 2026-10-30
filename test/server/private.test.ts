@@ -89,7 +89,48 @@ const WRITES: Record<string, ((x: string) => unknown) | null> = {
   "feelings.ts:addFeeling": (x) => ({ id: UUID, day: "2026-10-30", time: null, step: "low", words: [], note: x }),
   "feelings.ts:changeFeeling": (x) => ({ id: UUID, day: "2026-10-30", time: null, step: "low", words: [], note: x }),
   "feelings.ts:deleteFeeling": (x) => ({ id: x }),
+  "appetite.ts:addAppetite": (x) => ({ id: UUID, kind: "craving", day: "2026-10-30", time: "21:00", how: null, what: x, note: x }),
+  "appetite.ts:editAppetite": (x) => ({ id: UUID, kind: "off", day: "2026-10-30", time: null, how: null, what: x, note: x }),
+  "appetite.ts:restoreAppetite": (x) => ({
+    id: UUID,
+    kind: "craving",
+    day: "2026-10-30",
+    time: "21:00",
+    how: null,
+    what: x,
+    note: x,
+    by: null,
+    createdAt: "2026-10-30T00:00:00.000Z",
+    editedBy: null,
+    editedAt: null,
+  }),
+  "appetite.ts:deleteAppetite": (x) => ({ id: x }),
+  "files.ts:putUpload": (x) => upload(x),
+  "photos.ts:addPhoto": (x) => ({ id: UUID, fileId: UUID, kind: "scan", day: "2026-10-30", time: "09:40", caption: x }),
+  "photos.ts:editPhoto": (x) => ({ id: UUID, kind: "bump", day: "2026-10-30", time: null, caption: x }),
+  "photos.ts:deletePhoto": (x) => ({ id: x }),
+  "papers.ts:addPaper": (x) => ({
+    id: UUID,
+    kind: "result",
+    title: x,
+    itemId: null,
+    day: "2026-10-30",
+    note: x,
+    handy: false,
+    pages: [{ fileId: UUID, type: "application/pdf", name: x, size: 1 }],
+  }),
+  "papers.ts:editPaper": (x) => ({ id: UUID, kind: "letter", title: x, itemId: x, day: "2026-10-30", note: x, handy: true }),
+  "papers.ts:deletePaper": (x) => ({ id: x }),
 };
+
+/** An upload as a phone sends it: a form, with `x` as its name and its file's. */
+function upload(x: string): FormData {
+  const form = new FormData();
+  form.set("id", UUID);
+  form.set("name", x);
+  form.set("original", new File([new Uint8Array([0xff, 0xd8, 0xff, 0xe0])], x, { type: "image/jpeg" }));
+  return form;
+}
 
 /** The session's own: choosing the password and logging in, which save only a hash and must never be refused. */
 const SESSION = ["session.ts:choosePassword", "session.ts:login", "session.ts:logout"];

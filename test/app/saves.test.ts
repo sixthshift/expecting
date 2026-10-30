@@ -48,7 +48,55 @@ const theirs = {
   createdAt: made.at,
 };
 const feelings = [own, theirs];
+const SICK = "55555555-5555-4555-8555-555555555555";
+const sick = {
+  id: SICK,
+  kind: "sick",
+  day: "2026-10-30",
+  time: "03:10",
+  how: "vomited",
+  what: null,
+  note: null,
+  by: made.by,
+  createdAt: made.at,
+  editedBy: null,
+  editedAt: null,
+};
+const craving = { ...sick, id: ID, kind: "craving", how: null, what: "Pickles", time: "23:00" };
+const appetite = [sick, craving];
 const emergency = { values: { carerPhone: "0400 000 000" }, changed: null };
+const SHOT = "66666666-6666-4666-8666-666666666666";
+const FILE = "77777777-7777-4777-8777-777777777777";
+const scan = {
+  id: SHOT,
+  fileId: FILE,
+  kind: "scan",
+  day: "2026-10-30",
+  time: "09:40",
+  caption: "12-week scan",
+  by: made.by,
+  createdAt: made.at,
+  editedBy: null,
+  editedAt: null,
+};
+const photos = [scan];
+const PAPER = "99999999-9999-4999-8999-999999999999";
+const page = { fileId: FILE, type: "application/pdf", name: "GTT.pdf", size: 120_000 };
+const gtt = {
+  id: PAPER,
+  kind: "result",
+  title: "Glucose tolerance test",
+  itemId: "glucose-tolerance-test",
+  day: "2026-10-26",
+  note: null,
+  handy: false,
+  pages: [page],
+  by: made.by,
+  createdAt: made.at,
+  editedBy: null,
+  editedAt: null,
+};
+const papers = [gtt];
 
 /** For each save: data as fetched, and inputs to apply over it. */
 const CASES: Record<string, [unknown, unknown[]]> = {
@@ -116,6 +164,49 @@ const CASES: Record<string, [unknown, unknown[]]> = {
     ],
   ],
   deleteFeeling: [feelings, [{ id: ID }, { id: theirs.id }]],
+  addAppetite: [
+    appetite,
+    [
+      { id: "22222222-2222-4222-8222-222222222222", kind: "sick", day: "2026-10-30", time: "04:00", how: "fluids", what: " x ", note: " " },
+      { id: "22222222-2222-4222-8222-222222222222", kind: "off", day: "2026-10-30", time: null, how: "queasy", what: " Coffee ", note: null },
+    ],
+  ],
+  editAppetite: [
+    appetite,
+    [
+      { id: SICK, kind: "sick", day: "2026-10-30", time: "03:00", how: "fluids", what: null, note: " Again " },
+      { id: ID, kind: "craving", day: "2026-10-29", time: null, how: null, what: " pickles ", note: null },
+    ],
+  ],
+  restoreAppetite: [[], [sick]],
+  deleteAppetite: [appetite, [{ id: SICK }]],
+  addPhoto: [
+    photos,
+    [
+      { id: "22222222-2222-4222-8222-222222222222", fileId: "88888888-8888-4888-8888-888888888888", kind: "bump", day: "2026-10-30", time: null, caption: " " },
+      { id: SHOT, fileId: FILE, kind: "scan", day: "2026-10-30", time: "09:40", caption: "Again" },
+    ],
+  ],
+  editPhoto: [photos, [{ id: SHOT, kind: "other", day: "2026-10-29", time: null, caption: " The printout " }]],
+  deletePhoto: [photos, [{ id: SHOT }, { id: ID }]],
+  addPaper: [
+    papers,
+    [
+      {
+        id: "22222222-2222-4222-8222-222222222222",
+        kind: "plan",
+        title: " Birth plan ",
+        itemId: "birth-preferences",
+        day: "2026-10-30",
+        note: " ",
+        handy: true,
+        pages: [{ fileId: "88888888-8888-4888-8888-888888888888", type: "image/jpeg", name: "IMG_1.jpg", size: 2_000_000 }],
+      },
+      { id: PAPER, kind: "other", title: "Again", itemId: null, day: "2026-10-30", note: null, handy: false, pages: [page] },
+    ],
+  ],
+  editPaper: [papers, [{ id: PAPER, kind: "result", title: " GTT ", itemId: null, day: "2026-10-27", note: " Copy to the GP ", handy: true }]],
+  deletePaper: [papers, [{ id: PAPER }, { id: ID }]],
 };
 
 test("every save has its cases here", () => {
@@ -175,5 +266,60 @@ test("a save changes what it says, and nothing it doesn't", () => {
   expect(byKey.changeFeeling!.apply(feelings, { id: theirs.id, day: "2026-10-30", time: null, step: "rough", words: [], note: null }, made)).toEqual(feelings);
   expect(byKey.deleteFeeling!.apply(feelings, { id: theirs.id }, made)).toEqual(feelings);
   expect(byKey.deleteFeeling!.apply(feelings, { id: ID }, made)).toEqual([theirs]);
+  // Sickness keeps how bad and no what; a craving keeps what and no how; words trimmed or nothing.
+  expect(byKey.addAppetite!.apply([], { id: ID, kind: "sick", day: "2026-10-30", time: "04:00", how: "fluids", what: " x ", note: " " }, made)).toEqual([
+    {
+      id: ID,
+      kind: "sick",
+      day: "2026-10-30",
+      time: "04:00",
+      how: "fluids",
+      what: null,
+      note: null,
+      by: made.by,
+      createdAt: made.at,
+      editedBy: null,
+      editedAt: null,
+    },
+  ]);
+  expect(
+    byKey.editAppetite!.apply(appetite, { id: ID, kind: "craving", day: "2026-10-29", time: null, how: "queasy", what: " Olives ", note: null }, made)[1]
+  ).toEqual({
+    ...craving,
+    day: "2026-10-29",
+    time: null,
+    what: "Olives",
+    editedBy: made.by,
+    editedAt: made.at,
+  });
   expect(byKey.setQuiet!.apply({ kind: "loss", setBy: null, setAt: made.at }, { kind: "news" }, made)).toMatchObject({ kind: "loss" });
+  // A photo's words trimmed or none; a change never touches its picture.
+  expect(byKey.addPhoto!.apply([], { id: ID, fileId: FILE, kind: "bump", day: "2026-10-30", time: null, caption: "  " }, made)).toEqual([
+    { id: ID, fileId: FILE, kind: "bump", day: "2026-10-30", time: null, caption: null, by: made.by, createdAt: made.at, editedBy: null, editedAt: null },
+  ]);
+  expect(byKey.editPhoto!.apply(photos, { id: SHOT, kind: "other", day: "2026-10-29", time: null, caption: " Printout " }, made)).toEqual([
+    { ...scan, kind: "other", day: "2026-10-29", time: null, caption: "Printout", editedBy: made.by, editedAt: made.at },
+  ]);
+  // A paper's name and words trimmed (none rather than blank); a change never touches its pages.
+  expect(
+    byKey.addPaper!.apply([], { id: ID, kind: "plan", title: " Birth plan ", itemId: null, day: "2026-10-30", note: " ", handy: true, pages: [page] }, made)
+  ).toEqual([
+    {
+      id: ID,
+      kind: "plan",
+      title: "Birth plan",
+      itemId: null,
+      day: "2026-10-30",
+      note: null,
+      handy: true,
+      pages: [page],
+      by: made.by,
+      createdAt: made.at,
+      editedBy: null,
+      editedAt: null,
+    },
+  ]);
+  expect(
+    byKey.editPaper!.apply(papers, { id: PAPER, kind: "result", title: " GTT ", itemId: null, day: "2026-10-27", note: " Copy to the GP ", handy: true }, made)
+  ).toEqual([{ ...gtt, title: "GTT", itemId: null, day: "2026-10-27", note: "Copy to the GP", handy: true, editedBy: made.by, editedAt: made.at }]);
 });

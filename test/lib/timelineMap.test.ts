@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
 import type { Item, Task } from "../../src/content/schema";
+import type { AppetiteEntry } from "../../src/lib/appetite";
 import type { ISODate } from "../../src/lib/dates";
 import type { Step } from "../../src/lib/feelings";
 import type { JournalEntry } from "../../src/lib/journal";
@@ -75,6 +76,7 @@ describe("the weeks", () => {
     questions: [],
     journal: [],
     feelings: [],
+    appetite: [],
     now: 28,
     dueDate: "2027-01-19" as ISODate,
   };
@@ -146,6 +148,74 @@ describe("the weeks", () => {
     });
     expect(w.filter((m) => m.felt.length > 0).map((m) => [m.week, m.felt])).toEqual([[28, ["great", "okay"]]]);
     expect(mapWeeks({ ...input, dueDate: null, feelings: [felt("a", "sam", "2026-10-30", "low")] }).every((m) => m.felt.length === 0)).toBe(true);
+  });
+
+  test("a week says how many days had sickness, and its most kept craving", () => {
+    const kept = (id: string, day: string, rest: Partial<AppetiteEntry>): AppetiteEntry => ({
+      id,
+      kind: "sick",
+      day,
+      time: null,
+      how: "queasy",
+      what: null,
+      note: null,
+      by: null,
+      createdAt: `${day}T00:00:00Z`,
+      editedBy: null,
+      editedAt: null,
+      ...rest,
+    });
+    const w = mapWeeks({
+      ...input,
+      appetite: [
+        kept("a", "2026-10-30", {}),
+        kept("b", "2026-10-30", { how: "vomited" }),
+        kept("c", "2026-10-31", { kind: "craving", how: null, what: "Pickles" }),
+      ],
+    });
+    const week = w.find((m) => m.week === 28)!;
+    expect([week.sick, week.craved]).toEqual([1, "Pickles"]);
+    expect(w.filter((m) => m.sick > 0 || m.craved).map((m) => m.week)).toEqual([28]);
+  });
+
+  test("a week says what it kept in pictures, and nothing without them", () => {
+    const shot = (id: string, day: string, kind: "bump" | "scan" | "other") => ({
+      id,
+      fileId: id,
+      kind,
+      day,
+      time: null,
+      caption: null,
+      by: null,
+      createdAt: `${day}T00:00:00Z`,
+      editedBy: null,
+      editedAt: null,
+    });
+    const w = mapWeeks({ ...input, photos: [shot("a", "2026-10-30", "bump"), shot("b", "2026-10-31", "scan"), shot("c", "2026-10-31", "scan")] });
+    expect(w.find((m) => m.week === 28)!.photos).toEqual({ bump: true, scans: 2, others: 0 });
+    expect(w.filter((m) => m.photos.bump || m.photos.scans > 0).map((m) => m.week)).toEqual([28]);
+    expect(mapWeeks(input).every((m) => !m.photos.bump && m.photos.scans === 0 && m.photos.others === 0)).toBe(true);
+  });
+
+  test("a week says what papers are dated in it, by kind, and nothing without them", () => {
+    const paper = (id: string, day: string, kind: "result" | "letter") => ({
+      id,
+      kind,
+      title: id,
+      itemId: null,
+      day,
+      note: null,
+      handy: false,
+      pages: [],
+      by: null,
+      createdAt: `${day}T00:00:00Z`,
+      editedBy: null,
+      editedAt: null,
+    });
+    const w = mapWeeks({ ...input, papers: [paper("a", "2026-10-30", "result"), paper("b", "2026-10-31", "result"), paper("c", "2026-10-31", "letter")] });
+    expect(w.find((m) => m.week === 28)!.papers).toEqual({ result: 2, letter: 1 });
+    expect(w.filter((m) => Object.keys(m.papers).length > 0).map((m) => m.week)).toEqual([28]);
+    expect(mapWeeks(input).every((m) => Object.keys(m.papers).length === 0)).toBe(true);
   });
 });
 

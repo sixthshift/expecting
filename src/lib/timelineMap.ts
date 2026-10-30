@@ -9,9 +9,12 @@
 
 import { asks, type DatedItem, type Item, type Task } from "../content/schema";
 import type { WeekNote } from "../content/weeks";
+import { type AppetiteEntry, weekAppetite } from "./appetite";
 import { type ISODate, todayISO } from "./dates";
 import { type Feeling, type Step, weekStep } from "./feelings";
 import { type JournalEntry, placeOf } from "./journal";
+import { type Paper, type WeekPapers, weekPapers } from "./papers";
+import { type Photo, type WeekPhotos, weekPhotos } from "./photos";
 import type { Question } from "./questions";
 import { allWeeks, positionOn, type Week, weekDates } from "./timeline";
 
@@ -63,6 +66,14 @@ export type MapWeek = {
   moved: boolean;
   /** How each of you felt that week, one step each (weekStep), for whoever checked in. */
   felt: Step[];
+  /** The days that week with any sickness kept. */
+  sick: number;
+  /** That week's most kept craving, if any. */
+  craved: string | null;
+  /** What it kept in pictures: a bump photo, how many scans, how many others. */
+  photos: WeekPhotos;
+  /** The results and papers dated in it, by kind. */
+  papers: WeekPapers;
 };
 
 export type MapInput = {
@@ -73,11 +84,29 @@ export type MapInput = {
   questions: readonly Question[];
   journal: readonly JournalEntry[];
   feelings: readonly Feeling[];
+  appetite: readonly AppetiteEntry[];
+  /** Photos and scans; none if not given. */
+  photos?: readonly Photo[];
+  /** Results and papers; none if not given. */
+  papers?: readonly Paper[];
   now: Week | null;
   dueDate: ISODate | null;
 };
 
-export function mapWeeks({ notes, windows, tasks, ticks, questions, journal, feelings, now, dueDate }: MapInput): MapWeek[] {
+export function mapWeeks({
+  notes,
+  windows,
+  tasks,
+  ticks,
+  questions,
+  journal,
+  feelings,
+  appetite,
+  photos = [],
+  papers = [],
+  now,
+  dueDate,
+}: MapInput): MapWeek[] {
   const asked = askedWeeks(questions, dueDate);
   const feelers = [...new Set(feelings.map((f) => f.by))].sort();
   const placed = dueDate ? journal.map((e) => ({ kind: e.kind, place: placeOf(e.day as ISODate, dueDate) })) : [];
@@ -99,6 +128,9 @@ export function mapWeeks({ notes, windows, tasks, ticks, questions, journal, fee
       kept: placed.filter((e) => e.kind === "note" && e.place === week).length,
       moved: placed.some((e) => e.kind === "movement" && e.place === week),
       felt: felt(feelings, feelers, week, dueDate),
+      ...weekAppetite(appetite, week, dueDate),
+      photos: weekPhotos(photos, week, dueDate),
+      papers: weekPapers(papers, week, dueDate),
     };
   });
 }

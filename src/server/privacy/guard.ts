@@ -9,10 +9,16 @@ import { builtInItems } from "../../content";
 import type { Item } from "../../content/schema";
 import { namesPrivate } from "../../lib/library";
 
-/** Every string in `data`, however deep: values and keys. */
+/** Every string in `data`, however deep: values and keys, and a form's fields and file names. */
 function* strings(data: unknown): Generator<string> {
   if (typeof data === "string") yield data;
-  else if (Array.isArray(data)) for (const value of data) yield* strings(value);
+  else if (typeof FormData !== "undefined" && data instanceof FormData) {
+    // An upload, sent as a form: its fields, and each file's name.
+    for (const [key, value] of data.entries()) {
+      yield key;
+      yield typeof value === "string" ? value : (value as File).name;
+    }
+  } else if (Array.isArray(data)) for (const value of data) yield* strings(value);
   else if (data !== null && typeof data === "object") {
     for (const [key, value] of Object.entries(data)) {
       yield key;

@@ -2,6 +2,7 @@
 // function. A save made offline is sent by the build that opens next, so this
 // list is how that build knows it: a new save goes here.
 
+import { appetiteSaves } from "../../api/rpc/appetite";
 import { checklistSaves } from "../../api/rpc/checklist";
 import { emergencySaves } from "../../api/rpc/emergency";
 import { extrasSaves } from "../../api/rpc/extras";
@@ -9,6 +10,8 @@ import { factsSaves } from "../../api/rpc/facts";
 import { feelingsSaves } from "../../api/rpc/feelings";
 import { journalSaves } from "../../api/rpc/journal";
 import { namesSaves } from "../../api/rpc/names";
+import { papersSaves } from "../../api/rpc/papers";
+import { photosSaves } from "../../api/rpc/photos";
 import { questionsSaves } from "../../api/rpc/questions";
 import { quietSaves } from "../../api/rpc/quiet";
 import { settingsSaves } from "../../api/rpc/settings";
@@ -28,4 +31,7 @@ export const SAVES: readonly AnySave[] = [
   quietSaves,
   journalSaves,
   feelingsSaves,
+  appetiteSaves,
+  photosSaves,
+  papersSaves,
 ].flatMap((saves) => Object.values(saves));

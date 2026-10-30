@@ -3,6 +3,7 @@ import { checklistQuery } from "../api/rpc/checklist";
 import { extrasQuery } from "../api/rpc/extras";
 import { answersQuery } from "../api/rpc/facts";
 import { journalQuery } from "../api/rpc/journal";
+import { papersQuery } from "../api/rpc/papers";
 import { peopleQuery } from "../api/rpc/people";
 import { questionsQuery } from "../api/rpc/questions";
 import { quietQuery } from "../api/rpc/quiet";
@@ -32,6 +33,8 @@ export const app = createRoute({
       queryClient.ensureQueryData(questionsQuery),
       queryClient.ensureQueryData(quietQuery),
       queryClient.ensureQueryData(journalQuery),
+      // Small, and wanted with no signal: the handy papers are on Emergency info.
+      queryClient.ensureQueryData(papersQuery),
     ]);
     // From the cache, not as fetched: with the saves still waiting applied over it.
     const settings = queryClient.getQueryData(settingsQuery.queryKey)!;

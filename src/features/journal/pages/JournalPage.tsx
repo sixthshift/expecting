@@ -1,5 +1,5 @@
 import { SearchInput } from "@sixthshift/design-system/search-input";
-import { Camera, FileText, Footprints, IceCreamCone } from "lucide-react";
+import { Footprints } from "lucide-react";
 import { useState } from "react";
 import { useJournal } from "../../../api/rpc/journal";
 import { useQuiet } from "../../../api/rpc/quiet";
@@ -10,15 +10,20 @@ import { formatDate, type ISODate } from "../../../lib/dates";
 import { type EntryGroup, groupEntries, isNote, matches, movementsOffered } from "../../../lib/journal";
 import { type Week, weekDates, weekLabel } from "../../../lib/timeline";
 import { FeelingsSection } from "../../feelings/components/history/Feelings";
+import { AppetiteSection } from "../components/appetite/appetite";
 import { MovementsSection } from "../components/movements/movements";
 import { AddNote, Note } from "../components/notes/notes";
+import { PapersSection } from "../components/papers/papers";
+import { PhotosSection } from "../components/photos/photos";
 
 /**
  * The pregnancy, kept: each entry on its day here, and on its week in the
- * timeline. Notes, newest first under their weeks, movements (from week 16)
- * and how you're feeling; the rest says what's coming. While something has
- * happened, the notes, the movements kept and the feelings stay, and nothing
- * else is offered.
+ * timeline. Notes, newest first under their weeks, movements (from week 16;
+ * before then, said to be coming), sickness and cravings, photos and scans,
+ * how you're feeling, and results and papers. While something has happened,
+ * the notes, the feelings and the papers stay, the movements, the sickness
+ * and cravings and the photos kept are folded away, and nothing else is
+ * offered (but a photo, inside its fold, and a paper).
  */
 export function JournalPage() {
   const { data: journal } = useJournal();
@@ -63,27 +68,26 @@ export function JournalPage() {
 
         <MovementsSection offered={movements} quiet={Boolean(quiet)} />
 
+        <AppetiteSection quiet={Boolean(quiet)} />
+
+        <PhotosSection quiet={quiet?.kind ?? null} />
+
         <FeelingsSection />
 
-        {quiet ? null : (
+        <PapersSection quiet={quiet?.kind ?? null} />
+
+        {quiet || movements ? null : (
           <section aria-labelledby="coming" className="flex flex-col gap-3">
             <h2 id="coming" className="text-lg font-display font-semibold text-fg-strong">
               Still to come
             </h2>
             <Coming
               things={[
-                ...(movements
-                  ? []
-                  : [
-                      {
-                        icon: Footprints,
-                        title: "Movements",
-                        about: "From week 16: when you feel the baby move, so you know their usual pattern. Any change is a call.",
-                      },
-                    ]),
-                { icon: IceCreamCone, title: "Cravings and sickness", about: "What and when. Useful when the midwife asks “since when?”, and fun later." },
-                { icon: Camera, title: "Photos and scans", about: "Bump photos and scan images, backed up." },
-                { icon: FileText, title: "Results and papers", about: "Blood tests, screening, letters, the birth plan, the discharge summary." },
+                {
+                  icon: Footprints,
+                  title: "Movements",
+                  about: "From week 16: when you feel the baby move, so you know their usual pattern. Any change is a call.",
+                },
               ]}
             />
           </section>

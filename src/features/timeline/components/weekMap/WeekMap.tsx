@@ -3,6 +3,8 @@ import { Link } from "@tanstack/react-router";
 import { Diamond } from "lucide-react";
 import { Fragment } from "react";
 import { STEP_LABEL, type Step } from "../../../../lib/feelings";
+import { weekPaperWords } from "../../../../lib/papers";
+import { weekPhotoWords } from "../../../../lib/photos";
 import type { Week } from "../../../../lib/timeline";
 import { type MapWeek, TRIMESTERS, trimester } from "../../../../lib/timelineMap";
 
@@ -15,6 +17,10 @@ function line(w: MapWeek): { text: string; warn: boolean }[] {
   if (w.asked > 0) parts.push({ text: w.asked === 1 ? "1 question asked" : `${w.asked} questions asked`, warn: false });
   if (w.kept > 0) parts.push({ text: w.kept === 1 ? "1 note" : `${w.kept} notes`, warn: false });
   if (w.moved) parts.push({ text: "felt moving", warn: false });
+  if (w.sick > 0) parts.push({ text: w.sick === 1 ? "sick 1 day" : `sick ${w.sick} days`, warn: false });
+  if (w.craved) parts.push({ text: `craved ${w.craved.trim().toLocaleLowerCase("en-AU")}`, warn: false });
+  for (const text of weekPhotoWords(w.photos)) parts.push({ text, warn: false });
+  for (const text of weekPaperWords(w.papers)) parts.push({ text, warn: false });
   return parts;
 }
 

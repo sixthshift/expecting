@@ -164,7 +164,7 @@ committed on its own if Jason asks.
 
 - **Sickness, cravings, symptoms:** the rest of the log. Each is one more
   `kind`, and one more row in the sheet.
-- **Photos:** they wait for uploads and backups (Records).
+- **Photos:** they waited for uploads and backups (Records); since built, as "A photo or scan" ([plan](plan-photos-scans.md)).
 - **A name for the names game:** it stays in the Drawer.
 - **The summary for the midwife** ("movements daily"): comes with
   appointments.
@@ -178,3 +178,6 @@ committed on its own if Jason asks.
   movement to slower, weaker or stopped shows the call, as a new one does;
   `restoreNote` takes a note without `different`, from a phone still on the
   build before movements.
+- 2026-10-30: sickness and cravings joined the "+" as "Sick or queasy" and
+  "A craving" ([plan](plan-cravings-sickness.md)), in a table of their own
+  rather than a `kind` of `journal_entry`, as their fields are their own.

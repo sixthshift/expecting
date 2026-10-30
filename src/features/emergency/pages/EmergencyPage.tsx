@@ -14,6 +14,7 @@ import { useSave } from "../../../app/hooks/useSave";
 import { formatDate, isISODate, todayISO } from "../../../lib/dates";
 import { ALWAYS, EMERGENCY, EMERGENCY_FIELDS, EMERGENCY_MAX, type EmergencyInfo, TICKED, telHref } from "../../../lib/emergency";
 import { factsOf } from "../../../lib/facts";
+import { PapersToHand } from "../../journal/components/papers/papers";
 import { WarningSigns } from "../components/warningSigns/WarningSigns";
 import { handover } from "../model/handover";
 
@@ -21,8 +22,9 @@ import { handover } from "../model/handover";
  * Emergency info: the one page to open when something goes wrong, or labour starts,
  * and to hand to whoever is treating her. The calls in one row, then the handover
  * (who, how far along, allergies, blood, the pregnancy, medicines, history, where
- * she's booked), fitting a phone's first screen; below it, when to call, everyone
- * else to call and the front desk's numbers. Both of you fill it in.
+ * she's booked), fitting a phone's first screen; below it, the papers kept handy
+ * (the birth plan at triage, with no signal too), when to call, everyone else to
+ * call and the front desk's numbers. Both of you fill it in.
  */
 export function EmergencyPage() {
   const { data: emergency } = useEmergency();
@@ -116,6 +118,8 @@ function EmergencyView({ emergency }: { emergency: EmergencyInfo }) {
           <p className="border-border-subtle border-t bg-bg-subtle px-4 py-2 text-sm text-fg-subtle sm:px-6">Still blank: {h.missing.join(", ")}.</p>
         ) : null}
       </section>
+
+      <PapersToHand />
 
       <WarningSigns />
 

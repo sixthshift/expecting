@@ -1,4 +1,4 @@
-// The service worker's two caches (src/pwa/worker.js), named here so the app
+// The service worker's three caches (src/pwa/worker.js), named here so the app
 // can forget what it keeps. The app's name carries the build's version.
 
 /** The shell and the build's files, a cache per build. */
@@ -6,3 +6,6 @@ export const APP_CACHE = "expecting-app";
 
 /** Each server function's last answer. */
 export const DATA_CACHE = "expecting-data";
+
+/** Uploads' thumbnails and display copies, kept as they're first drawn. An upload never changes, so it outlives a new build. */
+export const FILES_CACHE = "expecting-files";

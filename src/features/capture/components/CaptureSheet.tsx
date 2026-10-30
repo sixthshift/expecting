@@ -1,5 +1,5 @@
 // The capture sheet: what to add, then its form, in the same sheet. Each
-// form is its pillar's own, reused: the Journal's note and movement, the
+// form is its pillar's own, reused: the Journal's note, movement, sickness and craving, photo, paper, the
 // check-in, the Planner's question and task. Once kept, the sheet closes and
 // a toast says where it went; you stay on the page you were on.
 
@@ -7,7 +7,19 @@ import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";
 import { toast } from "@sixthshift/design-system/overlay";
 import { useNavigate } from "@tanstack/react-router";
-import { ChevronLeft, Footprints, ListChecks, type LucideIcon, MessageCircleQuestion, NotebookPen, Smile } from "lucide-react";
+import {
+  Camera,
+  ChevronLeft,
+  FileText,
+  Footprints,
+  IceCreamCone,
+  ListChecks,
+  type LucideIcon,
+  MessageCircleQuestion,
+  NotebookPen,
+  Smile,
+  Waves,
+} from "lucide-react";
 import { useState } from "react";
 import { useJournal } from "../../../api/rpc/journal";
 import { usePeople } from "../../../api/rpc/people";
@@ -16,15 +28,22 @@ import { useNow } from "../../../api/rpc/settings";
 import { movementsOffered } from "../../../lib/journal";
 import { WEEKS } from "../../../lib/timeline";
 import { CheckInNow } from "../../feelings/components/checkIn/CheckInNow";
+import { AddCraving, AddSickness } from "../../journal/components/appetite/appetite";
 import { AddMovement } from "../../journal/components/movements/movements";
 import { AddNote } from "../../journal/components/notes/notes";
+import { AddPaper } from "../../journal/components/papers/AddPaper";
+import { AddPhoto } from "../../journal/components/photos/AddPhoto";
 import { AddQuestion } from "../../questions/components/questions/questions";
 import { AddTask } from "../../tasks/components/addTask/AddTask";
 import { type Capture, captureChoices, FILED_IN } from "../model/choices";
 
 const CHOICE: Record<Capture, { label: string; icon: LucideIcon }> = {
   movement: { label: "The baby moved", icon: Footprints },
+  sick: { label: "Sick or queasy", icon: Waves },
+  craving: { label: "A craving", icon: IceCreamCone },
   note: { label: "A note", icon: NotebookPen },
+  photo: { label: "A photo or scan", icon: Camera },
+  paper: { label: "A result or paper", icon: FileText },
   feeling: { label: "How I'm feeling", icon: Smile },
   question: { label: "A question to ask", icon: MessageCircleQuestion },
   task: { label: "Something to do", icon: ListChecks },
@@ -83,8 +102,16 @@ export function CaptureSheet({ onClose }: { onClose: () => void }) {
           </ul>
         ) : chosen === "movement" ? (
           <AddMovement onAdded={() => filed("movement")} />
+        ) : chosen === "sick" ? (
+          <AddSickness onAdded={() => filed("sick")} />
+        ) : chosen === "craving" ? (
+          <AddCraving onAdded={() => filed("craving")} />
         ) : chosen === "note" ? (
           <AddNote onAdded={() => filed("note")} />
+        ) : chosen === "photo" ? (
+          <AddPhoto onAdded={() => filed("photo")} />
+        ) : chosen === "paper" ? (
+          <AddPaper onAdded={() => filed("paper")} />
         ) : chosen === "feeling" && people.me ? (
           <CheckInNow me={people.me} onDone={() => filed("feeling")} />
         ) : chosen === "question" ? (

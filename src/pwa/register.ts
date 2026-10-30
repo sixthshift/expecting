@@ -3,7 +3,7 @@
 // port as `bun run start`, so a worker a build left behind is taken away
 // there, rather than answer for files Vite now serves.
 
-import { DATA_CACHE } from "./caches";
+import { DATA_CACHE, FILES_CACHE } from "./caches";
 
 /** Register /sw.js, or in dev take away any worker already there. Never throws: offline is a nicety, not a need. */
 export function registerWorker(): void {
@@ -18,11 +18,45 @@ export function registerWorker(): void {
   }
 }
 
-/** Forget the data the worker keeps for offline, as this phone logs out. */
+/** Forget the data the worker keeps for offline, and the pictures, as this phone logs out. */
 export async function forgetData(): Promise<void> {
   try {
     await caches.delete(DATA_CACHE);
+    await caches.delete(FILES_CACHE);
   } catch {
     // No Cache Storage (an insecure origin): nothing was kept.
+  }
+}
+
+/** Forget what the worker kept of one upload (its pictures, a kept PDF), as it's deleted. */
+export async function forgetFile(id: string): Promise<void> {
+  try {
+    const cache = await caches.open(FILES_CACHE);
+    for (const request of await cache.keys()) if (new URL(request.url).pathname.startsWith(`/api/files/${id}/`)) await cache.delete(request);
+  } catch {
+    // No Cache Storage: nothing was kept.
+  }
+}
+
+/**
+ * Keep these files on this phone for reading with no signal (a handy paper's
+ * pages: its PDF, or its pictures' copies), and let these go (a PDF whose paper
+ * isn't handy any more). Only what isn't kept already is fetched. Never
+ * throws: a file that won't come now is fetched next time the list does.
+ */
+export async function keepHandyOffline({ keep, drop }: { keep: readonly string[]; drop: readonly string[] }): Promise<void> {
+  try {
+    const cache = await caches.open(FILES_CACHE);
+    for (const url of drop) await cache.delete(url);
+    for (const url of keep) {
+      if (await cache.match(url)) continue;
+      try {
+        await cache.add(url);
+      } catch {
+        // Offline, or not up yet (still on the phone that kept it): next time.
+      }
+    }
+  } catch {
+    // No Cache Storage (an insecure origin): nothing can be kept.
   }
 }

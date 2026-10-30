@@ -1,9 +1,12 @@
 import { Button } from "@sixthshift/design-system/button";
 import { LocateFixed } from "lucide-react";
 import { useEffect, useMemo } from "react";
+import { useAppetite } from "../../../../api/rpc/appetite";
 import { useChecklist } from "../../../../api/rpc/checklist";
 import { useFeelings } from "../../../../api/rpc/feelings";
 import { useJournal } from "../../../../api/rpc/journal";
+import { usePapers } from "../../../../api/rpc/papers";
+import { usePhotos } from "../../../../api/rpc/photos";
 import { useQuestions } from "../../../../api/rpc/questions";
 import { useNow, useSettings } from "../../../../api/rpc/settings";
 import { PillarHeader } from "../../../../app/components/layout/PillarLayout";
@@ -39,9 +42,12 @@ export function Timeline({ at }: { at: Week | undefined }) {
   const { data: questions } = useQuestions();
   const { data: journal } = useJournal();
   const { data: feelings } = useFeelings();
+  const { data: appetite } = useAppetite();
+  const { data: photos } = usePhotos();
+  const { data: papers } = usePapers();
   const { dueDate } = settings;
   const windows = useMemo(() => mapWindows(items, checklist.ticks, now), [items, checklist.ticks, now]);
-  const weeks = mapWeeks({ notes: weekNotes, windows, tasks, ticks: checklist.ticks, questions, journal, feelings, now, dueDate });
+  const weeks = mapWeeks({ notes: weekNotes, windows, tasks, ticks: checklist.ticks, questions, journal, feelings, appetite, photos, papers, now, dueDate });
 
   // Open at the top, where the chart has today on it; or at the week asked for, on a phone.
   useEffect(() => {

@@ -88,7 +88,7 @@ The modes sort into six pillars, by whose a thing is and what you do with it:
 - **Records live in the Journal:** a scan is something that happened, dated, on the timeline. A separate Vault for medical papers stays an option.
 - **Outside every pillar:** the capture button (one "+" that files a kick, a question or a photo into the right pillar) and the call button.
 
-*Built: the frame, This week, the Timeline, Library and Planner, the Journal's notes, movements and how you're feeling, the Drawer's names game, and the capture "+" (a movement, a note, a feeling, a question or a task; photos wait for records). The rest of the Journal and the Drawer say what's coming.*
+*Built: the frame, This week, the Timeline, Library and Planner, the Journal's notes, movements, sickness and cravings, photos and scans, how you're feeling, and results and papers, the Drawer's names game, and the capture "+" (a movement, sickness, a craving, a note, a photo or scan, a result or paper, a feeling, a question or a task). The rest of the Drawer says what's coming.*
 
 ### The app changes shape
 
@@ -131,7 +131,7 @@ Some pregnancies end in miscarriage, and screening sometimes brings bad news. An
   - **Behind today,** it is the diary: week 22 holds the morphology scan item, the scan photos, "first kick, Tuesday night" and the questions you asked.
   - **By the birth,** it is the story of the pregnancy, without anyone having sat down to write it.
 
-*Built: pregnancy weeks 1–42 as a map (a line a week, the landmarks, and the windows drawn across their weeks), each week's note on This week, own tasks and asked questions in their week, and the trimesters as the timeline's chapter headings. Not built: the phases before and after the pregnancy, the named chapters, log entries and records.*
+*Built: pregnancy weeks 1–42 as a map (a line a week, the landmarks, and the windows drawn across their weeks), each week's note on This week, own tasks and asked questions in their week, the Journal's notes, movements, sickness, cravings, feelings, photos and papers marked on theirs, and the trimesters as the timeline's chapter headings. Not built: the phases before and after the pregnancy, and the named chapters.*
 
 ### Phases
 
@@ -319,7 +319,7 @@ The entry types are content (a YAML file), so adding one is a content change. Ea
 - **It notices mood gently.** If the mood entries stay low for a fortnight, it suggests talking to someone and shows the PANDA helpline. It never scores or diagnoses.
 - **It is also fun.** "You craved pickles 14 times." By the birth, it is half the story.
 
-*Built: the capture button, a "+" on every pillar (floating above a phone's tab bar, at the top of a desktop's sidebar), filing a movement, a note, a feeling, a question or a task into its pillar and leaving you where you were ([architecture](architecture.md#the-pillars)). Movements, from week 16: when, a few words if you want, and "slower, weaker or stopped?", which leads straight to the call; in the Journal the last fortnight as a dot at each time of day, never counted and never reassuring. Notes, in the Journal. Either of you can change any note, and it says who did; on the timeline a note marks its week, and This week shows a week's notes only when you peek at it. And mood, as how you're feeling: asked on This week, kept in the Journal, the step shared and the words only yours, with someone to talk to on a rough day and after a hard fortnight ([architecture](architecture.md#how-youre-feeling)). Not built: sickness, cravings, symptoms, photos, and the summary before an appointment.*
+*Built: the capture button, a "+" on every pillar (floating above a phone's tab bar, at the top of a desktop's sidebar), filing a movement, sickness, a craving, a note, a photo or scan, a result or paper, a feeling, a question or a task into its pillar and leaving you where you were ([architecture](architecture.md#the-pillars)). Movements, from week 16: when, a few words if you want, and "slower, weaker or stopped?", which leads straight to the call; in the Journal the last fortnight as a dot at each time of day, never counted and never reassuring. Notes, in the Journal. Either of you can change any note, and it says who did; on the timeline a note marks its week, and This week shows a week's notes only when you peek at it. And mood, as how you're feeling: asked on This week, kept in the Journal, the step shared and the words only yours, with someone to talk to on a rough day and after a hard fortnight ([architecture](architecture.md#how-youre-feeling)). Sickness and cravings ([plan](plan-cravings-sickness.md)): sick or queasy in one tap (queasy, threw up, or can't keep fluids down, which leads straight to the call), a craving or something gone off as what, with past cravings one tap away; in the Journal, since when and the weeks as rows of days, a quiet word and a question for the appointment when she's been sick often or craves something that isn't food, and the cravings tallied; on the timeline, a week's sick days and its craving. They are a table of their own, not a YAML of entry types. Photos and scans ([plan](plan-photos-scans.md)): taken (the camera one tap from the "+") or chosen, said what they are (bump, scan or something else), on the day the camera says; in the Journal, the bump week by week with this week's empty frame and two weeks side by side, and every photo under its week; kept on the phone and sent when there's a connection, so one taken in a car park with no signal isn't lost. Results and papers ([plan](plan-results-papers.md)), from the "+" too, photographed a page at a time or chosen as a PDF, in the Journal and handy on Emergency info ([Records](#records)). Not built: other symptoms and the summary before an appointment.*
 
 ## Baby names
 
@@ -351,7 +351,7 @@ Records include health information and irreplaceable photos, so two things come 
 - backups;
 - settled access (HTTPS, and whether the server faces the internet at all).
 
-*Not built.*
+*Built: the uploads, as a store any record can use (the original kept untouched on the server's volume, beside the database, so the one backup takes both; served only behind the password), and the records on it, in the Journal: photos and scans ([plan](plan-photos-scans.md)), and results and papers ([plan](plan-results-papers.md)): a photographed paper (a page a photo) or a PDF, said what it is (a result, a letter or referral, a plan, a record or summary, something else), what it's about (linked to its Library entry, where it shows under "Your papers"), its name and the date on it, found by kind or by search, and the handy ones on top, on Emergency info and kept on each phone for when there's no signal. Expecting keeps them and finds them; it never reads them. Not built: attaching a paper to an appointment (appointments aren't built), a paper's pages added after it's kept, and a stronger lock than the shared password; backups and HTTPS are still the host's to settle ([Open questions](#open-questions)).*
 
 ### The rest of the store
 
@@ -386,7 +386,7 @@ How the switches work:
 - **Off really means off.** Each feature brings its own sections, capture types and settings, so switching one off removes it rather than leaving gaps.
 - **This week offers one in its week** if nobody has decided ("Add a babymoon?"), once: either answer settles it.
 
-*Built, as extras (`src/features/settings/model/extras.data.ts`): the switches in settings, the offer in onboarding and on This week, and items that belong to an extra. Thirty-one so far, in five groups (celebrating, family and friends, getting ready, for you two, money), each one content, and one also a feature: Choosing a name brings the names game. An extra can be only for some pregnancies (`when`, as Older siblings is only for a second baby), and only a few are offered in onboarding (`onboarding: true`). Not built: the features above, which need more than items (the log, records), and bump photos, which wait for uploads and backups. Left out on purpose: a kick counter (Australian guidance is to know your baby's pattern, not to count kicks) and a baby pool (friends can't log in, and the app has no birth to score against).*
+*Built, as extras (`src/features/settings/model/extras.data.ts`): the switches in settings, the offer in onboarding and on This week, and items that belong to an extra. Thirty-one so far, in five groups (celebrating, family and friends, getting ready, for you two, money), each one content, and one also a feature: Choosing a name brings the names game. An extra can be only for some pregnancies (`when`, as Older siblings is only for a second baby), and only a few are offered in onboarding (`onboarding: true`). Not built: the features above, which need more than items (the log, records), and bump photos, built since as part of the Journal's photos and scans, for everyone, not an extra. Left out on purpose: a kick counter (Australian guidance is to know your baby's pattern, not to count kicks) and a baby pool (friends can't log in, and the app has no birth to score against).*
 
 ## Order
 
@@ -394,10 +394,10 @@ The core loop first, the thing you open every week; then the parts that stand al
 
 1. **Onboarding** and who's who. *Built.*
 2. **The driver:** tasks with a window and whose job they are, and This week opening with what to do now. Then the questions it needs asked in the week they matter, and the full admin inventory, grown together.
-3. **The weekly loop:** this week's note (*four weeks drafted*), the timeline as diary, and the capture button with movements, sickness, cravings, mood and notes. *Built: the capture button, with movements, mood and notes.*
+3. **The weekly loop:** this week's note (*four weeks drafted*), the timeline as diary, and the capture button with movements, sickness, cravings, mood and notes. *Built: the capture button, with movements, sickness, cravings, mood and notes.*
 4. **Safety:** the call button and the red flags.
 5. **Names:** self-contained and fun, and the first test of the feature switches.
-6. **Records,** once backups and access are settled.
+6. **Records,** once backups and access are settled. *Built: photos and scans, and results and papers, on the uploads store.*
 7. **The rest of the content:** the deck, "Is this normal?", "Can I…?". Mostly writing.
 
 ## Open questions

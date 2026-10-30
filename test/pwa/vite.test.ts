@@ -27,6 +27,7 @@ describe("workerSource", () => {
     expect(source).toContain('const PAGES = ["/assets/zika.js"];');
     expect(source).toContain('const APP_CACHE = "expecting-app";');
     expect(source).toContain('const DATA_CACHE = "expecting-data";');
+    expect(source).toContain('const FILES_CACHE = "expecting-files";');
     expect(source.endsWith("self.x = 1;")).toBe(true);
   });
 
