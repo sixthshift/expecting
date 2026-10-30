@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.mjs", "**/*.css", "**/*.json", "!.output", "!.nitro", "!.tanstack", "!.vite", "!data", "!public/sw.js"]
+    "includes": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.mjs", "**/*.css", "**/*.json", "!.output", "!.nitro", "!.tanstack", "!.vite", "!data"]
   },
   "formatter": {
     "enabled": true,

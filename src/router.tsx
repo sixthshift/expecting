@@ -11,9 +11,15 @@ export function getRouter() {
         // Fresh for half a minute: moving between pillars doesn't refetch, and a phone
         // coming back to the app (window focus) picks up what the other one changed.
         staleTime: 30_000,
+        // Ask even when the phone says it's offline: the service worker answers with the last answer it kept
+        // (src/pwa/worker.js). "online", the default, would wait for a connection, and a page would never draw.
+        networkMode: "offlineFirst",
         // Once more after a failure, unless the session has ended: no point asking again.
         retry: (count, error) => count < 1 && !isLoggedOut(error),
       },
+      // A save with no connection fails at once and says so (useAction's toast), rather than wait, its
+      // spinner turning, for the connection to come back. Nothing queues it yet.
+      mutations: { networkMode: "always" },
     },
   });
 

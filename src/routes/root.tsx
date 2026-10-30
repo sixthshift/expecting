@@ -15,13 +15,17 @@ export const rootRoute = createRootRouteWithContext<RouterContext>()({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-title", content: "Expecting" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "default" },
       { title: "Expecting" },
     ],
-    // The icons are public/: served as files ahead of the app, so the login page has them too.
+    // The icons and the manifest are public/: served as files ahead of the app, so the login page has them too.
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      { rel: "manifest", href: "/manifest.webmanifest" },
     ],
   }),
   shellComponent: Document,

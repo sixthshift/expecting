@@ -2,7 +2,7 @@
 
 A companion for one household through the pregnancy, running on your own network. Getting ready before it and the months after the birth come later. It is meant to hold a shared checklist, a week-by-week guide to what to expect, the surprising things nobody tells you, and one place to keep everything you've both learned.
 
-**Early days.** What's here: onboarding for both of you, this week (where you are and what matters now), the timeline (every week), the Library, the Planner (a checklist that ticks everywhere, your own tasks, questions for appointments), and built-in content tailored by your answers (all still drafts until reviewed). Not yet: the Journal and the Drawer's handy things (they say what's coming), photos, contacts, appointments, installing to the home screen, or offline use.
+**Early days.** What's here: onboarding for both of you, this week (where you are and what matters now), the timeline (every week), the Library, the Planner (a checklist that ticks everywhere, your own tasks, questions for appointments), and built-in content tailored by your answers (all still drafts until reviewed). Not yet: the Journal and the Drawer's handy things (they say what's coming), photos, contacts, appointments, or saving changes with no connection. It installs to the home screen and reads offline (over HTTPS).
 
 There are no accounts: one household password (or none, if you turn logins off), and each phone stays logged in for months. Even so, keep it off the public internet. A VPN such as Tailscale is the intended way in from outside home.
 

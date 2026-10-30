@@ -78,11 +78,20 @@ test.describe("logged out", () => {
     await expect(page.getByRole("heading", { level: 1, name: "This week" })).toBeAttached();
   });
 
-  test("the login page has the icon", async ({ page, open, request }) => {
-    // The icons are public/ files, served ahead of the gate, so a stranger's tab shows them too.
+  test("the login page has the icon, the manifest and the worker", async ({ page, open, request }) => {
+    // The icons, the manifest and the worker are served as files ahead of the gate, so a stranger's tab has them too.
     await open("/login");
     await expect(page.locator('link[rel="icon"]')).toHaveAttribute("href", "/favicon.svg");
-    for (const path of ["/favicon.svg", "/apple-touch-icon.png"]) {
+    await expect(page.locator('link[rel="manifest"]')).toHaveAttribute("href", "/manifest.webmanifest");
+    for (const path of [
+      "/favicon.svg",
+      "/apple-touch-icon.png",
+      "/manifest.webmanifest",
+      "/icon-192.png",
+      "/icon-512.png",
+      "/icon-maskable-512.png",
+      "/sw.js",
+    ]) {
       const response = await request.get(path);
       expect(response.status(), path).toBe(200);
     }

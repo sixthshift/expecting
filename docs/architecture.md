@@ -4,7 +4,7 @@ How expecting is built. What it is and why: [intent.md](intent.md). Running it: 
 
 ## Built so far
 
-The pregnancy's six pillars (This week, the timeline, the Library, the Planner, and placeholders for the Journal and the Drawer), built-in content in Markdoc tailored by the household's answers, onboarding, who's holding each phone, own tasks, questions for appointments, the due date, and the shared password. Getting ready and the weeks after the birth are out of the first version ([One app, the pregnancy](#one-app-the-pregnancy)). Not yet: the rest of the store (appointments, scans and photos, contacts, symptoms), our own items, hiding built-in items, the PWA manifest, the service worker, offline reads and writes. Everything below is the intended shape; where it isn't built, it says so.
+The pregnancy's six pillars (This week, the timeline, the Library, the Planner, and placeholders for the Journal and the Drawer), built-in content in Markdoc tailored by the household's answers, onboarding, who's holding each phone, own tasks, questions for appointments, the due date, and the shared password. Getting ready and the weeks after the birth are out of the first version ([One app, the pregnancy](#one-app-the-pregnancy)). Not yet: the rest of the store (appointments, scans and photos, contacts, symptoms), our own items, hiding built-in items, offline writes. Everything below is the intended shape; where it isn't built, it says so.
 
 Expecting has the same shape as garnish. Where this file says "as garnish", garnish's `docs/architecture.md` is the reference.
 
@@ -64,6 +64,7 @@ src/
     rest/       the server routes: fixed URLs for callers outside the app (/api/health)
     rpc/        the server functions: what the app calls, run on the server (/api/rpc/<id>)
   db/ server/   server only: the store, auth, boot
+  pwa/          the service worker (worker.js), the Vite plugin that emits it, and its registration
 ```
 
 Every feature has one predictable shape, each folder only where it has something: `pages/` its pages (what a route draws), `components/` its parts (a folder per aspect, as settings' `facts/`, `extras/`, `colour/`, `appearance/`, `session/`, and loose the parts they share, as `SettingRow`), `hooks/` its hooks (`useItems`, `useTasks`, `useAction`), and `model/` what has no React in it: rules, types, paths. Settings' `model/` is the one the rest of the app (`lib/`, `content/`, `api/rpc/`) may import too. Settings owns the questions and the extras, wherever they are drawn: `AskNow` on This week and `OfferExtra` in onboarding are its components.
@@ -135,10 +136,12 @@ Expecting has its own theme, not the design system's Linen. It's built from a re
 
 ## PWA
 
-- **Installable.** A web app manifest, icons, and Apple metas, as garnish.
-- **Service worker.** Hand-written, no Workbox, emitted by a small Vite plugin, as garnish.
-- **Offline reads.** Built-in content is bundled with the app, so every week reads offline. The app shell and the last-fetched data are cached. Hospital Wi-Fi is unreliable, and the hospital bag checklist has to open there.
-- **Offline writes.** Ticking a task or adding a note while offline is queued and sent on reconnect, using garnish's outbox pattern. Photo uploads need a connection.
+Both need HTTPS, except on `localhost`: how expecting gets it is still open ([Access](#access-one-shared-password)).
+
+- **Installable.** `public/manifest.webmanifest` (standalone, white like the page), the icons rendered from `public/favicon.svg` (192 and 512, and a maskable 512 with the Baby inside the safe zone), and the Apple metas in `src/routes/root.tsx`. All public files, served ahead of the gate, so the login page has them.
+- **Service worker.** Hand-written, no Workbox: `src/pwa/worker.js`. `src/pwa/vite.ts` emits it as `/sw.js` from the client build, with the build's files written in above it (`VERSION`, `CORE`, `PAGES`), so a build that changes a file is a new worker, which takes over at once and drops the old caches. `Root` registers it (`src/pwa/register.ts`), in a build only; dev unregisters any a build left behind, since both are on 9966.
+- **Offline reads.** Built: every page answers with the same shell, so the worker keeps one; it fetches the app's files as it installs, and the items' pages (a chunk each, some 900) just after, so every item reads offline, opened before or not. Each server function's last answer is kept as it's fetched (`expecting-data`). Pages and data go to the network first and fall back to what's kept, after four seconds if the network is slow (hospital Wi-Fi), and the slow answer still refreshes the cache; the build's files come from the cache first. The queries are `networkMode: "offlineFirst"`, so they ask with the phone offline and the worker answers. A 401 forgets the kept data, as does logging out (`forgetData`); a new build forgets it too, since its shape may have changed. The e2e spec `e2e/offline.spec.ts` takes the phone offline.
+- **Offline writes.** *Not built.* A save with no connection fails at once and says so (`useAction`'s toast): mutations are `networkMode: "always"`, since the default would hold the save, its spinner turning, until the phone is back online. The intent: ticking a task or adding a note while offline is queued and sent on reconnect, using garnish's outbox pattern; the open question is the reads, which would show the kept answer, from before the queued change, until it's sent. Photo uploads need a connection.
 
 ## Onboarding
 

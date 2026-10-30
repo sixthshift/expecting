@@ -5,6 +5,7 @@ import { forgetPerson } from "../../../../api/rpc/people";
 import { logout, useAccess } from "../../../../api/rpc/session";
 import { useAction } from "../../../../app/hooks/useAction";
 import type { Person } from "../../../../lib/people";
+import { forgetData } from "../../../../pwa/register";
 
 /** Who's holding this phone, the household it's shared with, and the way out (with logins on). */
 export function Session({ me, people }: { me: Person | null; people: readonly Person[] }) {
@@ -33,6 +34,8 @@ export function Session({ me, people }: { me: Person | null; people: readonly Pe
               intent="danger"
               onClick={async () => {
                 await logout();
+                // Nor in what the service worker keeps for offline.
+                await forgetData();
                 // A full load, not a navigation: nothing of the household stays in this tab's memory.
                 window.location.assign("/login");
               }}
