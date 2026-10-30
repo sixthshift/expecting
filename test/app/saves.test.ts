@@ -69,7 +69,7 @@ test("every save has its cases here", () => {
   expect(SAVES.map((s) => s.key).sort()).toEqual(Object.keys(CASES).sort());
 });
 
-test.each(SAVES.flatMap((save) => CASES[save.key]![1].map((input) => [save.key, input, save] as const)))(
+test.each(SAVES.flatMap((save) => (CASES[save.key]?.[1] ?? []).map((input) => [save.key, input, save] as const)))(
   "%s %j applies once, however often",
   (key, input, save) => {
     const fetched = CASES[key]![0];

@@ -5,7 +5,7 @@
 //
 // Every page starts logged in, through the same form a phone uses. A test
 // about logging in opts out with `loggedIn: false`.
-import { test as base, expect } from "@playwright/test";
+import { test as base, expect, type Page } from "@playwright/test";
 import { PASSWORD } from "./playwright.config";
 
 type Fixtures = {
@@ -45,6 +45,9 @@ export const test = base.extend<Fixtures>({
       if (message.type() === "error") record(message.text());
     });
     await use(page);
+    // A save shows at once and is sent behind it (src/app/model/outbox.ts): a phone keeps one still
+    // waiting, but this browser goes with the test, so every save gets there first.
+    if (!page.isClosed()) await expect.poll(() => waitingSaves(page), { message: "saves still waiting to be sent" }).toBe(0);
     expect(errors, "the page logged errors").toEqual([]);
   },
   // The server sends the shell and the browser draws the page once the
@@ -55,5 +58,10 @@ export const test = base.extend<Fixtures>({
     });
   },
 });
+
+/** How many saves this page's outbox holds, not yet sent (src/app/model/outboxStore.ts). */
+export function waitingSaves(page: Page): Promise<number> {
+  return page.evaluate(() => (JSON.parse(localStorage.getItem("expecting-outbox") ?? "[]") as unknown[]).length);
+}
 
 export { expect };

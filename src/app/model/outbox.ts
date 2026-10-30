@@ -1,8 +1,8 @@
 // The outbox: every save (src/lib/outbox.ts; the list is ./saves.ts) goes
 // through it, online or not, as a TanStack Query mutation.
 //
-//   made       it shows at once (its `apply` on the query it changes), and is
-//              written to this phone (./outboxStore.ts) before it is sent
+//   made       it is written to this phone (./outboxStore.ts), at once, and
+//              shows (its `apply` on the query it changes), before it is sent
 //   waiting    one at a time, in the order made (one scope); with no
 //              connection it pauses, and goes when there is one; with one that
 //              goes nowhere it tries again, a little later each time
@@ -73,23 +73,24 @@ export function outboxCaches(client: () => QueryClient) {
       },
     }),
     mutationCache: new MutationCache({
-      onMutate: async (variables, mutation) => {
+      // Run as the save is made, within the tap: kept before anything else can happen.
+      onMutate: (variables, mutation) => {
         const save = saveOf(mutation);
         if (!save) return;
         const w = variables as Waiting;
+        keep({ id: w.id, key: save.key, input: w.input, made: w.made, seq: nextSeq() });
         show(client(), save, w);
-        await keep({ id: w.id, key: save.key, input: w.input, made: w.made, seq: nextSeq() });
       },
-      onSuccess: async (_data, variables, _context, mutation) => {
+      onSuccess: (_data, variables, _context, mutation) => {
         if (!saveOf(mutation)) return;
-        await forget((variables as Waiting).id);
+        forget((variables as Waiting).id);
         if (waiting(client(), mutation).length === 0) void client().invalidateQueries();
       },
-      onError: async (error, variables, _context, mutation) => {
+      onError: (error, variables, _context, mutation) => {
         if (!saveOf(mutation)) return;
         // Kept on the phone: sent once logged in again.
         if (isLoggedOut(error)) return loggedOut();
-        await forget((variables as Waiting).id);
+        forget((variables as Waiting).id);
         toast({ intent: "danger", title: "That didn't save", children: "Expecting couldn't save a change, so it's back as it was." });
         void client().invalidateQueries();
       },
@@ -117,17 +118,17 @@ let restoring: Promise<void> | undefined;
 
 /** Saves left waiting when the app last closed: back in the queue, on screen, and on their way. Once a page; awaited before the app's queries. */
 export function restoreOutbox(client: QueryClient): Promise<void> {
-  restoring ??= restore(client);
+  restoring ??= Promise.resolve().then(() => restore(client));
   return restoring;
 }
 
-async function restore(client: QueryClient) {
+function restore(client: QueryClient) {
   const known = new Set(waiting(client).map((w) => w.waiting.id));
   const left: Entry[] = [];
-  for (const entry of await waitingEntries()) {
+  for (const entry of waitingEntries()) {
     if (known.has(entry.id)) continue;
     // A save this build no longer has: nothing can send it.
-    if (!byKey.has(entry.key)) void forget(entry.id);
+    if (!byKey.has(entry.key)) forget(entry.id);
     else left.push(entry);
   }
   if (left.length === 0) return;

@@ -2,7 +2,7 @@
 // the ruler, a task of their own that stays ticked, a jump from a task to why
 // it matters, and a question for the midwife. Runs first, on the phone, against
 // the empty database the config makes.
-import { expect, test } from "./fixtures";
+import { expect, test, waitingSaves } from "./fixtures";
 import { PASSWORD } from "./playwright.config";
 
 /** dd, mm, yyyy of today plus `days`, in this machine's local time, as the app sees it. */
@@ -643,7 +643,7 @@ test("a save further down the page keeps your place, and what you had open", asy
   const before = await page.evaluate(() => window.scrollY);
   expect(before).toBeGreaterThan(200);
   await shower.click();
-  await expect(page.getByText(/^Jason turned it on,/)).toBeVisible();
+  await expect(page.locator('[id="setting-extra:baby-shower"]').getByText(/^Jason turned it on,/)).toBeVisible();
   expect(await page.evaluate(() => window.scrollY)).toBe(before);
 
   const row = page.getByRole("button", { name: /^Who's looking after the pregnancy/ });
@@ -661,15 +661,40 @@ test("a save further down the page keeps your place, and what you had open", asy
   await expect(shower).not.toBeChecked();
 });
 
-test.describe("a save that fails", () => {
+test.describe("a save the server turns away", () => {
   test.use({ allowedErrors: [/Failed to load resource/] });
 
   test("says so, and leaves things as they were", async ({ page, open }) => {
     await open("/settings");
-    await page.route("**/api/rpc/**", (route) => (route.request().method() === "POST" ? route.abort() : route.continue()));
+    // As the server refuses one (a private entry's: src/server/privacy/): a Response thrown, sent back as is.
+    await page.route("**/api/rpc/**", (route) =>
+      route.request().method() === "POST"
+        ? route.fulfill({ status: 400, headers: { "x-tss-raw": "thrown" }, contentType: "application/json", body: '{"error":"No"}' })
+        : route.continue()
+    );
     const shower = page.getByRole("switch", { name: "Baby shower" });
     await shower.click();
     await expect(page.getByRole("alert").filter({ hasText: "That didn't save" })).toBeVisible();
+    await expect(shower).not.toBeChecked();
+  });
+});
+
+test.describe("a save with a connection that goes nowhere", () => {
+  test.use({ allowedErrors: [/Failed to load resource|Failed to fetch/] });
+
+  test("shows at once, waits, and gets there", async ({ page, open }) => {
+    await open("/settings");
+    await page.route("**/api/rpc/**", (route) => (route.request().method() === "POST" ? route.abort() : route.continue()));
+    const shower = page.getByRole("switch", { name: "Baby shower" });
+    await shower.click();
+    await expect(shower).toBeChecked();
+    await expect.poll(() => waitingSaves(page)).toBe(1);
+    await page.unroute("**/api/rpc/**");
+    await expect.poll(() => waitingSaves(page), { timeout: 15_000 }).toBe(0);
+    await expect(page.getByText("That didn't save")).toHaveCount(0);
+
+    // As it was, for the specs after.
+    await shower.click();
     await expect(shower).not.toBeChecked();
   });
 });
@@ -682,5 +707,20 @@ test.describe("a save after the session ends", () => {
     await context.clearCookies();
     await page.getByRole("switch", { name: "Baby shower" }).click();
     await page.waitForURL((url) => url.pathname === "/login");
+
+    // The save waits on the phone, and goes once logged in again.
+    await page.getByLabel("Password").fill(PASSWORD);
+    await page.getByRole("button", { name: "Log in" }).click();
+    await expect.poll(() => waitingSaves(page)).toBe(0);
+    // The cookies went, who's holding this phone with them.
+    await page.getByRole("button", { name: "I'm Jason" }).click();
+    await page.waitForURL((url) => !url.pathname.startsWith("/onboarding"));
+    await open("/settings");
+    const shower = page.getByRole("switch", { name: "Baby shower" });
+    await expect(shower).toBeChecked();
+
+    // As it was, for the specs after.
+    await shower.click();
+    await expect(shower).not.toBeChecked();
   });
 });

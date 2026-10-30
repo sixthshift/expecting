@@ -1,47 +1,35 @@
-// The outbox's copy on the phone, in IndexedDB: a save is written here before
-// it is sent, and taken out once the server has it or has turned it away, so
-// one made offline outlasts closing the app. Without IndexedDB (a private
-// window that refuses it), saves still go, kept only while the page is open.
+// The outbox's copy on the phone: a save is written here before it is shown
+// or sent, and taken out once the server has it or has turned it away, so one
+// made offline outlasts closing the app. localStorage, not IndexedDB: it
+// writes at once, so a save is kept by the time the tap returns, even if the
+// app is swiped away straight after. A handful of small saves fit easily.
+// Without it (a private window that refuses it), saves still go, kept only
+// while the page is open.
 
 import type { Made } from "../../lib/outbox";
 
 /** A save waiting: its own id, its save's key (src/lib/outbox.ts), its input, who made it and when, and its place in the queue. */
 export type Entry = { id: string; key: string; input: unknown; made: Made; seq: number };
 
-const DB = "expecting-outbox";
-const STORE = "saves";
+/** Where the saves are kept. e2e/fixtures.ts reads it too, to wait for them to go. */
+export const OUTBOX_KEY = "expecting-outbox";
 
-let opening: Promise<IDBDatabase | null> | undefined;
-
-function open(): Promise<IDBDatabase | null> {
-  opening ??= new Promise((resolve) => {
-    try {
-      const request = indexedDB.open(DB, 1);
-      request.onupgradeneeded = () => request.result.createObjectStore(STORE, { keyPath: "id" });
-      request.onsuccess = () => resolve(request.result);
-      request.onerror = () => resolve(null);
-    } catch {
-      resolve(null);
-    }
-  });
-  return opening;
+function read(): Entry[] {
+  try {
+    const kept = JSON.parse(localStorage.getItem(OUTBOX_KEY) ?? "[]");
+    return Array.isArray(kept) ? kept : [];
+  } catch {
+    return [];
+  }
 }
 
-/** One request in its own transaction; resolves once it has committed (a write, to disk: "strict"), undefined if it couldn't. */
-async function run<T>(mode: IDBTransactionMode, request: (store: IDBObjectStore) => IDBRequest<T>): Promise<T | undefined> {
-  const db = await open();
-  if (!db) return undefined;
-  return new Promise((resolve) => {
-    try {
-      const tx = db.transaction(STORE, mode, { durability: "strict" });
-      const req = request(tx.objectStore(STORE));
-      tx.oncomplete = () => resolve(req.result);
-      tx.onerror = () => resolve(undefined);
-      tx.onabort = () => resolve(undefined);
-    } catch {
-      resolve(undefined);
-    }
-  });
+function write(entries: Entry[]): void {
+  try {
+    if (entries.length === 0) localStorage.removeItem(OUTBOX_KEY);
+    else localStorage.setItem(OUTBOX_KEY, JSON.stringify(entries));
+  } catch {
+    // No storage: the save goes on, kept only in the page.
+  }
 }
 
 let last = 0;
@@ -52,16 +40,15 @@ export function nextSeq(): number {
   return last;
 }
 
-export async function keep(entry: Entry): Promise<void> {
-  await run("readwrite", (store) => store.put(entry));
+export function keep(entry: Entry): void {
+  write([...read().filter((e) => e.id !== entry.id), entry]);
 }
 
-export async function forget(id: string): Promise<void> {
-  await run("readwrite", (store) => store.delete(id));
+export function forget(id: string): void {
+  write(read().filter((e) => e.id !== id));
 }
 
 /** Every save waiting, in the order made. */
-export async function waitingEntries(): Promise<Entry[]> {
-  const all = (await run("readonly", (store) => store.getAll() as IDBRequest<Entry[]>)) ?? [];
-  return all.sort((a, b) => a.seq - b.seq);
+export function waitingEntries(): Entry[] {
+  return read().sort((a, b) => a.seq - b.seq);
 }
