@@ -174,37 +174,83 @@ test("an item is drawn by its type: a verdict, triage with the call to make, a d
   await expect(page.getByText(/^Also called blood type/)).toBeVisible();
 
   await open("/library/card-sterile-water");
-  await expect(page.getByText("Nobody tells you", { exact: true })).toBeVisible();
+  // Its label, and the way back to its door.
+  await expect(page.getByText("Nobody tells you", { exact: true })).toHaveCount(2);
+  await expect(page.getByRole("link", { name: "Nobody tells you" })).toHaveAttribute("href", /door=surprises/);
 });
 
-test("the Library finds things, and keeps nobody-tells-you on a shelf of its own", async ({ page, open }) => {
+test("the Library finds things, names first", async ({ page, open }) => {
   await open("/library");
-  await expect(page.getByRole("region", { name: "Nobody tells you" }).getByRole("link", { name: /The RSV vaccine/ })).toBeVisible();
-
   await page.getByLabel("Search the library").fill("whooping cough");
   await expect(page).toHaveURL(/q=whooping/);
-  await expect(page.getByRole("region", { name: "Results" }).getByRole("link", { name: /The whooping cough vaccine/ })).toBeVisible();
-  await expect(page.getByRole("region", { name: "Nobody tells you" })).toBeHidden();
+  const results = page.getByRole("region", { name: "Results" });
+  await expect(results.getByRole("link").first()).toContainText("whooping cough");
+  await expect(results.getByRole("link", { name: /The whooping cough vaccine/ })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Ways in" })).toBeHidden();
 });
 
-test("the Library's ways in: two doors coming, one down to its shelf, and what's open right now", async ({ page, open }) => {
+test("the Library's home lists no entries: its doors, what's open right now, and its topics", async ({ page, open }) => {
   await open("/library");
   const doors = page.getByRole("navigation", { name: "Ways in" });
-  // Can I…? and Is this normal? are drawn, but not yet links.
-  await expect(doors.getByText("Can I…?")).toBeVisible();
-  await expect(doors.getByText("Is this normal?")).toBeVisible();
-  await expect(doors.getByText("Coming")).toHaveCount(2);
-  await expect(doors.getByRole("link")).toHaveCount(1);
+  await expect(doors.getByRole("link")).toHaveCount(8);
+  await expect(page.getByRole("region", { name: "Browse by topic" }).getByRole("link", { name: /Food/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: /When it's hard/ })).toBeVisible();
 
-  // At week 28: what closes this week leads, the glucose test among it; the RSV vaccine's window has just opened.
+  // At week 28: what closes this week leads, the glucose test among it; the RSV vaccine's window has just opened, further down.
   const rightNow = page.getByRole("region", { name: "Right now, at week 28" });
   await expect(rightNow.getByRole("link").first()).toContainText("Closes this week");
   await expect(rightNow.getByRole("link", { name: /The glucose tolerance test/ })).toContainText("Closes this week");
+  await rightNow.getByRole("button", { name: /Show all/ }).click();
   await expect(rightNow.getByRole("link", { name: /The RSV vaccine/ })).toContainText("Opened this week");
+});
 
-  await doors.getByRole("link", { name: /Nobody tells you/ }).click();
-  await expect(page).toHaveURL(/#nobody-tells-you$/);
-  await expect(page.getByRole("region", { name: "Nobody tells you" })).toBeInViewport();
+test("can I…? narrows by topic and answer, and an entry leads back to its door", async ({ page, open }) => {
+  await open("/library");
+  await page
+    .getByRole("navigation", { name: "Ways in" })
+    .getByRole("link", { name: /Can I…\?/ })
+    .click();
+  await expect(page).toHaveURL(/door=can-i/);
+  await expect(page.getByRole("heading", { level: 1, name: "Can I…?" })).toBeVisible();
+
+  await page.getByRole("navigation", { name: "Topic" }).getByRole("link", { name: /Food/ }).click();
+  await expect(page).toHaveURL(/topic=food/);
+  await page.getByRole("navigation", { name: "Answer" }).getByRole("link", { name: /Avoid/ }).click();
+  await expect(page).toHaveURL(/verdict=avoid/);
+  const cheese = page.getByRole("link", { name: /Soft cheese/ });
+  await expect(cheese).toContainText("Avoid");
+  await expect(page.getByRole("listitem").getByRole("link", { name: /With limits/ })).toHaveCount(0);
+
+  await cheese.click();
+  await expect(page).toHaveURL(/\/library\/soft-cheese$/);
+  await page.getByRole("link", { name: "Can I…?" }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "Can I…?" })).toBeVisible();
+});
+
+test("is this normal? says when not to wait before anything else", async ({ page, open }) => {
+  await open("/library?door=normal");
+  await expect(page.getByRole("complementary", { name: "Worried now?" }).getByRole("link", { name: "Call 000" })).toHaveAttribute("href", "tel:000");
+  await expect(page.getByRole("region", { name: "Know these first" }).getByRole("link", { name: /Pain in your belly/ })).toBeVisible();
+});
+
+test("the glossary opens a word in place", async ({ page, open }) => {
+  await open("/library?door=glossary");
+  const link = page.getByRole("link", { name: "Read more about CTG monitoring" });
+  await expect(link).toBeHidden();
+  await page.getByText("CTG monitoring", { exact: true }).click();
+  await expect(page.getByText(/^A CTG \(cardiotocograph\) uses two sensors/)).toBeVisible();
+  await expect(link).toBeVisible();
+});
+
+test("a topic on its own, by door, and for the partner", async ({ page, open }) => {
+  await open("/library?topic=food");
+  await expect(page.getByRole("heading", { level: 1, name: "Food" })).toBeVisible();
+  await expect(page.getByRole("region", { name: "Can I…?" }).getByRole("link", { name: /Soft cheese/ })).toBeVisible();
+
+  await open("/library?door=guides");
+  await page.getByRole("link", { name: "For the partner" }).click();
+  await expect(page).toHaveURL(/for=partner/);
+  await expect(page.getByRole("link", { name: "For the partner" })).toHaveAttribute("aria-current", "page");
 });
 
 test("a question is added in the Planner, asked, and lands in this week", async ({ page, open }) => {

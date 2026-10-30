@@ -2,6 +2,8 @@
 // read by the page through getRouteApi.
 
 import { z } from "zod";
+import { TOPICS, type Topic, VERDICTS } from "../content/schema";
+import { DOORS } from "../lib/library";
 import { parseWeekKey } from "../lib/timeline";
 
 /** The timeline: a week to open at instead of this one (`28`). */
@@ -18,8 +20,20 @@ export const timelineSearch = z.object({
 /** This week: a week to peek at instead (`29`), the same way. */
 export const homeSearch = timelineSearch;
 
-/** The Library: what was typed in its search. */
-export const librarySearch = z.object({ q: z.string().optional().catch(undefined) });
+/**
+ * The Library: what was typed in its search; the door open (`can-i`), the topic (`food`), a can-i's verdict
+ * (`avoid`), and `for=partner` to keep what's for the partner. Anything unknown is dropped.
+ */
+export const librarySearch = z.object({
+  q: z.string().optional().catch(undefined),
+  door: z.enum(DOORS).optional().catch(undefined),
+  topic: z
+    .enum(Object.keys(TOPICS) as [Topic, ...Topic[]])
+    .optional()
+    .catch(undefined),
+  verdict: z.enum(VERDICTS).optional().catch(undefined),
+  for: z.literal("partner").optional().catch(undefined),
+});
 
 /** Settings: a question to open at (`cover`, `work.partner`). */
 export const settingsSearch = z.object({ ask: z.string().optional().catch(undefined) });

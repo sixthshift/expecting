@@ -1,70 +1,87 @@
-import { Badge } from "@sixthshift/design-system/badge";
-import { Link, type LinkProps } from "@tanstack/react-router";
-import { ChevronRight, CircleHelp, HeartPulse, type LucideIcon, Sparkles } from "lucide-react";
-import type { ReactNode } from "react";
+import { Link } from "@tanstack/react-router";
+import {
+  BookA,
+  CalendarCheck,
+  ChevronRight,
+  CircleHelp,
+  HandCoins,
+  HeartHandshake,
+  HeartPulse,
+  type LucideIcon,
+  Route,
+  Signpost,
+  Sparkles,
+} from "lucide-react";
+import type { Item } from "../../../../content/schema";
+import { behind, DOOR_INFO, DOORS, type Door } from "../../../../lib/library";
 
-/** Where a live door goes: a place in the app, as a Link takes it. */
-type Destination = Pick<LinkProps, "to" | "hash" | "search" | "params">;
+export const DOOR_ICONS: Record<Door, LucideIcon> = {
+  "can-i": CircleHelp,
+  normal: HeartPulse,
+  surprises: Sparkles,
+  glossary: BookA,
+  moments: CalendarCheck,
+  decisions: Signpost,
+  money: HandCoins,
+  guides: Route,
+  hard: HeartHandshake,
+};
+
+/** The doors on the Library's home: every way in by its question, but the quiet one, each with what's behind it. */
+const GRID = DOORS.filter((d) => d !== "hard");
 
 /**
- * A way into the Library by the question you came with. Without `to` it is
- * still coming: drawn, marked "Coming", and not a link. Give it `to` (and
- * `meta`, such as a count) and it opens.
+ * The ways into the Library by the question you came with: two across on a
+ * phone, four on a desktop, each with examples and how many entries it holds.
  */
-function Door({ icon: Icon, title, examples, to, meta }: { icon: LucideIcon; title: string; examples: string; to?: Destination; meta?: ReactNode }) {
-  const body = (
-    <>
-      <span aria-hidden className="flex size-9 shrink-0 items-center justify-center rounded-full sm:size-11 bg-bg-brand-subtle text-fg-brand">
-        <Icon className="size-5 sm:size-5.5" />
-      </span>
-      <span className="flex min-w-0 flex-1 flex-col gap-0.5 sm:flex-none">
-        <span className="text-base leading-snug font-display sm:text-lg font-semibold text-fg-strong">{title}</span>
+export function Doors({ items }: { items: readonly Item[] }) {
+  return (
+    <nav aria-label="Ways in" className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
+      {GRID.map((door) => {
+        const Icon = DOOR_ICONS[door];
+        const { title, examples } = DOOR_INFO[door];
+        const count = behind(door, items).length;
+        return (
+          <Link
+            key={door}
+            to="/library"
+            search={{ door }}
+            className="flex h-full flex-col gap-2 rounded-xl border border-border-subtle bg-bg-normal p-3 hover:border-border-brand sm:gap-3 sm:p-4"
+          >
+            <span className="flex items-center justify-between">
+              <span aria-hidden className="flex size-9 items-center justify-center rounded-full bg-bg-brand-subtle text-fg-brand">
+                <Icon className="size-5" />
+              </span>
+              <span className="text-xs text-fg-subtle">{count}</span>
+            </span>
+            <span className="flex flex-col gap-0.5">
+              <span className="leading-snug font-display font-semibold text-fg-strong sm:text-lg">{title}</span>
+              <span className="text-sm text-fg-subtle">{examples}</span>
+            </span>
+          </Link>
+        );
+      })}
+    </nav>
+  );
+}
+
+/** The quiet door, for when it's hard: a line at the foot of the page, not a tile among the others. */
+export function HardDoor({ items }: { items: readonly Item[] }) {
+  const { title, examples } = DOOR_INFO.hard;
+  const Icon = DOOR_ICONS.hard;
+  if (behind("hard", items).length === 0) return null;
+  return (
+    <Link
+      to="/library"
+      search={{ door: "hard" }}
+      className="flex min-h-14 items-center gap-3 rounded-xl border border-border-subtle bg-bg-subtle px-4 py-3 hover:border-border-normal"
+    >
+      <Icon aria-hidden size={20} className="shrink-0 text-fg-subtle" />
+      <span className="flex min-w-0 flex-1 flex-col">
+        <span className="font-medium text-fg-strong">{title}</span>
         <span className="text-sm text-fg-subtle">{examples}</span>
       </span>
-      <span className="shrink-0 sm:mt-auto">
-        {to ? (
-          <span className="flex items-center gap-1 text-sm font-medium text-fg-brand">
-            {meta}
-            <ChevronRight aria-hidden size={18} />
-          </span>
-        ) : (
-          <Badge size="sm" variant="outline">
-            Coming
-          </Badge>
-        )}
-      </span>
-    </>
-  );
-  const shape = "flex h-full items-center gap-3 rounded-xl border px-3 py-2.5 sm:flex-col sm:items-start sm:gap-3 sm:p-5";
-
-  return to ? (
-    <Link {...to} className={`${shape} border-border-subtle bg-bg-normal hover:border-border-brand`}>
-      {body}
+      <ChevronRight aria-hidden size={18} className="shrink-0 text-fg-subtle" />
     </Link>
-  ) : (
-    <div className={`${shape} border-dashed border-border-subtle bg-bg-subtle`}>{body}</div>
-  );
-}
-
-/** Can I…? A lookup: a verdict and why. Coming. */
-export function CanIDoor() {
-  return <Door icon={CircleHelp} title="Can I…?" examples="Brie, coffee, hair dye, flying" />;
-}
-
-/** Is this normal? Triage, from fine to call now. Coming. */
-export function IsThisNormalDoor() {
-  return <Door icon={HeartPulse} title="Is this normal?" examples="Cramps, spotting, itchy palms" />;
-}
-
-/** Nobody tells you: down to its shelf on this page. */
-export function NobodyTellsYouDoor({ count, anchor }: { count: number; anchor: string }) {
-  return (
-    <Door
-      icon={Sparkles}
-      title="Nobody tells you"
-      examples="What people wish they'd known"
-      to={{ to: "/library", hash: anchor }}
-      meta={count === 1 ? "1 to read" : `${count} to read`}
-    />
   );
 }

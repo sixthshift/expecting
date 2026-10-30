@@ -9,6 +9,7 @@ import { builtInItems } from "../../../content";
 import type { Item } from "../../../content/schema";
 import { extrasOn } from "../../../lib/extras";
 import { factsOf } from "../../../lib/facts";
+import { DOOR_INFO, doorOf } from "../../../lib/library";
 import { weekLabel } from "../../../lib/timeline";
 import { extra } from "../../settings/model/extras";
 import { ItemCard } from "../components/ItemCard";
@@ -34,8 +35,13 @@ export function LibraryItemPage() {
 
   return (
     <main className="mx-auto max-w-3xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-8">
-      <Link to="/library" className="-ml-2 mb-4 flex min-h-11 w-fit items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal">
-        <ArrowLeft aria-hidden size={16} /> Library
+      {/* Back to the door it's behind, where it was most likely found. */}
+      <Link
+        to="/library"
+        search={item ? { door: doorOf(item) } : {}}
+        className="-ml-2 mb-4 flex min-h-11 w-fit items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal"
+      >
+        <ArrowLeft aria-hidden size={16} /> {item ? DOOR_INFO[doorOf(item)].title : "Library"}
       </Link>
       {item ? (
         <div className="flex flex-col gap-4">

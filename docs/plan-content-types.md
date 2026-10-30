@@ -72,6 +72,19 @@ Each step ends with the gate green (`check`, `test`, `lint`, `e2e`).
   else with weeks is in the Library only. 321 items cover week 28 and 101
   start at week 1, so step 5 has to choose what earns a place on a week.
 
+**Done 2026-10-30: step 4.** The Library's home lists no entries: search,
+eight doors (one per type: Can I…?, Is this normal?, Nobody tells you, What
+does that mean?, What happens at…?, What do we decide?, What can we claim?,
+How do we…?), Right now (first four, then "Show all"), the topics with counts,
+and a quiet ninth door, When it's hard (loss, mental health, special
+circumstances). A door or topic opens in place by search param (`door`,
+`topic`, `verdict`, `for=partner`), narrowed by chips; each door is laid out
+for its question (`DOOR_INFO` in `src/lib/library.ts`): rows by topic, by
+trimester, symptoms with "Know these first" (stakes high) under a call-now
+box, cards, or an A–Z glossary that opens in place. Search ranks matches on
+title, ask or aliases above summary-only ones; the body is not searched. An
+item's page leads back to its door.
+
 **Done 2026-10-30: step 3.** The item page draws each type
 (`ItemCard`, with `Verdict`, `Triage` and `Related`). Settled on the way:
 
