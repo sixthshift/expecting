@@ -70,6 +70,9 @@ const WRITES: Record<string, ((x: string) => unknown) | null> = {
     editedAt: null,
   }),
   "journal.ts:deleteNote": (x) => ({ id: x }),
+  "feelings.ts:addFeeling": (x) => ({ id: UUID, day: "2026-10-30", time: null, step: "low", words: [], note: x }),
+  "feelings.ts:changeFeeling": (x) => ({ id: UUID, day: "2026-10-30", time: null, step: "low", words: [], note: x }),
+  "feelings.ts:deleteFeeling": (x) => ({ id: x }),
 };
 
 /** The session's own: choosing the password and logging in, which save only a hash and must never be refused. */

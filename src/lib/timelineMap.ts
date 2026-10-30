@@ -10,9 +10,10 @@
 import { asks, type DatedItem, type Item, type Task } from "../content/schema";
 import type { WeekNote } from "../content/weeks";
 import { type ISODate, todayISO } from "./dates";
+import { type Feeling, type Step, weekStep } from "./feelings";
 import { type JournalEntry, placeOf } from "./journal";
 import type { Question } from "./questions";
-import { allWeeks, positionOn, type Week } from "./timeline";
+import { allWeeks, positionOn, type Week, weekDates } from "./timeline";
 
 /** The weeks people mark. The trimesters are the map's chapters, not landmarks. */
 export const LANDMARKS: Readonly<Record<Week, string>> = { 20: "Halfway", 37: "Full term", 40: "Due date" };
@@ -58,6 +59,8 @@ export type MapWeek = {
   asked: number;
   /** Entries kept in the Journal on its days. */
   kept: number;
+  /** How each of you felt that week, one step each (weekStep), for whoever checked in. */
+  felt: Step[];
 };
 
 export type MapInput = {
@@ -67,12 +70,14 @@ export type MapInput = {
   ticks: Record<string, string>;
   questions: readonly Question[];
   journal: readonly JournalEntry[];
+  feelings: readonly Feeling[];
   now: Week | null;
   dueDate: ISODate | null;
 };
 
-export function mapWeeks({ notes, windows, tasks, ticks, questions, journal, now, dueDate }: MapInput): MapWeek[] {
+export function mapWeeks({ notes, windows, tasks, ticks, questions, journal, feelings, now, dueDate }: MapInput): MapWeek[] {
   const asked = askedWeeks(questions, dueDate);
+  const feelers = [...new Set(feelings.map((f) => f.by))].sort();
   const kept = dueDate ? journal.map((e) => placeOf(e.day as ISODate, dueDate)) : [];
   return allWeeks().map((week) => {
     const due = tasks.filter((t) => t.due === week);
@@ -90,8 +95,16 @@ export function mapWeeks({ notes, windows, tasks, ticks, questions, journal, now
       slipped: isPast && toDo > 0,
       asked: [...asked.values()].filter((w) => w === week).length,
       kept: kept.filter((w) => w === week).length,
+      felt: felt(feelings, feelers, week, dueDate),
     };
   });
+}
+
+/** Each person's step for a week, for those who checked in that week. None without a due date. */
+function felt(feelings: readonly Feeling[], feelers: readonly string[], week: Week, dueDate: ISODate | null): Step[] {
+  const dates = weekDates(week, dueDate);
+  if (!dates) return [];
+  return feelers.flatMap((by) => weekStep(feelings, by, dates.start, dates.end) ?? []);
 }
 
 /** The week each asked question was asked in, by question id. Empty without a due date. */

@@ -1,5 +1,5 @@
 import { SearchInput } from "@sixthshift/design-system/search-input";
-import { Camera, FileText, Footprints, IceCreamCone, Smile } from "lucide-react";
+import { Camera, FileText, Footprints, IceCreamCone } from "lucide-react";
 import { useState } from "react";
 import { useJournal } from "../../../api/rpc/journal";
 import { useQuiet } from "../../../api/rpc/quiet";
@@ -9,13 +9,14 @@ import { Coming } from "../../../components/Coming";
 import { formatDate, type ISODate } from "../../../lib/dates";
 import { type EntryGroup, groupEntries, matches } from "../../../lib/journal";
 import { type Week, weekDates, weekLabel } from "../../../lib/timeline";
+import { FeelingsSection } from "../../feelings/components/history/Feelings";
 import { AddNote, Note } from "../components/notes/notes";
 
 /**
  * The pregnancy, kept: each entry on its day here, and on its week in the
- * timeline. Notes so far, newest first under their weeks; the rest says
- * what's coming. While something has happened, the notes stay as they were
- * and nothing else is offered.
+ * timeline. Notes, newest first under their weeks, and how you're feeling;
+ * the rest says what's coming. While something has happened, the notes and
+ * the feelings stay, and nothing else is offered.
  */
 export function JournalPage() {
   const { data: journal } = useJournal();
@@ -56,6 +57,8 @@ export function JournalPage() {
           ))}
         </section>
 
+        <FeelingsSection />
+
         {quiet ? null : (
           <section aria-labelledby="coming" className="flex flex-col gap-3">
             <h2 id="coming" className="text-lg font-display font-semibold text-fg-strong">
@@ -69,7 +72,6 @@ export function JournalPage() {
                   about: "When you feel the baby move, so you know their usual pattern. Any change is a call, never a chart.",
                 },
                 { icon: IceCreamCone, title: "Cravings and sickness", about: "What and when. Useful when the midwife asks “since when?”, and fun later." },
-                { icon: Smile, title: "How you're feeling", about: "A quick mood, with words if you want them. Gentle, never a score." },
                 { icon: Camera, title: "Photos and scans", about: "Bump photos and scan images, backed up." },
                 { icon: FileText, title: "Results and papers", about: "Blood tests, screening, letters, the birth plan, the discharge summary." },
               ]}

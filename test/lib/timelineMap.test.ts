@@ -1,6 +1,7 @@
 import { describe, expect, test } from "vitest";
 import type { Item, Task } from "../../src/content/schema";
 import type { ISODate } from "../../src/lib/dates";
+import type { Step } from "../../src/lib/feelings";
 import type { JournalEntry } from "../../src/lib/journal";
 import type { Question } from "../../src/lib/questions";
 import { type MapInput, mapWeeks, mapWindows, trimester } from "../../src/lib/timelineMap";
@@ -73,6 +74,7 @@ describe("the weeks", () => {
     ticks: { done: "2026-10-28T00:00:00Z" },
     questions: [],
     journal: [],
+    feelings: [],
     now: 28,
     dueDate: "2027-01-19" as ISODate,
   };
@@ -121,6 +123,21 @@ describe("the weeks", () => {
     });
     const w = mapWeeks({ ...input, journal: [note("a", "2026-10-30"), note("b", "2026-11-02"), note("c", "2026-01-01")] });
     expect(w.filter((m) => m.kept > 0).map((m) => [m.week, m.kept])).toEqual([[28, 2]]);
+  });
+
+  test("a week shows how each of you felt, one step each, and nothing for a week without", () => {
+    const felt = (id: string, by: string, day: string, step: Step) => ({ id, by, day, time: "20:00", step, createdAt: `${day}T00:00:00Z` });
+    const w = mapWeeks({
+      ...input,
+      feelings: [
+        felt("a", "sam", "2026-10-30", "low"),
+        felt("b", "sam", "2026-11-02", "good"),
+        felt("c", "sam", "2026-11-01", "okay"),
+        felt("d", "alex", "2026-10-31", "great"),
+      ],
+    });
+    expect(w.filter((m) => m.felt.length > 0).map((m) => [m.week, m.felt])).toEqual([[28, ["great", "okay"]]]);
+    expect(mapWeeks({ ...input, dueDate: null, feelings: [felt("a", "sam", "2026-10-30", "low")] }).every((m) => m.felt.length === 0)).toBe(true);
   });
 });
 

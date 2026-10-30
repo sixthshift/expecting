@@ -13,6 +13,8 @@ import { todayISO } from "../../../lib/dates";
 import { entriesIn } from "../../../lib/journal";
 import { headsUps, worthKnowing } from "../../../lib/library";
 import { askedWeeks } from "../../../lib/timelineMap";
+import { CheckIn } from "../../feelings/components/checkIn/CheckIn";
+import { HardFortnight } from "../../feelings/components/fortnight/HardFortnight";
 import { Note } from "../../journal/components/notes/notes";
 import { ItemLink } from "../../library/components/ItemLink";
 import { useItems } from "../../library/hooks/useItems";
@@ -31,7 +33,7 @@ import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
 
 /**
  * This week, home: what you open the app for. Where you are first, then what
- * to do now, the week's note (read as you), the week's heads-up, what
+ * to do now, how you are today, the week's note (read as you), the week's heads-up, what
  * Expecting needs to know, what's worth knowing this week, and what's coming. On a desktop the
  * week sits on the left and the doing on the right; on a phone it's one
  * column, the doing first.
@@ -171,6 +173,12 @@ function Week() {
           <div className="contents lg:sticky lg:top-6 lg:flex lg:flex-col lg:gap-8">
             <div className="order-1 lg:order-0">
               <ToDoNow />
+            </div>
+            <div className="order-1 empty:hidden lg:order-0">
+              <HardFortnight />
+            </div>
+            <div className="order-1 empty:hidden lg:order-0">
+              <CheckIn />
             </div>
             <div className="order-3 empty:hidden lg:order-0">
               <AskNow />

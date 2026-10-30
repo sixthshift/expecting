@@ -14,6 +14,16 @@ const names = { names: [{ id: ID, name: "Ada", mine: null }], matches: [{ id: ID
 const settings = { dueDate: "2027-03-01", baby: "surprise", onboardedAt: made.at };
 const note = { id: ID, kind: "note", day: "2026-10-30", time: "07:30", body: "First kick!", by: made.by, createdAt: made.at, editedBy: null, editedAt: null };
 const journal = [note];
+const own = { id: ID, by: made.by, day: "2026-10-30", time: "21:10", step: "low", words: ["tired"], note: "Long day", createdAt: made.at };
+const theirs = {
+  id: "33333333-3333-4333-8333-333333333333",
+  by: "00000000-0000-4000-8000-0000000000bb",
+  day: "2026-10-30",
+  time: null,
+  step: "good",
+  createdAt: made.at,
+};
+const feelings = [own, theirs];
 const emergency = { values: { carerPhone: "0400 000 000" }, changed: null };
 
 /** For each save: data as fetched, and inputs to apply over it. */
@@ -63,6 +73,15 @@ const CASES: Record<string, [unknown, unknown[]]> = {
   editNote: [journal, [{ id: ID, day: "2026-10-29", time: null, body: "First kick, I think " }]],
   restoreNote: [[], [note]],
   deleteNote: [journal, [{ id: ID }]],
+  addFeeling: [feelings, [{ id: "22222222-2222-4222-8222-222222222222", day: "2026-10-30", time: null, step: "okay", words: ["calm", "calm"], note: " " }]],
+  changeFeeling: [
+    feelings,
+    [
+      { id: ID, day: "2026-10-30", time: "21:10", step: "rough", words: [], note: " Couldn't sleep " },
+      { id: theirs.id, day: "2026-10-30", time: null, step: "rough", words: [], note: null },
+    ],
+  ],
+  deleteFeeling: [feelings, [{ id: ID }, { id: theirs.id }]],
 };
 
 test("every save has its cases here", () => {
@@ -98,5 +117,12 @@ test("a save changes what it says, and nothing it doesn't", () => {
     editedBy: made.by,
     editedAt: made.at,
   });
+  expect(byKey.addFeeling!.apply([], { id: ID, day: "2026-10-30", time: null, step: "okay", words: ["calm", "calm"], note: " " }, made)).toEqual([
+    { id: ID, by: made.by, day: "2026-10-30", time: null, step: "okay", words: ["calm"], note: null, createdAt: made.at },
+  ]);
+  // The other's feeling is theirs alone: neither changed nor deleted from this phone.
+  expect(byKey.changeFeeling!.apply(feelings, { id: theirs.id, day: "2026-10-30", time: null, step: "rough", words: [], note: null }, made)).toEqual(feelings);
+  expect(byKey.deleteFeeling!.apply(feelings, { id: theirs.id }, made)).toEqual(feelings);
+  expect(byKey.deleteFeeling!.apply(feelings, { id: ID }, made)).toEqual([theirs]);
   expect(byKey.setQuiet!.apply({ kind: "loss", setBy: null, setAt: made.at }, { kind: "news" }, made)).toMatchObject({ kind: "loss" });
 });

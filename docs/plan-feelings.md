@@ -97,39 +97,45 @@ feelings, nothing louder.
 A table of its own, `feeling`, not a `kind` of `journal_entry`: its fields
 differ (a step and words, no required body), only its owner may change it,
 and half of it is filtered by who's asking. `by` is required (the person
-holding the phone), `day` and `time` as notes have them, `step` (`rough` …
-`great`), `words` (a JSON list of word ids), `note` (nullable), and
-`created_at`. The steps and words are a typed list,
-`src/features/journal/model/feelings.data.ts`, beside their rules.
+holding the phone) and a feeling goes with its person, `day` and `time` as
+notes have them, `step` (`rough` … `great`), `words` (a JSON list of word
+ids), `note` (nullable), and `created_at`. The steps and words are typed
+lists in `src/lib/feelings.ts`, beside their rules: the server checks
+against them, and it may import only `src/lib/`.
 
 ## Steps
 
 Each step ends with the gate green (`check`, `test`, `lint`, `e2e`), and is
 committed on its own if Jason asks.
 
-1. **The store.** *Not started.* The next migration (`017_feeling.sql`),
-   `src/db/models/feelings/schema.ts` and `repo.ts`; `feelings` in
-   CLAUDE.md's domains. Tests in `test/db/`.
-2. **The server functions.** *Not started.* `src/api/rpc/feelings.ts`:
-   `addFeeling`, `changeFeeling`, `removeFeeling`, as the person holding the
-   phone (refused if none, or if it isn't theirs), each a `Save` in
-   `src/app/model/saves.ts`; `feelingsQuery` and `useFeelings`, with the
-   words and note only on the asker's own. A test that the other person's
-   words never leave the server.
-3. **The rules.** *Not started.* `src/lib/feelings.ts`: the day's latest,
-   the dots per week, the words most used, and the fortnight. Unit tests,
-   especially the fortnight's edges (three entries, a gap, anxious on half
-   the days).
-4. **The check-in on This week.** *Not started.* Under To do now; the
-   steps, the words, the fold. The Rough line and the fortnight card. A dom
-   test.
-5. **The Journal's section.** *Not started.* The rows, the words, a day's
-   entries, changing and deleting your own. Out of Still to come. An e2e:
-   check in on This week, see it in the Journal on both phones, the words
-   on one only.
-6. **The timeline's dot.** *Not started.*
-7. **Docs.** *Not started.* `architecture.md` (Journal row, This week),
-   `intent.md` (The log: built), this plan's steps ticked.
+1. **The store.** *Done.* `017_feeling.sql`,
+   `src/db/models/feelings/schema.ts` and `repo.ts` (`list(asker)` gives
+   the asker's own whole and the other's step only; `change` and `delete`
+   act only on the asker's own); the steps, words and types in
+   `src/lib/feelings.ts`; `feelings` in CLAUDE.md's domains. Tests in
+   `test/db/feelings.test.ts`.
+2. **The server functions.** *Done.* `src/api/rpc/feelings.ts`:
+   `addFeeling`, `changeFeeling`, `deleteFeeling`, as the person holding
+   the phone (refused if none; a change that isn't theirs is refused), each
+   a `Save` in `src/app/model/saves.ts`; `feelingsQuery` and `useFeelings`.
+   That the words never leave the server is tested twice: the repo
+   (`test/db/feelings.test.ts`) and on the wire (`e2e/mood.spec.ts`, which
+   runs after the journey, as specs run by name).
+3. **The rules.** *Done.* `src/lib/feelings.ts`: the day's latest, the
+   dots, the words most used, a week's step and the fortnight, in
+   `test/lib/feelings.test.ts`.
+4. **The check-in on This week.** *Done.* `src/features/feelings/` (its own
+   feature: the Journal and This week both draw it): `CheckIn` under To do
+   now, `HardFortnight` above it, `Support` on a Rough check-in. DOM tests
+   in `test/features/feelings/`.
+5. **The Journal's section.** *Done.* `FeelingsSection`: a check-in at any
+   time, the rows, your words, a day's check-ins, your own changed or
+   deleted (undone by keeping it again under its id). Out of Still to come.
+   While something has happened it stays, and a Rough check-in points to
+   `loss-support-services`.
+6. **The timeline's dot.** *Done.* `felt` on `MapWeek`, drawn by `WeekMap`.
+7. **Docs.** *Done.* `architecture.md` (How you're feeling, This week, the
+   Journal, Something has happened), `intent.md`.
 
 ## To settle while building
 
@@ -148,4 +154,5 @@ committed on its own if Jason asks.
 
 ## Progress
 
-- 2026-10-30: plan written. Next: step 1.
+- 2026-10-30: plan written, and built, steps 1–7. Left: Jason to judge the
+  fortnight's numbers and the word list on a phone.
