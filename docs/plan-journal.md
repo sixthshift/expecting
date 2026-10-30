@@ -167,6 +167,34 @@ no recaps, no "weeks ago", no suggested firsts, no scrubber, no bump frame,
 no Firsts lens. The Keep row offers what the "+" does then: a note, a paper,
 a feeling. Papers after a loss as before.
 
+## The second pass: full on day one
+
+Looked at by Jason on 2026-10-31: an early or sparse Journal was too bare,
+with nothing enticing you to use it, and the story read like a list of
+database rows. So the Journal is full before anything is kept, from what
+Expecting already knows, and what you keep is written into it:
+
+- **This week's page, first** (`WeekPage`): the week large, its note's
+  title, the baby this week (the first sentence of its note's "The baby",
+  `babyLead`), its size when the note gives one; then what's kept this week.
+- **Around now** (`aroundNow`): each first has the weeks it usually comes in
+  (`FirstDef.weeks`, a first guess); those that take this week in, not yet
+  marked or put aside, are invitations with their question: Write it (your
+  words, kept today or the day you say) or Not yet (put off on this phone
+  for the week). One suggested from what's kept is asked on Now instead.
+- **Still to come in your story** (`stillToCome`): the next three firsts and
+  their weeks.
+- **A diary, not rows** (`Story.tsx`): the day in the margin, the words
+  running as writing, photos large, a craving a chip ("Pickles, twice": a
+  day's same craving is one line), sickness one line a day; no card and no
+  buttons on a line: tap it, and it's changed or deleted in a sheet.
+- **The weeks are the spine** (`storySpine`): every week back to the first,
+  each with its note's title, one with nothing kept a faint line, never a
+  blank slot. A search shows only the weeks it finds.
+- While something has happened: no week counted, nothing about the baby (no
+  page, no titles, no around now, nothing to come), only the weeks with
+  something in them. The invitation line is gone: the page itself invites.
+
 ## Steps
 
 Each ends with the gate green.

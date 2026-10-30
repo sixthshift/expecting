@@ -292,7 +292,9 @@ export function patternsKept({
 }): Pattern[] {
   const from = addDays(today, 1 - PATTERN_DAYS);
   const movedDays = new Set(journal.filter((e) => e.kind === "movement" && e.day >= from && e.day <= today).map((e) => e.day));
-  const sickWeeks = sicknessWeeks(appetite, today, dueDate).filter((w) => w.sickDays > 0).length;
+  // Sickness is a pattern only while it's still going: some in the last fortnight, and in two weeks.
+  const sickLately = appetite.some((e) => e.kind === "sick" && e.day >= from && e.day <= today);
+  const sickWeeks = sickLately ? sicknessWeeks(appetite, today, dueDate).filter((w) => w.sickDays > 0).length : 0;
   const craved = tally(appetite, "craving")[0]?.times ?? 0;
   const checkIns = me ? feelingsOf(feelings, me).filter((f) => f.day >= addDays(today, 1 - FEELING_DAYS)).length : 0;
   const all: [Pattern, boolean][] = [
@@ -303,14 +305,6 @@ export function patternsKept({
     ["bump", !quiet && bumpWeeks(photos, dueDate).length >= PATTERN_MIN.bumpWeeks],
   ];
   return all.filter(([, ok]) => ok).map(([p]) => p);
-}
-
-/** While this little is kept (not counting what was done), the Journal says once what can be kept. */
-export const INVITE_BELOW = 3;
-
-/** Whether to say what can be kept: little kept yet, and not while something has happened. */
-export function invites(items: readonly StoryItem[], quiet: boolean): boolean {
-  return !quiet && items.filter((i) => i.kind !== "done").length < INVITE_BELOW;
 }
 
 /** "a scan, 2 notes and movements": what a few lines hold, a phrase each kind. Movements are never counted. */
@@ -377,4 +371,32 @@ export function cravingThread(entries: readonly AppetiteEntry[], id: string): { 
     .sort()
     .at(-1);
   return { what: entry.what, times: same.length, first: days[0] as ISODate, before: (before as ISODate | undefined) ?? null };
+}
+
+/** A week with nothing kept, on the story's spine: its number, and its note's title. */
+export type QuietWeek = { kind: "quiet"; key: string; week: Week };
+
+/**
+ * The story as a spine of weeks: every week from the latest (at least
+ * `now`) back to the first, each with what's kept in it, or quiet: the
+ * pregnancy's own weeks, never a blank slot. `except` is left out (this
+ * week, drawn as its own page). After week 42 first, before the pregnancy
+ * last. Without a due date, the months as kept.
+ */
+export function storySpine(items: readonly StoryItem[], dueDate: ISODate | null, now: Week | null, except: Week | null = null): (StoryGroup | QuietWeek)[] {
+  const groups = storyGroups(items, dueDate).filter((g): g is StoryGroup => g.kind === "group");
+  if (!dueDate) return groups;
+  const byWeek = new Map(groups.flatMap((g) => (typeof g.place === "number" ? [[g.place, g] as const] : [])));
+  const last = Math.max(now ?? 0, ...byWeek.keys());
+  const out: (StoryGroup | QuietWeek)[] = groups.filter((g) => g.place === "after");
+  for (let week = last; week >= 1; week--) {
+    if (week === except) continue;
+    out.push(byWeek.get(week) ?? { kind: "quiet", key: `quiet-${week}`, week });
+  }
+  return [...out, ...groups.filter((g) => g.place === "before")];
+}
+
+/** The lines of one week. */
+export function inWeek(items: readonly StoryItem[], week: Week, dueDate: ISODate | null): StoryItem[] {
+  return dueDate ? items.filter((i) => placeOf(i.day, dueDate) === week) : [];
 }

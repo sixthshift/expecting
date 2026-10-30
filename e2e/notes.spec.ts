@@ -8,21 +8,28 @@ test("a note is kept, changed, deleted and put back, and shows on its week", asy
   await page.getByRole("list", { name: "Keep" }).getByRole("button", { name: "Note" }).click();
   await page.getByRole("dialog").getByRole("textbox", { name: "New note" }).fill("Felt the first flutter on the bus");
   await page.getByRole("dialog").getByRole("button", { name: "Keep it" }).click();
-  // In the story, on its day.
-  const story = page.getByRole("list", { name: "The story" });
-  await expect(story.getByText("Felt the first flutter on the bus")).toBeVisible();
-  await expect(story.getByText(/^You · Today, /)).toBeVisible();
+  // On this week's page, on its day, written like a diary: no buttons on the line.
+  const week = page.getByRole("region", { name: "This week" });
+  await expect(week.getByText("Felt the first flutter on the bus")).toBeVisible();
+  await expect(week.getByRole("button", { name: "Change this note" })).toBeHidden();
 
-  await story.getByRole("button", { name: "Change this note" }).first().click();
-  await story.getByRole("textbox", { name: "Note", exact: true }).fill("Felt the first flutter on the tram");
-  await story.getByRole("button", { name: "Save", exact: true }).click();
-  await expect(story.getByText("Felt the first flutter on the tram")).toBeVisible();
-  await expect(story.getByText(/· changed$/)).toBeVisible();
+  // Opened, it's changed or deleted in a sheet.
+  await week.getByRole("button", { name: "Open: Felt the first flutter on the bus" }).click();
+  const sheet = page.getByRole("dialog", { name: "A note" });
+  await expect(sheet.getByText(/^You · Today, /)).toBeVisible();
+  await sheet.getByRole("button", { name: "Change this note" }).click();
+  await sheet.getByRole("textbox", { name: "Note", exact: true }).fill("Felt the first flutter on the tram");
+  await sheet.getByRole("button", { name: "Save", exact: true }).click();
+  await expect(sheet.getByText(/· changed$/)).toBeVisible();
+  await sheet.getByRole("button", { name: "Close" }).click();
+  await expect(week.getByText("Felt the first flutter on the tram")).toBeVisible();
 
-  await story.getByRole("button", { name: "Delete this note" }).first().click();
-  await expect(story.getByText("Felt the first flutter on the tram")).toBeHidden();
+  await week.getByRole("button", { name: "Open: Felt the first flutter on the tram" }).click();
+  await page.getByRole("dialog", { name: "A note" }).getByRole("button", { name: "Delete this note" }).click();
+  await expect(page.getByRole("dialog", { name: "A note" })).toBeHidden();
+  await expect(week.getByText("Felt the first flutter on the tram")).toBeHidden();
   await page.getByRole("button", { name: "Undo" }).click();
-  await expect(story.getByText("Felt the first flutter on the tram")).toBeVisible();
+  await expect(week.getByText("Felt the first flutter on the tram")).toBeVisible();
 
   await open("/timeline");
   await expect(page.locator("[data-week]").filter({ hasText: /\d+ notes?/ })).toHaveCount(1);

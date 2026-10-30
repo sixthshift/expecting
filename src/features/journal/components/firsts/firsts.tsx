@@ -72,7 +72,7 @@ export function FirstWords({ mark, onDone }: { mark: FirstMark & { day: string }
 }
 
 /** A day, today at the latest. */
-function DayField({ value, onChange }: { value: ISODate; onChange: (day: ISODate) => void }) {
+export function DayField({ value, onChange }: { value: ISODate; onChange: (day: ISODate) => void }) {
   const today = todayISO();
   return (
     <FormField label="When">

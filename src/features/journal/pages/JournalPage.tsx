@@ -1,5 +1,4 @@
 import { Button } from "@sixthshift/design-system/button";
-import { Card } from "@sixthshift/design-system/card";
 import { Modal } from "@sixthshift/design-system/modal";
 import { SearchInput } from "@sixthshift/design-system/search-input";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
@@ -17,13 +16,13 @@ import { useNow, usePosition, useSettings } from "../../../api/rpc/settings";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { useSave } from "../../../app/hooks/useSave";
 import { todayISO } from "../../../lib/dates";
-import { suggestFirsts } from "../../../lib/firsts";
+import { aroundNow, stillToCome, suggestFirsts } from "../../../lib/firsts";
 import { nowCards, type RecapSpan, recapsSoFar } from "../../../lib/journalNow";
 import { kindsOffered } from "../../../lib/photos";
 import { hasRecap } from "../../../lib/recap";
 import {
   foldedWhileQuiet,
-  invites,
+  inWeek,
   LENS_LABEL,
   type Lens,
   landmarks,
@@ -32,6 +31,7 @@ import {
   type StoryItem,
   storyGroups,
   storyMatches,
+  storySpine,
   weekTiles,
 } from "../../../lib/story";
 import type { Week } from "../../../lib/timeline";
@@ -48,6 +48,7 @@ import { PhotosLens } from "../components/photos/photos";
 import { RecapViewer, useRecap } from "../components/recap/Recap";
 import { StoryList } from "../components/story/Story";
 import { PregnancyZoom, WeeksZoom } from "../components/story/Zoom";
+import { StillToCome, WeekPage } from "../components/week/WeekPage";
 import { useOnThisPhone } from "../hooks/useOnThisPhone";
 import { useStory } from "../hooks/useStory";
 
@@ -174,7 +175,6 @@ export function JournalPage() {
   const [lastSeen] = useState(seen);
   const [words, setWords] = useState("");
   const [opened, setOpened] = useOnThisPhone("expecting:recaps-opened");
-  const [putAway, putItAway] = useOnThisPhone("expecting:journal-put-away");
   const today = todayISO();
   const isQuiet = Boolean(quiet);
   const { dueDate } = settings;
@@ -212,25 +212,28 @@ export function JournalPage() {
   const name = (id: string | null) => (id === null ? null : (people.people.find((p) => p.id === id)?.name ?? null));
   const found = shown.filter((i) => storyMatches(i, words, name));
   const openWeek = (week: Week) => navigate({ search: { at: week } });
+  const knowing = settings.baby !== "unknown";
+  // A first suggested from what's kept is asked on Now, with its day; around now asks the rest.
+  const suggested = new Set(cards.flatMap((c) => (c.kind === "first" ? [c.suggestion.key] : [])));
+  const around = aroundNow({ now, marks: firsts, knowing, quiet: isQuiet }).filter((f) => !suggested.has(f.key));
+  const toCome = stillToCome({ now, marks: firsts, knowing, quiet: isQuiet });
+  const searching = words.trim().length > 0;
+  const thisWeek = now !== null && dueDate && lens === "all" && !zoom && !isQuiet ? storyGroups(inWeek(shown, now, dueDate), dueDate) : [];
+  const thisWeekDays = thisWeek.flatMap((g) => (g.kind === "group" ? g.days : []));
 
   return (
     <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
-      <PillarHeader title="Journal" lead="What happens, kept, and given back: each thing on its day, so by the birth it's the story of the pregnancy." />
-      <div className="flex flex-col gap-6 lg:grid lg:grid-cols-[minmax(0,1fr)_20rem] lg:grid-rows-[auto_1fr] lg:gap-x-10">
-        <div className="flex min-w-0 flex-col gap-4 lg:col-start-1 lg:row-start-1">
-          <KeepRow />
+      <PillarHeader title="Journal" />
+      <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1fr)_20rem] lg:grid-rows-[auto_1fr] lg:gap-x-10">
+        <div className="flex min-w-0 flex-col gap-6 lg:col-start-1 lg:row-start-1">
           <Calls />
-          {invites(shown, isQuiet) && !putAway.includes("invite") ? (
-            <Card size="sm" className="flex flex-col gap-2">
-              <p className="text-fg-normal">
-                What you keep lands here on its day: a note, a photo, a kick, a craving, a paper. Tap one above, or the + anywhere. What you tick off in the
-                Planner is here too.
-              </p>
-              <Button variant="ghost" size="sm" className="self-start" onClick={() => putItAway("invite")}>
-                Got it
-              </Button>
-            </Card>
-          ) : null}
+          {/* While something has happened, no week counted and nothing about the baby: the story, as kept. */}
+          {now !== null && dueDate && !isQuiet ? (
+            <WeekPage week={now} quiet={isQuiet} around={around} days={searching ? [] : thisWeekDays} keep={<KeepRow />} />
+          ) : (
+            <KeepRow />
+          )}
+          <StillToCome firsts={toCome} />
         </div>
 
         <aside
@@ -242,6 +245,7 @@ export function JournalPage() {
         </aside>
 
         <div className="flex min-w-0 flex-col gap-4 lg:col-start-1 lg:row-start-2">
+          <h2 className="font-display text-xl font-semibold text-fg-strong">The story so far</h2>
           {lenses.length > 1 ? (
             <ToggleGroup
               type="single"
@@ -260,22 +264,30 @@ export function JournalPage() {
             <LensView lens={lens} items={shown} />
           ) : (
             <section aria-label="The story" className="flex max-w-2xl flex-col gap-4">
-              {dueDate && shown.length > 0 ? (
-                <ToggleGroup
-                  type="single"
-                  appearance="separate"
-                  variant="ghost"
-                  size="sm"
-                  aria-label="Zoom"
-                  value={zoom ?? "days"}
-                  onValueChange={(value) => navigate({ search: { zoom: value === "weeks" || value === "pregnancy" ? value : undefined } })}
-                  options={[
-                    { value: "days", label: "Days" },
-                    { value: "weeks", label: "Weeks" },
-                    { value: "pregnancy", label: "Pregnancy" },
-                  ]}
-                />
-              ) : null}
+              <div className="flex flex-wrap items-center gap-3">
+                {dueDate ? (
+                  <ToggleGroup
+                    type="single"
+                    appearance="separate"
+                    variant="ghost"
+                    size="sm"
+                    aria-label="Zoom"
+                    value={zoom ?? "days"}
+                    onValueChange={(value) => navigate({ search: { zoom: value === "weeks" || value === "pregnancy" ? value : undefined } })}
+                    options={[
+                      { value: "days", label: "Days" },
+                      { value: "weeks", label: "Weeks" },
+                      { value: "pregnancy", label: "Pregnancy" },
+                    ]}
+                  />
+                ) : null}
+                {!zoom && shown.length > 1 ? (
+                  <div className="min-w-48 flex-1">
+                    {/* Words held on the page, not in the address: what you look for is yours. */}
+                    <SearchInput value={words} onValueChange={setWords} placeholder="Look through what's kept" aria-label="Search the Journal" />
+                  </div>
+                ) : null}
+              </div>
               {zoom === "weeks" && dueDate ? (
                 <WeeksZoom tiles={weekTiles(shown, dueDate, now)} now={now} onOpen={openWeek} />
               ) : zoom === "pregnancy" && dueDate ? (
@@ -292,15 +304,14 @@ export function JournalPage() {
                     </div>
                   )}
                 </>
-              ) : (
+              ) : searching ? (
                 <>
-                  {shown.length > 1 ? (
-                    // Words held on the page, not in the address: what you look for is yours.
-                    <SearchInput value={words} onValueChange={setWords} placeholder="Look through what's kept" aria-label="Search the Journal" />
-                  ) : null}
-                  {shown.length > 0 && found.length === 0 ? <p className="text-fg-subtle">Nothing kept has those words.</p> : null}
+                  {found.length === 0 ? <p className="text-fg-subtle">Nothing kept has those words.</p> : null}
                   <StoryList groups={storyGroups(found, dueDate)} />
                 </>
+              ) : (
+                // While something has happened, only the weeks with something in them: a quiet week's title is about the baby.
+                <StoryList groups={isQuiet ? storyGroups(shown, dueDate) : storySpine(shown, dueDate, now, now)} />
               )}
             </section>
           )}

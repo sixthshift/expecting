@@ -52,9 +52,12 @@ test("hard news quiets every pillar, and becomes a loss", async ({ page, open })
   // photos.spec.ts kept some) are folded behind one quiet line, not shown on every visit, with no lens
   // of their own, nothing new offered, and nothing shown first.
   await open("/journal");
-  const story = page.getByRole("list", { name: "The story" });
-  await expect(story.getByText("Felt moving")).toHaveCount(0);
-  await expect(story.getByText("Craving: Pickles")).toHaveCount(0);
+  await expect(page.getByText("Felt moving")).toHaveCount(0);
+  await expect(page.getByText("Pickles")).toHaveCount(0);
+  // No week counted, nothing about the baby, and no firsts to write.
+  await expect(page.getByRole("region", { name: "This week" })).toBeHidden();
+  await expect(page.getByRole("region", { name: "Around now" })).toBeHidden();
+  await expect(page.getByRole("region", { name: "Still to come in your story" })).toBeHidden();
   await expect(page.getByRole("radio", { name: "Movements" })).toBeHidden();
   await expect(page.getByRole("list", { name: "Keep" }).getByRole("button", { name: "Moved" })).toBeHidden();
   await expect(page.getByRole("list", { name: "Keep" }).getByRole("button", { name: "Note" })).toBeVisible();
@@ -63,7 +66,7 @@ test("hard news quiets every pillar, and becomes a loss", async ({ page, open })
   await page.getByRole("button", { name: "What you kept before" }).click();
   const kept = page.getByRole("region", { name: "What you kept before" });
   await expect(kept.getByText("Felt moving").first()).toBeVisible();
-  await expect(kept.getByText("Craving: Pickles").first()).toBeVisible();
+  await expect(kept.getByText("Pickles").first()).toBeVisible();
   await expect(kept.getByRole("img", { name: /^Bump photo, week 28/ })).toBeVisible();
   // Plain: no bump week by week, no frame for this week.
   await expect(page.getByRole("region", { name: "Your bump, week by week" })).toBeHidden();

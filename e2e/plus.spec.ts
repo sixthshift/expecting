@@ -76,7 +76,7 @@ test("a note, a feeling, a question and a task each go to their pillar", async (
   await expect(page).toHaveURL(/\/library$/);
 
   await open("/journal");
-  await expect(page.getByRole("list", { name: "The story" }).getByText("Bought the cot")).toBeVisible();
+  await expect(page.getByRole("region", { name: "This week" }).getByText("Bought the cot")).toBeVisible();
   await open("/planner");
   await expect(page.getByText("Do we need a car seat fitted?")).toBeVisible();
   await expect(page.getByText("Pack the hospital bag")).toBeVisible();

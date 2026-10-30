@@ -1,16 +1,5 @@
 import { describe, expect, test } from "vitest";
-import {
-  foldedWhileQuiet,
-  invites,
-  landmarks,
-  lensesKept,
-  patternsKept,
-  storyGroups,
-  storyItems,
-  storyMatches,
-  trimesterOf,
-  weekTiles,
-} from "../../src/lib/story";
+import { foldedWhileQuiet, landmarks, lensesKept, patternsKept, storyGroups, storyItems, storyMatches, trimesterOf, weekTiles } from "../../src/lib/story";
 import { appetite, DUE, entry, feeling, first, paper, photo, sources } from "./storyFixtures";
 
 describe("the story", () => {
@@ -115,29 +104,14 @@ describe("the patterns: only with enough to be one", () => {
   test("a craving kept twice, sickness in two weeks, three check-ins of yours, the bump in two weeks", () => {
     expect(patternsKept({ ...base, appetite: [appetite("craving", "2026-10-30"), appetite("craving", "2026-10-01")] })).toEqual(["cravings"]);
     expect(patternsKept({ ...base, appetite: [appetite("sick", "2026-10-30"), appetite("sick", "2026-10-20")] })).toEqual(["sickness"]);
+    // Long over, it's lines in the story, not a pattern.
+    expect(patternsKept({ ...base, appetite: [appetite("sick", "2026-08-30"), appetite("sick", "2026-08-20")] })).toEqual([]);
     const feelings = [feeling("sam", "2026-10-30"), feeling("sam", "2026-10-29"), feeling("alex", "2026-10-28")];
     expect(patternsKept({ ...base, feelings })).toEqual([]);
     expect(patternsKept({ ...base, feelings: [...feelings, feeling("sam", "2026-10-10")] })).toEqual(["feelings"]);
     expect(patternsKept({ ...base, photos: [photo("bump", "2026-10-30"), photo("bump", "2026-10-20")] })).toEqual(["bump"]);
     expect(patternsKept({ ...base, photos: [photo("bump", "2026-10-30"), photo("bump", "2026-10-20")], quiet: true })).toEqual([]);
   });
-});
-
-test("says what can be kept while little is, never counting what was done, and not while something has happened", () => {
-  const done = storyItems(
-    sources({
-      ticks: { a: "2026-10-01T00:00:00Z", b: "2026-10-02T00:00:00Z", c: "2026-10-03T00:00:00Z" },
-      titles: new Map([
-        ["a", "A"],
-        ["b", "B"],
-        ["c", "C"],
-      ]),
-    })
-  );
-  expect(invites(done, false)).toBe(true);
-  expect(invites(done, true)).toBe(false);
-  const kept = storyItems(sources({ journal: [entry("note", "2026-10-01"), entry("note", "2026-10-02"), entry("note", "2026-10-03")] }));
-  expect(invites(kept, false)).toBe(false);
 });
 
 test("a few lines said in a phrase, movements never counted", async () => {
@@ -157,4 +131,15 @@ test("a few lines said in a phrase, movements never counted", async () => {
   ];
   expect(cravingThread(cravings, cravings[1]!.id)).toEqual({ what: " pickles ", times: 2, first: "2026-09-01", before: "2026-09-01" });
   expect(cravingThread(cravings, cravings[2]!.id)?.before).toBeNull();
+});
+
+test("the spine: every week back to the first, each kept or quiet, this week left out", async () => {
+  const { storySpine } = await import("../../src/lib/story");
+  const items = storyItems(sources({ journal: [entry("note", "2026-10-28"), entry("note", "2026-10-20")] }));
+  const spine = storySpine(items, DUE, 28, 28);
+  expect(spine).toHaveLength(27);
+  expect(spine[0]).toMatchObject({ kind: "group", place: 27 });
+  expect(spine[1]).toEqual({ kind: "quiet", key: "quiet-26", week: 26 });
+  expect(spine.at(-1)).toMatchObject({ kind: "quiet", week: 1 });
+  expect(storySpine(items, null, null).map((g) => g.kind)).toEqual(["group"]);
 });

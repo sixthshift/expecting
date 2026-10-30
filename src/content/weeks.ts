@@ -143,6 +143,18 @@ export function sizeLabel(size: NonNullable<WeekNote["size"]>): string {
   return size.like ? `${measures}: about the size of ${size.like}` : measures;
 }
 
+/** The first sentence of the baby's part, as plain text: what this week's page opens with. */
+export function babyLead(note: WeekNote): string {
+  const paragraph = [...note.sections.baby.walk()].find((n) => n.type === "paragraph");
+  const text = paragraph
+    ? [...paragraph.walk()]
+        .filter((n) => n.type === "text")
+        .map((n) => String(n.attributes.content))
+        .join("")
+    : "";
+  return text.match(/^.+?[.!?](?=\s|$)/)?.[0] ?? text;
+}
+
 /** The note in force in `week`: its own, or else the latest before it, until the next is written. */
 export function noteFor(notes: readonly WeekNote[], week: Week): WeekNote | null {
   return notes.reduce<WeekNote | null>((found, note) => (note.week <= week && (!found || note.week > found.week) ? note : found), null);

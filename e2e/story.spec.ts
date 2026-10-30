@@ -21,8 +21,8 @@ test("kept from the Keep row, it's shown as just kept, and the page stays the Jo
   await expect(now.getByText("Painted the nursery yellow")).toBeVisible();
   await now.getByRole("button", { name: "Put this away" }).click();
   await expect(now.getByText("Just kept")).toBeHidden();
-  // And in the story, under this week.
-  await expect(page.getByRole("region", { name: "Week 28" }).getByText("Painted the nursery yellow")).toBeVisible();
+  // And on this week's page.
+  await expect(page.getByRole("region", { name: "This week" }).getByText("Painted the nursery yellow")).toBeVisible();
 });
 
 test("a lens for each kind kept, its pattern at full size, in the address", async ({ page, open }) => {
@@ -60,6 +60,24 @@ test("a first, marked and answered in your own words, then in its lens and on th
   await expect(page.getByRole("list", { name: "Your firsts" }).getByText("Bought the first outfit")).toBeVisible();
 });
 
+test("this week's page, before anything else: the week, around now's firsts to write, and what's still to come", async ({ page, open }) => {
+  await open("/journal");
+  const week = page.getByRole("region", { name: "This week" });
+  await expect(week.getByRole("heading", { name: /^Week 28/ })).toBeVisible();
+  const around = page.getByRole("region", { name: "Around now" });
+  await expect(around.getByText("The cot is up")).toBeVisible();
+  await expect(around.getByText("Where is it, and who put it together?")).toBeVisible();
+  await expect(page.getByRole("region", { name: "Still to come in your story" }).getByText("The bag is packed")).toBeVisible();
+
+  const cot = around.getByRole("listitem").filter({ hasText: "The cot is up" });
+  await cot.getByRole("button", { name: "Write it" }).click();
+  await cot.getByRole("textbox", { name: /Your words/ }).fill("In our room, and it took both of us an hour");
+  await cot.getByRole("button", { name: "Keep it" }).click();
+  // Kept: no longer asked, and on this week's page in your words.
+  await expect(around.getByText("The cot is up")).toBeHidden();
+  await expect(week.getByRole("button", { name: "Open: The cot is up" })).toContainText("In our room, and it took both of us an hour");
+});
+
 test("a first suggested from what's kept is only a question, and put aside isn't asked again", async ({ page, open }) => {
   await open("/journal");
   // The cravings kept earlier suggest the first craving, first: suggestions come in the order firsts do.
@@ -81,7 +99,7 @@ test("a letter to the baby, said so in the story", async ({ page, open }) => {
   await sheet.getByRole("checkbox", { name: "A letter to the baby" }).click();
   await sheet.getByRole("textbox", { name: "New note" }).fill("Dear little one, we can't wait");
   await sheet.getByRole("button", { name: "Keep it" }).click();
-  const week = page.getByRole("region", { name: "Week 28" });
+  const week = page.getByRole("region", { name: "This week" });
   await expect(week.getByText("Dear little one, we can't wait")).toBeVisible();
   await expect(week.getByText("A letter to the baby").first()).toBeVisible();
 });
@@ -117,11 +135,11 @@ test("zoomed out to the weeks, a week opens the story at it; the search finds an
   await expect(third.getByRole("button", { name: /^Week 27, nothing kept$/ })).toHaveCount(0);
   await third.getByRole("button", { name: /^Week 28:/ }).click();
   await expect(page).toHaveURL(/at=28/);
-  await expect(page.getByRole("region", { name: "Week 28" })).toBeVisible();
+  await expect(page.getByRole("region", { name: "This week" })).toBeVisible();
 
   await page.getByRole("textbox", { name: "Search the Journal" }).fill("pickles");
   const story = page.getByRole("list", { name: "The story" });
-  await expect(story.getByText("Craving: Pickles").first()).toBeVisible();
+  await expect(story.getByText("Pickles", { exact: true }).first()).toBeVisible();
   await expect(story.getByText("Painted the nursery yellow")).toBeHidden();
 });
 

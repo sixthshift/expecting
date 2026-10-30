@@ -84,9 +84,7 @@ test("a PDF letter from the Journal's Keep row, opened behind the gate", async (
   await expect(form).toBeHidden();
 
   // Just kept, and in its lens.
-  await expect(page.getByRole("region", { name: "Now" }).getByRole("button", { name: /^Referral to the hospital/ })).toContainText(
-    "Letter or referral · Dated today"
-  );
+  await expect(page.getByRole("region", { name: "Now" }).getByRole("button", { name: "Open: Referral to the hospital" })).toContainText("Letter or referral");
   await open("/journal?show=papers");
   await page
     .getByRole("region", { name: "Results and papers" })

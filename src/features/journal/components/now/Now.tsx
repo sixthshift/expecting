@@ -89,7 +89,7 @@ function Kept({ item }: { item: StoryItem }) {
 /** What the other one kept since you last looked: who, a phrase for it, and the lines when asked. */
 function Since({ card }: { card: Extract<NowCard, { kind: "since" }> }) {
   const [open, setOpen] = useState(false);
-  const names = card.people.map((p) => p.name).join(" and ");
+  const names = card.people.map((p) => p.name).join(" and ") || "One of you";
   return (
     <Card size="sm" className="flex flex-col gap-2">
       <p className="text-sm font-semibold text-fg-strong">Since you looked</p>
