@@ -1,4 +1,4 @@
-// The household's notes for each release, and which of them a phone has yet to see.
+// The notes for each release, and which of them a phone has yet to see.
 import { describe, expect, test } from "vitest";
 import { compareVersions, parseReleases, releases, releasesSince } from "../../src/content/releases";
 

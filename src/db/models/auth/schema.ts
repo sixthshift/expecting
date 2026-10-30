@@ -12,7 +12,7 @@ export const session = sqliteTable("session", {
 });
 
 /**
- * The household password, as its argon2id hash. One row, `id` always 1,
+ * The password, as its argon2id hash. One row, `id` always 1,
  * written once: by whoever visits first (`choosePassword`).
  */
 export const password = sqliteTable(

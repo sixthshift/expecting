@@ -23,7 +23,7 @@ describe("src/features/settings/model/facts.data.ts", () => {
     ["an id content can't name", [{ ...q, id: "first-baby" }], /camelCase/],
     ["a week past the pregnancy", [{ ...q, week: 43 }], /42/],
     ["a date with answers", [{ ...q, type: "date" }], /no answers/],
-    ["one about each that names nobody", [{ ...q, ask: "Do you work?", about: "each" }], /\{name\}/],
+    ["one about each that names nobody", [{ ...q, ask: "Do you work?", each: true }], /\{name\}/],
     ["no group", [{ ...q, group: undefined }], /group/],
     ["a group settings doesn't have", [{ ...q, group: "misc" }], /group/],
     ["a when on nothing", [{ ...q, when: { b: "x" } }], /"b" is not a question/],
@@ -39,8 +39,8 @@ describe("checkWhen", () => {
     expect(checkWhen({ "work.baby": ["employee"] })[0]).toMatch(/say whose/);
   });
 
-  test("the household's has no whose, a date is not a choice, and answers are its own", () => {
-    expect(checkWhen({ "cover.partner": ["yes"] })[0]).toMatch(/household's/);
+  test("one asked once has no whose, a date is not a choice, and answers are its own", () => {
+    expect(checkWhen({ "cover.partner": ["yes"] })[0]).toMatch(/asked once/);
     expect(checkWhen({ "leaveStart.partner": ["2027-01-04"] })[0]).toMatch(/date/);
     expect(checkWhen({ cover: ["maybe"] })[0]).toMatch(/not an answer/);
     expect(checkWhen({ cover: ["no", "unsure"] })[0]).toMatch(/hides nothing/);

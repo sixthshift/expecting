@@ -1,10 +1,10 @@
 // The questions Expecting asks, from facts.data.ts, and the rules for
-// what the household's answers, its facts, do to an item. Pure, and bundled
-// into the client like the items.
+// what your answers, the facts, do to an item. Pure, and bundled into the
+// client like the items.
 //
-// A question is about the household (`cover`) or about each of you (`work`),
-// so a fact's key is the question's id, or the id and whose it is:
-// `work.carrying`, `work.partner`.
+// A question is asked once (`cover`), or of each of you (`work`), so a fact's
+// key is the question's id, or the id and whose it is: `work.carrying`,
+// `work.partner`.
 
 import { z } from "zod";
 import { isISODate } from "../../../lib/dates";
@@ -48,8 +48,8 @@ const questionSchema = z
     week: z.number().int().min(WEEKS.first).max(WEEKS.last).optional(),
     /** A choice of `answers`, or a date. */
     type: z.enum(["choice", "date"]).default("choice"),
-    /** The household's, or asked of each of you. */
-    about: z.enum(["household", "each"]).default("household"),
+    /** Asked of each of you, not once. */
+    each: z.boolean().default(false),
     /** Asked only when the answers so far fit, as an item's `when`. In a question about each of you, `work` is the same person's. */
     when: whenSchema.default({}),
     answers: z.record(slug, z.string().min(1)).default({}),
@@ -59,8 +59,7 @@ const questionSchema = z
     const n = Object.keys(q.answers).length;
     if (q.type === "choice" && n < 2) ctx.addIssue({ code: "custom", path: ["answers"], message: "a question needs at least two answers" });
     if (q.type === "date" && n > 0) ctx.addIssue({ code: "custom", path: ["answers"], message: "a date question has no answers to choose from" });
-    if (q.about === "each" && !q.ask.includes("{name}"))
-      ctx.addIssue({ code: "custom", path: ["ask"], message: "a question about each of you says whose with {name}" });
+    if (q.each && !q.ask.includes("{name}")) ctx.addIssue({ code: "custom", path: ["ask"], message: "a question about each of you says whose with {name}" });
   });
 
 export type FactQuestion = z.output<typeof questionSchema>;
@@ -73,7 +72,7 @@ export type QuestionInput = {
   readonly asked?: "onboarding";
   readonly week?: number;
   readonly type?: "choice" | "date";
-  readonly about?: "household" | "each";
+  readonly each?: boolean;
   readonly when?: WhenInput;
   readonly answers?: Readonly<Record<string, string>>;
 };
@@ -81,10 +80,10 @@ export type QuestionInput = {
 /** A question's id, as facts.data.ts has it. */
 export type QuestionId = (typeof QUESTION_LIST)[number]["id"];
 
-/** Whose a fact is: the household's, or one of you. */
-export type About = "household" | Role;
+/** Whose a fact is: one of you, or null for one asked once. */
+export type About = Role | null;
 
-/** The household's facts: a key (`cover`, `work.partner`) to its answer, or a date as YYYY-MM-DD. A fact not in it is unknown. */
+/** The facts: a key (`cover`, `work.partner`) to its answer, or a date as YYYY-MM-DD. A fact not in it is unknown. */
 export type Facts = Record<string, string>;
 
 /** One question as asked of one subject: `work` of the partner is `work.partner`. */
@@ -96,7 +95,7 @@ const EACH: readonly Role[] = ["carrying", "partner"];
 export const UNSURE = "unsure";
 
 export function factKey(id: string, about: About): string {
-  return about === "household" ? id : `${id}.${about}`;
+  return about === null ? id : `${id}.${about}`;
 }
 
 /** The questions, checked. Throws on a bad question, a repeated id or a `when` that names nothing. */
@@ -108,7 +107,7 @@ export function parseFacts(list: readonly unknown[]): FactQuestion[] {
     byId.set(q.id, q);
   }
   for (const q of questions) {
-    const problems = checkWhen(q.when, (id) => byId.get(id), q.about === "each");
+    const problems = checkWhen(q.when, (id) => byId.get(id), q.each);
     if (problems.length > 0) throw new Error(`${q.id}: ${problems.join("; ")}`);
   }
   return questions;
@@ -124,9 +123,9 @@ export function question(id: string): FactQuestion | undefined {
   return byId.get(id);
 }
 
-/** Every question as asked: once for the household, or once for each of you, in the file's order. */
+/** Every question as asked: once, or once for each of you, in the file's order. */
 export const ASKS: readonly Ask[] = QUESTIONS.flatMap((q): Ask[] =>
-  q.about === "household" ? [{ key: q.id, question: q, about: "household" }] : EACH.map((r) => ({ key: factKey(q.id, r), question: q, about: r }))
+  q.each ? EACH.map((r) => ({ key: factKey(q.id, r), question: q, about: r })) : [{ key: q.id, question: q, about: null }]
 );
 
 const asks = new Map(ASKS.map((a) => [a.key, a]));
@@ -163,8 +162,8 @@ export function checkWhen(when: When, find: (id: string) => FactQuestion | undef
       continue;
     }
     if (q.type !== "choice") problems.push(`"${id}" is a date, not a choice`);
-    if (q.about === "household" && whose !== undefined) problems.push(`"${id}" is the household's, so it is "${id}", not "${key}"`);
-    if (q.about === "each" && (rest.length > 0 || (whose === undefined ? !sameOne : !EACH.includes(whose as Role)))) {
+    if (!q.each && whose !== undefined) problems.push(`"${id}" is asked once, so it is "${id}", not "${key}"`);
+    if (q.each && (rest.length > 0 || (whose === undefined ? !sameOne : !EACH.includes(whose as Role)))) {
       problems.push(`"${id}" is asked of each of you: say whose, as "${id}.carrying" or "${id}.partner"`);
     }
     for (const a of answers) {
@@ -176,13 +175,13 @@ export function checkWhen(when: When, find: (id: string) => FactQuestion | undef
 }
 
 /**
- * Whether something is for this household. Every condition must hold, and a
+ * Whether something is for you. Every condition must hold, and a
  * fact not yet known, or not sure, holds: tailoring only hides on a definite answer. `about`
  * is the person a question is asked of, for a bare `work` in its `when`.
  */
-export function applies(when: When, facts: Facts, about: About = "household"): boolean {
+export function applies(when: When, facts: Facts, about: About = null): boolean {
   return Object.entries(when).every(([key, answers]) => {
-    const value = facts[key] ?? (about === "household" ? undefined : facts[factKey(key, about)]);
+    const value = facts[key] ?? (about === null ? undefined : facts[factKey(key, about)]);
     return value === undefined || value === UNSURE || answers.includes(value);
   });
 }
@@ -200,6 +199,6 @@ export function variables(facts: Facts): Record<string, string | Record<string, 
 
 /** The question in words, for whoever it's about: "Does Sam work?", or "Does the partner work?" before Sam has joined. */
 export function askedOf(a: Ask, name: string | null): string {
-  if (a.about === "household") return a.question.ask;
+  if (a.about === null) return a.question.ask;
   return a.question.ask.replaceAll("{name}", name ?? (a.about === "carrying" ? "the pregnant parent" : "the partner"));
 }

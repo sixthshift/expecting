@@ -1038,7 +1038,7 @@
     - title: Pregnancy, Birth and Baby — Deciding to give a baby or child up for adoption
       url: https://www.pregnancybirthbaby.org.au/parenting-and-family/adoption-and-surrogacy/deciding-to-give-a-child-up-for-adoption
   related: [reproductive-coercion, something-has-happened, adoption-pointers]
-  notes: "Probably rare for this household (the app assumes a wanted pregnancy) but a complete reference has it. State abortion timing laws differ: say so, don't tabulate."
+  notes: "Probably rare here (the app assumes a wanted pregnancy) but a complete reference has it. State abortion timing laws differ: say so, don't tabulate."
 
 # ---------------------------------------------------------------------------
 # Loss and hard news
@@ -1604,7 +1604,7 @@
     - title: Gidget Foundation — A guide to coping with reminders of your pregnancy and/or child loss
       url: https://www.gidgetfoundation.org.au/fact-sheets/a-guide-to-coping-with-reminders-of-your-pregnancy-and-or-child-loss
   related: [after-a-miscarriage, stillbirth, something-has-happened, card-loss-certificate-exists]
-  notes: "The certificate names differ by state (Victoria's is 'Early Pregnancy Loss Commemorative Certificate', NSW 'Recognition of Early Pregnancy Loss'); the household's state fact can pick the right one."
+  notes: "The certificate names differ by state (Victoria's is 'Early Pregnancy Loss Commemorative Certificate', NSW 'Recognition of Early Pregnancy Loss'); the state fact can pick the right one."
 
 - id: loss-and-work
   title: Time off work after a loss
@@ -2024,7 +2024,7 @@
     - "only altruistic surrogacy is legal: paying a surrogate is illegal, though pregnancy costs can be reimbursed; each state has its own law, so get legal advice before starting (PBB)"
     - "counselling for everyone involved is required or strongly expected (PBB); the intended parents become legal parents through a parentage order after the birth"
     - "the relationship is the heart of it (Rainbow Families' process chart)"
-    - "the app's case: the household may be the intended parents, not the person carrying; the roles and the week notes need care"
+    - "the app's case: the two of you may be the intended parents, not the person carrying; the roles and the week notes need care"
   sources:
     - title: Pregnancy, Birth and Baby — Surrogacy
       url: https://www.pregnancybirthbaby.org.au/parenting-and-family/adoption-and-surrogacy/surrogacy

@@ -1,7 +1,7 @@
 import { sql } from "drizzle-orm";
 import { check, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
-/** Someone in the household. Who a device is lives in a cookie, not here. */
+/** One of you. Who a device is lives in a cookie, not here. */
 export const person = sqliteTable(
   "person",
   {

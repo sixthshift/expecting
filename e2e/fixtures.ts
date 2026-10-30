@@ -13,7 +13,7 @@ type Fixtures = {
   allowedErrors: RegExp[];
   /** Whether the page starts with a session. Default true. */
   loggedIn: boolean;
-  /** Who this phone says it is, chosen on the first-run screen once the household has them. Null to leave it unsaid. */
+  /** Who this phone says it is, chosen on the first-run screen once there are any. Null to leave it unsaid. */
   person: string | null;
   /** Go to `path` and resolve once the page has loaded and settled. */
   open: (path: string) => Promise<void>;

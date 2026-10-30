@@ -12,7 +12,7 @@ import { EXTRA_GROUPS, type ExtraGroup } from "../../model/extras";
 import { SettingList } from "../SettingRow";
 
 /**
- * Every extra in src/features/settings/model/extras.data.ts this household is offered (its `when`
+ * Every extra in src/features/settings/model/extras.data.ts you're offered (its `when`
  * fits, or it's on), with its switch: on, its items appear
  * wherever they belong; off, they're gone. Each says who last changed it.
  * `highlight` marks the one a link opened settings at.

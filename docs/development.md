@@ -20,7 +20,7 @@ The dev server runs on http://localhost:9966, bound to all interfaces so the dev
 
 The first start creates `./data/` and migrates `expecting.db`.
 
-The first visit to a new `./data` asks you to choose the household password, as the image does. Deleting `./data` starts again. `EXPECTING_LOGIN=off` in `.env` does without the password.
+The first visit to a new `./data` asks you to choose the password, as the image does. Deleting `./data` starts again. `EXPECTING_LOGIN=off` in `.env` does without the password.
 
 In VS Code, the `dev` task (`Cmd/Ctrl+Shift+B`) runs the same command in a dedicated panel.
 
@@ -75,4 +75,4 @@ cd docker && EXPECTING_IMAGE=expecting:local docker compose up -d
 
 Nobody edits the version by hand. Every push to `main` bumps `package.json` by what the commits since the last tag ask for (Conventional Commits: `feat:` minor, `!` or `BREAKING CHANGE:` major, anything else patch), then commits it back as `chore(release): vX.Y.Z [skip ci]` with a matching tag and GitHub release. `bun run version:next` is the same bump run locally.
 
-The same bump writes the household's notes for the release, `content/releases/<version>.md`: the `feat:` commits under New and the `fix:` and `perf:` ones under Fixed, each subject as it was written, so write those subjects for the household ("the names game", not "add NamesGame component"). A release with neither gets no file. The build bundles the file, the release commit carries it, and it can be edited by hand afterwards. After an update, each phone shows the notes for every release since the one it last saw, once (`src/app/components/WhatsNew.tsx`). It compares the version the bundle was built with to the one kept in its `localStorage` (`expecting-seen-version`). A phone with none kept starts at the version it is running and shows nothing.
+The same bump writes the release notes, `content/releases/<version>.md`: the `feat:` commits under New and the `fix:` and `perf:` ones under Fixed, each subject as it was written, so write those subjects for the two of you ("the names game", not "add NamesGame component"). A release with neither gets no file. The build bundles the file, the release commit carries it, and it can be edited by hand afterwards. After an update, each phone shows the notes for every release since the one it last saw, once (`src/app/components/WhatsNew.tsx`). It compares the version the bundle was built with to the one kept in its `localStorage` (`expecting-seen-version`). A phone with none kept starts at the version it is running and shows nothing.

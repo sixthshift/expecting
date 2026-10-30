@@ -5,7 +5,7 @@ import { onboardingSteps, stepAfter } from "../../src/lib/onboarding";
 // Before anything is said, every onboarding question, once for each of you where it's about each.
 const asked = ASKS.filter((a) => a.question.asked === "onboarding").map((a) => `q:${a.key}`);
 
-test("a new household on a new phone gets every step", () => {
+test("a first visit on a new phone gets every step", () => {
   expect(onboardingSteps({ known: false, onboarded: false })).toEqual(["who", "due", "baby", ...asked, "extras", "ready"]);
 });
 

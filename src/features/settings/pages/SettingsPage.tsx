@@ -138,7 +138,7 @@ export function SettingsPage() {
 
           {(Object.entries(GROUPS) as [Group, string][]).map(([group, title]) => {
             const inGroup = asks.filter((a) => a.question.group === group);
-            const household = inGroup.filter((a) => a.about === "household");
+            const once = inGroup.filter((a) => a.about === null);
             const each = (["carrying", "partner"] as Role[])
               .map((role) => ({ role, asks: inGroup.filter((a) => a.about === role) }))
               .filter((e) => e.asks.length > 0);
@@ -186,15 +186,15 @@ export function SettingsPage() {
                       </div>
                       <ColourChoice value={baby} onChoose={(next) => save({ baby: next })} />
                     </div>
-                    {rows(household)}
+                    {rows(once)}
                   </SettingList>
-                ) : household.length > 0 ? (
-                  <SettingList>{rows(household)}</SettingList>
+                ) : once.length > 0 ? (
+                  <SettingList>{rows(once)}</SettingList>
                 ) : null}
                 {each.map((e) => (
                   <div key={e.role} className="flex flex-col gap-2">
-                    {household.length > 0 || each.length > 1 ? (
-                      <h3 className={cn("text-sm font-medium text-fg-normal", household.length > 0 && "mt-2")}>{nameOf(e.role, people)}</h3>
+                    {once.length > 0 || each.length > 1 ? (
+                      <h3 className={cn("text-sm font-medium text-fg-normal", once.length > 0 && "mt-2")}>{nameOf(e.role, people)}</h3>
                     ) : null}
                     <SettingList>{rows(e.asks)}</SettingList>
                   </div>

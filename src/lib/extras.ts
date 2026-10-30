@@ -1,4 +1,4 @@
-// What the household has chosen of the extras (src/features/settings/model/extras.data.ts): which are
+// What you've chosen of the extras (src/features/settings/model/extras.data.ts): which are
 // on, and which This week should offer. Pure, tested apart from the screen.
 
 import { EXTRAS, type Extra } from "../features/settings/model/extras";
@@ -18,7 +18,7 @@ export function inExtras(extra: string | null, on: ReadonlySet<string>): boolean
   return extra === null || on.has(extra);
 }
 
-/** The extras this household is offered: those whose `when` its answers fit, and any already on. */
+/** The extras you're offered: those whose `when` your answers fit, and any already on. */
 export function extrasFor(facts: Facts, on: ReadonlySet<string> = new Set()): Extra[] {
   return EXTRAS.filter((e) => on.has(e.id) || applies(e.when, facts));
 }

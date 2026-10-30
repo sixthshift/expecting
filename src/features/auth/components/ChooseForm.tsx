@@ -9,7 +9,7 @@ import { type Access, accessQuery, choosePassword, MIN_PASSWORD } from "../../..
 const route = getRouteApi("/login");
 
 /**
- * The household's first visit: the password, typed twice since a typo would
+ * The first visit: the password, typed twice since a typo would
  * lock you both out, sent to `choosePassword`, which logs this browser in.
  */
 export function ChooseForm() {

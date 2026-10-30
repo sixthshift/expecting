@@ -1,4 +1,4 @@
-// The household's first evening with the timeline: a due date, moving along
+// The first evening with the timeline: a due date, moving along
 // the ruler, a task of their own that stays ticked, a jump from a task to why
 // it matters, and a question for the midwife. Runs first, on the phone, against
 // the empty database the config makes.
@@ -17,7 +17,7 @@ test.describe.configure({ mode: "serial" });
 const week = (page: import("@playwright/test").Page, key: string) => page.locator(`[data-week="${key}"]`);
 
 test.describe("the first evening", () => {
-  // This phone is the household's first: nobody to choose yet.
+  // This phone is the first: nobody to choose yet.
   test.use({ person: null });
 
   test("onboarding asks who, then the due date, and opens at this week", async ({ page, open }) => {
@@ -78,11 +78,11 @@ test("the second phone is only asked who it is", async ({ page, open }) => {
   await expect(page.getByRole("heading", { name: "Who's this?" })).toBeVisible();
   await page.getByRole("button", { name: "Someone else" }).click();
   await page.getByLabel("Your name").fill("Sam");
-  // The household has a partner, so the second person is offered the other role.
+  // There's a partner already, so the second person is offered the other role.
   await expect(page.getByRole("button", { name: "I'm the one who's pregnant (or will be)" })).toHaveAttribute("aria-pressed", "true");
   await page.getByRole("button", { name: "Continue" }).click();
 
-  // The household is already set up: straight to This week.
+  // It's already set up: straight to This week.
   await expect(page.getByRole("heading", { level: 1, name: "This week Week 28" })).toBeVisible();
   // The week's note reads as the one holding the phone, and flips to the other.
   const note = page.getByRole("article", { name: "The home stretch begins" });
@@ -310,7 +310,7 @@ test("a phone in dark mode opens dark, and the switch on this phone keeps its ch
   expect(await mode()).toBe("light");
   await page.waitForLoadState("networkidle");
 
-  // The palette still follows the household in the dark.
+  // The palette still follows the baby in the dark.
   await page.getByRole("radio", { name: "Dark" }).click();
   await expect.poll(mode).toBe("dark");
   await page.getByRole("radio", { name: "Boy" }).click();

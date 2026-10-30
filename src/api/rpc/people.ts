@@ -1,4 +1,4 @@
-// Who is holding this device. Not authentication: anyone with the household
+// Who is holding this device. Not authentication: anyone with the
 // password can say they are anyone. It is a cookie naming a person, so Expecting
 // can say who logged something and speak to each of you.
 
@@ -30,7 +30,7 @@ export const getPeople = createServerFn({ method: "GET" }).handler(() => {
   return { me: id ? people.get(id) : null, people: people.list() };
 });
 
-/** "I'm Jason": this device is someone already in the household. */
+/** "I'm Jason": this device is someone already here. */
 export const becomePerson = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid() }).strict())
   .handler(({ data }) => {
@@ -40,7 +40,7 @@ export const becomePerson = createServerFn({ method: "POST" })
     return person;
   });
 
-/** Someone new joins the household, on this device. */
+/** Someone new joins, on this device. */
 export const addPerson = createServerFn({ method: "POST" })
   .validator(
     z

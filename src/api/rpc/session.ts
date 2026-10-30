@@ -13,7 +13,7 @@ import { clientKey, limiter, loginOn, safeNext } from "../../server/auth/gate";
 import { hashPassword, verifyPassword } from "../../server/auth/password";
 import { getDb } from "../../server/core/db";
 
-/** The shortest password the household may choose. */
+/** The shortest password allowed. */
 export const MIN_PASSWORD = 8;
 
 export type LoginResult = { ok: true; next: string } | { ok: false; error: "wrong" | "locked" };
@@ -26,7 +26,7 @@ function startSession() {
   setCookie(SESSION_COOKIE, sessions.create(), sessionCookieOptions(getRequest()));
 }
 
-/** Whether logins are on (EXPECTING_LOGIN), and whether the household has chosen its password: until it has, /login asks for one. */
+/** Whether logins are on (EXPECTING_LOGIN), and whether a password is chosen: until one is, /login asks for one. */
 export const getAccess = createServerFn({ method: "GET" }).handler(() => ({
   login: loginOn(),
   passwordSet: new PasswordRepo(getDb()).hash() !== null,
@@ -36,7 +36,7 @@ export const getAccess = createServerFn({ method: "GET" }).handler(() => ({
 export type Access = Awaited<ReturnType<typeof getAccess>>;
 
 /**
- * The household password, chosen by whoever visits first, and this browser
+ * The password, chosen by whoever visits first, and this browser
  * logged in with it. Refused once one is set: whoever chose it first keeps it,
  * and starting again means a new database.
  */
@@ -48,7 +48,7 @@ export const choosePassword = createServerFn({ method: "POST" })
     return { ok: true, next: safeNext(data.next) };
   });
 
-/** The household password: a session cookie for this browser, and where to go now. */
+/** The password: a session cookie for this browser, and where to go now. */
 export const login = createServerFn({ method: "POST" })
   .validator(z.object({ password: z.string().max(1024), next: z.string().optional() }).strict())
   .handler(async ({ data }): Promise<LoginResult> => {

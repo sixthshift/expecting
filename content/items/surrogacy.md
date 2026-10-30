@@ -17,7 +17,7 @@ related: [lgbtqia-families, adoption-pointers]
 draft: true
 checked: 2026-10-29
 ---
-Surrogacy is when one person carries a pregnancy for someone else, the intended parents. After the birth, the intended parents receive the baby and become the legal parents. There are many legal and medical steps, so get professional advice and make sure you have support. In Expecting, the household may be the intended parents rather than the person carrying.
+Surrogacy is when one person carries a pregnancy for someone else, the intended parents. After the birth, the intended parents receive the baby and become the legal parents. There are many legal and medical steps, so get professional advice and make sure you have support. In Expecting, the two of you may be the intended parents rather than the person carrying.
 
 ## The rules
 

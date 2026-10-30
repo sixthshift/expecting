@@ -4,7 +4,7 @@ import { Page } from "../../../components/Page";
 import { ChooseForm } from "../components/ChooseForm";
 import { LoginForm } from "../components/LoginForm";
 
-/** The household password: logged in with, or, on the household's first visit, chosen. */
+/** The password: logged in with, or, on the first visit, chosen. */
 export function LoginPage() {
   const { data: passwordSet } = useAccess({ select: (access) => access.passwordSet });
   return (
@@ -12,9 +12,7 @@ export function LoginPage() {
     <div className="lg:mx-auto lg:flex lg:min-h-dvh lg:max-w-lg lg:items-center">
       <Page
         title="Expecting"
-        subtitle={
-          passwordSet ? "The household password, once per phone or computer." : "Choose the household password. You'll both use it, once per phone or computer."
-        }
+        subtitle={passwordSet ? "The password, once per phone or computer." : "Choose a password. You'll both use it, once per phone or computer."}
       >
         <Card size="lg" className="w-full max-w-md">
           {passwordSet ? <LoginForm /> : <ChooseForm />}

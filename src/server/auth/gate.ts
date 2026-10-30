@@ -1,6 +1,6 @@
 // Who may in: a request with a live session cookie, or any request when
 // EXPECTING_LOGIN=off. Everything else is sent to log in, or, before the
-// household has a password, to choose one (the same page, /login).
+// password is chosen, to choose one (the same page, /login).
 //
 // Two checks share the rule. Pages and /api/* are judged by path, in request
 // middleware. A server function's path is a generated id, so it is judged by

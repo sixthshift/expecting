@@ -8,12 +8,12 @@ import { factsOf } from "../../../lib/facts";
 import type { Facts } from "../../settings/model/facts";
 import { applies } from "../../settings/model/facts";
 
-/** The items for this household: only those its facts fit, and in an extra only once that's on. */
+/** The items for you: only those your facts fit, and in an extra only once that's on. */
 export function tailorItems(facts: Facts, on: ReadonlySet<string>): Item[] {
   return builtInItems.filter((i) => applies(i.when, facts) && inExtras(i.extra, on));
 }
 
-/** The items for this household, tailored as its answers and extras change. */
+/** The items for you, tailored as your answers and extras change. */
 export function useItems(): Item[] {
   const { data: facts } = useAnswers({ select: factsOf });
   const { data: on } = useExtras({ select: extrasOn });

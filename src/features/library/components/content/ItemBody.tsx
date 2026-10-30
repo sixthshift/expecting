@@ -1,4 +1,4 @@
-// An item's body on screen: its Markdoc tree, resolved against the household's
+// An item's body on screen: its Markdoc tree, resolved against your
 // answers, with each tag drawn by its component, and every phone number in it
 // one you can tap. The tags are declared, and checked, in src/content/markdoc.ts.
 

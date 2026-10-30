@@ -3,7 +3,7 @@
 // second parent's phone asks only who they are.
 //
 //   who        which person is holding this phone (every new device)
-//   due        the due date (the household, once)
+//   due        the due date (once, for both of you)
 //   baby       boy, girl or don't know: the colours
 //   q:<key>    src/features/settings/model/facts.data.ts's `asked: onboarding` questions, once for
 //              each of you where they're about each, and only where their
@@ -19,7 +19,7 @@ export type Step = "who" | "due" | "baby" | "extras" | "ready" | `q:${string}`;
 export type OnboardingState = {
   /** Whether this device has said who it is. */
   known: boolean;
-  /** Whether the household has finished onboarding. */
+  /** Whether onboarding is finished. */
   onboarded: boolean;
   /** What has been said so far: a question depending on another is asked only when its answer fits. */
   facts?: Facts;

@@ -1,5 +1,5 @@
 // What an item's body may contain beyond Markdown: Markdoc tags, each declared
-// here with its attributes, and conditions on the household's answers. The
+// here with its attributes, and conditions on your answers. The
 // body is parsed and checked once, as the content loads, so a mistyped tag, an
 // unknown $question or an answer that doesn't exist fails the gate. Rendering
 // is in src/features/library/components/content/, which maps each tag to a component.
@@ -29,7 +29,7 @@ const window: Schema = {
   },
 };
 
-/** The schema both checking and rendering use. Variables are the household's answers, supplied at render. */
+/** The schema both checking and rendering use. Variables are your answers, supplied at render. */
 export const markdocConfig: Config = {
   tags: { ask, window },
   validation: { validateFunctions: true },
@@ -41,7 +41,7 @@ function checkAnswers(value: unknown, problems: string[]) {
     const [name, whose] = (value.path as string[]).map(String);
     const q = question(name ?? "");
     if (!q) problems.push(`$${name} is not a question in facts.data.ts (there are ${QUESTIONS.map((q) => `$${q.id}`).join(", ")})`);
-    else if (q.about === "each" && whose !== "carrying" && whose !== "partner")
+    else if (q.each && whose !== "carrying" && whose !== "partner")
       problems.push(`$${name} is asked of each of you: say whose, as $${name}.carrying or $${name}.partner`);
     return;
   }

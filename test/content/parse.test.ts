@@ -59,7 +59,7 @@ describe("parseItem", () => {
     });
   });
 
-  test("a deadline counted back from a date the household gives, its week standing in until then", () => {
+  test("a deadline counted back from a date you give, its week standing in until then", () => {
     const tasks = "tasks:\n  - id: t\n    title: T\n    due: 28\n    deadline: { before: leaveStart, weeks: 10, week: 30 }";
     const [task] = parseItem("items/x.md", item(`id: x\ntitle: X\nweeks: [24, 34]\ntype: moment\ntopic: paperwork\n${tasks}`)).tasks;
     expect(task).toMatchObject({ due: 28, deadline: 30, deadlineFrom: { fact: "leaveStart", weeks: 10 } });
@@ -143,7 +143,7 @@ describe("tailoring", () => {
     expect(parseItem(RSV, item(rsv)).when).toEqual({});
   });
 
-  test("a body may use the tags and the household's answers", () => {
+  test("a body may use the tags and your answers", () => {
     const body = '{% window from=28 to=36 /%}\n\n{% if equals($cover, "yes") %}\nPrivate.\n{% else /%}\nPublic.\n{% /if %}\n\n{% ask "Is it free?" /%}';
     expect(() => parseItem(RSV, item(rsv, body))).not.toThrow();
   });

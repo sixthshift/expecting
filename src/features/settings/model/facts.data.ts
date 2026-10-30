@@ -1,6 +1,6 @@
 // What Expecting asks, so it can say what to do and when. Each answer becomes a
-// fact: the household's, shared by both parents, kept with who answered and
-// when, and changeable in settings. The rules are in facts.ts, which checks
+// fact, shared by both of you, kept with who answered and when, and
+// changeable in settings. The rules are in facts.ts, which checks
 // this list as it loads.
 //
 // Items are written against these: `when: { cover: "no" }` in an item's
@@ -13,7 +13,7 @@
 // `unsure`, so nothing is written against it.
 //
 // `asked: "onboarding"` puts a question in the first-run questions, in this
-// order; every question is also in settings. Ask there what a household may
+// order; every question is also in settings. Ask there what you may
 // already know. `week` is when This week asks it: again, if onboarding asked it
 // and it was skipped or answered `unsure`; for the first time, if it only makes
 // sense once the answer exists. A question's own `when` asks it only if the
@@ -22,7 +22,7 @@
 //
 // `group` is where settings shows it (GROUPS in facts.ts, in settings' order).
 //
-// `type: "date"` asks for a date instead of a choice; `about: "each"` asks it
+// `type: "date"` asks for a date instead of a choice; `each: true` asks it
 // once for each of you, with `{name}` in the question. Each question earns its
 // place by changing a task; the comment above it says which.
 
@@ -114,7 +114,7 @@ export const QUESTION_LIST = [
     id: "work",
     group: "work",
     ask: "Does {name} work?",
-    about: "each",
+    each: true,
     asked: "onboarding",
     week: 16,
     answers: { employee: "Yes, for an employer", "self-employed": "Yes, self-employed", "not-working": "Not at the moment" },
@@ -162,7 +162,7 @@ export const QUESTION_LIST = [
     id: "paidLeave",
     group: "work",
     ask: "Does {name}'s employer pay parental leave?",
-    about: "each",
+    each: true,
     week: 20,
     when: { work: "employee" },
     answers: { yes: "Yes", no: "No", unsure: "Not sure yet" },
@@ -174,7 +174,7 @@ export const QUESTION_LIST = [
     id: "leaveStart",
     group: "work",
     ask: "When does {name}'s parental leave start?",
-    about: "each",
+    each: true,
     type: "date",
     week: 20,
     when: { work: ["employee", "self-employed"] },

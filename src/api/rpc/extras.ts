@@ -1,4 +1,4 @@
-// The extras the household has turned on or off (src/features/settings/model/extras.data.ts), each
+// The extras you've turned on or off (src/features/settings/model/extras.data.ts), each
 // with who changed it and when.
 
 import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";

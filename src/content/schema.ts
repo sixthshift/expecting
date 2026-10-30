@@ -111,9 +111,9 @@ export const indexSchema = z
     verdict: z.enum(VERDICTS).optional(),
     /** A decision's week to decide by, from its source, within its weeks: it becomes a task, `decide-<id>`. */
     decide_by: z.number().int().optional(),
-    /** Only for households whose answers match: `{ cover: "no", state: [vic, nsw] }`. See src/features/settings/model/facts.data.ts. */
+    /** Only when your answers match: `{ cover: "no", state: [vic, nsw] }`. See src/features/settings/model/facts.data.ts. */
     when: whenSchema.default({}),
-    /** Part of an extra in src/features/settings/model/extras.data.ts: shown only once the household turns it on. */
+    /** Part of an extra in src/features/settings/model/extras.data.ts: shown only once you turn it on. */
     extra: z.string().optional(),
     /** One of the things nobody tells you. A card is one by type. */
     surprise: z.boolean().default(false),
@@ -133,7 +133,7 @@ export const indexSchema = z
             due: z.number().int().optional(),
             /**
              * A hard week, where missing it costs something: on or after `due`, by week 42. From the item's source.
-             * Or counted back from a date the household gives: `{ before: leaveStart, weeks: 10, week: 30 }`, with
+             * Or counted back from a date you give: `{ before: leaveStart, weeks: 10, week: 30 }`, with
              * `week` standing in until the date is known.
              */
             deadline: z.union([z.number().int(), z.object({ before: z.string(), weeks: z.number().int().min(0), week: z.number().int() }).strict()]).optional(),

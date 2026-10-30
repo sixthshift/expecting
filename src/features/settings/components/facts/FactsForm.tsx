@@ -122,7 +122,7 @@ function askedAgain(week: Week, now: Week): string {
 
 /** The question in words, with the name of whoever it's about if they've joined. */
 export function askedOfIn(a: Ask, people: readonly Person[]): string {
-  return askedOf(a, a.about === "household" ? null : (people.find((p) => p.role === a.about)?.name ?? null));
+  return askedOf(a, a.about === null ? null : (people.find((p) => p.role === a.about)?.name ?? null));
 }
 
 /** "Jason answered, 3 Oct". */

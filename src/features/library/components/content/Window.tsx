@@ -6,7 +6,7 @@ const SPAN = WEEKS.last - WEEKS.first + 1;
 const at = (week: number) => `${((week - WEEKS.first) / SPAN) * 100}%`;
 const weeks = (n: number) => (n === 1 ? "1 week" : `${n} weeks`);
 
-/** Where this household stands against the window, in words. */
+/** Where you stand against the window, in words. */
 function status(from: number, to: number, now: ReturnType<typeof useContentContext>["now"]): string {
   if (now === null) return `Weeks ${from}–${to}`;
   if (now > to) return `Closed after week ${to}`;
@@ -16,7 +16,7 @@ function status(from: number, to: number, now: ReturnType<typeof useContentConte
 
 /**
  * `{% window from=28 to=36 /%}`: the weeks something can happen, drawn across
- * the whole pregnancy, with this household's week on it. The window sweeps
+ * the whole pregnancy, with your week on it. The window sweeps
  * open as it appears (not for anyone who has asked for less motion).
  */
 export function Window({ from, to }: { from: number; to: number }) {

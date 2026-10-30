@@ -1,4 +1,4 @@
-// The household's first visit, once per run: the empty database has no
+// The first visit, once per run: the empty database has no
 // password, so /login asks for one. Choosing it here, before any spec, means
 // every spec meets the login it would after setup, whatever order they run in.
 import { chromium, expect, type FullConfig } from "@playwright/test";

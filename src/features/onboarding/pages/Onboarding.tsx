@@ -76,7 +76,7 @@ export function OnboardingStep() {
   }, []);
 
   // A save refetches what's known a query at a time, so midway this step can look answered (this phone
-  // known, the household not yet): keep it drawn until the save is in and has chosen where to go.
+  // known, the rest not yet): keep it drawn until the save is in and has chosen where to go.
   const drawn = useRef<ReactNode>(null);
   if (!current || !steps.includes(current)) return saving && drawn.current ? drawn.current : <Redirect href="/onboarding" />;
 

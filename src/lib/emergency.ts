@@ -1,7 +1,7 @@
 // Emergency info: the one page to open when something goes wrong, or labour starts.
 // Who to call, what a doctor will ask, and the numbers you'll be asked for,
 // in the order you'd want them. The fields are fixed here; their values are
-// the household's, shared by both of you, and blank until one of you fills
+// shared by both of you, and blank until one of you fills
 // one in.
 
 export type EmergencyKind = "phone" | "line" | "lines";
@@ -58,7 +58,7 @@ export const EMERGENCY_IDS = EMERGENCY_FIELDS.map((f) => f.id) as [string, ...st
 /** The longest value a field keeps. */
 export const EMERGENCY_MAX = 500;
 
-/** The household's values, by field, with who last changed them and when. */
+/** The values, by field, with who last changed them and when. */
 export type EmergencyInfo = {
   values: Record<string, string>;
   changed: { by: string | null; at: string } | null;

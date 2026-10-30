@@ -1,7 +1,7 @@
 import { useItems } from "../../hooks/useItems";
 import { ItemList } from "../ItemList";
 
-/** What an item links to, as the household's Library has them: one hidden by an answer or an extra that's off isn't offered. */
+/** What an item links to, as your Library has them: one hidden by an answer or an extra that's off isn't offered. */
 export function Related({ ids }: { ids: readonly string[] }) {
   const items = useItems();
   const related = ids.flatMap((id) => items.filter((i) => i.id === id));

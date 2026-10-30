@@ -22,7 +22,7 @@ export const saveEmergency = createServerFn({ method: "POST" })
     new EmergencyRepo(getDb()).set(data as Record<string, string>, by);
   });
 
-/** Emergency info: the household's numbers and details. */
+/** Emergency info: your numbers and details. */
 export type Emergency = Awaited<ReturnType<typeof getEmergency>>;
 export const emergencyQuery = queryOptions({ queryKey: ["emergency"], queryFn: () => getEmergency() });
 

@@ -4,7 +4,7 @@ How expecting is built. What it is and why: [intent.md](intent.md). Running it: 
 
 ## Built so far
 
-The pregnancy's six pillars (This week, the timeline, the Library, the Planner, and placeholders for the Journal and the Drawer), built-in content in Markdoc tailored by the household's answers, onboarding, who's holding each phone, own tasks, questions for appointments, the due date, and the shared password. Getting ready and the weeks after the birth are out of the first version ([One app, the pregnancy](#one-app-the-pregnancy)). Not yet: the rest of the store (appointments, scans and photos, contacts, symptoms), our own items, hiding built-in items, offline writes. Everything below is the intended shape; where it isn't built, it says so.
+The pregnancy's six pillars (This week, the timeline, the Library, the Planner, and placeholders for the Journal and the Drawer), built-in content in Markdoc tailored by your answers, onboarding, who's holding each phone, own tasks, questions for appointments, the due date, and the shared password. Getting ready and the weeks after the birth are out of the first version ([One app, the pregnancy](#one-app-the-pregnancy)). Not yet: the rest of the store (appointments, scans and photos, contacts, symptoms), our own items, hiding built-in items, offline writes. Everything below is the intended shape; where it isn't built, it says so.
 
 Expecting has the same shape as garnish. Where this file says "as garnish", garnish's `docs/architecture.md` is the reference.
 
@@ -24,18 +24,18 @@ content/ (in the repo, bundled at build) ──▶ built-in items
 ## Access: one shared password
 
 - No users, no accounts. One password, chosen on the first visit and stored only as its argon2id hash, in the database (`password`, one row).
-- Until it is chosen, `/login` asks for it, and whoever reaches it first chooses it. Accepted because it is self-hosted on the household's own network: the household sets it straight after starting the container, and if someone beat them to it, they delete the data folder and start again. There is no way to change or reset it in the app; a new database is the reset. Chosen over a hash in an environment variable, which made setup a command to run and a `$`-quoting trap in `.env`.
+- Until it is chosen, `/login` asks for it, and whoever reaches it first chooses it. Accepted because it is self-hosted on your own network: you set it straight after starting the container, and if someone beat you to it, you delete the data folder and start again. There is no way to change or reset it in the app; a new database is the reset. Chosen over a hash in an environment variable, which made setup a command to run and a `$`-quoting trap in `.env`.
 - Logging in sets a long-lived, HTTP-only session cookie, so a phone stays logged in for months.
 - Chosen over **no auth** (garnish's choice), because this data is personal and the app is meant to be reachable from a phone at the hospital. Chosen over **two accounts**, because nothing needs to be private from the other parent.
 - Login attempts are rate limited: ten failures in fifteen minutes locks that client out, in memory.
 - Sessions are rows holding the SHA-256 of the cookie's token, so a copy of the database is not a login. A session lives 400 days from its last use.
 - Every request passes request middleware, which judges it by path: pages without a session redirect to `/login`, other `/api/*` calls get a 401, and only `/login` and `/api/health` are open.
 - Server functions answer under `/api/rpc/`, each at a generated id, so request middleware lets those calls on, and function middleware judges each one by the file it is defined in: without a session, only `src/api/rpc/session.ts` answers. That file holds `choosePassword`, `login` and `logout`, ordinary server functions like the rest, so the app has one way of calling the server, and `src/api/rest/` is left for callers that aren't the app.
-- `EXPECTING_LOGIN=off` turns logins off: every request gets through, `/login` sends you on, and Settings offers no Log out. For a household that keeps it on a LAN it trusts and would rather not have a password at all. On is the default, so leaving the variable out never opens anything, and a value that is neither `on` nor `off` is an error rather than a guess. The dev server reads it too. Turning it back on later asks for a password on the next visit if none was ever chosen.
+- `EXPECTING_LOGIN=off` turns logins off: every request gets through, `/login` sends you on, and Settings offers no Log out. For keeping it on a LAN you trust, without a password at all. On is the default, so leaving the variable out never opens anything, and a value that is neither `on` nor `off` is an error rather than a guess. The dev server reads it too. Turning it back on later asks for a password on the next visit if none was ever chosen.
 
 ### Who's holding the phone
 
-- The household's people are rows (`person`: a name, and `carrying` or `partner`). A device says which one it is once, and remembers it in a `expecting_person` cookie (`src/api/rpc/people.ts`).
+- The people are rows (`person`: a name, and `carrying` or `partner`). A device says which one it is once, and remembers it in a `expecting_person` cookie (`src/api/rpc/people.ts`).
 - That cookie is not authentication: anyone past the password can say they are anyone. It is how Expecting can say who logged something and speak to each of you.
 - It is separate from the session cookie, so it works with logins off just as with them on, and logging out doesn't forget who you are.
 
@@ -46,7 +46,7 @@ Open, and it decides the PWA: a service worker and installing to the home screen
 The first version of Expecting is the pregnancy alone: weeks 1–42, from the due date. Getting ready before a pregnancy and the weeks after the birth were built as apps of their own (preconception and postpartum, each a phase with its own pillars) and taken out to keep the first version small. The code has no phases now: no phase type, no phase in the URL, no birth date.
 
 - **The URL is the page.** Home is `/`, and each pillar sits at its own path: `/timeline`, `/library`, `/library/<id>`, `/planner`, `/journal`, `/drawer`, and `/settings` beside them. The navigation is `PILLARS` (`src/app/components/layout/pillars.ts`), typed against the route tree, so a pillar can't point at a page that isn't there.
-- `App` (`src/app/pages/App.tsx`, the `app` route's component) keeps the household's colours and the content context, and draws the pillars in `PillarLayout` (`src/app/components/layout/PillarLayout.tsx`), the sidebar and tab bar.
+- `App` (`src/app/pages/App.tsx`, the `app` route's component) keeps the baby's colours and the content context, and draws the pillars in `PillarLayout` (`src/app/components/layout/PillarLayout.tsx`), the sidebar and tab bar.
 - **Naming.** "Shell" means only what TanStack Start means by it: the HTML document (`shellComponent`, our `Document`) and SPA shell mode. The component around the pillars is `App`; what's drawn around them is a layout.
 - **When the other phases come back,** the pregnancy's week stops being the whole timeline: a slot becomes a phase and a week, and the content's folders say which phase an item is in. Git history has both apps as they were.
 
@@ -131,7 +131,7 @@ Expecting has its own theme, not the design system's Linen. It's built from a re
   - **Baby Purple** (`baby-purple.css`): don't know or surprise, and the default. Lilac brand, blue-to-pink accent.
 - Each theme sets every semantic token the design system reads, in light mode and again in dark. Each also sets Expecting's own `--expecting-accent-*` pair, for the gradients in progress bars (onboarding, an item's window of weeks). The page is white with at most a temperature (`--expecting-page`): a cool white in Baby Blue, a warm white in Baby Pink, plain white in Baby Purple. By night it's a near-black with the same temperature, surfaces rise from it in mist, fills are the pastels themselves (400) with dark text, and coloured text is the 300s, so nothing glows. Colour comes in accents (the brand, the progress bars, the timeline's windows), never as a fill. Never as a border on one side of a box, either: a card is outlined all round or not at all. Neutral, success, warning, danger, the corner scale and the type stacks are shared.
 - `data-expecting-theme` on `<html>` picks the theme (`src/lib/theme.ts`). The answer is a setting (`baby`, in `settingsQuery`). The browser remembers the last theme in `localStorage`, and an inline script in `<head>` applies it before paint, so a reload doesn't flash Baby Purple.
-- **Light or dark is the phone's, not the household's.** `data-theme` on `<html>` picks the mode, kept per phone by the design system (`bootstrapTheme()` and `useTheme()` from `@sixthshift/design-system/hooks`, in `localStorage` under `theme`): Light, Dark or System (the default: match the phone), switched under Appearance in Settings. The same boot script paints it before the first frame, reading the design system's key so the two never disagree. `Root` (`src/app/pages/Root.tsx`, the root route's component, so login and onboarding too) starts the design system's mode and points `<meta name="theme-color">` at the page as drawn. Each theme's dark block answers to `[data-theme="dark"]` paired with its `data-expecting-theme`, and to a preview inside a dark page. Expecting's own hook is `useBabyTheme` (`src/app/hooks/useBabyTheme.ts`), so "theme" means one thing in each file.
+- **Light or dark is the phone's, not shared.** `data-theme` on `<html>` picks the mode, kept per phone by the design system (`bootstrapTheme()` and `useTheme()` from `@sixthshift/design-system/hooks`, in `localStorage` under `theme`): Light, Dark or System (the default: match the phone), switched under Appearance in Settings. The same boot script paints it before the first frame, reading the design system's key so the two never disagree. `Root` (`src/app/pages/Root.tsx`, the root route's component, so login and onboarding too) starts the design system's mode and points `<meta name="theme-color">` at the page as drawn. Each theme's dark block answers to `[data-theme="dark"]` paired with its `data-expecting-theme`, and to a preview inside a dark page. Expecting's own hook is `useBabyTheme` (`src/app/hooks/useBabyTheme.ts`), so "theme" means one thing in each file.
 - The three are separate files on purpose, so each can be judged on its own. If they turn out to differ only in brand, they can merge into one theme with named brands, which the design system supports through `data-brand`.
 
 ## PWA
@@ -145,10 +145,10 @@ Both need HTTPS, except on `localhost`: how expecting gets it is still open ([Ac
 
 ## Onboarding
 
-- `/onboarding` asks the first-run questions, one to a screen and each at its own URL (`/onboarding/due`, `/onboarding/q/cover`; routes in `src/routes/onboarding/`, screens in `src/features/onboarding/components/steps/`), so the phone's back gesture goes back a question. The frame sends anyone there who still has a step: a new household gets all of them, a new phone only "who's this?".
+- `/onboarding` asks the first-run questions, one to a screen and each at its own URL (`/onboarding/due`, `/onboarding/q/cover`; routes in `src/routes/onboarding/`, screens in `src/features/onboarding/components/steps/`), so the phone's back gesture goes back a question. The frame sends anyone there who still has a step: a first visit gets all of them, a new phone only "who's this?".
 - After an answer, `/onboarding?after=due` goes on to the next step still to ask, worked out afresh (`stepAfter`), since what's left can change: the other phone may have finished onboarding meanwhile. A URL for a step that isn't asked goes to the one that is.
 - Which steps a device sees is a pure function of what is known (`src/lib/onboarding.ts`): who, then the due date and the baby's colours, then every `asked: onboarding` question in `src/features/settings/model/facts.data.ts` (once for each of you where it is about each, and only where its `when` fits the answers so far), then where Expecting will open.
-- Each answer is saved as it's given, so a reload resumes. A household with a due date from before onboarding existed counts as onboarded.
+- Each answer is saved as it's given, so a reload resumes. A database with a due date from before onboarding existed counts as onboarded.
 - With the due date skipped, This week asks for it, and every week is still readable on the timeline.
 
 ## Tailoring
@@ -158,14 +158,14 @@ Both need HTTPS, except on `localhost`: how expecting gets it is still open ([Ac
 
 ### Facts
 
-The answers are what Expecting knows about the household, asked as the pregnancy unfolds, not a profile filled in once.
+The answers are what Expecting knows about you, asked as the pregnancy unfolds, not a profile filled in once.
 
 - **Questions are code, not content:** they drive behaviour (onboarding, settings, what an item shows), so they are a typed list in `src/features/settings/model/facts.data.ts`, checked as it loads by `facts.ts` beside it, co-located with settings, the feature that owns them, not a file in `content/`. Their ids are types (`QuestionId`, and `ExtraId` for the extras), so code naming one is checked by `tsc`; content names them as strings, checked by the tests. A new one is still not a migration. Each has:
   - `type`: `choice` (its `answers`) or `date`. *Not built: `text`, until a question needs it.*
-  - `about`: `household`, or `each`, asked once for each of you and worded with your name (`Does {name} work?`; "the partner" before they've joined). A fact's key is the id, or the id and whose: `cover`, `work.partner`; content writes the same, `when: { work.partner: [employee] }`, `$work.partner`.
+  - `each: true`: asked once for each of you instead of once and worded with your name (`Does {name} work?`; "the partner" before they've joined). A fact's key is the id, or the id and whose: `cover`, `work.partner`; content writes the same, `when: { work.partner: [employee] }`, `$work.partner`.
   - `when:`, the rule items use, so a question waits on another answer: a previous caesarean is asked only when this isn't the first baby. In a question about each of you, a bare `work` is the same person's.
   - `asked: onboarding`, to be asked up front, and `week`, when This week asks it.
-- **Answers are rows,** in the `answer` table (`src/db/models/facts/`): the question, whose it is (`household`, `carrying` or `partner`), the value, who answered and when. A new answer is a new row and the latest counts, so a fact keeps its history. A skip ("Not now", or Skip for now in onboarding) or a clear is a row with no value.
+- **Answers are rows,** in the `answer` table (`src/db/models/facts/`): the question, whose it is (`carrying` or `partner`, or null for a question asked once), the value, who answered and when. A new answer is a new row and the latest counts, so a fact keeps its history. A skip ("Not now", or Skip for now in onboarding) or a clear is a row with no value.
 - **The history decides when to ask again** (`questionsDue`). A question comes up on This week (`src/features/settings/components/facts/AskNow.tsx`, three at a time) once its `week` has come, while it is unknown or `unsure`. Answered or skipped before its week, it comes back at its week; since then, only four weeks after (`ASK_AGAIN_AFTER`), so "not sure" isn't asked every week.
 - **Who answered** puts who's who to use: settings says "Jason answered, 3 Oct".
 - **A task can be timed from a fact** (`timeTask`): `deadline: { before: leaveStart, weeks: 10, week: 30 }` is notice to the employer 10 weeks before leave begins, whose leave by the task's `who` (the earlier of the two for one you do together), and best by moves up to meet it. Until the date is known, `week` stands in. This is what makes the plan a schedule.
@@ -176,8 +176,8 @@ The answers are what Expecting knows about the household, asked as the pregnancy
 
 - The optional parts of Expecting, `src/features/settings/model/extras.data.ts`: off until one of you turns one on, unlike a question, which hides nothing until answered. Read by `src/features/settings/model/extras.ts`; what the choices mean is `src/lib/extras.ts` (`extrasOn`, `inExtras`, `extraToOffer`).
 - An item with `extra: <id>` is shown only while that extra is on, so `useItems` drops it, and `useTasks` its tasks, from every pillar. Its own page says which extra it's part of and links to the switch (`/settings?ask=extra:<id>`).
-- An extra can be only for some households (`when`, as an item's), is offered in onboarding only with `onboarding: true`, and sits in a group in settings (`EXTRA_GROUPS`). An extra can bring a feature as well as items: Choosing a name brings the names game in the Drawer (`baby_name` and `name_vote`; `src/api/rpc/names.ts` answers only as the person holding the phone, with their own votes and the matches, never the other's votes).
-- The household's choices are the `extra` table, a row per extra once decided (on or off, who, when); no row is undecided. Onboarding's extras step decides them all, or none if skipped; This week offers the first undecided one whose `offer` week has come, once.
+- An extra can be only for some pregnancies (`when`, as an item's), is offered in onboarding only with `onboarding: true`, and sits in a group in settings (`EXTRA_GROUPS`). An extra can bring a feature as well as items: Choosing a name brings the names game in the Drawer (`baby_name` and `name_vote`; `src/api/rpc/names.ts` answers only as the person holding the phone, with their own votes and the matches, never the other's votes).
+- Your choices are the `extra` table, a row per extra once decided (on or off, who, when); no row is undecided. Onboarding's extras step decides them all, or none if skipped; This week offers the first undecided one whose `offer` week has come, once.
 
 ## Content
 
@@ -204,7 +204,7 @@ The database holds only what we create:
 - photo records; the files themselves are in `uploads/`
 - the settings (`settings`, one row): the due date, the baby's colours, and when onboarding finished
 - the answers to the questions, every one kept (see [Facts](#facts))
-- the household's people
+- the people
 - sessions
 
 The current week is derived from the due date on read, never stored.

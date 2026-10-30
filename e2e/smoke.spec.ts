@@ -71,7 +71,7 @@ test.describe("logged out", () => {
     await page.getByRole("button", { name: "Log in" }).click();
     await expect(page.getByText("That's not the password.")).toBeVisible();
 
-    await page.getByLabel("Password").fill("e2e-household-password");
+    await page.getByLabel("Password").fill("e2e-password");
     await page.getByRole("button", { name: "Log in" }).click();
     // A phone that hasn't said who's holding it is asked first, then goes on.
     await page.getByRole("button", { name: "I'm Jason" }).click();

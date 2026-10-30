@@ -10,7 +10,7 @@ A pregnancy companion for one couple, expecting in Australia. Self-hosted. Not a
 
 It covers the pregnancy, weeks 1 to 42. That is the first version: getting ready before a pregnancy and the fourth trimester after the birth (the first three months) come later, and it may grow into newborn and parenting after that. Nothing is built for them now, but nothing should prevent them.
 
-**It runs the admin.** Having a baby in Australia comes with a long tail of bookings, claims, forms and purchases, each with its own window and lead time, split between two people and spread over a year. Expecting holds that list so you don't have to. From what it knows about your household, it says what to do this week, what to start preparing for, and why, and it keeps track of what's done. You shouldn't need to know how the system works to get through it.
+**It runs the admin.** Having a baby in Australia comes with a long tail of bookings, claims, forms and purchases, each with its own window and lead time, split between two people and spread over a year. Expecting holds that list so you don't have to. From what it knows about you, it says what to do this week, what to start preparing for, and why, and it keeps track of what's done. You shouldn't need to know how the system works to get through it.
 
 - **It tells, it doesn't just inform.** "Claim Parental Leave Pay this week", not an article about Parental Leave Pay. The reading is one tap behind the instruction.
 - **Only about the admin.** It is directive about bookings, paperwork, purchases and plans; about her body it explains and points to the midwife ([Not medical advice](#not-medical-advice)).
@@ -44,7 +44,7 @@ Partners say the appointments, the classes and the reading all leave them out, a
 
 ## Who uses it
 
-- **Both parents, as one household.** One shared space. Everything either of you adds, the other sees and can edit. One password, no accounts.
+- **Both parents, one space.** Shared by default. Everything either of you adds, the other sees and can edit. One password, no accounts.
 - **But each with a name.** Each device says who is holding it ("I'm Jason"), once. That needs no account. It is what lets Expecting say who logged something, run the names game, show the partner's lens, and tell one of you what the other added since you last looked. *Built: who's who. Not built: what uses it.*
 - **In the baby's colours.** One question (boy, girl, or don't know / keeping it a surprise) sets the theme: blue, pink, or both. Light or dark is each phone's own, matching the phone unless you choose. *Built.*
 - **On a phone and on a computer, for different moments.**
@@ -171,7 +171,7 @@ What this asks of the app, not yet built:
 - **The driver needs more of them.** To say what to do, it has to know things like: is this your first baby; public, private or midwifery care; is the hospital booked; is a caesarean planned; for each parent, employee, self-employed or not working, and whether the employer pays leave. Each one earns its place by changing a task.
 - **The rules:**
   - The questions are a list in the code (`src/features/settings/model/facts.data.ts`), not a migration.
-  - Each answer is a fact on the household, shared by both parents and changeable in settings.
+  - Each answer is a fact, shared by both parents and changeable in settings.
   - **An unanswered question hides nothing,** and "not sure" is an answer that hides nothing.
   - Hiding happens only on a definite answer, and clearing the answer puts everything back.
   - Content is tailored two ways: a whole item by its `when:`, and a passage inside an item by `{% if %}`.
@@ -199,7 +199,7 @@ What this asks of the app, not yet built:
 
 ### Content types
 
-There isn't one shape of content. There are several, all Markdoc, all tagged with topics and tailored by the household's answers. The timeline shows any of them that has weeks; topics and search show all of them.
+There isn't one shape of content. There are several, all Markdoc, all tagged with topics and tailored by your answers. The timeline shows any of them that has weeks; topics and search show all of them.
 
 | Type | Shape | Example |
 |---|---|---|
@@ -225,7 +225,7 @@ There isn't one shape of content. There are several, all Markdoc, all tagged wit
 
 - **Weeks:** the range it applies to, such as 28–36, within weeks 1–42.
 - **Topics:** body, baby, food and safety, tests and appointments, birth, feeding, money and work, feelings, gear, paperwork. Several per item.
-- **When:** who it is for, by the household's answers. Empty for everyone.
+- **When:** who it is for, by your answers. Empty for everyone.
 - **Body:** a short explanation. Practical, with a bit of warmth. Plain words, no jargon left undefined.
 - **Source:** an optional link, preferring Australian sources: Pregnancy, Birth and Baby (healthdirect), Services Australia, RANZCOG (the college of obstetricians), state health departments.
 - **Last checked:** when the source was last confirmed. Entitlements change every financial year.
@@ -263,7 +263,7 @@ To do is how Expecting [runs the admin](#what-it-is). This week opens with it: t
   These are in weeks, from the content, and the deadline is checked against a source like any other fact.
 - **Ordered by urgency, not by week.** A hard deadline coming up beats a soft one; a task with a long lead time surfaces early. What has slipped says what it costs now.
 - **Whose job it is:** hers, the partner's, or together. Each phone knows who is holding it, so This week can say "yours" and "Sam's".
-- **The plan changes with the answers.** A self-employed parent has different leave paperwork; the state decides how the birth is registered. A task appears, changes or goes away when the household's answers say so.
+- **The plan changes with the answers.** A self-employed parent has different leave paperwork; the state decides how the birth is registered. A task appears, changes or goes away when your answers say so.
 - **Not decisions.** "Book the morphology scan" is a task. "Decide on public or private care" is a [decision](#decisions), and a decision can produce tasks.
 
 *Built: windows (opens, best by, deadline) and whose job on built-in tasks, ordered by urgency into To do now, which This week opens with (`src/lib/todo.ts`: a deadline within two weeks or just missed, then what slipped in the last four weeks, then what is best done in the next two; older slips are left to the Planner). Four deadlines so far, each from its item's checked source: the first-trimester screening window, the glucose test window, and the employer's 10-week and 4-week notice. The other tasks' sources give no hard date, so they have a best-by week only. The Planner leads with the same order: one task Next up, the rest of To do now under it, and everything else folded away by the week it next asks of you (`src/lib/planner.ts`). Not built: own tasks with a window or an owner, and most tasks' windows, which is content work.*
@@ -361,7 +361,7 @@ A small core is always on:
 - the call button and the red flags;
 - questions.
 
-Everything else is a feature, switched on or off in settings for the household:
+Everything else is a feature, switched on or off in settings, for both of you:
 
 - the log, and each of its entry types;
 - mood;
@@ -377,7 +377,7 @@ How the switches work:
 - **Off really means off.** Each feature brings its own sections, capture types and settings, so switching one off removes it rather than leaving gaps.
 - **This week offers one in its week** if nobody has decided ("Add a babymoon?"), once: either answer settles it.
 
-*Built, as extras (`src/features/settings/model/extras.data.ts`): the switches in settings, the offer in onboarding and on This week, and items that belong to an extra. Thirty-one so far, in five groups (celebrating, family and friends, getting ready, for you two, money), each one content, and one also a feature: Choosing a name brings the names game. An extra can be only for some households (`when`, as Older siblings is only for a second baby), and only a few are offered in onboarding (`onboarding: true`). Not built: the features above, which need more than items (the log, records), and bump photos, which wait for uploads and backups. Left out on purpose: a kick counter (Australian guidance is to know your baby's pattern, not to count kicks) and a baby pool (friends can't log in, and the app has no birth to score against).*
+*Built, as extras (`src/features/settings/model/extras.data.ts`): the switches in settings, the offer in onboarding and on This week, and items that belong to an extra. Thirty-one so far, in five groups (celebrating, family and friends, getting ready, for you two, money), each one content, and one also a feature: Choosing a name brings the names game. An extra can be only for some pregnancies (`when`, as Older siblings is only for a second baby), and only a few are offered in onboarding (`onboarding: true`). Not built: the features above, which need more than items (the log, records), and bump photos, which wait for uploads and backups. Left out on purpose: a kick counter (Australian guidance is to know your baby's pattern, not to count kicks) and a baby pool (friends can't log in, and the app has no birth to score against).*
 
 ## Order
 

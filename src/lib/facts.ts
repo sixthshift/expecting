@@ -1,4 +1,4 @@
-// What the household's answers become: its facts, the questions This week
+// What your answers become: the facts, the questions This week
 // asks again, and a task's deadline counted back from a date it gave. Pure,
 // tested apart from the screen.
 
@@ -9,7 +9,7 @@ import type { Role } from "./people";
 import { positionOn, WEEKS, type Week } from "./timeline";
 
 /** One answer as the app reads it: null when skipped or cleared. */
-export type Answer = { question: string; about: "household" | Role; value: string | null; answeredBy: string | null; answeredAt: string };
+export type Answer = { question: string; about: Role | null; value: string | null; answeredBy: string | null; answeredAt: string };
 
 /** A question answered `unsure` comes back this many weeks later, not every week. */
 export const ASK_AGAIN_AFTER = 4;
@@ -23,17 +23,17 @@ export function latestByKey(answers: readonly Answer[]): Record<string, Answer> 
   return Object.fromEntries(answers.map((a) => [keyOf(a), a]));
 }
 
-/** What the household has said: each latest answer that is still an answer. */
+/** What you've said: each latest answer that is still an answer. */
 export function factsOf(answers: readonly Answer[]): Facts {
   return cleanFacts(Object.fromEntries(answers.filter((a) => a.value !== null).map((a) => [keyOf(a), a.value!])));
 }
 
-/** Whether a question is asked of this household at all: its own `when`, on what has been said so far. */
+/** Whether a question is asked of you at all: its own `when`, on what has been said so far. */
 export function isAsked(a: Ask, facts: Facts): boolean {
   return applies(a.question.when, facts, a.about);
 }
 
-/** Every question this household is asked, in order. */
+/** Every question you're asked, in order. */
 export function asksFor(facts: Facts): Ask[] {
   return ASKS.filter((a) => isAsked(a, facts));
 }
@@ -83,7 +83,7 @@ export function decides(id: string, items: readonly Item[]): Item[] {
 }
 
 /**
- * A task with its deadline counted back from a date the household gave
+ * A task with its deadline counted back from a date you gave
  * (`deadlineFrom`): whose date is the task's `who`, the earlier of the two for
  * one you do together. Its best-by and opening weeks move up to meet an
  * earlier deadline. Without the date, or a due date, the written weeks stand.

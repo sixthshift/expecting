@@ -18,7 +18,7 @@ export function registerWorker(): void {
   }
 }
 
-/** Forget the household's data the worker keeps for offline, as this phone logs out. */
+/** Forget the data the worker keeps for offline, as this phone logs out. */
 export async function forgetData(): Promise<void> {
   try {
     await caches.delete(DATA_CACHE);

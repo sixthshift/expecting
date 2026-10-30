@@ -3,7 +3,7 @@ import { accessQuery } from "../../api/rpc/session";
 import { rootRoute } from "../root";
 import { loginSearch } from "../search";
 
-/** The household password, outside the frame: logging in with it, or choosing it on the first visit. */
+/** The password, outside the frame: logging in with it, or choosing it on the first visit. */
 export const login = createRoute({
   getParentRoute: () => rootRoute,
   path: "/login",

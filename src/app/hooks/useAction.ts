@@ -4,7 +4,7 @@ import { isLoggedOut } from "../../lib/errors";
 import { loggedOut } from "../model/loggedOut";
 
 /**
- * A change to the household: run `save`, then refetch whatever the app has on
+ * A change to what's stored: run `save`, then refetch whatever the app has on
  * screen, so every pillar sees it. The page stays drawn while it refetches.
  * `pending` lasts until the fresh data is in, for a button's spinner, so a
  * navigation straight after (onboarding's next question) draws what was just

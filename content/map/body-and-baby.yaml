@@ -773,7 +773,7 @@
     - title: Pregnancy, Birth and Baby — Multiple pregnancy
       url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy
   related: [ the-placenta, term-dizygotic, term-monozygotic, term-dcda, term-mcda, term-mcma, term-ttts, term-vanishing-twin, weight-gain-in-pregnancy ]
-  notes: Giving birth to twins is labour's. Only shown when the household answers "twins or more".
+  notes: Giving birth to twins is labour's. Only shown when you answer "twins or more".
 
 - id: the-umbilical-cord
   title: The umbilical cord
@@ -2499,7 +2499,7 @@
   covers: [ fetal heart rate (and heard), fetal movements felt, the shorthand at each visit ]
   sources: []
   related: [ the-babys-heartbeat, baby-movements ]
-  notes: Not sourced, record shorthand with no public Australian page loaded. Confirm against the household's own record before writing.
+  notes: Not sourced, record shorthand with no public Australian page loaded. Confirm against your own record before writing.
 
 - id: term-bp-and-urine
   title: BP and urine dipstick
@@ -2830,7 +2830,7 @@
   covers: [ nothing abnormal detected, and the common shorthand for history examination and treatment ]
   sources: []
   related: [ term-fhr ]
-  notes: Not sourced, general medical shorthand; no Australian pregnancy page loaded. Confirm against the household's own record before writing.
+  notes: Not sourced, general medical shorthand; no Australian pregnancy page loaded. Confirm against your own record before writing.
 
 # ---------------------------------------------------------------------------
 # "Nobody tells you" (cards): the body and the baby

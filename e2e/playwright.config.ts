@@ -15,10 +15,10 @@ const PORT = 9967;
 // there to open afterwards.
 export const DATA_DIR = join(tmpdir(), "expecting-e2e");
 
-// The household password the specs log in with, chosen by global-setup.ts on
+// The password the specs log in with, chosen by global-setup.ts on
 // the empty database's first visit. A test-only secret: it guards an empty
 // temp database and nothing else.
-export const PASSWORD = "e2e-household-password";
+export const PASSWORD = "e2e-password";
 
 export default defineConfig({
   testDir: ".",

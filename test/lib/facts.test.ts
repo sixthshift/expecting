@@ -9,7 +9,7 @@ import { weekStarts } from "../../src/lib/timeline";
 const dueDate: ISODate = "2027-03-01";
 /** An answer given in the middle of `week`. */
 function answer(key: string, value: string | null, week: number): Answer {
-  const [question = "", about = "household"] = key.split(".");
+  const [question = "", about = null] = key.split(".");
   return { question, about: about as Answer["about"], value, answeredBy: null, answeredAt: `${weekStarts(week, dueDate)}T12:00:00.000Z` };
 }
 const due = (answers: Answer[], now: number) => questionsDue({ answers, now, dueDate }).map((a) => a.key);

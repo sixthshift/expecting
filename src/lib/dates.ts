@@ -1,6 +1,6 @@
 // Calendar dates as ISO strings ("2026-10-27"), with the arithmetic the
 // timeline needs. Days are counted in UTC so daylight saving never makes a day
-// 23 or 25 hours long; "today" is the household's local date.
+// 23 or 25 hours long; "today" is the local date.
 
 export type ISODate = `${number}-${number}-${number}`;
 

@@ -123,7 +123,7 @@ describe("releaseNotes", () => {
   });
 });
 
-// What the app shows after an update (content/releases/<version>.md): only what a household would notice.
+// What the app shows after an update (content/releases/<version>.md): only what you would notice.
 describe("whatsNewNotes", () => {
   test("lists what's new, then what's fixed, oldest first, each with a capital", () => {
     const notes = whatsNewNotes(["fix: the swipe misses", "perf: the timeline opens faster", "feat(planner): propose a week", "feat: names game"]);
@@ -134,7 +134,7 @@ describe("whatsNewNotes", () => {
     expect(whatsNewNotes(["chore(deps): bun 1.4.3", "refactor: settings shape", "ci: release notes", "Merge branch main"])).toBe("");
   });
 
-  test("a breaking feat is still new to the household", () => {
+  test("a breaking feat is still new to you", () => {
     expect(whatsNewNotes(["feat!: the Drawer"])).toBe("## New\n\n- The Drawer\n");
   });
 });

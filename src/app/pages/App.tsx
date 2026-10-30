@@ -11,7 +11,7 @@ import { WhatsNew } from "../components/WhatsNew";
 import { useBabyTheme } from "../hooks/useBabyTheme";
 
 /**
- * Around every pillar: the household's colours and the
+ * Around every pillar: the baby's colours and the
  * context content renders against, then the pillars in their layout, and
  * what's new once after an update.
  */

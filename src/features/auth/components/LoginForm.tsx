@@ -12,7 +12,7 @@ const errors = {
   locked: "Too many tries. Wait a few minutes, then try again.",
 } as const;
 
-/** The household password, sent to `login`, which sets the cookie and says where to go. */
+/** The password, sent to `login`, which sets the cookie and says where to go. */
 export function LoginForm() {
   const { next } = route.useSearch();
   const router = useRouter();

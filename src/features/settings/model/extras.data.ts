@@ -1,4 +1,4 @@
-// The extras: the parts of Expecting a household chooses, for fun or because
+// The extras: the parts of Expecting you choose, for fun or because
 // it suits them. Off until someone turns one on: unlike a question in
 // facts.data.ts, an extra nobody has chosen shows nothing. Turned on, its items
 // (`extra: <id>` in their frontmatter) appear everywhere items do: the
@@ -7,13 +7,13 @@
 // Each can be switched in settings; a few are offered in onboarding; and, if
 // nobody has decided by its `offer` week, This week suggests it once.
 //
-//   id          a stable slug: items name it, and the household's choice is kept under it
+//   id          a stable slug: items name it, and your choice is kept under it
 //   name        what it's called, on its switch
 //   pitch       one line: what turning it on gets you
 //   group       where settings shows it: EXTRA_GROUPS in extras.ts
 //   offer       the week This week suggests it, if nobody has decided
 //   onboarding  also offered in onboarding (a few, so it stays short)
-//   when        only for households whose answers fit, as an item's `when`
+//   when        only when your answers fit, as an item's `when`
 //
 // extras.ts checks this list as it loads.
 

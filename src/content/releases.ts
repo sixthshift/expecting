@@ -1,7 +1,7 @@
-// What changed for the household in each release, from content/releases/<version>.md,
+// What changed for you in each release, from content/releases/<version>.md,
 // written by the release workflow (scripts/version.ts) as it bumps the version,
 // so the build that carries a version carries its notes. A release with nothing
-// the household would notice has no file. The app shows the notes once, after an
+// you would notice has no file. The app shows the notes once, after an
 // update (src/app/components/WhatsNew.tsx).
 
 export type Release = { version: string; notes: string };

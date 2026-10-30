@@ -9,7 +9,7 @@ import { type Person, ROLES, type Role } from "../../../../lib/people";
 import type { Advance, Screen, StepContext } from "../../model/step";
 import { Choices } from "../parts";
 
-/** Who's holding this phone: someone new, or one of the household's people. */
+/** Who's holding this phone: someone new, or one of the people already here. */
 export function whoStep({ people, advance }: StepContext): Screen {
   return people.length === 0
     ? {

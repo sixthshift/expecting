@@ -1,4 +1,4 @@
-// The household's people: who's holding each phone. Not accounts: a name and
+// The people: who's holding each phone. Not accounts: a name and
 // which of the two they are.
 
 export type Role = "carrying" | "partner";

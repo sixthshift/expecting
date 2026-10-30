@@ -11,8 +11,8 @@ export const answer = sqliteTable(
   {
     id: text("id").primaryKey(),
     question: text("question").notNull(),
-    /** household | carrying | partner: whose fact it is. */
-    about: text("about", { enum: ["household", "carrying", "partner"] }).notNull(),
+    /** carrying | partner: whose fact it is; null for a question asked once. */
+    about: text("about", { enum: ["carrying", "partner"] }),
     /** An answer's id, or a date as YYYY-MM-DD; null when skipped or cleared. */
     value: text("value"),
     answeredBy: text("answered_by").references(() => person.id, { onDelete: "set null" }),
@@ -21,6 +21,6 @@ export const answer = sqliteTable(
   (t) => [
     index("answer_latest").on(t.question, t.about, t.answeredAt),
     check("answer_question", sql`length(${t.question}) > 0`),
-    check("answer_about", sql`${t.about} IN ('household', 'carrying', 'partner')`),
+    check("answer_about", sql`${t.about} IN ('carrying', 'partner')`),
   ]
 );

@@ -7,7 +7,7 @@ import { useAction } from "../../../../app/hooks/useAction";
 import type { Person } from "../../../../lib/people";
 import { forgetData } from "../../../../pwa/register";
 
-/** Who's holding this phone, the household it's shared with, and the way out (with logins on). */
+/** Who's holding this phone, who it's shared with, and the way out (with logins on). */
 export function Session({ me, people }: { me: Person | null; people: readonly Person[] }) {
   const navigate = useNavigate();
   const { data: login } = useAccess({ select: (access) => access.login });
@@ -28,7 +28,7 @@ export function Session({ me, people }: { me: Person | null; people: readonly Pe
       </p>
       {leaving ? (
         <div className="flex flex-col gap-3 rounded-lg bg-bg-subtle p-3">
-          <p className="text-sm text-fg-normal">Log out on this phone? Coming back takes the household's password. Nothing is lost.</p>
+          <p className="text-sm text-fg-normal">Log out on this phone? Coming back takes the password. Nothing is lost.</p>
           <div className="flex flex-wrap gap-2">
             <Button
               intent="danger"
@@ -36,7 +36,7 @@ export function Session({ me, people }: { me: Person | null; people: readonly Pe
                 await logout();
                 // Nor in what the service worker keeps for offline.
                 await forgetData();
-                // A full load, not a navigation: nothing of the household stays in this tab's memory.
+                // A full load, not a navigation: nothing of yours stays in this tab's memory.
                 window.location.assign("/login");
               }}
             >

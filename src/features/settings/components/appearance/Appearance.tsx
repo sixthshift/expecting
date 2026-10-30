@@ -1,7 +1,7 @@
 import { type Theme as Mode, useTheme } from "@sixthshift/design-system/hooks";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 
-/** This phone's mode: its own, never the household's, and kept on the phone. */
+/** This phone's mode: its own, never shared, and kept on the phone. */
 const MODES: { value: Mode; label: string }[] = [
   { value: "light", label: "Light" },
   { value: "dark", label: "Dark" },

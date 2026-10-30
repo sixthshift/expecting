@@ -1,5 +1,5 @@
 // The names game, as one person sees it: every name, their own vote on each,
-// and the matches (names everyone in the household likes). Never anyone
+// and the matches (names everyone likes). Never anyone
 // else's votes.
 
 /** A name, with this person's own vote: liked, passed, or not yet. */

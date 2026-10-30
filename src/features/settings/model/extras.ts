@@ -1,5 +1,5 @@
-// The extras, from extras.data.ts: the optional parts of Expecting a
-// household turns on. Pure, and bundled into the client like the items.
+// The extras, from extras.data.ts: the optional parts of Expecting you
+// turn on. Pure, and bundled into the client like the items.
 
 import { z } from "zod";
 import { WEEKS } from "../../../lib/timeline";
@@ -30,7 +30,7 @@ const extraSchema = z
     onboarding: z.boolean().default(false),
     /** The week This week suggests it, if nobody has decided. */
     offer: z.number().int().min(WEEKS.first).max(WEEKS.last),
-    /** Only for households whose answers fit, as an item's `when`: siblings, `{ firstBaby: "no" }`. */
+    /** Only when your answers fit, as an item's `when`: siblings, `{ firstBaby: "no" }`. */
     when: whenSchema.default({}),
   })
   .strict()

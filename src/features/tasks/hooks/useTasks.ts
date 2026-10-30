@@ -10,7 +10,7 @@ import { factsOf, timeTask } from "../../../lib/facts";
 import { useItems } from "../../library/hooks/useItems";
 import type { Facts } from "../../settings/model/facts";
 
-/** The checklist for this household: the tasks of the items shown (and those of no item), each timed by its facts, then your own. */
+/** The checklist: the tasks of the items shown (and those of no item), each timed by its facts, then your own. */
 export function tailorTasks(items: readonly Item[], facts: Facts, dueDate: ISODate | null, ownTasks: readonly OwnTaskRow[]): Task[] {
   const shown = new Set(items.map((i) => i.id));
   return buildChecklist(
@@ -19,7 +19,7 @@ export function tailorTasks(items: readonly Item[], facts: Facts, dueDate: ISODa
   );
 }
 
-/** The checklist for this household, as its items, answers, due date and own tasks change. */
+/** The checklist, as the items, answers, due date and own tasks change. */
 export function useTasks(): Task[] {
   const items = useItems();
   const { data: facts } = useAnswers({ select: factsOf });
