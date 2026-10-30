@@ -2,7 +2,7 @@ import type { QueryClient } from "@tanstack/react-query";
 import { createRootRouteWithContext } from "@tanstack/react-router";
 import { Document } from "../app/pages/Document";
 import { ErrorPage } from "../app/pages/ErrorPage";
-import { NotFound } from "../app/pages/NotFound";
+import { NotFoundPlain } from "../app/pages/NotFound";
 import { Root } from "../app/pages/Root";
 import appCss from "../styles/index.css?url";
 
@@ -32,6 +32,7 @@ export const rootRoute = createRootRouteWithContext<RouterContext>()({
   // This phone's mode, then each page brings its own frame: the app's pillars
   // theirs, onboarding and login a plain page.
   component: Root,
-  notFoundComponent: NotFound,
+  // Any other address is the frame's (routes/notFound.ts); this is only for one outside it.
+  notFoundComponent: NotFoundPlain,
   errorComponent: ErrorPage,
 });

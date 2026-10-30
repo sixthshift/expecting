@@ -1,6 +1,20 @@
 import { describe, expect, test } from "vitest";
 import type { DatedItem, Item, Topic } from "../../src/content/schema";
-import { behind, DOOR_INFO, doorOf, headsUps, namesPrivate, rightNow, search, standingLabel, topicByDoor, topicsIn, worthKnowing } from "../../src/lib/library";
+import {
+  behind,
+  closest,
+  cluesIn,
+  DOOR_INFO,
+  doorOf,
+  headsUps,
+  namesPrivate,
+  rightNow,
+  search,
+  standingLabel,
+  topicByDoor,
+  topicsIn,
+  worthKnowing,
+} from "../../src/lib/library";
 
 function item(id: string, from: number, topic: Topic, surprise = false): DatedItem {
   return {
@@ -221,5 +235,37 @@ describe("names a private entry", () => {
     ["nothing", "  "],
   ])("not %s", (_name, text) => {
     expect(namesPrivate(text, items)).toBe(false);
+  });
+});
+
+describe("an address that leads nowhere", () => {
+  test.each([
+    ["an entry's address, cut short", "/library/iron-tablet", "iron tablet"],
+    ["escaped spaces", "/library/iron%20tablets", "iron tablets"],
+    ["a path of its own", "/weeks", "weeks"],
+    ["only a pillar", "/library/", ""],
+    ["badly escaped", "/library/iron%E0", "iron"],
+  ])("%s", (_name, path, clues) => {
+    expect(cluesIn(path)).toBe(clues);
+  });
+
+  const iron = entry("iron", { title: "Iron tablets" });
+  const infusion = entry("iron-infusion", { title: "Iron infusion" });
+  const anaemia = entry("anaemia-in-pregnancy", { title: "Anaemia and low iron", aliases: ["iron tablets"] });
+  const safety = entry("safety-plan", { title: "Iron-clad safety plan", private: true });
+  const items = [infusion, anaemia, safety, iron];
+
+  test("named by the most words first, then those whose title holds the most", () => {
+    const constipation = entry("constipation", { title: "Constipation", aliases: ["iron tablets"] });
+    expect(closest([...items, constipation], "iron tablets").map((i) => i.id)).toEqual(["iron", "anaemia-in-pregnancy", "constipation"]);
+  });
+
+  test("never a private entry", () => {
+    expect(closest(items, "safety plan")).toEqual([]);
+  });
+
+  test("a few at most, and none for no words", () => {
+    expect(closest(items, "iron", 2)).toHaveLength(2);
+    expect(closest(items, "  ")).toEqual([]);
   });
 });

@@ -12,6 +12,7 @@ import { index } from "./index";
 import { journal } from "./journal";
 import { library } from "./library";
 import { libraryItem } from "./libraryItem";
+import { notFound } from "./notFound";
 import { onboarding } from "./onboarding";
 import { baby } from "./onboarding/baby";
 import { due } from "./onboarding/due";
@@ -32,8 +33,8 @@ import { timeline } from "./timeline";
 const api = import.meta.env.SSR ? (await import("../api/rest")).restRoutes : ([] as unknown as typeof import("../api/rest").restRoutes);
 
 export const routeTree = rootRoute.addChildren([
-  // The frame: the pillars, in navigation order, then settings.
-  app.addChildren([index, timeline, library, libraryItem, planner, journal, drawer, emergency, settings]),
+  // The frame: the pillars, in navigation order, then settings, then any other address.
+  app.addChildren([index, timeline, library, libraryItem, planner, journal, drawer, emergency, settings, notFound]),
   // Outside the frame: the first-run questions, a step to a URL, and logging in.
   onboarding.addChildren([onboardingNext, who, due, baby, question, extras, ready]),
   login,

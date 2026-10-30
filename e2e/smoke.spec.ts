@@ -64,9 +64,20 @@ test("a week shows its note, read as the partner holding this phone, or as the o
 
 test.describe("a page that doesn't exist", () => {
   test.use({ allowedErrors: [/404|Not Found/i] });
-  test("is not found", async ({ page, open }) => {
+  test("is not found, in the frame, looking for what was meant", async ({ page, open }) => {
+    await open("/library/iron-tablets");
+    await expect(page.getByRole("heading", { level: 1, name: "Not in the Library" })).toBeVisible();
+    await expect(page.getByRole("textbox", { name: "Search the library" })).toHaveValue("iron tablets");
+    await page.getByRole("link", { name: /^Iron tablets/ }).click();
+    await expect(page).toHaveURL(/\/library\/iron$/);
+  });
+
+  test("any other address keeps the pillars", async ({ page, open }) => {
     await open("/weeks");
-    await expect(page.getByRole("heading", { level: 1, name: "Not here" })).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1, name: "Nothing at this address" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Timeline" }).first()).toBeVisible();
+    await page.getByRole("link", { name: "Back to This week" }).click();
+    await expect(page).toHaveURL(/\/$/);
   });
 });
 

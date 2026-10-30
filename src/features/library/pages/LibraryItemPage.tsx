@@ -5,16 +5,18 @@ import { Suspense, use, useEffect } from "react";
 import { useChecklist } from "../../../api/rpc/checklist";
 import { useExtras } from "../../../api/rpc/extras";
 import { useAnswers } from "../../../api/rpc/facts";
+import { NothingHere } from "../../../components/NothingHere";
 import { builtInItems } from "../../../content";
 import type { Item } from "../../../content/schema";
 import { extrasOn } from "../../../lib/extras";
 import { factsOf } from "../../../lib/facts";
-import { DOOR_INFO, doorOf } from "../../../lib/library";
+import { cluesIn, DOOR_INFO, doorOf } from "../../../lib/library";
 import { QUIET_ITEM } from "../../../lib/quiet";
 import { weekLabel } from "../../../lib/timeline";
 import { QuietSwitch } from "../../quiet/components/quietSwitch/QuietSwitch";
 import { extra } from "../../settings/model/extras";
 import { ItemCard } from "../components/ItemCard";
+import { LookFor } from "../components/lookFor/LookFor";
 import { QuickExit } from "../components/private/QuickExit";
 import { Related } from "../components/related/Related";
 import { useItems } from "../hooks/useItems";
@@ -32,7 +34,6 @@ export function LibraryItemPage() {
   const item = items.find((i) => i.id === itemId);
   // Hidden by an answer, rather than not there at all: say so, and open settings at it.
   const hidden = item ? undefined : builtInItems.find((i) => i.id === itemId);
-  const tailoredOut = hidden !== undefined;
   const offExtra = hidden?.extra && !extras.has(hidden.extra) ? extra(hidden.extra) : undefined;
   const hiddenBy = hidden ? Object.entries(hidden.when).find(([key, answers]) => facts[key] !== undefined && !answers.includes(facts[key]))?.[0] : undefined;
 
@@ -60,7 +61,7 @@ export function LibraryItemPage() {
             <Page item={item} ticks={checklist.ticks} />
           </Suspense>
         </div>
-      ) : (
+      ) : hidden ? (
         <div className="flex flex-col gap-2">
           <h1 className="text-2xl font-display font-semibold text-fg-strong">Not in your library</h1>
           <p className="text-fg-subtle">
@@ -72,7 +73,7 @@ export function LibraryItemPage() {
                 </Link>{" "}
                 and it appears everywhere it belongs.
               </>
-            ) : tailoredOut ? (
+            ) : (
               <>
                 Your answers in{" "}
                 <Link to="/settings" search={{ ask: hiddenBy }} className="underline">
@@ -80,10 +81,14 @@ export function LibraryItemPage() {
                 </Link>{" "}
                 say this one doesn't apply to you. Change an answer and it comes back.
               </>
-            ) : (
-              "There's nothing at this address."
             )}
           </p>
+        </div>
+      ) : (
+        // No entry by this name: an old or cut-short link. Look for what it meant.
+        <div className="flex flex-col gap-6">
+          <NothingHere title="Not in the Library" />
+          <LookFor key={itemId} clues={cluesIn(itemId)} />
         </div>
       )}
     </main>
