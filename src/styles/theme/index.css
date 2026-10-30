@@ -26,6 +26,24 @@
   --font-display--font-variation-settings: "SOFT" 100;
 }
 
+/* Two parts of the design system that don't survive the dark as they are.
+   The progress bar's track is bg-strong: a dark bar by day, so inverted at
+   night a near-white one that glows; in the dark it is a surface, and the
+   fill carries the colour. And a disabled button is its fill at half
+   opacity: by day a pale wash, but a pastel halved over a near-black page is
+   a muddy mid-tone; in the dark it is the intent's tint instead, which
+   recedes as the pale wash does. */
+@layer overrides {
+  [data-theme="dark"] .progress-bar {
+    --progress-bar-track-bg: var(--bg-subtle);
+  }
+
+  [data-theme="dark"] .btn[data-variant="solid"]:disabled {
+    --button-bg: var(--intent-tint-bg);
+    --button-fg: var(--intent-tint-fg);
+  }
+}
+
 /* Corners: softer than Tailwind's own, after the reference's pill shapes.
    Mono: the design system's own stack, as Linen set it. Mode-free and the
    same in all three themes. */

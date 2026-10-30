@@ -102,9 +102,9 @@
   --fg-normal-hovered: var(--color-mist-950);
   --fg-normal-pressed: var(--color-mist-950);
   --fg-normal-disabled: var(--color-mist-400);
-  --fg-subtle: var(--color-mist-500);
-  --fg-subtle-hovered: var(--color-mist-600);
-  --fg-subtle-pressed: var(--color-mist-700);
+  --fg-subtle: var(--color-mist-600);
+  --fg-subtle-hovered: var(--color-mist-700);
+  --fg-subtle-pressed: var(--color-mist-800);
   --fg-subtle-disabled: var(--color-mist-300);
   --fg-brand: var(--color-lilac-700);
   --fg-brand-hovered: var(--color-lilac-800);
@@ -130,7 +130,7 @@
   --fg-on-success-subtle-hovered: var(--color-sea-900);
   --fg-on-success-subtle-pressed: var(--color-sea-950);
   --fg-on-success-subtle-disabled: var(--color-sea-400);
-  --fg-on-success: var(--color-mist-50);
+  --fg-on-success: white;
   --fg-on-success-hovered: white;
   --fg-on-success-pressed: white;
   --fg-on-success-disabled: var(--color-mist-300);
@@ -301,9 +301,9 @@
   --fg-normal-hovered: var(--color-mist-50);
   --fg-normal-pressed: var(--color-mist-50);
   --fg-normal-disabled: var(--color-mist-500);
-  --fg-subtle: var(--color-mist-400);
-  --fg-subtle-hovered: var(--color-mist-300);
-  --fg-subtle-pressed: var(--color-mist-200);
+  --fg-subtle: var(--color-mist-300);
+  --fg-subtle-hovered: var(--color-mist-200);
+  --fg-subtle-pressed: var(--color-mist-100);
   --fg-subtle-disabled: var(--color-mist-600);
   --fg-brand: var(--color-lilac-300);
   --fg-brand-hovered: var(--color-lilac-200);

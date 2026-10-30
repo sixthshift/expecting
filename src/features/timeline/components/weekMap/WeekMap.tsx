@@ -56,7 +56,7 @@ export function WeekMap({ weeks, at }: { weeks: MapWeek[]; at: Week | undefined 
                   <span className={cn("flex min-w-0 flex-1 flex-col justify-center py-1.5 pr-2", w.isPast && !w.isNow && "opacity-75")}>
                     <Headline week={w} />
                     {line(w).length > 0 ? (
-                      <span className="truncate text-xs text-fg-subtle">
+                      <span className={cn("truncate text-xs", w.isNow ? "text-fg-normal" : "text-fg-subtle")}>
                         {line(w).map((p, i) => (
                           <Fragment key={p.text}>
                             {i > 0 ? " · " : null}

@@ -44,7 +44,7 @@ export function OfferExtra() {
         <Button variant="ghost" size="sm" onClick={() => save(extra.id, false)}>
           No thanks
         </Button>
-        <Link to="/settings" search={{ ask: `extra:${extra.id}` }} className="ml-auto text-xs text-fg-subtle underline hover:text-fg-normal">
+        <Link to="/settings" search={{ ask: `extra:${extra.id}` }} className="ml-auto text-xs text-fg-normal underline hover:text-fg-strong">
           All the extras
         </Link>
       </div>

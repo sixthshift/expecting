@@ -36,6 +36,8 @@ export function ExtrasList({ choices, people, highlight }: { choices: readonly C
                 const choice = choices.find((c) => c.id === e.id);
                 const on = choice?.on ?? false;
                 const control = `extra-${e.id}`;
+                // On the brand tint, quiet text is fg-normal: fg-subtle is for surfaces.
+                const quiet = cn("text-xs", highlight === e.id ? "text-fg-normal" : "text-fg-subtle");
                 return (
                   <div
                     key={e.id}
@@ -46,8 +48,8 @@ export function ExtrasList({ choices, people, highlight }: { choices: readonly C
                       <label htmlFor={control} className="text-sm font-medium text-fg-strong">
                         {e.name}
                       </label>
-                      <span className="text-xs text-fg-subtle">{e.pitch}</span>
-                      {choice ? <span className="text-xs text-fg-subtle">{changedBy(choice, people)}</span> : null}
+                      <span className={quiet}>{e.pitch}</span>
+                      {choice ? <span className={quiet}>{changedBy(choice, people)}</span> : null}
                     </div>
                     <Switch id={control} checked={on} onCheckedChange={(next) => setExtras([{ id: e.id, on: next }])} />
                   </div>

@@ -1,8 +1,13 @@
 # Plan: dark mode
 
-**Status (2026-10-30):** steps 1–4 built (the dark blocks, the wiring, the
-switch), with an e2e for boot, switch and reload. Left: step 5's look at every
-pillar in all six on a phone.
+**Status (2026-10-30):** done. Steps 1–5 built: the dark blocks, the wiring,
+the switch, an e2e for boot, switch and reload, a contrast test over all six
+(`test/styles/theme/contrast.test.ts`), and a look at every pillar in all six
+on a phone. What the look changed: `fg-subtle` a step stronger in both modes
+(it was under 4.5:1 by day and on `bg-subtle` at night), quiet text on a tint
+as `fg-normal`, white text on the success fill by day, and the progress bar's
+track and a disabled button restyled for the dark
+(`src/styles/theme/index.css`). The rest of this file is the plan as written.
 
 Expecting is light only: each of the three themes (`src/styles/theme/baby-*.css`)
 maps the design system's semantic tokens to the palette "in light mode
