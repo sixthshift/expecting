@@ -3,8 +3,7 @@ import { Checkbox } from "@sixthshift/design-system/checkbox";
 import { FormField } from "@sixthshift/design-system/form-field";
 import { Input } from "@sixthshift/design-system/input";
 import { Textarea } from "@sixthshift/design-system/textarea";
-import { Link } from "@tanstack/react-router";
-import { ArrowLeft, Pencil, Phone, TriangleAlert } from "lucide-react";
+import { Pencil, Phone, TriangleAlert } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { saveEmergency, useEmergency } from "../../../api/rpc/emergency";
 import { useAnswers } from "../../../api/rpc/facts";
@@ -31,23 +30,20 @@ export function EmergencyPage() {
 
   return (
     <main className="mx-auto flex max-w-3xl flex-col gap-4 px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:gap-6 lg:pt-8">
-      <div className="flex items-center justify-between gap-3">
-        <Link to="/drawer" className="-ml-2 flex min-h-11 w-fit items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal">
-          <ArrowLeft aria-hidden size={16} /> Drawer
-        </Link>
+      <header className="flex items-center justify-between gap-3">
+        <h1 className="font-display text-2xl font-semibold text-fg-strong lg:text-3xl">Emergency info</h1>
         {editing ? null : (
           <Button variant="outline" size="sm" onClick={() => setEditing(true)} className="shrink-0">
             <Pencil aria-hidden size={16} /> Edit
           </Button>
         )}
-      </div>
-      <h1 className="font-display text-2xl font-semibold text-fg-strong lg:text-3xl">Emergency info</h1>
-      {editing ? <EmergencyForm emergency={emergency} done={() => setEditing(false)} /> : <EmergencyView emergency={emergency} edit={() => setEditing(true)} />}
+      </header>
+      {editing ? <EmergencyForm emergency={emergency} done={() => setEditing(false)} /> : <EmergencyView emergency={emergency} />}
     </main>
   );
 }
 
-function EmergencyView({ emergency, edit }: { emergency: EmergencyInfo; edit: () => void }) {
+function EmergencyView({ emergency }: { emergency: EmergencyInfo }) {
   const { data: settings } = useSettings();
   const { people } = usePeople().data;
   const { data: facts } = useAnswers({ select: factsOf });
@@ -117,12 +113,7 @@ function EmergencyView({ emergency, edit }: { emergency: EmergencyInfo; edit: ()
           </dl>
         ) : null}
         {h.missing.length > 0 ? (
-          <div className="flex flex-wrap items-center justify-between gap-2 border-border-subtle border-t bg-bg-subtle px-4 py-2 sm:px-6">
-            <p className="text-sm text-fg-subtle">Still blank: {h.missing.join(", ")}.</p>
-            <Button variant="ghost" size="sm" onClick={edit}>
-              Fill in
-            </Button>
-          </div>
+          <p className="border-border-subtle border-t bg-bg-subtle px-4 py-2 text-sm text-fg-subtle sm:px-6">Still blank: {h.missing.join(", ")}.</p>
         ) : null}
       </section>
 

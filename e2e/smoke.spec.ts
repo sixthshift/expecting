@@ -11,7 +11,7 @@ const pages = [
   { path: "/planner", heading: "Planner" },
   { path: "/journal", heading: "Journal" },
   { path: "/drawer", heading: "Drawer" },
-  { path: "/drawer/emergency", heading: "Emergency info" },
+  { path: "/emergency", heading: "Emergency info" },
   { path: "/settings", heading: "Settings" },
 ];
 
@@ -37,16 +37,17 @@ test("every pillar and settings is reachable", async ({ page, open }) => {
   await expect(page.getByRole("heading", { level: 1, name: "Settings" })).toBeVisible();
 });
 
-test("the birth suite is one tap from every pillar", async ({ page, open }) => {
+test("Emergency info is one tap from every pillar, once", async ({ page, open }) => {
   for (const path of ["/", "/timeline", "/library", "/planner", "/journal", "/drawer"]) {
     await open(path);
-    // Called once Emergency info has the number; until then, it goes there to add it.
-    await expect(page.getByRole("link", { name: /^(Call the birth suite|Add the birth suite's number)$/ }).filter({ visible: true })).toHaveCount(1);
+    // The call button calls once there's a number; it never doubles as a second way to Emergency info.
+    await expect(page.getByRole("link", { name: "Emergency info" }).filter({ visible: true })).toHaveCount(1);
+    await expect(page.locator('a[href="/emergency"]').filter({ visible: true })).toHaveCount(1);
   }
 });
 
 test("Emergency info says when to call, as well as who", async ({ page, open }) => {
-  await open("/drawer/emergency");
+  await open("/emergency");
   await expect(page.getByRole("heading", { name: "When to call" })).toBeVisible();
   await expect(page.getByText("Your baby is moving less than usual, or has stopped moving.")).toBeVisible();
   await page.getByRole("link", { name: "All the warning signs, and each in full" }).click();

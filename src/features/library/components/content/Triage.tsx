@@ -66,7 +66,7 @@ function Action({ level, question }: { level: Level; question: string | null }) 
           {values.birthSuitePhone ? (
             <Call phone={values.birthSuitePhone} label="Call the birth suite" />
           ) : (
-            <Link to="/drawer/emergency" className="flex min-h-11 items-center text-sm text-fg-normal underline">
+            <Link to="/emergency" className="flex min-h-11 items-center text-sm text-fg-normal underline">
               Add your birth suite's number to Emergency info
             </Link>
           )}

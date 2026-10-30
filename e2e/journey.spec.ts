@@ -593,8 +593,8 @@ test("the names game: a name is a match only when you both like it, on your own 
 });
 
 test("Emergency info: filled in once, it's the call button and the handover in a hurry", async ({ page, open }) => {
-  await open("/drawer");
-  await page.getByRole("link", { name: /^Emergency info/ }).click();
+  await open("/");
+  await page.getByRole("link", { name: "Emergency info" }).filter({ visible: true }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Emergency info" })).toBeVisible();
   // Before anything is filled in, 000 is there to call, and the card says what's still blank.
   await expect(page.getByRole("link", { name: "Call 000" })).toHaveAttribute("href", "tel:000");
@@ -611,6 +611,12 @@ test("Emergency info: filled in once, it's the call button and the handover in a
   await expect(card.getByText("Penicillin")).toBeVisible();
   await expect(card.getByText("O negative")).toBeVisible();
   await expect(page.getByText(/^Last changed by Jason on/)).toBeVisible();
+
+  // With the number in, the call button calls; Emergency info is still one tap away.
+  await open("/");
+  await expect(page.getByRole("link", { name: "Call the birth suite" }).filter({ visible: true })).toHaveAttribute("href", "tel:0299990000");
+  await page.getByRole("link", { name: "Emergency info" }).filter({ visible: true }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "Emergency info" })).toBeVisible();
 });
 
 test("opening a choice further down the page keeps your place", async ({ page, open }) => {

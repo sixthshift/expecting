@@ -109,7 +109,7 @@ function GetHelp() {
         <a href="tel:000" className="flex min-h-11 items-center gap-1.5 text-fg-danger underline">
           <Phone aria-hidden size={14} /> Call 000
         </a>
-        <Link to="/drawer/emergency" className="flex min-h-11 items-center text-fg-strong underline">
+        <Link to="/emergency" className="flex min-h-11 items-center text-fg-strong underline">
           Your numbers, in Emergency info
         </Link>
       </div>

@@ -36,11 +36,11 @@ test("hard news quiets every pillar, and becomes a loss", async ({ page, open })
   await open("/");
   await expect(page.getByRole("heading", { name: "How you might feel" })).toBeVisible();
 
-  // The Drawer keeps only Emergency info, which stops counting the weeks.
+  // The Drawer is put away; Emergency info stops counting the weeks.
   await open("/drawer");
   await expect(page.getByText(/put away while Expecting is quiet/)).toBeVisible();
   await expect(page.getByText("Bump booth")).toBeHidden();
-  await open("/drawer/emergency");
+  await open("/emergency");
   await expect(page.getByText(/^Pregnancy loss/)).toBeVisible();
 });
 

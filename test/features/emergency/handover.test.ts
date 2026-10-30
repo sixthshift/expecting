@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { ageOn, handover } from "../../../src/features/drawer/model/handover";
+import { ageOn, handover } from "../../../src/features/emergency/model/handover";
 
 const base = { facts: {}, carrying: "Sam", dueDate: "2027-02-14", today: "2026-10-30", lostOn: null } as const;
 

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Baby, Camera, ChevronRight, Luggage, Siren, Timer } from "lucide-react";
+import { Baby, Camera, Luggage, Timer } from "lucide-react";
 import { useExtras } from "../../../api/rpc/extras";
 import { useNames } from "../../../api/rpc/names";
 import { usePeople } from "../../../api/rpc/people";
@@ -11,8 +11,8 @@ import { NamesGame } from "../../names/components/namesGame/NamesGame";
 import { extra } from "../../settings/model/extras";
 
 /**
- * The handy things, each for its moment: Emergency info, the names (with the Choosing a name extra), the bump photos, the bag, the contractions.
- * While something has happened, only Emergency info: the names and what's coming are put away, not deleted.
+ * The handy things, each for its moment: the names (with the Choosing a name extra), the bump photos, the bag, the contractions.
+ * While something has happened, the names and what's coming are put away, not deleted.
  */
 export function DrawerPage() {
   const { data: names } = useNames();
@@ -25,19 +25,6 @@ export function DrawerPage() {
   return (
     <main className="mx-auto flex max-w-5xl flex-col gap-6 px-4 pb-16 md:px-8">
       <PillarHeader title="Drawer" lead="The handy things, kept where you can find them when their moment comes." />
-      <Link
-        to="/drawer/emergency"
-        className="flex items-center gap-4 rounded-xl border border-border-subtle bg-bg-normal p-4 hover:bg-bg-normal-hovered sm:p-6"
-      >
-        <span aria-hidden className="flex size-11 shrink-0 items-center justify-center rounded-full bg-bg-brand-subtle text-fg-brand">
-          <Siren size={20} />
-        </span>
-        <span className="flex min-w-0 flex-1 flex-col gap-0.5">
-          <span className="font-display text-xl font-semibold text-fg-strong">Emergency info</span>
-          <span className="text-sm text-fg-subtle">The calls, and everything a doctor will ask, on one screen to hand over.</span>
-        </span>
-        <ChevronRight aria-hidden size={18} className="shrink-0 text-fg-subtle" />
-      </Link>
       {quiet ? (
         <p className="max-w-prose text-sm text-fg-subtle">The names and everything else here are put away while Expecting is quiet. Nothing is deleted.</p>
       ) : extras.has("choosing-names") ? (

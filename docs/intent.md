@@ -359,7 +359,7 @@ All shared, all editable by both:
 
 - **Appointments:** date, who with, notes, the questions to ask, the log since the last one, and a waiting-room mode on the day.
 - **Questions:** a running list for the next appointment. Asked questions keep their answers. *Built.*
-- **Contacts:** midwife, OB, hospital, birth suite, GP, maternal child health nurse. The birth suite's number is the call button. *Begun as Emergency info, in the Drawer: the calls, then a handover for whoever is treating her on one screen.*
+- **Contacts:** midwife, OB, hospital, birth suite, GP, maternal child health nurse. The birth suite's number is the call button. *Begun as Emergency info, beside settings: the calls, then a handover for whoever is treating her on one screen.*
 
 ## Features
 
