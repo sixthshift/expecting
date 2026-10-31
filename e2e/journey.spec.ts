@@ -255,7 +255,8 @@ test("can I…? narrows by topic and answer, and an entry leads back to its door
 
   await cheese.click();
   await expect(page).toHaveURL(/\/library\/soft-cheese$/);
-  await page.getByRole("link", { name: "Can I…?" }).click();
+  // The way back is the door's own name; related entries can say "Can I…?" too.
+  await page.getByRole("link", { name: "Can I…?", exact: true }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Can I…?" })).toBeVisible();
 });
 
