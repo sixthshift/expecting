@@ -19,7 +19,9 @@ test("before 36 weeks it isn't in the corner, but Emergency info leads to it", a
   await expect(page.getByRole("heading", { level: 1, name: "It's time" })).toBeVisible();
   // Getting ready: the two ways in, what the night still needs, and the rest as the night will show it.
   await expect(page.getByText("Nothing's started. When it does, tap one of these.")).toBeVisible();
-  await expect(page.getByRole("link", { name: "The birth suite's number", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Ready for the night" })).toBeVisible();
+  // The journey filled in the birth suite's number: it's the first call.
+  await expect(page.getByRole("navigation", { name: "The calls" }).getByRole("link", { name: "Call the birth suite" })).toBeVisible();
   await expect(page.getByText(/Before 37 weeks, contractions or the waters breaking/)).toBeVisible();
   await expect(page.getByRole("button", { name: "Call now, don't wait, if" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "When you ring, they'll ask" })).toBeVisible();
