@@ -127,10 +127,23 @@ Noted 2026-10-31, after the full pass. In the order I'd take them.
 
 **Work for Claude**
 
-4. Coverage: walk the national Pregnancy Care Guidelines, the Safer Baby
-   Bundle and RANZCOG's patient leaflets against the Library and list
-   what's missing (so far found ad hoc: `baby-moving-less`,
-   `seizure-in-pregnancy`).
+4. Coverage. Walked 2026-10-31 (the Safer Baby Bundle's five elements,
+   the Pregnancy Care Guidelines' topics, and RANZCOG's 29 pregnancy
+   leaflets, by entry id, title, alias and ask). Missing, to write:
+   - **Smoking**: no entry on smoking itself or quitting, for either
+     parent, though it's a Safer Baby Bundle element (`vaping` and
+     `nicotine-replacement` exist).
+   - **CMV**: the guidelines say to advise everyone how to avoid it
+     (young children's saliva and urine); only `working-with-children`
+     mentions it.
+   - **Chickenpox exposure**: what to do if exposed while pregnant; only
+     the vaccine entries touch it.
+   - **Vasa praevia**: RANZCOG has a leaflet; two passing mentions.
+   - Smaller: everyday air pollution (RANZCOG leaflet; only
+     `bushfire-smoke`), trichomonas (no mention).
+   Also: RANZCOG's "Exercise During Pregnancy" leaflet could join the
+   exercise entries' sources. Found earlier: `baby-moving-less`,
+   `seizure-in-pregnancy`, both written.
 5. ~~Make the review's rules tests.~~ Done 2026-10-31
    (`test/content/review.test.ts`): no template lines, and every phone
    number against one table of services. Symptom headings in urgency order
