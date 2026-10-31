@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./theme/index.css";
+@import "./transitions.css";
 @import "./motion.css";
 @import "../components/loading/loading.css";
 @source "../../node_modules/@sixthshift/design-system";

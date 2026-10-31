@@ -42,7 +42,7 @@ function Float({ open, onClick, onClose }: { open: boolean; onClick: () => void;
         onClick={onClick}
         // Still in the tab order while away: a keyboard or a screen reader finds it where it always is.
         className={cn(
-          "fixed right-4 bottom-[calc(var(--tab-bar)+1rem)] z-30 flex size-14 items-center justify-center rounded-full bg-bg-brand text-fg-on-brand shadow-lg transition-[translate,opacity] duration-(--motion-base) active:scale-95 lg:hidden",
+          "frame-add fixed right-4 bottom-[calc(var(--tab-bar)+1rem)] z-30 flex size-14 items-center justify-center rounded-full bg-bg-brand text-fg-on-brand shadow-lg transition-[translate,opacity] duration-(--motion-base) active:scale-95 lg:hidden",
           away
             ? "pointer-events-none translate-y-[calc(100%+1.5rem)] opacity-0 ease-(--ease-exit) focus-visible:pointer-events-auto focus-visible:translate-y-0 focus-visible:opacity-100"
             : "ease-(--ease-enter)"

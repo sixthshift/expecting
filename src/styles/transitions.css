@@ -1,0 +1,91 @@
+/*
+ * Pages giving way to each other (src/app/model/transitions.ts decides which):
+ * a short fade across pillars, a slide in to a page under this one and back
+ * out. The frame stays still: the tab bar, the sidebar and the "+" have their
+ * own names, so only the page moves. Small distances, quick, and the old page
+ * gone fast so the two never sit muddled together: the next page is the
+ * point, not the trip. Reduced motion has none of it.
+ */
+
+@keyframes page-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes page-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(2.5rem);
+  }
+}
+@keyframes page-to-left {
+  to {
+    opacity: 0;
+    transform: translateX(-1.5rem);
+  }
+}
+@keyframes page-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-2.5rem);
+  }
+}
+@keyframes page-to-right {
+  to {
+    opacity: 0;
+    transform: translateX(1.5rem);
+  }
+}
+
+/* Only for those who haven't asked for less motion; for them, motion.css turns view transitions off. */
+@media (prefers-reduced-motion: no-preference) {
+  html:active-view-transition-type(across)::view-transition-old(root) {
+    animation: page-fade-out var(--motion-fast) var(--ease-exit) both;
+  }
+  html:active-view-transition-type(across)::view-transition-new(root) {
+    animation: page-fade-in var(--motion-base) var(--ease-enter) both;
+  }
+
+  html:active-view-transition-type(in)::view-transition-old(root) {
+    animation: page-to-left var(--motion-fast) var(--ease-exit) both;
+  }
+  html:active-view-transition-type(in)::view-transition-new(root) {
+    animation: page-from-right var(--motion-slow) var(--ease-enter) both;
+  }
+
+  html:active-view-transition-type(out)::view-transition-old(root) {
+    animation: page-to-right var(--motion-fast) var(--ease-exit) both;
+  }
+  html:active-view-transition-type(out)::view-transition-new(root) {
+    animation: page-from-left var(--motion-slow) var(--ease-enter) both;
+  }
+}
+
+/* The frame, held still while the page moves. */
+.frame-tab-bar {
+  view-transition-name: frame-tab-bar;
+}
+.frame-sidebar {
+  view-transition-name: frame-sidebar;
+}
+.frame-add {
+  view-transition-name: frame-add;
+}
+::view-transition-group(frame-tab-bar),
+::view-transition-group(frame-sidebar),
+::view-transition-group(frame-add),
+::view-transition-new(frame-tab-bar),
+::view-transition-new(frame-sidebar),
+::view-transition-new(frame-add) {
+  animation: none;
+}
+::view-transition-old(frame-tab-bar),
+::view-transition-old(frame-sidebar),
+::view-transition-old(frame-add) {
+  display: none;
+}

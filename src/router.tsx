@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRouter } from "@tanstack/react-router";
 import { outboxCaches, queueSaves } from "./app/model/outbox";
+import { transitionBetween } from "./app/model/transitions";
 import { LoadingPage } from "./components/loading/Loading";
 import { isLoggedOut } from "./lib/errors";
 import { routeTree } from "./routes/tree";
@@ -40,6 +41,10 @@ export function getRouter() {
     // 400ms, so it doesn't flash), and once shown, for at least the router's half a second.
     defaultPendingComponent: LoadingPage,
     defaultPendingMs: 400,
+    // Pages give way to each other: in and out for a page under another, a fade across pillars (src/styles/transitions.css).
+    defaultViewTransition: {
+      types: ({ fromLocation, toLocation, pathChanged }) => transitionBetween(fromLocation?.pathname, toLocation.pathname, pathChanged),
+    },
   });
 }
 

@@ -23,7 +23,7 @@ export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
   const onPillar = pillars.some(({ to }) => pathname === to || (to !== "/" && pathname.startsWith(`${to}/`)));
   return (
     <div className="[--tab-bar:calc(3.75rem+env(safe-area-inset-bottom))] lg:grid lg:grid-cols-[13rem_minmax(0,1fr)] lg:[--tab-bar:0px] print:block">
-      <aside className="sticky top-0 hidden h-dvh flex-col border-r border-border-subtle bg-bg-normal px-4 pt-6 pb-4 lg:flex print:hidden">
+      <aside className="frame-sidebar sticky top-0 hidden h-dvh flex-col border-r border-border-subtle bg-bg-normal px-4 pt-6 pb-4 lg:flex print:hidden">
         <p className="mb-6 flex items-center gap-2 px-3 text-lg font-semibold text-fg-strong">
           <Baby aria-hidden size={22} className="text-fg-brand" />
           Expecting
@@ -70,7 +70,7 @@ export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
 
       <SharedIn />
 
-      <div className="fixed inset-x-0 bottom-0 z-30 print:hidden border-t border-border-subtle bg-bg-normal/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden">
+      <div className="frame-tab-bar fixed inset-x-0 bottom-0 z-30 print:hidden border-t border-border-subtle bg-bg-normal/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden">
         <PillarNav pillars={pillars} layout="tabs" />
       </div>
     </div>
