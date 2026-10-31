@@ -5,7 +5,7 @@ summary: "Friends take turns bringing dinner in the first weeks home; set it up 
 weeks: [30, 38]
 type: moment
 topic: after-the-birth
-extra: meal-train
+extra: help-network
 tasks:
   - id: choose-meal-train-organiser
     title: Ask a friend to organise the meal train

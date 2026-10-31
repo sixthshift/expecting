@@ -193,16 +193,9 @@ export const EXTRA_LIST = [
     offer: 30,
   },
   {
-    id: "meal-train",
-    name: "Meal train",
-    pitch: "Friends taking turns to bring meals in the first weeks home.",
-    group: "people",
-    offer: 30,
-  },
-  {
     id: "help-network",
     name: "Lining up help",
-    pitch: "Who can help with what in the first weeks: a list, and asking early.",
+    pitch: "Who can help with what in the first weeks, from a meal train to the school run, and asking early.",
     group: "people",
     offer: 30,
   },
