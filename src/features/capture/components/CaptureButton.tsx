@@ -5,12 +5,24 @@
 
 import { cn } from "@sixthshift/design-system/utils";
 import { Plus } from "lucide-react";
-import { useState } from "react";
-import { useOutOfTheWay } from "../hooks/useOutOfTheWay";
+import { useEffect, useState } from "react";
+import { useOutOfTheWay } from "../../../app/hooks/useOutOfTheWay";
+import { typingOrInDialog } from "../../../app/hooks/useShortcuts";
 import { CaptureSheet } from "./CaptureSheet";
 
 export function CaptureButton({ layout }: { layout: "float" | "row" }) {
   const [open, setOpen] = useState(false);
+  // `n` opens it from the keyboard, wherever the "+" is offered: the sidebar's, which is there on every pillar (hidden on a phone).
+  useEffect(() => {
+    if (layout !== "row") return;
+    function onKey(event: KeyboardEvent) {
+      if (event.key !== "n" || typingOrInDialog(event)) return;
+      event.preventDefault();
+      setOpen(true);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [layout]);
   return layout === "float" ? (
     <Float onClick={() => setOpen(true)} open={open} onClose={() => setOpen(false)} />
   ) : (
@@ -24,6 +36,7 @@ export function CaptureButton({ layout }: { layout: "float" | "row" }) {
       >
         <Plus aria-hidden size={18} />
         Add
+        <kbd className="ml-auto rounded-sm border border-fg-on-brand/40 px-1.5 font-sans text-xs opacity-80">N</kbd>
       </button>
       {open ? <CaptureSheet onClose={() => setOpen(false)} /> : null}
     </>

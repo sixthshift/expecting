@@ -39,7 +39,13 @@ export function JournalPage() {
     <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
       <PillarHeader title="Journal" />
       {/* The highlights only when there are some: an empty one would leave its column blank. */}
-      <div className={cn("flex flex-col gap-8", highlights.shown && "lg:grid lg:grid-cols-[minmax(0,1fr)_20rem] lg:grid-rows-[auto_1fr] lg:gap-x-10")}>
+      {/* Without the highlights, one column at a reading width rather than the whole screen's. */}
+      <div
+        className={cn(
+          "flex flex-col gap-8",
+          highlights.shown ? "lg:grid lg:grid-cols-[minmax(0,1fr)_20rem] lg:grid-rows-[auto_1fr] lg:gap-x-10" : "lg:max-w-3xl"
+        )}
+      >
         <div className="flex min-w-0 flex-col gap-6 lg:col-start-1 lg:row-start-1">
           <WeekSoFar suggested={highlights.suggested} withDays={withDays} />
         </div>

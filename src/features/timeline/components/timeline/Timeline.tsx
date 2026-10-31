@@ -1,4 +1,5 @@
 import { Button } from "@sixthshift/design-system/button";
+import { cn } from "@sixthshift/design-system/utils";
 import { LocateFixed } from "lucide-react";
 import { useEffect, useMemo } from "react";
 import { useAppetite } from "../../../../api/rpc/appetite";
@@ -10,6 +11,7 @@ import { usePhotos } from "../../../../api/rpc/photos";
 import { useQuestions } from "../../../../api/rpc/questions";
 import { useNow, useSettings } from "../../../../api/rpc/settings";
 import { PillarHeader } from "../../../../app/components/layout/PillarLayout";
+import { useOutOfTheWay } from "../../../../app/hooks/useOutOfTheWay";
 import { weekNotes } from "../../../../content";
 import type { Week } from "../../../../lib/timeline";
 import { mapWeeks, mapWindows } from "../../../../lib/timelineMap";
@@ -46,6 +48,7 @@ export function Timeline({ at }: { at: Week | undefined }) {
   const { data: photos } = usePhotos();
   const { data: papers } = usePapers();
   const { dueDate } = settings;
+  const away = useOutOfTheWay();
   const windows = useMemo(() => mapWindows(items, checklist.ticks, now), [items, checklist.ticks, now]);
   const weeks = mapWeeks({ notes: weekNotes, windows, tasks, ticks: checklist.ticks, questions, journal, feelings, appetite, photos, papers, now, dueDate });
 
@@ -66,7 +69,11 @@ export function Timeline({ at }: { at: Week | undefined }) {
           variant="outline"
           size="sm"
           onClick={() => scrollToWeek(now, true)}
-          className="fixed bottom-[calc(var(--tab-bar)+1rem)] left-1/2 z-10 -translate-x-1/2 shadow-sm lg:hidden"
+          // Out of the way while the page scrolls down, as the "+" is; back on the way up.
+          className={cn(
+            "fixed bottom-[calc(var(--tab-bar)+1rem)] left-1/2 z-10 -translate-x-1/2 shadow-sm transition-[translate,opacity] duration-(--motion-base) lg:hidden",
+            away ? "pointer-events-none translate-y-[calc(100%+1.5rem)] opacity-0 ease-(--ease-exit)" : "ease-(--ease-enter)"
+          )}
         >
           <LocateFixed aria-hidden size={16} />
           Today

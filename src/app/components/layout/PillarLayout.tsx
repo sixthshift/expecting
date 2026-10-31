@@ -4,6 +4,7 @@ import { Baby, type LucideIcon, Settings, Siren } from "lucide-react";
 import { CaptureButton } from "../../../features/capture/components/CaptureButton";
 import { SharedIn } from "../../../features/capture/components/SharedIn";
 import { ItsTimeWayIn } from "../../../features/itsTime/components/wayIn/ItsTimeWayIn";
+import { useShortcuts } from "../../hooks/useShortcuts";
 import type { AppPath } from "../../model/paths";
 import { CallBirthSuite } from "./CallBirthSuite";
 
@@ -20,6 +21,7 @@ export type Pillar = { to: AppPath; label: string; icon: LucideIcon };
  */
 export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
   const { pathname } = useLocation();
+  useShortcuts();
   const onPillar = pillars.some(({ to }) => pathname === to || (to !== "/" && pathname.startsWith(`${to}/`)));
   return (
     <div className="[--tab-bar:calc(3.75rem+env(safe-area-inset-bottom))] lg:grid lg:grid-cols-[13rem_minmax(0,1fr)] lg:[--tab-bar:0px] print:block">

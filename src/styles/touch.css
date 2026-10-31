@@ -1,0 +1,21 @@
+/*
+ * Feeling like an app on a phone, not a web page: no grey flash on a tap
+ * (the pressed states say it instead), no text selected by a long press on a
+ * button or a tab, and no double-tap zoom delay on them. Words you read stay
+ * selectable; only what you press isn't.
+ */
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+  }
+  /* Not label: on iOS an input inside a label that can't be selected can't be typed in either. */
+  button,
+  [role="button"],
+  summary,
+  nav a {
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+  }
+}
