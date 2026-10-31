@@ -15,6 +15,11 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/babies/daily-care/prams-and-strollers
 related: [second-hand-baby-gear, baby-capsule-hire]
 checked: 2026-10-31
+lines:
+  - id: get-pram
+    title: Pram that meets the safety standard, bought or borrowed
+    list: baby
+    section: out-and-about
 ---
 A pram is for a baby too young to sit up: it usually keeps them lying flat. A stroller is usually for older babies and toddlers who can sit upright, though many adjust to lie flat too. Most carry a child up to 9 kg. A baby under 6 months should only go in a stroller if it reclines to at least 130°.
 

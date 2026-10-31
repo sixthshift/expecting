@@ -19,6 +19,11 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/babies/daily-care/what-you-will-need-for-baby
 related: [cot-and-safe-sleep-standards, portable-cot, second-hand-baby-gear]
 checked: 2026-10-31
+lines:
+  - id: get-bassinet
+    title: Bassinet for your room, if you'd like one for the early months
+    list: baby
+    section: sleep
 ---
 The safest place for your baby to sleep for the first 6 to 12 months is in their own cot or bassinet, in the same room as you. Room sharing can halve the chance of sudden unexpected death in infancy (SUDI), and many parents choose a smaller bassinet in their bedroom for the early months, which can make night feeds easier.
 

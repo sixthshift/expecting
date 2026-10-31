@@ -21,6 +21,15 @@ sources:
     url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/is-it-safe-to-use-a-second-hand-mattress/
 related: [bassinet, portable-cot, second-hand-baby-gear]
 checked: 2026-10-31
+lines:
+  - id: get-cot
+    title: Cot that meets the safety standard
+    list: baby
+    section: sleep
+  - id: get-cot-mattress
+    title: Firm, flat mattress that fits the cot
+    list: baby
+    section: sleep
 ---
 Your baby will spend more time in the cot than anywhere else, so it's worth getting right. You don't need the latest or most expensive model, but whatever cot you choose has to be safe: Pregnancy, Birth and Baby warns that an unsafe cot can cause injury or even death.
 

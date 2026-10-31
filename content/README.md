@@ -31,6 +31,13 @@ sources:                         # every page a claim in the body comes from
   - title: Publisher — Page title
     url: https://...
 related: [deli-meats, listeria-foods]
+lines:                           # optional: what to get, a line each on a list (src/lib/lists.ts), restating the body
+  - id: get-bottles              # stable, unique across items, tasks and lines: marks point at it
+    title: Bottles
+    list: baby                   # one of LISTS
+    section: feeding             # one of its list's sections
+    when: { feeding: [formula, both] }   # optional, narrows the entry's
+    task: buy-bottles            # optional, one of this entry's tasks; never on a private entry
 appointment:                     # optional, at most 3: what to ask your midwife or doctor about your own case
   - Is soft cheese a risk with my results?   # first person, short (≤ 120), ends in ?; never on a card, term or private entry
 draft: true

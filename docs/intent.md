@@ -78,7 +78,7 @@ The modes sort into six pillars, by whose a thing is and what you do with it:
 | **This week** | both, now | open it | Home: where you are, what to do and what has slipped, this week's note read as you, what's worth knowing, what's coming, the questions waiting |
 | **Timeline** | both, through time | follow it | The whole pregnancy at a glance: what's coming, and behind today, what happened |
 | **Library** | Expecting's | read it | Guides, week by week, "nobody tells you" (a shelf of its own), "Can I…?", "Is this normal?", topics, search |
-| **Planner** | yours, ahead | do it | To do, decisions, appointments and their questions, contacts |
+| **Planner** | yours, ahead | do it | To do, what to get (the lists), decisions, appointments and their questions, contacts |
 | **Journal** | yours, behind | keep it | Movements, cravings, moods and symptoms, notes, bump photos, scans, results, documents |
 | **Drawer** | both, when it's time | reach for it | The handy things, each for its moment: the names game, the bump booth, the contraction timer, the hospital bag |
 
@@ -88,7 +88,7 @@ The modes sort into six pillars, by whose a thing is and what you do with it:
 - **Records live in the Journal:** a scan is something that happened, dated, on the timeline. A separate Vault for medical papers stays an option.
 - **Outside every pillar:** the capture button (one "+" that files a kick, a question or a photo into the right pillar) and the call button.
 
-*Built: the frame, This week, the Timeline, Library and Planner, the Journal's notes, movements, sickness and cravings, photos and scans, how you're feeling, and results and papers, the Drawer's names game, and the capture "+" (a movement, sickness, a craving, a note, a photo or scan, a result or paper, a feeling, a question or a task). The rest of the Drawer says what's coming.*
+*Built: the frame, This week, the Timeline, Library and Planner (with its lists of what to get), the Journal's notes, movements, sickness and cravings, photos and scans, how you're feeling, and results and papers, the Drawer's names game, and the capture "+" (a movement, sickness, a craving, a note, a photo or scan, a result or paper, a feeling, a question or a task). The rest of the Drawer says what's coming.*
 
 ### The app changes shape
 

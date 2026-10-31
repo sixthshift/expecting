@@ -13,6 +13,12 @@ tasks:
   - id: buy-and-fit-car-seat
     title: Buy and fit the car seat
     due: 36
+lines:
+  - id: get-car-seat
+    title: Rear-facing car seat that meets AS/NZS 1754
+    list: baby
+    section: out-and-about
+    task: buy-and-fit-car-seat
 ---
 Your baby must be safely secured in the correct car seat whenever they're in the car, and it's a job worth doing well before labour.
 

@@ -29,8 +29,8 @@ Talked through with Jason on 2026-10-31 and 2026-11-01:
 
 | List | What it's for | Its lines |
 |---|---|---|
-| **For the baby** | Everything to have before the birth: the unified view. | `car-seat`, `pram`, `bassinet`, `cot-and-safe-sleep-standards`, `portable-cot`, `what-you-need-for-the-baby`; a *Nursery* section with that extra; the bottles and formula by the `feeding` answer. |
-| **Freezer meals** | Cooking ahead, and the shopping for it. | `freezer-meals`, so only while that extra is on. Mostly your own lines (the meals). |
+| **For the baby** | Everything to have before the birth: the unified view. | `car-seat`, `pram`, `bassinet`, `cot-and-safe-sleep-standards`, `portable-cot`, `what-you-need-for-the-baby`, in sections from Sleep to For you (maternity pads, breast pads); the bottles and formula by the `feeding` answer. |
+| **Freezer meals** | Cooking ahead, and the shopping for it. | `freezer-meals`, so only while that extra is on: the pantry and what to freeze them in. Your own lines are the meals, under *Meals to make*. |
 | **Your own** | Anything else: "Bunnings run", "Ask Mum to bring". | Yours: name one, add lines, delete it when it's done. |
 
 The lists Expecting knows are a short typed list, `LISTS` in
@@ -147,31 +147,39 @@ lines:
 
 Each step ends with the gate green (`check`, `test`, `lint`, `e2e`).
 
-1. **The content field and the question.** The `feeding` question;
+1. **The content field and the question.** *Done 2026-11-01.* The `feeding` question;
    `lines:` in `src/content/schema.ts` with the checks above; the lines
    collected in the index; `LISTS` and the rules in `src/lib/lists.ts`
    (the lines that apply, by section, what's left). Tests.
-2. **The store.** Migration `026_lists.sql` (025 is taken on main by the
+2. **The store.** *Done 2026-11-01.* Migration `026_lists.sql` (025 is taken on main by the
    names superlike, not yet committed): `own_list` (`id`, `title`, `by`,
    `created_at`), `own_line` (`id`, `list_id`, a built-in list's id or an
    own list's, `title`, `section`, `by`, `created_at`) and `list_mark`
    (`line_id`, a built-in line's id or an own line's, no foreign key, as
-   `task_tick`; `state`, `how`, `note`, `by`, `updated_at`). Deleting an own
+   `task_tick`; `state`, `how`, `note`, `by`, `updated_at`; a null state
+   is a line still to get with only words on it). Deleting an own
    list deletes its lines and marks; an own line, its mark.
    `src/db/models/lists/`, `src/api/rpc/lists.ts` with its saves. Tests.
-3. **The pages.** `/planner/lists` and `/planner/lists/$listId`, in
+3. **The pages.** *Done 2026-11-01.* `/planner/lists` and `/planner/lists/$listId`, in
    `src/features/lists/`. Dom tests; an e2e that adds, ticks and reloads.
-4. **Into the Planner.** The way in on the Planner, and quiet putting the
+4. **Into the Planner.** *Done 2026-11-01.* The way in on the Planner, and quiet putting the
    lists away.
-5. **The content.** The lines on the entries above, from what each says.
-6. **Docs and memory.** `docs/architecture.md`, `docs/intent.md`,
+5. **The content.** *Done 2026-11-01.* The lines on the entries above, from
+   what each says: 25 for the baby, 6 for the freezer meals. To review.
+6. **Docs and memory.** *Done 2026-11-01.* `docs/architecture.md`, `docs/intent.md`,
    `content/README.md`, CLAUDE.md's domains.
 
 ## Progress
 
 - 2026-10-31: first plan, with the bag; questions settled.
 - 2026-11-01: rewritten: one list per job, own lists, the bag to It's
-  time. Built on `feat/lists`.
+  time. Built on `feat/lists`, steps 1–6. Decided on the way: no
+  *Nursery* section (the nursery entry only restates the cot, whose lines
+  are everyone's), a *For you* section instead; a mark may hold words with
+  no state, for a line still to get ("newborn size, 2 packs"); each list
+  names the heading over your own lines (*Also*, *Meals to make*).
+  `docs/plan-its-time.md` still points here for the bag and its *last
+  thing* state: it owns them now.
 
 ## Not in this plan
 

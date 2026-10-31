@@ -24,6 +24,8 @@ import { question } from "./onboarding/question";
 import { ready } from "./onboarding/ready";
 import { who } from "./onboarding/who";
 import { planner } from "./planner";
+import { plannerList } from "./plannerList";
+import { plannerLists } from "./plannerLists";
 import { rootRoute } from "./root";
 import { settings } from "./settings";
 import { timeline } from "./timeline";
@@ -36,7 +38,22 @@ const api = import.meta.env.SSR ? (await import("../api/rest")).restRoutes : ([]
 
 export const routeTree = rootRoute.addChildren([
   // The frame: the pillars, in navigation order, then settings, then any other address.
-  app.addChildren([index, timeline, library, libraryItem, planner, journal, journalBook, drawer, drawerNames, emergency, settings, notFound]),
+  app.addChildren([
+    index,
+    timeline,
+    library,
+    libraryItem,
+    planner,
+    plannerLists,
+    plannerList,
+    journal,
+    journalBook,
+    drawer,
+    drawerNames,
+    emergency,
+    settings,
+    notFound,
+  ]),
   // Outside the frame: the first-run questions, a step to a URL, and logging in.
   onboarding.addChildren([onboardingNext, who, due, baby, question, extras, ready]),
   login,

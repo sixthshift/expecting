@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 import type { Item, Line } from "../../src/content/schema";
-import { isLeft, listsOf, type Mark, sectionsOf, tailorLines, wordsFor } from "../../src/lib/lists";
+import { isLeft, leftSaying, listsOf, type Mark, sectionsOf, tailorLines, wordsFor } from "../../src/lib/lists";
 
 const line = (id: string, listId: string, section: string | null, fields: Partial<Line> = {}): Line => ({
   id,
@@ -58,7 +58,7 @@ test("a list's sections in its order, your loose lines under Also, and the not-n
     line("cot", "baby", "sleep"),
     line("bouncer", "baby", null, { origin: "own" }),
     line("bath", "baby", "bathing"),
-    line("other", "freezer-meals", "meals"),
+    line("other", "freezer-meals", "pantry"),
   ];
   const { sections, notNeeded } = sectionsOf("baby", lines, { bath: mark("bath", "not-needed") });
   expect(sections.map((s) => [s.title, s.lines.map((l) => l.id)])).toEqual([
@@ -72,6 +72,13 @@ test("a list's sections in its order, your loose lines under Also, and the not-n
 test("a list of your own has one part, with no heading", () => {
   const { sections } = sectionsOf("own-1", [line("a", "own-1", null), line("b", "own-1", null)], {});
   expect(sections).toEqual([{ key: null, title: null, lines: [line("a", "own-1", null), line("b", "own-1", null)] }]);
+});
+
+test("what's left, in the list's words", () => {
+  expect(leftSaying("baby", { left: 9, total: 12 })).toBe("9 to get");
+  expect(leftSaying("freezer-meals", { left: 3, total: 5 })).toBe("3 still to do");
+  expect(leftSaying("baby", { left: 0, total: 12 })).toBe("All sorted");
+  expect(leftSaying("own-1", { left: 0, total: 0 })).toBe("Nothing on it yet");
 });
 
 test("each list has its words for the states, yours the usual", () => {

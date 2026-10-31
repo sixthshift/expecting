@@ -14,6 +14,87 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/babies/daily-care/what-you-will-need-for-baby
 related: [car-seat, cot-and-safe-sleep-standards, second-hand-baby-gear, pram, bassinet]
 checked: 2026-10-29
+lines:
+  - id: get-cot-sheets
+    title: Cot sheets, enough for a spare in the wash
+    list: baby
+    section: sleep
+  - id: get-baby-monitor
+    title: Baby monitor, if you want one
+    list: baby
+    section: sleep
+  - id: get-bottles
+    title: Bottles
+    list: baby
+    section: feeding
+    when: { feeding: [formula, both] }
+  - id: get-sterilising-gear
+    title: Feeding and sterilising equipment
+    list: baby
+    section: feeding
+    when: { feeding: [formula, both] }
+  - id: get-formula
+    title: Formula
+    list: baby
+    section: feeding
+    when: { feeding: [formula, both] }
+  - id: get-breast-pump
+    title: Breast pump, if you'll express
+    list: baby
+    section: feeding
+    when: { feeding: [breast, both] }
+  - id: get-nappies
+    title: Nappies, disposable or cloth
+    list: baby
+    section: changing
+  - id: get-change-spot
+    title: Somewhere to change nappies
+    list: baby
+    section: changing
+  - id: get-nappy-bag
+    title: Nappy bag
+    list: baby
+    section: changing
+  - id: get-baby-bath
+    title: Baby bath, or use the kitchen sink
+    list: baby
+    section: bathing
+  - id: get-towels
+    title: Towels and washcloths
+    list: baby
+    section: bathing
+  - id: get-baby-toiletries
+    title: Toiletries
+    list: baby
+    section: bathing
+  - id: get-all-in-ones
+    title: All-in-ones
+    list: baby
+    section: clothes
+  - id: get-wraps
+    title: Wraps for swaddling
+    list: baby
+    section: clothes
+  - id: get-singlets-beanies-socks
+    title: Singlets, beanies and socks for the season
+    list: baby
+    section: clothes
+  - id: get-maternity-pads
+    title: Maternity pads
+    list: baby
+    section: for-you
+  - id: get-breast-pads
+    title: Breast pads
+    list: baby
+    section: for-you
+  - id: get-comfortable-clothes
+    title: Comfortable clothes
+    list: baby
+    section: for-you
+  - id: get-water-bottle
+    title: A big water bottle
+    list: baby
+    section: for-you
 ---
 Pregnancy, Birth and Baby says newborns don't need much other than love, milk and warmth. It adds that you don't need to buy everything new: second hand, borrowed and pre-used baby furniture and equipment save money. With a first baby, expect to spend more time and money getting the essentials together.
 

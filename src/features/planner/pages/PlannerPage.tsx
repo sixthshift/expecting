@@ -16,6 +16,7 @@ import { WEEKS, type Week, weekLabel } from "../../../lib/timeline";
 import { type ToDo, whenToDo } from "../../../lib/todo";
 import { ItemLink } from "../../library/components/ItemLink";
 import { useItems } from "../../library/hooks/useItems";
+import { ListsWayIn } from "../../lists/components/wayIn/ListsWayIn";
 import { AddQuestion, AskedQuestion, OpenQuestion } from "../../questions/components/questions/questions";
 import { PutAside } from "../../quiet/components/putAside/PutAside";
 import { AddTask, DeleteOwnTask } from "../../tasks/components/addTask/AddTask";
@@ -36,8 +37,8 @@ const AHEAD_AT: Record<Ahead["at"], (w: Week) => string> = {
 /**
  * What to do and what to ask. To do starts somewhere: the one thing to do
  * next, then the rest of what to do now, with what's ahead, missed and done
- * folded away (src/lib/planner.ts). Beside it, the questions for the next
- * appointment. While something has happened, nothing to do: the list is put
+ * folded away (src/lib/planner.ts). Beside it, the lists (what to get) and
+ * the questions for the next appointment. While something has happened, nothing to do: the list is put
  * aside, with what was already set in motion.
  */
 export function PlannerPage() {
@@ -179,25 +180,28 @@ export function PlannerPage() {
           </section>
         )}
 
-        <section id="questions" aria-labelledby="questions-heading" className="flex scroll-mt-6 flex-col gap-4 lg:sticky lg:top-6">
-          <h2 id="questions-heading" className="text-lg font-display font-semibold text-fg-strong">
-            For the next appointment
-          </h2>
-          <AddQuestion />
-          {open.length === 0 ? <p className="text-sm text-fg-subtle">Nothing to ask yet. Add a question as it comes to you.</p> : null}
-          {open.map((q) => (
-            <OpenQuestion key={q.id} question={q} />
-          ))}
-          {asked.length > 0 ? (
-            <Group title="Asked" count={asked.length} folded>
-              <div className="flex flex-col gap-3">
-                {asked.map((q) => (
-                  <AskedQuestion key={q.id} question={q} />
-                ))}
-              </div>
-            </Group>
-          ) : null}
-        </section>
+        <div className="flex flex-col gap-10 lg:sticky lg:top-6">
+          {quiet ? null : <ListsWayIn />}
+          <section id="questions" aria-labelledby="questions-heading" className="flex scroll-mt-6 flex-col gap-4">
+            <h2 id="questions-heading" className="text-lg font-display font-semibold text-fg-strong">
+              For the next appointment
+            </h2>
+            <AddQuestion />
+            {open.length === 0 ? <p className="text-sm text-fg-subtle">Nothing to ask yet. Add a question as it comes to you.</p> : null}
+            {open.map((q) => (
+              <OpenQuestion key={q.id} question={q} />
+            ))}
+            {asked.length > 0 ? (
+              <Group title="Asked" count={asked.length} folded>
+                <div className="flex flex-col gap-3">
+                  {asked.map((q) => (
+                    <AskedQuestion key={q.id} question={q} />
+                  ))}
+                </div>
+              </Group>
+            ) : null}
+          </section>
+        </div>
       </div>
     </main>
   );

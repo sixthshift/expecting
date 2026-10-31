@@ -14,6 +14,31 @@ tasks:
     title: Cook and freeze the meals
     opens: 33
     due: 38
+lines:
+  - id: get-freezer-rice-pasta
+    title: Rice and pasta
+    list: freezer-meals
+    section: pantry
+  - id: get-freezer-tins
+    title: Tins
+    list: freezer-meals
+    section: pantry
+  - id: get-freezer-milk
+    title: Long-life milk
+    list: freezer-meals
+    section: pantry
+  - id: get-freezer-snacks
+    title: Snacks
+    list: freezer-meals
+    section: pantry
+  - id: get-freezer-containers
+    title: Containers in single serves and family sizes
+    list: freezer-meals
+    section: kit
+  - id: get-freezer-labels
+    title: Labels, for what it is and the date
+    list: freezer-meals
+    section: kit
 ---
 The first weeks with a newborn leave little time or energy for cooking. A stock of meals that only need reheating means you eat properly without thinking about it, and it's a job the partner can own.
 

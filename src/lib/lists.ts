@@ -27,6 +27,8 @@ type ListDef = {
   about: string;
   /** Its sections, in order: key to heading. */
   sections: Readonly<Record<string, string>>;
+  /** The heading over your own lines, put in no section. */
+  yours: string;
   words: Words;
 };
 
@@ -42,14 +44,16 @@ export const LISTS = {
       changing: "Changing",
       bathing: "Bathing",
       clothes: "Clothes",
-      nursery: "The nursery",
+      "for-you": "For you",
     },
+    yours: "Also",
     words: GET,
   },
   "freezer-meals": {
     title: "Freezer meals",
     about: "Cooking ahead, so the first weeks home are fed.",
-    sections: { meals: "Meals", pantry: "The pantry", kit: "To freeze them in" },
+    sections: { pantry: "The pantry", kit: "To freeze them in" },
+    yours: "Meals to make",
     words: { none: "Still to do", arranged: "Someone's bringing it", got: "Done", "not-needed": "Not needed" },
   },
 } as const satisfies Record<string, ListDef>;
@@ -114,12 +118,19 @@ export function wordsFor(listId: string): Words {
   return listOf(listId)?.words ?? GET;
 }
 
-/** Part of a list: a section's heading (null for your own list, which has none) and its lines. */
+/** What's left on a list, in its words: "9 to get", "3 still to do". */
+export function leftSaying(listId: string, { left, total }: { left: number; total: number }): string {
+  if (total === 0) return "Nothing on it yet";
+  if (left === 0) return "All sorted";
+  return `${left} ${wordsFor(listId).none.toLowerCase()}`;
+}
+
+/** Part of a list:a section's heading (null for your own list, which has none) and its lines. */
 export type Section = { key: string | null; title: string | null; lines: Line[] };
 
 /**
  * A list's lines by its sections, in order, each with something in it; then
- * your own put in none, under "Also" (or no heading on a list of your own).
+ * your own put in none, under its heading for them (none on a list of your own).
  * The not-needed are apart, for the foot.
  */
 export function sectionsOf(listId: string, lines: readonly Line[], marks: Readonly<Record<string, Mark>>): { sections: Section[]; notNeeded: Line[] } {
@@ -128,6 +139,6 @@ export function sectionsOf(listId: string, lines: readonly Line[], marks: Readon
   const list = listOf(listId);
   const sections: Section[] = Object.entries(list?.sections ?? {}).map(([key, title]) => ({ key, title, lines: needed.filter((l) => l.section === key) }));
   const loose = needed.filter((l) => l.section === null || !(list && l.section in list.sections));
-  sections.push({ key: null, title: list ? "Also" : null, lines: loose });
+  sections.push({ key: null, title: list?.yours ?? null, lines: loose });
   return { sections: sections.filter((s) => s.lines.length > 0), notNeeded: on.filter((l) => marks[l.id]?.state === "not-needed") };
 }
