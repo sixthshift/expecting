@@ -75,6 +75,12 @@ export function WeekNote({
               {note.source.title}
               <ExternalLink aria-hidden size={12} />
             </a>
+            {size && note.size?.source ? (
+              <a href={note.size.source.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 underline">
+                {note.size.source.title}
+                <ExternalLink aria-hidden size={12} />
+              </a>
+            ) : null}
             {note.checked ? <span>checked {formatDate(note.checked as ISODate, { day: "numeric", month: "short", year: "numeric" })}</span> : null}
           </p>
         ) : null}

@@ -174,7 +174,9 @@ Noted 2026-10-31, after the full pass. In the order I'd take them.
 
 - Money: every 1 July, and the 20 March and 20 September indexations.
 - Clinical: when a national guideline is revised.
-- Week notes' `size` figures (weeks 6, 7, 12, 20, 28) still need a source.
+- ~~Week notes' `size` figures.~~ Done 2026-11-01: only weeks 6, 8, 10 and
+  28 carry one; each now cites Raising Children's week page (a size can name
+  its own source), and 6, 8 and 10 were corrected (5 mm, 1.2 cm, 3.5 cm and 8 g).
 
 The settled rules (urgency, bleeding before and after the birth, when to
 go in, retinol, vitamin D, trimesters…) are in the review records; the

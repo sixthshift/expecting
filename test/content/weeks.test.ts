@@ -26,6 +26,11 @@ describe("parseWeek", () => {
     expect(parsed.sections.body.children.map((n) => n.type)).toEqual(["paragraph"]);
   });
 
+  test("a size can name its own source", () => {
+    const parsed = parseWeek("weeks/10.md", note("title: Tiny\nsize:\n  length: 3.5\n  source:\n    title: Sizes\n    url: https://example.org/sizes"));
+    expect(parsed.size).toEqual({ length: 3.5, weight: null, like: null, source: { title: "Sizes", url: "https://example.org/sizes" } });
+  });
+
   test("the file's name is its week, however the path starts", () => {
     expect(parseWeek("../../content/weeks/3.md", note()).week).toBe(3);
     for (const file of ["weeks/06.md", "weeks/0.md", "weeks/43.md", "weeks/pp3.md", "weeks/preconception.md", "weeks/halfway.md"]) {

@@ -39,6 +39,8 @@ const frontmatterSchema = z
         weight: z.number().positive().optional(),
         /** Something about that size, for fun: "an eggplant". */
         like: z.string().min(1).optional(),
+        /** Where the length and weight come from, when it isn't the note's own source. */
+        source: z.object({ title: z.string().min(1), url: z.url() }).optional(),
       })
       .strict()
       .optional(),
@@ -54,7 +56,7 @@ export type WeekNote = {
   /** The week, which is also the file's name: `28`. */
   week: Week;
   title: string;
-  size: { length: number; weight: number | null; like: string | null } | null;
+  size: { length: number; weight: number | null; like: string | null; source: { title: string; url: string } | null } | null;
   /** Each part's body, parsed and checked, ready to render. */
   sections: Record<Section, Node>;
   draft: boolean;
@@ -122,7 +124,7 @@ export function parseWeek(file: string, source: string): WeekNote {
   return {
     week,
     title: fm.title,
-    size: fm.size ? { length: fm.size.length, weight: fm.size.weight ?? null, like: fm.size.like ?? null } : null,
+    size: fm.size ? { length: fm.size.length, weight: fm.size.weight ?? null, like: fm.size.like ?? null, source: fm.size.source ?? null } : null,
     sections: splitSections(file, ast),
     draft: fm.draft,
     source: fm.source ?? null,
@@ -136,7 +138,7 @@ export function parseWeeks(files: Record<string, string>): WeekNote[] {
 }
 
 /** "about 25 cm from head to bottom and about 1 kg, the size of an eggplant". */
-export function sizeLabel(size: NonNullable<WeekNote["size"]>): string {
+export function sizeLabel(size: Pick<NonNullable<WeekNote["size"]>, "length" | "weight" | "like">): string {
   const length = size.length < 1 ? `${Math.round(size.length * 10)} mm` : `${Number(size.length.toFixed(1))} cm`;
   const weight = size.weight === null ? null : size.weight < 1000 ? `${Math.round(size.weight)} g` : `${Number((size.weight / 1000).toFixed(1))} kg`;
   const measures = weight ? `about ${length} from head to bottom and about ${weight}` : `about ${length} from head to bottom`;
