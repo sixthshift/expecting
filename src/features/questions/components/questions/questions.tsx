@@ -9,7 +9,7 @@ import { Link } from "@tanstack/react-router";
 import { ChevronRight, MessageCircleQuestion, Trash2 } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { usePeople } from "../../../../api/rpc/people";
-import { questionsSaves } from "../../../../api/rpc/questions";
+import { questionsSaves, useQuestions } from "../../../../api/rpc/questions";
 import { useSave } from "../../../../app/hooks/useSave";
 import { builtInItems } from "../../../../content";
 import { formatDate, todayISO } from "../../../../lib/dates";
@@ -143,6 +143,45 @@ function DeleteButton({ id, text }: { id: string; text: string }) {
     <Button variant="ghost" size="sm" iconOnly aria-label={`Delete "${text}"`} onClick={() => remove({ id })}>
       <Trash2 aria-hidden size={16} />
     </Button>
+  );
+}
+
+/**
+ * On a Library entry: the questions asked from it, open ones waiting for the
+ * next appointment and asked ones with what you were told. Never under a
+ * private entry, which nothing can point at.
+ */
+export function QuestionsAbout({ itemId }: { itemId: string }) {
+  const { data: about } = useQuestions({ select: (questions) => questions.filter((q) => q.itemId === itemId) });
+  if (about.length === 0) return null;
+  const open = about.filter((q) => !q.askedAt);
+  // Most recently asked first.
+  const asked = about.filter((q) => q.askedAt).sort((a, b) => b.askedAt!.localeCompare(a.askedAt!));
+  return (
+    <section aria-labelledby="your-questions" className="flex flex-col gap-2">
+      <h2 id="your-questions" className="text-sm font-semibold text-fg-strong">
+        Your questions
+      </h2>
+      <ul className="flex flex-col gap-2">
+        {open.map((q) => (
+          <li key={q.id} className="rounded-lg border border-border-subtle p-3 text-sm">
+            <p className="whitespace-pre-wrap text-fg-normal">{q.text}</p>
+            <Link to="/planner" hash="questions" className="mt-1 inline-flex items-center gap-1 text-xs text-fg-subtle hover:text-fg-normal">
+              On your list for the next appointment <ChevronRight aria-hidden size={14} />
+            </Link>
+          </li>
+        ))}
+        {asked.map((q) => (
+          <li key={q.id} className="rounded-lg border border-border-subtle p-3 text-sm">
+            <p className="whitespace-pre-wrap font-medium text-fg-normal">{q.text}</p>
+            <p className="mt-1 whitespace-pre-wrap text-fg-normal">
+              <span className="text-fg-subtle">You asked on {formatDate(todayISO(new Date(q.askedAt!)), { day: "numeric", month: "short" })}</span>
+              {q.answer ? `: ${q.answer}` : "."}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 

@@ -97,7 +97,7 @@ committed on its own if Jason asks.
    free box. Check the design system's exports for a sheet/dialog first.
    `Ask` (inline) passes the entry's id. A dom test for the sheet; an e2e
    from an entry to the Planner and back.
-4. **Answers back on the entry.** *Not started.* The entry lists the asked
+4. **Answers back on the entry.** *Done 2026-10-31.* The entry lists the asked
    questions that came from it, with their answers and dates; open ones say
    "On your list for the next appointment".
 5. **The schema field.** *Not started.* `appointment:` in
@@ -165,6 +165,12 @@ Record each session here: what was done, what was decided, where to pick up.
   (`src/features/library/model/suggestions.ts`): for now only an ask-first
   can-i's own `ask:`; step 5 adds `appointment:`. The inline `Ask` sends the
   entry from the route's `itemId`. Next: step 4.
+- 2026-10-31: step 4 done. `QuestionsAbout` (beside the Planner's cards in
+  `src/features/questions/components/questions/questions.tsx`) under the
+  entry's action, above its papers: "Your questions", open ones first
+  ("On your list for the next appointment", linking to the Planner), then
+  asked ones, latest first, "You asked on 3 Nov: …". Never on a private
+  entry. Covered by the journey e2e. Next: step 5.
 
 ## Not in this plan
 

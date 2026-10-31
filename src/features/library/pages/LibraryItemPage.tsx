@@ -14,6 +14,7 @@ import { cluesIn, DOOR_INFO, doorOf } from "../../../lib/library";
 import { QUIET_ITEM } from "../../../lib/quiet";
 import { weekLabel } from "../../../lib/timeline";
 import { PapersAbout } from "../../journal/components/entries/papers/PaperList";
+import { QuestionsAbout } from "../../questions/components/questions/questions";
 import { QuietSwitch } from "../../quiet/components/quietSwitch/QuietSwitch";
 import { extra } from "../../settings/model/extras";
 import { AskAtAppointment } from "../components/askAtAppointment/AskAtAppointment";
@@ -99,7 +100,7 @@ export function LibraryItemPage() {
   );
 }
 
-/** The item with its page, once loaded: the card, a question to ask at the next appointment, the papers you kept about it, its week on the timeline, and what it links to. Something has happened's guide has its switch. */
+/** The item with its page, once loaded: the card, a question to ask at the next appointment and those asked from it, the papers you kept about it, its week on the timeline, and what it links to. Something has happened's guide has its switch. */
 function Page({ item, ticks }: { item: Item; ticks: Record<string, string> }) {
   const page = use(pageOf(item));
   return (
@@ -108,6 +109,7 @@ function Page({ item, ticks }: { item: Item; ticks: Record<string, string> }) {
       {item.id === QUIET_ITEM ? <QuietSwitch /> : null}
       <AskAtAppointment item={item} />
       {/* What you kept about it: never under a private entry, which nothing can point at. */}
+      {item.private ? null : <QuestionsAbout itemId={item.id} />}
       {item.private ? null : <PapersAbout itemId={item.id} />}
       {item.from !== null ? (
         <Link

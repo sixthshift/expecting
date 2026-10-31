@@ -321,6 +321,18 @@ test("a question asked from an entry lands in the Planner, saying where it came 
   await expect(card).toContainText("from Altitude · Yours");
   await card.getByRole("link", { name: "Altitude" }).click();
   await expect(page).toHaveURL(/\/library\/altitude$/);
+  const yours = page.getByRole("region", { name: "Your questions" });
+  await expect(yours).toContainText("Can I do the Inca Trail at 20 weeks?");
+  await expect(yours).toContainText("On your list for the next appointment");
+
+  // Asked, with what they said: the entry shows the answer.
+  await open("/planner");
+  await card.getByRole("button", { name: "Asked it" }).click();
+  await page.getByRole("textbox", { name: "Answer" }).fill("Not above 2500 m; the trail is too high.");
+  await page.getByRole("button", { name: "Save as asked" }).click();
+  await open("/library/altitude");
+  await expect(yours).toContainText(/You asked on \d+ \w+: Not above 2500 m; the trail is too high\./);
+  await expect(yours).not.toContainText("On your list");
 });
 
 test("the answer to boy or girl sets the colours, and they survive a reload", async ({ page, open }) => {
