@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useFirsts } from "../../../../../api/rpc/firsts";
 import { usePapers } from "../../../../../api/rpc/papers";
 import { usePhotos } from "../../../../../api/rpc/photos";
@@ -21,7 +22,7 @@ import { AlreadyHappened, Places, WeekPage } from "./WeekPage";
  * false while the story is in a lens, zoomed or searched, when this week's
  * days aren't drawn here.
  */
-export function WeekSoFar({ suggested, withDays }: { suggested: ReadonlySet<string>; withDays: boolean }) {
+export const WeekSoFar = memo(function WeekSoFar({ suggested, withDays }: { suggested: readonly string[]; withDays: boolean }) {
   const items = useStory();
   const { data: quiet } = useQuiet();
   const { data: settings } = useSettings();
@@ -33,7 +34,7 @@ export function WeekSoFar({ suggested, withDays }: { suggested: ReadonlySet<stri
   const { dueDate } = settings;
   const knowing = settings.baby !== "unknown";
 
-  const around = aroundNow({ now, marks: firsts, knowing, quiet: isQuiet }).filter((f) => !suggested.has(f.key));
+  const around = aroundNow({ now, marks: firsts, knowing, quiet: isQuiet }).filter((f) => !suggested.includes(f.key));
   const past = alreadyHappened({ now, marks: firsts, knowing, quiet: isQuiet });
   const places = placesReady({ now, photos, papers, dueDate, quiet: isQuiet });
   const chapters = contents({ items, dueDate, now });
@@ -52,4 +53,4 @@ export function WeekSoFar({ suggested, withDays }: { suggested: ReadonlySet<stri
       {book === "cover" ? <BookCover lines={chapters} /> : null}
     </>
   );
-}
+});

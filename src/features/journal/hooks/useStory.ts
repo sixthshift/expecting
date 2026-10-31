@@ -6,6 +6,7 @@ import { useFirsts } from "../../../api/rpc/firsts";
 import { useJournal } from "../../../api/rpc/journal";
 import { usePapers } from "../../../api/rpc/papers";
 import { usePhotos } from "../../../api/rpc/photos";
+import { useKeepSame } from "../../../app/hooks/useKeepSame";
 import { type StoryItem, storyItems } from "../../../lib/story";
 import { useTasks } from "../../tasks/hooks/useTasks";
 
@@ -19,7 +20,7 @@ export function useStory(): StoryItem[] {
   const { data: firsts } = useFirsts();
   const { data: checklist } = useChecklist();
   const tasks = useTasks();
-  return useMemo(
+  const items = useMemo(
     () =>
       storyItems({
         journal,
@@ -33,4 +34,6 @@ export function useStory(): StoryItem[] {
       }),
     [journal, appetite, photos, papers, feelings, firsts, checklist.ticks, tasks]
   );
+  // Rebuilt in full on any change: the lines that didn't change are kept as they were, so their days aren't drawn again.
+  return useKeepSame(items);
 }

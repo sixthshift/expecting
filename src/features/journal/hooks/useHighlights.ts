@@ -9,6 +9,7 @@ import { usePeople } from "../../../api/rpc/people";
 import { usePhotos } from "../../../api/rpc/photos";
 import { useQuiet } from "../../../api/rpc/quiet";
 import { usePosition, useSettings } from "../../../api/rpc/settings";
+import { useKeepSame } from "../../../app/hooks/useKeepSame";
 import { useSave } from "../../../app/hooks/useSave";
 import { todayISO } from "../../../lib/dates";
 import { suggestFirsts } from "../../../lib/firsts";
@@ -25,7 +26,7 @@ export type HighlightsData = {
   cards: NowCard[];
   patterns: Pattern[];
   /** The firsts a Now card already asks about: around now leaves them out. */
-  suggested: ReadonlySet<string>;
+  suggested: readonly string[];
   /** Whether it has anything: an empty column would leave its column blank. */
   shown: boolean;
   onRecapOpened: (key: string) => void;
@@ -82,7 +83,7 @@ export function useHighlights(): HighlightsData {
     recapHas: (span) => (dueDate ? hasRecap(recapOf({ span, dueDate, firsts, photos, appetite, journal, items })) : false),
   });
   const patterns = patternsKept({ journal, appetite, feelings, photos, today, dueDate, me: people.me?.id ?? null, quiet: isQuiet });
-  const suggested = new Set(cards.flatMap((c) => (c.kind === "first" ? [c.suggestion.key] : [])));
+  const suggested = useKeepSame(cards.flatMap((c) => (c.kind === "first" ? [c.suggestion.key] : [])));
 
   return { cards, patterns, suggested, shown: cards.length > 0 || patterns.length > 0, onRecapOpened: setOpened };
 }
