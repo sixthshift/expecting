@@ -136,6 +136,30 @@ server checks a swiped name is in the deck.
 The deck (43 KB compressed) is loaded with the Drawer's page only, never with
 the app, and on the server only when a swipe arrives.
 
+## The shortlist and the superlike
+
+Jason, 2026-11-01: it's Tinder. You don't need to see every name you swiped,
+or even your own likes; you just keep swiping, and a name makes the
+shortlist only when both of you like it. And a superlike, for a name you
+love enough to override the game a bit.
+
+- **No list of your votes.** "Your votes" (liked and passed, with "Pass
+  instead") is gone, and with it removing a name you typed. Undo still takes
+  back the last swipe.
+- **The shortlist** (was "Matches"): names you both like, and names either of
+  you superliked.
+- **A superlike, one a day each** (the star between Pass and Like; the card
+  flies up). It goes on the shortlist straight away, even if the other passed
+  on it. The day is the phone's own date (`super_on`, migration 025), so it
+  turns over at its midnight; a second the same day is turned away (409), and
+  undoing it gives it back. Used, the star greys out until tomorrow.
+- **Starred, not whose.** The shortlist marks a superliked name, but doesn't
+  say who did it.
+- **Either of you takes one off** (an × and a second tap to be sure). It leaves
+  the game (`off_at`) and isn't dealt again to either of you; typing it in
+  again brings it back.
+- A name on the shortlist isn't dealt to the other: it's already decided.
+
 ## Not now
 
 - **The shortlist's checks** (said aloud with your surname, initials,

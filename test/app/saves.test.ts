@@ -10,7 +10,13 @@ const ID = "11111111-1111-4111-8111-111111111111";
 
 const checklist = { ticks: { "book-rsv-vaccine": "2026-10-01T00:00:00.000Z" }, ownTasks: [{ id: ID, title: "Cot", week: 30, createdAt: made.at }] };
 const questions = [{ id: ID, text: "Free?", answer: null, askedAt: null, itemId: null, by: null, createdAt: made.at }];
-const names = { names: [{ id: ID, name: "Ada", mine: null, deck: false }], matches: [{ id: ID, name: "Ada" }], together: true };
+const names = {
+  names: [{ id: ID, name: "Ada", mine: null, deck: false }],
+  shortlist: [{ id: ID, name: "Ada", star: false }],
+  off: [],
+  superliked: null,
+  together: true,
+};
 const settings = { dueDate: "2027-03-01", baby: "surprise", onboardedAt: made.at };
 const note = {
   id: ID,
@@ -137,7 +143,14 @@ const CASES: Record<string, [unknown, unknown[]]> = {
     ],
   ],
   unvoteName: [names, [{ name: "ADA" }, { name: "Nobody" }]],
-  removeName: [names, [{ id: ID }]],
+  superlikeName: [
+    names,
+    [
+      { id: "33333333-3333-4333-8333-333333333333", name: "Hazel", day: "2026-11-01" },
+      { id: ID, name: "Ada", day: "2026-11-01" },
+    ],
+  ],
+  takeOffName: [names, [{ id: ID }, { id: "33333333-3333-4333-8333-333333333333" }]],
   saveAnswer: [
     [],
     [

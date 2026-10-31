@@ -13,8 +13,8 @@ import { NamesGame } from "../components/namesGame/NamesGame";
 const route = getRouteApi("/app/drawer/names");
 
 /**
- * The names game, a page of its own, opened from the Drawer: the deck to swipe first, then the matches,
- * a name to add and your votes. With the Choosing a name extra; put away while something has happened.
+ * The names game, a page of its own, opened from the Drawer: the deck to swipe first, then the shortlist
+ * and a name to add. With the Choosing a name extra; put away while something has happened.
  */
 export function NamesPage() {
   const { data: names } = useNames();

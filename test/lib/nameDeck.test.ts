@@ -2,7 +2,7 @@ import { expect, test } from "vitest";
 import { aboutName, DECK, DECK_PLACES, inDeck, upNext, widespread } from "../../src/lib/nameDeck";
 import { dealing, type NameCard, type NamesView } from "../../src/lib/names";
 
-const view = (names: NameCard[] = []): NamesView => ({ names, matches: [], together: true });
+const view = (names: NameCard[] = []): NamesView => ({ names, shortlist: [], off: [], superliked: null, together: true });
 
 test("the deck: from several countries' registers, each name once, cased as written, its sex and figures in range", () => {
   expect(DECK_PLACES.length).toBeGreaterThanOrEqual(4);
@@ -97,4 +97,24 @@ test("knowing it's a girl or a boy, the deck is that one's, with no choosing the
   expect(dealing("boy", undefined)).toEqual({ filter: "boys", choosable: false });
   expect(dealing("unknown", undefined)).toEqual({ filter: "all", choosable: true });
   expect(dealing("unknown", "boys")).toEqual({ filter: "boys", choosable: true });
+});
+
+test("a name on the shortlist, or taken off it, isn't dealt again, to either of you", () => {
+  const deckOrder = upNext(view(), "sam", "all").map((c) => c.name);
+  const [onIt, offIt] = [deckOrder[0]!, deckOrder[1]!];
+  const settledView: NamesView = {
+    ...view([
+      { id: "1", name: onIt, mine: null, deck: true },
+      { id: "2", name: "Zephyrine", mine: null, deck: false },
+    ]),
+    shortlist: [{ id: "1", name: onIt, star: true }],
+    off: [
+      { id: "3", name: offIt },
+      { id: "2", name: "Zephyrine" },
+    ],
+  };
+  const dealt = upNext(settledView, "sam", "all").map((c) => c.name);
+  expect(dealt).not.toContain(onIt);
+  expect(dealt).not.toContain(offIt);
+  expect(dealt).not.toContain("Zephyrine");
 });

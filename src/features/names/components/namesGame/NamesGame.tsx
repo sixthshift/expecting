@@ -1,20 +1,22 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Input } from "@sixthshift/design-system/input";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
-import { Plus, Trash2, Undo2 } from "lucide-react";
+import { Plus, Star, Undo2, X } from "lucide-react";
 import { type FormEvent, useMemo, useState } from "react";
 import { namesSaves } from "../../../../api/rpc/names";
 import { useSave } from "../../../../app/hooks/useSave";
+import { todayISO } from "../../../../lib/dates";
 import { DECK_CREDIT, DECK_PLACES, type DeckCard, upNext } from "../../../../lib/nameDeck";
-import type { DeckFilter, NamesView } from "../../../../lib/names";
+import { type DeckFilter, type NamesView, type Shortlisted, superlikeLeft } from "../../../../lib/names";
 import { newId } from "../../../../lib/outbox";
 import type { Person } from "../../../../lib/people";
-import { SwipeDeck } from "./SwipeDeck";
+import { SwipeDeck, type Vote } from "./SwipeDeck";
 
 /**
  * The names game: a deck of names, one at a time, to like or pass on your own phone, and any either of
- * you adds. A name is a match only when you both like it, so nobody has to admit to the name the other
- * would hate. Only your own votes are ever shown to you. `seed` shuffles the deck for this person.
+ * you adds. A name goes on the shortlist only when you both like it, so nobody has to admit to the name
+ * the other would hate; or when one of you superlikes it, once a day, to say "this one". You never see
+ * a list of your own votes, or the other's: just keep swiping. `seed` shuffles the deck for this person.
  */
 export function NamesGame({
   view,
@@ -32,8 +34,9 @@ export function NamesGame({
 }) {
   const saveVote = useSave(namesSaves.voteName);
   const saveSwipe = useSave(namesSaves.swipeName);
+  const saveSuper = useSave(namesSaves.superlikeName);
   const saveUnvote = useSave(namesSaves.unvoteName);
-  const saveRemove = useSave(namesSaves.removeName);
+  const saveTakeOff = useSave(namesSaves.takeOffName);
   // The last name voted on, to undo; and one undone, dealt again first.
   const [last, setLast] = useState<string | null>(null);
   const [again, setAgain] = useState<string | null>(null);
@@ -44,12 +47,12 @@ export function NamesGame({
     return i > 0 ? [deck[i]!, ...deck.slice(0, i), ...deck.slice(i + 1)] : deck;
   }, [view, seed, filter, again]);
   const next = cards[0];
-  const liked = view.names.filter((n) => n.mine === true);
-  const passed = view.names.filter((n) => n.mine === false);
+  const superLeft = superlikeLeft(view, todayISO());
 
-  function vote(card: DeckCard, yes: boolean) {
-    if (card.id) saveVote({ id: card.id, liked: yes });
-    else saveSwipe({ id: newId(), name: card.name, liked: yes });
+  function vote(card: DeckCard, how: Vote) {
+    if (how === "super") saveSuper({ id: card.id ?? newId(), name: card.name, day: todayISO() });
+    else if (card.id) saveVote({ id: card.id, liked: how === "like" });
+    else saveSwipe({ id: newId(), name: card.name, liked: how === "like" });
     setLast(card.name);
     setAgain(null);
   }
@@ -80,7 +83,7 @@ export function NamesGame({
           />
         ) : null}
         {next ? (
-          <SwipeDeck key={next.name} card={next} under={cards[1]} showSex={filter === "all"} onVote={(yes) => vote(next, yes)} />
+          <SwipeDeck key={next.name} card={next} under={cards[1]} showSex={filter === "all"} superLeft={superLeft} onVote={(how) => vote(next, how)} />
         ) : (
           <p className="py-16 text-sm text-fg-subtle">You've voted on every name. Add some more.</p>
         )}
@@ -91,59 +94,60 @@ export function NamesGame({
       </div>
 
       <section
-        aria-label="Matches"
+        aria-label="Shortlist"
         className="flex flex-col gap-2 rounded-lg bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) p-4"
       >
         <h2 className="text-sm font-semibold text-fg-strong">
-          {view.matches.length === 0 ? "No matches yet" : `You both like ${view.matches.length === 1 ? "one name" : `${view.matches.length} names`}`}
+          {view.shortlist.length === 0
+            ? "The shortlist is empty"
+            : `The shortlist: ${view.shortlist.length === 1 ? "one name" : `${view.shortlist.length} names`}`}
         </h2>
-        {view.matches.length > 0 ? (
+        {view.shortlist.length > 0 ? (
           <ul className="flex flex-wrap gap-2">
-            {view.matches.map((m) => (
-              <li key={m.id} className="rounded-full bg-bg-normal px-3 py-1 font-display text-lg text-fg-strong">
-                {m.name}
-              </li>
+            {view.shortlist.map((n) => (
+              <ShortlistName key={n.id} name={n} onTakeOff={() => saveTakeOff({ id: n.id })} />
             ))}
           </ul>
         ) : (
           <p className="text-sm text-fg-normal">
             {view.together
-              ? "When a name you like is one the other likes too, it shows up here."
-              : `Once ${other?.name ?? "your partner"} joins on their own phone, names you both like show up here.`}
+              ? "A name goes on when you both like it, or when one of you superlikes it."
+              : `Once ${other?.name ?? "your partner"} joins on their own phone, names you both like go on here. A superlike puts one on now.`}
           </p>
         )}
       </section>
 
       <AddName />
 
-      {liked.length + passed.length > 0 ? (
-        <details className="group">
-          <summary className="min-h-11 cursor-pointer text-sm text-fg-subtle underline">
-            Your votes ({liked.length} liked, {passed.length} passed)
-          </summary>
-          <ul className="mt-2 divide-y divide-border-subtle">
-            {[...liked, ...passed].map((n) => (
-              <li key={n.id} className="flex items-center gap-2 py-2">
-                <span className="flex-1 text-fg-strong">{n.name}</span>
-                <span className="text-xs text-fg-subtle">{n.mine ? "Liked" : "Passed"}</span>
-                <Button variant="ghost" size="sm" onClick={() => saveVote({ id: n.id, liked: !n.mine })}>
-                  {n.mine ? "Pass instead" : "Like instead"}
-                </Button>
-                {n.deck ? null : (
-                  <Button variant="ghost" size="sm" iconOnly aria-label={`Remove ${n.name} from the game`} onClick={() => saveRemove({ id: n.id })}>
-                    <Trash2 aria-hidden size={16} />
-                  </Button>
-                )}
-              </li>
-            ))}
-          </ul>
-        </details>
-      ) : null}
-
       <p className="text-xs text-fg-subtle">
         Names from the registers of births of {DECK_PLACES.map((p) => p.place).join(", ")}: {DECK_CREDIT}.
       </p>
     </div>
+  );
+}
+
+/** A name on the shortlist: starred if a superlike put it there; taken off with a second tap to be sure, as it doesn't come back round. */
+function ShortlistName({ name, onTakeOff }: { name: Shortlisted; onTakeOff: () => void }) {
+  const [sure, setSure] = useState(false);
+  return (
+    <li className="flex items-center gap-1 rounded-full bg-bg-normal py-1 pr-1 pl-3">
+      <span className="font-display text-lg text-fg-strong">{name.name}</span>
+      {name.star ? <Star role="img" aria-label="Superliked" size={14} className="fill-current text-fg-brand" /> : null}
+      {sure ? (
+        <>
+          <Button variant="ghost" size="sm" onClick={onTakeOff}>
+            Take off
+          </Button>
+          <Button variant="ghost" size="sm" onClick={() => setSure(false)}>
+            Keep
+          </Button>
+        </>
+      ) : (
+        <Button variant="ghost" size="sm" iconOnly aria-label={`Take ${name.name} off the shortlist`} onClick={() => setSure(true)}>
+          <X aria-hidden size={14} />
+        </Button>
+      )}
+    </li>
   );
 }
 

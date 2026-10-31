@@ -9,14 +9,32 @@
  */
 export type NameCard = { id: string; name: string; mine: boolean | null; deck: boolean };
 
+/** A name on the shortlist; `star` when a superlike put it there (never whose). */
+export type Shortlisted = { id: string; name: string; star: boolean };
+
 export type NamesView = {
   names: NameCard[];
-  /** Names both of you like, in the order they were added. */
-  matches: { id: string; name: string }[];
+  /** Names you both like, and names either of you superliked, in the order they were added; none taken off. */
+  shortlist: Shortlisted[];
+  /** Names taken off the shortlist: out of the game, and not dealt again. */
+  off: { id: string; name: string }[];
+  /** This person's latest superlike: the name, and the phone's date it was used. One a day. */
+  superliked: { name: string; on: ISODate } | null;
   /** Whether there's someone to match with yet. */
   together: boolean;
 };
 
+/** Whether this person's superlike for `today` is still there to use. */
+export function superlikeLeft(view: NamesView, today: ISODate): boolean {
+  return view.superliked?.on !== today;
+}
+
+/** Names never to deal again: those on the shortlist, and those taken off it. */
+export function settled(view: NamesView): Set<string> {
+  return new Set([...view.shortlist, ...view.off].map((n) => n.name.toLowerCase()));
+}
+
+import type { ISODate } from "./dates";
 import type { Baby } from "./theme";
 
 /** Which names the deck deals: girls' (and either), boys' (and either), or all of them. Here, not in nameDeck.ts, so a route can name them without loading the deck. */

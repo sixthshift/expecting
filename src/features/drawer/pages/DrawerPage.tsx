@@ -35,9 +35,9 @@ export function DrawerPage() {
           <span className="flex flex-1 flex-col gap-1">
             <span className="font-display text-xl font-semibold text-fg-strong">Baby names</span>
             <span className="text-sm text-fg-normal">
-              {names.matches.length > 0
-                ? `You both like ${names.matches.length === 1 ? names.matches[0]!.name : `${names.matches.length} names`}. Keep swiping.`
-                : `Swipe through names on your own phone. A name is a match when ${other ? `you and ${other.name}` : "you both"} like it.`}
+              {names.shortlist.length > 0
+                ? `On the shortlist: ${names.shortlist.length === 1 ? names.shortlist[0]!.name : `${names.shortlist.length} names`}. Keep swiping.`
+                : `Swipe through names on your own phone. A name goes on the shortlist when ${other ? `you and ${other.name}` : "you both"} like it.`}
             </span>
           </span>
           <ChevronRight aria-hidden size={20} className="shrink-0 text-fg-subtle" />

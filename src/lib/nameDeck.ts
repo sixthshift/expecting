@@ -4,7 +4,7 @@
 // the game, never with the app.
 
 import data from "./nameDeck.data.json";
-import type { DeckFilter, NameCard, NamesView } from "./names";
+import { type DeckFilter, type NameCard, type NamesView, settled } from "./names";
 
 /** Mostly girls (`f`), mostly boys (`m`), or given to either (`u`). */
 export type DeckSex = "f" | "m" | "u";
@@ -71,8 +71,10 @@ export type DeckCard = { name: string; id: string | null; deck: DeckName | null 
  * always dealt.
  */
 export function upNext(view: NamesView, seed: string, filter: DeckFilter): DeckCard[] {
-  const voted = new Set(view.names.filter((n) => n.mine !== null).map((n) => n.name.toLowerCase()));
-  const waiting = view.names.filter((n) => n.mine === null);
+  // A name already on the shortlist, or taken off it, is settled: nobody is dealt it again.
+  const done = settled(view);
+  const voted = new Set([...done, ...view.names.filter((n) => n.mine !== null).map((n) => n.name.toLowerCase())]);
+  const waiting = view.names.filter((n) => n.mine === null && !done.has(n.name.toLowerCase()));
   const added: DeckCard[] = waiting.filter((n) => !n.deck).map((n) => ({ name: n.name, id: n.id, deck: inDeck(n.name) ?? null }));
   const liked = new Map(waiting.filter((n) => n.deck).map((n): [string, NameCard] => [n.name.toLowerCase(), n]));
   const first = new Set(added.map((c) => c.name.toLowerCase()));

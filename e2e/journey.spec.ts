@@ -567,7 +567,7 @@ test("This week offers an extra nobody has decided on, once", async ({ page, ope
   await expect(page.getByRole("switch", { name: "Telling people" })).not.toBeChecked();
 });
 
-test("the names game: a name is a match only when you both like it, on your own phones", async ({ page, open, browser }) => {
+test("the names game: a name is shortlisted only when you both like it, or one of you superlikes it", async ({ page, open, browser }) => {
   // It comes with the Choosing a name extra.
   await open("/drawer");
   await page.getByRole("link", { name: "Turn it on in settings" }).click();
@@ -585,12 +585,12 @@ test("the names game: a name is a match only when you both like it, on your own 
     await names.getByRole("button", { name: "Add name" }).click();
     await expect(names.getByRole("textbox", { name: "A name to add" })).toHaveValue("");
   }
-  await expect(names.getByRole("heading", { name: "No matches yet" })).toBeVisible();
+  await expect(names.getByRole("heading", { name: "The shortlist is empty" })).toBeVisible();
 
   // Then the deck: a card at a time, liked, and undone, it comes back.
   const card = names.getByRole("article");
   const first = await card.getAttribute("aria-label");
-  await names.getByRole("button", { name: `Like ${first}` }).click();
+  await names.getByRole("button", { name: `Like ${first}`, exact: true }).click();
   await expect(card).not.toHaveAttribute("aria-label", first!);
   await names.getByRole("button", { name: `Undo ${first}` }).click();
   await expect(card).toHaveAttribute("aria-label", first!);
@@ -614,15 +614,31 @@ test("the names game: a name is a match only when you both like it, on your own 
   // The names Jason added come first.
   await expect(samNames.getByRole("article", { name: "Ada" })).toBeVisible();
   await samNames.getByRole("button", { name: "Pass on Ada" }).click();
-  await samNames.getByRole("button", { name: "Like Iris" }).click();
-  await expect(samNames.getByRole("region", { name: "Matches" }).getByText("Iris")).toBeVisible();
+  await samNames.getByRole("button", { name: "Like Iris", exact: true }).click();
+  const samList = samNames.getByRole("region", { name: "Shortlist" });
+  await expect(samList.getByText("Iris")).toBeVisible();
+  // A superlike puts the next one on without Jason: one a day.
+  const samCard = samNames.getByRole("article");
+  const loved = await samCard.getAttribute("aria-label");
+  await samNames.getByRole("button", { name: `Superlike ${loved}` }).click();
+  await expect(samList.getByText(loved!)).toBeVisible();
+  await expect(samList.getByRole("img", { name: "Superliked" })).toHaveCount(1);
+  await expect(samNames.getByRole("button", { name: "Today's superlike is used" })).toBeDisabled();
   await phone.close();
 
+  // Jason sees both, the superliked one starred, and no list of anyone's votes.
   await open("/drawer/names");
-  const matches = names.getByRole("region", { name: "Matches" });
-  await expect(matches.getByRole("heading", { name: "You both like one name" })).toBeVisible();
-  await expect(matches.getByText("Iris")).toBeVisible();
-  await expect(matches.getByText("Ada")).toHaveCount(0);
+  const shortlist = names.getByRole("region", { name: "Shortlist" });
+  await expect(shortlist.getByRole("heading", { name: "The shortlist: 2 names" })).toBeVisible();
+  await expect(shortlist.getByText("Iris")).toBeVisible();
+  await expect(shortlist.getByText(loved!)).toBeVisible();
+  await expect(shortlist.getByText("Ada")).toHaveCount(0);
+  await expect(names.getByText(/^Your votes/)).toHaveCount(0);
+  // Either of you can take one off: a second tap to be sure.
+  await shortlist.getByRole("button", { name: `Take ${loved} off the shortlist` }).click();
+  await shortlist.getByRole("button", { name: "Take off" }).click();
+  await expect(shortlist.getByRole("heading", { name: "The shortlist: one name" })).toBeVisible();
+  await expect(shortlist.getByText(loved!)).toHaveCount(0);
 
   // Off means gone.
   await open("/settings");
