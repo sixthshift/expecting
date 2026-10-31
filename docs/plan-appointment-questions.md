@@ -20,8 +20,11 @@ Decided with Jason on 2026-10-30:
   entries, and never on private ones.
 - **Every entry is looked at** in the content sweep, even those that end up
   with nothing, and the sweep records why each was skipped.
-- **Sonnet does the sweep, Opus writes the brief and reviews each batch.**
-  A pilot batch (tests) comes first, to settle the brief with Jason.
+- **A script, then Sonnet, then Opus** (settled 2026-10-31): a script
+  skips by the rules, Sonnet decides which of the rest need questions,
+  Opus writes them and checks Sonnet's skips. Opus must read a flagged
+  entry whole either way (to review a question it must know the entry), so
+  it writes rather than corrects. A pilot batch (tests) comes first.
 
 ## The shape
 
@@ -104,28 +107,55 @@ committed on its own if Jason asks.
    `src/content/schema.ts` with the checks above, and the two existing
    inline `{% ask %}` entries left as they are. Docs: `docs/architecture.md`
    (Planner row, content fields), `docs/intent.md` (the appointment job).
-6. **Content pilot: tests (56 entries).** *Not started.* Opus writes the
-   brief (below); one Sonnet agent goes through every `topic: tests` entry;
-   Opus reviews the diff; Jason reads it. Settle the brief before going on.
-7. **Content sweep: the rest, by topic.** *Not started.* About 50 entries an
-   agent, a few agents a round (the session's workflow size is under 10),
-   each round reviewed by Opus before it's kept. Record each round below.
-8. **Docs and memory.** *Not started.* Mark built in `docs/architecture.md`,
+6. **Content pilot: tests (56 entries).** *Done 2026-10-31.* The sweep below
+   over every `topic: tests` entry (the script leaves 30 of them); Jason
+   reads the diff. If Opus keeps overturning Sonnet's skips, tighten the
+   brief, or let Opus sort too, before going on.
+6b. **Second pilot: medicines (50 entries),** with the review stage, to
+   test Sonnet's sorting on a topic that mixes general and personal
+   entries, and the `ask` verdict rule. *Done 2026-10-31.*
+7. **Content sweep: the rest, by topic.** *Done 2026-10-31.* The same sweep a
+   topic at a time, a few Sonnet agents a round (the session's workflow
+   size is under 10). Record each round below.
+8. **Docs and memory.** *Done 2026-10-31.* Mark built in `docs/architecture.md`,
    tick the steps here, update the memory note.
 
 Steps 1–5 are the app; 6–7 the content. The content can go in before the
 app (the field is only data), but steps 6–7 need step 5's schema to pass
 the gate.
 
-## The brief for the sweep (draft, to settle at step 6)
+## The sweep
 
-For each entry in the batch, read the whole file and decide:
+1. **The script** reads frontmatter only and skips, with its reason, every
+   `private: true`, `type: card`, `type: term`, `topic: loss` entry, and
+   those on money, paperwork, gear, celebrations or the partner's own
+   health (`partner-flu-vaccine`, …: the appointment is the carrying
+   parent's, and the midwife isn't the partner's doctor). The last few are
+   a list of ids the script holds, since no field says so.
+2. **Sonnet** reads each remaining entry whole and answers one question,
+   with a one-line reason: **does your own case matter here?** Would a
+   reader reasonably want their midwife or doctor to tell them something
+   about *them*: a result, a dose, whether it applies, what to do next?
+   It writes nothing.
+3. **Opus** writes the questions for each entry Sonnet flagged (the brief
+   below), reads Sonnet's skip reasons and takes back any it disagrees
+   with, and runs `bun run test`.
+4. **A fresh agent reviews** every question against its entry and the
+   brief, as `checked:` has a second agent confirm the facts: the writer
+   doesn't catch its own blind spots. It flags, it doesn't edit; Opus
+   settles each flag, and Jason reads the flags rather than every line.
+5. **The report:** every entry in the batch, `added (n)` or `skipped:
+   <reason>` (by the script, Sonnet, or Opus), and the review's flags with
+   what was done, so every entry is shown to have been looked at.
 
-- **Does your own case matter here?** Would a reader reasonably want their
-  midwife or doctor to tell them something about *them*: a result, a
-  dose, whether it applies, what to do next? If not, write nothing.
-- **Never** on `private: true`, `type: card`, `type: term`, `topic: loss`,
-  money, paperwork, gear, celebrations, unless Jason says otherwise.
+## The brief for writing
+
+- **Never** anything the script would skip, unless Jason says otherwise.
+- **Never about cost,** even on a decision: "Would you suggest NIPT for me,
+  given my age?", never "Is it covered?".
+- **On hard news** (a high-chance result, a small baby, twins), gently:
+  ask what comes next for you ("What are my options from here?"), never
+  about outcomes or odds.
 - **Write 0–3 questions** in the reader's voice, as they'd say it to the
   midwife: first person, plain, short, ending in `?`. "Can you check my
   iron?", not "What is ferritin?" (the Library answers that).
@@ -134,13 +164,24 @@ For each entry in the batch, read the whole file and decide:
   advice, nothing about her body that tells her what to do.
 - **On an `ask` verdict,** the entry's own `ask:` is already offered: add
   others only if they're different.
+- **"What did my … show?" only on the entry about that result,** not as a
+  template on every entry that mentions a test: repeated, it's filler.
+- **Never for some readers only** ("If I'm RhD negative, …"): every reader
+  of the entry sees its suggestions. Put it on the entry for those readers.
+- **Your own voice:** "we" and "us" on a `who: together` entry, "I" and
+  "me" elsewhere.
+- **Not what the entry already says** for everyone ("every 4 to 6 weeks"),
+  even about you.
+- **Never the wrong channel:** where the entry says to act now (call, go
+  in, tell your doctor immediately, anti-D within 72 hours), no question
+  parks it for the next appointment.
+- **The list is shared:** nothing whose wording tells the partner what she
+  may not have (drug use, a medicine she takes). Ask about the need
+  ("What else can I try for nausea or sleep?"), not the disclosure.
+- **Mark it discreet** (`discreet: true`) where the entry's title would tell
+  the partner what the question doesn't (mental health, drugs, smoking): a
+  question from it then isn't shown "from <title>" on the shared list.
 - Edit frontmatter only. Never touch the body, `checked:`, or `draft:`.
-- Report every entry in the batch: `added (n)` or `skipped: <reason>`, as a
-  table at the end, so every entry is shown to have been looked at.
-
-Opus's review per batch: tone (first person, short), no drift beyond the
-entry, nothing that reads as medical advice, the skip reasons sound, `bun
-run test` green.
 
 ## Progress
 
@@ -178,6 +219,79 @@ Record each session here: what was done, what was decided, where to pick up.
   each once. No entry has one yet. Docs: architecture (Planner row,
   content), intent (Format), content/README. The app is done; next: step 6,
   the pilot, which costs tokens: settle the brief with Jason first.
+- 2026-10-31: the sweep settled with Jason before the pilot: a script,
+  then Sonnet sorts, then Opus writes and checks the skips (see The
+  sweep). The brief gained three rules: never the partner's own health,
+  never cost, and gently on hard news. Next: step 6.
+- 2026-10-31: step 6 written. Of 56 tests entries the script skipped 29
+  (25 terms, 1 card; `partner-flu-vaccine` and
+  `partner-whooping-cough-booster`, the partner's own health;
+  `paying-for-scans`, money). Sonnet flagged all 27 others, so its sorting
+  wasn't really tested: tests is nearly all your own results. Opus wrote 71
+  questions over the 27 (1 to 3 each); `test/content/` green. The next
+  topic should mix general and personal entries (`body`, `food`) to test
+  the sorting. Next: Jason reads the diff.
+- 2026-10-31: pilot critiqued with Jason. Kept: "we" on together entries
+  (NIPT changed to match), the same question on several entries, and
+  questions before their result (the list is for the next appointment).
+  Three reworded or dropped; the brief gained the template, some-readers
+  and voice rules; the sweep gained a review by a fresh agent. Next: a
+  second pilot on `medicines` (6b).
+- 2026-10-31: 6b written. The script skipped none (all can-i); Sonnet
+  flagged 17 of 50. Opus overturned 6 (skipped antibiotics, iodine, aspirin,
+  migraine-medicines and isotretinoin, which says tell your doctor
+  immediately; flagged medicines-in-pregnancy) and wrote 20 questions on 12.
+  The review (a fresh agent, over both pilots) raised 20 flags and 2 missed
+  entries; Opus kept 17 and 1, rejecting three ("we" with the clinician on
+  `large-for-dates`, the side effects the `iron-infusion` entry says to ask
+  about, and aspirin, which pre-eclampsia covers). 13 questions dropped, 5
+  reworded, 1 added: 77 questions on 38 entries. The brief gained three
+  rules: not what the entry says, never the wrong channel, the list is
+  shared. Open for Jason: an ask-first entry's `ask:` is offered even when
+  it's general ("How do I know if a medicine is safe?"). Jason read both
+  pilots and kept them. Next: step 7.
+- 2026-10-31: step 7, round 1 (`body`, `care`, `mental-health`). The
+  script also skips `type: payment` now (money). Of 207 entries it skipped
+  118 (89 terms, 27 cards, 2 payments); four Sonnet agents sorted 159 and
+  flagged 56; Opus overturned 6 (breathlessness, heartburn,
+  signs-of-pre-eclampsia, thrush: wrong channel; heart-and-blood and
+  private-midwife: covered elsewhere) and wrote 63 on 50. The review raised
+  18 flags and 5 missed entries: 2 dropped (racing-heartbeat,
+  antenatal-depression: urgent), 14 reworded, the misses rejected (an
+  ask-first's own `ask:` covers chiropractic and the other therapies; thrush
+  stays urgent). It also found that the Planner's "from <title>" line undid
+  the neutral wording on sensitive entries, for any question asked from
+  them. Decided with Jason: a `discreet` field (schema, `parse.ts`, `Source`
+  in `questions.tsx`, tested in `test/features/questions/source.dom.test.tsx`)
+  on the 24 mental-health entries and antidepressants, st-johns-wort,
+  cannabis, illicit-drugs, vaping and nicotine-replacement; later rounds
+  mark their own. Next: Jason reads round 1, then round 2.
+- 2026-10-31: step 7, round 2: the 13 topics left (`activities`,
+  `after-the-birth`, `appointments`, `baby`, `birth`, `drink`, `feeding`,
+  `food`, `labour`, `relationships`, `special-circumstances`, `travel`,
+  `work`). The script skipped 129 of 416 (69 terms, 47 cards, 10 money, 3
+  private); eight Sonnet agents sorted 287 and flagged 82. Opus overturned
+  3 (seaweed and cat-litter: subset only; morphology-scan flagged, its
+  result's own entry) and wrote the first 5 itself; at this size five Opus
+  agents wrote the rest from a shared brief, each free to overturn the
+  sorter (they skipped 4 more: timing-contractions, malaria,
+  the-babys-brain, twins-and-multiples), and
+  marked 3 discreet (alcohol-before-you-knew, pregnancy-after-loss,
+  pregnancy-after-birth-trauma). Two fresh reviewers raised 24 flags and 6
+  missed entries; Opus kept 23 flags (4 dropped, 18 reworded, one pair
+  folded into one) and 5 misses (anti-d, whooping-cough-vaccine,
+  rsv-vaccine, working-while-pregnant, by the `rhd-negative` wording for
+  anti-d), and rejected discreet on caesarean-on-request and a question on
+  fasting (its `ask:` covers it). "This hospital" became "the hospital I'm
+  booked into": the appointment may be with a GP. The same question on two
+  entries can't go on the list twice (`AskAtAppointment` matches the open
+  list by text).
+- 2026-10-31: the sweep is done. Every entry was looked at: 280 questions
+  on 167 entries, 33 entries discreet. The topics the script skips whole
+  (`loss`, `money`, `paperwork`, `gear`, `celebrations`, `partner`) and
+  every card, term and private entry have none. Content tests green.
+  Still open for Jason: an ask-first entry's own `ask:` is offered even
+  when it's general.
 
 ## Not in this plan
 
