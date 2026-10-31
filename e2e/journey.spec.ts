@@ -156,18 +156,17 @@ test("an item is drawn by its type: a verdict, triage with the call to make, a d
   await expect(page).toHaveURL(/\/library\/listeria-foods$/);
 
   // A symptom: when to get help comes first, most urgent first, each with what to do in one tap.
-  await open("/library/dizziness-and-fainting");
+  await open("/library/fall-or-blow-to-the-belly");
   const help = page.getByRole("region", { name: "When to get help" });
   await expect(help.getByRole("heading", { level: 3 })).toHaveText([
     "Call 000 or go to emergency",
     "Contact your hospital now",
     "See your doctor or midwife",
-    "Mention it at your next visit",
   ]);
   await expect(help.getByRole("link", { name: "Call 000" })).toHaveAttribute("href", "tel:000");
   await expect(help.getByRole("link", { name: "Add your birth suite's number to Emergency info" })).toBeVisible();
   // Any number in a body is one you can tap.
-  await expect(help.getByRole("link", { name: "1800 882 436" })).toHaveAttribute("href", "tel:1800882436");
+  await expect(help.getByRole("link", { name: "1800 737 732" })).toHaveAttribute("href", "tel:1800737732");
 
   await open("/library/blood-group-and-antibodies");
   await expect(page.getByText("Glossary")).toBeVisible();
