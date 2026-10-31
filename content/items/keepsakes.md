@@ -10,6 +10,10 @@ tasks:
   - id: choose-keepsakes
     title: Decide which keepsakes you'd like to make
     due: 30
+  - id: write-letter-to-the-baby
+    title: Write a letter to the baby
+    due: 36
+    keeps: letter
   - id: buy-keepsake-kits
     title: Buy any kits you need (a belly cast kit, an ink or clay print kit)
     opens: 24
@@ -29,6 +33,6 @@ None of these are needed, and it's easy to buy more kits than you'll use. Pick o
 
 **A time capsule.** A box for the things of the moment: a scan photo, the hospital band, a newspaper from the day they're born, a list of what things cost, a note from each grandparent. Decide when it opens, often at 18 or 21.
 
-**A baby book or journal.** Fill it in as you go rather than trying to remember later. Notes on a phone count.
+**A baby book or journal.** Fill it in as you go rather than trying to remember later. Expecting's Journal is one: the notes, letters, photos and firsts you keep here, and a book of them at the end.
 
 Keep them somewhere dry and out of the sun. Ink and photos fade.

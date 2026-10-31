@@ -14,6 +14,11 @@ tasks:
   - id: decide-who-to-tell
     title: Decide who to tell first, and when
     due: 12
+  - id: tell-the-family
+    title: Tell the family
+    opens: 10
+    due: 14
+    keeps: { first: told-family }
 checked: 2026-10-31
 ---
 Many people wait until the end of the first trimester, about 12 weeks, because of the chance of a miscarriage before then. That's a convention, not a rule.

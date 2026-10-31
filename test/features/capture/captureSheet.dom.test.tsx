@@ -33,7 +33,11 @@ vi.mock("../../../src/api/rpc/questions", () => ({ questionsSaves: { addQuestion
 vi.mock("../../../src/api/rpc/checklist", () => ({ checklistSaves: { addOwnTask: { key: "addOwnTask" } } }));
 vi.mock("../../../src/api/rpc/people", () => ({ usePeople: () => ({ data: { me, people: [SAM] } }) }));
 vi.mock("../../../src/api/rpc/quiet", () => ({ useQuiet: () => ({ data: quiet }) }));
-vi.mock("../../../src/api/rpc/settings", () => ({ useNow: () => now, useSettings: () => ({ data: { dueDate: null, baby: "unknown" } }) }));
+vi.mock("../../../src/api/rpc/settings", () => ({
+  settingsSaves: { saveSettings: { key: "saveSettings" } },
+  useNow: () => now,
+  useSettings: () => ({ data: { dueDate: null, baby: "unknown" } }),
+}));
 vi.mock("../../../src/app/hooks/useSave", () => ({
   useSave: (save: { key: string }) => (input: { id: string }) => {
     saved.push({ key: save.key, input });
@@ -239,5 +243,33 @@ describe("CaptureSheet", () => {
     fireEvent.click(screen.getByRole("button", { name: "Felt the first kick" }));
     fireEvent.click(screen.getByRole("button", { name: "Mark it" }));
     expect(saved).toEqual([{ key: "markFirst", input: { key: "first-kick", day: expect.any(String) } }]);
+  });
+
+  it("from a task: a letter starts as a letter, and keeping it says so", () => {
+    const kept = vi.fn();
+    render(<CaptureSheet initial="note" letter onKept={kept} onClose={() => undefined} />);
+    expect(screen.getByRole("checkbox", { name: "A letter to the baby" }).getAttribute("aria-checked")).toBe("true");
+    fireEvent.change(screen.getByRole("textbox", { name: "New note" }), { target: { value: "Dear you" } });
+    fireEvent.click(screen.getByRole("button", { name: "Keep it" }));
+    expect(saved).toEqual([{ key: "addNote", input: expect.objectContaining({ kind: "letter", body: "Dear you" }) }]);
+    expect(kept).toHaveBeenCalledOnce();
+  });
+
+  it("from a task: a first starts at that one; boy or girl, not yet known, asks whether to use it", () => {
+    render(<CaptureSheet initial="first" first="boy-or-girl" onClose={() => undefined} />);
+    fireEvent.click(screen.getByRole("button", { name: "Mark it" }));
+    expect(screen.getByText(/Should Expecting use it/)).toBeTruthy();
+    fireEvent.click(screen.getByRole("button", { name: "Girl" }));
+    expect(saved).toEqual([
+      { key: "markFirst", input: { key: "boy-or-girl", day: expect.any(String) } },
+      { key: "saveSettings", input: { baby: "girl" } },
+    ]);
+  });
+
+  it("from a task: boy or girl can stay out of the app", () => {
+    render(<CaptureSheet initial="first" first="boy-or-girl" onClose={() => undefined} />);
+    fireEvent.click(screen.getByRole("button", { name: "Mark it" }));
+    fireEvent.click(screen.getByRole("button", { name: "Keep it out of the app" }));
+    expect(saved.map((s) => s.key)).toEqual(["markFirst"]);
   });
 });

@@ -4,6 +4,7 @@
 // only ever as a question to confirm, never marked on their own: a first is
 // yours to claim. One said no to is put aside (`day` null) and not asked again.
 
+import type { Task } from "../content/schema";
 import type { AppetiteEntry } from "./appetite";
 import { type ISODate, todayISO } from "./dates";
 import type { JournalEntry } from "./journal";
@@ -63,9 +64,6 @@ export function firstOf(key: FirstKey): FirstDef {
   return FIRSTS.find((f) => f.key === key)!;
 }
 
-/** The ticks that suggest a first: its task, done. */
-export const FIRST_TICKS: Partial<Record<FirstKey, string>> = { "cot-up": "set-up-cot-in-your-room", "bag-packed": "pack-hospital-bag" };
-
 /** One of you's words for a first. */
 type FirstWords = { by: string; body: string; editedAt: string };
 
@@ -94,7 +92,8 @@ function earliest<T extends { day: string; time: string | null }>(items: readonl
  * The firsts suggested by what's kept or done, in FIRSTS's order, leaving
  * out any marked or put aside: the first scan photo, the first bump photo,
  * the first movement, the first one kept by the partner, the first craving,
- * and the cot and bag ticks. Never while something has happened.
+ * and a task ticked that keeps a first (`keeps: { first }`: the cot, the bag).
+ * Never while something has happened.
  */
 export function suggestFirsts({
   marks,
@@ -102,6 +101,7 @@ export function suggestFirsts({
   photos,
   appetite,
   ticks,
+  tasks,
   people,
   quiet,
 }: {
@@ -110,6 +110,8 @@ export function suggestFirsts({
   photos: readonly Photo[];
   appetite: readonly AppetiteEntry[];
   ticks: Record<string, string>;
+  /** The tasks, for those that keep a first. */
+  tasks: readonly Pick<Task, "id" | "keeps">[];
   people: readonly Person[];
   quiet: boolean;
 }): Suggestion[] {
@@ -124,9 +126,10 @@ export function suggestFirsts({
   found["first-kick"] = from(earliest(movements), "The first movement you kept");
   found["felt-outside"] = from(earliest(movements.filter((e) => e.by !== null && partners.has(e.by))), "The first movement the partner kept");
   found["first-craving"] = from(earliest(appetite.filter((e) => e.kind === "craving")), "The first craving you kept");
-  for (const [key, task] of Object.entries(FIRST_TICKS) as [FirstKey, string][]) {
-    const at = ticks[task];
-    if (at) found[key] = { day: todayISO(new Date(at)), why: "Ticked off in the Planner" };
+  for (const task of tasks) {
+    const at = ticks[task.id];
+    if (at && typeof task.keeps === "object" && task.keeps !== null)
+      found[task.keeps.first] = { day: todayISO(new Date(at)), why: "Ticked off in the Planner" };
   }
   return FIRSTS.flatMap((f) => {
     const s = found[f.key];

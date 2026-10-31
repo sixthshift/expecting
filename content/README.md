@@ -61,7 +61,10 @@ its own urgency wording: never softer, never stronger, never merged.
 - `decision`: `## The options`, `## Things to weigh`, `## When to decide`.
 - `moment`, `payment`: what it is, when, what to do and by when; tasks in
   frontmatter if there are any (`tasks:`, each an `id`, `title` and
-  optionally `opens`, `due`, `deadline` and `who`; see CLAUDE.md, Content).
+  optionally `opens`, `due`, `deadline`, `who` and `keeps`; see CLAUDE.md,
+  Content). `keeps` is what doing it keeps, and the task offers the way
+  there: `letter` (a letter to the baby), `photo`, or a first
+  (`{ first: told-family }`, from `src/lib/firsts.ts`); kept, it's ticked.
 - `card`: no headings; a paragraph or two.
 - `term`: no headings; one or two short paragraphs.
 

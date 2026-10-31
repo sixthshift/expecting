@@ -41,6 +41,7 @@ describe("parseItem", () => {
         deadline: null,
         deadlineFrom: null,
         who: "together",
+        keeps: null,
         itemId: "rsv-vaccine",
         origin: "built-in",
       },
@@ -57,6 +58,17 @@ describe("parseItem", () => {
       deadline: 36,
       who: "partner",
     });
+  });
+
+  test("what a task keeps: a letter, a photo or a first; nothing else", () => {
+    const keeping = (keeps: string) =>
+      parseItem("items/x.md", item(`id: x\ntitle: X\nweeks: [24, 34]\ntype: moment\ntopic: paperwork\ntasks:\n  - id: t\n    title: T\n    keeps: ${keeps}`))
+        .tasks[0]?.keeps;
+    expect(keeping("letter")).toBe("letter");
+    expect(keeping("photo")).toBe("photo");
+    expect(keeping("{ first: told-family }")).toEqual({ first: "told-family" });
+    expect(() => keeping("{ first: not-a-first }")).toThrow();
+    expect(() => keeping("a-song")).toThrow();
   });
 
   test("a deadline counted back from a date you give, its week standing in until then", () => {
@@ -221,7 +233,18 @@ describe("types", () => {
   test("a decision with a week to decide by asks you to decide, by then", () => {
     const options = "## The options\n\nA.\n\n## Things to weigh\n\nB.\n\n## When to decide\n\nC.";
     expect(typed("type: decision\ntopic: tests\nweeks: [10, 16]\nwho: carrying\ndecide_by: 13", options).tasks).toEqual([
-      { id: "decide-x", title: "Decide: X", opens: 10, due: 13, deadline: null, deadlineFrom: null, who: "carrying", itemId: "x", origin: "built-in" },
+      {
+        id: "decide-x",
+        title: "Decide: X",
+        opens: 10,
+        due: 13,
+        deadline: null,
+        deadlineFrom: null,
+        who: "carrying",
+        keeps: null,
+        itemId: "x",
+        origin: "built-in",
+      },
     ]);
     expect(typed("type: decision\ntopic: tests\nweeks: [10, 16]", options).tasks).toEqual([]);
   });

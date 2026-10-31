@@ -10,6 +10,11 @@ tasks:
   - id: plan-reveal
     title: Plan the reveal and who's coming
     due: 22
+  - id: the-reveal
+    title: Have the reveal
+    opens: 18
+    due: 24
+    keeps: { first: boy-or-girl }
 ---
 Most reveals are small: close family and friends, a few weeks after the morphology scan. The person who opens the envelope arranges the reveal, so it stays a surprise for you too.
 

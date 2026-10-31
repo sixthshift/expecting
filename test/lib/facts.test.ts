@@ -101,6 +101,7 @@ describe("timeTask", () => {
     deadline: 30,
     deadlineFrom: { fact: "leaveStart", weeks: 10 },
     who: "together",
+    keeps: null,
     itemId: "i",
     origin: "built-in",
   };

@@ -20,6 +20,7 @@ tasks:
     title: Set up the cot in your bedroom, made up with nothing soft in it
     opens: 28
     due: 35
+    keeps: { first: cot-up }
 checked: 2026-10-31
 ---
 The surprise: the baby won't sleep in the nursery for a while. Red Nose's safe sleeping advice is to keep the baby in their own safe cot in the parents' room for the first 6 to 12 months. Room sharing like this lowers the risk of sudden unexpected death in infancy (SUDI). The nursery can be the change table and the clothes for now.

@@ -16,6 +16,7 @@ import { suggestFirsts } from "../../../lib/firsts";
 import { type NowCard, nowCards } from "../../../lib/journalNow";
 import { hasRecap, recapOf } from "../../../lib/recap";
 import { type Pattern, patternsKept, type StoryItem } from "../../../lib/story";
+import { useTasks } from "../../tasks/hooks/useTasks";
 import { useOnThisPhone } from "./useOnThisPhone";
 import { useStory } from "./useStory";
 
@@ -51,6 +52,7 @@ export function useHighlights(): HighlightsData {
   const { data: photos } = usePhotos();
   const { data: firsts } = useFirsts();
   const { data: checklist } = useChecklist();
+  const tasks = useTasks();
   const { data: seen } = useJournalSeen();
   const position = usePosition();
   const markSeen = useSave(journalSeenSaves.markJournalSeen);
@@ -74,7 +76,7 @@ export function useHighlights(): HighlightsData {
     seen: lastSeen,
     me: people.me,
     people: people.people,
-    suggestions: suggestFirsts({ marks: firsts, journal, photos, appetite, ticks: checklist.ticks, people: people.people, quiet: isQuiet }),
+    suggestions: suggestFirsts({ marks: firsts, journal, photos, appetite, ticks: checklist.ticks, tasks, people: people.people, quiet: isQuiet }),
     today,
     position,
     dueDate,

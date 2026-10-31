@@ -125,7 +125,9 @@ describe("right now", () => {
   const span = (id: string, from: number, to: number): DatedItem => ({
     ...item(id, from, "appointments"),
     to,
-    tasks: [{ id: `${id}-task`, title: id, opens: from, due: to, deadline: null, deadlineFrom: null, who: "together", itemId: id, origin: "built-in" }],
+    tasks: [
+      { id: `${id}-task`, title: id, opens: from, due: to, deadline: null, deadlineFrom: null, who: "together", keeps: null, itemId: id, origin: "built-in" },
+    ],
   });
   const windows = [span("flu", 4, 40), span("gtt", 24, 28), span("rsv", 28, 36), span("whooping", 20, 32), span("car-seat", 30, 37)];
 
@@ -173,6 +175,7 @@ describe("worth knowing", () => {
     deadline: null,
     deadlineFrom: null,
     who: "together" as const,
+    keeps: null,
     itemId: id,
     origin: "built-in" as const,
   });

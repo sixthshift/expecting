@@ -7,6 +7,7 @@ import { z } from "zod";
 import { extra } from "../features/settings/model/extras";
 import { checkWhen, question, type When, whenSchema } from "../features/settings/model/facts";
 import { isISODate } from "../lib/dates";
+import { FIRST_KEYS, type FirstKey } from "../lib/firsts";
 import { LISTS, listOf } from "../lib/lists";
 import type { Who } from "../lib/people";
 import { WEEKS, type Week } from "../lib/timeline";
@@ -146,6 +147,8 @@ export const indexSchema = z
             deadline: z.union([z.number().int(), z.object({ before: z.string(), weeks: z.number().int().min(0), week: z.number().int() }).strict()]).optional(),
             /** Whose job it is. */
             who: who.default("together"),
+            /** What doing it keeps, and where: `letter` (the Journal's letter to the baby), `photo`, or a first (`{ first: cot-up }`). Its task offers the way there. */
+            keeps: z.union([z.enum(["letter", "photo"]), z.object({ first: z.enum(FIRST_KEYS) }).strict()]).optional(),
           })
           .strict()
       )
@@ -271,6 +274,9 @@ export const pageSchema = z
   })
   .strict();
 
+/** What a task keeps when it's done: a letter to the baby, a photo, or a first. */
+export type Keeps = "letter" | "photo" | { first: FirstKey };
+
 export type Task = {
   id: string;
   title: string;
@@ -283,6 +289,8 @@ export type Task = {
   /** Counted back from a date fact (whose, by `who`) when it's known: `deadline` stands in until then. */
   deadlineFrom: { fact: string; weeks: number } | null;
   who: Who;
+  /** What doing it keeps, opened from the task; null when it keeps nothing. */
+  keeps: Keeps | null;
   /** The item this task belongs to; null for a standalone task. */
   itemId: string | null;
   origin: "built-in" | "own";

@@ -3,13 +3,14 @@ import { useSave } from "../../../../../app/hooks/useSave";
 import { newId } from "../../../../../lib/outbox";
 import { NoteForm } from "./NoteForm";
 
-/** A new note: today, now, unless you say otherwise. Both of you see it. `text`: its words to start (shared from another app). `onAdded` once it's kept (the capture sheet closes). */
-export function AddNote({ text, onAdded }: { text?: string; onAdded?: (id: string) => void }) {
+/** A new note: today, now, unless you say otherwise. Both of you see it. `text`: its words to start (shared from another app). `letter`: start as a letter to the baby. `onAdded` once it's kept (the capture sheet closes). */
+export function AddNote({ text, letter, onAdded }: { text?: string; letter?: boolean; onAdded?: (id: string) => void }) {
   const add = useSave(journalSaves.addNote);
   return (
     <div className="flex flex-col gap-2">
       <NoteForm
         start={text}
+        letter={letter}
         submitLabel="Keep it"
         onSave={({ letter, ...draft }) => {
           const id = newId();

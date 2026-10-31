@@ -3,11 +3,13 @@ import type { ReactNode } from "react";
 import { checklistSaves } from "../../../api/rpc/checklist";
 import { useSave } from "../../../app/hooks/useSave";
 import type { Task } from "../../../content/schema";
+import { KeepButton } from "./KeepButton";
 
 /**
  * One task with its tick. The tick shows at once, everywhere the task
  * appears, and is saved behind it, whenever there's a connection; one the
- * server turns away is put back.
+ * server turns away is put back. A task that keeps something offers the way
+ * to keep it until it's ticked (KeepButton), before any `action`.
  */
 export function TaskRow({
   task,
@@ -33,6 +35,17 @@ export function TaskRow({
     save({ taskId: task.id, ticked: next });
   }
 
+  const keep = task.keeps && !ticked ? <KeepButton keeps={task.keeps} onKept={() => change(true)} /> : null;
+  const actions =
+    keep && action ? (
+      <>
+        {keep}
+        {action}
+      </>
+    ) : (
+      (keep ?? action)
+    );
+
   return (
     <div className={stack ? "flex min-h-11 flex-wrap items-center gap-x-3 pb-2 lg:flex-nowrap lg:pb-0" : "flex min-h-11 items-center gap-3"}>
       <Checkbox
@@ -45,12 +58,12 @@ export function TaskRow({
       {stack ? (
         <span className="flex basis-full items-center gap-3 pl-9 text-xs text-fg-subtle lg:ml-auto lg:basis-auto lg:shrink-0 lg:pl-0">
           {meta}
-          {action}
+          {actions}
         </span>
       ) : (
         <>
           {meta ? <span className="ml-auto shrink-0 text-xs text-fg-subtle">{meta}</span> : null}
-          {action}
+          {actions}
         </>
       )}
     </div>

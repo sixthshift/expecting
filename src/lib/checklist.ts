@@ -8,7 +8,18 @@ export type OwnTaskRow = { id: string; title: string; week: Week; createdAt: str
 
 /** An own task can be done any time up to its week, has no hard deadline, and is both of yours. */
 function ownTaskToTask(row: OwnTaskRow): Task {
-  return { id: row.id, title: row.title, opens: 1, due: row.week, deadline: null, deadlineFrom: null, who: "together", itemId: null, origin: "own" };
+  return {
+    id: row.id,
+    title: row.title,
+    opens: 1,
+    due: row.week,
+    deadline: null,
+    deadlineFrom: null,
+    who: "together",
+    keeps: null,
+    itemId: null,
+    origin: "own",
+  };
 }
 
 /** Built-in and own tasks together, by due week; ties keep built-in order, then own tasks. */

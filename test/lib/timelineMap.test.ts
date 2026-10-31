@@ -15,6 +15,7 @@ const task = (id: string, due: number, itemId: string | null = "i"): Task => ({
   deadline: null,
   deadlineFrom: null,
   who: "together",
+  keeps: null,
   itemId,
   origin: itemId ? "built-in" : "own",
 });

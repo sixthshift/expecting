@@ -2,26 +2,55 @@ import { Button } from "@sixthshift/design-system/button";
 import { Star } from "lucide-react";
 import { useState } from "react";
 import { firstsSaves, useFirsts } from "../../../../../api/rpc/firsts";
-import { useSettings } from "../../../../../api/rpc/settings";
+import { settingsSaves, useSettings } from "../../../../../api/rpc/settings";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
 import { type FirstKey, firstOf, firstsOffered, isMarked } from "../../../../../lib/firsts";
+import { BABY, type Baby } from "../../../../../lib/theme";
 import { DayField } from "./DayField";
 import { FirstWords } from "./FirstWords";
 
 /**
  * Mark a first: which (those not yet marked, in their order), when (today
- * unless changed), then its question. `onAdded` once done, with its key.
+ * unless changed), then its question. `first`: start at that one (a task
+ * that keeps it). Boy or girl marked while Expecting doesn't know asks
+ * whether to use it, as some know and keep it out of the app. `onAdded` once
+ * done, with its key.
  */
-export function MarkFirst({ onAdded }: { onAdded?: (key: FirstKey) => void }) {
+export function MarkFirst({ first, onAdded }: { first?: FirstKey; onAdded?: (key: FirstKey) => void }) {
   const { data: firsts } = useFirsts();
   const { data: settings } = useSettings();
   const mark = useSave(firstsSaves.markFirst);
-  const [chosen, setChosen] = useState<FirstKey | null>(null);
+  const saveSettings = useSave(settingsSaves.saveSettings);
+  const [chosen, setChosen] = useState<FirstKey | null>(first ?? null);
+  const [asking, setAsking] = useState(false);
   const [day, setDay] = useState<ISODate>(todayISO());
   const [marked, setMarked] = useState<FirstKey | null>(null);
   const kept = firsts.find((f) => f.key === marked);
   const left = firstsOffered(settings.baby !== "unknown").filter((f) => !firsts.some((m) => m.key === f.key && isMarked(m)));
+
+  if (asking) {
+    const use = (baby?: Baby) => {
+      if (baby) saveSettings({ baby });
+      setAsking(false);
+    };
+    return (
+      <div className="flex flex-col gap-3">
+        <p className="text-sm text-fg-normal">Should Expecting use it? It would know from here on, and its colours change to match.</p>
+        <div className="flex flex-wrap gap-2">
+          <Button intent="brand" onClick={() => use("boy")}>
+            {BABY.boy}
+          </Button>
+          <Button intent="brand" onClick={() => use("girl")}>
+            {BABY.girl}
+          </Button>
+          <Button variant="ghost" onClick={() => use()}>
+            Keep it out of the app
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   if (kept && isMarked(kept)) return <FirstWords mark={kept} onDone={() => onAdded?.(kept.key)} />;
 
@@ -33,6 +62,7 @@ export function MarkFirst({ onAdded }: { onAdded?: (key: FirstKey) => void }) {
           e.preventDefault();
           mark({ key: chosen, day });
           setMarked(chosen);
+          if (chosen === "boy-or-girl" && settings.baby === "unknown") setAsking(true);
         }}
       >
         <p className="font-medium text-fg-strong">{firstOf(chosen).title}</p>

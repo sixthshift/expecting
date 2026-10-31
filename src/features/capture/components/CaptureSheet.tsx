@@ -30,6 +30,7 @@ import { useJournal } from "../../../api/rpc/journal";
 import { usePeople } from "../../../api/rpc/people";
 import { useQuiet } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
+import type { FirstKey } from "../../../lib/firsts";
 import { movementsOffered } from "../../../lib/journal";
 import { WEEKS } from "../../../lib/timeline";
 import type { Shared } from "../../../pwa/share";
@@ -59,8 +60,26 @@ const CHOICE: Record<Capture, { label: string; icon: LucideIcon; becomes: string
   task: { label: "Something to do", icon: ListChecks, becomes: "In the Planner" },
 };
 
-/** `initial`: open on that one's form (the Journal's Keep row). `shared`: what another app shared, to keep. */
-export function CaptureSheet({ initial = null, shared, onClose }: { initial?: Capture | null; shared?: Shared; onClose: () => void }) {
+/**
+ * `initial`: open on that one's form (the Journal's Keep row, a task that keeps something). `letter`: a note
+ * starts as a letter to the baby; `first`: a first starts at that one. `shared`: what another app shared, to
+ * keep. `onKept` once something is kept, before the sheet closes.
+ */
+export function CaptureSheet({
+  initial = null,
+  letter,
+  first,
+  shared,
+  onKept,
+  onClose,
+}: {
+  initial?: Capture | null;
+  letter?: boolean;
+  first?: FirstKey;
+  shared?: Shared;
+  onKept?: () => void;
+  onClose: () => void;
+}) {
   const { data: people } = usePeople();
   const { data: quiet } = useQuiet();
   const { data: journal } = useJournal();
@@ -81,6 +100,7 @@ export function CaptureSheet({ initial = null, shared, onClose }: { initial?: Ca
   /** Kept: close, and say where it went, with the way there; in the Journal, show it there as just kept. */
   function filed(capture: Capture, id?: string) {
     const { pillar, to } = FILED_IN[capture];
+    onKept?.();
     onClose();
     if (to === "/journal" && pathname === "/journal") {
       navigate({ to: "/journal", search: { kept: id } });
@@ -138,7 +158,7 @@ export function CaptureSheet({ initial = null, shared, onClose }: { initial?: Ca
         ) : chosen === "craving" ? (
           <AddCraving onAdded={(id) => filed("craving", id)} />
         ) : chosen === "note" ? (
-          <AddNote text={text} onAdded={(id) => filed("note", id)} />
+          <AddNote text={text} letter={letter} onAdded={(id) => filed("note", id)} />
         ) : chosen === "photo" ? (
           <AddPhoto files={files} onAdded={(id) => filed("photo", id)} />
         ) : chosen === "paper" ? (
@@ -146,7 +166,7 @@ export function CaptureSheet({ initial = null, shared, onClose }: { initial?: Ca
         ) : chosen === "feeling" && people.me ? (
           <CheckInNow me={people.me} onDone={(id) => filed("feeling", id)} />
         ) : chosen === "first" ? (
-          <MarkFirst onAdded={(key) => filed("first", key)} />
+          <MarkFirst first={first} onAdded={(key) => filed("first", key)} />
         ) : chosen === "question" ? (
           <AddQuestion text={text} onAdded={() => filed("question")} />
         ) : chosen === "task" ? (

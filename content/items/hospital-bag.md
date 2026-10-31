@@ -15,6 +15,7 @@ tasks:
   - id: pack-hospital-bag
     title: Pack the hospital bag
     due: 36
+    keeps: { first: bag-packed }
 ---
 Check with the hospital or birth centre what you need to bring; they may have their own list.
 

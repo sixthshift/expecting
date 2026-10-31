@@ -3,7 +3,7 @@ import type { Task } from "../../src/content/schema";
 import { planTasks, stagesAhead } from "../../src/lib/planner";
 
 function task(id: string, due: number, extra: Partial<Task> = {}): Task {
-  return { id, title: id, opens: 1, due, deadline: null, deadlineFrom: null, who: "together", itemId: null, origin: "own", ...extra };
+  return { id, title: id, opens: 1, due, deadline: null, deadlineFrom: null, who: "together", keeps: null, itemId: null, origin: "own", ...extra };
 }
 const ids = (tasks: { task: Task }[]) => tasks.map((t) => t.task.id);
 

@@ -1,16 +1,27 @@
 import { expect, test } from "vitest";
 import { builtInTasks } from "../../src/content";
-import { alreadyHappened, aroundNow, FIRST_TICKS, FIRSTS, firstsOffered, suggestFirsts } from "../../src/lib/firsts";
+import { alreadyHappened, aroundNow, FIRSTS, firstsOffered, suggestFirsts } from "../../src/lib/firsts";
 import { appetite, entry, first, photo } from "./storyFixtures";
 
 const people = [
   { id: "sam", name: "Sam", role: "carrying" as const },
   { id: "alex", name: "Alex", role: "partner" as const },
 ];
-const none = { marks: [], journal: [], photos: [], appetite: [], ticks: {}, people, quiet: false };
+const none = { marks: [], journal: [], photos: [], appetite: [], ticks: {}, tasks: builtInTasks, people, quiet: false };
 
-test("every first's tick is a built-in task", () => {
-  for (const task of Object.values(FIRST_TICKS)) expect(builtInTasks.some((t) => t.id === task)).toBe(true);
+test("the cot and the bag keep their firsts", () => {
+  const keeps = (id: string) => builtInTasks.find((t) => t.id === id)?.keeps;
+  expect(keeps("set-up-cot-in-your-room")).toEqual({ first: "cot-up" });
+  expect(keeps("pack-hospital-bag")).toEqual({ first: "bag-packed" });
+});
+
+test("a task ticked suggests the first it keeps, and only that", () => {
+  const tasks = [
+    { id: "t", keeps: { first: "told-family" as const } },
+    { id: "u", keeps: "letter" as const },
+  ];
+  const ticks = { t: "2026-05-02T01:00:00.000Z", u: "2026-05-03T01:00:00.000Z" };
+  expect(suggestFirsts({ ...none, tasks, ticks }).map((s) => s.key)).toEqual(["told-family"]);
 });
 
 test("boy or girl only when you know", () => {

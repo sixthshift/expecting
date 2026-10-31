@@ -381,8 +381,15 @@ All thirteen questions, settled with Jason on 2026-11-01:
 
 - 2026-10-31: plan written, with parts 3 and 4 (new extras) and what
   they all hold to added the same day.
-- 2026-11-01: the thirteen questions settled (above). Next: step 1. It
-  queues behind the reports feature and step 1 of the lists.
+- 2026-11-01: the thirteen questions settled (above).
+- 2026-11-01, the easy ones (`feat/extras-easy`): Meal train folded into
+  Lining up help (028, a choice carried over); an extra's `tool` shown
+  wherever it's offered (the names game); step 1, `keeps` (letter, photo,
+  a first; `FIRST_TICKS` gone, the cot and bag on it), kept from a task
+  ticks it; step 2 in part: Keepsakes' letter, Telling people's *Tell the
+  family*, Gender reveal's *Have the reveal* (boy or girl asks whether to
+  use it). Not yet: `emergency: <field>` (nothing needs it now the baby's
+  doctor stays content) and the maternity shoot (its `shoot` photo kind).
 
 ## Not in this plan
 
