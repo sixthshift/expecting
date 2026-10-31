@@ -8,17 +8,19 @@ aliases: [carpal tunnel, pins and needles in hands, numb fingers, tingling finge
 weeks: [13, 42]
 who: carrying
 stakes: medium
-summary: "Up to 1 in 2 pregnant people get carpal tunnel syndrome, from swelling pressing on a nerve in the wrist; see your doctor or midwife early, and a wrist splint at night is one of the best fixes. It usually goes within weeks of the birth."
+summary: "Up to 1 in 2 pregnant people get carpal tunnel syndrome, from swelling pressing on a nerve in the wrist; see your doctor or midwife early, and a wrist splint at night may help, though the evidence for it is limited. It usually goes within weeks of the birth."
 sources:
   - title: Pregnancy, Birth and Baby — Carpal tunnel syndrome and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/carpal-tunnel-syndrome-and-pregnancy
   - title: healthdirect — Warning signs during pregnancy
     url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
+  - title: Australian Pregnancy Care Guidelines — Carpal tunnel syndrome
+    url: https://app.magicapp.org/#/guideline/jm83RE/section/Ea0N6d
 related: [swollen-feet-and-ankles, sudden-swelling, insomnia]
 appointment:
   - Would a wrist splint or a physio help me?
   - Is a steroid injection an option for me?
-checked: 2026-10-29
+checked: 2026-11-01
 ---
 ## What's usual
 
@@ -39,4 +41,4 @@ After 20 weeks, contact your doctor, midwife or hospital immediately if you have
 
 ## See your doctor or midwife
 
-If you have symptoms of carpal tunnel syndrome, see your doctor or midwife; early treatment helps. They may send you to a physiotherapist or occupational therapist for exercises and a wrist splint or brace, which is one of the best ways to relieve symptoms, especially worn overnight. A steroid injection is another option.
+If you have symptoms of carpal tunnel syndrome, see your doctor or midwife; early treatment helps. They may send you to a physiotherapist or occupational therapist for exercises and a wrist splint or brace, which is one of the best ways to relieve symptoms, especially worn overnight. A steroid injection is another option. The national pregnancy care guidelines note that the evidence for both splints and injections is limited, and that symptoms may go after the birth.

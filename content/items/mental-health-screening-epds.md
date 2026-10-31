@@ -17,13 +17,15 @@ sources:
     url: https://www.gidgetfoundation.org.au/health-professionals/screening-and-assessment-for-pnda
   - title: Gidget Foundation — Emotional wellbeing screening program
     url: https://www.gidgetfoundation.org.au/support/emotional-wellbeing-screening-progam
+  - title: Australian Pregnancy Care Guidelines — Screening for depression
+    url: https://app.magicapp.org/#/guideline/jm83RE/section/jbz6eG
 related: [antenatal-depression, antenatal-anxiety, partner-perinatal-depression]
 appointment:
   - Can we go through my answers to the mood questions?
 discreet: true
-checked: 2026-10-29
+checked: 2026-11-01
 ---
-During pregnancy and again after the birth, most people in Australia are screened for depression, using a questionnaire that asks a number of set questions about how you are feeling.
+During pregnancy and again after the birth, most people in Australia are screened for depression, using a questionnaire that asks a number of set questions about how you are feeling. The national pregnancy care guidelines say to do it as early as practical in pregnancy and at least once more later on.
 
 ## What it is
 
