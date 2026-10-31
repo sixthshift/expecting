@@ -7,6 +7,7 @@
 import { app } from "./app";
 import { login } from "./auth/login";
 import { drawer } from "./drawer";
+import { drawerNames } from "./drawerNames";
 import { emergency } from "./emergency";
 import { index } from "./index";
 import { journal } from "./journal";
@@ -35,7 +36,7 @@ const api = import.meta.env.SSR ? (await import("../api/rest")).restRoutes : ([]
 
 export const routeTree = rootRoute.addChildren([
   // The frame: the pillars, in navigation order, then settings, then any other address.
-  app.addChildren([index, timeline, library, libraryItem, planner, journal, journalBook, drawer, emergency, settings, notFound]),
+  app.addChildren([index, timeline, library, libraryItem, planner, journal, journalBook, drawer, drawerNames, emergency, settings, notFound]),
   // Outside the frame: the first-run questions, a step to a URL, and logging in.
   onboarding.addChildren([onboardingNext, who, due, baby, question, extras, ready]),
   login,

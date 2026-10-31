@@ -10,7 +10,7 @@ const ID = "11111111-1111-4111-8111-111111111111";
 
 const checklist = { ticks: { "book-rsv-vaccine": "2026-10-01T00:00:00.000Z" }, ownTasks: [{ id: ID, title: "Cot", week: 30, createdAt: made.at }] };
 const questions = [{ id: ID, text: "Free?", answer: null, askedAt: null, itemId: null, by: null, createdAt: made.at }];
-const names = { names: [{ id: ID, name: "Ada", mine: null }], matches: [{ id: ID, name: "Ada" }], together: true };
+const names = { names: [{ id: ID, name: "Ada", mine: null, deck: false }], matches: [{ id: ID, name: "Ada" }], together: true };
 const settings = { dueDate: "2027-03-01", baby: "surprise", onboardedAt: made.at };
 const note = {
   id: ID,
@@ -129,6 +129,14 @@ const CASES: Record<string, [unknown, unknown[]]> = {
     ],
   ],
   voteName: [names, [{ id: ID, liked: false }]],
+  swipeName: [
+    names,
+    [
+      { id: "33333333-3333-4333-8333-333333333333", name: "Hazel", liked: true },
+      { id: "33333333-3333-4333-8333-333333333333", name: "Ada", liked: false },
+    ],
+  ],
+  unvoteName: [names, [{ name: "ADA" }, { name: "Nobody" }]],
   removeName: [names, [{ id: ID }]],
   saveAnswer: [
     [],
@@ -246,7 +254,14 @@ test("a save changes what it says, and nothing it doesn't", () => {
   expect(byKey.setTicked!.apply(checklist, { taskId: "x", ticked: true }, made).ticks).toEqual({ ...checklist.ticks, x: made.at });
   expect(byKey.deleteOwnTask!.apply({ ...checklist, ticks: { [ID]: made.at } }, { id: ID }, made)).toEqual({ ticks: {}, ownTasks: [] });
   expect(byKey.markAsked!.apply(questions, { id: ID, answer: " Yes " }, made)[0]).toMatchObject({ askedAt: made.at, answer: "Yes" });
-  expect(byKey.addName!.apply(names, { id: "22222222-2222-4222-8222-222222222222", name: "ADA" }, made).names).toEqual([{ id: ID, name: "Ada", mine: true }]);
+  expect(byKey.addName!.apply(names, { id: "22222222-2222-4222-8222-222222222222", name: "ADA" }, made).names).toEqual([
+    { id: ID, name: "Ada", mine: true, deck: false },
+  ]);
+  expect(byKey.swipeName!.apply(names, { id: "33333333-3333-4333-8333-333333333333", name: "Hazel", liked: false }, made).names).toEqual([
+    { id: ID, name: "Ada", mine: null, deck: false },
+    { id: "33333333-3333-4333-8333-333333333333", name: "Hazel", mine: false, deck: true },
+  ]);
+  expect(byKey.unvoteName!.apply({ ...names, names: [{ ...names.names[0]!, mine: true }] }, { name: "ada" }, made).names).toEqual(names.names);
   expect(byKey.saveSettings!.apply(settings, { baby: "boy" }, made)).toEqual({ ...settings, baby: "boy" });
   expect(byKey.saveEmergency!.apply(emergency, { carerPhone: "" }, made)).toEqual({ values: {}, changed: { by: made.by, at: made.at } });
   expect(byKey.addNote!.apply([], { id: ID, day: "2026-10-29", time: null, body: " Told Mum " }, made)).toEqual([

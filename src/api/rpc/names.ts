@@ -36,6 +36,22 @@ export const voteName = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), liked: z.boolean() }).strict())
   .handler(({ data }) => new NamesRepo(getDb()).vote(data.id, player(), data.liked, madeAt()));
 
+/** Like or pass a name from the deck; one the deck doesn't have is turned away. */
+export const swipeName = createServerFn({ method: "POST" })
+  .validator(z.object({ id: z.uuid(), name: z.string().max(60), liked: z.boolean() }).strict())
+  .handler(async ({ data }) => {
+    // Loaded here, on the server only: the deck isn't for the app's own bundle.
+    const { inDeck } = await import("../../lib/nameDeck");
+    const entry = inDeck(data.name);
+    if (!entry) throw Response.json({ error: "That name isn't in the deck" }, { status: 400 });
+    new NamesRepo(getDb()).swipe(entry.name, player(), data.liked, madeAt(), data.id);
+  });
+
+/** Take back your vote on a name: the last swipe, undone. */
+export const unvoteName = createServerFn({ method: "POST" })
+  .validator(z.object({ name: z.string().min(1).max(60) }).strict())
+  .handler(({ data }) => new NamesRepo(getDb()).unvote(data.name, player()));
+
 export const removeName = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid() }).strict())
   .handler(({ data }) => {
@@ -60,7 +76,7 @@ export const namesSaves = {
       const tidy = tidyName(name);
       const same = view.names.find((n) => n.id === id || n.name.toLowerCase() === tidy.toLowerCase());
       if (same) return { ...view, names: view.names.map((n) => (n === same ? { ...n, mine: true } : n)) };
-      return { ...view, names: [...view.names, { id, name: tidy, mine: true }] };
+      return { ...view, names: [...view.names, { id, name: tidy, mine: true, deck: false }] };
     },
   }),
   voteName: save({
@@ -68,6 +84,25 @@ export const namesSaves = {
     query: namesQuery.queryKey,
     send: (data: { id: string; liked: boolean }, made) => voteName({ data, headers: stamped(made) }),
     apply: (view: Names, { id, liked }) => ({ ...view, names: view.names.map((n) => (n.id === id ? { ...n, mine: liked } : n)) }),
+  }),
+  swipeName: save({
+    key: "swipeName",
+    query: namesQuery.queryKey,
+    send: (data: { id: string; name: string; liked: boolean }, made) => swipeName({ data, headers: stamped(made) }),
+    apply: (view: Names, { id, name, liked }) => {
+      const same = view.names.find((n) => n.id === id || n.name.toLowerCase() === name.toLowerCase());
+      if (same) return { ...view, names: view.names.map((n) => (n === same ? { ...n, mine: liked } : n)) };
+      return { ...view, names: [...view.names, { id, name, mine: liked, deck: true }] };
+    },
+  }),
+  unvoteName: save({
+    key: "unvoteName",
+    query: namesQuery.queryKey,
+    send: (data: { name: string }, made) => unvoteName({ data, headers: stamped(made) }),
+    apply: (view: Names, { name }) => ({
+      ...view,
+      names: view.names.map((n) => (n.name.toLowerCase() === name.toLowerCase() ? { ...n, mine: null } : n)),
+    }),
   }),
   removeName: save({
     key: "removeName",

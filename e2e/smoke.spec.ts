@@ -11,6 +11,7 @@ const pages = [
   { path: "/planner", heading: "Planner" },
   { path: "/journal", heading: "Journal" },
   { path: "/drawer", heading: "Drawer" },
+  { path: "/drawer/names", heading: "Baby names" },
   { path: "/emergency", heading: "Emergency info" },
   { path: "/settings", heading: "Settings" },
 ];

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Baby, Camera, Luggage, Timer } from "lucide-react";
+import { Baby, Camera, ChevronRight, Luggage, Timer } from "lucide-react";
 import { useExtras } from "../../../api/rpc/extras";
 import { useNames } from "../../../api/rpc/names";
 import { usePeople } from "../../../api/rpc/people";
@@ -7,7 +7,6 @@ import { useQuiet } from "../../../api/rpc/quiet";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { Coming } from "../../../components/Coming";
 import { extrasOn } from "../../../lib/extras";
-import { NamesGame } from "../../names/components/namesGame/NamesGame";
 import { extra } from "../../settings/model/extras";
 
 /**
@@ -28,7 +27,21 @@ export function DrawerPage() {
       {quiet ? (
         <p className="max-w-prose text-sm text-fg-subtle">The names and everything else here are put away while Expecting is quiet. Nothing is deleted.</p>
       ) : extras.has("choosing-names") ? (
-        <NamesGame view={names} other={other} />
+        <Link
+          to="/drawer/names"
+          className="flex max-w-3xl items-center gap-4 rounded-xl border border-border-subtle bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) p-5 hover:border-border-brand"
+        >
+          <Baby aria-hidden size={28} className="shrink-0 text-fg-brand" />
+          <span className="flex flex-1 flex-col gap-1">
+            <span className="font-display text-xl font-semibold text-fg-strong">Baby names</span>
+            <span className="text-sm text-fg-normal">
+              {names.matches.length > 0
+                ? `You both like ${names.matches.length === 1 ? names.matches[0]!.name : `${names.matches.length} names`}. Keep swiping.`
+                : `Swipe through names on your own phone. A name is a match when ${other ? `you and ${other.name}` : "you both"} like it.`}
+            </span>
+          </span>
+          <ChevronRight aria-hidden size={20} className="shrink-0 text-fg-subtle" />
+        </Link>
       ) : (
         <div className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
           <Baby aria-hidden size={18} className="mt-0.5 shrink-0 text-fg-brand" />

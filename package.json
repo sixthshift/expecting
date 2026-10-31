@@ -15,6 +15,7 @@
     "migrate": "bun run src/db/migrations/migrate.ts",
     "db:generate": "drizzle-kit generate",
     "version:next": "bun run scripts/version.ts",
+    "names": "bun run scripts/names.ts",
     "palette": "bun run scripts/palette.ts && bun run scripts/palette-sheet.ts",
     "components:sheet": "bun run scripts/components-sheet.ts"
   },

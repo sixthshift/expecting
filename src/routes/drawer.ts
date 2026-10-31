@@ -2,7 +2,7 @@ import { createRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { namesQuery } from "../api/rpc/names";
 import { app } from "./app";
 
-/** The Drawer, with the names game as this phone's person sees it. */
+/** The Drawer, with the names game's matches as this phone's person sees them. */
 export const drawer = createRoute({
   getParentRoute: () => app,
   path: "/drawer",

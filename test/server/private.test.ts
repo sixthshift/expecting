@@ -45,6 +45,8 @@ const WRITES: Record<string, ((x: string) => unknown) | null> = {
   "questions.ts:deleteQuestion": (x) => ({ id: x }),
   "names.ts:addName": (x) => ({ id: UUID, name: x }),
   "names.ts:voteName": (x) => ({ id: x, liked: true }),
+  "names.ts:swipeName": (x) => ({ id: UUID, name: x, liked: true }),
+  "names.ts:unvoteName": (x) => ({ name: x }),
   "names.ts:removeName": (x) => ({ id: x }),
   "facts.ts:saveAnswer": (x) => ({ key: "cover", answer: x }),
   "people.ts:becomePerson": (x) => ({ id: x }),

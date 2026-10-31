@@ -579,15 +579,30 @@ test("the names game: a name is a match only when you both like it, on your own 
   await page.getByRole("switch", { name: "Choosing a name" }).click();
   await expect(page.getByRole("switch", { name: "Choosing a name" })).toBeChecked();
 
-  // Jason adds two names: adding one likes it.
+  // The Drawer opens it as a page of its own. Jason adds two names: adding one likes it.
   await open("/drawer");
-  const names = page.getByRole("region", { name: "Baby names" });
+  await page.getByRole("link", { name: /^Baby names/ }).click();
+  await expect(page).toHaveURL(/\/drawer\/names$/);
+  await expect(page.getByRole("heading", { level: 1, name: "Baby names" })).toBeVisible();
+  const names = page.getByRole("main");
   for (const name of ["ada", "Iris"]) {
     await names.getByRole("textbox", { name: "A name to add" }).fill(name);
     await names.getByRole("button", { name: "Add name" }).click();
     await expect(names.getByRole("textbox", { name: "A name to add" })).toHaveValue("");
   }
   await expect(names.getByRole("heading", { name: "No matches yet" })).toBeVisible();
+
+  // Then the deck: a card at a time, liked, and undone, it comes back.
+  const card = names.getByRole("article");
+  const first = await card.getAttribute("aria-label");
+  await names.getByRole("button", { name: `Like ${first}` }).click();
+  await expect(card).not.toHaveAttribute("aria-label", first!);
+  await names.getByRole("button", { name: `Undo ${first}` }).click();
+  await expect(card).toHaveAttribute("aria-label", first!);
+  // Only girls' names (and those given to either), in the address.
+  await names.getByRole("radio", { name: "Girls" }).click();
+  await expect(page).toHaveURL(/names=girls/);
+  await expect(card.getByText("Girl", { exact: true })).toHaveCount(0);
 
   // Sam, on another phone, sees the names but not Jason's votes, and likes one.
   const phone = await browser.newContext();
@@ -599,15 +614,16 @@ test("the names game: a name is a match only when you both like it, on your own 
   await sam.goto("/onboarding", { waitUntil: "networkidle" });
   await sam.getByRole("button", { name: "I'm Sam" }).click();
   await sam.waitForURL((url) => !url.pathname.startsWith("/onboarding"));
-  await sam.goto("/drawer", { waitUntil: "networkidle" });
-  const samNames = sam.getByRole("region", { name: "Baby names" });
-  await expect(samNames.getByText("2 names to go")).toBeVisible();
+  await sam.goto("/drawer/names", { waitUntil: "networkidle" });
+  const samNames = sam.getByRole("main");
+  // The names Jason added come first.
+  await expect(samNames.getByRole("article", { name: "Ada" })).toBeVisible();
   await samNames.getByRole("button", { name: "Pass on Ada" }).click();
   await samNames.getByRole("button", { name: "Like Iris" }).click();
   await expect(samNames.getByRole("region", { name: "Matches" }).getByText("Iris")).toBeVisible();
   await phone.close();
 
-  await open("/drawer");
+  await open("/drawer/names");
   const matches = names.getByRole("region", { name: "Matches" });
   await expect(matches.getByRole("heading", { name: "You both like one name" })).toBeVisible();
   await expect(matches.getByText("Iris")).toBeVisible();
@@ -617,7 +633,10 @@ test("the names game: a name is a match only when you both like it, on your own 
   await open("/settings");
   await page.getByRole("switch", { name: "Choosing a name" }).click();
   await open("/drawer");
-  await expect(page.getByRole("region", { name: "Baby names" })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: /^Baby names/ })).toHaveCount(0);
+  await open("/drawer/names");
+  await expect(page.getByRole("link", { name: "Turn it on in settings" })).toBeVisible();
+  await expect(page.getByRole("article")).toHaveCount(0);
 });
 
 test("Emergency info: filled in once, it's the call button and the handover in a hurry", async ({ page, open }) => {

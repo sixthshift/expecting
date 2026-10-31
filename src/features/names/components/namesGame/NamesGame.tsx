@@ -1,44 +1,102 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Input } from "@sixthshift/design-system/input";
-import { Heart, Plus, Trash2, X } from "lucide-react";
-import { type FormEvent, useState } from "react";
+import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
+import { Plus, Trash2, Undo2 } from "lucide-react";
+import { type FormEvent, useMemo, useState } from "react";
 import { namesSaves } from "../../../../api/rpc/names";
 import { useSave } from "../../../../app/hooks/useSave";
-import { type NamesView, nextToVote } from "../../../../lib/names";
+import { DECK_CREDIT, DECK_PLACES, type DeckCard, upNext } from "../../../../lib/nameDeck";
+import type { DeckFilter, NamesView } from "../../../../lib/names";
 import { newId } from "../../../../lib/outbox";
 import type { Person } from "../../../../lib/people";
+import { SwipeDeck } from "./SwipeDeck";
 
 /**
- * The names game: either of you adds names, and each votes on your own phone.
- * A name is a match only when you both like it, so nobody has to admit to the
- * name the other would hate. Only your own votes are ever shown to you.
+ * The names game: a deck of names, one at a time, to like or pass on your own phone, and any either of
+ * you adds. A name is a match only when you both like it, so nobody has to admit to the name the other
+ * would hate. Only your own votes are ever shown to you. `seed` shuffles the deck for this person.
  */
-export function NamesGame({ view, other }: { view: NamesView; other: Person | null }) {
+export function NamesGame({
+  view,
+  other,
+  seed,
+  filter,
+  onFilter,
+}: {
+  view: NamesView;
+  other: Person | null;
+  seed: string;
+  filter: DeckFilter;
+  /** Choosing girls', boys' or all; none when you know which it is. */
+  onFilter: ((filter: DeckFilter) => void) | undefined;
+}) {
   const saveVote = useSave(namesSaves.voteName);
-  const vote = (id: string, liked: boolean) => saveVote({ id, liked });
+  const saveSwipe = useSave(namesSaves.swipeName);
+  const saveUnvote = useSave(namesSaves.unvoteName);
   const saveRemove = useSave(namesSaves.removeName);
-  const remove = (id: string) => saveRemove({ id });
-  const next = nextToVote(view);
-  const left = view.names.filter((n) => n.mine === null).length;
+  // The last name voted on, to undo; and one undone, dealt again first.
+  const [last, setLast] = useState<string | null>(null);
+  const [again, setAgain] = useState<string | null>(null);
+
+  const cards = useMemo(() => {
+    const deck = upNext(view, seed, filter);
+    const i = again ? deck.findIndex((c) => c.name.toLowerCase() === again.toLowerCase()) : -1;
+    return i > 0 ? [deck[i]!, ...deck.slice(0, i), ...deck.slice(i + 1)] : deck;
+  }, [view, seed, filter, again]);
+  const next = cards[0];
   const liked = view.names.filter((n) => n.mine === true);
   const passed = view.names.filter((n) => n.mine === false);
 
+  function vote(card: DeckCard, yes: boolean) {
+    if (card.id) saveVote({ id: card.id, liked: yes });
+    else saveSwipe({ id: newId(), name: card.name, liked: yes });
+    setLast(card.name);
+    setAgain(null);
+  }
+  function undo() {
+    if (!last) return;
+    saveUnvote({ name: last });
+    setAgain(last);
+    setLast(null);
+  }
+
   return (
-    <section aria-labelledby="names" className="flex max-w-3xl flex-col gap-5 rounded-xl border border-border-subtle bg-bg-normal p-4 sm:p-6">
-      <div className="flex flex-col gap-1">
-        <h2 id="names" className="font-display text-xl font-semibold text-fg-strong">
-          Baby names
-        </h2>
-        <p className="text-sm text-fg-subtle">Add names, and like or pass on each one on your own phone. A name is a match only when you both like it.</p>
+    <div className="flex flex-col gap-8">
+      <div className="flex flex-col items-center gap-4">
+        {onFilter ? (
+          <ToggleGroup
+            type="single"
+            appearance="segmented"
+            variant="outline"
+            size="sm"
+            aria-label="Names to show"
+            value={filter}
+            onValueChange={(value) => onFilter(value === "girls" || value === "boys" ? value : "all")}
+            options={[
+              { value: "all", label: "All" },
+              { value: "girls", label: "Girls" },
+              { value: "boys", label: "Boys" },
+            ]}
+          />
+        ) : null}
+        {next ? (
+          <SwipeDeck key={next.name} card={next} under={cards[1]} showSex={filter === "all"} onVote={(yes) => vote(next, yes)} />
+        ) : (
+          <p className="py-16 text-sm text-fg-subtle">You've voted on every name. Add some more.</p>
+        )}
+        {/* Kept in its place when there's nothing to undo, so the page doesn't jump. */}
+        <Button variant="ghost" size="sm" onClick={undo} aria-label={last ? `Undo ${last}` : "Undo"} className={last ? "" : "invisible"}>
+          <Undo2 aria-hidden size={16} /> Undo
+        </Button>
       </div>
 
       <section
         aria-label="Matches"
         className="flex flex-col gap-2 rounded-lg bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) p-4"
       >
-        <h3 className="text-sm font-semibold text-fg-strong">
+        <h2 className="text-sm font-semibold text-fg-strong">
           {view.matches.length === 0 ? "No matches yet" : `You both like ${view.matches.length === 1 ? "one name" : `${view.matches.length} names`}`}
-        </h3>
+        </h2>
         {view.matches.length > 0 ? (
           <ul className="flex flex-wrap gap-2">
             {view.matches.map((m) => (
@@ -56,23 +114,6 @@ export function NamesGame({ view, other }: { view: NamesView; other: Person | nu
         )}
       </section>
 
-      {next ? (
-        <div className="flex flex-col items-center gap-4 py-2 text-center">
-          <span className="text-xs text-fg-subtle">{left === 1 ? "1 name to go" : `${left} names to go`}</span>
-          <p className="font-display text-4xl font-semibold text-fg-strong">{next.name}</p>
-          <div className="flex gap-3">
-            <Button variant="outline" size="lg" onClick={() => vote(next.id, false)} aria-label={`Pass on ${next.name}`}>
-              <X aria-hidden size={18} /> Pass
-            </Button>
-            <Button intent="brand" size="lg" onClick={() => vote(next.id, true)} aria-label={`Like ${next.name}`}>
-              <Heart aria-hidden size={18} /> Like
-            </Button>
-          </div>
-        </div>
-      ) : (
-        <p className="text-sm text-fg-subtle">{view.names.length === 0 ? "No names yet. Add the first." : "You've voted on every name. Add some more."}</p>
-      )}
-
       <AddName />
 
       {liked.length + passed.length > 0 ? (
@@ -85,18 +126,24 @@ export function NamesGame({ view, other }: { view: NamesView; other: Person | nu
               <li key={n.id} className="flex items-center gap-2 py-2">
                 <span className="flex-1 text-fg-strong">{n.name}</span>
                 <span className="text-xs text-fg-subtle">{n.mine ? "Liked" : "Passed"}</span>
-                <Button variant="ghost" size="sm" onClick={() => vote(n.id, !n.mine)}>
+                <Button variant="ghost" size="sm" onClick={() => saveVote({ id: n.id, liked: !n.mine })}>
                   {n.mine ? "Pass instead" : "Like instead"}
                 </Button>
-                <Button variant="ghost" size="sm" iconOnly aria-label={`Remove ${n.name} from the game`} onClick={() => remove(n.id)}>
-                  <Trash2 aria-hidden size={16} />
-                </Button>
+                {n.deck ? null : (
+                  <Button variant="ghost" size="sm" iconOnly aria-label={`Remove ${n.name} from the game`} onClick={() => saveRemove({ id: n.id })}>
+                    <Trash2 aria-hidden size={16} />
+                  </Button>
+                )}
               </li>
             ))}
           </ul>
         </details>
       ) : null}
-    </section>
+
+      <p className="text-xs text-fg-subtle">
+        Names from the registers of births of {DECK_PLACES.map((p) => p.place).join(", ")}: {DECK_CREDIT}.
+      </p>
+    </div>
   );
 }
 

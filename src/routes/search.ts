@@ -4,6 +4,7 @@
 import { z } from "zod";
 import { TOPICS, type Topic, VERDICTS } from "../content/schema";
 import { DOORS } from "../lib/library";
+import { DECK_FILTERS } from "../lib/names";
 import { LENSES } from "../lib/story";
 import { parseWeekKey } from "../lib/timeline";
 
@@ -56,3 +57,8 @@ export const onboardingSearch = z.object({ after: z.string().optional().catch(un
 
 /** Login: where to go once in. */
 export const loginSearch = z.object({ next: z.string().optional() });
+
+/** The names game: which names it deals (`girls`, `boys`, `all`); without, all of them. Only while you don't know which it is: knowing, the deck is that one's. */
+export const namesSearch = z.object({
+  names: z.enum(DECK_FILTERS).optional().catch(undefined),
+});
