@@ -32,7 +32,7 @@ export function BookCover({ lines }: { lines: readonly ChapterLine[] }) {
   return (
     <section
       aria-label="Your book"
-      className="grid gap-5 rounded-2xl border border-border-subtle bg-bg-normal p-5 sm:grid-cols-[9rem_minmax(0,1fr)] sm:items-start"
+      className="grid gap-5 rounded-xl border border-border-subtle bg-bg-normal p-5 sm:grid-cols-[9rem_minmax(0,1fr)] sm:items-start"
     >
       <Link
         to="/journal/book"

@@ -131,7 +131,7 @@ export function WeekPage({
 
   return (
     <section aria-label="This week" className="flex flex-col gap-5">
-      <header className="flex flex-col gap-2 rounded-2xl bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) p-5">
+      <header className="flex flex-col gap-2 rounded-xl bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) p-5">
         <p className="text-sm font-medium tracking-wide text-fg-subtle uppercase">This week</p>
         <h2 className="flex flex-wrap items-baseline gap-x-3">
           <span className="font-display text-4xl font-semibold text-fg-strong">{weekLabel(week)}</span>
