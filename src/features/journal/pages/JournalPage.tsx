@@ -2,6 +2,7 @@ import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";
 import { SearchInput } from "@sixthshift/design-system/search-input";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
+import { cn } from "@sixthshift/design-system/utils";
 import { getRouteApi, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useAppetite } from "../../../api/rpc/appetite";
@@ -225,16 +226,18 @@ export function JournalPage() {
   const past = alreadyHappened({ now, marks: firsts, knowing, quiet: isQuiet });
   const places = placesReady({ now, photos, papers, dueDate, quiet: isQuiet });
   const chapters = contents({ items, dueDate, now });
-  // The book, while the Journal is young, on the page; after, one line at the top. Nothing of it while something has happened.
-  const book = isQuiet || !dueDate ? null : young(items) ? "cover" : "line";
+  // The book, while the Journal is young (or there's no due date to write its weeks in), on the page; after, one line at the top. Nothing of it while something has happened.
+  const book = isQuiet ? null : !dueDate || young(items) ? "cover" : "line";
   const searching = words.trim().length > 0;
+  const rail = cards.length > 0 || patterns.length > 0;
   const thisWeek = now !== null && dueDate && lens === "all" && !zoom && !isQuiet ? storyGroups(inWeek(shown, now, dueDate), dueDate) : [];
   const thisWeekDays = thisWeek.flatMap((g) => (g.kind === "group" ? g.days : []));
 
   return (
     <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
       <PillarHeader title="Journal" />
-      <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1fr)_20rem] lg:grid-rows-[auto_1fr] lg:gap-x-10">
+      {/* The rail only when it has something: an empty one would leave its column blank. */}
+      <div className={cn("flex flex-col gap-8", rail && "lg:grid lg:grid-cols-[minmax(0,1fr)_20rem] lg:grid-rows-[auto_1fr] lg:gap-x-10")}>
         <div className="flex min-w-0 flex-col gap-6 lg:col-start-1 lg:row-start-1">
           <Calls />
           {book === "line" ? <BookLine lines={chapters} /> : null}
@@ -249,13 +252,12 @@ export function JournalPage() {
           {book === "cover" ? <BookCover lines={chapters} /> : null}
         </div>
 
-        <aside
-          aria-label="Now and lately"
-          className="flex flex-col gap-4 empty:hidden lg:sticky lg:top-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start"
-        >
-          <NowCards cards={cards} items={items} onRecapOpened={setOpened} />
-          <Lately patterns={patterns} onOpen={(l) => navigate({ search: { show: l } })} />
-        </aside>
+        {rail ? (
+          <aside aria-label="Now and lately" className="flex flex-col gap-4 lg:sticky lg:top-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start">
+            <NowCards cards={cards} items={items} onRecapOpened={setOpened} />
+            <Lately patterns={patterns} onOpen={(l) => navigate({ search: { show: l } })} />
+          </aside>
+        ) : null}
 
         <div className="flex min-w-0 flex-col gap-4 lg:col-start-1 lg:row-start-2">
           <h2 className="font-display text-xl font-semibold text-fg-strong">The story so far</h2>

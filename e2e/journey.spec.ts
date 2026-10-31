@@ -621,7 +621,7 @@ test("Emergency info: filled in once, it's the call button and the handover in a
 
 test("opening a choice further down the page keeps your place", async ({ page, open }) => {
   // The design system's Select focused its list before placing it, which scrolled the page to the top
-  // (patched in patches/: focus with preventScroll). A design-system upgrade could undo it.
+  // (fixed in 0.12.1: focus with preventScroll, docs/design-system/focus-scroll.md).
   await open("/settings");
   const row = page.getByRole("button", { name: /^Who's looking after the pregnancy/ });
   await row.click();

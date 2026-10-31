@@ -12,13 +12,15 @@ import { cluesIn } from "../../lib/library";
 export function NotFound() {
   const { pathname } = useLocation();
   return (
-    <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-4 pt-[max(2.5rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-16">
-      <NothingHere />
-      {/* Keyed by the address, so following a suggestion's link to another dead end starts afresh. */}
-      <LookFor key={pathname} clues={cluesIn(pathname)} />
-      <Button asChild intent="brand" variant="outline" className="self-start">
-        <Link to="/">Back to This week</Link>
-      </Button>
+    <main className="mx-auto w-full max-w-6xl px-4 pt-[max(2.5rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-16">
+      <div className="flex max-w-2xl flex-col gap-6">
+        <NothingHere />
+        {/* Keyed by the address, so following a suggestion's link to another dead end starts afresh. */}
+        <LookFor key={pathname} clues={cluesIn(pathname)} />
+        <Button asChild intent="brand" variant="outline" className="self-start">
+          <Link to="/">Back to This week</Link>
+        </Button>
+      </div>
     </main>
   );
 }

@@ -44,7 +44,7 @@ export function Contents({ lines }: { lines: readonly ChapterLine[] }) {
   );
 }
 
-/** The cover and the contents, for while the Journal is young. */
+/** The cover and the contents, for while the Journal is young, or while there's no due date to write its weeks in. */
 export function BookCover({ lines }: { lines: readonly ChapterLine[] }) {
   const names = useNames();
   const due = useDue();
@@ -65,7 +65,16 @@ export function BookCover({ lines }: { lines: readonly ChapterLine[] }) {
         </span>
       </Link>
       <div className="flex flex-col gap-3">
-        <p className="text-fg-normal">Expecting has begun your book. What you keep goes into it, on its week.</p>
+        {due ? (
+          <p className="text-fg-normal">Expecting has begun your book. What you keep goes into it, on its week.</p>
+        ) : (
+          <p className="text-fg-normal">
+            Your book is ready to begin. With your due date, Expecting writes the weeks in, and what you keep goes into it.{" "}
+            <Link to="/settings" search={{ ask: "dueDate" }} className="underline">
+              Add your due date
+            </Link>
+          </p>
+        )}
         <Contents lines={lines} />
         <Link to="/journal/book" className="flex items-center gap-1 self-end text-sm font-medium text-fg-brand">
           Open it <ChevronRight aria-hidden size={16} />

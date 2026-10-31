@@ -27,36 +27,38 @@ export function QuietWeek({ quiet }: { quiet: Quiet }) {
   const steps = nextSteps(items, quiet.kind, pausedAt(quiet, settings.dueDate));
 
   return (
-    <main className="mx-auto max-w-3xl px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-10">
-      <div className="flex flex-col gap-8">
-        {guide ? (
-          <Suspense
-            fallback={
-              <p className="flex min-h-40 items-center justify-center gap-2 text-sm text-fg-subtle">
-                <Spinner size="sm" />
-              </p>
-            }
-          >
-            <Guide item={guide} quiet={quiet} />
-          </Suspense>
-        ) : null}
+    <main className="mx-auto w-full max-w-6xl px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-10">
+      <div className="max-w-3xl">
+        <div className="flex flex-col gap-8">
+          {guide ? (
+            <Suspense
+              fallback={
+                <p className="flex min-h-40 items-center justify-center gap-2 text-sm text-fg-subtle">
+                  <Spinner size="sm" />
+                </p>
+              }
+            >
+              <Guide item={guide} quiet={quiet} />
+            </Suspense>
+          ) : null}
 
-        {steps.length > 0 ? (
-          <section aria-labelledby="when-ready" className="flex flex-col gap-3">
-            <div className="flex flex-col gap-1">
-              <h2 id="when-ready" className="text-lg font-display font-semibold text-fg-strong">
-                When you're ready
-              </h2>
-              <p className="text-sm text-fg-subtle">One at a time, whenever you want them. None of it has to be now.</p>
-            </div>
-            <ItemList items={steps} />
-          </section>
-        ) : null}
+          {steps.length > 0 ? (
+            <section aria-labelledby="when-ready" className="flex flex-col gap-3">
+              <div className="flex flex-col gap-1">
+                <h2 id="when-ready" className="text-lg font-display font-semibold text-fg-strong">
+                  When you're ready
+                </h2>
+                <p className="text-sm text-fg-subtle">One at a time, whenever you want them. None of it has to be now.</p>
+              </div>
+              <ItemList items={steps} />
+            </section>
+          ) : null}
 
-        <Link to="/settings" search={{ ask: "quiet" }} className="flex min-h-11 w-fit items-center gap-1 text-sm text-fg-subtle hover:text-fg-normal">
-          Expecting stays quiet for both of you until you choose
-          <ChevronRight aria-hidden size={16} />
-        </Link>
+          <Link to="/settings" search={{ ask: "quiet" }} className="flex min-h-11 w-fit items-center gap-1 text-sm text-fg-subtle hover:text-fg-normal">
+            Expecting stays quiet for both of you until you choose
+            <ChevronRight aria-hidden size={16} />
+          </Link>
+        </div>
       </div>
     </main>
   );

@@ -31,16 +31,18 @@ export function EmergencyPage() {
   const [editing, setEditing] = useState(false);
 
   return (
-    <main className="mx-auto flex max-w-3xl flex-col gap-4 px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:gap-6 lg:pt-8">
-      <header className="flex items-center justify-between gap-3">
-        <h1 className="font-display text-2xl font-semibold text-fg-strong lg:text-3xl">Emergency info</h1>
-        {editing ? null : (
-          <Button variant="outline" size="sm" onClick={() => setEditing(true)} className="shrink-0">
-            <Pencil aria-hidden size={16} /> Edit
-          </Button>
-        )}
-      </header>
-      {editing ? <EmergencyForm emergency={emergency} done={() => setEditing(false)} /> : <EmergencyView emergency={emergency} />}
+    <main className="mx-auto w-full max-w-6xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-10">
+      <div className="flex max-w-3xl flex-col gap-4 lg:gap-6">
+        <header className="flex items-center justify-between gap-3">
+          <h1 className="font-display text-2xl font-semibold text-fg-strong lg:text-3xl">Emergency info</h1>
+          {editing ? null : (
+            <Button variant="outline" size="sm" onClick={() => setEditing(true)} className="shrink-0">
+              <Pencil aria-hidden size={16} /> Edit
+            </Button>
+          )}
+        </header>
+        {editing ? <EmergencyForm emergency={emergency} done={() => setEditing(false)} /> : <EmergencyView emergency={emergency} />}
+      </div>
     </main>
   );
 }

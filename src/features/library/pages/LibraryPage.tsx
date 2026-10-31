@@ -43,21 +43,21 @@ export function LibraryPage() {
 
   if (!results && (door || topic)) {
     return (
-      <main className="mx-auto max-w-5xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-8">
+      <main className="mx-auto max-w-6xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-8">
         <Shelf items={items} narrowing={narrowing} />
       </main>
     );
   }
 
   return (
-    <main className="mx-auto max-w-5xl px-4 pb-16 md:px-8">
+    <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
       <PillarHeader title="Library" lead="Everything Expecting knows, to read any time. Each piece also turns up on its week." />
       <SearchInput
         value={q}
         onValueChange={onSearch}
         placeholder="Can I eat brie? Is spotting normal?"
         aria-label="Search the library"
-        className="mb-8 h-12 text-base"
+        className="mb-8 h-12 max-w-3xl text-base"
       />
 
       {results ? (

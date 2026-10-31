@@ -12,6 +12,7 @@ import { DatePicker } from "@sixthshift/design-system/date-picker";
 import type { ISOTime } from "@sixthshift/design-system/date-time";
 import { FormField } from "@sixthshift/design-system/form-field";
 import { Input } from "@sixthshift/design-system/input";
+import { Message } from "@sixthshift/design-system/message";
 import { toast } from "@sixthshift/design-system/overlay";
 import { TimePicker } from "@sixthshift/design-system/time-picker";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
@@ -82,26 +83,30 @@ function dayAndWeek(day: ISODate, dueDate: ISODate | null): string {
 /**
  * Can't keep fluids down: call now, from `severe-vomiting`'s checked words.
  * The birth suite's number if it's set, and Emergency info, where the
- * midwife's and the GP's are too. Never "probably fine".
+ * midwife's and the GP's are too. Never "probably fine". An alert, though a
+ * warning is polite by default: the call can't wait for a pause.
  */
 export function TooSick() {
   return (
-    <div role="alert" className="flex flex-col gap-2 rounded-lg border border-border-warning bg-bg-warning-subtle p-4">
-      <p className="font-semibold text-fg-strong">Call your doctor, midwife or hospital now.</p>
-      <p className="text-sm text-fg-normal">
-        If you can't keep fluids down at all, go to your local emergency department: they can give you fluids through a drip. There is treatment, and you
-        deserve to be heard.
-      </p>
-      <div className="flex flex-col">
-        <CallBirthSuite layout="button" />
-        <Link to="/emergency" className="flex min-h-11 items-center text-sm text-fg-normal underline">
-          Every number, in Emergency info
-        </Link>
-        <ItemLink itemId={SEVERE} className="flex min-h-11 items-center text-sm text-fg-normal underline">
-          When sickness is more than morning sickness
-        </ItemLink>
-      </div>
-    </div>
+    <Message
+      intent="warning"
+      role="alert"
+      title="Call your doctor, midwife or hospital now."
+      actions={
+        <>
+          <CallBirthSuite layout="button" />
+          <Link to="/emergency" className="flex min-h-11 items-center underline">
+            Every number, in Emergency info
+          </Link>
+          <ItemLink itemId={SEVERE} className="flex min-h-11 items-center underline">
+            When sickness is more than morning sickness
+          </ItemLink>
+        </>
+      }
+    >
+      If you can't keep fluids down at all, go to your local emergency department: they can give you fluids through a drip. There is treatment, and you deserve
+      to be heard.
+    </Message>
   );
 }
 
@@ -155,7 +160,7 @@ function HowPicker({ value, onChoose }: { value: How | null; onChoose: (how: How
           <label
             key={how}
             className={cn(
-              "flex min-h-16 cursor-pointer flex-col items-center justify-center gap-0.5 rounded-lg border px-2 py-2 text-center text-sm transition-colors has-focus-visible:outline-2 has-focus-visible:outline-(--focus-ring)",
+              "flex min-h-16 cursor-pointer flex-col items-center justify-center gap-0.5 rounded-lg border px-2 py-2 text-center text-sm transition-colors has-focus-visible:outline-2 has-focus-visible:outline-focus-ring",
               chosen ? "border-border-brand bg-bg-brand-subtle font-medium text-fg-on-brand-subtle" : "border-border-subtle text-fg-normal hover:bg-bg-subtle"
             )}
           >

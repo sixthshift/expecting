@@ -39,59 +39,61 @@ export function LibraryItemPage() {
   const hiddenBy = hidden ? Object.entries(hidden.when).find(([key, answers]) => facts[key] !== undefined && !answers.includes(facts[key]))?.[0] : undefined;
 
   return (
-    <main className="mx-auto max-w-3xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-8">
-      {item?.private ? <Private itemId={item.id} /> : null}
-      {/* Back to the door it's behind, where it was most likely found; from a private entry, in its place in the history. */}
-      <Link
-        to="/library"
-        search={item ? { door: doorOf(item) } : {}}
-        replace={item?.private}
-        className="-ml-2 mb-4 flex min-h-11 w-fit items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal"
-      >
-        <ArrowLeft aria-hidden size={16} /> {item ? DOOR_INFO[doorOf(item)].title : "Library"}
-      </Link>
-      {item ? (
-        <div className="flex flex-col gap-4">
-          <Suspense
-            fallback={
-              <p className="flex min-h-40 items-center justify-center gap-2 text-sm text-fg-subtle">
-                <Spinner size="sm" /> Opening {item.title}
-              </p>
-            }
-          >
-            <Page item={item} ticks={checklist.ticks} />
-          </Suspense>
-        </div>
-      ) : hidden ? (
-        <div className="flex flex-col gap-2">
-          <h1 className="text-2xl font-display font-semibold text-fg-strong">Not in your library</h1>
-          <p className="text-fg-subtle">
-            {offExtra ? (
-              <>
-                It's part of {offExtra.name}, an extra that's off.{" "}
-                <Link to="/settings" search={{ ask: `extra:${offExtra.id}` }} className="underline">
-                  Turn it on in settings
-                </Link>{" "}
-                and it appears everywhere it belongs.
-              </>
-            ) : (
-              <>
-                Your answers in{" "}
-                <Link to="/settings" search={{ ask: hiddenBy }} className="underline">
-                  settings
-                </Link>{" "}
-                say this one doesn't apply to you. Change an answer and it comes back.
-              </>
-            )}
-          </p>
-        </div>
-      ) : (
-        // No entry by this name: an old or cut-short link. Look for what it meant.
-        <div className="flex flex-col gap-6">
-          <NothingHere title="Not in the Library" />
-          <LookFor key={itemId} clues={cluesIn(itemId)} />
-        </div>
-      )}
+    <main className="mx-auto w-full max-w-6xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-8">
+      <div className="max-w-3xl">
+        {item?.private ? <Private itemId={item.id} /> : null}
+        {/* Back to the door it's behind, where it was most likely found; from a private entry, in its place in the history. */}
+        <Link
+          to="/library"
+          search={item ? { door: doorOf(item) } : {}}
+          replace={item?.private}
+          className="-ml-2 mb-4 flex min-h-11 w-fit items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal"
+        >
+          <ArrowLeft aria-hidden size={16} /> {item ? DOOR_INFO[doorOf(item)].title : "Library"}
+        </Link>
+        {item ? (
+          <div className="flex flex-col gap-4">
+            <Suspense
+              fallback={
+                <p className="flex min-h-40 items-center justify-center gap-2 text-sm text-fg-subtle">
+                  <Spinner size="sm" /> Opening {item.title}
+                </p>
+              }
+            >
+              <Page item={item} ticks={checklist.ticks} />
+            </Suspense>
+          </div>
+        ) : hidden ? (
+          <div className="flex flex-col gap-2">
+            <h1 className="text-2xl font-display font-semibold text-fg-strong">Not in your library</h1>
+            <p className="text-fg-subtle">
+              {offExtra ? (
+                <>
+                  It's part of {offExtra.name}, an extra that's off.{" "}
+                  <Link to="/settings" search={{ ask: `extra:${offExtra.id}` }} className="underline">
+                    Turn it on in settings
+                  </Link>{" "}
+                  and it appears everywhere it belongs.
+                </>
+              ) : (
+                <>
+                  Your answers in{" "}
+                  <Link to="/settings" search={{ ask: hiddenBy }} className="underline">
+                    settings
+                  </Link>{" "}
+                  say this one doesn't apply to you. Change an answer and it comes back.
+                </>
+              )}
+            </p>
+          </div>
+        ) : (
+          // No entry by this name: an old or cut-short link. Look for what it meant.
+          <div className="flex flex-col gap-6">
+            <NothingHere title="Not in the Library" />
+            <LookFor key={itemId} clues={cluesIn(itemId)} />
+          </div>
+        )}
+      </div>
     </main>
   );
 }

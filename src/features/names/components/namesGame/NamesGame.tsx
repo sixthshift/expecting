@@ -24,7 +24,7 @@ export function NamesGame({ view, other }: { view: NamesView; other: Person | nu
   const passed = view.names.filter((n) => n.mine === false);
 
   return (
-    <section aria-labelledby="names" className="flex flex-col gap-5 rounded-xl border border-border-subtle bg-bg-normal p-4 sm:p-6">
+    <section aria-labelledby="names" className="flex max-w-3xl flex-col gap-5 rounded-xl border border-border-subtle bg-bg-normal p-4 sm:p-6">
       <div className="flex flex-col gap-1">
         <h2 id="names" className="font-display text-xl font-semibold text-fg-strong">
           Baby names

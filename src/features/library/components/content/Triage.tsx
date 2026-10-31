@@ -1,4 +1,5 @@
 import { Button } from "@sixthshift/design-system/button";
+import { Message, MessageActions, MessageBody, MessageDescription, MessageIcon, type MessageIntent, MessageTitle } from "@sixthshift/design-system/message";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { Hospital, type LucideIcon, MessageCircleQuestion, Phone, Siren, Stethoscope } from "lucide-react";
@@ -6,27 +7,31 @@ import type { ReactNode } from "react";
 import { emergencyQuery } from "../../../../api/rpc/emergency";
 import type { SYMPTOM_LEVELS } from "../../../../content/schema";
 import type { Section } from "../../../../content/sections";
-import { telHref } from "../../../../lib/emergency";
+import { type EmergencyInfo, telHref } from "../../../../lib/emergency";
 import { Ask } from "./Ask";
 import { ItemBody } from "./ItemBody";
 
 type Level = (typeof SYMPTOM_LEVELS)[number];
 
-/** Each level's colour and mark. Semantic tokens only, spelled out so Tailwind sees them. */
-const LOOK: Record<Level, { box: string; heading: string; Icon: LucideIcon }> = {
-  "Call 000 or go to emergency": { box: "border-border-danger bg-bg-danger-subtle", heading: "text-fg-danger", Icon: Siren },
-  "Contact your hospital now": { box: "border-border-warning bg-bg-warning-subtle", heading: "text-fg-warning", Icon: Hospital },
-  "See your doctor or midwife": { box: "border-border-brand bg-bg-brand-subtle", heading: "text-fg-brand", Icon: Stethoscope },
-  "Mention it at your next visit": { box: "border-border-subtle bg-bg-normal", heading: "text-fg-strong", Icon: MessageCircleQuestion },
+/** Each level's intent (its colour, from the design system's intents) and mark. */
+const LOOK: Record<Level, { intent: MessageIntent; Icon: LucideIcon }> = {
+  "Call 000 or go to emergency": { intent: "danger", Icon: Siren },
+  "Contact your hospital now": { intent: "warning", Icon: Hospital },
+  "See your doctor or midwife": { intent: "brand", Icon: Stethoscope },
+  "Mention it at your next visit": { intent: "neutral", Icon: MessageCircleQuestion },
 };
 
 /**
  * A symptom's levels, most urgent first, each with what to do about it in one
  * tap: 000, the birth suite's number, your midwife's or GP's from Emergency
  * info, or the question added to your list for the next visit (none from a
- * private entry: the list is shared).
+ * private entry: the list is shared). Each is a note, not a live region: it's
+ * the page, read when it's opened, not news to interrupt with. Its parts, not
+ * the props, so its title is a heading. The left edge and the page's own
+ * text size are Expecting's.
  */
 export function Triage({ levels, question }: { levels: readonly Section[]; question: string | null }) {
+  const { data } = useQuery(emergencyQuery);
   return (
     <section aria-labelledby="when-to-get-help" className="flex flex-col gap-3">
       <h2 id="when-to-get-help" className="text-lg font-display font-semibold text-fg-strong">
@@ -34,58 +39,52 @@ export function Triage({ levels, question }: { levels: readonly Section[]; quest
       </h2>
       {levels.map(({ title, doc }) => {
         const level = title as Level;
-        const { box, heading, Icon } = LOOK[level];
+        const { intent, Icon } = LOOK[level];
+        const actions = actionsFor(level, question, data?.values ?? {});
         return (
-          <div key={level} className={`flex flex-col gap-1 rounded-xl border-l-4 p-4 ${box}`}>
-            <h3 className={`flex items-center gap-2 font-semibold ${heading}`}>
-              <Icon aria-hidden size={18} />
-              {level}
-            </h3>
-            <ItemBody doc={doc} className="max-w-prose" />
-            <Action level={level} question={question} />
-          </div>
+          <Message key={level} intent={intent} role="note" className="rounded-xl border-l-4 text-base">
+            <MessageIcon>
+              <Icon aria-hidden size={16} className="text-(--intent-fg)" />
+            </MessageIcon>
+            <MessageBody>
+              <MessageTitle className="font-semibold text-(--intent-fg)">
+                <h3>{level}</h3>
+              </MessageTitle>
+              <MessageDescription>
+                <ItemBody doc={doc} className="max-w-prose" />
+              </MessageDescription>
+              {actions ? <MessageActions>{actions}</MessageActions> : null}
+            </MessageBody>
+          </Message>
         );
       })}
     </section>
   );
 }
 
-function Action({ level, question }: { level: Level; question: string | null }) {
-  const { data } = useQuery(emergencyQuery);
-  const values = data?.values ?? {};
+/** What to do at a level, or nothing, so a level with no number to call has no empty row. */
+function actionsFor(level: Level, question: string | null, values: EmergencyInfo["values"]): ReactNode {
   switch (level) {
     case "Call 000 or go to emergency":
-      return (
-        <Actions>
-          <Call phone="000" label="Call 000" urgent />
-        </Actions>
-      );
+      return <Call phone="000" label="Call 000" urgent />;
     case "Contact your hospital now":
-      return (
-        <Actions>
-          {values.birthSuitePhone ? (
-            <Call phone={values.birthSuitePhone} label="Call the birth suite" />
-          ) : (
-            <Link to="/emergency" className="flex min-h-11 items-center text-sm text-fg-normal underline">
-              Add your birth suite's number to Emergency info
-            </Link>
-          )}
-        </Actions>
+      return values.birthSuitePhone ? (
+        <Call phone={values.birthSuitePhone} label="Call the birth suite" />
+      ) : (
+        <Link to="/emergency" className="flex min-h-11 items-center underline">
+          Add your birth suite's number to Emergency info
+        </Link>
       );
     case "See your doctor or midwife":
       return values.carerPhone || values.gpPhone ? (
-        <Actions>
+        <>
           {values.carerPhone ? <Call phone={values.carerPhone} label={values.carer ? `Call ${values.carer}` : "Call your midwife"} /> : null}
           {values.gpPhone ? <Call phone={values.gpPhone} label={values.gp ? `Call ${values.gp}` : "Call your GP"} /> : null}
-        </Actions>
+        </>
       ) : null;
     case "Mention it at your next visit":
-      return question === null ? null : <Ask primary={question} />;
+      return question === null ? null : <Ask primary={question} className="mt-0 w-full" />;
   }
-}
-
-function Actions({ children }: { children: ReactNode }) {
-  return <div className="mt-3 flex flex-wrap gap-2">{children}</div>;
 }
 
 function Call({ phone, label, urgent = false }: { phone: string; label: string; urgent?: boolean }) {

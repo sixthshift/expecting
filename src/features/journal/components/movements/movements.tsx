@@ -11,6 +11,7 @@ import { DatePicker } from "@sixthshift/design-system/date-picker";
 import type { ISOTime } from "@sixthshift/design-system/date-time";
 import { FormField } from "@sixthshift/design-system/form-field";
 import { Input } from "@sixthshift/design-system/input";
+import { Message } from "@sixthshift/design-system/message";
 import { toast } from "@sixthshift/design-system/overlay";
 import { TimePicker } from "@sixthshift/design-system/time-picker";
 import { cn } from "@sixthshift/design-system/utils";
@@ -116,25 +117,29 @@ function MovementForm({
 /**
  * A movement felt as slower, weaker or stopped: call now. Never "probably
  * fine". The birth suite's number if it's set, and Emergency info, where
- * the midwife's is too.
+ * the midwife's is too. An alert, though a warning is polite by default:
+ * the call can't wait for a pause.
  */
 export function MovementsChanged() {
   return (
-    <div role="alert" className="flex flex-col gap-2 rounded-lg border border-border-warning bg-bg-warning-subtle p-4">
-      <p className="font-semibold text-fg-strong">Call your midwife or birth unit now.</p>
-      <p className="text-sm text-fg-normal">
-        If your baby's movements slow down, weaken or stop, contact them straight away, not tomorrow. You are not wasting their time.
-      </p>
-      <div className="flex flex-col">
-        <CallBirthSuite layout="button" />
-        <Link to="/emergency" className="flex min-h-11 items-center text-sm text-fg-normal underline">
-          Every number, in Emergency info
-        </Link>
-        <ItemLink itemId={ADVICE_ITEM} className="flex min-h-11 items-center text-sm text-fg-normal underline">
-          Why movements matter
-        </ItemLink>
-      </div>
-    </div>
+    <Message
+      intent="warning"
+      role="alert"
+      title="Call your midwife or birth unit now."
+      actions={
+        <>
+          <CallBirthSuite layout="button" />
+          <Link to="/emergency" className="flex min-h-11 items-center underline">
+            Every number, in Emergency info
+          </Link>
+          <ItemLink itemId={ADVICE_ITEM} className="flex min-h-11 items-center underline">
+            Why movements matter
+          </ItemLink>
+        </>
+      }
+    >
+      If your baby's movements slow down, weaken or stop, contact them straight away, not tomorrow. You are not wasting their time.
+    </Message>
   );
 }
 

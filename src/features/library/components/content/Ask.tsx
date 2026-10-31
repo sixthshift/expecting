@@ -1,3 +1,4 @@
+import { cn } from "@sixthshift/design-system/utils";
 import { Check, MessageCircleQuestion, Plus } from "lucide-react";
 import { questionsSaves } from "../../../../api/rpc/questions";
 import { useSave } from "../../../../app/hooks/useSave";
@@ -5,13 +6,13 @@ import { newId } from "../../../../lib/outbox";
 import { useContentContext } from "./context";
 
 /** `{% ask "…" /%}`: a question worth asking at an appointment, added to your list in one tap. */
-export function Ask({ primary: text }: { primary: string }) {
+export function Ask({ primary: text, className }: { primary: string; className?: string }) {
   const { openQuestions } = useContentContext();
   const add = useSave(questionsSaves.addQuestion);
   const onList = openQuestions.includes(text);
 
   return (
-    <div className="mt-3 flex items-start gap-3 rounded-lg border border-border-subtle bg-bg-normal p-3">
+    <div className={cn("mt-3 flex items-start gap-3 rounded-lg border border-border-subtle bg-bg-normal p-3", className)}>
       <MessageCircleQuestion aria-hidden size={18} className="mt-0.5 shrink-0 text-fg-brand" />
       <p className="flex-1 text-sm text-fg-normal">{text}</p>
       {onList ? (

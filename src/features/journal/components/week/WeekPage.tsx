@@ -7,6 +7,7 @@
 // kept. Nothing about the baby while something has happened.
 
 import { Button } from "@sixthshift/design-system/button";
+import { Card } from "@sixthshift/design-system/card";
 import { Modal } from "@sixthshift/design-system/modal";
 import { Textarea } from "@sixthshift/design-system/textarea";
 import { Camera, FileText, Star } from "lucide-react";
@@ -160,21 +161,17 @@ export function WeekPage({
   );
 }
 
-/** A place Expecting has made ready: its sentence, and the place itself as the way in. */
+/** A place Expecting has made ready: its sentence, and the place itself as the way in, an empty card waiting to be filled. */
 function PlaceReady({ place }: { place: Place }) {
   const [open, setOpen] = useState(false);
   return (
     <li>
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className="flex w-full items-center gap-4 rounded-xl border border-dashed border-border-normal p-4 text-left hover:bg-bg-normal-hovered focus-visible:ring-2 focus-visible:ring-border-focus"
-      >
+      <Card variant="placeholder" onClick={() => setOpen(true)} className="flex items-center gap-4">
         <span aria-hidden className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-bg-subtle text-fg-subtle">
           {place.kind === "paper" ? <FileText size={20} /> : <Camera size={20} />}
         </span>
         <span className="text-fg-normal">{place.says}</span>
-      </button>
+      </Card>
       {open && place.kind === "paper" ? <CaptureSheet initial="paper" onClose={() => setOpen(false)} /> : null}
       {open && place.kind !== "paper" ? (
         <Modal

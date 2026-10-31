@@ -89,37 +89,44 @@ export function BookPage() {
   const lines = contents({ items, dueDate: settings.dueDate, now });
 
   return (
-    <main className="mx-auto max-w-3xl px-4 pb-16 md:px-8">
-      <Link to="/journal" className="mt-4 flex min-h-11 items-center gap-1 text-sm text-fg-subtle print:hidden">
-        <ChevronLeft aria-hidden size={16} /> The Journal
-      </Link>
-      {quiet ? (
-        <p className="py-10 text-fg-subtle">Everything you kept is in the Journal, as it was.</p>
-      ) : (
-        <>
-          <header className="my-8 flex flex-col gap-2 rounded-2xl bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) px-6 py-12 text-center">
-            <h1 className="font-display text-4xl font-semibold text-fg-strong">Our pregnancy</h1>
-            {names.length > 0 ? <p className="text-fg-normal">{names.join(" & ")}</p> : null}
-            {settings.dueDate ? <p className="text-sm text-fg-subtle">Due {formatDate(settings.dueDate, { month: "long", year: "numeric" })}</p> : null}
-          </header>
-          <div className="mb-10 flex flex-col gap-4">
-            <h2 className="text-sm font-semibold tracking-wide text-fg-subtle uppercase">Contents</h2>
-            <Contents lines={lines} />
-            <Button variant="outline" size="sm" className="self-start print:hidden" onClick={() => window.print()}>
-              <Printer aria-hidden size={16} /> Print or save as a PDF
-            </Button>
-          </div>
-          {settings.dueDate ? (
-            <div className="flex flex-col gap-14">
-              {CHAPTERS.map((c) => (
-                <ChapterPage key={c.key} chapter={c} items={items} now={now} />
-              ))}
+    <main className="mx-auto w-full max-w-6xl px-4 pb-16 md:px-8">
+      <div className="max-w-3xl">
+        <Link to="/journal" className="mt-4 flex min-h-11 items-center gap-1 text-sm text-fg-subtle print:hidden">
+          <ChevronLeft aria-hidden size={16} /> The Journal
+        </Link>
+        {quiet ? (
+          <p className="py-10 text-fg-subtle">Everything you kept is in the Journal, as it was.</p>
+        ) : (
+          <>
+            <header className="my-8 flex flex-col gap-2 rounded-2xl bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) px-6 py-12 text-center">
+              <h1 className="font-display text-4xl font-semibold text-fg-strong">Our pregnancy</h1>
+              {names.length > 0 ? <p className="text-fg-normal">{names.join(" & ")}</p> : null}
+              {settings.dueDate ? <p className="text-sm text-fg-subtle">Due {formatDate(settings.dueDate, { month: "long", year: "numeric" })}</p> : null}
+            </header>
+            <div className="mb-10 flex flex-col gap-4">
+              <h2 className="text-sm font-semibold tracking-wide text-fg-subtle uppercase">Contents</h2>
+              <Contents lines={lines} />
+              <Button variant="outline" size="sm" className="self-start print:hidden" onClick={() => window.print()}>
+                <Printer aria-hidden size={16} /> Print or save as a PDF
+              </Button>
             </div>
-          ) : (
-            <p className="text-fg-subtle">With a due date, Expecting writes the weeks in.</p>
-          )}
-        </>
-      )}
+            {settings.dueDate ? (
+              <div className="flex flex-col gap-14">
+                {CHAPTERS.map((c) => (
+                  <ChapterPage key={c.key} chapter={c} items={items} now={now} />
+                ))}
+              </div>
+            ) : (
+              <p className="text-fg-subtle">
+                With a due date, Expecting writes the weeks in.{" "}
+                <Link to="/settings" search={{ ask: "dueDate" }} className="underline print:hidden">
+                  Add your due date
+                </Link>
+              </p>
+            )}
+          </>
+        )}
+      </div>
     </main>
   );
 }

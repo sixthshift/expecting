@@ -277,7 +277,8 @@ nothing for good.
 
 While the Journal is young (fewer than five things kept, ticks aside), the
 book's cover and contents sit under this week's page. After that they're
-one line at the top: "Our pregnancy · 4 chapters begun ›". Still to come in
+one line at the top: "Our pregnancy · 4 chapters begun ›". With no due date
+the cover stays, and asks for one: the due date is what writes the weeks in. Still to come in
 your story is folded into the contents (the chapters are what's to come).
 
 ### The voice, in the Keep row
