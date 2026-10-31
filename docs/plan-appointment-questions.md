@@ -88,7 +88,7 @@ committed on its own if Jason asks.
    an optional `itemId`, checked against the built-in ids (`isBuiltInItemId`
    or like) and refused for a private item; `by` comes from who's holding the
    phone. Tests in `test/db/` for the repo, migration applied from 015.
-2. **The Planner shows where from, and whose.** *Not started.* `OpenQuestion`
+2. **The Planner shows where from, and whose.** *Done 2026-10-31.* `OpenQuestion`
    and `AskedQuestion` draw "from *title*" (linking to `/library/<id>`) and
    whose it is. The timeline's asked questions too, if it fits the line.
 3. **The entry's action and sheet.** *Not started.* "Ask at my next
@@ -150,6 +150,11 @@ Record each session here: what was done, what was decided, where to pick up.
 - 2026-10-31: step 1 done. `by` is a person id, not a role, matching the
   other records. A private `itemId` is refused by the privacy middleware
   before the validator; an unknown one by `isBuiltInItemId`. Next: step 2.
+- 2026-10-31: step 2 done. `OpenQuestion` and `AskedQuestion` draw a line
+  "from *entry* · Sam's" (`whoseBy` in `src/lib/people.ts`, by person id);
+  the same cards show on This week. The timeline only counts asked
+  questions, so it has nothing to add. Nothing sends an `itemId` yet, so
+  the "from" half is first seen at step 3 (its e2e covers it). Next: step 3.
 
 ## Not in this plan
 

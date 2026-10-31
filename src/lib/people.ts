@@ -23,3 +23,15 @@ export function whose(who: Who, me: Person | null, people: readonly Person[]): s
   if (them) return `${them.name}'s`;
   return who === "partner" ? "The partner's" : "The birth parent's";
 }
+
+/**
+ * Whose something one of you added is, by who added it, as the person holding
+ * this phone reads it: "Yours" or "Sam's". Null for nobody (from before it was
+ * kept, a phone that hadn't said, or a person since forgotten).
+ */
+export function whoseBy(by: string | null, me: Person | null, people: readonly Person[]): string | null {
+  if (by === null) return null;
+  if (me?.id === by) return "Yours";
+  const them = people.find((p) => p.id === by);
+  return them ? `${them.name}'s` : null;
+}

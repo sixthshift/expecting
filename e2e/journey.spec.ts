@@ -295,6 +295,8 @@ test("a question is added in the Planner, asked, and lands in this week", async 
   await page.getByRole("textbox", { name: "New question" }).fill("Which hospital entrance after hours?");
   await page.getByRole("button", { name: "Add question" }).click();
   await expect(page.getByText("Which hospital entrance after hours?")).toBeVisible();
+  // Its card says whose it is: the one holding this phone added it.
+  await expect(page.getByText("Which hospital entrance after hours?").locator("xpath=../..")).toContainText("Yours");
 
   await page.getByRole("button", { name: "Asked it" }).click();
   await page.getByRole("textbox", { name: "Answer" }).fill("Emergency, then the lift to level 3.");

@@ -1,5 +1,6 @@
 // Questions for the next appointment: the form and the open ones in the
 // Planner, asked ones in the week they were asked, and the count waiting.
+// Each says where it came from (a Library entry, linked) and whose it is.
 
 import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
@@ -7,11 +8,15 @@ import { Textarea } from "@sixthshift/design-system/textarea";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, MessageCircleQuestion, Trash2 } from "lucide-react";
 import { type FormEvent, useState } from "react";
+import { usePeople } from "../../../../api/rpc/people";
 import { questionsSaves } from "../../../../api/rpc/questions";
 import { useSave } from "../../../../app/hooks/useSave";
+import { builtInItems } from "../../../../content";
 import { formatDate, todayISO } from "../../../../lib/dates";
 import { newId } from "../../../../lib/outbox";
+import { whoseBy } from "../../../../lib/people";
 import type { Question } from "../../../../lib/questions";
+import { ItemLink } from "../../../library/components/ItemLink";
 
 /** A question for the next appointment. `onAdded` once it's on the list (the capture sheet closes). */
 export function AddQuestion({ onAdded }: { onAdded?: () => void }) {
@@ -60,6 +65,7 @@ export function OpenQuestion({ question }: { question: Question }) {
         <p className="flex-1 whitespace-pre-wrap">{question.text}</p>
         <DeleteButton id={question.id} text={question.text} />
       </div>
+      <Source question={question} />
       {answering ? (
         <form onSubmit={save} className="mt-2 flex flex-col gap-2">
           <Textarea
@@ -96,6 +102,7 @@ export function AskedQuestion({ question }: { question: Question }) {
         <p className="flex-1 font-medium whitespace-pre-wrap">{question.text}</p>
         <DeleteButton id={question.id} text={question.text} />
       </div>
+      <Source question={question} />
       {question.answer ? <p className="mt-1 whitespace-pre-wrap text-fg-normal">{question.answer}</p> : null}
       <div className="mt-2 flex items-center justify-between gap-2 text-xs text-fg-subtle">
         <span>Asked {formatDate(todayISO(new Date(question.askedAt!)), { day: "numeric", month: "short", year: "numeric" })}</span>
@@ -104,6 +111,29 @@ export function AskedQuestion({ question }: { question: Question }) {
         </Button>
       </div>
     </Card>
+  );
+}
+
+/** "from *Anaemia and low iron* · Sam's": the entry it was asked from, and whose it is; nothing when neither is known. */
+function Source({ question }: { question: Question }) {
+  const { me, people } = usePeople().data;
+  // A private entry never sends one (src/server/privacy/); this only makes sure none is drawn.
+  const item = question.itemId ? builtInItems.find((i) => i.id === question.itemId && !i.private) : undefined;
+  const whose = whoseBy(question.by, me, people);
+  if (!item && !whose) return null;
+  return (
+    <p className="mt-1 text-xs text-fg-subtle">
+      {item ? (
+        <>
+          from{" "}
+          <ItemLink itemId={item.id} className="italic underline hover:text-fg-normal">
+            {item.title}
+          </ItemLink>
+        </>
+      ) : null}
+      {item && whose ? " · " : null}
+      {whose}
+    </p>
   );
 }
 
