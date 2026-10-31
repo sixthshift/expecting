@@ -15,12 +15,14 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
   - title: The Royal Women's Hospital — High blood pressure & preeclampsia
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/preeclampsia
+  - title: Australian Pregnancy Care Guidelines — Risk of preeclampsia
+    url: https://app.magicapp.org/#/guideline/jm83RE/section/E85GAz
 related: [high-blood-pressure-in-pregnancy, what-happens-at-each-visit, ctg-monitoring, growth-scans, higher-risk-pregnancy]
 appointment:
   - Am I at higher risk of pre-eclampsia?
   - Should I take low-dose aspirin or calcium?
   - How does my blood pressure compare with my first reading?
-checked: 2026-10-29
+checked: 2026-11-01
 ---
 Pre-eclampsia is a serious condition that causes high blood pressure and can affect the liver, kidneys and brain. It usually comes on suddenly after at least 20 weeks, and can happen any time in the second half of pregnancy or the first few days after the birth. For most it stays mild, but it can get worse very quickly. It can also affect the placenta, and so how well the baby grows.
 
@@ -33,6 +35,8 @@ Most people with pre-eclampsia don't notice any symptoms; it's usually picked up
 Your risk is higher if you had pre-eclampsia before, have long-standing high blood pressure, diabetes, kidney disease or an autoimmune condition such as lupus, or are pregnant with twins or more. It's also higher if this is your first pregnancy, you're 40 or older, it's been more than 10 years since your last pregnancy, you were very overweight at the start of the pregnancy, or pre-eclampsia runs in your family.
 
 If you're at increased risk, your doctor may recommend low-dose aspirin during pregnancy, calcium or vitamin D supplements, blood pressure medicine or regular moderate exercise, and more frequent check-ups. Check with your doctor or midwife before taking any medicine or supplement.
+
+For anyone at high risk, the national pregnancy care guidelines strongly recommend aspirin 150 mg a day, started before 16 weeks where possible, taken in the evening if you can, and usually stopped between 34 and 36 weeks; and, if your diet is low in calcium, a calcium supplement. Aspirin isn't recommended for everyone, only for those at high risk.
 
 ## If you're diagnosed
 

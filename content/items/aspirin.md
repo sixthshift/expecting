@@ -16,8 +16,10 @@ sources:
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Pain%20in%20Pregnancy.pdf
   - title: Pregnancy, Birth and Baby — Cold and flu during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-and-flu-during-pregnancy
+  - title: Australian Pregnancy Care Guidelines — Risk of preeclampsia
+    url: https://app.magicapp.org/#/guideline/jm83RE/section/E85GAz
 related: [ibuprofen-and-nsaids, paracetamol]
-checked: 2026-10-29
+checked: 2026-11-01
 ---
 Don't reach for aspirin for a headache or aches. But if your doctor has prescribed low-dose aspirin, that's different: take it as they've told you.
 
@@ -25,7 +27,7 @@ Don't reach for aspirin for a headache or aches. But if your doctor has prescrib
 
 Aspirin is a non-steroidal anti-inflammatory drug (NSAID), like ibuprofen. healthdirect says NSAIDs should be avoided during pregnancy unless your doctor advises them. MotherSafe says they're no longer recommended in pregnancy and should only be used under medical supervision.
 
-Some people are prescribed low-dose aspirin for pre-eclampsia. That's medicine your doctor has chosen for you, not a painkiller.
+Some people are prescribed low-dose aspirin for pre-eclampsia. That's medicine your doctor has chosen for you, not a painkiller. For anyone at high risk of pre-eclampsia, the national pregnancy care guidelines recommend 150 mg a day, started before 16 weeks where possible, taken in the evening if you can, and usually stopped between 34 and 36 weeks.
 
 ## What to do
 
