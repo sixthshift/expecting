@@ -44,14 +44,14 @@ export const listMark = sqliteTable(
     lineId: text("line_id").primaryKey(),
     state: text("state", { enum: ["arranged", "got", "not-needed"] }),
     /** Only once got. */
-    how: text("how", { enum: ["bought", "borrowed", "second-hand", "given"] }),
+    how: text("how", { enum: ["bought", "borrowed", "hired", "second-hand", "given"] }),
     note: text("note"),
     by: text("by").references(() => person.id, { onDelete: "set null" }),
     updatedAt: text("updated_at").notNull(),
   },
   (t) => [
     check("list_mark_state", sql`${t.state} IS NULL OR ${t.state} IN ('arranged', 'got', 'not-needed')`),
-    check("list_mark_how", sql`${t.how} IS NULL OR (${t.state} = 'got' AND ${t.how} IN ('bought', 'borrowed', 'second-hand', 'given'))`),
+    check("list_mark_how", sql`${t.how} IS NULL OR (${t.state} = 'got' AND ${t.how} IN ('bought', 'borrowed', 'hired', 'second-hand', 'given'))`),
     check("list_mark_note", sql`${t.note} IS NULL OR length(trim(${t.note})) > 0`),
     check("list_mark_something", sql`${t.state} IS NOT NULL OR ${t.note} IS NOT NULL`),
   ]

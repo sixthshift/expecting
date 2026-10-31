@@ -3,11 +3,11 @@
 // and deleted, and every mark is still there after a reload, on both lists.
 import { expect, test } from "./fixtures";
 
-test("For the baby: a line ticked got, another arranged with a few words, kept across a reload", async ({ page, open }) => {
+test("Before the birth: a line ticked got, another arranged with a few words, kept across a reload", async ({ page, open }) => {
   await open("/planner");
   const wayIn = page.getByRole("region", { name: "Lists" });
-  await wayIn.getByRole("link", { name: /For the baby/ }).click();
-  await expect(page.getByRole("heading", { level: 1, name: "For the baby" })).toBeVisible();
+  await wayIn.getByRole("link", { name: /Before the birth/ }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "Before the birth" })).toBeVisible();
 
   // Its sections, in order, and the car seat's task beside it.
   await expect(page.getByRole("region", { name: "Out and about" }).getByText("by week 36 · in To do")).toBeVisible();
@@ -16,7 +16,7 @@ test("For the baby: a line ticked got, another arranged with a few words, kept a
   await nappies.click();
   await expect(nappies).toBeChecked();
 
-  await page.getByRole("button", { name: "Change: Pram that meets the safety standard, bought or borrowed" }).click();
+  await page.getByRole("button", { name: "Change: Pram that meets the safety standard" }).click();
   const sheet = page.getByRole("dialog");
   await sheet.getByRole("radio", { name: "Arranged" }).click();
   await sheet.getByRole("textbox", { name: "A few words" }).fill("Mum's lending hers");

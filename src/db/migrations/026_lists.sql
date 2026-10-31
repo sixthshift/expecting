@@ -32,7 +32,7 @@ CREATE TABLE `list_mark` (
 	`by` text REFERENCES `person`(`id`) ON DELETE SET NULL,
 	`updated_at` text NOT NULL,
 	CONSTRAINT "list_mark_state" CHECK("list_mark"."state" IS NULL OR "list_mark"."state" IN ('arranged', 'got', 'not-needed')),
-	CONSTRAINT "list_mark_how" CHECK("list_mark"."how" IS NULL OR ("list_mark"."state" = 'got' AND "list_mark"."how" IN ('bought', 'borrowed', 'second-hand', 'given'))),
+	CONSTRAINT "list_mark_how" CHECK("list_mark"."how" IS NULL OR ("list_mark"."state" = 'got' AND "list_mark"."how" IN ('bought', 'borrowed', 'hired', 'second-hand', 'given'))),
 	CONSTRAINT "list_mark_note" CHECK("list_mark"."note" IS NULL OR length(trim("list_mark"."note")) > 0),
 	CONSTRAINT "list_mark_something" CHECK("list_mark"."state" IS NOT NULL OR "list_mark"."note" IS NOT NULL)
 );

@@ -12,7 +12,7 @@ export const LINE_STATES = ["arranged", "got", "not-needed"] as const;
 export type LineState = (typeof LINE_STATES)[number];
 
 /** How a line was got, once it is. */
-export const HOWS = { bought: "Bought", borrowed: "Borrowed", "second-hand": "Second hand", given: "Given" } as const;
+export const HOWS = { bought: "Bought", borrowed: "Borrowed", hired: "Hired", "second-hand": "Second hand", given: "Given" } as const;
 
 export type How = keyof typeof HOWS;
 
@@ -35,8 +35,8 @@ type ListDef = {
 /** The lists Expecting knows, in the order they're shown. */
 export const LISTS = {
   baby: {
-    title: "For the baby",
-    about: "Everything to have ready before the birth.",
+    title: "Before the birth",
+    about: "Everything to have ready for the baby, and for you.",
     sections: {
       sleep: "Sleep",
       "out-and-about": "Out and about",

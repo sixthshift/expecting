@@ -14,6 +14,12 @@ tasks:
     title: Buy a pregnancy pillow, if you'd like one
     due: 26
 checked: 2026-10-31
+lines:
+  - id: get-pregnancy-pillow
+    title: Pregnancy pillow, if you'd like one
+    list: baby
+    section: for-you
+    task: buy-pregnancy-pillow
 ---
 Sleep gets harder as the bump grows: the toilet, heartburn, cramps and simply finding a comfortable position.
 

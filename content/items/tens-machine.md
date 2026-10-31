@@ -15,6 +15,11 @@ sources:
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
 related: [pain-relief, early-labour, water-and-showers]
 checked: 2026-10-29
+lines:
+  - id: get-tens-machine
+    title: TENS machine, if you'd like to try one
+    list: baby
+    section: for-you
 ---
 TENS (transcutaneous electrical nerve stimulation) is a small, portable, battery-powered machine wired to sticky pads, which send small electrical pulses through your skin. The Royal Women's Hospital says there's no harm in using one and many people find it helpful. It isn't clear exactly how it works, and it doesn't work for everybody.
 

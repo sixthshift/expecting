@@ -17,7 +17,7 @@ related: [cot-and-safe-sleep-standards, second-hand-baby-gear]
 checked: 2026-10-31
 lines:
   - id: get-portable-cot
-    title: Portable cot that meets the standard, if you'll travel
+    title: Portable cot that meets the standard, for travel and visits
     list: baby
     section: sleep
 ---

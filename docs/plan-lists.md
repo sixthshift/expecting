@@ -29,7 +29,7 @@ Talked through with Jason on 2026-10-31 and 2026-11-01:
 
 | List | What it's for | Its lines |
 |---|---|---|
-| **For the baby** | Everything to have before the birth: the unified view. | `car-seat`, `pram`, `bassinet`, `cot-and-safe-sleep-standards`, `portable-cot`, `what-you-need-for-the-baby`, in sections from Sleep to For you (maternity pads, breast pads); the bottles and formula by the `feeding` answer. |
+| **Before the birth** | Everything to have ready, for the baby and for you: the unified view. | `car-seat`, `pram`, `bassinet`, `cot-and-safe-sleep-standards`, `portable-cot`, `what-you-need-for-the-baby`, `tens-machine`, and `sleeping-well` with its extra, in sections from Sleep to For you (maternity pads, breast pads, a pregnancy pillow); the bottles and formula by the `feeding` answer. |
 | **Freezer meals** | Cooking ahead, and the shopping for it. | `freezer-meals`, so only while that extra is on: the pantry and what to freeze them in. Your own lines are the meals, under *Meals to make*. |
 | **Your own** | Anything else: "Bunnings run", "Ask Mum to bring". | Yours: name one, add lines, delete it when it's done. |
 
@@ -45,7 +45,7 @@ while it has a line that applies to you, or a line of your own.
 UUID.
 
 ```
-For the baby                                 ‹ Lists
+Before the birth                             ‹ Lists
 Everything to have before the birth. 9 to get.
 ─────────────────────────────────────────────
 Sleep
@@ -71,7 +71,7 @@ Not needed (2)                                     ›
   A built-in line can't be deleted, but it can be *not needed*.
 - **A line has a state,** set by either of you, and shows who set it last:
 
-  | State | For the baby | Freezer meals | Your own |
+  | State | Before the birth | Freezer meals | Your own |
   |---|---|---|---|
   | (no mark) | To get | To make | To get |
   | `arranged` | Arranged: ordered, promised, someone's lending it | Someone's bringing it | Arranged |
@@ -79,7 +79,7 @@ Not needed (2)                                     ›
   | `not-needed` | Not needed: folded at the foot, and can be brought back | Not needed | Not needed |
 
   Once got, a line can also say *how* (bought, borrowed, second hand,
-  given), and any line can hold a few words ("newborn size, 2 packs",
+  given, or hired: a Kidsafe capsule, a TENS machine), and any line can hold a few words ("newborn size, 2 packs",
   "Mum's lending hers"). Tapping a line moves it to got, or back; the
   other states, how and the words are in a sheet. What's left counts *to
   get* and *arranged*.
@@ -165,7 +165,8 @@ Each step ends with the gate green (`check`, `test`, `lint`, `e2e`).
 4. **Into the Planner.** *Done 2026-11-01.* The way in on the Planner, and quiet putting the
    lists away.
 5. **The content.** *Done 2026-11-01.* The lines on the entries above, from
-   what each says: 25 for the baby, 6 for the freezer meals. To review.
+   what each says: 27 before the birth, 7 for the freezer meals. Reviewed
+   by Claude on 2026-11-01 against each entry's body (below).
 6. **Docs and memory.** *Done 2026-11-01.* `docs/architecture.md`, `docs/intent.md`,
    `content/README.md`, CLAUDE.md's domains.
 
@@ -180,6 +181,15 @@ Each step ends with the gate green (`check`, `test`, `lint`, `e2e`).
   names the heading over your own lines (*Also*, *Meals to make*).
   `docs/plan-its-time.md` still points here for the bag and its *last
   thing* state: it owns them now.
+- 2026-11-01: the lines reviewed by Claude, each against its entry's body.
+  For the baby became *Before the birth* (it holds what's for you too);
+  *hired* joined how a line was got (Kidsafe capsules, TENS); added the
+  pregnancy pillow (`sleeping-well`, its task), a TENS machine and a chest
+  freezer; the pram, portable cot and toiletries reworded. Left out on
+  purpose: wipes and a nappy bin (no entry names them), dummies (an entry
+  names them only in passing, and whether to use one is its own question),
+  the hospital bag's things (It's time), and two of everything for twins
+  (a few words cover it until a `babies` line rule is worth it).
 
 ## Not in this plan
 

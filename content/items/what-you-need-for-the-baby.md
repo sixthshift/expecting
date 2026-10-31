@@ -64,7 +64,7 @@ lines:
     list: baby
     section: bathing
   - id: get-baby-toiletries
-    title: Toiletries
+    title: Baby toiletries
     list: baby
     section: bathing
   - id: get-all-in-ones

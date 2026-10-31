@@ -47,7 +47,7 @@ test("the lists: a built-in one only once it has a line, then your own, each wit
   const marks = { a: mark("a", "got"), b: mark("b", "not-needed") };
   const own = [{ id: "own-1", title: "Bunnings run", by: null, createdAt: "2026-11-01T00:00:00.000Z" }];
   expect(listsOf(lines, own, marks)).toEqual([
-    { id: "baby", title: "For the baby", about: "Everything to have ready before the birth.", origin: "built-in", left: 1, total: 2 },
+    { id: "baby", title: "Before the birth", about: "Everything to have ready for the baby, and for you.", origin: "built-in", left: 1, total: 2 },
     { id: "own-1", title: "Bunnings run", about: null, origin: "own", left: 1, total: 1 },
   ]);
 });

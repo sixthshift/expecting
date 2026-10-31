@@ -17,7 +17,7 @@ related: [second-hand-baby-gear, baby-capsule-hire]
 checked: 2026-10-31
 lines:
   - id: get-pram
-    title: Pram that meets the safety standard, bought or borrowed
+    title: Pram that meets the safety standard
     list: baby
     section: out-and-about
 ---

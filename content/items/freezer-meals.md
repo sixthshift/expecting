@@ -39,6 +39,10 @@ lines:
     title: Labels, for what it is and the date
     list: freezer-meals
     section: kit
+  - id: get-chest-freezer
+    title: Chest freezer, if yours is small
+    list: freezer-meals
+    section: kit
 ---
 The first weeks with a newborn leave little time or energy for cooking. A stock of meals that only need reheating means you eat properly without thinking about it, and it's a job the partner can own.
 
