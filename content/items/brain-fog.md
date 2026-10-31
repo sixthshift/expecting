@@ -14,7 +14,7 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
   - title: Pregnancy, Birth and Baby — Fatigue and tiredness during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/dealing-with-fatigue-during-your-pregnancy
-related: [tiredness, insomnia]
+related: [tiredness, insomnia, card-brain-fog]
 checked: 2026-10-29
 ---
 Pregnancy can affect brain function and memory, especially in the third trimester. This is sometimes known as "brain fog".

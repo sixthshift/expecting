@@ -16,6 +16,7 @@ sources:
   - title: Pregnancy, Birth and Baby — Having difficult conversations
     url: https://www.pregnancybirthbaby.org.au/parenting-and-family/relationships-and-support/having-difficult-conversations
 related: [sex-and-intimacy, domestic-violence-in-pregnancy, mood-swings, relationship-breakdown]
+discreet: true
 checked: 2026-10-29
 ---
 A baby will change your relationship in some way; that's guaranteed. Gidget says no-one is totally prepared for parenting, and that seems to be the main reason for early dissatisfaction. Work and family are hard to juggle, there's less time together, and intimacy often drops. Some couples get through with a few disagreements; for others it's a real struggle. It's normal to argue now and then, in pregnancy as at any time, and there are reasons to feel closer too.

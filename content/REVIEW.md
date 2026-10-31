@@ -11,8 +11,10 @@ detail.
   avoid shop-bought kombucha outright (PBB: no safe level of alcohol; NSW:
   higher-risk drinks; MotherSafe: commercial ones carry traces; only home-brew
   is flagged avoid). Keep, or change to `limit`/`ask`?
-- `cooking-with-alcohol`: no Australian page covers cooked dishes; the entry
+- Settled 2026-11-01: kept as its own entry (people ask it as its own question, and it already links to `alcohol`), verdict `ask`.
+  `cooking-with-alcohol`: no Australian page covers cooked dishes; the entry
   rests on MotherSafe's general alcohol sheet. Merge into `alcohol`?
+- Settled 2026-11-01: all kept; an honest "no source covers this, ask" answers a real question better than nothing. `probiotics` now rests on the national pregnancy care guidelines (not enough evidence to recommend either way), and `computer-screens` on ARPANSA's FAQ (no established health effects around computers; verdict `yes`, like `airport-scanners`). `loud-noise` stays `ask`: the only source tying noise to the baby is a 2010 Safe Work Australia report.
 - Entries whose sources don't address pregnancy, framed honestly as "no
   source says": `probiotics`, `sleeping-on-your-stomach`, `electric-blankets`,
   `loud-noise`, `airport-scanners`, `computer-screens`, `hemp-seeds`,
@@ -60,6 +62,7 @@ detail.
   say these are never saved to the shared space, because the app is shared
   between both parents. Built: they are `private: true` (see
   `docs/architecture.md`, Content).
+- Settled 2026-11-01: none of the candidates below is `private`, on the rule used for `previous-trauma-and-pregnancy`: private is for danger from the other parent, and reading leaves no trace anyway. `relationship-breakdown`, `arguments-and-stress` and `unplanned-pregnancy` are now `discreet`, so a question asked from them isn't named on the shared list.
 - **Candidates for `private`**, not marked; decide in review:
   - `previous-trauma-and-pregnancy`: past abuse and sexual assault (its
     aliases say "sexual assault survivor", "childhood abuse"). Strongest
@@ -85,6 +88,8 @@ detail.
     `{% ask %}`; none of the first four has any, so marking one is one line.
 
 ## Duplicates (not merged)
+
+Settled 2026-11-01: none is deleted, because saved questions and papers keep an entry's id (and three ids are named in the app's code), so a deleted id would leave them pointing at nothing. Instead each pair has one job each and links both ways: `listeria` (the food-safety extra's nudge, now "The listeria rule"), `pets` (the pets extra's bookings, retitled) and `staying-active` (the exercise extra's class, "A pregnancy exercise class") were cut to what's their own and point to the full entry; `braxton-hicks-contractions` gave up its weeks (the symptom is the one on the timeline) and asks what Braxton Hicks are; `card-brain-fog` now says only that pregnancy brain is real. The rest already split the work (the extra's moment holds the to-dos, the shared entry the facts; `breech` and `ecv`; `preterm-birth` for the labour, `when-the-baby-comes-early` for the baby) and only lacked links. Found on the way: `staying-active-in-pregnancy` still gave 30 minutes a day and the moment 28 weeks for lying on your back; both now follow the settled 2.5 to 5 hours and 16 weeks.
 
 Pairs that cover the same ground. Each is kept for now; pick one to keep, or
 cut one down to what the other doesn't say, and link them with `related`.

@@ -9,6 +9,7 @@ extra: doula
 sources:
   - title: Pregnancy, Birth and Baby — Birth doulas, what do they do?
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/what-does-a-birth-doula-do
+related: [doulas]
 tasks:
   - id: decide-on-a-doula
     title: Decide whether you want a doula

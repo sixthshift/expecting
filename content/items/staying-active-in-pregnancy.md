@@ -8,24 +8,26 @@ aliases: [exercise, physical activity, sport, gym, running, swimming, walking, 1
 weeks: [1, 42]
 who: carrying
 stakes: medium
-summary: "Unless your doctor or midwife says otherwise, you can start or keep exercising: aim for moderate activity most days (about 30 minutes, or 150 minutes a week), keep cool, avoid falls, contact and lying flat on your back, and stop and see your doctor if warning signs appear."
+summary: "Unless your doctor or midwife says otherwise, you can start or keep exercising: aim for 2.5 to 5 hours of moderate activity a week, keep cool, avoid falls, contact and lying flat on your back, and stop and see your doctor if warning signs appear."
 sources:
   - title: Pregnancy, Birth and Baby — Exercising during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
+  - title: Australian Government — Physical activity recommendations for pregnancy
+    url: https://www.health.gov.au/topics/physical-activity-and-exercise/pregnancy
   - title: The Royal Women's Hospital — Active pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
   - title: Pregnancy, Birth and Baby — Weight gain in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/weight-gain-in-pregnancy
-related: [the-pelvic-floor, abdominal-muscles-and-separation, ligaments-and-joints-in-pregnancy, heart-and-blood-in-pregnancy]
+related: [exercise-in-pregnancy, the-pelvic-floor, abdominal-muscles-and-separation, ligaments-and-joints-in-pregnancy, heart-and-blood-in-pregnancy]
 appointment:
   - Is there any reason I shouldn't exercise?
-checked: 2026-10-29
+checked: 2026-11-01
 ---
 Unless your doctor or midwife tells you otherwise, you can start or continue regular exercise while you're pregnant. If you weren't very active before, start small and build up; if you were, choose safe activities at a level that feels right. As the pregnancy goes on, you may need to do less.
 
 ## How much
 
-Be active each day, aiming for about 30 minutes of moderate exercise a day, or at least 150 minutes over a week (three 10-minute sessions count), with strengthening exercises twice a week.
+Be active most days, preferably every day, adding up to 2.5 to 5 hours of moderate activity a week (or 1.25 to 2.5 hours of vigorous activity), with muscle strengthening at least 2 days a week (Australian Government recommendations).
 
 Moderate means you can still hold a conversation (the "talk test"). Good choices include walking, swimming and water aerobics, a stationary bike, dancing, pregnancy classes, yoga, Pilates and light weights.
 

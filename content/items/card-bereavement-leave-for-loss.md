@@ -13,7 +13,7 @@ sources:
     url: https://www.fairwork.gov.au/leave/compassionate-and-bereavement-leave
   - title: Miscarriage Australia — Taking time off work
     url: https://miscarriageaustralia.com.au/after-a-miscarriage/ive-just-miscarried-what-happens-now/taking-time-off-work/
-related: [loss-and-work]
+related: [loss-and-work, leave-after-loss]
 checked: 2026-10-29
 ---
 If you have a miscarriage, or your spouse or de facto partner does, you're entitled to 2 days' compassionate leave each time, under the National Employment Standards. It's paid leave, except for casual employees, who get it unpaid. You can take it as 2 days together, 2 separate days, or as your employer agrees.

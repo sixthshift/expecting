@@ -13,7 +13,7 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/premature-baby
   - title: Miracle Babies — I'm pregnant
     url: https://www.miraclebabies.org.au/content/im-pregnant/gns21k
-related: [baby-in-the-nicu, twins-and-multiples-support, something-has-happened]
+related: [baby-in-the-nicu, twins-and-multiples-support, something-has-happened, preterm-birth]
 checked: 2026-10-29
 ---
 A baby born before 37 weeks is premature, or preterm. In Australia about 8 in every 100 babies are born early, and often no one knows why. Twins or more make it more likely.

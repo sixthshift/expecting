@@ -3,9 +3,8 @@ id: braxton-hicks-contractions
 title: Braxton Hicks, the practice contractions
 type: guide
 topic: body
-ask: My belly keeps going hard. Is that labour?
+ask: What are Braxton Hicks, and how are they different from labour?
 aliases: [Braxton Hicks, practice contractions, false labour, tightenings, belly goes hard]
-weeks: [20, 42]
 who: carrying
 stakes: high
 summary: "Braxton Hicks are normal, irregular tightenings of the uterus that don't open the cervix; before 37 weeks, contractions can be a sign of premature labour, so pain in the pelvis, belly or lower back means contacting your doctor or midwife immediately."
@@ -16,7 +15,7 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/braxton-hicks-or-labour-contractions
   - title: Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, uterus (how the uterus prepares)
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-uterus
-related: [term-braxton-hicks, the-uterus-in-pregnancy, term-contraction]
+related: [term-braxton-hicks, the-uterus-in-pregnancy, term-contraction, braxton-hicks]
 checked: 2026-10-29
 ---
 If your belly goes tight and hard for a little while and then lets go, it's probably Braxton Hicks: sometimes called false labour or practice contractions. They're a normal part of pregnancy.

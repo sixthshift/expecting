@@ -13,6 +13,7 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
   - title: Red Nose — Second-hand nursery furniture
     url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/second-hand-nursery-furniture/
+related: [second-hand-baby-gear, second-hand-car-seat]
 tasks:
   - id: check-second-hand-recalls
     title: Check the second-hand gear against Product Safety Australia's recalls

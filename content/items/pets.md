@@ -1,6 +1,6 @@
 ---
 id: pets
-title: Getting the pets ready
+title: "The pets: training, vet and care for the birth"
 summary: "Train the dog, set up barriers and arrange pet care for the birth now; and never leave a pet alone with the baby."
 weeks: [24, 38]
 type: moment
@@ -25,22 +25,14 @@ tasks:
     title: Arrange who looks after the pets while you're at the hospital
     opens: 30
     due: 36
-checked: 2026-10-31
+related: [pets-and-the-baby, cat-litter]
+checked: 2026-11-01
 ---
-Pets need time to get used to a baby, and changes are easier before the baby arrives than after.
+Pets need time to get used to a baby, and changes are easier before the baby arrives than after. These are the bookings and the set-up; how to train your pets and introduce them to the baby is in Getting the pets ready.
 
-**Dogs:**
-
-- **Obedience training,** and ask the trainer how to prepare your dog for a baby.
-- **Walk with the pram** so the dog learns your pace on the lead. Never tie the lead to the pram.
-- **Reliable recall,** so the dog comes straight away when called.
-- **Baby sounds,** played quietly at first, then louder.
-- **Off-limits areas,** with baby gates, including where the baby will sleep.
-
-**Cats:** keep them out of the baby's rooms with closed doors or barriers (flywire screen doors work). Cats like cosy spots, like a bassinet.
-
-**Both:** change any routines (who feeds and walks them) now, so the pet doesn't link the change to the baby. A vet check for vaccinations and treatments is worth booking. And someone needs to feed and walk them while you're at the hospital.
-
-**Meeting the baby.** Let the pet sniff something the baby has worn first. With a dog, keep it on a lead, let it set the pace and reward calm behaviour. Only allow close contact while you hold the baby, with another adult there.
+- **Dog training:** obedience and reliable recall, and ask the trainer how to prepare your dog for a baby.
+- **A vet check,** for vaccinations and treatments.
+- **Barriers,** such as baby gates or flywire doors, to keep pets out of the baby's spaces, including where the baby will sleep.
+- **Pet care for the birth:** someone to feed and walk them while you're at the hospital.
 
 **Never leave a pet alone with the baby,** however well trained or gentle. Pregnancy, Birth and Baby notes that children under 5 are the most likely to be hospitalised by dog bites, and most happen at home or at the home of someone the family knows.

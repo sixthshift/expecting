@@ -12,7 +12,7 @@ summary: "Braxton Hicks are normal, irregular tightenings that usually ease when
 sources:
   - title: Pregnancy, Birth and Baby — Braxton Hicks contractions
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/braxton-hicks-contractions
-related: [signs-of-preterm-labour, abdominal-pain, fluid-leaking]
+related: [signs-of-preterm-labour, abdominal-pain, fluid-leaking, braxton-hicks-contractions]
 checked: 2026-10-29
 ---
 ## What's usual

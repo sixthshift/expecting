@@ -15,7 +15,7 @@ sources:
     url: https://ranzcog.edu.au/wp-content/uploads/Breech-Presentation-End-of-Pregnancy.pdf
   - title: RANZCOG — Management of breech presentation at term (C-Obs 11, clinical guidance statement)
     url: https://ranzcog.edu.au/wp-content/uploads/Management-Breech-Presentation.pdf
-related: [breech-birth, planned-caesarean, anti-d, rhd-negative, ctg-monitoring, babys-position-check]
+related: [breech-birth, planned-caesarean, anti-d, rhd-negative, ctg-monitoring, babys-position-check, breech]
 appointment:
   - Is there anything about me or the baby that would rule out an ECV?
 checked: 2026-10-29

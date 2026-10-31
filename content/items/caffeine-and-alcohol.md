@@ -11,6 +11,7 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/caffeine-during-pregnancy
   - title: Pregnancy, Birth and Baby — Alcohol and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/alcohol-and-pregnancy
+related: [alcohol, coffee-and-caffeine]
 checked: 2026-10-31
 ---
 **Caffeine:** the advice in Australia is no more than 200 mg a day from everything: coffee, tea, cola, chocolate and energy drinks. That's roughly one or two espresso-based coffees, or two or three cups of instant. Café coffee varies a lot in strength. Too much caffeine may increase the risk of miscarriage, stillbirth and low birth weight.

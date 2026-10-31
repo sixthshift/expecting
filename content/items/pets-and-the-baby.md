@@ -13,8 +13,8 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/parenting-and-family/parenting-skills-and-daily-life/getting-your-pets-ready-for-baby-to-arrive
   - title: Pregnancy, Birth and Baby — Pets in the family
     url: https://www.pregnancybirthbaby.org.au/parenting-and-family/parenting-skills-and-daily-life/pets-in-the-family
-related: []
-checked: 2026-10-29
+related: [cat-litter, pets-and-health]
+checked: 2026-11-01
 ---
 It can be hard to predict how a pet will react when a baby comes home, but Pregnancy, Birth and Baby says planning can help humans and animals adjust. Animals are creatures of routine, so make changes to their feeding and care before the baby arrives, and share pet care with your partner where possible.
 
@@ -31,9 +31,9 @@ It can be hard to predict how a pet will react when a baby comes home, but Pregn
 
 - Always supervise your pet around your baby. Never leave them alone together, however gentle or well trained the animal is. Children under 7 years should never be left unsupervised with a pet.
 - Don't force your pet to meet the baby. Offer your dog a piece of the baby's clothing or a wrap to smell first, and bring them to meet the baby on a lead.
-- Close the door to the room where the baby sleeps, because cats look for the warmest, coziest spot, which could be the cot.
+- Close the door to the room where the baby sleeps, because cats look for the warmest, cosiest spot, which could be the cot.
 - Try to give your pet some one-on-one time each day, since they may feel left out.
 
 ## If you have a cat
 
-Toxoplasmosis can cause serious problems in pregnancy, and can be caught from infected cat faeces. To lower your risk, don't handle kitty litter if possible, disinfect the litter tray at least daily, wear gloves and wash your hands afterwards if you must change it, and don't feed your cat raw meat.
+Toxoplasmosis can cause serious problems in pregnancy, and can be caught from infected cat faeces. The cat litter entry has how to lower the risk.

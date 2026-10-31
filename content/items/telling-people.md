@@ -9,6 +9,7 @@ extra: announcing
 sources:
   - title: Pregnancy, Birth and Baby — When to tell people you are pregnant
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/when-to-tell-people-you-are-pregnant
+related: [when-to-tell-people]
 tasks:
   - id: decide-who-to-tell
     title: Decide who to tell first, and when
