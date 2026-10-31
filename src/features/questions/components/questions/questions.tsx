@@ -114,11 +114,14 @@ export function AskedQuestion({ question }: { question: Question }) {
   );
 }
 
-/** "from *Anaemia and low iron* · Sam's": the entry it was asked from, and whose it is; nothing when neither is known. */
+/**
+ * "from *Anaemia and low iron* · Sam's": the entry it was asked from, and whose it is; nothing when neither is known.
+ * A discreet entry isn't named: its title would say what the question's words don't.
+ */
 function Source({ question }: { question: Question }) {
   const { me, people } = usePeople().data;
   // A private entry never sends one (src/server/privacy/); this only makes sure none is drawn.
-  const item = question.itemId ? builtInItems.find((i) => i.id === question.itemId && !i.private) : undefined;
+  const item = question.itemId ? builtInItems.find((i) => i.id === question.itemId && !i.private && !i.discreet) : undefined;
   const whose = whoseBy(question.by, me, people);
   if (!item && !whose) return null;
   return (

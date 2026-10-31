@@ -104,6 +104,7 @@ function toItem(fm: IndexFrontmatter, variables: string[]): Item {
     decideBy: fm.decide_by ?? null,
     surprise: fm.surprise || fm.type === "card",
     private: fm.private,
+    discreet: fm.discreet,
     draft: fm.draft,
     when: fm.when,
     extra: fm.extra ?? null,

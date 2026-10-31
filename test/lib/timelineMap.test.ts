@@ -36,6 +36,7 @@ function item(id: string, from: number, to: number, tasks: Task[] = [task(`${id}
     decideBy: null,
     surprise: false,
     private: false,
+    discreet: false,
     draft: true,
     when: {},
     extra: null,

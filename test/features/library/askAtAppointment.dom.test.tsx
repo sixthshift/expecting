@@ -31,6 +31,7 @@ function item(rest: Partial<Item> = {}): Item {
     decideBy: null,
     surprise: false,
     private: false,
+    discreet: false,
     draft: true,
     when: {},
     extra: null,

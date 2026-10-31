@@ -119,6 +119,12 @@ export const indexSchema = z
     surprise: z.boolean().default(false),
     /** Read, but never saved, asked about or remembered, so it leaves no trace in the space you share. */
     private: z.boolean().default(false),
+    /**
+     * Shared, but not named where both of you look: a question asked from it
+     * doesn't say "from <title>" in the Planner or on This week, as the title
+     * would tell what its words don't (mental health, drugs, smoking).
+     */
+    discreet: z.boolean().default(false),
     /** Drafted, not yet reviewed by us. Shown with a marker. */
     draft: z.boolean().default(true),
     tasks: z
@@ -264,6 +270,7 @@ type ItemFields = {
   /** One of the things nobody tells you: marked so, or a card. */
   surprise: boolean;
   private: boolean;
+  discreet: boolean;
   draft: boolean;
   /** Who it is for; empty for everyone. */
   when: When;

@@ -26,6 +26,7 @@ summary: "One sentence: the answer, or why it matters."
 verdict: avoid                   # can-i only: yes | limit | avoid | ask
 decide_by: 20                    # decision only: the week to decide by, from a source, within its weeks; it becomes a task
 private: true                    # family violence and the like only: leaves no trace (docs/architecture.md, Content)
+discreet: true                   # mental health, drugs, smoking: a question from it isn't named "from <title>" on the shared list
 sources:                         # every page a claim in the body comes from
   - title: Publisher — Page title
     url: https://...

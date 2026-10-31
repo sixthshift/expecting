@@ -227,6 +227,11 @@ describe("types", () => {
     expect(typed("type: guide\ntopic: special-circumstances").private).toBe(false);
   });
 
+  test("a discreet entry is marked so, and nothing else is", () => {
+    expect(typed("type: guide\ntopic: mental-health\ndiscreet: true").discreet).toBe(true);
+    expect(typed("type: guide\ntopic: mental-health").discreet).toBe(false);
+  });
+
   test.each([
     ["tasks", "weeks: [8, 20]\ntasks:\n  - id: t\n    title: T", "Words.", /a private entry has no tasks/],
     ["a when", "when: { cover: no }", "Words.", /no when/],
