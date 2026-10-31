@@ -6,7 +6,6 @@ weeks: [30, 37]
 type: moment
 topic: after-the-birth
 extra: help-network
-draft: true
 sources:
   - title: Gidget Foundation — The importance of a support network
     url: https://www.gidgetfoundation.org.au/adjusting-to-parenthood/building-a-support-network
@@ -32,7 +31,7 @@ Many families no longer live near the people who would once have helped, so it's
 
 **Ask early, and be specific.** "Could you do the Tuesday school run for the first three weeks?" is easier to say yes to than "help out". Ask before the birth, while people can plan around it.
 
-**Think wider than family.** Friends, neighbours, people from antenatal classes, and the partner's own friends all count. Some councils and community groups run new-parent groups after the birth.
+**Think wider than family.** Friends, neighbours, people from antenatal classes, and the partner's own friends all count. Maternal health centres usually run groups for new parents after the birth, and there are online groups too.
 
 **Paid help** is an option too: a cleaner for a few weeks, meal delivery, or extra hours of care for an older child.
 

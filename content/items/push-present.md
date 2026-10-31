@@ -6,7 +6,6 @@ weeks: [28, 40]
 type: moment
 topic: celebrations
 extra: push-present
-draft: true
 tasks:
   - id: choose-push-present
     title: Choose the push present

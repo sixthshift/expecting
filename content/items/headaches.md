@@ -17,7 +17,6 @@ sources:
 related: [severe-headache, vision-changes, signs-of-pre-eclampsia]
 appointment:
   - Can we talk about how often I'm getting headaches?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -30,7 +29,7 @@ Try rest and fluids first: a drink of water, a nap or rest with your eyes closed
 
 ## Call 000 or go to emergency
 
-Call triple zero (000) and ask for an ambulance, or go to your nearest hospital emergency department, if you have a sudden, severe headache, or a headache with vomiting, confusion, a stiff neck or changes in your vision.
+Call triple zero (000) and ask for an ambulance, or go to your nearest hospital emergency department, if you have a sudden, severe headache, or a headache with vomiting, confusion, a stiff neck, fever, loss of balance, a seizure or changes in your vision.
 
 ## Contact your hospital now
 
@@ -40,4 +39,4 @@ If you have a severe headache that isn't usual for you, seek medical help immedi
 
 ## See your doctor or midwife
 
-Tell your doctor or midwife if you start getting frequent headaches. If you have a headache that begins suddenly or is different to your past headaches, speak to your doctor.
+Tell your doctor or midwife if you start getting frequent headaches. If your headaches are different to your past headaches, speak to your doctor.

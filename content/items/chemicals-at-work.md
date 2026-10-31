@@ -21,7 +21,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Cosmetic procedures and beauty treatments during pregnancy and breastfeeding
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
 related: [working-while-pregnant, hairdressing-and-nail-salon-work, radiation-at-work, painting-and-renovating, lead-exposure, pesticides]
-draft: true
 checked: 2026-10-29
 ---
 Talk to your employer. If your work involves chemicals, they must carry out a risk assessment that takes your pregnancy into account, and by law make work safe for you and your baby. You're more likely to need changes if you work with chemical or biological hazards.

@@ -18,7 +18,6 @@ sources:
   - title: Fair Work Ombudsman — Returning to work from parental leave
     url: https://www.fairwork.gov.au/leave/parental-leave/after-parental-leave/returning-to-work-from-parental-leave
 related: [telling-your-employer, safe-job-and-no-safe-job-leave, returning-to-work, flexible-work-request]
-draft: true
 checked: 2026-10-29
 ---
 Under the Fair Work Act, an employer can't take adverse action against you, or against someone applying for a job, because of pregnancy, breastfeeding, or family or carer's responsibilities. The protection applies from the job application, before you start, and at any time while you work there.

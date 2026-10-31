@@ -15,9 +15,8 @@ sources:
   - title: Food Standards Australia New Zealand — Food safety for vulnerable people
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
 related: [pre-cut-fruit-and-salads, takeaway-and-eating-out]
-draft: true
 checked: 2026-10-29
 ---
 Mostly no. Pre-prepared fruit and vegetable salads, including those from buffets and salad bars, are on the list of foods to avoid when pregnant. The NSW Food Authority calls salads from salad bars and smorgasbords "do not eat (high risk)".

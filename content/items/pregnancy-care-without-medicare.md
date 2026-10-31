@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Medicare during pregnancy
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/medicare-during-pregnancy
 related: [what-medicare-covers, private-health-insurance-and-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 If you're on a visa, you can still get care for yourself and your baby during and after pregnancy and birth. What it costs depends on your visa and your health insurance.

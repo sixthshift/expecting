@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Navigating a second pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/navigating-a-second-pregnancy
 related: [term-multipara]
-draft: true
 checked: 2026-10-29
 ---
 Your bump might appear earlier this time, because your stomach muscles have already stretched during your first pregnancy.

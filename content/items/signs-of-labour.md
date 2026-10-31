@@ -9,12 +9,13 @@ weeks: [36, 42]
 stakes: high
 summary: "Period-like cramps, low backache, loose bowels, a show or your waters breaking can all be early signs; you're in labour when contractions become regular, longer, stronger and closer together, and any of it before 37 weeks is a call to your midwife or doctor."
 sources:
+  - title: Pregnancy, Birth and Baby — Breech pregnancy
+    url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
   - title: Pregnancy, Birth and Baby — Giving birth, early signs of labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
   - title: Pregnancy, Birth and Baby — Giving birth, stages of labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/labour-the-signs-and-stages
 related: [term-show, waters-breaking, contractions, false-labour, when-to-go-to-hospital, preterm-birth]
-draft: true
 checked: 2026-10-29
 ---
 Normal labour starts between 37 and 42 weeks, and you can't know ahead of time when yours will. Early signs usually start from around 37 weeks, and they can be subtle. It's often not easy to tell when labour is starting.
@@ -44,12 +45,14 @@ If you're unsure whether it's true labour, contact your midwife or doctor. You c
 
 ## When to get help
 
+**If your waters break and you've been told the baby isn't head-first, call triple zero (000)** and ask for an ambulance: there's a higher risk of cord prolapse.
+
 **Call 000** and ask for an ambulance if you think you may not make it to your planned place of birth before the baby is born, or you have heavy bleeding from the vagina, a severe headache or blurred vision.
 
 **Call your midwife or doctor straight away** if:
 
 - you notice early signs of labour before 37 weeks
-- your waters break and the fluid is green or brown
+- your waters break and the fluid is green, brown or blood-coloured
 - you have bleeding from your vagina
 - you're worried about your baby's movements
 - you feel strong pressure in your vagina or bottom, or an urge to push

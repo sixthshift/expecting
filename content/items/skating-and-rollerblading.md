@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Bleeding during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
 related: [skiing, falls-and-knocks, cycling]
-draft: true
 checked: 2026-10-29
 ---
 Best not. Better Health lists skating among the activities to avoid in pregnancy because of the risk of falling, next to downhill skiing and horse riding.

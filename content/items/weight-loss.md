@@ -21,7 +21,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pelvic pain during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/pelvic-pain-during-pregnancy
 related: [severe-vomiting, morning-sickness, food-cravings-and-aversions]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -32,16 +31,14 @@ Hyperemesis gravidarum, severe and ongoing nausea and vomiting, is different: it
 
 ## Call 000 or go to emergency
 
-The Royal Women's Hospital tells its own patients to go to its Women's Emergency Centre if they can't keep food or fluids down.
+If you can't keep any fluids down, go to your nearest emergency department; they can give you fluids through a drip.
 
 ## Contact your hospital now
 
-Contact your doctor or the hospital if you have lost a lot of weight quickly, aren't getting enough fluids, weren't eating well before pregnancy, or are worried about your health or your baby (Royal Women's Hospital).
-
-See your doctor **immediately** if you're losing weight along with heartburn or indigestion, or losing weight without trying along with pelvic pain (Pregnancy, Birth and Baby).
+Contact your doctor or the hospital if you've lost a lot of weight quickly or aren't getting enough fluids.
 
 ## See your doctor or midwife
 
-healthdirect lists weight loss among the pregnancy symptoms to see your doctor or midwife about as soon as possible.
+Weight loss is one of the pregnancy symptoms to see your doctor or midwife about as soon as possible, and straight away if it comes with heartburn or indigestion, or you're losing weight without trying.
 
 Contact your midwife or doctor if you have frequent or uncontrollable vomiting, ongoing nausea that makes it difficult to eat and drink enough, or you are losing weight. If you have ongoing vomiting and keep losing weight, talk with your dietitian or doctor, who may recommend supplements.

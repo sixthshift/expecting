@@ -13,9 +13,8 @@ sources:
   - title: Food Standards Australia New Zealand — Food safety for vulnerable people
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
 related: [hot-takeaway-chicken, deli-meats, pre-packaged-sandwiches]
-draft: true
 checked: 2026-10-29
 ---
 ## Why

@@ -17,7 +17,6 @@ sources:
     url: https://1800respect.org.au/reproductive-abuse
 related: [domestic-violence-in-pregnancy]
 private: true
-draft: true
 checked: 2026-10-29
 ---
 At your antenatal visits, your midwife or doctor will ask about your home and work and what support you have. If you're experiencing family violence, it's a good opportunity to talk about it. Family violence can start or get worse in pregnancy, and it doesn't have to be physical: it can be controlling behaviour, like monitoring your phone calls and emails, controlling your money or who you see.

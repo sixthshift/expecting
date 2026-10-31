@@ -16,7 +16,6 @@ sources:
 related: [high-chance-result, carrier-screening, cvs, amniocentesis]
 appointment:
   - Would seeing a genetic counsellor help me, and can you refer me?
-draft: true
 checked: 2026-10-29
 ---
 Genetic counsellors are health professionals qualified in both genetics and counselling, with special skills in explaining health information. They often work closely with clinical geneticists, doctors who specialise in genetic conditions.

@@ -22,10 +22,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 37
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-37
 related: [conception-to-embryo, the-babys-senses, the-babys-lungs, baby-size-and-growth, term-embryo, term-fetus]
-draft: true
 checked: 2026-10-29
 ---
-Pregnancy, Birth and Baby describes three stages: germinal (weeks 2 to 4, from fertilisation to implantation), embryonic (weeks 4 to 10, when important organs and body structures form) and fetal (from week 11 until birth). It calls the baby an embryo until about week 9 on one page, and says doctors and midwives may call your baby a fetus from the third month; the week-by-week detail is in the week notes.
+There are three stages: germinal (weeks 2 to 4, from fertilisation to implantation), embryonic (weeks 4 to 10, when important organs and body structures form) and fetal (from week 11 until birth). From about week 9 (the third month) doctors and midwives may call your baby a fetus; the week-by-week detail is in the week notes.
 
 ## First trimester
 
@@ -39,4 +38,4 @@ By week 14 all the important organs have formed. Around week 18 your baby has ey
 
 Your baby gains weight, fat and muscle, makes red blood cells in the bone marrow, and their eyelids can open. By week 30 they're laying down fat stores, which smooths their skin, and the lanugo is disappearing while more hair grows on their head. By 36 weeks the kidneys are mature and your baby is swallowing about a litre of amniotic fluid a day. Most babies turn head-down in the pelvis before the birth, and by week 37 the lungs are fully mature, with the gut holding meconium. At 40 weeks a well-grown term baby can weigh anything from 2.9 kg to 4.2 kg.
 
-Pregnancy, Birth and Baby also says your baby should keep moving in their normal pattern until they're born, and to contact your midwife or doctor immediately if you're concerned about their movements.
+Your baby should keep moving in their normal pattern until they're born. If they're moving less, or you're worried about their movements, contact your midwife or birth unit straight away; don't wait. See [The baby is moving less](baby-moving-less).

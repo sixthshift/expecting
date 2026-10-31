@@ -7,10 +7,13 @@ type: moment
 topic: paperwork
 surprise: true
 when: { childcare: "yes" }
-draft: true
 sources:
+  - title: Services Australia — How to claim Child Care Subsidy
+    url: https://www.servicesaustralia.gov.au/how-to-claim-child-care-subsidy
+  - title: NSW Government — Enrolling your child in early childhood education and care
+    url: https://www.nsw.gov.au/family-and-relationships/having-children/parenting-young-children/early-childhood-education-care/enrolling-a-service
   - title: Pregnancy, Birth and Baby — Child care, what are my options?
-    url: https://www.pregnancybirthbaby.org.au/child-care
+    url: https://www.pregnancybirthbaby.org.au/parenting-and-family/support-and-financial-services/child-care
 checked: 2026-10-29
 tasks:
   - id: join-childcare-waitlists

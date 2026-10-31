@@ -16,7 +16,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Private health insurance and pregnancy
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
 related: [obstetrician-out-of-pocket-costs, private-health-insurance-and-pregnancy, choosing-your-model-of-care, private-patient-in-a-public-hospital]
-draft: true
 checked: 2026-10-29
 ---
 With a private obstetrician, the doctor you choose looks after you through pregnancy, labour and the weeks after. Your check-ups are in their rooms. The birth is usually in a private hospital, though some obstetricians care for private patients in public hospitals.

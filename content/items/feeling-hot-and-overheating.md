@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Dealing with hot weather during pregnancy and breastfeeding
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/dealing-with-hot-weather-during-pregnancy-and-breastfeeding
 related: [fever, dizziness-and-fainting, swollen-feet-and-ankles]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -33,9 +32,7 @@ To stay cool:
 
 ## Call 000 or go to emergency
 
-Call triple zero (000) immediately and ask for an ambulance if you have symptoms of heatstroke, such as hot, dry skin with no sweating or a rise in body temperature to above 40 °C. Heatstroke requires immediate medical treatment, as it can be life-threatening.
-
-Get emergency medical care if you have symptoms of heatstroke, such as:
+Heatstroke can be life-threatening. Call triple zero (000) immediately and ask for an ambulance if you have signs of it, such as:
 
 - hot, dry skin with no sweating
 - a sudden rise in temperature to over 40 °C

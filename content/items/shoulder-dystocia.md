@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Shoulder dystocia
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/shoulder-dystocia
 related: [second-stage, episiotomy, birth-injury-to-the-baby, birth-trauma]
-draft: true
 checked: 2026-10-29
 ---
 Shoulder dystocia is when one of the baby's shoulders gets stuck during birth, behind your pubic bone or your sacrum (the bone at the back of your pelvis, above your tailbone). It happens in about 1 in every 100 vaginal births, and the baby needs urgent help to be born.

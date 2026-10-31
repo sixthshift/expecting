@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Working during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
 related: [partner-feeling-left-out, partner-role-first-trimester]
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy, Birth and Baby says it's a good idea to be as involved as you can throughout the pregnancy, and its first suggestion is to offer to go with your partner to antenatal appointments with doctors or midwives. It also suggests that you do your own research and share what you learn, and talk about how you're both feeling.

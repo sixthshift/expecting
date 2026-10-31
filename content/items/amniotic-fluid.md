@@ -14,7 +14,6 @@ sources:
 related: [the-placenta, term-amniotic-fluid, term-amniotic-sac, term-afi, term-polyhydramnios, term-oligohydramnios, waters-breaking]
 appointment:
   - Can you explain what my scan said about the fluid around the baby?
-draft: true
 checked: 2026-10-29
 ---
 Amniotic fluid is the watery liquid that surrounds and protects your baby in the uterus. It's held in the amniotic sac, and it's what people mean by "the waters".
@@ -50,4 +49,4 @@ Sometimes there's more or less fluid than expected. This can be due to a pregnan
 
 What it means for you and your baby depends on the cause, if known, how severe it is and how far along you are. Your doctor or midwife will explain your result, its likely causes and how it will be managed.
 
-When the sac breaks, that's your waters breaking: see Waters breaking.
+When the sac breaks, that's your waters breaking: see [Waters breaking](waters-breaking).

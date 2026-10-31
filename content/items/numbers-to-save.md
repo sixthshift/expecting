@@ -5,8 +5,9 @@ summary: "Save the support numbers in both phones now, so you're not searching f
 weeks: [34, 38]
 type: moment
 topic: after-the-birth
-draft: true
 sources:
+  - title: "Pregnancy, Birth and Baby — Getting your pets ready for baby to arrive (or any PBB page footer)"
+    url: https://www.pregnancybirthbaby.org.au/parenting-and-family/parenting-skills-and-daily-life/getting-your-pets-ready-for-baby-to-arrive
   - title: Australian Breastfeeding Association — Breastfeeding Helpline
     url: https://www.breastfeeding.asn.au/breastfeeding-helpline
 checked: 2026-10-29

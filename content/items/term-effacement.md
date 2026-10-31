@@ -13,7 +13,6 @@ sources:
   - title: "Pregnancy, Birth and Baby — What happens to your body in childbirth"
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-happens-to-your-body-in-childbirth
 related: [term-dilation, term-cervix]
-draft: true
 checked: 2026-10-29
 ---
 Effacement, also called ripening, is the change in your cervix from long and firm to soft, thin and more elastic. It happens as labour gets closer and during labour, and is partly triggered by contractions of your uterus. The cervix also starts to dilate (open).

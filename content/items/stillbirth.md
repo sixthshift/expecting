@@ -20,7 +20,6 @@ sources:
   - title: Stillbirth CRE — The Safer Baby Bundle
     url: https://stillbirthcre.org.au/about-us/our-work/the-safer-baby-bundle/
 related: [neonatal-death, remembering-the-baby, loss-support-services, pregnancy-after-loss, something-has-happened]
-draft: true
 checked: 2026-10-29
 ---
 In Australia, a stillbirth is the birth of a baby who has died any time from 20 weeks of pregnancy, or who weighs 400 grams or more if the length of the pregnancy isn't known. About 6 babies are stillborn every day in Australia. Often, no one knows why.
@@ -45,7 +44,7 @@ If you choose to, you can spend time with your baby: hold, bathe and dress them,
 
 ## Your body after
 
-Your body will go through the usual changes after a birth, which can be a painful reminder. Your milk may come in; cold packs, a firm bra and expressing can ease it, and you can stop gradually. Bleeding can last up to 6 weeks. See your doctor about 8 to 12 weeks after the birth.
+Your body will go through the usual changes after a birth, which can be a painful reminder. Your milk may come in; cold packs, a firm bra and a mild pain reliever can ease it, and you can choose to express. Bleeding can last up to 6 weeks. See your doctor about 8 to 12 weeks after the birth.
 
 ## When to get help
 

@@ -5,7 +5,6 @@ summary: "Babies up to 6 months must be in an approved rear-facing car seat that
 weeks: [30, 37]
 type: moment
 topic: gear
-draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Car and road safety for babies and children
     url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies

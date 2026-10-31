@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Moles (melanocytic naevi) during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/skin-changes-during-pregnancy-melanocytic-naevi
 related: [skin-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Around week 14 you might notice new moles or skin tags developing on your body. Pregnancy, Birth and Baby says these are nothing to worry about, but chat to your doctor or midwife if they're bothering you.

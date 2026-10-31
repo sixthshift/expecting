@@ -16,7 +16,6 @@ sources:
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy/post-partum-psychosis
 related: [after-the-birth-mood-heads-up, existing-mental-illness, partner-learning-the-signs]
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 This one is for the partner, because the person who is unwell may not be able to see it, and may resist help. Postpartum psychosis (also called postnatal or puerperal psychosis) is a rare but serious mental illness (the Royal Women's says very rare). It can come on very suddenly, within hours of the birth, or up to 12 weeks after. It is different from postnatal depression, which is more common.
@@ -40,9 +39,9 @@ It can affect anyone who gives birth, even with no history of mental illness. Th
 
 ## What to do
 
-The Royal Women's calls it a psychiatric emergency that needs immediate treatment, for the safety of the parent and the baby. PBB says that if you're worried your partner may have it, **arrange for a doctor or mental health professional to see them urgently**, for the safety of both the birth parent and the baby. You can start with their GP or your local hospital emergency department; the Royal Women's also lists the hospital where the baby was born. Delaying treatment can make recovery longer. Your local hospital or community health centre can also put you in touch with a crisis team (sometimes called a CAT team).
+It's a psychiatric emergency that needs treatment straight away, for the safety of the parent and the baby. If you're worried your partner may have it, **get a doctor or mental health professional to see them urgently**: their GP, the hospital where the baby was born, or your local emergency department. Delaying treatment can make recovery longer. Your local hospital or community health centre can also put you in touch with a crisis team (sometimes called a CAT team).
 
-PBB adds: **if they're having thoughts of self-harm, or you're worried about the baby's safety, go to the nearest hospital emergency department or call 000** and ask for an ambulance. For help and support, call Lifeline on 13 11 14.
+**If they're having thoughts of self-harm, or you're worried about the baby's safety, go to the nearest hospital emergency department or call 000** and ask for an ambulance. For help and support, call Lifeline on 13 11 14.
 
 ## Treatment and recovery
 

@@ -14,7 +14,6 @@ sources:
   - title: Miscarriage Australia — Am I having a miscarriage? (signs of ectopic pregnancy)
     url: https://miscarriageaustralia.com.au/having-a-miscarriage/signs-of-miscarriage/
 related: [miscarriage-signs-what-to-do, loss-support-services, pregnancy-after-loss]
-draft: true
 checked: 2026-10-29
 ---
 An ectopic pregnancy is when a fertilised egg implants outside the uterus, usually in one of the fallopian tubes. Sadly, there is no way for it to survive. In a tube it can make the tube tear or burst, causing serious internal bleeding, and it can be life-threatening. About 1 in 100 pregnancies is ectopic, and many people who have one have no risk factors.
@@ -30,6 +29,7 @@ The signs usually come between week 4 and week 12:
 - nausea and vomiting
 - a fast heart rate
 - dizziness or feeling faint
+- sudden, severe pain, or collapsing
 
 If you have any of these while pregnant, go to the nearest emergency department or call triple zero (000) for an ambulance.
 

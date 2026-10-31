@@ -15,7 +15,6 @@ sources:
 related: [first-feed, planned-caesarean, special-care-nursery, hospital-bag]
 appointment:
   - Is expressing colostrum from 36 weeks a good idea for me?
-draft: true
 checked: 2026-10-29
 tasks:
   - id: ask-about-expressing-colostrum

@@ -15,9 +15,8 @@ sources:
   - title: Pregnancy, Birth and Baby — External cephalic version (ECV)
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/external-cephalic-version-ecv
 related: [breech]
-draft: true
 checked: 2026-10-29
 ---
 An external cephalic version (ECV) is when an obstetrician tries to turn a breech baby head down by pressing gently on your belly. It works about half the time.
 
-Sources differ on timing: RANZCOG says it should be discussed if your baby is still breech at 36 weeks; Pregnancy, Birth and Baby's ECV page says it's usually recommended after 37 weeks, and that if this is your first baby you might be offered it after 36 weeks; its glossary says it may be offered if your baby is breech after 37 weeks. It's done in a hospital that can do an emergency caesarean.
+If your baby is still breech at 36 to 37 weeks, your obstetrician or midwife will talk with you about it. It's done in a hospital that can do an emergency caesarean.

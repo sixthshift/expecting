@@ -14,7 +14,6 @@ sources:
   - title: Miscarriage Australia — Why have I had a miscarriage?
     url: https://miscarriageaustralia.com.au/having-a-miscarriage/why-have-i-had-a-miscarriage/
 related: [miscarriage]
-draft: true
 checked: 2026-10-29
 ---
 Up to 1 in 4 pregnancies end in miscarriage before 14 weeks. Most of the time it happens because of a problem with the baby's development, not because of anything you did or didn't do.

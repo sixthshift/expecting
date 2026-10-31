@@ -9,17 +9,20 @@ weeks: [34, 42]
 stakes: high
 summary: "A cord prolapse is when the umbilical cord comes down in front of the baby after the waters break; it's rare (about 1 in 600 births) but an emergency: if you feel the cord in your vagina, call 000."
 sources:
+  - title: Pregnancy, Birth and Baby — Waters breaking early
+    url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/waters-breaking-early
+  - title: Pregnancy, Birth and Baby — Breech pregnancy
+    url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
   - title: Pregnancy, Birth and Baby — Umbilical cord prolapse
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/umbilical-cord-prolapse
 related: [waters-breaking, breech-birth, malpresentation, emergency-caesarean, birth-trauma]
-draft: true
 checked: 2026-10-29
 ---
 ## When to get help
 
-**If you're pregnant, your waters have broken and you feel the umbilical cord in your vagina, call triple zero (000) and ask for an ambulance.** While you wait for the ambulance, you may be asked to bring your knees to your chest with your head facing down. This helps relieve pressure on the cord. Stay in this position while waiting for the ambulance. Another Pregnancy, Birth and Baby page, on waters breaking early (PPROM), says to call an ambulance and get down on your hands and knees with your bottom in the air; the two pages give different positions.
+**If you're pregnant, your waters have broken and you feel the umbilical cord in your vagina, call triple zero (000) and ask for an ambulance.** While you wait, get onto your hands and knees, then lower your head and chest so your bottom is in the air, higher than your head. This takes pressure off the cord. Stay like this until help arrives.
 
-If the baby isn't head down, **go to hospital urgently** if your waters break or you think labour is starting.
+If the baby isn't head down and your waters break, **call triple zero (000)** and ask for an ambulance; if labour starts, go to hospital straight away.
 
 ## What it is
 

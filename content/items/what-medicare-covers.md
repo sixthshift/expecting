@@ -9,6 +9,8 @@ weeks: [1, 42]
 stakes: high
 summary: "As a public patient in a public hospital or birth centre, your treatment and stay are free; private care, NIPT and private hospital accommodation are where the bills come from."
 sources:
+  - title: Australian Immunisation Handbook — RSV vaccine in pregnancy
+    url: https://immunisationhandbook.health.gov.au/recommendations/pregnant-women-are-recommended-to-receive-an-rsv-vaccine-during-each-pregnancy-to-protect-their-infant
   - title: Pregnancy, Birth and Baby — Medicare during pregnancy
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/medicare-during-pregnancy
   - title: Services Australia — Medicare services for conceiving, pregnancy and birth
@@ -16,7 +18,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Vaccinations and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/vaccinations-and-pregnancy
 related: [medicare-safety-net, obstetrician-out-of-pocket-costs, private-health-insurance-and-pregnancy, paying-for-scans, nipt, pregnancy-care-without-medicare]
-draft: true
 checked: 2026-10-29
 ---
 Medicare covers many of the costs of having a baby. How much depends on who looks after you and where you give birth.

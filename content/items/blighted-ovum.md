@@ -14,7 +14,6 @@ sources:
   - title: Miscarriage Australia — Types of miscarriage
     url: https://miscarriageaustralia.com.au/understanding-miscarriage/types-of-miscarriage/
 related: [miscarriage, miscarriage-management-options]
-draft: true
 checked: 2026-10-29
 ---
 A blighted ovum, also called an anembryonic pregnancy, is a kind of early miscarriage. A sac and placenta grow in the womb, but no embryo develops. It often shows up on an early routine ultrasound, which can be very distressing when you were expecting good news, or on a scan done because of bleeding.

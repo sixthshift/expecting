@@ -18,7 +18,6 @@ sources:
   - title: RANZCOG — Induction of Labour (patient information)
     url: https://ranzcog.edu.au/wp-content/uploads/Induction-Labour.pdf
 related: [induction, oxytocin-drip, slow-progress, waters-breaking, cord-prolapse]
-draft: true
 checked: 2026-10-29
 ---
 Breaking the waters, or artificial rupture of membranes (ARM), is when your midwife or doctor makes a small hole in the sac of membranes holding the fluid around the baby. It's a form of induction, and it's also used to help bring on or speed up labour.
@@ -31,11 +30,11 @@ Releasing the waters lets the baby's head come lower into the pelvis and press h
 
 ## Does it hurt?
 
-The vaginal examination may cause you some discomfort, and Pregnancy, Birth and Baby lists pain and discomfort among the risks.
+The vaginal examination may cause you some discomfort, and pain and discomfort are among the risks.
 
 ## What happens next
 
-Sometimes breaking the waters is enough, and labour starts. If contractions don't start, an oxytocin drip is begun; the Royal Women's Hospital says most women will also need oxytocin.
+Sometimes breaking the waters is enough, and labour starts. If contractions don't start, an oxytocin drip is begun, and most people need one.
 
 RANZCOG says that if contractions don't start after the waters are broken and labour doesn't become established, your doctor will recommend a caesarean.
 

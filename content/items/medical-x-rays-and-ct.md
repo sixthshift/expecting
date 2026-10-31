@@ -19,7 +19,6 @@ sources:
   - title: healthdirect — Magnetic resonance imaging (MRI)
     url: https://www.healthdirect.gov.au/procedures/diagnostic-tests-and-scans/magnetic-resonance-imaging-mri
 related: [dental-x-rays, radiation-at-work, airport-scanners, falls-and-knocks]
-draft: true
 checked: 2026-10-29
 ---
 Ask first. Most radiation exposure during medical testing is unlikely to harm your baby, but tell your doctor and the radiology practice that you are, or might be, pregnant before any test.

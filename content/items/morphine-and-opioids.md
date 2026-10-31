@@ -16,14 +16,13 @@ sources:
   - title: RANZCOG — Pain Relief in Labour and Childbirth (patient information)
     url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
 related: [pain-relief, nitrous-oxide-gas, epidural, first-feed, water-birth]
-draft: true
 checked: 2026-10-29
 ---
 Opioids, such as morphine, are strong pain relief medicines, usually given as an injection. They're one of the medical options alongside the gas and an epidural.
 
 ## What it does
 
-Opioids reduce how severe the pain is, but they don't take it away completely. People respond differently: some find the injection helps, others say it made little difference (RANZCOG). It can take up to 20 minutes to work and lasts three hours or more, according to the Royal Women's Hospital; RANZCOG says up to 30 minutes.
+Opioids reduce how severe the pain is, but they don't take it away completely. People respond differently: some find the injection helps, others say it made little difference. It can take up to 30 minutes to work, and lasts three hours or more.
 
 Unlike an epidural, morphine doesn't need a drip, a catheter or CTG monitoring. The Royal Women's Hospital prefers morphine to pethidine, because it lasts longer and has fewer side effects.
 

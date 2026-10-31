@@ -9,7 +9,6 @@ extra: cord-blood
 appointment:
   - Does the hospital I'm booked into collect cord blood for a public bank?
   - Can we talk through delayed cord clamping and cord blood collection?
-draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Cord blood banking
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/cord-blood-banking
@@ -32,6 +31,6 @@ There are two options, or you can do neither:
 - **Donate to a public bank.** AusCord is Australia's network of three public cord blood banks, in Sydney, Brisbane and Melbourne. Donating is free, you're not paid, and the blood can go to any patient in Australia or overseas who needs it. You can only donate if you give birth at one of the banks' collection hospitals, so ask your hospital. Not every donation can be banked: it depends on your health history, whether collection staff are there at the birth, and how much blood is collected. If it's suitable, you'll fill in a health history, give a blood sample, and be contacted about six months later.
 - **Store it in a private bank,** for your own family's use only. Private banks charge fees, often including ongoing storage fees, so ask for all of them in writing before signing up.
 
-**Cord clamping:** waiting before the cord is clamped means more blood goes to the baby and less is left to collect. AusCord lists delayed clamping as one reason a donation may not be possible. Talk this trade-off through with your midwife or doctor before you decide.
+**Cord clamping:** you can't bank cord blood if you have delayed cord clamping, because the cord must be clamped early to capture as many stem cells as possible. Talk this trade-off through with your midwife or doctor before you decide.
 
 Whichever you choose, arrange it before the birth and write it into your birth plan.

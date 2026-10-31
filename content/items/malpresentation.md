@@ -7,8 +7,12 @@ ask: What if the baby is lying sideways?
 aliases: [transverse lie, oblique lie, unstable lie, malpresentation, brow presentation, face presentation]
 weeks: [36, 40]
 stakes: high
-summary: "Any position other than head-first is a malpresentation; most babies in one close to birth are born by caesarean, and if your waters break when your baby isn't head-first, get medical help immediately."
+summary: "Any position other than head-first is a malpresentation; most babies in one close to birth are born by caesarean, and if your waters break when your baby isn't head-first, call 000."
 sources:
+  - title: RANZCOG — Breech Presentation at the End of Your Pregnancy (patient information)
+    url: https://ranzcog.edu.au/wp-content/uploads/Breech-Presentation-End-of-Pregnancy.pdf
+  - title: Pregnancy, Birth and Baby — Breech pregnancy
+    url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
   - title: Pregnancy, Birth and Baby — Malpresentation
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/malpresentation
   - title: Pregnancy, Birth and Baby — Umbilical cord prolapse
@@ -16,12 +20,11 @@ sources:
 related: [breech-birth, ecv, cord-prolapse, planned-caesarean, term-posterior]
 appointment:
   - Is my baby lying head-first?
-draft: true
 checked: 2026-10-29
 ---
 ## When to get help
 
-**If your waters break and you've been told your baby isn't head-first, get medical help immediately.** There's a risk of cord prolapse, which is a medical emergency. If you feel the cord in your vagina, call triple zero (000) and ask for an ambulance.
+**If your waters break and you've been told your baby isn't head-first, call triple zero (000) and ask for an ambulance.** There's a risk of cord prolapse, which is a medical emergency.
 
 ## What it is
 
@@ -40,7 +43,7 @@ It's more likely with a low-lying placenta, too much or too little fluid, an unu
 
 ## What can be done
 
-If the baby is still breech at 36 weeks they're less likely to turn by themselves, and your obstetrician may recommend an ECV to gently turn the baby head-first. Different postures, acupuncture or moxibustion have limited evidence; there's some evidence moxibustion before 37 weeks may reduce the chance of a breech birth. Talk to your maternity carer before trying them.
+If the baby is still breech at 36 weeks they're less likely to turn by themselves, and your obstetrician may recommend an ECV to gently turn the baby head-first. There's no good evidence that different postures, acupuncture or moxibustion work. Talk to your maternity carer before trying them.
 
 If your baby is lying sideways or keeps changing position, your midwife or doctor may recommend staying in hospital from 37 weeks, so help is at hand when your waters break or labour starts.
 

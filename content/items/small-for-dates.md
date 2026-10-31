@@ -18,7 +18,6 @@ appointment:
   - Why is the baby measuring small, and what are you checking for?
   - How often will the baby be scanned from now?
   - Where and when should I plan to give birth?
-draft: true
 checked: 2026-10-29
 ---
 At your check-ups, your doctor or midwife measures and tracks the growth of your uterus and baby. If your bump isn't growing as expected, or a routine ultrasound shows the baby isn't growing as expected, you'll be looked after more closely. A baby measuring small is one of the things that can make a pregnancy higher risk.
@@ -45,6 +44,6 @@ It can be upsetting to hear. PANDA and COPE offer support, and you can call PAND
 
 ## When to get help
 
-**If you're concerned about the baby's movement pattern or notice a decrease in their movements, contact your midwife or doctor immediately.** Don't wait until the next day.
+**If you're concerned about the baby's movement pattern or notice a decrease in their movements, contact your midwife or doctor immediately.** Don't wait until the next day: see [The baby is moving less](baby-moving-less).
 
 If you have bleeding or significant pain, **call 000** and ask for an ambulance, or go to your nearest hospital emergency department.

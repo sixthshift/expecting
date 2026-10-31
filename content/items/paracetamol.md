@@ -19,10 +19,9 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Pain in pregnancy
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Pain%20in%20Pregnancy.pdf
 related: [ibuprofen-and-nsaids, codeine-and-opioids, cold-and-flu-tablets, migraine-medicines]
-draft: true
 checked: 2026-10-29
 ---
-Yes. Paracetamol is the recommended treatment for pain or fever in pregnancy when used as directed. It's pregnancy category A in Australia: it has been taken by a large number of pregnant women without any proven increase in malformations or other harm to the baby.
+Yes. Paracetamol is the recommended treatment for pain or fever in pregnancy when used as directed. It's pregnancy category A in Australia: it has been taken by a large number of pregnant people without any proven increase in malformations or other harm to the baby.
 
 ## Why
 

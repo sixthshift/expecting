@@ -14,7 +14,6 @@ sources:
 related: [urine-culture, what-happens-at-each-visit]
 appointment:
   - Will I need another urine test after the course?
-draft: true
 checked: 2026-10-29
 ---
 Everyone who's pregnant is offered a urine test, usually at the first antenatal visit or soon after. It's a routine screening test, and it can find bacteria in your urine even when you feel completely well. That's called an asymptomatic urinary tract infection (UTI).

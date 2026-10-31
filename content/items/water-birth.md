@@ -22,7 +22,6 @@ appointment:
   - Would labouring or giving birth in water suit me?
   - Does my hospital offer water birth, and what is its policy?
   - Could I still use the bath or pool if my waters break first?
-draft: true
 checked: 2026-10-29
 ---
 ## The options
@@ -33,7 +32,7 @@ checked: 2026-10-29
 
 ## Things to weigh
 
-**What it can do.** Warm water can be relaxing and ease pain. In RANZCOG's review of the research (C-Obs 24, current March 2021, review due March 2024), water in the first stage slightly lowered the use of epidurals and similar pain relief (from 43% to 39%) and raised satisfaction, without changing the rate of vaginal births.
+**What it can do.** Warm water can be relaxing and ease pain. In RANZCOG's review of the research, water in the first stage slightly lowered the use of epidurals and similar pain relief (from 43% to 39%) and raised satisfaction, without changing the rate of vaginal births.
 
 **Is a water birth safe?** Pregnancy, Birth and Baby and RANZCOG both say there's no evidence of extra risk to you or the baby compared with giving birth on land, though the studies are small and more research is needed. A baby born in water won't breathe until brought up, when the labour and birth are uncomplicated and you have the right support. Pregnancy, Birth and Baby says water birth may increase the chance of you getting an infection, or of you or your baby getting too hot.
 
@@ -43,7 +42,7 @@ checked: 2026-10-29
 
 **Getting out.** You may be asked to leave the water if there's a change in the baby's heart rate or a complication. In a rare emergency you'll be helped out as quickly as possible. If the placenta stage is actively managed, RANZCOG says best practice is to be helped out of the pool or bath after the birth, so it can be managed safely.
 
-**If your waters have broken.** Pregnancy, Birth and Baby's contractions page lists "spending time in a warm bath, shower or pool" as a way to ease contraction pain, with the note "(not if the waters have broken)". That is all it says on this; ask your midwife or doctor.
+**If your waters have broken.** A warm bath or pool isn't advised once your waters have broken; ask your midwife or doctor about your case.
 
 ## When to decide
 

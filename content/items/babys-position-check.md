@@ -19,7 +19,6 @@ related: [breech-baby, ecv, group-b-strep-swab, antenatal-visit-schedule]
 appointment:
   - Which way is the baby lying at the moment?
   - Will I need an ultrasound to check the baby's position?
-draft: true
 checked: 2026-10-29
 ---
 At around 36 weeks, your doctor or midwife feels your tummy to check which way the baby is lying. If they think the baby might be breech, they may send you for an ultrasound to confirm it.

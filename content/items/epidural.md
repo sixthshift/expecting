@@ -7,7 +7,7 @@ ask: What does an epidural involve, and what are the trade-offs?
 aliases: [epidural block, spinal, combined spinal-epidural, walking epidural, epidural side effects, epidural and pushing]
 weeks: [30, 42]
 stakes: high
-summary: "An epidural can take away the pain of contractions and you stay awake and aware, but it means a drip, continuous monitoring, a catheter and staying in bed; it doesn't make a caesarean more likely, and the sources differ on whether it changes the chance of an assisted birth."
+summary: "An epidural can take away the pain of contractions and you stay awake and aware, but it means a drip, continuous monitoring, a catheter and staying in bed; it doesn't make a caesarean more likely, and RANZCOG says modern epidurals don't change the chance of an assisted birth."
 sources:
   - title: Pregnancy, Birth and Baby — Epidural pain relief in labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/epidural
@@ -19,7 +19,6 @@ related: [pain-relief, term-spinal-block, monitoring-in-labour, assisted-birth, 
 appointment:
   - Does my hospital offer epidurals, and a walking epidural?
   - Is there anything in my health that means an epidural wouldn't suit me?
-draft: true
 checked: 2026-10-29
 ---
 An epidural is your choice. It can take away the pain of contractions, can last for hours, and you stay awake and aware, able to push your baby out.
@@ -38,7 +37,7 @@ It usually takes 25 to 40 minutes to set up and take full effect.
 - **Staying in bed.** You can move your legs but may not be able to stand. A few large hospitals offer a walking epidural.
 - **Pushing** may be harder, and the second stage may be longer.
 
-On assisted birth (forceps or vacuum), the sources differ. Pregnancy, Birth and Baby says an epidural may increase your chance of one. RANZCOG says modern epidurals may slightly lengthen labour but don't change the chance of an assisted birth or a caesarean. Both agree an epidural doesn't make a caesarean more likely.
+An epidural doesn't make a caesarean more likely. RANZCOG says modern epidurals may slightly lengthen labour but don't change the chance of forceps or a vacuum, though some sources still say they may raise it.
 
 ## Side effects and complications
 

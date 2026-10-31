@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 15
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-15
 related: [skin-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Changes in hormone levels, such as oestrogen, make your hair grow more and get thicker. Each hair follicle goes through phases of growth and rest, and in pregnancy that cycle changes: your hair stays in its growing phase for longer, so you shed less. You may also grow hair in places you haven't before, including your abdomen, lower back and thighs. Around week 15, Pregnancy, Birth and Baby says your hair and nails growing more quickly is all very normal.

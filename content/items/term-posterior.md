@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Presentation and position of baby through pregnancy and at birth
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/presentation-and-position-of-baby-through-pregnancy-and-at-birth
 related: [positions-for-labour, sterile-water-injections, assisted-birth, slow-progress]
-draft: true
 checked: 2026-10-29
 ---
 A posterior baby is headfirst with the back of their head towards your back. The ideal position for labour is anterior, back of the head at the front of your belly.

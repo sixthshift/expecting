@@ -18,7 +18,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Sex and intimacy after having a baby
     url: https://www.pregnancybirthbaby.org.au/womens-health/wellbeing-and-lifestyle/sex-and-intimacy-after-having-a-baby
 related: [arguments-and-stress, partner-feeling-left-out]
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy, Birth and Baby says your feelings about sex may change as your body goes through the stages of pregnancy, and that it's OK if you or your partner don't want to have sex: there are many ways to experience love and intimacy together.

@@ -16,7 +16,6 @@ sources:
   - title: RANZCOG — Labour and Birth (patient information)
     url: https://ranzcog.edu.au/wp-content/uploads/Labour-Birth.pdf
 related: [timing-contractions, false-labour, signs-of-labour, early-labour, when-to-go-to-hospital]
-draft: true
 checked: 2026-10-29
 ---
 A contraction is the muscle of your uterus tightening and then relaxing. In labour, contractions open (dilate) your cervix and move your baby down, until the cervix is fully open at 10 cm.
@@ -49,7 +48,7 @@ Braxton Hicks ("practice contractions") can happen through pregnancy but don't o
 
 If you've had a normal pregnancy and you're comfortable, you can usually stay home and rest in early labour. A warm bath or shower, heat, a TENS machine, slow breathing, changing position and gentle movement can help. Contact your midwife or doctor any time you're unsure.
 
-**Contact your birth unit or midwife** if your waters break, your contractions become painful and regular (2 or more in 10 minutes), you need extra support with the pain, you've planned a caesarean and you're in labour, your baby's movements change, or you have any concerns.
+**Contact your birth unit or midwife** if your waters break, your contractions become painful and regular (2 or more in 10 minutes), you need extra support with the pain, you've planned a caesarean and you're in labour, your baby's movements change, or you have any concerns. If the baby is moving less, call straight away; don't wait ([The baby is moving less](baby-moving-less)).
 
 ## When to get help
 

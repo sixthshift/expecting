@@ -11,13 +11,12 @@ summary: "Avoid pre-prepared or pre-packaged sandwiches and wraps from the fridg
 verdict: avoid
 sources:
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
   - title: Food Standards Australia New Zealand — Food safety for vulnerable people
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
   - title: Food Standards Australia New Zealand — Listeria in food
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
 related: [cold-cooked-chicken, deli-meats, takeaway-and-eating-out]
-draft: true
 checked: 2026-10-29
 ---
 Best not. The NSW Food Authority puts pre-prepared or pre-packaged sandwiches and wraps under "do not eat (high risk)" in pregnancy.

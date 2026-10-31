@@ -26,7 +26,6 @@ discreet: true
 appointment:
   - Would more frequent appointments or extra scans suit me?
   - Can I contact you between appointments if I'm worried?
-draft: true
 checked: 2026-10-29
 ---
 Being pregnant after a miscarriage, stillbirth or the death of a baby can bring joy and fear in the same breath. Becoming pregnant after a loss is a known source of stress in pregnancy. Whatever you feel is valid, and you don't need to justify it.

@@ -12,11 +12,10 @@ sources:
   - title: Pregnancy, Birth and Baby — Fetal monitoring
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/fetal-monitoring
 related: [the-babys-heartbeat, baby-movements]
-draft: true
 checked: 2026-10-29
 ---
 Wanting to hear the heartbeat for reassurance is understandable. But home fetal heart rate monitors, sometimes called dopplers, are not approved for sale in Australia and are not recommended for use at home.
 
 They should only be used by trained health professionals who know what they're hearing. At home they can mislead you into thinking your baby is well when they're not, which can delay urgent care and has been linked to serious harm, including baby deaths.
 
-If you're ever concerned about your baby's movements, contact your midwife or doctor immediately. Don't wait until the next day.
+If you're ever concerned about your baby's movements, contact your midwife or doctor immediately. Don't wait until the next day. If you can't reach them, go to your nearest hospital birthing or emergency unit.

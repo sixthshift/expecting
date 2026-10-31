@@ -23,7 +23,6 @@ related: [mental-health-medication, postpartum-psychosis-signs, mental-health-sc
 appointment:
   - Can we plan my care for the pregnancy and the months after the birth?
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 If you live with a mental illness, talk to your doctor or midwife early, ideally before you start trying and otherwise as soon as you're pregnant. Pregnancy can affect your mental health, and your mental health can affect the pregnancy. Planning ahead helps you stay as well as possible.

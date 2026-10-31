@@ -15,7 +15,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Urinary tract infection in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Urinary%20Tract%20Infection%20in%20Pregnancy%20and%20Breastfeeding.pdf
 related: [uti-remedies, thrush-treatments, medicines-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Yes, when your doctor prescribes them. A common reason in pregnancy is a urinary tract infection (UTI), the most common bacterial infection in pregnancy, and UTIs are treated with antibiotics that are safe in pregnancy.

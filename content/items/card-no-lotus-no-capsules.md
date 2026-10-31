@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — About the placenta
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta
 related: [the-placenta]
-draft: true
 checked: 2026-10-29
 ---
 There is no evidence that lotus birth (keeping the cord attached so your baby stays connected to the placenta) has any health benefits, and it may increase your chance of complications. You may still choose it for spiritual or cultural reasons.

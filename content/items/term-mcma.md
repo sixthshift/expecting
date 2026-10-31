@@ -11,7 +11,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnant with twins
     url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy
 related: [term-mcda, term-ttts, twins-and-multiples]
-draft: true
 checked: 2026-10-29
 ---
 MCMA stands for monochorionic monoamniotic: your twins share a placenta and are in the same amniotic sac. It's a rarer type of twin pregnancy.

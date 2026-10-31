@@ -11,7 +11,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 20
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-20
 related: [ligaments-and-joints-in-pregnancy, round-ligament-pain, card-round-ligament-stab]
-draft: true
 checked: 2026-10-29
 ---
 Your round ligaments sit on either side of your uterus and support it in the pelvis. As your uterus stretches in pregnancy, they stretch too, which can cause aching, cramping or even a sharp, stabbing feeling. Gentle stretches, moving slowly and an elastic belly band can ease it.

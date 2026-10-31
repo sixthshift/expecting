@@ -17,10 +17,9 @@ sources:
   - title: Food Standards Australia New Zealand — Caffeine
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/caffeine
 related: [coffee-and-caffeine, pre-workout-and-caffeine-powders, cola-and-soft-drink]
-draft: true
 checked: 2026-10-29
 ---
-Energy drinks aren't recommended during pregnancy. In Australia they must carry a label saying they're not suitable for pregnant or breastfeeding women, young children or people sensitive to caffeine.
+Energy drinks aren't recommended during pregnancy. In Australia they must carry a label saying they're not suitable for young children, people who are pregnant or breastfeeding, or people sensitive to caffeine.
 
 ## Why
 

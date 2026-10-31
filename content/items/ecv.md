@@ -18,7 +18,6 @@ sources:
 related: [breech-birth, planned-caesarean, anti-d, rhd-negative, ctg-monitoring, babys-position-check]
 appointment:
   - Is there anything about me or the baby that would rule out an ECV?
-draft: true
 checked: 2026-10-29
 ---
 External cephalic version (ECV) is a procedure in which a specially trained obstetrician tries to turn a breech baby head-down from the outside, so you can have a vaginal birth. It's done in a hospital that can do an emergency caesarean if needed.
@@ -29,7 +28,7 @@ Usually after 37 weeks, when the baby is unlikely to turn on their own. For a fi
 
 ## Who can't have one
 
-It may not be suitable if you need a caesarean anyway (for example placenta praevia), have had vaginal bleeding in the past 7 days, are having twins or more, your waters have broken, you have high blood pressure or pre-eclampsia, or your uterus is an unusual shape. It may also not suit a baby who is unwell or not growing well, or has low fluid. After one previous caesarean you can usually still have one, but your doctor should talk through the special considerations.
+It may not be suitable if you need a caesarean anyway (for example placenta praevia), have had vaginal bleeding in the past 7 days, are having twins or more, your waters have broken, you have high blood pressure or pre-eclampsia, or your uterus is an unusual shape. It may also not suit a baby who is unwell or not growing well, has low fluid, has the cord around their neck, or has an abnormal heart trace (CTG). After one previous caesarean you can usually still have one, but your doctor should talk through the special considerations.
 
 ## The day
 

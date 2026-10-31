@@ -14,8 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Working out your due date
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date
 related: [when-to-tell-people]
-discreet: true
-draft: true
 checked: 2026-10-29
 ---
 Your due date, and so the week you're in, is typically calculated from the first day of your last period, which is before conception has even happened. That's why you can be "in week 5" when you've only just found out: the first sign for many people is a missed period at the end of week 4, and until then you probably won't notice anything. Pregnancy generally lasts about 40 weeks counted this way, and the first few weeks of the timeline are ones nobody lived through.

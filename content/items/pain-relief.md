@@ -21,7 +21,6 @@ appointment:
   - Which pain relief options does my birth place offer?
   - Is there any pain relief that wouldn't suit me?
   - Can we talk about my pain relief preferences for my birth plan?
-draft: true
 checked: 2026-10-29
 ---
 How labour feels, and what helps, is very individual. Some people prefer medicines, others would like to avoid or delay them, and you can choose one method or a few. There's no right answer here, only what suits you.

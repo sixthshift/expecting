@@ -19,7 +19,6 @@ sources:
   - title: Services Australia — Changing your nominated days
     url: https://www.servicesaustralia.gov.au/changing-your-nominated-days-for-parental-leave-pay
 related: [partner-reserved-days, parental-leave-pay-days-together, parental-leave-pay-employer-delivered]
-draft: true
 checked: 2026-10-29
 tasks:
   - id: approve-plp-sharing

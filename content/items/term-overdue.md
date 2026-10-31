@@ -12,7 +12,6 @@ sources:
   - title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour"
     url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
 related: [term-post-term, term-edd]
-draft: true
 checked: 2026-10-29
 ---
 Overdue is the term for a pregnancy that goes beyond the estimated due date, to 41 to 42 weeks of pregnancy.

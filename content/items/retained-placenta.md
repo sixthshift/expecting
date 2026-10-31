@@ -9,10 +9,11 @@ weeks: [37, 42]
 stakes: high
 summary: "If the placenta hasn't come out within 30 minutes with active management or an hour without, it's a retained placenta: uncommon but serious, because untreated it can cause severe infection or life-threatening bleeding, and heavy bleeding in the weeks after the birth is a call."
 sources:
+  - title: Pregnancy, Birth and Baby — Postpartum haemorrhage
+    url: https://www.pregnancybirthbaby.org.au/postpartum-haemorrhage
   - title: Pregnancy, Birth and Baby — Retained placenta
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/retained-placenta
 related: [third-stage-placenta, term-third-stage]
-draft: true
 checked: 2026-10-29
 ---
 A retained placenta is when some of the placenta stays in your uterus after your baby is born. It happens in around 2 out of every 100 births. It's uncommon, but it can be a serious complication: if untreated, it can lead to severe infection or life-threatening blood loss.
@@ -47,6 +48,6 @@ You may stay longer in hospital, and recovery can feel harder when the birth did
 
 A retained placenta can also show up days or weeks after the birth. Symptoms include fever, heavy bleeding, bad-smelling discharge and many large clots.
 
-**Call triple zero (000)** and ask for an ambulance if the bleeding or pain is severe.
+**Bleeding heavily?** If you're bleeding heavily after the birth (soaking a pad every hour or two, or passing large clots), go to your hospital's emergency department straight away. Call triple zero (000) and ask for an ambulance if you gave birth in the last 24 hours, or you feel unwell, dizzy or clammy, your heart is racing or you're short of breath.
 
-**Contact your midwife or doctor as soon as possible** if you have any heavy bleeding or pain in the days or weeks after the birth, or you pass many large clots, or your bleeding becomes heavier, bright red or foul-smelling.
+**Contact your midwife or doctor immediately** if you're unsure whether your bleeding is normal, or it becomes heavier, bright red or foul-smelling, or you have pain in the days or weeks after the birth.

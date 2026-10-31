@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Bleeding during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
 related: [cramping-and-pain-in-early-pregnancy, spotting-and-bleeding-in-early-pregnancy, heavy-bleeding]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -29,9 +28,3 @@ It can come on its own, or with other signs of an ectopic pregnancy: spotting or
 ## Call 000 or go to emergency
 
 If you have shoulder-tip pain while pregnant, on its own or with any of those other signs, go to the nearest emergency department or call triple zero (000) for an ambulance.
-
-## Contact your hospital now
-
-Before 20 weeks, healthdirect's warning-signs page says to contact your doctor, midwife or hospital immediately for pain in the tip of one shoulder, especially if you also have bleeding.
-
-If you're bleeding and also have strong pain in your tummy or shoulder, contact your obstetrician or birth unit, or call an ambulance, immediately.

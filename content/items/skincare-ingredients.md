@@ -7,7 +7,7 @@ ask: Which skincare ingredients do I need to stop using?
 aliases: [retinol, retinoids, vitamin A cream, tretinoin, Retin-A, salicylic acid, glycolic acid, AHA, BHA, hyaluronic acid, niacinamide, vitamin C serum, hydroquinone, skin lightening, chemical peel, skincare routine]
 who: carrying
 stakes: medium
-summary: "Most over-the-counter skincare is fine. Stop prescription tretinoin and stronger retinols, hydroquinone and salicylic acid peels, and skip products you can't verify."
+summary: "Most over-the-counter skincare is fine. Pause retinol products, stop prescription tretinoin, hydroquinone and salicylic acid peels, and skip products you can't verify; retinol you've already used isn't a concern."
 verdict: limit
 sources:
   - title: Pregnancy, Birth and Baby — Cosmetic procedures during pregnancy and breastfeeding
@@ -15,7 +15,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
 related: [acne-treatments, sunscreen, botox-and-fillers, isotretinoin]
-draft: true
 checked: 2026-10-29
 ---
 Most of your routine can stay. Over-the-counter cosmetics and skin products are unlikely to be harmful, because they sit on the skin rather than being swallowed.
@@ -27,13 +26,12 @@ What matters is whether an ingredient is unsafe and whether enough of it gets th
 **Fine to keep:**
 
 - benzoyl peroxide, salicylic acid spot treatments and glycolic acid
-- over-the-counter retinol (vitamin A): it's usually in low concentrations and minimally absorbed. The vitamin A concern is about large doses taken by mouth.
 - sunscreen: little is absorbed, and avoiding sunburn matters as much as ever.
 
 **Stop:**
 
 - **tretinoin** for acne and **minoxidil** for hair growth (both prescription)
-- **stronger retinols**, such as compounded or prescription products
+- **retinol products** (vitamin A), over the counter or prescription. Over-the-counter retinol is minimally absorbed, so if you've already been using it there's no need to worry, but it's best paused until after the birth
 - **hydroquinone** (skin bleaching): large amounts are absorbed through the skin
 - **salicylic acid peels**.
 

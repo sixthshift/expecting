@@ -16,7 +16,6 @@ appointment:
   - Does my age change the care you'd recommend for me?
   - Would you suggest planning the birth around 40 weeks for me?
   - Where can I give birth, and who will I see?
-draft: true
 checked: 2026-10-29
 ---
 Most people who become pregnant after 40 have healthy pregnancies and healthy babies. Some conditions become more common with age, and your care team can help monitor and support you. These are possibilities rather than certainties.

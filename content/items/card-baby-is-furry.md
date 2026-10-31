@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 30
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-30
 related: [term-lanugo]
-draft: true
 checked: 2026-10-29
 ---
 Around week 15 your baby becomes covered in a fine, soft hair called lanugo. The exact reason is unknown, but it is believed it may be to keep your baby at the right temperature.

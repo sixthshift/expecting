@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, cervix
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-cervix
 related: [term-cervix, term-effacement, term-dilation, term-show, term-mucus-plug, term-short-cervix]
-draft: true
 checked: 2026-10-29
 ---
 Your cervix is the muscular channel that runs between your uterus and your vagina. In pregnancy, it holds your baby in your uterus, and protects them from conception until just before birth.

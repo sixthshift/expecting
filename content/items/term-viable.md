@@ -13,7 +13,6 @@ sources:
   - title: Better Health Channel — Medical terms and definitions during pregnancy and birth
     url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth
 related: [viability-and-prematurity]
-draft: true
 checked: 2026-10-29
 ---
-You'll hear "viable" used in two ways. Pregnancy, Birth and Baby uses it for a pregnancy where the baby can be born and have a reasonable chance of survival. Better Health Channel defines a viable pregnancy as one likely to continue to full term, and says an ectopic pregnancy is, in most cases, not viable.
+You'll hear "viable" used in two ways: for a pregnancy where the baby can be born and have a reasonable chance of survival, and for a pregnancy that is likely to continue to full term. An ectopic pregnancy is, in most cases, not viable.

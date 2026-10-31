@@ -13,11 +13,10 @@ sources:
   - title: Food Standards Australia New Zealand — Listeria in food
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
   - title: NSW Food Authority — Why avoid certain foods
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/why-avoid-certain-foods
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/why-avoid-certain-foods
 related: [salad-bars-and-buffets, rockmelon, fruit-and-vegetables]
-draft: true
 checked: 2026-10-29
 ---
 ## Why

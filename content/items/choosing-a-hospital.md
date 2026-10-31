@@ -19,7 +19,6 @@ sources:
 related: [booking-in, choosing-your-model-of-care, hospital-tour, private-obstetrician]
 appointment:
   - Which hospital would you suggest for us?
-draft: true
 checked: 2026-10-29
 ---
 Where you book often decides which models of care you can have, so the hospital and the model of care are worth choosing together.

@@ -17,7 +17,6 @@ sources:
   - title: The Royal Women's Hospital — The abdominal muscles
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/the-abdominal-muscles
 related: [exercise-in-pregnancy, contact-sports, hot-yoga]
-draft: true
 checked: 2026-10-29
 ---
 Yes, with changes. Pregnancy, Birth and Baby lists dancing and fitness classes among aerobic exercises in pregnancy, and says your gym may offer classes designed especially for pregnancy. If you go to ordinary classes, make sure the teacher is properly qualified and knows you're pregnant and how many weeks along you are.

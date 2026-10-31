@@ -6,7 +6,6 @@ weeks: [24, 34]
 type: moment
 topic: celebrations
 extra: baby-shower
-draft: true
 tasks:
   - id: shower-host-and-date
     title: Decide who's hosting the shower, and pick a date

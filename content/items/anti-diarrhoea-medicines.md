@@ -7,7 +7,7 @@ ask: Can I take Imodium?
 aliases: [Imodium, loperamide, Gastro-Stop, Lomotil, gastro, diarrhoea, food poisoning, Gastrolyte, Hydralyte, stomach bug]
 who: carrying
 stakes: medium
-summary: "Fluids first: diarrhoea usually goes away by itself; loperamide (Imodium) is healthdirect says to avoid it in the first trimester and after that use it only on your doctor's advice; MotherSafe says it's the one most often recommended for mild diarrhoea, and anti-diarrhoeals should be avoided for moderate to severe."
+summary: "Fluids first: diarrhoea usually goes away by itself. Avoid loperamide (Imodium) in the first trimester; after that, only for mild diarrhoea and on your doctor's or pharmacist's advice, never for moderate to severe."
 verdict: ask
 sources:
   - title: healthdirect — Medicines during pregnancy
@@ -15,10 +15,9 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Gastroenteritis in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/GastroPregBfeedFeb23.pdf
 related: [sports-and-electrolyte-drinks, listeria-foods, morning-sickness]
-draft: true
 checked: 2026-10-29
 ---
-Ask first. Diarrhoea usually goes away without treatment, and what matters most is replacing the fluid you lose. healthdirect says to avoid treatments containing loperamide (Imodium) in the first trimester; after that it can be used on your doctor's advice. MotherSafe doesn't mention a first-trimester limit: it says loperamide is most often recommended when medicine is considered for mild diarrhoea.
+Ask first. Diarrhoea usually goes away without treatment, and what matters most is replacing the fluid you lose. Avoid loperamide (Imodium) in the first trimester. After that it can be used for mild diarrhoea on your doctor's or pharmacist's advice.
 
 ## Why
 

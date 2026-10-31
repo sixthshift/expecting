@@ -6,7 +6,6 @@ weeks: [27, 36]
 type: payment
 topic: money
 surprise: true
-draft: true
 sources:
   - title: Services Australia — Claiming timeframes for Parental Leave Pay
     url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay

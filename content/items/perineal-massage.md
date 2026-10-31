@@ -15,7 +15,6 @@ sources:
 related: [perineal-tears, episiotomy]
 appointment:
   - Is perineal massage safe for me, and when should I start?
-draft: true
 checked: 2026-10-29
 ---
 Perineal massage is a technique to help stretch the perineum, the space between the opening of the vagina and the anus. It may reduce your risk of tears or other perineal trauma during birth, especially with a first birth, and can lower your chance of needing an episiotomy. It's your choice, and some people choose not to.

@@ -13,7 +13,6 @@ sources:
   - title: Australian Immunisation Handbook — Pertussis (whooping cough)
     url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/pertussis-whooping-cough
 related: [whooping-cough-vaccine, partner-flu-vaccine]
-draft: true
 checked: 2026-10-29
 tasks:
   - id: get-partner-whooping-cough-booster

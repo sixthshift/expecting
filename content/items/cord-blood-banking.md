@@ -18,7 +18,6 @@ related: [delayed-cord-clamping, birth-preferences]
 appointment:
   - Could we donate cord blood at the hospital we're booked into?
   - If we collect cord blood, would that change when the cord is clamped?
-draft: true
 checked: 2026-10-29
 ---
 Cord blood is the blood left in the placenta and umbilical cord after your baby is born, a rich source of stem cells. It's normally thrown away, but in Australia it can be collected and stored.
@@ -32,7 +31,7 @@ Cord blood is the blood left in the placenta and umbilical cord after your baby 
 ## Things to weigh
 
 - **Collection.** It's done after the baby is born and the cord is cut, takes about 3 minutes and doesn't hurt you or your baby. There are no risks to your baby. Risks to you are small and come from the blood sample you give, such as discomfort and bruising.
-- **Cord clamping.** Pregnancy, Birth and Baby says you can't do cord blood banking if you delay cord clamping, because the cord must be clamped early to capture as many stem cells as possible. Its third stage page, though, says that if you've arranged to bank or donate cord blood, your midwife can collect it after the cord is cut.
+- **Cord clamping.** You can't do cord blood banking if you delay cord clamping, because the cord must be clamped early to capture as many stem cells as possible. Talk it through with your midwife if you want both.
 - **Use.** Stem cells from cord blood are an alternative to bone marrow for stem cell transplants, which treat diseases such as blood cancers, blood disorders and severe immune deficiencies.
 - **Your birth plan.** Deciding to bank cord blood makes no difference to your birth plan.
 - **Donating isn't guaranteed.** You may not be able to donate because of health factors, whether collection staff are available at the delivery, or technical factors.

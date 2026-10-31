@@ -13,7 +13,6 @@ sources:
   - title: The Royal Womens Hospital — Baby's position
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/babys-position
 related: [term-occiput-anterior, the-babys-position]
-draft: true
 checked: 2026-10-29
 ---
 Posterior means the back of your baby's head is towards your back, against your spine. Usually the baby moves into a good position for birth, even in late pregnancy, and their position often changes as labour progresses. If your baby stays posterior through labour it may be a little longer and you may have a bit more back pain. The Royal Women's Hospital says an on-hands-and-knees position may help with back pain in labour.

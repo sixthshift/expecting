@@ -16,7 +16,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Checkups, tests and scans available during your pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/checkups-and-scans-during-your-pregnancy
 related: [anaemia-in-pregnancy, low-platelets, third-trimester-bloods, first-blood-tests]
-draft: true
 checked: 2026-10-29
 ---
 A routine blood test at your first antenatal visit and again at about 26 to 28 weeks. It checks your haemoglobin for anaemia, and your platelets. If your iron is low, you may be offered a supplement or an infusion.

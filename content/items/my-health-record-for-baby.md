@@ -16,7 +16,6 @@ sources:
   - title: Services Australia — Enrolling your baby in Medicare
     url: https://www.servicesaustralia.gov.au/enrolling-your-baby-medicare
 related: [medicare-enrol-baby]
-draft: true
 checked: 2026-10-29
 ---
 Two different records start when your baby is born: a paper book and a digital record. They do different jobs.

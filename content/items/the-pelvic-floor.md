@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, perineum and pelvic floor
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-perineum-pelvic-floor
 related: [term-pelvic-floor, term-perineum, term-prolapse, abdominal-muscles-and-separation, staying-active-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Your pelvic floor is a group of muscles and ligaments that supports your bladder, uterus and bowel. The muscles form a sling that attaches to your pubic bone at the front and your tailbone at the back. The urethra, vagina and anus all pass through it.
@@ -45,7 +44,7 @@ If you can't feel a distinct tightening, see a women's health (pelvic floor) phy
 1. **Slow holds.** Tighten around your front passage, vagina and back passage as strongly as you can and hold for 3 to 5 seconds, longer if you can but no more than 8 seconds. Rest a few seconds and repeat up to 10 times, or until the muscles tire. If you can, do 3 sets a day in different positions.
 2. **Quick squeezes.** Squeeze and lift as strongly and quickly as you can, then let go straight away. Repeat 10 to 20 times, one to three times a day.
 
-The Women's recommends exercising your pelvic floor every day for the rest of your life. Pregnancy, Birth and Baby says it's best to start before pregnancy and keep going while you're pregnant. Link them to something you do daily, like waiting for the kettle, and squeeze your pelvic floor whenever you cough, sneeze or lift.
+Exercise your pelvic floor every day for the rest of your life; it's best to start before pregnancy and keep going while you're pregnant. Link them to something you do daily, like waiting for the kettle, and squeeze your pelvic floor whenever you cough, sneeze or lift.
 
 ## After the birth
 

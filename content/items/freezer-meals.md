@@ -6,7 +6,6 @@ weeks: [32, 39]
 type: moment
 topic: after-the-birth
 extra: freezer-meals
-draft: true
 tasks:
   - id: plan-freezer-meals
     title: Plan the freezer meals and clear space in the freezer

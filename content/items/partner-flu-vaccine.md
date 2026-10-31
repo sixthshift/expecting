@@ -13,11 +13,10 @@ sources:
   - title: Australian Immunisation Handbook — Influenza (flu)
     url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/influenza-flu
 related: [flu-vaccine, partner-whooping-cough-booster]
-draft: true
 checked: 2026-10-29
 ---
 This one is for you, the partner.
 
-**Why.** The Australian Immunisation Handbook recommends a flu vaccine every year for everyone 6 months and older. It's particularly recommended for household contacts of people in high-risk groups, because people in these groups can pass flu on to people who have a higher risk of complications. The Handbook also recommends the flu vaccine for the person who is pregnant, and says that women who get flu in pregnancy have an increased risk of illness and death.
+**Why.** The Australian Immunisation Handbook recommends a flu vaccine every year for everyone 6 months and older. It's particularly recommended for household contacts of people in high-risk groups, because people in these groups can pass flu on to people who have a higher risk of complications. The Handbook also recommends the flu vaccine for the person who is pregnant, because flu in pregnancy carries an increased risk of serious illness and death.
 
-**When.** The Handbook says annual vaccination is recommended before the flu season starts: in most parts of Australia, flu usually peaks between June and September, though it can occur year-round, and it's never too late to vaccinate. Protection is expected to last the whole season, but is best in the first 3 to 4 months after vaccination.
+**When.** The Handbook says annual vaccination is recommended before the flu season starts: in most parts of Australia, flu usually peaks between June and September, though it can occur year-round. Protection is expected to last the whole season, but is best in the first 3 to 4 months after vaccination.

@@ -13,7 +13,6 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/stress-and-pregnancy
 related: [antenatal-anxiety, arguments-and-stress, worry-and-sleep]
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -32,8 +31,10 @@ What can help:
 - time with people who make you feel calm
 - accept offers of help
 
-## See your doctor or midwife
+## Call 000 or go to emergency
 
-**If you're having thoughts of self-harm or suicide, call Lifeline on 13 11 14 for immediate support.**
+If you're having thoughts of self-harm or suicide and are in danger, call triple zero (000). For immediate support, call Lifeline on 13 11 14.
+
+## See your doctor or midwife
 
 If you've tried relaxation and talking to someone you trust but still feel overwhelmed, check in with your doctor, midwife or a mental health professional. Stress isn't a diagnosis but a sign that something else is going on; chronic stress could point to depression, anxiety or another condition, and your GP can refer you to a psychologist or counsellor. PANDA is on 1300 726 306 and Beyond Blue on 1300 22 4636.

@@ -15,9 +15,8 @@ sources:
   - title: Food Standards Australia New Zealand — Listeria in food
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
 related: [listeria-foods, hot-takeaway-chicken, takeaway-and-eating-out]
-draft: true
 checked: 2026-10-29
 ---
 Yes, with a shorter clock. You can safely eat leftovers if you put them straight in the fridge in a covered container, don't keep them more than a day, and reheat them until they're steaming hot all the way through.
@@ -32,6 +31,6 @@ Some bacteria make toxins that heat doesn't destroy if food is left too long at 
 
 - **Fridge first.** Straight in, covered. Make sure the fridge runs at 5 °C or colder.
 - **Eat within a day.**
-- **Reheat until steaming hot** all the way through. FSANZ gives 75 °C for this; the NSW Food Authority says at least 60 °C. Steaming hot right through meets both.
+- **Reheat until steaming hot** all the way through, to 75 °C.
 - **Rice and pasta:** reheat only once.
 - **Nothing past its use-by date.**

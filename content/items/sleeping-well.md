@@ -6,7 +6,6 @@ weeks: [20, 40]
 type: moment
 topic: body
 extra: sleep-setup
-draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Sleep during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
@@ -21,7 +20,7 @@ Sleep gets harder as the bump grows: the toilet, heartburn, cramps and simply fi
 
 **What helps, according to the same advice:**
 
-- A pregnancy pillow. They come in several shapes, from a long body pillow to a wedge; ordinary pillows can do the same jobs.
+- A pregnancy pillow. They come in many different shapes and sizes.
 - Knees bent, with a pillow between them.
 - A pillow under the bump for support.
 
@@ -31,4 +30,4 @@ Sleep gets harder as the bump grows: the toilet, heartburn, cramps and simply fi
 - An easy way to the toilet in the night, with a night light.
 - A spare pillow or two for the partner, who may lose theirs.
 
-If sleep is badly broken, or there's loud snoring or low mood with it, mention it at the next antenatal visit.
+See your doctor if trouble sleeping worries you for your or your baby's health, or if you've started snoring in pregnancy, which could be a sign of other medical problems.

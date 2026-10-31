@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Caffeine during pregnancy and breastfeeding
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/caffeine-during-pregnancy
 related: [coffee-and-caffeine]
-draft: true
 checked: 2026-10-29
 ---
 Yes.

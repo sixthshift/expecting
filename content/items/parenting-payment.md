@@ -16,7 +16,6 @@ sources:
   - title: Services Australia — Setting up online accounts for Centrelink
     url: https://www.servicesaustralia.gov.au/setting-up-online-accounts-for-centrelink
 related: [mygov-and-centrelink-setup, family-tax-benefit-a, parental-leave-pay]
-draft: true
 checked: 2026-10-29
 ---
 Parenting Payment is the main income support payment while you're a young child's main carer. It's **separate from Family Tax Benefit and Parental Leave Pay**.

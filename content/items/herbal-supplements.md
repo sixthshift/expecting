@@ -17,7 +17,6 @@ sources:
   - title: KEMH — Commonly used medicines and safety in pregnancy
     url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
 related: [herbal-tea, st-johns-wort, echinacea, raspberry-leaf, homeopathy]
-draft: true
 checked: 2026-10-29
 ---
 Ask first. Herbal medicines, although natural, are not necessarily safe, especially in pregnancy. Talk to your doctor or midwife about any herbal preparation you plan to take, and about any you're already taking.

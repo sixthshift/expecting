@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Amniotic fluid
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/amniotic-fluid
 related: [amniotic-fluid, term-amniotic-sac]
-draft: true
 checked: 2026-10-29
 ---
 Amniotic fluid is the watery liquid that surrounds your baby in the amniotic sac in your uterus, also known as "the waters". It helps your baby move, develop their lungs and be protected from pressure or injury. Early on your body makes it; as your baby grows they make most of it themselves, through their urine and fluid from their lungs.

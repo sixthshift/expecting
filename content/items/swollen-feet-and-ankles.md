@@ -10,6 +10,8 @@ who: carrying
 stakes: high
 summary: "Gradual, mild swelling of the feet, ankles and fingers is a normal part of pregnancy; sudden swelling of the face, hands or feet is not, and needs a call straight away."
 sources:
+  - title: healthdirect — Headaches
+    url: https://www.healthdirect.gov.au/headaches
   - title: Pregnancy, Birth and Baby — Swelling during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/swelling-during-pregnancy
   - title: The Royal Women's Hospital — Coping with common discomforts of pregnancy (fact sheet, April 2018)
@@ -17,7 +19,6 @@ sources:
   - title: healthdirect — Warning signs during pregnancy
     url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
 related: [sudden-swelling, painful-swollen-leg, carpal-tunnel, signs-of-pre-eclampsia]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -25,6 +26,10 @@ checked: 2026-10-29
 Swelling in your ankles, feet and fingers can be a normal part of pregnancy: the Royal Women's Hospital says about 8 in 10 pregnant people have it. It tends to be more noticeable towards the end of the day and towards the end of the pregnancy, and it usually goes down overnight while you sleep. Shoes and rings may feel tight. It goes away soon after the birth.
 
 Gradual, mild swelling doesn't need a doctor. To ease it: avoid standing for long periods, rest with your legs raised, wear loose, comfortable shoes and clothes, and wear compression stockings during the day (off at night).
+
+## Call 000 or go to emergency
+
+Call triple zero (000) and ask for an ambulance if you have a headache together with changes in your vision.
 
 ## Contact your hospital now
 

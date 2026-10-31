@@ -23,7 +23,6 @@ sources:
   - title: ATO — Paid Parental Leave Superannuation Contribution
     url: https://www.ato.gov.au/individuals-and-families/super-for-individuals-and-families/super/growing-and-keeping-track-of-your-super/how-to-save-more-in-your-super/government-super-contributions/paid-parental-leave-superannuation-contribution
 related: [parental-leave-pay, employer-paid-parental-leave, family-tax-benefit-b, child-care-subsidy, parental-leave-pay-employer-delivered]
-draft: true
 checked: 2026-10-29
 ---
 A year of leave isn't one budget, it's several: the weeks when employer pay comes in, the weeks of government pay, and the weeks after both stop. Moneysmart's five steps for a budget work for each of them.

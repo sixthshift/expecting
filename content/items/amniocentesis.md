@@ -14,7 +14,6 @@ sources:
 related: [cvs, high-chance-result, screening-vs-diagnostic, rhd-negative]
 appointment:
   - Would you recommend an amniocentesis for me, and why?
-draft: true
 checked: 2026-10-29
 ---
 Amniocentesis is a diagnostic test, done from 15 weeks, that can confirm whether your baby has a genetic condition or a difference in their chromosomes. Your doctor or midwife may recommend it, but it's your choice whether to have it. You may be referred to a genetic counsellor to help you understand the test and what the results may mean.

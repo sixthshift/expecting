@@ -15,7 +15,6 @@ sources:
 related: [insomnia, snoring, restless-legs]
 appointment:
   - Could my tiredness be low iron?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -33,4 +32,4 @@ Resting when you can, asking for help with chores, gentle exercise, regular bala
 - your sleep is disturbed by a health condition such as heartburn or restless legs
 - you're feeling anxious or depressed
 
-Tiredness can be a symptom of anaemia (low iron), which is common in pregnancy because your body needs more iron. If you or someone you know is having suicidal thoughts and is in immediate danger, call 000. For support, call Lifeline on 13 11 14 or PANDA on 1300 726 306.
+Tiredness can be a symptom of anaemia (low iron), which is common in pregnancy because your body needs more iron.

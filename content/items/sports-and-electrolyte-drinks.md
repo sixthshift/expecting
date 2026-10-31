@@ -15,7 +15,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Gastroenteritis in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/GastroPregBfeedFeb23.pdf
 related: [water, morning-sickness, anti-diarrhoea-medicines]
-draft: true
 checked: 2026-10-29
 ---
 Yes, when you need to replace fluids. For nausea and vomiting, KEMH suggests drinking small amounts regularly (at least one to two litres of fluid a day, unless advised otherwise) and trying icy poles or cold fluids such as rehydration drinks (for example Hydralyte), sports drinks (for example Powerade), diluted cordials or fruit juices, and clear soups.
@@ -26,4 +25,4 @@ The main danger with vomiting and diarrhoea is dehydration, which can be prevent
 
 ## When to get help
 
-If you can't keep down any fluids, aren't passing much urine, or feel dizzy when standing up, MotherSafe says urgent medical treatment is recommended if these symptoms don't resolve quickly. Treatment in hospital may be needed, with fluids given through a drip.
+If you can't keep down any fluids, aren't passing much urine, or feel dizzy when standing up, MotherSafe says urgent medical treatment is recommended if these symptoms don't resolve quickly. Treatment in hospital may be needed, with fluids given through a drip. KEMH says to see a doctor urgently if your urine is very dark or you haven't passed any for more than eight hours.

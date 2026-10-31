@@ -17,14 +17,13 @@ sources:
   - title: healthdirect — Lead exposure and poisoning
     url: https://www.healthdirect.gov.au/healthy-living/toxins-and-poisoning/lead-poisoning
 related: [lead-exposure, cleaning-products, heavy-lifting, mould]
-draft: true
 checked: 2026-10-29
 ---
 With care. The risk of fumes from modern household paints harming your baby is low. The bigger risks are solvent-based paints and old paintwork that may contain lead.
 
 ## Why
 
-Paint containing lead was used in many Australian houses before 1971 (Pregnancy, Birth and Baby; healthdirect says homes built before 1970). There is no safe level of lead exposure, and lead can cross the placenta to your baby. It isn't clear how much paint exposure is safe, so it's best to be cautious.
+Paint containing lead was used in many Australian houses before 1971. There is no safe level of lead exposure, and lead can cross the placenta to your baby. It isn't clear how much paint exposure is safe, so it's best to be cautious.
 
 ## What to do
 

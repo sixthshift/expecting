@@ -14,7 +14,6 @@ sources:
   - title: Miscarriage Australia — Supporting someone who's had a miscarriage
     url: https://miscarriageaustralia.com.au/finding-miscarriage-support/for-family-and-friends/supporting-someone-after-miscarriage/
 related: [loss-support-services, grandparents-and-boundaries]
-draft: true
 checked: 2026-10-29
 ---
 If someone you love has lost a baby, during pregnancy or after, it's hard to know what to say. You can't take the grief away, but you can help them feel less alone. You don't need the perfect words. What matters most is showing up with kindness, patience and care. Take care you're ready too: you may be grieving as well, and that's normal.

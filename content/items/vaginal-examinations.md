@@ -22,7 +22,6 @@ sources:
   - title: Pregnancy, Birth and Baby — What happens to your body in childbirth
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-happens-to-your-body-in-childbirth
 related: [term-dilated, term-effaced, active-labour, slow-progress, stages-of-labour]
-draft: true
 checked: 2026-10-29
 ---
 In a vaginal examination (VE), the midwife or doctor feels inside your vagina to check your cervix: how far it has opened (dilation) and how thin it has become (effacement). It can also show how far the baby's head has come down into your pelvis.
@@ -45,7 +44,7 @@ In the second stage, there are signs your midwife and doctor can assess to know 
 ## What the numbers mean
 
 - **Up to 4 cm** is the latent (early) phase, in RANZCOG's guideline.
-- **From about 4 or 5 cm** is active labour; Pregnancy, Birth and Baby uses 4 cm and RANZCOG's guideline 5 cm.
+- **From about 4 to 5 cm** is active labour.
 - **10 cm** is fully dilated: the start of the second stage.
 
 Progress isn't judged on the cervix alone: your midwife or doctor also looks at your contractions, how far the baby has moved down, your wellbeing and your birth preferences. RANZCOG's guideline counts labour as slow when the cervix opens less than 2 cm in four hours from 5 cm.

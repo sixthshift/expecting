@@ -18,7 +18,6 @@ sources:
   - title: Gidget Foundation — A guide to coping with reminders of your pregnancy and/or child loss
     url: https://www.gidgetfoundation.org.au/fact-sheets/a-guide-to-coping-with-reminders-of-your-pregnancy-and-or-child-loss
 related: [after-a-miscarriage, stillbirth, something-has-happened, card-loss-certificate-exists]
-draft: true
 checked: 2026-10-29
 ---
 However far along you were, you're entitled to grieve and to honour your baby in any way you want. And if you don't feel the need to mark it, that's OK too: there's no right or wrong way.

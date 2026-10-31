@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Sleep during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
 related: [sleep-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 From 28 weeks until your baby is born, doctors recommend you sleep on your side, at night and for daytime naps. Left or right, or both: either side is fine. Research shows that sleeping on your side can reduce the risk of stillbirth, because lying on your back late in pregnancy presses on your major blood vessels and can reduce blood flow to the baby.

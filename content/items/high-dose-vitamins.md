@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
 related: [vitamin-a-supplements, pregnancy-multivitamins, cold-and-flu-tablets]
-draft: true
 checked: 2026-10-29
 ---
 Avoid them. Pregnancy, Birth and Baby says it's best to check with your midwife, doctor or dietitian before taking any vitamin, mineral or other supplement.

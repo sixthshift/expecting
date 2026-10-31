@@ -21,7 +21,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Emergency caesarean
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/emergency-caesarean
 related: [doulas, support-person-role, birth-preferences, emergency-caesarean]
-draft: true
 checked: 2026-10-29
 ---
 Having the right support people can shorten labour, lower how much pain relief you need, lower the chance of an assisted birth or caesarean, and make the experience better. Who that is, is up to you.

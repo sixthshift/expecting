@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Newborn bloodspot screening
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/neonatal-screening-test
 related: [newborn-checks, going-home]
-draft: true
 checked: 2026-10-29
 ---
 Every baby is offered newborn bloodspot screening, often called the heel prick test. It checks for some rare genetic conditions that are more easily treated if found early. It's done within the first 72 hours after birth. It's free, and it's not compulsory, but it is recommended.

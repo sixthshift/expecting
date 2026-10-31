@@ -6,7 +6,6 @@ weeks: [6, 14]
 type: moment
 topic: celebrations
 extra: announcing
-draft: true
 sources:
   - title: Pregnancy, Birth and Baby — When to tell people you are pregnant
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/when-to-tell-people-you-are-pregnant

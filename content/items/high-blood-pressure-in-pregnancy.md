@@ -9,6 +9,8 @@ weeks: [12, 42]
 stakes: high
 summary: "In pregnancy, 140 over 90 or more is high; it's common and usually settles after the birth, but it can be a sign of pre-eclampsia, so it means extra checks of you and the baby, and urgent care for a severe headache, blurred vision, sudden swelling or pain under the ribs."
 sources:
+  - title: healthdirect — Headaches
+    url: https://www.healthdirect.gov.au/headaches
   - title: Pregnancy, Birth and Baby — High blood pressure in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/high-blood-pressure-in-pregnancy
   - title: The Royal Women's Hospital — High blood pressure & preeclampsia
@@ -17,7 +19,6 @@ related: [pre-eclampsia, what-happens-at-each-visit, higher-risk-pregnancy]
 appointment:
   - What do my blood pressure readings mean?
   - Should I take something to lower my chance of pre-eclampsia?
-draft: true
 checked: 2026-10-29
 ---
 Your blood pressure is checked at every antenatal visit. In pregnancy it counts as high if the top number is 140 or more, or the bottom number is 90 or more ("140 over 90"). High blood pressure is a common problem in pregnancy and usually gets better after the birth. It may be a one-off, or a sign of pre-eclampsia, a more serious condition. The Royal Women's Hospital says high blood pressure should always be investigated.
@@ -49,4 +50,6 @@ If there are signs of pre-eclampsia, a team may care for you, including an obste
 
 ## When to get help
 
-**Seek medical attention urgently, or go to your local emergency department**, if you have a severe headache that doesn't get better with painkillers, blurred vision or flashing lights, sudden swelling of your hands, feet or face, or pain under your ribs or in your upper tummy.
+**Call 000** if you have a sudden, severe headache, or a headache with changes in your vision, vomiting or confusion, or a seizure.
+
+**Seek medical attention urgently, or go to your local emergency department**, if you have a severe headache that doesn't get better with painkillers, blurry vision or flashes of light, nausea, sudden swelling of your hands, feet or face, or pain under your ribs or in your upper tummy.

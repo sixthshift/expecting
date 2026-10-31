@@ -33,6 +33,6 @@ You don't need to buy everything new: buying second-hand or borrowing can save m
 
 **Cots and portable cots.** All new and second-hand cots and portable cots sold in Australia must meet their standard. Red Nose says it's noted in the instructions and often on a label, though second-hand cots don't require safety labels. Before using a second-hand cot, go through the cot safety checklist, and use it only with all parts in good working order and full instructions to set it up. Repair any broken or loose bars before the baby sleeps in it, and check old cots for lead-based paint.
 
-**A used mattress** is fine if it's firm, flat, clean, in good condition and the right size for the cot, fitting within 20 mm of the sides.
+**A used mattress** is fine if it's firm, flat, clean, in good condition and the right size for the cot, fitting within 2 cm of the sides and ends.
 
 **Car seats** are a separate, stricter question: see Second-hand car seats.

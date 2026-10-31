@@ -24,7 +24,6 @@ appointment:
   - What does my scan estimate mean for me?
   - Do I need a test for gestational diabetes?
   - Should we talk about an induction?
-draft: true
 checked: 2026-10-29
 ---
 A "big baby" (macrosomia) has no single definition. Queensland's clinical guideline describes it as a birth weight over 4000 to 4500 g at 40 weeks, or above the 90th centile for the estimated weight at that stage of pregnancy.

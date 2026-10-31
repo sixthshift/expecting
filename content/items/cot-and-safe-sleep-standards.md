@@ -42,7 +42,7 @@ Take a tape measure. Make sure:
 
 ## The mattress and bedding
 
-Red Nose: use a single firm, flat mattress that fits within 20 mm of the cot's sides and ends. Pregnancy, Birth and Baby puts the gap at no more than 2 cm with the mattress centred, and no more than 4 cm pushed to one side. Remove all plastic wrapping from a new mattress.
+Use a single firm, flat mattress that fits within 2 cm (20 mm) of the cot's sides and ends, with no more than 4 cm of gap when it's pushed to one side. Remove all plastic wrapping from a new mattress.
 
 Keep the cot clear: no bumpers, pillows, doonas, loose bedding, lambswool or sheepskin, or soft toys.
 

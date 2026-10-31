@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — What should I do if I think I'm having a miscarriage?
     url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-should-i-do-if-i-think-im-having-a-miscarriage
 related: [spotting-and-bleeding-in-early-pregnancy, bleeding-after-20-weeks, shoulder-tip-pain]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

@@ -18,7 +18,6 @@ sources:
 related: [safe-fish, liver, pregnancy-multivitamins]
 appointment:
   - Do I need a fish oil supplement, given what I eat?
-draft: true
 checked: 2026-10-29
 ---
 Yes, if you don't eat enough omega-3 from food. If your diet already has enough, MotherSafe says taking a supplement has no demonstrated benefit for you or your baby.

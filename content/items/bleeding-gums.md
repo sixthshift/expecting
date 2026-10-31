@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Injuries during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
 related: [nosebleeds, morning-sickness]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -25,3 +24,7 @@ Hormone changes can affect your teeth and gums, and it's common in pregnancy to 
 If your gums are bleeding, it's important to keep brushing gently: twice a day for 2 minutes with a soft toothbrush and fluoride toothpaste, and floss daily. If you vomit, rinse your mouth with plain water straight away and wait at least 30 minutes before brushing.
 
 **See a dentist.** Visit your dentist at least once during pregnancy, ideally in the first or second trimester. Most dental treatment is safe in pregnancy; tell the receptionist and your dentist that you're pregnant. If you have bleeding gums or pain in your gums or teeth, it's safe to see your dentist for treatment, and dental problems should be treated without delay.
+
+## See your doctor or midwife
+
+See your dentist as soon as possible if you have a toothache, or notice changes in your mouth that worry you.

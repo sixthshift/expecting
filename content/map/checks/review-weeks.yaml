@@ -1,0 +1,31 @@
+# Review, tier 2: the 42 week notes, read in order as one run
+# (docs/plan-review.md). 2026-10-31. Sources not reopened in this pass.
+
+voice:
+  - "'Ask your midwife or OB.' (40 notes) and 'Ask your GP.' (1, 5): leftover template lines, removed."
+  - "'the source says/suggests' (about 30 sentences): the reader never sees 'the source'; the advice now stands on its own."
+  - "she/her for the pregnant parent (8, 18, 19): removed or 'the pregnant parent'."
+  - "Beyond Blue's number written one way (22)."
+
+consistency:
+  - week: 9
+    was: "hearing 'a long way off, at about 24 weeks', where 15 says the baby starts to hear and 20 that it hears outside sounds"
+    now: "dropped from 9"
+  - week: 4
+    was: "'the embryo, now called a blastocyst': the blastocyst comes first; 5 calls it an embryo"
+  - week: 40
+    was: "induction 'if you go more than 10 to 12 days past'; 42 said 'often offered after 41 weeks'"
+    now: "reopening the sources showed 42's line was on no page; 40 keeps its source's 10 to 12 days, 42 gives no timing"
+  - week: 38
+    was: "'if your waters break … go to hospital immediately'; fluid-leaking says from 37 weeks to call and be told when to come in"
+    now: "call the birth unit; any bleeding is a call straight away"
+  - week: 35
+    was: "pre-eclampsia signs: 'see your doctor straight away'; the symptoms say contact your doctor, midwife or hospital immediately"
+  - week: 37
+    was: "expressing colostrum offered without the check leaking-colostrum asks for"
+  - weeks: [26, 27, 28, 29]
+    was: "the employer's 10-week notice repeated in five weeks running; kept in 24 (start drafting) and 30 (send it)"
+
+for the money pass:
+  - "29 and 30 call the pre-birth Parental Leave Pay claim 'due by about week 30' / a deadline; Services Australia sets a window to claim, not a week-30 deadline. Check and correct with the payments."
+  - "26 and 32: 'reserved' Parental Leave Pay days for the partner; check the current rules (from 1 July 2025 and 2026)."

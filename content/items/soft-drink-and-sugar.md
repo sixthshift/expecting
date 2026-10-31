@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Healthy diet during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/healthy-diet-during-pregnancy
 related: [cola-and-soft-drink, water, artificial-sweeteners, unpasteurised-juice]
-draft: true
 checked: 2026-10-29
 ---
 Limit them. Pregnancy, Birth and Baby lists sugar-sweetened drinks, such as soft drinks or cordial, among the foods to limit in pregnancy.

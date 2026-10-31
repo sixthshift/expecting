@@ -19,7 +19,6 @@ sources:
   - title: Births, Deaths and Marriages Victoria — Donor-conceived births
     url: https://www.bdm.vic.gov.au/donor-conceived-births
 related: [lgbtqia-families, partner-feeling-left-out, partner-after-a-loss]
-draft: true
 checked: 2026-10-29
 ---
 Expecting never assumes a dad: in this app you're the partner, and every partner entry is written for you too. Gidget writes for dads and non-birthing partners together, and the experience is shared: joy alongside feeling helpless when your partner is uncomfortable, worry about bonding, the pull to be "the strong one", and finding it hard to ask for help. Non-birthing partners can have perinatal depression and anxiety too, before or after the birth.

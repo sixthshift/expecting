@@ -18,14 +18,13 @@ sources:
   - title: Pregnancy, Birth and Baby — Your baby in the first few days
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-baby-in-the-first-few-days
 related: [term-apgar, newborn-bloodspot-screening, vitamin-k, hepatitis-b-birth-dose, baby-first-days]
-draft: true
 checked: 2026-10-29
 ---
 Your baby is checked a few times in the first days. Most of it is quick and happens while you're still in hospital or with a midwife at home.
 
 ## Straight after the birth
 
-- **The Apgar score.** A check of your baby's heart rate, breathing, colour, muscle tone and reflexes, done at 1 minute and 5 minutes after birth, and sometimes at 10 minutes. The maximum is 10, and 7 or above usually means your baby is doing well. It helps the team know whether your baby needs extra care straight away, and it doesn't predict your baby's health or development later on.
+- **The Apgar score.** A check of your baby's heart rate, breathing, colour, muscle tone and reflexes, done at 1 minute and 5 minutes after birth, and sometimes at 10 minutes. The maximum is 10, and 7 or above usually means your baby is doing well. It helps the team know whether your baby needs extra care straight away, and it isn't intended to predict how your baby's nervous system and brain will develop.
 - **Weight, length and head size.** Your midwife weighs and measures your baby and records the numbers on growth charts. They're taken again at your baby's later health checks.
 
 ## In the first days

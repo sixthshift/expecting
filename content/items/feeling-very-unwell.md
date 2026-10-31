@@ -15,7 +15,6 @@ sources:
   - title: healthdirect — Warning signs during pregnancy
     url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
 related: [fever, racing-heartbeat, breathlessness, abdominal-pain]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -43,6 +42,6 @@ Contact your doctor, midwife or hospital immediately if you have a fever or chil
 
 ## See your doctor or midwife
 
-See your doctor or midwife as soon as possible if you have symptoms of an infection, any symptom of sepsis, or you're feeling unwell during your pregnancy.
+See your doctor or midwife as soon as possible if you have symptoms of an infection, or you're feeling unwell during your pregnancy.
 
 Even if you're not sure, and something just doesn't feel right with you or your baby, it's best to get it checked.

@@ -11,9 +11,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
     url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
 related: [pre-eclampsia, signs-of-pre-eclampsia]
-draft: true
 checked: 2026-10-29
 ---
 **Pre-eclampsia** is a pregnancy complication that can develop after 20 weeks of pregnancy. Symptoms include high blood pressure and protein in the urine.
 
-If you're worried about the warning signs, see Signs of pre-eclampsia.
+If you're worried about the warning signs, see [The signs of pre-eclampsia](signs-of-pre-eclampsia).

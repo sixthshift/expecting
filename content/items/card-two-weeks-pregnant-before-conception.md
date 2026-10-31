@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Early signs of pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/early-signs-of-pregnancy
 related: [dating-scan]
-draft: true
 checked: 2026-10-29
 ---
 Your pregnancy is counted in weeks since the start of your last period, not since conception. Most babies are born about 38 weeks after conception, and because it is common to conceive about 2 weeks after a period, the pregnancy adds up to 40 weeks from the start of your last period.

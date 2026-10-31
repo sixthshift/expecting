@@ -22,12 +22,11 @@ related: [when-to-go-to-hospital, tens-machine, eating-and-drinking-in-labour, s
 appointment:
   - Is it OK for us to stay home in early labour, given my pregnancy?
   - When should we call the birth unit, given my pregnancy?
-draft: true
 checked: 2026-10-29
 ---
 Early labour (the latent phase) is when your cervix shortens, thins and begins to open. It can last many hours or even days. Contractions may be regular or irregular, and for some time you may feel very little. You may have a show (bloodstained mucus), lower back pain, period-like pain that comes and goes, loose bowels, or your waters may break.
 
-If you're comfortable and have had a normal pregnancy, you can usually stay at home. That applies whether you're planning a hospital birth, a birth centre, a home birth or a private midwife. The Royal Women's Hospital says research shows women labour much better if they stay home in the early stages.
+If you're comfortable and have had a normal pregnancy, you can usually stay at home. That applies whether you're planning a hospital birth, a birth centre, a home birth or a private midwife. Research shows people labour much better if they stay home in the early stages.
 
 ## Things that help
 
@@ -44,12 +43,12 @@ You can stay close, go for walks, encourage eating and drinking, time the contra
 
 You can contact your midwife or doctor any time you're unsure, need support, or want advice about when to travel. Sometimes just talking it through helps you relax.
 
-Pregnancy, Birth and Baby says that if you've had a normal and uncomplicated pregnancy, you should contact your birth unit when contractions are stronger and regular (around 3 to 4 minutes apart) or you can no longer manage at home. Other sources give different timings; see timing contractions. Also call if:
+If you've had a normal and uncomplicated pregnancy, contact your birth unit when your contractions become painful and regular (2 or more in 10 minutes) or you can no longer manage at home. Also call straight away if:
 
 - your waters break (note the time, colour and amount)
 - you're bleeding from your vagina
 - you planned a caesarean but go into labour first
-- your baby's movements change, or you're worried about them
+- your baby is moving less, their movements change, or you're worried about them ([The baby is moving less](baby-moving-less))
 
 If you live rurally or remotely, talk through what to do with your care provider ahead of time.
 

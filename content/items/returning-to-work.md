@@ -20,7 +20,6 @@ sources:
   - title: Services Australia — How to claim Child Care Subsidy
     url: https://www.servicesaustralia.gov.au/how-to-claim-child-care-subsidy
 related: [flexible-work-request, extending-parental-leave, keeping-in-touch-days, childcare-types, child-care-subsidy-claim]
-draft: true
 checked: 2026-10-29
 ---
 Going back to work after having a baby is your decision, and there's no "right" timeline. When you do go back, the law protects your job.

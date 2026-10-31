@@ -18,7 +18,6 @@ sources:
 related: [going-home, first-days-mum, caesarean-recovery, hospital-tour]
 appointment:
   - How long might I stay in hospital after the birth?
-draft: true
 checked: 2026-10-29
 ---
 You might spend a few hours or up to a few days in hospital. Pregnancy, Birth and Baby says how long depends on your recovery, whether you've had a caesarean, and whether you or your baby have any complications. Stays vary by hospital, so treat what follows as the shape of it, not a promise.

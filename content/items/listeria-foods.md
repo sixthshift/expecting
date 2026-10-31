@@ -13,9 +13,8 @@ sources:
   - title: Food Standards Australia New Zealand — Listeria in food
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
   - title: NSW Food Authority — Why avoid certain foods
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/why-avoid-certain-foods
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/why-avoid-certain-foods
 related: [soft-cheese, deli-meats, pate, sushi, pre-cut-fruit-and-salads, leftovers]
-draft: true
 checked: 2026-10-29
 ---
 ## Why

@@ -16,7 +16,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Pain in pregnancy
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Pain%20in%20Pregnancy.pdf
 related: [alcohol-before-you-knew, ibuprofen-and-nsaids, isotretinoin]
-draft: true
 checked: 2026-10-29
 ---
 If you took something before you found out you're pregnant, the answer depends on the medicine and when you took it, so tell your doctor, pharmacist or midwife what you took.

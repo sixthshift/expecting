@@ -14,7 +14,6 @@ sources:
   - title: Australian Immunisation Handbook — Vaccination for women who are planning pregnancy, pregnant or breastfeeding
     url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
 related: [first-blood-tests, live-vaccines-to-avoid]
-draft: true
 checked: 2026-10-29
 ---
 Rubella (German measles) is mild for adults but very dangerous for an unborn baby, causing miscarriage, stillbirth or serious problems such as deafness. It's uncommon in Australia thanks to childhood vaccination, and every pregnant person is recommended a blood test for rubella antibodies.

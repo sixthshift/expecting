@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — What happens to your body in childbirth
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-happens-to-your-body-in-childbirth
 related: [term-dilated, induction, membrane-sweep]
-draft: true
 checked: 2026-10-29
 ---
 Effaced means your cervix has shortened and become thinner. As labour gets closer the cervix softens and thins, getting ready to dilate (open). In the early (latent) phase of the first stage it moves forward, shortens, becomes thinner and begins to open.

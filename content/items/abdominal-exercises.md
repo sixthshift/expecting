@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Exercising during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
 related: [pilates, weights, exercise-lying-on-your-back, abdominal-separation]
-draft: true
 checked: 2026-10-29
 ---
 Not sit-ups or crunches. Keep working your core, but in a different way.

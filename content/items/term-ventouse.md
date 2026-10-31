@@ -14,7 +14,6 @@ sources:
   - title: RANZCOG — Assisted Birth (patient information)
     url: https://ranzcog.edu.au/wp-content/uploads/Assisted-Birth.pdf
 related: [assisted-birth]
-draft: true
 checked: 2026-10-29
 ---
 A ventouse (vacuum) is an instrument attached to the baby's head by suction. When the uterus contracts and you push, the doctor gently pulls on the soft cup to help the baby through the birth canal. More than one pull may be needed.

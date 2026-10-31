@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Healthy diet during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/healthy-diet-during-pregnancy
 related: [pre-cut-fruit-and-salads, soft-drink-and-sugar]
-draft: true
 checked: 2026-10-29
 ---
 Avoid unpasteurised fruit juice while you're pregnant. Small amounts of other juice are fine.

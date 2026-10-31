@@ -20,7 +20,6 @@ tasks:
     opens: 27
     due: 34
     who: together
-draft: true
 checked: 2026-10-29
 ---
 If you get Parental Leave Pay for a child born or adopted from 1 July 2025, the ATO pays a superannuation contribution on it, called the Paid Parental Leave Superannuation Contribution (PPLSC). Services Australia puts it at 12%; the ATO says it's based on the superannuation guarantee rate. It includes an interest component and is paid as a lump sum.

@@ -10,6 +10,8 @@ who: carrying
 stakes: high
 summary: "You need more sleep in pregnancy but tend to get worse sleep; from 28 weeks, go to sleep on your side, on either side, to help reduce the risk of stillbirth."
 sources:
+  - title: Pregnancy, Birth and Baby — Pre-eclampsia
+    url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
   - title: Pregnancy, Birth and Baby — Sleep during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
   - title: Pregnancy, Birth and Baby — Dealing with fatigue during your pregnancy
@@ -17,7 +19,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Insomnia in pregnancy and breastfeeding
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/insomnia-in-pregnancy-and-breastfeeding
 related: [heart-and-blood-in-pregnancy, card-vivid-dreams, card-sleep-on-your-side]
-draft: true
 checked: 2026-10-29
 ---
 You need more sleep than usual when you're pregnant, just as it gets harder to come by. Sleep is often lighter, you wake more, and you may feel especially tired at the beginning and towards the end of the pregnancy.
@@ -61,6 +62,4 @@ See your doctor or midwife if:
 - your sleep is disturbed by a health condition such as heartburn or restless legs, or you have trouble sleeping and you're worried it's affecting your or your baby's health
 - you feel anxious or depressed
 
-See your doctor if heartburn causes severe discomfort, or comes with swelling of your hands, feet or face, a headache or distorted vision.
-
-If you're having thoughts of suicide and are in immediate danger, call 000. Lifeline is on 13 11 14 and PANDA on 1300 726 306.
+See your doctor if heartburn causes severe discomfort. Heartburn with swelling of your hands, feet or face, a headache or distorted vision can be pre-eclampsia: contact your doctor, midwife or hospital immediately.

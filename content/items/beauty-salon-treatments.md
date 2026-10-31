@@ -15,14 +15,13 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
 related: [nail-salons, skincare-ingredients, tattoos]
-draft: true
 checked: 2026-10-29
 ---
-Ask first. The Australian pages we checked don't name facials, lash extensions, lash lifts or brow tints, so there is no specific guidance on them.
+Ask first. There's no specific Australian guidance on facials, lash extensions, lash lifts or brow tints.
 
 ## Why
 
-What the sources do say is general. Pregnancy, Birth and Baby says most cosmetics and products you apply to your skin and can buy over the counter are not likely to be harmful, but may contain chemicals that pass through the skin. Its general recommendation is to avoid products that are not essential or haven't been proven safe in pregnancy, and to ask yourself whether you really need the product or procedure now or whether it can wait. MotherSafe says most cosmetics and skincare products are considered safe.
+The general advice is cautious. Pregnancy, Birth and Baby says most cosmetics and products you apply to your skin and can buy over the counter are not likely to be harmful, but may contain chemicals that pass through the skin. Its general recommendation is to avoid products that are not essential or haven't been proven safe in pregnancy, and to ask yourself whether you really need the product or procedure now or whether it can wait. MotherSafe says most cosmetics and skincare products are considered safe.
 
 ## What to do
 

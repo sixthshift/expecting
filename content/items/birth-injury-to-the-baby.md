@@ -14,7 +14,6 @@ sources:
 related: [assisted-birth, shoulder-dystocia, newborn-checks, birth-trauma]
 appointment:
   - Is there anything about the baby's size or position you'd want to watch for at the birth?
-draft: true
 checked: 2026-10-29
 ---
 Having a baby in Australia is very safe, but about 1 in every 200 babies born in Australian hospitals has a birth injury (sometimes called neonatal birth trauma). Most are temporary and get better on their own. A birth injury is never due to anything you did or didn't do.

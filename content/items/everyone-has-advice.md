@@ -14,7 +14,6 @@ sources:
   - title: Gidget Foundation — Tips for managing anxiety and stress for new and expectant parents
     url: https://www.gidgetfoundation.org.au/fact-sheets/tips-for-managing-anxiety-and-stress-for-new-and-expectant-parents
 related: [grandparents-and-boundaries, antenatal-anxiety]
-draft: true
 checked: 2026-10-29
 ---
 A baby's arrival can trigger an influx of advice from family, friends and even strangers. The Gidget Foundation says most of it comes from people who want to feel useful or supportive. Some of it is welcome and helpful. Some of it is overwhelming, or confusing, particularly when it conflicts, and it can undermine the confidence of new parents. Health professionals can give conflicting advice too.

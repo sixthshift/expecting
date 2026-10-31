@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnant with twins
     url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy
 related: [twins-and-multiples-support]
-draft: true
 checked: 2026-10-29
 ---
 Most twin pregnancies go smoothly, but there are more risks, so you'll need more antenatal appointments and ultrasounds to pick up problems early. It's very important to find out whether your twins share a placenta, because that pregnancy needs careful monitoring.

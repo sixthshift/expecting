@@ -20,7 +20,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Vitamins and minerals in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/VitaminsmineralspandbupdateSept19.pdf
 related: [vitamin-a-supplements, prescription-medicines-ongoing, medicines-before-you-knew]
-draft: true
 checked: 2026-10-29
 ---
 No. Isotretinoin (Roaccutane, Oratane) can cause birth defects.
@@ -29,7 +28,7 @@ No. Isotretinoin (Roaccutane, Oratane) can cause birth defects.
 
 The Roaccutane consumer medicine information (CMI) says Roaccutane can cause birth defects (damage to unborn babies), and that if you fall pregnant while taking it there is an extremely high risk of having a baby that is severely deformed. It says not to use it if you are pregnant, or for at least one month before you plan to fall pregnant. healthdirect also lists isotretinoin as a medicine that isn't considered safe in pregnancy, and says to discuss it with your doctor or pharmacist.
 
-Some acne creams are a concern too. MotherSafe says tretinoin, a prescription acne cream, should not be used in pregnancy. The small amounts of vitamin A (retinol) in over-the-counter skin care are minimally absorbed, so those products are acceptable.
+Some acne creams are a concern too. MotherSafe says tretinoin, a prescription acne cream, should not be used in pregnancy. Over-the-counter retinol products are best paused too, though they're minimally absorbed, so past use isn't a concern.
 
 Acne often gets worse in pregnancy because of hormone changes, so it's worth knowing what you can use.
 

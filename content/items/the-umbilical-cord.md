@@ -18,7 +18,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Cord blood banking
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/cord-blood-banking
 related: [the-placenta, term-umbilical-cord, term-single-umbilical-artery, term-cord-prolapse]
-draft: true
 checked: 2026-10-29
 ---
 The umbilical cord is attached to the placenta and to your baby. It gives your baby the nutrients and oxygen they need to grow, and takes waste products away. After the birth the cord is clamped and cut, leaving a stump, which eventually falls off and heals to form the umbilicus (belly button).
@@ -33,4 +32,4 @@ Cord blood is the blood left in the cord and placenta after the birth. It's norm
 
 ## When to get help
 
-A cord prolapse is rare (about 1 in 600 births) but an emergency, because it can reduce your baby's oxygen. It's when the cord moves in front of the baby after your waters have broken. If your waters have broken and you feel the cord in your vagina, **call 000 and ask for an ambulance**. You may be asked to bring your knees to your chest with your head down while you wait. If your baby is not head down, Pregnancy, Birth and Baby says to go to hospital urgently if your waters break or you think you're going into labour.
+A cord prolapse is rare (about 1 in 600 births) but an emergency, because it can reduce your baby's oxygen. It's when the cord moves in front of the baby after your waters have broken. If your waters have broken and you feel the cord in your vagina, **call 000 and ask for an ambulance**. You may be asked to bring your knees to your chest with your head down while you wait. If your baby is not head down and your waters break, **call 000**. If you think you're going into labour, go to hospital urgently.

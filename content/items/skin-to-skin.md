@@ -16,7 +16,6 @@ sources:
   - title: Pregnancy, Birth and Baby — What is kangaroo care?
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/what-is-kangaroo-care
 related: [term-golden-hour, first-feed, caesarean-what-happens, special-care-nursery, birth-preferences]
-draft: true
 checked: 2026-10-29
 ---
 Skin-to-skin contact means holding your undressed baby (in just a nappy, and maybe a hat) on your bare chest, with a blanket or your clothes wrapped around you both for warmth. Pregnancy, Birth and Baby says it's encouraged in the first hour after birth, and many maternity hospitals encourage it straight after the birth if both you and the baby are well.

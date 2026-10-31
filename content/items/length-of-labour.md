@@ -16,7 +16,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Giving birth, second stage of labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-second-stage-of-labour
 related: [stages-of-labour, early-labour, slow-progress]
-draft: true
 checked: 2026-10-29
 ---
 Nobody can say how long yours will be. The first stage is the longest and its length varies widely between births; it's usually longer for a first birth and shorter if you've given birth before.
@@ -28,7 +27,7 @@ Nobody can say how long yours will be. The first stage is the longest and its le
 
 ## Second stage
 
-From full dilatation to the birth, the slow-progress page says it could last around 4 hours for a first baby and around 3 hours if you've had a baby before. The second-stage page says birth is generally expected within 3 hours of full dilatation for a first birth, or within 2 hours if you have given birth before. An epidural can make this stage take longer.
+From full dilatation, birth is generally expected within 3 hours for a first birth, or within 2 hours if you have given birth before. An epidural can make this stage take longer.
 
 ## When it's called slow
 

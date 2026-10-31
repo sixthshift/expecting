@@ -13,7 +13,6 @@ sources:
     url: https://www.gidgetfoundation.org.au/fact-sheets/gender-disappointment
 related: [gender-disappointment]
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 The Gidget Foundation says gender disappointment is real but can be hard to discuss, and that it can happen to any parent. With more focus on early testing and gender reveals, it may be harder to come to terms with. For some the distress is temporary; for others it can be very unsettling, with a lasting impact. Many feel shame or fear of being judged.

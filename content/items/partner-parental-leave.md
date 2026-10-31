@@ -21,7 +21,6 @@ sources:
   - title: Services Australia — How much Parental Leave Pay you can get
     url: https://www.servicesaustralia.gov.au/how-much-parental-leave-pay-you-can-get
 related: [partner-reserved-days, employer-leave-notice, unpaid-parental-leave, flexible-unpaid-parental-leave, parental-leave-pay-sharing]
-draft: true
 checked: 2026-10-29
 ---
 Parental leave isn't only for the pregnant parent. If you're the partner and you work, you have your own entitlement, your own paperwork and your own deadlines, and they run on the same rules.

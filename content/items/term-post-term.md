@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Working out your due date
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date
 related: [term-overdue, term-term, induction]
-draft: true
 checked: 2026-10-29
 ---
 A post-term birth is one at 42 or more completed weeks of pregnancy. Going past your due date to 41 to 42 weeks is called overdue.

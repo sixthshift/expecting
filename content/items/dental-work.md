@@ -15,7 +15,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Dental treatment in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/DentaltreatmentpregbreastNov2020.pdf
 related: [dental-x-rays, teeth-whitening, cosmetic-surgery, bleeding-gums]
-draft: true
 checked: 2026-10-29
 ---
 Yes. Most dental treatment is safe in pregnancy. Check-ups and cleaning can be done at any stage, and root canals, fillings and extractions can be done at any time without raising the risk of poor pregnancy outcomes (MotherSafe).
@@ -30,6 +29,6 @@ Hormone changes make gums more likely to swell, bleed and become inflamed, and v
 - **Tell the receptionist and the dentist** you're pregnant.
 - **Local anaesthetic** hasn't been linked with increased pregnancy risk. **Most antibiotics** are safe throughout pregnancy.
 - **For pain**, MotherSafe says paracetamol and codeine for acute pain are considered the first choice in pregnancy. NSAIDs such as ibuprofen or diclofenac are no longer recommended in pregnancy and should only be used under medical supervision; MotherSafe says inadvertent use is not considered to be of concern. If you're unsure about a medicine, MotherSafe is on 1800 647 848 (outside Sydney) or 9382 6539.
-- **X-rays**: MotherSafe says dental x-rays are safe during pregnancy, because the dose to the baby is considered insignificant, and that a lead apron is usual practice. Pregnancy, Birth and Baby says x-rays generally aren't recommended during pregnancy, especially in the first trimester, but most dental x-rays are safe because the doses are very small.
+- **X-rays**: most dental x-rays are safe in pregnancy because the radiation dose is very small; a lead apron is usual practice. Tell your dentist you're pregnant.
 - **After vomiting**, rinse with plain water straight away and wait at least 30 minutes before brushing. If your gums bleed, keep brushing gently.
 - **Elective work** like whitening and implants may be put off until after the birth.

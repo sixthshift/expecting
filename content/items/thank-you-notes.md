@@ -6,7 +6,6 @@ weeks: [28, 40]
 type: moment
 topic: celebrations
 extra: thank-you-notes
-draft: true
 tasks:
   - id: start-gift-list
     title: Start a shared list of gifts and who gave them

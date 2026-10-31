@@ -19,7 +19,6 @@ sources:
   - title: Better Health Channel — Pregnancy and travel
     url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
 related: [long-drives, hot-weather, travel-in-pregnancy, camping-and-the-bush]
-draft: true
 checked: 2026-10-29
 ---
 Talk it through with your midwife or doctor before you plan the route. Pregnancy, Birth and Baby says it's not recommended to travel to very remote areas while pregnant.
@@ -35,4 +34,4 @@ You can get pregnancy care anywhere in Australia on Medicare, but maternity care
 - **Take your records** and a letter from your doctor or midwife listing any medical problems and a short pregnancy history.
 - **Plan the days:** break the drive at least every 2 hours, keep travel and outdoor tasks out of the hottest part of the day, carry water and rest between activities.
 - **Carry a mobile phone** and consider roadside assistance.
-- **Heatstroke is an emergency:** Pregnancy, Birth and Baby says to call triple zero (000) immediately and ask for an ambulance if you have symptoms of heatstroke, such as hot, dry skin with no sweating or a body temperature above 40 °C. Get emergency medical care for symptoms such as hot, dry skin with no sweating, a sudden rise in temperature to more than 40 °C, severe dehydration, rapid breathing, vomiting, confusion or slurred speech, or loss of consciousness or seizures.
+- **Heatstroke is an emergency:** call triple zero (000) for hot, dry skin with no sweating, a temperature over 40 °C, rapid breathing, vomiting, confusion or slurred speech, or collapse or seizures.

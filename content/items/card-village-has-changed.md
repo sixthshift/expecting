@@ -12,7 +12,6 @@ sources:
   - title: Gidget Foundation — How can support people help expectant and new parents?
     url: https://www.gidgetfoundation.org.au/fact-sheets/how-can-support-people-help-expectant-and-new-parents
 related: [building-your-village, grandparents-and-boundaries]
-draft: true
 checked: 2026-10-29
 ---
 The Gidget Foundation says the idea of a "village" has changed, with so many people living away from their families of origin, which lessens the support available when it's most needed. Its page is written for the people around you, and its ideas show what to ask for: a meal that's easy to reheat, someone to take your toddler to the park, shopping, a clean-up, or just regular contact without pressure to reply. Helpful support is both emotional and practical.

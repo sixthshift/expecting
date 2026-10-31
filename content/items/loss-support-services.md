@@ -20,7 +20,6 @@ sources:
   - title: Gidget Foundation — Stillbirth
     url: https://www.gidgetfoundation.org.au/fact-sheets/stillbirth
 related: [something-has-happened, miscarriage, stillbirth, partner-after-a-loss]
-draft: true
 checked: 2026-10-29
 ---
 Whatever the loss, and however early, there are people whose work is to sit with you in it. These services are free, and they are for partners and families as well as the person who was pregnant.
@@ -28,7 +27,7 @@ Whatever the loss, and however early, there are people whose work is to sit with
 ## To talk now
 
 - **Red Nose Grief and Loss: 1300 308 307, 24 hours a day, 7 days a week.** Free support by phone for people affected by pregnancy loss, stillbirth, or the death of a baby or child.
-- **Pink Elephants Pregnancy Loss Helpline, delivered by PANDA: 1300 726 306.** Counselling and support, Monday to Friday 9am to 7:30pm, and Saturdays and public holidays 9am to 4pm (AEST).
+- **Pink Elephants Pregnancy Loss Helpline, delivered by PANDA: 1300 726 306.** Counselling and support, Monday to Friday 9am to 7:30pm, and Saturdays, Sundays and public holidays 9am to 4pm (AEST).
 - **ForWhen: 1300 24 23 22**, 9am to 4:30pm weekdays, to connect you with local services.
 
 ## People who have been there

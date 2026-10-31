@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Giving birth, early signs of labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
 related: [sleep-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy, Birth and Baby lists a sudden burst of energy and the urge to prepare for the baby, known as "nesting", among the early signs of labour. It sits in a list of things you may notice, alongside your baby dropping deeper into your pelvis and more pressure on your bladder, and they note you may also have Braxton Hicks contractions in the weeks before labour.

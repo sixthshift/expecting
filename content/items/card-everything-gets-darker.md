@@ -14,9 +14,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 7
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-7
 related: [skin-in-pregnancy, term-linea-nigra]
-draft: true
 checked: 2026-10-29
 ---
-Areas of your skin that are pigmented may become even darker, such as moles, freckles, the areola of the breasts, the vulva, inner thighs and armpits. The week 7 page also mentions the areola may be darker.
+Areas of your skin that are pigmented may become even darker, such as moles, freckles, the areola of the breasts, the vulva, inner thighs and armpits. The areola may already be darker by around week 7.
 
 You may develop a dark line down the middle of your abdomen, called a linea nigra, which is not dangerous and will usually go away. Chloasma, pigmentation over your nose, cheeks and neck, may also happen. After your baby is born the darkened skin will usually fade and disappear with time.

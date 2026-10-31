@@ -9,6 +9,8 @@ weeks: [40, 42]
 stakes: medium
 summary: "You'll usually be up with help in the first day or two and home within a few days; walk gently every day, keep the wound clean and dry, lift nothing heavier than your baby, and call straight away for a fever, a smelly discharge or a red, swollen wound."
 sources:
+  - title: Pregnancy, Birth and Baby — Postpartum haemorrhage
+    url: https://www.pregnancybirthbaby.org.au/postpartum-haemorrhage
   - title: Pregnancy, Birth and Baby — Recovery after a caesarean
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/recovery-after-a-caesarean
   - title: King Edward Memorial Hospital — Going home
@@ -19,7 +21,6 @@ related: [caesarean-what-happens, planned-caesarean, emergency-caesarean, breast
 appointment:
   - Which pain relief would suit me after a caesarean?
   - When could I drive again after a caesarean?
-draft: true
 checked: 2026-10-29
 ---
 Recovery after a caesarean usually takes longer than after a vaginal birth.
@@ -30,7 +31,7 @@ Midwives and nurses look after you in the recovery room until you're ready for t
 
 ## In hospital
 
-Pregnancy, Birth and Baby's page on caesarean recovery says you'll usually stay 2 to 5 days, and its page on being at home says you're likely to go home 48 to 72 hours after a caesarean; King Edward Memorial Hospital says 24 to 72 hours if you and your baby are well enough.
+If you and your baby are well enough, you'll usually go home 2 to 3 days (48 to 72 hours) after a caesarean.
 
 - **Pain.** You'll feel pain for at least a few days. Tell the midwives: managing it helps your recovery, and they'll guide you on how much pain relief you can safely take.
 - **Getting up.** You stay in bed until the epidural or spinal wears off, doing breathing and leg exercises. A nurse or midwife helps you out of bed the first time, usually in the first 1 to 2 days, and with your first shower. Then walk gently every day to lower your chance of a chest infection or blood clots.
@@ -58,4 +59,5 @@ An unexpected or emergency caesarean can be traumatic. Talk to a midwife about i
 - redness or swelling around your wound
 - smelly discharge from your wound or vagina
 - pain when you wee
-- heavy bleeding from your vagina
+
+**Heavy bleeding from your vagina.** If you're bleeding heavily after the birth (soaking a pad every hour or two, or passing large clots), go to your hospital's emergency department straight away. Call triple zero (000) and ask for an ambulance if you gave birth in the last 24 hours, or you feel unwell, dizzy or clammy, your heart is racing or you're short of breath.

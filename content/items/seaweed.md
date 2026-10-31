@@ -17,7 +17,6 @@ sources:
   - title: Food Standards Australia New Zealand — Iodine and pregnancy
     url: https://www.foodstandards.gov.au/consumer/nutrition/pregnancy/iodine-and-pregnancy
 related: [iodine, sushi]
-draft: true
 checked: 2026-10-29
 ---
 In moderation. FSANZ says pregnant and breastfeeding people should eat no more than one serve a week of brown seaweed, such as kelp.

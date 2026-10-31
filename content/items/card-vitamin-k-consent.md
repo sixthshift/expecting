@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Baby's first 24 hours
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/babys-first-24-hours
 related: [vitamin-k, birth-preferences]
-draft: true
 checked: 2026-10-29
 ---
 It's recommended that all babies are given a vitamin K injection within a few hours of birth, and it will only be given with your permission. So someone will ask you, in those first hours.

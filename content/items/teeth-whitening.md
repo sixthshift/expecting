@@ -7,7 +7,7 @@ ask: Can I whiten my teeth?
 aliases: [teeth whitening, whitening strips, whitening kit, bleaching teeth, Zoom whitening, whitening toothpaste]
 who: carrying
 stakes: low
-summary: "Wait: healthdirect says teeth whitening is not recommended if you are pregnant or breastfeeding, and Pregnancy, Birth and Baby says it may be put off until after the birth."
+summary: "Wait: teeth whitening is not recommended if you are pregnant or breastfeeding."
 verdict: avoid
 sources:
   - title: healthdirect — Teeth whitening
@@ -15,10 +15,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Looking after your teeth during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/looking-after-your-teeth-during-pregnancy
 related: [dental-work, dental-x-rays]
-draft: true
 checked: 2026-10-29
 ---
-Wait if you can. healthdirect lists being pregnant or breastfeeding among the reasons teeth whitening is not recommended. Pregnancy, Birth and Baby says some elective dental treatments, such as tooth whitening, may be put off until after your baby is born.
+Wait. Teeth whitening is not recommended if you are pregnant or breastfeeding.
 
 ## Why
 

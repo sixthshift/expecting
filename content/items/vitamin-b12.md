@@ -24,14 +24,13 @@ related: [iron, iodine, fish-oil, soy-foods]
 appointment:
   - Do I need a B12 supplement, and how much?
   - Would seeing a dietitian help me?
-draft: true
 checked: 2026-10-29
 ---
 Yes. Vitamin B12 comes mainly from animal foods and supports the development of your baby's nervous system, so a vegetarian or vegan pregnancy usually needs a supplement.
 
 ## Why
 
-The sources word it differently. Pregnancy, Birth and Baby says your midwife or doctor may suggest B12 if you follow a vegetarian or vegan diet. MotherSafe says vegetarian and vegan mothers should take B12 while pregnant and breastfeeding. The Royal Women's Hospital says that if you don't eat animal foods you will need to take it.
+If you don't eat animal foods, you'll need to take B12, while pregnant and while breastfeeding.
 
 A lack of B12, like a lack of folate, can also cause anaemia in pregnancy.
 

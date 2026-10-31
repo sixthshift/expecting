@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Acne during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/skin-changes-during-pregnancy-acne
 related: [skin-darkening, pregnancy-rash]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

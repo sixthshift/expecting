@@ -6,7 +6,6 @@ weeks: [20, 34]
 type: moment
 topic: celebrations
 extra: maternity-photos
-draft: true
 tasks:
   - id: book-maternity-shoot
     title: Book the maternity photographer

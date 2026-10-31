@@ -11,9 +11,8 @@ summary: "Yes: the NSW Food Authority lists all soy products, including tofu, so
 verdict: yes
 sources:
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
 related: [milk-and-yoghurt, calcium, peanuts-and-allergens]
-draft: true
 checked: 2026-10-29
 ---
 Yes.

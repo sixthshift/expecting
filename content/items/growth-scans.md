@@ -20,13 +20,12 @@ appointment:
   - Why are you recommending a growth scan for me?
   - What did my growth scan show?
   - Will I need more scans after this one?
-draft: true
 checked: 2026-10-29
 ---
 The morphology scan at 18 to 22 weeks is the routine one. After that, your doctor or midwife might recommend extra ultrasounds if there's a reason, such as:
 
 - **pregnancy complications**
-- **worries about the baby's movements**
+- **worries about the baby's movements.** If the baby is moving less, don't wait for a scan: contact your midwife or birth unit straight away. See [The baby is moving less](baby-moving-less).
 - **a bump that isn't growing as expected.** Your doctor or midwife measures and tracks the growth of your uterus at check-ups, and a scan can show whether the baby is growing as expected.
 - **a low placenta.** If the morphology scan found your placenta low or covering the cervix, you'll be offered another scan at around 32 to 34 weeks to check where it has ended up.
 
@@ -34,7 +33,7 @@ The morphology scan at 18 to 22 weeks is the routine one. After that, your docto
 
 **What it's like.** Ultrasound is safe and pain-free, with no radiation, and doesn't increase the risk of miscarriage or harm to the baby. A scan usually takes around 30 minutes, and the results are often ready the same day, though it can take longer. The full report goes to your doctor or midwife: talk the results through with them.
 
-**What it can lead to.** A scan can reassure you that the baby is developing normally. If your doctor suspects placental insufficiency (the placenta not working well), closer monitoring with more scans, sometimes advice to give birth at a major hospital, and an induction or caesarean before your due date if there are signs the baby isn't well.
+**What it can lead to.** A scan can reassure you that the baby is developing normally. If your doctor suspects placental insufficiency (the placenta not working well), it can lead to closer monitoring with more scans, sometimes advice to give birth at a major hospital, and an induction or caesarean before your due date if there are signs the baby isn't well.
 
 **Cost.** Medicare covers some of the cost of scans, but there may be out-of-pocket costs depending on where you go. Ask when you book.
 

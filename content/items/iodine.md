@@ -15,7 +15,6 @@ sources:
   - title: Food Standards Australia New Zealand — Iodine and pregnancy
     url: https://www.foodstandards.gov.au/consumer/nutrition/pregnancy/iodine-and-pregnancy
 related: [folic-acid, seaweed, pregnancy-multivitamins]
-draft: true
 checked: 2026-10-29
 ---
 Yes. The National Health and Medical Research Council (NHMRC) recommends that everyone who is pregnant, breastfeeding or considering pregnancy takes an iodine supplement of 150 micrograms (µg) each day.

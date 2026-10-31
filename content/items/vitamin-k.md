@@ -18,7 +18,6 @@ related: [hepatitis-b-birth-dose, newborn-checks, birth-preferences]
 appointment:
   - Can we talk through the vitamin K options for our baby?
   - Could our baby have the drops, if we chose them?
-draft: true
 checked: 2026-10-29
 ---
 Vitamin K helps blood to clot. Babies don't get enough of it during pregnancy or from breast milk, and without it they're at risk of vitamin K deficiency bleeding (VKDB). VKDB is very rare, affecting fewer than 1 in 100,000 babies, but it can be very serious: it can cause bleeding in the baby's brain, which may lead to brain damage or death. It mainly affects breastfed babies. By about 6 months, babies have their own supply.

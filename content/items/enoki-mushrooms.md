@@ -15,9 +15,8 @@ sources:
   - title: Food Standards Australia New Zealand — Listeria monocytogenes and imported fresh enoki mushrooms
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/listeria-monocytogenes-and-imported-fresh-enoki-mushrooms
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
 related: [sprouts, fruit-and-vegetables]
-draft: true
 checked: 2026-10-29
 ---
 Only thoroughly cooked. FSANZ advises everyone not to eat enoki mushrooms raw, and the NSW Food Authority calls raw or lightly cooked enoki "do not eat (high risk)" in pregnancy.

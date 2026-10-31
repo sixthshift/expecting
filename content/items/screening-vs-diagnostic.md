@@ -20,7 +20,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Chorionic villus sampling (CVS)
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/chorionic-villus-sampling-cvs
 related: [first-trimester-screening, nipt, cvs, amniocentesis, high-chance-result]
-draft: true
 checked: 2026-10-29
 ---
 A **screening test**, such as combined first trimester screening or NIPT, estimates the chance your baby has a condition. A high-chance result isn't a diagnosis, and a screen can miss some babies who have it.

@@ -20,7 +20,6 @@ sources:
   - title: Miscarriage Australia — Taking time off work
     url: https://miscarriageaustralia.com.au/after-a-miscarriage/ive-just-miscarried-what-happens-now/taking-time-off-work/
 related: [miscarriage, after-a-miscarriage, loss-support-services, partner-after-a-loss, remembering-the-baby, loss-and-work, pregnancy-after-loss, first-trimester-screening, baby-in-the-nicu]
-draft: true
 checked: 2026-10-29
 ---
 We're so sorry. Whatever has happened, you don't need to do anything here right now.
@@ -59,7 +58,7 @@ Expecting has these, one at a time, whenever you want them:
 
 - what happens to your body now
 - the medical choices, if they're still open
-- time off work: under the National Employment Standards (Fair Work Ombudsman) employees, including casuals, are entitled to 2 days of compassionate (bereavement) leave each time they have a miscarriage or their partner does, or a baby in their immediate family or household is stillborn; it's paid for full-time and part-time employees and unpaid for casuals, and awards and agreements can give more
+- time off work: each of you can take 2 days' compassionate leave, and more after a stillbirth
 - certificates and ways to remember your baby
 - telling people
 - the partner's grief

@@ -19,7 +19,6 @@ sources:
   - title: Food Standards Australia New Zealand — Food safety for vulnerable people
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
 related: [sashimi-and-raw-fish, safe-fish, canned-fish]
-draft: true
 checked: 2026-10-29
 ---
 ## Why

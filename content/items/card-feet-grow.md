@@ -1,6 +1,6 @@
 ---
 id: card-feet-grow
-title: "Your feet can grow a size, and it may not come back"
+title: "Your feet may grow"
 type: card
 topic: body
 ask: "Why don't my shoes fit?"
@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Changes to your body during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
 related: [ligaments-and-joints-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Around 19 weeks, Pregnancy, Birth and Baby says you may find your feet grow too. This is because your ligaments are stretching to help you carry the extra weight and support your pregnancy. Pregnancy hormones soften the ligaments, and feet are among the joints that can be affected.

@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Urinary tract infections (UTIs) during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/urinary-tract-infections-utis-during-pregnancy
 related: [antibiotics, water]
-draft: true
 checked: 2026-10-29
 ---
 See your midwife or doctor if you have any symptoms of a UTI. Don't delay getting antibiotics: an infection can develop quickly and cause problems for you and your baby.

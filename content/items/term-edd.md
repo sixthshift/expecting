@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Working out your due date
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date
 related: [term-lmp, dating-scan, term-term]
-draft: true
 checked: 2026-10-29
 ---
-EDD is the estimated due date; the glossary lists EBD (estimated birth date) as the same thing. It's only an estimate: your baby is "due" around 40 weeks after the first day of your last period, and only about 5 out of 100 babies are born on their actual due date. (The glossary says 40 weeks from conception; the due date page counts from your last period.)
+EDD is the estimated due date; the glossary lists EBD (estimated birth date) as the same thing. It's only an estimate: your baby is "due" around 40 weeks after the first day of your last period, and only about 5 out of 100 babies are born on their actual due date.

@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
 related: [custard-and-desserts, listeria-foods]
-draft: true
 checked: 2026-10-29
 ---
 ## Why

@@ -15,14 +15,13 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
 related: [hair-dye, nail-salons]
-draft: true
 checked: 2026-10-29
 ---
 Avoid straightening treatments that contain formaldehyde. Pregnancy, Birth and Baby says some hair straightening treatments contain it, and that while there is no evidence it can harm unborn babies, it is a known carcinogen and should be avoided.
 
 ## Why
 
-The two sources lean slightly differently. MotherSafe says actual exposure to an unborn baby from hair treatments such as colouring and straightening is minimal, because they are applied to the hair and scalp, and that you can safely have your hair done in pregnancy. Pregnancy, Birth and Baby draws the line at formaldehyde.
+Exposure to your baby from hair treatments such as colouring and straightening is minimal, because they are applied to the hair and scalp. Formaldehyde is the exception: it's a known carcinogen.
 
 ## What to do
 

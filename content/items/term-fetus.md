@@ -13,7 +13,6 @@ sources:
   - title: "Pregnancy, Birth and Baby — Conception and fetal development"
     url: https://www.pregnancybirthbaby.org.au/fertility-and-conception/conception/conception-and-fetal-development
 related: [term-embryo, how-your-baby-develops]
-draft: true
 checked: 2026-10-29
 ---
 Fetus is a medical term for an unborn baby growing in the uterus. Pregnancy, Birth and Baby marks the fetal stage as week 11 until birth, when your baby and their organs continue to develop.

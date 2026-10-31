@@ -13,7 +13,6 @@ sources:
   - title: Australian Institute of Health and Welfare — Mothers and babies glossary
     url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary
 related: [dating-scan, term-completed-weeks, term-lmp, term-edd]
-draft: true
 checked: 2026-10-29
 ---
-Gestational age describes how far along you are in your pregnancy. It can be measured from the first day of your last menstrual period (LMP) to the current date, in weeks and days, for example 38+1. The AIHW says it can also be worked out by ultrasound, or from a clinical assessment during pregnancy.
+Gestational age describes how far along you are in your pregnancy. It can be measured from the first day of your last menstrual period (LMP) to the current date, in weeks and days, for example 38+1. It can also be worked out by ultrasound, or from a clinical assessment during pregnancy.

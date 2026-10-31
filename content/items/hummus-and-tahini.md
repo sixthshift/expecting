@@ -11,13 +11,12 @@ summary: "Avoid hummus, tahini and other sesame pastes in pregnancy, store-bough
 verdict: avoid
 sources:
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
   - title: Food Standards Australia New Zealand — Food safety for vulnerable people
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
   - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
 related: [pre-cut-fruit-and-salads, listeria-foods]
-draft: true
 checked: 2026-10-29
 ---
 Best avoided. All three Australian sources agree: the NSW Food Authority calls hummus, tahini and other sesame pastes "do not eat (high risk)", whether store-bought or home-made; FSANZ lists hummus and tahini, including dips containing tahini, as higher-risk foods; and Pregnancy, Birth and Baby says it's best to avoid all sesame products, including hummus, tahini and halva.

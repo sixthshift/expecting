@@ -17,7 +17,6 @@ sources:
   - title: Royal Women's Hospital — Common concerns in early pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
 related: [morning-sickness]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

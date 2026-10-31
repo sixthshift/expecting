@@ -10,6 +10,8 @@ who: carrying
 stakes: medium
 summary: "Sleep problems affect about 1 in 2 pregnancies; from 28 weeks go to sleep on your side, which lowers the risk of stillbirth, and see your doctor if poor sleep worries you or you've started snoring."
 sources:
+  - title: Pregnancy, Birth and Baby — Pre-eclampsia
+    url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
   - title: Pregnancy, Birth and Baby — Sleep during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
   - title: Pregnancy, Birth and Baby — Insomnia in pregnancy and breastfeeding
@@ -21,7 +23,6 @@ sources:
 related: [tiredness, vivid-dreams, snoring, restless-legs, leg-cramps, heartburn, frequent-urination]
 appointment:
   - What help is there for my sleep that isn't medicine?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -39,13 +40,14 @@ What else helps:
 
 Your doctor or midwife will likely recommend a non-medicine treatment first, such as behavioural and psychological treatments; cognitive behaviour therapy is a treatment of choice. Herbal remedies aren't recommended in pregnancy, nor are melatonin or suvorexant. Speak with your doctor before taking anything.
 
-## Call 000 or go to emergency
+## Contact your hospital now
 
-If you're having suicidal thoughts and are in immediate danger, call triple zero (000). If you're extremely distressed or having suicidal thoughts, Lifeline is on 13 11 14.
+Heartburn that comes with swelling of your hands, feet or face, a headache or distorted vision can be pre-eclampsia: contact your doctor, midwife or hospital immediately.
 
 ## See your doctor or midwife
 
 - you have trouble sleeping and are worried it's affecting your or your baby's health
 - you started snoring during pregnancy
-- heartburn is causing severe discomfort, or comes with swelling of your hands, feet or face, a headache or distorted vision
+- heartburn is causing severe discomfort
 - you still have trouble sleeping after trying these tips
+- you're lying awake with worry, or feeling low (see [Lying awake worrying](worry-and-sleep))

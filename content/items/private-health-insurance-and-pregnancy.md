@@ -17,7 +17,6 @@ sources:
   - title: The Royal Women's Hospital — Pregnancy care & birthing options
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/pregnancy-care-birthing-options
 related: [private-obstetrician, obstetrician-out-of-pocket-costs, what-medicare-covers, private-patient-in-a-public-hospital]
-draft: true
 checked: 2026-10-29
 tasks:
   - id: check-health-fund-obstetrics-cover

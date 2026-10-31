@@ -17,7 +17,6 @@ sources:
   - title: Food Standards Australia New Zealand — Food safety for vulnerable people
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
 related: [hard-and-safe-cheeses, listeria-foods, deli-meats]
-draft: true
 checked: 2026-10-29
 ---
 ## Why
@@ -28,6 +27,6 @@ Soft, semi-soft and surface-ripened cheeses, such as brie, camembert, ricotta, f
 
 - Skip these cheeses cold: on a cheese board, crumbled through a salad, in a sandwich.
 - Cooked is fine. Once the cheese has been heated to at least 75°C and you eat it straight away, it's safe: baked brie, or feta on a pizza hot from the oven.
-- Safer choices cold are hard cheeses, pasteurised cream cheese and plain cottage cheese.
+- Safer choices cold are hard cheeses, mozzarella, and pasteurised cream cheese or plain cottage cheese eaten within 2 days of opening.
 
 If you've already eaten some, listeriosis is rare. Its early symptoms can look like a mild flu (fever, headache, tiredness, aches), and in pregnancy it's important to seek medical attention immediately if you get them.

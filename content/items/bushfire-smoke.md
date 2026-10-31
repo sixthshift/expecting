@@ -19,7 +19,6 @@ sources:
 related: [hot-weather, gas-heaters, exercise-in-pregnancy]
 appointment:
   - Is there anything about my health that means I should take extra care with smoke?
-draft: true
 checked: 2026-10-29
 ---
 Limit your exposure. Bushfire smoke can cause serious health effects, and healthdirect lists being pregnant among the things that put you more at risk during a bushfire. NSW Health says that if you are pregnant you may be more sensitive to the effects of smoke.
@@ -38,4 +37,4 @@ NSW Health says brief exposure to bushfire smoke during pregnancy is unlikely to
 - **Don't smoke or burn candles or incense** during a bushfire.
 - **In hot weather**, spend time indoors with the windows and doors closed, preferably with air conditioning, drink plenty, and skip intense outdoor activity.
 - **Have a plan**: if you live, work or travel near bush, grassland or farmland, make a bushfire survival plan and an emergency kit that covers your health needs.
-- **If you have any symptoms**, speak to your doctor. **If symptoms are severe or getting worse, call triple zero (000)** and ask for an ambulance.
+- **If you have any symptoms**, speak to your doctor. **If you have trouble breathing or chest pain, or symptoms are severe or getting worse, call triple zero (000)** and ask for an ambulance.

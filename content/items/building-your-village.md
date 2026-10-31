@@ -16,7 +16,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Single parenting
     url: https://www.pregnancybirthbaby.org.au/parenting-and-family/relationships-and-support/single-parenting
 related: [grandparents-and-boundaries, family-overseas, single-and-solo-parents]
-draft: true
 checked: 2026-10-29
 ---
 The village has changed. Many parents live away from their families and don't have a close network of friends, so there's less help when it's most needed. New parents often leave work, social groups and sport behind and spend long stretches home alone with the baby, and that isolation, on top of everything else changing, can make a mental health problem more likely. Gidget's advice is to build a support network as part of planning for the baby. Asking for help doesn't mean you're not coping or not a good parent.
@@ -57,4 +56,4 @@ PBB says other single parents may be your best source of support. Local groups, 
 
 ## When it's more than tired
 
-Perinatal depression and anxiety affect 1 in 5 mums and 1 in 10 partners or dads. Gidget tells supporters to take it seriously if someone seems low, overwhelmed, quick to anger or distant from the baby, and to help them get support, such as an appointment with their GP. Words like "my family would be better off without me" need to be taken seriously. Lifeline gives 24/7 crisis support on 13 11 14; call 000 if anyone is in immediate danger.
+Perinatal depression and anxiety affect 1 in 5 birthing parents and 1 in 10 partners. Gidget tells supporters to take it seriously if someone seems low, overwhelmed, quick to anger or distant from the baby, and to help them get support, such as an appointment with their GP. Words like "my family would be better off without me" need to be taken seriously. Lifeline gives 24/7 crisis support on 13 11 14; call 000 if anyone is in immediate danger.

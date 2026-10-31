@@ -21,14 +21,13 @@ sources:
 related: [exercise-in-pregnancy, running, hot-weather]
 appointment:
   - Is vigorous exercise okay for me?
-draft: true
 checked: 2026-10-29
 ---
 Keep it moderate. You're working at a good level when you can talk normally but couldn't sing, and you aren't getting exhausted quickly.
 
 ## Why
 
-Your heart already works harder in pregnancy: it enlarges and pumps faster, and your resting heart rate goes up. That leaves a smaller range between resting and a safe maximum, so the Royal Women's Hospital says to moderate the intensity. Better Health says not to use a target heart rate to judge effort, and suggests going by how hard you feel your body is working (the Borg perceived exertion scale). Its page also says to "always work at less than 75 per cent of your maximum heart rate"; it gives both lines and doesn't reconcile them.
+Your heart already works harder in pregnancy: it enlarges and pumps faster, and your resting heart rate goes up. That leaves a smaller range between resting and a safe maximum, so the Royal Women's Hospital says to moderate the intensity. Better Health says not to use a target heart rate to judge effort, and suggests going by how hard you feel your body is working (the Borg perceived exertion scale).
 
 Hard exercise also heats you up, and your core temperature can rise to a level that isn't safe for the baby.
 

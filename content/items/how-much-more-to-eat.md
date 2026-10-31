@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Appetite changes and food aversions during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/appetite-changes-and-food-aversions-during-pregnancy
 related: [eating-well-in-pregnancy, weight-gain-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy, Birth and Baby says you don't have to "eat for 2". In the first 3 months you probably won't need many extra kilojoules. In the second and third trimesters you'll need to increase your kilojoule intake, and to stay healthy it says to just eat a bit more vegetables, lean protein and wholegrains every day. You may find it hard to eat larger meals, so try smaller meals and healthy snacks through the day.
@@ -34,4 +33,4 @@ Appetite changes are very common. You might lose your appetite, or find your pre
 
 If your nausea stops you eating well, see your doctor, especially if you're vomiting, can't keep food or fluids down, or are losing weight. If aversions or appetite changes stop you getting enough iron, folate and iodine, talk to your doctor or maternal health nurse.
 
-If you crave things that aren't food, such as soap, clay, earth, ice or chalk, speak to your midwife or doctor. The page says this is an eating disorder called pica, which has been linked to iron deficiency in pregnancy.
+If you crave things that aren't food, such as soap, clay, earth, ice or chalk, speak to your midwife or doctor. This is an eating disorder called pica, which has been linked to iron deficiency in pregnancy.

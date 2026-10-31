@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 28
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-28
 related: [the-babys-lungs]
-draft: true
 checked: 2026-10-29
 ---
 Your baby is practising to breathe in your uterus, but they are still getting all their oxygen from the placenta. Breathing movements may be seen on ultrasound around 28 weeks.

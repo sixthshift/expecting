@@ -19,9 +19,8 @@ sources:
   - title: Food Standards Australia New Zealand — Listeria in food
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
 related: [pre-cut-fruit-and-salads, rockmelon, rare-meat]
-draft: true
 checked: 2026-10-29
 ---
 Yes, wash them. Fruit and vegetables are a big part of eating well in pregnancy; the care is in the washing.

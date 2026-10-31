@@ -13,7 +13,6 @@ sources:
   - title: Australian Institute of Health and Welfare — Mothers and babies glossary
     url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary
 related: [term-fgr, term-lga, baby-size-and-growth, growth-scans]
-draft: true
 checked: 2026-10-29
 ---
 Small for gestational age (SGA) means your baby is smaller than expected for the weeks of pregnancy: a weight below the 10th percentile compared with babies of the same sex and gestational age. It can describe a newborn's birth weight or be based on your pregnancy ultrasounds.

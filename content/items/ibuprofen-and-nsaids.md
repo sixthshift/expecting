@@ -19,7 +19,6 @@ sources:
   - title: KEMH — Commonly used medicines and safety in pregnancy
     url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
 related: [paracetamol, anti-inflammatory-gels, aspirin, medicines-before-you-knew]
-draft: true
 checked: 2026-10-29
 ---
 Avoid them unless your doctor tells you otherwise. Non-steroidal anti-inflammatory medicines (NSAIDs), such as ibuprofen (Nurofen), naproxen, diclofenac and indomethacin, are no longer recommended in pregnancy and should only be used under medical supervision.

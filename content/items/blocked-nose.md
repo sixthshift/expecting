@@ -15,7 +15,6 @@ sources:
 related: [nosebleeds, snoring, breathlessness]
 appointment:
   - Which nasal spray or antihistamine can I use?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

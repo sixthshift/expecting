@@ -20,7 +20,6 @@ sources:
   - title: healthdirect — Iron deficiency
     url: https://www.healthdirect.gov.au/iron-deficiency
 related: [iron-infusion, laxatives, antacids, pregnancy-multivitamins]
-draft: true
 checked: 2026-10-29
 ---
 Ask your doctor or midwife. Iron supplements aren't needed in every pregnancy; a blood test shows whether you need one.

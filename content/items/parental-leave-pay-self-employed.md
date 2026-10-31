@@ -16,7 +16,6 @@ sources:
   - title: Fair Work Ombudsman — Independent contractors
     url: https://www.fairwork.gov.au/find-help-for/independent-contractors
 related: [parental-leave-pay-work-test, parental-leave-pay-employer-delivered, unpaid-parental-leave, parental-leave-pay]
-draft: true
 checked: 2026-10-29
 ---
 Running your own business doesn't rule you out of Parental Leave Pay. You may still meet the work test if you're self-employed.

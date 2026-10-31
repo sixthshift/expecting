@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Routine antenatal tests
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/routine-antenatal-tests
 related: [first-blood-tests, uti-found-on-testing, what-happens-at-each-visit]
-draft: true
 checked: 2026-10-29
 ---
 Everyone pregnant is offered a urine test at or soon after the first antenatal visit. The lab checks it for bacteria, which can find an infection even when you have no symptoms.

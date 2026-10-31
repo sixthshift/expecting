@@ -15,7 +15,6 @@ sources:
   - title: Food Standards Australia New Zealand — Food safety for vulnerable people
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
 related: [sushi, smoked-salmon, oysters, safe-fish]
-draft: true
 checked: 2026-10-29
 ---
 ## Why

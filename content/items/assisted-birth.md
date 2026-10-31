@@ -18,7 +18,6 @@ sources:
 related: [term-ventouse, episiotomy, perineal-tears, second-stage, epidural, emergency-caesarean, birth-injury-to-the-baby]
 appointment:
   - Can we talk about a vacuum or forceps birth, and what I'd want if one is offered?
-draft: true
 checked: 2026-10-29
 ---
 Sometimes a baby needs a hand to be born through the vagina, with a vacuum cup (ventouse) or forceps. In Australia and New Zealand almost 1 baby in 10 is born this way, and it's most common in a first birth. It's worth talking about with your midwife or doctor, and your birth partner, before labour, because birth doesn't always go to plan.

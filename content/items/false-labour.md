@@ -18,7 +18,6 @@ sources:
   - title: RANZCOG — Labour and Birth (patient information)
     url: https://ranzcog.edu.au/wp-content/uploads/Labour-Birth.pdf
 related: [contractions, signs-of-labour, early-labour, timing-contractions]
-draft: true
 checked: 2026-10-29
 ---
 Braxton Hicks contractions are your uterus tightening and relaxing. They're a normal part of pregnancy that can come and go, and are thought to help your uterus and cervix get ready for labour. They're sometimes called "false labour" or "practice contractions". You may notice them from the second trimester. They're more common at night, and they may become more regular as the birth gets closer.

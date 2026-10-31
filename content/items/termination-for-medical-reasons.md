@@ -14,18 +14,17 @@ sources:
   - title: Pregnancy, Birth and Baby — Abortion
     url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/abortion/abortion
 related: [first-trimester-screening, remembering-the-baby, loss-support-services, partner-after-a-loss]
-draft: true
 checked: 2026-10-29
 ---
 Termination for medical reasons means ending a wanted pregnancy because of serious concerns about the baby's development or the pregnant parent's health. It often comes after unexpected news, when you were getting ready to welcome your baby, and you may have had to take in complex medical information and make a deeply personal decision in a short time. Even a decision made with care, love and medical advice can leave a lasting mark. You may grieve your baby and the future you'd imagined.
 
 ## How you might feel
 
-There's no right or wrong way. Gidget lists shock and numbness, deep sadness and emptiness, guilt and self-blame, anxiety, anger, relief alongside grief, trouble making sense of what happened, worry about future pregnancies, and isolation, especially if few people knew. Hormones, bleeding, pain and exhaustion can make coping harder, and due dates, anniversaries, appointments and other people's pregnancy news can bring it back.
+There's no right or wrong way. You might feel shock and numbness, deep sadness and emptiness, guilt and self-blame, anxiety, anger, relief alongside grief, trouble making sense of what happened, worry about future pregnancies, and isolation, especially if few people knew. Hormones, bleeding, pain and exhaustion can make coping harder, and due dates, anniversaries, appointments and other people's pregnancy news can bring it back.
 
 ## What happens
 
-How a pregnancy is ended depends on how many weeks along you are: by medicine, or by a surgical procedure. The law differs between states and territories, and PBB says your doctor may need approval if you are more than 20 weeks. Counselling is available before and after, and it's optional.
+How a pregnancy is ended depends on how many weeks along you are: by medicine, or by a surgical procedure. The law differs between states and territories, and your doctor may need approval if you are more than 20 weeks. Counselling is available before and after, and it's optional.
 
 ## Honouring your baby
 

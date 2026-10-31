@@ -11,16 +11,15 @@ summary: "Yes: canned tuna and salmon are low in mercury and shelf-stable; count
 verdict: yes
 sources:
   - title: NSW Food Authority — Mercury and fish
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/mercury-and-fish
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/mercury-and-fish
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
   - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
 related: [safe-fish, high-mercury-fish, canned-food]
-draft: true
 checked: 2026-10-29
 ---
-Yes. The NSW Food Authority says it's generally safe for pregnant women to eat 2 to 3 serves a week of any type of tuna or salmon, canned or fresh.
+Yes. The NSW Food Authority says it's generally safe in pregnancy to eat 2 to 3 serves a week of any type of tuna or salmon, canned or fresh.
 
 ## Why
 

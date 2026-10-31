@@ -13,7 +13,6 @@ sources:
   - title: healthdirect — Caesarean section
     url: https://www.healthdirect.gov.au/caesarean-section
 related: []
-draft: true
 checked: 2026-10-29
 ---
 A caesarean section (also called a C-section) is a surgical procedure in which a baby is delivered through a cut in the abdomen and uterus.

@@ -16,7 +16,6 @@ sources:
   - title: The Royal Women's Hospital — Managing pain in labour
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
 related: [pain-relief, positions-for-labour, antenatal-classes, support-person-role]
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy, Birth and Baby says relaxation methods can help ease pain in labour: they may distract you and help you focus away from the pain, and create a calm and peaceful environment. Options include music, yoga, breathing techniques and mindfulness. Hypnobirthing and hypnotherapy are listed among other non-medical methods.

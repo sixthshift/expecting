@@ -17,7 +17,6 @@ sources:
   - title: Fair Work Ombudsman — Entitlements while pregnant
     url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/entitlements-while-pregnant
 related: [stillborn-baby-payment, special-maternity-leave]
-draft: true
 checked: 2026-10-29
 ---
 We're so sorry. This is what work owes you, so you don't have to ask.

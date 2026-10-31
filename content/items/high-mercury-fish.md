@@ -15,9 +15,8 @@ sources:
   - title: Food Standards Australia New Zealand — Mercury in fish (brochure)
     url: https://www.foodstandards.gov.au/sites/default/files/consumer/chemicals/mercury/Documents/Mercury%20in%20Fish%20brochure%20Dec%202020%20Final.pdf
   - title: NSW Food Authority — Mercury and fish
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/mercury-and-fish
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/mercury-and-fish
 related: [safe-fish, canned-fish, fish-oil]
-draft: true
 checked: 2026-10-29
 ---
 ## Why

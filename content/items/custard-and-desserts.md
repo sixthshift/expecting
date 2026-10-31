@@ -11,13 +11,12 @@ summary: "Shop-bought custard is fine freshly opened; home-made custard needs co
 verdict: limit
 sources:
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
   - title: Food Standards Australia New Zealand — Food safety for vulnerable people
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/Food-safety-for-vulnerable-populations
   - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
 related: [raw-eggs, soft-serve]
-draft: true
 checked: 2026-10-29
 ---
 It depends how the egg is cooked. Commercial custard is fine; desserts that use raw or lightly cooked egg are not.

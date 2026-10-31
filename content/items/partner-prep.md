@@ -6,8 +6,11 @@ weeks: [16, 38]
 type: moment
 topic: partner
 extra: partner-prep
-draft: true
 sources:
+  - title: "Australian Immunisation Handbook — Influenza (flu)"
+    url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/influenza-flu
+  - title: "Australian Immunisation Handbook — Pertussis (whooping cough)"
+    url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/pertussis-whooping-cough
   - title: Pregnancy, Birth and Baby — The role of a birth support partner
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
 tasks:
@@ -31,7 +34,7 @@ Partners often say the appointments, classes and books are written for someone e
 
 **Learn what to expect.** A support partner can make the birth a more positive experience, according to Pregnancy, Birth and Baby. Come to the antenatal classes; some hospitals and community groups also run sessions just for partners and dads. A book or two written for partners helps too. Talk through the birth plan together, and what to do if it changes.
 
-**The vaccines.** The Australian Immunisation Handbook recommends adults who live with or care for a baby under 6 months have a whooping cough booster if their last was more than 10 years ago, at least 2 weeks before meeting the baby, and a flu vaccine each year. A GP or pharmacy can give both; there may be a cost.
+**The vaccines.** The Australian Immunisation Handbook recommends adults who live with or care for a baby under 6 months have a whooping cough booster if their last was more than 10 years ago, at least 2 weeks before close contact with the baby, and everyone from 6 months a flu vaccine each year.
 
 **The practical jobs:**
 

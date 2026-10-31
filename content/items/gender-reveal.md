@@ -6,7 +6,6 @@ weeks: [18, 24]
 type: moment
 topic: celebrations
 extra: gender-reveal
-draft: true
 tasks:
   - id: plan-reveal
     title: Plan the reveal and who's coming

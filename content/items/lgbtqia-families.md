@@ -20,7 +20,6 @@ sources:
   - title: Births, Deaths and Marriages Victoria — Donor-conceived births
     url: https://www.bdm.vic.gov.au/donor-conceived-births
 related: [non-birth-parent, surrogacy, partner-feeling-left-out]
-draft: true
 checked: 2026-10-29
 ---
 Rainbow families come to parenthood through donor conception, fertility treatment, surrogacy, co-parenting, fostering, adoption or earlier relationships. Many describe it as deeply meaningful, and sometimes more intentional because of the planning involved. Children of same-sex parents do as well as any other children; what matters is what parents do.

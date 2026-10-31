@@ -17,7 +17,6 @@ sources:
 related: [back-pain, pelvic-girdle-pain]
 appointment:
   - Should I see a physiotherapist for my sciatica?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -30,18 +29,10 @@ What helps: stretches and low-impact activity such as walking or swimming, good 
 
 ## Call 000 or go to emergency
 
-Pregnancy, Birth and Baby says to call triple zero (000) immediately and ask for an ambulance if you have back pain with signs of cauda equina syndrome, a very rare compressed nerve in the spine: lost feeling or weakness in your limbs, pins and needles or tingling, or problems controlling your bowels or bladder.
+Call triple zero (000) immediately and ask for an ambulance if you have back pain with signs of cauda equina syndrome, a very rare compressed nerve in the spine: lost feeling or weakness in your limbs, numbness around your genitals or bottom, pins and needles or tingling, or problems controlling your bowels or bladder.
 
 ## See your doctor or midwife
 
-**Get urgent medical care** (healthdirect) if you have sudden lower back pain and:
-
-- sudden trouble controlling your bladder or bowels
-- tingling, numbness or weakness in your legs
-- severe pain lying down or at night
-- recently had a bacterial infection or fever
-- a history of cancer, an autoimmune condition or unintentional weight loss
-- a history of intravenous drug abuse
-- you are younger than 16 or older than 50
+See your doctor straight away if the pain is severe lying down or at night, or comes with a fever or weight loss you can't explain.
 
 See your doctor if you have symptoms of sciatica, if they haven't improved after 4 weeks of treatment, or you're worried about them.

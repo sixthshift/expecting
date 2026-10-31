@@ -16,7 +16,6 @@ sources:
 related: [choosing-your-model-of-care, public-hospital-care, pre-eclampsia, gestational-diabetes, twins-found-at-a-scan, small-for-dates]
 appointment:
   - Is my pregnancy higher risk, and would that change my care?
-draft: true
 checked: 2026-10-29
 ---
 A high-risk pregnancy is one where you or your baby has a greater chance of problems or complications during the pregnancy or birth. It often means extra tests and scans. The specific risks depend on your situation and are different in every case.

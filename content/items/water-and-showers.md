@@ -23,7 +23,6 @@ related: [water-birth, pain-relief, early-labour, tens-machine]
 appointment:
   - Will I be able to labour in a bath or shower where I'm giving birth?
   - Would a water birth be an option for me?
-draft: true
 checked: 2026-10-29
 ---
 The Royal Women's Hospital says heat and water can ease tension and backache in labour. Hot and cold packs are useful, as is being in water in a shower or a bath. Pregnancy, Birth and Baby says feeling heat on your body can also reduce pain, especially backache.
@@ -34,7 +33,7 @@ The Royal Women's suggests relaxing in a bath or shower while you're at home in 
 
 ## In the birth suite
 
-Many hospitals are set up to allow you to labour in a bath, and many women find it helps with relaxation and pain management. RANZCOG says healthy women with uncomplicated pregnancies may find a warm bath helps with relaxation and pain relief: it increases relaxation and endorphins, and reduces the pain of contractions and pressure on your pelvis and muscles.
+Many hospitals are set up to allow you to labour in a bath, and many people find it helps with relaxation and pain management. RANZCOG says that if you're healthy and your pregnancy is uncomplicated, a warm bath may help with relaxation and pain relief: it increases relaxation and endorphins, and reduces the pain of contractions and pressure on your pelvis and muscles.
 
 Pregnancy, Birth and Baby says most hospitals and birthing centres have facilities for a warm bath or shower during the first stage of labour, though warm baths and showers may not be possible for some people, and your midwife will still need to monitor you if you're in the bath.
 

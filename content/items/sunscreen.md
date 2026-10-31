@@ -13,7 +13,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
 related: [fake-tan, sunbeds, hot-weather, skincare-ingredients]
-draft: true
 checked: 2026-10-29
 ---
 Yes. MotherSafe says sunscreens contain ingredients such as oxybenzone, octocrylene and octisalate, that absorption through the skin is generally minimal, and that they don't pose a risk to pregnant people.

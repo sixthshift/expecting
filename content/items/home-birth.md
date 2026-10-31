@@ -26,7 +26,6 @@ sources:
 related: [private-midwife, midwifery-group-practice, birth-centre, choosing-your-model-of-care]
 appointment:
   - Is my pregnancy low risk enough for a home birth?
-draft: true
 checked: 2026-10-29
 ---
 Most births in Australia happen in hospital, but a planned home birth can be a safe option too, if your pregnancy is low risk and you're cared for by registered midwives with a plan to get you to hospital if there's a problem.

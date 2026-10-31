@@ -25,7 +25,6 @@ related: [blood-group-and-antibodies, full-blood-count, rubella-immunity, hepati
 appointment:
   - What did my first blood tests show?
   - Do any of the extra tests, like an early diabetes test, apply to me?
-draft: true
 checked: 2026-10-29
 tasks:
   - id: have-first-blood-tests
@@ -39,15 +38,14 @@ Early in pregnancy, usually at your first antenatal visit, your GP or midwife wi
 
 - **Blood group and antibodies**, including whether you're RhD negative
 - **A full blood count**, for anaemia
-- **An infectious diseases screen**: immunity to rubella, and syphilis, hepatitis and HIV. The Royal Women's Hospital offers the HIV test with counselling before and after. Pregnancy, Birth and Baby lists hepatitis C among the routine infection tests, and says your midwife or doctor may suggest testing for it.
-- **Vitamin D**, for deficiency. Pregnancy, Birth and Baby lists it as routine; the Royal Women's Hospital offers it to those at risk.
+- **An infectious diseases screen**: immunity to rubella, and syphilis, hepatitis B and C, and HIV. The HIV test is offered with counselling before and after.
+- **Vitamin D**, if you're likely to be low.
 
 **Sometimes added:**
 
-- **Hepatitis C**: the Royal Women's Hospital offers it to those at risk, while Pregnancy, Birth and Baby describes it as part of routine screening
 - **Other STIs**, such as chlamydia and gonorrhoea, depending on your age and circumstances
 - **An early diabetes test**, an HbA1c in the first trimester if you have a higher risk of high blood sugar
-- **Thalassaemia**, an inherited condition affecting haemoglobin, which the Royal Women's Hospital lists among the blood tests a GP can order
+- **Thalassaemia**, an inherited condition affecting haemoglobin
 
 **A urine test and culture** goes with them, to look for infection.
 

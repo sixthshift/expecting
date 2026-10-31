@@ -15,7 +15,6 @@ sources:
   - title: SMS4dads — Home
     url: https://www.sms4dads.com.au/
 related: [partner-perinatal-depression]
-draft: true
 checked: 2026-10-29
 ---
 It isn't only the person carrying the baby. Depression affects 1 in 10 fathers, from the first trimester of pregnancy right through the baby's first year. Anxiety is common too: 1 in 6 fathers have it during their partner's pregnancy.

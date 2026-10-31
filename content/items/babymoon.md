@@ -6,7 +6,6 @@ weeks: [14, 28]
 type: moment
 topic: celebrations
 extra: babymoon
-draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Travel and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
@@ -23,8 +22,8 @@ A last trip as two. The middle of the pregnancy, roughly weeks 14 to 28, is when
 Before booking:
 
 - **Travel insurance:** read the pregnancy clause. Some policies stop covering pregnancy-related problems from a certain week, and many won't cover twins, IVF pregnancies or a baby born early overseas. Get the cover confirmed in writing.
-- **Flying:** in an uncomplicated pregnancy, flying is fine. Qantas and Virgin Australia fly single pregnancies up to the end of week 36 on flights of four hours or more, and week 40 on shorter ones. From 28 weeks they want a letter from your midwife or doctor. Overseas airlines set their own rules, often earlier.
-- **Long flights or drives:** walk around every half hour or so, drink water, and ask your midwife about compression stockings for four hours or more.
+- **Flying:** check your airline's rules before you book: some airlines don't let you fly after 32 to 36 weeks, and rules vary between domestic and international flights. The airline may ask for a medical certificate, a letter from your doctor or registered midwife.
+- **Long flights or drives:** see your doctor before flying about blood clots; stay hydrated, wear compression stockings and walk around or stretch during the flight, and stop for a break at least every 2 hours when driving.
 - **Where:** somewhere with good medical care, and check Smartraveller for health advice about the destination.
 
-Take your antenatal card or pregnancy record with you.
+Take a copy of your medical records with you.

@@ -15,7 +15,6 @@ related: [told-higher-risk]
 appointment:
   - How often will my thyroid levels be checked?
   - Does my thyroid treatment or dose need to change in pregnancy?
-draft: true
 checked: 2026-10-29
 ---
 Thyroid hormone matters more in pregnancy: your levels rise to support you and your baby, and until 18 to 20 weeks your baby relies on your supply for their brain development. Thyroid problems affect at least 1 in 25 pregnancies.

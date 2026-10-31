@@ -6,7 +6,6 @@ weeks: [10, 20]
 type: moment
 topic: celebrations
 extra: gender-reveal
-draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Non-invasive prenatal testing (NIPT)
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/non-invasive-prenatal-testing-nipt

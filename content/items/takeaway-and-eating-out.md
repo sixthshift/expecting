@@ -15,9 +15,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
 related: [hot-takeaway-chicken, salad-bars-and-buffets, sushi, raw-eggs]
-draft: true
 checked: 2026-10-29
 ---
 Yes. Generally the safest foods are those freshly cooked or prepared, and FSANZ says that if you're vulnerable, as you are in pregnancy, it's safest to only eat freshly prepared food.

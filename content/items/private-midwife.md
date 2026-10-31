@@ -7,7 +7,7 @@ ask: Can I hire my own midwife?
 aliases: [privately practising midwife, MIPP, endorsed midwife, eligible midwife, private midwifery]
 weeks: [4, 42]
 stakes: medium
-summary: "Yes: a privately practising midwife you employ yourself can care for you through pregnancy, labour and birth (at home or in hospital) and afterwards; you pay a fee, Medicare may rebate some of the pregnancy and postnatal care, and not the birth itself."
+summary: "Yes: a privately practising midwife you employ yourself can care for you through pregnancy, labour and birth (at home or in hospital) and afterwards; you pay a fee, Medicare may rebate some of the care, and for a home birth it covers some pregnancy and postnatal care but not the birth itself."
 sources:
   - title: Pregnancy, Birth and Baby — Midwife
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/midwife
@@ -20,7 +20,6 @@ sources:
   - title: The Royal Women's Hospital — Pregnancy care and birthing options
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/pregnancy-care-birthing-options
 related: [home-birth, birth-centre, choosing-your-model-of-care, what-medicare-covers]
-draft: true
 checked: 2026-10-29
 ---
 Some midwives work privately rather than for a hospital. The Royal Women's calls them midwives in private practice (MIPP). You can employ one for the whole of your pregnancy, labour, birth and postnatal care, or for a one-off consultation before pregnancy or after the birth.
@@ -49,4 +48,4 @@ If complications arise in pregnancy, labour or birth, you may need to see an obs
 
 ## Finding one
 
-You can find a midwife on the Australian Health Practitioner Regulation Agency (AHPRA) website, or ask your doctor to recommend one. Ask whether they're registered with the Nursing and Midwifery Board of Australia. The Royal Women's notes that all midwives, including those in private practice, must have professional indemnity insurance, which private midwives arrange themselves.
+You can find a midwife on the Australian Health Practitioner Regulation Agency (AHPRA) website, or ask your doctor to recommend one. Ask whether they're registered with the Nursing and Midwifery Board of Australia. In Victoria, the Royal Women's notes, all midwives, including those in private practice, must have professional indemnity insurance, which private midwives arrange themselves.

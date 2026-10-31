@@ -13,14 +13,13 @@ sources:
     url: https://www.gidgetfoundation.org.au/fact-sheets/intrusive-thoughts-what-are-they-and-how-do-we-deal-with-them
 related: [antenatal-anxiety, perinatal-mental-health-help, card-intrusive-thoughts-common]
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
 
 Research suggests more than 80% of expectant and new parents have intrusive thoughts from time to time. They're images, thoughts or impulses that are negative, unwanted and often upsetting. They can be fleeting or keep coming back, and violent, sexual or disturbing. For new parents they can be about harming, or seeing harm come to, the baby or others.
 
-**Having an intrusive thought doesn't mean you'll act on it.** The thoughts usually feel out of character and make no sense to you, and the distress they cause is itself a strong sign they're driven by anxiety, not something more serious. They can make you feel like you're going crazy, but you're not.
+**Having an intrusive thought doesn't mean you'll act on it.** The thoughts usually feel out of character and make no sense to you, and the distress they cause is itself a sign they're driven by anxiety. They can make you feel like you're going crazy, but you're not.
 
 What can help: label it as an intrusive thought, a symptom of anxiety and not who you are; let it pass rather than pushing it away; distract yourself if it's too much; and talk about it with people you trust.
 

@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Giving birth, second stage of labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-second-stage-of-labour
 related: [second-stage, term-transition, epidural]
-draft: true
 checked: 2026-10-29
 ---
 In the second stage, once your cervix is fully dilated, you'll usually feel increased pressure in your bottom and an urge to push (or bear down). The Royal Women's Hospital says it can be overwhelming and feel like a strong urge to do a poo.

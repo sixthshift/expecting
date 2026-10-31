@@ -15,7 +15,6 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/supporting-your-partner-during-pregnancy
 related: [antenatal-depression, arguments-and-stress]
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -26,9 +25,7 @@ Pregnancy, Birth and Baby says it's normal for you, or your partner if you have 
 
 ## Call 000 or go to emergency
 
-If your life is in danger, call triple zero (000).
-
-If you're worried you might hurt yourself or your baby, you can call Perinatal Anxiety and Depression Australia (PANDA) on 1300 726 306, Lifeline on 13 11 14, or Beyond Blue on 1300 22 4636.
+If you're worried you might hurt yourself or your baby, or your life is in danger, call triple zero (000) or go to the nearest emergency department. To talk to someone now, call Lifeline on 13 11 14.
 
 ## See your doctor or midwife
 

@@ -13,7 +13,6 @@ sources:
   - title: Better Health Channel — Medical terms and definitions during pregnancy and birth
     url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth
 related: []
-draft: true
 checked: 2026-10-29
 ---
 IOL is induction of labour, also called being induced: when a healthcare professional tries to artificially start your labour.

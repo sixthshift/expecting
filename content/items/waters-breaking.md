@@ -9,10 +9,11 @@ weeks: [37, 42]
 stakes: high
 summary: "Put on a pad, look at the colour, and contact your midwife, doctor or birth centre; green, brown or blood-coloured fluid means calling immediately, and waters breaking before 37 weeks means contacting your midwife or doctor and going to hospital."
 sources:
+  - title: Pregnancy, Birth and Baby — Breech pregnancy
+    url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
   - title: Pregnancy, Birth and Baby — Giving birth, waters breaking
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
 related: [waters-before-labour, waters-breaking-early, term-meconium, group-b-strep-swab, when-to-go-to-hospital]
-draft: true
 checked: 2026-10-29
 ---
 Your waters breaking means the amniotic sac around your baby has broken and the fluid is leaking out of your vagina. It's a normal, healthy part of late pregnancy or early labour, and it means your baby is getting ready to be born. For most people it happens during labour; for some it happens before labour starts.
@@ -38,6 +39,8 @@ If you've tested positive for group B strep (GBS), your team will recommend anti
 If your waters break 18 hours or more before the birth, your baby will need their vital signs checked for their first 24 hours.
 
 ## When to get help
+
+**If your waters break and you've been told the baby isn't head-first, call triple zero (000)** and ask for an ambulance: there's a higher risk of cord prolapse.
 
 **If your waters break before 37 weeks,** contact your midwife or doctor and go to the hospital. There's a higher chance of early birth or infection.
 

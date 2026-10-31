@@ -18,7 +18,6 @@ sources:
   - title: Services Australia — Before the birth of your baby
     url: https://www.servicesaustralia.gov.au/before-birth-your-baby
 related: [parental-leave-pay, family-tax-benefit-a, family-tax-benefit-claim, multiple-birth-allowance]
-draft: true
 checked: 2026-10-29
 ---
 The Newborn Upfront Payment and Newborn Supplement are a lump sum and an increase to your Family Tax Benefit Part A when a baby comes into your care. To get them you must:

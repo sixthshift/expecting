@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Complementary therapy during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/complementary-therapy-during-pregnancy
 related: [acupuncture, massage, chiropractic-and-osteopathy]
-draft: true
 checked: 2026-10-29
 ---
 It depends on the therapy. Pregnancy, Birth and Baby says some complementary therapies have a strong evidence base and others have less, and that therapies not proven to help may also be harmful if they delay or get in the way of necessary treatment.

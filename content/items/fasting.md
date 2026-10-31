@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Religious fasting, pregnancy and breastfeeding
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/religious-fasting-pregnancy-and-breastfeeding
 related: [water]
-draft: true
 checked: 2026-10-29
 ---
 Ask before you fast. If you're pregnant, it's important to check with your doctor or midwife in the lead-up to a religious fast.

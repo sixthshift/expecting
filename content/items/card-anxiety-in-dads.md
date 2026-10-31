@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Fathers and depression
     url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/fathers-and-depression
 related: [partner-perinatal-depression]
-draft: true
 checked: 2026-10-29
 ---
 It's common. Anxiety affects 1 in 6 fathers during their partner's pregnancy, and around 1 in 5 after the baby is born. Depression affects 1 in 10 fathers from the first trimester through the baby's first year. Signs of anxiety include worries you can't stop thinking about, feeling irritable or tense, a racing heart or tight chest, and fearing you won't be a good enough parent.

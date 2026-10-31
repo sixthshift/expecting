@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Working during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
 related: [working-while-pregnant, standing-all-day, long-drives]
-draft: true
 checked: 2026-10-29
 ---
 Ask your employer for a review. SafeWork NSW names shift work, physically exhausting work and mentally fatiguing work among the potential risks to a pregnancy at work.

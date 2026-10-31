@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Amniotic fluid
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/amniotic-fluid
 related: [term-amniotic-sac]
-draft: true
 checked: 2026-10-29
 ---
 **ARM** is artificial rupture of membranes, also known as breaking the waters. A small instrument is placed in your vagina and the membranes around your baby are punctured to help bring on or speed up labour. It's a form of labour induction.

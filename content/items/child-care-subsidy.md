@@ -18,7 +18,6 @@ sources:
   - title: Services Australia — Who can get Child Care Subsidy
     url: https://www.servicesaustralia.gov.au/who-can-get-child-care-subsidy
 related: [child-care-subsidy-claim, childcare-types, childcare-waitlists, immunisation-requirements-for-payments]
-draft: true
 checked: 2026-10-29
 ---
 If you're planning childcare after parental leave, the Child Care Subsidy (CCS) is what brings the fees down. Services Australia pays it directly to your child care service, and you pay the rest.

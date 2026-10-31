@@ -17,9 +17,8 @@ sources:
   - title: "Pregnancy, Birth and Baby — Pregnancy at weeks 1 to 4"
     url: https://www.pregnancybirthbaby.org.au/pregnancy-at-week-1-4
 related: [conception-to-embryo]
-draft: true
 checked: 2026-10-29
 ---
-Implantation is when your fertilised egg implants itself in the wall of your uterus. Pregnancy, Birth and Baby says conception is complete once it successfully implants; if it doesn't, a pregnancy does not occur, your hormones decrease and the lining of your uterus sheds as your period. By the end of the fourth week the embryo has implanted.
+Implantation is when your fertilised egg implants itself in the wall of your uterus. Conception is complete once it successfully implants; if it doesn't, a pregnancy does not occur, your hormones decrease and the lining of your uterus sheds as your period. By the end of the fourth week the embryo has implanted.
 
 The placenta starts forming at the time of implantation and keeps developing throughout your pregnancy.

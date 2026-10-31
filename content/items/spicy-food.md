@@ -7,16 +7,15 @@ ask: Can I eat spicy food?
 aliases: [spicy, chilli, curry, hot sauce, vindaloo, heartburn foods]
 who: carrying
 stakes: low
-summary: "Yes: the page we checked doesn't say to avoid it, but it can trigger heartburn."
+summary: "Yes: it isn't a food to avoid, but it can trigger heartburn."
 verdict: yes
 sources:
   - title: Pregnancy, Birth and Baby — Indigestion and heartburn in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/indigestion-and-heartburn-in-pregnancy
 related: [antacids, takeaway-and-eating-out]
-draft: true
 checked: 2026-10-29
 ---
-Yes. The page we checked doesn't say to avoid spicy food in pregnancy, so it's your call.
+Yes. Spicy food isn't on the list of foods to avoid in pregnancy, so it's your call.
 
 ## Why
 

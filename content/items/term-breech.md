@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Breech pregnancy
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
 related: [breech, term-frank-breech, term-footling-breech]
-draft: true
 checked: 2026-10-29
 ---
 Breech means your baby is lying bottom or feet first, rather than head down (cephalic). It is very common earlier in pregnancy; most babies turn head down before the last month. Near the due date, only about 3 in 100 are still breech.

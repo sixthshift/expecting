@@ -20,7 +20,6 @@ appointment:
   - Can you help me make a plan to quit vaping?
   - Would nicotine replacement suit me?
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 No. There is no safe amount of smoking or vaping in pregnancy. The risks of vaping while pregnant are still being researched, but current research shows that vaping and e-cigarettes are not safe during pregnancy.

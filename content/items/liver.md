@@ -15,14 +15,13 @@ sources:
   - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
 related: [pate, vitamin-a-supplements, fish-oil]
-draft: true
 checked: 2026-10-29
 ---
-Best avoided. Pregnancy, Birth and Baby says to avoid liver and liver products because they contain a lot of vitamin A, which can harm your baby. Further down the same page it puts it more gently, "try to limit how much you eat".
+Best avoided. Liver and liver products contain a lot of vitamin A, which can harm your baby.
 
 ## Why
 
-Too much vitamin A, also called retinol, can harm a growing baby. Extra vitamin A from supplements might increase the chance of birth defects, and supplements shouldn't give you more than 10,000 international units a day in pregnancy. It's also best to avoid eating foods that are very high in vitamin A, which might include liver and pâté.
+Too much vitamin A, also called retinol, can harm a growing baby. Extra vitamin A from supplements might increase the chance of birth defects, and in pregnancy you shouldn't have more than 10,000 international units a day. It's also best to avoid eating foods that are very high in vitamin A, which might include liver and pâté.
 
 ## What to do
 

@@ -9,16 +9,27 @@ weeks: [1, 42]
 stakes: high
 summary: "The signs that mean contact your midwife, doctor or hospital straight away, in one list. If you need urgent help, call 000."
 sources:
+  - title: healthdirect — Breathing problems
+    url: https://www.healthdirect.gov.au/breathing-problems
+  - title: healthdirect — Chest pain
+    url: https://www.healthdirect.gov.au/chest-pain
+  - title: healthdirect — Seizures
+    url: https://www.healthdirect.gov.au/seizures
+  - title: healthdirect — Headaches
+    url: https://www.healthdirect.gov.au/headaches
   - title: healthdirect — Warning signs during pregnancy
     url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
 related: [baby-movements, heavy-bleeding, spotting-and-bleeding-in-early-pregnancy, bleeding-after-20-weeks, abdominal-pain, shoulder-tip-pain, fluid-leaking, severe-headache, vision-changes, sudden-swelling, itchy-palms-and-soles, fever, breathlessness, racing-heartbeat, dvt-and-compression-stockings, pain-under-the-ribs, severe-vomiting, dizziness-and-fainting, fall-or-blow-to-the-belly]
-draft: true
 ---
 If you notice any of these, contact your midwife, doctor or hospital straight away. If you need urgent medical help, call 000. If you're not sure, it's best to get it checked.
 
+## Call 000
+
+Call triple zero (000) for heavy bleeding, a seizure, severe chest pain, severe trouble breathing (can't speak in full sentences, or blue lips), or a sudden, severe headache or a headache with changes in your vision.
+
 ## Straight away
 
-- **Your baby is moving less than usual, or has stopped moving.** Go to your hospital now. Don't wait until tomorrow.
+- **Your baby is moving less than usual, or has stopped moving.** Contact your hospital and go in now. Don't wait until tomorrow.
 - **Bleeding from your vagina.**
 - **Severe pain in your abdomen.** Early in pregnancy, also pain or cramping low on one side, or pain in the tip of one shoulder.
 - **Clear fluid leaking from your vagina.**

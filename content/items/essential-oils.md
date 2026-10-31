@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy massage
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/pregnancy-massage
 related: [massage, deodorant-and-perfume, acupuncture]
-draft: true
 checked: 2026-10-29
 ---
 Ask first. The Australian pages we checked don't say whether particular essential oils, or a diffuser, are safe or unsafe in pregnancy.

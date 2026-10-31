@@ -19,7 +19,6 @@ sources:
 related: [massage, chiropractic-and-osteopathy, essential-oils]
 appointment:
   - Is acupuncture okay for me at this stage?
-draft: true
 checked: 2026-10-29
 ---
 Yes, if it's done by a qualified professional. Pregnancy, Birth and Baby says acupuncture is generally safe during pregnancy, and that only a trained person should perform it. Tell your acupuncturist you are pregnant, as some acupuncture points are not safe to use during pregnancy.

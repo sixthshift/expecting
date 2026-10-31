@@ -6,7 +6,6 @@ weeks: [20, 38]
 type: moment
 topic: after-the-birth
 extra: siblings
-draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Toddler and the new baby
     url: https://www.pregnancybirthbaby.org.au/children/behaviours-and-emotions/toddler-and-the-new-baby

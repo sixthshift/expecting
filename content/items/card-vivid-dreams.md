@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 26
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-26
 related: [sleep-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 From week 26 and into the third trimester, you might start having some vivid dreams. That's due to pregnancy hormones and because your sleep is more disturbed.

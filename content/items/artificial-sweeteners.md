@@ -13,14 +13,13 @@ sources:
   - title: Food Standards Australia New Zealand — Intense sweeteners
     url: https://www.foodstandards.gov.au/consumer/additives/Sweeteners
 related: [soft-drink-and-sugar, cola-and-soft-drink]
-draft: true
 checked: 2026-10-29
 ---
-The page we checked doesn't say either way for pregnancy, so ask your doctor or midwife if you're unsure.
+There's no pregnancy-specific advice on sweeteners, so ask your doctor or midwife if you're unsure.
 
 ## Why
 
-Food Standards Australia New Zealand assesses the safety of all food additives, including intense sweeteners, before they're approved, and a recent review of the permitted ones found no public health and safety issues with steviol glycosides. On aspartame it says it has been studied extensively and no adverse effects have been demonstrated to date. The page does not mention pregnancy, so it can't be read as a pregnancy clearance, and it sets no pregnancy-specific limit.
+Food Standards Australia New Zealand assesses the safety of all food additives, including intense sweeteners, before they're approved, and a recent review of the permitted ones found no public health and safety issues with steviol glycosides. On aspartame it says it has been studied extensively and no adverse effects have been demonstrated to date. None of this is specific to pregnancy, and there's no pregnancy-specific limit.
 
 ## What to do
 

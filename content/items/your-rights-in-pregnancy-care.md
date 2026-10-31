@@ -20,7 +20,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy and newborn care on a visa in Australia
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/pregnancy-care-on-a-visa-in-australia
 related: [questions-to-ask-at-appointments, screening-vs-diagnostic, choosing-your-model-of-care]
-draft: true
 checked: 2026-10-29
 ---
 The choice to have any test, scan or treatment in pregnancy is yours. Your rights are set out in the Australian Charter of Healthcare Rights, and they apply everywhere: public and private hospitals, general practice and the community.

@@ -22,7 +22,6 @@ sources:
   - title: Miscarriage Australia — Coping with grief and loss
     url: https://miscarriageaustralia.com.au/after-a-miscarriage/ive-just-miscarried-what-happens-now/coping-with-grief-and-loss-after-miscarriage/
 related: [miscarriage, remembering-the-baby, loss-and-work, pregnancy-after-loss, partner-after-a-loss]
-draft: true
 checked: 2026-10-29
 ---
 The days and weeks after a miscarriage bring physical recovery, a few practical things, and grief that keeps its own time.
@@ -35,15 +34,15 @@ If you miscarried at home, see your doctor to check the miscarriage is complete 
 
 ## Trying again
 
-PBB says it's safe to get pregnant again soon after a miscarriage, with no medical need to wait, though your health team may suggest waiting until you feel emotionally and physically ready (another line on the same PBB page says they may recommend at least one normal menstrual cycle first). You can get pregnant before your first period. After a surgical miscarriage (D&C), the advice is to wait a few months for your cycle to settle before trying. Most people who have a miscarriage can have a healthy pregnancy later; after 2 or more, your doctor may suggest a fertility specialist.
+It's safe to get pregnant again soon after a miscarriage; there's no medical need to wait, though your health team may suggest waiting for one normal period, and until you feel ready, emotionally and physically. You can get pregnant before your first period. After a surgical miscarriage (D&C), the advice is to wait a few months for your cycle to settle before trying. Most people who have a miscarriage can have a healthy pregnancy later; after 2 or more, your doctor may suggest a fertility specialist.
 
 ## The practical things
 
-**No legal paperwork, generally.** Rules vary by state or territory, and your health team will tell you about any requirements. Generally, a miscarriage in the first 20 weeks isn't formally registered, so there's no birth or death certificate. You can ask for an optional certificate recognising early pregnancy loss from your state or territory's Births, Deaths and Marriages registry; PBB says Red Nose Grief and Loss has information on applying.
+**No legal paperwork, generally.** Rules vary by state or territory, and your health team will tell you about any requirements. Generally, a miscarriage in the first 20 weeks isn't formally registered, so there's no birth or death certificate. You can ask for an optional certificate recognising early pregnancy loss from your state or territory's Births, Deaths and Marriages registry; Red Nose Grief and Loss has information on applying. More ways to remember are in [Ways to remember](remembering-the-baby).
 
-**A funeral if you want one.** You don't have to have a funeral, burial or cremation, but you can. A funeral director or your religious or spiritual leader can help, and some hospitals hold a memorial service. Some people name their baby, plant a tree or keep a keepsake; for others that isn't needed. There's no right or wrong way.
+**A funeral if you want one.** You don't have to have a funeral, burial or cremation, but you can. Some people name their baby, plant a tree or keep a keepsake; for others that isn't needed. There's no right or wrong way.
 
-**Time off work.** Under the Fair Work Act, you're entitled to 2 days of paid bereavement leave if you or your partner have had a pregnancy loss. Fair Work calls this compassionate leave, and it is unpaid for casual employees. Some employers offer more. If 2 days isn't enough, talk to your doctor and employer about other leave. You don't have to tell your workplace why.
+**Time off work.** Under the Fair Work Act, you and your partner can each take 2 days' compassionate leave for a miscarriage; it's paid, except for casual employees. Some employers offer more. If 2 days isn't enough, talk to your doctor and employer about other leave. You don't have to tell your workplace why.
 
 ## Grief
 

@@ -19,7 +19,6 @@ sources:
 related: [itchy-palms-and-soles, pregnancy-rash, stretch-marks, thrush]
 appointment:
   - Can you check what's causing my itch?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

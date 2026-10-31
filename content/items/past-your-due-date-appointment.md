@@ -17,7 +17,6 @@ related: [ctg-monitoring, estimated-due-date, antenatal-visit-schedule]
 appointment:
   - How often would you check me and the baby if I go past my due date?
   - Can we talk about waiting, a sweep or induction, and what would suit me?
-draft: true
 checked: 2026-10-29
 ---
 Your due date is only an estimate: only about 5 in every 100 babies are born on it, and most are born between 37 and 42 weeks. Pregnancy, Birth and Baby counts a pregnancy as overdue (also called postdates or prolonged pregnancy) if labour hasn't started by 42 weeks. Going overdue is more likely if it's your first birth, you're over 30, you're living with obesity, you've gone overdue before, or it runs in your family.
@@ -28,4 +27,4 @@ Your due date is only an estimate: only about 5 in every 100 babies are born on 
 
 **What will be discussed.** Your midwife or doctor should explain your options and their risks and benefits: waiting to see if labour starts, if the tests show you and the baby are well; a membrane sweep (a "stretch and sweep"), a vaginal examination that can trigger labour; or inducing labour, which is recommended when the risks of continuing the pregnancy outweigh the risks of induction. It depends on your test results, how overdue you are, whether your cervix is ready, and what you prefer. It's your choice.
 
-**Pay attention to movements.** It's very important once you're overdue. Tell your doctor or midwife straight away if the baby's movements change: if they suddenly speed up, slow down or stop.
+**Pay attention to movements.** It's very important once you're overdue. Tell your doctor or midwife straight away if the baby's movements change: if they suddenly speed up, slow down or stop. Don't wait. See [The baby is moving less](baby-moving-less).

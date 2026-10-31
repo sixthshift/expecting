@@ -13,7 +13,6 @@ sources:
   - title: AIHW — Mothers and babies glossary
     url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary
 related: [term-nicu]
-draft: true
 checked: 2026-10-29
 ---
 A neonate (also called a newborn) is a baby from birth to 28 days of age. Neonatal means that period, which is why a neonatal intensive care unit (NICU) is the hospital area for premature and sick newborns.

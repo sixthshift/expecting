@@ -19,7 +19,6 @@ related: [alcohol, medicines-before-you-knew]
 discreet: true
 appointment:
   - Can we talk about a worry I have from before I knew I was pregnant?
-draft: true
 checked: 2026-10-29
 ---
 You might have drunk alcohol before you even knew you were pregnant. Plenty of people have. The risk from low-level drinking before you knew is likely to be low.

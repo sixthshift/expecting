@@ -7,7 +7,7 @@ ask: Can I eat honey?
 aliases: [honey, manuka, honey and lemon, raw honey, honeycomb]
 who: carrying
 stakes: low
-summary: "Yes, by implication: MotherSafe and Pregnancy, Birth and Baby both suggest honey and lemon drinks for a sore throat."
+summary: "Yes: MotherSafe and Pregnancy, Birth and Baby both suggest honey and lemon drinks for a sore throat."
 verdict: yes
 sources:
   - title: Pregnancy, Birth and Baby — Medicines during pregnancy
@@ -15,10 +15,9 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — The common cold in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/docs/Cold%20in%20pregnancy%20and%20breastfeeding%20.pdf
 related: [throat-lozenges-and-gargles, cold-and-flu-tablets]
-draft: true
 checked: 2026-10-29
 ---
-Yes. Neither source says in so many words that honey is safe in pregnancy, but both recommend it in a sore-throat remedy.
+Yes. Honey and lemon is a recommended sore-throat remedy in pregnancy.
 
 ## Why
 

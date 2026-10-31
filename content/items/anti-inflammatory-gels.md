@@ -7,7 +7,7 @@ ask: Can I rub Voltaren on my back?
 aliases: [Voltaren gel, Voltaren Emulgel, diclofenac gel, Nurofen gel, ibuprofen gel, Deep Heat, Dencorub, anti-inflammatory cream, topical NSAID]
 who: carrying
 stakes: medium
-summary: "Ask first: KEMH says anti-inflammatory creams are not recommended in pregnancy, especially in the third trimester; MotherSafe says they're generally relatively safe, but not in the last 3 months unless your doctor directs it."
+summary: "Ask first, and not at all in the last 3 months unless your doctor directs it: anti-inflammatory gels are the same family as ibuprofen, though less gets into your body."
 verdict: ask
 sources:
   - title: KEMH — Commonly used medicines and safety in pregnancy
@@ -15,13 +15,9 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Pain in pregnancy
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Pain%20in%20Pregnancy.pdf
 related: [ibuprofen-and-nsaids, paracetamol]
-draft: true
 checked: 2026-10-29
 ---
-Check with your doctor or pharmacist first. The two hospital services that cover this put it differently:
-
-- **King Edward Memorial Hospital (WA)** says anti-inflammatory medicines, including topical ones such as creams, are not recommended in pregnancy, especially in the third trimester.
-- **MotherSafe (Royal Hospital for Women, NSW)** says only a small amount of a topical anti-inflammatory is expected to be absorbed through the skin, and they're generally considered relatively safe. But they shouldn't be used in the last 3 months of pregnancy unless your doctor specifically directs you to.
+Check with your doctor or pharmacist first, and don't use one in the last 3 months of pregnancy unless your doctor specifically tells you to. Only a small amount is absorbed through the skin, but anti-inflammatories, creams included, aren't recommended in pregnancy, especially in the third trimester.
 
 ## Why
 

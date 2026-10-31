@@ -13,9 +13,8 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/bonding-with-your-baby-during-pregnancy
 related: [bonding-before-birth]
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy, Birth and Baby says you don't need to wait until your baby is born to bond, and that one of the best times to start is during pregnancy. It isn't only for the pregnant parent: partners, family members, close friends and your other children can start too. Talking, singing, touching your belly and responding to kicks are some ways in.
 
-Having a baby can be scary, stressful and overwhelming, and you might feel stressed, confused, anxious or depressed rather than excited. The page says to talk to your doctor or midwife if you're very stressed or struggling with difficult feelings.
+Having a baby can be scary, stressful and overwhelming, and you might feel stressed, confused, anxious or depressed rather than excited. Talk to your doctor or midwife if you're very stressed or struggling with difficult feelings.

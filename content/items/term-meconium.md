@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Giving birth, waters breaking
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
 related: [term-amniotic-fluid, waters-breaking, term-fetal-distress, baby-first-days]
-draft: true
 checked: 2026-10-29
 ---
 Meconium is your baby's first few poos: sticky, thick and dark green, in the first few days after birth.

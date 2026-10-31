@@ -12,7 +12,6 @@ sources:
   - title: Australian Immunisation Handbook — Hepatitis B
     url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/hepatitis-b
 related: [vitamin-k, newborn-checks, going-home]
-draft: true
 checked: 2026-10-29
 ---
 Your baby's first vaccine comes on their first day or so. The Australian Immunisation Handbook recommends every infant has 4 doses of hepatitis B vaccine: one at birth, then 3 more at 2, 4 and 6 months of age, as part of a hepatitis B–containing vaccine. Hepatitis B vaccine is free under the National Immunisation Program for all infants.
@@ -32,4 +31,4 @@ The birth dose is for every newborn, to prevent:
 
 ## If the birth parent has hepatitis B
 
-Pregnant women are routinely screened for hepatitis B. If you're known to have chronic hepatitis B, your baby **must** receive both the birth dose of vaccine and hepatitis B immunoglobulin (HBIG), given on the day of birth at the same time, in separate thighs. HBIG works best given immediately after birth: preferably within 12 hours and certainly within 48 hours, as it works much less well after that. Your baby will then have a blood test 3 to 12 months after finishing the infant course, and not before 9 months of age.
+Screening for hepatitis B is a routine part of pregnancy care. If you're known to have chronic hepatitis B, your baby **must** receive both the birth dose of vaccine and hepatitis B immunoglobulin (HBIG), given on the day of birth at the same time, in separate thighs. HBIG works best given immediately after birth: preferably within 12 hours and certainly within 48 hours, as it works much less well after that. Your baby will then have a blood test 3 to 12 months after finishing the infant course, and not before 9 months of age.

@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Positions for labour and birth
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/positions-for-labour-and-birth
 related: [second-stage, breathing-and-relaxation, water-and-showers, epidural, support-person-role]
-draft: true
 checked: 2026-10-29
 ---
 There is no one position that is best for labour and birth, and different people find different positions comfortable. Unless there is a medical reason, you can choose what makes you comfortable and move around throughout. Following your instincts can help you feel more in control, reduce pain and make the birth easier. You might like to practise some positions beforehand, and an antenatal class may teach you some.

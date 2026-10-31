@@ -5,7 +5,6 @@ summary: "For a baby born from 1 July 2026, 20 of the family's 130 Parental Leav
 weeks: [26, 34]
 type: payment
 topic: partner
-draft: true
 sources:
   - title: Services Australia — How much Parental Leave Pay you can get
     url: https://www.servicesaustralia.gov.au/how-much-parental-leave-pay-you-can-get

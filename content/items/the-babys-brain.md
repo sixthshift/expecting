@@ -24,7 +24,6 @@ sources:
   - title: The Royal Women's Hospital — Food and nutrition in pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/food-nutrition-in-pregnancy
 related: [pregnancy-supplements, the-babys-senses, term-neural-tube-defect]
-draft: true
 checked: 2026-10-29
 ---
 Your baby's brain starts forming in the first weeks of pregnancy and keeps growing and developing for many years after birth.

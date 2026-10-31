@@ -10,12 +10,13 @@ who: carrying
 stakes: low
 summary: "Varicose veins are common in pregnancy and usually get better by the time your baby is 3 to 4 months old; compression stockings, putting your legs up and ankle exercises help."
 sources:
+  - title: healthdirect — Warning signs during pregnancy
+    url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
   - title: Pregnancy, Birth and Baby — Varicose veins
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/varicose-veins
 related: [haemorrhoids, swollen-feet-and-ankles, painful-swollen-leg]
 appointment:
   - Am I at higher risk of a blood clot?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -29,4 +30,4 @@ They usually get better without treatment by the time your baby is 3 to 4 months
 - put your legs up when you can, and lie on your left side
 - apply cold packs, avoid standing for long, and avoid tight clothes or high heels
 
-Varicose veins raise your risk of deep vein thrombosis (DVT). Talk to your doctor or midwife if you're worried, or if you may already be at risk of DVT for other reasons.
+Varicose veins raise your risk of deep vein thrombosis (DVT), a blood clot. Pain or swelling in one leg, especially if it's red or warm, is a call to your doctor, midwife or hospital straight away: see [One painful, red or swollen leg](painful-swollen-leg). Talk to your doctor or midwife if you're worried, or if you may already be at risk of DVT for other reasons.

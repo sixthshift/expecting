@@ -13,7 +13,6 @@ sources:
   - title: ARPANSA — Airport passenger screening and health
     url: https://www.arpansa.gov.au/understanding-radiation/radiation-sources/more-radiation-sources/airport-passenger-screening
 related: [flying, microwaves-and-devices, medical-x-rays-and-ct]
-draft: true
 checked: 2026-10-29
 ---
 Yes. ARPANSA, Australia's radiation protection agency, says body scanners used at Australian airports are safe and don't pose a health risk. Its page doesn't mention pregnancy, so this is its general advice to passengers.

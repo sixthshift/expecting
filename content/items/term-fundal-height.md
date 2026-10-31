@@ -13,7 +13,6 @@ sources:
   - title: "Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, uterus"
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-uterus
 related: [the-uterus-in-pregnancy, baby-size-and-growth]
-draft: true
 checked: 2026-10-29
 ---
 Fundal height is the distance from your pubic bone to the top of your uterus (the fundus), measured with a tape. It may be measured at each antenatal visit from 24 weeks onwards. It should be similar to the number of weeks you are pregnant. A smaller reading than expected could mean slow growth or too little amniotic fluid; a larger one, a larger than average baby. Either way, your doctor will monitor you and your baby carefully.

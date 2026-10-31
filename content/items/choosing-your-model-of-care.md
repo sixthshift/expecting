@@ -20,7 +20,6 @@ related: [public-hospital-care, midwifery-group-practice, gp-shared-care, privat
 appointment:
   - Which models of care are open to us here?
   - Does anything about this pregnancy rule some out?
-draft: true
 checked: 2026-10-29
 ---
 A model of care is who looks after you in pregnancy, where, and who is there for the birth. Hospitals call their versions different names (the Royal Women's in Melbourne has Team Maternity, MIST and Caseload, for example), so ask what yours calls them.

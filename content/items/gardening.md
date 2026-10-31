@@ -19,7 +19,6 @@ sources:
   - title: healthdirect — Legionnaires' disease
     url: https://www.healthdirect.gov.au/conditions/lung-and-respiratory-diseases/legionnaires-disease
 related: [cat-litter, pesticides, heavy-lifting, hot-weather]
-draft: true
 checked: 2026-10-29
 ---
 Yes. Wear gloves and wash your hands well afterwards.

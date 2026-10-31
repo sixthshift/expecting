@@ -11,11 +11,10 @@ summary: "Yes, when it's cooked to at least 75 °C and eaten straight away: the 
 verdict: yes
 sources:
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
   - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
 related: [deli-meats, rare-meat]
-draft: true
 checked: 2026-10-29
 ---
 Yes, hot. Processed meats such as ham, salami and luncheon meat are OK to eat if they're cooked to at least 75 °C and eaten straight away.

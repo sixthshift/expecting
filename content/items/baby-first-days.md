@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Your baby in the first few days
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-baby-in-the-first-few-days
 related: [term-vernix, term-meconium, newborn-checks, first-feed, going-home]
-draft: true
 checked: 2026-10-29
 ---
 The first few days are exciting and tiring, and every baby is different. Here's what's usual for a healthy baby born at full term.
@@ -45,7 +44,7 @@ Keep it clean and dry. Only wash around it if it's dirty with wee or poo: clean 
 
 ## Tests and injections
 
-You'll be offered vitamin K and the first hepatitis B vaccine in hospital. Usually when your baby is between 48 and 72 hours old (the newborn screening page says within the first 72 hours), you'll be offered the heel prick test (newborn bloodspot screening) and a hearing screen. You'll be asked for permission first.
+You'll be offered vitamin K and the first hepatitis B vaccine in hospital. Usually when your baby is between 48 and 72 hours old, you'll be offered the heel prick test (newborn bloodspot screening) and a hearing screen. You'll be asked for permission first.
 
 ## The baby book
 

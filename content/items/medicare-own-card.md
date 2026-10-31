@@ -14,7 +14,6 @@ sources:
   - title: Services Australia — Before the birth of your baby
     url: https://www.servicesaustralia.gov.au/before-birth-your-baby
 related: [medicare-enrol-baby, medicare-safety-net]
-draft: true
 checked: 2026-10-29
 tasks:
   - id: get-own-medicare-card

@@ -21,7 +21,6 @@ sources:
   - title: Pregnancy, Birth and Baby — The role of a birth support partner
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
 related: [contractions, when-to-go-to-hospital, support-person-role, early-labour]
-draft: true
 checked: 2026-10-29
 ---
 Timing contractions is one of the jobs you can take on as the support person in early labour. When you call, the midwife will ask how often they come, how long they last and how strong they feel, and that helps them know how far labour has progressed.
@@ -36,20 +35,15 @@ A watch, a clock or a contraction timer app all work. Start timing when they fee
 
 ## What you're looking for
 
-Contractions usually start spaced apart and become regular, stronger, longer and closer together as labour establishes. For active labour, Pregnancy, Birth and Baby gives every 3 to 4 minutes, lasting around 60 seconds, on one page, and every 2 to 3 minutes, lasting 50 to 60 seconds, on another.
+Contractions usually start spaced apart and become regular, stronger, longer and closer together as labour establishes. In active labour they usually come every 2 to 4 minutes and last about 50 to 60 seconds.
 
 ## When to call
 
-Sources put the point slightly differently:
-
-- **Pregnancy, Birth and Baby (contractions page):** contact your birth unit, planned place of birth or midwife if your contractions become painful and regular (2 or more contractions in 10 minutes).
-- **Pregnancy, Birth and Baby (first stage page):** if you've had a normal and uncomplicated pregnancy, contact the birth unit when contractions are stronger and regular (around 3 to 4 minutes apart) or you can no longer manage at home.
-- **The Royal Women's Hospital:** when there's less than three to five minutes between each wave (contraction), it's time to go to the hospital.
-- **RANZCOG:** call the hospital when your contractions are regular and five minutes apart, or you feel ready to come into hospital.
+Contact your birth unit, planned place of birth or midwife when the contractions become painful and regular, 2 or more in 10 minutes (about five minutes apart), or when you can no longer manage at home or feel ready to come in.
 
 If you're not sure or you're worried, call the hospital anyway; sometimes just talking it through helps.
 
-Also call, whatever the timing, if the waters break (note the time, colour and amount of fluid), there's bleeding, the baby's movements change, or labour starts before a planned caesarean.
+Also call, whatever the timing, if the waters break (note the time, colour and amount of fluid), there's bleeding, the baby's movements change, or labour starts before a planned caesarean. If the baby is moving less, call straight away; don't wait ([The baby is moving less](baby-moving-less)).
 
 ## When to get help
 

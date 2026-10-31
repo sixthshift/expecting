@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 38
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-38
 related: [term-vernix]
-draft: true
 checked: 2026-10-29
 ---
 By 19 weeks, your baby's skin is becoming covered in a white sticky substance called vernix. It provides a barrier over their skin to protect against infection and from the amniotic fluid they are surrounded by.

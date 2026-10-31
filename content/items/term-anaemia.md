@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Anaemia in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/anaemia-in-pregnancy
 related: [heart-and-blood-in-pregnancy, term-haemoglobin, anaemia-in-pregnancy, iron, iron-infusion]
-draft: true
 checked: 2026-10-29
 ---
 Anaemia is when your blood doesn't have enough healthy red blood cells or haemoglobin to carry oxygen around your body and to your baby. It happens in about 1 in 4 pregnancies. Iron deficiency is the main cause, because you need more iron when you're pregnant.

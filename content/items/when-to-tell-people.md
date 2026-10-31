@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Miscarriage
     url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/miscarriage
 related: [employer-leave-notice, miscarriage, grandparents-and-boundaries]
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy, Birth and Baby says choosing the right time to tell family and friends is hard, and there is no right answer. If you have a partner, who to tell, when and how is best decided with them.

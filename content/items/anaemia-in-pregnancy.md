@@ -18,7 +18,6 @@ appointment:
   - What did my haemoglobin and iron results show?
   - Do I need iron tablets, or an infusion?
   - When will my iron be checked again?
-draft: true
 checked: 2026-10-29
 ---
 Anaemia means your blood doesn't have enough healthy red blood cells or haemoglobin, the protein that carries oxygen around your body and to your baby. It's common, happening in about 1 in every 4 pregnancies, and your doctor can manage it.
@@ -31,7 +30,7 @@ It's more likely with a vegetarian or vegan diet, a poor diet, severe morning si
 
 ## How it's found
 
-A full blood count, which checks your haemoglobin, is done at your first antenatal visit and usually again at about 28 weeks. If your haemoglobin is low, you may have more blood tests to find the cause. You might feel weak, tired or dizzy, or have headaches, shortness of breath or chest pain.
+A full blood count, which checks your haemoglobin, is done at your first antenatal visit and usually again at about 28 weeks. If your haemoglobin is low, you may have more blood tests to find the cause. You might feel weak, tired or dizzy, or have headaches, shortness of breath or chest pain. Chest pain or severe trouble breathing: call 000.
 
 ## Treatment
 

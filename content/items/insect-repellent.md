@@ -17,14 +17,13 @@ sources:
   - title: Pregnancy, Birth and Baby — Toxic household products to avoid during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
 related: [malaria, zika, pesticides, camping-and-the-bush]
-draft: true
 checked: 2026-10-29
 ---
 Yes. Mosquito repellents approved by the Australian Pesticides and Veterinary Medicines Authority (APVMA) are safe to use when you're pregnant or breastfeeding.
 
 ## Why
 
-Mosquitoes can carry diseases that can harm you or your baby, including Ross River virus, Barmah Forest virus, Murray Valley encephalitis and Japanese encephalitis. The benefits of avoiding bites outweigh the risk of using a personal repellent. MotherSafe notes that pregnant women are more likely to be bitten than women who aren't pregnant.
+Mosquitoes can carry diseases that can harm you or your baby, including Ross River virus, Barmah Forest virus, Murray Valley encephalitis and Japanese encephalitis. The benefits of avoiding bites outweigh the risk of using a personal repellent.
 
 DEET poorly crosses the placenta and hasn't been shown to cause harm at any stage of pregnancy. Picaridin can also be used.
 

@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Early signs of pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/early-signs-of-pregnancy
 related: [how-much-more-to-eat]
-draft: true
 checked: 2026-10-29
 ---
 Better Health Channel lists a sour or metallic taste that persists even when you're not eating (dysgeusia) among the signs of early pregnancy, alongside cravings for some foods and distaste for foods you usually like. Pregnancy, Birth and Baby also lists a strange metallic taste in your mouth among the early signs.

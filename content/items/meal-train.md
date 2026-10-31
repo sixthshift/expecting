@@ -6,7 +6,6 @@ weeks: [30, 38]
 type: moment
 topic: after-the-birth
 extra: meal-train
-draft: true
 tasks:
   - id: choose-meal-train-organiser
     title: Ask a friend to organise the meal train

@@ -12,9 +12,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Baby movements during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
 related: [term-anterior-placenta, baby-movements]
-draft: true
 checked: 2026-10-29
 ---
 Where the placenta sits changes how you feel your baby. With an anterior placenta, growing on the front of your uterus, movement tends to be felt at around 20 weeks and may not feel as strong. With a posterior one, at the back, movements are often felt earlier and stronger. You're also more likely to feel them early if this isn't your first pregnancy.
 
-Every baby is unique, so get to know your baby's own pattern. If you're ever concerned about it or notice a decrease in movements, contact your midwife, hospital birth unit or doctor immediately. Don't wait until the next day.
+Every baby is unique, so get to know your baby's own pattern. If you're ever concerned about it or notice a decrease in movements, contact your midwife, hospital birth unit or doctor immediately. Don't wait until the next day. See [The baby is moving less](baby-moving-less).

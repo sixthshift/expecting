@@ -20,7 +20,6 @@ sources:
   - title: SMS4dads — Home (NICU messages)
     url: https://www.sms4dads.com.au/
 related: [when-the-baby-comes-early, neonatal-death, partner-mental-health-support, building-your-village]
-draft: true
 checked: 2026-10-29
 ---
 Congratulations: your baby is here. And if they are in the neonatal intensive care unit (NICU) or special care nursery (SCN), this is probably a very different path from the one you expected. Mixed emotions are normal, and so is feeling overwhelmed. You don't have to do this alone.

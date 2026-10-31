@@ -17,7 +17,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
 related: [overseas-travel, insect-repellent, malaria, sex]
-draft: true
 checked: 2026-10-29
 ---
 ## Why

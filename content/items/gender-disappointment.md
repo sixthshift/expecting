@@ -13,7 +13,6 @@ sources:
     url: https://www.gidgetfoundation.org.au/fact-sheets/gender-disappointment
 related: [bonding-before-birth, antenatal-depression]
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 Imagining your child, the things you'll do together and how they might look is part of becoming a parent, and it's hard not to imagine their gender too. The Gidget Foundation says having a preference is common, and gender disappointment is the distress some parents feel when their child's sex isn't what they'd hoped. It can happen to any parent, and at any stage: at conception, during pregnancy or at the birth. It's real, but can be hard to talk about.

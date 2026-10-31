@@ -1,14 +1,15 @@
 ---
 id: morning-sickness
 title: Morning sickness
-summary: "Nausea can come at any time of day, most often from about 6 to 14 weeks, and if you can't keep fluids down, see your doctor immediately."
+summary: "Nausea can come at any time of day, most often from about 6 to 14 weeks, and if you can't keep fluids down at all, go to emergency."
 weeks: [5, 16]
 type: moment
 topic: body
 appointment:
   - What can I try if my nausea is hard to manage?
-draft: true
 sources:
+  - title: Pregnancy, Birth and Baby — Severe vomiting during pregnancy (hyperemesis gravidarum)
+    url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/severe-vomiting-during-pregnancy-hyperemesis-gravidarum
   - title: Pregnancy, Birth and Baby — Morning sickness
     url: https://www.pregnancybirthbaby.org.au/dealing-with-morning-sickness
 checked: 2026-10-29
@@ -17,6 +18,4 @@ Despite the name, morning sickness — nausea, with or without vomiting — can 
 
 It ranges from mild queasiness to something much harder. When it's very severe it's called **hyperemesis gravidarum**: it becomes hard to keep enough food and fluids down, and it can lead to dehydration and weight loss.
 
-If you're vomiting and can't keep fluids down, see your doctor immediately. Ask your midwife or OB.
-
-For the partner: Better Health Victoria suggests preparing the meals, because cooking smells can make nausea worse, and encouraging dry crackers or plain sweet biscuits before getting out of bed or through the day, as hunger can intensify the symptoms, and drinking as much as possible.
+If you can't keep any fluids down, go to your local emergency department: they can give you fluids through a drip. For vomiting that's severe or won't stop, contact your doctor, midwife or hospital straight away: see [Can't keep anything down](severe-vomiting).

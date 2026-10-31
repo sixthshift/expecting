@@ -13,9 +13,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
 related: [soft-serve, custard-and-desserts]
-draft: true
 checked: 2026-10-29
 ---
 Yes, for ice cream from a tub or packet and for gelato: you can eat frozen ice cream and gelato. The NSW Food Authority says packaged frozen ice cream is okay to eat, kept and eaten frozen.

@@ -18,7 +18,6 @@ sources:
   - title: Gidget Foundation — A guide to coping with reminders of your pregnancy and/or child loss
     url: https://www.gidgetfoundation.org.au/fact-sheets/a-guide-to-coping-with-reminders-of-your-pregnancy-and-or-child-loss
 related: [after-a-miscarriage, employer-leave-notice, card-bereavement-leave-for-loss]
-draft: true
 checked: 2026-10-29
 ---
 After a loss you may need time to recover physically and to look after yourself. Here's what the law gives you, and how to handle going back.

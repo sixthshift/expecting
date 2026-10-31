@@ -13,7 +13,6 @@ sources:
   - title: "Pregnancy, Birth and Baby — Changes to your body during pregnancy"
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
 related: [heart-and-blood-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Varicose veins are blood vessels that have collected too much blood, so they swell, twist and bulge, and usually look blue. They are common in pregnancy, most often in the legs and vulva.

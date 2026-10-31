@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Birth choices and making a birth plan
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/making-a-birth-plan
 related: [partner-reserved-days, birth-trauma, tokophobia, card-support-person-helps]
-draft: true
 checked: 2026-10-29
 ---
 A birth support partner stays with the person giving birth through labour and birth, giving emotional and physical support. It's a big responsibility and a privilege, and it matters: the right support can shorten labour, reduce how much pain relief is needed, lower the chance of an assisted birth or caesarean, and boost confidence and the experience of labour. You're there to help, not simply to watch.

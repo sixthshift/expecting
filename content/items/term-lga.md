@@ -13,7 +13,6 @@ sources:
   - title: Australian Institute of Health and Welfare — Mothers and babies glossary
     url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary
 related: [term-sga, baby-size-and-growth]
-draft: true
 checked: 2026-10-29
 ---
 There's no single definition of a large baby. Generally, a baby weighing over 4.5 kg at birth is considered large, also called fetal macrosomia or large for gestational age (LGA). The AIHW counts 4,500 g or more as high birthweight.

@@ -15,7 +15,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Constipation in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/Constipation%20in%20Pregnancy%20and%20Breastfeedingfinal2025%20(002).pdf
 related: [iron, haemorrhoid-treatments, antacids]
-draft: true
 checked: 2026-10-29
 ---
 Yes. Constipation is common in pregnancy (about 40% of pregnant people, MotherSafe says), and it is uncomfortable but not harmful to the baby. Laxatives are generally poorly absorbed, and MotherSafe suggests trying them in steps.

@@ -7,7 +7,7 @@ ask: Can I eat pâté?
 aliases: [pate, pâté, chicken liver pate, parfait, terrine, rillettes, meat paste, meat spread, liverwurst]
 who: carrying
 stakes: high
-summary: "Avoid refrigerated pâté and meat spreads: they can carry listeria, and liver pâté may also be very high in vitamin A. Canned or shelf-stable pâté is the safer choice."
+summary: "Avoid pâté of all kinds in pregnancy: chilled pâté and meat spreads can carry listeria, and liver pâté is very high in vitamin A."
 verdict: avoid
 sources:
   - title: Food Standards Australia New Zealand — Listeria in food
@@ -21,7 +21,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
 related: [liver, deli-meats, vitamin-a-supplements]
-draft: true
 checked: 2026-10-29
 ---
 Best avoided. Pregnancy, Birth and Baby says to avoid all types of pâté, and Food Standards Australia New Zealand lists refrigerated pâté and meat spreads among the foods to avoid in pregnancy.
@@ -36,6 +35,6 @@ Best avoided. Pregnancy, Birth and Baby says to avoid all types of pâté, and F
 
 ## What to do
 
-- **Pick canned or shelf-stable pâté or meat spreads** instead of chilled ones: FSANZ lists them as the safer alternative. Eat them straight away, or keep leftovers in the fridge and use them within a day.
+- **Skip pâté, chilled or not.** Canned or shelf-stable pâté carries less listeria risk than chilled, but liver pâté is still very high in vitamin A, so it's simplest to leave it until after the birth.
 - **Pâté made from liver** may also be very high in vitamin A.
 - **Already had some?** Listeria symptoms can be mild, like the flu: fever, headache, tiredness, aches. FSANZ says if you're pregnant and get them, seek medical attention immediately. If you're worried about something you've eaten, call your maternity care provider or doctor.

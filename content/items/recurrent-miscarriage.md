@@ -14,7 +14,6 @@ sources:
   - title: Miscarriage Australia — Recurrent miscarriage
     url: https://miscarriageaustralia.com.au/understanding-miscarriage/recurrent-miscarriage/
 related: [miscarriage, pregnancy-after-loss, loss-support-services]
-draft: true
 checked: 2026-10-29
 ---
 Yes, from your second loss. In Australia the definition of recurrent miscarriage was updated, in line with international guidelines, to two pregnancy losses before 20 weeks, whether or not they were in a row. Around 1 to 2 in 100 people experience it. Losing one pregnancy after another is often highly distressing, and **you are not to blame**: most miscarriages come from things outside anyone's control.
@@ -36,7 +35,7 @@ The cause of most recurrent miscarriage can't be found. When something is, it ma
 
 ## Treatment
 
-It depends on the cause: medicines for hormone or thyroid problems, low-dose aspirin or blood thinners for clotting or immune conditions, surgery for some uterus conditions, and lifestyle advice where it helps. **Even when no cause is found, supportive care and early, frequent monitoring in the next pregnancy can make a difference.**
+It depends on the cause: medicines for hormone or thyroid problems, low-dose aspirin or blood thinners for clotting or immune conditions, surgery for some uterus conditions, and lifestyle advice where it helps.
 
 ## Next time
 

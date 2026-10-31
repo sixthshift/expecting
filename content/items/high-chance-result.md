@@ -25,7 +25,6 @@ appointment:
   - What does our result mean, and what are our options from here?
   - Can you refer us to a genetic counsellor?
   - How long do we have to decide about a diagnostic test?
-draft: true
 checked: 2026-10-29
 ---
 A screening test, whether combined first-trimester screening, NIPT or second-trimester serum screening, estimates the chance that your baby has a condition such as Down syndrome. It can't diagnose it. A high-chance result means it's more likely a difference is there, not that it is. Your doctor or midwife will talk with you about what happens next.

@@ -17,7 +17,6 @@ sources:
   - title: Gidget Foundation — Looking after yourself as a new dad
     url: https://www.gidgetfoundation.org.au/fact-sheets/looking-after-yourself-as-a-new-dad
 related: [after-the-birth-mood-heads-up, partner-reserved-days, partner-perinatal-depression]
-draft: true
 checked: 2026-10-29
 ---
 Bringing the baby home is a big change, and it takes time to adjust, but your confidence will grow. This is a preview for the last weeks of pregnancy: what your part looks like once you're home.

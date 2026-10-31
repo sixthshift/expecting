@@ -17,7 +17,6 @@ sources:
   - title: The Royal Women's Hospital — Common concerns in early pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
 related: [spas-and-hot-tubs, saunas, electric-blankets]
-draft: true
 checked: 2026-10-29
 ---
 Yes. Pregnancy, Birth and Baby says it's perfectly safe to have a warm bath when you're pregnant, as long as you don't become too hot.

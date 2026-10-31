@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
     url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
 related: [the-trimesters, term-first-trimester, term-second-trimester, term-third-trimester]
-draft: true
 checked: 2026-10-29
 ---
 A trimester is a time span of 3 months during pregnancy, each marked by different phases of fetal development (Better Health Channel). Pregnancy has three of them. The cut-off weeks differ a little between sources: see the first, second and third trimester entries.

@@ -7,7 +7,7 @@ ask: Can I ride my bike while pregnant?
 aliases: [cycling, bike, bicycle, commuting by bike, mountain biking, spin class, stationary bike, exercise bike, e-bike]
 who: carrying
 stakes: medium
-summary: "An exercise bike is a recommended way to stay fit. Riding outdoors is where sources split: most list cycling as a fall risk to avoid, while Better Health lists outdoor cycling as generally safe."
+summary: "An exercise bike is a recommended way to stay fit. Riding outdoors is best avoided: cycling is listed among activities with a risk of falling, and a fall can injure you and your baby."
 verdict: limit
 sources:
   - title: Pregnancy, Birth and Baby — Exercising during pregnancy
@@ -25,14 +25,13 @@ sources:
 related: [exercise-in-pregnancy, motorbikes-and-scooters, horse-riding]
 appointment:
   - Is riding outdoors okay for me?
-draft: true
 checked: 2026-10-29
 ---
 A stationary bike, yes: Pregnancy, Birth and Baby calls it a great moderate activity that puts little stress on your joints. On the road or trail, it's the risk of falling that matters.
 
 ## Why
 
-RANZCOG, MotherSafe and Pregnancy, Birth and Baby all name cycling, with horse riding and skiing, as an activity with a risk of falling that should be avoided, because a fall can injure you and your baby. Better Health takes a different view and lists cycling, outdoors or on a stationary bike, among activities generally safe in pregnancy. Pregnancy, Birth and Baby's own pages also differ: its sport page lists cycling among the recommended medium-intensity aerobic activities, while its exercise and myths pages say to avoid it as a fall risk.
+Cycling, with horse riding and skiing, is an activity with a risk of falling that should be avoided, because a fall can injure you and your baby.
 
 As the bump grows your centre of gravity moves forward, which changes your balance and raises the chance of a fall. From the second trimester the baby is no longer protected by your pelvis.
 

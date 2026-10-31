@@ -17,7 +17,6 @@ sources:
   - title: Fair Work Ombudsman — Returning to work from parental leave
     url: https://www.fairwork.gov.au/leave/parental-leave/after-parental-leave/returning-to-work-from-parental-leave
 related: [working-close-to-the-due-date, pregnancy-discrimination-at-work, returning-to-work, chemicals-at-work, shift-work]
-draft: true
 checked: 2026-10-29
 ---
 All pregnant employees, **including casuals**, have the right to a safe job. That includes employees who aren't eligible for unpaid parental leave because they haven't worked for their employer for 12 months.

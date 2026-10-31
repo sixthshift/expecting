@@ -17,7 +17,6 @@ sources:
 related: [sore-breasts]
 appointment:
   - Is expressing colostrum from 36 weeks a good idea for me?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

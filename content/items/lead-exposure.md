@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Toxic household products to avoid during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
 related: [painting-and-renovating, gardening, chemicals-at-work]
-draft: true
 checked: 2026-10-29
 ---
 Keep your exposure as low as you can. Lead is a poison, there's no safe level of exposure, and the risk of lead poisoning is highest for unborn babies, infants and children. If you're pregnant, lead can cross the placenta to your baby.
@@ -24,7 +23,7 @@ Keep your exposure as low as you can. Lead is a poison, there's no safe level of
 
 Lead gets in when you breathe in or swallow contaminated dust, soil, food or water. In Australia it can be found in:
 
-- house paint in older homes: before 1970 (healthdirect) or 1971 (Pregnancy, Birth and Baby)
+- house paint in homes built before about 1970
 - old plumbing, which can contaminate water
 - imported toys and cosmetics, and some traditional Chinese and Indian herbal medicines
 - hobbies such as lead lighting, pottery glazes, shooting and fishing weights

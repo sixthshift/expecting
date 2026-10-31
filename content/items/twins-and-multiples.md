@@ -16,7 +16,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Weight gain in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/weight-gain-in-pregnancy
 related: [the-placenta, term-dizygotic, term-monozygotic, term-dcda, term-mcda, term-mcma, term-ttts, term-vanishing-twin, weight-gain-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Most people having twins have a healthy pregnancy and healthy babies. But there are more risks than with one baby, so you'll be offered more checks along the way.

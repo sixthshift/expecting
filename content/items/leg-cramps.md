@@ -10,6 +10,8 @@ who: carrying
 stakes: medium
 summary: "Night cramps in the calf affect up to 3 in 10 pregnant people and stretching eases them, but leg pain that won't go away, or a red, warm or swollen leg, can be a blood clot: see your doctor immediately."
 sources:
+  - title: healthdirect — Warning signs during pregnancy
+    url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
   - title: Pregnancy, Birth and Baby — Leg cramps during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/leg-cramps-during-pregnancy
   - title: The Royal Women's Hospital — Coping with common discomforts of pregnancy (fact sheet, April 2018)
@@ -17,7 +19,6 @@ sources:
 related: [painful-swollen-leg, restless-legs, insomnia]
 appointment:
   - What else could help with my leg cramps?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -35,8 +36,10 @@ Nothing prevents cramps completely, but these might help: stretch your calves be
 
 Some people take magnesium or calcium supplements for cramps. Pregnancy, Birth and Baby says there's no clear evidence they work; the Royal Women's Hospital says studies of calcium have shown no improvement or relief. Talk to your doctor or midwife before trying any supplement.
 
-## See your doctor or midwife
+## Contact your hospital now
 
-Leg pain can sometimes be a sign of a blood clot. **See your doctor immediately** if pain in your leg doesn't go away, or your leg is red, warm or swollen.
+Leg pain can sometimes be a sign of a blood clot. Contact your doctor, midwife or hospital immediately if you have pain or swelling in one leg, pain that doesn't go away, or your leg is red or warm.
+
+## See your doctor or midwife
 
 If cramps are bothering you, or they're persistent and not going away, talk to your doctor or midwife.

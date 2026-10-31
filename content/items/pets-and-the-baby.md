@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pets in the family
     url: https://www.pregnancybirthbaby.org.au/parenting-and-family/parenting-skills-and-daily-life/pets-in-the-family
 related: []
-draft: true
 checked: 2026-10-29
 ---
 It can be hard to predict how a pet will react when a baby comes home, but Pregnancy, Birth and Baby says planning can help humans and animals adjust. Animals are creatures of routine, so make changes to their feeding and care before the baby arrives, and share pet care with your partner where possible.

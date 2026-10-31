@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Common myths about pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/common-myths-about-pregnancy
 related: [sleeping-on-your-back, bleeding-after-sex, sex-and-intimacy, card-sex-myths, sti-screening]
-draft: true
 checked: 2026-10-29
 ---
 Yes. Unless your maternity care provider has told you not to, sex is fine at any stage of pregnancy, as long as you both want to.
@@ -30,4 +29,5 @@ Sex doesn't harm the baby. The uterus sits deep in the pelvis behind strong musc
 - **Positions.** Avoid lying flat on your back, especially from 28 weeks. Try side-lying with pillows, hands and knees, or you on top.
 - **New or casual partner?** Use a condom or dental dam because of the risk of STIs.
 - **Desire changes** from trimester to trimester, and it's OK if either of you doesn't want sex. Kissing, cuddling and massage count too.
-- **See your doctor** after sex if there's severe cramping, bleeding, unusual discharge, sharp pain or fever.
+- **See your doctor** after sex if there's severe cramping, unusual discharge, sharp pain or fever.
+- **Bleeding after sex:** contact your doctor or midwife; after 20 weeks contact your birth unit straight away, and call 000 for heavy bleeding. See [Bleeding after sex](bleeding-after-sex).

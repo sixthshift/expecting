@@ -10,13 +10,14 @@ who: carrying
 stakes: medium
 summary: "Pain in the joints of the pelvis is very common, not dangerous for you or the baby and usually gone within 3 months of the birth; see your doctor about it, and immediately if the pain comes without movement or with fever, bleeding, numbness or bladder trouble."
 sources:
+  - title: Pregnancy, Birth and Baby — Backache in pregnancy
+    url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/backache-in-pregnancy
   - title: Pregnancy, Birth and Baby — Pelvic pain during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/pelvic-pain-during-pregnancy
 related: [back-pain, round-ligament-pain, sciatica]
 appointment:
   - Can you check whether my pain is pelvic girdle pain?
   - Should I see a physiotherapist?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -36,16 +37,14 @@ Changes that help:
 
 Extended bed rest without a doctor's guidance isn't recommended.
 
+## Call 000 or go to emergency
+
+Call triple zero (000) and ask for an ambulance if the pain comes with trouble controlling your bladder or bowels, or numbness or weakness in your legs: these can be signs of a compressed nerve in the spine (cauda equina syndrome).
+
+## Contact your hospital now
+
+See your doctor immediately if you have pain that comes on without movement, an unexpected fever, bleeding or fluid leaking from your vagina, weight loss without trying, or you've had a fall or an injury.
+
 ## See your doctor or midwife
-
-See your doctor **immediately** if you:
-
-- have pain that comes on without movement
-- have an unexpected fever
-- have bleeding or fluid leaking from your vagina
-- are losing weight without trying
-- have trouble controlling your bladder or bowels
-- have numbness or weakness in your legs
-- have had a fall or an injury
 
 If you have back, pelvic or hip pain, see your doctor to check it's PGP. They may refer you to a physiotherapist.

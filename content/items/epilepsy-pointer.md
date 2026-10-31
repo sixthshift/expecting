@@ -20,7 +20,6 @@ appointment:
   - Are my medicine and dose right for pregnancy?
   - Will my medicine levels be checked, and might my dose need to change?
   - What folate supplement should I be taking?
-draft: true
 checked: 2026-10-29
 ---
 Most people with epilepsy have healthy babies. Pregnancy, Birth and Baby lists epilepsy among the pre-existing medical conditions that may make a pregnancy higher risk. Epilepsy Action Australia says that before trying to conceive you should talk to your neurologist, GP and/or an obstetrician, and that they will want to monitor you closely throughout.

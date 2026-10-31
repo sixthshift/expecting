@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Placental insufficiency
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placental-insufficiency
 related: [term-sga, the-placenta, baby-size-and-growth, growth-scans, baby-movements]
-draft: true
 checked: 2026-10-29
 ---
 Fetal growth restriction (FGR) is when your baby grows more slowly than expected in pregnancy. Most commonly it's because the placenta hasn't developed well enough to give them the nutrients and oxygen they need (placental insufficiency).

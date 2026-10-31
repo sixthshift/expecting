@@ -18,7 +18,6 @@ sources:
   - title: Services Australia — Work requirements for Parental Leave Pay
     url: https://www.servicesaustralia.gov.au/work-requirements-for-parental-leave-pay
 related: [unpaid-parental-leave, parental-leave-pay-work-test, safe-job-and-no-safe-job-leave]
-draft: true
 checked: 2026-10-29
 ---
 Yes, often. Being casual doesn't rule you out of [unpaid parental leave](unpaid-parental-leave), but there's an extra test.

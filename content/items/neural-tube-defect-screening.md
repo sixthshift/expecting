@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Neural tube defects
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/neural-tube-defect
 related: [morphology-scan, second-trimester-serum-screening]
-draft: true
 checked: 2026-10-29
 ---
 Neural tube defects, such as spina bifida, are usually found in the second trimester. The ultrasound at around 18 to 20 weeks can diagnose most cases; the maternal serum screening blood test (14 to 20 weeks) estimates the chance but can't diagnose.

@@ -6,7 +6,6 @@ weeks: [32, 38]
 type: moment
 topic: after-the-birth
 extra: visitors
-draft: true
 sources:
   - title: Australian Immunisation Handbook — Pertussis (whooping cough)
     url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/pertussis-whooping-cough
@@ -32,7 +31,7 @@ Everyone wants to meet the baby. The first days are also when you're sorest, mos
 - **Visitors who help:** bring food, hang out the washing, then go.
 - **Nobody comes unwell.** A cold for an adult can be serious for a newborn.
 
-**Vaccines.** The Australian Immunisation Handbook recommends a whooping cough booster for adults who'll be in close contact with the baby (partners, grandparents, carers) if their last was more than 10 years ago, ideally at least 2 weeks before they meet the baby. A yearly flu vaccine is recommended for them too. Ask early, so there's time.
+**Vaccines.** The Australian Immunisation Handbook recommends a whooping cough booster for adults who'll be in close contact with the baby (partners, grandparents, carers) if their last was more than 10 years ago, ideally at least 2 weeks before they meet the baby. Ask early, so there's time.
 
 **Saying not yet.** The partner is often the gatekeeper: they answer the messages and the door. A few lines ready make it easier:
 

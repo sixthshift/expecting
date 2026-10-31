@@ -15,7 +15,6 @@ related: [amniocentesis, high-chance-result, screening-vs-diagnostic, genetic-co
 appointment:
   - Would you recommend a CVS for me, and why?
   - Would a CVS or an amniocentesis suit me better?
-draft: true
 checked: 2026-10-29
 ---
 Chorionic villus sampling (CVS) is a diagnostic test: it can find out whether your baby has a genetic or chromosomal condition, such as Down syndrome, rather than estimating the chance as a screening test does. It isn't part of routine antenatal care and isn't offered to everyone. If it's offered, having it is your decision.

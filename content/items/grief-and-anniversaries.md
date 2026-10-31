@@ -16,7 +16,6 @@ sources:
   - title: Miscarriage Australia — Supporting someone who's had a miscarriage
     url: https://miscarriageaustralia.com.au/finding-miscarriage-support/for-family-and-friends/supporting-someone-after-miscarriage/
 related: [something-has-happened, remembering-the-baby, pregnancy-after-loss]
-draft: true
 checked: 2026-10-29
 ---
 Grief after the loss of a pregnancy or a baby doesn't completely go away, though you learn to live with it. The day your baby was due, the anniversary of the loss, pregnant friends, babies: reminders can hurt at any time, not only early on. That's normal, and part of going through such a profound loss.

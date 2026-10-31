@@ -6,7 +6,6 @@ weeks: [20, 40]
 type: moment
 topic: celebrations
 extra: keepsakes
-draft: true
 tasks:
   - id: choose-keepsakes
     title: Decide which keepsakes you'd like to make

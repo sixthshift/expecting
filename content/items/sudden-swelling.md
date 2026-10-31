@@ -10,6 +10,8 @@ who: carrying
 stakes: high
 summary: "Gradual ankle swelling that goes down overnight is normal; sudden or severe swelling of the face, hands or feet can be a sign of pre-eclampsia, so contact your doctor, midwife or hospital immediately."
 sources:
+  - title: healthdirect — Headaches
+    url: https://www.healthdirect.gov.au/headaches
   - title: healthdirect — Warning signs during pregnancy
     url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
   - title: Pregnancy, Birth and Baby — Swelling during pregnancy
@@ -19,7 +21,6 @@ sources:
   - title: The Royal Women's Hospital — Coping with common discomforts of pregnancy (fact sheet, April 2018)
     url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
 related: [swollen-feet-and-ankles, severe-headache, vision-changes, signs-of-pre-eclampsia, painful-swollen-leg]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -27,6 +28,10 @@ checked: 2026-10-29
 Some swelling of the feet and ankles is a normal part of pregnancy, especially later on, after standing a long time or in hot weather. It builds up gradually through the day and usually goes down overnight while you sleep.
 
 Swelling that comes on suddenly, or is severe, in your face, hands or feet is different. It can be a sign of pre-eclampsia, a life-threatening complication of pregnancy.
+
+## Call 000 or go to emergency
+
+Call triple zero (000) and ask for an ambulance if you have a headache together with changes in your vision.
 
 ## Contact your hospital now
 

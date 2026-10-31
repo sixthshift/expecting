@@ -15,7 +15,6 @@ sources:
     url: https://www.gidgetfoundation.org.au/fact-sheets/gender-disappointment
 related: [gender-disappointment, pregnancy-after-loss, ivf-pregnancy]
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 A bond is an emotional connection between you and your baby. Pregnancy, Birth and Baby says you don't need to wait until your baby is born to start one, and that one of the best times to start is during pregnancy. The Gidget Foundation adds that, like any relationship, bonds take time to develop.
@@ -41,4 +40,4 @@ You can talk to them about the baby, read them stories about pregnancy and babie
 
 ## If you're struggling with your feelings
 
-Instead of excitement, you might feel stressed, confused, anxious or depressed. Pregnancy, Birth and Baby says up to 1 in 5 people have depression while pregnant, and that you should talk to your doctor or midwife if you've had a mental health issue before, are very stressed, or are struggling with difficult feelings. They can make a treatment plan and help you find support. You can also call Beyond Blue on 1300 22 4636.
+Instead of excitement, you might feel stressed, confused, anxious or depressed. Depression and anxiety are common in pregnancy. Talk to your doctor or midwife if you've had a mental health issue before, are very stressed, or are struggling with difficult feelings. They can make a treatment plan and help you find support. You can also call Beyond Blue on 1300 22 4636.

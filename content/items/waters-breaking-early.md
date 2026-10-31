@@ -9,17 +9,20 @@ weeks: [22, 37]
 stakes: high
 summary: "If you feel something in your vagina after your waters break, call an ambulance. If you think your waters have broken before 37 weeks, call your doctor or midwife immediately: you'll need to be examined straight away, and you'll usually stay in hospital for monitoring, antibiotics and, under 36 weeks, steroids for the baby's lungs."
 sources:
+  - title: Pregnancy, Birth and Baby — Breech pregnancy
+    url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
   - title: Pregnancy, Birth and Baby — Waters breaking early
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/waters-breaking-early
   - title: Pregnancy, Birth and Baby — Umbilical cord prolapse
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/umbilical-cord-prolapse
 related: [waters-breaking, preterm-birth, cord-prolapse, special-care-nursery]
-draft: true
 checked: 2026-10-29
 ---
 ## When to get help
 
-**If you feel something in your vagina after your waters break, call an ambulance and get down on your hands and knees with your bottom in the air.** The cord may have slipped down (cord prolapse), which is a serious emergency and life-threatening for the baby. Another Pregnancy, Birth and Baby page, on cord prolapse, says that while you wait for the ambulance you may be asked to bring your knees to your chest with your head facing down; the two pages give different positions.
+**If your waters break and you've been told the baby isn't head-first, call triple zero (000)** and ask for an ambulance: there's a higher risk of cord prolapse.
+
+**If you feel something in your vagina after your waters break, call triple zero (000) and ask for an ambulance.** The cord may have slipped down (cord prolapse), which is life-threatening for the baby. While you wait, get onto your hands and knees, then lower your head and chest so your bottom is in the air, higher than your head. This takes pressure off the cord. Stay like this until help arrives.
 
 **If you think your waters have broken early, call your doctor or midwife immediately.** You'll need to be examined straight away. Put a clean pad in your underwear to collect the fluid. Fluid that smells bad, or is green, brown or bright red, could mean you and the baby need urgent attention.
 

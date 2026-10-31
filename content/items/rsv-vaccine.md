@@ -1,15 +1,16 @@
 ---
 id: rsv-vaccine
 title: The RSV vaccine
-summary: "A free vaccine from 28 weeks protects the baby from birth against RSV, a leading cause of hospital stays in babies."
+summary: "A free vaccine from 28 weeks protects the baby from birth against RSV, which often puts young babies in hospital."
 weeks: [28, 36]
 type: moment
 topic: appointments
 surprise: true
 appointment:
   - Where can I have the RSV vaccine, and when?
-draft: true
 sources:
+  - title: "Department of Health — Immunisation for pregnancy"
+    url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
   - title: Australian Immunisation Handbook — RSV vaccine in pregnancy
     url: https://immunisationhandbook.health.gov.au/recommendations/pregnant-women-are-recommended-to-receive-an-rsv-vaccine-during-each-pregnancy-to-protect-their-infant
 checked: 2026-10-29
@@ -19,7 +20,7 @@ tasks:
     due: 30
     who: carrying
 ---
-RSV (respiratory syncytial virus) is a common virus that can cause bronchiolitis and pneumonia in babies. It's a leading cause of hospital stays in babies under 12 months, and most likely to be severe in the first 6 months. Many people have never heard of the vaccine that helps.
+RSV (respiratory syncytial virus) is a common virus that can cause bronchiolitis and pneumonia in babies. It's most likely to be severe in the first 6 months, often needing a hospital stay. Many people have never heard of the vaccine that helps.
 
 {% window from=28 to=36 /%}
 
@@ -31,7 +32,7 @@ Seeing a private obstetrician? Ask them where it's done.
 Ask at your next appointment where yours is done.
 {% /if %}
 
-The Department of Health gives the window as 28 to 36 weeks; if 36 weeks has passed, the Handbook says to have it as soon as possible. Ask your midwife or OB.
+If 36 weeks has passed, have it as soon as possible.
 
 {% ask "Where should I get the RSV vaccine, and can I have it on the same day as whooping cough?" /%}
 

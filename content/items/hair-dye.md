@@ -17,7 +17,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
 related: [hair-straightening, hairdressing-and-nail-salon-work, nail-salons]
-draft: true
 checked: 2026-10-29
 ---
 Yes. Pregnancy, Birth and Baby says you can safely colour your hair during pregnancy, and that the idea it harms your baby is a myth. The chemicals in hair dye aren't easily absorbed through your scalp, so harm to your baby is unlikely.

@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 12
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-12
 related: [amniotic-fluid]
-draft: true
 checked: 2026-10-29
 ---
 In the early weeks of pregnancy your body produces the amniotic fluid. As your baby grows, they start to produce most of it through their urine and fluid from their lungs.

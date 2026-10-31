@@ -17,10 +17,9 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
 related: [fake-tan, sunscreen, term-melasma]
-draft: true
 checked: 2026-10-29
 ---
-No. Commercial solariums are illegal in Australia, and Pregnancy, Birth and Baby says it's best to avoid sunbeds in pregnancy.
+No. Commercial solariums are illegal in Australia, and it's best to avoid sunbeds in pregnancy.
 
 ## Why
 
@@ -30,5 +29,5 @@ Sunlight is also one of the causes of melasma, the brown patches that often appe
 
 ## What to do
 
-- **Want a tan?** Fake tan creams and lotions are fine in pregnancy. Pregnancy, Birth and Baby suggests avoiding spray tans; MotherSafe says to use protective measures for a spray tan, such as a mask or nose plugs, so you don't breathe it in. Test a small patch of skin first.
+- **Want a tan?** Fake tan creams and lotions are fine in pregnancy. It's best to avoid spray tans. Test a small patch of skin first.
 - **Protect your skin outdoors** with SPF50 or SPF50+ water-resistant sunscreen and a broad-rimmed hat.

@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Cold and flu during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-and-flu-during-pregnancy
 related: [fever, feeling-very-unwell, blocked-nose]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

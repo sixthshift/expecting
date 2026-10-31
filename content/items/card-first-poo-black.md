@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Your baby in the first few days
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-baby-in-the-first-few-days
 related: [term-meconium, baby-first-days]
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy, Birth and Baby says your baby's first poo is black and sticky, and is called meconium. Over the next few days it changes to greenish-brown and then to mustard yellow; formula-fed babies' stools are usually more yellow and formed. Your baby should also have at least one wet nappy within 24 hours of birth.

@@ -16,14 +16,13 @@ sources:
   - title: Pregnancy, Birth and Baby — hCG levels
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/hcg-levels
 related: [term-zygote, term-blastocyst, term-embryo, term-implantation, dating-scan, how-your-baby-develops]
-draft: true
 checked: 2026-10-29
 ---
-**Conception** is when an egg is fertilised by a sperm, usually 1 or 2 days after you ovulate. Over the next 4 to 5 days the fertilised egg travels along the fallopian tube to the uterus, dividing into more cells as it goes (in the infographic: zygote, then 2, 4 and 8 cells, then a blastocyst). When it implants in the wall of the uterus, conception is complete and the pregnancy begins. If it doesn't implant, your hormones fall, the lining sheds and you get your period.
+**Conception** is when an egg is fertilised by a sperm, usually 1 or 2 days after you ovulate. Over the next 4 to 5 days the fertilised egg travels along the fallopian tube to the uterus, dividing into more cells as it goes (a zygote, then 2, 4 and 8 cells, then a blastocyst). When it implants in the wall of the uterus, conception is complete and the pregnancy begins. If it doesn't implant, your hormones fall, the lining sheds and you get your period.
 
 **Why weeks 1 and 2 happen before you're pregnant.** Doctors and midwives count from the first day of your last period, so the average pregnancy is 40 weeks, and the first 2 weeks of those you are not actually pregnant.
 
-**What grows.** The embryo becomes your baby, the placenta (which feeds the baby with nutrients and oxygen from your blood), the cord that links them, and the amniotic sac that protects the baby. By the end of week 4 the embryo has implanted; Pregnancy, Birth and Baby says it's called a blastocyst, about 0.2 mm wide and made of about 200 cells in different layers. Those layers go on to become the baby's nervous system and brain, the heart, blood vessels, muscles and bones, and the breathing and digestive systems.
+**What grows.** The embryo becomes your baby, the placenta (which feeds the baby with nutrients and oxygen from your blood), the cord that links them, and the amniotic sac that protects the baby.
 
 **The test.** Once the embryo implants, the placenta starts making hCG. A home pregnancy test usually detects it about 2 weeks after conception, and a missed period is the first sign for many people.
 

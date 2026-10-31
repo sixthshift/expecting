@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Epidural
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/epidural
 related: [epidural, monitoring-in-labour]
-draft: true
 checked: 2026-10-29
 ---
 An epidural is more than the needle in your back. Before it goes in, you'll usually have a cannula (drip) put into your arm. After that, you and your baby are monitored continuously: your blood pressure, because an epidural can lower it (you might also need fluids through the drip), and your baby on a CTG.

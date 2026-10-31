@@ -17,7 +17,6 @@ sources:
 related: [standing-all-day, heavy-lifting, chemicals-at-work, radiation-at-work, shift-work, working-with-children, safe-job-and-no-safe-job-leave]
 appointment:
   - Is there anything about my health that means I should change how I work?
-draft: true
 checked: 2026-10-29
 ---
 Yes. It's safe to work while you're pregnant unless your doctor tells you it isn't. Depending on your job, you and your employer may need to make some changes.

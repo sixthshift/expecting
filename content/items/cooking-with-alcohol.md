@@ -13,7 +13,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Alcohol in pregnancy
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Alcohol%20in%20Pregnancy.pdf
 related: [alcohol, kombucha-and-fermented-drinks]
-draft: true
 checked: 2026-10-29
 ---
 We haven't found an Australian health service that gives advice on dishes cooked with wine, beer or spirits, or on desserts with alcohol in them. What there is covers alcohol itself, so if you're unsure about a dish, ask your doctor, midwife or MotherSafe.

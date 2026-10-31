@@ -14,9 +14,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
     url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
 related: [term-fundal-height]
-draft: true
 checked: 2026-10-29
 ---
 Fundal height is the distance from your pubic bone to the top of your uterus (the fundus), measured with a tape measure. Your doctor, obstetrician or midwife may measure it at each antenatal visit from 24 weeks onwards, and it should be similar to the number of weeks you are pregnant.
 
-It can differ, for example if you are carrying more than one baby. A smaller than expected measurement could be a sign that your baby is growing slowly or that there is too little amniotic fluid; a larger than expected measurement could mean the baby is larger than average. In both cases, the page says your doctor will carefully monitor you and your baby.
+It can differ, for example if you are carrying more than one baby. A smaller than expected measurement could be a sign that your baby is growing slowly or that there is too little amniotic fluid; a larger than expected measurement could mean the baby is larger than average. In both cases your doctor will carefully monitor you and your baby.

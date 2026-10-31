@@ -14,7 +14,6 @@ sources:
   - title: Fair Work Ombudsman — Flexible work after parental leave
     url: https://www.fairwork.gov.au/leave/parental-leave/after-parental-leave/flexible-work-after-parental-leave
 related: [returning-to-work, extending-parental-leave, pregnancy-discrimination-at-work]
-draft: true
 checked: 2026-10-29
 ---
 Coming back from parental leave, you'd normally return to the same hours, location and duties as before. If you want something different, you have a legal right to ask, and both parents can.

@@ -5,7 +5,6 @@ summary: "The flu vaccine is free and recommended at any stage of every pregnanc
 weeks: [4, 40]
 type: moment
 topic: appointments
-draft: true
 sources:
   - title: Department of Health — Immunisation for pregnancy
     url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
@@ -20,4 +19,4 @@ The flu vaccine is recommended in **every pregnancy, at any stage**. Pregnancy c
 
 It's free for pregnant people under the National Immunisation Program (NIP). Some providers charge a consultation fee, so check when booking.
 
-There's no special week to wait for. If it hasn't happened yet, it can be done at the same visit as the whooping cough vaccine — the task here sits alongside that one for convenience. Ask your midwife or OB.
+There's no special week to wait for. If it hasn't happened yet, it can be done at the same visit as the whooping cough vaccine.

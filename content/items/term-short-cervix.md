@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Premature baby
     url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/premature-baby
 related: [the-cervix-in-pregnancy, term-premature, signs-of-preterm-labour]
-draft: true
 checked: 2026-10-29
 ---
 A short cervix means a cervical length of less than 25 mm. Your doctor can find it on a routine pregnancy ultrasound, usually between weeks 16 and 24.

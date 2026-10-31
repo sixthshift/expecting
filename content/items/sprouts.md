@@ -11,7 +11,7 @@ summary: "Don't eat sprouts raw or lightly cooked in pregnancy: they can carry E
 verdict: avoid
 sources:
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
   - title: Food Standards Australia New Zealand — Listeria in food
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
   - title: Food Standards Australia New Zealand — Food safety for vulnerable people
@@ -19,7 +19,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
 related: [enoki-mushrooms, fruit-and-vegetables]
-draft: true
 checked: 2026-10-29
 ---
 Not raw. Pregnancy, Birth and Baby says not to eat any type of raw or lightly cooked bean sprouts, and the NSW Food Authority calls them "do not eat raw or lightly cooked (high risk)".

@@ -15,7 +15,7 @@ sources:
   - title: Pregnancy, Birth and Baby — Toxoplasmosis
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/toxoplasmosis
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
   - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
   - title: Food Standards Australia New Zealand — Raw drinking milk
@@ -23,7 +23,6 @@ sources:
   - title: NSW Food Authority — Raw milk
     url: https://www.foodauthority.nsw.gov.au/consumer/food-poisoning/raw-milk
 related: [milk-and-yoghurt, soft-cheese]
-draft: true
 checked: 2026-10-29
 ---
 No. The NSW Food Authority says don't drink or use unpasteurised (raw) milk in pregnancy ("high risk"), and Pregnancy, Birth and Baby says not to eat or drink unpasteurised milk or its products.

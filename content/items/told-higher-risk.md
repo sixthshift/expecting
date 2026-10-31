@@ -16,7 +16,6 @@ appointment:
   - What makes my pregnancy higher risk?
   - What extra tests or appointments will I need?
   - Will I need to give birth somewhere with particular staff or equipment?
-draft: true
 checked: 2026-10-29
 ---
 A high-risk pregnancy means you or your baby has a greater chance of problems during the pregnancy or birth. It's about chances: the specific risks depend on your situation and are different in every case.

@@ -18,7 +18,6 @@ sources:
   - title: KEMH — Commonly used medicines and safety in pregnancy
     url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
 related: [antacids, morning-sickness]
-draft: true
 checked: 2026-10-29
 ---
 If antacids aren't enough, there are stronger reflux medicines considered safe in pregnancy. Ask your pharmacist or doctor which one suits you.
@@ -28,7 +27,7 @@ If antacids aren't enough, there are stronger reflux medicines considered safe i
 MotherSafe estimates that 80% of pregnant people get heartburn; KEMH says it can develop in up to 80%.
 
 - **H2 blockers** such as famotidine are considered safe in pregnancy. They're generally used when antacids haven't fully worked.
-- **Proton pump inhibitors (PPIs)** have been widely used in pregnancy, and the available reviews don't suggest any increased risk for the baby with any of them. Omeprazole and esomeprazole are the ones most commonly suggested: omeprazole has the most follow-up in studies, and esomeprazole is very similar. KEMH calls omeprazole the preferred PPI in pregnancy.
+- **Proton pump inhibitors (PPIs)** have been widely used in pregnancy, and the available reviews don't suggest any increased risk for the baby with any of them. Omeprazole and esomeprazole are the ones most commonly suggested: omeprazole has the most follow-up in studies, and esomeprazole is very similar.
 - **Ranitidine** has been recalled because it was found to contain an impurity, NDMA, that may modestly increase cancer risk if taken over decades. MotherSafe says the risk from past use is very low.
 
 ## What to do

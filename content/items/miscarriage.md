@@ -22,7 +22,6 @@ sources:
   - title: Gidget Foundation — Miscarriage and pregnancy loss
     url: https://www.gidgetfoundation.org.au/fact-sheets/miscarriage-pregnancy-loss
 related: [miscarriage-signs-what-to-do, miscarriage-management-options, after-a-miscarriage, blighted-ovum, something-has-happened, card-miscarriage-not-your-fault]
-draft: true
 checked: 2026-10-29
 ---
 A miscarriage is when a pregnancy ends before 20 weeks. It is common: up to 1 in 4 pregnancies end in miscarriage before 14 weeks. Most happen in the first trimester; a late miscarriage is one in the second trimester, up to 20 weeks.

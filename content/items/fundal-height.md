@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Checkups, tests and scans available during your pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/checkups-and-scans-during-your-pregnancy
 related: [what-happens-at-each-visit, growth-scans, small-for-dates, large-for-dates]
-draft: true
 checked: 2026-10-29
 ---
 Fundal height is the size of your belly, measured with a tape from your pubic symphysis (the pubic bone) to the top of your uterus (the fundus). The measurement should be similar to the number of weeks you are pregnant.

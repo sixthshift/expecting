@@ -13,7 +13,6 @@ sources:
   - title: Services Australia — Exemptions to the limit for taking days at the same time
     url: https://www.servicesaustralia.gov.au/exemptions-to-limit-for-taking-days-parental-leave-pay-same-time
 related: [parental-leave-pay-sharing]
-draft: true
 checked: 2026-10-29
 ---
 There's a limit to how many Parental Leave Pay days you can take at the same time as your partner. For a child born from 1 July 2025 it's **20 days** (it was 10 days for a child born before then). With an exemption, you may be able to take more together.

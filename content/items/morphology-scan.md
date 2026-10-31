@@ -7,7 +7,6 @@ type: moment
 topic: appointments
 appointment:
   - What did my morphology scan show?
-draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Morphology scan
     url: https://www.pregnancybirthbaby.org.au/morphology-scan
@@ -21,4 +20,4 @@ The morphology scan is a detailed ultrasound, usually at 18 to 20 weeks, sometim
 
 You can bring your partner. Depending on the baby's position, the scan may be able to tell you the sex, if you want to know.
 
-Medicare covers the cost of the scan, but there may be out-of-pocket costs depending on where you go, so ask when booking. If anything needs a closer look, you'll be referred for further testing, such as another ultrasound or a diagnostic test. Ask your midwife or OB.
+Medicare covers the cost of the scan, but there may be out-of-pocket costs depending on where you go, so ask when booking. If anything needs a closer look, you'll be referred for further testing, such as another ultrasound or a diagnostic test.

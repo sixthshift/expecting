@@ -13,7 +13,6 @@ sources:
   - title: RANZCOG — Breech presentation at the end of your pregnancy
     url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Breech-presentation-at-the-end-of-your-pregnancy.pdf
 related: [term-breech]
-draft: true
 checked: 2026-10-29
 ---
 A footling breech is a breech baby with one or both feet hanging below their bottom, so the foot or feet would come first. It is one of the three most common types of breech, with frank and complete breech.

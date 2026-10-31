@@ -19,7 +19,6 @@ sources:
   - title: RANZCOG — Travelling during pregnancy
     url: https://ranzcog.edu.au/womens-health/patient-information-resources/travelling-during-pregnancy
 related: [long-drives, falls-and-knocks]
-draft: true
 checked: 2026-10-29
 ---
 ## Why
@@ -34,4 +33,4 @@ Not wearing your seatbelt correctly is one of the things that raises the risk of
 
 **After any accident, however minor**, see a doctor or midwife as soon as possible, even if you feel fine. If you're RhD negative, tell them: you may need an anti-D injection.
 
-Go to hospital after any injury if the baby is moving less than normal, or you have vaginal bleeding or pain in your abdomen. If you have abdominal pain, a firm or tightening uterus or vaginal bleeding after an injury to your abdomen, call triple zero (000), ask for an ambulance and tell them you're pregnant.
+After any injury to your abdomen, go to the nearest hospital and tell them you're pregnant. Even after a minor injury, go straight away if the baby is moving less than normal, or you have vaginal bleeding or pain in your abdomen. If you have abdominal pain, a firm or tightening uterus or vaginal bleeding after an injury to your abdomen, call triple zero (000), ask for an ambulance and tell them you're pregnant.

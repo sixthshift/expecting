@@ -19,7 +19,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Injuries during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
 related: [exercise-in-pregnancy, horse-riding, skiing, falls-and-knocks]
-draft: true
 checked: 2026-10-29
 ---
 Avoid them. Keeping active is good for you in pregnancy, but contact sports, where there's a risk of being hit, are on the list to avoid.

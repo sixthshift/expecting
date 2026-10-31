@@ -18,7 +18,6 @@ sources:
   - title: Services Australia — How to claim Child Care Subsidy
     url: https://www.servicesaustralia.gov.au/how-to-claim-child-care-subsidy
 related: [parental-leave-pay-claim, family-tax-benefit-claim, medicare-own-card]
-draft: true
 checked: 2026-10-29
 tasks:
   - id: link-mygov-to-centrelink

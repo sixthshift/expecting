@@ -21,7 +21,6 @@ sources:
 related: [cramping-and-pain-in-early-pregnancy, shoulder-tip-pain, racing-heartbeat, heavy-bleeding]
 appointment:
   - Can we talk about my blood pressure?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -36,13 +35,9 @@ To avoid it: drink plenty of water, stand up slowly after sitting or when gettin
 
 If you're in early pregnancy and you faint, feel dizzy, or have bleeding or abdominal pain, it could be a sign of an ectopic pregnancy. Go straight to your nearest emergency department, or call triple zero (000) for an ambulance (Pregnancy, Birth and Baby; healthdirect's ectopic pregnancy page says the same for dizziness or fainting).
 
-## Contact your hospital now
-
-Before 20 weeks, healthdirect says to contact your doctor, midwife or hospital immediately for dizziness or fainting.
-
 ## See your doctor or midwife
 
-Contact your doctor or midwife if you have frequent dizziness or fainting. If you feel dizzy or faint, call your midwife, or the Pregnancy, Birth and Baby helpline on 1800 882 436.
+Later in pregnancy, contact your doctor or midwife if you have frequent dizziness or fainting. If you feel dizzy or faint, call your midwife, or the Pregnancy, Birth and Baby helpline on 1800 882 436.
 
 ## Mention it at your next visit
 

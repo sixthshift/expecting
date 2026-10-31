@@ -18,7 +18,6 @@ sources:
   - title: Pregnancy, Birth and Baby — The role of a birth support partner
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
 related: [building-your-village, birth-support-person, relationship-breakdown]
-draft: true
 checked: 2026-10-29
 ---
 People become single parents for many reasons, including separation, the death of a partner, or choosing to have a child on their own with help such as IVF. Children raised by single parents can be just as happy and emotionally healthy as children with two parents. What matters is consistent, sensitive, nurturing care, and some compassion for yourself.

@@ -23,7 +23,6 @@ sources:
   - title: Gidget Foundation — How to access counselling (urgent help numbers)
     url: https://www.gidgetfoundation.org.au/fact-sheets/how-to-access-counselling
 related: [postpartum-psychosis-signs, birth-support-person, domestic-violence-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Most of what happens in a pregnancy is the pregnant parent's to feel and describe. But you're the one who might notice when something has changed, and the one with a free hand to make the call. This entry is the short list of what to watch for; each sign has its own entry with the detail.

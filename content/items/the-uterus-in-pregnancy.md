@@ -19,7 +19,6 @@ sources:
 related: [term-fundal-height, term-fundus, the-cervix-in-pregnancy, braxton-hicks-contractions, baby-size-and-growth]
 appointment:
   - Is my bump measuring as expected for my weeks?
-draft: true
 checked: 2026-10-29
 ---
 Your uterus (womb) sits in the middle of your pelvis, behind your bladder and in front of your rectum, held in place by ligaments. It's pear-shaped, with four parts: the fundus (the top), the corpus (the main body), the isthmus (the section between the body and the cervix) and the cervix (the lower part, which connects to your vagina). Its wall has three layers: an inner layer (the endometrium), a middle layer of muscle and a thin outer layer.

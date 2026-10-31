@@ -14,7 +14,6 @@ sources:
   - title: Services Australia — FTB Part B payment rates
     url: https://www.servicesaustralia.gov.au/family-tax-benefit-part-b-payment-rates?context=22151
 related: [family-tax-benefit-a, family-tax-benefit-claim, parental-leave-pay, budgeting-for-leave]
-draft: true
 checked: 2026-10-29
 ---
 Family Tax Benefit (FTB) Part B is paid **per family**, not per child. It's for single parents and carers, and for couples who meet a 2-part income test while their youngest child is younger than 13.

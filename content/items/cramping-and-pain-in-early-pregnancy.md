@@ -19,7 +19,6 @@ sources:
   - title: Pregnancy, Birth and Baby — First trimester
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/first-trimester
 related: [spotting-and-bleeding-in-early-pregnancy, shoulder-tip-pain, dizziness-and-fainting, abdominal-pain]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -41,7 +40,3 @@ An ectopic pregnancy is one growing outside the uterus, usually in a fallopian t
 If you have heavy bleeding, strong pain or feel unwell, call triple zero (000) for an ambulance or go to your nearest emergency department.
 
 If you have any of the signs of an ectopic pregnancy above while pregnant, go to the nearest emergency department or call triple zero (000) for an ambulance.
-
-## Contact your hospital now
-
-Before 20 weeks, contact your doctor, midwife or hospital immediately if you have severe pain or cramping low in your belly, or pain in the tip of one shoulder (especially if you're also bleeding), or if you feel dizzy or faint.

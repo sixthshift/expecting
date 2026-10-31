@@ -37,7 +37,6 @@ sources:
     url: https://www.13yarn.org.au/
 related: [antenatal-depression, antenatal-anxiety, partner-mental-health-support, loss-support-services]
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 You don't need to be sure it's "bad enough" to reach out. These are the places to start, for either of you.
@@ -52,7 +51,7 @@ Mental health emergencies are serious. You're not wasting anyone's time.
 
 ## To talk it through
 
-- **PANDA National Helpline, 1300 726 306**. PANDA's home page says it's open 7 days a week; its contact page gives Monday to Friday 9am to 7.30pm and Saturday 9am to 4pm (AEST/AEDT), open on public holidays except Christmas Day. PANDA supports expecting and new parents and their support people, so the partner can call too, about you or about themselves. It isn't a crisis service: if you're having thoughts of suicide, call Lifeline.
+- **PANDA National Helpline, 1300 726 306**. PANDA supports expecting and new parents and their support people, so the partner can call too, about you or about themselves. It isn't a crisis service: if you're having thoughts of suicide, call Lifeline.
 - **Beyond Blue, 1300 22 4636**, 24/7 mental health support from a trained professional.
 
 ## Not sure what you're feeling?
@@ -61,12 +60,12 @@ PANDA has an online mental health checklist that helps you see whether what you'
 
 ## Your GP or midwife
 
-Your GP can give you non-judgemental support, assessment and ongoing treatment, and can refer you to a counsellor, psychologist or psychiatrist. Your GP, midwife or obstetrician can also refer you to a social worker. Depending on your needs and the services where you live, they might refer you to a perinatal mental health team, who specialise in pregnancy and the year after birth.
+Your GP can give you support, assessment and ongoing treatment, and can refer you to a psychologist or psychiatrist. Your GP, midwife or obstetrician can also refer you to a social worker. Depending on your needs and the services where you live, they might refer you to a perinatal mental health team, who specialise in pregnancy and the year after birth.
 
 ## Free counselling with Gidget Foundation
 
 Gidget Foundation offers free psychological therapy for expectant and new parents with perinatal mental health clinicians: in person at a Gidget House, or by video call anywhere in Australia through its Start Talking telehealth program. Partners can use it too, as can people who have had a pregnancy or childbirth-related loss in the last 12 months, or a traumatic birth.
 
-Gidget's Start Talking page says 10 free sessions within a calendar year; its counselling page says at least 10 Medicare bulk-billed sessions a calendar year; its check-in page says up to 10, subject to Medicare criteria. Ask Gidget what applies to you. To book, you'll need two things from your GP: a Mental Health Care Plan and a referral letter. Book a longer GP appointment, as it can take 30 minutes or so. Then call Gidget on 1300 851 758.
+It's up to 10 Medicare bulk-billed sessions a calendar year. To book, you'll need two things from your usual GP: a Mental Health Treatment Plan and a referral letter. Book a longer GP appointment, as it can take 30 minutes or so. Then call Gidget on 1300 851 758.
 
 Gidget isn't a crisis service either, and there's often a waiting list, so use the numbers above if you need help now.

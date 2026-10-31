@@ -6,7 +6,6 @@ weeks: [14, 30]
 type: moment
 topic: appointments
 extra: doula
-draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Birth doulas, what do they do?
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/what-does-a-birth-doula-do

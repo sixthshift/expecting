@@ -23,7 +23,6 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-rights/obstetric-violence
 related: [pregnancy-after-birth-trauma, birth-support-person, tokophobia, card-one-in-three-traumatic, card-partner-trauma-too]
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 Up to 1 in 3 people who give birth see the birth of their baby as traumatic. It's here, before the birth, so you both know it exists, and the partner knows what to look for.
@@ -40,11 +39,11 @@ Birth trauma can affect partners too. You may have found the birth distressing, 
 
 ## When it's PTSD
 
-Feeling dazed, reliving the birth or feeling low is common soon after. Postpartum PTSD, which PBB says can happen to up to 1 in 10 women 4 to 6 weeks after childbirth, is when it gets worse and keeps affecting your life for 4 weeks or more: flashbacks or nightmares, intrusive memories, hypervigilance, feeling numb and empty, or difficulty bonding with your baby. Untreated birth trauma can turn into PTSD. A doctor or psychologist can diagnose it.
+Feeling dazed, reliving the birth or feeling low is common soon after. Postpartum PTSD, which can affect up to 1 in 10 people 4 to 6 weeks after giving birth, is when it gets worse and keeps affecting your life for 4 weeks or more: flashbacks or nightmares, intrusive memories, hypervigilance, feeling numb and empty, or difficulty bonding with your baby. Untreated birth trauma can turn into PTSD. A doctor or psychologist can diagnose it.
 
 ## What helps
 
-- **Talking it through:** going over your notes with your midwife or obstetrician can help you understand what happened and why. It may bring relief, though it doesn't work for everyone.
+- **Talking it through** with your care team can help you understand what happened and why. It may bring relief, though it doesn't work for everyone.
 - **Counselling or therapy:** your doctor may recommend counselling, psychological therapy or medication.
 - **Peer support:** Birth Trauma Australia offers peer-to-peer support.
 - **Practical help:** let family and friends listen, shop and clean.
@@ -57,6 +56,6 @@ Treatment without your consent, being shouted at, ignored, threatened or refused
 
 ## When to get help
 
-If your feelings about the birth are affecting you, see your doctor, midwife or maternal child health nurse. See your doctor if you keep reliving the birth, can't care for yourself or your baby, or feel very depressed and anxious. PANDA's helpline is 1300 726 306 and Gidget Foundation is on 1300 851 758.
+If your feelings about the birth are affecting you, see your doctor, midwife or maternal child health nurse. PANDA's helpline is 1300 726 306 and Gidget Foundation is on 1300 851 758.
 
-If you're having thoughts of self-harm or suicide, or are worried about your baby's safety, call Lifeline on 13 11 14 or go to the nearest emergency department. If you need urgent medical help, call 000.
+If you're having thoughts of self-harm or suicide, or are worried about your baby's safety, go to the nearest emergency department or call 000. To talk to someone now, call Lifeline on 13 11 14.

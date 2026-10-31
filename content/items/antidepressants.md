@@ -17,7 +17,6 @@ related: [prescription-medicines-ongoing, st-johns-wort, sleeping-pills]
 appointment:
   - Will the baby need any extra checks after the birth?
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 Talk to your doctor before changing anything. MotherSafe's advice is that it's often advisable to stay on a regular mental health medicine if it keeps you well. If yours isn't recommended in pregnancy, your doctor can help you switch safely.

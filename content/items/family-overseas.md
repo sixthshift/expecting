@@ -18,7 +18,6 @@ sources:
   - title: PANDA — Support in languages other than English
     url: https://www.panda.org.au/get-support/support-in-languages-other-than-english
 related: [building-your-village, grandparents-and-boundaries, pregnancy-on-a-visa-pointer]
-draft: true
 checked: 2026-10-29
 ---
 Having a baby can be very challenging when your family lives overseas. You miss the close-by support of the people you love, and it can be lonely. If you're also new to Australia, you may be adjusting to a new language, culture and health system at the same time. With the right support, you can feel more confident and connected.

@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Common myths about pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/common-myths-about-pregnancy
 related: [gardening, pets-and-health, farm-animals-and-lambing]
-draft: true
 checked: 2026-10-29
 ---
 There's no need to give away your cat. But avoid changing the litter yourself while you're pregnant: ask someone else to do it. If you have to, wear gloves and wash your hands well with soap afterwards.

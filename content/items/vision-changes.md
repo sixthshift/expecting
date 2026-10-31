@@ -21,7 +21,6 @@ sources:
   - title: "Pregnancy, Birth and Baby — Giving birth: early signs of labour"
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
 related: [severe-headache, sudden-swelling, pain-under-the-ribs, signs-of-pre-eclampsia]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -34,10 +33,8 @@ The other signs to look for with it: a headache that doesn't go away with simple
 
 Call triple zero (000) and ask for an ambulance, or go to your nearest emergency department, if you have a headache together with changes in your vision.
 
-In labour, call 000 and ask for an ambulance if you have blurred vision or a severe headache.
-
 ## Contact your hospital now
 
-After 20 weeks, contact your doctor, midwife or hospital immediately if you have changes to your vision, such as flashing lights or blurry eyesight. Pregnancy, Birth and Baby says to call your doctor or midwife straightaway for blurred vision.
+After 20 weeks, contact your doctor, midwife or hospital immediately if you have changes to your vision, such as flashing lights or blurry eyesight.
 
-If the blurred vision comes with a severe headache, sudden swelling of your hands, feet or face, or pain under your ribcage, seek medical attention urgently or go to your local emergency department.
+If the blurred vision comes with sudden swelling of your hands, feet or face, or pain under your ribcage, seek medical attention urgently or go to your local emergency department.

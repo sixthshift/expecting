@@ -21,10 +21,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Non-medical pain relief during labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/non-medical-pain-relief-during-labour
 related: [birth-preferences, timing-contractions, getting-to-hospital, massage-heat-and-movement, emergency-caesarean, support-person]
-draft: true
 checked: 2026-10-29
 ---
-Your job is to stay with them through labour and the birth and give emotional and physical support. You're there to help, not just to watch. Having the right support person can shorten labour, lower the need for pain relief and lower the chance of an assisted birth or caesarean.
+Your job is to stay with them through labour and the birth and give emotional and physical support. You're there to help, not just to watch. Having the right support person can lower the need for pain relief and lower the chance of an assisted birth or caesarean.
 
 ## Before the day
 

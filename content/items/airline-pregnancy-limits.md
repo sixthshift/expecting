@@ -23,7 +23,6 @@ related: [flying, travel-in-pregnancy, travel-insurance]
 appointment:
   - Can you write me a letter for the airline with my due date, saying I'm fit to fly?
   - Do I have any complications that would need formal medical clearance to fly?
-draft: true
 checked: 2026-10-29
 ---
 ## Why
@@ -37,7 +36,7 @@ Airlines set their own cut-offs. As at October 2026, Qantas and Virgin Australia
 
 These are the airline's minimum requirements, not a promise that flying is safe at that point; Qantas says so itself. RANZCOG says travel beyond 36 weeks is not recommended.
 
-Other airlines can be stricter. Smartraveller says most airlines won't let you fly beyond 28 weeks. Check with yours before you book.
+Other airlines can be stricter: Smartraveller warns that most restrict travel after 28 weeks. Check with yours before you book.
 
 ## What to do
 

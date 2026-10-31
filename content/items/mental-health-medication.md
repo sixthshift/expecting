@@ -17,12 +17,11 @@ related: [existing-mental-illness, antenatal-depression]
 appointment:
   - Can we talk through my regular medicine?
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 If you take a medicine every day for your mental health, the first rule is simple: don't stop it or change the dose without first talking to your doctor. That's a conversation to have early, ideally before you start trying for a baby, or as soon as you know you're pregnant.
 
-## What the sources say
+## What to know
 
 - **Some medicines are safe in pregnancy and breastfeeding,** including most SSRIs, which are used for depression and anxiety.
 - **Others may need changing.** For some, such as some medicines for bipolar disorder, there isn't enough evidence to say whether they should be stopped. Valproic acid is not recommended in pregnancy.

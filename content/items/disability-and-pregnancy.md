@@ -14,7 +14,6 @@ sources:
 related: [told-higher-risk, building-your-village]
 appointment:
   - Can we talk about the accessible support this service offers, like an Auslan interpreter or accessible rooms?
-draft: true
 checked: 2026-10-29
 ---
 More than 15% of Australian households have at least one parent with a disability: physical, sensory, intellectual, a mental health condition or a chronic illness. Parents with disability are highly capable, and the creativity, adaptability and problem-solving they've built navigating a world not designed for them are real strengths. This applies whichever of you has the disability.

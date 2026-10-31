@@ -18,7 +18,6 @@ related: [swollen-feet-and-ankles, sudden-swelling, insomnia]
 appointment:
   - Would a wrist splint or a physio help me?
   - Is a steroid injection an option for me?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

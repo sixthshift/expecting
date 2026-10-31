@@ -17,7 +17,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — The common cold in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/docs/Cold%20in%20pregnancy%20and%20breastfeeding%20.pdf
 related: [cough-medicines, cold-and-flu-tablets, honey]
-draft: true
 checked: 2026-10-29
 ---
 Yes, for most. Throat lozenges with antibacterial and anaesthetic (numbing) ingredients are considered safe in pregnancy at the recommended dose. Two ingredients are the exception: benzydamine and povidone-iodine.

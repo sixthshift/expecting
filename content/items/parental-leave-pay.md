@@ -18,7 +18,6 @@ sources:
   - title: Services Australia — Claiming timeframes for Parental Leave Pay
     url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay
 related: [parental-leave-pay-claim, parental-leave-pay-work-test, parental-leave-pay-income-test, partner-reserved-days, parental-leave-pay-sharing, parental-leave-pay-superannuation, unpaid-parental-leave]
-draft: true
 checked: 2026-10-29
 ---
 Parental Leave Pay is the Australian Government's payment for parents caring for a newborn, under the Paid Parental Leave scheme. You claim it through Services Australia, but in many cases your employer delivers it to you; sometimes Services Australia pays you directly.

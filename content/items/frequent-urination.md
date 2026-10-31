@@ -18,7 +18,6 @@ related: [leaking-urine, urinary-tract-infection, painful-urination, fluid-leaki
 appointment:
   - What could help with how often I need to wee?
   - Should I see a continence physio?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

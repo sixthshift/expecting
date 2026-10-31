@@ -17,10 +17,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Antenatal care during your pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/antenatal-care-during-your-pregnancy
 related: [your-rights-in-pregnancy-care, what-happens-at-each-visit, partner-at-appointments]
-draft: true
 checked: 2026-10-29
 ---
-You'll be offered a number of tests and scans during your pregnancy. Your doctor or midwife is there to support you, and Pregnancy, Birth and Baby says you shouldn't be afraid to ask them questions about the care they give you.
+You'll be offered a number of tests and scans during your pregnancy. Your doctor or midwife is there to support you, so don't be afraid to ask them questions about the care they give you.
 
 ## Questions about any test or scan
 

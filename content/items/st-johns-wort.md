@@ -17,7 +17,6 @@ related: [antidepressants, herbal-supplements]
 appointment:
   - What can I do for my mood instead of St John's wort?
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 No. MotherSafe doesn't recommend herbal medicines, St John's wort included, for depression or anxiety while you're pregnant or breastfeeding.
@@ -37,4 +36,4 @@ Depression and anxiety in pregnancy are worth treating properly. Left untreated,
 - **See your GP or a mental health professional.** They can help coordinate treatment, which may include counselling or cognitive behavioural therapy.
 - **Already on an antidepressant?** Don't stop it suddenly. Many have been studied in pregnancy without an increased risk of birth defects, and staying on a medicine that keeps you well is often advisable.
 - **Already taking St John's wort?** Tell your GP, or call MotherSafe on 9382 6539 (Sydney) or 1800 647 848 (rest of NSW).
-- **Support lines:** PANDA 1300 726 306, Beyond Blue 1300 224 636.
+- **Support lines:** PANDA 1300 726 306, Beyond Blue 1300 22 4636.

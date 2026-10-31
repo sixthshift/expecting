@@ -3,7 +3,7 @@ id: card-partner-grief-counts
 title: The partner grieves too, often later
 type: card
 topic: loss
-ask: Why is he only upset now, months after?
+ask: Why is my partner only upset now, months after?
 aliases: [partner grief later, delayed grief, partner after miscarriage]
 weeks: [1, 42]
 who: partner
@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Experiencing a pregnancy loss
     url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/experiencing-a-pregnancy-loss
 related: [partner-after-a-loss]
-draft: true
 checked: 2026-10-29
 ---
 A pregnancy loss is hard for both of you, though you may grieve in different ways. Sometimes the partner who didn't carry the baby ignores their feelings at first, believing their role is to support the other. They may feel sad or anxious later, while planning for another baby. Some partners also feel they don't get enough support from loved ones or the healthcare team.

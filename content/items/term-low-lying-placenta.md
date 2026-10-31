@@ -13,9 +13,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Placenta praevia
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-praevia
 related: [term-placenta-praevia, the-placenta]
-draft: true
 checked: 2026-10-29
 ---
-Pregnancy, Birth and Baby lists a low-lying placenta as one close to the cervix (within 2 cm) without covering it, and placenta praevia as one that is very close to the cervix or covers it entirely; it also says placenta praevia is sometimes called a low-lying placenta. The Royal Women's Hospital uses the two terms together as one problem, "low lying placenta (placenta praevia)".
+A low-lying placenta is one close to your cervix (within 2 cm) without covering it. Placenta praevia is when the placenta is attached close to the cervix or covers it entirely, and it's sometimes called a low-lying placenta too.
 
 One found on your 18 to 20 week ultrasound often resolves before your baby is due: as your uterus expands and your baby grows, the placenta can "move up" away from your cervix. If it is low or covering your cervix, you'll be offered extra ultrasounds, around 32 to 34 weeks, to check its final position.

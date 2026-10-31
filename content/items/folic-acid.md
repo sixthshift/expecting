@@ -16,7 +16,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Folate and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/folate-and-pregnancy
 related: [high-dose-folic-acid, iodine, pregnancy-multivitamins]
-draft: true
 checked: 2026-10-29
 ---
 Yes. Take a daily folic acid supplement with at least 400 micrograms (mcg or µg). In Australia most come as a 500 mcg daily dose, either folic acid alone or in a pregnancy supplement.
@@ -29,7 +28,7 @@ Australian bread flour (except organic) has folic acid added, about 120 mcg in t
 
 ## What to do
 
-- **When:** start at least one month before you start trying. Pregnancy, Birth and Baby says to keep taking it throughout your first trimester; FSANZ says for three months after conception. You don't need supplements after that.
+- **When:** start at least one month before you start trying. Keep taking it through the first 3 months of pregnancy. You don't need folic acid supplements after that.
 - **Didn't take it before?** Start as soon as you can once you know you're pregnant.
 - **Choose one with at least 400 mcg.** General multivitamins usually contain less, and it's important not to double up on some vitamins, so check with your doctor that you're getting the recommended dose.
 - **Some people need a higher dose** (5 mg until 12 weeks), for example with a family history of neural tube defects, diabetes or a BMI over 30. Ask your doctor.

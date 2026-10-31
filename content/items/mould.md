@@ -15,10 +15,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Toxic household products to avoid during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/toxic-household-products-to-avoid-during-pregnancy
 related: [cleaning-products, painting-and-renovating, bushfire-smoke]
-draft: true
 checked: 2026-10-29
 ---
-NSW Health's mould advice doesn't mention pregnancy at all. Mould is a breathing and allergy issue, and most people have no health problems from it.
+Mould isn't described as a particular risk in pregnancy. It's a breathing and allergy issue, and most people have no health problems from it.
 
 ## Why
 

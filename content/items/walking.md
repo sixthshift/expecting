@@ -15,7 +15,6 @@ sources:
   - title: The Royal Women's Hospital — Active pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
 related: [exercise-in-pregnancy, hot-weather, altitude, remote-travel-in-australia]
-draft: true
 checked: 2026-10-29
 ---
 Yes. Pregnancy, Birth and Baby lists walking first among aerobic exercises in pregnancy, and calls walking, low-impact aerobics and stationary cycling great moderate activities that place minimal stress on your joints. You can try to be active each day of the week, but as your pregnancy progresses you may need to do less.
@@ -30,5 +29,7 @@ Exercise in pregnancy can reduce complications and help prepare your body for bi
 - **Wear supportive shoes,** and take shorter strides (Royal Women's).
 - **Mind the heat.** Avoid strenuous exercise in hot or humid weather, and drink plenty of water before and after.
 - **To protect your joints,** the Royal Women's suggests exercising in a pool or a fitball class rather than walking long distances.
-- **Stop and see your doctor immediately** if you get chest pain or unexplained shortness of breath, dizziness, headache, muscle weakness, calf pain, sudden swelling of the ankles, hands or face, or nausea and vomiting.
-- **Stop exercising** if you notice vaginal bleeding, pain in your abdomen, back or pelvic area, or your baby moving less.
+- **Call 000** if you get chest pain or severe trouble breathing.
+- **Stop and see your doctor immediately** if you get unexplained shortness of breath, dizziness, headache, muscle weakness, calf pain, sudden swelling of the ankles, hands or face, or nausea and vomiting.
+- **Stop exercising** if you notice pain in your abdomen, back or pelvic area.
+- **Stop and contact your midwife or birth unit straight away** if you notice vaginal bleeding (heavy bleeding: call 000), or your baby is moving less; don't wait. See [The baby is moving less](baby-moving-less).

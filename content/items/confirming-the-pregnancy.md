@@ -19,12 +19,11 @@ related: [first-antenatal-visit, estimated-due-date, first-blood-tests, dating-s
 appointment:
   - How many weeks am I, and when is my due date?
   - Which vitamins should I be taking?
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy tests look for a hormone called hCG in your urine or blood. Most home tests can pick it up on the day your period is due. For a more reliable result, test first thing in the morning, when there's more hCG in your urine, and check the expiry date. If it's negative but your period still hasn't come, test again in a few days.
 
-**A positive result.** A false positive is rare, but home tests aren't always correct, so always see your doctor or midwife after a positive one. They'll confirm the pregnancy with a blood or urine test; a blood test is more sensitive than a home test.
+**A positive result.** A positive blood test almost always means you're pregnant, but home tests aren't always correct, so always see your doctor or midwife after a positive one. They'll confirm the pregnancy with a blood or urine test; a blood test is more sensitive than a home test.
 
 **When.** It's best to have your first antenatal visit before 10 weeks, ideally at about 6 to 8. Your GP is likely to be the first person you see.
 

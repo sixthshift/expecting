@@ -16,7 +16,6 @@ sources:
   - title: Miracle Babies — Supporting bereaved families
     url: https://www.miraclebabies.org.au/content/supporting-bereaved-families/gon1s8
 related: [stillbirth, baby-in-the-nicu, loss-support-services]
-draft: true
 checked: 2026-10-29
 ---
 A neonatal death, or newborn death, is when a baby dies within the first 4 weeks (28 days) after birth; most happen in the first week. It's different from a stillbirth, when a baby dies between 20 weeks of pregnancy and birth. It's not common, about 700 babies a year in Australia, and it can be devastating for the whole family. However and whenever your baby died, your baby matters, your loss matters, and **your baby's death was not your fault**.

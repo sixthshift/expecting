@@ -14,7 +14,6 @@ sources:
   - title: The Royal Women's Hospital — Managing pain in labour
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
 related: [morphine-and-opioids, pain-relief]
-draft: true
 checked: 2026-10-29
 ---
 Morphine is a strong painkiller given by injection. It reduces the severity of labour pain but doesn't take it away completely. Opioids like it can bring drowsiness, nausea and vomiting, slower breathing and trouble fully emptying your bladder, and can make you less alert, so you may be less able to take part in decisions.

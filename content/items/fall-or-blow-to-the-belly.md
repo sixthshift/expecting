@@ -16,7 +16,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Bleeding during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
 related: [baby-movements, bleeding-after-20-weeks, abdominal-pain, fluid-leaking]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -33,7 +32,7 @@ If you've had an injury to your belly and you have pain in your belly, a firm or
 
 - After any hit or blow to your stomach (a fall, a car accident or family violence), contact your doctor, midwife or hospital immediately.
 - With any injury to your belly, go to the nearest hospital and tell the staff you're pregnant.
-- Even after a minor injury, go to hospital straight away if your baby is moving less than normal, you have bleeding from your vagina, or you have pain in your belly.
+- Even after a minor injury, go to hospital straight away if your baby is moving less than normal.
 
 ## See your doctor or midwife
 

@@ -18,10 +18,9 @@ sources:
 related: [choosing-your-model-of-care, first-antenatal-visit, antenatal-visit-schedule]
 appointment:
   - Could my GP share my pregnancy care with the hospital?
-draft: true
 checked: 2026-10-29
 ---
-Your GP is likely to be the first health professional you see when you think you're pregnant, and some GPs offer 'shared care', where you see your GP for some of your routine pregnancy care visits. This is called shared care, and it's one of the four most common models of maternity care in Australia.
+Your GP is likely to be the first health professional you see when you think you're pregnant, and some GPs offer 'shared care', where you see your GP for some of your routine pregnancy care visits. It's one of the four most common models of maternity care in Australia.
 
 ## How it works
 

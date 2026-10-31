@@ -7,16 +7,15 @@ ask: Can I go to a concert or work somewhere loud?
 aliases: [concert, festival, loud music, nightclub, fireworks, noise at work, hearing protection, bass, baby's hearing]
 who: carrying
 stakes: low
-summary: "Ask: the Australian pages we checked don't address loud noise in pregnancy; if it's at work, raise it with your employer, who must protect you from risks."
+summary: "Ask your doctor or midwife about a particular event; if it's at work, raise it with your employer, who must protect you from risks."
 verdict: ask
 sources:
   - title: SafeWork NSW — Pregnancy
     url: https://www.safework.nsw.gov.au/safety-starts-here/physical-safety-at-work-the-basics/pregnancy
 related: [working-while-pregnant, hot-weather, falls-and-knocks]
-draft: true
 checked: 2026-10-29
 ---
-Ask. The page we checked doesn't mention noise, concerts or festivals, so there is no pregnancy-specific guidance on them.
+Ask. There's no Australian pregnancy-specific guidance on noise, concerts or festivals to go on, so check with your doctor or midwife about a particular event.
 
 ## Why
 

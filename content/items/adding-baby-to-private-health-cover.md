@@ -14,7 +14,6 @@ sources:
   - title: privatehealth.gov.au — Managing your policy
     url: https://www.privatehealth.gov.au/health_insurance/howitworks/managing_your_policy.htm
 related: [private-health-waiting-periods, cost-of-having-a-baby, medicare-enrol-baby]
-draft: true
 checked: 2026-10-29
 tasks:
   - id: add-baby-to-health-fund

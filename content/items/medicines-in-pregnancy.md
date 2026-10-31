@@ -19,7 +19,6 @@ sources:
 related: [prescription-medicines-ongoing, medicines-before-you-knew, paracetamol]
 appointment:
   - Can you check every medicine and supplement I take?
-draft: true
 checked: 2026-10-29
 ---
 Many medicines are safe to take in pregnancy. A small number can harm the baby, affect its growth and development, or raise the chance of pregnancy complications. So the rule is simple: before you take a medicine, ask your doctor or pharmacist.

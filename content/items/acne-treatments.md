@@ -7,7 +7,7 @@ ask: My skin has broken out, what can I use on it?
 aliases: [acne, pimples, breakouts, pregnancy acne, benzoyl peroxide, spot treatment, Roaccutane, isotretinoin, acne cream, Differin, adapalene]
 who: carrying
 stakes: medium
-summary: "Benzoyl peroxide, salicylic acid spot treatments and glycolic acid are safe; retinoids, as pills, creams or ointments, are not."
+summary: "Benzoyl peroxide, salicylic acid spot treatments and glycolic acid are safe; prescription retinoids such as isotretinoin and tretinoin, as pills or creams, are not."
 verdict: limit
 sources:
   - title: Pregnancy, Birth and Baby — Acne during pregnancy
@@ -17,14 +17,13 @@ sources:
 related: [skincare-ingredients, sunscreen, isotretinoin]
 appointment:
   - Is what I'm using on my skin okay in pregnancy?
-draft: true
 checked: 2026-10-29
 ---
 Hormone changes can trigger acne, and it may flare in the first trimester and usually improves or may even go away by the third. It won't affect your pregnancy or your baby, but what you treat it with matters.
 
 ## Why
 
-Some acne medicines can harm your baby and must be avoided, including retinoids (medicines similar to vitamin A) as pills, creams or ointments, and spironolactone.
+Some acne medicines can harm your baby and must be avoided, including prescription retinoids (medicines similar to vitamin A, such as isotretinoin and tretinoin) as pills, creams or ointments, and spironolactone. Over-the-counter retinol products are best paused too, though the small amounts absorbed mean past use isn't a concern.
 
 Safe to use: treatments containing benzoyl peroxide, salicylic acid spot treatments and glycolic acid. Avoid salicylic acid peels.
 

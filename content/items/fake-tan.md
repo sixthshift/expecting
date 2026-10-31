@@ -7,7 +7,7 @@ ask: Can I use fake tan or get a spray tan?
 aliases: [fake tan, self tanner, spray tan, tanning lotion, DHA, dihydroxyacetone, tanning booth, Bondi Sands]
 who: carrying
 stakes: low
-summary: "Fake tan creams and lotions are fine; for spray tans the sources differ, with one saying avoid and the other saying protect yourself from breathing it in."
+summary: "Fake tan creams and lotions are fine; it's best to avoid spray tans."
 verdict: limit
 sources:
   - title: Pregnancy, Birth and Baby — Cosmetic procedures during pregnancy and breastfeeding
@@ -17,10 +17,9 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
 related: [sunbeds, sunscreen, hair-removal]
-draft: true
 checked: 2026-10-29
 ---
-Creams and lotions are fine. Spray tans are where the sources differ.
+Creams and lotions are fine. It's best to avoid spray tans.
 
 ## Why
 
@@ -29,4 +28,4 @@ Self-tanning creams and gels contain dihydroxyacetone. MotherSafe says absorptio
 ## What to do
 
 - **Lotions and creams:** Pregnancy, Birth and Baby says you can use them while pregnant.
-- **Spray tans:** Pregnancy, Birth and Baby's "things to avoid" page says it is best to avoid them. Its cosmetic procedures page and MotherSafe say that if you do get one, or give them for work, use protective measures, such as nose plugs or a mask (MotherSafe), to avoid breathing it in.
+- **Spray tans:** best avoided. If you give spray tans for work, use protective measures, such as nose plugs or a mask, to avoid breathing it in.

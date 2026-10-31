@@ -21,7 +21,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Private health insurance and pregnancy
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
 related: [cost-of-having-a-baby, private-health-waiting-periods, medicare-enrol-baby, what-medicare-covers, obstetrician-out-of-pocket-costs]
-draft: true
 checked: 2026-10-29
 tasks:
   - id: register-medicare-safety-net-family

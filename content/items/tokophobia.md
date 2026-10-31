@@ -16,7 +16,6 @@ appointment:
   - Can we make a flexible birth plan together?
   - Can you go through my pain relief options before labour?
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 Fear before giving birth is a normal emotion. It's common to be anxious about pain, interventions in labour or harm to your baby. You might also fear the unknown, not getting to hospital in time, or pooing during the birth. There are ways to prepare that help.

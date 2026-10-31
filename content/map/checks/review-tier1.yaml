@@ -1,0 +1,52 @@
+# Review, the rest of tier 1 and the week notes' sources (docs/plan-review.md).
+# 2026-10-31. Each group read whole, then every source reopened by a reader
+# that didn't write it; each finding judged and applied here.
+
+week notes:
+  undrafted: "30 of 42"
+  kept draft: "24, 26, 27, 28, 30, 32, 34, 35, 36, 37, 39, 40: their Parental Leave Pay and leave lines couldn't be checked (Services Australia and Fair Work timed out), or a passage wasn't confirmed on the page. For the money pass."
+  rule: "A week note may state a fact a checked Library entry states with its source (the screening windows, the dating scan's 6 to 8 weeks): the note has one source field, the entry carries the citation."
+  fixed:
+    - "17: discharge that changes colour or smells → see your doctor or midwife (was 'worth mentioning')"
+    - "19: thoughts of hurting yourself → Lifeline or 000 straight away; low mood for 2 weeks → your doctor or midwife"
+    - "21: severe heartburn → contact straight away, as the symptoms say"
+    - "26, 28: anti-D at 26 to 28 and 34 to 36 weeks (was 28 and 34)"
+    - "38: 'if you need urgent help, call 000' restored"
+    - "40, 42: 40 keeps its source's 10 to 12 days; 42's '41 weeks' was on no page"
+    - "unsourced lines dropped: 12's teeth and '1 in 5', 16's cord grip, 18's 'only shared if you ask', 29's 'a third of the size' (and its title), 41's '5 per cent'"
+
+loss:
+  undrafted: "all 29"
+  fixed:
+    - "stillborn-baby-payment: $77,177 (Services Australia, 1 July 2026); no current page gives $79,955"
+    - "miscarriage-management-options: waiting's bleeding can take 2 to 4 weeks; see your doctor if heavy bleeding goes past 2 weeks (was an unsourced 1 to 2 weeks)"
+    - "after-a-miscarriage: compassionate leave as the Act says it; unsourced funeral line cut"
+    - "recurrent-miscarriage: unsourced 'monitoring can make a difference' cut"
+    - "ectopic-pregnancy: sudden severe pain or collapsing added to the signs"
+    - "loss-support-services: Pink Elephants open Sundays too"
+
+medicines:
+  undrafted: "35 of 50"
+  kept draft: "iodine, isotretinoin, illicit-drugs, homeopathy, haemorrhoid-treatments, herbal-supplements, medicines-before-you-knew, st-johns-wort, melatonin, sleeping-pills, uti-remedies, probiotics, cough-medicines, asthma-inhalers, iron: a source didn't load or wasn't read"
+  settled (the stricter Australian position, each in a cited source):
+    - "decongestant nasal sprays: 3 days at most (KEMH, healthdirect, PBB; MotherSafe says 5)"
+    - "oral decongestants: avoid (PBB, KEMH, healthdirect; MotherSafe softer); a dose already taken isn't a concern"
+    - "loperamide: not in the first trimester (healthdirect)"
+    - "anti-inflammatory gels: not in the last 3 months unless your doctor directs; ask before"
+    - "thrush pessaries: without the applicator (PBB)"
+    - "vitamin B12: needed if you eat no animal foods (Royal Women's)"
+    - "vitamin D: services differ; ask your midwife"
+    - "folic acid: through the first 3 months"
+  fixed:
+    - "antacids, migraine-medicines: chest pain is 000; pre-eclampsia signs mean contact the hospital; sources added"
+    - "unsourced cut: dihydrocodeine for coughs, 'sumatriptan needs a prescription', NRT mouth spray and household varenicline, KEMH's 'preferred PPI', beta-carotene, cold sores' HSV line"
+
+mental health guides:
+  undrafted: "17 of 18"
+  kept draft: "previous-trauma-and-pregnancy, until it's decided whether it is private"
+  fixed:
+    - "Gidget: up to 10 Medicare bulk-billed sessions a year, with a Mental Health Treatment Plan from your usual GP (one figure, not three)"
+    - "PANDA's hours dropped (its own pages disagree)"
+    - "self-harm or suicidal thoughts: seek help immediately or 000, everywhere"
+    - "stillbirth stats: one figure per claim; bonding's '1 in 5' cut"
+    - "previous-trauma: 000 and Lifeline added; unsourced lines cut"

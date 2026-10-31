@@ -23,7 +23,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Bleeding during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
 related: [altitude, horse-riding, contact-sports, falls-and-knocks]
-draft: true
 checked: 2026-10-29
 ---
 Not the downhill kind. Pregnancy, Birth and Baby, Better Health and RANZCOG all list skiing among activities with a risk of falling to avoid. The Royal Women's Hospital includes snow and water skiing in its list of activities to avoid.
@@ -34,10 +33,10 @@ A fall can injure you and your baby. As the bump grows your centre of gravity mo
 
 **Water skiing** is on the list too: Better Health says coming off the skis could force water into the vagina.
 
-**Altitude** adds a second reason. Pregnancy, Birth and Baby says to avoid exercising above 2,000 metres until you've acclimatised, and Better Health's exercise page lists high-altitude training at over 2,000 metres among things to avoid. Better Health's travel page puts the line higher: at heights over 3,000 metres the oxygen level in the air is low, which reduces the oxygen available to your baby, and pregnant women are also more vulnerable to altitude sickness.
+**Altitude** adds a second reason. Pregnancy, Birth and Baby says to avoid exercising above 2,000 metres until you've acclimatised, and Better Health's exercise page lists high-altitude training at over 2,000 metres among things to avoid.
 
 ## What to do
 
 - **Skip the slopes** this season.
-- **Compare the altitude** of any resort with the 2,000 and 3,000 metre figures above.
+- **Check the altitude** of any resort: above 2,000 metres, take it easy until you've acclimatised.
 - **If you have any injury to your tummy,** such as from a fall, contact your midwife or doctor immediately.

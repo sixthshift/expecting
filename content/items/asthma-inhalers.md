@@ -18,7 +18,6 @@ related: [prescription-medicines-ongoing, nasal-sprays]
 appointment:
   - Is my asthma well enough controlled?
   - Which vaccines do I need, with my asthma?
-draft: true
 checked: 2026-10-29
 ---
 Yes. Keep taking your usual asthma medicines, relievers and preventers both. Most asthma medicines are considered safe to take in pregnancy.
@@ -31,6 +30,7 @@ If your asthma is well controlled, it won't affect your baby.
 
 ## What to do
 
+- **A severe attack:** if you have severe trouble breathing, call triple zero (000) immediately or go to your nearest emergency department.
 - **Keep to your asthma action plan,** and see your doctor every 4 to 6 weeks in pregnancy: asthma can get better or worse.
 - **See your doctor as soon as possible if your breathing is getting worse:** symptoms wake you at night, make usual activities hard, or you need your reliever more than twice a week.
 - **In an attack,** take your reliever as your plan says. See your doctor straight away or go to your local hospital emergency department if you're not better after two doses. Steroid tablets like prednisolone, if you need them, are safe in pregnancy.

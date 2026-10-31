@@ -19,7 +19,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Skin changes during pregnancy, melanocytic naevi
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/skin-changes-during-pregnancy-melanocytic-naevi
 related: [term-linea-nigra, term-melasma, term-stretch-marks, hair-and-nails-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Your skin changes because of higher hormone levels and extra blood flow. Some people find it looks healthier and "glows"; others get dry, blotchy or more sensitive skin, or acne. Most changes slowly improve or go away after the birth, and a skin condition that got better or worse in pregnancy will probably go back to how it was. The usual ones are not dangerous for you or your baby.

@@ -16,7 +16,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Baby's first 24 hours
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/babys-first-24-hours
 related: [skin-to-skin, term-golden-hour, breastfeeding-after-caesarean, antenatal-expressing, morphine-and-opioids]
-draft: true
 checked: 2026-10-29
 ---
 If you've chosen to breastfeed, the first feed usually happens during skin-to-skin time soon after the birth. Your baby is placed straight onto your bare chest, and from there many babies can move towards the breast, attach and start feeding on their own. This is sometimes called baby-led attachment.

@@ -13,7 +13,6 @@ sources:
   - title: Better Health Channel — Medical terms and definitions during pregnancy and birth
     url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth
 related: []
-draft: true
 checked: 2026-10-29
 ---
 VBAC stands for vaginal birth after caesarean. It describes a vaginal birth after having had one or more previous caesarean sections, or the plan to try for one when you've had a caesarean and are hoping to birth your next baby vaginally.

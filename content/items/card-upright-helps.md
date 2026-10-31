@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Positions for labour and birth
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/positions-for-labour-and-birth
 related: [positions-for-labour, second-stage]
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy, Birth and Baby says there's no one best position, and unless there's a medical reason you can choose what's comfortable and move as you like. It used to be common to encourage giving birth lying on your back in bed, but research shows an upright position has benefits for you and your baby. In the first stage, it says lying on your back is generally not a good idea, as it can reduce your baby's blood supply and could lead to a longer labour. With an epidural you may be more limited, but you might still benefit from lying on your side rather than your back.

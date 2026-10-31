@@ -16,7 +16,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Vitamins and minerals in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/VitaminsmineralspandbupdateSept19.pdf
 related: [folic-acid]
-draft: true
 checked: 2026-10-29
 ---
 Ask your doctor. Most people take 0.5 mg of folic acid a day (or a supplement with 400 micrograms), from at least a month before pregnancy through the first 3 months. Some need ten times that: 5 mg a day.

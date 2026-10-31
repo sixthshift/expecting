@@ -15,7 +15,6 @@ sources:
   - title: healthdirect — Warning signs during pregnancy
     url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
 related: [painful-urination, back-pain, fever, frequent-urination]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -33,7 +32,7 @@ The signs:
 
 It can also cause cramping that feels like early labour. If the infection has reached your kidneys, you may have a fever above 38°C, back pain and vomiting.
 
-A bladder infection is more likely to become a kidney infection in pregnancy, and kidney infections can be serious for you and your baby. UTIs are treated with antibiotics that are safe in pregnancy. To lower your chances: drink plenty of water, wee when you need to and straight after sex, and wipe front to back.
+A bladder infection is more likely to become a kidney infection in pregnancy, and kidney infections can be serious for you and your baby. UTIs are treated with antibiotics that are safe in pregnancy. To lower your chances, drink plenty of water and wee when you need to.
 
 ## Contact your hospital now
 

@@ -23,7 +23,6 @@ sources:
   - title: The Royal Women's Hospital — Placenta problems
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/placenta-problems
 related: [heavy-bleeding, abdominal-pain, fall-or-blow-to-the-belly, baby-movements, fluid-leaking]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -38,15 +37,14 @@ Close to the birth you may have a 'show': the mucus plug that sealed the cervix,
 
 ## Call 000 or go to emergency
 
-Call triple zero (000) and ask for an ambulance if you have very heavy bleeding, strong pain or feel very unwell. If you have placenta praevia and the bleeding is heavy, with pain or contractions, call 000 or go to your nearest emergency department.
+Call triple zero (000) and ask for an ambulance, or go to your nearest emergency department, if you have:
+
+- heavy bleeding: soaking 1 or more pads in an hour, passing clots, or bleeding you can't contain
+- bleeding with pain or contractions
+- strong pain in your tummy, pelvis or shoulder
+- feeling dizzy, faint or very unwell, or short of breath
 
 ## Contact your hospital now
-
-Contact your obstetrician or birth unit, or call an ambulance, immediately if:
-
-- your bleeding becomes very heavy: soaking 2 pads an hour or passing clots (Pregnancy, Birth and Baby's page on miscarriage counts 1 or more pads an hour as heavy)
-- you have strong pain in your tummy or shoulder
-- you feel dizzy or faint, or short of breath
 
 For any other bleeding, contact your doctor, midwife or birth unit straight away. If you know you have a low-lying placenta, tell them.
 

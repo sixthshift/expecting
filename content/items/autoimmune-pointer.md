@@ -18,7 +18,6 @@ appointment:
   - Which of my medicines are safe to keep taking in pregnancy?
   - How likely is a flare, and what do I do if I have one?
   - Who leads my care, and how do my specialist and maternity team share it?
-draft: true
 checked: 2026-10-29
 ---
 Autoimmune disease is on the list of pre-existing conditions that make a pregnancy higher risk. That means your midwife or doctor watches the pregnancy more closely, which may mean more blood tests, scans, or appointments with obstetricians who specialise in high-risk pregnancies. The plan is made with your own specialists and your maternity team; this page is only a pointer.

@@ -13,7 +13,6 @@ sources:
   - title: "Pregnancy, Birth and Baby — hCG levels"
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/hcg-levels
 related: [pregnancy-hormones]
-draft: true
 checked: 2026-10-29
 ---
 hCG (human chorionic gonadotropin) is a hormone made by your placenta. It is found in your urine or blood when you are pregnant, and home pregnancy tests usually detect it about 2 weeks after conception. It helps your body produce progesterone. hCG levels are highest towards the end of the first trimester, then decrease.

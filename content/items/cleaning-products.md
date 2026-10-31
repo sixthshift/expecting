@@ -15,10 +15,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
 related: [painting-and-renovating, mould, pesticides]
-draft: true
 checked: 2026-10-29
 ---
-Yes. Pregnancy, Birth and Baby says many cleaning products are safe to use in pregnancy, but you should always check the label for safety warnings and follow the directions on it. The advice doesn't name bleach or oven cleaner specifically.
+Yes. Pregnancy, Birth and Baby says many cleaning products are safe to use in pregnancy, but you should always check the label for safety warnings and follow the directions on it.
 
 ## Why
 

@@ -19,7 +19,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Private health insurance and pregnancy
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
 related: [cost-of-having-a-baby, adding-baby-to-private-health-cover, medicare-safety-net]
-draft: true
 checked: 2026-10-29
 ---
 If you're already pregnant and only just took out private health insurance, or upgraded it, it may not pay for this pregnancy. Here's how to tell, and what your options are.

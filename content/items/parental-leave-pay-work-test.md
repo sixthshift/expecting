@@ -16,7 +16,6 @@ sources:
   - title: Services Australia — Exceptions to the work test
     url: https://www.servicesaustralia.gov.au/exceptions-to-work-test-for-parental-leave-pay
 related: [parental-leave-pay, parental-leave-pay-self-employed, parental-leave-pay-income-test]
-draft: true
 checked: 2026-10-29
 tasks:
   - id: check-work-test

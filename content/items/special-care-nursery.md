@@ -18,7 +18,6 @@ sources:
 related: [term-nicu, preterm-birth, skin-to-skin, first-feed, going-home]
 appointment:
   - Does the hospital I'm booked into have a special care nursery, or would the baby be moved?
-draft: true
 checked: 2026-10-29
 ---
 Almost 1 in 5 babies in Australia is admitted to a special care nursery (SCN) or a neonatal intensive care unit (NICU). Even though your baby can't leave hospital yet, they're on the road to becoming stronger.

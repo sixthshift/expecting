@@ -13,11 +13,10 @@ sources:
   - title: Food Standards Australia New Zealand — Pregnancy and healthy eating
     url: https://www.foodstandards.gov.au/consumer/nutrition/pregnancy/healthy-eating
   - title: NSW Food Authority — Mercury and fish
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/mercury-and-fish
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/mercury-and-fish
   - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
 related: [high-mercury-fish, canned-fish, fish-oil]
-draft: true
 checked: 2026-10-29
 ---
 Yes, and it's good for you. FSANZ says it's safe to eat two to three serves of fish a week in pregnancy. A serve is 150 g.

@@ -20,7 +20,6 @@ related: [planned-caesarean, caesarean-what-happens, vbac]
 appointment:
   - Can we talk about a planned caesarean and a vaginal birth, and the risks of each for me?
   - How does my hospital handle a request for a caesarean?
-draft: true
 checked: 2026-10-29
 ---
 Some people would rather have a caesarean than a vaginal birth, for reasons that aren't medical: a previous birth, fear of pain, labour or birth, or other life experiences. It's called a caesarean on maternal request. You can ask, and your doctor or midwife will explain the benefits and risks of every option so you can make an informed choice.
@@ -39,7 +38,7 @@ RANZCOG's guideline compares planned caesarean with planned vaginal birth. The e
 **A planned caesarean may increase:**
 
 - wound infection and uterine infection, both common
-- rarer events: a hysterectomy around the birth, or the death of the mother or baby
+- rarer events: a hysterectomy around the birth, or the death of the birthing parent or baby
 - in future pregnancies, the risk of the uterus tearing (rupture) in labour and of placenta accreta, a placenta that grows too deep; these rise with each caesarean
 - later surgery for adhesions or an abdominal hernia
 - for the child, hospital stays for chest or gut infections in the first year, and asthma

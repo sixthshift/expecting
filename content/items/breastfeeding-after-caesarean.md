@@ -14,7 +14,6 @@ sources:
   - title: The Royal Women's Hospital — Caesarean birth
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/caesarean-birth
 related: [first-feed, caesarean-what-happens, caesarean-recovery, antenatal-expressing]
-draft: true
 checked: 2026-10-29
 ---
 Yes, you can breastfeed after a caesarean, whether it's planned or happens unexpectedly. The Australian Breastfeeding Association says that whatever anaesthetic you have, it usually doesn't stop you from breastfeeding.

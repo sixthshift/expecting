@@ -17,7 +17,6 @@ sources:
   - title: Kidsafe SA — Hire a car seat
     url: https://kidsafesa.com.au/road-safety/hire-a-car-seat/
 related: [car-seat, baby-capsule-hire, second-hand-baby-gear]
-draft: true
 checked: 2026-10-29
 ---
 Where possible, buy a new car restraint. A second-hand one can be used only if it passes a few checks.

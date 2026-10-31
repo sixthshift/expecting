@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Working during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
 related: [microwaves-and-devices, standing-all-day, working-while-pregnant]
-draft: true
 checked: 2026-10-29
 ---
 Neither page we checked addresses computer screens or laptops. Pregnancy, Birth and Baby says it is safe to work while you are pregnant unless your doctor tells you it is unsafe, though you and your employer may need to make some adjustments depending on your job.

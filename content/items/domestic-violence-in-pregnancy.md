@@ -23,7 +23,6 @@ sources:
     url: https://1800respect.org.au/help-and-support/supporting-someone
 related: [reproductive-coercion, arguments-and-stress, partner-learning-the-signs, perinatal-mental-health-help]
 private: true
-draft: true
 checked: 2026-10-29
 ---
 **If you are in immediate danger, call 000** for police and ambulance.
@@ -60,7 +59,7 @@ Their website has a Quick Exit button, and suggests private (incognito) browsing
 
 ## A safety plan
 
-A safety plan is thinking ahead about how to stay as safe as possible. You can make one on your own, with someone you trust, or with 1800RESPECT's help. It might include calling 000 if you're in danger, a trusted person to contact, keeping your phone with you (or a second, safe phone), a safe place to go if you need to leave quickly, and key things packed in case you do. Keep it somewhere private.
+A safety plan is thinking ahead about how to stay as safe as possible. You can make one on your own, with someone you trust, or with 1800RESPECT's help. It might include calling 000 if you're in danger, a trusted person to contact, keeping your phone with you (or a second, safe phone), a safe place to go if you need to leave quickly, and key things packed in case you do. Keep it somewhere private. Leaving isn't always the safest option straight away: the time just after separating is a time of great risk, which is why planning it with 1800RESPECT helps.
 
 ## Other help
 

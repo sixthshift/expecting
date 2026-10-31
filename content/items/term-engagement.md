@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 37
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-37
 related: [term-lightening, term-station, the-babys-position]
-draft: true
 checked: 2026-10-29
 ---
-Engagement is when your baby's head moves down into your pelvis, a sign they're getting ready to be born. At 36 weeks, a first baby's head is likely to have moved down already; it can happen any time from 37 weeks until the birth, and is more likely with a first baby. If you've had babies before, your baby's head may not engage until you have contractions. You may notice more pressure low in your abdomen.
+Engagement is when your baby's head moves down into your pelvis, a sign they're getting ready to be born. With a first baby, the head has often moved down by about 36 weeks, and it can happen any time until the birth. If you've had babies before, your baby's head may not engage until you have contractions. You may notice more pressure low in your abdomen.

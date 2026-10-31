@@ -19,7 +19,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Private health insurance and pregnancy
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
 related: [private-health-waiting-periods, medicare-safety-net, budgeting-for-leave, adding-baby-to-private-health-cover]
-draft: true
 checked: 2026-10-29
 ---
 What you pay to have a baby depends mostly on one choice: public or private care. Here's where the money goes in each, and what to ask before you're committed.

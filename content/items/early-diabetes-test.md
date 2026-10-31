@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
 related: [glucose-tolerance-test, gestational-diabetes, first-blood-tests]
-draft: true
 checked: 2026-10-29
 ---
 If you have a higher risk of high blood sugar, an HbA1c blood test is recommended in the first trimester; no fasting needed. An oral glucose tolerance test before 20 weeks is recommended if you've had gestational diabetes before, or based on that HbA1c.

@@ -19,15 +19,13 @@ sources:
 related: [the-pelvic-floor, abdominal-muscles-and-separation, ligaments-and-joints-in-pregnancy, heart-and-blood-in-pregnancy]
 appointment:
   - Is there any reason I shouldn't exercise?
-draft: true
 checked: 2026-10-29
 ---
 Unless your doctor or midwife tells you otherwise, you can start or continue regular exercise while you're pregnant. If you weren't very active before, start small and build up; if you were, choose safe activities at a level that feels right. As the pregnancy goes on, you may need to do less.
 
 ## How much
 
-- Pregnancy, Birth and Baby: be active each day, aiming for about 30 minutes of moderate exercise a day (three 10-minute sessions count), with strengthening exercises twice a week.
-- The Royal Women's Hospital: a session of moderate exercise on all or most days, or at least 150 minutes over a week, or 10,000 steps a day.
+Be active each day, aiming for about 30 minutes of moderate exercise a day, or at least 150 minutes over a week (three 10-minute sessions count), with strengthening exercises twice a week.
 
 Moderate means you can still hold a conversation (the "talk test"). Good choices include walking, swimming and water aerobics, a stationary bike, dancing, pregnancy classes, yoga, Pilates and light weights.
 
@@ -40,7 +38,7 @@ Moderate means you can still hold a conversation (the "talk test"). Good choices
 
 ## What to avoid
 
-- **Lying flat on your back.** The weight of your bump can press on big blood vessels, making you feel faint and reducing blood flow to your baby. The Women's says to avoid exercises on your back after 16 weeks; Pregnancy, Birth and Baby says it can be dangerous particularly after 28 weeks.
+- **Lying flat on your back.** The weight of your bump can press on big blood vessels, making you feel faint and reducing blood flow to your baby. Avoid exercises on your back after 16 weeks.
 - Contact sports and anything with a risk of being hit or falling (football, squash, horse riding, downhill skiing, gymnastics).
 - Lifting heavy weights.
 - Scuba diving and skydiving, and exercise above 2,000 m until you've acclimatised.
@@ -57,4 +55,4 @@ See your doctor or midwife before exercising if you have pre-eclampsia, placenta
 
 ## When to get help
 
-Stop exercising and see your doctor immediately if you have chest pain or unexplained shortness of breath, dizziness, headache, muscle weakness, calf pain or sudden swelling of the ankles, hands or face, or nausea and vomiting. Also stop if you notice vaginal bleeding, pain in your tummy, back or pelvis, or your baby moving less.
+Call 000 if you have chest pain or severe trouble breathing. Stop exercising and see your doctor immediately if you have unexplained shortness of breath, dizziness, headache, muscle weakness, calf pain or sudden swelling of the ankles, hands or face, or nausea and vomiting. Also stop if you notice vaginal bleeding or pain in your tummy, back or pelvis. If your baby is moving less, contact your midwife or birth unit straight away, don't wait: see [The baby is moving less](baby-moving-less).

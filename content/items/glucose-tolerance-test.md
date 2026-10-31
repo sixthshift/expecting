@@ -7,7 +7,6 @@ type: moment
 topic: appointments
 appointment:
   - What did my glucose tolerance test show?
-draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Gestational diabetes
     url: https://www.pregnancybirthbaby.org.au/gestational-diabetes
@@ -23,4 +22,4 @@ Gestational diabetes is diabetes that starts in pregnancy. It often has no sympt
 
 The usual test is the oral glucose tolerance test (OGTT): 8 to 10 hours of fasting (usually overnight), a blood test, a sugary drink, then more blood tests at 1 and 2 hours. You'll usually need to stay at the lab for the whole test.
 
-If you have gestational diabetes, you'll be offered a blood glucose test before you go home after the birth, and again at the 6-week check. Ask your midwife or OB.
+If you have gestational diabetes, you'll be offered a blood glucose test before you go home after the birth, and again at the 6-week check.

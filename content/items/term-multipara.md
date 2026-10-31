@@ -11,7 +11,6 @@ sources:
   - title: "Australian Institute of Health and Welfare — Mothers and babies glossary"
     url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary
 related: [term-gravida-para, term-primigravida]
-draft: true
 checked: 2026-10-29
 ---
-The Australian Institute of Health and Welfare defines a multipara as a pregnant person who has had at least one previous pregnancy resulting in a live birth or stillbirth.
+A multipara is a pregnant person who has had at least one previous pregnancy resulting in a live birth or stillbirth.

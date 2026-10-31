@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Herbal teas during pregnancy and breastfeeding
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/herbal-teas-during-pregnancy-and-breastfeeding
 related: [herbal-tea, sleeping-pills]
-draft: true
 checked: 2026-10-29
 ---
 A cup of chamomile before bed may help you relax, but Pregnancy, Birth and Baby lists it among the teas where there isn't enough information about safety. It's best to avoid drinking chamomile tea in large quantities.

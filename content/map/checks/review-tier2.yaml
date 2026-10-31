@@ -1,0 +1,34 @@
+# Review: the money pass and the rest of the high-stakes entries
+# (docs/plan-review.md). 2026-10-31. Each group read, then every source
+# reopened by a separate reader; findings judged and applied here.
+
+money, work and paperwork:
+  facts read by hand: "Services Australia (Parental Leave Pay: how much, how to claim, claiming timeframes) and Fair Work's 'Unpaid parental leave made simple' (Sept 2026): 130 days for births from 1 July 2026, 20 reserved for the partner, $200.94 a day, claim up to 3 months before, within 14 weeks to be paid from the birth; notice 10 weeks before leave, confirm 4 weeks before."
+  my own error: "I first read the 'choose days within 26 weeks' rule as general; it's only for a child given up for adoption or surrogacy. Caught by a reader, corrected before any entry changed."
+  week notes: "26, 30, 32, 34, 36, 37 now say 20 reserved days, no week-30 claim deadline, confirm dates 4 weeks before, claim within 14 weeks of the birth to be paid from it."
+  fixed:
+    - "income test: stale 2024–25 thresholds dropped"
+    - "registering-the-birth: Victoria gives a free digital certificate; passport line NSW only"
+    - "baby-passport: 6 weeks includes delivery; priority and fast track up to 11 and 14 business days end to end"
+    - "freebies: Victoria's baby bundle still runs (it said they'd all ended); unsourced lines cut; sources added"
+    - "baby-budget: 'gear is the smallest cost' had no source; rewritten to Moneysmart"
+    - "heavy-lifting: 2017 source replaced"
+  needs a person: "SA, NT and Tasmania birth registry pages block automated reading (the entry rests on myGov's '60 days in all states')."
+
+food:
+  settled to the stricter source: "pâté: avoid all kinds (PBB), not 'canned is the safer choice'; rare meat: 75°C (PBB), not 71°C"
+tests:
+  settled: "combined screening blood test 10 to 13 weeks, serum screening 15 to 20: inside every source's window, and the week notes now agree"
+  fixed: "pre-eclampsia and high blood pressure: a sudden severe headache, or a headache with vision changes, vomiting or confusion, is 000 (healthdirect Headaches, read by hand); carrier screening: the partner is tested only if the pregnant parent carries CF or SMA, and it's a rebate, not free"
+labour and birth:
+  settled: "waters breaking with a baby that isn't head-first is 000 in every entry that mentions waters (it was missing from the main waters entries); VBAC rupture about 1 in 200, success about 7 in 10; induction for going overdue between 41 and 42 weeks; moxibustion: no good evidence (RANZCOG, PBB breech)"
+body, activities, travel:
+  settled: "altitude 2,000 m; yellow fever only if truly unavoidable; scuba avoid (Better Health 2015's 18 m line dropped); saunas and spas avoid, with MotherSafe's reassurance kept for a short exposure already had"
+  fixed: "warning-signs: a 000 line, sourced; placental abruption can have hidden bleeding and little pain; seatbelt: any injury to the abdomen means hospital"
+
+still drafts, and why:
+  - "bassinet, cot-and-safe-sleep-standards, second-hand-baby-gear: Red Nose and Product Safety Australia block automated reading; the 19 January 2026 infant sleep standard is unconfirmed"
+  - "farm-animals-and-lambing: the Darling Downs Q fever page (reportedly 'avoid lambing, calving, kidding') is blocked; likely verdict avoid"
+  - "dvt-and-compression-stockings, malaria: key lines rest only on Better Health's 2015 travel page"
+  - "previous-trauma-and-pregnancy: waiting on the private decision"
+  - "partner-perinatal-depression: PANDA's pages didn't load in full"

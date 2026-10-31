@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Yoga and Pilates during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/yoga-and-pilates-during-pregnancy
 related: [hot-yoga, pilates, exercise-lying-on-your-back]
-draft: true
 checked: 2026-10-29
 ---
 Yes. Yoga for pregnancy can build muscle strength, and Pregnancy, Birth and Baby says both yoga and Pilates have been shown to improve mental health through focused breathing and mindfulness. Make sure your instructor knows you are pregnant, or choose a class designed for pregnant people, ideally with an instructor trained in prenatal yoga.

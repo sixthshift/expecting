@@ -16,7 +16,6 @@ sources:
   - title: The Royal Women's Hospital — Your first pregnancy check-up
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/your-first-pregnancy-check-up
 related: [first-blood-tests, hepatitis-b-screening, syphilis-screening]
-draft: true
 checked: 2026-10-29
 ---
 Most people are offered an HIV test at the first antenatal visit; at the Royal Women's Hospital it comes with counselling before and after. It's rare for a baby to be born with HIV in Australia.

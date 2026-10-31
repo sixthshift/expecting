@@ -20,7 +20,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Your first few days after giving birth
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-first-few-days-after-giving-birth
 related: [everyone-has-advice, family-overseas, when-to-tell-people]
-draft: true
 checked: 2026-10-29
 ---
 Family and friends are often excited, and Pregnancy, Birth and Baby says people can offer help in all sorts of ways. It also says you may sometimes need to put limits on outside help, for example if it feels as if they're taking over, and that you might get a lot of advice, and even some criticism. The important thing is to decide what's right for you.

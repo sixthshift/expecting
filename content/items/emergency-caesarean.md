@@ -16,7 +16,6 @@ sources:
   - title: The Royal Women's Hospital — Caesarean birth
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/caesarean-birth
 related: [caesarean-what-happens, term-fetal-distress, slow-progress, support-person-role, caesarean-recovery]
-draft: true
 checked: 2026-10-29
 ---
 Even when you plan a vaginal birth, things don't always go as expected. An emergency caesarean is one that needs to happen quickly: either your doctor recommends it once you're in labour, or you need one urgently when you're not in labour. Knowing what happens can make it less frightening, for both of you.

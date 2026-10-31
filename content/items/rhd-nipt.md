@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
 related: [rhd-negative, anti-d, blood-group-and-antibodies]
-draft: true
 checked: 2026-10-29
 ---
 **RhD NIPT** (Rhesus D non-invasive prenatal test) is a screening blood test for RhD negative pregnant people. From 11 weeks, it looks at the baby's DNA in your blood to predict whether the baby is RhD positive or negative, with more than 99% accuracy. If the baby is predicted RhD negative, you might not need anti-D injections; if you can't get the test, you'll still be offered them. Ask your doctor or midwife whether it's available to you.

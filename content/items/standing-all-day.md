@@ -19,7 +19,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Working during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
 related: [working-while-pregnant, standing-up-quickly, heavy-lifting, sudden-swelling, dizziness-and-fainting]
-draft: true
 checked: 2026-10-29
 ---
 Fine, with breaks. The Royal Women's Hospital advises avoiding prolonged standing in pregnancy, and MotherSafe advises hairdressers and salon workers to avoid long periods on their feet and long hours.

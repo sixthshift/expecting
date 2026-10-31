@@ -19,7 +19,6 @@ related: [first-antenatal-visit, first-blood-tests]
 appointment:
   - Am I due for my cervical screening test?
   - Can I collect the sample myself?
-draft: true
 checked: 2026-10-29
 tasks:
   - id: check-cervical-screening-due

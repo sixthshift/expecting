@@ -14,7 +14,6 @@ sources:
   - title: Services Australia — Australian Immunisation Register
     url: https://www.servicesaustralia.gov.au/australian-immunisation-register
 related: [family-tax-benefit-a, child-care-subsidy, medicare-enrol-baby]
-draft: true
 checked: 2026-10-29
 ---
 If you get Family Tax Benefit (FTB) Part A or help with child care fees, your child must meet immunisation requirements.

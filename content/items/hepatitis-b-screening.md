@@ -14,7 +14,6 @@ sources:
   - title: Australian Immunisation Handbook — Vaccination for women who are planning pregnancy, pregnant or breastfeeding
     url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
 related: [first-blood-tests, hepatitis-c-screening, hiv-screening]
-draft: true
 checked: 2026-10-29
 ---
 Hepatitis B is a liver virus that can pass to your baby during pregnancy or birth, and some people have it without symptoms. Everyone is recommended a test for hepatitis B surface antigen (HBsAg), which shows a current infection.

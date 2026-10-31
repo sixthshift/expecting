@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Round ligament pain
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/round-ligament-pain
 related: [abdominal-pain, pelvic-girdle-pain, braxton-hicks]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -36,9 +35,9 @@ What helps:
 
 If you have vaginal bleeding, strong pain or feel very unwell, call triple zero (000) immediately and ask for an ambulance.
 
-## See your doctor or midwife
+## Contact your hospital now
 
-**Get medical care immediately** if you have tummy pain together with:
+Contact your doctor, midwife or hospital immediately if you have tummy pain together with:
 
 - bleeding or vaginal discharge
 - contractions, or pain or pressure in your lower back
@@ -47,5 +46,7 @@ If you have vaginal bleeding, strong pain or feel very unwell, call triple zero 
 - feeling lightheaded
 - trouble walking
 - nausea or vomiting not related to morning sickness
+
+## See your doctor or midwife
 
 If round ligament pain keeps going, see your doctor to rule out other causes.

@@ -6,7 +6,6 @@ weeks: [20, 40]
 type: moment
 topic: celebrations
 extra: traditions
-draft: true
 tasks:
   - id: decide-traditions
     title: Talk through which traditions you'll keep, with each other and both families

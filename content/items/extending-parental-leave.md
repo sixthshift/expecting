@@ -12,7 +12,6 @@ sources:
   - title: Fair Work Ombudsman — Extending parental leave
     url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/extending-parental-leave
 related: [unpaid-parental-leave, returning-to-work, flexible-work-request]
-draft: true
 checked: 2026-10-29
 ---
 Employees can take up to 12 months of unpaid parental leave, and can ask for up to 12 months more. There are two different steps, with different rules.

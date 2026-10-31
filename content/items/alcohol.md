@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Alcohol and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/alcohol-and-pregnancy
 related: [alcohol-before-you-knew, kombucha-and-fermented-drinks, cooking-with-alcohol]
-draft: true
 checked: 2026-10-29
 ---
 ## Why

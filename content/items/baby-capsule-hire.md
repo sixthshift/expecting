@@ -16,7 +16,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Car and road safety for babies and children
     url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
 related: [car-seat, second-hand-car-seat]
-draft: true
 checked: 2026-10-29
 ---
 Babies up to 6 months old must travel in an approved rear-facing car seat, and the first trip is the drive home from hospital. A baby capsule (an infant carrier) is made for that stretch: Kidsafe SA describes its capsules as for newborns to about 6 months. Because it's used for such a short time, hiring one is an option.

@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Braxton Hicks contractions
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/braxton-hicks-contractions
 related: [signs-of-preterm-labour, abdominal-pain, fluid-leaking]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

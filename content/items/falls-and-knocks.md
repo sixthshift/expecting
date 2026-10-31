@@ -15,7 +15,6 @@ sources:
   - title: Better Health Channel — Pregnancy and travel
     url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
 related: [contact-sports, seatbelt-position, horse-riding, roller-coasters]
-draft: true
 checked: 2026-10-29
 ---
 Get it checked. Even a minor injury in pregnancy can lead to complications, so it needs to be assessed.

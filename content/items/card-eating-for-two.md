@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Weight gain in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/weight-gain-in-pregnancy
 related: [how-much-more-to-eat]
-draft: true
 checked: 2026-10-29
 ---
 You don't have to "eat for 2" when pregnant. During the first 3 months you'll probably find you don't need to eat too many extra kilojoules.

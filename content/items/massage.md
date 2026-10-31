@@ -7,7 +7,7 @@ ask: Can I have a massage, and does it have to be a "pregnancy massage"?
 aliases: [massage, pregnancy massage, prenatal massage, remedial massage, deep tissue, foot massage, reflexology, hot stone, massage chair, partner massage, pressure points]
 who: carrying
 stakes: low
-summary: "Yes: massage is generally considered safe if the therapist is trained in pregnancy massage; it is usually gentle, avoids your abdomen, and not be done lying on your stomach or back."
+summary: "Yes: massage is generally considered safe if the therapist is trained in pregnancy massage; it is usually gentle, avoids your abdomen, and isn't done lying on your stomach or back."
 verdict: yes
 sources:
   - title: Pregnancy, Birth and Baby — Pregnancy massage
@@ -17,7 +17,6 @@ sources:
 related: [sleeping-on-your-back, chiropractic-and-osteopathy, acupuncture, essential-oils]
 appointment:
   - Is massage safe for me?
-draft: true
 checked: 2026-10-29
 ---
 Yes. Pregnancy, Birth and Baby says massage therapy is generally considered safe, and it's important that your therapist is specially trained in pregnancy massage. Check with your doctor or midwife first that it's safe for you.

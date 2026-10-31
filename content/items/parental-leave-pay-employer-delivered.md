@@ -12,7 +12,6 @@ sources:
   - title: Services Australia — Getting your Parental Leave Pay
     url: https://www.servicesaustralia.gov.au/getting-your-parental-leave-pay
 related: [parental-leave-pay, parental-leave-pay-claim, parental-leave-pay-superannuation, budgeting-for-leave]
-draft: true
 checked: 2026-10-29
 ---
 There are two ways to get Parental Leave Pay: Services Australia pays it to you directly, or your employer pays it to you in line with your regular payment cycle.

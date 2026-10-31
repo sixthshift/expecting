@@ -18,7 +18,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Bonding with your baby during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/bonding-with-your-baby-during-pregnancy
 related: [second-pregnancy-feels-different]
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy, Birth and Baby says it's important to prepare a toddler for a new baby, because it supports their sense of security and helps them adjust. From their point of view everything has changed, and their parents may seem busier or less available.

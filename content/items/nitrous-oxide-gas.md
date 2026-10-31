@@ -14,7 +14,6 @@ sources:
   - title: RANZCOG — Pain Relief in Labour and Childbirth (patient information)
     url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
 related: [pain-relief, morphine-and-opioids, epidural]
-draft: true
 checked: 2026-10-29
 ---
 Nitrous oxide gas mixed with oxygen, also called Entonox, laughing gas or just "gas", is breathed in through a mouthpiece or mask connected by a tube to a gas supply.

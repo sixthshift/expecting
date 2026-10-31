@@ -15,7 +15,6 @@ sources:
   - title: Australian Immunisation Handbook — Vaccination for women who are planning pregnancy, pregnant or breastfeeding
     url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
 related: [flu-vaccine, whooping-cough-vaccine, rsv-vaccine]
-draft: true
 checked: 2026-10-29
 ---
 The Department of Health says you can safely have the influenza, whooping cough and RSV vaccines in the same visit, as recommended by your health professional. All three are free through the National Immunisation Program while you're pregnant.

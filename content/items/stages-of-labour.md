@@ -18,7 +18,6 @@ sources:
   - title: Pregnancy, Birth and Baby — First stage of labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-first-stage-of-labour
 related: [early-labour, active-labour, term-transition, second-stage, third-stage-placenta, length-of-labour]
-draft: true
 checked: 2026-10-29
 ---
 Labour is described in three stages. They're common to every labour, but everyone experiences them differently, and if you've had a baby before, this birth may go differently. Some hospitals call the recovery afterwards a fourth stage.
@@ -37,7 +36,7 @@ When you arrive, the midwife feels your tummy for the baby's position, asks abou
 
 From full dilation to the birth. Contractions are usually longer, with longer breaks between them. You may feel strong pressure in your bottom, an urge to push, and stretching or burning in your vagina. Your midwife may suggest a vaginal examination to check you're fully open, but there are other signs they can look for too; you can talk with them about how you'd prefer to be assessed.
 
-The Royal Women's Hospital says pushing can last up to two hours, usually less if you've had a baby before; Pregnancy, Birth and Baby says the second stage can last up to 3 hours, and an epidural can make it longer.
+The second stage can last up to 3 hours, usually less if you've had a baby before, and an epidural can make it longer.
 
 ## Third stage: the placenta
 

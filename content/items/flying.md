@@ -29,16 +29,15 @@ appointment:
   - Is it safe for me to fly at this stage of my pregnancy?
   - Do I need medicine against blood clots for a long flight?
   - Can you write a letter for the airline with my due date and any complications?
-draft: true
 checked: 2026-10-29
 ---
 Yes. Flying is generally safe for you and your baby. Talk over any health concerns or complications with your midwife or doctor before you plan the trip.
 
 ## Why
 
-**Week limits.** Airlines set their own, and the sources put them differently: Pregnancy, Birth and Baby says most airlines won't take you after 32 to 36 weeks; MotherSafe says generally 36 weeks for local flights and from 32 weeks for international ones; Smartraveller says most won't let you fly beyond 28 weeks. RANZCOG says travel beyond 36 weeks isn't recommended. Better Health says some airlines won't allow you to fly at all over 35 weeks, and is more cautious: flying in the last six weeks could trigger premature labour, and gestational diabetes or a multiple pregnancy generally means you're advised not to fly.
+**Week limits.** Airlines set their own, and some won't take you beyond 28 weeks; limits are often earlier for international flights than domestic ones. Flying beyond 36 weeks isn't recommended, and flying in the last six weeks could trigger premature labour. With gestational diabetes or a multiple pregnancy you're generally advised not to fly.
 
-**Radiation.** ARPANSA says less than 1 mSv above background won't significantly raise the risk to an unborn baby. A Melbourne–Singapore–London flight is about 0.065 mSv.
+**Radiation.** Less than 1 mSv above background won't significantly raise the risk to an unborn baby. A Melbourne–Singapore–London flight is about 0.065 mSv.
 
 **Clots.** Long-haul flights raise the risk of a blood clot in the leg, and pregnancy already does.
 

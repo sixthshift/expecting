@@ -3,7 +3,7 @@ id: partner-role-first-trimester
 title: The partner in the first trimester
 type: guide
 topic: partner
-ask: "She's pregnant. What am I supposed to do now?"
+ask: "My partner's pregnant. What am I supposed to do now?"
 aliases: [expectant dad, non-birth parent, non-birthing partner, first trimester partner, what can I do, support early pregnancy]
 weeks: [4, 13]
 who: partner
@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Fathers and depression
     url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/fathers-and-depression
 related: [antenatal-classes, partner-going-to-appointments, partner-feeling-left-out, partner-after-a-loss]
-draft: true
 checked: 2026-10-29
 ---
 Finding out you're going to be a parent can be wonderful, or emotional and confusing, or scary. All of that is normal. Supporting your partner through pregnancy is an important job, and it helps them, your relationship and your baby.

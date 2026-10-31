@@ -18,7 +18,6 @@ sources:
 related: [waters-breaking-early, special-care-nursery, term-nicu, signs-of-labour]
 appointment:
   - If my baby came early, would I give birth here or somewhere with a NICU or special care nursery?
-draft: true
 checked: 2026-10-29
 ---
 A baby born before 37 weeks is premature, or preterm. In Australia about 8 in every 100 babies are. Often the cause isn't known. Most babies born between 32 and 37 weeks don't have serious long-term problems; babies born before 32 weeks have a higher risk of health and developmental problems.

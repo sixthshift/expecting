@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Cosmetic procedures and beauty treatments during pregnancy and breastfeeding
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
 related: [botox-and-fillers, dental-work, tattoos, varicose-veins]
-draft: true
 checked: 2026-10-29
 ---
 Ask your doctor first. There's limited evidence on cosmetic surgery in pregnancy, and cosmetic surgery that involves local anaesthesia is not recommended. If a procedure is only for cosmetic reasons, the advice is usually to wait until after your baby is born.

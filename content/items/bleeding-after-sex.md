@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Bleeding during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
 related: [sex, spotting-and-bleeding-in-early-pregnancy, bleeding-after-20-weeks, heavy-bleeding]
-draft: true
 checked: 2026-10-29
 ---
 It can be harmless, but tell your health team. Pregnancy, Birth and Baby says to contact your doctor or midwife about bleeding at any stage of pregnancy.
@@ -26,8 +25,9 @@ Sometimes bleeding after sex isn't something to worry about. One cause is cervic
 
 ## What to do
 
-- **Call triple zero (000)** and ask for an ambulance if you have very heavy bleeding, strong pain or feel very unwell.
-- **Contact your doctor urgently, or go to the nearest emergency department,** if the bleeding becomes very heavy (soaking 2 pads an hour or passing clots the size of golf balls), you have strong pain in your tummy or shoulder, you feel dizzy or faint, you're short of breath, or your discharge smells bad.
+- **Call triple zero (000)** and ask for an ambulance if you have heavy bleeding (soaking a pad or more an hour, passing clots, or you can't contain it), strong pain or feel very unwell.
+- **After 20 weeks, contact your birth unit straight away** about any bleeding.
+- **Contact your doctor urgently, or go to the nearest emergency department,** if you have strong pain in your tummy or shoulder, you feel dizzy or faint, you're short of breath, or your discharge smells bad.
 - **Otherwise, contact your doctor or midwife** for advice. Note how much you bled and its colour.
 - **Speak to your doctor** if you also have severe cramps, unusual discharge, sharp pain or fever after sex.
 - **Your doctor might advise no sex** after bleeding, even once it has stopped.

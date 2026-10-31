@@ -19,7 +19,6 @@ related: [combined-first-trimester-screening, nipt, dating-scan, paying-for-scan
 appointment:
   - What did my nuchal translucency scan show?
   - Do I need any more tests or scans after it?
-draft: true
 checked: 2026-10-29
 ---
 The nuchal translucency (NT) scan is an ultrasound, usually done between 11 weeks and 13 weeks 6 days. It's offered to everyone, it's optional, and it's safe for you and the baby. It's sometimes called an early structural ultrasound.

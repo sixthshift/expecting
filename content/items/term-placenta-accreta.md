@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Placenta accreta
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-accreta
 related: [the-placenta]
-draft: true
 checked: 2026-10-29
 ---
 Placenta accreta is a rare but serious complication where the placenta implants too deeply into the wall of the uterus, so it stays attached after the birth. This can cause heavy, life-threatening bleeding. It is more likely after a caesarean, fibroid removal or several D&Cs.

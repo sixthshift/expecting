@@ -13,7 +13,6 @@ sources:
   - title: Better Health Channel — Medical terms and definitions during pregnancy and birth
     url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth
 related: [pregnancy-supplements, term-neural-tube-defect]
-draft: true
 checked: 2026-10-29
 ---
 **Folate** is a B group vitamin found in some foods, such as green leafy vegetables. **Folic acid** is the synthetic version of folate that you take as a supplement.

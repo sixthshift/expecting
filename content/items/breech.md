@@ -20,7 +20,6 @@ sources:
 related: [the-babys-position, term-breech, term-ecv, term-frank-breech, term-footling-breech, term-malpresentation]
 appointment:
   - Would turning the baby (an ECV) be an option for me?
-draft: true
 checked: 2026-10-29
 ---
 A breech baby is lying bottom first or feet first instead of head first. Early in pregnancy this is very common, and it's normal until about 35 to 36 weeks: most babies turn head down before the last month. Near the due date only about 3 in 100 babies are still breech. Your midwife or doctor will feel your belly at around 36 weeks, and may send you for an ultrasound to confirm.
@@ -37,7 +36,7 @@ Breech is more likely with a low-lying placenta, lax or weak uterine muscles (of
 
 ## Turning the baby (ECV)
 
-In an external cephalic version, an obstetrician presses gently on your belly to help your baby turn a somersault to head first. The sources differ on timing: RANZCOG says that at 36 weeks your obstetrician or midwife should discuss it; Pregnancy, Birth and Baby says it's usually recommended after 37 weeks, or after 36 weeks for a first baby.
+In an external cephalic version, an obstetrician presses gently on your belly to help your baby turn a somersault to head first. It's usually offered from 37 weeks, or from 36 weeks for a first baby, and your obstetrician or midwife should talk it through with you at 36 weeks.
 
 - It succeeds about half the time, more often if you've given birth before. A second attempt on another day may be possible.
 - You may be given medicine to relax your uterus; it won't harm the baby. It can be uncomfortable but shouldn't be painful. Your baby's heart rate is monitored before and after.

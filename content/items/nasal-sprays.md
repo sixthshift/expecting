@@ -7,7 +7,7 @@ ask: Can I use a nasal spray for a blocked nose?
 aliases: [nasal spray, saline spray, Nasonex, budesonide, mometasone, Otrivin, oxymetazoline, xylometazoline, Drixine, azelastine, blocked nose, pregnancy rhinitis]
 who: carrying
 stakes: medium
-summary: "Yes: saline, steroid and antihistamine sprays are considered safe; decongestant sprays can be used short term: KEMH and Pregnancy, Birth and Baby say no more than 3 days, MotherSafe says no longer than 5."
+summary: "Yes: saline, steroid and antihistamine sprays are considered safe; decongestant sprays for no more than 3 days at a time."
 verdict: yes
 sources:
   - title: KEMH — Commonly used medicines and safety in pregnancy
@@ -19,7 +19,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Medicines during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/medicines-during-pregnancy
 related: [oral-decongestants, antihistamines, cold-and-flu-tablets]
-draft: true
 checked: 2026-10-29
 ---
 Yes, with limits on the decongestant kind. Check with your doctor or pharmacist before taking any medicine while pregnant.
@@ -31,8 +30,8 @@ Very small amounts of nasal spray medicines are expected to absorb into the body
 - **Saline (salt water) sprays** can help remove allergens from the nasal passages.
 - **Corticosteroid sprays** (budesonide, mometasone) act at the nose and enter your bloodstream in very small amounts only, so MotherSafe and KEMH consider them safe.
 - **Antihistamine sprays** (azelastine) are safe to use when needed.
-- **Decongestant sprays** (oxymetazoline, xylometazoline) are considered safe, but only short term. KEMH says not more than three days at a time, because of the risk of rebound congestion, and Pregnancy, Birth and Baby says not longer than 3 days. MotherSafe's cold and flu fact sheet says not longer than 5 days.
+- **Decongestant sprays** (oxymetazoline, xylometazoline) are considered safe, but only short term. Use them for no more than 3 days at a time: longer, and the congestion can come back worse.
 
 ## What to do
 
-Steam inhalation is another option for a blocked nose. Oral decongestants differ by source. KEMH says oral medicines such as pseudoephedrine or phenylephrine are not recommended in pregnancy, and Pregnancy, Birth and Baby says you should not use oral decongestants such as phenylephrine. MotherSafe says there's no conclusive data that they're harmful in the first trimester, but not to use them in the second and third trimester if you have high blood pressure.
+Steam inhalation is another option for a blocked nose. Decongestant tablets (pseudoephedrine, phenylephrine) aren't recommended in pregnancy: see [Sudafed and oral decongestants](oral-decongestants).

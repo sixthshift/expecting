@@ -22,7 +22,6 @@ related: [pain-relief, support-person, third-stage-placenta, delayed-cord-clampi
 appointment:
   - Can you check our birth preferences are realistic where we're booked?
   - Can you add our birth preferences to the notes?
-draft: true
 checked: 2026-10-29
 ---
 Birth preferences (a birth plan) are a way of telling your healthcare team the kind of birth you'd like. You can write them down or just talk them through. Not everyone makes one; it's up to you. Research shows that people who prepare their birth preferences are more likely to be satisfied with how the birth goes.

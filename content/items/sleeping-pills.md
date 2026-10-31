@@ -15,7 +15,6 @@ sources:
   - title: healthdirect — Safe use of sleeping pills
     url: https://www.healthdirect.gov.au/medicines/safe-use-of-sleeping-pills
 related: [melatonin, antihistamines, chamomile-tea, antidepressants]
-draft: true
 checked: 2026-10-29
 ---
 Ask your doctor or pharmacist before taking anything for sleep while you're pregnant. Medicines are sometimes used, but they're not the main treatment.
@@ -24,7 +23,7 @@ Ask your doctor or pharmacist before taking anything for sleep while you're preg
 
 Poor sleep is common in pregnancy, from hormones, nausea, heartburn, needing to wee, leg cramps and restless legs, backache, getting comfortable, and stress, anxiety or depression.
 
-**Doxylamine** (Restavit), a sedating antihistamine, has been widely used at all stages of pregnancy, including for morning sickness, and hasn't been linked with any increased risk to the baby. It isn't habit-forming. healthdirect, in general advice that isn't specific to pregnancy, says sedating antihistamines such as doxylamine are anti-allergy medicines, not sleeping pills, and should not be used to help you sleep.
+**Doxylamine** (Restavit), a sedating antihistamine, has been widely used at all stages of pregnancy, including for morning sickness, and hasn't been linked with any increased risk to the baby. It isn't habit-forming.
 
 **Benzodiazepines** such as temazepam are habit-forming, and continuous use may cause withdrawal symptoms in the baby after the birth. If one is chosen, it's the lowest dose that works for the shortest time.
 

@@ -1,0 +1,36 @@
+# Review: medium and low stakes (docs/plan-review.md). 2026-10-31.
+# Readers checked every entry against every cited source and proposed exact
+# edits against the settled rules; each edit was read here before it was
+# applied (scratchpad apply.ts), and some were overruled.
+
+settled in this round:
+  after-birth bleeding: "Bleeding heavily after the birth (a pad every hour or two, or large clots) → hospital emergency department straight away; 000 if the birth was in the last 24 hours, or you feel unwell, dizzy or clammy, your heart is racing or you're short of breath (PBB Postpartum haemorrhage). Applied to first-days-mum, caesarean-recovery, retained-placenta, term-retained-placenta, card-bleed-six-weeks. Replaces my earlier, softer 'contact immediately'."
+  when to go in for labour: "regular, painful contractions about 5 minutes apart (2 or more in 10 minutes), or you live far away or can't manage at home (when-to-go-to-hospital, timing-contractions, early-labour)"
+  retinol in skin care: "best paused in pregnancy; past use isn't a concern (minimally absorbed). Stricter than MotherSafe, matching PBB's skin page; applied to skincare-ingredients, acne-treatments, isotretinoin, vitamin-a-supplements, skin-in-pregnancy"
+  food serves: "the 'two sources differ' table was ages 19–50 vs 18 and under (Australian Dietary Guidelines); one table now gives both"
+  trimesters: "to week 12, about 13 to 26, from about 27 (PBB), everywhere"
+  kombucha: "avoid, shop-bought included (NSW Food Authority 'do not drink, high risk'); closes the REVIEW.md question"
+  electric blankets: "verdict yes (MotherSafe: unlikely to raise core temperature unless very hot for long)"
+  vitamin D test: "offered if you're likely to be low (national guideline, MotherSafe), not routine; first-blood-tests, vitamin-d-test agree"
+  asks: "the reader's own question still says 'my partner', not she/her"
+
+overruled proposals:
+  - "first-blood-tests: vitamin D 'routine' (kept 'if likely to be low')"
+  - "choosing-names: dropping the ACT's 6 months for registering (the ACT registry says 6 months; myGov's '60 days everywhere' generalises); ACT registry added as a source"
+  - "first-trimester-screening: changing the screening windows away from the 10–13 / 11–13+6 settled earlier"
+  - "conception-to-embryo: kept the cut; the 0.2 mm / 200 cells detail stays in week 4, whose source has it"
+
+added red flags (missing before):
+  - "active-labour: a whole 'When to get help' section"
+  - "group-b-strep-swab: a baby under 3 months who is unwell → 000"
+  - "walking, running, staying-active, exercise-in-pregnancy, bushfire-smoke: chest pain → 000; baby moving less → straight away"
+  - "card-round-ligament-stab, anaemia-in-pregnancy, sports-and-electrolyte-drinks, twins-and-multiples-support"
+  - "the waters-breaking 000 rule reached the malpresentation, transverse-lie, umbilical-cord and waters-not-first entries"
+
+still drafts (11), and why:
+  - "bassinet, cot-and-safe-sleep-standards, second-hand-baby-gear, second-hand-gear, nursery: Red Nose and Product Safety Australia block automated reading"
+  - "farm-animals-and-lambing: Darling Downs Q fever page blocked; verdict likely avoid"
+  - "dvt-and-compression-stockings, malaria: key lines rest only on Better Health's 2015 travel page"
+  - "term-gravida-para: no source defines gravida"
+  - "partner-perinatal-depression: PANDA's pages didn't load in full"
+  - "previous-trauma-and-pregnancy: waiting on whether it is private"

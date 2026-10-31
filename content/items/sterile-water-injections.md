@@ -14,7 +14,6 @@ sources:
   - title: RANZCOG — Pain Relief in Labour and Childbirth (patient information)
     url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
 related: [term-posterior, pain-relief, tens-machine]
-draft: true
 checked: 2026-10-29
 ---
 Many people have lower back pain that persists throughout labour. Midwives can use a technique with sterile water injections for this. Usually four injections are given in different places in your lower back, just beneath the skin.

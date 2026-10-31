@@ -16,7 +16,6 @@ sources:
   - title: RANZCOG — Labour and Birth (patient information)
     url: https://ranzcog.edu.au/wp-content/uploads/Labour-Birth.pdf
 related: [term-augmentation, breaking-the-waters, oxytocin-drip, assisted-birth, emergency-caesarean, length-of-labour, vaginal-examinations]
-draft: true
 checked: 2026-10-29
 ---
 Slow progress (sometimes called prolonged labour) is when labour takes longer than expected. It can happen in the active first stage or the second stage. The evidence on what's "normal" and what's "slow" isn't strong, and experts define it differently.

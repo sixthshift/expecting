@@ -21,7 +21,6 @@ sources:
   - title: Better Health Channel — Pregnancy and travel
     url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
 related: [swimming, flying, skydiving]
-draft: true
 checked: 2026-10-29
 ---
 No. Save the dive for after the baby; snorkel instead.
@@ -29,8 +28,6 @@ No. Save the dive for after the baby; snorkel instead.
 ## Why
 
 Pregnancy, Birth and Baby says to avoid activities with large changes in pressure, such as scuba diving, and lists it again among activities that aren't safe in pregnancy. The Royal Women's Hospital and Better Health's exercise page also list it to avoid. Better Health's travel page gives the reason: the changes in blood gases may harm your baby.
-
-That same Better Health travel page, in the same bullet, then says "scuba diving to depths of less than 18 metres (60 feet) is reasonably safe, but check with your doctor first", under its heading "Activities to avoid include". None of the other sources listed here makes a depth exception, so we follow them.
 
 ## What to do
 

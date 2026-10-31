@@ -17,18 +17,19 @@ sources:
   - title: healthdirect — Warning signs during pregnancy
     url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
 related: [morning-sickness, food-cravings-and-aversions, tiredness]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
 
 Most people have some nausea and vomiting in pregnancy. It usually starts between 4 and 10 weeks and improves by about 20 weeks, though for some it lasts the whole pregnancy. With ordinary morning sickness you can usually still eat and drink enough.
 
-Hyperemesis gravidarum (HG) is more severe and doesn't let up. It makes it hard to eat and drink enough, and it can lead to dehydration, weight loss, low levels of vitamins and minerals, depression and anxiety. Many people with HG need fluids through a drip (IV) in hospital at some point. It's a serious medical condition, and there is treatment, including medicines: you deserve to be heard and to get it.
+Hyperemesis gravidarum (HG) is more severe and doesn't let up. It makes it hard to eat and drink enough, and it can lead to dehydration, weight loss, low levels of vitamins and minerals, depression and anxiety. Some people with HG need fluids through a drip (IV) in hospital, sometimes 2 to 3 times a week. It's a serious medical condition, and there is treatment, including medicines: you deserve to be heard and to get it.
 
-## Contact your hospital now
+## Call 000 or go to emergency
 
 If you can't keep fluids down at all, go to your local emergency department. They can give you IV fluids for dehydration.
+
+## Contact your hospital now
 
 Contact your doctor, midwife or hospital immediately if you have severe nausea or vomiting.
 

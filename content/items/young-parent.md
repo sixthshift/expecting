@@ -16,7 +16,6 @@ sources:
   - title: Pregnancy, Birth and Baby — What is a high risk pregnancy?
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/what-is-a-higher-risk-pregnancy
 related: [when-to-tell-people, building-your-village, told-higher-risk]
-draft: true
 checked: 2026-10-29
 ---
 Finding out you're pregnant young can bring up all sorts of feelings: confused and scared, happy and excited, often all at once. That's normal. Other people have been here before, and help is available.

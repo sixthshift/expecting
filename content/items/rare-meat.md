@@ -11,13 +11,12 @@ summary: "Don't eat raw or rare meat while pregnant; cook it through, with no pi
 verdict: avoid
 sources:
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
   - title: Pregnancy, Birth and Baby — Toxoplasmosis
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/toxoplasmosis
   - title: Pregnancy, Birth and Baby — Foods to avoid when pregnant
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/foods-to-avoid-when-pregnant
 related: [bacon-and-cooked-ham, fruit-and-vegetables, listeria-foods]
-draft: true
 checked: 2026-10-29
 ---
 ## Why
@@ -28,7 +27,7 @@ Raw or undercooked meat can carry bacteria such as listeria and salmonella, and 
 
 - Pregnancy, Birth and Baby's advice is simply not to eat raw or rare meat.
 - Make sure there's no pink left in pork, sausages and mince, including burgers.
-- The NSW Food Authority says cooked beef, pork, chicken and mince are okay when cooked thoroughly to at least 71°C (medium) and eaten hot.
+- Cook all meat and poultry to at least 75°C, and eat it hot.
 - Wear gloves when you handle raw meat, and wash your hands, utensils, bench and sink if they touch it.
 
 See your doctor or midwife if you have symptoms of toxoplasmosis (it can feel like a flu for a few days: fever, headache, aches, swollen glands, tiredness), and contact them if you've been in direct contact with raw meat. A blood test can diagnose it.

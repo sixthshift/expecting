@@ -16,7 +16,6 @@ sources:
   - title: Services Australia — Before the birth of your baby
     url: https://www.servicesaustralia.gov.au/before-birth-your-baby
 related: [child-care-subsidy, childcare-waitlists, returning-to-work]
-draft: true
 checked: 2026-10-29
 ---
 The Child Care Subsidy (CCS) helps with the cost of child care. You can only submit a claim **after the birth of your baby**, but the timing still matters, because a claim doesn't reach far back.

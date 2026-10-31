@@ -8,7 +8,6 @@ topic: appointments
 appointment:
   - What care options are available near me?
   - Is there a midwife group practice near me I could go to?
-draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Your first antenatal visit
     url: https://www.pregnancybirthbaby.org.au/your-first-antenatal-visit

@@ -7,7 +7,7 @@ ask: Can I still bend over, squat and do the housework?
 aliases: [bending, squatting, vacuuming, mopping, housework, scrubbing floors, making beds, can I squash the baby, kneeling]
 who: carrying
 stakes: low
-summary: "The sources don't mention bending or squatting; for backache, which is common, they say to avoid heavy lifting, housework and prolonged standing, and rest with your legs up."
+summary: "Bending and squatting aren't singled out as a problem; if your back aches, which is common, avoid heavy lifting, housework and long periods of standing, and rest with your legs up."
 verdict: limit
 sources:
   - title: The Royal Women's Hospital — Common concerns in early pregnancy
@@ -15,10 +15,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Sleep during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
 related: [heavy-lifting, cleaning-products, standing-all-day, reaching-above-your-head]
-draft: true
 checked: 2026-10-29
 ---
-Neither source mentions bending or squatting. What they do say is about backache, which most people get at some stage of pregnancy, and that advice includes avoiding housework.
+Bending and squatting aren't singled out as a problem. Backache is, and most people get it at some stage of pregnancy; the advice for it includes easing off the housework.
 
 ## Why
 
@@ -26,8 +25,8 @@ Backache is common in pregnancy. The Royal Women's Hospital says posture is affe
 
 ## What to do
 
-If your back aches, both sources give the same advice:
+If your back aches:
 
-- **Avoid heavy lifting and housework** if you can, and avoid long periods of standing (the Royal Women's says "avoid prolonged standing").
-- **Take breaks** during the day (the sleep page's advice).
+- **Avoid heavy lifting and housework** if you can, and avoid long periods of standing.
+- **Take breaks** during the day.
 - **Rest with your legs up**, or elevated, often.

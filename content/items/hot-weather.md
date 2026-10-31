@@ -17,10 +17,9 @@ sources:
   - title: NSW Health — Hot weather and heatwaves, keep cool, stay hydrated
     url: https://www.health.nsw.gov.au/environment/beattheheat/Pages/health-in-hot-weather.aspx
 related: [exercise-intensity-and-heart-rate, saunas, bushfire-smoke, swimming]
-draft: true
 checked: 2026-10-29
 ---
-Hot days need planning. Your metabolism rises in pregnancy and your body temperature with it, so you're more sensitive to hot weather. NSW Health lists pregnant women among the people hot weather can cause serious health problems for.
+Hot days need planning. Your metabolism rises in pregnancy and your body temperature with it, so you're more sensitive to hot weather. NSW Health lists pregnant people among the people hot weather can cause serious health problems for.
 
 ## Why
 

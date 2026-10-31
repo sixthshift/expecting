@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Cold and flu during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-and-flu-during-pregnancy
 related: [ibuprofen-and-nsaids, paracetamol]
-draft: true
 checked: 2026-10-29
 ---
 Don't reach for aspirin for a headache or aches. But if your doctor has prescribed low-dose aspirin, that's different: take it as they've told you.

@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Changes to your body during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
 related: [pregnancy-hormones, skin-in-pregnancy, feeding-plan, heart-and-blood-in-pregnancy, ligaments-and-joints-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy, Birth and Baby groups the changes into two kinds: physical changes from the size and pressure of the baby growing in your uterus, and hormonal changes, which cause physical symptoms and can affect your mood. If you're ever unsure whether a change is normal or something to worry about, speak to your doctor.

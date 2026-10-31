@@ -3,7 +3,7 @@ id: carrier-screening
 title: Carrier screening
 type: decision
 topic: tests
-ask: Should we have carrier screening, and is it free now?
+ask: Should we have carrier screening, and does Medicare cover it now?
 aliases: [reproductive carrier screening, genetic carrier screening, three-condition screen, cystic fibrosis carrier, SMA carrier, fragile X carrier, expanded carrier screening, Mackenzie's Mission]
 weeks: [4, 12]
 who: together
@@ -18,14 +18,13 @@ related: [first-antenatal-visit, genetic-counselling, first-trimester-screening,
 appointment:
   - Would you suggest carrier screening for us?
   - Which conditions would you suggest we screen for?
-draft: true
 checked: 2026-10-29
 ---
 Carrier screening tells you whether you carry a gene for an inherited condition you could pass on. A carrier has one working and one faulty copy of a gene: they don't have the condition, but if both parents carry the same one, each child has a 1 in 4 chance of being born with it. It's not uncommon: around 1 in 20 Australians carry cystic fibrosis, spinal muscular atrophy or fragile X syndrome, and around 9 in 10 carriers have no known family history. It's a small sample of blood or saliva.
 
 ## The options
 
-- **Three-condition screening:** cystic fibrosis (CF), spinal muscular atrophy (SMA) and fragile X syndrome. Since 1 November 2023 Medicare has rebated this for anyone eligible for Medicare who is pregnant or planning a pregnancy, with no family history needed. The pregnant parent is tested first for all three, then the partner for CF and SMA only (fragile X depends on the pregnant parent's status).
+- **Three-condition screening:** cystic fibrosis (CF), spinal muscular atrophy (SMA) and fragile X syndrome. Since 1 November 2023 Medicare has rebated this for anyone eligible for Medicare who is pregnant or planning a pregnancy, with no family history needed. The pregnant parent is tested first for all three; the partner is tested, for CF and SMA, only if the pregnant parent carries one of them. It's a rebate, not free: there may be a gap unless it's bulk-billed.
 - **Expanded screening:** hundreds of inherited conditions.
 - **Single-condition screening:** one specific condition.
 - **No screening.** It's up to you.

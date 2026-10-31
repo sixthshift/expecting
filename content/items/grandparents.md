@@ -6,7 +6,6 @@ weeks: [12, 36]
 type: moment
 topic: after-the-birth
 extra: grandparents
-draft: true
 sources:
   - title: Gidget Foundation — How can support people help expectant and new parents?
     url: https://www.gidgetfoundation.org.au/fact-sheets/how-can-support-people-help-expectant-and-new-parents

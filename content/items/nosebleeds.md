@@ -15,7 +15,6 @@ sources:
 related: [blocked-nose, bleeding-gums]
 appointment:
   - Can you check why I'm getting so many nosebleeds?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -35,4 +34,4 @@ If you have a severe nosebleed that doesn't stop, contact your doctor immediatel
 
 ## See your doctor or midwife
 
-If bleeding starts again, get medical advice; if it doesn't stop after 20 minutes, seek medical help. If you lose a lot of blood during a nosebleed, see your doctor, as it may be a sign of a bleeding or clotting disorder. Speak with your doctor or midwife if you're getting nosebleeds frequently.
+If bleeding starts again, get medical advice. If you lose a lot of blood during a nosebleed, see your doctor, as it may be a sign of a bleeding or clotting disorder. Speak with your doctor or midwife if you're getting nosebleeds frequently.

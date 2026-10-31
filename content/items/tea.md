@@ -15,14 +15,13 @@ sources:
   - title: Pregnancy, Birth and Baby — Herbal teas during pregnancy and breastfeeding
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/herbal-teas-during-pregnancy-and-breastfeeding
 related: [coffee-and-caffeine, herbal-tea, soft-drink-and-sugar]
-draft: true
 checked: 2026-10-29
 ---
 Yes, within a limit. The most you should have in pregnancy is 200 mg of caffeine a day in total, from all sources.
 
 ## Why
 
-Caffeine crosses the placenta. Too much may increase the risk of complications including miscarriage, stillbirth and low birth weight. Tea has 10 to 50 mg of caffeine a cup, depending on how strong it is. Pregnancy, Birth and Baby says 200 mg is about 3 to 5 cups of tea, hot chocolate or cola. Its healthy-diet page puts a cup of tea at about 30 mg.
+Caffeine crosses the placenta. Too much may increase the risk of complications including miscarriage, stillbirth and low birth weight. Tea has 10 to 50 mg of caffeine a cup, depending on how strong it is. Pregnancy, Birth and Baby says 200 mg is about 3 to 5 cups of tea, hot chocolate or cola.
 
 ## What to do
 

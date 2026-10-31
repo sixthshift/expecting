@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — The role of a birth support partner
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
 related: [birth-support-person]
-draft: true
 checked: 2026-10-29
 ---
 It matters more than you might think. Having the right support people during labour can shorten it, reduce how much pain relief is needed, lower the chance of an assisted birth or a caesarean, and boost confidence, making the whole experience more positive.

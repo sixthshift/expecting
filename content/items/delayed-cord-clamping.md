@@ -17,7 +17,6 @@ related: [third-stage-placenta, cord-blood-banking, birth-preferences, planned-c
 appointment:
   - Can we talk about when the cord will be clamped at my birth?
   - Can my birth partner cut the cord?
-draft: true
 checked: 2026-10-29
 ---
 During the third stage of labour the umbilical cord is clamped and cut. This isn't painful for you or your baby.
@@ -42,4 +41,4 @@ If you'd like the cord kept connected for longer, or your birth partner wishes t
 
 ## Cord blood banking
 
-Pregnancy, Birth and Baby says you can't bank cord blood if you delay cord clamping, because the cord must be clamped early to capture as many stem cells as possible. Its third stage page, though, says that if you've arranged to bank or donate cord blood, your midwife can collect it after the cord is cut.
+You can't bank cord blood if you delay cord clamping, because the cord must be clamped early to capture as many stem cells as possible. If you'd like both, talk it through with your midwife.

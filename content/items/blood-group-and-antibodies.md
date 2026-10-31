@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Routine antenatal tests
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/routine-antenatal-tests
 related: [rhd-negative, anti-d, rhd-nipt, third-trimester-bloods, first-blood-tests]
-draft: true
 checked: 2026-10-29
 ---
 A blood test at your first antenatal visit for your blood group (A, B, AB or O), RhD factor and antibodies. Your group matters in case you ever need blood, for example after heavy bleeding.

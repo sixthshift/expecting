@@ -17,7 +17,6 @@ sources:
 related: [leg-cramps, insomnia, tiredness]
 appointment:
   - Is there anything that can help my restless legs?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

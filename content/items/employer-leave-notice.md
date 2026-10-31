@@ -5,8 +5,9 @@ summary: "Each working parent must give written notice at least 10 weeks before 
 weeks: [24, 34]
 type: payment
 topic: paperwork
-draft: true
 sources:
+  - title: Services Australia — How to claim Parental Leave Pay
+    url: https://www.servicesaustralia.gov.au/how-to-claim-parental-leave-pay
   - title: Fair Work Ombudsman — Applying for parental leave
     url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/applying-for-parental-leave
 checked: 2026-10-29

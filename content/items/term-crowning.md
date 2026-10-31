@@ -16,7 +16,6 @@ sources:
   - title: The Royal Women's Hospital — Stages of labour
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/stages-of-labour
 related: [second-stage, perineal-tears]
-draft: true
 checked: 2026-10-29
 ---
 Crowning is when the baby's head is visible from the external vaginal opening. In the second stage you're likely to feel stretching and burning in your vagina.

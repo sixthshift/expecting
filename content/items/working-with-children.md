@@ -19,7 +19,6 @@ sources:
 related: [working-while-pregnant, flu-vaccine, farm-animals-and-lambing]
 appointment:
   - Can I have a CMV test, since I work with young children?
-draft: true
 checked: 2026-10-29
 ---
 Yes, keep working, with good hygiene. People who work in childcare are at higher risk of catching cytomegalovirus (CMV) if they haven't had it before.

@@ -13,7 +13,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
 related: [cruise-ships, surfing-and-water-sports, falls-and-knocks]
-draft: true
 checked: 2026-10-29
 ---
 Yes for short trips. MotherSafe says travelling by boat or ferry for short distances is generally safe in pregnancy.

@@ -13,7 +13,6 @@ sources:
   - title: Australian Red Cross Lifeblood — I am pregnant. Can I donate?
     url: https://www.lifeblood.com.au/faq/eligibility/pregnancy-and-reproductive-health/pregnancy
 related: [flu-vaccine]
-draft: true
 checked: 2026-10-29
 ---
 Not right now.

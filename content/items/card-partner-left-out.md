@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Supporting your partner during their pregnancy
     url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/supporting-your-partner-during-pregnancy
 related: [partner-feeling-left-out]
-draft: true
 checked: 2026-10-29
 ---
 MensLine says that if you feel your partner has a greater role in caring for your child and you're on the outside, there are ways to get more involved. Ask your partner what help they need, and help with housework, cooking and shopping.

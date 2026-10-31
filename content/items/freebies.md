@@ -6,13 +6,21 @@ weeks: [24, 38]
 type: moment
 topic: money
 extra: freebies
-draft: true
+sources:
+  - title: Department of Health — Immunisation for pregnancy
+    url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
+  - title: Moneysmart — Having a baby
+    url: https://moneysmart.gov.au/family-and-relationships/having-a-baby
+  - title: WA Child and Adolescent Health Service — Child health
+    url: https://www.cahs.health.wa.gov.au/Our-services/Community-Health/Child-Health
+  - title: Victorian Department of Health — Baby bundle
+    url: https://www.health.vic.gov.au/maternal-child-health/baby-bundle
 tasks:
   - id: choose-free-sign-ups
     title: Choose which free packs and programs to sign up for
     due: 32
   - id: find-local-parent-services
-    title: Find the free child and family health service and library sessions near you
+    title: Find the free child and family health service near you
     opens: 28
     due: 36
 ---
@@ -26,15 +34,12 @@ Some of the most useful things for a new family cost nothing. Most of the help i
 
 **Free services after the birth:**
 
-- The child and family health nurse service in your state, with free checks and support in the first weeks and years. The hospital usually passes on your details.
-- Baby rhyme time and story sessions at the local library, and a library card for the baby.
+- The child and family health nurse service in your state, with free checks and support in the first weeks and years.
 - Parents' groups, often started through the child health service.
 
-**State programs.** Some states have offered a free baby bundle of essentials to new parents, but these have been introduced and then ended. Ask your midwife or hospital what your state offers now.
+**State programs.** Victoria gives first-time families a free baby bundle of essentials at the hospital. Ask your midwife or hospital what your state offers.
 
 **Sample packs and baby clubs.** Some hospitals hand out packs, and many retailers and brands run free baby clubs with samples, vouchers and discounts.
 
-- Sign up with a separate email address.
-- Read what you're agreeing to: most clubs collect your due date and details for marketing.
-- Untick sharing with third parties, and unsubscribe from what you don't use.
+- Read what you're agreeing to: clubs collect your details for marketing.
 - A sample isn't a recommendation; check anything for the baby against your midwife's advice.

@@ -21,7 +21,6 @@ appointment:
   - Would a planned caesarean suit me, and when would it be booked?
   - Can my support person be with me in theatre, and take photos?
   - Which anaesthetic would I have, and could we have skin to skin in theatre?
-draft: true
 checked: 2026-10-29
 ---
 A planned (elective) caesarean is a birth through a cut in your tummy and uterus, booked before labour starts. Around 2 in every 5 babies in Australia are born by caesarean. It's a birth like any other, and it's a major operation, so your doctor will explain the risks and benefits and you'll sign a consent form. In Australia you have the right to make the decision together with your doctor.

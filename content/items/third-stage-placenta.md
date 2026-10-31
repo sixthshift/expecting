@@ -17,7 +17,6 @@ sources:
 related: [term-third-stage, delayed-cord-clamping, retained-placenta, term-syntocinon, birth-preferences]
 appointment:
   - Would active or physiological delivery of the placenta suit me?
-draft: true
 checked: 2026-10-29
 ---
 The third stage of labour runs from the baby's birth to the birth of the placenta. The placenta separates from the wall of the uterus and comes out through the vagina, often with mild contractions and a gentle push. It isn't usually painful, though it can be uncomfortable. The baby is usually on your chest, skin-to-skin, and a first breastfeed now releases oxytocin, which helps the placenta come and reduces bleeding.
@@ -32,8 +31,8 @@ Longer than these times counts as prolonged, and your midwife or doctor will tal
 
 ## Things to weigh
 
-- **Bleeding.** Active management usually speeds things up and reduces the chance of heavy bleeding after the birth (postpartum haemorrhage). RANZCOG says preventive oxytocic medicines cut that risk by about half, and recommends active management to all pregnant women because it lowers the risk of haemorrhage and of needing a blood transfusion.
-- **For low-risk births the sources differ.** Pregnancy, Birth and Baby says physiological management is usually recommended for a healthy, low-risk pregnancy, and that the evidence comparing the two is limited. RANZCOG acknowledges that for women at low risk of bleeding the benefit of active management is less certain, while still recommending it.
+- **Bleeding.** Active management usually speeds things up and reduces the chance of heavy bleeding after the birth (postpartum haemorrhage). Preventive oxytocic medicines cut that risk by about half, and RANZCOG recommends active management for everyone because it lowers the risk of haemorrhage and of needing a blood transfusion.
+- **If your risk of bleeding is low,** the benefit of active management is less certain, and physiological management is an option to discuss.
 - **When active is more likely to be advised:** a long labour, an induction, a previous haemorrhage, or anaemia.
 - **Side effects.** In the studies RANZCOG reviewed, active management came with more vomiting and raised blood pressure, though those studies used a different drug mix from the oxytocin usually used in Australia.
 - **Things can change on the day.** RANZCOG says you can choose physiological management if you're properly informed, understanding that events at the birth may change your risk.
@@ -45,4 +44,4 @@ Families have different cultural, spiritual and personal practices, and your cho
 
 ## When to decide
 
-Both sources say to talk it through with your midwife or doctor during pregnancy, so you can make an informed choice before the birth. Put your choice, and anything about the cord or placenta, in your birth preferences.
+Talk it through with your midwife or doctor during pregnancy, so you can make an informed choice before the birth. Put your choice, and anything about the cord or placenta, in your birth preferences.

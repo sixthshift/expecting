@@ -15,7 +15,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
 related: [cosmetic-surgery, skincare-ingredients]
-draft: true
 checked: 2026-10-29
 ---
 Not recommended. Because cosmetic Botox is for beauty reasons and isn't medically necessary, Pregnancy, Birth and Baby and MotherSafe both say it can't be recommended during pregnancy.

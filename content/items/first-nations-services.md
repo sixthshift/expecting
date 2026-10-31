@@ -20,7 +20,6 @@ sources:
   - title: SMS4dads — home (Deadly Dads)
     url: https://www.sms4dads.com.au/
 related: [perinatal-mental-health-help, building-your-village]
-draft: true
 checked: 2026-10-29
 ---
 Culturally safe care means healthcare that respects your culture, values and identity: you're listened to, included and involved in decisions, and your care team recognises and addresses racism. Feeling safe and respected makes it easier to get the care you and your baby need, and regular antenatal care from early in pregnancy is linked to better health for you both.
@@ -35,7 +34,7 @@ An Aboriginal and/or Torres Strait Islander Health Worker or Health Practitioner
 - connect you with local health and community services
 - support you with breastfeeding, caring for your baby and understanding their health
 
-You might meet one at an Aboriginal Community Controlled Health Organisation (ACCHO), an Aboriginal Medical Service, a hospital or a community health service. Research shows Aboriginal and Torres Strait Islander women who get pregnancy care through an Aboriginal Community Controlled Health Service are more likely to start antenatal care early and have 5 or more visits, and their babies are less likely to be born premature or need care in a neonatal nursery.
+You might meet one at an Aboriginal Community Controlled Health Organisation (ACCHO), an Aboriginal Medical Service, a hospital or a community health service. Research shows Aboriginal and Torres Strait Islander people who get pregnancy care through an Aboriginal Community Controlled Health Service are more likely to start antenatal care early and have 5 or more visits, and their babies are less likely to be born premature or need care in a neonatal nursery.
 
 If you have your baby in hospital, an **Aboriginal Hospital Liaison Officer** can support you and your family during your stay, including involving your family in your care if you choose. Ask your midwife, nurse or other hospital staff.
 

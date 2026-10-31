@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Anaemia in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/anaemia-in-pregnancy
 related: [pregnancy-supplements, sleep-in-pregnancy, term-anaemia, term-haemoglobin, anaemia-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 A lot of pregnancy's work happens out of sight, in your heart and blood vessels. It explains why you can feel puffed or light-headed without having done much.

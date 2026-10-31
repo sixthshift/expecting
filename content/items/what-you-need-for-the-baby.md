@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — What you will need for your baby
     url: https://www.pregnancybirthbaby.org.au/babies/daily-care/what-you-will-need-for-baby
 related: [car-seat, cot-and-safe-sleep-standards, second-hand-baby-gear, pram, bassinet]
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy, Birth and Baby says newborns don't need much other than love, milk and warmth. It adds that you don't need to buy everything new: second hand, borrowed and pre-used baby furniture and equipment save money. With a first baby, expect to spend more time and money getting the essentials together.
@@ -28,7 +27,7 @@ Pregnancy, Birth and Baby says newborns don't need much other than love, milk an
 
 ## Also worth thinking about
 
-A pram (buy or borrow), a bath or the kitchen sink, towels and washcloths, enough cot sheets to have a spare while one is in the wash, and toiletries. For you: maternity pads for postpartum bleeding, breast pads, comfortable clothing, and a big water bottle. The page lists a baby monitor, dummies, a breast pump and a nappy bag as extras.
+A pram (buy or borrow), a bath or the kitchen sink, towels and washcloths, enough cot sheets to have a spare while one is in the wash, and toiletries. For you: maternity pads for postpartum bleeding, breast pads, comfortable clothing, and a big water bottle. Other things to consider: a baby monitor, dummies, a nappy bag and, if you'll express, a breast pump.
 
 ## Not gear
 

@@ -15,7 +15,6 @@ sources:
   - title: Moneysmart — Life insurance cover
     url: https://moneysmart.gov.au/how-life-insurance-works/life-cover
 related: [life-insurance-and-income-protection, parental-leave-pay-superannuation]
-draft: true
 checked: 2026-10-29
 ---
 It's not the cheeriest job on the list, but it's a short one, and a baby is exactly the change it's meant for. Moneysmart says everyone over 18 should have a will, and to update it when your situation changes, naming having children as one of those times.

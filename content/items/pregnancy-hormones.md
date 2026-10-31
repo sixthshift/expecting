@@ -26,7 +26,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Changes to your body during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
 related: [term-hcg, term-progesterone, term-oestrogen, term-relaxin, term-oxytocin, term-prolactin, how-your-body-changes]
-draft: true
 checked: 2026-10-29
 ---
 Hormonal changes in pregnancy lead to physical symptoms and can affect your mood, according to Pregnancy, Birth and Baby. Here are the main ones, in the order you meet them.

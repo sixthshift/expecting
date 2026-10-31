@@ -21,7 +21,6 @@ related: [antenatal-depression, worry-and-sleep, intrusive-thoughts, tokophobia,
 appointment:
   - Can we talk about how I've been feeling lately?
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -43,9 +42,7 @@ It's treated well with talking therapies such as cognitive behavioural therapy, 
 
 ## Call 000 or go to emergency
 
-If you're having thoughts of suicide and are in immediate danger, call triple zero (000). For help and support, call Lifeline on 13 11 14.
-
-Beyond Blue says to seek help immediately or call triple zero (000) if you're having thoughts of suicide or harming yourself.
+If you're having thoughts of suicide or harming yourself, seek help immediately or call triple zero (000). For help and support, call Lifeline on 13 11 14.
 
 ## See your doctor or midwife
 

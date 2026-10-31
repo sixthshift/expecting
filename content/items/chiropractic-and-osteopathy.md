@@ -19,7 +19,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pelvic girdle pain in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/pelvic-pain-during-pregnancy
 related: [massage, acupuncture, exercise-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Ask your doctor or midwife first. Chiropractic and osteopathy might help, but there isn't much evidence about how safe they are in pregnancy.

@@ -12,7 +12,6 @@ sources:
   - title: Services Australia — Meeting the income test for Parental Leave Pay
     url: https://www.servicesaustralia.gov.au/meeting-income-test-for-parental-leave-pay
 related: [parental-leave-pay, parental-leave-pay-work-test]
-draft: true
 checked: 2026-10-29
 tasks:
   - id: check-income-test
@@ -27,9 +26,9 @@ Services Australia looks at your income for the financial year before either you
 
 ## The limits
 
-**Individual test:** an adjusted taxable income of **$186,487 or less** in 2025–26 ($180,007 in 2024–25).
+**Individual test:** an adjusted taxable income of **$186,487 or less** in 2025–26.
 
-**Family test,** if you don't meet the individual test: you and your partner's combined adjusted taxable income of **$386,525 or less** in 2025–26 ($373,094 in 2024–25). Your partner is the person you're in a relationship with on the day you claim.
+**Family test,** if you don't meet the individual test: you and your partner's combined adjusted taxable income of **$386,525 or less** in 2025–26. Your partner is the person you're in a relationship with on the day you claim.
 
 If you're single, your own income is tested against the family limit.
 

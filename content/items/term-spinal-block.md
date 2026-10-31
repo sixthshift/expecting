@@ -16,9 +16,8 @@ sources:
   - title: RANZCOG — Pain Relief in Labour and Childbirth (patient information)
     url: https://ranzcog.edu.au/wp-content/uploads/Pain-Relief-Labour-Childbirth.pdf
 related: [epidural, planned-caesarean, caesarean-what-happens]
-draft: true
 checked: 2026-10-29
 ---
-A spinal is a type of regional anaesthetic. Healthdirect says almost all caesarean sections are done under regional anaesthesia, either a spinal or an epidural, which means you're awake to see your baby. The Royal Women's says a regional anaesthetic (spinal or epidural) lets you stay awake for the birth without feeling pain. In some cases a general anaesthetic is needed, so you're asleep (the Royal Women's).
+A spinal is a type of regional anaesthetic. Almost all caesarean sections are done under regional anaesthesia, either a spinal or an epidural, so you're awake for the birth of your baby without feeling pain. In some cases a general anaesthetic is needed, so you're asleep.
 
-An epidural, as RANZCOG describes it, leaves a thin tube in your back so the anaesthetic can be topped up.
+An epidural leaves a thin tube in your back so the anaesthetic can be topped up.

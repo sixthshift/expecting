@@ -17,7 +17,6 @@ sources:
   - title: Fair Work Ombudsman — Stillbirth, premature birth or death of a child
     url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/stillbirth-premature-birth-or-death-of-a-child
 related: [stillbirth, miscarriage]
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy, Birth and Baby defines a miscarriage as the loss of a baby before 20 weeks of pregnancy, and a stillbirth as the birth of a baby without signs of life after 20 weeks. Other official definitions add a weight. The AIHW counts a stillbirth as fetal death at 20 or more completed weeks of gestation or 400 grams or more birthweight; Fair Work counts a baby who weighed at least 400 grams or reached at least 20 weeks; and Births, Deaths and Marriages Victoria counts a baby carried for 20 weeks or more, or weighing over 400 grams.

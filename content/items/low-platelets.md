@@ -16,7 +16,6 @@ appointment:
   - What's causing my low platelets?
   - How often will my platelets be checked?
   - Is an epidural safe for me?
-draft: true
 checked: 2026-10-29
 ---
 Platelets are tiny blood cells that clump together to stop bleeding. Around 1 in every 10 people have a low platelet count (thrombocytopenia) during pregnancy. Most of the time it doesn't cause problems, though that depends on the cause.

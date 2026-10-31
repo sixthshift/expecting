@@ -15,7 +15,6 @@ sources:
   - title: Moneysmart — Income protection insurance
     url: https://moneysmart.gov.au/how-life-insurance-works/income-protection-insurance
 related: [wills-and-guardianship, budgeting-for-leave]
-draft: true
 checked: 2026-10-29
 ---
 This isn't financial advice, and it isn't a sales pitch: it's what Moneysmart, the government's money site, says to think through. For a decision about your own cover, Moneysmart points you to a financial adviser.

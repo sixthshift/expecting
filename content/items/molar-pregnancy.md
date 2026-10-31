@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Molar pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/molar-pregnancy
 related: [miscarriage, loss-support-services, pregnancy-after-loss]
-draft: true
 checked: 2026-10-29
 ---
 A molar pregnancy is a rare type of pregnancy loss. An egg is fertilised but a baby doesn't develop; instead, the cells that normally form the placenta grow into a clump of abnormal cells. It's also called a hydatidiform mole or gestational trophoblastic disease (GTD). It wasn't caused by anything you did or didn't do.

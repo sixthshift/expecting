@@ -16,7 +16,6 @@ related: [haemorrhoids, abdominal-pain]
 appointment:
   - Could anything I'm taking be causing my constipation?
   - If fibre and fluids aren't enough, what can I take?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -27,8 +26,10 @@ First steps: drink at least 7 to 8 glasses of fluid a day (more in hot or humid 
 
 If that's not enough, your doctor may recommend fibre supplements or laxatives. Not all laxatives are recommended in pregnancy, so check with your doctor or pharmacist first.
 
-## See your doctor or midwife
+## Contact your hospital now
 
-**Get urgent care** if you have constipation as well as unexplained weight loss, bleeding from your rectum or blood in your stool, severe tummy pain, cramping or bloating, or vomiting.
+Get urgent care if you have constipation with severe tummy pain, cramping or bloating, vomiting, bleeding from your rectum or blood in your poo, or weight loss you can't explain.
+
+## See your doctor or midwife
 
 See your doctor if your constipation is severe (3 or more days between bowel movements, tummy pain, long straining, or a feeling of a 'ball' blocking your rectum), it isn't getting better with simple lifestyle changes, or you're worried.

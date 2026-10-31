@@ -19,7 +19,6 @@ sources:
   - title: Pregnancy, Birth and Baby — The role of a birth support partner
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
 related: [support-person-role, positions-for-labour, pain-relief]
-draft: true
 checked: 2026-10-29
 ---
 A support person can make a real difference to pain in labour. Pregnancy, Birth and Baby says they can give practical help with non-medical pain relief such as touch or massage, emotional support and encouragement, and can help communicate your partner's needs to the healthcare team.

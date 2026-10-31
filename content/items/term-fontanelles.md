@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Presentation and position of baby through pregnancy and at birth
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/presentation-and-position-of-baby-through-pregnancy-and-at-birth
 related: [the-babys-position]
-draft: true
 checked: 2026-10-29
 ---
 Fontanelles are the soft spots of a newborn's skull. They let the baby's head mould and fit through the birth canal. Sutures are the ridges on the head between the skull bones. In labour, a doctor or midwife may feel for the sutures and fontanelles during a vaginal examination to work out which way your baby is positioned.

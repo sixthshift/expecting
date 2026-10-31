@@ -16,7 +16,6 @@ sources:
   - title: Fair Work Ombudsman — Entitlements while pregnant
     url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/entitlements-while-pregnant
 related: [unpaid-parental-leave, parental-leave-pay-sharing, keeping-in-touch-days, partner-parental-leave, employer-leave-notice]
-draft: true
 checked: 2026-10-29
 ---
 Unpaid parental leave doesn't have to be one unbroken block. You can take part of your 12 months as **flexible parental leave**: a single day, or separate periods of a day or more. Flexible days are unpaid.

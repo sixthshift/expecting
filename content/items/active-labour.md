@@ -20,16 +20,15 @@ sources:
 related: [stages-of-labour, vaginal-examinations, monitoring-in-labour, positions-for-labour, pain-relief, slow-progress, term-transition]
 appointment:
   - When should I come in once labour starts, given my pregnancy?
-draft: true
 checked: 2026-10-29
 ---
 Active labour is the second part of the first stage. Contractions get stronger, more painful and more regular, and the cervix opens steadily until it's fully dilated at 10 cm, ready for pushing.
 
 ## When it starts
 
-Sources draw the line in slightly different places. Pregnancy, Birth and Baby says active labour starts when the cervix is fully thinned and open to 4 cm, with contractions every 3 to 4 minutes lasting around 60 seconds. RANZCOG's labour care guideline defines established labour as regular painful contractions with the cervix opening more quickly from 5 cm.
+Contractions become regular and painful, every 3 to 4 minutes and lasting around 60 seconds, and the cervix, now fully thinned, starts opening more quickly.
 
-If your pregnancy has been normal and uncomplicated, Pregnancy, Birth and Baby says to contact your birth unit when contractions are stronger and regular (around 3 to 4 minutes apart) or you can no longer manage at home. By then the cervix is likely 4 to 6 cm.
+If your pregnancy has been normal and uncomplicated, contact your birth unit when your contractions are regular and about 5 minutes apart, or you can no longer manage at home.
 
 ## When you arrive
 
@@ -55,3 +54,8 @@ Standing and moving about can help with pain and help labour progress. Empty you
 ## When it doesn't go to plan
 
 Your team may suggest extra monitoring or medical help if contractions slow or labour isn't progressing, the baby's heart rate drops, there's heavy bleeding or signs of infection, or there's meconium in the waters. They'll explain what's happening and involve you in the decisions.
+
+## When to get help
+
+- **Call 000** if you have heavy bleeding from the vagina, a severe headache or blurred vision, or you think you won't make it to your place of birth before the baby is born.
+- **Call your birth unit** if your waters break, you're bleeding from the vagina, or you're worried about the baby's movements. If the baby is moving less, don't wait: see [The baby is moving less](baby-moving-less).

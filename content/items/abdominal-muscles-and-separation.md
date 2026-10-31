@@ -20,7 +20,6 @@ related: [term-diastasis-recti, the-pelvic-floor, staying-active-in-pregnancy]
 appointment:
   - Can you check whether my tummy muscles have separated?
   - Should I see a women's health physio?
-draft: true
 checked: 2026-10-29
 ---
 Your abdominal muscles support your spine and organs and give you core stability. In pregnancy the growing baby and uterus stretch and weaken them, and pregnancy hormones soften your ligaments and abdominal muscles, so they work less well at supporting and moving your body.
@@ -40,4 +39,4 @@ You may see a gap, and you may feel your core is weak, for example lifting a lau
 
 ## After the birth
 
-Separation often gets better in the weeks and months after the birth, though up to 1 in 3 women still report it a year later. To stop it getting worse: don't lift things heavier than your baby, roll onto your side to get out of bed or sit up, and skip sit-ups, oblique curls and some yoga poses.
+Separation often gets better in the weeks and months after the birth, though up to 1 in 3 people still report it a year later. To stop it getting worse: don't lift things heavier than your baby, roll onto your side to get out of bed or sit up, and skip sit-ups, oblique curls and some yoga poses.

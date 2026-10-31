@@ -19,7 +19,6 @@ related: [first-trimester-screening, nuchal-translucency-scan, nipt, high-chance
 appointment:
   - Which would suit me better, combined screening or NIPT?
   - What does my combined screening result mean, and what comes next?
-draft: true
 checked: 2026-10-29
 tasks:
   - id: book-combined-screening
@@ -31,7 +30,7 @@ tasks:
 ---
 Combined first-trimester screening is one of the optional screening tests for Down syndrome. It has two parts:
 
-- **a blood test** between 10 and 13 weeks (RANZCOG; Pregnancy, Birth and Baby says between 9 and 13 weeks)
+- **a blood test** between 10 and 13 weeks
 - **the nuchal translucency scan**, an ultrasound of the fluid-filled space behind the baby's neck, between 11 weeks and 13 weeks 6 days
 
 The two results are combined with your age to estimate the chance the baby has Down syndrome. It picks up about 85 to 90% of babies with Down syndrome, and may detect an increased chance of other, less common chromosomal conditions, such as Edwards syndrome (trisomy 18) and Patau syndrome (trisomy 13). The scan can also detect major structural conditions in the baby.

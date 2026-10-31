@@ -16,7 +16,6 @@ sources:
   - title: RANZCOG — Induction of Labour (patient information)
     url: https://ranzcog.edu.au/wp-content/uploads/Induction-Labour.pdf
 related: [induction, term-syntocinon, breaking-the-waters, slow-progress, monitoring-in-labour, epidural]
-draft: true
 checked: 2026-10-29
 ---
 Oxytocin is the hormone your body makes in labour to cause contractions. A synthetic version, Syntocinon, is given through a drip in your arm to stimulate contractions.
@@ -47,4 +46,4 @@ Oxytocin can also cause nausea and vomiting.
 
 ## When to get help
 
-Once your induction has begun, tell your doctor or midwife straightaway if you start bleeding or feel the baby moving less.
+Once your induction has begun, tell your doctor or midwife straightaway if you start bleeding or feel the baby moving less ([The baby is moving less](baby-moving-less)).

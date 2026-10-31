@@ -10,6 +10,8 @@ who: partner
 stakes: high
 summary: "Yes. Partners grieve too, sometimes differently and sometimes later; your feelings count, leave is there for you, and so is support."
 sources:
+  - title: Pregnancy, Birth and Baby — What is a stillbirth?
+    url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/stillbirth-and-neonatal-death/what-is-a-stillbirth
   - title: Pregnancy, Birth and Baby — Partners and miscarriage
     url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/partners-and-miscarriage
   - title: Pregnancy, Birth and Baby — Experiencing a pregnancy loss
@@ -25,7 +27,6 @@ sources:
   - title: Fair Work Ombudsman — Accruing and taking other leave during parental leave
     url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/accruing-and-taking-other-leave-during-parental-leave
 related: [loss-support-services, something-has-happened, card-partner-grief-counts]
-draft: true
 checked: 2026-10-29
 ---
 It didn't happen to your body, but it happened to you. A loss can bring partners great sadness, helplessness and anxiety, and that is normal. Your cultural beliefs may shape how you feel, and the feelings can be especially strong if getting pregnant was hard or this isn't the first loss.
@@ -48,7 +49,7 @@ Time off is yours too. Under the Fair Work rules, you can take compassionate lea
 
 ## Support for partners
 
-- **Red Nose Grief and Loss** runs support groups for non-birthing parents (PBB's wording). Its line is 1300 308 307, 24 hours a day, 7 days a week.
+- **Red Nose Grief and Loss** runs support groups for non-birthing parents. Its line is 1300 308 307, 24 hours a day, 7 days a week.
 - **Miscarriage Australia** has a page for men, and one for LGBTIQA+ partners and families.
 - **SMS4dads** sends free text messages for dads, including a set for grieving dads.
 

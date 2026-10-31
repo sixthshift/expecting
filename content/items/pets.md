@@ -6,7 +6,6 @@ weeks: [24, 38]
 type: moment
 topic: after-the-birth
 extra: pets
-draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Getting your pets ready for baby to arrive
     url: https://www.pregnancybirthbaby.org.au/parenting-and-family/parenting-skills-and-daily-life/getting-your-pets-ready-for-baby-to-arrive

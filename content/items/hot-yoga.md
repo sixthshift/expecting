@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Yoga and Pilates during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/yoga-and-pilates-during-pregnancy
 related: [yoga, saunas, spas-and-hot-tubs, hot-weather]
-draft: true
 checked: 2026-10-29
 ---
 Avoid it. Pregnancy, Birth and Baby says to avoid exercise classes held at intentionally higher temperatures, such as hot Pilates or yoga, and the Royal Women's Hospital lists "hot" yoga among the activities to avoid in pregnancy.

@@ -19,7 +19,6 @@ sources:
   - title: The Royal Women's Hospital — Coping with common discomforts of pregnancy (fact sheet, April 2018)
     url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
 related: [thrush, fluid-leaking, spotting-and-bleeding-in-early-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -44,8 +43,7 @@ See your doctor if your discharge is unusual for you. It may be an infection if 
 
 - looks green, yellow, brown or grey
 - smells bad
-- is bloodstained
-- is thin and runny, like cottage cheese, or frothy
+- is thick and lumpy like cottage cheese, thin and runny, or frothy
 - comes with itching or pain
 
 Thrush and bacterial vaginosis (BV) are both more likely in pregnancy. Some genital infections can cause pregnancy complications, and untreated BV can lead to premature birth or miscarriage, so getting the right treatment matters. Your doctor may do a swab and prescribe treatment. healthdirect lists unusual discharge among the signs to see your doctor or midwife about as soon as possible.

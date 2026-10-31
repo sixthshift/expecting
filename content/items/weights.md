@@ -21,7 +21,6 @@ sources:
   - title: The Royal Women's Hospital — The abdominal muscles
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/the-abdominal-muscles
 related: [heavy-lifting, abdominal-exercises, exercise-lying-on-your-back]
-draft: true
 checked: 2026-10-29
 ---
 Strength training is recommended in pregnancy, about twice a week. Keep the weights light: Better Health says to choose low weights with medium to high repetitions and to avoid lifting heavy weights altogether.

@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Thrush during pregnancy and breastfeeding
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/vaginal-thrush-during-pregnancy
 related: [vaginal-discharge, itchy-skin, urinary-tract-infection]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

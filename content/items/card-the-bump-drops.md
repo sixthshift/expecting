@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 36
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-36
 related: [term-engagement, term-lightening]
-draft: true
 checked: 2026-10-29
 ---
 At 36 weeks your uterus reaches all the way up to your ribcage. If your baby has engaged in your pelvis, you might notice your bump has moved down slightly. You might also feel more pressure in your lower abdomen and pelvis, and will probably need to go to the toilet more often.

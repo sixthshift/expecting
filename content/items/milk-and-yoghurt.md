@@ -11,13 +11,12 @@ summary: "Yes, if it's pasteurised: dairy is a good source of calcium and iodine
 verdict: yes
 sources:
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
   - title: Food Standards Australia New Zealand — Pregnancy and healthy eating
     url: https://www.foodstandards.gov.au/consumer/nutrition/pregnancy/healthy-eating
   - title: Pregnancy, Birth and Baby — Healthy diet during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/healthy-diet-during-pregnancy
 related: [raw-milk, soft-cheese, kombucha-and-fermented-drinks, calcium]
-draft: true
 checked: 2026-10-29
 ---
 Yes, as long as it's pasteurised. The NSW Food Authority says pasteurised milk, cream and yoghurt are okay to eat: check the best-before or use-by date and follow the storage instructions. Pregnancy, Birth and Baby calls water and milk the safest drinks in pregnancy.

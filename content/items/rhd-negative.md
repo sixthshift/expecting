@@ -17,7 +17,6 @@ related: [anti-d, rhd-nipt, blood-group-and-antibodies, third-trimester-bloods]
 appointment:
   - Is RhD NIPT available to me?
   - When are my anti-D injections due?
-draft: true
 checked: 2026-10-29
 ---
 Your blood group is checked at the start of pregnancy. The "negative" in a group like A negative means you're RhD negative: your red blood cells don't carry the D protein. Around 17 in every 100 people in Australia are RhD negative, and on its own it isn't usually a problem.
@@ -42,6 +41,7 @@ Anti-D may also be recommended after:
 - an injury or accident to your abdomen
 - turning a breech baby (external cephalic version)
 - an ectopic or molar pregnancy
+- labour and birth
 
 Anti-D should be given within 72 hours of the event, though it can still be given after that.
 

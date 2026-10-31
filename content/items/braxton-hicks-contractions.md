@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, uterus (how the uterus prepares)
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-uterus
 related: [term-braxton-hicks, the-uterus-in-pregnancy, term-contraction]
-draft: true
 checked: 2026-10-29
 ---
 If your belly goes tight and hard for a little while and then lets go, it's probably Braxton Hicks: sometimes called false labour or practice contractions. They're a normal part of pregnancy.
@@ -33,7 +32,7 @@ They can happen from early in pregnancy, but you may not feel them until the sec
 The muscles across your belly feel as if they're pulling tight: a weak or uncomfortable tightening or ache around the bump. Braxton Hicks usually:
 
 - come at irregular times, no more than once or twice an hour, a few times a day
-- last about 30 seconds, though they can last up to 2 minutes (Pregnancy, Birth and Baby's uterus page gives 20 to 90 seconds)
+- last about 30 seconds, though they can last up to 2 minutes
 - are uncomfortable, but not usually painful
 - don't get stronger or closer together, and walking doesn't make them stronger
 
@@ -43,13 +42,12 @@ Labour contractions are different. They open the cervix, become very regular, ge
 
 ## Easing them
 
-They don't need treatment. If they're uncomfortable, try:
+If they're uncomfortable, try:
 
 - lying down or changing position
 - going for a walk
-- a warm bath or shower, or a heat pack
+- a warm bath or shower
 - a drink of water, and a wee
-- your breathing exercises
 
 ## When to get help
 
@@ -59,4 +57,4 @@ They don't need treatment. If they're uncomfortable, try:
 
 **Call your midwife or doctor, or go to hospital,** if your waters break, or your contractions are getting stronger, closer together and more regular.
 
-**Call your midwife** if the contractions don't ease up. And if you're not sure whether it's Braxton Hicks or labour, contact your doctor or midwife: if in doubt, don't hesitate to call.
+If you're not sure whether it's Braxton Hicks or labour, contact your doctor or midwife: if in doubt, don't hesitate to call.

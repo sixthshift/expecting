@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Adding your new baby to Medicare
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/adding-your-newborn-to-medicare
 related: [proof-of-birth, medicare-own-card, immunisation-requirements-for-payments, medicare-safety-net, my-health-record-for-baby]
-draft: true
 checked: 2026-10-29
 tasks:
   - id: enrol-baby-in-medicare

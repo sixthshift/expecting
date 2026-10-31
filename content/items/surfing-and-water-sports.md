@@ -19,7 +19,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Exercising during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
 related: [swimming, boats-and-ferries, falls-and-knocks]
-draft: true
 checked: 2026-10-29
 ---
 **Water skiing: avoid.** Better Health lists it among sporting activities to avoid, because coming off the skis could force water into the vagina. The Royal Women's Hospital also lists water skiing among activities to avoid.

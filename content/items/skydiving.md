@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Playing sport during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
 related: [scuba-diving, roller-coasters, falls-and-knocks]
-draft: true
 checked: 2026-10-29
 ---
 No. Both belong on the list for after the birth.

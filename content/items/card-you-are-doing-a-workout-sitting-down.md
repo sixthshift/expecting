@@ -12,7 +12,6 @@ sources:
   - title: The Royal Women's Hospital — Active pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
 related: [heart-and-blood-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 To meet the growing demand for blood supply to your baby, your heart enlarges and also pumps faster. The Royal Women's Hospital says this means you are already doing an aerobic workout just by being pregnant. The volume of your blood increases as your baby grows too.

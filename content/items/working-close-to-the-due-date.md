@@ -21,7 +21,6 @@ related: [safe-job-and-no-safe-job-leave, employer-leave-notice, unpaid-parental
 appointment:
   - Is it safe for me to keep doing my job in the last 6 weeks?
   - If my employer asks, can you give me a certificate saying whether I'm fit for work?
-draft: true
 checked: 2026-10-29
 ---
 Yes, if you're fit for work. There isn't one right time to stop: it depends on your pregnancy, your health, your finances and your job. Parental leave usually starts up to 6 weeks before the due date, or earlier if your employer agrees.

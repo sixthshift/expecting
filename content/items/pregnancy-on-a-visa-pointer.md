@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy and newborn care on a visa in Australia
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/pregnancy-care-on-a-visa-in-australia
 related: [family-overseas, pregnancy-care-without-medicare, what-medicare-covers]
-draft: true
 checked: 2026-10-29
 ---
 Yes. If you're on a visa, you can get care for yourself and your baby during and after pregnancy and birth. What it costs depends on your visa and your health insurance.

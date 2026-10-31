@@ -16,9 +16,8 @@ sources:
   - title: The Royal Women's Hospital — Your first pregnancy check-up
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/your-first-pregnancy-check-up
 related: [first-blood-tests, hepatitis-b-screening]
-draft: true
 checked: 2026-10-29
 ---
-Hepatitis C is a blood-borne virus that affects the liver and can pass to the baby during pregnancy or birth. Pregnancy, Birth and Baby says it's offered as part of routine screening; the Royal Women's Hospital offers it to those at risk.
+Hepatitis C is a blood-borne virus that affects the liver and can pass to the baby during pregnancy or birth. You'll be offered a test for it as part of your pregnancy blood tests.
 
 A positive result may need another blood test to confirm it. Treatment is best when you're not pregnant. Your doctor will help choose the safest way to give birth. You can breastfeed, and your baby is tested at 6 and 18 months.

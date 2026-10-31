@@ -18,7 +18,6 @@ appointment:
   - Where is my placenta now?
   - When is my repeat scan?
   - Should I plan to give birth at a major hospital?
-draft: true
 checked: 2026-10-29
 ---
 The placenta sometimes attaches low in the uterus, close to or over the cervix. It's often found at the 18 to 20 week scan, and often it resolves before the baby is due: as the uterus expands and the baby grows, the placenta can "move up" away from the cervix.
@@ -50,6 +49,6 @@ Your doctor may recommend a caesarean, because the placenta can block the baby's
 
 The most common sign is **painless vaginal bleeding after 28 weeks**. It may start light and get heavier, and some people have no symptoms at all.
 
-**Call 000** and ask for an ambulance if the bleeding or pain is severe. Also call 000 and ask for an ambulance, or go to your nearest hospital emergency department, if the bleeding is heavy and you have pain or contractions with it.
+**Call 000** and ask for an ambulance, or go to your nearest hospital emergency department, if the bleeding is heavy, or comes with pain or contractions.
 
 **Contact your doctor or midwife immediately** about any vaginal bleeding, and tell them you have a low-lying placenta.

@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
     url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
 related: [term-folate, folic-acid, the-babys-brain, morphology-scan]
-draft: true
 checked: 2026-10-29
 ---
 The neural tube becomes your baby's brain and spinal cord. It forms in the first 4 weeks of pregnancy, often before you know you're pregnant. A neural tube defect is when it doesn't fully close. Spina bifida is one: the backbone doesn't fully close, leaving part of the spinal cord exposed. Anencephaly and encephalocele are others.

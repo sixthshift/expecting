@@ -20,7 +20,6 @@ appointment:
   - Is the baby head down or breech right now?
   - Would trying to turn the baby (ECV) be suitable for me?
   - Can this hospital support a vaginal breech birth?
-draft: true
 checked: 2026-10-29
 ---
 A breech baby is lying with their bottom or feet towards your cervix. Most babies lie breech until late pregnancy, and most turn head down before the last month. About 3 in 100 are still breech at the end of pregnancy. The chance of turning on their own gets smaller as the due date gets closer, and is higher if you've given birth before. In an uncomplicated pregnancy, no extra care is needed until about 37 weeks.
@@ -32,6 +31,8 @@ There isn't always a clear reason. It can be more likely with too much or too li
 In an external cephalic version (ECV), a specially trained obstetrician presses gently on your tummy to roll the baby head down. It's usually offered after 37 weeks, or after 36 weeks if this is your first baby, at a hospital that can do an emergency caesarean. It works about half the time, more often if you've had a baby before, and a few babies turn back.
 
 ECV is safe, but there's a small risk of bleeding from the placenta, changes in the baby's heart rate or your waters breaking; about 1 in 200 people need an emergency caesarean. It may not be suitable if you need a caesarean anyway (for example with placenta praevia), have had bleeding in the past 7 days, are having twins, your waters have broken, you have high blood pressure or pre-eclampsia, or the baby isn't growing well. One previous caesarean doesn't usually rule it out.
+
+After an ECV, contact your doctor or midwife immediately if you have tummy pain, contractions, bleeding or fluid leaking from your vagina, or the baby moving less.
 
 Exercises, chiropractic and moxibustion are sometimes tried, but there's no scientific evidence they work.
 

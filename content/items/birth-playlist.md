@@ -6,8 +6,9 @@ weeks: [32, 37]
 type: moment
 topic: gear
 extra: birth-playlist
-draft: true
 sources:
+  - title: "Pregnancy, Birth and Baby — Birth bag checklist"
+    url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/what-to-take-to-hospital-checklist
   - title: Pregnancy, Birth and Baby — Non-medical pain relief during labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/non-medical-pain-relief-during-labour
 tasks:
@@ -33,9 +34,9 @@ Music is one of the relaxation techniques Pregnancy, Birth and Baby lists for la
 **What to pack**
 
 - A small speaker, and headphones in case you want to shut the room out.
-- Long phone chargers and a power bank; hospital power points aren't always near the bed.
+- Phone chargers and a power bank.
 - Your own pillow, lip balm, a hair tie, warm socks, and snacks and drinks for the partner.
 - A heat pack, if the hospital allows it. Hot and cold packs or towels can help in labour.
-- Essential oils for massage, if you'd like them. Check first: many hospitals don't allow oil burners or diffusers.
+- Essential oils for massage, if you'd like them. Check with the hospital first.
 
 Ask the hospital or birth centre what you can bring, and pack it all with the hospital bag. Give the partner the job of pressing play.

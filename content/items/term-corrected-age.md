@@ -11,7 +11,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Corrected age for premature babies
     url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/corrected-gestational-age-for-premature-babies
 related: [viability-and-prematurity]
-draft: true
 checked: 2026-10-29
 ---
 A baby's corrected age is the age they would be if they had been born on their due date. It's used to check a premature baby's growth and development, which are measured against corrected age rather than the date they were born.

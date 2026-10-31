@@ -23,7 +23,6 @@ related: [breech, term-cephalic, term-vertex, term-breech, term-transverse-lie, 
 appointment:
   - Which way is the baby's head facing at the moment?
   - Has the baby's head engaged yet?
-draft: true
 checked: 2026-10-29
 ---
 Late in pregnancy your midwife or doctor will start talking about which way your baby is lying. Three words do most of the work: presentation, position and engagement. People, including health professionals, sometimes mix up the first two, saying "breech position" when they mean breech presentation.

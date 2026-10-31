@@ -17,7 +17,6 @@ sources:
 related: [how-much-more-to-eat, eating-well-in-pregnancy, staying-active-in-pregnancy, term-bmi]
 appointment:
   - How much weight gain is right for me?
-draft: true
 checked: 2026-10-29
 ---
 As your baby grows, you'll usually put on weight gradually. How much depends on what you weighed before pregnancy, among other things. The ranges below are a guide only: your midwife, doctor or dietitian may recommend something different for you.

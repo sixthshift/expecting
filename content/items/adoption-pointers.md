@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Deciding to give a baby or child up for adoption
     url: https://www.pregnancybirthbaby.org.au/parenting-and-family/adoption-and-surrogacy/deciding-to-give-a-child-up-for-adoption
 related: [unplanned-pregnancy, surrogacy]
-draft: true
 checked: 2026-10-29
 ---
 Adoption permanently transfers the legal rights and responsibilities of parenting from a child's birth parents to the adoptive parents, through a court's adoption order. Each state and territory has its own laws and process. Australian adoptions are open: adopted children grow up knowing they were adopted, and where possible know about their birth family and culture.

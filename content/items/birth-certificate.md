@@ -12,11 +12,10 @@ sources:
   - title: NSW Government — Register the birth of your baby
     url: https://www.nsw.gov.au/family-and-relationships/births/register-a-birth
   - title: Births, Deaths and Marriages Victoria — Register a birth
-    url: https://www.bdm.vic.gov.au/births/register-a-birth
+    url: https://www.bdm.vic.gov.au/register-birth
   - title: Access Canberra — Apply for a birth certificate
     url: https://www.accesscanberra.act.gov.au/births-relationships-and-deaths/births/apply-for-a-birth-certificate
 related: [registering-the-birth, baby-passport, proof-of-birth]
-draft: true
 checked: 2026-10-29
 tasks:
   - id: order-birth-certificate

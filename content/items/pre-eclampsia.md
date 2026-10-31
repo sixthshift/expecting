@@ -9,6 +9,8 @@ weeks: [12, 42]
 stakes: high
 summary: "A serious condition of high blood pressure that can affect the liver, kidneys and brain, usually after 20 weeks; it often has no symptoms, which is why your blood pressure is checked at every visit."
 sources:
+  - title: healthdirect — Headaches
+    url: https://www.healthdirect.gov.au/headaches
   - title: Pregnancy, Birth and Baby — Pre-eclampsia
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pre-eclampsia
   - title: The Royal Women's Hospital — High blood pressure & preeclampsia
@@ -18,10 +20,9 @@ appointment:
   - Am I at higher risk of pre-eclampsia?
   - Should I take low-dose aspirin or calcium?
   - How does my blood pressure compare with my first reading?
-draft: true
 checked: 2026-10-29
 ---
-Pre-eclampsia is a serious condition that causes high blood pressure and can affect the liver, kidneys and brain. It usually comes on suddenly after at least 20 weeks, and can happen any time in the second half of pregnancy or the first few days after the birth. It affects about 1 in 10 pregnancies, and for most it stays mild, but it can get worse very quickly. It can also affect the placenta, and so how well the baby grows.
+Pre-eclampsia is a serious condition that causes high blood pressure and can affect the liver, kidneys and brain. It usually comes on suddenly after at least 20 weeks, and can happen any time in the second half of pregnancy or the first few days after the birth. For most it stays mild, but it can get worse very quickly. It can also affect the placenta, and so how well the baby grows.
 
 ## How they watch for it
 
@@ -41,7 +42,7 @@ After the birth your blood pressure is watched closely for the first few days, y
 
 ## When to get help
 
-Seek medical attention urgently or go to your local emergency department if you have symptoms such as a severe headache, blurred vision, sudden swelling of your hands, feet or face, or pain under your ribcage.
+Call triple zero (000) if you have a sudden, severe headache, or a headache with changes in your vision, vomiting or confusion, or a seizure. Seek medical attention urgently or go to your local emergency department if you have a severe headache, blurred vision, sudden swelling of your hands, feet or face, or pain under your ribcage.
 
 See your midwife, doctor or pregnancy care provider straight away if you have any symptoms of pre-eclampsia, including:
 

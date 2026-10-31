@@ -17,22 +17,21 @@ sources:
   - title: Pregnancy, Birth and Baby — Weight gain in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/weight-gain-in-pregnancy
 related: [how-much-more-to-eat, pregnancy-supplements, weight-gain-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy asks more of certain nutrients, including iron, calcium, iodine and many vitamins. You don't have to eat for two. In the first three months you probably won't need many extra kilojoules; in the second and third trimesters you'll need a bit more vegetables, lean protein and wholegrains each day. The Royal Women's Hospital puts it simply: you don't have to eat more, but you do have to eat more variety.
 
 ## The five food groups, serves a day
 
-| Food group | Pregnancy, Birth and Baby | The Royal Women's Hospital |
-|---|---|---|
-| Vegetables and legumes | 5 | 5 |
-| Fruit | 2 | 2 |
-| Grains, mostly wholegrain or high fibre | 8 | 8½ |
-| Lean meat, fish, chicken, eggs, tofu, nuts, legumes | 3½ | 3½ |
-| Milk, yoghurt, cheese or alternatives | 3½ | 2½ |
+| Food group | Serves a day |
+|---|---|
+| Vegetables and legumes | 5 |
+| Fruit | 2 |
+| Grains, mostly wholegrain or high fibre | 8½ (8 if you're 18 or under) |
+| Lean meat, fish, chicken, eggs, tofu, nuts, legumes | 3½ |
+| Milk, yoghurt, cheese or alternatives | 2½ (3½ if you're 18 or under) |
 
-The two sources differ on dairy and grains; both are given here. A serve is, for example, 1 slice of bread, ½ cup of cooked rice or pasta, 1 cup of milk, 2 slices (40 g) of cheese, 1 medium apple, ½ cup of cooked vegetables, 2 eggs or 100 g of fish (the Women's table).
+A serve is, for example, 1 slice of bread, ½ cup of cooked rice or pasta, 1 cup of milk, 2 slices (40 g) of cheese, 1 medium apple, ½ cup of cooked vegetables, 2 eggs or 100 g of fish.
 
 ## The nutrients that matter most
 

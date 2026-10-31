@@ -18,7 +18,6 @@ appointment:
   - Which kind of nicotine replacement would suit me?
   - What else could help me quit, besides nicotine replacement?
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 Yes, if you can't stop smoking without it, and with your doctor's or pharmacist's advice. There is no safe amount of smoking in pregnancy, and stopping at any point reduces the risks for the baby.
@@ -30,9 +29,9 @@ Pregnancy, Birth and Baby says nicotine replacement therapy (NRT) products are s
 ## What to do
 
 - **Get support.** Talk to your GP or midwife, or call Quitline on 13 7848.
-- **Start with the shorter-acting kinds.** Your doctor or pharmacist may suggest gum, lozenges, mouth spray or an inhaler first, as these usually give a lower daily dose than a patch. Use the lowest effective dose.
+- **Start with the shorter-acting kinds.** Your doctor or pharmacist may suggest gum, lozenges or an inhaler first. Use the lowest effective dose.
 - **If you use a patch,** take it off before bed. Don't use a 24-hour patch in pregnancy.
 - **Don't smoke while using NRT.** It increases how much nicotine you're exposed to.
 - **Prescription quitting medicines.** Pregnancy, Birth and Baby says varenicline (Champix) and bupropion are not recommended in pregnancy or breastfeeding. MotherSafe notes there's little research on them in pregnancy and inadequate safety data on varenicline; talk to your doctor if NRT isn't working.
 
-**For the partner:** it is always easier to quit if your partner stops smoking with you, and second-hand smoke is a risk to the baby too. If you're not ready to quit, smoke outside the house and car. Varenicline and bupropion may be suitable for other people in the household.
+**For the partner:** it is always easier to quit if your partner stops smoking with you, and second-hand smoke is a risk to the baby too. If you're not ready to quit, smoke outside the house and car.

@@ -16,7 +16,6 @@ sources:
   - title: Food Standards Australia New Zealand — Pregnancy and healthy eating
     url: https://www.foodstandards.gov.au/consumer/nutrition/pregnancy/healthy-eating
 related: [soy-foods]
-draft: true
 checked: 2026-10-29
 ---
 Yes, eat them. It's fine to eat highly allergenic foods in pregnancy if you haven't had an allergic reaction to them before.

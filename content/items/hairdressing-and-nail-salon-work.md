@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Cosmetic procedures and beauty treatments during pregnancy and breastfeeding
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
 related: [hair-dye, nail-salons, chemicals-at-work, standing-all-day]
-draft: true
 checked: 2026-10-29
 ---
 Yes. Hairdressers and nail salon workers are exposed to chemicals for longer than clients, but most studies show no significant increase in the risk of birth defects or other pregnancy complications.

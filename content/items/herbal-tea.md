@@ -15,7 +15,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Herbal medicines in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/MSHerbalApril2020.pdf
 related: [ginger, peppermint-tea, raspberry-leaf, chamomile-tea, herbal-supplements]
-draft: true
 checked: 2026-10-29
 ---
 MotherSafe considers it safe to drink herbal teas in moderation, and Pregnancy, Birth and Baby suggests no more than 2 cups a day, and checking with your doctor or pharmacist first, especially if you take prescription medicine.

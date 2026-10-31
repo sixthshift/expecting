@@ -11,7 +11,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnant with twins
     url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy
 related: [term-ttts, term-dcda, term-mcma, twins-and-multiples]
-draft: true
 checked: 2026-10-29
 ---
 MCDA stands for monochorionic diamniotic: your twins share a placenta but are each in their own amniotic sac. It's one of the types of identical twins.

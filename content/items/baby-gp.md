@@ -6,8 +6,9 @@ weeks: [30, 38]
 type: moment
 topic: appointments
 extra: baby-gp
-draft: true
 sources:
+  - title: "Department of Health — Immunisation for pregnancy"
+    url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
   - title: Pregnancy, Birth and Baby — What does your GP do for your baby?
     url: https://www.pregnancybirthbaby.org.au/what-does-your-GP-do-for-your-baby
 tasks:
@@ -34,4 +35,4 @@ What to weigh up:
 
 **The child health nurse** is the other half: free checks of growth and development through your state's child health service until school. Your hospital will usually put you in touch after the birth.
 
-The baby's first routine vaccines are due at around 2 months. Bring the baby's Medicare card, once you have it, and the baby's health record book to every visit.
+The baby's first routine vaccines are due at 6 weeks. Bring the baby's Medicare card, once you have it, and the baby's health record book to every visit.

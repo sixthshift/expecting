@@ -16,9 +16,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
     url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
 related: [slow-progress, oxytocin-drip, induction]
-draft: true
 checked: 2026-10-29
 ---
 Augmentation is stimulating the uterus to make contractions more frequent, longer and more intense after labour has begun by itself. It's used when contractions aren't strong or regular enough for labour to progress. Induction is different: it's when your doctor or midwife tries to start labour.
 
-The glossary says it may be done by breaking your waters or giving a synthetic hormone called oxytocin. The interventions page describes it as done with intravenous medicines (given into a vein).
+It may be done by breaking your waters or by giving a synthetic hormone called oxytocin into a vein.

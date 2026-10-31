@@ -15,9 +15,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Your first antenatal visit
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/your-first-antenatal-visit
 related: [term-pre-eclampsia, pre-eclampsia]
-draft: true
 checked: 2026-10-29
 ---
 Your midwife or doctor will check your blood pressure at every antenatal visit. If it's high, they'll suggest tests for pre-eclampsia, which may include a urine test for protein.
 
-At your first visit you may be offered a urine (wee) test, which can show a urinary tract infection or kidney problems. Later in pregnancy, Pregnancy, Birth and Baby lists a urine test at routine checks if your blood pressure is raised.
+At your first visit you may be offered a urine (wee) test, which can show a urinary tract infection or kidney problems. From 28 weeks, a urine test is part of your routine checks if your blood pressure is raised.

@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Hiccups
     url: https://www.pregnancybirthbaby.org.au/babies/daily-care/hiccups
 related: [not-felt-baby-move-yet, baby-movements]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -21,4 +20,4 @@ Yes, babies can get hiccups while they're in your uterus. They can feel differen
 
 ## Contact your hospital now
 
-If you notice any change in your baby's usual movements or patterns, contact your midwife or doctor immediately.
+If you notice any change in your baby's usual movements or patterns, contact your midwife or doctor immediately: see [The baby is moving less](baby-moving-less).

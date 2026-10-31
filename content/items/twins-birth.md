@@ -18,7 +18,6 @@ appointment:
   - Which way is my first twin lying?
   - Would a vaginal birth or a caesarean suit me with my twins?
   - When would you plan for the twins to be born?
-draft: true
 checked: 2026-10-29
 ---
 Twins are more likely than single babies to be born early, often before 38 weeks. For an uncomplicated twin pregnancy (monochorionic or dichorionic), the Queensland clinical guideline says to plan birth after 37+0 weeks; it also says to consider all clinical circumstances and consult an expert practitioner about the mode and timing of birth.

@@ -17,7 +17,6 @@ related: [illicit-drugs, morning-sickness, hemp-seeds, nicotine-replacement]
 appointment:
   - What else can I try for nausea or sleep?
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 No. Pregnancy, Birth and Baby lists cannabis among the drugs that shouldn't be used in pregnancy, because they can harm you and your baby.

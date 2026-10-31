@@ -23,12 +23,13 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy rhinitis
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pregnancy-rhinitis
 related: [chest-pain, racing-heartbeat, painful-swollen-leg, blocked-nose]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
 
 As your uterus takes up more room there's less space for your heart and lungs, and it pushes against your diaphragm. From around 20 weeks you might feel breathless from time to time, especially lying on your back; try lying on your side with a pillow for support. Pregnancy, Birth and Baby calls this normal, but says to talk to your doctor or midwife if you're feeling very out of breath. In the last month it should ease as the baby moves lower into your pelvis.
+
+Breathlessness that comes on suddenly, especially with chest pain or a swollen leg, can be a blood clot in the lung: see [One painful, red or swollen leg](painful-swollen-leg).
 
 ## Call 000 or go to emergency
 
@@ -44,7 +45,7 @@ Also call 000 if breathing problems are very bad and come on quickly.
 
 ## Contact your hospital now
 
-healthdirect's pregnancy warning signs list **shortness of breath or a racing heartbeat** among the symptoms to contact your doctor, midwife or hospital about immediately, at any time in pregnancy.
+Contact your doctor, midwife or hospital immediately if you're short of breath or your heart is racing, at any time in pregnancy.
 
 See your doctor straight away or go to the emergency department if you're short of breath and you:
 
@@ -60,5 +61,4 @@ See your doctor straight away or go to the emergency department if you're short 
 See your doctor if:
 
 - you notice you're becoming short of breath with less effort
-- you feel breathless, your chest feels very tight, or you need more of your usual asthma or lung medications
-- you have unexplained breathing problems (see your doctor as soon as possible)
+- you need more of your usual asthma or lung medications

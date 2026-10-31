@@ -23,10 +23,9 @@ sources:
     url: https://www.panda.org.au/get-support/support-dads
 related: [postpartum-psychosis-signs, partner-after-the-birth, partner-perinatal-depression, mental-health-screening-epds]
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
-It may seem early to read this before the baby comes. But signs of postnatal depression are often missed or dismissed as a normal part of life with a new baby, so knowing them now, both of you, makes them easier to spot later.
+It may seem early to read this before the baby comes. But knowing the signs now, both of you, makes them easier to spot later.
 
 ## The baby blues
 
@@ -44,10 +43,10 @@ Both are common and treatable, and there's no need to feel ashamed. Your doctor 
 
 ## For the partner
 
-If the person who gave birth doesn't seem like themselves, check in gently. You don't need perfect words: "I've noticed that you don't seem like yourself. How have you been feeling lately?" Listen without rushing to fix things. If they seem very withdrawn, anxious or overwhelmed, or are struggling to cope day to day, encourage them to speak with their GP, midwife or a mental health clinician. The PANDA helpline is for support people too, so you can call it yourself.
+If the person who gave birth doesn't seem like themselves, check in gently. You don't need perfect words: "It's totally normal to feel overwhelmed. How are you coping day to day?" Listen without rushing to fix things. If they seem very withdrawn, anxious or overwhelmed, or are struggling to cope day to day, encourage them to speak with their GP, midwife or a mental health clinician. The PANDA helpline is for support people too, so you can call it yourself.
 
 ## When to get help
 
-**Call 000** if you, or someone you know, is having suicidal thoughts and is in immediate danger. For help and support, call Lifeline on 13 11 14 or PANDA on 1300 726 306. If you're having thoughts of harming yourself or your baby, call Lifeline on 13 11 14 or call triple zero (000) for immediate support. To talk to someone now, you can also call the Suicide Call Back Service on 1300 659 467.
+**If you're having thoughts of suicide, or of harming yourself or your baby, seek help immediately or call 000.** To talk to someone now, call Lifeline on 13 11 14 or the Suicide Call Back Service on 1300 659 467.
 
 **See your doctor, midwife or child health nurse** if you're not feeling better after 2 weeks, or you're not sure whether what you feel is normal. You can also call PANDA on 1300 726 306 or Beyond Blue on 1300 22 4636.

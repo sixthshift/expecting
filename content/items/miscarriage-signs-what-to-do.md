@@ -16,7 +16,6 @@ sources:
   - title: Miscarriage Australia — Am I having a miscarriage?
     url: https://miscarriageaustralia.com.au/having-a-miscarriage/signs-of-miscarriage/
 related: [miscarriage, ectopic-pregnancy, miscarriage-management-options]
-draft: true
 checked: 2026-10-29
 ---
 Bleeding from the vagina, from light spotting to heavy with clots, often with cramping or pain low in the tummy, are the usual signs of a miscarriage. But about 1 in 4 people bleed in the first trimester, and pain and bleeding in early pregnancy don't always mean a miscarriage. It is normal to feel very worried.
@@ -29,7 +28,7 @@ If you are feeling unwell, dizzy or faint, or having trouble breathing, call tri
 
 If you're pregnant and bleeding, go to your nearest hospital emergency department immediately if you have:
 
-- heavy bleeding or passing large clots (PBB's "what you might see" page puts it as soaking more than 2 pads an hour; its alert at the top of the "what should I do" page says soaking 1 or more pads in an hour, or bleeding you can't catch or contain)
+- heavy bleeding: soaking 1 or more pads in an hour, bleeding you can't catch or contain, or large clots
 - strong pain in your abdomen
 - pain in the tip of your shoulder
 - a fever or chills

@@ -16,7 +16,6 @@ sources:
   - title: Australian Breastfeeding Association — Skin-to-skin contact and your baby's first feed
     url: https://www.breastfeeding.asn.au/resources/skin-to-skin-first-feed
 related: [skin-to-skin, caesarean-what-happens]
-draft: true
 checked: 2026-10-29
 ---
 The Royal Women's Hospital says that unless you've had a general anaesthetic, skin-to-skin contact with your baby is encouraged immediately after a caesarean birth; otherwise you're likely to have it as soon as you're able. The Australian Breastfeeding Association suggests asking for your baby to be placed on your chest as soon as they've been checked, even in the operating room, or in recovery if that isn't possible, and says your partner or support person can remind the team. If skin-to-skin needs to pause for medical care, your baby can have it with another adult until you're ready.

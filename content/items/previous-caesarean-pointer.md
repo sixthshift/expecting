@@ -16,7 +16,6 @@ appointment:
   - Is a planned VBAC an option for me, or would you advise another caesarean?
   - How likely is a successful VBAC for me?
   - What are the risks and benefits of each choice for me and my baby?
-draft: true
 checked: 2026-10-29
 ---
 Not necessarily. Many people who've had a caesarean plan a vaginal birth next time (a VBAC); others plan another caesarean. For most, both are safe ways to give birth. The choice is personal, and it's made with your partner and your healthcare team.

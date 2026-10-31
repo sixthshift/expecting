@@ -25,7 +25,6 @@ related: [term-ctg, term-fetal-distress, epidural, induction, positions-for-labo
 appointment:
   - Which kind of monitoring in labour would you suggest for me, and why?
   - Does my hospital have wireless CTG?
-draft: true
 checked: 2026-10-29
 ---
 Your baby's heart rate is checked through labour to see how they're coping. Most babies cope well; changes in the heartbeat pattern can show one who isn't. You have a choice about how it's done, and decisions are made with you and with your consent.

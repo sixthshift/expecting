@@ -13,7 +13,6 @@ sources:
   - title: healthdirect — Body piercing and tattoos
     url: https://www.healthdirect.gov.au/healthy-living/hygiene-and-protection/body-piercing-and-tattoos
 related: [tattoos]
-draft: true
 checked: 2026-10-29
 ---
 Ask your doctor or midwife first. The page we checked doesn't mention pregnancy, so there is no pregnancy-specific guidance on new piercings or on what to do with a belly button ring.

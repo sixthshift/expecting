@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Herbal teas during pregnancy and breastfeeding
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/herbal-teas-during-pregnancy-and-breastfeeding
 related: [herbal-tea, herbal-supplements]
-draft: true
 checked: 2026-10-29
 ---
 It's likely safe, but there's no evidence it helps.

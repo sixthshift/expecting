@@ -21,7 +21,6 @@ appointment:
   - Do our twins share a placenta?
   - How often will we have scans from now?
   - Which hospital should we plan to give birth at?
-draft: true
 checked: 2026-10-29
 ---
 Most people having twins have a healthy pregnancy and healthy babies. There are more risks than with one baby, though, so your care changes. An early scan can confirm whether you're carrying one baby or more.

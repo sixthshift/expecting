@@ -18,7 +18,6 @@ related: [rubella-immunity, flu-vaccine, covid-vaccine-in-pregnancy]
 appointment:
   - Am I immune to rubella?
   - Should any vaccine I'm due for wait until after the birth?
-draft: true
 checked: 2026-10-29
 ---
 Some vaccines contain a tiny amount of live, weakened virus or bacteria. Because of a very small chance that the live vaccine could pose a risk to the baby, they aren't given in pregnancy. Before any vaccination, tell the doctor or nurse if you may be pregnant.
@@ -38,7 +37,7 @@ The Australian Immunisation Handbook lists these as **contraindicated** in pregn
 Two more are **not recommended**:
 
 - **the nasal spray flu vaccine.** The injected flu vaccine is the one to have in pregnancy, though there's no evidence the spray causes harm.
-- **yellow fever.** Pregnant people are advised not to go to rural areas where yellow fever is common. If travel to a country with a risk of yellow fever is unavoidable, the Handbook's table says pregnant women should receive the vaccine, and its guidance says to weigh the risks and benefits of vaccination.
+- **yellow fever.** Pregnant people are advised not to go to rural areas where yellow fever is common. If travel to a country with a risk of yellow fever is unavoidable, the Handbook's table says pregnant people should receive the vaccine, and its guidance says to weigh the risks and benefits of vaccination.
 
 Pregnancy, Birth and Baby also says the HPV vaccine isn't recommended in pregnancy: if you started the course, finish it after the birth.
 

@@ -15,7 +15,6 @@ related: [perineal-tears, assisted-birth, perineal-massage, birth-preferences, f
 appointment:
   - Can we talk about episiotomy, so I can put my wishes in my birth preferences?
   - What does my hospital do to lower the chance of a serious tear?
-draft: true
 checked: 2026-10-29
 ---
 An episiotomy is a cut made in your perineum (the tissue between your vagina and anus) during birth, to widen the vaginal opening and make more room for the baby. It's not recommended for every vaginal birth, and it may only be done with your consent.
@@ -53,9 +52,8 @@ Having one doesn't mean you'll always need one next time.
 
 ## When to get help
 
-Contact your doctor or midwife if you see signs of infection: swelling, pus or fluid from the scar, ongoing pain or an unusual smell. Most people have a postnatal check at 6 weeks, but see your doctor earlier if you're worried about healing, or if:
+Contact your doctor or midwife straight away if you have a temperature of 38°C or more. Contact them too if you see signs of infection: swelling, pus or fluid from the scar, ongoing pain or an unusual smell. Most people have a postnatal check at 6 weeks, but see your doctor earlier if you're worried about healing, or if:
 
-- you develop a temperature
 - the area becomes inflamed, swollen and red
 - it's still painful after 2 to 3 weeks
 - you can't control your bowels or wind

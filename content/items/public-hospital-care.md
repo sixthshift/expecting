@@ -16,7 +16,6 @@ sources:
   - title: The Royal Women's Hospital — Pregnancy care and birthing options
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/pregnancy-care-birthing-options
 related: [choosing-your-model-of-care, booking-in, what-medicare-covers, private-patient-in-a-public-hospital]
-draft: true
 checked: 2026-10-29
 ---
 Public hospital maternity care is the most widely used model of maternity care in Australia. Public maternity hospitals generally give very good care in pregnancy, at the birth and afterwards, and fees and expenses are low if you have a Medicare card.

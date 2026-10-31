@@ -3,7 +3,7 @@ id: partner-feeling-left-out
 title: Feeling left out
 type: guide
 topic: partner
-ask: "Everything is about her and the baby. Where do I fit?"
+ask: "Everything is about the pregnancy and the baby. Where do I fit?"
 aliases: [left out, on the outside, not my body, invisible partner, bystander]
 weeks: [4, 42]
 who: partner
@@ -21,7 +21,6 @@ sources:
   - title: PANDA — What can dads expect when calling PANDA
     url: https://www.panda.org.au/articles/what-can-dads-expect-when-calling-panda
 related: [partner-perinatal-depression, partner-going-to-appointments, card-partner-left-out]
-draft: true
 checked: 2026-10-29
 ---
 Some partners feel left out during the pregnancy. The attention goes to the person who's pregnant, and you may feel they're more interested in the baby than in you. It's a normal feeling, and there are ways in.
@@ -37,7 +36,7 @@ You don't have to wait for the birth. Partners can bond with the baby during pre
 
 ## Be part of the pregnancy
 
-You can also bond by supporting your partner. PBB suggests you:
+You can also bond by supporting your partner. You can:
 
 - go to antenatal appointments and classes together
 - talk about the birth plan and meet the maternity team
@@ -49,7 +48,7 @@ You can also bond by supporting your partner. PBB suggests you:
 
 MensLine's advice if you feel your partner has the bigger role and you're on the outside: be present at the birth, then change nappies, burp, bath and dress the baby, take them for walks, and settle them for sleep. Ask your partner what help they need, and talk to friends who are fathers. Take on the housework, the cooking, the shops, and the calls and messages while your partner sleeps.
 
-PBB adds: try not to hand the baby back every time they cry. The more you practise caring and settling, the more confident you'll get.
+Try not to hand the baby back every time they cry. The more you practise caring and settling, the more confident you'll get.
 
 ## When it's more than that
 

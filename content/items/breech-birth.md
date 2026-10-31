@@ -21,7 +21,6 @@ sources:
 related: [ecv, planned-caesarean, malpresentation, cord-prolapse, term-posterior]
 appointment:
   - If the baby stays breech, would a vaginal breech birth be an option for us?
-draft: true
 checked: 2026-10-29
 ---
 **If your waters break and you've been told the baby isn't head-first, call triple zero (000) and ask for an ambulance.** There's a higher risk of cord prolapse, which is an emergency.
@@ -32,7 +31,7 @@ There are three main kinds: **frank** (bottom down, legs straight up, feet by th
 
 ## The options
 
-**Try to turn the baby (ECV).** An obstetrician presses on your belly to turn the baby head-down. RANZCOG says it is successful 50% of the time (its clinical guidance reports 40% in first pregnancies and 60% in later ones). Pregnancy, Birth and Baby says an ECV may be suggested after 37 weeks; RANZCOG's clinical guidance is to offer it from 37 weeks, or from 36 weeks for a first baby, and its patient information says your obstetrician or midwife should discuss it with you at 36 weeks.
+**Try to turn the baby (ECV).** An obstetrician presses on your belly to turn the baby head-down. It works about half the time: around 4 in 10 in a first pregnancy and 6 in 10 after that. It's offered from 37 weeks, or from 36 weeks for a first baby, and your obstetrician or midwife should talk it through with you at 36 weeks.
 
 **If the baby stays breech, there are two choices:**
 
@@ -45,9 +44,9 @@ There are three main kinds: **frank** (bottom down, legs straight up, feet by th
 - **The chance of a caesarean anyway.** Around 4 in 10 people planning a vaginal breech birth end up needing an emergency caesarean, with a higher risk of complications than a planned one.
 - **When it isn't advised.** RANZCOG lists a narrow pelvis, a footling breech, a large (over 3800 g) or small (under 2000 g) baby, a low-lying placenta, or a hospital without the skills and resources.
 - **Not every hospital offers it.** If yours can't support a vaginal breech birth and it matters to you, you can ask to be referred elsewhere.
-- **Other ways to turn the baby.** Exercises, chiropractic and moxibustion have no scientific evidence that they work, says Pregnancy, Birth and Baby; RANZCOG says there is no evidence from recent trials that moxibustion is effective. Another Pregnancy, Birth and Baby page (Malpresentation) says there is some evidence that moxibustion before 37 weeks may reduce the chance of your baby being breech at birth, and to talk to your maternity care provider before trying alternative therapies.
+- **Other ways to turn the baby.** There's no good evidence that exercises, chiropractic or moxibustion work. Talk to your midwife or doctor before trying any of them.
 - **Hips.** A baby born breech has a higher risk of hip dysplasia, and is usually referred for a hip ultrasound after 6 weeks of age.
 
 ## When to decide
 
-Pregnancy, Birth and Baby says no extra care is needed for an uncomplicated breech pregnancy until about 37 weeks. If your baby does not turn you will have 2 options, and it suggests asking your doctor or midwife what your options are if your baby is still breech after 37 weeks. RANZCOG's clinical guidance recommends an elective caesarean for breech at 39 weeks in the absence of other risk factors.
+No extra care is needed for an uncomplicated breech pregnancy until about 37 weeks, when the ECV is offered. If the baby stays breech, decide between the two births with your doctor or midwife; a planned caesarean is booked for 39 weeks.

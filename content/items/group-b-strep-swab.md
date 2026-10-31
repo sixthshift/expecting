@@ -8,7 +8,6 @@ topic: appointments
 appointment:
   - Will you offer me a Group B strep swab, and how will I hear the result?
   - Do I have any risk factors that would mean antibiotics in labour?
-draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Group B Strep (GBS) in pregnancy
     url: https://www.pregnancybirthbaby.org.au/group-b-strep-test
@@ -18,4 +17,6 @@ Group B streptococcus (GBS) is a common bacterium. About 1 in 5 people carry it 
 
 Many care providers offer a swab of the vagina and rectum at about **35 to 37 weeks**; you can usually collect it yourself, or your doctor or midwife can. That timing is the most accurate and avoids overtreatment with antibiotics in labour. There's no standard practice in Australia: some providers don't test routinely, and recommend antibiotics in labour if there are risk factors instead.
 
-If the swab is positive, or risk factors come up, your health team will probably recommend antibiotics through a drip (IV) once your waters break or labour starts, and the choice is yours. Ask your midwife or OB.
+If the swab is positive, or risk factors come up, your health team will probably recommend antibiotics through a drip (IV) once your waters break or labour starts, and the choice is yours.
+
+**After the birth,** if your baby (under 3 months) is unwell, with a high fever, vomiting or breathing problems, call triple zero (000).

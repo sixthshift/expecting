@@ -23,7 +23,6 @@ related: [when-the-baby-comes-early, baby-in-the-nicu, told-higher-risk, card-tw
 appointment:
   - Do my babies share a placenta?
   - Where would you suggest I give birth, with more than one baby?
-draft: true
 checked: 2026-10-29
 ---
 Surprise, delight, apprehension, disappointment, excitement: it's perfectly normal to feel some or all of these when you find out it's twins or more, and it can take time to adjust. Your partner may feel overwhelmed too. Start talking about it early.
@@ -44,8 +43,8 @@ Early symptoms such as nausea, tiredness and mood changes can be stronger, and b
 
 ## Your mental health
 
-AMBA says the emotional health of mothers of multiples is poorer, and they are at higher risk of becoming depressed, anxious and clinically exhausted after childbirth than mothers of single babies. It cites research finding that rates of clinical anxiety are three times higher, and rates of depression five times higher, among mothers of twins than among mothers of singletons. The intensity of caring, broken sleep, financial strain and relationship stress all play a part. Keep talking with your partner and ask for help if you need it; AMBA also suggests joining a club to meet your peers. If you're struggling, the hospital social worker or someone at AMBA may help.
+AMBA says the emotional health of birth parents of multiples is poorer, and they are at higher risk of becoming depressed, anxious and clinically exhausted after childbirth than birth parents of single babies. It cites research finding that rates of clinical anxiety are three times higher, and rates of depression five times higher, among birth parents of twins than of singletons. The intensity of caring, broken sleep, financial strain and relationship stress all play a part. Keep talking with your partner and ask for help if you need it; AMBA also suggests joining a club to meet your peers. If you're struggling, the hospital social worker or someone at AMBA may help.
 
 ## Twin-to-twin transfusion syndrome
 
-Pregnancy, Birth and Baby says identical twins who share a placenta and amniotic sac can sometimes get twin-to-twin transfusion syndrome (TTTS), where blood flows from one twin to the other, and that it can sometimes be very severe. It's rare, and most identical twins won't get it. If your twins have it, your care will be transferred to medical specialists and you'll be referred to a hospital that can care for you and your babies.
+Pregnancy, Birth and Baby says identical twins who share a placenta and amniotic sac can sometimes get twin-to-twin transfusion syndrome (TTTS), where blood flows from one twin to the other, and that it can sometimes be very severe. It's rare, and most identical twins won't get it. Contact your doctor immediately if your tummy feels tight, is painful or suddenly gets bigger, or if you put on weight very quickly or are short of breath. If your twins have it, your care will be transferred to medical specialists and you'll be referred to a hospital that can care for you and your babies.

@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Radiation exposure during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/radiation-exposure-during-pregnancy
 related: [medical-x-rays-and-ct, dental-x-rays, flying, working-while-pregnant]
-draft: true
 checked: 2026-10-29
 ---
 Yes, you can. ARPANSA says that if proper guidelines are followed, the risk to your unborn child is negligible.

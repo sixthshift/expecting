@@ -8,7 +8,7 @@ aliases: [when to call the hospital, 5-1-1, contractions 5 minutes apart, going 
 weeks: [36, 42]
 who: together
 stakes: high
-summary: "Ring the birth unit any time you're unsure; go in when contractions are regular and strong, and go straight away if your waters break or you're bleeding."
+summary: "Ring the birth unit any time you're unsure; go in when contractions are regular and strong, and call straight away if your waters break or you're bleeding."
 sources:
   - title: Better Health Channel — Pregnancy, labour
     url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-labour
@@ -22,7 +22,6 @@ related: [signs-of-labour, timing-contractions, waters-breaking, early-labour, g
 appointment:
   - When would you want us to call or come in once labour starts?
   - Is there anything about my pregnancy that means we should come in earlier?
-draft: true
 checked: 2026-10-29
 ---
 There's no single rule, and your own hospital's advice comes first: be guided by your midwife or doctor about the right time for you. You can ring the birth unit any time you're unsure or worried. They'll ask some questions and help you decide. Save the number in both phones.
@@ -33,11 +32,10 @@ There's no need to be in hospital until contractions are regular and painful; re
 
 ## When to go in
 
-Better Health Channel says to go to your place of birth once contractions are 5 minutes apart, or if you live a long way away, or if you no longer feel comfortable at home.
+Go to the hospital or birth centre if:
 
-Pregnancy, Birth and Baby says to go to the hospital or birth centre if:
-
-- you have regular contractions (for a first labour, at least 3 in 10 minutes) that are getting stronger and taking more of your focus
+- you have regular, painful contractions about 5 minutes apart (2 or more in 10 minutes), getting stronger and taking more of your focus
+- you live a long way away, or no longer feel comfortable at home
 - you have contractions before 37 weeks of pregnancy
 - your waters break, or you think they may have broken
 - you have vaginal bleeding that's different from a mucousy "show"
@@ -51,7 +49,7 @@ Ring to say you're on your way. Allow for the drive and the traffic. If you've h
 
 ## When to get help straight away
 
-- **Your waters break, or you're bleeding from the vagina:** Better Health Channel says go immediately to hospital. King Edward Memorial Hospital says call the hospital or your midwife immediately.
+- **Your waters break, or you're bleeding from the vagina:** call the hospital or your midwife immediately and go in; for heavy bleeding, call 000.
 - **The fluid is green, brown or blood-coloured:** call your doctor, midwife or birthing unit immediately for advice, or go to hospital.
 - **Your waters break before 37 weeks:** contact your midwife or doctor and go to hospital.
 - **Your waters break and they smell bad, you have a temperature of 37.5°C or above, you feel unwell, or you notice a change in your baby's movements:** call your midwife, doctor or hospital immediately.

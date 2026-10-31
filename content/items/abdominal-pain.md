@@ -10,6 +10,8 @@ who: carrying
 stakes: high
 summary: "Belly pain is common in pregnancy and often nothing serious, but severe pain, or pain with bleeding, signs of early labour or infection, or after a knock to the belly, needs emergency care."
 sources:
+  - title: Pregnancy, Birth and Baby — Injuries during pregnancy
+    url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
   - title: Pregnancy, Birth and Baby — Abdominal pain in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/abdominal-pain-in-pregnancy
   - title: Pregnancy, Birth and Baby — Pre-eclampsia
@@ -17,7 +19,6 @@ sources:
   - title: healthdirect — Warning signs during pregnancy
     url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
 related: [cramping-and-pain-in-early-pregnancy, round-ligament-pain, pain-under-the-ribs, braxton-hicks, constipation, signs-of-preterm-labour, bleeding-after-20-weeks]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Cots
     url: https://www.pregnancybirthbaby.org.au/babies/sleep-and-settling/cots
 related: [cot-and-safe-sleep-standards, second-hand-baby-gear]
-draft: true
 checked: 2026-10-29
 ---
 Portable cots are designed to be used temporarily, and they're handy when you're travelling or visiting. Pregnancy, Birth and Baby says they might not be as safe as a permanent cot: because they fold, it's easier for a child to climb out or become trapped.

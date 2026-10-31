@@ -18,7 +18,6 @@ appointment:
   - What blood glucose targets should I aim for?
   - Can you refer me to a dietitian and a diabetes educator?
   - Where should I plan to give birth?
-draft: true
 checked: 2026-10-29
 ---
 Gestational diabetes is diabetes that starts in pregnancy. It affects around 1 in 10 pregnancies. The placenta makes hormones that help the baby grow but also reduce the action of insulin, and if your body can't keep up with the extra insulin it needs, your blood sugar runs high. It often causes no symptoms, which is why everyone is offered the glucose tolerance test at 24 to 28 weeks. It does not mean the baby will be born with diabetes.

@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — First stage of labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-first-stage-of-labour
 related: [length-of-labour, when-to-go-to-hospital]
-draft: true
 checked: 2026-10-29
 ---
-It's difficult to say how long your labour will be. Pregnancy, Birth and Baby says many women find their first baby is often the longest, and the first stage of labour usually lasts longer for a first birth and shorter if you've given birth before. If you've had a baby before, you can expect this labour to be quicker, which may help you plan when to go to hospital.
+It's difficult to say how long your labour will be. Pregnancy, Birth and Baby says a first baby is often the longest, and the first stage of labour usually lasts longer for a first birth and shorter if you've given birth before. If you've had a baby before, you can expect this labour to be quicker, which may help you plan when to go to hospital.

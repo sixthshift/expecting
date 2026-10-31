@@ -16,7 +16,6 @@ sources:
   - title: RANZCOG — Common questions in pregnancy
     url: https://ranzcog.edu.au/wp-content/uploads/Common-Questions-In-Pregnancy.pdf
 related: [exercise-lying-on-your-back, sleeping-on-your-stomach, massage, sex]
-draft: true
 checked: 2026-10-29
 ---
 From 28 weeks until the birth, doctors recommend you sleep on your side. That means going to sleep on your side at night and when you nap during the day. Either side is fine, or both. Pregnancy, Birth and Baby says it's important to do this to help reduce your risk of stillbirth.

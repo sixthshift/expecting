@@ -13,7 +13,6 @@ sources:
   - title: "healthdirect — Breast uplift"
     url: https://www.healthdirect.gov.au/procedures/surgery/breast-uplift
 related: [feeding-plan, term-montgomery-glands]
-draft: true
 checked: 2026-10-29
 ---
 The areola is the darker area around your nipple (healthdirect). In pregnancy your nipples and areola may darken and increase in size, and small bumps on the areola may become more noticeable (these are Montgomery glands).

@@ -20,7 +20,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Travel and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
 related: [travel-insurance, boats-and-ferries, overseas-travel]
-draft: true
 checked: 2026-10-29
 ---
 Check with the cruise line before you book. Sea travel may be restricted towards the end of pregnancy, and MotherSafe says most cruise lines restrict travel beyond 28 weeks and have their own requirements for pregnant passengers.

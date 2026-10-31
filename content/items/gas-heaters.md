@@ -7,16 +7,15 @@ ask: Is our old gas heater safe to use now that I'm pregnant?
 aliases: [gas heater, unflued heater, carbon monoxide, CO alarm, gas fitter, BBQ indoors, outdoor heater inside, generator, wood heater, fireplace]
 who: carrying
 stakes: high
-summary: "With checks: pregnant women are among the people carbon monoxide makes sicker, so make sure the heater is meant for indoors, have a registered gas fitter check it at least every two years, and think about a CO alarm."
+summary: "With checks: pregnant people are among the people carbon monoxide makes sicker, so make sure the heater is meant for indoors, have a registered gas fitter check it at least every two years, and think about a CO alarm."
 verdict: limit
 sources:
   - title: NSW Health — Carbon monoxide safety fact sheet
     url: https://www.health.nsw.gov.au/environment/factsheets/Pages/carbon-monoxide.aspx
 related: [bushfire-smoke, mould]
-draft: true
 checked: 2026-10-29
 ---
-With checks. Carbon monoxide can make anyone sick, and NSW Health lists pregnant women among the people who can get sicker than others. You can't see, smell or hear it, and it can build up inside when doors and windows are closed.
+With checks. Carbon monoxide can make anyone sick, and NSW Health lists pregnant people among the people who can get sicker than others. You can't see, smell or hear it, and it can build up inside when doors and windows are closed.
 
 ## Why
 

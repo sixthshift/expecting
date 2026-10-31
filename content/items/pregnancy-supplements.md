@@ -20,7 +20,6 @@ related: [eating-well-in-pregnancy, heart-and-blood-in-pregnancy, term-folate, t
 appointment:
   - Which supplements do I need beyond folic acid and iodine?
   - Should my vitamin D be tested?
-draft: true
 checked: 2026-10-29
 ---
 A healthy, balanced diet gives you most of what you need in pregnancy. But two supplements are recommended for everyone in Australia: folic acid and iodine. Before adding anything else, talk to your pharmacist, doctor, midwife or dietitian.
@@ -38,14 +37,14 @@ Iodine is important for your baby's brain development. Take a supplement with **
 
 ## Vitamin D
 
-Pregnancy, Birth and Baby says some people need a vitamin D supplement: if you're likely to be low, your midwife or doctor may test your levels and recommend one. The Royal Women's Hospital goes further, advising every pregnant person to take 400 IU (10 mcg) a day, with an extra tablet if a blood test shows you're low. Ask your midwife or doctor which applies to you.
+Services differ on who needs one: some recommend 400 IU (10 mcg) a day for everyone who's pregnant; others test you if you're likely to be low and suggest a supplement depending on the result. Ask your midwife which applies to you.
 
 ## Iron, calcium, omega-3 and B12
 
 - **Iron:** needs rise in the second and third trimesters. If a blood test shows you're low in iron or have anaemia, you'll likely be recommended an iron supplement.
 - **Calcium:** usually no supplement is needed if you eat a healthy diet. Your midwife or doctor may suggest one if your usual diet doesn't have enough or you have certain medical conditions.
 - **Omega-3:** your midwife or doctor may suggest it if you're low. Avoid fish liver oils: they contain too much vitamin A.
-- **Vitamin B12:** your midwife or doctor may suggest it if you follow a vegetarian or vegan diet. The Royal Women's Hospital says that if you eat no animal foods you will need to take it.
+- **Vitamin B12:** if you eat no animal foods, you'll need to take it.
 
 ## A pregnancy multivitamin
 

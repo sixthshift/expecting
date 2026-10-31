@@ -13,7 +13,6 @@ sources:
   - title: Fair Work Ombudsman — Entitlements while pregnant
     url: https://www.fairwork.gov.au/leave/parental-leave/before-parental-leave/entitlements-while-pregnant
 related: [unpaid-parental-leave, safe-job-and-no-safe-job-leave, leave-after-loss, morning-sickness]
-draft: true
 checked: 2026-10-29
 ---
 A pregnant employee who is eligible for unpaid parental leave can take **unpaid special parental leave** if they're unfit for work because they:

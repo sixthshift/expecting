@@ -18,7 +18,6 @@ sources:
 related: [the-umbilical-cord, amniotic-fluid, term-anterior-placenta, term-posterior-placenta, term-placenta-praevia, twins-and-multiples]
 appointment:
   - Where is my placenta?
-draft: true
 checked: 2026-10-29
 ---
 The placenta is a temporary organ that grows only in pregnancy. It starts forming when the fertilised egg implants in your uterus, attaches to the uterus lining, and reaches your baby through the umbilical cord.
@@ -62,4 +61,4 @@ You can take your placenta home. There are no proven health benefits of eating i
 
 **Speak with your doctor or midwife immediately** if you have severe abdominal pain, vaginal bleeding without pain, regular painful contractions before 37 weeks, or any injury to your abdomen, such as from a fall or car accident.
 
-**For bleeding in late pregnancy**, contact your doctor or midwife as soon as possible. Vaginal bleeding in late pregnancy is often due to a placenta problem, Pregnancy, Birth and Baby says. The Royal Women's Hospital says any bleeding in later pregnancy most likely points to a placenta problem and needs medical attention. If you have a low-lying placenta (placenta praevia) and bleed, the blood is yours, not the baby's.
+**Any bleeding after 20 weeks**, contact your hospital's birth unit straight away. Bleeding in later pregnancy most likely points to a problem with the placenta. If you have a low-lying placenta (placenta praevia) and bleed, the blood is yours, not the baby's.

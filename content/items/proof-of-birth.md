@@ -16,7 +16,6 @@ sources:
   - title: Services Australia — Claiming timeframes for Parental Leave Pay
     url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay
 related: [parental-leave-pay-claim, family-tax-benefit-claim, medicare-enrol-baby, registering-the-birth]
-draft: true
 checked: 2026-10-29
 tasks:
   - id: get-proof-of-birth-signed

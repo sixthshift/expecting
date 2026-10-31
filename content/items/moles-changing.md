@@ -15,7 +15,6 @@ sources:
 related: [skin-darkening]
 appointment:
   - Can you check my moles?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

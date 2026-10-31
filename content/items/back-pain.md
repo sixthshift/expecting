@@ -18,7 +18,6 @@ related: [pelvic-girdle-pain, sciatica, signs-of-preterm-labour, urinary-tract-i
 appointment:
   - Should I see a physiotherapist about my back?
   - Which exercises are safe for me with my back pain?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -37,13 +36,16 @@ If pain persists, see your GP or a physiotherapist.
 ## Call 000 or go to emergency
 
 Call triple zero (000) immediately and ask for an ambulance if you have:
+- very heavy bleeding, strong pain, or you feel very unwell
 
 - **signs of preterm labour** (before 37 weeks): back pain with tummy pains or cramps, pressure in your pelvis or lower back, or fluid leaking from your vagina
 - **signs of cauda equina syndrome**, a very rare compressed nerve in the spine: back pain with lost feeling or weakness in your limbs, pins and needles or tingling in your limbs, or problems controlling your bowels or bladder
 
-## See your doctor or midwife
+## Contact your hospital now
 
-See your midwife or doctor if you are concerned, feel "pins and needles" in your legs, or have leg weakness or incontinence.
+Contact your doctor, midwife or hospital immediately if you have back pain with any bleeding from your vagina.
+
+## See your doctor or midwife
 
 See your doctor or midwife if you're concerned about lower back pain, including pain that:
 

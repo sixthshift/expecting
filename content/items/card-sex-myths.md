@@ -1,9 +1,9 @@
 ---
 id: card-sex-myths
-title: "Heart rate, bump shape and cravings can't tell you the sex"
+title: "Bump shape, a swinging ring and kicks can't tell you the sex"
 type: card
 topic: baby
-ask: "Does a fast heartbeat mean a girl?"
+ask: "Can you tell the sex from the bump?"
 aliases: [boy or girl myths, carrying high, carrying low, heart rate girl]
 weeks: [8, 22]
 stakes: low
@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Morphology scan
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/morphology-scan
 related: [finding-out-the-sex]
-draft: true
 checked: 2026-10-29
 ---
 The position of the baby in your tummy, holding a wedding ring over your abdomen and watching which way it turns, or how active the baby is are all ways you may have heard to tell if you are having a boy or a girl. None of these methods are proven to work.

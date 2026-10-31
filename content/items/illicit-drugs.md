@@ -17,7 +17,6 @@ sources:
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-drugs-alcohol/drugs-you
 related: [cannabis, alcohol-before-you-knew, medicines-before-you-knew]
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 No. Pregnancy, Birth and Baby says illicit drugs, including amphetamines, heroin and cocaine, should not be used in pregnancy, as they can harm you and your baby.
@@ -32,5 +31,5 @@ Amphetamines such as ice, speed and ecstasy are considered dangerous in pregnanc
 
 - **Talk to a doctor or midwife about what you've taken,** even if you're not sure what it was.
 - **If you use regularly, don't stop suddenly on your own.** With some drugs that can be very dangerous for your baby. Withdrawal can start days later and last weeks. A health professional will help you cut down or stop safely.
-- **Heroin:** you'll be offered a safe alternative, such as a methadone program. Suboxone and naltrexone can't be used in pregnancy.
+- **Heroin:** you'll be offered a safe alternative, such as a methadone program. If you're already on an opioid treatment program, don't change it yourself: tell your prescriber you're pregnant.
 - **On a prescribed drug or treatment?** Make sure the doctor knows you're pregnant.

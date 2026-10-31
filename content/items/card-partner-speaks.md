@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — The role of a birth support partner
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
 related: [support-person-role, birth-preferences]
-draft: true
 checked: 2026-10-29
 ---
 Somewhere in labour, your partner may not be able to say what they want. You may need to speak up on their behalf: tell the maternity team their needs and wishes, talk through what the team advises, keep them told what's happening, and help them make decisions.

@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnant with twins
     url: https://www.pregnancybirthbaby.org.au/pregnancy/multiple-pregnancy/twin-pregnancy
 related: [twins-and-multiples, term-mcda, term-mcma, term-ttts]
-draft: true
 checked: 2026-10-29
 ---
 Fraternal twins each have their own placenta and sac. Identical twins come from one fertilised egg that splits in two, and they may each have their own placenta (DCDA, the most common type of twin pregnancy), share a placenta with separate sacs (MCDA), or share both (MCMA, rarer).

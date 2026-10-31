@@ -17,7 +17,6 @@ sources:
   - title: The Royal Women's Hospital — Bleeding in early pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/early-pregnancy-problems/bleeding-in-early-pregnancy
 related: [heavy-bleeding, cramping-and-pain-in-early-pregnancy, shoulder-tip-pain, bleeding-after-20-weeks]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -43,7 +42,7 @@ Go to your nearest emergency department immediately if you have chills or a fast
 
 Pregnancy, Birth and Baby's bleeding page counts 2 pads an hour as heavy; its miscarriage page says 1. Go by 1.
 
-## See your doctor or midwife
+## Contact your hospital now
 
 Contact your doctor or midwife for spotting or bleeding at any stage of pregnancy. If the bleeding isn't heavy and you feel well, contact them straight away to find out what to do; they may refer you to hospital or an early pregnancy assessment service, or arrange a blood test and an ultrasound. If you haven't started pregnancy care yet, call your GP.
 

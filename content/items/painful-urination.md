@@ -17,7 +17,6 @@ sources:
   - title: The Royal Women's Hospital — Coping with common discomforts of pregnancy (fact sheet)
     url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
 related: [urinary-tract-infection, frequent-urination, fever, back-pain, thrush]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

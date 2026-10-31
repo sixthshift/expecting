@@ -18,7 +18,6 @@ sources:
   - title: Healthdirect — MSI Canberra Abortion & Contraception Clinic
     url: https://www.healthdirect.gov.au/australian-health-services/healthcare-service/city-2601-act/msi-canberra-abortion-contraception-clinic/family-counselling-service/e9487485-c841-4e9d-aad3-d1c8af130f93
 related: [reproductive-coercion, something-has-happened, adoption-pointers]
-draft: true
 checked: 2026-10-29
 ---
 An unplanned pregnancy can bring confusing, conflicting feelings, sometimes fear and joy at once. That's very common, and an unplanned pregnancy may still be wanted. If you're pregnant, see your doctor as soon as possible to talk about your health and your options.
@@ -32,7 +31,7 @@ An unplanned pregnancy can bring confusing, conflicting feelings, sometimes fear
 
 ## Why timing matters
 
-The earlier you talk to a doctor or family planning clinic, the more choices you have. A medical abortion (taking a medicine) is an option up to 9 weeks; a short surgical procedure up to 14 weeks, and a different procedure after that. Later in pregnancy, PBB says your doctor may need approval for an abortion after 20 weeks, and that in most of Australia abortions after 22 to 24 weeks can only be done for certain reasons and need a second doctor's approval. If your doctor can't help, ask for the name of one who can.
+The earlier you talk to a doctor or family planning clinic, the more choices you have. A medical abortion (taking a medicine) is an option up to 9 weeks; a short surgical procedure up to 14 weeks, and a different procedure after that. Later in pregnancy, your doctor may need approval for an abortion after 20 weeks, and in most of Australia abortions after 22 to 24 weeks can only be done for certain reasons and need a second doctor's approval. If your doctor can't help, ask for the name of one who can.
 
 ## Making the decision
 
@@ -45,7 +44,7 @@ It's up to you how much to involve your partner. You are the only person who can
 Counselling should give you unbiased information and support whatever you decide. Your doctor or local family planning clinic is a good start. You can also call:
 
 - 1800 My Options: 1800 696 784
-- Children by Choice: 1800 177 725 (PBB's abortion page lists it as nationwide; its unplanned pregnancy page as Queensland only)
-- MSI Australia: 1300 003 707, to make an appointment (PBB's unplanned pregnancy page gives 1300 405 568; Healthdirect's MSI clinic listings give 1300 003 707)
+- Children by Choice (Queensland): 1800 177 725
+- MSI Australia: 1300 003 707, to make an appointment
 - 1800RESPECT: 1800 737 732, if you've experienced sexual assault or domestic and family violence
 - PANDA: 1300 726 306; Lifeline: 13 11 14 for crisis support; Beyond Blue: 1300 22 4636

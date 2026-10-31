@@ -18,7 +18,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Planned or elective caesarean
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/planned-or-elective-caesarean
 related: [planned-caesarean, emergency-caesarean, term-spinal-block, skin-to-skin, breastfeeding-after-caesarean, caesarean-recovery]
-draft: true
 checked: 2026-10-29
 ---
 A caesarean is an operation to birth the baby through a cut in your abdomen and uterus, usually low, near the bikini line. Around 4 in every 10 babies born in Australia in 2023 were born this way. Whether it's planned or an emergency, what happens in theatre is very similar.

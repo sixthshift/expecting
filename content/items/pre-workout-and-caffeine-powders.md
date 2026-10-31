@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
 related: [energy-drinks, coffee-and-caffeine, herbal-supplements]
-draft: true
 checked: 2026-10-29
 ---
 Check before you keep taking it. Pregnancy, Birth and Baby says it's best to speak to your doctor or pharmacist before taking any medicine or supplement while you're pregnant, and we haven't found Australian pregnancy advice that names pre-workout, protein powder or other sports supplements.

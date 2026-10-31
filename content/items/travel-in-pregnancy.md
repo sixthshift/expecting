@@ -22,7 +22,6 @@ related: [flying, airline-pregnancy-limits, travel-insurance, overseas-travel, l
 appointment:
   - Is it safe for me to travel on the trip we're planning?
   - Can you write a letter for the trip with my antenatal history and any medical problems?
-draft: true
 checked: 2026-10-29
 ---
 ## Why

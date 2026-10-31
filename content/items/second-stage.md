@@ -13,8 +13,9 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-second-stage-of-labour
   - title: RANZCOG — Care in Labour in the Absence of Pregnancy Complications (C-Obs 31)
     url: https://ranzcog.edu.au/wp-content/uploads/Care-Labour-Absence-Pregnancy-Complications.pdf
+  - title: The Royal Women's Hospital — Stages of labour
+    url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/stages-of-labour
 related: [term-urge-to-push, term-crowning, positions-for-labour, assisted-birth, perineal-tears, skin-to-skin, slow-progress]
-draft: true
 checked: 2026-10-29
 ---
 The second stage starts when your cervix is fully open at 10 cm and ends when your baby is born. It has two parts: a passive part, when you're fully open but don't feel an urge to push (usually with an epidural), and an active part, when you feel the urge.
@@ -36,9 +37,9 @@ Push with your contractions when you feel ready and your midwife says you're ful
 
 ## How long
 
-Pregnancy, Birth and Baby says birth is generally expected within 3 hours of full dilation for a first birth, or 2 hours if you've had a baby before. With an epidural, that usually includes about an hour of passive descent, then 1 to 2 hours of pushing for a first birth.
+Birth is generally expected within 3 hours of full dilation for a first birth, or 2 hours if you've had a baby before. With an epidural, that usually includes about an hour of passive descent, then 1 to 2 hours of pushing for a first birth.
 
-If birth isn't close after 2 hours in a first birth, or up to an hour if you've had a baby before, your team will call a doctor to review. RANZCOG's guideline recommends escalation after 2 hours of pushing in a first birth or 1 hour in a later one, says that if you and the baby are well it's reasonable to support another hour of pushing, and says decisions to speed up the birth shouldn't be based on time limits alone.
+If birth isn't close after 2 hours in a first birth, or up to an hour if you've had a baby before, your team will call a doctor to review. If you and the baby are well, another hour of pushing may be supported; decisions to speed up the birth shouldn't be based on time limits alone.
 
 ## The birth
 

@@ -27,7 +27,6 @@ related: [the-uterus-in-pregnancy, term-fundal-height, term-crown-rump-length, t
 appointment:
   - Is the baby growing as expected for my weeks?
   - Would I need an ultrasound to check the baby's growth?
-draft: true
 checked: 2026-10-29
 ---
 Every baby grows at their own pace, so any size for a given week is a rough average. Babies are born in all different shapes and sizes.
@@ -69,4 +68,4 @@ You might notice your tummy isn't growing as expected, or is smaller than in a p
 
 ## When to get help
 
-If you're concerned about your baby's movement pattern or notice a decrease in their movements, contact your midwife or doctor immediately. Don't wait until the next day.
+If you're concerned about your baby's movement pattern or notice a decrease in their movements, contact your midwife or doctor immediately. Don't wait until the next day. See [The baby is moving less](baby-moving-less).

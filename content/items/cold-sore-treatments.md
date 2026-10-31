@@ -15,16 +15,15 @@ sources:
   - title: Pregnancy, Birth and Baby — Cold sores in pregnancy and breastfeeding
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-sores-in-pregnancy
 related: [medicines-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
-Yes. Aciclovir cream can be used safely at all stages of pregnancy (KEMH). If the cold sores are severe, your doctor can prescribe a course of aciclovir or valaciclovir tablets, which KEMH also considers safe at all stages.
+Yes. Aciclovir cream can be used safely at all stages of pregnancy (KEMH). If the cold sores are severe, your doctor can prescribe a course of aciclovir or valaciclovir tablets, which Pregnancy, Birth and Baby says are safe.
 
 Famciclovir is the exception: Pregnancy, Birth and Baby says it is not recommended in pregnancy or breastfeeding, because there isn't enough research to know whether it is safe.
 
 ## Why
 
-Cold sores are common in pregnancy and are not thought to affect the unborn baby (KEMH). Pregnancy, Birth and Baby adds that a first-ever HSV infection early in pregnancy may lead to miscarriage or other complications, and that while you're pregnant the virus can cause severe illness. It says you should see your doctor if you get a cold sore during pregnancy.
+Cold sores are common in pregnancy and are not thought to affect the unborn baby (KEMH). Pregnancy, Birth and Baby says to see your doctor if you get a cold sore during pregnancy.
 
 ## What to do
 

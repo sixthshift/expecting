@@ -17,10 +17,9 @@ related: [term-oasis, episiotomy, perineal-massage, assisted-birth, term-crownin
 appointment:
   - Am I more likely to tear, and what could lower my chance?
   - What does my hospital do to lower the chance of a serious tear?
-draft: true
 checked: 2026-10-29
 ---
-As the baby is born, the skin and muscles between your vagina and anus (the perineum) stretch, and sometimes they tear. Tearing is common: Pregnancy, Birth and Baby says about 8 in 10 women have some form of tear with a vaginal birth, and elsewhere that around 3 in 4 have a tear or a cut (an episiotomy).
+As the baby is born, the skin and muscles between your vagina and anus (the perineum) stretch, and sometimes they tear. Tearing is common: about 8 in 10 people who give birth vaginally have some form of tear.
 
 ## The degrees
 
@@ -47,9 +46,10 @@ Pain or soreness is normal for 2 to 3 weeks, especially walking or sitting. The 
 
 ## When to get help
 
+Contact your doctor or midwife straight away if you have a temperature of 38°C or more.
+
 Most people have a postnatal check at 6 weeks, but talk to your doctor earlier if you're worried about healing, or if:
 
-- you develop a temperature
 - there's an unusual smell or discharge from the tear
 - the area becomes inflamed, swollen or red
 - it still hurts after 2 to 3 weeks

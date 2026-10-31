@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Your baby's first 24 hours
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/babys-first-24-hours
 related: [term-lanugo, how-your-baby-develops, baby-first-days]
-draft: true
 checked: 2026-10-29
 ---
 Vernix is a white, sticky substance that, by 19 weeks, is covering your baby's skin. It's a barrier that protects against infection and against the amniotic fluid they're surrounded by. It's very common for vernix to still be there at birth, so your baby may have it on their skin along with some blood. If you go past your due date there is likely to be much less, and an overdue baby's skin may be slightly dry and cracked.

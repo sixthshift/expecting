@@ -21,16 +21,15 @@ sources:
   - title: Pregnancy, Birth and Baby — Cold and flu during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-and-flu-during-pregnancy
 related: [cold-and-flu-tablets, throat-lozenges-and-gargles, honey]
-draft: true
 checked: 2026-10-29
 ---
-**Pholcodine is no longer sold in Australia.** In March 2023 the TGA cancelled 55 pholcodine cough medicines, and the ones still on pharmacy shelves were recalled. Some older pages still list it.
+**Pholcodine is no longer sold in Australia.** In February 2023 the TGA cancelled 55 pholcodine cough medicines, and the ones still on pharmacy shelves were recalled. Some older pages still list it.
 
 Other cough medicines are considered safe in pregnancy. Which one depends on the kind of cough, and it's best to check with your doctor or pharmacist first.
 
 ## Why
 
-- **Dry, tickly cough:** dextromethorphan is considered safe in pregnancy. MotherSafe also lists dihydrocodeine.
+- **Dry, tickly cough:** dextromethorphan is considered safe in pregnancy.
 - **Chesty, productive cough:** bromhexine and guaifenesin are considered safe.
 
 MotherSafe notes there are no large published studies on these medicines, but they've been widely used for many years and are considered safe in pregnancy and breastfeeding.

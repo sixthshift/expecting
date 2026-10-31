@@ -21,7 +21,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Leg cramps during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/leg-cramps-during-pregnancy
 related: [leg-cramps, swollen-feet-and-ankles, chest-pain, breathlessness, varicose-veins]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -32,14 +31,10 @@ Being pregnant raises the chance of a deep vein thrombosis (DVT), a blood clot i
 
 ## Call 000 or go to emergency
 
-Call triple zero (000) and ask for an ambulance if you have chest pain or trouble breathing. These can be signs of a clot in the lung.
+Call triple zero (000) and ask for an ambulance if you have chest pain, trouble breathing, a racing or pounding heart, dizziness or fainting, or you cough up blood. These can be signs of a clot in the lung.
 
 ## Contact your hospital now
 
 If one arm or leg is more swollen than the other and you also have pain, redness or warmth in it, contact your doctor, midwife or maternity hospital straight away.
 
 Any time in pregnancy, pain or swelling in one leg means contacting your doctor, midwife or hospital immediately.
-
-## See your doctor or midwife
-
-If leg pain doesn't go away, or your leg is red, warm or swollen, see your doctor immediately.

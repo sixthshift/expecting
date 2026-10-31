@@ -23,7 +23,6 @@ appointment:
   - Can we go through what happened at my last birth?
   - Can we make a plan for what might happen at this birth, and what you'd do?
   - Who can I talk to about how I feel about giving birth again?
-draft: true
 checked: 2026-10-29
 ---
 If your last birth felt traumatic, it was traumatic, and it's absolutely understandable to feel fearful about being pregnant again or about the birth ahead. A previous birth trauma can influence how you experience the next birth, and getting early care and support can help. It's never too late to ask for help, even months or years on.

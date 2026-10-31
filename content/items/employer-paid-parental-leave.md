@@ -14,7 +14,6 @@ sources:
   - title: Services Australia — Claiming timeframes for Parental Leave Pay
     url: https://www.servicesaustralia.gov.au/claiming-timeframes-for-parental-leave-pay
 related: [parental-leave-pay, unpaid-parental-leave, budgeting-for-leave, parental-leave-pay-employer-delivered]
-draft: true
 checked: 2026-10-29
 tasks:
   - id: ask-employer-about-paid-leave

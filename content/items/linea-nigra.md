@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Linea nigra
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/skin-changes-during-pregnancy-linea-nigra
 related: [skin-darkening, stretch-marks]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

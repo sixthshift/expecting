@@ -19,7 +19,6 @@ related: [older-parent-40, first-trimester-screening, told-higher-risk]
 appointment:
   - Does my age change the care you'd recommend for me?
   - Would screening or testing for chromosomal conditions suit me?
-draft: true
 checked: 2026-10-29
 ---
 Many people in their mid-30s and older go on to have healthy pregnancies. Age is one factor among many. What it does change is the odds of some complications, and so the care you're offered.

@@ -6,7 +6,7 @@ topic: body
 ask: "What's the difference between antenatal, perinatal and postnatal?"
 aliases: [antenatal, prenatal, perinatal, postnatal, postpartum, antepartum]
 stakes: low
-summary: "Antenatal and prenatal both mean before birth; postnatal means after birth; perinatal is defined two ways."
+summary: "Antenatal and prenatal both mean before birth; postnatal means after birth; perinatal spans pregnancy and the first year after birth."
 sources:
   - title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour"
     url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
@@ -15,11 +15,10 @@ sources:
   - title: "Australian Institute of Health and Welfare — Mothers and babies glossary"
     url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary
 related: [term-gestational-age]
-draft: true
 checked: 2026-10-29
 ---
 Antenatal and prenatal both mean before birth (so does antepartum). Pregnancy, Birth and Baby describes antenatal as the time from conception and during pregnancy, as in "antenatal appointments".
 
 Postnatal and postpartum mean after birth. Pregnancy, Birth and Baby gives it as immediately after birth until about 6 to 8 weeks.
 
-Perinatal is defined two ways. Pregnancy, Birth and Baby says conception and pregnancy through to the first year after birth. The Australian Institute of Health and Welfare says the period shortly before or after birth, usually up to 28 days.
+Perinatal means the time from conception and pregnancy through to the first year after birth, as in perinatal anxiety and depression.

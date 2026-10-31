@@ -13,7 +13,6 @@ sources:
   - title: The Royal Womens Hospital — Baby's position
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/babys-position
 related: [term-occiput-anterior]
-draft: true
 checked: 2026-10-29
 ---
 Lateral (also called transverse) means the back of your baby's head faces your side. Usually the baby moves into a good position for birth, and their position can change with your contractions as they move down the birth canal. If your baby stays lateral through labour it may be a little longer and you may have a bit more back pain.

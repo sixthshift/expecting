@@ -20,7 +20,6 @@ sources:
   - title: Services Australia — Health Care Card
     url: https://www.servicesaustralia.gov.au/health-care-card
 related: [family-tax-benefit-b, family-tax-benefit-claim, immunisation-requirements-for-payments, newborn-supplement-and-upfront-payment, medicare-safety-net]
-draft: true
 checked: 2026-10-29
 ---
 Family Tax Benefit (FTB) is a 2-part payment that helps with the cost of raising children. Part A is paid **for each eligible child**, and how much depends on your family's adjusted taxable income and the ages and number of children in your care. To get FTB you must care for the child at least 35% of the time and meet an income test.

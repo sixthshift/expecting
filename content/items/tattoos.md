@@ -15,7 +15,6 @@ sources:
   - title: healthdirect — Body piercing and tattoos
     url: https://www.healthdirect.gov.au/healthy-living/hygiene-and-protection/body-piercing-and-tattoos
 related: [piercings, beauty-salon-treatments, cosmetic-surgery]
-draft: true
 checked: 2026-10-29
 ---
 Best to wait. It's generally recommended to avoid getting a tattoo while you're pregnant or breastfeeding. The safest option is to wait until after both before getting a new one.

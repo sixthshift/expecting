@@ -23,7 +23,6 @@ related: [booking-in, antenatal-visit-schedule, first-blood-tests, midwifery-gro
 appointment:
   - Is caseload midwifery available to me here?
   - Which of the tests on offer would you suggest for me?
-draft: true
 checked: 2026-10-29
 tasks:
   - id: take-results-to-booking

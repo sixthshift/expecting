@@ -17,7 +17,6 @@ sources:
 related: [baby-movements, babys-hiccups]
 appointment:
   - Is my placenta at the front or the back?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -30,7 +29,7 @@ Once you can feel the baby regularly, get to know their own pattern.
 
 ## Contact your hospital now
 
-At any point, if you're concerned about your baby's movement pattern or notice the movements slowing down, contact your midwife, hospital birth unit or doctor immediately. Don't wait until the next day. If you can't reach your maternity care provider, go to your nearest hospital birthing or emergency unit.
+At any point, if you're concerned about your baby's movement pattern or notice the movements slowing down, contact your midwife, hospital birth unit or doctor immediately. Don't wait until the next day. If you can't reach your maternity care provider, go to your nearest hospital birthing or emergency unit. See [The baby is moving less](baby-moving-less).
 
 ## See your doctor or midwife
 

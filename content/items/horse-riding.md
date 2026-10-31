@@ -25,7 +25,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Bleeding during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
 related: [contact-sports, skiing, falls-and-knocks]
-draft: true
 checked: 2026-10-29
 ---
 No. Put riding on hold until after the birth.

@@ -1,0 +1,90 @@
+# Review, tier 1: the symptoms (docs/plan-review.md). 2026-10-31.
+# Every symptom entry read whole, for safety, consistency and voice. The
+# sources weren't reopened in this pass (they were in drafts-*.yaml); that is
+# still to do before any entry loses `draft`.
+
+added:
+  - id: baby-moving-less
+    why: >-
+      The Safer Baby Bundle's main message had no symptom entry, so no triage
+      or call button; `baby-movements` is a moment. Written from PBB and Safer
+      Baby; movement entries now point to it.
+  - id: seizure-in-pregnancy
+    why: >-
+      Nothing told the partner what to do if the pregnant parent has a fit
+      (eclampsia, or any seizure: healthdirect says to call 000 for a seizure
+      in pregnancy). Written for the partner.
+
+# The same sign at two urgencies in one entry, the lower one able to talk
+# someone out of the higher. Each now gives a sign once, at its most urgent.
+urgency:
+  - id: chest-pain
+    was: "000 if it lasts 10 minutes; then 'see your doctor' if it lasts 10 minutes at rest"
+  - id: back-pain
+    was: "000 for cauda equina signs; then 'see your doctor' for the same signs"
+  - id: sciatica
+    was: "000 for cauda equina signs; then 'get urgent care' for the same, plus healthdirect's generic list (drug use, age under 16)"
+  - id: pelvic-girdle-pain
+    was: "bladder or bowel trouble and leg numbness under 'see your doctor'; now 000, as in back-pain"
+  - id: heartburn
+    was: "chest pain and breathlessness under 'see your doctor'; now 000, as in chest-pain; pre-eclampsia signs now 'contact your hospital'"
+  - id: bleeding-after-20-weeks
+    was: "2 pads an hour → 'contact your obstetrician'; heavy-bleeding says 1 pad an hour → 000. Now 1 pad, 000, everywhere"
+  - id: shoulder-tip-pain
+    was: "000, then 'contact your hospital' for the same sign"
+  - id: cramping-and-pain-in-early-pregnancy
+    was: "ectopic signs → 000, then the same signs → 'contact your hospital'"
+  - id: painful-swollen-leg
+    was: "the same sign at 'contact your hospital' and 'see your doctor'"
+  - id: round-ligament-pain
+    was: "bleeding, contractions, fever under 'see your doctor'; now 'contact your hospital'"
+  - id: leaking-urine
+    was: "green or brown fluid, waters, under 'see your doctor'; now 'contact your hospital'"
+  - id: constipation
+    was: "'get urgent care' under 'see your doctor'; severe pain or vomiting now 'contact your hospital'"
+  - id: weight-loss
+    was: "its 000 section only said what one hospital tells its own patients"
+  - id: racing-heartbeat
+    was: "'contact your hospital immediately', then 'see your doctor urgently' for the same"
+  - id: signs-of-pre-eclampsia
+    was: "000 only 'in labour'; now a sudden severe headache, headache with vision changes, or a seizure, as in headaches"
+
+# Sources that disagreed, settled.
+settled:
+  - ids: [cord-prolapse, waters-breaking-early, fluid-leaking]
+    call: >-
+      PBB's two positions (knees to chest, head down; hands and knees, bottom
+      up) are the same idea: bottom higher than head, off the cord. All three
+      now give one instruction and no longer set the two pages side by side.
+  - ids: [heavy-bleeding, spotting-and-bleeding-in-early-pregnancy, bleeding-after-20-weeks]
+    call: "Heavy is 1 pad an hour, everywhere (the lower of PBB's two)."
+
+voice:
+  - "Repeated 000 lines removed (antenatal-anxiety, antenatal-depression)."
+  - "Crisis lines taken off pages that aren't about mood (insomnia, tiredness); insomnia points to worry-and-sleep."
+  - "'healthdirect lists…' attributions taken out of the urgent sections: the action first, credit in sources."
+  - "'women' in our own sentences → people or pregnancies (abdominal-separation, stretch-marks, leaking-urine)."
+  - "baby-movements: weeks to 42, and its leftover 'Ask your midwife or OB.' replaced with a link."
+
+found, not in symptoms:
+  - "PBB's pre-eclampsia page says seizures are 'known as HELLP syndrome'; seizures are eclampsia. Our entries don't repeat it."
+  - "'Ask your midwife or OB.' still ends 11 items and 40 week notes: for the week-notes pass and each item's own."
+
+# Second half, the same day: every source reopened (six readers, findings in
+# the session's scratchpad), each finding judged here and applied.
+sources reopened:
+  result: "75 entries; 74 lose `draft`. partner-perinatal-depression keeps it: PANDA's pages didn't load in full, so its signs list and 'often missed' are unconfirmed (read by hand)."
+  softer than the source, raised:
+    - "headache with vision changes → 000 in every pre-eclampsia entry (healthdirect Headaches); 'seek medical attention urgently' kept only for swelling and rib pain"
+    - "can't keep fluids down → emergency (severe-vomiting, weight-loss)"
+    - "bleeding with pain or contractions after 20 weeks → 000 (placenta praevia page)"
+    - "early spotting → contact straight away, not 'see your doctor'"
+    - "thoughts of suicide or self-harm → 'seek help immediately or call 000' (Beyond Blue), not only 'in immediate danger' (anxiety, depression, mood-swings, stress)"
+    - "a clot: pain or swelling in one leg → contact your hospital (leg-cramps, varicose-veins); palpitations, fainting, coughing up blood added to painful-swollen-leg's 000"
+    - "heartburn with vomiting blood, weight loss or painful swallowing → immediate care (heartburn, chest-pain)"
+    - "green or brown fluid, sepsis signs, constipation's urgent list, pelvic girdle pain's 'immediately' list: back to the source's level"
+  my own first pass, corrected: "constipation and pelvic-girdle-pain had been lowered too far in the morning's pass; they're back at the source's level"
+  added red flags: "sciatica: numbness around the genitals or bottom; headaches: fever, loss of balance, seizure; back-pain: heavy bleeding, strong pain, feeling very unwell; preterm labour: 000 if the baby may come before you reach hospital"
+  unsupported, cut: "calamine (pregnancy-rash), 'deal with worries earlier in the day', UTI tips, 'many with HG need a drip', sleep apnoea 'raises the risk', 'not something more serious' (intrusive-thoughts)"
+  cord prolapse: "the one position now reads as both PBB pages do: hands and knees, head and chest down, bottom in the air"
+  sources: "The Royal Women's 2018 discomforts PDF and 2026 hyperemesis PDF read by hand: both support what cites them; the 2018 one is old but agrees with current PBB pages. PBB's pre-eclampsia page still calls seizures HELLP."

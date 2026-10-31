@@ -18,7 +18,6 @@ sources:
 related: [choosing-your-model-of-care, booking-in, birth-centre, home-birth]
 appointment:
   - Is midwifery group practice available to me here?
-draft: true
 checked: 2026-10-29
 ---
 In midwifery group practice, also called caseload midwifery or continuity of carer, you have one midwife you get to know well. They see you through pregnancy, are on call for your birth, and may keep caring for you until 6 weeks after. One or two other midwives back them up when they're not available.
@@ -31,7 +30,7 @@ If a medical concern or risk factor comes up, your midwife works closely with th
 
 ## Why people want it
 
-Pregnancy, Birth and Baby lists the benefits: a more positive experience of labour and birth, fewer interventions in labour, being more likely to have a vaginal birth and to breastfeed successfully. There is strong evidence that it lowers the chance of a premature baby: nearly 1 in 4 women are less likely to have a preterm birth with midwifery continuity of care, and for Aboriginal women it's 1 in 2.
+Pregnancy, Birth and Baby lists the benefits: a more positive experience of labour and birth, fewer interventions in labour, being more likely to have a vaginal birth and to breastfeed successfully. There is strong evidence that it lowers the chance of a premature baby, by nearly a quarter with midwifery continuity of care, and by about half for Aboriginal and Torres Strait Islander families.
 
 ## Getting a place
 

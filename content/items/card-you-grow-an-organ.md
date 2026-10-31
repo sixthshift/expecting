@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — About the placenta
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta
 related: [the-placenta]
-draft: true
 checked: 2026-10-29
 ---
 The placenta is a temporary organ. It begins developing when you first become pregnant, attaches to the lining of your uterus and delivers oxygen and nutrients to your baby through the umbilical cord. It also makes the hormones needed for pregnancy, birth and breastfeeding.

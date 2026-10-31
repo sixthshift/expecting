@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Working out your due date
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date
 related: [dating-scan, term-edd]
-draft: true
 checked: 2026-10-29
 ---
 Your due date is only an estimate, and the exact timing of your baby's birth is unpredictable. Only about 5 out of every 100 babies are born on their actual due date.

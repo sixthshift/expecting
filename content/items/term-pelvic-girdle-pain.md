@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Changes to your body during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
 related: [ligaments-and-joints-in-pregnancy, pelvic-girdle-pain]
-draft: true
 checked: 2026-10-29
 ---
 Pelvic girdle pain (PGP) is pain or discomfort in the bones and joints of your pelvis during pregnancy, most often at the back (the sacro-iliac joints) or the front (the pubic symphysis). It used to be called symphysis pubis dysfunction (SPD). It usually starts between 14 and 30 weeks.

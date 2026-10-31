@@ -14,9 +14,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Round ligament pain
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/round-ligament-pain
 related: [term-round-ligament, round-ligament-pain]
-draft: true
 checked: 2026-10-29
 ---
 Your round ligaments sit either side of your uterus and support it in your pelvis. As your uterus stretches, they stretch too, which can cause aching, cramping or a sharp, stabbing pain in your hips and groin. It can feel worse when you suddenly move, stand, sit, sneeze, cough or laugh, and is most often felt in the second trimester. It isn't dangerous for you or your baby. Gentle stretches, moving slowly and an elastic belly band can help.
 
-Other complications can cause similar pain. If you have tummy pain with bleeding, discharge, fever, contractions, light-headedness or trouble standing, seek medical care immediately.
+Other complications can cause similar pain. If you have tummy pain with bleeding, discharge, fever, contractions, light-headedness or trouble standing, seek medical care immediately. If you have heavy bleeding, strong pain or feel very unwell, call 000.

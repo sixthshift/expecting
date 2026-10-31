@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Common myths about pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/common-myths-about-pregnancy
 related: [heavy-lifting, falls-and-knocks]
-draft: true
 checked: 2026-10-29
 ---
 Yes, go ahead. Pregnancy, Birth and Baby answers this one directly: reaching up above your head and hanging washing on the line is safe, and it is unlikely to affect your baby's umbilical cord in any way.

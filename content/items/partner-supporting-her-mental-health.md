@@ -3,7 +3,7 @@ id: partner-supporting-her-mental-health
 title: Supporting a partner who is struggling
 type: guide
 topic: partner
-ask: She's not herself and I don't know what to say.
+ask: My partner's not themselves and I don't know what to say.
 aliases: [supporting partner depression, what to say, how to help, partner anxious, listen don't fix]
 weeks: [1, 42]
 who: partner
@@ -23,7 +23,6 @@ sources:
   - title: PANDA — Support for dads
     url: https://www.panda.org.au/get-support/support-dads
 related: [antenatal-depression, partner-learning-the-signs, perinatal-mental-health-help]
-draft: true
 checked: 2026-10-29
 ---
 When the person you love isn't themselves, it's hard to know what to say, and easy to worry about getting it wrong. You don't need the perfect words, and you don't need the answers: you're a support person, not a health professional. What you do matters, though. For people with anxiety or depression around a birth, strong practical support from a partner can significantly improve their recovery, and many who are at risk of depression will turn to their partner for support.

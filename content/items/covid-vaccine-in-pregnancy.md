@@ -19,7 +19,6 @@ sources:
 related: [flu-vaccine, vaccines-in-one-visit, live-vaccines-to-avoid]
 appointment:
   - Should I have a COVID-19 dose this pregnancy, given my vaccine history?
-draft: true
 checked: 2026-10-29
 ---
 Unlike the flu, whooping cough and RSV vaccines, a COVID-19 vaccine isn't routinely recommended in pregnancy. It's a choice you can make. The Australian Immunisation Handbook (COVID-19 chapter updated 1 October 2026) says "not routinely recommended, but" all pregnant people can consider a dose of COVID-19 vaccine from 20 weeks in each pregnancy, to protect the baby.
@@ -27,7 +26,7 @@ Unlike the flu, whooping cough and RSV vaccines, a COVID-19 vaccine isn't routin
 ## The options
 
 - **Have a dose from 20 weeks.** It's safe to have at any time in pregnancy, and the Handbook suggests from 20 weeks.
-- **Don't have one this pregnancy.** Pregnancy, Birth and Baby (last reviewed July 2025) puts it differently from the Handbook: it says that if you're already vaccinated, you don't need another dose in pregnancy, though you can still choose one if you're in a high-risk group or it's your preference. If you've never had a COVID-19 vaccine, it says vaccination is recommended.
+- **Don't have one this pregnancy.** If you're already vaccinated, it's your choice. If you've never had a COVID-19 vaccine, vaccination is recommended.
 
 ## Things to weigh
 
@@ -41,4 +40,4 @@ Unlike the flu, whooping cough and RSV vaccines, a COVID-19 vaccine isn't routin
 
 ## When to decide
 
-From 20 weeks, if you want a dose this pregnancy. Neither source gives a week to decide by. If you have questions about vaccination in pregnancy, speak to your doctor or midwife.
+From 20 weeks, if you want a dose this pregnancy. If you have questions about vaccination in pregnancy, speak to your doctor or midwife.

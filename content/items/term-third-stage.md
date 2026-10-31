@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Retained placenta
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/retained-placenta
 related: [third-stage-placenta, delayed-cord-clamping, retained-placenta]
-draft: true
 checked: 2026-10-29
 ---
 The third stage starts after your baby is born and ends when the placenta and membranes have come away, which can take 5 to 60 minutes. The cord is clamped and cut in this stage.

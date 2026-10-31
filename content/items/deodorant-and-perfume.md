@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Cosmetic procedures during pregnancy and breastfeeding
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
 related: [skincare-ingredients, essential-oils]
-draft: true
 checked: 2026-10-29
 ---
 No need to change. MotherSafe says most cosmetics and skincare products are considered safe to use in pregnancy. Neither source we checked names deodorant, antiperspirant or perfume, so there is no specific guidance on them.

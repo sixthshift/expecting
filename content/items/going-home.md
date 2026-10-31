@@ -21,14 +21,13 @@ sources:
 related: [hospital-stay, car-seat, newborn-bloodspot-screening, first-days-mum]
 appointment:
   - Will a midwife visit us at home after we leave, and when?
-draft: true
 checked: 2026-10-29
 ---
 Once you and your baby have been checked, the doctor or midwife will tell you when you can go home.
 
 ## How long you stay
 
-The sources give different ranges. Pregnancy, Birth and Baby's page on being at home says you're likely to go home 4 to 24 hours after a vaginal birth and 48 to 72 hours after a caesarean. Its pages on the first few days and the first 24 hours say you may be able to go home 4 to 6 hours after a vaginal birth in a public hospital or birth centre, and you may need to stay longer after an assisted birth or a caesarean, or if you or your baby are unwell; in a private hospital you might be able to stay longer. King Edward Memorial Hospital in Perth says, if you and your baby are well enough, from 4 hours after an uncomplicated vaginal birth, and 24 to 72 hours after a caesarean. If you stay a couple of days, the midwives can help with feeding, settling, bathing and nappies.
+If you and your baby are well, you may go home from about 4 hours after an uncomplicated vaginal birth, and usually 2 to 3 days (48 to 72 hours) after a caesarean. You may need to stay longer after an assisted birth, or if you or your baby are unwell; in a private hospital you might be able to stay longer. If you stay a couple of days, the midwives can help with feeding, settling, bathing and nappies.
 
 ## The discharge list
 

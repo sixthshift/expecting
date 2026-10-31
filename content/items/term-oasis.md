@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Birth injury to the mother
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/birth-injury-to-the-mother
 related: [perineal-tears, assisted-birth, episiotomy]
-draft: true
 checked: 2026-10-29
 ---
 A tear in birth that reaches the muscles controlling the anus (third degree) or the lining of the anus or rectum (fourth degree). They're repaired surgically, often in an operating theatre, to reduce the chance of incontinence. Afterwards you'll usually be given antibiotics, and may be offered pain relief, stool softeners and physiotherapy.

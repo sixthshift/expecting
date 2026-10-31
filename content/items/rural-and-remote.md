@@ -33,7 +33,6 @@ related: [building-your-village, when-the-baby-comes-early]
 appointment:
   - Will I need to travel closer to the hospital before the birth, and if so, when?
   - Could some of my appointments be by telehealth or grouped together?
-draft: true
 checked: 2026-10-29
 ---
 Living a long way from a maternity unit changes the logistics more than the care. Your choices of care and where to give birth depend on where you live, and long travel for appointments and the birth can take time, energy and money. A bit of planning takes much of the pressure off.

@@ -14,7 +14,6 @@ sources:
   - title: Services Australia — If you work on a Parental Leave Pay day
     url: https://www.servicesaustralia.gov.au/if-you-work-day-parental-leave-pay
 related: [unpaid-parental-leave, returning-to-work, parental-leave-pay]
-draft: true
 checked: 2026-10-29
 ---
 A keeping in touch (KIT) day is a day of work during unpaid parental leave that helps with your transition back at the end of it. It can be remote or in the office, and the Fair Work Ombudsman gives refreshing skills, a planning day, training or a conference as examples. The work must only be for the purpose of keeping in touch.

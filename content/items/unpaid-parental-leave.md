@@ -16,7 +16,6 @@ sources:
   - title: Fair Work Ombudsman — Accruing and taking other leave during parental leave
     url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/accruing-and-taking-other-leave-during-parental-leave
 related: [employer-leave-notice, extending-parental-leave, flexible-unpaid-parental-leave, employer-paid-parental-leave, parental-leave-pay, partner-parental-leave]
-draft: true
 checked: 2026-10-29
 ---
 Under the National Employment Standards, employees can access up to 12 months of unpaid parental leave, and can request up to a further 12 months: up to 24 months in all.

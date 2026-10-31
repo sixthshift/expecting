@@ -17,12 +17,11 @@ sources:
 related: [frequent-urination, fluid-leaking, painful-urination]
 appointment:
   - Should I see a continence physio about leaking?
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
 
-Leaking some urine in pregnancy is very common: about 1 in 3 have urinary incontinence in pregnancy or after the birth, and it's most likely in the third trimester, as your growing baby strains your pelvic floor. You might leak when you cough, sneeze, laugh or exercise. Leaking wind or poo is less common, affecting about 1 in 4 in late pregnancy.
+Leaking some urine in pregnancy is very common: about 1 in 3 people have urinary incontinence in pregnancy or after the birth, and it's most likely in the third trimester, as your growing baby strains your pelvic floor. You might leak when you cough, sneeze, laugh or exercise. Leaking wind or poo is less common, affecting about 1 in 4 in late pregnancy.
 
 What helps:
 
@@ -32,9 +31,11 @@ What helps:
 
 Most people's pelvic floor muscles go back to normal within 3 to 6 months of the birth. But leaking that starts in pregnancy might not get better on its own, so it's worth getting help now. 
 
-## See your doctor or midwife
+## Contact your hospital now
 
-**Get care straight away** if you see anything green or brown in fluid coming from your vagina. It could be amniotic fluid with meconium (baby poo) in it. If you think your waters are leaking, as a gush or a slow trickle, check with your midwife or doctor.
+If you think your waters are leaking, as a gush or a slow trickle, contact your midwife or doctor straight away; they can test the fluid. Anything green or brown in fluid from your vagina needs care straight away, even if you thought it was wee: it could be amniotic fluid with meconium (the baby's poo) in it.
+
+## See your doctor or midwife
 
 Get an urgent check-up for any change in your vaginal or anal area.
 

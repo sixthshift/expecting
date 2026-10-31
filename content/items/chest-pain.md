@@ -10,6 +10,8 @@ who: carrying
 stakes: high
 summary: "Chest pain that is severe, getting worse or has lasted 10 minutes, means calling 000, and so does chest pain or trouble breathing."
 sources:
+  - title: healthdirect — Deep vein thrombosis (DVT)
+    url: https://www.healthdirect.gov.au/deep-vein-thrombosis
   - title: healthdirect — Chest pain
     url: https://www.healthdirect.gov.au/chest-pain
   - title: healthdirect — Pulmonary embolism
@@ -19,7 +21,6 @@ sources:
   - title: healthdirect — Heart palpitations
     url: https://www.healthdirect.gov.au/heart-palpitations
 related: [breathlessness, racing-heartbeat, heartburn, painful-swollen-leg]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -38,6 +39,4 @@ Call triple zero (000) immediately and ask for an ambulance if:
 
 ## See your doctor or midwife
 
-See your doctor right away if you have chest pain that lasts more than 10 minutes while you're resting.
-
-If you have heartburn, see your doctor immediately if you also have chest pain, feel short of breath, are vomiting up blood, are losing weight, or find swallowing painful or difficult.
+Heartburn with chest pain or shortness of breath is a 000 call, as above. Heartburn with vomiting up blood, weight loss, or painful or difficult swallowing needs immediate care: see [Heartburn and indigestion](heartburn).

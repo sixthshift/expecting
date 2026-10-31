@@ -18,7 +18,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Having difficult conversations
     url: https://www.pregnancybirthbaby.org.au/parenting-and-family/relationships-and-support/having-difficult-conversations
 related: [single-and-solo-parents, arguments-and-stress]
-draft: true
 checked: 2026-10-29
 ---
 A break-up during pregnancy can be very hard. If you'd hoped to raise your child as a couple, you may feel angry, hurt or hopeless. Look after yourself and talk about your feelings; it's better to talk to someone than let things make you sad.

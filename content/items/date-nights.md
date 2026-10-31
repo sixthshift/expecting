@@ -6,7 +6,6 @@ weeks: [20, 36]
 type: moment
 topic: celebrations
 extra: date-nights
-draft: true
 tasks:
   - id: plan-date-nights
     title: Put a few date nights in the calendar
@@ -32,7 +31,7 @@ Once the baby arrives, a night out takes a babysitter, a feed schedule and a lot
 **Make it easy:**
 
 - Book ahead and choose places with good seating and a toilet nearby.
-- Check the menu has plenty she'll enjoy.
+- Check the menu has plenty you can both enjoy.
 - Take turns planning, and keep at least one a surprise.
 - Talk about something other than the baby, at least for a while.
 

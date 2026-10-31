@@ -19,7 +19,6 @@ sources:
   - title: Services Australia — Before the birth of your baby
     url: https://www.servicesaustralia.gov.au/before-birth-your-baby
 related: [employer-leave-notice, safe-job-and-no-safe-job-leave, pregnancy-discrimination-at-work, employer-paid-parental-leave, working-while-pregnant]
-draft: true
 checked: 2026-10-29
 ---
 There's no law that says you have to tell your employer you're pregnant at any particular time, but some jobs have their own requirements, so check your award, agreement or contract. Pregnancy, Birth and Baby says it's a good idea to tell your employer before they hear it from somebody else.

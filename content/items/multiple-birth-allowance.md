@@ -16,7 +16,6 @@ sources:
   - title: Services Australia — Before the birth of your baby
     url: https://www.servicesaustralia.gov.au/before-birth-your-baby
 related: [family-tax-benefit-claim, newborn-supplement-and-upfront-payment, twins-and-multiples]
-draft: true
 checked: 2026-10-29
 ---
 Multiple Birth Allowance is for people who get Family Tax Benefit (FTB) Part A and are expecting or have had **triplets, quadruplets or more**. It's not for twins.

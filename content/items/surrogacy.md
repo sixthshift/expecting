@@ -14,7 +14,6 @@ sources:
   - title: Rainbow Families — Australian Surrogacy Process Chart
     url: https://www.rainbowfamilies.com.au/australian_surrogacy_process_chart
 related: [lgbtqia-families, adoption-pointers]
-draft: true
 checked: 2026-10-29
 ---
 Surrogacy is when one person carries a pregnancy for someone else, the intended parents. After the birth, the intended parents receive the baby and become the legal parents. There are many legal and medical steps, so get professional advice and make sure you have support. In Expecting, the two of you may be the intended parents rather than the person carrying.
@@ -39,7 +38,7 @@ The surrogate has the right to choose how they manage the pregnancy and birth, e
 
 ## Cost
 
-Surrogacy Australia estimates around $55,000 to $75,000 over 2 years, covering legal fees, IVF, counselling, the surrogate's costs, insurance and travel, and the parentage order. Medicare doesn't subsidise surrogacy; check what your private health insurance covers.
+Surrogacy Australia estimated (in 2024) around $55,000 to $75,000 over 2 years, covering legal fees, IVF, counselling, the surrogate's costs, insurance and travel, and the parentage order. Medicare doesn't subsidise surrogacy; check what your private health insurance covers.
 
 ## Getting started
 

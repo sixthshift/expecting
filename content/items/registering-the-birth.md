@@ -15,7 +15,7 @@ sources:
   - title: NSW Government — Register the birth of your baby
     url: https://www.nsw.gov.au/family-and-relationships/births/register-a-birth
   - title: Births, Deaths and Marriages Victoria — Register a birth
-    url: https://www.bdm.vic.gov.au/births/register-a-birth
+    url: https://www.bdm.vic.gov.au/register-birth
   - title: Queensland Government — Register a birth
     url: https://www.qld.gov.au/law/births-deaths-marriages-and-divorces/birth-registration-and-adoption-records/register-a-birth
   - title: WA Government — Birth registration and certificates
@@ -27,16 +27,15 @@ sources:
   - title: Services Australia — When your baby arrives
     url: https://www.servicesaustralia.gov.au/when-your-baby-arrives
 related: [birth-certificate, proof-of-birth, parental-leave-pay, baby-passport, medicare-enrol-baby]
-draft: true
 checked: 2026-10-29
 tasks:
   - id: register-the-birth
     title: Register the baby's birth with your state's registry
     due: 42
 ---
-Registering the birth is the parents' job. In NSW, the registry says plainly that hospitals will not register your baby for you. You register with the Births, Deaths and Marriages registry of the state or territory where the baby is born, and it's free to register. A birth certificate is separate, and costs extra.
+Registering the birth is the parents' job. In NSW, the registry says plainly that hospitals will not register your baby for you. You register with the Births, Deaths and Marriages registry of the state or territory where the baby is born, and it's free to register. A birth certificate is separate: in most states it costs extra, though Victoria gives a free digital one once the birth is registered.
 
-**Why it matters.** Services Australia says to register the birth as soon as possible: if you don't, they may not be able to pay you. To get Parental Leave Pay for a newborn, you need to have registered, or applied to register, the birth. Registration gives your baby a legal name and identity, and NSW and WA say the birth certificate is used for things like a passport.
+**Why it matters.** Services Australia says to register the birth as soon as possible: if you don't, they may not be able to pay you. To get Parental Leave Pay for a newborn, you need to have registered, or applied to register, the birth. Registration gives your baby a legal name and identity, and NSW says the birth certificate is used for things like a passport.
 
 **Decide the name first.** Registration records the baby's given names, so you'll need them to register.
 

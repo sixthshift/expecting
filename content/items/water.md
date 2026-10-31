@@ -21,7 +21,6 @@ sources:
   - title: KEMH — Nausea and vomiting in pregnancy (patient information)
     url: https://www.kemh.health.wa.gov.au/~/media/HSPs/NMHS/Hospitals/WNHS/Documents/Patients-resources/Nausea-and-vomiting-in-pregnancy.pdf
 related: [sports-and-electrolyte-drinks, fasting]
-draft: true
 checked: 2026-10-29
 ---
 Yes.
@@ -32,6 +31,6 @@ In Australia, tap water is generally safe to drink. You don't need bottled or bo
 
 ## What to do
 
-- **Stay hydrated.** Drink enough water. Pregnancy, Birth and Baby says your body needs plenty of water (7 to 9 glasses each day), and its constipation page says to drink at least 7 to 8 glasses of fluid a day, more in hot or humid weather. If you have nausea and vomiting, KEMH says aim for at least one to two litres of fluid each day (small amounts regularly), unless advised otherwise.
+- **Stay hydrated.** Drink enough water: your body needs plenty (7 to 9 glasses each day), and more in hot or humid weather. If you have nausea and vomiting, aim for at least one to two litres of fluid each day, in small amounts regularly, unless advised otherwise.
 - **If there's any concern about the supply,** use bottled water, including for brushing your teeth and making ice. If you don't have any, bring water to a rolling boil for at least 1 minute and let it cool. Chlorine-based tablets can also be used to treat water.
 - **Overseas,** avoid drinking tap water.

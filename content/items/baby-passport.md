@@ -16,9 +16,8 @@ sources:
   - title: Australian Passport Office — Processing times
     url: https://www.passports.gov.au/help/processing-times
   - title: Australian Passport Office — Photo guidelines
-    url: https://www.passports.gov.au/photo-guidelines
+    url: https://www.passports.gov.au/help/passport-photos
 related: [birth-certificate, registering-the-birth]
-draft: true
 checked: 2026-10-29
 ---
 If you're planning to travel overseas in the baby's first months, the passport is a chain of steps, and the first link is the [birth certificate](birth-certificate). A passport for a child aged 0 to 15 is valid for up to 5 years.
@@ -47,4 +46,4 @@ Everyone with parental responsibility, usually each parent on the birth certific
 
 ## Lodging, and how long it takes
 
-Fill in the form online and print it, or pick up the purple paper form at a post office. Lodge it in person at a participating post office and pay the fee there. Allow **at least 6 weeks** from lodging. Priority (2 business days) and Fast Track (5 business days) processing cost extra and are only for complete applications with full parental consent. Postage is on top: about a week once it's sent.
+Fill in the form online and print it, or pick up the purple paper form at a post office. Lodge it in person at a participating post office and pay the fee there. Allow **at least 6 weeks** from lodging to the passport arriving. Priority and Fast Track processing cost extra and are only for complete applications with full parental consent; with delivery, they take up to 11 and 14 business days.

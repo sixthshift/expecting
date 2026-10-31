@@ -19,12 +19,11 @@ sources:
   - title: The Royal Women's Hospital — Common concerns in early pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/common-concerns-in-early-pregnancy
 related: [itchy-skin, pregnancy-rash, baby-movements]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
 
-Lots of people itch in pregnancy, and for most it isn't a problem. But an itch **without a rash** can be the first sign of cholestasis of pregnancy (also called obstetric cholestasis), a condition that affects how your liver works. The itch often starts on the palms of the hands and soles of the feet and can spread. Some people also feel tired, sick or have tummy discomfort, and the skin may turn yellow as it goes on. It's uncommon, usually starts in the third trimester, and goes away after the birth.
+Lots of people itch in pregnancy, and for most it isn't a problem. But an itch **without a rash** can be the first sign of cholestasis of pregnancy (also called obstetric cholestasis), a condition that affects how your liver works. The itch often starts on the palms of the hands and soles of the feet and can spread. Some people also feel tired, sick or have tummy discomfort, and the skin may turn yellow as it goes on. It's rare, usually starts in the third trimester, and goes away after the birth.
 
 It's diagnosed with blood tests of your liver and bile acids, repeated every week or two if you have it. It's usually treated with a medicine called ursodeoxycholic acid, and you'll be offered extra monitoring. Sometimes it's recommended that the baby is born a bit earlier.
 

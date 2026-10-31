@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Giving birth, early signs of labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
 related: [term-mucus-plug, braxton-hicks-contractions, signs-of-labour]
-draft: true
 checked: 2026-10-29
 ---
 A show is when the thick plug of mucus that seals your cervix through pregnancy comes away. It's a pink or bloodstained mucus you might see when you wipe, and means your cervix may be starting to soften and open, sometimes before contractions start.

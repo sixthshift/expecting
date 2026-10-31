@@ -15,9 +15,8 @@ sources:
   - title: Birth Trauma Australia — Fathers and partners
     url: https://birthtrauma.org.au/fathers-and-partners/
 related: [birth-trauma, birth-support-person]
-draft: true
 checked: 2026-10-29
 ---
 The non-pregnant partner can also experience psychological trauma after the birth. If it was a difficult one, such as heavy bleeding, fear for the baby's or the birthing parent's life, an emergency caesarean or a baby in special care, you watched someone you love go through it, often fully aware while they weren't, and sometimes left alone for hours without news.
 
-Signs include reliving it through memories or nightmares, feeling on edge, avoiding reminders, and feeling numb. Partners may not realise they're struggling, or feel they have to be strong because they didn't give birth. Your experience is valid: see your GP, who can refer you for counselling.
+Signs include reliving it through memories or nightmares, feeling on edge, avoiding reminders, and feeling numb. Partners may not realise they're struggling, or feel they have to be strong because they didn't give birth. You matter too: see your GP, who can refer you for counselling.

@@ -15,7 +15,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — The common cold in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/docs/Cold%20in%20pregnancy%20and%20breastfeeding%20.pdf
 related: [herbal-supplements, cold-and-flu-tablets, high-dose-vitamins]
-draft: true
 checked: 2026-10-29
 ---
 Best skipped. MotherSafe says complementary medicines for colds, the vitamin and herbal remedies from the health food shop, would not be advised in pregnancy.
@@ -24,7 +23,7 @@ Best skipped. MotherSafe says complementary medicines for colds, the vitamin and
 
 The evidence that these products work is variable, and there's even less information about their safety in pregnancy. They also aren't regulated as strictly as conventional medicines, so the label may not always match what's in the product.
 
-**Echinacea** is often used for colds. There is limited information about its effectiveness and safety in pregnancy. A few studies found no increased risk of miscarriage or birth defects in babies whose mothers took it throughout pregnancy. That's reassuring, but more research is needed to confirm it's safe.
+**Echinacea** is often used for colds. There is limited information about its effectiveness and safety in pregnancy. A few studies found no increased risk of miscarriage or birth defects in babies exposed to it throughout pregnancy. That's reassuring, but more research is needed to confirm it's safe.
 
 ## What to do
 

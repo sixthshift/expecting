@@ -15,7 +15,6 @@ sources:
     url: https://www.gidgetfoundation.org.au/fact-sheets/birth-trauma
 related: [birth-trauma]
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 Up to 1 in 3 people who give birth view the experience as traumatic in some way. It can come from pain, medical treatment or injury, or from how you felt about what happened. If your birth felt traumatic to you, then it was traumatic, and your feelings deserve acknowledgement, treatment and recovery. It can affect partners too.

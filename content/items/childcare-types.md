@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Returning to work
     url: https://www.pregnancybirthbaby.org.au/womens-health/wellbeing-and-lifestyle/returning-to-work
 related: [childcare-waitlists, child-care-subsidy, returning-to-work]
-draft: true
 checked: 2026-10-29
 ---
 There's no "best time" to start childcare: whether and when depends on what suits your family and your child. But many centres have waiting lists, so the kind of care you want is worth settling early enough to [join the lists](childcare-waitlists) well before you'll need a place.
@@ -34,7 +33,7 @@ Many families use a mix of formal and informal care, which helps when work hours
 ## Things to weigh
 
 - **Cost after the subsidy.** The [Child Care Subsidy](child-care-subsidy) is only paid for approved care: centre-based day care (including long day care and occasional care), family day care, outside school hours care, and In Home Care. In Home Care has its own extra eligibility criteria. It's for fees at an approved child care service.
-- **Regulation.** Educators in approved care should be accredited or registered, meeting national standards monitored by the Australian Children's Education & Care Quality Authority. Occasional care, in-home care, creches and mobile services aren't regulated under the National Quality Framework. With a nanny or babysitter, checking references and suitability is up to you; agencies must run police and reference checks, such as a Working with Children Check (a blue card in Queensland).
+- **Regulation.** Educators in approved care should be accredited or registered, meeting national standards monitored by the Australian Children's Education & Care Quality Authority. Some services, including some occasional care, in-home care, creches and mobile services, sit outside the National Quality Framework, even where the subsidy can be paid for them. With a nanny or babysitter, checking references and suitability is up to you; agencies must run police and reference checks, such as a Working with Children Check (a blue card in Queensland).
 - **What a provider is like:** staff qualifications, location, daily or weekly cost and extras, learning activities, the adult-to-child ratio and group sizes, flexible hours, and support for children with disability. You should be able to visit a centre and meet the staff.
 - **Who covers the gaps** once you're both working: drop-off and pick-up, and who takes time off when the baby is sick.
 

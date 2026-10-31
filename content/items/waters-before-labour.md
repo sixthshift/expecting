@@ -9,6 +9,8 @@ weeks: [37, 42]
 stakes: high
 summary: "From 37 weeks, most people go into labour on their own within a day or two, but the infection risk grows with time: RANZCOG recommends induction within 24 hours where practical, straight away if you carry GBS, and waiting is a choice you can make with extra checks."
 sources:
+  - title: Pregnancy, Birth and Baby — Breech pregnancy
+    url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
   - title: Pregnancy, Birth and Baby — Waters breaking
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
   - title: RANZCOG — Term Prelabour Rupture of Membranes (C-Obs 36)
@@ -17,14 +19,13 @@ related: [waters-breaking, induction, group-b-strep-swab]
 appointment:
   - If my waters break before labour, would waiting be an option for me?
   - Is there anything about my pregnancy that would mean inducing straight away?
-draft: true
 checked: 2026-10-29
 ---
 In about 1 in 12 pregnancies after 37 weeks, the waters break before labour starts (term prelabour rupture of membranes, or PROM). Once the membranes have broken, infection can reach you and the baby, and that risk is why the timing matters. If your waters break, put on a pad and call your midwife, doctor or birth centre; they'll check the diagnosis, your baby's position and how you and the baby are.
 
 ## The options
 
-- **Induction (active management).** Starting labour, usually with an oxytocin drip in Australia; prostaglandins may be used if your cervix isn't ready. RANZCOG (C-Obs 36, current July 2021, review due July 2026) recommends induction within 24 hours where practical. RANZCOG concludes that planned early birth leads to fewer infections for you and the baby and greater satisfaction, without an increase in caesareans.
+- **Induction (active management).** Starting labour, usually with an oxytocin drip in Australia; prostaglandins may be used if your cervix isn't ready. RANZCOG recommends induction within 24 hours where practical. RANZCOG concludes that planned early birth leads to fewer infections for you and the baby and greater satisfaction, without an increase in caesareans.
 - **Waiting (expectant management).** Letting labour start on its own. RANZCOG says some people may choose this after being told about the increased risks.
 
 ## Things to weigh
@@ -38,6 +39,8 @@ In about 1 in 12 pregnancies after 37 weeks, the waters break before labour star
 Your choices, preferences and cultural needs will always be respected, and your team will weigh your baby's wellbeing, your history and any risk factors with you.
 
 ## When to get help
+
+**If your waters break and you've been told the baby isn't head-first, call triple zero (000)** and ask for an ambulance: there's a higher risk of cord prolapse.
 
 **Call your doctor, midwife or birthing unit immediately for advice, or go to hospital,** if the fluid is green, brown or blood coloured.
 

@@ -18,7 +18,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Private health insurance and pregnancy
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
 related: [private-health-insurance-and-pregnancy, public-hospital-care, private-obstetrician]
-draft: true
 checked: 2026-10-29
 ---
 If you have private health insurance, you can choose to be treated as a private patient in a public hospital rather than going to a private hospital. As a private patient you'll usually have your baby in a private hospital, but this is the other option. Electing to be private lets you choose your obstetrician or midwife.

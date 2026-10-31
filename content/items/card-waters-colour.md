@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Giving birth, waters breaking
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
 related: [waters-breaking, term-meconium]
-draft: true
 checked: 2026-10-29
 ---
 When your waters break, the fluid is usually clear, but it can be yellow, straw-coloured or pink. Look at it.

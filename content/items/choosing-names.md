@@ -6,8 +6,9 @@ weeks: [12, 40]
 type: moment
 topic: celebrations
 extra: choosing-names
-draft: true
 sources:
+  - title: Access Canberra — Birth registration
+    url: https://www.accesscanberra.act.gov.au/births-relationships-and-deaths/births/birth-registration
   - title: myGov — Register your baby's birth and get their birth certificate
     url: https://my.gov.au/en/services/raising-kids/having-a-baby/when-your-baby-is-born/register-your-baby-s-birth-and-get-their-birth-certificate
 tasks:

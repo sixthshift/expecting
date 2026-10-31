@@ -19,7 +19,6 @@ sources:
   - title: The Royal Women's Hospital — Pregnancy care and birthing options
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/pregnancy-care-birthing-options
 related: [private-obstetrician, private-health-insurance-and-pregnancy, medicare-safety-net, what-medicare-covers]
-draft: true
 checked: 2026-10-29
 ---
 Seeing a private obstetrician can be expensive, and the costs vary a lot depending on the care you get. As a public patient you won't usually pay to see an obstetrician; as a private patient, Medicare covers only part of the costs.

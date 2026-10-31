@@ -16,7 +16,6 @@ sources:
   - title: Services Australia — Time limits for lump sum claims and confirming income
     url: https://www.servicesaustralia.gov.au/time-limits-for-submitting-lump-sum-claims-and-confirming-income-for-family-tax-benefit
 related: [family-tax-benefit-a, family-tax-benefit-b, parental-leave-pay-claim, proof-of-birth, mygov-and-centrelink-setup]
-draft: true
 checked: 2026-10-29
 tasks:
   - id: choose-ftb-payment-choice

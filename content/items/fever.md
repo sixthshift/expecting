@@ -21,7 +21,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Urinary tract infections (UTIs) during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/urinary-tract-infections-utis-during-pregnancy
 related: [cold-or-flu, feeling-very-unwell, urinary-tract-infection, fluid-leaking]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual

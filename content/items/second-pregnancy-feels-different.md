@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Navigating a second pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/navigating-a-second-pregnancy
 related: [preparing-an-older-child, building-your-village]
-draft: true
 checked: 2026-10-29
 ---
 Pregnancy, Birth and Baby says every pregnancy is unique, and it's normal to have different symptoms and different emotions the second time.

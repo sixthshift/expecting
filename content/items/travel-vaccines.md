@@ -19,7 +19,6 @@ sources:
   - title: Better Health Channel — Pregnancy and travel
     url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
 related: [flu-vaccine, overseas-travel, malaria, zika]
-draft: true
 checked: 2026-10-29
 ---
 Some, if the trip calls for them.
@@ -35,7 +34,7 @@ The Australian Immunisation Handbook recommends non-live vaccines in pregnancy w
 
 Live vaccines, such as MMR and chickenpox, are not given in pregnancy.
 
-**Yellow fever** is a live vaccine and is not recommended in pregnancy. The Handbook advises pregnant women against going to rural areas where yellow fever is endemic. Its table says that if travel to a country with a risk of yellow fever transmission is unavoidable, pregnant women "should receive yellow fever vaccine"; its text says to weigh the risks and benefits of the vaccine and discuss other ways to lower the risk, such as avoiding mosquitoes. MotherSafe says it should only be given when the risk is substantial and travel is unavoidable. Better Health puts it differently: it may cautiously be given after the first trimester.
+**Yellow fever** is a live vaccine and isn't recommended in pregnancy. Avoid rural areas where yellow fever is common. If travel to one is truly unavoidable, the vaccine may be given after weighing the risks and benefits with your doctor, along with ways to avoid mosquito bites.
 
 ## What to do
 

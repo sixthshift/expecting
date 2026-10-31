@@ -14,9 +14,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
     url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
 related: [dating-scan, confirming-the-pregnancy, past-your-due-date-appointment]
-draft: true
 checked: 2026-10-29
 ---
-Your estimated due date (EDD) is around 40 weeks after the first day of your last menstrual period. It's only an estimate: about 5 in 100 babies are born on the day, and a baby is full term from 37 weeks. The glossary on the same site describes the due date as roughly 40 weeks from conception, but its due-date page counts the 40 weeks from the first day of your last period.
+Your estimated due date (EDD) is around 40 weeks after the first day of your last menstrual period. It's only an estimate: about 5 in 100 babies are born on the day, and a baby is full term from 37 weeks.
 
 An early ultrasound can give a different date. If it does, your doctor or midwife will explain which is most accurate for you. Gestational age is written in weeks, for example 38+1.

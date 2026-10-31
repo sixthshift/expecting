@@ -17,7 +17,6 @@ sources:
   - title: KEMH — Nausea and vomiting in pregnancy (patient information)
     url: https://www.kemh.health.wa.gov.au/~/media/HSPs/NMHS/Hospitals/WNHS/Documents/Patients-resources/Nausea-and-vomiting-in-pregnancy.pdf
 related: [folic-acid, iodine, vitamin-d, iron, vitamin-a-supplements]
-draft: true
 checked: 2026-10-29
 ---
 Yes, if it suits you. In Australia every pregnant person is recommended to take folic acid and iodine. A pregnancy multivitamin is one way to get both, but it isn't the only way.

@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Hair care during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/hair-care-during-pregnancy
 related: [hair-and-nails-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 During pregnancy, hormone changes such as oestrogen can cause your hair to grow more and get thicker. Your hair becomes thicker, you shed less and it stays in the growing phase for longer.

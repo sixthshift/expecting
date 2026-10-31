@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Birth doulas, what do they do?
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/what-does-a-birth-doula-do
 related: [support-person, support-person-role]
-draft: true
 checked: 2026-10-29
 ---
 A doula is a non-medical companion who supports you and your family before, during and after childbirth. One who works with you after the birth is called a postpartum doula.

@@ -24,7 +24,7 @@ Avoid travelling to areas with malaria if you can. Malaria is spread by infected
 
 ## Why
 
-Pregnant people are among those most at risk of severe malaria. In pregnancy it can lead to miscarriage, stillbirth, premature birth or a small baby, and to anaemia or even death for the pregnant parent. MotherSafe adds that pregnant women are more likely to be bitten by mosquitoes.
+Pregnant people are among those most at risk of severe malaria. In pregnancy it can lead to miscarriage, stillbirth, premature birth or a small baby, and to anaemia or even death for the pregnant parent. Pregnant people are also more likely to be bitten by mosquitoes.
 
 Some antimalarial medicines (such as chloroquine) are considered safe in pregnancy, but others (such as doxycycline) are potentially harmful to the baby, and they don't always work because of drug resistance.
 

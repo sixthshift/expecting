@@ -15,7 +15,6 @@ sources:
   - title: Better Health Channel — Medical terms and definitions during pregnancy and birth
     url: https://www.betterhealth.vic.gov.au/health/servicesandsupport/medical-terms-and-definitions-during-pregnancy-and-birth
 related: [term-nicu]
-draft: true
 checked: 2026-10-29
 ---
 A special care nursery (SCN) is a dedicated area of a hospital where a baby receives special care from trained staff. Babies born between 32 and 37 weeks may need care in one, and most of them don't have any serious long-term problems.

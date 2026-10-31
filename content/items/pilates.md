@@ -15,7 +15,6 @@ sources:
   - title: The Royal Women's Hospital — The abdominal muscles
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/the-abdominal-muscles
 related: [yoga, abdominal-exercises, exercise-lying-on-your-back]
-draft: true
 checked: 2026-10-29
 ---
 Yes. Pilates for pregnancy can build muscle strength, and pregnancy classes often include pelvic floor exercises. Let your instructor know you are pregnant, or choose a class designed for pregnant people. Look for an instructor trained in prenatal Pilates; Pregnancy, Birth and Baby points to the Pilates Alliance Australasia.

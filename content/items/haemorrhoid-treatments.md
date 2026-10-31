@@ -16,7 +16,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Haemorrhoids in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/Haemorrhoids%20in%20Pregnancy%20and%20BreastfeedingDecember52025.pdf
 related: [laxatives]
-draft: true
 checked: 2026-10-29
 ---
 Yes. KEMH says suppositories and ointments containing an anaesthetic and/or steroid (for example Proctosedyl and Rectinol) are considered safe in pregnancy. MotherSafe says widely used over-the-counter products are not considered to increase risks to your baby at any stage of pregnancy, and that ointments and suppositories are both safe. They ease the symptoms but won't cure the haemorrhoids themselves.

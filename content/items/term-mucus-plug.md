@@ -13,7 +13,6 @@ sources:
   - title: "Pregnancy, Birth and Baby — Glossary of pregnancy and labour"
     url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
 related: [term-show, the-cervix-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 In pregnancy the mucus on the surface of your cervix becomes sticky and thick, forming a plug. It stops bacteria and viruses getting into your uterus and potentially harming your baby. When it comes out of the vagina it is called a show.

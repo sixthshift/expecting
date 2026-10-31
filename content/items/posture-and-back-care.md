@@ -17,7 +17,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 30
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-30
 related: [ligaments-and-joints-in-pregnancy, abdominal-muscles-and-separation, staying-active-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Backache is common, often unavoidable, and affects up to 7 out of 10 pregnant people, especially in the third trimester. Hormones make the ligaments relax and stretch, including around your lower back and pelvis, so the joints aren't in their usual alignment. As the baby and bump grow, the weight can drag your spine forward, which the Royal Women's Hospital calls a "sway back". Back pain can also affect your sleep.
@@ -41,4 +40,4 @@ For pain relief, paracetamol is considered safe at the lowest dose for the short
 
 - **Call 000 and ask for an ambulance** if back pain comes with signs of preterm labour (abdominal pains or cramps, pressure in your pelvis or lower back, or fluid leaking from your vagina), or with signs of cauda equina syndrome (a rare compressed spinal nerve): lost feeling or weakness in your limbs, pins and needles or tingling, or problems controlling your bowels or bladder.
 - **See your doctor or midwife** if you're concerned about lower back pain, including pain that disrupts your day, happens while exercising, is ongoing from previous back surgery or is new to you; and for changes to bowel or bladder function, painful urination, nausea and vomiting or blood in your urine, which can mean a urinary tract infection.
-- **Contact your doctor, midwife or hospital** if you have vaginal bleeding at any time. If it's very heavy, with strong pain, or you feel very unwell, call 000.
+- **Contact your doctor, midwife or hospital straight away** if you have vaginal bleeding at any time. If it's very heavy, with strong pain, or you feel very unwell, call 000.

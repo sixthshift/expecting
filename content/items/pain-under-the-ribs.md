@@ -10,6 +10,8 @@ who: carrying
 stakes: high
 summary: "After 20 weeks, pain under the ribs or in the upper tummy, or heartburn that antacids don't fix, can be a sign of severe pre-eclampsia: contact your doctor, midwife or hospital immediately."
 sources:
+  - title: healthdirect — Headaches
+    url: https://www.healthdirect.gov.au/headaches
   - title: healthdirect — Warning signs during pregnancy
     url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
   - title: Pregnancy, Birth and Baby — Pre-eclampsia
@@ -17,7 +19,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Indigestion and heartburn in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/indigestion-and-heartburn-in-pregnancy
 related: [heartburn, severe-headache, signs-of-pre-eclampsia, abdominal-pain]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -28,12 +29,12 @@ After 20 weeks, severe pain below the ribs or in the upper tummy, and heartburn 
 
 The other signs to look for with it: a headache that doesn't go away with simple pain relief, blurred vision or flashing lights, and sudden swelling of your face, hands or feet.
 
+## Call 000 or go to emergency
+
+Call triple zero (000) and ask for an ambulance if you have a headache together with changes in your vision.
+
 ## Contact your hospital now
 
 After 20 weeks, contact your doctor, midwife or hospital immediately if you have pain under your ribs.
 
-If it comes with a severe headache, blurred vision or sudden swelling of your hands, feet or face, seek medical attention urgently or go to your local emergency department.
-
-## See your doctor or midwife
-
-If your heartburn doesn't go away with medicine, it's important to see your doctor.
+If it comes with a severe headache or sudden swelling of your hands, feet or face, seek medical attention urgently or go to your local emergency department.

@@ -16,7 +16,6 @@ sources:
 related: [induction, overdue, term-show]
 appointment:
   - Would a stretch and sweep suit me?
-draft: true
 checked: 2026-10-29
 ---
 A stretch and sweep, or membrane sweep, is a way of trying to start labour. Your midwife or doctor may suggest it when you're close to or past your due date, and you may also be offered one before being induced. It should be a shared decision: you don't have to have one, and you may choose to wait for labour to start on its own.

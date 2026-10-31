@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
 related: [dental-work, medical-x-rays-and-ct]
-draft: true
 checked: 2026-10-29
 ---
 Yes, when your dentist needs them. MotherSafe says dental x-rays are safe during pregnancy. Pregnancy, Birth and Baby says your dentist may need to take them to give you the best care, and that they can usually be taken during pregnancy.

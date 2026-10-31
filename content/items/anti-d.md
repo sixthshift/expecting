@@ -9,7 +9,6 @@ when: { rhd: negative }
 appointment:
   - Is RhD NIPT available to me?
   - When are my anti-D injections due?
-draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Rhesus D negative in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
@@ -21,4 +20,4 @@ If the pregnant parent is **RhD negative** and the baby is RhD positive, the bod
 
 Anti-D may be offered at **28 and 34 weeks**, and again after the birth if the baby's blood is found to be RhD positive. It may also be given after some events, such as heavy, frequent bleeding, a miscarriage, an injury or accident to the belly, or some tests during pregnancy; ideally within 72 hours. There isn't enough evidence that bleeding in the first 12 weeks needs it, so always speak to your doctor or midwife about any bleeding.
 
-There's now a blood test (RhD NIPT), from 11 weeks, that can predict the baby's RhD type and guide whether anti-D is needed. Ask your midwife or OB.
+There's now a blood test (RhD NIPT), from 11 weeks, that can predict the baby's RhD type and guide whether anti-D is needed.

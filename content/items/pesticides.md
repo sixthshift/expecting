@@ -15,7 +15,6 @@ sources:
   - title: healthdirect — Pesticide poisoning
     url: https://www.healthdirect.gov.au/healthy-living/toxins-and-poisoning/pesticides
 related: [gardening, insect-repellent, cleaning-products]
-draft: true
 checked: 2026-10-29
 ---
 Cut back. During pregnancy, the best thing to do is reduce your use of pesticides and herbicides as much as possible.
@@ -27,7 +26,7 @@ Some pesticides (insect killers) and herbicides (weed killers) are known to affe
 ## What to do
 
 - **Get a licensed pest control professional** to do any treatment.
-- **Use pesticides only when you need to**, follow the label, and wear the protection it asks for. healthdirect advises against using them near pregnant women.
+- **Use pesticides only when you need to**, follow the label, and wear the protection it asks for. Avoid having them used near you while you're pregnant.
 - **Ask someone else** to do jobs that involve chemicals, and wash your hands regularly.
 - **Keep using mosquito repellent.** Mosquitoes can carry diseases that harm you or your baby, and avoiding bites outweighs the risk of the repellent.
 - **If you're worried about an exposure**, call the Poisons Information Centre on 13 11 26. Call triple zero (000) if someone stops breathing, collapses or has a seizure.

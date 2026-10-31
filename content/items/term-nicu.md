@@ -13,7 +13,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Premature baby
     url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/premature-baby
 related: [term-special-care-nursery, viability-and-prematurity, special-care-nursery, preterm-birth]
-draft: true
 checked: 2026-10-29
 ---
 The neonatal intensive care unit (NICU) is a dedicated area of a hospital with specialist medical staff and equipment to care for premature and sick newborn babies. Many babies born before 32 weeks may need help breathing and will usually be cared for in a NICU at first.

@@ -20,7 +20,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 25
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-25
 related: [term-ctg, term-doppler, term-pinard, baby-movements, card-home-dopplers]
-draft: true
 checked: 2026-10-29
 ---
 Your baby's heart is beating by about week 7 of pregnancy. By 25 weeks it beats at about 140 beats a minute, much faster than it will after birth.
@@ -43,4 +42,4 @@ Home fetal heart rate monitors are not approved for sale in Australia and are no
 
 ## When to get help
 
-If you're ever concerned about your baby's movement pattern, contact your midwife or doctor immediately. Don't wait until the next day. If you can't reach your maternity care provider, go to your nearest hospital birthing or emergency unit.
+If you're ever concerned about your baby's movement pattern, contact your midwife or doctor immediately. Don't wait until the next day; see [The baby is moving less](baby-moving-less). If you can't reach your maternity care provider, go to your nearest hospital birthing or emergency unit.

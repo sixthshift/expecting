@@ -19,10 +19,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Exercising during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
 related: [scuba-diving, spas-and-hot-tubs, exercise-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
-Yes. Pregnancy, Birth and Baby lists swimming among the medium-intensity aerobic activities recommended in pregnancy, and says swimming and aqua-natal classes can help support your weight. The Royal Women's also suggests a pool or fitball class if your joints are sore from walking long distances.
+Yes. Pregnancy, Birth and Baby lists swimming among the medium-intensity aerobic activities recommended in pregnancy, and says swimming and aqua-natal classes can help support your weight. To protect your joints, the Royal Women's suggests a pool or fitball class rather than walking long distances.
 
 ## Why
 
@@ -34,4 +33,4 @@ Water supports your pregnancy weight. Heat is the catch: the Royal Women's says 
 - **Keep the effort moderate,** and drink water before, during and after.
 - **Tell the instructor** you're pregnant and how many weeks you are if you join a class (Pregnancy, Birth and Baby, Exercising during pregnancy).
 - **Snorkelling** is fine, according to Better Health Channel.
-- **Scuba diving: the sources differ.** Pregnancy, Birth and Baby says to avoid sports that involve diving, and the Royal Women's lists scuba diving among activities to avoid in pregnancy. Better Health Channel (Victoria) says the changes in blood gases may harm your baby, but also says that scuba diving to depths of less than 18 metres is reasonably safe, and to check with your doctor first. The 18 metre line is Better Health Channel's alone, not general advice.
+- **Skip scuba diving.** Changes in pressure and blood gases may harm your baby.

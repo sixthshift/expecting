@@ -20,7 +20,6 @@ sources:
 related: [bonding-before-birth, pregnancy-after-loss, antenatal-anxiety]
 appointment:
   - Given my IVF, are any complications more likely for me, and would that change my care?
-draft: true
 checked: 2026-10-29
 ---
 If you've been through IVF to get here, you've often been on a long road, and you can start the pregnancy feeling emotionally running on empty. Up to 75% of people having IVF report anxiety or depression during treatment, and it can put a great deal of stress on relationships.

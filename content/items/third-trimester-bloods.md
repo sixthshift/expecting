@@ -18,7 +18,6 @@ sources:
 related: [glucose-tolerance-test, full-blood-count, anti-d, anaemia-in-pregnancy, syphilis-screening]
 appointment:
   - What did my 28-week blood tests show?
-draft: true
 checked: 2026-10-29
 ---
 Many of your blood tests are done early in pregnancy, usually at your first antenatal visit, but a few are repeated around the third trimester. As with every test, the choice is yours, and your doctor or midwife should explain why each one is recommended.

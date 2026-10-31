@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 31
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-31
 related: [feeding-plan, term-colostrum]
-draft: true
 checked: 2026-10-29
 ---
 By around week 14 your breasts may be getting larger and may already be making colostrum, a type of early breast milk that is thick, sticky and often yellowish. An absorbent nursing pad can be worn.

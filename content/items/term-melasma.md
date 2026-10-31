@@ -11,7 +11,6 @@ sources:
   - title: "Pregnancy, Birth and Baby — Changes to your body during pregnancy"
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
 related: [skin-in-pregnancy]
-draft: true
 checked: 2026-10-29
 ---
 Chloasma, also called melasma, is pigmentation over your nose, cheeks and neck that may appear in pregnancy. After your baby is born the darkened skin will usually fade and disappear with time.

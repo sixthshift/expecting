@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — STIs and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/stis-and-pregnancy
 related: [first-blood-tests, third-trimester-bloods, sti-screening]
-draft: true
 checked: 2026-10-29
 ---
 Syphilis can pass to your baby through the placenta or at birth, and you can have it with no symptoms. Untreated, it can lead to miscarriage or stillbirth. Screening is recommended at least three times: before 10 weeks, at 26 to 28 weeks, and at 36 weeks or birth, whichever is earlier.

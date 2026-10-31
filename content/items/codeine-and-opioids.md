@@ -19,7 +19,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Cold and flu during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cold-and-flu-during-pregnancy
 related: [paracetamol, migraine-medicines, ibuprofen-and-nsaids]
-draft: true
 checked: 2026-10-29
 ---
 Talk to your doctor. Opioids such as codeine, oxycodone and morphine are stronger painkillers for moderate to severe pain. If paracetamol isn't enough or isn't suitable, KEMH says short-term use of some opioids is considered safe in pregnancy, and MotherSafe says short-term or infrequent use may be considered. KEMH says you need to consult your doctor if you need one. Pregnancy, Birth and Baby says codeine is not found in over-the-counter medicines.

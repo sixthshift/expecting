@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Giving birth, early signs of labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
 related: [braxton-hicks-contractions, term-contraction]
-draft: true
 checked: 2026-10-29
 ---
 Braxton Hicks are tightenings of the muscles of your uterus, sometimes called "practice" or "false" contractions. They are irregular, come and go through pregnancy, and are usually painless, though they may become uncomfortable in the third trimester. They help the uterus prepare but don't open the cervix.

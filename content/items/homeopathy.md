@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Medicines during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/medicines-during-pregnancy
 related: [herbal-supplements, melatonin]
-draft: true
 checked: 2026-10-29
 ---
 Ask your doctor or pharmacist first. Pregnancy, Birth and Baby says there is currently no reliable evidence that homeopathy is effective for any health condition.

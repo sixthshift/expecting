@@ -17,7 +17,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Skin care, hair care and cosmetic treatments in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/skinhaircareandcosmetictreatmentsapril2021.pdf
 related: [hair-dye, skincare-ingredients, fake-tan]
-draft: true
 checked: 2026-10-29
 ---
 Yes. Pregnancy, Birth and Baby says you can safely use hair removal creams, lotions, powders, gels, roll-ons, sprays and wax while pregnant, and that laser hair removal is also safe. Waxing can also be done safely while breastfeeding.

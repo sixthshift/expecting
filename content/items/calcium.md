@@ -15,7 +15,6 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Vitamin D in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/VitaminDpregbreastdec2020.pdf
 related: [vitamin-d, milk-and-yoghurt, iron]
-draft: true
 checked: 2026-10-29
 ---
 Usually no. Calcium matters for your baby's growth, but there is usually no need for extra calcium supplements in pregnancy if you eat a healthy diet.

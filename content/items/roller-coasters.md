@@ -15,7 +15,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Injuries during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
 related: [falls-and-knocks, contact-sports, skydiving, hot-weather]
-draft: true
 checked: 2026-10-29
 ---
 Ask your midwife or doctor. We haven't found an Australian health source that talks about theme park rides by name, so this is the general advice on knocks and sudden movement applied to them.
@@ -28,5 +27,5 @@ Pregnancy, Birth and Baby says some activities aren't safe in pregnancy, includi
 
 - **Ask your midwife or doctor** about any ride, particularly one with a risk of a knock or a fall.
 - **Mind the heat** on a long day outside.
-- **After any knock to your abdomen,** contact your midwife or doctor immediately. Pregnancy, Birth and Baby also says that if you have any injury to your abdomen, you should go to the nearest hospital and tell staff you're pregnant. Even after a minor injury, go to hospital straight away if your baby is not moving as much as normal, you have vaginal bleeding or you have pain in your abdomen.
+- **After any knock to your abdomen,** go to the nearest hospital and tell staff you're pregnant. Even after a minor injury, go to hospital straight away if your baby is not moving as much as normal; see [The baby is moving less](baby-moving-less).
 - **Call triple zero (000)** and say you're pregnant if, after an injury to your abdomen, you have pain in your abdomen, a firm or tightening uterus, or vaginal bleeding.

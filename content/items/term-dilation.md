@@ -15,7 +15,6 @@ sources:
   - title: "Pregnancy, Birth and Baby — Anatomy of pregnancy and birth, cervix"
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/anatomy-of-pregnancy-and-birth-cervix
 related: [term-effacement, term-vaginal-examination]
-draft: true
 checked: 2026-10-29
 ---
 Dilation is the opening of the cervix, measured as its diameter in centimetres. In pregnancy your cervix is closed; labour contractions help to thin and open (dilate) it so your baby can be born. When it is fully open, about 10 cm, you are "fully dilated" and enter the second stage of labour.

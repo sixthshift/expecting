@@ -21,7 +21,6 @@ sources:
     url: https://www.panda.org.au/get-support/support-expecting-a-baby
 related: [antenatal-anxiety, perinatal-mental-health-help, mental-health-screening-epds, mental-health-medication, partner-perinatal-depression]
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -36,16 +35,15 @@ But if low moods or negative thoughts persist and interrupt your daily life, you
 - changes in sleep or appetite, tiredness, low energy
 - negative thoughts that keep coming back
 - feeling trapped, or wanting to escape from everything
+- thoughts of harming yourself
 
-Pregnancy, Birth and Baby describes depression as these feelings lasting at least 2 weeks.
+It's depression when these feelings last 2 weeks or more.
 
-Many people stay quiet out of shame or guilt, because this is meant to be a joyful time. But depression isn't something you have control over. Untreated, it can affect your health and your baby's, and there are safe and effective treatments in pregnancy: talking therapies, sometimes medicines, and self-care. Your midwife or doctor will ask about your mood at check-ups even if you don't raise it; answer as honestly as you can.
+Many people stay quiet out of shame or guilt, because this is meant to be a joyful time. But depression isn't something you have control over. Untreated, it can affect your health and your relationships, and there are safe and effective treatments in pregnancy: talking therapies, sometimes medicines, and self-care. Your midwife or doctor will ask about your mood at check-ups even if you don't raise it; answer as honestly as you can.
 
 ## Call 000 or go to emergency
 
-If you're having thoughts of suicide and are in immediate danger, call triple zero (000). For help and support, call Lifeline on 13 11 14 or PANDA on 1300 726 306.
-
-Beyond Blue says to seek help immediately or call triple zero (000) if you're having thoughts of suicide or harming yourself.
+If you're having thoughts of suicide or harming yourself, seek help immediately or call triple zero (000). For help and support, call Lifeline on 13 11 14 or PANDA on 1300 726 306.
 
 ## See your doctor or midwife
 

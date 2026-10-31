@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 24
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-24
 related: [the-babys-senses]
-draft: true
 checked: 2026-10-29
 ---
 Around week 15 the bones in your baby's ears are developing, which means they are starting to hear for the first time. They will be able to listen to the sound of your heartbeat, your digestive system and your voice. Now is a great time to start talking to your baby.

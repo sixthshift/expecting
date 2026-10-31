@@ -44,7 +44,8 @@ detail.
   healthdirect lists. Children by Choice (1800 177 725): PBB says nationwide
   on one page and Queensland only on another; both are credited.
 
-- `stillborn-baby-payment`: Services Australia gives two income-test
+- Settled 2026-10-31: $77,177 (Services Australia, updated 1 July 2026; no current page gives $79,955).
+  `stillborn-baby-payment`: Services Australia gave two income-test
   figures: $77,177 on its "Deciding between Parental Leave Pay and Stillborn
   Baby Payment" page, $79,955 on its "Who can get it" (1 July 2026) and "How
   much" (4 Sept 2026) pages. Both are credited; confirm which applies.
@@ -100,7 +101,8 @@ cut one down to what the other doesn't say, and link them with `related`.
 
 ## Sources that disagree (kept side by side, each credited)
 
-Worth a clinician's eye first: `cord-prolapse` and `waters-breaking-early`
+Settled 2026-10-31 (`map/checks/review-symptoms.yaml`): one position, bottom higher than head.
+Was: `cord-prolapse` and `waters-breaking-early`
 give two different positions to wait in for the ambulance, because two PBB
 pages differ (knees to chest, head down; or hands and knees, bottom up). Both
 entries put the 000 call first and credit each position.

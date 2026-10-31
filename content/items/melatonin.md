@@ -15,7 +15,6 @@ sources:
   - title: healthdirect — Safe use of sleeping pills
     url: https://www.healthdirect.gov.au/medicines/safe-use-of-sleeping-pills
 related: [sleeping-pills]
-draft: true
 checked: 2026-10-29
 ---
 Ask your doctor first. Melatonin on prescription is sometimes used for insomnia in pregnancy, but MotherSafe says another medicine with more evidence of safety may be the better choice.
@@ -29,4 +28,4 @@ The **homeopathic "melatonin"** sold over the counter contains only minute amoun
 ## What to do
 
 - **Try sleep habits first:** regular sleep and wake times, a cool dark room, no screens for an hour before bed, no caffeine later in the day, short naps or none.
-- **If that isn't enough,** see your doctor. Doxylamine (Restavit) has been widely used in pregnancy without increased risk to the baby, and is not habit-forming. healthdirect, in general advice that isn't specific to pregnancy, says sedating antihistamines such as doxylamine are anti-allergy medicines, not sleeping pills, and should not be used to help you sleep.
+- **If that isn't enough,** see your doctor. Doxylamine (Restavit) has been widely used in pregnancy without increased risk to the baby, and is not habit-forming.

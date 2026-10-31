@@ -21,7 +21,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Backache in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/backache-in-pregnancy
 related: [braxton-hicks, fluid-leaking, bleeding-after-20-weeks, abdominal-pain, back-pain]
-draft: true
 checked: 2026-10-29
 ---
 ## What's usual
@@ -39,7 +38,7 @@ Signs of labour can include:
 
 ## Call 000 or go to emergency
 
-If you have back pain along with other signs of preterm labour, such as tummy pains or cramps, pressure in your pelvis or lower back, or fluid leaking from your vagina, call triple zero (000) immediately and ask for an ambulance.
+If you have back pain along with other signs of preterm labour, such as tummy pains or cramps, pressure in your pelvis or lower back, or fluid leaking from your vagina, call triple zero (000) immediately and ask for an ambulance. Call 000 too if you think the baby may come before you can get to your hospital or birth centre.
 
 ## Contact your hospital now
 

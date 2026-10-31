@@ -6,7 +6,6 @@ weeks: [32, 40]
 type: moment
 topic: celebrations
 extra: birth-announcement
-draft: true
 tasks:
   - id: agree-who-hears-first
     title: Agree who hears first, and who's allowed to share the news

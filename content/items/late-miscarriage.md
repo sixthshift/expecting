@@ -14,7 +14,6 @@ sources:
   - title: Miscarriage Australia — Late miscarriage
     url: https://miscarriageaustralia.com.au/understanding-miscarriage/late-miscarriage/
 related: [stillbirth, remembering-the-baby, loss-support-services, card-late-miscarriage-labour]
-draft: true
 checked: 2026-10-29
 ---
 A late miscarriage is the loss of a baby between 13 and 20 weeks of pregnancy. It's much less common than an early miscarriage, 1 to 2 in 100, and can be a shock. Often the cause can't be found, but it is unlikely to be anything you did.
@@ -23,7 +22,7 @@ Some people have bleeding, cramping or pain in the lower tummy or back; others h
 
 ## Why you give birth
 
-After a late miscarriage you will usually need to go through labour and birth. Your doctor may recommend medicine to start labour; Miscarriage Australia says that after 15 weeks this is usually one medicine (mifepristone), then another (misoprostol) 48 hours later. In some cases a surgical procedure is recommended instead. Contractions are painful but likely less intense and shorter than at full term. It's usually managed in hospital.
+After a late miscarriage you will usually need to go through labour and birth. Your doctor may recommend medicine to start labour; After 15 weeks this is usually one medicine (mifepristone), then another (misoprostol) 48 hours later. In some cases a surgical procedure is recommended instead. Contractions are painful but likely less intense and shorter than at full term. It's usually managed in hospital.
 
 You'll likely give birth in a birth suite or labour ward, where other babies are being born. Tell your care team what you need: they may be able to offer a more private space or extra support.
 
@@ -42,10 +41,7 @@ You may bleed for up to 2 weeks; use pads, not tampons. Pregnancy symptoms will 
 
 ## When to get help
 
-The two sources set the bleeding line slightly differently:
-
-- **PBB: call 000 or go to emergency immediately** with heavy bleeding (soaking 1 or more pads in an hour, or bleeding you can't contain), severe tummy pain, shoulder-tip pain, smelly discharge, a fever, or feeling faint, dizzy or unwell. Elsewhere it lists filling more than 2 pads an hour, large clots, strong pain, smelly discharge, or fever and chills as reasons to go straight to emergency.
-- **Miscarriage Australia: go to emergency or call 000 immediately** if you're soaking 1 to 2 pads in an hour, passing golf-ball-sized clots, or have severe pain, fever or chills, dizziness or fainting, or signs of infection.
+**Call 000 or go to emergency immediately** if you're soaking 1 or more pads in an hour, bleeding you can't contain, or passing clots the size of a golf ball; or you have severe tummy pain, shoulder-tip pain, smelly discharge, a fever or chills, or feel faint, dizzy or unwell.
 
 After you're home, seek medical help straight away for ongoing bleeding, fever or severe tummy pain; see your doctor if bleeding and pain continue 2 weeks on.
 

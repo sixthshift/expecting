@@ -8,6 +8,8 @@ topic: gear
 extra: second-hand
 draft: true
 sources:
+  - title: "Pregnancy, Birth and Baby — Car and road safety for babies and children"
+    url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
   - title: Red Nose — Second-hand nursery furniture
     url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/second-hand-nursery-furniture/
 tasks:
@@ -24,7 +26,7 @@ Buying or borrowing second-hand can save a lot, as long as each thing is safe. C
 - is less than 10 years old
 - has the sticker showing it meets AS/NZS 1754, and its instructions
 
-If you can't be sure, buy new or hire one; Kidsafe and some hospitals hire capsules.
+If you can't be sure, buy new.
 
 **Cots and portacots.** Every cot sold in Australia, new or second-hand, must meet the mandatory standard, AS/NZS 2172. Second-hand cots don't need a safety label, so check the instructions or the maker. If you can't confirm it meets the standard, don't use it. Look for rough repairs, missing parts and chipped old paint, which may contain lead.
 

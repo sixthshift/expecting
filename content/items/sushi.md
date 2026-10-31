@@ -11,11 +11,10 @@ summary: "Don't eat shop-bought sushi; sushi you make at home with no raw meat o
 verdict: avoid
 sources:
   - title: NSW Food Authority — Foods to eat or avoid when pregnant
-    url: https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant
+    url: https://www.foodauthority.nsw.gov.au/consumer/food-risk-you/pregnancy/foods-to-eat-or-avoid-when-pregnant
   - title: Food Standards Australia New Zealand — Raw fish dishes
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/raw-fish-dishes
 related: [sashimi-and-raw-fish, seaweed, listeria-foods]
-draft: true
 checked: 2026-10-29
 ---
 ## Why

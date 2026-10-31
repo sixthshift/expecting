@@ -10,6 +10,8 @@ who: partner
 stakes: high
 summary: "Plan the route and a backup, keep the car fuelled with the car seat fitted, know where to park, and save the numbers in both phones; if you think you won't make it in time, call 000."
 sources:
+  - title: Pregnancy, Birth and Baby — Breech pregnancy
+    url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
   - title: Pregnancy, Birth and Baby — Going to hospital or birthing centre
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/going-to-hospital
   - title: Pregnancy, Birth and Baby — The role of a birth support partner
@@ -17,7 +19,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Giving birth, early signs of labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-early-signs-of-labour
 related: [when-to-go-to-hospital, hospital-bag, car-seat, hospital-tour]
-draft: true
 checked: 2026-10-29
 ---
 Labour often starts unexpectedly. Having a plan for the trip, and knowing where you're going, will help you both feel organised. This one is yours to own: the person in labour will be concentrating on other things, and the advice is that they plan not to drive themselves.
@@ -44,5 +45,7 @@ If you're checked at the hospital in early labour, you may be advised to go home
 You can ring the hospital for support and guidance any time either of you feels concerned or worried.
 
 ## When to get help
+
+**If your waters break and you've been told the baby isn't head-first, call triple zero (000)** and ask for an ambulance: there's a higher risk of cord prolapse.
 
 Call triple zero (000) and ask for an ambulance if you think you may not make it to your planned place of birth before the baby is born, or if there is heavy bleeding from the vagina, a severe headache or blurred vision.

@@ -14,7 +14,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Sleep during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/sleep-during-pregnancy
 related: [sleeping-on-your-back]
-draft: true
 checked: 2026-10-29
 ---
 The Australian pages we checked don't say whether sleeping on your stomach is safe or unsafe, so there is no guidance to give you either way. If you're worried, ask your doctor or midwife.

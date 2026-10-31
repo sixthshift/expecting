@@ -18,7 +18,6 @@ sources:
 related: [medicines-in-pregnancy, antidepressants, asthma-inhalers, isotretinoin]
 appointment:
   - Does the dose of my regular medicine need to change now?
-draft: true
 checked: 2026-10-29
 ---
 If you take a medicine for an ongoing condition, such as asthma, depression, diabetes, epilepsy or high blood pressure, the answer is the same: don't stop taking it until you have spoken with your doctor.

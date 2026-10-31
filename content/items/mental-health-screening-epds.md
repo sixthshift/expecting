@@ -21,10 +21,9 @@ related: [antenatal-depression, antenatal-anxiety, partner-perinatal-depression]
 appointment:
   - Can we go through my answers to the mood questions?
 discreet: true
-draft: true
 checked: 2026-10-29
 ---
-During pregnancy and again after the birth, most women in Australia are screened for depression, using a questionnaire that asks a number of set questions about how you are feeling.
+During pregnancy and again after the birth, most people in Australia are screened for depression, using a questionnaire that asks a number of set questions about how you are feeling.
 
 ## What it is
 
@@ -38,13 +37,13 @@ The Royal Women's Hospital gives three reasons:
 - depression can have serious consequences for you and your baby
 - early treatment is the most effective, and screening can pick up symptoms early
 
-About 15 per cent of women have depression or anxiety in pregnancy, and more after the birth. Having it in pregnancy makes postnatal depression more likely, so it's important to get help during pregnancy rather than waiting until the baby arrives.
+About 15 per cent of pregnant people have depression or anxiety in pregnancy, and more after the birth. Having it in pregnancy makes postnatal depression more likely, so it's important to get help during pregnancy rather than waiting until the baby arrives.
 
 ## Answering it
 
 Your answers let the health professional know whether or not you have symptoms of depression. If you have symptoms, the first step is usually your GP, who can tailor a plan to how severe it is: psychological treatment and more support for milder depression, and for some, antidepressants, some of which are quite safe in pregnancy and while breastfeeding.
 
-Selected private hospitals (four in NSW and Victoria so far) include a one-on-one appointment with a specially trained midwife, about emotional wellbeing, as a routine part of antenatal care, through the Gidget Foundation's Emotional Wellbeing Screening Program.
+Some private hospitals include a one-on-one appointment with a specially trained midwife, about emotional wellbeing, as a routine part of antenatal care, through the Gidget Foundation's Emotional Wellbeing Screening Program.
 
 ## Partners too
 

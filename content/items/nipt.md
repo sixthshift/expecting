@@ -25,7 +25,6 @@ appointment:
   - Would genome-wide or targeted NIPT suit us better?
   - How would we arrange NIPT, if we choose it?
   - Should we book the 11 to 13 week scan as well?
-draft: true
 checked: 2026-10-29
 ---
 During pregnancy some of the baby's DNA passes into your blood. Non-invasive prenatal testing (NIPT) checks it, from a blood test taken from around 10 weeks. It estimates the chance of Down syndrome (trisomy 21), Edwards syndrome (trisomy 18), Patau syndrome (trisomy 13) and sex chromosome conditions such as Turner syndrome. It can also tell the baby's sex.
@@ -33,7 +32,7 @@ During pregnancy some of the baby's DNA passes into your blood. Non-invasive pre
 ## The options
 
 - **NIPT.** Identifies about 99% of babies with Down syndrome. More accurate than the nuchal translucency scan or combined screening. Comes as **genome-wide** (all chromosomes) or **targeted** (selected chromosomes); ask your doctor which suits you.
-- **Combined first-trimester screening.** A blood test and the nuchal translucency scan; identifies about 85 to 90%. The blood test is covered by Medicare; the scan may cost.
+- **Combined first-trimester screening.** A blood test and the nuchal translucency scan; identifies about 85 to 90%. Medicare rebates the blood test; the scan may cost.
 - **Second trimester serum screening.** A blood test between 15 and 20 weeks; detects about 75%.
 - **No screening.** It's your choice whether to have any of them.
 

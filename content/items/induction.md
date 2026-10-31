@@ -20,7 +20,6 @@ related: [membrane-sweep, prostaglandin, balloon-catheter, breaking-the-waters, 
 appointment:
   - Is there any reason you'd suggest an induction for me, and why?
   - If an induction is suggested for me, what happens if we wait instead?
-draft: true
 checked: 2026-10-29
 ---
 An induction is when your midwife or doctor starts labour for you, with your consent. The Royal Women's Hospital says about one in three have one. You may be offered it if staying pregnant is riskier for you or your baby than the birth coming sooner. It's an offer: the decision is always yours, you can change your mind at any time, and you can ask for a second opinion.

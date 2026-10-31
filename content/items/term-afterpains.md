@@ -12,7 +12,6 @@ sources:
   - title: Pregnancy, Birth and Baby — Your first few days after giving birth
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-first-few-days-after-giving-birth
 related: [first-days-mum, first-feed]
-draft: true
 checked: 2026-10-29
 ---
 Afterpains are cramps that can feel like period pain, caused by your uterus contracting back to its pre-pregnancy size. You're more likely to get them if this isn't your first baby, and you may notice them when you breastfeed, because your baby's suckling makes hormones that shrink the uterus.

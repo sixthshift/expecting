@@ -13,7 +13,6 @@ sources:
   - title: "Pregnancy, Birth and Baby — Abdominal separation (diastasis recti)"
     url: https://www.pregnancybirthbaby.org.au/abdominal-separation
 related: [abdominal-muscles-and-separation]
-draft: true
 checked: 2026-10-29
 ---
 Diastasis recti (DRAM), also called abdominal separation, is the partial or complete separation of the abdominal muscles in the midline of the tummy. The 2 long muscles (rectus abdominis) run from your chest to your pelvis, down the middle of your tummy, and they separate from each other.

@@ -22,10 +22,9 @@ sources:
   - title: Better Health Channel — Pregnancy and exercise
     url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
 related: [sleeping-on-your-back, abdominal-exercises, massage]
-draft: true
 checked: 2026-10-29
 ---
-After 16 weeks, it's best to avoid exercises lying flat on your back. That's the advice from the Royal Women's Hospital, MotherSafe and Pregnancy, Birth and Baby's sport page. Pregnancy, Birth and Baby's exercise page puts the emphasis later, saying lying flat is dangerous particularly after 28 weeks.
+After 16 weeks, it's best to avoid exercises lying flat on your back.
 
 ## Why
 
