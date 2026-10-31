@@ -10,6 +10,12 @@ who: together
 stakes: high
 summary: "You register the birth yourselves, free, with the registry of the state or territory the baby is born in: within 60 days in most places, 6 months in the ACT."
 sources:
+  - title: SA.GOV.AU — Register a birth
+    url: https://www.sa.gov.au/topics/family-and-community/births-deaths-and-marriages/register-a-birth
+  - title: Births, Deaths and Marriages Tasmania — Home births
+    url: https://www.justice.tas.gov.au/bdm/newborn/home-births
+  - title: NT.GOV.AU — Register a birth
+    url: https://nt.gov.au/law/bdm/register-a-birth
   - title: myGov — Register your baby's birth and get their birth certificate
     url: https://my.gov.au/en/services/raising-kids/having-a-baby/when-your-baby-is-born/register-your-baby-s-birth-and-get-their-birth-certificate
   - title: NSW Government — Register the birth of your baby
@@ -27,7 +33,7 @@ sources:
   - title: Services Australia — When your baby arrives
     url: https://www.servicesaustralia.gov.au/when-your-baby-arrives
 related: [birth-certificate, proof-of-birth, parental-leave-pay, baby-passport, medicare-enrol-baby]
-checked: 2026-10-29
+checked: 2026-10-31
 tasks:
   - id: register-the-birth
     title: Register the baby's birth with your state's registry
@@ -48,4 +54,6 @@ The rules differ by state and territory:
 - **Queensland:** you must register within 60 days. Apply online, by post or in person; both parents verify their ID for the online form.
 - **WA:** the registration form must be lodged within 60 days. The hospital or midwife gives you information on how to register.
 - **ACT:** you must register within 6 months. If your baby is born at the Centenary Hospital for Women and Children or the North Canberra Hospital, you may be able to register through myGov under the Newborn Enrolment Trial, by completing a consent form at the hospital. Otherwise, register online with Access Canberra.
-- **SA, Tasmania and the NT:** myGov says births must be registered within 60 days in all states and territories (the ACT's own registry says 6 months, above). Check your registry's own page, linked from myGov.
+- **SA:** babies must be registered within 60 days. It's free, the hospital won't do it for you, and you can apply online.
+- **Tasmania:** register within 60 days. There's no fee, and you apply online.
+- **NT:** you must register within 60 days, a stillbirth included. It's free, online or on a form.

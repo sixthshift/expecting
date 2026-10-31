@@ -117,12 +117,10 @@ Noted 2026-10-31, after the full pass. In the order I'd take them.
 
 **Needs a person**
 
-1. Read the pages that block automated reading (Red Nose, Product
-   Safety Australia, Darling Downs Health and PANDA were read in Chrome on
-   2026-10-31; with new sources for malaria, clots and gravida, all 11
-   drafts are finished: `review-tier3.yaml`), then the rest: SA, NT and Tasmania birth registries; MSI Australia's number
-   (1300 003 707 or 1300 405 568); the NSW, Qld, NT, Tas and SA patient
-   travel schemes (`rural-and-remote`).
+1. ~~Read the pages that block automated reading.~~ Done 2026-10-31, in
+   Chrome: all 11 drafts finished, the SA, NT and Tasmania registries
+   (60 days, free), MSI's number (1300 003 707) and the patient travel
+   schemes (`review-tier3.yaml`).
 2. ~~Decide whether `previous-trauma-and-pregnancy` is `private`.~~
    Decided 2026-10-31: not private (`content/REVIEW.md`).
 3. A midwife reads the symptom pages.

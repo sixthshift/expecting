@@ -9,6 +9,8 @@ weeks: [4, 12]
 stakes: high
 summary: "Your options are to continue and keep the baby, to have the baby and place them for adoption, foster or kinship care, or to have an abortion; take your time, but see your doctor soon, because some options depend on how many weeks pregnant you are."
 sources:
+  - title: MSI Australia — Make a booking
+    url: https://www.msiaustralia.org.au/make-a-booking/
   - title: Pregnancy, Birth and Baby — Making decisions about unplanned pregnancies
     url: https://www.pregnancybirthbaby.org.au/womens-health/mental-health/making-decisions-about-pregnancy
   - title: Pregnancy, Birth and Baby — Abortion
@@ -18,7 +20,7 @@ sources:
   - title: Healthdirect — MSI Canberra Abortion & Contraception Clinic
     url: https://www.healthdirect.gov.au/australian-health-services/healthcare-service/city-2601-act/msi-canberra-abortion-contraception-clinic/family-counselling-service/e9487485-c841-4e9d-aad3-d1c8af130f93
 related: [reproductive-coercion, something-has-happened, adoption-pointers]
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 An unplanned pregnancy can bring confusing, conflicting feelings, sometimes fear and joy at once. That's very common, and an unplanned pregnancy may still be wanted. If you're pregnant, see your doctor as soon as possible to talk about your health and your options.
 

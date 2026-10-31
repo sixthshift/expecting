@@ -9,6 +9,16 @@ weeks: [1, 42]
 stakes: high
 summary: "Far from a maternity unit, in remote Northern Territory you will need to travel to hospital for the birth from 37 to 38 weeks and in rural Queensland you will be advised to travel closer to your birthing hospital then, every state and the Northern Territory has a scheme you may be able to claim some travel and accommodation costs from, and telehealth can bring support to you."
 sources:
+  - title: IPTAAS (NSW Health) — For patients
+    url: https://iptaas.health.nsw.gov.au/for-patients
+  - title: SA Health — Patient Assistance Transport Scheme, contact
+    url: https://www.pats.sa.gov.au/contact/
+  - title: Queensland Government — Patient Travel Subsidy Scheme contact details
+    url: https://www.qld.gov.au/health/services/travel/subsidies/contact-details
+  - title: Service Tasmania — Apply for the Patient Travel Assistance Scheme (PTAS)
+    url: https://www.service.tas.gov.au/services/health/health-payments-services-and-tools/apply-for-the-patient-travel-assistance-scheme-ptas
+  - title: NT.GOV.AU — Patient Assistance Travel Scheme contacts
+    url: https://nt.gov.au/wellbeing/health-subsidies-support-and-home-visits/patient-assistance-travel-scheme/contacts
   - title: Pregnancy, Birth and Baby — Maternity services in rural Australia
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/rural-and-remote-services/maternity-services-in-rural-australia
   - title: Pregnancy, Birth and Baby — Maternity services in rural NSW
@@ -33,7 +43,7 @@ related: [building-your-village, when-the-baby-comes-early]
 appointment:
   - Will I need to travel closer to the hospital before the birth, and if so, when?
   - Could some of my appointments be by telehealth or grouped together?
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 Living a long way from a maternity unit changes the logistics more than the care. Your choices of care and where to give birth depend on where you live, and long travel for appointments and the birth can take time, energy and money. A bit of planning takes much of the pressure off.
 
@@ -48,12 +58,12 @@ Wherever you are, if you need to travel a long distance to give birth, plan ahea
 Every state and the Northern Territory has a scheme you may be able to claim some of the cost of travelling for care from:
 
 - **NSW:** Isolated Patients Travel and Accommodation Assistance Scheme (IPTAAS), 1800 478 227
-- **Queensland:** Patient Travel Subsidy Scheme (PTSS)
+- **Queensland:** Patient Travel Subsidy Scheme (PTSS), through the travel office at your nearest Queensland Health hospital
 - **Victoria:** Victorian Patient Transport Assistance Scheme (VPTAS)
 - **South Australia:** Patient Assistance Transport Scheme (PATS), 1300 341 684
 - **Western Australia:** Patient Assisted Travel Scheme (PATS)
-- **Tasmania:** Patient Travel Assistance Scheme (PTAS)
-- **Northern Territory:** Patient Assistance Travel Scheme (PATS)
+- **Tasmania:** Patient Travel Assistance Scheme (PTAS), through your regional PTAS office
+- **Northern Territory:** Patient Assistance Travel Scheme (PATS), through the patient travel office at your regional hospital
 
 Depending on the scheme, they can cover private car use, public transport, taxis, air travel and accommodation. They don't always cover everything: in WA, you pay the difference between what you get and what the travel cost.
 
