@@ -1,9 +1,12 @@
 import { Badge } from "@sixthshift/design-system/badge";
+import { toast } from "@sixthshift/design-system/overlay";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
-import { useChecklist } from "../../../../api/rpc/checklist";
+import { useEffect, useRef, useState } from "react";
+import { checklistSaves, useChecklist } from "../../../../api/rpc/checklist";
 import { usePeople } from "../../../../api/rpc/people";
 import { useNow } from "../../../../api/rpc/settings";
+import { useSave } from "../../../../app/hooks/useSave";
 import { whose } from "../../../../lib/people";
 import { toDoNow, whenToDo } from "../../../../lib/todo";
 import { ItemLink } from "../../../library/components/ItemLink";
@@ -13,18 +16,26 @@ import { TaskRow } from "../TaskRow";
 /** How many To do now shows before handing over to the Planner. */
 const SHOWN = 5;
 
+/** How long a ticked task stays in the list, struck through and then folding away (TaskRow's `leaving`). */
+const LEAVING_MS = 750;
+
 /**
  * What This week opens with: the few things to do now, most urgent first,
  * each with when, whose (when it's one of you), and a way to why. The rest
- * is in the Planner.
+ * is in the Planner. A ticked task leaves the list, after a beat to see it
+ * ticked, and a toast offers it back.
  */
 export function ToDoNow() {
   const { me, people } = usePeople().data;
   const { data: checklist } = useChecklist();
   const now = useNow();
   const tasks = useTasks();
+  const save = useSave(checklistSaves.setTicked);
+  const leaving = useLeaving();
   if (now === null) return null;
-  const list = toDoNow(tasks, checklist.ticks, now);
+  // The ones just ticked are listed as if they weren't, so they stay in their place while they go.
+  const { [leaving.id ?? ""]: _, ...ticks } = checklist.ticks;
+  const list = toDoNow(tasks, leaving.id ? ticks : checklist.ticks, now);
   const shown = list.slice(0, SHOWN);
 
   return (
@@ -40,7 +51,18 @@ export function ToDoNow() {
             <TaskRow
               key={entry.task.id}
               task={entry.task}
-              ticked={false}
+              ticked={entry.task.id === leaving.id}
+              leaving={entry.task.id === leaving.id}
+              onTick={(ticked) => {
+                if (!ticked) return;
+                leaving.start(entry.task.id);
+                toast({
+                  title: "Ticked off",
+                  children: entry.task.title,
+                  action: "Undo",
+                  onAction: () => save({ taskId: entry.task.id, ticked: false }),
+                });
+              }}
               stack
               meta={
                 <span className="flex flex-wrap items-center gap-x-2">
@@ -72,4 +94,19 @@ export function ToDoNow() {
       </Link>
     </section>
   );
+}
+
+/** The task just ticked, kept in the list while it folds away; a second tick before it has gone sends the first on its way. */
+function useLeaving() {
+  const [id, setId] = useState<string | null>(null);
+  const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  useEffect(() => () => clearTimeout(timer.current), []);
+  return {
+    id,
+    start(next: string) {
+      clearTimeout(timer.current);
+      setId(next);
+      timer.current = setTimeout(() => setId(null), LEAVING_MS);
+    },
+  };
 }

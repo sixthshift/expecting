@@ -15,12 +15,12 @@ export function StepPicker({ value, onChoose, label }: { value: Step | null; onC
           <label
             key={step}
             className={cn(
-              "flex min-h-11 cursor-pointer flex-col items-center gap-1 rounded-lg px-1 py-2 text-xs transition-colors has-focus-visible:outline-2 has-focus-visible:outline-(--focus-ring)",
+              "flex min-h-11 cursor-pointer flex-col items-center gap-1 rounded-lg px-1 py-2 text-xs transition-colors duration-(--motion-fast) has-focus-visible:outline-2 has-focus-visible:outline-(--focus-ring)",
               chosen ? "bg-bg-brand-subtle font-medium text-fg-on-brand-subtle" : "text-fg-normal hover:bg-bg-subtle"
             )}
           >
             <input type="radio" name={name} value={step} checked={chosen} onChange={() => onChoose(step)} className="sr-only" />
-            <span className={chosen ? "text-fg-brand" : "text-fg-subtle"}>
+            <span className={chosen ? "animate-pop text-fg-brand" : "text-fg-subtle"}>
               <Face step={step} />
             </span>
             {STEP_LABEL[step]}

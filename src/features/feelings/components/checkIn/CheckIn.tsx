@@ -49,7 +49,7 @@ export function CheckIn() {
   return (
     <section aria-labelledby="check-in" className="flex flex-col gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
       {today && !open ? (
-        <div className="flex flex-wrap items-center justify-between gap-2">
+        <div className="flex animate-fade flex-wrap items-center justify-between gap-2">
           <h2 id="check-in" className="font-display font-semibold text-fg-strong">
             {STEP_LABEL[today.step]} today
           </h2>
@@ -64,14 +64,16 @@ export function CheckIn() {
           </h2>
           <StepPicker label="How are you today?" value={today?.step ?? null} onChoose={choose} />
           {today ? (
-            <MoreWords
-              key={today.id}
-              feeling={today}
-              onDone={(more) => {
-                change({ id: today.id, day: today.day, time: today.time, step: today.step, ...more });
-                setOpen(false);
-              }}
-            />
+            <div className="animate-rise">
+              <MoreWords
+                key={today.id}
+                feeling={today}
+                onDone={(more) => {
+                  change({ id: today.id, day: today.day, time: today.time, step: today.step, ...more });
+                  setOpen(false);
+                }}
+              />
+            </div>
           ) : null}
         </>
       )}

@@ -7,18 +7,18 @@
 /** One thing the "+" can file. */
 export type Capture = "movement" | "sick" | "craving" | "note" | "photo" | "paper" | "feeling" | "first" | "question" | "task";
 
-/** Where each one goes, as its toast says and its link opens. */
-export const FILED_IN: Record<Capture, { pillar: "Journal" | "Planner"; to: "/journal" | "/planner" }> = {
-  movement: { pillar: "Journal", to: "/journal" },
-  sick: { pillar: "Journal", to: "/journal" },
-  craving: { pillar: "Journal", to: "/journal" },
-  note: { pillar: "Journal", to: "/journal" },
-  photo: { pillar: "Journal", to: "/journal" },
-  paper: { pillar: "Journal", to: "/journal" },
-  feeling: { pillar: "Journal", to: "/journal" },
-  first: { pillar: "Journal", to: "/journal" },
-  question: { pillar: "Planner", to: "/planner" },
-  task: { pillar: "Planner", to: "/planner" },
+/** Where each one goes and what its toast calls it ("Note kept", In the Journal), as its link opens. */
+export const FILED_IN: Record<Capture, { pillar: "Journal" | "Planner"; to: "/journal" | "/planner"; kept: string }> = {
+  movement: { pillar: "Journal", to: "/journal", kept: "Movement kept" },
+  sick: { pillar: "Journal", to: "/journal", kept: "Sickness kept" },
+  craving: { pillar: "Journal", to: "/journal", kept: "Craving kept" },
+  note: { pillar: "Journal", to: "/journal", kept: "Note kept" },
+  photo: { pillar: "Journal", to: "/journal", kept: "Photo kept" },
+  paper: { pillar: "Journal", to: "/journal", kept: "Paper kept" },
+  feeling: { pillar: "Journal", to: "/journal", kept: "Feeling kept" },
+  first: { pillar: "Journal", to: "/journal", kept: "First kept" },
+  question: { pillar: "Planner", to: "/planner", kept: "Question added" },
+  task: { pillar: "Planner", to: "/planner", kept: "Task added" },
 };
 
 /**

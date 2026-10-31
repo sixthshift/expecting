@@ -121,7 +121,7 @@ describe("CaptureSheet", () => {
     fireEvent.click(screen.getByRole("button", { name: "Keep it" }));
     expect(saved).toEqual([{ key: "addMovement", input: expect.objectContaining({ body: "", different: false }) }]);
     expect(onClose).toHaveBeenCalled();
-    expect(toasts.map((t) => t.title)).toEqual(["In the Journal"]);
+    expect(toasts.map((t) => t.title)).toEqual(["Movement kept"]);
   });
 
   it("a movement felt as slower, weaker or stopped is kept, and the call stays on screen until put away", () => {
@@ -148,7 +148,7 @@ describe("CaptureSheet", () => {
     expect(onClose).not.toHaveBeenCalled();
     fireEvent.click(screen.getByRole("button", { name: "Done" }));
     expect(onClose).toHaveBeenCalled();
-    expect(toasts.map((t) => t.title)).toEqual(["In the Journal"]);
+    expect(toasts.map((t) => t.title)).toEqual(["Sickness kept"]);
     expect(screen.queryByRole("alert")).toBeNull();
   });
 
@@ -192,7 +192,7 @@ describe("CaptureSheet", () => {
     fireEvent.change(screen.getByRole("textbox"), { target: { value: "Is the glucose test fasting?" } });
     fireEvent.submit(screen.getByRole("textbox").closest("form")!);
     expect(saved).toEqual([{ key: "addQuestion", input: expect.objectContaining({ text: "Is the glucose test fasting?" }) }]);
-    expect(toasts.map((t) => t.title)).toEqual(["In the Planner"]);
+    expect(toasts.map((t) => t.title)).toEqual(["Question added"]);
     expect(onClose).toHaveBeenCalled();
   });
 

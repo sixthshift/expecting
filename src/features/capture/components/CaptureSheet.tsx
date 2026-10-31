@@ -97,9 +97,9 @@ export function CaptureSheet({
   const files = shared?.files.length ? shared.files : undefined;
   const text = shared?.text ?? undefined;
 
-  /** Kept: close, and say where it went, with the way there; in the Journal, show it there as just kept. */
+  /** Kept: close, and say what was kept and where it went, with the way there; in the Journal, show it there as just kept. */
   function filed(capture: Capture, id?: string) {
-    const { pillar, to } = FILED_IN[capture];
+    const { pillar, to, kept } = FILED_IN[capture];
     onKept?.();
     onClose();
     if (to === "/journal" && pathname === "/journal") {
@@ -107,7 +107,8 @@ export function CaptureSheet({
       return;
     }
     toast({
-      title: `In the ${pillar}`,
+      title: kept,
+      children: `In the ${pillar}`,
       action: "See it",
       onAction: () => (to === "/journal" ? navigate({ to: "/journal", search: { kept: id } }) : navigate({ to })),
     });

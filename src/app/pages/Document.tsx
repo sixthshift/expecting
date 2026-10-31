@@ -16,8 +16,8 @@ export function Document({ children }: { children: ReactNode }) {
       </head>
       <body className="bg-(--expecting-page) text-fg-normal">
         {children}
-        {/* Above a phone's tab bar. */}
-        <ToastStack className="bottom-[calc(4.5rem+env(safe-area-inset-bottom))] lg:bottom-6" />
+        {/* On a phone, above the tab bar and left of the "+", as wide as the room between them, so a toast reads in a line or two. */}
+        <ToastStack className="bottom-[calc(4.5rem+env(safe-area-inset-bottom))] max-lg:right-20 max-lg:left-4 max-lg:translate-x-0 max-lg:items-stretch lg:bottom-6" />
         <Scripts />
       </body>
     </html>
