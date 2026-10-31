@@ -1,4 +1,4 @@
-import { useLocation } from "@tanstack/react-router";
+import { useLocation, useRouter } from "@tanstack/react-router";
 import { useEffect, useMemo } from "react";
 import { useAnswers } from "../../api/rpc/facts";
 import { useQuestions } from "../../api/rpc/questions";
@@ -17,7 +17,9 @@ import { useAppTheme } from "../hooks/useAppTheme";
  * context content renders against, then the pillars in their layout, and
  * what's new once after an update, and the app icon's badge for deadlines
  * coming up. While something has happened, content has no today to draw
- * against, what's new waits, and there's no badge.
+ * against, what's new waits, and there's no badge. Once it has drawn, the
+ * other pillars are warmed while the phone is idle (their code, and what
+ * their loaders ask for), so moving between them doesn't wait.
  */
 export function App() {
   const { data: settings } = useSettings();
@@ -28,6 +30,19 @@ export function App() {
   useAppTheme(settings.baby);
   useDeadlineBadge(Boolean(quiet));
   const { pathname } = useLocation();
+  const router = useRouter();
+
+  useEffect(() => {
+    const warm = () => {
+      for (const { to } of PILLARS) void router.preloadRoute({ to }).catch(() => undefined);
+    };
+    if (typeof requestIdleCallback === "function") {
+      const id = requestIdleCallback(warm, { timeout: 3000 });
+      return () => cancelIdleCallback(id);
+    }
+    const id = setTimeout(warm, 1500);
+    return () => clearTimeout(id);
+  }, [router]);
 
   // A new pillar starts at its top; the timeline places itself (this week, or ?at=).
   useEffect(() => {
