@@ -32,6 +32,8 @@ const extraSchema = z
     offer: z.number().int().min(WEEKS.first).max(WEEKS.last),
     /** Only when your answers fit, as an item's `when`: siblings, `{ firstBaby: "no" }`. */
     when: whenSchema.default({}),
+    /** What it brings beyond its items, if anything: a tool, and where it is, as it reads after "And". Shown wherever it's offered, so the extras that change the app stand out. */
+    tool: z.string().min(1).optional(),
   })
   .strict()
   .superRefine((e, ctx) => {
@@ -49,6 +51,7 @@ export type ExtraInput = {
   readonly onboarding?: boolean;
   readonly offer: number;
   readonly when?: WhenInput;
+  readonly tool?: string;
 };
 
 /** An extra's id, as extras.data.ts has it. */

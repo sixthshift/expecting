@@ -47,6 +47,7 @@ function Extras({ offered, on, onDone }: { offered: readonly Extra[]; on: Readon
               <span className="flex flex-1 flex-col gap-0.5">
                 <span className={cn("text-base", picked ? "text-fg-on-brand-subtle" : "text-fg-strong")}>{e.name}</span>
                 <span className={cn("text-sm", picked ? "text-fg-normal" : "text-fg-subtle")}>{e.pitch}</span>
+                {e.tool ? <span className="text-xs font-medium text-fg-brand">And {e.tool}</span> : null}
               </span>
               <span
                 aria-hidden

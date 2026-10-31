@@ -35,6 +35,7 @@ export function OfferExtra() {
             Add {extra.name.toLowerCase()}?
           </h2>
           <p className="text-sm text-fg-normal">{extra.pitch}</p>
+          {extra.tool ? <p className="text-xs font-medium text-fg-brand">And {extra.tool}</p> : null}
         </div>
       </div>
       <div className="flex flex-wrap items-center gap-2">

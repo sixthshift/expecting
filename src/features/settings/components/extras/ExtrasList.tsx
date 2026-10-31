@@ -13,7 +13,8 @@ import { SettingList } from "../SettingRow";
 /**
  * Every extra in src/features/settings/model/extras.data.ts you're offered (its `when`
  * fits, or it's on), with its switch: on, its items appear
- * wherever they belong; off, they're gone. Each says who last changed it.
+ * wherever they belong; off, they're gone. Each says who last changed it,
+ * and one that brings a tool says which.
  * `highlight` marks the one a link opened settings at.
  */
 export function ExtrasList({ choices, people, highlight }: { choices: readonly Choice[]; people: readonly Person[]; highlight?: string }) {
@@ -49,6 +50,7 @@ export function ExtrasList({ choices, people, highlight }: { choices: readonly C
                         {e.name}
                       </label>
                       <span className={quiet}>{e.pitch}</span>
+                      {e.tool ? <span className="text-xs font-medium text-fg-brand">And {e.tool}</span> : null}
                       {choice ? <span className={quiet}>{changedBy(choice, people)}</span> : null}
                     </div>
                     <Switch id={control} checked={on} onCheckedChange={(next) => setExtras([{ id: e.id, on: next }])} />

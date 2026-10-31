@@ -14,6 +14,8 @@
 //   offer       the week This week suggests it, if nobody has decided
 //   onboarding  also offered in onboarding (a few, so it stays short)
 //   when        only when your answers fit, as an item's `when`
+//   tool        what it brings beyond its items, if anything: a tool, and where,
+//               as it reads after "And"
 //
 // extras.ts checks this list as it loads.
 
@@ -86,6 +88,7 @@ export const EXTRA_LIST = [
     name: "Choosing a name",
     pitch: "Shortlisting names, the rules for registering one, and testing it out loud.",
     group: "celebrate",
+    tool: "the names game, in the Drawer",
     offer: 16,
     onboarding: true,
   },
