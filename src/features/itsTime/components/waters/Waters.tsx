@@ -22,10 +22,10 @@ export function Waters({ start }: { start: Start }) {
     <Part id="waters" title="Waters">
       {start.watersAt === null ? (
         <div className="flex flex-col gap-2 sm:flex-row">
-          <Button size="lg" variant="outline" className="min-h-14 flex-1" onClick={() => set({ waters: null })}>
+          <Button size="lg" variant="outline" className="min-h-14 flex-1" onClick={() => set({ startId: start.id, waters: null })}>
             Waters broke
           </Button>
-          <Button size="lg" variant="ghost" className="min-h-14 flex-1" onClick={() => set({ waters: "unsure" })}>
+          <Button size="lg" variant="ghost" className="min-h-14 flex-1" onClick={() => set({ startId: start.id, waters: "unsure" })}>
             Not sure if they have
           </Button>
         </div>
@@ -43,7 +43,7 @@ export function Waters({ start }: { start: Start }) {
               intent={start.waters === w ? "brand" : undefined}
               className="min-h-12 justify-start"
               onClick={() => {
-                set({ waters: w });
+                set({ startId: start.id, waters: w });
                 setChanging(false);
               }}
             >

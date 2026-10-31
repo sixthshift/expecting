@@ -40,7 +40,7 @@ export function Timer({ start, hospitalSaid }: { start: Start; hospitalSaid: str
       </h2>
       <button
         type="button"
-        onClick={() => (running ? end({ id: running.id }) : begin({ id: newId() }))}
+        onClick={() => (running ? end({ id: running.id, startId: start.id, startedAt: running.startedAt }) : begin({ id: newId(), startId: start.id }))}
         className={
           running
             ? "flex min-h-24 flex-col items-center justify-center rounded-2xl border-2 border-border-brand bg-bg-brand-subtle text-fg-on-brand-subtle"

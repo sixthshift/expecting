@@ -134,14 +134,14 @@ function ItsTime() {
           {left ? null : gettingThere}
         </div>
 
-        {start ? <End home={home} /> : null}
+        {start ? <End startId={start.id} home={home} /> : null}
       </div>
     </main>
   );
 }
 
 /** The end of a start: we're there, or a false alarm and home again. Asked twice: a stray tap shouldn't end the night. */
-function End({ home }: { home: boolean }) {
+function End({ startId, home }: { startId: string; home: boolean }) {
   const end = useSave(itsTimeSaves.endStart);
   const [asking, setAsking] = useState<Ending | null>(null);
   const label: Record<Ending, string> = { there: home ? "The midwife's here" : "We're there", home: "False alarm, we're home" };
@@ -152,7 +152,7 @@ function End({ home }: { home: boolean }) {
           {asking === "there" ? "End this start? The night is kept in the Journal." : "End this start? The contractions are kept here."}
         </p>
         <div className="flex gap-2">
-          <Button intent="brand" onClick={() => end({ ended: asking })}>
+          <Button intent="brand" onClick={() => end({ startId, ended: asking })}>
             {label[asking]}
           </Button>
           <Button variant="outline" onClick={() => setAsking(null)}>

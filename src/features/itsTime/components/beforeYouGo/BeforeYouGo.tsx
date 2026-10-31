@@ -50,7 +50,12 @@ export function BeforeYouGo({
   const ticked = new Set(start?.ticks ?? []);
   const box = (key: string, label: React.ReactNode) => (
     <li key={key} className="flex min-h-11 items-center">
-      <Checkbox label={label} checked={ticked.has(key)} disabled={!start} onCheckedChange={(on) => tick({ key, ticked: on === true })} />
+      <Checkbox
+        label={label}
+        checked={ticked.has(key)}
+        disabled={!start}
+        onCheckedChange={(on) => start && tick({ startId: start.id, key, ticked: on === true })}
+      />
     </li>
   );
 
@@ -88,7 +93,13 @@ export function BeforeYouGo({
           </li>
         ) : null}
         {ownLines.map((l) => (
-          <OwnLine key={l.id} line={l} checked={ticked.has(l.id)} disabled={!start} onTick={(on) => tick({ key: l.id, ticked: on })} />
+          <OwnLine
+            key={l.id}
+            line={l}
+            checked={ticked.has(l.id)}
+            disabled={!start}
+            onTick={(on) => start && tick({ startId: start.id, key: l.id, ticked: on })}
+          />
         ))}
         <li>
           <AddOwn />
@@ -98,7 +109,7 @@ export function BeforeYouGo({
         start.leftAt ? (
           <p className="text-fg-strong">You left at {clock(start.leftAt)}.</p>
         ) : (
-          <Button size="lg" intent="brand" className="min-h-14" onClick={() => leave(null)}>
+          <Button size="lg" intent="brand" className="min-h-14" onClick={() => leave({ startId: start.id })}>
             We're leaving
           </Button>
         )

@@ -304,12 +304,36 @@ const CASES: Record<string, [unknown, unknown[]]> = {
       { id: START, waters: false },
     ],
   ],
-  setWaters: [itsTime, [{ waters: null }, { waters: "green-brown-blood" }]],
-  leaveStart: [itsTime, [null]],
-  endStart: [itsTime, [{ ended: "there" }, { ended: "home" }]],
+  setWaters: [
+    itsTime,
+    [
+      { startId: START, waters: null },
+      { startId: START, waters: "green-brown-blood" },
+    ],
+  ],
+  leaveStart: [itsTime, [{ startId: START }]],
+  endStart: [
+    itsTime,
+    [
+      { startId: START, ended: "there" },
+      { startId: START, ended: "home" },
+    ],
+  ],
   deleteStart: [itsTime, [{ id: START }]],
-  beginContraction: [itsTime, [{ id: "99999999-9999-4999-8999-999999999999" }]],
-  endContraction: [itsTime, [{ id: PAIN }]],
+  beginContraction: [
+    itsTime,
+    [
+      { id: "99999999-9999-4999-8999-999999999999", startId: START },
+      { id: "99999999-9999-4999-8999-999999999999", startId: ID },
+    ],
+  ],
+  endContraction: [
+    itsTime,
+    [
+      { id: PAIN, startId: START, startedAt: contraction.startedAt },
+      { id: ID, startId: START, startedAt: "2026-10-30T07:25:00.000Z" },
+    ],
+  ],
   noteContraction: [
     itsTime,
     [
@@ -321,8 +345,8 @@ const CASES: Record<string, [unknown, unknown[]]> = {
   tickStart: [
     itsTime,
     [
-      { key: "bag-cash", ticked: true },
-      { key: "bag-chargers", ticked: false },
+      { startId: START, key: "bag-cash", ticked: true },
+      { startId: START, key: "bag-chargers", ticked: false },
     ],
   ],
   addStartLine: [itsTime, [{ id: "22222222-2222-4222-8222-222222222222", title: " Feed the cat " }]],
@@ -459,20 +483,25 @@ test("It's time's saves land on the start under way, and keep the first time", (
   expect(byKey.beginStart!.apply(itsTime, { id: ID, waters: false }, made)).toEqual(itsTime);
   // The waters' colour can change; the time they broke can't.
   const later = { ...made, at: "2026-10-30T08:00:00.000Z" };
-  const coloured = byKey.setWaters!.apply(byKey.setWaters!.apply(itsTime, { waters: null }, made), { waters: "clear" }, later);
+  const coloured = byKey.setWaters!.apply(byKey.setWaters!.apply(itsTime, { startId: START, waters: null }, made), { startId: START, waters: "clear" }, later);
   expect(coloured.starts[0]).toMatchObject({ watersAt: made.at, waters: "clear" });
   // A new contraction ends the one still going.
-  const next = byKey.beginContraction!.apply(itsTime, { id: ID }, later);
+  const next = byKey.beginContraction!.apply(itsTime, { id: ID, startId: START }, later);
   expect(next.starts[0].contractions).toEqual([
     { ...contraction, endedAt: later.at },
     { id: ID, startedAt: later.at, endedAt: null, note: null, by: made.by },
   ]);
   // Ending a start ends what's being timed; the false alarm before it is untouched.
-  const ended = byKey.endStart!.apply(itsTime, { ended: "there" }, later);
+  const ended = byKey.endStart!.apply(itsTime, { startId: START, ended: "there" }, later);
   expect(ended.starts[0]).toMatchObject({ ended: "there", endedAt: later.at, contractions: [{ ...contraction, endedAt: later.at }] });
   expect(ended.starts[1]).toEqual(falseAlarm);
-  // Nothing under way: nothing to tick.
-  expect(byKey.tickStart!.apply(nothingYet, { key: "bag-cash", ticked: true }, made)).toEqual(nothingYet);
+  // A start that has ended takes nothing more.
+  expect(byKey.tickStart!.apply(nothingYet, { startId: falseAlarm.id, key: "bag-cash", ticked: true }, made)).toEqual(nothingYet);
+  // Out of order: an end before its beginning keeps both, and a save before its start opens it.
+  const early = byKey.endContraction!.apply(nothingYet, { id: ID, startId: START, startedAt: "2026-10-30T07:20:00.000Z" }, made);
+  expect(early.starts[0]).toMatchObject({ id: START, startedAt: "2026-10-30T07:20:00.000Z" });
+  expect(early.starts[0].contractions).toEqual([{ id: ID, startedAt: "2026-10-30T07:20:00.000Z", endedAt: made.at, note: null, by: null }]);
+  expect(byKey.beginContraction!.apply(early, { id: ID, startId: START }, { ...made, at: "2026-10-30T07:20:00.000Z" })).toEqual(early);
   // An own line taken off takes its ticks with it.
   expect(byKey.deleteStartLine!.apply({ ...itsTime, starts: [{ ...underWay, ticks: [ID] }] }, { id: ID }, made)).toEqual({
     starts: [{ ...underWay, ticks: [] }],

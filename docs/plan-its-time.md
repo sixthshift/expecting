@@ -421,5 +421,13 @@ In `src/features/settings/model/facts.data.ts`, beside `birth`, both in the
     starting lands on the one under way, so two phones and late outbox saves
     agree.
   - A false alarm says so once, kindly, for 12 hours after.
+  - **Every save names its start, and a contraction's end carries its
+    beginning,** so saves that reach the server in another order than they
+    were made still make the same night (a save for a start not there yet
+    opens it; an earlier beginning arriving late ends at the next one). The
+    e2e run found the outbox sending two saves that waited offline at once,
+    an end before its beginning, though it means to send one at a time
+    (TanStack Query's `resumePausedMutations` continues every paused
+    mutation together). That is the outbox's to fix, for every save.
 - Still to do: the content's `when`s (`home-birth`, `birth-centre` on
   `birthPlace`; `breech-birth` on `presentation`), in the content pass.
