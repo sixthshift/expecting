@@ -13,7 +13,7 @@ import { factsOf } from "../../../lib/facts";
 import { cluesIn, DOOR_INFO, doorOf } from "../../../lib/library";
 import { QUIET_ITEM } from "../../../lib/quiet";
 import { weekLabel } from "../../../lib/timeline";
-import { PapersAbout } from "../../journal/components/papers/papers";
+import { PapersAbout } from "../../journal/components/entries/papers/PaperList";
 import { QuietSwitch } from "../../quiet/components/quietSwitch/QuietSwitch";
 import { extra } from "../../settings/model/extras";
 import { ItemCard } from "../components/ItemCard";

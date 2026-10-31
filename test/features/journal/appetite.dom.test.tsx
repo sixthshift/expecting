@@ -50,7 +50,9 @@ vi.mock("../../../src/features/library/components/ItemLink", () => ({ ItemLink: 
 vi.mock("@sixthshift/design-system/overlay", () => ({ toast: () => undefined }));
 vi.mock("@tanstack/react-router", () => ({ Link: ({ children }: { children: ReactNode }) => <a href="/emergency">{children}</a> }));
 
-const { AddCraving, AppetiteItem, AppetiteLens } = await import("../../../src/features/journal/components/appetite/appetite");
+const { AddCraving } = await import("../../../src/features/journal/components/entries/appetite/AddCraving");
+const { AppetiteItem } = await import("../../../src/features/journal/components/entries/appetite/AppetiteItem");
+const { AppetiteLens } = await import("../../../src/features/journal/components/journal/storySoFar/lenses/appetite/AppetiteLens");
 
 beforeEach(() => {
   appetite = [];

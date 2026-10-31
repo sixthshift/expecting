@@ -70,8 +70,9 @@ vi.mock("../../../src/app/model/uploads", () => {
   };
 });
 
-const { AddPaper } = await import("../../../src/features/journal/components/papers/AddPaper");
-const { PapersLens, PapersToHand, PapersAbout } = await import("../../../src/features/journal/components/papers/papers");
+const { AddPaper } = await import("../../../src/features/journal/components/entries/papers/AddPaper");
+const { PapersLens } = await import("../../../src/features/journal/components/journal/storySoFar/lenses/papers/PapersLens");
+const { PapersToHand, PapersAbout } = await import("../../../src/features/journal/components/entries/papers/PaperList");
 const { FileProblemError } = await import("../../../src/app/model/uploads");
 
 const photographed = (name: string) => ({

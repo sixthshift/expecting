@@ -9,10 +9,10 @@ import { formatDate } from "../../../lib/dates";
 import { hasRecap, recapParts } from "../../../lib/recap";
 import type { StoryItem } from "../../../lib/story";
 import { type Week, weekLabel } from "../../../lib/timeline";
-import { Contents } from "../components/book/Book";
-import { RecapPartView, useRecap } from "../components/recap/Recap";
-import { weekTitle } from "../components/story/Story";
+import { Contents } from "../components/Contents";
+import { RecapPartView, useRecap } from "../components/Recap";
 import { useStory } from "../hooks/useStory";
+import { weekTitle } from "../model/weekTitle";
 
 const PART_TITLE = {
   firsts: "Firsts",
