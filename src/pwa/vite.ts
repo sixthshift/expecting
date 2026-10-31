@@ -8,7 +8,7 @@ import { createHash } from "node:crypto";
 import { readdirSync, readFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import type { Plugin } from "vite";
-import { APP_CACHE, DATA_CACHE, FILES_CACHE } from "./caches.ts";
+import { APP_CACHE, DATA_CACHE, FILES_CACHE, SHARED_CACHE } from "./caches.ts";
 
 /** Where the worker is served: at the root, so every path is in its scope. */
 const WORKER_FILE = "sw.js";
@@ -33,7 +33,7 @@ export function precache(built: Built[], publicFiles: string[]): { core: string[
 /** The worker: its source, with the build's files and caches declared above it. */
 export function workerSource(source: string, files: { core: string[]; pages: string[] }): string {
   const version = createHash("sha256").update(source).update(JSON.stringify(files)).digest("hex").slice(0, 12);
-  const declared = { VERSION: version, CORE: files.core, PAGES: files.pages, APP_CACHE, DATA_CACHE, FILES_CACHE };
+  const declared = { VERSION: version, CORE: files.core, PAGES: files.pages, APP_CACHE, DATA_CACHE, FILES_CACHE, SHARED_CACHE };
   const prelude = Object.entries(declared)
     .map(([name, value]) => `const ${name} = ${JSON.stringify(value)};`)
     .join("\n");

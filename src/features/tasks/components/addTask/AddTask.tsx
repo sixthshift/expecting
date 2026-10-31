@@ -8,9 +8,9 @@ import type { Task } from "../../../../content/schema";
 import { newId } from "../../../../lib/outbox";
 import { type Week, weekLabel } from "../../../../lib/timeline";
 
-/** A task of our own, for the odd thing Expecting couldn't know: added in the Planner, for this week. `onAdded` once it's kept (the capture sheet closes). */
-export function AddTask({ week, onAdded }: { week: Week; onAdded?: () => void }) {
-  const [title, setTitle] = useState("");
+/** A task of our own, for the odd thing Expecting couldn't know: added in the Planner, for this week. `text`: its words to start (shared from another app). `onAdded` once it's kept (the capture sheet closes). */
+export function AddTask({ week, text, onAdded }: { week: Week; text?: string; onAdded?: () => void }) {
+  const [title, setTitle] = useState(text?.slice(0, 200) ?? "");
   const add = useSave(checklistSaves.addOwnTask);
 
   function submit(event: FormEvent) {

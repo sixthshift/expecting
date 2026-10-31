@@ -52,3 +52,15 @@ export function captureChoices({ holding, quiet, movements }: { holding: boolean
 export function journalChoices(choices: readonly Capture[]): Capture[] {
   return choices.filter((c) => FILED_IN[c].pillar === "Journal");
 }
+
+/**
+ * What something shared into Expecting can become, of what's offered now, in
+ * the same order. Pictures, a photo or a paper (a letter photographed is a
+ * paper); anything else with them (a PDF), a paper; only words or a link, a
+ * note, a question or a task. Its files' types as the phone gave them.
+ */
+export function sharedChoices({ types, text }: { types: readonly string[]; text: boolean }, offered: readonly Capture[]): Capture[] {
+  const fits: Capture[] =
+    types.length > 0 ? (types.every((type) => type.startsWith("image/")) ? ["photo", "paper"] : ["paper"]) : text ? ["note", "question", "task"] : [];
+  return offered.filter((c) => fits.includes(c));
+}

@@ -2,6 +2,7 @@ import { cn } from "@sixthshift/design-system/utils";
 import { Link, Outlet, useLocation } from "@tanstack/react-router";
 import { Baby, type LucideIcon, Settings, Siren } from "lucide-react";
 import { CaptureButton } from "../../../features/capture/components/CaptureButton";
+import { SharedIn } from "../../../features/capture/components/SharedIn";
 import type { AppPath } from "../../model/paths";
 import { CallBirthSuite } from "./CallBirthSuite";
 
@@ -64,6 +65,8 @@ export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
           <CaptureButton layout="float" />
         </div>
       ) : null}
+
+      <SharedIn />
 
       <div className="fixed inset-x-0 bottom-0 z-30 print:hidden border-t border-border-subtle bg-bg-normal/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden">
         <PillarNav pillars={pillars} layout="tabs" />

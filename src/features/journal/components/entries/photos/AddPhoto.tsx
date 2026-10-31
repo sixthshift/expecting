@@ -47,10 +47,20 @@ function weekOf(day: ISODate, dueDate: ISODate | null): string | null {
 /**
  * Take or choose a photo (or several), then what it is, when, and a few
  * words. `kind` sets what it is (the bump row's empty frame is a bump);
- * `kinds` is what it can be (never a bump after a loss). `onAdded` once kept
- * (the capture sheet closes).
+ * `kinds` is what it can be (never a bump after a loss). `files`: already
+ * chosen (shared from another app). `onAdded` once kept (the capture sheet closes).
  */
-export function AddPhoto({ kind: preset, kinds = PHOTO_KINDS, onAdded }: { kind?: PhotoKind; kinds?: readonly PhotoKind[]; onAdded?: (id: string) => void }) {
+export function AddPhoto({
+  kind: preset,
+  kinds = PHOTO_KINDS,
+  files: given,
+  onAdded,
+}: {
+  kind?: PhotoKind;
+  kinds?: readonly PhotoKind[];
+  files?: File[];
+  onAdded?: (id: string) => void;
+}) {
   const add = useSave(photosSaves.addPhoto);
   const { data: settings } = useSettings();
   const [shots, setShots] = useState<Shot[]>([]);
@@ -103,6 +113,11 @@ export function AddPhoto({ kind: preset, kinds = PHOTO_KINDS, onAdded }: { kind?
     const first = problems[0];
     if (first) setProblem(made.length > 0 ? `${FILE_PROBLEM[first]} The rest are ready.` : FILE_PROBLEM[first]);
   }
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: the files given are made ready once, as the form opens.
+  useEffect(() => {
+    if (given) void ready(given);
+  }, []);
 
   function picked(event: ChangeEvent<HTMLInputElement>) {
     const files = Array.from(event.target.files ?? []);

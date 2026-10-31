@@ -3,7 +3,9 @@
 // craving, photo, paper, first, the check-in, the Planner's question and task.
 // Once kept, the sheet closes and a toast says where it went, with the way to
 // it; you stay on the page you were on. Kept from the Journal itself, there's
-// no toast: the Journal shows what was just kept (`?kept=`).
+// no toast: the Journal shows what was just kept (`?kept=`). Opened with
+// something shared from another app, it offers only what that can become, and
+// its form starts with it.
 
 import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";
@@ -30,6 +32,7 @@ import { useQuiet } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { movementsOffered } from "../../../lib/journal";
 import { WEEKS } from "../../../lib/timeline";
+import type { Shared } from "../../../pwa/share";
 import { CheckInNow } from "../../feelings/components/checkIn/CheckInNow";
 import { AddCraving } from "../../journal/components/entries/appetite/AddCraving";
 import { AddSickness } from "../../journal/components/entries/appetite/AddSickness";
@@ -40,7 +43,7 @@ import { AddPaper } from "../../journal/components/entries/papers/AddPaper";
 import { AddPhoto } from "../../journal/components/entries/photos/AddPhoto";
 import { AddQuestion } from "../../questions/components/questions/questions";
 import { AddTask } from "../../tasks/components/addTask/AddTask";
-import { type Capture, captureChoices, FILED_IN } from "../model/choices";
+import { type Capture, captureChoices, FILED_IN, sharedChoices } from "../model/choices";
 
 /** Each choice: what it is, and in a few words what it becomes. Facts, not a pitch. */
 const CHOICE: Record<Capture, { label: string; icon: LucideIcon; becomes: string }> = {
@@ -56,20 +59,24 @@ const CHOICE: Record<Capture, { label: string; icon: LucideIcon; becomes: string
   task: { label: "Something to do", icon: ListChecks, becomes: "In the Planner" },
 };
 
-/** `initial`: open on that one's form (the Journal's Keep row). */
-export function CaptureSheet({ initial = null, onClose }: { initial?: Capture | null; onClose: () => void }) {
+/** `initial`: open on that one's form (the Journal's Keep row). `shared`: what another app shared, to keep. */
+export function CaptureSheet({ initial = null, shared, onClose }: { initial?: Capture | null; shared?: Shared; onClose: () => void }) {
   const { data: people } = usePeople();
   const { data: quiet } = useQuiet();
   const { data: journal } = useJournal();
   const now = useNow();
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const [chosen, setChosen] = useState<Capture | null>(initial);
-  const choices = captureChoices({
+  const offered = captureChoices({
     holding: Boolean(people.me),
     quiet: Boolean(quiet),
     movements: movementsOffered({ now, quiet: Boolean(quiet), entries: journal }),
   });
+  const choices = shared ? sharedChoices({ types: shared.files.map((f) => f.type), text: Boolean(shared.text) }, offered) : offered;
+  // Shared, and only one thing it can be: straight to its form.
+  const [chosen, setChosen] = useState<Capture | null>(initial ?? (choices.length === 1 ? choices[0]! : null));
+  const files = shared?.files.length ? shared.files : undefined;
+  const text = shared?.text ?? undefined;
 
   /** Kept: close, and say where it went, with the way there; in the Journal, show it there as just kept. */
   function filed(capture: Capture, id?: string) {
@@ -90,12 +97,12 @@ export function CaptureSheet({ initial = null, onClose }: { initial?: Capture | 
     <Modal size="sm" align="top" closable onOpenChange={(open) => (open ? null : onClose())}>
       <Modal.Header>
         <h2 className="flex items-center gap-1 font-display text-lg font-semibold text-fg-strong">
-          {chosen ? (
+          {chosen && choices.length > 1 ? (
             <Button variant="ghost" size="sm" iconOnly aria-label="Back to what to add" onClick={() => setChosen(null)} className="-ml-2">
               <ChevronLeft aria-hidden size={18} />
             </Button>
           ) : null}
-          {chosen ? CHOICE[chosen].label : "Add"}
+          {chosen ? CHOICE[chosen].label : shared ? "Keep what was shared" : "Add"}
         </h2>
       </Modal.Header>
       <Modal.Body className="px-6 pb-6">
@@ -131,19 +138,19 @@ export function CaptureSheet({ initial = null, onClose }: { initial?: Capture | 
         ) : chosen === "craving" ? (
           <AddCraving onAdded={(id) => filed("craving", id)} />
         ) : chosen === "note" ? (
-          <AddNote onAdded={(id) => filed("note", id)} />
+          <AddNote text={text} onAdded={(id) => filed("note", id)} />
         ) : chosen === "photo" ? (
-          <AddPhoto onAdded={(id) => filed("photo", id)} />
+          <AddPhoto files={files} onAdded={(id) => filed("photo", id)} />
         ) : chosen === "paper" ? (
-          <AddPaper onAdded={(id) => filed("paper", id)} />
+          <AddPaper files={files} onAdded={(id) => filed("paper", id)} />
         ) : chosen === "feeling" && people.me ? (
           <CheckInNow me={people.me} onDone={(id) => filed("feeling", id)} />
         ) : chosen === "first" ? (
           <MarkFirst onAdded={(key) => filed("first", key)} />
         ) : chosen === "question" ? (
-          <AddQuestion onAdded={() => filed("question")} />
+          <AddQuestion text={text} onAdded={() => filed("question")} />
         ) : chosen === "task" ? (
-          <AddTask week={now ?? WEEKS.first} onAdded={() => filed("task")} />
+          <AddTask week={now ?? WEEKS.first} text={text} onAdded={() => filed("task")} />
         ) : null}
       </Modal.Body>
     </Modal>

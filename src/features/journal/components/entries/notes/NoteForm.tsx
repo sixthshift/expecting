@@ -11,19 +11,21 @@ import { timeNow, toTime } from "../../../../../lib/journal";
 
 type Draft = { day: ISODate; time: string | null; body: string; letter: boolean };
 
-/** A note's words, and its day and time, kept folded as "Today, now" until changed. */
+/** A note's words, and its day and time, kept folded as "Today, now" until changed. `start`: a new note's words to begin with. */
 export function NoteForm({
   initial,
+  start,
   submitLabel,
   onSave,
   onCancel,
 }: {
   initial?: Draft;
+  start?: string;
   submitLabel: string;
   onSave: (draft: Draft) => void;
   onCancel?: () => void;
 }) {
-  const [body, setBody] = useState(initial?.body ?? "");
+  const [body, setBody] = useState(initial?.body ?? start?.slice(0, 10_000) ?? "");
   const [letter, setLetter] = useState(initial?.letter ?? false);
   // A new note is now unless its day or time is changed; it's "now" as it's saved, not as the form opened.
   const [day, setDay] = useState<ISODate | null>(initial?.day ?? null);

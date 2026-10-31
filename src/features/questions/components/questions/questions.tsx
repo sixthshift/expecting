@@ -18,9 +18,9 @@ import { whoseBy } from "../../../../lib/people";
 import type { Question } from "../../../../lib/questions";
 import { ItemLink } from "../../../library/components/ItemLink";
 
-/** A question for the next appointment. `onAdded` once it's on the list (the capture sheet closes). */
-export function AddQuestion({ onAdded }: { onAdded?: () => void }) {
-  const [text, setText] = useState("");
+/** A question for the next appointment. `text`: its words to start (shared from another app). `onAdded` once it's on the list (the capture sheet closes). */
+export function AddQuestion({ text: start, onAdded }: { text?: string; onAdded?: () => void }) {
+  const [text, setText] = useState(start?.slice(0, 1000) ?? "");
   const add = useSave(questionsSaves.addQuestion);
 
   function submit(event: FormEvent) {

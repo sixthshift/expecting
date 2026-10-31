@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { captureChoices, journalChoices } from "../../../src/features/capture/model/choices";
+import { captureChoices, journalChoices, sharedChoices } from "../../../src/features/capture/model/choices";
 
 test("all ten, in their fixed order, for a phone that's said who's holding it", () => {
   expect(captureChoices({ holding: true, quiet: false, movements: true })).toEqual([
@@ -44,4 +44,19 @@ test("the Journal's Keep row is the ones it keeps", () => {
     "feeling",
     "first",
   ]);
+});
+
+test("something shared: pictures a photo or a paper, a PDF a paper, words a note, a question or a task", () => {
+  const all = captureChoices({ holding: true, quiet: false, movements: true });
+  expect(sharedChoices({ types: ["image/jpeg", "image/heic"], text: false }, all)).toEqual(["photo", "paper"]);
+  expect(sharedChoices({ types: ["application/pdf"], text: true }, all)).toEqual(["paper"]);
+  expect(sharedChoices({ types: ["image/png", "application/pdf"], text: false }, all)).toEqual(["paper"]);
+  expect(sharedChoices({ types: [], text: true }, all)).toEqual(["note", "question", "task"]);
+  expect(sharedChoices({ types: [], text: false }, all)).toEqual([]);
+});
+
+test("something shared while something has happened: a picture only a paper, words only a note or a question", () => {
+  const quiet = captureChoices({ holding: true, quiet: true, movements: false });
+  expect(sharedChoices({ types: ["image/jpeg"], text: false }, quiet)).toEqual(["paper"]);
+  expect(sharedChoices({ types: [], text: true }, quiet)).toEqual(["note", "question"]);
 });

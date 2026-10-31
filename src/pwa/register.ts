@@ -3,7 +3,7 @@
 // port as `bun run start`, so a worker a build left behind is taken away
 // there, rather than answer for files Vite now serves.
 
-import { DATA_CACHE, FILES_CACHE } from "./caches";
+import { DATA_CACHE, FILES_CACHE, SHARED_CACHE } from "./caches";
 
 /** Register /sw.js, or in dev take away any worker already there. Never throws: offline is a nicety, not a need. */
 export function registerWorker(): void {
@@ -18,11 +18,12 @@ export function registerWorker(): void {
   }
 }
 
-/** Forget the data the worker keeps for offline, and the pictures, as this phone logs out. */
+/** Forget the data the worker keeps for offline, the pictures, and a share not yet taken, as this phone logs out. */
 export async function forgetData(): Promise<void> {
   try {
     await caches.delete(DATA_CACHE);
     await caches.delete(FILES_CACHE);
+    await caches.delete(SHARED_CACHE);
   } catch {
     // No Cache Storage (an insecure origin): nothing was kept.
   }

@@ -66,9 +66,10 @@ function Pick({
 /**
  * Photograph a paper or choose it, page by page if it takes more than one,
  * then what it is, what it's about, its name, its date, and whether it's
- * handy. `onAdded` once kept (the capture sheet closes).
+ * handy. `files`: already chosen (shared from another app). `onAdded` once
+ * kept (the capture sheet closes).
  */
-export function AddPaper({ onAdded }: { onAdded?: (id: string) => void }) {
+export function AddPaper({ files: given, onAdded }: { files?: File[]; onAdded?: (id: string) => void }) {
   const add = useSave(papersSaves.addPaper);
   const { data: quietNow } = useQuiet();
   const quiet = quietNow?.kind ?? null;
@@ -116,6 +117,11 @@ export function AddPaper({ onAdded }: { onAdded?: (id: string) => void }) {
     const first = problems[0];
     if (first) setProblem(made.length > 0 || pages.length > 0 ? `${paperProblem(first)} The rest are here.` : paperProblem(first));
   }
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: the files given are made ready once, as the form opens.
+  useEffect(() => {
+    if (given) void ready(given);
+  }, []);
 
   function takeOut(index: number) {
     const page = pages[index];

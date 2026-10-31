@@ -21,7 +21,7 @@
 //
 // Writes aren't cached or queued here: the outbox (src/app/model/outbox.ts) holds them.
 
-/* global VERSION, CORE, PAGES, APP_CACHE, DATA_CACHE, FILES_CACHE */
+/* global VERSION, CORE, PAGES, APP_CACHE, DATA_CACHE, FILES_CACHE, SHARED_CACHE */
 
 /** The page every path is answered with: the app draws the rest. */
 const SHELL = "/";
@@ -53,8 +53,9 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     (async () => {
       // Every earlier build's files, and the data: its shape may have changed with the build. The page refetches it now.
-      // The pictures stay: an upload's bytes don't change with a build.
-      for (const name of await caches.keys()) if (name !== appCache && name !== FILES_CACHE) await caches.delete(name);
+      // The pictures stay: an upload's bytes don't change with a build. So does a share not yet taken.
+      const staying = [appCache, FILES_CACHE, SHARED_CACHE];
+      for (const name of await caches.keys()) if (!staying.includes(name)) await caches.delete(name);
       await self.clients.claim();
       await fillPages();
     })()
@@ -82,7 +83,9 @@ async function fillPages() {
 self.addEventListener("fetch", (event) => {
   const { request } = event;
   const url = new URL(request.url);
-  if (request.method !== "GET" || url.origin !== self.location.origin) return;
+  if (url.origin !== self.location.origin) return;
+  if (request.method === "POST" && url.pathname === SHARE_PATH) return event.respondWith(share(request));
+  if (request.method !== "GET") return;
   // An upload, even opened as a page (a PDF in its own tab): never answered with the shell.
   if (KEPT_PICTURE.test(url.pathname)) event.respondWith(picture(event));
   else if (KEPT_ORIGINAL.test(url.pathname)) event.respondWith(original(event));
@@ -91,6 +94,35 @@ self.addEventListener("fetch", (event) => {
   else if (url.pathname.startsWith("/api/")) return;
   else event.respondWith(file(request));
 });
+
+/** Where the phone's share sheet sends what's shared into Expecting: the manifest's share_target. */
+const SHARE_PATH = "/share";
+
+/**
+ * Something shared from another app (a photo from the gallery, a PDF from an
+ * email, a link or words): kept, in place of any share not yet taken, and the
+ * app opened, which takes it into the "+". Its files a response each, by
+ * place; what it was written last, so a share half kept is never read.
+ * Whatever goes wrong, the app opens.
+ */
+async function share(request) {
+  try {
+    const form = await request.formData();
+    const files = form.getAll("files").filter((file) => typeof file !== "string" && file.size > 0);
+    // A page shared is often its title and its address, sometimes the address in the text too: each once.
+    const words = [...new Set(["title", "text", "url"].map((name) => String(form.get(name) ?? "").trim()).filter(Boolean))];
+    await caches.delete(SHARED_CACHE);
+    const cache = await caches.open(SHARED_CACHE);
+    for (const [i, file] of files.entries()) {
+      const headers = { "content-type": file.type || "application/octet-stream", "x-name": encodeURIComponent(file.name) };
+      await cache.put(`/shared/${i}`, new Response(file, { headers }));
+    }
+    await cache.put("/shared/what", Response.json({ at: Date.now(), files: files.length, text: words.join("\n") || null }));
+  } catch {
+    // Too big for the room left, or not a form: the app opens all the same.
+  }
+  return Response.redirect(new URL("/", self.location.origin).href, 303);
+}
 
 /** A page: the network's shell, kept for next time; else the kept one. */
 function page(event) {
