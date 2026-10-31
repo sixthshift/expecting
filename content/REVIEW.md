@@ -6,7 +6,8 @@ detail.
 
 ## Verdicts and framing
 
-- `kombucha-and-fermented-drinks`: verdict `avoid`, but no source says to
+- Settled 2026-10-31: `avoid`, shop-bought included (NSW Food Authority: "do not drink, high risk"; `map/checks/review-tier3.yaml`).
+  `kombucha-and-fermented-drinks`: verdict `avoid`, but no source says to
   avoid shop-bought kombucha outright (PBB: no safe level of alcohol; NSW:
   higher-risk drinks; MotherSafe: commercial ones carry traces; only home-brew
   is flagged avoid). Keep, or change to `limit`/`ask`?
@@ -31,14 +32,16 @@ detail.
 - `chemical-pregnancy`: not written; no official page we could load defines
   the term.
 
-- `bassinet`: the map says a mandatory bassinet safety standard started on
+- Settled 2026-10-31: the standard is real, from 19 January 2026, and covers bassinets and folding cots sold new; `bassinet`, `portable-cot` and the cot entries now cite the ACCC, and `pram` its own mandatory standard (`map/checks/review-tier3.yaml`).
+  `bassinet`: the map says a mandatory bassinet safety standard started on
   19 January 2026, but PBB (reviewed March 2026) still says there are no
   bassinet standards, and the ACCC / Product Safety Australia pages block
   automated reading. The draft gives PBB's line only. Check the regulator's
   page by hand and update. `pram` and `portable-cot` are also PBB-only for
   the same reason.
 
-- `unplanned-pregnancy`: two phone details couldn't be confirmed on the
+- Settled 2026-10-31: MSI's own booking page gives 1300 003 707.
+  `unplanned-pregnancy`: two phone details couldn't be confirmed on the
   organisation's own site (both block automated reading). MSI Australia: PBB
   gives 1300 003 707 and 1300 405 568; the draft uses 1300 003 707, the one
   healthdirect lists. Children by Choice (1800 177 725): PBB says nationwide
@@ -120,6 +123,8 @@ vaccinated"); serum screening window (14–20 vs 15–20 weeks); hepatitis C
 (routine vs at-risk only).
 
 ## Couldn't be checked
+
+Settled 2026-10-31: all four, read by hand in a browser (`map/checks/review-tier3.yaml`). The cot entries cite Red Nose and the ACCC; `term-gravida-para` cites Queensland Health's Pregnancy Health Record for gravida; `term-golden-hour` says plainly that the name isn't a clinical term, and its facts are checked; `farm-animals-and-lambing` is `avoid`, citing Darling Downs Health.
 
 - `cot-and-safe-sleep-standards`, `second-hand-baby-gear`: Red Nose and
   Product Safety Australia block automated reading; read by hand.

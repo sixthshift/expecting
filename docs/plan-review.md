@@ -147,8 +147,11 @@ Noted 2026-10-31, after the full pass. In the order I'd take them.
 8. Record the review in the entries: many carry `checked: 2026-10-29`
    though edited since. A `reviewed:` date (schema change) would show it
    and drive the re-checks below.
-9. Tidy `content/REVIEW.md`: kombucha, cord prolapse and the stillborn
-   payment figure are settled; mark them.
+9. ~~Tidy `content/REVIEW.md`.~~ Done 2026-10-31: kombucha, the infant
+   sleep standard (with `portable-cot` moved to AS/NZS 2195:2010), MSI and
+   the four "couldn't be checked" marked settled. Still open there: the
+   other `private` candidates, `cooking-with-alcohol`, the "no source says"
+   entries, and the duplicates (item 6).
 10. Run `bun run e2e`: 927 entries just lost `draft`.
 
 **Ongoing**

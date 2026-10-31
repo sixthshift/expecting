@@ -9,10 +9,12 @@ weeks: [24, 36]
 stakes: medium
 summary: "Prams and strollers should meet the Australian Product Safety Standard, based on AS/NZS 2088: a 5-point harness, a tether strap, red parking brakes and clear warning labels; and never cover one with a dry cloth in the heat."
 sources:
+  - title: ACCC Product Safety — Prams and strollers mandatory standard
+    url: https://www.productsafety.gov.au/business/search-mandatory-standards/prams-and-strollers-mandatory-standard
   - title: Pregnancy, Birth and Baby — Prams and strollers
     url: https://www.pregnancybirthbaby.org.au/babies/daily-care/prams-and-strollers
 related: [second-hand-baby-gear, baby-capsule-hire]
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 A pram is for a baby too young to sit up: it usually keeps them lying flat. A stroller is usually for older babies and toddlers who can sit upright, though many adjust to lie flat too. Most carry a child up to 9 kg. A baby under 6 months should only go in a stroller if it reclines to at least 130°.
 
