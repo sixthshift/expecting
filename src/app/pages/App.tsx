@@ -19,8 +19,13 @@ import { useAppTheme } from "../hooks/useAppTheme";
  * coming up. While something has happened, content has no today to draw
  * against, what's new waits, and there's no badge. Once it has drawn, the
  * other pillars are warmed while the phone is idle (their code, and what
- * their loaders ask for), so moving between them doesn't wait.
+ * their loaders ask for), so moving between them doesn't wait; and Emergency
+ * info and It's time with them, the pages wanted in a hurry, perhaps with no
+ * signal.
  */
+/** What's warmed once the app has drawn: every pillar, and the two pages for a night it can't wait. */
+const WARMED = [...PILLARS.map((p) => p.to), "/emergency", "/its-time"] as const;
+
 export function App() {
   const { data: settings } = useSettings();
   const now = useNow();
@@ -34,7 +39,7 @@ export function App() {
 
   useEffect(() => {
     const warm = () => {
-      for (const { to } of PILLARS) void router.preloadRoute({ to }).catch(() => undefined);
+      for (const to of WARMED) void router.preloadRoute({ to }).catch(() => undefined);
     };
     if (typeof requestIdleCallback === "function") {
       const id = requestIdleCallback(warm, { timeout: 3000 });
