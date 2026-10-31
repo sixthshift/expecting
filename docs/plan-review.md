@@ -142,8 +142,8 @@ Noted 2026-10-31, after the full pass. In the order I'd take them.
 7. Replace stale sources lines still rest on. Done 2026-10-31: Better
    Health's 2015 travel and 2017 exercise pages are gone from every entry;
    the 2019–2020 MotherSafe sheets are still MotherSafe's current ones.
-   Left: RANZCOG's 2017 screening leaflet; RANZCOG C-Obs 11 (breech) and 36 (prelabour
-   rupture), overdue for review since July 2026.
+   RANZCOG's 2017 screening leaflet and C-Obs 11 and 36 are still its
+   current documents, so they stay; re-check when RANZCOG revises them.
 8. Record the review in the entries: many carry `checked: 2026-10-29`
    though edited since. A `reviewed:` date (schema change) would show it
    and drive the re-checks below.
