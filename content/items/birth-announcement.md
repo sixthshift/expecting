@@ -11,6 +11,7 @@ tasks:
     title: Agree who hears first, and who's allowed to share the news
     opens: 32
     due: 36
+    keeps: { people: hearing }
   - id: announcement-message-list
     title: Make a contact list and a ready-to-send message for the birth
     who: partner

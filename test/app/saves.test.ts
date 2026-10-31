@@ -131,6 +131,14 @@ const falseAlarm = { ...underWay, id: "88888888-8888-4888-8888-888888888888", en
 const itsTime = { starts: [underWay, falseAlarm], lines: [{ id: ID, title: "Heater off", by: made.by, createdAt: made.at }] };
 const nothingYet = { starts: [falseAlarm], lines: [] };
 
+const MUM = "55555555-5555-4555-8555-555555555555";
+const GIFT = "66666666-6666-4666-8666-666666666666";
+const circle = {
+  people: [{ id: MUM, name: "Mum", note: null, visit: null, hears: "first", help: null, mealDay: null, by: null, createdAt: made.at }],
+  gifts: [{ id: GIFT, personId: MUM, what: "The pram", thankedAt: null, by: null, createdAt: made.at }],
+  announcement: null,
+};
+
 const CASES: Record<string, [unknown, unknown[]]> = {
   setTicked: [
     checklist,
@@ -351,6 +359,39 @@ const CASES: Record<string, [unknown, unknown[]]> = {
   ],
   addStartLine: [itsTime, [{ id: "22222222-2222-4222-8222-222222222222", title: " Feed the cat " }]],
   deleteStartLine: [itsTime, [{ id: ID }]],
+  addCirclePerson: [
+    circle,
+    [
+      { id: ID, name: " Priya ", note: " Sam's sister " },
+      { id: MUM, name: "Again", note: null },
+    ],
+  ],
+  renameCirclePerson: [circle, [{ id: MUM, name: " Mum (Jo) ", note: " " }]],
+  setCirclePerson: [
+    circle,
+    [
+      { id: MUM, patch: { visit: "hospital", hears: null } },
+      { id: MUM, patch: { help: " the school run ", mealDay: "2027-02-03" } },
+    ],
+  ],
+  deleteCirclePerson: [circle, [{ id: MUM }, { id: ID }]],
+  addGift: [
+    circle,
+    [
+      { id: ID, personId: MUM, what: " A blanket " },
+      { id: GIFT, personId: MUM, what: "Again" },
+      { id: ID, personId: "77777777-7777-4777-8777-777777777777", what: "From nobody here" },
+    ],
+  ],
+  thankGift: [
+    circle,
+    [
+      { id: GIFT, thanked: true },
+      { id: GIFT, thanked: false },
+    ],
+  ],
+  deleteGift: [circle, [{ id: GIFT }]],
+  setAnnouncement: [circle, [{ body: " She's here! " }, { body: " " }]],
 };
 
 test("every save has its cases here", () => {

@@ -6,6 +6,7 @@ import type { Node } from "@markdoc/markdoc";
 import { z } from "zod";
 import { extra } from "../features/settings/model/extras";
 import { checkWhen, question, type When, whenSchema } from "../features/settings/model/facts";
+import { VIEW_KEYS, type View } from "../lib/circle";
 import { isISODate } from "../lib/dates";
 import { FIRST_KEYS, type FirstKey } from "../lib/firsts";
 import { LISTS, listOf } from "../lib/lists";
@@ -145,8 +146,17 @@ export const indexSchema = z
             deadline: z.union([z.number().int(), z.object({ before: z.string(), weeks: z.number().int().min(0), week: z.number().int() }).strict()]).optional(),
             /** Whose job it is. */
             who: who.default("together"),
-            /** What doing it keeps, and where: `letter` (the Journal's letter to the baby), `photo`, or a first (`{ first: cot-up }`). Its task offers the way there. */
-            keeps: z.union([z.enum(["letter", "photo"]), z.object({ first: z.enum(FIRST_KEYS) }).strict()]).optional(),
+            /**
+             * What doing it keeps, and where: `letter` (the Journal's letter to the baby), `photo`, a first
+             * (`{ first: cot-up }`), or a view of Your people (`{ people: visitors }`). Its task offers the way there.
+             */
+            keeps: z
+              .union([
+                z.enum(["letter", "photo"]),
+                z.object({ first: z.enum(FIRST_KEYS) }).strict(),
+                z.object({ people: z.enum(VIEW_KEYS as [View, ...View[]]) }).strict(),
+              ])
+              .optional(),
           })
           .strict()
       )
@@ -272,8 +282,8 @@ export const pageSchema = z
   })
   .strict();
 
-/** What a task keeps when it's done: a letter to the baby, a photo, or a first. */
-export type Keeps = "letter" | "photo" | { first: FirstKey };
+/** What a task keeps when it's done: a letter to the baby, a photo, a first, or what a view of Your people holds. */
+export type Keeps = "letter" | "photo" | { first: FirstKey } | { people: View };
 
 export type Task = {
   id: string;

@@ -13,6 +13,7 @@ tasks:
   - id: list-who-can-help
     title: List who can help with what in the first weeks
     due: 33
+    keeps: { people: help }
   - id: ask-for-help
     title: Ask the people on the list, and agree the details
     opens: 32

@@ -8,6 +8,7 @@ import { app } from "./app";
 import { login } from "./auth/login";
 import { drawer } from "./drawer";
 import { drawerNames } from "./drawerNames";
+import { drawerPeople } from "./drawerPeople";
 import { emergency } from "./emergency";
 import { index } from "./index";
 import { itsTime } from "./itsTime";
@@ -51,6 +52,7 @@ export const routeTree = rootRoute.addChildren([
     journalBook,
     drawer,
     drawerNames,
+    drawerPeople,
     emergency,
     itsTime,
     settings,

@@ -66,6 +66,8 @@ describe("parseItem", () => {
     expect(keeping("letter")).toBe("letter");
     expect(keeping("photo")).toBe("photo");
     expect(keeping("{ first: told-family }")).toEqual({ first: "told-family" });
+    expect(keeping("{ people: gifts }")).toEqual({ people: "gifts" });
+    expect(() => keeping("{ people: neighbours }")).toThrow();
     expect(() => keeping("{ first: not-a-first }")).toThrow();
     expect(() => keeping("a-song")).toThrow();
   });

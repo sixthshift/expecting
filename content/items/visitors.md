@@ -16,6 +16,7 @@ tasks:
   - id: agree-visitor-plan
     title: Agree who visits in hospital and the first weeks
     due: 35
+    keeps: { people: visitors }
   - id: ask-close-family-about-vaccines
     title: Ask close family and carers to check their whooping cough vaccine
     due: 34

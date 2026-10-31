@@ -390,6 +390,15 @@ All thirteen questions, settled with Jason on 2026-11-01:
   family*, Gender reveal's *Have the reveal* (boy or girl asks whether to
   use it). Not yet: `emergency: <field>` (nothing needs it now the baby's
   doctor stays content) and the maternity shoot (its `shoot` photo kind).
+- 2026-11-01, Your people (`feat/your-people`): steps 3 and 4. The list
+  (`circle_person`, `circle_gift`, `announcement`; 030), at
+  `/drawer/people`, put away while quiet, in the Drawer with its extras
+  named when none is on; its four views (Visitors, Hearing first with the
+  words for the birth and a share per round, Help with the meal train and
+  its roster, Gifts with what's left to thank in the view's name); each of
+  the four extras says it brings it (`tool`). Step 5: `keeps: { people:
+  <view> }`, so the four tasks that start each list ("Start a shared list of
+  gifts", …) open their view ("Open the list"), left to tick when done.
 
 ## Not in this plan
 

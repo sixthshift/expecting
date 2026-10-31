@@ -136,7 +136,7 @@ export function suggestFirsts({
   if (night) found["it-started"] = { day: dayOf(night.start.startedAt), why: "The night it started, in It's time" };
   for (const task of tasks) {
     const at = ticks[task.id];
-    if (at && typeof task.keeps === "object" && task.keeps !== null)
+    if (at && typeof task.keeps === "object" && task.keeps !== null && "first" in task.keeps)
       found[task.keeps.first] = { day: todayISO(new Date(at)), why: "Ticked off in the Planner" };
   }
   return FIRSTS.flatMap((f) => {

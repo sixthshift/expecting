@@ -12,6 +12,7 @@ const pages = [
   { path: "/journal", heading: "Journal" },
   { path: "/drawer", heading: "Drawer" },
   { path: "/drawer/names", heading: "Baby names" },
+  { path: "/drawer/people", heading: "Your people" },
   { path: "/emergency", heading: "Emergency info" },
   { path: "/settings", heading: "Settings" },
 ];

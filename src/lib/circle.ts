@@ -64,17 +64,18 @@ export function byName(people: readonly CirclePerson[]): CirclePerson[] {
   return [...people].sort((a, b) => a.name.localeCompare(b.name, "en-AU", { sensitivity: "base" }));
 }
 
-/** A view's groups: each value's people, then those not yet decided, leaving out empty groups. */
+/** A view's groups: each value's people, then those not yet decided (`undecided`, its title), leaving out empty groups. */
 export function groupsOf<K extends string>(
   people: readonly CirclePerson[],
   labels: Record<K, string>,
-  value: (p: CirclePerson) => K | null
+  value: (p: CirclePerson) => K | null,
+  undecided = "Not decided"
 ): { key: K | "undecided"; title: string; people: CirclePerson[] }[] {
   const sorted = byName(people);
   const keys = Object.keys(labels) as K[];
   return [
     ...keys.map((key) => ({ key, title: labels[key], people: sorted.filter((p) => value(p) === key) })),
-    { key: "undecided" as const, title: "Not decided", people: sorted.filter((p) => value(p) === null) },
+    { key: "undecided" as const, title: undecided, people: sorted.filter((p) => value(p) === null) },
   ].filter((g) => g.people.length > 0);
 }
 

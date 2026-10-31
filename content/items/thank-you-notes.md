@@ -10,6 +10,7 @@ tasks:
   - id: start-gift-list
     title: Start a shared list of gifts and who gave them
     due: 30
+    keeps: { people: gifts }
   - id: buy-thank-you-cards
     title: Buy thank-you cards and stamps, and collect addresses
     opens: 30

@@ -201,6 +201,7 @@ export const EXTRA_LIST = [
     pitch: "Who can help with what in the first weeks, from a meal train to the school run, and asking early.",
     group: "people",
     offer: 30,
+    tool: "the helpers and the meal train, in the Drawer",
   },
   {
     id: "thank-you-notes",
@@ -208,6 +209,7 @@ export const EXTRA_LIST = [
     pitch: "Keeping track of gifts and thanking people without the stress.",
     group: "people",
     offer: 30,
+    tool: "the gift list, in the Drawer",
   },
   {
     id: "pets",
@@ -236,6 +238,7 @@ export const EXTRA_LIST = [
     pitch: "Who visits in hospital and the first weeks, and how to say not yet.",
     group: "people",
     offer: 32,
+    tool: "the visitors list, in the Drawer",
   },
   {
     id: "birth-announcement",
@@ -243,5 +246,6 @@ export const EXTRA_LIST = [
     pitch: "Who hears first, and when and how to share the news of the birth.",
     group: "celebrate",
     offer: 34,
+    tool: "the words for the birth, in the Drawer",
   },
 ] as const satisfies readonly ExtraInput[];

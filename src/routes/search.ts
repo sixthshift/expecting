@@ -3,6 +3,7 @@
 
 import { z } from "zod";
 import { TOPICS, type Topic, VERDICTS } from "../content/schema";
+import { VIEW_KEYS, type View } from "../lib/circle";
 import { DOORS } from "../lib/library";
 import { DECK_FILTERS } from "../lib/names";
 import { LENSES } from "../lib/story";
@@ -57,6 +58,14 @@ export const onboardingSearch = z.object({ after: z.string().optional().catch(un
 
 /** Login: where to go once in. */
 export const loginSearch = z.object({ next: z.string().optional() });
+
+/** Your people: which view (`visitors`, `hearing`, `help`, `gifts`); without, the first that's on. */
+export const peopleSearch = z.object({
+  view: z
+    .enum(VIEW_KEYS as [View, ...View[]])
+    .optional()
+    .catch(undefined),
+});
 
 /** The names game: which names it deals (`girls`, `boys`, `all`); without, all of them. Only while you don't know which it is: knowing, the deck is that one's. */
 export const namesSearch = z.object({
