@@ -92,7 +92,17 @@ Steps 1 to 6 done, 2026-11-01; how it works now is `docs/architecture.md`, Motio
 1. **Foundations.** Done. Motion tokens and the reduced-motion rule. The "+" already had room left under each page; what covered rows was the button sitting over them mid-scroll, so it now steps aside while the page scrolls down (and the timeline's Today with it). The progress bar's track turned out to be Expecting's own to set (the theme's `overrides` layer), so no design-system spec was needed.
 2. **A tick and a capture.** Done in To do now, where a ticked task leaves the list. The Planner keeps a ticked row in place already (struck through), so it needs no fold or Undo. Toasts say what and where.
 3. **Moving around.** Done. On the way, a Library entry turned out to open on its "Opening…" spinner even when its words were loaded (`use()` suspends once on any new promise); it now opens whole.
-4. **Loading.** Done: skeletons in the frame, the stork for the first start.
+4. **Loading.** Done: skeletons in the frame, the stork for the first start. Measured on a production build, phone-sized, 2026-11-01:
+
+   | | 4G | Slow 3G |
+   |---|---|---|
+   | First start: the stork | 0.4s | 1.4s |
+   | First start: This week drawn | 2.7s | 9.8s |
+   | Next visit (service worker) | 1.4s | 1.4s |
+   | To the Journal or Planner, before | 0.8s, skeleton | 0.8s, skeleton |
+   | To the Library or timeline | 0.1–0.3s | 0.2–0.3s |
+
+   The Journal and the Planner waited on queries the frame didn't load, and then the router held the skeleton for its minimum half a second. Their routes now load what they read, and the pillars are warmed once the app has drawn, so the Journal opens in about 0.1s with no skeleton. The first start on a slow connection is still long (the frame's nine queries and the code); a service worker makes every visit after it fast.
 5. **The timeline and reading.** Done, except:
    - **Emergency info's "Still blank" list:** kept as it is. That card is for whoever is treating her, and the list tells them what isn't known; a count would hide it.
    - **The 000 button:** kept. It is already the first and filled one on the page.
