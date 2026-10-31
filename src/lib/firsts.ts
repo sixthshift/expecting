@@ -7,6 +7,7 @@
 import type { Task } from "../content/schema";
 import type { AppetiteEntry } from "./appetite";
 import { type ISODate, todayISO } from "./dates";
+import { dayOf, nightsOf, type Start } from "./itsTime";
 import type { JournalEntry } from "./journal";
 import type { Person } from "./people";
 import type { Photo } from "./photos";
@@ -25,6 +26,7 @@ export const FIRST_KEYS = [
   "first-outfit",
   "cot-up",
   "bag-packed",
+  "it-started",
 ] as const;
 export type FirstKey = (typeof FIRST_KEYS)[number];
 
@@ -54,6 +56,7 @@ export const FIRSTS: readonly FirstDef[] = [
   { key: "first-outfit", title: "Bought the first outfit", question: "What is it, and who chose it?", weeks: [14, 34] },
   { key: "cot-up", title: "The cot is up", question: "Where is it, and who put it together?", weeks: [28, 36] },
   { key: "bag-packed", title: "The bag is packed", question: "What's the one thing you made sure went in?", weeks: [32, 37] },
+  { key: "it-started", title: "It started", question: "Where were you when it started?", weeks: [36, 42] },
 ];
 
 export function isFirstKey(key: string): key is FirstKey {
@@ -92,8 +95,8 @@ function earliest<T extends { day: string; time: string | null }>(items: readonl
  * The firsts suggested by what's kept or done, in FIRSTS's order, leaving
  * out any marked or put aside: the first scan photo, the first bump photo,
  * the first movement, the first one kept by the partner, the first craving,
- * and a task ticked that keeps a first (`keeps: { first }`: the cot, the bag).
- * Never while something has happened.
+ * a task ticked that keeps a first (`keeps: { first }`: the cot, the bag),
+ * and the night it started. Never while something has happened.
  */
 export function suggestFirsts({
   marks,
@@ -104,6 +107,7 @@ export function suggestFirsts({
   tasks,
   people,
   quiet,
+  starts = [],
 }: {
   marks: readonly FirstMark[];
   journal: readonly JournalEntry[];
@@ -114,6 +118,8 @@ export function suggestFirsts({
   tasks: readonly Pick<Task, "id" | "keeps">[];
   people: readonly Person[];
   quiet: boolean;
+  /** It's time's starts: the first that ended "We're there" suggests "It started". */
+  starts?: readonly Start[];
 }): Suggestion[] {
   if (quiet) return [];
   const kept = new Set(marks.map((m) => m.key));
@@ -126,6 +132,8 @@ export function suggestFirsts({
   found["first-kick"] = from(earliest(movements), "The first movement you kept");
   found["felt-outside"] = from(earliest(movements.filter((e) => e.by !== null && partners.has(e.by))), "The first movement the partner kept");
   found["first-craving"] = from(earliest(appetite.filter((e) => e.kind === "craving")), "The first craving you kept");
+  const night = nightsOf(starts).at(-1);
+  if (night) found["it-started"] = { day: dayOf(night.start.startedAt), why: "The night it started, in It's time" };
   for (const task of tasks) {
     const at = ticks[task.id];
     if (at && typeof task.keeps === "object" && task.keeps !== null)

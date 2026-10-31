@@ -4,6 +4,7 @@ import { useAppetite } from "../../../api/rpc/appetite";
 import { useChecklist } from "../../../api/rpc/checklist";
 import { useFeelings } from "../../../api/rpc/feelings";
 import { useFirsts } from "../../../api/rpc/firsts";
+import { useItsTime } from "../../../api/rpc/itsTime";
 import { journalSeenSaves, useJournal, useJournalSeen } from "../../../api/rpc/journal";
 import { usePeople } from "../../../api/rpc/people";
 import { usePhotos } from "../../../api/rpc/photos";
@@ -51,6 +52,7 @@ export function useHighlights(): HighlightsData {
   const { data: feelings } = useFeelings();
   const { data: photos } = usePhotos();
   const { data: firsts } = useFirsts();
+  const { data: itsTime } = useItsTime();
   const { data: checklist } = useChecklist();
   const tasks = useTasks();
   const { data: seen } = useJournalSeen();
@@ -76,7 +78,17 @@ export function useHighlights(): HighlightsData {
     seen: lastSeen,
     me: people.me,
     people: people.people,
-    suggestions: suggestFirsts({ marks: firsts, journal, photos, appetite, ticks: checklist.ticks, tasks, people: people.people, quiet: isQuiet }),
+    suggestions: suggestFirsts({
+      marks: firsts,
+      journal,
+      photos,
+      appetite,
+      ticks: checklist.ticks,
+      tasks,
+      people: people.people,
+      quiet: isQuiet,
+      starts: itsTime.starts,
+    }),
     today,
     position,
     dueDate,

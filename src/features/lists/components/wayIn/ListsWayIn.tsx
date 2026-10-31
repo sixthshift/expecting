@@ -2,7 +2,7 @@ import { Card } from "@sixthshift/design-system/card";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { useLists } from "../../../../api/rpc/lists";
-import { leftSaying, listsOf } from "../../../../lib/lists";
+import { inPlanner, leftSaying, listsOf } from "../../../../lib/lists";
 import { useLines } from "../../hooks/useLines";
 import { listIcon } from "../icons";
 
@@ -10,7 +10,7 @@ import { listIcon } from "../icons";
 export function ListsWayIn() {
   const lines = useLines();
   const { data: lists } = useLists();
-  const all = listsOf(lines, lists.ownLists, lists.marks);
+  const all = listsOf(lines, lists.ownLists, lists.marks).filter(inPlanner);
 
   return (
     <section aria-labelledby="lists-heading" className="flex flex-col gap-3">

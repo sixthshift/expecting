@@ -1,6 +1,7 @@
 import { expect, test } from "vitest";
+import { builtInItems } from "../../src/content";
 import type { Item, Line } from "../../src/content/schema";
-import { isLeft, leftSaying, listsOf, type Mark, sectionsOf, tailorLines, upToSaying, wordsFor } from "../../src/lib/lists";
+import { inPlanner, isApart, isLeft, LAST_THING, leftSaying, listsOf, type Mark, sectionsOf, tailorLines, upToSaying, wordsFor } from "../../src/lib/lists";
 
 const line = (id: string, listId: string, section: string | null, fields: Partial<Line> = {}): Line => ({
   id,
@@ -120,4 +121,15 @@ test("each list has its words for the states, yours the usual", () => {
   expect(wordsFor("freezer-meals").got).toBe("Done");
   expect(wordsFor("baby").none).toBe("To get");
   expect(wordsFor("3f1c…").arranged).toBe("Arranged");
+});
+
+test("the bag is It's time's: a list of its own, with its last things, kept out of the Planner's", () => {
+  const bag = builtInItems.find((i) => i.id === "hospital-bag")!;
+  const lines = tailorLines([bag], {}, []);
+  expect(lines.length).toBeGreaterThan(0);
+  expect(lines.every((l) => l.listId === "bag")).toBe(true);
+  expect(lines.filter((l) => l.section === LAST_THING).map((l) => l.id)).toEqual(["bag-pillows", "bag-chargers", "bag-snacks", "bag-cash"]);
+  expect(isApart("bag")).toBe(true);
+  expect(isApart("baby")).toBe(false);
+  expect(listsOf(lines, [], {}).filter(inPlanner)).toEqual([]);
 });

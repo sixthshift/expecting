@@ -53,6 +53,8 @@ const questionSchema = z
     /** Asked only when the answers so far fit, as an item's `when`. In a question about each of you, `work` is the same person's. */
     when: whenSchema.default({}),
     answers: z.record(slug, z.string().min(1)).default({}),
+    /** Answers asked again later, like `unsure`: what can change (a baby that isn't head-first can turn). */
+    askAgain: z.array(slug).default([]),
   })
   .strict()
   .superRefine((q, ctx) => {
@@ -60,6 +62,9 @@ const questionSchema = z
     if (q.type === "choice" && n < 2) ctx.addIssue({ code: "custom", path: ["answers"], message: "a question needs at least two answers" });
     if (q.type === "date" && n > 0) ctx.addIssue({ code: "custom", path: ["answers"], message: "a date question has no answers to choose from" });
     if (q.each && !q.ask.includes("{name}")) ctx.addIssue({ code: "custom", path: ["ask"], message: "a question about each of you says whose with {name}" });
+    for (const a of q.askAgain) if (!(a in q.answers)) ctx.addIssue({ code: "custom", path: ["askAgain"], message: `"${a}" is not one of its answers` });
+    if (q.askAgain.length > 0 && q.week === undefined)
+      ctx.addIssue({ code: "custom", path: ["askAgain"], message: "only a question with a week is asked again" });
   });
 
 export type FactQuestion = z.output<typeof questionSchema>;
@@ -75,6 +80,7 @@ export type QuestionInput = {
   readonly each?: boolean;
   readonly when?: WhenInput;
   readonly answers?: Readonly<Record<string, string>>;
+  readonly askAgain?: readonly string[];
 };
 
 /** A question's id, as facts.data.ts has it. */

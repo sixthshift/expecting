@@ -10,6 +10,7 @@ import { drawer } from "./drawer";
 import { drawerNames } from "./drawerNames";
 import { emergency } from "./emergency";
 import { index } from "./index";
+import { itsTime } from "./itsTime";
 import { journal } from "./journal";
 import { journalBook } from "./journalBook";
 import { library } from "./library";
@@ -37,7 +38,7 @@ import { timeline } from "./timeline";
 const api = import.meta.env.SSR ? (await import("../api/rest")).restRoutes : ([] as unknown as typeof import("../api/rest").restRoutes);
 
 export const routeTree = rootRoute.addChildren([
-  // The frame: the pillars, in navigation order, then settings, then any other address.
+  // The frame: the pillars, in navigation order, then Emergency info and It's time, settings, then any other address.
   app.addChildren([
     index,
     timeline,
@@ -51,6 +52,7 @@ export const routeTree = rootRoute.addChildren([
     drawer,
     drawerNames,
     emergency,
+    itsTime,
     settings,
     notFound,
   ]),

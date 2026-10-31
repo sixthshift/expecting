@@ -188,7 +188,7 @@ describe("lines", () => {
   });
 
   test.each([
-    ["a list that isn't one", line("    list: bag\n    section: sleep"), "", /"bag" is not a list/],
+    ["a list that isn't one", line("    list: suitcase\n    section: sleep"), "", /"suitcase" is not a list/],
     ["a section not its list's", line("    list: baby\n    section: meals"), "", /"meals" is not a section of baby/],
     [
       "a task not its item's",

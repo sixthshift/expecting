@@ -51,6 +51,13 @@ export const EMERGENCY: readonly EmergencyGroup[] = [
     fields: [
       { id: "hospital", label: "Hospital", kind: "lines", hint: "Its name, and the address for the car" },
       { id: "birthSuitePhone", label: "Birth suite", kind: "phone", hint: "The number to ring when labour starts, or something feels wrong" },
+      { id: "hospitalWayIn", label: "Getting in", kind: "lines", hint: "Where to park, the after-hours entrance, which floor: the tour tells you" },
+      {
+        id: "hospitalSaid",
+        label: "When they said to come in",
+        kind: "lines",
+        hint: 'Ask at an appointment: "come in at 3 in 10, or any time the waters break"',
+      },
       { id: "hospitalRecord", label: "Hospital record number", kind: "line", hint: "The URN or MRN on the hospital's letters" },
       { id: "carer", label: "Midwife or obstetrician", kind: "line" },
       { id: "carerPhone", label: "Their number", kind: "phone" },
@@ -60,9 +67,14 @@ export const EMERGENCY: readonly EmergencyGroup[] = [
     id: "call",
     title: "Who else to call",
     fields: [
+      { id: "partnerPhone", label: "The other parent's number", kind: "phone", hint: "So It's time can ring them from her phone" },
       { id: "gp", label: "GP", kind: "line" },
       { id: "gpPhone", label: "GP's number", kind: "phone" },
       { id: "support", label: "Someone else to call", kind: "lines", hint: "A parent or friend: their name and number" },
+      { id: "minder", label: "Who's minding the kids or pets", kind: "line", hint: "On the night: their name" },
+      { id: "minderPhone", label: "Their number", kind: "phone" },
+      { id: "backupDriver", label: "If you can't drive", kind: "line", hint: "Someone who'll drive you in: their name" },
+      { id: "backupDriverPhone", label: "Their number", kind: "phone" },
     ],
   },
   {

@@ -47,6 +47,14 @@ describe("questionsDue", () => {
     expect(due(work, 20).filter((k) => k.startsWith("paidLeave"))).toEqual(["paidLeave.carrying"]);
   });
 
+  test("an answer that can change is asked again, like not sure: a baby who isn't head-first can turn", () => {
+    expect(due([], 36)).toContain("presentation");
+    expect(due([answer("birth", "caesarean", 6)], 36)).not.toContain("presentation");
+    expect(due([answer("presentation", "head-down", 36)], 41)).not.toContain("presentation");
+    expect(due([answer("presentation", "breech", 36)], 39)).not.toContain("presentation");
+    expect(due([answer("presentation", "breech", 36)], 40)).toContain("presentation");
+  });
+
   test("a question depending on another waits for it", () => {
     expect(due([answer("firstBaby", "yes", 6)], 8)).not.toContain("previousCaesarean");
     expect(due([answer("firstBaby", "no", 6)], 8)).toContain("previousCaesarean");

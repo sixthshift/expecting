@@ -1,11 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { Baby, ChevronRight, Luggage, Timer } from "lucide-react";
+import { Baby, ChevronRight } from "lucide-react";
 import { useExtras } from "../../../api/rpc/extras";
 import { useNames } from "../../../api/rpc/names";
 import { usePeople } from "../../../api/rpc/people";
 import { useQuiet } from "../../../api/rpc/quiet";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
-import { Coming } from "../../../components/Coming";
 import { extrasOn } from "../../../lib/extras";
 import { extra } from "../../settings/model/extras";
 
@@ -53,14 +52,6 @@ export function DrawerPage() {
             </Link>
           </p>
         </div>
-      )}
-      {quiet ? null : (
-        <Coming
-          things={[
-            { icon: Timer, title: "Contraction timer", about: "How long, how far apart, and when it's time to call." },
-            { icon: Luggage, title: "Hospital bag", about: "What to pack, ticked off together." },
-          ]}
-        />
       )}
     </main>
   );

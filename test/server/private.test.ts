@@ -136,6 +136,18 @@ const WRITES: Record<string, ((x: string) => unknown) | null> = {
   "lists.ts:changeLine": (x) => ({ id: UUID, title: x, section: x }),
   "lists.ts:deleteLine": (x) => ({ id: x }),
   "lists.ts:markLine": (x) => ({ lineId: x, state: "got", how: null, note: x }),
+  "itsTime.ts:beginStart": (x) => ({ id: x, waters: true }),
+  "itsTime.ts:setWaters": (x) => ({ waters: x }),
+  "itsTime.ts:leaveStart": null,
+  "itsTime.ts:endStart": (x) => ({ ended: x }),
+  "itsTime.ts:deleteStart": (x) => ({ id: x }),
+  "itsTime.ts:beginContraction": (x) => ({ id: x }),
+  "itsTime.ts:endContraction": (x) => ({ id: x }),
+  "itsTime.ts:noteContraction": (x) => ({ id: UUID, note: x }),
+  "itsTime.ts:deleteContraction": (x) => ({ id: x }),
+  "itsTime.ts:tickStart": (x) => ({ key: x, ticked: true }),
+  "itsTime.ts:addStartLine": (x) => ({ id: UUID, title: x }),
+  "itsTime.ts:deleteStartLine": (x) => ({ id: x }),
 };
 
 /** An upload as a phone sends it: a form, with `x` as its name and its file's. */

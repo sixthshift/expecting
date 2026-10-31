@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation } from "@tanstack/react-router";
 import { Baby, type LucideIcon, Settings, Siren } from "lucide-react";
 import { CaptureButton } from "../../../features/capture/components/CaptureButton";
 import { SharedIn } from "../../../features/capture/components/SharedIn";
+import { ItsTimeWayIn } from "../../../features/itsTime/components/wayIn/ItsTimeWayIn";
 import type { AppPath } from "../../model/paths";
 import { CallBirthSuite } from "./CallBirthSuite";
 
@@ -11,7 +12,7 @@ export type Pillar = { to: AppPath; label: string; icon: LucideIcon };
 
 /**
  * The layout the pillars are drawn in. Desktop: a sidebar on the left with
- * the pillars, the call button, Emergency info and settings. Phone: a tab bar under the thumb, its height in
+ * the pillars, the call button, It's time (once it's near), Emergency info and settings. Phone: a tab bar under the thumb, its height in
  * `--tab-bar` so what sits above it (the timeline's scrubber, the capture
  * "+") can. The "+" is on the pillars only, not on settings or Emergency
  * info: on a desktop at the top of the sidebar, on a phone floating above
@@ -36,6 +37,7 @@ export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
         <div className="mt-auto">
           <CallBirthSuite layout="row" />
         </div>
+        <ItsTimeWayIn layout="row" />
         <Link
           to="/emergency"
           activeProps={{ "aria-current": "page", className: "bg-bg-brand-subtle font-medium text-fg-on-brand-subtle" }}
@@ -122,10 +124,11 @@ export function PillarHeader({ title, lead }: { title: string; lead?: string }) 
   );
 }
 
-/** The top corner of a pillar on a phone: the call button, Emergency info, then settings. The desktop has them in the sidebar. */
+/** The top corner of a pillar on a phone: It's time once it's near, the call button, Emergency info, then settings. The desktop has them in the sidebar. */
 export function PhoneCorner() {
   return (
     <div className="-mr-2 flex shrink-0 items-center lg:hidden print:hidden">
+      <ItsTimeWayIn layout="pill" />
       <CallBirthSuite layout="icon" />
       <Link to="/emergency" aria-label="Emergency info" className="flex size-11 shrink-0 items-center justify-center rounded-md text-fg-subtle">
         <Siren aria-hidden size={20} />

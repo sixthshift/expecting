@@ -16,6 +16,107 @@ tasks:
     title: Pack the hospital bag
     due: 36
     keeps: { first: bag-packed }
+lines:
+  - id: bag-medicare-card
+    title: "Medicare card"
+    list: bag
+    section: papers
+  - id: bag-health-fund
+    title: "Health fund details, if you have them"
+    list: bag
+    section: papers
+  - id: bag-antenatal-card
+    title: "Antenatal card"
+    list: bag
+    section: papers
+  - id: bag-birth-plan
+    title: "Birth plan, if you have one"
+    list: bag
+    section: papers
+  - id: bag-hospital-paperwork
+    title: "Hospital paperwork"
+    list: bag
+    section: papers
+  - id: bag-labour-t-shirt
+    title: "An old T-shirt for labour"
+    list: bag
+    section: for-her
+  - id: bag-going-home-clothes
+    title: "Going-home clothes"
+    list: bag
+    section: for-her
+  - id: bag-maternity-bras
+    title: "Maternity bras"
+    list: bag
+    section: for-her
+  - id: bag-maternity-pads
+    title: "Maternity pads"
+    list: bag
+    section: for-her
+  - id: bag-sleepwear
+    title: "Sleepwear"
+    list: bag
+    section: for-her
+  - id: bag-warm-layer
+    title: "A warm layer"
+    list: bag
+    section: for-her
+  - id: bag-her-toiletries
+    title: "Toiletries"
+    list: bag
+    section: for-her
+  - id: bag-slippers
+    title: "Slippers or thongs"
+    list: bag
+    section: for-her
+  - id: bag-nappies
+    title: "Nappies (newborns go through 8 to 10 a day)"
+    list: bag
+    section: for-baby
+  - id: bag-wipes
+    title: "Wipes"
+    list: bag
+    section: for-baby
+  - id: bag-baby-blanket
+    title: "A blanket"
+    list: bag
+    section: for-baby
+  - id: bag-baby-clothes
+    title: "Baby clothes and a onesie"
+    list: bag
+    section: for-baby
+  - id: bag-baby-hat
+    title: "A hat"
+    list: bag
+    section: for-baby
+  - id: bag-booties
+    title: "Booties or socks"
+    list: bag
+    section: for-baby
+  - id: bag-partner-clothes
+    title: "A change of clothes"
+    list: bag
+    section: for-partner
+  - id: bag-partner-toiletries
+    title: "Toiletries"
+    list: bag
+    section: for-partner
+  - id: bag-pillows
+    title: "Pillows, if you'd like your own"
+    list: bag
+    section: last
+  - id: bag-chargers
+    title: "Phone chargers"
+    list: bag
+    section: last
+  - id: bag-snacks
+    title: "Snacks and drinks"
+    list: bag
+    section: last
+  - id: bag-cash
+    title: "A little cash"
+    list: bag
+    section: last
 ---
 Check with the hospital or birth centre what you need to bring; they may have their own list.
 

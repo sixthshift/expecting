@@ -13,7 +13,7 @@ import { useQuiet } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { useSave } from "../../../app/hooks/useSave";
 import type { Line } from "../../../content/schema";
-import { isLeft, type ListSummary, listOf, listsOf, type Mark, sectionsOf, upToSaying } from "../../../lib/lists";
+import { isApart, isLeft, type ListSummary, listOf, listsOf, type Mark, sectionsOf, upToSaying } from "../../../lib/lists";
 import { weekLabel } from "../../../lib/timeline";
 import { useTasks } from "../../tasks/hooks/useTasks";
 import { AddLine } from "../components/addLine/AddLine";
@@ -73,8 +73,12 @@ export function ListPage() {
   return (
     <main className="mx-auto w-full max-w-6xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-8">
       <div className="flex flex-col gap-6">
-        <Link to="/planner/lists" className="-ml-2 -mb-2 flex min-h-11 w-fit items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal">
-          <ArrowLeft aria-hidden size={16} /> Lists
+        {/* The bag is It's time's: back is there. */}
+        <Link
+          to={isApart(listId) ? "/its-time" : "/planner/lists"}
+          className="-ml-2 -mb-2 flex min-h-11 w-fit items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal"
+        >
+          <ArrowLeft aria-hidden size={16} /> {isApart(listId) ? "It's time" : "Lists"}
         </Link>
         {quiet ? (
           <p className="max-w-prose text-sm text-fg-subtle">The lists are put away while Expecting is quiet. Nothing is deleted.</p>

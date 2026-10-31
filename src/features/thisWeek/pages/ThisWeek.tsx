@@ -15,6 +15,7 @@ import { headsUps, worthKnowing } from "../../../lib/library";
 import { askedWeeks } from "../../../lib/timelineMap";
 import { CheckIn } from "../../feelings/components/checkIn/CheckIn";
 import { HardFortnight } from "../../feelings/components/fortnight/HardFortnight";
+import { LookThrough } from "../../itsTime/components/wayIn/LookThrough";
 import { Movement } from "../../journal/components/entries/movements/Movement";
 import { Note } from "../../journal/components/entries/notes/Note";
 import { ItemLink } from "../../library/components/ItemLink";
@@ -170,6 +171,9 @@ function Week() {
           </div>
         ) : (
           <div className="contents lg:sticky lg:top-6 lg:flex lg:flex-col lg:gap-8">
+            <div className="order-1 empty:hidden lg:order-0">
+              <LookThrough />
+            </div>
             <div className="order-1 lg:order-0">
               <ToDoNow />
             </div>

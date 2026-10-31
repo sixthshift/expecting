@@ -10,7 +10,8 @@ import { addDays, type ISODate, todayISO } from "./dates";
 import type { Feeling } from "./feelings";
 import { feelingsOf, isOwn, STEP_LABEL } from "./feelings";
 import { type FirstMark, firstOf, isMarked } from "./firsts";
-import { type JournalEntry, PATTERN_DAYS, type Place, placeOf } from "./journal";
+import { dayOf, type Night, nightLine, nightsOf, type Start } from "./itsTime";
+import { type JournalEntry, PATTERN_DAYS, type Place, placeOf, timeNow } from "./journal";
 import type { Paper } from "./papers";
 import { PAPER_KIND_LABEL } from "./papers";
 import { BUMP_SERIES, bumpWeeks, PHOTO_KIND_LABEL, type Photo } from "./photos";
@@ -29,6 +30,8 @@ export type StoryItem = { key: string; day: ISODate; time: string | null; by: st
   | { kind: "first"; mark: FirstMark & { day: string } }
   /** A task ticked off in the Planner, on the day it was. */
   | { kind: "done"; taskId: string; title: string }
+  /** The night it started (It's time): its times on one line, never the contractions one by one. */
+  | { kind: "night"; night: Night }
 );
 
 type StoryKind = StoryItem["kind"];
@@ -58,6 +61,7 @@ const LENS_OF: Record<StoryKind, Lens | null> = {
   feeling: "feelings",
   first: "firsts",
   done: null,
+  night: null,
 };
 
 /** The lens a line belongs to; what was done belongs only to All. */
@@ -68,10 +72,10 @@ export function lensOf(item: StoryItem): Lens | null {
 /**
  * Folded away while something has happened, behind one quiet line: the
  * baby's movements, the sickness and cravings, the photos and the firsts.
- * The notes, letters, feelings, papers and what was done stay.
+ * The night it started too. The notes, letters, feelings, papers and what was done stay.
  */
 export function foldedWhileQuiet(item: StoryItem): boolean {
-  return item.kind === "movements" || item.kind === "appetite" || item.kind === "photo" || item.kind === "first";
+  return item.kind === "movements" || item.kind === "appetite" || item.kind === "photo" || item.kind === "first" || item.kind === "night";
 }
 
 /** Everything that goes into the story. */
@@ -86,6 +90,8 @@ export type StorySources = {
   ticks: Record<string, string>;
   /** Task id to its title: the tasks shown (a tick for one no longer shown isn't in the story). */
   titles: ReadonlyMap<string, string>;
+  /** It's time's starts: the ones that ended "We're there" are in the story. */
+  starts: readonly Start[];
 };
 
 /** Newest first: by day, then time (a line with none after the timed ones), then when it was kept. */
@@ -117,6 +123,10 @@ export function storyItems(s: StorySources): StoryItem[] {
   for (const [taskId, at] of Object.entries(s.ticks)) {
     const title = s.titles.get(taskId);
     if (title) items.push({ ...base(`done-${taskId}`, todayISO(new Date(at)), null, null, at), kind: "done", taskId, title });
+  }
+  for (const night of nightsOf(s.starts)) {
+    const { start } = night;
+    items.push({ ...base(`night-${start.id}`, dayOf(start.startedAt), timeNow(new Date(start.startedAt)), start.by, start.startedAt), kind: "night", night });
   }
   return items.sort(newest);
 }
@@ -151,6 +161,8 @@ function storyText(item: StoryItem, name: Namer = () => null): string {
         return [firstOf(item.mark.key).title, ...item.mark.words.map((w) => w.body), "first"];
       case "done":
         return [item.title, "done"];
+      case "night":
+        return [nightLine(item.night), "it started labour"];
     }
   })();
   return [...words, name(item.by)].filter(Boolean).join(" ").toLocaleLowerCase("en-AU");
@@ -348,6 +360,7 @@ export function summarise(items: readonly StoryItem[]): string {
       "a thing done",
       "things done"
     ),
+    items.some((i) => i.kind === "night") ? "the night it started" : null,
   ].filter((p): p is string => p !== null);
   if (parts.length <= 1) return parts[0] ?? "";
   return `${parts.slice(0, -1).join(", ")} and ${parts.at(-1)}`;

@@ -19,7 +19,7 @@ export const CHAPTERS: readonly Chapter[] = [
   { key: "halfway", title: "Halfway", weeks: [18, 22], firsts: ["showing", "boy-or-girl"] },
   { key: "moving", title: "Feeling them move", weeks: [23, 27], firsts: ["first-kick", "felt-outside"] },
   { key: "ready", title: "Getting ready", weeks: [28, 36], firsts: ["cot-up"] },
-  { key: "last-weeks", title: "The last weeks", weeks: [37, 42], firsts: ["bag-packed"] },
+  { key: "last-weeks", title: "The last weeks", weeks: [37, 42], firsts: ["bag-packed", "it-started"] },
   { key: "birth", title: "The birth", weeks: null, firsts: [] },
 ];
 

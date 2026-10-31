@@ -108,6 +108,29 @@ export const QUESTION_LIST = [
     answers: { vaginal: "A vaginal birth", caesarean: "A planned caesarean", unsure: "Not sure yet" },
   },
 
+  // It's time: a home birth's page calls the midwife first and has no trip to
+  // make; a birth centre is like a hospital.
+  {
+    id: "birthPlace",
+    group: "care",
+    ask: "Where are you planning to give birth?",
+    week: 20,
+    answers: { hospital: "A hospital", "birth-centre": "A birth centre", home: "At home", unsure: "Not sure yet" },
+  },
+
+  // It's time: waters breaking with a baby who isn't head-first is a 000 call,
+  // not a drive in (cord prolapse). Asked what you've been told, not what she
+  // feels; asked again while it's breech or not sure, as a baby can turn.
+  {
+    id: "presentation",
+    group: "care",
+    ask: "Has your midwife or doctor said the baby is head down?",
+    week: 36,
+    when: { birth: "vaginal" },
+    answers: { "head-down": "Yes, head down", breech: "No, not head-first", unsure: "Not sure" },
+    askAgain: ["breech"],
+  },
+
   // Notice to an employer, or the self-employed's own leave and claim; for the
   // partner, Partner Pay.
   {

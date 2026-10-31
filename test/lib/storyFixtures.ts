@@ -89,5 +89,5 @@ export function first(key: FirstKey, day: string | null, over: Partial<FirstMark
 }
 
 export function sources(over: Partial<StorySources> = {}): StorySources {
-  return { journal: [], appetite: [], photos: [], papers: [], feelings: [], firsts: [], ticks: {}, titles: new Map(), ...over };
+  return { journal: [], appetite: [], photos: [], papers: [], feelings: [], firsts: [], ticks: {}, titles: new Map(), starts: [], ...over };
 }

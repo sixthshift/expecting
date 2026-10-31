@@ -30,6 +30,8 @@ type ListDef = {
   /** The heading over your own lines, put in no section. */
   yours: string;
   words: Words;
+  /** Kept somewhere else, not among the Planner's lists: the bag is It's time's. */
+  apart?: true;
 };
 
 /** The lists Expecting knows, in the order they're shown. */
@@ -55,6 +57,22 @@ export const LISTS = {
     sections: { pantry: "The pantry", kit: "To freeze them in" },
     yours: "Meals to make",
     words: { none: "Still to do", arranged: "Someone's bringing it", got: "Done", "not-needed": "Not needed" },
+  },
+  // It's time's (docs/plan-its-time.md): packed ahead, and its last things, the
+  // lines that can only go in on the night, ticked off there.
+  bag: {
+    title: "The bag",
+    about: "The hospital bag: packed ahead, and the last things on the night.",
+    sections: {
+      papers: "Papers",
+      "for-her": "For her",
+      "for-baby": "For the baby",
+      "for-partner": "For the support partner",
+      last: "Last thing, on the night",
+    },
+    yours: "Also",
+    words: { none: "To pack", arranged: "Set aside", got: "Packed", "not-needed": "Not needed" },
+    apart: true,
   },
 } as const satisfies Record<string, ListDef>;
 
@@ -128,6 +146,20 @@ export function listsOf(lines: readonly Line[], own: readonly OwnList[], marks: 
     .filter(([id]) => lines.some((l) => l.listId === id))
     .map(([id, list]): ListSummary => ({ id, title: list.title, about: list.about, origin: "built-in", ...count(id) }));
   return [...builtIn, ...own.map((l): ListSummary => ({ id: l.id, title: l.title, about: null, origin: "own", ...count(l.id) }))];
+}
+
+/** The bag's section packed on the night, ticked off on It's time. */
+export const LAST_THING = "last";
+
+/** Whether a list is among the Planner's: not one kept apart (the bag). */
+export function inPlanner(list: ListSummary): boolean {
+  return !isApart(list.id);
+}
+
+/** Whether a built-in list is kept apart from the Planner's lists. */
+export function isApart(listId: string): boolean {
+  const def: ListDef | undefined = listOf(listId);
+  return def?.apart === true;
 }
 
 /** What a list calls its states: a built-in list its own words, yours the usual. */

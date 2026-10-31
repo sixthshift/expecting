@@ -3,7 +3,8 @@ import { Checkbox } from "@sixthshift/design-system/checkbox";
 import { FormField } from "@sixthshift/design-system/form-field";
 import { Input } from "@sixthshift/design-system/input";
 import { Textarea } from "@sixthshift/design-system/textarea";
-import { Pencil, Phone, TriangleAlert } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { ChevronRight, Hourglass, Pencil, Phone, TriangleAlert } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { emergencySaves, useEmergency } from "../../../api/rpc/emergency";
 import { useAnswers } from "../../../api/rpc/facts";
@@ -14,6 +15,7 @@ import { useSave } from "../../../app/hooks/useSave";
 import { formatDate, isISODate, todayISO } from "../../../lib/dates";
 import { ALWAYS, EMERGENCY, EMERGENCY_FIELDS, EMERGENCY_MAX, type EmergencyInfo, TICKED, telHref } from "../../../lib/emergency";
 import { factsOf } from "../../../lib/facts";
+import { useItsTimeShown } from "../../itsTime/components/wayIn/ItsTimeWayIn";
 import { PapersToHand } from "../../journal/components/entries/papers/PaperList";
 import { WarningSigns } from "../components/warningSigns/WarningSigns";
 import { handover } from "../model/handover";
@@ -55,6 +57,7 @@ function EmergencyView({ emergency }: { emergency: EmergencyInfo }) {
   const { values } = emergency;
   const today = todayISO();
   const carrying = people.find((p) => p.role === "carrying");
+  const partner = people.find((p) => p.role === "partner");
   const h = handover({
     values,
     facts,
@@ -121,6 +124,8 @@ function EmergencyView({ emergency }: { emergency: EmergencyInfo }) {
         ) : null}
       </section>
 
+      <ItsTimeLink />
+
       <PapersToHand />
 
       <WarningSigns />
@@ -130,8 +135,13 @@ function EmergencyView({ emergency }: { emergency: EmergencyInfo }) {
           Everyone else to call
         </h2>
         <ul className="flex flex-col divide-y divide-border-subtle rounded-xl border border-border-subtle bg-bg-normal">
+          {values.partnerPhone ? <CallRow label={partner?.name ?? "The other parent"} phone={values.partnerPhone} /> : null}
           {values.gp || values.gpPhone ? <CallRow label="GP" about={values.gp} phone={values.gpPhone} /> : null}
           {values.support ? <CallRow label="Someone else" about={values.support} /> : null}
+          {values.minder || values.minderPhone ? <CallRow label="Minding the kids or pets" about={values.minder} phone={values.minderPhone} /> : null}
+          {values.backupDriver || values.backupDriverPhone ? (
+            <CallRow label="If you can't drive" about={values.backupDriver} phone={values.backupDriverPhone} />
+          ) : null}
           {ALWAYS.filter((n) => n.phone !== "000").map((n) => (
             <CallRow key={n.phone} label={n.label} about={n.about} phone={n.phone} />
           ))}
@@ -167,6 +177,28 @@ function EmergencyView({ emergency }: { emergency: EmergencyInfo }) {
         </p>
       ) : null}
     </>
+  );
+}
+
+/**
+ * The way to It's time, the page for the night it starts: there at any week,
+ * so a labour that starts early finds it too. Never while something has happened.
+ */
+function ItsTimeLink() {
+  const { data: quiet } = useQuiet();
+  const { shown } = useItsTimeShown();
+  if (quiet) return null;
+  return (
+    <Link
+      to="/its-time"
+      className="flex min-h-12 items-center justify-between gap-3 rounded-xl border border-border-subtle bg-bg-normal px-4 text-fg-strong hover:bg-bg-subtle-hovered"
+    >
+      <span className="flex items-center gap-2">
+        <Hourglass aria-hidden size={18} className="text-fg-brand" />
+        {shown ? "It's time: the page for the night it starts" : "Labour started early? It's time"}
+      </span>
+      <ChevronRight aria-hidden size={16} className="shrink-0 text-fg-subtle" />
+    </Link>
   );
 }
 

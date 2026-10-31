@@ -39,17 +39,17 @@ export function asksFor(facts: Facts): Ask[] {
 }
 
 function isDefinite(q: FactQuestion, value: string | null | undefined): boolean {
-  return value != null && !(q.type === "choice" && value === UNSURE);
+  return value != null && !(q.type === "choice" && (value === UNSURE || q.askAgain.includes(value)));
 }
 
-/** Whether a question has a definite answer, still one of its own: not unknown, skipped or `unsure`. */
+/** Whether a question has a definite answer, still one of its own: not unknown, skipped, `unsure` or one to ask again. */
 export function isSettled(a: Ask, last: Answer | undefined): boolean {
   return last !== undefined && isDefinite(a.question, last.value) && isAnswer(a.key, last.value!);
 }
 
 /**
  * The week This week asks a question, or null if it won't: a question with a
- * week, still unknown or `unsure`. Never answered, or answered (or skipped)
+ * week, still unknown or `unsure` (or one of its `askAgain` answers). Never answered, or answered (or skipped)
  * before its week, it comes at its week; answered `unsure`, or skipped, since
  * then, ASK_AGAIN_AFTER weeks later, not every week.
  */

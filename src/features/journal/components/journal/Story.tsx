@@ -7,7 +7,7 @@
 
 import { Modal } from "@sixthshift/design-system/modal";
 import { cn } from "@sixthshift/design-system/utils";
-import { Check, FileText, Footprints, IceCreamCone, Star, Waves } from "lucide-react";
+import { Check, FileText, Footprints, Hourglass, IceCreamCone, Star, Waves } from "lucide-react";
 import { memo, type ReactNode, useCallback, useRef, useState } from "react";
 import { usePeople } from "../../../../api/rpc/people";
 import { useQuiet } from "../../../../api/rpc/quiet";
@@ -17,12 +17,14 @@ import { type AppetiteEntry, HOW_LABEL } from "../../../../lib/appetite";
 import { formatDate, type ISODate, todayISO } from "../../../../lib/dates";
 import { isOwn, STEP_LABEL } from "../../../../lib/feelings";
 import { firstOf } from "../../../../lib/firsts";
+import { nightLine } from "../../../../lib/itsTime";
 import { formatTime } from "../../../../lib/journal";
 import { PAPER_KIND_LABEL } from "../../../../lib/papers";
 import { kindsOffered, type Photo } from "../../../../lib/photos";
 import type { QuietWeek, StoryDay, StoryGap, StoryGroup, StoryItem } from "../../../../lib/story";
 import { type Week, weekDates, weekLabel } from "../../../../lib/timeline";
 import { Face } from "../../../feelings/components/Face";
+import { NightDetail } from "../../../itsTime/components/night/NightDetail";
 import { describePhoto } from "../../model/describePhoto";
 import { weekTitle } from "../../model/weekTitle";
 import { AppetiteItem } from "../entries/appetite/AppetiteItem";
@@ -247,6 +249,25 @@ function FirstLine({ item }: { item: Extract<StoryItem, { kind: "first" }> }) {
   );
 }
 
+function NightLine({ item }: { item: Extract<StoryItem, { kind: "night" }> }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <Opens label="Open: it started" onOpen={() => setOpen(true)}>
+        <span className="flex items-start gap-2 text-fg-normal">
+          <Hourglass aria-hidden size={16} className="mt-1 shrink-0 text-fg-brand" />
+          <span>{nightLine(item.night)}</span>
+        </span>
+      </Opens>
+      {open ? (
+        <EntrySheet title="It started" onClose={() => setOpen(false)}>
+          <NightDetail night={item.night} onDeleted={() => setOpen(false)} />
+        </EntrySheet>
+      ) : null}
+    </>
+  );
+}
+
 function DoneLine({ item }: { item: Extract<StoryItem, { kind: "done" }> }) {
   return (
     <p className="flex items-center gap-2 py-1 text-sm text-fg-subtle">
@@ -277,6 +298,8 @@ export function StoryLine({ item }: { item: StoryItem }) {
       return <FirstLine item={item} />;
     case "done":
       return <DoneLine item={item} />;
+    case "night":
+      return <NightLine item={item} />;
     case "photo":
       return null;
   }
