@@ -391,3 +391,35 @@ In `src/features/settings/model/facts.data.ts`, beside `birth`, both in the
 
 - **The Drawer after the timer leaves:** the names game alone, and two
   placeholders gone. Whether it stays a pillar is its own question.
+
+## Progress
+
+- 2026-11-01: steps 1 to 8 built on `feat/its-time`, in one go. Decided on
+  the way:
+  - **The bag is a list It's time owns,** not a link: `plan-lists.md` handed
+    it over. `bag` in `LISTS` (`apart`, so not among the Planner's lists, and
+    its page's back link is It's time), its lines in `hospital-bag`'s
+    frontmatter restating the body, by section (papers, for her, for the
+    baby, for the support partner) and a *Last thing, on the night* section
+    (pillows, phone chargers, snacks and drinks, a little cash) that Before
+    you go ticks for the start. Its words: to pack, set aside, packed.
+  - **The minder and the backup driver are a name and a number each**
+    (`minder`, `minderPhone`, `backupDriver`, `backupDriverPhone`), so the
+    page can ring them; shown under "Everyone else to call" on Emergency info
+    with `partnerPhone`.
+  - **Waters broke keeps the time first, the colour after:** a start opened
+    by the waters has `waters_at` and no colour until it's said. "Not sure if
+    they have" is the colour `unsure`.
+  - **Asking again:** a question's `askAgain` lists answers asked again like
+    `unsure`; `presentation` has `breech`. Asked only with `birth: vaginal`
+    (or unanswered), as `unsure` can't be written against.
+  - **The end is asked twice,** so a stray tap doesn't end the night. A
+    home birth ends "The midwife's here".
+  - **This Week's card is once a phone** (browser storage), until that
+    phone opens the page: each of you should look.
+  - **One start under way at a time** (a unique index), and every tap but
+    starting lands on the one under way, so two phones and late outbox saves
+    agree.
+  - A false alarm says so once, kindly, for 12 hours after.
+- Still to do: the content's `when`s (`home-birth`, `birth-centre` on
+  `birthPlace`; `breech-birth` on `presentation`), in the content pass.

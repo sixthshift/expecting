@@ -80,6 +80,11 @@ test("hard news quiets every pillar, and becomes a loss", async ({ page, open })
   await expect(page.getByText("Contraction timer")).toBeHidden();
   await open("/emergency");
   await expect(page.getByText(/^Pregnancy loss/)).toBeVisible();
+  // No way to It's time, and its address is Emergency info.
+  await expect(page.getByRole("link", { name: /It's time/ })).toHaveCount(0);
+  await page.goto("/its-time");
+  await expect(page).toHaveURL(/\/emergency$/);
+  await expect(page.getByRole("heading", { level: 1, name: "Emergency info" })).toBeVisible();
 });
 
 test("a loss set by mistake brings Expecting back as it was", async ({ page, open }) => {

@@ -80,7 +80,7 @@ The modes sort into six pillars, by whose a thing is and what you do with it:
 | **Library** | Expecting's | read it | Guides, week by week, "nobody tells you" (a shelf of its own), "Can I…?", "Is this normal?", topics, search |
 | **Planner** | yours, ahead | do it | To do, what to get (the lists), decisions, appointments and their questions, contacts |
 | **Journal** | yours, behind | keep it | Movements, cravings, moods and symptoms, notes, bump photos, scans, results, documents |
-| **Drawer** | both, when it's time | reach for it | The handy things, each for its moment: the names game, the contraction timer, the hospital bag |
+| **Drawer** | both, when it's time | reach for it | The handy things, each for its moment: the names game (the contraction timer and the hospital bag went to It's time) |
 
 - **They are the things a pregnant person already keeps:** a book, a planner, a journal and a drawer of handy things.
 - **Home is this week, not the timeline.** The timeline answers "where are we in all of it"; opening the app asks "where are we now, and what matters". This week is that landing page, and it stays about the week: the handy things have a pillar of their own, the Drawer, rather than crowding it, at the cost of a sixth tab on a phone.
@@ -96,12 +96,12 @@ The modes sort into six pillars, by whose a thing is and what you do with it:
 |---|---|
 | The first weeks | Quiet: before you've told anyone |
 | Pregnancy | The timeline |
-| From 37 weeks | Go time: contraction timer, call, the bag |
+| From 36 weeks | It's time: the calls, the contraction timer, the bag, getting there |
 | After the birth | Newborn: one-handed, at night |
 
 These are not views. They are different layouts for different moments, over the same data.
 
-*Built: the pregnancy, one app with its pillars. Getting ready and the baby's here were built as apps of their own and taken out to keep the first version to the pregnancy; they come back with their phases. Not built: the quiet first weeks and go time.*
+*Built: the pregnancy, one app with its pillars. Getting ready and the baby's here were built as apps of their own and taken out to keep the first version to the pregnancy; they come back with their phases. Not built: the quiet first weeks. It's time is a page beside Emergency info (`/its-time`), not a mode: [plan](plan-its-time.md).*
 
 ### Who to call
 
