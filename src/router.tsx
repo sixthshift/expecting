@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRouter } from "@tanstack/react-router";
 import { outboxCaches, queueSaves } from "./app/model/outbox";
 import { transitionBetween } from "./app/model/transitions";
-import { LoadingPage } from "./components/loading/Loading";
+import { PageSkeleton } from "./components/loading/Skeleton";
 import { isLoggedOut } from "./lib/errors";
 import { routeTree } from "./routes/tree";
 
@@ -37,9 +37,10 @@ export function getRouter() {
     // restored position would fight it.
     scrollRestoration: false,
     defaultPreload: "intent",
-    // A page whose data is slow draws the loading animation in its place: not for a quick load (under
-    // 400ms, so it doesn't flash), and once shown, for at least the router's half a second.
-    defaultPendingComponent: LoadingPage,
+    // A page whose data or code is slow draws its shape in its place, in the frame: not for a quick load
+    // (under 400ms, so it doesn't flash), and once shown, for at least the router's half a second. The
+    // app's first start, before there's a frame, has the stork (routes/app.tsx, onboarding, login).
+    defaultPendingComponent: PageSkeleton,
     defaultPendingMs: 400,
     // Pages give way to each other: in and out for a page under another, a fade across pillars (src/styles/transitions.css).
     defaultViewTransition: {

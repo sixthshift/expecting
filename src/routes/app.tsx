@@ -10,6 +10,7 @@ import { quietQuery } from "../api/rpc/quiet";
 import { settingsQuery } from "../api/rpc/settings";
 import { restoreOutbox } from "../app/model/outbox";
 import { App } from "../app/pages/App";
+import { LoadingPage } from "../components/loading/Loading";
 import { onboardingLeft } from "../features/onboarding/model/left";
 import { rootRoute } from "./root";
 
@@ -42,5 +43,7 @@ export const app = createRoute({
     const people = queryClient.getQueryData(peopleQuery.queryKey)!;
     if (onboardingLeft({ me: people.me, onboardedAt: settings.onboardedAt, answers }).length > 0) throw redirect({ to: "/onboarding" });
   },
+  // The first start: no frame yet to draw a page's shape in, so the stork.
+  pendingComponent: LoadingPage,
   component: App,
 });

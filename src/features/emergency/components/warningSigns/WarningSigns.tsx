@@ -1,6 +1,6 @@
-import { Spinner } from "@sixthshift/design-system/spinner";
 import { ChevronRight } from "lucide-react";
 import { Suspense, use } from "react";
+import { SkeletonText } from "../../../../components/loading/Skeleton";
 import { builtInItems } from "../../../../content";
 import type { Item } from "../../../../content/schema";
 import { sectionsOf } from "../../../../content/sections";
@@ -28,13 +28,7 @@ export function WarningSigns() {
       <h3 id="when-to-call" className="font-semibold text-fg-strong">
         When to call
       </h3>
-      <Suspense
-        fallback={
-          <p className="flex min-h-20 items-center justify-center">
-            <Spinner size="sm" />
-          </p>
-        }
-      >
+      <Suspense fallback={<SkeletonText lines={6} className="py-2" />}>
         <Signs item={guide} />
       </Suspense>
       <ItemLink itemId={guide.id} className="flex min-h-11 w-fit items-center gap-1 text-sm text-fg-subtle hover:text-fg-normal">

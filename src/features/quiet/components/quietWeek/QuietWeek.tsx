@@ -1,9 +1,9 @@
-import { Spinner } from "@sixthshift/design-system/spinner";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { Suspense, use } from "react";
 import { useSettings } from "../../../../api/rpc/settings";
 import { PhoneCorner } from "../../../../app/components/layout/PillarLayout";
+import { SkeletonText } from "../../../../components/loading/Skeleton";
 import { builtInItems } from "../../../../content";
 import type { Item } from "../../../../content/schema";
 import { sectionsOf } from "../../../../content/sections";
@@ -31,13 +31,7 @@ export function QuietWeek({ quiet }: { quiet: Quiet }) {
       <div className="max-w-3xl">
         <div className="flex flex-col gap-8">
           {guide ? (
-            <Suspense
-              fallback={
-                <p className="flex min-h-40 items-center justify-center gap-2 text-sm text-fg-subtle">
-                  <Spinner size="sm" />
-                </p>
-              }
-            >
+            <Suspense fallback={<SkeletonText lines={6} />}>
               <Guide item={guide} quiet={quiet} />
             </Suspense>
           ) : null}

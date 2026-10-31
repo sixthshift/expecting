@@ -1,10 +1,10 @@
-import { Spinner } from "@sixthshift/design-system/spinner";
 import { getRouteApi, Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { ArrowLeft, CalendarRange } from "lucide-react";
 import { Suspense, use, useEffect } from "react";
 import { useChecklist } from "../../../api/rpc/checklist";
 import { useExtras } from "../../../api/rpc/extras";
 import { useAnswers } from "../../../api/rpc/facts";
+import { Skeleton, SkeletonText } from "../../../components/loading/Skeleton";
 import { NothingHere } from "../../../components/NothingHere";
 import { builtInItems } from "../../../content";
 import type { Item } from "../../../content/schema";
@@ -55,13 +55,7 @@ export function LibraryItemPage() {
         </Link>
         {item ? (
           <div className="flex flex-col gap-4">
-            <Suspense
-              fallback={
-                <p className="flex min-h-40 items-center justify-center gap-2 text-sm text-fg-subtle">
-                  <Spinner size="sm" /> Opening {item.title}
-                </p>
-              }
-            >
+            <Suspense fallback={<ItemSkeleton title={item.title} />}>
               <Page item={item} ticks={checklist.ticks} />
             </Suspense>
           </div>
@@ -141,4 +135,16 @@ function Private({ itemId }: { itemId: string }) {
     if (bare) navigate({ to: "/library/$itemId", params: { itemId }, mask: { to: "/library" }, state: (s) => ({ ...s, masked: true }), replace: true });
   }, [bare, itemId, navigate]);
   return <QuickExit />;
+}
+
+/** The entry's card while its words come (seldom seen: the route loads them first): its title, already known, then lines where the words go. */
+function ItemSkeleton({ title }: { title: string }) {
+  return (
+    <div role="status" aria-label={`Opening ${title}`} className="flex flex-col gap-4 rounded-xl border border-border-subtle bg-bg-normal p-4 lg:p-6">
+      <Skeleton className="h-5 w-32" />
+      <h1 className="text-2xl font-display font-semibold text-fg-strong">{title}</h1>
+      <SkeletonText lines={3} />
+      <SkeletonText lines={5} className="mt-2" />
+    </div>
+  );
 }
