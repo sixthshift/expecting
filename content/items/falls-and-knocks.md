@@ -12,10 +12,10 @@ verdict: ask
 sources:
   - title: Pregnancy, Birth and Baby — Injuries during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
-  - title: Better Health Channel — Pregnancy and travel
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+  - title: Pregnancy, Birth and Baby — Rhesus D negative in pregnancy
+    url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
 related: [contact-sports, seatbelt-position, horse-riding, roller-coasters]
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 Get it checked. Even a minor injury in pregnancy can lead to complications, so it needs to be assessed.
 

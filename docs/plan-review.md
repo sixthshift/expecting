@@ -110,3 +110,54 @@ them:
 - Next: a person reads the blocked pages (`review-tier3.yaml`, "still
   drafts"); a midwife reads the symptom pages; then re-review on a schedule
   (money every 1 July, guidelines as they're revised).
+
+## Still to do
+
+Noted 2026-10-31, after the full pass. In the order I'd take them.
+
+**Needs a person**
+
+1. Read the pages that block automated reading (Red Nose, Product
+   Safety Australia, Darling Downs Health and PANDA were read in Chrome on
+   2026-10-31; with new sources for malaria, clots and gravida, all 11
+   drafts are finished: `review-tier3.yaml`), then the rest: SA, NT and Tasmania birth registries; MSI Australia's number
+   (1300 003 707 or 1300 405 568); the NSW, Qld, NT, Tas and SA patient
+   travel schemes (`rural-and-remote`).
+2. ~~Decide whether `previous-trauma-and-pregnancy` is `private`.~~
+   Decided 2026-10-31: not private (`content/REVIEW.md`).
+3. A midwife reads the symptom pages.
+
+**Work for Claude**
+
+4. Coverage: walk the national Pregnancy Care Guidelines, the Safer Baby
+   Bundle and RANZCOG's patient leaflets against the Library and list
+   what's missing (so far found ad hoc: `baby-moving-less`,
+   `seizure-in-pregnancy`).
+5. Make the review's rules tests (`test/content/`), so they can't come
+   back: no "Ask your midwife or OB." or "the source says"; symptom
+   headings in urgency order; every phone number against one table of
+   services; no mother/woman/she in our own sentences.
+6. Merge the duplicates in `content/REVIEW.md`: `listeria` and
+   `listeria-foods`; the three pets entries; the three Braxton Hicks
+   entries; leave after a loss (three); `brain-fog` and its card.
+7. Replace stale sources lines still rest on: Better Health's 2017
+   exercise page (its 2015 travel page is gone from every entry,
+   2026-10-31); MotherSafe sheets from 2019–2020; RANZCOG's
+   2017 screening leaflet; RANZCOG C-Obs 11 (breech) and 36 (prelabour
+   rupture), overdue for review since July 2026.
+8. Record the review in the entries: many carry `checked: 2026-10-29`
+   though edited since. A `reviewed:` date (schema change) would show it
+   and drive the re-checks below.
+9. Tidy `content/REVIEW.md`: kombucha, cord prolapse and the stillborn
+   payment figure are settled; mark them.
+10. Run `bun run e2e`: 927 entries just lost `draft`.
+
+**Ongoing**
+
+- Money: every 1 July, and the 20 March and 20 September indexations.
+- Clinical: when a national guideline is revised.
+- Week notes' `size` figures (weeks 6, 7, 12, 20, 28) still need a source.
+
+The settled rules (urgency, bleeding before and after the birth, when to
+go in, retinol, vitamin D, trimesters…) are in the review records; the
+brief the readers used is worth recreating from them for any new pass.

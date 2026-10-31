@@ -16,10 +16,10 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/dealing-with-hot-weather-during-pregnancy-and-breastfeeding
   - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
-  - title: Better Health Channel — Pregnancy and travel
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+  - title: RANZCOG — Travelling during pregnancy (August 2024)
+    url: https://ranzcog.edu.au/womens-health/patient-information-resources/travelling-during-pregnancy
 related: [long-drives, hot-weather, travel-in-pregnancy, camping-and-the-bush]
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 Talk it through with your midwife or doctor before you plan the route. Pregnancy, Birth and Baby says it's not recommended to travel to very remote areas while pregnant.
 
@@ -33,5 +33,4 @@ You can get pregnancy care anywhere in Australia on Medicare, but maternity care
 - **Know your nearest care.** Before you go, think about the medical and maternity care available along the way and at your destination.
 - **Take your records** and a letter from your doctor or midwife listing any medical problems and a short pregnancy history.
 - **Plan the days:** break the drive at least every 2 hours, keep travel and outdoor tasks out of the hottest part of the day, carry water and rest between activities.
-- **Carry a mobile phone** and consider roadside assistance.
 - **Heatstroke is an emergency:** call triple zero (000) for hot, dry skin with no sweating, a temperature over 40 °C, rapid breathing, vomiting, confusion or slurred speech, or collapse or seizures.

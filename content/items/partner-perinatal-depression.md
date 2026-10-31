@@ -19,8 +19,7 @@ sources:
   - title: Gidget Foundation — Looking after yourself as a new dad
     url: https://www.gidgetfoundation.org.au/fact-sheets/looking-after-yourself-as-a-new-dad
 related: [partner-mental-health-support, antenatal-depression, card-one-in-ten-dads]
-draft: true
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 ## What's usual
 

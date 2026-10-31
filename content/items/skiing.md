@@ -14,8 +14,6 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
   - title: Better Health Channel — Pregnancy and exercise
     url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
-  - title: Better Health Channel — Pregnancy and travel
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
   - title: RANZCOG — Common questions in pregnancy
     url: https://ranzcog.edu.au/wp-content/uploads/Common-Questions-In-Pregnancy.pdf
   - title: The Royal Women's Hospital — Active pregnancy
@@ -23,15 +21,15 @@ sources:
   - title: Pregnancy, Birth and Baby — Bleeding during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
 related: [altitude, horse-riding, contact-sports, falls-and-knocks]
-checked: 2026-10-29
+checked: 2026-10-31
 ---
-Not the downhill kind. Pregnancy, Birth and Baby, Better Health and RANZCOG all list skiing among activities with a risk of falling to avoid. The Royal Women's Hospital includes snow and water skiing in its list of activities to avoid.
+Not the downhill kind. Pregnancy, Birth and Baby, Better Health and RANZCOG all list downhill skiing among activities with a risk of falling to avoid. The Royal Women's Hospital includes snow and water skiing in its list of activities to avoid.
 
 ## Why
 
 A fall can injure you and your baby. As the bump grows your centre of gravity moves forward and your balance changes, and your ligaments loosen, so falls and joint injuries are more likely.
 
-**Water skiing** is on the list too: Better Health says coming off the skis could force water into the vagina.
+**Water skiing** is on the Royal Women's list too.
 
 **Altitude** adds a second reason. Pregnancy, Birth and Baby says to avoid exercising above 2,000 metres until you've acclimatised, and Better Health's exercise page lists high-altitude training at over 2,000 metres among things to avoid.
 

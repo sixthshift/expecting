@@ -27,10 +27,14 @@ added red flags (missing before):
   - "card-round-ligament-stab, anaemia-in-pregnancy, sports-and-electrolyte-drinks, twins-and-multiples-support"
   - "the waters-breaking 000 rule reached the malpresentation, transverse-lie, umbilical-cord and waters-not-first entries"
 
-still drafts (11), and why:
-  - "bassinet, cot-and-safe-sleep-standards, second-hand-baby-gear, second-hand-gear, nursery: Red Nose and Product Safety Australia block automated reading"
-  - "farm-animals-and-lambing: Darling Downs Q fever page blocked; verdict likely avoid"
-  - "dvt-and-compression-stockings, malaria: key lines rest only on Better Health's 2015 travel page"
-  - "term-gravida-para: no source defines gravida"
-  - "partner-perinatal-depression: PANDA's pages didn't load in full"
-  - "previous-trauma-and-pregnancy: waiting on whether it is private"
+read in Chrome, 2026-10-31 (the pages that blocked automated reading):
+  infant sleep standard: "real: the Consumer Goods (Infant Sleep Products) Safety Standard 2024, in force 19 January 2026 (NSW Education), covers cots, folding cots, bassinets, cradles and co-sleepers sold new; a cot meets AS/NZS 2172:2013, ASTM F1169-19 or EN 716-1:2017 (ACCC). Second-hand goods are exempt unless imported (ACCC), though Red Nose still says a second-hand cot 'must' meet it; we follow the regulator and keep Red Nose's 'check it' as advice. Fixed: AS/NZS 2172:2003 → 2013; 'no standard for bassinets' gone; bassinet 250 mm sides and the hands-and-knees / weight warning added; PBB's second-hand cot allowances (8 cm, 3–5 cm gaps) cut as resting on the old regime. Undrafted: bassinet, cot-and-safe-sleep-standards, second-hand-baby-gear, second-hand-gear, nursery"
+  farm-animals-and-lambing: "verdict ask → avoid (Darling Downs Health: don't help ewes lamb, cows calve or goats kid; no contact with newborn animals, afterbirth or soiled clothes; soap not sanitiser; partner's PPE; symptoms 4 days to 6 weeks). Undrafted"
+  partner-perinatal-depression: "PANDA's symptom lists (in collapsed sections) and support page match the entry, 1300 726 306 and Lifeline 13 11 14 included. Undrafted"
+
+  previous-trauma-and-pregnancy: "decided: not private (content/REVIEW.md). Undrafted"
+
+  new sources, 2026-10-31: "Better Health's travel page still says 'Reviewed on: 31-03-2015', so it goes. malaria: RANZCOG Travelling during pregnancy (v3, August 2024) in its place; MotherSafe 2023 and healthdirect carry the rest; the chloroquine/doxycycline line cut (no current Australian consumer source names them), the choice left to the doctor; RANZCOG's 'spray, over clothes' DEET tip added. dvt-and-compression-stockings: MotherSafe 2023 in its place; the 100 kg / family history risk factors and 'heparin for journeys over four hours' cut (only Better Health had them), replaced by MotherSafe's past clot or twins and 'some are advised medicine'; RANZCOG's under 1 in 100, DVT signs and 'stretch every two hours' added. term-gravida-para: Queensland Health's Pregnancy Health Record glossary defines gravida (the record has Gravida and Parity boxes). All three undrafted"
+  better health travel page dropped everywhere, 2026-10-31: "read whole in Chrome; every line of 12 entries traced to it. Kept where a current source says it (RANZCOG v3 August 2024, MotherSafe Feb 2023, PBB Travel, PBB Injuries, PBB Rhesus D negative for anti-D after an accident, PBB Exercising, Smartraveller, the Royal Women's); cut where only it did: flying in the last six weeks triggering labour, 'gestational diabetes or twins, don't fly' (now MotherSafe's high-risk list and 'talk to your doctor'), the aisle every half hour, aisle or bulkhead seats, oxygen (now RANZCOG's 'ask for assistance'), tilting the steering wheel, the lap belt 'jolt' reason (now PBB Injuries: wrong belt raises injury, a blow can cause abruption), roadside assistance and a phone, altitude's oxygen and 3,000 m lines, riding's motion causing abruption, scuba's blood gases, 'snorkelling is fine' (no current source: ask your midwife), water skiing forcing water into the vagina. Entries: altitude, falls-and-knocks, flying, horse-riding, long-drives, remote-travel-in-australia, seatbelt-position, scuba-diving, skiing, surfing-and-water-sports, swimming, travel-vaccines"
+
+still drafts: none.

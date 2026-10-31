@@ -10,8 +10,6 @@ stakes: medium
 summary: "Water skiing is on the Australian avoid lists. None of the sources listed here names surfing, wakeboarding or jet skis, so ask your doctor or midwife; the general rules about falls and knocks to the bump apply."
 verdict: ask
 sources:
-  - title: Better Health Channel — Pregnancy and travel
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
   - title: The Royal Women's Hospital — Active pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
   - title: Pregnancy, Birth and Baby — Playing sport during pregnancy
@@ -19,9 +17,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Exercising during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
 related: [swimming, boats-and-ferries, falls-and-knocks]
-checked: 2026-10-29
+checked: 2026-10-31
 ---
-**Water skiing: avoid.** Better Health lists it among sporting activities to avoid, because coming off the skis could force water into the vagina. The Royal Women's Hospital also lists water skiing among activities to avoid.
+**Water skiing: avoid.** The Royal Women's Hospital lists it among activities to avoid.
 
 **Surfing, wakeboarding, jet skis, paddle boarding:** none of the sources listed here names these, so ask your doctor or midwife.
 

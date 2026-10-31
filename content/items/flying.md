@@ -14,8 +14,6 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/common-myths-about-pregnancy
   - title: Pregnancy, Birth and Baby — Travel and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
-  - title: Better Health Channel — Pregnancy and travel
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
   - title: ARPANSA — Flying and health
     url: https://www.arpansa.gov.au/understanding-radiation/radiation-sources/more-radiation-sources/flying-and-health
   - title: RANZCOG — Travelling during pregnancy
@@ -29,13 +27,13 @@ appointment:
   - Is it safe for me to fly at this stage of my pregnancy?
   - Do I need medicine against blood clots for a long flight?
   - Can you write a letter for the airline with my due date and any complications?
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 Yes. Flying is generally safe for you and your baby. Talk over any health concerns or complications with your midwife or doctor before you plan the trip.
 
 ## Why
 
-**Week limits.** Airlines set their own, and some won't take you beyond 28 weeks; limits are often earlier for international flights than domestic ones. Flying beyond 36 weeks isn't recommended, and flying in the last six weeks could trigger premature labour. With gestational diabetes or a multiple pregnancy you're generally advised not to fly.
+**Week limits.** Airlines set their own, and some won't take you beyond 28 weeks; limits are often earlier for international flights than domestic ones. Flying beyond 36 weeks isn't recommended (RANZCOG). Diabetes, twins or more, high blood pressure and a history of premature labour all make complications while travelling more likely (MotherSafe), so talk to your doctor before you book.
 
 **Radiation.** Less than 1 mSv above background won't significantly raise the risk to an unborn baby. A Melbourne–Singapore–London flight is about 0.065 mSv.
 
@@ -44,6 +42,5 @@ Yes. Flying is generally safe for you and your baby. Talk over any health concer
 ## What to do
 
 - Check the airline's rules before you book; it may want a letter or certificate with your due date and any complications.
-- Ask your doctor whether you need medicine against clots. Drink plenty of water, wear compression stockings and walk the aisle every half hour if it's smooth; in turbulence stay seated and flex your ankles.
-- Wear the seatbelt under your bump and across your lap. An aisle or bulkhead seat helps.
-- Short of breath or light-headed? Ask the crew for oxygen.
+- Ask your doctor whether you need medicine against clots. Drink plenty of water, wear fitted knee-high compression stockings, and walk around the cabin or do leg exercises often.
+- Short of breath or unwell? Ask the crew for help.

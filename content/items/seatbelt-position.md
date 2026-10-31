@@ -14,22 +14,22 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
   - title: Pregnancy, Birth and Baby — Travel and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/travel-and-pregnancy
-  - title: Better Health Channel — Pregnancy and travel
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
+  - title: Pregnancy, Birth and Baby — Rhesus D negative in pregnancy
+    url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rhesus-d-negative-pregnancy
   - title: RANZCOG — Travelling during pregnancy
     url: https://ranzcog.edu.au/womens-health/patient-information-resources/travelling-during-pregnancy
 related: [long-drives, falls-and-knocks]
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 ## Why
 
-Not wearing your seatbelt correctly is one of the things that raises the risk of being injured in pregnancy. Better Health Channel warns against the lap belt across the bump: a sudden jolt could cause the placenta to separate from the uterus.
+Not wearing your seatbelt correctly is one of the things that raises the risk of being injured in pregnancy, and a blow to the abdomen can make the placenta separate from the uterus (Pregnancy, Birth and Baby).
 
 ## What to do
 
 - **Lap belt:** across your lap, over your hips and under the bump.
 - **Shoulder sash:** above the bump and between your breasts.
-- **Seat:** as a passenger, move the seat well back from the dashboard; driving, as far back from the wheel as you can while still driving safely and comfortably. Both reduce airbag impact in a crash. Tilting the steering wheel down, away from your belly, may help.
+- **Seat:** as a passenger, move the seat well back from the dashboard; driving, as far back from the wheel as is safe. Both reduce airbag impact in a crash.
 
 **After any accident, however minor**, see a doctor or midwife as soon as possible, even if you feel fine. If you're RhD negative, tell them: you may need an anti-D injection.
 

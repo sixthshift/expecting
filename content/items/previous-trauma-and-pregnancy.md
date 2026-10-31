@@ -21,8 +21,7 @@ related: [tokophobia, birth-trauma, pregnancy-after-birth-trauma, domestic-viole
 appointment:
   - Can we talk about what would make examinations easier for me?
 discreet: true
-draft: true
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 If you've lived through abuse or other trauma, pregnancy can reawaken it. That response is normal, and there's support made for it.
 

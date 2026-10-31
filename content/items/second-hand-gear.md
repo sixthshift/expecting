@@ -1,13 +1,14 @@
 ---
 id: second-hand-gear
 title: Second-hand baby gear
-summary: "Most baby gear is fine second-hand; a car seat only if you know its whole history, and a cot only if it meets the Australian standard."
+summary: "Most baby gear is fine second-hand; a car seat only if you know its whole history, and a cot only if you know it meets the Australian standard."
 weeks: [20, 36]
 type: moment
 topic: gear
 extra: second-hand
-draft: true
 sources:
+  - title: ACCC Product Safety — Infant sleep products mandatory standards
+    url: https://www.productsafety.gov.au/business/search-mandatory-standards/infant-sleep-products-mandatory-standards
   - title: "Pregnancy, Birth and Baby — Car and road safety for babies and children"
     url: https://www.pregnancybirthbaby.org.au/car-safety-for-babies
   - title: Red Nose — Second-hand nursery furniture
@@ -16,6 +17,7 @@ tasks:
   - id: check-second-hand-recalls
     title: Check the second-hand gear against Product Safety Australia's recalls
     due: 32
+checked: 2026-10-31
 ---
 Buying or borrowing second-hand can save a lot, as long as each thing is safe. Clothes, wraps, books, toys and most of the nursery are easy. Three things need more care.
 
@@ -28,7 +30,7 @@ Buying or borrowing second-hand can save a lot, as long as each thing is safe. C
 
 If you can't be sure, buy new.
 
-**Cots and portacots.** Every cot sold in Australia, new or second-hand, must meet the mandatory standard, AS/NZS 2172. Second-hand cots don't need a safety label, so check the instructions or the maker. If you can't confirm it meets the standard, don't use it. Look for rough repairs, missing parts and chipped old paint, which may contain lead.
+**Cots and portacots.** A cot sold new must meet the mandatory standard for infant sleep products, but a second-hand one isn't covered by it (ACCC Product Safety). So check the instructions, the label or the maker. If you can't confirm it meets the standard, don't use it. Look for rough repairs, missing parts and chipped old paint, which may contain lead.
 
 **Mattresses.** Red Nose says there's no evidence a second-hand mattress raises the risk of SIDS, as long as it is firm, flat, clean, in good condition, and fits the cot within 20 mm at the sides and ends (no more than two fingers' width).
 

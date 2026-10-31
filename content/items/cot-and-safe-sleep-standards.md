@@ -7,8 +7,10 @@ ask: What makes a cot safe, and which standard should it meet?
 aliases: [cot, AS/NZS 2172, safe cot, cot mattress, cot bumpers, safe sleep, infant sleep products standard]
 weeks: [24, 38]
 stakes: high
-summary: "Every cot, new or second-hand, must meet the Australian standard AS/NZS 2172:2003; add one firm, flat, well-fitting mattress and nothing else soft in it."
+summary: "A cot sold new must meet the mandatory standard for infant sleep products; a second-hand one isn't covered, so check it yourself; add one firm, flat, well-fitting mattress and nothing else soft in it."
 sources:
+  - title: ACCC Product Safety — Infant sleep products mandatory standards
+    url: https://www.productsafety.gov.au/business/search-mandatory-standards/infant-sleep-products-mandatory-standards
   - title: Red Nose — What is a safe cot?
     url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/newborn-to-1-year/what-is-a-safe-cot/
   - title: Pregnancy, Birth and Baby — Cots
@@ -18,19 +20,17 @@ sources:
   - title: Red Nose — Is it safe to use a second-hand mattress?
     url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/pregnancy-to-birth/is-it-safe-to-use-a-second-hand-mattress/
 related: [bassinet, portable-cot, second-hand-baby-gear]
-draft: true
+checked: 2026-10-31
 ---
 Your baby will spend more time in the cot than anywhere else, so it's worth getting right. You don't need the latest or most expensive model, but whatever cot you choose has to be safe: Pregnancy, Birth and Baby warns that an unsafe cot can cause injury or even death.
 
 ## The standard
 
-In Australia, all new and second-hand cots must comply with the Australian standard for cots, AS/NZS 2172:2003. Red Nose says the standard is noted in the cot's instructions and often on a label; second-hand cots don't require safety labels. Not all cots sold meet the standard, so always check carefully before buying, and don't use a cot if you're in any doubt about its safety.
+Since 19 January 2026, every cot sold new in Australia must meet the mandatory safety standard for infant sleep products. A household cot meets it by meeting one of three standards: the Australian AS/NZS 2172:2013, or its US or European equivalent. The cot must also carry warnings and come with safety information (ACCC Product Safety).
 
-Pregnancy, Birth and Baby says that, unlike cots, there are no current safety standards for bassinets in Australia.
+Second-hand cots aren't covered by the mandatory standard, unless they're imported. Red Nose's advice is to check that a second-hand cot meets the standard anyway: it's noted in the instructions, and often on a label. If you're in any doubt about a cot's safety, don't use it.
 
 ## Checking the cot
-
-Pregnancy, Birth and Baby says a few rules differ for second-hand cots: parts sticking out can be up to 8 cm long, gaps between 3 cm and 5 cm are allowed, and they don't require safety labels. The checks below are for buying a cot.
 
 Take a tape measure. Make sure:
 

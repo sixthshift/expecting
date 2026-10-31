@@ -61,6 +61,9 @@ detail.
   - `previous-trauma-and-pregnancy`: past abuse and sexual assault (its
     aliases say "sexual assault survivor", "childhood abuse"). Strongest
     candidate: reading it may disclose something to the other parent.
+    **Decided 2026-10-31: stays open.** The risk is disclosure, not danger
+    from the partner; reading leaves no trace, it is `discreet`, and private
+    would hide it from the birth-fear and birth-trauma entries that lead to it.
   - `relationship-breakdown`: separating during the pregnancy, and going to
     court "if the child may be at risk of abuse or violence". Someone
     planning to leave may not want it seen.

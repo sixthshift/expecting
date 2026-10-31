@@ -7,7 +7,7 @@ ask: Can I scuba dive while pregnant?
 aliases: [scuba, diving, dive trip, Great Barrier Reef dive, decompression, the bends, free diving, snorkelling]
 who: carrying
 stakes: high
-summary: "Avoid scuba diving: Australian sources list it among activities to avoid because of the changes in pressure. Snorkelling is fine."
+summary: "Avoid scuba diving: Australian sources list it among activities to avoid because of the changes in pressure. Swim instead."
 verdict: avoid
 sources:
   - title: Pregnancy, Birth and Baby — Exercising during pregnancy
@@ -18,18 +18,16 @@ sources:
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
   - title: Better Health Channel — Pregnancy and exercise
     url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
-  - title: Better Health Channel — Pregnancy and travel
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
 related: [swimming, flying, skydiving]
-checked: 2026-10-29
+checked: 2026-10-31
 ---
-No. Save the dive for after the baby; snorkel instead.
+No. Save the dive for after the baby.
 
 ## Why
 
-Pregnancy, Birth and Baby says to avoid activities with large changes in pressure, such as scuba diving, and lists it again among activities that aren't safe in pregnancy. The Royal Women's Hospital and Better Health's exercise page also list it to avoid. Better Health's travel page gives the reason: the changes in blood gases may harm your baby.
+Pregnancy, Birth and Baby says to avoid activities with large changes in pressure, such as scuba diving, and lists it again among activities that aren't safe in pregnancy. The Royal Women's Hospital and Better Health's exercise page also list it to avoid.
 
 ## What to do
 
-- **Snorkel.** Better Health's travel page says snorkelling is fine, and swimming is one of the aerobic exercises Pregnancy, Birth and Baby suggests in pregnancy.
-- **Planning a reef trip?** Book the snorkelling tour, not the dive.
+- **Swim instead:** it's one of the aerobic exercises Pregnancy, Birth and Baby suggests in pregnancy.
+- **Planning a reef trip?** Skip the dive. If you'd like to snorkel, ask your midwife or doctor: the current Australian sources don't cover it.

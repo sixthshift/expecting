@@ -9,6 +9,8 @@ weeks: [28, 38]
 stakes: high
 summary: "A bassinet beside your bed is a common choice for the early months; use a firm mattress that fits tightly, nothing soft inside, and move your baby to a cot when they first show signs of rolling."
 sources:
+  - title: ACCC Product Safety — Infant sleep products mandatory standards
+    url: https://www.productsafety.gov.au/business/search-mandatory-standards/infant-sleep-products-mandatory-standards
   - title: Pregnancy, Birth and Baby — Safe sleep for babies
     url: https://www.pregnancybirthbaby.org.au/babies/sleep-and-settling/safe-sleep-for-babies
   - title: NSW Department of Education — New mandatory safety standards on infant sleep products
@@ -16,14 +18,13 @@ sources:
   - title: Pregnancy, Birth and Baby — Preparing your home for when your baby arrives
     url: https://www.pregnancybirthbaby.org.au/babies/daily-care/what-you-will-need-for-baby
 related: [cot-and-safe-sleep-standards, portable-cot, second-hand-baby-gear]
-draft: true
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 The safest place for your baby to sleep for the first 6 to 12 months is in their own cot or bassinet, in the same room as you. Room sharing can halve the chance of sudden unexpected death in infancy (SUDI), and many parents choose a smaller bassinet in their bedroom for the early months, which can make night feeds easier.
 
 ## The standard
 
-Pregnancy, Birth and Baby says that, unlike cots, there are no current safety standards for bassinets in Australia, and points to Red Nose for advice on choosing a safe one. The NSW Department of Education says new mandatory safety standards for infant sleep products take effect across Australia from 19 January 2026, setting requirements for design, construction and warning labels, and points to the ACCC's Product Safety guidance for more detail. Its page doesn't name bassinets, so the two sources aren't yet reconciled.
+Since 19 January 2026, bassinets sold new in Australia must meet the mandatory safety standard for infant sleep products, as cots must (NSW Department of Education, ACCC Product Safety). Among other things, a bassinet's sides must be at least 250 mm high, measured from the mattress, and it must carry a warning to stop using it once your baby starts pushing up on their hands and knees or reaches the maker's weight limit. Second-hand bassinets aren't covered by the standard, unless they're imported, so check an older one yourself.
 
 ## Setting it up
 
@@ -35,4 +36,4 @@ Pregnancy, Birth and Baby says that, unlike cots, there are no current safety st
 
 ## Moving to the cot
 
-If your baby sleeps in a bassinet, move them into a cot when they first show signs of being able to roll. That's also the time to stop swaddling: they need their arms free while they sleep.
+If your baby sleeps in a bassinet, move them into a cot when they first show signs of being able to roll, or sooner if they reach the bassinet's weight limit. That's also the time to stop swaddling: they need their arms free while they sleep.

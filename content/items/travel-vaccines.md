@@ -16,10 +16,8 @@ sources:
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
   - title: healthdirect — Travel vaccinations
     url: https://www.healthdirect.gov.au/procedures/immunisation-and-vaccinations/travel-vaccinations
-  - title: Better Health Channel — Pregnancy and travel
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-travel
 related: [flu-vaccine, overseas-travel, malaria, zika]
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 Some, if the trip calls for them.
 
