@@ -18,10 +18,12 @@ sources:
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
   - title: RANZCOG — Common questions in pregnancy
     url: https://ranzcog.edu.au/wp-content/uploads/Common-Questions-In-Pregnancy.pdf
+  - title: RANZCOG — Exercise during pregnancy (patient information, August 2024)
+    url: https://ranzcog.edu.au/wp-content/uploads/Exercise-During-Pregnancy.pdf
 related: [exercise-intensity-and-heart-rate, running, swimming, weights, exercise-lying-on-your-back, hot-yoga]
 appointment:
   - Is there any reason I shouldn't exercise?
-checked: 2026-10-31
+checked: 2026-11-01
 ---
 Yes. Exercise is healthy in pregnancy: it can ease back and pelvic pain, help prepare your body for birth, and lower your risk of complications such as gestational diabetes. It's best to talk to your doctor or midwife before you start.
 
@@ -37,13 +39,15 @@ Yes. Exercise is healthy in pregnancy: it can ease back and pelvic pain, help pr
 - scuba diving and skydiving
 - getting too hot: hot yoga or Pilates, spas, or hard exercise on hot or humid days
 - exercising lying flat on your back after 16 weeks: see [exercising on your back](exercise-lying-on-your-back)
+- extra load on the pelvic floor, such as jumping, bouncing, heavy weightlifting and kickboxing; walking lunges are best avoided too (RANZCOG)
 
 ## What to do
 
 - **New to exercise?** Any activity is better than none: start with some, and build up slowly.
 - **Drink plenty of water,** and avoid exercising in hot, humid weather.
+- **Warm up and cool down** each session, and don't exercise to exhaustion. RANZCOG advises against sessions longer than 60 minutes unless the intensity is light.
 - **Check with your doctor first** if you have pre-eclampsia, placenta praevia, twins or more, bleeding in the second or third trimester, a weak or short cervix, or your waters have broken.
 - **Call triple zero (000)** if you have chest pain or severe trouble breathing.
 - **If your baby is moving less,** contact your midwife or birth unit straight away; don't wait. See [The baby is moving less](baby-moving-less).
 - **If one leg is painful and swollen,** contact your hospital straight away.
-- **Stop and see your doctor immediately** if you have dizziness or feeling faint, headache, sudden swelling of your face, hands or feet, vaginal bleeding, contractions or fluid leaking.
+- **Stop and see your doctor immediately** if you have dizziness or feeling faint, headache, sudden swelling of your face, hands or feet, vaginal bleeding, contractions or fluid leaking, or more leaking of urine than usual (RANZCOG).
