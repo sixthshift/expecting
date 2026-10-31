@@ -4,16 +4,24 @@
 // and fails here.
 //
 // One server, one database, one worker: every spec shares the database.
+import { createHash } from "node:crypto";
+import { statSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import { defineConfig, devices } from "@playwright/test";
 
-// Not 9966: that is the dev server's, and it is strictPort.
-const PORT = 9967;
+// Several checkouts (the main one and git worktrees) may run e2e at once, so
+// each gets its own port and database. The main checkout, whose .git is a
+// folder, keeps 9967; a worktree, whose .git is a file, gets one of 9968–9998
+// from its path. Not 9966: that is the dev server's, and it is strictPort.
+const ROOT = resolve(import.meta.dirname, "..");
+const WORKTREE = statSync(join(ROOT, ".git")).isFile();
+const SLOT = WORKTREE ? 1 + (createHash("sha256").update(ROOT).digest().readUInt32BE(0) % 31) : 0;
+const PORT = Number(process.env.E2E_PORT) || 9967 + SLOT;
 
-// A fixed path, emptied by the command, so a failed run's database is still
-// there to open afterwards.
-export const DATA_DIR = join(tmpdir(), "expecting-e2e");
+// A fixed path per checkout, emptied by the command, so a failed run's
+// database is still there to open afterwards.
+export const DATA_DIR = join(tmpdir(), SLOT ? `expecting-e2e-${SLOT}` : "expecting-e2e");
 
 // The password the specs log in with, chosen by global-setup.ts on
 // the empty database's first visit. A test-only secret: it guards an empty

@@ -57,3 +57,6 @@ data/
 # playwright (bun run e2e)
 test-results
 playwright-report
+
+# Claude Code worktrees
+.claude/worktrees
