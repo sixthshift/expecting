@@ -4,6 +4,7 @@
 // docs/plan-appointment-questions.md.
 
 import { Button } from "@sixthshift/design-system/button";
+import { Card } from "@sixthshift/design-system/card";
 import { Modal } from "@sixthshift/design-system/modal";
 import { toast } from "@sixthshift/design-system/overlay";
 import { Textarea } from "@sixthshift/design-system/textarea";
@@ -58,22 +59,22 @@ function AskSheet({ item, suggestions, onClose }: { item: Item; suggestions: str
                 {suggestions.map((s) => (
                   <li key={s}>
                     {openQuestions.includes(s) ? (
-                      <p className="flex min-h-11 items-center gap-2 rounded-lg border border-border-subtle px-3 text-sm text-fg-subtle">
+                      <Card size="sm" className="flex min-h-11 items-center gap-3 text-sm leading-snug text-fg-subtle">
                         <span className="flex-1">{s}</span>
                         <span className="flex shrink-0 items-center gap-1 text-xs">
                           <Check aria-hidden size={14} /> On your list
                         </span>
-                      </p>
+                      </Card>
                     ) : (
                       // Taken into the box, to send as it is or change first.
-                      <button
-                        type="button"
+                      <Card
+                        size="sm"
                         onClick={() => setText(s)}
                         aria-pressed={text === s}
-                        className="flex min-h-11 w-full items-center rounded-lg border border-border-normal px-3 text-left text-sm text-fg-normal hover:bg-bg-normal-hovered aria-pressed:border-border-brand"
+                        className="flex min-h-11 items-center text-sm leading-snug text-fg-normal aria-pressed:border-border-brand"
                       >
                         {s}
-                      </button>
+                      </Card>
                     )}
                   </li>
                 ))}
