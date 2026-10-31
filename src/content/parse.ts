@@ -41,7 +41,11 @@ export function parsePage(file: string, { frontmatter, body }: PageHalf, { type,
   // A question added to the Planner is shared: a private entry offers none.
   if (secret && /\{%\s*ask\b/.test(body)) problems.push("a private entry has no {% ask %}: the question would be saved where both of you see it");
   if (problems.length > 0) throw new ContentError(file, `in the body, ${problems.join("; ")}`);
-  return { sources: fm.sources, related: fm.related, checked: fm.checked ?? null, body, doc: ast };
+  if (fm.appointment.length > 0) {
+    if (secret) throw new ContentError(file, "a private entry has no appointment questions: one added would be saved where both of you see it");
+    if (type === "card" || type === "term") throw new ContentError(file, `a ${type} has no appointment questions: it's about no one's own case`);
+  }
+  return { sources: fm.sources, related: fm.related, checked: fm.checked ?? null, appointment: fm.appointment, body, doc: ast };
 }
 
 /** One content file, `items/<id>.md`, whole: both halves. Throws a ContentError naming the file on any problem. */

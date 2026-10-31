@@ -210,6 +210,22 @@ export const pageSchema = z
     related: z.array(slug).default([]),
     /** When a second reader last confirmed every claim against the sources. */
     checked: isoDate.optional(),
+    /**
+     * Up to 3 questions to ask your midwife or doctor about your own case,
+     * suggested on "Ask at my next appointment" (docs/plan-appointment-questions.md):
+     * in the reader's voice, short, each a question. Never on a private entry, a card or a term.
+     */
+    appointment: z
+      .array(
+        z
+          .string()
+          .trim()
+          .min(1)
+          .max(120, "an appointment question stays short: 120 characters at most")
+          .refine((q) => q.endsWith("?"), "an appointment question is a question: it ends in ?")
+      )
+      .max(3, "at most 3 appointment questions")
+      .default([]),
   })
   .strict();
 
@@ -283,6 +299,8 @@ export type ItemPage = {
   sources: { title: string; url: string }[];
   related: string[];
   checked: string | null;
+  /** The questions it suggests asking at the next appointment. */
+  appointment: string[];
   /** The body as written: Markdown, with Markdoc tags. */
   body: string;
   /** The body parsed and checked, ready to render. */

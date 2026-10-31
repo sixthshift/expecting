@@ -41,10 +41,10 @@ function item(rest: Partial<Item> = {}): Item {
   } as Item;
 }
 
-function draw(entry: Item, openQuestions: string[] = []) {
+function draw(entry: Item, openQuestions: string[] = [], appointment: string[] = []) {
   render(
     <ContentContext.Provider value={{ facts: {}, now: null, openQuestions }}>
-      <AskAtAppointment item={entry} />
+      <AskAtAppointment item={entry} page={{ appointment }} />
     </ContentContext.Provider>
   );
 }
@@ -73,6 +73,13 @@ describe("AskAtAppointment", () => {
     fireEvent.change(box, { target: { value: "Can I keep taking sertraline?" } });
     fireEvent.click(screen.getByRole("button", { name: "Add to my questions" }));
     expect(saved[0]!.input).toMatchObject({ text: "Can I keep taking sertraline?", itemId: "antidepressants" });
+  });
+
+  it("offers the questions its page suggests, after its own, each once", () => {
+    const own = "Can I keep taking my antidepressants?";
+    draw(item({ type: "can-i", verdict: "ask", ask: own }), [], [own, "Should my dose change as I go?"]);
+    fireEvent.click(screen.getByRole("button", { name: "Ask at my next appointment" }));
+    expect(screen.getAllByRole("listitem").map((li) => li.textContent)).toEqual([own, "Should my dose change as I go?"]);
   });
 
   it("says when a suggestion is already on your list, and won't add it twice", () => {

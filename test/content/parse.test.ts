@@ -236,6 +236,26 @@ describe("types", () => {
     expect(() => typed(`type: guide\ntopic: special-circumstances\nprivate: true\n${fields}`, body)).toThrow(message);
   });
 
+  test("appointment questions are kept for the page", () => {
+    expect(typed("type: guide\ntopic: tests\nappointment:\n  - Can you check my iron?").appointment).toEqual(["Can you check my iron?"]);
+    expect(typed("type: guide\ntopic: tests").appointment).toEqual([]);
+  });
+
+  test.each([
+    ["more than 3", "type: guide\ntopic: tests\nappointment: [A?, B?, C?, D?]", /at most 3/],
+    ["one that isn't a question", "type: guide\ntopic: tests\nappointment: [Check my iron]", /ends in \?/],
+    ["one that runs long", `type: guide\ntopic: tests\nappointment: ["${"Can you ".repeat(20)}?"]`, /120 characters/],
+    ["one on a card", "type: card\ntopic: body\nappointment: [Is this me?]", /a card has no appointment questions/],
+    ["one on a term", "type: term\ntopic: body\nappointment: [Is this me?]", /a term has no appointment questions/],
+    [
+      "one on a private entry",
+      "type: guide\ntopic: special-circumstances\nprivate: true\nappointment: [Am I safe?]",
+      /a private entry has no appointment questions/,
+    ],
+  ])("rejects appointment questions: %s", (_name, fields, message) => {
+    expect(() => typed(fields)).toThrow(message);
+  });
+
   test("related names another item", () => {
     const a = item("id: a\ntitle: A\ntype: term\ntopic: body\nrelated: [b]");
     const b = item("id: b\ntitle: B\ntype: term\ntopic: body\nrelated: [a]");

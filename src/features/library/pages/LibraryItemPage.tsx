@@ -107,7 +107,7 @@ function Page({ item, ticks }: { item: Item; ticks: Record<string, string> }) {
     <>
       <ItemCard item={item} page={page} ticks={ticks} />
       {item.id === QUIET_ITEM ? <QuietSwitch /> : null}
-      <AskAtAppointment item={item} />
+      <AskAtAppointment item={item} page={page} />
       {/* What you kept about it: never under a private entry, which nothing can point at. */}
       {item.private ? null : <QuestionsAbout itemId={item.id} />}
       {item.private ? null : <PapersAbout itemId={item.id} />}

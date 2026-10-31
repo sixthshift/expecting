@@ -17,7 +17,7 @@ describe("content/items", () => {
   });
 
   test("the index the app reads is every file's", () => {
-    const index = whole.map(({ sources, related, checked, body, doc, ...item }) => item);
+    const index = whole.map(({ sources, related, checked, appointment, body, doc, ...item }) => item);
     expect([...builtInItems].sort((a, b) => a.id.localeCompare(b.id))).toEqual(index.sort((a, b) => a.id.localeCompare(b.id)));
   });
 

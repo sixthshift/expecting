@@ -30,6 +30,8 @@ sources:                         # every page a claim in the body comes from
   - title: Publisher — Page title
     url: https://...
 related: [deli-meats, listeria-foods]
+appointment:                     # optional, at most 3: what to ask your midwife or doctor about your own case
+  - Is soft cheese a risk with my results?   # first person, short (≤ 120), ends in ?; never on a card, term or private entry
 draft: true
 checked: 2026-10-29              # only once a second agent confirmed every claim against the sources
 ---

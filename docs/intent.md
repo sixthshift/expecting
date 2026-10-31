@@ -189,6 +189,7 @@ What this asks of the app, not yet built:
 - **Markdoc.** Built-in content is Markdoc: Markdown, plus tags that are declared and checked.
 - **Tags for things the app acts on:**
   - `{% ask %}` is a suggested question, added to your list in one tap.
+  - **Every entry can send a question** to the list for the next appointment, in your own words, and some suggest one where your own case matters (`appointment:`, in the frontmatter). The Library answers Expecting's questions; the list is for what only your midwife or doctor can answer about you, so the Planner never suggests anything.
   - `{% window %}` draws the weeks something can happen against today.
   - `{% if %}` tailors a passage.
   - Later: videos, animations, links between items, partner notes.

@@ -11,13 +11,13 @@ import { Check, MessageCircleQuestion } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { questionsSaves } from "../../../../api/rpc/questions";
 import { useSave } from "../../../../app/hooks/useSave";
-import type { Item } from "../../../../content/schema";
+import type { Item, ItemPage } from "../../../../content/schema";
 import { newId } from "../../../../lib/outbox";
 import { canAskFrom, suggestionsFor } from "../../model/suggestions";
 import { useContentContext } from "../content/context";
 
 /** The action, and its sheet once opened. */
-export function AskAtAppointment({ item }: { item: Item }) {
+export function AskAtAppointment({ item, page }: { item: Item; page: Pick<ItemPage, "appointment"> }) {
   const [open, setOpen] = useState(false);
   if (!canAskFrom(item)) return null;
   return (
@@ -25,16 +25,15 @@ export function AskAtAppointment({ item }: { item: Item }) {
       <Button variant="outline" className="self-start" onClick={() => setOpen(true)}>
         <MessageCircleQuestion aria-hidden size={16} /> Ask at my next appointment
       </Button>
-      {open ? <AskSheet item={item} onClose={() => setOpen(false)} /> : null}
+      {open ? <AskSheet item={item} suggestions={suggestionsFor(item, page)} onClose={() => setOpen(false)} /> : null}
     </>
   );
 }
 
-function AskSheet({ item, onClose }: { item: Item; onClose: () => void }) {
+function AskSheet({ item, suggestions, onClose }: { item: Item; suggestions: string[]; onClose: () => void }) {
   const { openQuestions } = useContentContext();
   const [text, setText] = useState("");
   const add = useSave(questionsSaves.addQuestion);
-  const suggestions = suggestionsFor(item);
   const onList = text.trim().length > 0 && openQuestions.includes(text.trim());
 
   function submit(event: FormEvent) {

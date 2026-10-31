@@ -100,7 +100,7 @@ committed on its own if Jason asks.
 4. **Answers back on the entry.** *Done 2026-10-31.* The entry lists the asked
    questions that came from it, with their answers and dates; open ones say
    "On your list for the next appointment".
-5. **The schema field.** *Not started.* `appointment:` in
+5. **The schema field.** *Done 2026-10-31.* `appointment:` in
    `src/content/schema.ts` with the checks above, and the two existing
    inline `{% ask %}` entries left as they are. Docs: `docs/architecture.md`
    (Planner row, content fields), `docs/intent.md` (the appointment job).
@@ -171,6 +171,13 @@ Record each session here: what was done, what was decided, where to pick up.
   ("On your list for the next appointment", linking to the Planner), then
   asked ones, latest first, "You asked on 3 Nov: …". Never on a private
   entry. Covered by the journey e2e. Next: step 5.
+- 2026-10-31: step 5 done. `appointment:` is a page field (`PAGE_FIELDS`,
+  `pageSchema`, so in the lazy `?page` chunk), checked as planned; the card,
+  term and private refusals are in `parsePage`, which knows the type. The
+  sheet takes it from the loaded page, after an ask-first can-i's `ask:`,
+  each once. No entry has one yet. Docs: architecture (Planner row,
+  content), intent (Format), content/README. The app is done; next: step 6,
+  the pilot, which costs tokens: settle the brief with Jason first.
 
 ## Not in this plan
 

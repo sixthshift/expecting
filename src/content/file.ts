@@ -27,7 +27,7 @@ export function readFrontmatter(file: string, source: string): { raw: unknown; b
 }
 
 /** The frontmatter only an item's own page shows: loaded with its body when it opens. */
-const PAGE_FIELDS = ["sources", "related", "checked"] as const;
+const PAGE_FIELDS = ["sources", "related", "checked", "appointment"] as const;
 
 /** The half of an item every list reads: its frontmatter less the page's, and the questions its body names. */
 export type IndexHalf = { file: string; frontmatter: Record<string, unknown>; variables: string[] };
