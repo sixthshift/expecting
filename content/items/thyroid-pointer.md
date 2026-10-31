@@ -12,6 +12,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Thyroid dysfunction and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/thyroid-dysfunction-and-pregnancy
 related: [told-higher-risk]
+appointment:
+  - How often will my thyroid levels be checked?
+  - Does my thyroid treatment or dose need to change in pregnancy?
 draft: true
 checked: 2026-10-29
 ---

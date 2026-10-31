@@ -15,6 +15,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Baby's first 24 hours
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/babys-first-24-hours
 related: [hepatitis-b-birth-dose, newborn-checks, birth-preferences]
+appointment:
+  - Can we talk through the vitamin K options for our baby?
+  - Could our baby have the drops, if we chose them?
 draft: true
 checked: 2026-10-29
 ---

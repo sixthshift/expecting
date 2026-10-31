@@ -18,6 +18,8 @@ sources:
   - title: Gidget Foundation — Coping with infertility
     url: https://www.gidgetfoundation.org.au/fact-sheets/coping-with-infertility
 related: [bonding-before-birth, pregnancy-after-loss, antenatal-anxiety]
+appointment:
+  - Given my IVF, are any complications more likely for me, and would that change my care?
 draft: true
 checked: 2026-10-29
 ---

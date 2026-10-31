@@ -13,6 +13,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy rhinitis
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/pregnancy-rhinitis
 related: [nosebleeds, snoring, breathlessness]
+appointment:
+  - Which nasal spray or antihistamine can I use?
 draft: true
 checked: 2026-10-29
 ---

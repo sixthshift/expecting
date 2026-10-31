@@ -6,6 +6,9 @@ weeks: [20, 34]
 type: moment
 topic: appointments
 extra: cord-blood
+appointment:
+  - Does the hospital I'm booked into collect cord blood for a public bank?
+  - Can we talk through delayed cord clamping and cord blood collection?
 draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Cord blood banking

@@ -15,6 +15,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Braxton Hicks contractions
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/braxton-hicks-contractions
 related: [baby-movements, babys-hiccups]
+appointment:
+  - Is my placenta at the front or the back?
 draft: true
 checked: 2026-10-29
 ---

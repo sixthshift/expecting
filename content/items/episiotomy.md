@@ -12,6 +12,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Episiotomy
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/episiotomy
 related: [perineal-tears, assisted-birth, perineal-massage, birth-preferences, first-days-mum]
+appointment:
+  - Can we talk about episiotomy, so I can put my wishes in my birth preferences?
+  - What does my hospital do to lower the chance of a serious tear?
 draft: true
 checked: 2026-10-29
 ---

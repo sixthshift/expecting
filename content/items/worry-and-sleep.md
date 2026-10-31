@@ -16,6 +16,7 @@ sources:
   - title: Gidget Foundation — Tips for managing anxiety and stress for new and expectant parents
     url: https://www.gidgetfoundation.org.au/fact-sheets/tips-for-managing-anxiety-and-stress-for-new-and-expectant-parents
 related: [antenatal-anxiety, stress-in-pregnancy, insomnia]
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

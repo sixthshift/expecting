@@ -18,6 +18,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 35
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-35
 related: [the-babys-position, term-breech, term-ecv, term-frank-breech, term-footling-breech, term-malpresentation]
+appointment:
+  - Would turning the baby (an ECV) be an option for me?
 draft: true
 checked: 2026-10-29
 ---

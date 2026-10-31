@@ -20,6 +20,9 @@ sources:
   - title: RANZCOG — Travelling during pregnancy
     url: https://ranzcog.edu.au/womens-health/patient-information-resources/travelling-during-pregnancy
 related: [flying, travel-in-pregnancy, travel-insurance]
+appointment:
+  - Can you write me a letter for the airline with my due date, saying I'm fit to fly?
+  - Do I have any complications that would need formal medical clearance to fly?
 draft: true
 checked: 2026-10-29
 ---

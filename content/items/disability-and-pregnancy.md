@@ -12,6 +12,8 @@ sources:
   - title: Gidget Foundation — Parenting with disability
     url: https://www.gidgetfoundation.org.au/fact-sheets/parenting-with-disability
 related: [told-higher-risk, building-your-village]
+appointment:
+  - Can we talk about the accessible support this service offers, like an Auslan interpreter or accessible rooms?
 draft: true
 checked: 2026-10-29
 ---

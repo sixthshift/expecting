@@ -15,6 +15,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Frequent urination during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/frequent-urination-during-pregnancy
 related: [frequent-urination, fluid-leaking, painful-urination]
+appointment:
+  - Should I see a continence physio about leaking?
 draft: true
 checked: 2026-10-29
 ---

@@ -20,6 +20,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Vaginal examinations in pregnancy and birth
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/vaginal-examinations-in-pregnancy-and-birth
 related: [breech, term-cephalic, term-vertex, term-breech, term-transverse-lie, term-occiput-anterior, term-occiput-posterior, term-engagement, term-station, term-lightening]
+appointment:
+  - Which way is the baby's head facing at the moment?
+  - Has the baby's head engaged yet?
 draft: true
 checked: 2026-10-29
 ---

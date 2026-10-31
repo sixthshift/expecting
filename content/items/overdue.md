@@ -20,6 +20,10 @@ sources:
   - title: The Royal Women's Hospital — Induction of labour
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/induction-of-labour
 related: [induction, membrane-sweep, monitoring-in-labour, baby-movements]
+appointment:
+  - Is there anything about my pregnancy that changes the risks of going past my due date?
+  - How would you check on me and the baby if I go past my due date?
+  - When would my hospital offer an induction if I'm overdue?
 draft: true
 checked: 2026-10-29
 ---

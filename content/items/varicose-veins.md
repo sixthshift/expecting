@@ -13,6 +13,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Varicose veins
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/varicose-veins
 related: [haemorrhoids, swollen-feet-and-ankles, painful-swollen-leg]
+appointment:
+  - Am I at higher risk of a blood clot?
 draft: true
 checked: 2026-10-29
 ---

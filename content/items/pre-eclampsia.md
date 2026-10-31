@@ -14,6 +14,10 @@ sources:
   - title: The Royal Women's Hospital — High blood pressure & preeclampsia
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/preeclampsia
 related: [high-blood-pressure-in-pregnancy, what-happens-at-each-visit, ctg-monitoring, growth-scans, higher-risk-pregnancy]
+appointment:
+  - Am I at higher risk of pre-eclampsia?
+  - Should I take low-dose aspirin or calcium?
+  - How does my blood pressure compare with my first reading?
 draft: true
 checked: 2026-10-29
 ---

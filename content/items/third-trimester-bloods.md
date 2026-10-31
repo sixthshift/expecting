@@ -16,6 +16,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Anaemia in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/anaemia-in-pregnancy
 related: [glucose-tolerance-test, full-blood-count, anti-d, anaemia-in-pregnancy, syphilis-screening]
+appointment:
+  - What did my 28-week blood tests show?
 draft: true
 checked: 2026-10-29
 ---

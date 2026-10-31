@@ -15,6 +15,9 @@ sources:
   - title: The Royal Women's Hospital — Coping with common discomforts of pregnancy (fact sheet, April 2018)
     url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
 related: [leaking-urine, urinary-tract-infection, painful-urination, fluid-leaking]
+appointment:
+  - What could help with how often I need to wee?
+  - Should I see a continence physio?
 draft: true
 checked: 2026-10-29
 ---

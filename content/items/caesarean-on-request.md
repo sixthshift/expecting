@@ -17,6 +17,9 @@ sources:
   - title: RANZCOG — Caesarean Section (patient information)
     url: https://ranzcog.edu.au/wp-content/uploads/Caesarean-Section.pdf
 related: [planned-caesarean, caesarean-what-happens, vbac]
+appointment:
+  - Can we talk about a planned caesarean and a vaginal birth, and the risks of each for me?
+  - How does my hospital handle a request for a caesarean?
 draft: true
 checked: 2026-10-29
 ---

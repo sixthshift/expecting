@@ -12,6 +12,10 @@ sources:
   - title: Pregnancy, Birth and Baby — Being pregnant after 40
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/being-pregnant-after-40
 related: [older-parent-35, told-higher-risk]
+appointment:
+  - Does my age change the care you'd recommend for me?
+  - Would you suggest planning the birth around 40 weeks for me?
+  - Where can I give birth, and who will I see?
 draft: true
 checked: 2026-10-29
 ---

@@ -16,6 +16,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
 related: [safe-fish, liver, pregnancy-multivitamins]
+appointment:
+  - Do I need a fish oil supplement, given what I eat?
 draft: true
 checked: 2026-10-29
 ---

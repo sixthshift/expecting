@@ -5,6 +5,8 @@ summary: "An early ultrasound that measures the baby to work out how far along y
 weeks: [6, 13]
 type: moment
 topic: appointments
+appointment:
+  - Would a dating scan be useful for me, and when?
 draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Dating scan

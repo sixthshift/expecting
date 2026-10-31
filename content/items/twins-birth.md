@@ -14,6 +14,10 @@ sources:
   - title: Queensland Clinical Guidelines — Induction of labour
     url: https://www.health.qld.gov.au/__data/assets/pdf_file/0020/641423/g-iol.pdf
 related: [planned-caesarean, monitoring-in-labour, epidural, twins-found-at-a-scan, special-care-nursery]
+appointment:
+  - Which way is my first twin lying?
+  - Would a vaginal birth or a caesarean suit me with my twins?
+  - When would you plan for the twins to be born?
 draft: true
 checked: 2026-10-29
 ---

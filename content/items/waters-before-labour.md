@@ -14,6 +14,9 @@ sources:
   - title: RANZCOG — Term Prelabour Rupture of Membranes (C-Obs 36)
     url: https://ranzcog.edu.au/wp-content/uploads/Term-PROM.pdf
 related: [waters-breaking, induction, group-b-strep-swab]
+appointment:
+  - If my waters break before labour, would waiting be an option for me?
+  - Is there anything about my pregnancy that would mean inducing straight away?
 draft: true
 checked: 2026-10-29
 ---

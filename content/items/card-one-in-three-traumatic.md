@@ -14,6 +14,7 @@ sources:
   - title: Gidget Foundation — Birth trauma
     url: https://www.gidgetfoundation.org.au/fact-sheets/birth-trauma
 related: [birth-trauma]
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

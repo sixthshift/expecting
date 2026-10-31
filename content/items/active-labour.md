@@ -18,6 +18,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Slow progress in labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/slow-progress-in-labour
 related: [stages-of-labour, vaginal-examinations, monitoring-in-labour, positions-for-labour, pain-relief, slow-progress, term-transition]
+appointment:
+  - When should I come in once labour starts, given my pregnancy?
 draft: true
 checked: 2026-10-29
 ---

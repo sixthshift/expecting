@@ -16,6 +16,10 @@ sources:
   - title: Pregnancy, Birth and Baby — Placenta praevia
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-praevia
 related: [fundal-height, small-for-dates, large-for-dates, low-lying-placenta, twins-found-at-a-scan, paying-for-scans]
+appointment:
+  - Why are you recommending a growth scan for me?
+  - What did my growth scan show?
+  - Will I need more scans after this one?
 draft: true
 checked: 2026-10-29
 ---

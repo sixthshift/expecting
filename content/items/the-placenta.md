@@ -16,6 +16,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Baby movements during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
 related: [the-umbilical-cord, amniotic-fluid, term-anterior-placenta, term-posterior-placenta, term-placenta-praevia, twins-and-multiples]
+appointment:
+  - Where is my placenta?
 draft: true
 checked: 2026-10-29
 ---

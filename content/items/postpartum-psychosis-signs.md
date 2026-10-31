@@ -15,6 +15,7 @@ sources:
   - title: The Royal Women's Hospital — Post-partum psychosis
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy/post-partum-psychosis
 related: [after-the-birth-mood-heads-up, existing-mental-illness, partner-learning-the-signs]
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

@@ -12,6 +12,7 @@ sources:
   - title: Pregnancy, Birth and Baby — Stress and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/stress-and-pregnancy
 related: [antenatal-anxiety, arguments-and-stress, worry-and-sleep]
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

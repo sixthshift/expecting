@@ -17,6 +17,8 @@ sources:
   - title: healthdirect — Obstructive sleep apnoea
     url: https://www.healthdirect.gov.au/sleep-apnoea
 related: [insomnia, tiredness, blocked-nose]
+appointment:
+  - Should my snoring be checked with a sleep study?
 draft: true
 checked: 2026-10-29
 ---

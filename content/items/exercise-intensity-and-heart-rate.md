@@ -19,6 +19,8 @@ sources:
   - title: The Royal Women's Hospital — Active pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
 related: [exercise-in-pregnancy, running, hot-weather]
+appointment:
+  - Is vigorous exercise okay for me?
 draft: true
 checked: 2026-10-29
 ---

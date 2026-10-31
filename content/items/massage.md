@@ -15,6 +15,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Complementary therapy during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/complementary-therapy-during-pregnancy
 related: [sleeping-on-your-back, chiropractic-and-osteopathy, acupuncture, essential-oils]
+appointment:
+  - Is massage safe for me?
 draft: true
 checked: 2026-10-29
 ---

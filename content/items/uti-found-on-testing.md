@@ -12,6 +12,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Urinary tract infections (UTIs) during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/urinary-tract-infections-utis-during-pregnancy
 related: [urine-culture, what-happens-at-each-visit]
+appointment:
+  - Will I need another urine test after the course?
 draft: true
 checked: 2026-10-29
 ---

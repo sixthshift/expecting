@@ -16,6 +16,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Glossary of pregnancy and labour
     url: https://www.pregnancybirthbaby.org.au/glossary-of-pregnancy-and-labour
 related: [breech-baby, ecv, group-b-strep-swab, antenatal-visit-schedule]
+appointment:
+  - Which way is the baby lying at the moment?
+  - Will I need an ultrasound to check the baby's position?
 draft: true
 checked: 2026-10-29
 ---

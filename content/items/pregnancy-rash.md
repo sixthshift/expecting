@@ -19,6 +19,9 @@ sources:
   - title: healthdirect — Warning signs during pregnancy
     url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
 related: [itchy-skin, itchy-palms-and-soles, stretch-marks]
+appointment:
+  - Can you check my rash?
+  - Would a steroid cream help my rash?
 draft: true
 checked: 2026-10-29
 ---

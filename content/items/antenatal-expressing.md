@@ -13,6 +13,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Antenatal expression of colostrum
     url: https://www.pregnancybirthbaby.org.au/babies/feeding-and-nutrition/antenatal-expression-of-colostrum
 related: [first-feed, planned-caesarean, special-care-nursery, hospital-bag]
+appointment:
+  - Is expressing colostrum from 36 weeks a good idea for me?
 draft: true
 checked: 2026-10-29
 tasks:

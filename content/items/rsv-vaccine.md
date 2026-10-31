@@ -6,6 +6,8 @@ weeks: [28, 36]
 type: moment
 topic: appointments
 surprise: true
+appointment:
+  - Where can I have the RSV vaccine, and when?
 draft: true
 sources:
   - title: Australian Immunisation Handbook — RSV vaccine in pregnancy

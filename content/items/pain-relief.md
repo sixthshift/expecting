@@ -17,6 +17,10 @@ sources:
   - title: The Royal Women's Hospital — Managing pain in labour
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
 related: [breathing-and-relaxation, water-and-showers, massage-heat-and-movement, tens-machine, sterile-water-injections, nitrous-oxide-gas, morphine-and-opioids, epidural, birth-preferences]
+appointment:
+  - Which pain relief options does my birth place offer?
+  - Is there any pain relief that wouldn't suit me?
+  - Can we talk about my pain relief preferences for my birth plan?
 draft: true
 checked: 2026-10-29
 ---

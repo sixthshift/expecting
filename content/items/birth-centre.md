@@ -14,6 +14,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Choosing where to give birth
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/choosing-where-to-give-birth
 related: [midwifery-group-practice, home-birth, choosing-a-hospital, choosing-your-model-of-care]
+appointment:
+  - Would I be suitable for a birth centre?
 draft: true
 checked: 2026-10-29
 ---

@@ -12,6 +12,10 @@ sources:
   - title: Pregnancy, Birth and Baby — Low platelets during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/low-platelets-during-pregnancy
 related: [full-blood-count, third-trimester-bloods]
+appointment:
+  - What's causing my low platelets?
+  - How often will my platelets be checked?
+  - Is an epidural safe for me?
 draft: true
 checked: 2026-10-29
 ---

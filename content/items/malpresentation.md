@@ -14,6 +14,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Umbilical cord prolapse
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/umbilical-cord-prolapse
 related: [breech-birth, ecv, cord-prolapse, planned-caesarean, term-posterior]
+appointment:
+  - Is my baby lying head-first?
 draft: true
 checked: 2026-10-29
 ---

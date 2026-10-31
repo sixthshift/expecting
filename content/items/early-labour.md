@@ -19,6 +19,9 @@ sources:
   - title: Pregnancy, Birth and Baby — The role of a birth support partner
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
 related: [when-to-go-to-hospital, tens-machine, eating-and-drinking-in-labour, support-person-role, timing-contractions, active-labour]
+appointment:
+  - Is it OK for us to stay home in early labour, given my pregnancy?
+  - When should we call the birth unit, given my pregnancy?
 draft: true
 checked: 2026-10-29
 ---

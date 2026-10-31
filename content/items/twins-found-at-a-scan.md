@@ -17,6 +17,10 @@ sources:
   - title: Pregnancy, Birth and Baby — Ultrasound scans during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/ultrasound-scan
 related: [dating-scan, choosing-a-hospital, growth-scans, higher-risk-pregnancy, choosing-your-model-of-care, term-ttts, term-vanishing-twin, twins-birth]
+appointment:
+  - Do our twins share a placenta?
+  - How often will we have scans from now?
+  - Which hospital should we plan to give birth at?
 draft: true
 checked: 2026-10-29
 ---

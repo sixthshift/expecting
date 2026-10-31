@@ -17,6 +17,9 @@ sources:
   - title: The Royal Women's Hospital — Pregnancy care & birthing options
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/pregnancy-care-birthing-options
 related: [public-hospital-care, midwifery-group-practice, gp-shared-care, private-obstetrician, private-midwife, birth-centre, home-birth, choosing-a-hospital, booking-in, first-antenatal-visit, what-medicare-covers]
+appointment:
+  - Which models of care are open to us here?
+  - Does anything about this pregnancy rule some out?
 draft: true
 checked: 2026-10-29
 ---

@@ -6,6 +6,9 @@ weeks: [26, 34]
 type: moment
 topic: appointments
 when: { rhd: negative }
+appointment:
+  - Is RhD NIPT available to me?
+  - When are my anti-D injections due?
 draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Rhesus D negative in pregnancy

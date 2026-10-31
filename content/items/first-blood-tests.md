@@ -22,6 +22,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Rubella and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/rubella-and-pregnancy
 related: [blood-group-and-antibodies, full-blood-count, rubella-immunity, hepatitis-b-screening, hepatitis-c-screening, hiv-screening, syphilis-screening, vitamin-d-test, urine-culture, sti-screening, early-diabetes-test]
+appointment:
+  - What did my first blood tests show?
+  - Do any of the extra tests, like an early diabetes test, apply to me?
 draft: true
 checked: 2026-10-29
 tasks:

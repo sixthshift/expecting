@@ -19,6 +19,8 @@ sources:
   - title: healthdirect — Warning signs during pregnancy
     url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
 related: [cramping-and-pain-in-early-pregnancy, shoulder-tip-pain, racing-heartbeat, heavy-bleeding]
+appointment:
+  - Can we talk about my blood pressure?
 draft: true
 checked: 2026-10-29
 ---

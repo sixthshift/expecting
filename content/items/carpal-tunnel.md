@@ -15,6 +15,9 @@ sources:
   - title: healthdirect — Warning signs during pregnancy
     url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
 related: [swollen-feet-and-ankles, sudden-swelling, insomnia]
+appointment:
+  - Would a wrist splint or a physio help me?
+  - Is a steroid injection an option for me?
 draft: true
 checked: 2026-10-29
 ---

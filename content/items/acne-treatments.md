@@ -15,6 +15,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Cosmetic procedures during pregnancy and breastfeeding
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/cosmetic-procedures-during-pregnancy-and-breastfeeding
 related: [skincare-ingredients, sunscreen, isotretinoin]
+appointment:
+  - Is what I'm using on my skin okay in pregnancy?
 draft: true
 checked: 2026-10-29
 ---

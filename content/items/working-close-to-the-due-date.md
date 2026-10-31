@@ -18,6 +18,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Working during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/working-during-pregnancy
 related: [safe-job-and-no-safe-job-leave, employer-leave-notice, unpaid-parental-leave]
+appointment:
+  - Is it safe for me to keep doing my job in the last 6 weeks?
+  - If my employer asks, can you give me a certificate saying whether I'm fit for work?
 draft: true
 checked: 2026-10-29
 ---

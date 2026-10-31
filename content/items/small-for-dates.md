@@ -14,6 +14,10 @@ sources:
   - title: Pregnancy, Birth and Baby — What is a high risk pregnancy?
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/what-is-a-higher-risk-pregnancy
 related: [fundal-height, growth-scans, baby-movements, ctg-monitoring, higher-risk-pregnancy]
+appointment:
+  - Why is the baby measuring small, and what are you checking for?
+  - How often will the baby be scanned from now?
+  - Where and when should I plan to give birth?
 draft: true
 checked: 2026-10-29
 ---

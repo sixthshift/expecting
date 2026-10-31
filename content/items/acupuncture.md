@@ -17,6 +17,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Things to avoid during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
 related: [massage, chiropractic-and-osteopathy, essential-oils]
+appointment:
+  - Is acupuncture okay for me at this stage?
 draft: true
 checked: 2026-10-29
 ---

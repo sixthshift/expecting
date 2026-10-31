@@ -15,6 +15,8 @@ sources:
   - title: SafeWork NSW — Pregnancy
     url: https://www.safework.nsw.gov.au/safety-starts-here/physical-safety-at-work-the-basics/pregnancy
 related: [standing-all-day, heavy-lifting, chemicals-at-work, radiation-at-work, shift-work, working-with-children, safe-job-and-no-safe-job-leave]
+appointment:
+  - Is there anything about my health that means I should change how I work?
 draft: true
 checked: 2026-10-29
 ---

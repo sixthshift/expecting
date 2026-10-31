@@ -14,6 +14,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Cord blood banking
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/cord-blood-banking
 related: [third-stage-placenta, cord-blood-banking, birth-preferences, planned-caesarean]
+appointment:
+  - Can we talk about when the cord will be clamped at my birth?
+  - Can my birth partner cut the cord?
 draft: true
 checked: 2026-10-29
 ---

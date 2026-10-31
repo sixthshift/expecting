@@ -15,6 +15,8 @@ sources:
   - title: RANZCOG — Care in Labour in the Absence of Pregnancy Complications (C-Obs 31)
     url: https://ranzcog.edu.au/wp-content/uploads/Care-Labour-Absence-Pregnancy-Complications.pdf
 related: [term-third-stage, delayed-cord-clamping, retained-placenta, term-syntocinon, birth-preferences]
+appointment:
+  - Would active or physiological delivery of the placenta suit me?
 draft: true
 checked: 2026-10-29
 ---

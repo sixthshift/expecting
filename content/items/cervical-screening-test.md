@@ -16,6 +16,9 @@ sources:
   - title: The Royal Women's Hospital — Your first pregnancy check-up
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/your-first-pregnancy-check-up
 related: [first-antenatal-visit, first-blood-tests]
+appointment:
+  - Am I due for my cervical screening test?
+  - Can I collect the sample myself?
 draft: true
 checked: 2026-10-29
 tasks:

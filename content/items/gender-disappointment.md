@@ -12,6 +12,7 @@ sources:
   - title: Gidget Foundation — Gender disappointment
     url: https://www.gidgetfoundation.org.au/fact-sheets/gender-disappointment
 related: [bonding-before-birth, antenatal-depression]
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

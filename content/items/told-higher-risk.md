@@ -12,6 +12,10 @@ sources:
   - title: Pregnancy, Birth and Baby — What is a high risk pregnancy?
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/what-is-a-higher-risk-pregnancy
 related: [glucose-tolerance-test, epilepsy-pointer, thyroid-pointer, autoimmune-pointer, older-parent-35, twins-and-multiples-support]
+appointment:
+  - What makes my pregnancy higher risk?
+  - What extra tests or appointments will I need?
+  - Will I need to give birth somewhere with particular staff or equipment?
 draft: true
 checked: 2026-10-29
 ---

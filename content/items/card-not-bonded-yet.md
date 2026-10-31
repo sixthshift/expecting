@@ -12,6 +12,7 @@ sources:
   - title: Pregnancy, Birth and Baby — Bonding with your baby during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/bonding-with-your-baby-during-pregnancy
 related: [bonding-before-birth]
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

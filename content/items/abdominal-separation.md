@@ -13,6 +13,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Abdominal separation (diastasis recti)
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/abdominal-separation
 related: [back-pain, pelvic-girdle-pain]
+appointment:
+  - Can you check whether my tummy muscles have separated?
+  - Should I see a women's health physio?
 draft: true
 checked: 2026-10-29
 ---

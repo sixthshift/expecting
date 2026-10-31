@@ -21,6 +21,10 @@ sources:
   - title: Pregnancy, Birth and Baby — Amniocentesis
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/amniocentesis
 related: [genetic-counselling, cvs, amniocentesis, screening-vs-diagnostic, nipt]
+appointment:
+  - What does our result mean, and what are our options from here?
+  - Can you refer us to a genetic counsellor?
+  - How long do we have to decide about a diagnostic test?
 draft: true
 checked: 2026-10-29
 ---

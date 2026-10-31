@@ -17,6 +17,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Vaccinations and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/vaccinations-and-pregnancy
 related: [flu-vaccine, vaccines-in-one-visit, live-vaccines-to-avoid]
+appointment:
+  - Should I have a COVID-19 dose this pregnancy, given my vaccine history?
 draft: true
 checked: 2026-10-29
 ---

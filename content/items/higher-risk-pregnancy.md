@@ -14,6 +14,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Maternity models of care
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-professionals-and-services/maternity-models-of-care
 related: [choosing-your-model-of-care, public-hospital-care, pre-eclampsia, gestational-diabetes, twins-found-at-a-scan, small-for-dates]
+appointment:
+  - Is my pregnancy higher risk, and would that change my care?
 draft: true
 checked: 2026-10-29
 ---

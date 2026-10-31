@@ -17,6 +17,8 @@ sources:
   - title: TGA — Paracetamol use in pregnancy (defines category A)
     url: https://www.tga.gov.au/news/media-releases/paracetamol-use-pregnancy
 related: [prescription-medicines-ongoing, medicines-before-you-knew, paracetamol]
+appointment:
+  - Can you check every medicine and supplement I take?
 draft: true
 checked: 2026-10-29
 ---

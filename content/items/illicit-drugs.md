@@ -16,6 +16,7 @@ sources:
   - title: The Royal Women's Hospital — Drugs and you
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-drugs-alcohol/drugs-you
 related: [cannabis, alcohol-before-you-knew, medicines-before-you-knew]
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

@@ -18,6 +18,10 @@ sources:
   - title: Pregnancy, Birth and Baby — Contractions
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-contractions
 related: [water-and-showers, pain-relief, birth-preferences, monitoring-in-labour]
+appointment:
+  - Would labouring or giving birth in water suit me?
+  - Does my hospital offer water birth, and what is its policy?
+  - Could I still use the bath or pool if my waters break first?
 draft: true
 checked: 2026-10-29
 ---

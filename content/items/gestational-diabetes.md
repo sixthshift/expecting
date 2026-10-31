@@ -14,6 +14,10 @@ sources:
   - title: The Royal Women's Hospital — Gestational diabetes
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/gestational-diabetes
 related: [glucose-tolerance-test, early-diabetes-test, growth-scans, large-for-dates, higher-risk-pregnancy]
+appointment:
+  - What blood glucose targets should I aim for?
+  - Can you refer me to a dietitian and a diabetes educator?
+  - Where should I plan to give birth?
 draft: true
 checked: 2026-10-29
 ---

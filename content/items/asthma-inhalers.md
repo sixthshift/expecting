@@ -15,6 +15,9 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Asthma in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Asthma%20in%20pregnancy%20and%20breastfeedingMarch72022F.pdf
 related: [prescription-medicines-ongoing, nasal-sprays]
+appointment:
+  - Is my asthma well enough controlled?
+  - Which vaccines do I need, with my asthma?
 draft: true
 checked: 2026-10-29
 ---

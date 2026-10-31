@@ -20,6 +20,9 @@ sources:
   - title: Pregnancy, Birth and Baby — TENS
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/tens
 related: [water-birth, pain-relief, early-labour, tens-machine]
+appointment:
+  - Will I be able to labour in a bath or shower where I'm giving birth?
+  - Would a water birth be an option for me?
 draft: true
 checked: 2026-10-29
 ---

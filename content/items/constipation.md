@@ -13,6 +13,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Constipation during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/constipation-during-pregnancy
 related: [haemorrhoids, abdominal-pain]
+appointment:
+  - Could anything I'm taking be causing my constipation?
+  - If fibre and fluids aren't enough, what can I take?
 draft: true
 checked: 2026-10-29
 ---

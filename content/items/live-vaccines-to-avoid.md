@@ -15,6 +15,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Vaccinations and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/vaccinations-and-pregnancy
 related: [rubella-immunity, flu-vaccine, covid-vaccine-in-pregnancy]
+appointment:
+  - Am I immune to rubella?
+  - Should any vaccine I'm due for wait until after the birth?
 draft: true
 checked: 2026-10-29
 ---

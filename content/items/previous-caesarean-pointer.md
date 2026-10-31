@@ -12,6 +12,10 @@ sources:
   - title: Pregnancy, Birth and Baby — Vaginal birth after caesarean (VBAC)
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/caesarean/vaginal-birth-after-caesarean-vbac
 related: [pregnancy-after-birth-trauma, birth-trauma]
+appointment:
+  - Is a planned VBAC an option for me, or would you advise another caesarean?
+  - How likely is a successful VBAC for me?
+  - What are the risks and benefits of each choice for me and my baby?
 draft: true
 checked: 2026-10-29
 ---

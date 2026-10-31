@@ -30,6 +30,9 @@ sources:
   - title: Gidget Foundation — Start Talking telehealth
     url: https://www.gidgetfoundation.org.au/support/start-talking-telehealth
 related: [building-your-village, when-the-baby-comes-early]
+appointment:
+  - Will I need to travel closer to the hospital before the birth, and if so, when?
+  - Could some of my appointments be by telehealth or grouped together?
 draft: true
 checked: 2026-10-29
 ---

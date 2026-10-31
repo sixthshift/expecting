@@ -5,6 +5,8 @@ summary: "Recommended and free between 20 and 32 weeks, it gives the baby some p
 weeks: [20, 32]
 type: moment
 topic: appointments
+appointment:
+  - Can I have the whooping cough vaccine at one of my appointments?
 draft: true
 sources:
   - title: Department of Health — Immunisation for pregnancy

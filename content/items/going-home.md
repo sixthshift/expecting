@@ -19,6 +19,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Mum's first 24 hours after birth
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/mums-first-24-hours-after-birth
 related: [hospital-stay, car-seat, newborn-bloodspot-screening, first-days-mum]
+appointment:
+  - Will a midwife visit us at home after we leave, and when?
 draft: true
 checked: 2026-10-29
 ---

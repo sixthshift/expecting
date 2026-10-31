@@ -17,6 +17,9 @@ sources:
   - title: The Royal Women's Hospital — Food and nutrition in pregnancy (important nutrients, supplements)
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/food-nutrition-in-pregnancy
 related: [eating-well-in-pregnancy, heart-and-blood-in-pregnancy, term-folate, term-neural-tube-defect]
+appointment:
+  - Which supplements do I need beyond folic acid and iodine?
+  - Should my vitamin D be tested?
 draft: true
 checked: 2026-10-29
 ---

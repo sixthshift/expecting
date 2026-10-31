@@ -22,6 +22,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Induced labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/induced-labour
 related: [term-ctg, term-fetal-distress, epidural, induction, positions-for-labour, water-birth]
+appointment:
+  - Which kind of monitoring in labour would you suggest for me, and why?
+  - Does my hospital have wireless CTG?
 draft: true
 checked: 2026-10-29
 ---

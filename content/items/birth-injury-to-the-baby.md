@@ -12,6 +12,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Birth injury to the baby
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/birth-injury-to-the-baby
 related: [assisted-birth, shoulder-dystocia, newborn-checks, birth-trauma]
+appointment:
+  - Is there anything about the baby's size or position you'd want to watch for at the birth?
 draft: true
 checked: 2026-10-29
 ---

@@ -14,6 +14,10 @@ sources:
   - title: healthdirect — Lupus
     url: https://www.healthdirect.gov.au/conditions/joint-and-muscle-diseases/lupus
 related: [told-higher-risk, mental-health-medication]
+appointment:
+  - Which of my medicines are safe to keep taking in pregnancy?
+  - How likely is a flare, and what do I do if I have one?
+  - Who leads my care, and how do my specialist and maternity team share it?
 draft: true
 checked: 2026-10-29
 ---

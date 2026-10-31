@@ -14,6 +14,9 @@ sources:
   - title: The Royal Women's Hospital — Mental health & pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy
 related: [existing-mental-illness, antenatal-depression]
+appointment:
+  - Can we talk through my regular medicine?
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

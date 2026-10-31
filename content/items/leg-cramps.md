@@ -15,6 +15,8 @@ sources:
   - title: The Royal Women's Hospital — Coping with common discomforts of pregnancy (fact sheet, April 2018)
     url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
 related: [painful-swollen-leg, restless-legs, insomnia]
+appointment:
+  - What else could help with my leg cramps?
 draft: true
 checked: 2026-10-29
 ---

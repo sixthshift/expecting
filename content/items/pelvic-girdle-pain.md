@@ -13,6 +13,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Pelvic pain during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/pelvic-pain-during-pregnancy
 related: [back-pain, round-ligament-pain, sciatica]
+appointment:
+  - Can you check whether my pain is pelvic girdle pain?
+  - Should I see a physiotherapist?
 draft: true
 checked: 2026-10-29
 ---

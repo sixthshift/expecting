@@ -24,6 +24,9 @@ sources:
   - title: Australian Institute of Health and Welfare — Mothers and babies glossary
     url: https://www.aihw.gov.au/reports-data/population-groups/mothers-babies/glossary
 related: [the-uterus-in-pregnancy, term-fundal-height, term-crown-rump-length, term-sga, term-lga, term-fgr, term-low-birthweight, the-placenta]
+appointment:
+  - Is the baby growing as expected for my weeks?
+  - Would I need an ultrasound to check the baby's growth?
 draft: true
 checked: 2026-10-29
 ---

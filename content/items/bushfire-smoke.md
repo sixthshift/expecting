@@ -17,6 +17,8 @@ sources:
   - title: Queensland Government — Bushfire smoke and your health
     url: https://www.qld.gov.au/health/staying-healthy/environmental/after-a-disaster/bushfires/bushfire-smoke-and-your-health
 related: [hot-weather, gas-heaters, exercise-in-pregnancy]
+appointment:
+  - Is there anything about my health that means I should take extra care with smoke?
 draft: true
 checked: 2026-10-29
 ---

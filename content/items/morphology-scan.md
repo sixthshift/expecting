@@ -5,6 +5,8 @@ summary: "The detailed ultrasound at about 18 to 20 weeks that checks how the ba
 weeks: [16, 20]
 type: moment
 topic: appointments
+appointment:
+  - What did my morphology scan show?
 draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Morphology scan

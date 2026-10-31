@@ -18,6 +18,9 @@ sources:
   - title: Gidget Foundation — Emotional wellbeing screening program
     url: https://www.gidgetfoundation.org.au/support/emotional-wellbeing-screening-progam
 related: [antenatal-depression, antenatal-anxiety, partner-perinatal-depression]
+appointment:
+  - Can we go through my answers to the mood questions?
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

@@ -5,6 +5,9 @@ summary: "Screening is optional and its window is short, from about 10 to 13 wee
 weeks: [10, 14]
 type: moment
 topic: appointments
+appointment:
+  - Can we talk through whether first-trimester screening suits me?
+  - If I choose screening, when do I need to book it?
 draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Non-invasive prenatal testing (NIPT)

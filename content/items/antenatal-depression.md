@@ -20,6 +20,7 @@ sources:
   - title: PANDA — Support for expecting parents
     url: https://www.panda.org.au/get-support/support-expecting-a-baby
 related: [antenatal-anxiety, perinatal-mental-health-help, mental-health-screening-epds, mental-health-medication, partner-perinatal-depression]
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

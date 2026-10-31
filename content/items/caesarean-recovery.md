@@ -16,6 +16,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Being at home with your baby after giving birth
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/being-at-home-with-your-baby-after-giving-birth
 related: [caesarean-what-happens, planned-caesarean, emergency-caesarean, breastfeeding-after-caesarean, hospital-stay, first-days-mum]
+appointment:
+  - Which pain relief would suit me after a caesarean?
+  - When could I drive again after a caesarean?
 draft: true
 checked: 2026-10-29
 ---

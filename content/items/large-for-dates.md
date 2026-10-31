@@ -20,6 +20,10 @@ sources:
   - title: Pregnancy, Birth and Baby — Slow progress in labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/slow-progress-in-labour
 related: [fundal-height, growth-scans, gestational-diabetes, early-diabetes-test, induction]
+appointment:
+  - What does my scan estimate mean for me?
+  - Do I need a test for gestational diabetes?
+  - Should we talk about an induction?
 draft: true
 checked: 2026-10-29
 ---

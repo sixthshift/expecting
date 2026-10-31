@@ -19,6 +19,9 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/TravelInPregFeb23.pdf
 related: [flying, airline-pregnancy-limits, travel-insurance, overseas-travel, long-drives, remote-travel-in-australia]
+appointment:
+  - Is it safe for me to travel on the trip we're planning?
+  - Can you write a letter for the trip with my antenatal history and any medical problems?
 draft: true
 checked: 2026-10-29
 ---

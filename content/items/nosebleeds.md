@@ -13,6 +13,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Nosebleeds during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/nosebleeds-during-pregnancy
 related: [blocked-nose, bleeding-gums]
+appointment:
+  - Can you check why I'm getting so many nosebleeds?
 draft: true
 checked: 2026-10-29
 ---

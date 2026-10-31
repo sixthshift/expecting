@@ -17,6 +17,10 @@ sources:
   - title: RANZCOG — Timing of Planned Caesarean Section at Term (C-Obs 23)
     url: https://ranzcog.edu.au/wp-content/uploads/Timing-Planned-Caesarean-Section.pdf
 related: [caesarean-what-happens, caesarean-on-request, breech-birth, vbac, caesarean-recovery, antenatal-expressing, term-spinal-block]
+appointment:
+  - Would a planned caesarean suit me, and when would it be booked?
+  - Can my support person be with me in theatre, and take photos?
+  - Which anaesthetic would I have, and could we have skin to skin in theatre?
 draft: true
 checked: 2026-10-29
 ---

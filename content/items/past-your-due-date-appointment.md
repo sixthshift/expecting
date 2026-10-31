@@ -14,6 +14,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Working out your due date
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date
 related: [ctg-monitoring, estimated-due-date, antenatal-visit-schedule]
+appointment:
+  - How often would you check me and the baby if I go past my due date?
+  - Can we talk about waiting, a sweep or induction, and what would suit me?
 draft: true
 checked: 2026-10-29
 ---

@@ -20,6 +20,9 @@ sources:
   - title: Gidget Foundation — ADHD during pregnancy and early motherhood
     url: https://www.gidgetfoundation.org.au/fact-sheets/adhd-during-pregnancy-and-early-motherhood
 related: [mental-health-medication, postpartum-psychosis-signs, mental-health-screening-epds]
+appointment:
+  - Can we plan my care for the pregnancy and the months after the birth?
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

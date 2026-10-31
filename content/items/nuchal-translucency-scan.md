@@ -16,6 +16,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Screening for Down syndrome
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/screening-for-down-syndrome
 related: [combined-first-trimester-screening, nipt, dating-scan, paying-for-scans]
+appointment:
+  - What did my nuchal translucency scan show?
+  - Do I need any more tests or scans after it?
 draft: true
 checked: 2026-10-29
 ---

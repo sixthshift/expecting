@@ -25,6 +25,10 @@ sources:
   - title: Smartraveller — Pregnant travellers
     url: https://www.smartraveller.gov.au/before-you-go/health/pregnancy
 related: [airline-pregnancy-limits, dvt-and-compression-stockings, airport-scanners, travel-insurance, scuba-diving]
+appointment:
+  - Is it safe for me to fly at this stage of my pregnancy?
+  - Do I need medicine against blood clots for a long flight?
+  - Can you write a letter for the airline with my due date and any complications?
 draft: true
 checked: 2026-10-29
 ---

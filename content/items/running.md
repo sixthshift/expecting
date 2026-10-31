@@ -19,6 +19,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Playing sport during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
 related: [exercise-in-pregnancy, exercise-intensity-and-heart-rate, hot-weather]
+appointment:
+  - Is it okay for me to keep running at my usual level?
 draft: true
 checked: 2026-10-29
 ---

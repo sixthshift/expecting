@@ -18,6 +18,9 @@ sources:
   - title: The Royal Women's Hospital — Anxiety & pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy/anxiety-pregnancy
 related: [tokophobia, birth-trauma, pregnancy-after-birth-trauma, domestic-violence-in-pregnancy]
+appointment:
+  - Can we talk about what would make examinations easier for me?
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

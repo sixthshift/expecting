@@ -16,6 +16,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Waters breaking early
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/waters-breaking-early
 related: [waters-breaking-early, special-care-nursery, term-nicu, signs-of-labour]
+appointment:
+  - If my baby came early, would I give birth here or somewhere with a NICU or special care nursery?
 draft: true
 checked: 2026-10-29
 ---

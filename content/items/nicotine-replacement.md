@@ -14,6 +14,10 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Smoking cessation and nicotine replacement therapy in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/SmokNRTPregBfeedFeb23.pdf
 related: [vaping, cannabis]
+appointment:
+  - Which kind of nicotine replacement would suit me?
+  - What else could help me quit, besides nicotine replacement?
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

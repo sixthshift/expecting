@@ -15,6 +15,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Cord blood banking
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/cord-blood-banking
 related: [delayed-cord-clamping, birth-preferences]
+appointment:
+  - Could we donate cord blood at the hospital we're booked into?
+  - If we collect cord blood, would that change when the cord is clamped?
 draft: true
 checked: 2026-10-29
 ---

@@ -21,6 +21,10 @@ sources:
   - title: Pregnancy, Birth and Baby — Nuchal translucency scan
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/nuchal-translucency-scan
 related: [first-trimester-screening, combined-first-trimester-screening, nuchal-translucency-scan, screening-vs-diagnostic, high-chance-result]
+appointment:
+  - Would genome-wide or targeted NIPT suit us better?
+  - How would we arrange NIPT, if we choose it?
+  - Should we book the 11 to 13 week scan as well?
 draft: true
 checked: 2026-10-29
 ---

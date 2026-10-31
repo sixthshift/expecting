@@ -14,6 +14,7 @@ sources:
   - title: Gidget Foundation — Gidget House
     url: https://www.gidgetfoundation.org.au/support/gidget-house
 related: [perinatal-mental-health-help]
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

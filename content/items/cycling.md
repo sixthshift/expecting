@@ -23,6 +23,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Playing sport during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
 related: [exercise-in-pregnancy, motorbikes-and-scooters, horse-riding]
+appointment:
+  - Is riding outdoors okay for me?
 draft: true
 checked: 2026-10-29
 ---

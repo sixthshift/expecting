@@ -16,6 +16,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Checkups, tests and scans available during your pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/checkups-and-scans-during-your-pregnancy
 related: [what-happens-at-each-visit, booking-visit, third-trimester-bloods, babys-position-check, past-your-due-date-appointment]
+appointment:
+  - How many appointments will I have, and when?
+  - Is there anything that means I'll need extra visits?
 draft: true
 checked: 2026-10-29
 ---

@@ -17,6 +17,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Pregnancy at week 36
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-36
 related: [term-fundal-height, term-fundus, the-cervix-in-pregnancy, braxton-hicks-contractions, baby-size-and-growth]
+appointment:
+  - Is my bump measuring as expected for my weeks?
 draft: true
 checked: 2026-10-29
 ---

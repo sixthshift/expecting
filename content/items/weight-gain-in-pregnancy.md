@@ -15,6 +15,8 @@ sources:
   - title: The Royal Women's Hospital — Weight and pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/weight-pregnancy
 related: [how-much-more-to-eat, eating-well-in-pregnancy, staying-active-in-pregnancy, term-bmi]
+appointment:
+  - How much weight gain is right for me?
 draft: true
 checked: 2026-10-29
 ---

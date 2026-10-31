@@ -16,6 +16,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Nuchal translucency scan
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/nuchal-translucency-scan
 related: [first-trimester-screening, nuchal-translucency-scan, nipt, high-chance-result]
+appointment:
+  - Which would suit me better, combined screening or NIPT?
+  - What does my combined screening result mean, and what comes next?
 draft: true
 checked: 2026-10-29
 tasks:

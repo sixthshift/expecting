@@ -21,6 +21,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Anaemia in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/anaemia-in-pregnancy
 related: [iron, iodine, fish-oil, soy-foods]
+appointment:
+  - Do I need a B12 supplement, and how much?
+  - Would seeing a dietitian help me?
 draft: true
 checked: 2026-10-29
 ---

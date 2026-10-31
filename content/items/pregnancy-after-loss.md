@@ -22,6 +22,10 @@ sources:
   - title: Pink Elephants — Peer support, private online communities
     url: https://www.pinkelephants.org.au/page/74/peer-support-private-support-groups
 related: [something-has-happened, antenatal-anxiety, bonding-before-birth, loss-support-services]
+discreet: true
+appointment:
+  - Would more frequent appointments or extra scans suit me?
+  - Can I contact you between appointments if I'm worried?
 draft: true
 checked: 2026-10-29
 ---

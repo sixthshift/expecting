@@ -15,6 +15,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Changes to your body during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/changes-to-your-body-during-pregnancy
 related: [sore-breasts]
+appointment:
+  - Is expressing colostrum from 36 weeks a good idea for me?
 draft: true
 checked: 2026-10-29
 ---

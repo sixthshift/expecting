@@ -14,6 +14,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Birth injury to the mother
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/birth-injury-to-the-mother
 related: [term-oasis, episiotomy, perineal-massage, assisted-birth, term-crowning, first-days-mum]
+appointment:
+  - Am I more likely to tear, and what could lower my chance?
+  - What does my hospital do to lower the chance of a serious tear?
 draft: true
 checked: 2026-10-29
 ---

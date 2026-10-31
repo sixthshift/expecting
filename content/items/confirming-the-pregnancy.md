@@ -16,6 +16,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Your first antenatal visit
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/your-first-antenatal-visit
 related: [first-antenatal-visit, estimated-due-date, first-blood-tests, dating-scan]
+appointment:
+  - How many weeks am I, and when is my due date?
+  - Which vitamins should I be taking?
 draft: true
 checked: 2026-10-29
 ---

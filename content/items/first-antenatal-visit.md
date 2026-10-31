@@ -5,6 +5,9 @@ summary: "The first visit, best before 10 weeks and ideally at about 6 to 8, is 
 weeks: [4, 10]
 type: moment
 topic: appointments
+appointment:
+  - What care options are available near me?
+  - Is there a midwife group practice near me I could go to?
 draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Your first antenatal visit

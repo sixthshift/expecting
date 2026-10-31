@@ -16,6 +16,8 @@ sources:
   - title: The Royal Women's Hospital — Pregnancy care options
     url: https://thewomens.org.au/patients-visitors/clinics-and-services/pregnancy-birth/pregnancy-care-options
 related: [choosing-your-model-of-care, booking-in, birth-centre, home-birth]
+appointment:
+  - Is midwifery group practice available to me here?
 draft: true
 checked: 2026-10-29
 ---

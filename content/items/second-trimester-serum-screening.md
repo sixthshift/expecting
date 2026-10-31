@@ -20,6 +20,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Routine antenatal tests
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/routine-antenatal-tests
 related: [first-trimester-screening, nipt, neural-tube-defect-screening]
+appointment:
+  - Is there still time for me to have serum screening?
+  - What does my result mean, and what comes next?
 draft: true
 checked: 2026-10-29
 ---

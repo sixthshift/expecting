@@ -5,6 +5,9 @@ summary: "Many providers offer a swab for Group B strep at 35 to 37 weeks, which
 weeks: [35, 37]
 type: moment
 topic: appointments
+appointment:
+  - Will you offer me a Group B strep swab, and how will I hear the result?
+  - Do I have any risk factors that would mean antibiotics in labour?
 draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Group B Strep (GBS) in pregnancy

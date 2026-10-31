@@ -14,6 +14,7 @@ sources:
   - title: Pregnancy, Birth and Baby — Supporting your partner during their pregnancy
     url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/supporting-your-partner-during-pregnancy
 related: [antenatal-depression, arguments-and-stress]
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

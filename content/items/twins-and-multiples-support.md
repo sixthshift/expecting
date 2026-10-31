@@ -20,6 +20,9 @@ sources:
   - title: Gidget Foundation — Multiple births
     url: https://www.gidgetfoundation.org.au/fact-sheets/multiple-births
 related: [when-the-baby-comes-early, baby-in-the-nicu, told-higher-risk, card-twins-more-appointments]
+appointment:
+  - Do my babies share a placenta?
+  - Where would you suggest I give birth, with more than one baby?
 draft: true
 checked: 2026-10-29
 ---

@@ -12,6 +12,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Chorionic villus sampling (CVS)
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/chorionic-villus-sampling-cvs
 related: [amniocentesis, high-chance-result, screening-vs-diagnostic, genetic-counselling]
+appointment:
+  - Would you recommend a CVS for me, and why?
+  - Would a CVS or an amniocentesis suit me better?
 draft: true
 checked: 2026-10-29
 ---

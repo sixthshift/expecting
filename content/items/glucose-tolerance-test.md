@@ -5,6 +5,8 @@ summary: "Everyone is offered screening for gestational diabetes between 24 and 
 weeks: [24, 28]
 type: moment
 topic: appointments
+appointment:
+  - What did my glucose tolerance test show?
 draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Gestational diabetes

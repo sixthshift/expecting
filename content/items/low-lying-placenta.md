@@ -14,6 +14,10 @@ sources:
   - title: The Royal Women's Hospital — Placenta problems
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/placenta-problems
 related: [morphology-scan, growth-scans, ecv]
+appointment:
+  - Where is my placenta now?
+  - When is my repeat scan?
+  - Should I plan to give birth at a major hospital?
 draft: true
 checked: 2026-10-29
 ---

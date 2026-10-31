@@ -16,6 +16,9 @@ sources:
   - title: The Royal Women's Hospital — Managing pain in labour
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
 related: [pain-relief, term-spinal-block, monitoring-in-labour, assisted-birth, second-stage, positions-for-labour]
+appointment:
+  - Does my hospital offer epidurals, and a walking epidural?
+  - Is there anything in my health that means an epidural wouldn't suit me?
 draft: true
 checked: 2026-10-29
 ---

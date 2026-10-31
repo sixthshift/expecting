@@ -16,6 +16,8 @@ sources:
   - title: Pregnancy, Birth and Baby — The role of a birth support partner
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/being-a-birth-support-partner
 related: [early-labour, epidural, hospital-bag]
+appointment:
+  - Will I be able to eat and drink in the birth suite, or with an epidural?
 draft: true
 checked: 2026-10-29
 ---

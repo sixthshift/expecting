@@ -13,6 +13,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Perineal massage
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/perineal-massage
 related: [perineal-tears, episiotomy]
+appointment:
+  - Is perineal massage safe for me, and when should I start?
 draft: true
 checked: 2026-10-29
 ---

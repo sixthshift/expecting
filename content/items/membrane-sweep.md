@@ -14,6 +14,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Overdue
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/overdue
 related: [induction, overdue, term-show]
+appointment:
+  - Would a stretch and sweep suit me?
 draft: true
 checked: 2026-10-29
 ---

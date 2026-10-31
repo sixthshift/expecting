@@ -14,6 +14,9 @@ sources:
   - title: The Royal Women's Hospital — High blood pressure & preeclampsia
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/preeclampsia
 related: [pre-eclampsia, what-happens-at-each-visit, higher-risk-pregnancy]
+appointment:
+  - What do my blood pressure readings mean?
+  - Should I take something to lower my chance of pre-eclampsia?
 draft: true
 checked: 2026-10-29
 ---

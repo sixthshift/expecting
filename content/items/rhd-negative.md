@@ -14,6 +14,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
 related: [anti-d, rhd-nipt, blood-group-and-antibodies, third-trimester-bloods]
+appointment:
+  - Is RhD NIPT available to me?
+  - When are my anti-D injections due?
 draft: true
 checked: 2026-10-29
 ---

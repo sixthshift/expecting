@@ -16,6 +16,10 @@ sources:
   - title: Therapeutic Goods Administration — Valproate safety alert
     url: https://www.tga.gov.au/safety/safety-monitoring-and-information/safety-alerts/valproate-safety-alert
 related: [told-higher-risk, mental-health-medication]
+appointment:
+  - Are my medicine and dose right for pregnancy?
+  - Will my medicine levels be checked, and might my dose need to change?
+  - What folate supplement should I be taking?
 draft: true
 checked: 2026-10-29
 ---

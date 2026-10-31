@@ -14,6 +14,9 @@ sources:
   - title: healthdirect — Antidepressants
     url: https://www.healthdirect.gov.au/medicines/antidepressants
 related: [prescription-medicines-ongoing, st-johns-wort, sleeping-pills]
+appointment:
+  - Will the baby need any extra checks after the birth?
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

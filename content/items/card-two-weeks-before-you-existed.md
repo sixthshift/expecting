@@ -14,6 +14,7 @@ sources:
   - title: Pregnancy, Birth and Baby — Working out your due date
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/working-out-your-due-date
 related: [when-to-tell-people]
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

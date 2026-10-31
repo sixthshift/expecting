@@ -15,6 +15,9 @@ sources:
   - title: MBS Online — Reproductive carrier testing for cystic fibrosis, spinal muscular atrophy and fragile X syndrome (factsheet)
     url: https://www.mbsonline.gov.au/internet/mbsonline/publishing.nsf/Content/0FAE1338D92EA3A3CA258A6F0001701A/$File/FS%20-%20Reproductive%20carrier%20testing%20for%20cystic%20fibrosis,%20spinal%20muscular%20atrophy%20and%20fragile%20X%20syndrome.pdf
 related: [first-antenatal-visit, genetic-counselling, first-trimester-screening, cvs]
+appointment:
+  - Would you suggest carrier screening for us?
+  - Which conditions would you suggest we screen for?
 draft: true
 checked: 2026-10-29
 ---

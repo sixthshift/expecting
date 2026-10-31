@@ -16,6 +16,8 @@ sources:
   - title: The Royal Women's Hospital — Assisted birth
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/assisted-birth
 related: [term-ventouse, episiotomy, perineal-tears, second-stage, epidural, emergency-caesarean, birth-injury-to-the-baby]
+appointment:
+  - Can we talk about a vacuum or forceps birth, and what I'd want if one is offered?
 draft: true
 checked: 2026-10-29
 ---

@@ -12,6 +12,10 @@ sources:
   - title: Pregnancy, Birth and Baby — Fear of childbirth
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/fear-of-childbirth
 related: [previous-trauma-and-pregnancy, pregnancy-after-birth-trauma, birth-support-person, antenatal-anxiety]
+appointment:
+  - Can we make a flexible birth plan together?
+  - Can you go through my pain relief options before labour?
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

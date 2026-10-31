@@ -19,6 +19,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Waters breaking
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-waters-breaking
 related: [signs-of-labour, timing-contractions, waters-breaking, early-labour, getting-to-hospital]
+appointment:
+  - When would you want us to call or come in once labour starts?
+  - Is there anything about my pregnancy that means we should come in earlier?
 draft: true
 checked: 2026-10-29
 ---

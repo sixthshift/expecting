@@ -24,6 +24,8 @@ sources:
   - title: RANZCOG and Australian College of Midwives — RANZCOG & ACM Call on Health Ministers to End Freebirth Deaths (3 November 2025)
     url: https://ranzcog.edu.au/news/ranzcog-acm-call-on-health-ministers-to-end-freebirth-deaths/
 related: [private-midwife, midwifery-group-practice, birth-centre, choosing-your-model-of-care]
+appointment:
+  - Is my pregnancy low risk enough for a home birth?
 draft: true
 checked: 2026-10-29
 ---

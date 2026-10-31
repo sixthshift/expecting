@@ -12,6 +12,7 @@ sources:
   - title: Gidget Foundation — Intrusive thoughts, what are they and how do we deal with them?
     url: https://www.gidgetfoundation.org.au/fact-sheets/intrusive-thoughts-what-are-they-and-how-do-we-deal-with-them
 related: [antenatal-anxiety, perinatal-mental-health-help, card-intrusive-thoughts-common]
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

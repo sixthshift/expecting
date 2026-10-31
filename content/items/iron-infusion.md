@@ -16,6 +16,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Anaemia in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/anaemia-in-pregnancy
 related: [iron]
+appointment:
+  - Would an iron infusion suit me better than tablets?
+  - What side effects should I expect from the infusion?
 draft: true
 checked: 2026-10-29
 ---

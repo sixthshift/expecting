@@ -17,6 +17,10 @@ sources:
   - title: The Royal Women's Hospital — Caesarean birth
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/caesarean-birth
 related: [planned-caesarean, induction, balloon-catheter, monitoring-in-labour, caesarean-what-happens]
+appointment:
+  - Is a planned vaginal birth a safe option for me after my caesarean?
+  - What kind of cut on my uterus did I have last time?
+  - Does my hospital support a planned vaginal birth after a caesarean?
 draft: true
 checked: 2026-10-29
 ---

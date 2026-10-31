@@ -16,6 +16,10 @@ sources:
   - title: The Royal Women's Hospital — Baby's position
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/babys-position
 related: [ecv, babys-position-check, low-lying-placenta]
+appointment:
+  - Is the baby head down or breech right now?
+  - Would trying to turn the baby (ECV) be suitable for me?
+  - Can this hospital support a vaginal breech birth?
 draft: true
 checked: 2026-10-29
 ---

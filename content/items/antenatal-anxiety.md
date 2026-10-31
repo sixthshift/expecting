@@ -18,6 +18,9 @@ sources:
   - title: Gidget Foundation — Tips for managing anxiety and stress for new and expectant parents
     url: https://www.gidgetfoundation.org.au/fact-sheets/tips-for-managing-anxiety-and-stress-for-new-and-expectant-parents
 related: [antenatal-depression, worry-and-sleep, intrusive-thoughts, tokophobia, perinatal-mental-health-help]
+appointment:
+  - Can we talk about how I've been feeling lately?
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

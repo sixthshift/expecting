@@ -5,6 +5,8 @@ summary: "Nausea can come at any time of day, most often from about 6 to 14 week
 weeks: [5, 16]
 type: moment
 topic: body
+appointment:
+  - What can I try if my nausea is hard to manage?
 draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Morning sickness

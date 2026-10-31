@@ -12,6 +12,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Amniocentesis
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/amniocentesis
 related: [cvs, high-chance-result, screening-vs-diagnostic, rhd-negative]
+appointment:
+  - Would you recommend an amniocentesis for me, and why?
 draft: true
 checked: 2026-10-29
 ---

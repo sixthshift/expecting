@@ -14,6 +14,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Non-invasive prenatal testing (NIPT)
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/non-invasive-prenatal-testing-nipt
 related: [high-chance-result, carrier-screening, cvs, amniocentesis]
+appointment:
+  - Would seeing a genetic counsellor help me, and can you refer me?
 draft: true
 checked: 2026-10-29
 ---

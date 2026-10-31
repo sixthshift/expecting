@@ -14,6 +14,7 @@ sources:
   - title: Gidget Foundation — Screening and assessment for PNDA
     url: https://www.gidgetfoundation.org.au/health-professionals/screening-and-assessment-for-pnda
 related: [mental-health-screening-epds]
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

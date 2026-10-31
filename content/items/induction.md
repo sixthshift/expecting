@@ -17,6 +17,9 @@ sources:
   - title: The Royal Women's Hospital — Induction of labour
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/induction-of-labour
 related: [membrane-sweep, prostaglandin, balloon-catheter, breaking-the-waters, oxytocin-drip, overdue, waters-before-labour, monitoring-in-labour, caesarean-what-happens]
+appointment:
+  - Is there any reason you'd suggest an induction for me, and why?
+  - If an induction is suggested for me, what happens if we wait instead?
 draft: true
 checked: 2026-10-29
 ---

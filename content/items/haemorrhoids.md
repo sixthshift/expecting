@@ -13,6 +13,10 @@ sources:
   - title: Pregnancy, Birth and Baby — Haemorrhoids during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/haemorrhoids-during-pregnancy
 related: [constipation, varicose-veins]
+appointment:
+  - Can you check whether this is haemorrhoids?
+  - Which cream or laxative is safe for me?
+  - Will pushing in labour make my haemorrhoids worse?
 draft: true
 checked: 2026-10-29
 ---

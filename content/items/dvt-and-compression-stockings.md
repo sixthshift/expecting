@@ -19,6 +19,8 @@ sources:
   - title: RANZCOG — Travelling during pregnancy
     url: https://ranzcog.edu.au/womens-health/patient-information-resources/travelling-during-pregnancy
 related: [flying, long-drives, standing-all-day]
+appointment:
+  - Do I need medicine to prevent clots on my trip?
 draft: true
 checked: 2026-10-29
 ---

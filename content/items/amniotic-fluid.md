@@ -12,6 +12,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Amniotic fluid
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/amniotic-fluid
 related: [the-placenta, term-amniotic-fluid, term-amniotic-sac, term-afi, term-polyhydramnios, term-oligohydramnios, waters-breaking]
+appointment:
+  - Can you explain what my scan said about the fluid around the baby?
 draft: true
 checked: 2026-10-29
 ---

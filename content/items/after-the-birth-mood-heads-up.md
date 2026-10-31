@@ -22,6 +22,7 @@ sources:
   - title: PANDA — Support for dads
     url: https://www.panda.org.au/get-support/support-dads
 related: [postpartum-psychosis-signs, partner-after-the-birth, partner-perinatal-depression, mental-health-screening-epds]
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

@@ -14,6 +14,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Medicines during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/medicines-during-pregnancy
 related: [illicit-drugs, morning-sickness, hemp-seeds, nicotine-replacement]
+appointment:
+  - What else can I try for nausea or sleep?
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

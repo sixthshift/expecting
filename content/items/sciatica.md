@@ -15,6 +15,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Backache in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/backache-in-pregnancy
 related: [back-pain, pelvic-girdle-pain]
+appointment:
+  - Should I see a physiotherapist for my sciatica?
 draft: true
 checked: 2026-10-29
 ---

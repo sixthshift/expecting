@@ -16,6 +16,8 @@ sources:
   - title: Pregnancy, Birth and Baby — What is kangaroo care?
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/what-is-kangaroo-care
 related: [term-nicu, preterm-birth, skin-to-skin, first-feed, going-home]
+appointment:
+  - Does the hospital I'm booked into have a special care nursery, or would the baby be moved?
 draft: true
 checked: 2026-10-29
 ---

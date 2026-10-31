@@ -17,6 +17,8 @@ sources:
   - title: Pregnancy, Birth and Baby — Weight gain in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/weight-gain-in-pregnancy
 related: [the-pelvic-floor, abdominal-muscles-and-separation, ligaments-and-joints-in-pregnancy, heart-and-blood-in-pregnancy]
+appointment:
+  - Is there any reason I shouldn't exercise?
 draft: true
 checked: 2026-10-29
 ---

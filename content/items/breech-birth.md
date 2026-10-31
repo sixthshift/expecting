@@ -19,6 +19,8 @@ sources:
   - title: RANZCOG — Management of breech presentation at term (C-Obs 11, clinical guidance statement)
     url: https://ranzcog.edu.au/wp-content/uploads/Management-Breech-Presentation.pdf
 related: [ecv, planned-caesarean, malpresentation, cord-prolapse, term-posterior]
+appointment:
+  - If the baby stays breech, would a vaginal breech birth be an option for us?
 draft: true
 checked: 2026-10-29
 ---

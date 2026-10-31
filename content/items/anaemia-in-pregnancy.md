@@ -14,6 +14,10 @@ sources:
   - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
 related: [full-blood-count, third-trimester-bloods, first-blood-tests]
+appointment:
+  - What did my haemoglobin and iron results show?
+  - Do I need iron tablets, or an infusion?
+  - When will my iron be checked again?
 draft: true
 checked: 2026-10-29
 ---

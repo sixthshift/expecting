@@ -17,6 +17,8 @@ sources:
   - title: SafeWork NSW — Pregnancy
     url: https://www.safework.nsw.gov.au/safety-starts-here/physical-safety-at-work-the-basics/pregnancy
 related: [working-while-pregnant, flu-vaccine, farm-animals-and-lambing]
+appointment:
+  - Can I have a CMV test, since I work with young children?
 draft: true
 checked: 2026-10-29
 ---

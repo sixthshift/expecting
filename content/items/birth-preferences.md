@@ -19,6 +19,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Labour, the signs and stages
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/labour-the-signs-and-stages
 related: [pain-relief, support-person, third-stage-placenta, delayed-cord-clamping, vitamin-k, support-person-role]
+appointment:
+  - Can you check our birth preferences are realistic where we're booked?
+  - Can you add our birth preferences to the notes?
 draft: true
 checked: 2026-10-29
 ---

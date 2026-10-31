@@ -15,6 +15,8 @@ sources:
   - title: healthdirect — Headaches
     url: https://www.healthdirect.gov.au/headaches
 related: [severe-headache, vision-changes, signs-of-pre-eclampsia]
+appointment:
+  - Can we talk about how often I'm getting headaches?
 draft: true
 checked: 2026-10-29
 ---

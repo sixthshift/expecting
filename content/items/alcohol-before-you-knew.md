@@ -16,6 +16,9 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Alcohol in pregnancy
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Alcohol%20in%20Pregnancy.pdf
 related: [alcohol, medicines-before-you-knew]
+discreet: true
+appointment:
+  - Can we talk about a worry I have from before I knew I was pregnant?
 draft: true
 checked: 2026-10-29
 ---

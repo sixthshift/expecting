@@ -16,6 +16,8 @@ sources:
   - title: King Edward Memorial Hospital — Going home
     url: https://www.kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Going-home
 related: [going-home, first-days-mum, caesarean-recovery, hospital-tour]
+appointment:
+  - How long might I stay in hospital after the birth?
 draft: true
 checked: 2026-10-29
 ---

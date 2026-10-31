@@ -20,6 +20,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Medicare during pregnancy
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/medicare-during-pregnancy
 related: [booking-in, antenatal-visit-schedule, first-blood-tests, midwifery-group-practice, questions-to-ask-at-appointments]
+appointment:
+  - Is caseload midwifery available to me here?
+  - Which of the tests on offer would you suggest for me?
 draft: true
 checked: 2026-10-29
 tasks:

@@ -17,6 +17,9 @@ sources:
   - title: The Royal Women's Hospital — The abdominal muscles
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/the-abdominal-muscles
 related: [term-diastasis-recti, the-pelvic-floor, staying-active-in-pregnancy]
+appointment:
+  - Can you check whether my tummy muscles have separated?
+  - Should I see a women's health physio?
 draft: true
 checked: 2026-10-29
 ---

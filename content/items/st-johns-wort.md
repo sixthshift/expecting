@@ -14,6 +14,9 @@ sources:
   - title: MotherSafe (Royal Hospital for Women) — Herbal medicines in pregnancy and breastfeeding
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/MSHerbalApril2020.pdf
 related: [antidepressants, herbal-supplements]
+appointment:
+  - What can I do for my mood instead of St John's wort?
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

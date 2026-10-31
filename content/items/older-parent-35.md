@@ -16,6 +16,9 @@ sources:
   - title: Pregnancy, Birth and Baby — Miscarriage
     url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/miscarriage
 related: [older-parent-40, first-trimester-screening, told-higher-risk]
+appointment:
+  - Does my age change the care you'd recommend for me?
+  - Would screening or testing for chromosomal conditions suit me?
 draft: true
 checked: 2026-10-29
 ---

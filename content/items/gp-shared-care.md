@@ -16,6 +16,8 @@ sources:
   - title: The Royal Women's Hospital — Pregnancy care and birthing options
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/now-you-are-pregnant/pregnancy-care-birthing-options
 related: [choosing-your-model-of-care, first-antenatal-visit, antenatal-visit-schedule]
+appointment:
+  - Could my GP share my pregnancy care with the hospital?
 draft: true
 checked: 2026-10-29
 ---

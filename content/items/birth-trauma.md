@@ -22,6 +22,7 @@ sources:
   - title: Pregnancy, Birth and Baby — Obstetric violence
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/healthcare-rights/obstetric-violence
 related: [pregnancy-after-birth-trauma, birth-support-person, tokophobia, card-one-in-three-traumatic, card-partner-trauma-too]
+discreet: true
 draft: true
 checked: 2026-10-29
 ---

@@ -15,6 +15,9 @@ sources:
   - title: The Royal Women's Hospital — Back care & posture
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/back-care-posture
 related: [pelvic-girdle-pain, sciatica, signs-of-preterm-labour, urinary-tract-infection]
+appointment:
+  - Should I see a physiotherapist about my back?
+  - Which exercises are safe for me with my back pain?
 draft: true
 checked: 2026-10-29
 ---

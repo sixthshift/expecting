@@ -6,6 +6,8 @@ weeks: [12, 36]
 type: moment
 topic: body
 extra: exercise
+appointment:
+  - Which kinds of exercise suit me now?
 draft: true
 sources:
   - title: Pregnancy, Birth and Baby — Exercising during pregnancy

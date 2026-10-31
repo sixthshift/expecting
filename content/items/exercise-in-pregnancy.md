@@ -19,6 +19,8 @@ sources:
   - title: RANZCOG — Common questions in pregnancy
     url: https://ranzcog.edu.au/wp-content/uploads/Common-Questions-In-Pregnancy.pdf
 related: [exercise-intensity-and-heart-rate, running, swimming, weights, exercise-lying-on-your-back, hot-yoga]
+appointment:
+  - Is there any reason I shouldn't exercise?
 draft: true
 checked: 2026-10-29
 ---

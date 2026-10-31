@@ -16,6 +16,8 @@ sources:
   - title: KEMH — Commonly used medicines and safety in pregnancy
     url: https://kemh.health.wa.gov.au/Pregnancy-and-Birth/After-your-pregnancy/Pharmacy/Medicines-in-pregnancy
 related: [medicines-in-pregnancy, antidepressants, asthma-inhalers, isotretinoin]
+appointment:
+  - Does the dose of my regular medicine need to change now?
 draft: true
 checked: 2026-10-29
 ---
