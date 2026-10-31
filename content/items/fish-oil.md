@@ -15,10 +15,12 @@ sources:
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/Factsheets/Omega-3%20Fats%20in%20Pregnancy%20and%20Breastfeeding.pdf
   - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
+  - title: Australian Pregnancy Care Guidelines — Omega-3
+    url: https://app.magicapp.org/#/guideline/jm83RE/section/jNxggg
 related: [safe-fish, liver, pregnancy-multivitamins]
 appointment:
   - Do I need a fish oil supplement, given what I eat?
-checked: 2026-10-29
+checked: 2026-11-01
 ---
 Yes, if you don't eat enough omega-3 from food. If your diet already has enough, MotherSafe says taking a supplement has no demonstrated benefit for you or your baby.
 
@@ -29,6 +31,8 @@ Omega-3 fats (DHA and EPA) support your baby's brain, nerve and eye development.
 Enough omega-3 in pregnancy is linked with fewer premature births when you're carrying one baby, so a supplement is likely to lower that risk if your diet is short. A recent review found no benefit for the baby's IQ or development.
 
 Some data suggest too much omega-3 may increase the risk of a premature birth.
+
+The national pregnancy care guidelines take the same line: a draft recommendation (August 2026, not yet approved by the NHMRC) is not to recommend omega-3 supplements to everyone, because people with low omega-3 levels may benefit and people with higher levels may not, or may even have a higher chance of a premature birth.
 
 ## What to do
 

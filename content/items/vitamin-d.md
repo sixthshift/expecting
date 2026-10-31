@@ -7,7 +7,7 @@ ask: Do I need vitamin D?
 aliases: [vitamin D, vitamin D3, cholecalciferol, Ostelin, 1000IU, vitamin D deficiency, sunlight, dark skin vitamin D, covered clothing]
 who: carrying
 stakes: medium
-summary: "Ask your midwife or doctor: advice differs, from a supplement only if you're likely to be low, to at least 400 IU a day for everyone, and supplements at recommended doses haven't been shown to cause harm."
+summary: "Ask if you have a reason to be low: the national pregnancy care guidelines (August 2026) recommend against routine vitamin D tests and supplements in pregnancy, because the evidence they help is weak; supplements at recommended doses haven't been shown to cause harm."
 verdict: ask
 sources:
   - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
@@ -16,8 +16,10 @@ sources:
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/VitaminDpregbreastdec2020.pdf
   - title: The Royal Women's Hospital — Food and nutrition in pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/food-nutrition-in-pregnancy
+  - title: Australian Pregnancy Care Guidelines — Vitamin D
+    url: https://app.magicapp.org/#/guideline/jm83RE/section/L0qN60
 related: [calcium, pregnancy-multivitamins]
-checked: 2026-10-29
+checked: 2026-11-01
 ---
 Ask your midwife or doctor. Vitamin D helps your body take up and use calcium, for your bones and your baby's. Your skin makes most of it in sunlight.
 
@@ -34,7 +36,7 @@ You're more likely to be low if you:
 
 But many people are low without any of these.
 
-**Services differ on who needs a supplement.** Some recommend 400 IU (10 micrograms) a day for everyone who's pregnant; others test you if you're likely to be low and suggest a supplement depending on the result. Ask your midwife which applies to you.
+**The national position.** The national pregnancy care guidelines (approved by the NHMRC in August 2026) recommend against routine vitamin D testing and routine supplements in pregnancy. Low levels may be common, but the evidence that testing or supplements improve outcomes is low to very low certainty. Some services still test people who are likely to be low, and suggest a supplement depending on the result. Ask your midwife what applies to you.
 
 ## What to do
 

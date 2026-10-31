@@ -8,7 +8,7 @@ aliases: [iron, iron tablets, Ferro-grad, Ferro-Grad C, Maltofer, Ferrotabs, Fef
 weeks: [14, 42]
 who: carrying
 stakes: medium
-summary: "Ask: iron tablets aren't needed in every pregnancy; your blood is checked at your first visit and around 28 weeks, and if you're low your doctor will likely recommend a supplement."
+summary: "Ask: iron tablets have been advised when a blood test shows you're low, but the national guidelines are changing: a draft recommendation (December 2025) is to offer iron to everyone who is pregnant, so ask whether it suits you."
 verdict: ask
 sources:
   - title: Pregnancy, Birth and Baby — Anaemia in pregnancy
@@ -19,10 +19,14 @@ sources:
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/VitaminsmineralspandbupdateSept19.pdf
   - title: healthdirect — Iron deficiency
     url: https://www.healthdirect.gov.au/iron-deficiency
+  - title: Australian Pregnancy Care Guidelines — Iron
+    url: https://app.magicapp.org/#/guideline/jm83RE/section/jDYppq
 related: [iron-infusion, laxatives, antacids, pregnancy-multivitamins]
-checked: 2026-10-29
+checked: 2026-11-01
 ---
-Ask your doctor or midwife. Iron supplements aren't needed in every pregnancy; a blood test shows whether you need one.
+Ask your doctor or midwife whether an iron supplement suits you. The advice is changing.
+
+**The national pregnancy care guidelines** have a draft recommendation (approved by their steering committee in December 2025, not yet by the NHMRC) to offer and recommend oral iron, 60 to 200 mg of elemental iron a day, to everyone who is pregnant, not only those who are low. They note that most pregnant people in Australia get about half the iron they need from food. Taking it 1 to 4 times a week at a higher dose may work as well as daily, with fewer side effects. Iron isn't right for everyone: for example, people with haemochromatosis.
 
 ## Why
 
@@ -36,6 +40,6 @@ healthdirect says to take iron supplements only under medical supervision: more 
 
 - **Take the dose you're given,** and check with your pharmacist which form to buy.
 - **Help it absorb.** You might be told to take it with a food or drink containing vitamin C. Tea, coffee, wine, and foods with calcium and fibre reduce how much iron you absorb from food.
-- **Iron may make your poo dark.** It can also cause constipation, and some people get nausea. Your doctor may suggest a stool softener.
+- **Iron may make your poo dark.** It can also cause constipation, and some people get nausea. The guidelines say a different formulation, a lower dose, or taking it with food or at night may help; your doctor may suggest a stool softener.
 - **If tablets don't work,** your doctor may offer an iron infusion into a vein.
 - **Eat iron-rich food:** meat, chicken, fish, legumes, nuts, wholegrain breads and cereals, and leafy greens.

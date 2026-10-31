@@ -8,7 +8,7 @@ aliases: [folate, folic acid, iodine, iron, vitamin D, calcium, omega-3, pregnan
 weeks: [1, 42]
 who: carrying
 stakes: high
-summary: "In Australia, everyone who is pregnant is recommended to take folic acid and iodine; others, such as iron or vitamin D, depend on what your tests and your doctor or midwife say."
+summary: "In Australia, everyone who is pregnant is recommended to take folic acid and iodine; iron may soon join them (a draft national recommendation), and vitamin D is no longer recommended routinely."
 sources:
   - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/vitamins-and-supplements-during-pregnancy
@@ -16,11 +16,17 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/folate-and-pregnancy
   - title: The Royal Women's Hospital — Food and nutrition in pregnancy (important nutrients, supplements)
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/food-nutrition-in-pregnancy
+  - title: Australian Pregnancy Care Guidelines — Iron
+    url: https://app.magicapp.org/#/guideline/jm83RE/section/jDYppq
+  - title: Australian Pregnancy Care Guidelines — Vitamin D
+    url: https://app.magicapp.org/#/guideline/jm83RE/section/L0qN60
+  - title: Australian Pregnancy Care Guidelines — Calcium
+    url: https://app.magicapp.org/#/guideline/jm83RE/section/Lr2kVR
 related: [eating-well-in-pregnancy, heart-and-blood-in-pregnancy, term-folate, term-neural-tube-defect]
 appointment:
   - Which supplements do I need beyond folic acid and iodine?
   - Should my vitamin D be tested?
-checked: 2026-10-29
+checked: 2026-11-01
 ---
 A healthy, balanced diet gives you most of what you need in pregnancy. But two supplements are recommended for everyone in Australia: folic acid and iodine. Before adding anything else, talk to your pharmacist, doctor, midwife or dietitian.
 
@@ -37,12 +43,12 @@ Iodine is important for your baby's brain development. Take a supplement with **
 
 ## Vitamin D
 
-Services differ on who needs one: some recommend 400 IU (10 mcg) a day for everyone who's pregnant; others test you if you're likely to be low and suggest a supplement depending on the result. Ask your midwife which applies to you.
+The national pregnancy care guidelines (August 2026) recommend against routine vitamin D tests and supplements in pregnancy, because the evidence they help is weak. Some services still test people likely to be low. Ask your midwife what applies to you.
 
 ## Iron, calcium, omega-3 and B12
 
-- **Iron:** needs rise in the second and third trimesters. If a blood test shows you're low in iron or have anaemia, you'll likely be recommended an iron supplement.
-- **Calcium:** usually no supplement is needed if you eat a healthy diet. Your midwife or doctor may suggest one if your usual diet doesn't have enough or you have certain medical conditions.
+- **Iron:** needs rise in the second and third trimesters. If a blood test shows you're low in iron or have anaemia, you'll likely be recommended an iron supplement. A draft national recommendation (December 2025) is to offer iron to everyone who is pregnant; ask whether it suits you.
+- **Calcium:** usually no supplement is needed if you eat a healthy diet. The national guidelines strongly recommend one if you're at risk of high blood pressure in pregnancy, and your midwife or doctor may suggest one if your usual diet doesn't have enough.
 - **Omega-3:** your midwife or doctor may suggest it if you're low. Avoid fish liver oils: they contain too much vitamin A.
 - **Vitamin B12:** if you eat no animal foods, you'll need to take it.
 
