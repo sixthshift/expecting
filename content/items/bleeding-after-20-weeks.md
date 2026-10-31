@@ -22,7 +22,7 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/vaginal-discharge-during-pregnancy
   - title: The Royal Women's Hospital — Placenta problems
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/placenta-problems
-related: [heavy-bleeding, abdominal-pain, fall-or-blow-to-the-belly, baby-movements, fluid-leaking]
+related: [heavy-bleeding, abdominal-pain, fall-or-blow-to-the-belly, baby-movements, fluid-leaking, vasa-praevia]
 checked: 2026-10-29
 ---
 ## What's usual
@@ -31,7 +31,7 @@ Bleeding after 20 weeks may be a sign that something needs medical attention, an
 
 - **Placenta praevia** (a low-lying placenta, close to or covering the cervix). The most common sign is painless bleeding after 28 weeks.
 - **Placental abruption**, when the placenta separates from the wall of the uterus before birth. It can bring bleeding, belly pain that is constant rather than coming in waves, contractions, lower back pain, and the baby moving less. The pain is usually severe but may be mild or absent, and the amount of bleeding doesn't show how serious it is. It's a medical emergency.
-- **Vasa praevia**, a rare problem with the placenta's blood vessels over the cervix.
+- **Vasa praevia**, a rare problem where the baby's blood vessels run across or near the cervix.
 
 Close to the birth you may have a 'show': the mucus plug that sealed the cervix, which can be watery, sticky or jelly-like, and pink, brown or bloodstained. Blood that is bright red, or not mixed with mucus, is probably not a show: contact your doctor or midwife immediately.
 

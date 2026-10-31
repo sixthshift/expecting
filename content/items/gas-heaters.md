@@ -12,7 +12,7 @@ verdict: limit
 sources:
   - title: NSW Health — Carbon monoxide safety fact sheet
     url: https://www.health.nsw.gov.au/environment/factsheets/Pages/carbon-monoxide.aspx
-related: [bushfire-smoke, mould]
+related: [bushfire-smoke, mould, air-pollution]
 checked: 2026-10-29
 ---
 With checks. Carbon monoxide can make anyone sick, and NSW Health lists pregnant people among the people who can get sicker than others. You can't see, smell or hear it, and it can build up inside when doors and windows are closed.

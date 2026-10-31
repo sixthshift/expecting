@@ -13,7 +13,7 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/placenta-praevia
   - title: The Royal Women's Hospital — Placenta problems
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/placenta-problems
-related: [morphology-scan, growth-scans, ecv]
+related: [morphology-scan, growth-scans, ecv, vasa-praevia]
 appointment:
   - Where is my placenta now?
   - When is my repeat scan?

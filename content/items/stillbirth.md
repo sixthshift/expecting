@@ -19,7 +19,7 @@ sources:
     url: https://www.gidgetfoundation.org.au/fact-sheets/stillbirth
   - title: Stillbirth CRE — The Safer Baby Bundle
     url: https://stillbirthcre.org.au/about-us/our-work/the-safer-baby-bundle/
-related: [neonatal-death, remembering-the-baby, loss-support-services, pregnancy-after-loss, something-has-happened]
+related: [neonatal-death, remembering-the-baby, loss-support-services, pregnancy-after-loss, something-has-happened, smoking]
 checked: 2026-10-29
 ---
 In Australia, a stillbirth is the birth of a baby who has died any time from 20 weeks of pregnancy, or who weighs 400 grams or more if the length of the pregnancy isn't known. About 6 babies are stillborn every day in Australia. Often, no one knows why.

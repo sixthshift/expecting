@@ -15,7 +15,7 @@ sources:
     url: https://www.health.gov.au/topics/smoking-vaping-and-tobacco/about-vaping
   - title: healthdirect — Medicines to treat nicotine dependence
     url: https://www.healthdirect.gov.au/medicines/medicines-to-treat-nicotine-dependence
-related: [nicotine-replacement, cannabis]
+related: [nicotine-replacement, smoking, cannabis]
 appointment:
   - Can you help me make a plan to quit vaping?
   - Would nicotine replacement suit me?

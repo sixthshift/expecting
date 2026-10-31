@@ -14,7 +14,7 @@ sources:
     url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
   - title: Pregnancy, Birth and Baby — Vaccinations and pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/vaccinations-and-pregnancy
-related: [rubella-immunity, flu-vaccine, covid-vaccine-in-pregnancy]
+related: [rubella-immunity, flu-vaccine, covid-vaccine-in-pregnancy, chickenpox-exposure]
 appointment:
   - Am I immune to rubella?
   - Should any vaccine I'm due for wait until after the birth?

@@ -17,7 +17,7 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/induced-labour
   - title: RANZCOG — Induction of Labour (patient information)
     url: https://ranzcog.edu.au/wp-content/uploads/Induction-Labour.pdf
-related: [induction, oxytocin-drip, slow-progress, waters-breaking, cord-prolapse]
+related: [induction, oxytocin-drip, slow-progress, waters-breaking, cord-prolapse, vasa-praevia]
 checked: 2026-10-29
 ---
 Breaking the waters, or artificial rupture of membranes (ARM), is when your midwife or doctor makes a small hole in the sac of membranes holding the fluid around the baby. It's a form of induction, and it's also used to help bring on or speed up labour.

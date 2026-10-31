@@ -13,7 +13,7 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/stis-and-pregnancy
   - title: Pregnancy, Birth and Baby — Checkups, tests and scans available during your pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/checkups-and-scans-during-your-pregnancy
-related: [first-blood-tests, syphilis-screening]
+related: [first-blood-tests, syphilis-screening, trichomoniasis]
 checked: 2026-10-29
 ---
 At your first visit your midwife or doctor may suggest testing for chlamydia and gonorrhoea, depending on your age and circumstances. The test is a urine sample, a swab or a blood test, depending on the STI. You can also ask for it. Many people with an STI have no symptoms.

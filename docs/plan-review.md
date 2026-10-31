@@ -127,7 +127,9 @@ Noted 2026-10-31, after the full pass. In the order I'd take them.
 
 **Work for Claude**
 
-4. Coverage. Walked 2026-10-31 (the Safer Baby Bundle's five elements,
+4. ~~Coverage.~~ Written 2026-11-01: `smoking`, `partner-smoking`, `cmv`,
+   `chickenpox-exposure`, `vasa-praevia`, `air-pollution`, `trichomoniasis`
+   (`review-tier3.yaml`). Walked 2026-10-31 (the Safer Baby Bundle's five elements,
    the Pregnancy Care Guidelines' topics, and RANZCOG's 29 pregnancy
    leaflets, by entry id, title, alias and ask). Missing, to write:
    - **Smoking**: no entry on smoking itself or quitting, for either

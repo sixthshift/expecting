@@ -18,7 +18,7 @@ sources:
     url: https://www.healthdirect.gov.au/warning-signs-during-pregnancy
   - title: The Royal Women's Hospital — Coping with common discomforts of pregnancy (fact sheet, April 2018)
     url: https://www.thewomens.org.au/images/uploads/fact-sheets/Common-discomforts-pregnancy-2018.pdf
-related: [thrush, fluid-leaking, spotting-and-bleeding-in-early-pregnancy]
+related: [thrush, fluid-leaking, spotting-and-bleeding-in-early-pregnancy, trichomoniasis]
 checked: 2026-10-29
 ---
 ## What's usual
