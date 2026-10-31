@@ -131,10 +131,11 @@ Noted 2026-10-31, after the full pass. In the order I'd take them.
    Bundle and RANZCOG's patient leaflets against the Library and list
    what's missing (so far found ad hoc: `baby-moving-less`,
    `seizure-in-pregnancy`).
-5. Make the review's rules tests (`test/content/`), so they can't come
-   back: no "Ask your midwife or OB." or "the source says"; symptom
-   headings in urgency order; every phone number against one table of
-   services; no mother/woman/she in our own sentences.
+5. ~~Make the review's rules tests.~~ Done 2026-10-31
+   (`test/content/review.test.ts`): no template lines, and every phone
+   number against one table of services. Symptom headings in urgency order
+   were already a parse rule (`src/content/parse.ts`). Not made a test:
+   mother/woman/she, which sources' names and statistics use legitimately.
 6. Merge the duplicates in `content/REVIEW.md`: `listeria` and
    `listeria-foods`; the three pets entries; the three Braxton Hicks
    entries; leave after a loss (three); `brain-fog` and its card.
