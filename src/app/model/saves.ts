@@ -10,6 +10,7 @@ import { factsSaves } from "../../api/rpc/facts";
 import { feelingsSaves } from "../../api/rpc/feelings";
 import { firstsSaves } from "../../api/rpc/firsts";
 import { journalSaves, journalSeenSaves } from "../../api/rpc/journal";
+import { listsSaves } from "../../api/rpc/lists";
 import { namesSaves } from "../../api/rpc/names";
 import { papersSaves } from "../../api/rpc/papers";
 import { photosSaves } from "../../api/rpc/photos";
@@ -37,4 +38,5 @@ export const SAVES: readonly AnySave[] = [
   appetiteSaves,
   photosSaves,
   papersSaves,
+  listsSaves,
 ].flatMap((saves) => Object.values(saves));

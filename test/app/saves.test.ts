@@ -104,6 +104,12 @@ const gtt = {
   editedAt: null,
 };
 const papers = [gtt];
+const LIST = "66666666-6666-4666-8666-666666666666";
+const lists = {
+  ownLists: [{ id: LIST, title: "Bunnings run", by: made.by, createdAt: made.at }],
+  ownLines: [{ id: ID, listId: LIST, title: "Hooks", section: null, by: made.by, createdAt: made.at }],
+  marks: { [ID]: { lineId: ID, state: "got", how: null, note: null, by: made.by, updatedAt: made.at } },
+};
 
 /** For each save: data as fetched, and inputs to apply over it. */
 const CASES: Record<string, [unknown, unknown[]]> = {
@@ -246,6 +252,32 @@ const CASES: Record<string, [unknown, unknown[]]> = {
   ],
   editPaper: [papers, [{ id: PAPER, kind: "result", title: " GTT ", itemId: null, day: "2026-10-27", note: " Copy to the GP ", handy: true }]],
   deletePaper: [papers, [{ id: PAPER }, { id: ID }]],
+  addList: [
+    lists,
+    [
+      { id: "22222222-2222-4222-8222-222222222222", title: " Ask Mum " },
+      { id: LIST, title: "Again" },
+    ],
+  ],
+  renameList: [lists, [{ id: LIST, title: " Hardware " }]],
+  deleteList: [lists, [{ id: LIST }]],
+  addLine: [
+    lists,
+    [
+      { id: "22222222-2222-4222-8222-222222222222", listId: "baby", title: " Bouncer ", section: null },
+      { id: ID, listId: LIST, title: "Again", section: null },
+    ],
+  ],
+  changeLine: [lists, [{ id: ID, title: " Wall hooks ", section: null }]],
+  deleteLine: [lists, [{ id: ID }]],
+  markLine: [
+    lists,
+    [
+      { lineId: "get-car-seat", state: "arranged", how: "bought", note: " Mum's lending hers " },
+      { lineId: ID, state: null, how: null, note: " " },
+      { lineId: ID, state: "got", how: "second-hand", note: null },
+    ],
+  ],
 };
 
 test("every save has its cases here", () => {

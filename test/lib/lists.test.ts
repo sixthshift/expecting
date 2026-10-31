@@ -36,6 +36,7 @@ test("your own lines come after the built-in ones, as lines of no item", () => {
 
 test("still to get is no mark, or arranged", () => {
   expect(isLeft(undefined)).toBe(true);
+  expect(isLeft({ ...mark("a", "got"), state: null, note: "newborn size" })).toBe(true);
   expect(isLeft(mark("a", "arranged"))).toBe(true);
   expect(isLeft(mark("a", "got"))).toBe(false);
   expect(isLeft(mark("a", "not-needed"))).toBe(false);

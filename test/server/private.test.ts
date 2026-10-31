@@ -129,6 +129,13 @@ const WRITES: Record<string, ((x: string) => unknown) | null> = {
   }),
   "papers.ts:editPaper": (x) => ({ id: UUID, kind: "letter", title: x, itemId: x, day: "2026-10-30", note: x, handy: true }),
   "papers.ts:deletePaper": (x) => ({ id: x }),
+  "lists.ts:addList": (x) => ({ id: UUID, title: x }),
+  "lists.ts:renameList": (x) => ({ id: UUID, title: x }),
+  "lists.ts:deleteList": (x) => ({ id: x }),
+  "lists.ts:addLine": (x) => ({ id: UUID, listId: x, title: x, section: x }),
+  "lists.ts:changeLine": (x) => ({ id: UUID, title: x, section: x }),
+  "lists.ts:deleteLine": (x) => ({ id: x }),
+  "lists.ts:markLine": (x) => ({ lineId: x, state: "got", how: null, note: x }),
 };
 
 /** An upload as a phone sends it: a form, with `x` as its name and its file's. */

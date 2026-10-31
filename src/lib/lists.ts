@@ -1,7 +1,7 @@
 // The lists: what to get, a list per job (docs/plan-lists.md). The built-in
 // lists are LISTS, and their lines come from the Library (an item's `lines`);
 // your own lists and lines sit beside them. Each line has a state, set by
-// either of you, or none: still to get.
+// either of you, or none: still to get. Any line can hold a few words.
 
 import type { Item, Line } from "../content/schema";
 import { applies, type Facts } from "../features/settings/model/facts";
@@ -61,8 +61,8 @@ export function listOf(id: string): ListDef | undefined {
   return Object.hasOwn(LISTS, id) ? LISTS[id as ListId] : undefined;
 }
 
-/** A line's mark, as stored: its state, how it was got, a few words, and who set it last. */
-export type Mark = { lineId: string; state: LineState; how: How | null; note: string | null; by: string | null; updatedAt: string };
+/** A line's mark, as stored: its state (none, still to get, with only words), how it was got, a few words, and who set it last. */
+export type Mark = { lineId: string; state: LineState | null; how: How | null; note: string | null; by: string | null; updatedAt: string };
 
 /** A list of your own, as stored. */
 export type OwnList = { id: string; title: string; by: string | null; createdAt: string };
@@ -79,9 +79,9 @@ export function tailorLines(items: readonly Item[], facts: Facts, own: readonly 
   return [...items.flatMap((i) => i.lines).filter((l) => applies(l.when, facts)), ...own.map(ownLine)];
 }
 
-/** Still to get: not marked, or arranged and not yet here. */
+/** Still to get: no state, or arranged and not yet here. */
 export function isLeft(mark: Mark | undefined): boolean {
-  return mark === undefined || mark.state === "arranged";
+  return !mark?.state || mark.state === "arranged";
 }
 
 /** A list, as the lists page shows it. */

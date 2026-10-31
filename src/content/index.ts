@@ -36,6 +36,12 @@ export function isBuiltInTaskId(id: string): boolean {
   return taskIds.has(id);
 }
 
+const lineIds = new Set(builtInItems.flatMap((item) => item.lines.map((l) => l.id)));
+
+export function isBuiltInLineId(id: string): boolean {
+  return lineIds.has(id);
+}
+
 const itemIds = new Set(builtInItems.map((i) => i.id));
 
 export function isBuiltInItemId(id: string): boolean {
