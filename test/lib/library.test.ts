@@ -39,6 +39,7 @@ function item(id: string, from: number, topic: Topic, surprise = false): DatedIt
     extra: null,
     variables: [],
     tasks: [],
+    lines: [],
     origin: "built-in",
   };
 }

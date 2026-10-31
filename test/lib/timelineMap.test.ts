@@ -42,6 +42,7 @@ function item(id: string, from: number, to: number, tasks: Task[] = [task(`${id}
     extra: null,
     variables: [],
     tasks,
+    lines: [],
     origin: "built-in",
   };
 }

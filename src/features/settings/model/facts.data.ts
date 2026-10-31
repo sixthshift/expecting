@@ -157,6 +157,16 @@ export const QUESTION_LIST = [
     answers: { yes: "Yes", no: "No", unsure: "Not sure yet" },
   },
 
+  // What to get for the baby: bottles, a steriliser and formula only if you'll
+  // use them. Asked for the list alone, and never steering the choice.
+  {
+    id: "feeding",
+    group: "after",
+    ask: "How are you thinking of feeding the baby?",
+    week: 24,
+    answers: { breast: "Breastfeeding", formula: "Formula", both: "Some of each", unsure: "Not sure yet" },
+  },
+
   // Employer-paid leave first or alongside, and when to claim the government's.
   {
     id: "paidLeave",

@@ -126,6 +126,16 @@ function toItem(fm: IndexFrontmatter, variables: string[]): Item {
             })),
             ...decideTask(fm, from),
           ],
+    lines: fm.lines.map((l) => ({
+      id: l.id,
+      title: l.title,
+      listId: l.list,
+      section: l.section,
+      when: l.when,
+      taskId: l.task ?? null,
+      itemId: fm.id,
+      origin: "built-in" as const,
+    })),
     origin: "built-in" as const,
   };
   return from === null || to === null ? { ...fields, from: null, to: null } : { ...fields, from, to };
@@ -153,11 +163,11 @@ function decideTask(fm: IndexFrontmatter, from: Week): Task[] {
   ];
 }
 
-/** Ids unique across items and their tasks. */
+/** Ids unique across items, their tasks and their lines. */
 function checkIds(items: readonly Item[]) {
   const seen = new Map<string, string>();
   for (const item of items) {
-    for (const id of [item.id, ...item.tasks.map((t) => t.id)]) {
+    for (const id of [item.id, ...item.tasks.map((t) => t.id), ...item.lines.map((l) => l.id)]) {
       const other = seen.get(id);
       if (other) throw new ContentError(item.id, `id "${id}" is also used by ${other}`);
       seen.set(id, item.id);

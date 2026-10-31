@@ -7,6 +7,7 @@ import { z } from "zod";
 import { extra } from "../features/settings/model/extras";
 import { checkWhen, question, type When, whenSchema } from "../features/settings/model/facts";
 import { isISODate } from "../lib/dates";
+import { LISTS, listOf } from "../lib/lists";
 import type { Who } from "../lib/people";
 import { WEEKS, type Week } from "../lib/timeline";
 
@@ -149,15 +150,50 @@ export const indexSchema = z
           .strict()
       )
       .default([]),
+    /** What to get, a line each on one of the lists (src/lib/lists.ts), restating what the body says. */
+    lines: z
+      .array(
+        z
+          .object({
+            id: slug,
+            title: z.string().min(1),
+            /** One of LISTS. */
+            list: z.string(),
+            /** One of its list's sections. */
+            section: z.string(),
+            /** Only when your answers match, narrowing the item's own. */
+            when: whenSchema.default({}),
+            /** A task of this item's that it belongs to, whose when it shows. */
+            task: slug.optional(),
+          })
+          .strict()
+      )
+      .default([]),
   })
   .strict()
   .superRefine((fm, ctx) => {
     for (const message of checkWhen(fm.when)) ctx.addIssue({ code: "custom", path: ["when"], message });
+    for (const [i, line] of fm.lines.entries()) {
+      for (const message of checkWhen(line.when)) ctx.addIssue({ code: "custom", path: ["lines", i, "when"], message });
+      const list = listOf(line.list);
+      if (!list) ctx.addIssue({ code: "custom", path: ["lines", i, "list"], message: `"${line.list}" is not a list: ${Object.keys(LISTS).join(", ")}` });
+      else if (!(line.section in list.sections)) {
+        ctx.addIssue({
+          code: "custom",
+          path: ["lines", i, "section"],
+          message: `"${line.section}" is not a section of ${line.list}: ${Object.keys(list.sections).join(", ")}`,
+        });
+      }
+      if (line.task !== undefined && !fm.tasks.some((t) => t.id === line.task)) {
+        ctx.addIssue({ code: "custom", path: ["lines", i, "task"], message: `"${line.task}" is not one of this item's tasks` });
+      }
+    }
     if (fm.extra !== undefined && !extra(fm.extra))
       ctx.addIssue({ code: "custom", path: ["extra"], message: `"${fm.extra}" is not an extra in extras.data.ts` });
     if (fm.private) {
       // Leaves no trace in the space you share: nothing to tick, nothing that turns on a shared answer or an extra.
       if (fm.tasks.length > 0) ctx.addIssue({ code: "custom", path: ["tasks"], message: "a private entry has no tasks: a tick is shared" });
+      if (fm.lines.length > 0) ctx.addIssue({ code: "custom", path: ["lines"], message: "a private entry has no lines: a list is shared" });
       if (fm.decide_by !== undefined) ctx.addIssue({ code: "custom", path: ["decide_by"], message: "a private entry has no decide_by: it would be a task" });
       if (Object.keys(fm.when).length > 0) ctx.addIssue({ code: "custom", path: ["when"], message: "a private entry is for everyone: no when" });
       if (fm.extra !== undefined) ctx.addIssue({ code: "custom", path: ["extra"], message: "a private entry is for everyone: no extra" });
@@ -252,6 +288,23 @@ export type Task = {
   origin: "built-in" | "own";
 };
 
+/** A line on one of the lists: something to get. Built-in from an item's `lines`, or one of your own. */
+export type Line = {
+  id: string;
+  title: string;
+  /** A built-in list's id (LISTS), or one of your own lists' UUID. */
+  listId: string;
+  /** One of its list's sections; null for an own line put in none. */
+  section: string | null;
+  /** Who it is for, narrowing its item's; empty for everyone. */
+  when: When;
+  /** The task it belongs to, whose when it shows. */
+  taskId: string | null;
+  /** The item it comes from; null for your own. */
+  itemId: string | null;
+  origin: "built-in" | "own";
+};
+
 type ItemFields = {
   id: string;
   title: string;
@@ -279,6 +332,7 @@ type ItemFields = {
   /** The questions its body names (`$cover`), whose answers change its words. */
   variables: string[];
   tasks: Task[];
+  lines: Line[];
   origin: "built-in" | "own";
 };
 

@@ -155,6 +155,48 @@ test("ids are unique across items and tasks", () => {
   expect(() => parseAll({ "items/a.md": a, "items/b.md": b })).toThrow(/id "b" is also used by a/);
 });
 
+describe("lines", () => {
+  const withLines = (lines: string, extra = "") => item(`${rsv}${extra}\nlines:\n${lines}`);
+  const line = (fields: string) => `  - id: get-it\n    title: The thing\n${fields}`;
+
+  test("a line on a list, in a section, with its when and its task", () => {
+    const parsed = parseItem(RSV, withLines(line("    list: baby\n    section: sleep\n    when: { feeding: [formula, both] }\n    task: book-rsv-vaccine")));
+    expect(parsed.lines).toEqual([
+      {
+        id: "get-it",
+        title: "The thing",
+        listId: "baby",
+        section: "sleep",
+        when: { feeding: ["formula", "both"] },
+        taskId: "book-rsv-vaccine",
+        itemId: "rsv-vaccine",
+        origin: "built-in",
+      },
+    ]);
+  });
+
+  test.each([
+    ["a list that isn't one", line("    list: bag\n    section: sleep"), "", /"bag" is not a list/],
+    ["a section not its list's", line("    list: baby\n    section: meals"), "", /"meals" is not a section of baby/],
+    [
+      "a task not its item's",
+      line("    list: baby\n    section: sleep\n    task: pack-hospital-bag"),
+      "",
+      /"pack-hospital-bag" is not one of this item's tasks/,
+    ],
+    ["a when on no answer", line("    list: baby\n    section: sleep\n    when: { feeding: bottle }"), "", /"bottle" is not an answer to feeding/],
+    ["a line on a private entry", line("    list: baby\n    section: sleep"), "\nprivate: true", /a private entry has no lines/],
+  ])("rejects %s", (_name, lines, extra, message) => {
+    expect(() => parseItem(RSV, withLines(lines, extra))).toThrow(message);
+  });
+
+  test("a line's id is unique across items, tasks and lines", () => {
+    const a = item("id: a\ntitle: A\ntype: moment\ntopic: gear\nlines:\n  - id: b\n    title: T\n    list: baby\n    section: sleep");
+    const b = item("id: b\ntitle: B\nweeks: 6\ntype: moment\ntopic: body");
+    expect(() => parseAll({ "items/a.md": a, "items/b.md": b })).toThrow(/id "b" is also used by a/);
+  });
+});
+
 describe("types", () => {
   const typed = (fields: string, body = "Some words.") => parseItem("items/x.md", item(`id: x\ntitle: X\n${fields}`, body));
   const symptom = (levels: string) => typed("type: symptom\ntopic: body", `## What's usual\n\nOften.\n\n${levels}`);
