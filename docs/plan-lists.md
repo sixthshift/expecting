@@ -191,6 +191,13 @@ Each step ends with the gate green (`check`, `test`, `lint`, `e2e`).
   the hospital bag's things (It's time), and two of everything for twins
   (a few words cover it until a `babies` line rule is worth it).
 
+- 2026-11-01: the look refined (`feat/lists-look`), as it read bland: each
+  list a card with its icon, a bar and what's next; a list's page with
+  where it's up to, "Just what's left" for the shop, its sections as cards
+  with an icon and a count, flowing down two columns on a desktop; what's
+  got sinks within its section (not while you're ticking); arranged, how
+  and a task's when as badges, the when warning two weeks out.
+
 ## Not in this plan
 
 - **The hospital bag:** *It's time*.

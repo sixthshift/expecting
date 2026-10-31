@@ -95,17 +95,34 @@ export type ListSummary = {
   /** What it's for; null for your own. */
   about: string | null;
   origin: "built-in" | "own";
-  /** Still to get. */
+  /** Still to get, the arranged among them. */
   left: number;
+  /** Arranged: on their way. */
+  arranged: number;
+  /** Got. */
+  got: number;
   /** Every line but the not-needed. */
   total: number;
+  /** The first few still to get, in the list's order, for a glance. */
+  next: string[];
 };
+
+/** How many of what's left a list names at a glance, before "and N more". */
+export const PREVIEW = 2;
 
 /** The lists there are: each built-in list with a line on it, in LISTS' order, then your own, oldest first. */
 export function listsOf(lines: readonly Line[], own: readonly OwnList[], marks: Readonly<Record<string, Mark>>): ListSummary[] {
   const count = (id: string) => {
-    const on = lines.filter((l) => l.listId === id && marks[l.id]?.state !== "not-needed");
-    return { left: on.filter((l) => isLeft(marks[l.id])).length, total: on.length };
+    const { sections } = sectionsOf(id, lines, marks);
+    const on = sections.flatMap((s) => s.lines);
+    const left = on.filter((l) => isLeft(marks[l.id]));
+    return {
+      left: left.length,
+      arranged: on.filter((l) => marks[l.id]?.state === "arranged").length,
+      got: on.filter((l) => marks[l.id]?.state === "got").length,
+      total: on.length,
+      next: left.slice(0, PREVIEW).map((l) => l.title),
+    };
   };
   const builtIn = Object.entries(LISTS)
     .filter(([id]) => lines.some((l) => l.listId === id))
@@ -125,20 +142,52 @@ export function leftSaying(listId: string, { left, total }: { left: number; tota
   return `${left} ${wordsFor(listId).none.toLowerCase()}`;
 }
 
-/** Part of a list:a section's heading (null for your own list, which has none) and its lines. */
-export type Section = { key: string | null; title: string | null; lines: Line[] };
+/** Where a list is up to, in a line: "12 of 27 got · 3 on their way". */
+export function upToSaying(listId: string, { got, arranged, total }: { got: number; arranged: number; total: number }): string {
+  if (total === 0) return "Nothing on it yet";
+  const done = `${got} of ${total} ${wordsFor(listId).got.toLowerCase()}`;
+  return arranged === 0 ? done : `${done} · ${arranged} on ${arranged === 1 ? "its" : "their"} way`;
+}
+
+/** Part of a list: a section's heading (null for your own list, which has none), its lines, and how many are got. */
+export type Section = { key: string | null; title: string | null; lines: Line[]; got: number };
 
 /**
  * A list's lines by its sections, in order, each with something in it; then
  * your own put in none, under its heading for them (none on a list of your own).
+ * In each, what's left first and what's got after, each in its order; a line
+ * got in `stay` (ticked during this visit) keeps its place until the next.
  * The not-needed are apart, for the foot.
  */
-export function sectionsOf(listId: string, lines: readonly Line[], marks: Readonly<Record<string, Mark>>): { sections: Section[]; notNeeded: Line[] } {
+export function sectionsOf(
+  listId: string,
+  lines: readonly Line[],
+  marks: Readonly<Record<string, Mark>>,
+  stay: ReadonlySet<string> = new Set()
+): { sections: Section[]; notNeeded: Line[] } {
   const on = lines.filter((l) => l.listId === listId);
   const needed = on.filter((l) => marks[l.id]?.state !== "not-needed");
   const list = listOf(listId);
-  const sections: Section[] = Object.entries(list?.sections ?? {}).map(([key, title]) => ({ key, title, lines: needed.filter((l) => l.section === key) }));
-  const loose = needed.filter((l) => l.section === null || !(list && l.section in list.sections));
-  sections.push({ key: null, title: list?.yours ?? null, lines: loose });
+  const sinks = (l: Line) => marks[l.id]?.state === "got" && !stay.has(l.id);
+  const section = (key: string | null, title: string | null, its: Line[]): Section => ({
+    key,
+    title,
+    lines: [...its.filter((l) => !sinks(l)), ...its.filter(sinks)],
+    got: its.filter((l) => marks[l.id]?.state === "got").length,
+  });
+  const sections = Object.entries(list?.sections ?? {}).map(([key, title]) =>
+    section(
+      key,
+      title,
+      needed.filter((l) => l.section === key)
+    )
+  );
+  sections.push(
+    section(
+      null,
+      list?.yours ?? null,
+      needed.filter((l) => l.section === null || !(list && l.section in list.sections))
+    )
+  );
   return { sections: sections.filter((s) => s.lines.length > 0), notNeeded: on.filter((l) => marks[l.id]?.state === "not-needed") };
 }

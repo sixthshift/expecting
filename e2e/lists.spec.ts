@@ -10,7 +10,7 @@ test("Before the birth: a line ticked got, another arranged with a few words, ke
   await expect(page.getByRole("heading", { level: 1, name: "Before the birth" })).toBeVisible();
 
   // Its sections, in order, and the car seat's task beside it.
-  await expect(page.getByRole("region", { name: "Out and about" }).getByText("by week 36 · in To do")).toBeVisible();
+  await expect(page.getByRole("region", { name: "Out and about" }).getByText(/^by week 36$/)).toBeVisible();
 
   const nappies = page.getByRole("checkbox", { name: "Nappies, disposable or cloth" });
   await nappies.click();
@@ -22,11 +22,18 @@ test("Before the birth: a line ticked got, another arranged with a few words, ke
   await sheet.getByRole("textbox", { name: "A few words" }).fill("Mum's lending hers");
   await sheet.getByRole("button", { name: "Save" }).click();
   await expect(sheet).toBeHidden();
-  await expect(page.getByText("arranged · you · “Mum's lending hers”")).toBeVisible();
+  const pram = page.getByRole("region", { name: "Out and about" });
+  await expect(pram.getByText("Arranged", { exact: true })).toBeVisible();
+  await expect(pram.getByText("“Mum's lending hers”")).toBeVisible();
 
+  // For the shop: just what's left, the got hidden.
+  await page.getByRole("switch", { name: "Just what's left" }).click();
+  await expect(page.getByRole("checkbox", { name: "Nappies, disposable or cloth" })).toBeVisible();
   await page.reload();
   await expect(page.getByRole("checkbox", { name: "Nappies, disposable or cloth" })).toBeChecked();
-  await expect(page.getByText("arranged · you · “Mum's lending hers”")).toBeVisible();
+  await page.getByRole("switch", { name: "Just what's left" }).click();
+  await expect(page.getByRole("checkbox", { name: "Nappies, disposable or cloth" })).toBeHidden();
+  await expect(pram.getByText("“Mum's lending hers”")).toBeVisible();
 });
 
 test("a list of your own: made, a line added and ticked, then deleted", async ({ page, open }) => {
@@ -35,12 +42,12 @@ test("a list of your own: made, a line added and ticked, then deleted", async ({
   await page.getByRole("textbox", { name: "A new list's name" }).fill(name);
   await page.getByRole("button", { name: "New list" }).click();
   await expect(page.getByRole("heading", { level: 1, name })).toBeVisible();
-  await expect(page.getByText("Nothing on it yet.")).toBeVisible();
+  await expect(page.getByText("Nothing on it yet")).toBeVisible();
 
   await page.getByRole("textbox", { name: "Something to add" }).fill("Wall hooks");
   await page.getByRole("button", { name: "Add it" }).click();
   await page.getByRole("checkbox", { name: "Wall hooks" }).click();
-  await expect(page.getByText("All sorted.")).toBeVisible();
+  await expect(page.getByText("1 of 1 got")).toBeVisible();
 
   await page.reload();
   await expect(page.getByRole("checkbox", { name: "Wall hooks" })).toBeChecked();

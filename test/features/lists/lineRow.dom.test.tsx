@@ -45,16 +45,29 @@ beforeEach(() => {
 afterEach(cleanup);
 
 describe("LineRow", () => {
-  it("says its task's when until it's got, and ticks it got keeping its words", () => {
-    render(<LineRow line={builtIn} mark={mark({ note: "Rear-facing" })} by={null} task={{ label: "by week 36 · in To do" }} />);
-    expect(screen.getByText("“Rear-facing” · by week 36 · in To do")).toBeTruthy();
+  it("says its words and its task's when until it's got, and ticks it got keeping its words, telling the page", () => {
+    const ticked: boolean[] = [];
+    render(
+      <LineRow
+        line={builtIn}
+        mark={mark({ note: "Rear-facing" })}
+        by={null}
+        task={{ label: "by week 36", soon: true, done: false }}
+        onTick={(got) => ticked.push(got)}
+      />
+    );
+    expect(screen.getByText("“Rear-facing”")).toBeTruthy();
+    expect(screen.getByText("by week 36")).toBeTruthy();
     fireEvent.click(screen.getByRole("checkbox", { name: "Car seat" }));
+    expect(ticked).toEqual([true]);
     expect(saved).toEqual([{ key: "markLine", input: { lineId: "get-car-seat", state: "got", how: null, note: "Rear-facing" } }]);
   });
 
-  it("says where it's up to and who set it, and unticks back to still to get", () => {
-    render(<LineRow line={builtIn} mark={mark({ state: "got", how: "borrowed" })} by="Sam" task={null} />);
-    expect(screen.getByText("borrowed · Sam")).toBeTruthy();
+  it("once got, says how and who set it, not its task; and unticks back to still to get", () => {
+    render(<LineRow line={builtIn} mark={mark({ state: "got", how: "borrowed" })} by="Sam" task={{ label: "by week 36", soon: false, done: false }} />);
+    expect(screen.getByText("Borrowed")).toBeTruthy();
+    expect(screen.getByText("Sam")).toBeTruthy();
+    expect(screen.queryByText("by week 36")).toBeNull();
     fireEvent.click(screen.getByRole("checkbox", { name: "Car seat" }));
     expect(saved[0]!.input).toEqual({ lineId: "get-car-seat", state: null, how: null, note: null });
   });
