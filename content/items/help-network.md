@@ -17,6 +17,7 @@ tasks:
     title: Ask the people on the list, and agree the details
     opens: 32
     due: 36
+checked: 2026-10-31
 ---
 Many families no longer live near the people who would once have helped, so it's worth building that help on purpose. People often say "let us know if you need anything"; a list turns that into something you can actually say yes to.
 

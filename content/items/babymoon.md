@@ -16,12 +16,13 @@ tasks:
   - id: book-babymoon
     title: Book the babymoon
     due: 22
+checked: 2026-10-31
 ---
-A last trip as two. The middle of the pregnancy, roughly weeks 14 to 28, is when most people feel well enough to enjoy it and it's still easy to travel.
+A last trip as two. The second trimester, about weeks 13 to 26, is when most people feel well enough to enjoy it and it's still easy to travel.
 
 Before booking:
 
-- **Travel insurance:** read the pregnancy clause. Some policies stop covering pregnancy-related problems from a certain week, and many won't cover twins, IVF pregnancies or a baby born early overseas. Get the cover confirmed in writing.
+- **Travel insurance:** read the pregnancy clause. Some policies stop covering pregnancy-related problems from a certain week. Check it covers you if you're having twins or more, have a high chance of complications or conceived with fertility treatment, and whether it covers a baby born early overseas. Get the cover confirmed in writing.
 - **Flying:** check your airline's rules before you book: some airlines don't let you fly after 32 to 36 weeks, and rules vary between domestic and international flights. The airline may ask for a medical certificate, a letter from your doctor or registered midwife.
 - **Long flights or drives:** see your doctor before flying about blood clots; stay hydrated, wear compression stockings and walk around or stretch during the flight, and stop for a break at least every 2 hours when driving.
 - **Where:** somewhere with good medical care, and check Smartraveller for health advice about the destination.

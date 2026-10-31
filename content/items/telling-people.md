@@ -13,8 +13,9 @@ tasks:
   - id: decide-who-to-tell
     title: Decide who to tell first, and when
     due: 12
+checked: 2026-10-31
 ---
-Many people wait until about 12 weeks, after the first-trimester screening, because the chance of a miscarriage falls after the first trimester. That's a convention, not a rule.
+Many people wait until the end of the first trimester, about 12 weeks, because of the chance of a miscarriage before then. That's a convention, not a rule.
 
 A way to decide: if something went wrong, would you want to get through it privately, or with people around you? Telling a few close people early means support if you need it.
 

@@ -29,6 +29,7 @@ tasks:
     opens: 30
     due: 35
     who: partner
+checked: 2026-10-31
 ---
 Partners often say the appointments, classes and books are written for someone else. These are the jobs that are theirs.
 

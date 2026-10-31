@@ -17,6 +17,7 @@ tasks:
     title: Talk with the grandparents about their role and the first weeks
     opens: 16
     due: 32
+checked: 2026-10-31
 ---
 Grandparents can be the best help you have, or the most complicated. Most of the friction comes from expectations nobody said out loud, so say them early.
 

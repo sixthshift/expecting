@@ -25,6 +25,7 @@ tasks:
     title: Arrange who looks after the pets while you're at the hospital
     opens: 30
     due: 36
+checked: 2026-10-31
 ---
 Pets need time to get used to a baby, and changes are easier before the baby arrives than after.
 

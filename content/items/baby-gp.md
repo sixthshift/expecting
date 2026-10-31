@@ -7,6 +7,8 @@ type: moment
 topic: appointments
 extra: baby-gp
 sources:
+  - title: Australian Immunisation Handbook — Hepatitis B
+    url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/hepatitis-b
   - title: "Department of Health — Immunisation for pregnancy"
     url: https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/immunisation-for-pregnancy
   - title: Pregnancy, Birth and Baby — What does your GP do for your baby?
@@ -19,6 +21,7 @@ tasks:
     title: Save the GP's number and booking link where you both can find them
     opens: 32
     due: 37
+checked: 2026-10-31
 ---
 A GP is usually the first health professional to call when the baby is unwell. They check growth and development, give the routine childhood vaccines, refer to specialists, and can help with the adjustment to being parents. Some GPs have a special interest in child health.
 
@@ -35,4 +38,4 @@ What to weigh up:
 
 **The child health nurse** is the other half: free checks of growth and development through your state's child health service until school. Your hospital will usually put you in touch after the birth.
 
-The baby's first routine vaccines are due at 6 weeks. Bring the baby's Medicare card, once you have it, and the baby's health record book to every visit.
+The baby's first vaccine, hepatitis B, is given at birth, usually before you leave hospital; the next are due at 2 months, and can be given from 6 weeks (Australian Immunisation Handbook). Bring the baby's Medicare card, once you have it, and the baby's health record book to every visit.

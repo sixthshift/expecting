@@ -21,6 +21,7 @@ tasks:
     title: Tell the midwife or doctor you have a doula, and bring them to an appointment
     opens: 20
     who: carrying
+checked: 2026-10-31
 ---
 A doula is a non-medical companion who gives physical and emotional support before, during and after the birth. They're not a midwife or a doctor: they don't give medical advice or clinical care, and they're not registered health practitioners. In Australia the industry is unregulated, and no particular qualification is required, though many have trained as a birth doula, a postnatal doula, or both.
 

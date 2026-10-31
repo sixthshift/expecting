@@ -19,6 +19,7 @@ tasks:
   - id: ask-close-family-about-vaccines
     title: Ask close family and carers to check their whooping cough vaccine
     due: 34
+checked: 2026-10-31
 ---
 Everyone wants to meet the baby. The first days are also when you're sorest, most tired and learning to feed, so it helps to decide the rules before anyone asks.
 

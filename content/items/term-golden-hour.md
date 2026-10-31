@@ -14,6 +14,7 @@ sources:
   - title: Australian Breastfeeding Association — Skin-to-skin contact and your baby's first feed
     url: https://www.breastfeeding.asn.au/resources/skin-to-skin-first-feed
 related: [skin-to-skin, first-feed, newborn-checks]
+checked: 2026-10-31
 ---
 "The golden hour" is the common name for the first hour or so after birth, held skin-to-skin on your chest. It isn't a clinical term.
 

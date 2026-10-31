@@ -23,6 +23,7 @@ tasks:
     title: Arrange the donation or private banking, and add it to the birth plan
     opens: 24
     due: 34
+checked: 2026-10-31
 ---
 Cord blood is the blood left in the umbilical cord and placenta after the birth. It's rich in blood stem cells, which are used in transplants to treat serious blood and immune disorders such as leukaemia. It's collected after the cord has been cut, from a vaginal or caesarean birth, and the collection doesn't hurt you or the baby.
 

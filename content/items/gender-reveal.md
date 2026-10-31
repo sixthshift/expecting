@@ -19,6 +19,6 @@ Some reveals that don't need much:
 - **A box of balloons,** or a large balloon of confetti to pop.
 - **Coloured powder or confetti cannons,** outdoors.
 
-Skip anything with fire, smoke or fireworks. They're risky, and in many places illegal during fire season.
+Skip anything with fire, smoke or fireworks.
 
 Not everyone wants a reveal, and not every family celebrates a baby's sex. A quiet "it's a girl" over dinner counts.

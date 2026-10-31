@@ -10,6 +10,7 @@ surprise: true
 sources:
   - title: Food Standards Australia New Zealand — Listeria in food
     url: https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/bacteria-foodborne-illness/listeria
+checked: 2026-10-31
 ---
 Listeria infection is rare, but in pregnancy it can cause miscarriage, stillbirth or premature birth. Unlike most food bugs, listeria keeps growing in the fridge. Cooking or reheating it until steaming hot (75°C) kills it.
 

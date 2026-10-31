@@ -17,6 +17,10 @@ tasks:
     who: partner
     opens: 32
     due: 36
+sources:
+  - title: ACCC — Gift cards and discount vouchers
+    url: https://www.accc.gov.au/business/advertising-and-promotions/gift-cards-and-discount-vouchers
+checked: 2026-10-31
 ---
 A push present is a gift for the person who has carried the baby, given around the birth. The name is American, the idea isn't new, and plenty of people don't bother. It's not compulsory, and it's not payment.
 
@@ -32,7 +36,7 @@ If you'd like to, do it before the last weeks. Once the baby comes, there won't 
 **Practicalities.**
 
 - If it's personalised, find a maker who can turn it around quickly after the birth, or give a picture of it and have it made later.
-- Vouchers last a while, but check the expiry date. In Australia most gift cards sold since November 2019 must be valid for at least three years.
+- Vouchers last a while, but check the expiry date. In Australia most gift cards bought since 1 November 2019 must be valid for at least 3 years (ACCC).
 - Keep it somewhere you'll remember, and pack it in the hospital bag if you want to give it there.
 
 Ask quietly beforehand whether they'd want one at all. Some people would rather the money went on the baby, or on sleep.

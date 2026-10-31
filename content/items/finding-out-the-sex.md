@@ -14,6 +14,7 @@ tasks:
     title: Ask for the sex in a sealed envelope, if you want a reveal
     opens: 17
     due: 20
+checked: 2026-10-31
 ---
 There are two usual ways to find out:
 
