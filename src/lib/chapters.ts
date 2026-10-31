@@ -28,7 +28,7 @@ export function chapterOf(week: Week): Chapter {
   return CHAPTERS.find((c) => c.weeks && week >= c.weeks[0] && week <= c.weeks[1]) ?? CHAPTERS[0]!;
 }
 
-export type ChapterState = "begun" | "now" | "to-come" | "passed";
+type ChapterState = "begun" | "now" | "to-come" | "passed";
 
 /** A chapter on the contents page: how it stands, and how much is in it (kept in its weeks; ticks aside). */
 export type ChapterLine = { chapter: Chapter; state: ChapterState; kept: number };
@@ -54,7 +54,7 @@ export function contents({ items, dueDate, now }: { items: readonly StoryItem[];
 }
 
 /** While fewer than this many things are kept (ticks aside), the book's cover and contents sit on the page; after, one line. */
-export const YOUNG_BELOW = 5;
+const YOUNG_BELOW = 5;
 
 /** Whether the Journal is still young: little kept yet. */
 export function young(items: readonly StoryItem[]): boolean {

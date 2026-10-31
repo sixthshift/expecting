@@ -46,11 +46,6 @@ export function isImage(type: FileType): boolean {
   return type.startsWith("image/");
 }
 
-/** Whether a browser can draw it as is: HEIC only Safari, so a HEIC upload is shown by its display copy. */
-export function isDrawable(type: FileType): boolean {
-  return type === "image/jpeg" || type === "image/png" || type === "image/webp";
-}
-
 function ascii(bytes: Uint8Array, from: number, length: number): string {
   return String.fromCharCode(...bytes.subarray(from, from + length));
 }

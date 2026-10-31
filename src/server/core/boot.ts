@@ -1,7 +1,7 @@
 import { mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 
-export const DEFAULT_DATA_DIR = "./data";
+const DEFAULT_DATA_DIR = "./data";
 
 /** Resolve the runtime volume from `DATA_DIR`, defaulting to `./data`. */
 export function dataDir(env: Record<string, string | undefined> = process.env): string {

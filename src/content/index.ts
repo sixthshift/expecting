@@ -6,7 +6,6 @@
 // reaches a page.
 
 import halves from "virtual:expecting/items";
-import type { Week } from "../lib/timeline";
 import type { PageHalf } from "./file";
 import { indexAll, parsePage } from "./parse";
 import type { Item, ItemPage, Task } from "./schema";
@@ -45,12 +44,7 @@ export function isPrivateItem(id: string): boolean {
 }
 
 /** By their weeks, then title; those without weeks last. */
-export function byTimeline(a: Item, b: Item): number {
+function byTimeline(a: Item, b: Item): number {
   if (a.from === null || b.from === null) return (a.from === null ? 1 : 0) - (b.from === null ? 1 : 0) || a.title.localeCompare(b.title);
   return a.from - b.from || a.to - b.to || a.title.localeCompare(b.title);
-}
-
-/** Whether `item` applies in `week`. One without weeks never does. */
-export function covers(item: Item, week: Week): boolean {
-  return item.from !== null && item.from <= week && week <= item.to;
 }

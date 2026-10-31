@@ -14,10 +14,10 @@ import { type StoryItem, TRIMESTERS } from "./story";
 import { type Position, WEEKS, type Week } from "./timeline";
 
 /** At most this many cards, beside a call. */
-export const NOW_CARDS = 2;
+const NOW_CARDS = 2;
 
 /** How long a movement felt as different keeps the call on the Journal: today and yesterday. */
-export const CHANGED_DAYS = 2;
+const CHANGED_DAYS = 2;
 
 /** The calls to make: a movement felt as slower, weaker or stopped lately, or can't keep fluids down today. */
 export function callsToMake(journal: readonly JournalEntry[], appetite: readonly AppetiteEntry[], today: ISODate): { moved: boolean; fluids: boolean } {
@@ -34,7 +34,7 @@ export type RecapSpan = { key: string; title: string; from: Week; to: Week };
 export const WHOLE: RecapSpan = { key: "whole", title: "Your pregnancy", from: WEEKS.first, to: WEEKS.last };
 
 /** The whole pregnancy's recap is offered from this week. */
-export const WHOLE_FROM: Week = 37;
+const WHOLE_FROM: Week = 37;
 
 /** The recap there is now: the whole pregnancy's from week 37, a trimester's in the week after it ends. */
 export function recapDue(now: Week | null): RecapSpan | null {
@@ -60,10 +60,10 @@ export type NowCard =
   | { kind: "weeksAgo"; weeks: number; item: StoryItem };
 
 /** "Last week, kept" shows in the first days of a week: these many. */
-export const LAST_WEEK_DAYS = 2;
+const LAST_WEEK_DAYS = 2;
 
 /** "This day, weeks ago" looks back at least this many weeks. */
-export const WEEKS_AGO_FROM = 2;
+const WEEKS_AGO_FROM = 2;
 
 /** What "this day, weeks ago" can bring back, most wanted first. */
 const AGO: readonly StoryItem["kind"][] = ["first", "photo", "letter", "note"];

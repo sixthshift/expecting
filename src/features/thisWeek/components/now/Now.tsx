@@ -11,7 +11,7 @@ import { daysBetween, formatDate, type ISODate, todayISO } from "../../../../lib
 import { dueDateBounds, gestationLabel, type Position, TERM_DAYS, WEEKS, type Week, weekDates, weekFromNow, weekLabel } from "../../../../lib/timeline";
 
 /** Where you are: "28+0 · 84 days to go · due Wed, 20 Jan 2027". */
-export function NowLine({ position, dueDate, today, small }: { position: Position; dueDate: ISODate; today: ISODate; small?: boolean }): ReactNode {
+function NowLine({ position, dueDate, today, small }: { position: Position; dueDate: ISODate; today: ISODate; small?: boolean }): ReactNode {
   const toGo = daysBetween(today, dueDate);
   return (
     <p className={small ? "text-sm text-fg-strong" : "text-lg text-fg-strong"}>

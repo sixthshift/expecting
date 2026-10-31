@@ -7,7 +7,7 @@ import { formatDate, type ISODate, isISODate } from "../../../lib/dates";
 import { TICKED } from "../../../lib/emergency";
 import { gestationLabel, positionOn } from "../../../lib/timeline";
 
-export type HandoverRow = {
+type HandoverRow = {
   id: string;
   label: string;
   value: string;

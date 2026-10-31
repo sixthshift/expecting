@@ -11,7 +11,7 @@ import type { Who } from "../lib/people";
 import { WEEKS, type Week } from "../lib/timeline";
 
 /** What kind of entry an item is: each has its own page, and its own body shape (src/content/parse.ts). */
-export const TYPES = ["moment", "payment", "decision", "can-i", "symptom", "guide", "card", "term"] as const;
+const TYPES = ["moment", "payment", "decision", "can-i", "symptom", "guide", "card", "term"] as const;
 
 export type ItemType = (typeof TYPES)[number];
 
@@ -71,9 +71,9 @@ export const SYMPTOM_LEVELS = [
 ] as const;
 
 /** What a wrong answer costs: health, safety or a deadline; something; little. */
-export const STAKES = ["high", "medium", "low"] as const;
+const STAKES = ["high", "medium", "low"] as const;
 
-export type Stakes = (typeof STAKES)[number];
+type Stakes = (typeof STAKES)[number];
 
 const slug = z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "ids are lower-case words joined by hyphens");
 const isoDate = z.string().refine(isISODate, "a date as YYYY-MM-DD");
@@ -212,8 +212,6 @@ export const pageSchema = z
     checked: isoDate.optional(),
   })
   .strict();
-
-export type PageFrontmatter = z.output<typeof pageSchema>;
 
 export type Task = {
   id: string;

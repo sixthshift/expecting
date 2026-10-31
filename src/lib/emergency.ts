@@ -3,7 +3,7 @@
 // order the form asks them; their values are shared by both of you, and blank
 // until one of you fills one in. Ids are stored: never rename one.
 
-export type EmergencyKind = "phone" | "line" | "lines" | "date" | "tick";
+type EmergencyKind = "phone" | "line" | "lines" | "date" | "tick";
 
 export type EmergencyField = {
   id: string;

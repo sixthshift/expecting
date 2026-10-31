@@ -45,7 +45,7 @@ export function inputOf({ id, kind, day, time, how, what, note }: AppetiteInput)
 }
 
 /** Words as kept: trimmed, and nothing at all rather than blank. */
-export function wordsOf(text: string | null): string | null {
+function wordsOf(text: string | null): string | null {
   return text?.trim() || null;
 }
 
@@ -82,7 +82,7 @@ function threwUp(e: AppetiteEntry): boolean {
 }
 
 /** Each day's worst sickness, by day. */
-export function worstByDay(entries: readonly AppetiteEntry[]): Map<ISODate, How> {
+function worstByDay(entries: readonly AppetiteEntry[]): Map<ISODate, How> {
   const worst = new Map<ISODate, How>();
   for (const e of sickness(entries)) {
     const day = e.day as ISODate;
@@ -192,7 +192,7 @@ export function tally(entries: readonly AppetiteEntry[], kind: "craving" | "off"
 }
 
 /** How many past cravings are offered as one-tap chips. */
-export const CHIPS = 6;
+const CHIPS = 6;
 
 /** The cravings to offer as chips, most often first: the second pickle is one tap. */
 export function cravingChips(entries: readonly AppetiteEntry[], kind: "craving" | "off" = "craving"): string[] {

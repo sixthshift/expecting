@@ -2,7 +2,7 @@ import { Database } from "bun:sqlite";
 import { join } from "node:path";
 import { dataDir } from "../../server/core/boot";
 
-export const DB_FILE = "expecting.db";
+const DB_FILE = "expecting.db";
 
 /** Path of the SQLite file inside the runtime volume. */
 export function databasePath(dir: string = dataDir()): string {

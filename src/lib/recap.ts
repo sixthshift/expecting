@@ -28,7 +28,7 @@ export type Recap = {
 };
 
 /** Its parts, in the order they're stepped through; only those with something. */
-export const RECAP_PARTS = ["firsts", "bump", "scans", "craved", "voices", "letters", "done"] as const;
+const RECAP_PARTS = ["firsts", "bump", "scans", "craved", "voices", "letters", "done"] as const;
 export type RecapPart = (typeof RECAP_PARTS)[number];
 
 /** The recap of `span`: its weeks' firsts, bump, scans, most craved, both voices, letters, and what was done. */

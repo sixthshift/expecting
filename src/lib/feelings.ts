@@ -54,7 +54,7 @@ export const STEP_LABEL: Record<Step, string> = { rough: "Rough", low: "Low", ok
 const LOW_STEPS: readonly Step[] = ["rough", "low"];
 
 /** Oldest first: by day, then time (one without a time by when it was kept), then when it was kept. */
-export function inOrder<F extends Feeling>(feelings: readonly F[]): F[] {
+function inOrder<F extends Feeling>(feelings: readonly F[]): F[] {
   return [...feelings].sort(
     (a, b) =>
       a.day.localeCompare(b.day) ||

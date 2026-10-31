@@ -7,7 +7,7 @@ import type { Week } from "./timeline";
 export type OwnTaskRow = { id: string; title: string; week: Week; createdAt: string };
 
 /** An own task can be done any time up to its week, has no hard deadline, and is both of yours. */
-export function ownTaskToTask(row: OwnTaskRow): Task {
+function ownTaskToTask(row: OwnTaskRow): Task {
   return { id: row.id, title: row.title, opens: 1, due: row.week, deadline: null, deadlineFrom: null, who: "together", itemId: null, origin: "own" };
 }
 

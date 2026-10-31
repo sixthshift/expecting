@@ -16,12 +16,12 @@ import type { Task } from "../content/schema";
 import { type Week, weekLabel } from "./timeline";
 
 /** How many weeks ahead "now" looks: a task best done within them is on the list. */
-export const HORIZON_WEEKS = 2;
+const HORIZON_WEEKS = 2;
 
 /** How many weeks back it still looks: a task slipped (or a deadline missed) longer ago is left to the Planner. */
-export const SLIPPED_WEEKS = 4;
+const SLIPPED_WEEKS = 4;
 
-export type Why = "deadline" | "slipped" | "soon";
+type Why = "deadline" | "slipped" | "soon";
 
 export type ToDo = { task: Task; why: Why };
 
@@ -54,7 +54,7 @@ export function toDoNow(tasks: readonly Task[], ticks: Record<string, string>, t
 }
 
 /** How many weeks ahead Coming up looks, past To do now's horizon. */
-export const AHEAD_WEEKS = 8;
+const AHEAD_WEEKS = 8;
 
 export type Coming = { task: Task; week: Week; deadline: boolean };
 

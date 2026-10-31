@@ -4,9 +4,6 @@ import type { Upload } from "../../../lib/files";
 import { orm } from "../../connection/client";
 import { upload } from "./schema";
 
-/** An upload's row, as the server keeps it once its bytes are on disk. */
-export type UploadRow = Upload;
-
 /** Every column that points at an upload: a record's table and its column, as SQLite says (so a new record's table counts without being listed). */
 type Reference = { table: string; column: string };
 

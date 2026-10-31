@@ -6,9 +6,9 @@ import { parse as parseYaml } from "yaml";
 import { z } from "zod";
 import { WEEKS } from "../lib/timeline";
 
-export const MAP_TYPES = ["can-i", "symptom", "moment", "guide", "card", "decision", "term", "payment"] as const;
+const MAP_TYPES = ["can-i", "symptom", "moment", "guide", "card", "decision", "term", "payment"] as const;
 
-export const MAP_TOPICS = [
+const MAP_TOPICS = [
   "food",
   "drink",
   "medicines",
@@ -37,7 +37,7 @@ export const MAP_TOPICS = [
 const slug = z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "ids are lower-case words joined by hyphens");
 const week = z.number().int().min(WEEKS.first).max(WEEKS.last);
 
-export const mapEntrySchema = z
+const mapEntrySchema = z
   .object({
     id: slug,
     title: z.string().min(1),

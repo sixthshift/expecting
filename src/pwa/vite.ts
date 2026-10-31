@@ -11,7 +11,7 @@ import type { Plugin } from "vite";
 import { APP_CACHE, DATA_CACHE, FILES_CACHE } from "./caches.ts";
 
 /** Where the worker is served: at the root, so every path is in its scope. */
-export const WORKER_FILE = "sw.js";
+const WORKER_FILE = "sw.js";
 
 /** An item's page chunk, as src/content/vite.ts makes it. */
 const ITEM_PAGE = /\/content\/items\/[^/]+\.md\?page$/;

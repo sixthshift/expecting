@@ -26,7 +26,7 @@ export const DOORS = ["can-i", "normal", "surprises", "glossary", "moments", "de
 export type Door = (typeof DOORS)[number];
 
 /** How a door's entries are laid out: rows under headings, cards, or a glossary that opens in place. */
-export type DoorLayout = "rows" | "cards" | "glossary";
+type DoorLayout = "rows" | "cards" | "glossary";
 
 type DoorInfo = {
   title: string;
@@ -46,7 +46,7 @@ export type Group = { key: string; title: string; items: Item[] };
 const ofType = (type: ItemType) => (item: Item) => item.type === type;
 
 /** The topics nobody wants to need: behind a quiet door of their own, as well as on their shelves. */
-export const HARD_TOPICS: readonly Topic[] = ["loss", "mental-health", "special-circumstances"];
+const HARD_TOPICS: readonly Topic[] = ["loss", "mental-health", "special-circumstances"];
 
 export const DOOR_INFO: Record<Door, DoorInfo> = {
   "can-i": {
@@ -123,11 +123,6 @@ export const DOOR_INFO: Record<Door, DoorInfo> = {
   },
 };
 
-/** Whether `door` is one of the doors: for a search param. */
-export function isDoor(door: string): door is Door {
-  return (DOORS as readonly string[]).includes(door);
-}
-
 /** What's behind `door`. */
 export function behind(door: Door, items: readonly Item[]): Item[] {
   return items.filter(DOOR_INFO[door].holds);
@@ -202,7 +197,7 @@ function byLetter(items: readonly Item[]): Group[] {
 }
 
 /** The three trimesters, as weeks: 1–13, 14–27, 28–42. */
-export const TRIMESTERS = [
+const TRIMESTERS = [
   { key: "first", title: "First trimester, weeks 1–13", to: 13 },
   { key: "second", title: "Second trimester, weeks 14–27", to: 27 },
   { key: "third", title: "Third trimester, weeks 28–42", to: 42 },
@@ -254,7 +249,7 @@ export type Standing =
 export type RightNow = { item: DatedItem; standing: Standing };
 
 /** A window closing within this many weeks counts down; a longer one says when it opened. */
-export const COUNTDOWN_WEEKS = 4;
+const COUNTDOWN_WEEKS = 4;
 
 /**
  * Right now, at week `now`: the items that ask something of you whose weeks cover it, soonest-closing

@@ -14,7 +14,7 @@ import { type FileType, MADE_TYPE, MAX_MADE, MAX_ORIGINAL, sniff, type Upload, t
 import { dataDir } from "../core/boot";
 
 /** Where the uploads are: a folder beside the database. */
-export function uploadsDir(dir: string = dataDir()): string {
+function uploadsDir(dir: string = dataDir()): string {
   return join(dir, "uploads");
 }
 
@@ -122,7 +122,7 @@ export async function readUpload(form: FormData): Promise<Received> {
 }
 
 /** How long an upload may wait for its record before it's swept: its record follows in seconds. */
-export const UNCLAIMED_AFTER_MS = 86_400_000;
+const UNCLAIMED_AFTER_MS = 86_400_000;
 
 /**
  * Keep an upload: its bytes, then its row. One already here (the same upload,

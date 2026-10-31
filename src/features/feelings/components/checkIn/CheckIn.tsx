@@ -16,7 +16,7 @@ import { StepPicker } from "../StepPicker";
 import { Support, supportItem } from "../Support";
 
 /** Keep a step: a new feeling, or today's one changed, its words kept. */
-export function useKeepStep() {
+function useKeepStep() {
   const add = useSave(feelingsSaves.addFeeling);
   const change = useSave(feelingsSaves.changeFeeling);
   return (step: Step, feeling: OwnFeeling | undefined): string => {

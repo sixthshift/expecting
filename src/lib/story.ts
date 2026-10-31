@@ -31,7 +31,7 @@ export type StoryItem = { key: string; day: ISODate; time: string | null; by: st
   | { kind: "done"; taskId: string; title: string }
 );
 
-export type StoryKind = StoryItem["kind"];
+type StoryKind = StoryItem["kind"];
 
 /** The ways to look at the story: all of it, or one kind. */
 export const LENSES = ["all", "notes", "movements", "appetite", "photos", "feelings", "papers", "firsts"] as const;
@@ -127,16 +127,11 @@ export function lensesKept(items: readonly StoryItem[], quiet: boolean): Lens[] 
   return LENSES.filter((l) => l === "all" || kept.has(l));
 }
 
-/** Whether a line is in a lens. */
-export function inLens(item: StoryItem, lens: Lens): boolean {
-  return lens === "all" || lensOf(item) === lens;
-}
-
 /** Who a line names: `name` gives a person's name from their id. */
 type Namer = (id: string | null) => string | null;
 
 /** The words a line can be found by. */
-export function storyText(item: StoryItem, name: Namer = () => null): string {
+function storyText(item: StoryItem, name: Namer = () => null): string {
   const words = ((): (string | null)[] => {
     switch (item.kind) {
       case "note":
@@ -266,7 +261,7 @@ export function landmarks(firsts: readonly FirstMark[], dueDate: ISODate): { wee
 export const PATTERN_MIN = { movementDays: 3, sickWeeks: 2, cravingTimes: 2, checkIns: 3, bumpWeeks: BUMP_SERIES } as const;
 
 /** How far back the feelings' pattern looks, today among them. */
-export const FEELING_DAYS = 28;
+const FEELING_DAYS = 28;
 
 export type Pattern = "movements" | "sickness" | "cravings" | "feelings" | "bump";
 

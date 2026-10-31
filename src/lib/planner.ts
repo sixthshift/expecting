@@ -19,7 +19,7 @@ import type { Week } from "./timeline";
 import { type ToDo, toDoNow } from "./todo";
 
 /** What a week ahead stands for: when the task opens, is best done by, or its deadline. */
-export type AheadAt = "opens" | "due" | "deadline";
+type AheadAt = "opens" | "due" | "deadline";
 
 export type Ahead = { task: Task; week: Week; at: AheadAt };
 
@@ -66,7 +66,7 @@ export function planTasks(tasks: readonly Task[], ticks: Record<string, string>,
 }
 
 /** Where the stages end: the weeks people mark, and one more where the admin crowds in. */
-export const STAGES: readonly { end: Week; title: string }[] = [
+const STAGES: readonly { end: Week; title: string }[] = [
   { end: 13, title: "Before the first trimester ends" },
   { end: 20, title: "By halfway" },
   { end: 27, title: "Before the third trimester" },

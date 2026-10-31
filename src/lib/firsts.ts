@@ -67,7 +67,7 @@ export function firstOf(key: FirstKey): FirstDef {
 export const FIRST_TICKS: Partial<Record<FirstKey, string>> = { "cot-up": "set-up-cot-in-your-room", "bag-packed": "pack-hospital-bag" };
 
 /** One of you's words for a first. */
-export type FirstWords = { by: string; body: string; editedAt: string };
+type FirstWords = { by: string; body: string; editedAt: string };
 
 /** A first as kept: marked on its day, or put aside (null). */
 export type FirstMark = { key: FirstKey; day: string | null; by: string | null; createdAt: string; words: FirstWords[] };
@@ -135,7 +135,7 @@ export function suggestFirsts({
 }
 
 /** How many firsts "around now" offers at once. */
-export const AROUND_NOW = 2;
+const AROUND_NOW = 2;
 
 /** Not yet marked or put aside, and offered (boy or girl only when you know). */
 function open(marks: readonly FirstMark[], knowing: boolean): FirstDef[] {

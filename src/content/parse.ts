@@ -25,7 +25,7 @@ function check<S extends z.ZodType>(file: string, schema: S, raw: unknown): z.ou
 }
 
 /** An item's index half into the item every list reads. Throws a ContentError naming the file on any problem. */
-export function parseIndex({ file, frontmatter, variables }: IndexHalf): Item {
+function parseIndex({ file, frontmatter, variables }: IndexHalf): Item {
   const id = idOf(file);
   const fm = check(file, indexSchema, frontmatter);
   if (fm.id !== id) throw new ContentError(file, `id "${fm.id}" must be the file's name, ${id}`);

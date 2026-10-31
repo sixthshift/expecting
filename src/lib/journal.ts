@@ -94,11 +94,6 @@ export function matches(entry: JournalEntry, query: string): boolean {
     .every((word) => body.includes(word));
 }
 
-/** Whether an entry is words: a note, or a letter to the baby. */
-export function isNote(entry: JournalEntry): boolean {
-  return entry.kind === "note" || entry.kind === "letter";
-}
-
 /**
  * The week movements are first offered: where `baby-movements` starts, as
  * first movements come between 16 and 24 weeks. Logging one is harmless, so

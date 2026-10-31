@@ -6,12 +6,12 @@ export function isLoggedOut(error: unknown): boolean {
 }
 
 /** No answer at all: no connection, or one that goes nowhere (hospital Wi-Fi). fetch's TypeError, whatever the browser words it. */
-export function isUnreachable(error: unknown): boolean {
+function isUnreachable(error: unknown): boolean {
   return error instanceof TypeError;
 }
 
 /** Tries at a save the server turns away with an error, before giving up on it: enough to outlast a restart. */
-export const SEND_TRIES = 6;
+const SEND_TRIES = 6;
 
 /**
  * Whether a waiting save that failed is sent again (`failures` so far). Unreachable: always, until it

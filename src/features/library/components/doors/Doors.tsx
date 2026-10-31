@@ -15,7 +15,7 @@ import {
 import type { Item } from "../../../../content/schema";
 import { behind, DOOR_INFO, DOORS, type Door } from "../../../../lib/library";
 
-export const DOOR_ICONS: Record<Door, LucideIcon> = {
+const DOOR_ICONS: Record<Door, LucideIcon> = {
   "can-i": CircleHelp,
   normal: HeartPulse,
   surprises: Sparkles,

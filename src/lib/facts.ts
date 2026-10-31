@@ -14,7 +14,7 @@ export type Answer = { question: string; about: Role | null; value: string | nul
 /** A question answered `unsure` comes back this many weeks later, not every week. */
 export const ASK_AGAIN_AFTER = 4;
 
-export function keyOf(a: Pick<Answer, "question" | "about">): string {
+function keyOf(a: Pick<Answer, "question" | "about">): string {
   return factKey(a.question, a.about);
 }
 
