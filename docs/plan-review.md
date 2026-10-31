@@ -152,7 +152,8 @@ Noted 2026-10-31, after the full pass. In the order I'd take them.
    the four "couldn't be checked" marked settled. Still open there: the
    other `private` candidates, `cooking-with-alcohol`, the "no source says"
    entries, and the duplicates (item 6).
-10. Run `bun run e2e`: 927 entries just lost `draft`.
+10. ~~Run `bun run e2e`.~~ Done 2026-10-31: the whole gate passes (check,
+    1,246 unit tests, lint, 106 e2e).
 
 **Ongoing**
 
