@@ -106,7 +106,7 @@ describe("the weeks", () => {
   });
 
   test("an asked question counts in the week it was asked", () => {
-    const asked: Question = { id: "q", text: "?", answer: null, askedAt: "2026-10-29T01:00:00Z", createdAt: "2026-10-01T00:00:00Z" };
+    const asked: Question = { id: "q", text: "?", answer: null, askedAt: "2026-10-29T01:00:00Z", itemId: null, by: null, createdAt: "2026-10-01T00:00:00Z" };
     const w = mapWeeks({ ...input, questions: [asked] });
     expect(w.filter((m) => m.asked > 0).map((m) => m.week)).toEqual([28]);
   });

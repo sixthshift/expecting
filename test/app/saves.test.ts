@@ -9,7 +9,7 @@ const made: Made = { at: "2026-10-30T07:30:00.000Z", by: "00000000-0000-4000-800
 const ID = "11111111-1111-4111-8111-111111111111";
 
 const checklist = { ticks: { "book-rsv-vaccine": "2026-10-01T00:00:00.000Z" }, ownTasks: [{ id: ID, title: "Cot", week: 30, createdAt: made.at }] };
-const questions = [{ id: ID, text: "Free?", answer: null, askedAt: null, createdAt: made.at }];
+const questions = [{ id: ID, text: "Free?", answer: null, askedAt: null, itemId: null, by: null, createdAt: made.at }];
 const names = { names: [{ id: ID, name: "Ada", mine: null }], matches: [{ id: ID, name: "Ada" }], together: true };
 const settings = { dueDate: "2027-03-01", baby: "surprise", onboardedAt: made.at };
 const note = {

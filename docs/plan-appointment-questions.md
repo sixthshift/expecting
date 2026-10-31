@@ -80,9 +80,10 @@ appointment:
 Each step ends with the gate green (`check`, `test`, `lint`, `e2e`), and is
 committed on its own if Jason asks.
 
-1. **The store.** *Not started.* Migration `016_question_source.sql`: add
+1. **The store.** *Done 2026-10-31.* Migration `023_question_source.sql`: add
    `item_id` (nullable text, an item id, not a foreign key: items are files)
-   and `by` (nullable, `carrying` | `partner`; null for rows from before).
+   and `by` (nullable, a person id as photos, papers and the Journal keep it,
+   `ON DELETE SET NULL`; null for rows from before).
    Schema and `QuestionsRepo.add(text, { itemId, by })`; `addQuestion` takes
    an optional `itemId`, checked against the built-in ids (`isBuiltInItemId`
    or like) and refused for a private item; `by` comes from who's holding the
@@ -146,6 +147,9 @@ run test` green.
 Record each session here: what was done, what was decided, where to pick up.
 
 - 2026-10-30: plan written. Next: step 1.
+- 2026-10-31: step 1 done. `by` is a person id, not a role, matching the
+  other records. A private `itemId` is refused by the privacy middleware
+  before the validator; an unknown one by `isBuiltInItemId`. Next: step 2.
 
 ## Not in this plan
 

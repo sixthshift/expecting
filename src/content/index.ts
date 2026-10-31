@@ -36,6 +36,12 @@ export function isBuiltInTaskId(id: string): boolean {
   return taskIds.has(id);
 }
 
+const itemIds = new Set(builtInItems.map((i) => i.id));
+
+export function isBuiltInItemId(id: string): boolean {
+  return itemIds.has(id);
+}
+
 const privateIds = new Set(builtInItems.filter((i) => i.private).map((i) => i.id));
 
 /** Whether the entry `id` is private: read, but leaves no trace in the space you share. */

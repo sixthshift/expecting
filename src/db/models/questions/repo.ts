@@ -16,9 +16,14 @@ export class QuestionsRepo {
     return this.db.select().from(question).orderBy(asc(question.createdAt)).all();
   }
 
-  /** Add a question, by the id the phone gave it; one already here (the same save, sent twice) is left as it is. */
-  add(text: string, now: Date = new Date(), id: string = crypto.randomUUID()): Question {
-    const row: Question = { id, text, answer: null, askedAt: null, createdAt: now.toISOString() };
+  /** Add a question, by the id the phone gave it, from the entry it was asked from and by whom; one already here (the same save, sent twice) is left as it is. */
+  add(
+    text: string,
+    { itemId = null, by = null }: { itemId?: string | null; by?: string | null } = {},
+    now: Date = new Date(),
+    id: string = crypto.randomUUID()
+  ): Question {
+    const row: Question = { id, text, answer: null, askedAt: null, itemId, by, createdAt: now.toISOString() };
     this.db.insert(question).values(row).onConflictDoNothing().run();
     return row;
   }
