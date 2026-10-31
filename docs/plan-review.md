@@ -151,7 +151,8 @@ Noted 2026-10-31, after the full pass. In the order I'd take them.
    number against one table of services. Symptom headings in urgency order
    were already a parse rule (`src/content/parse.ts`). Not made a test:
    mother/woman/she, which sources' names and statistics use legitimately.
-6. Merge the duplicates in `content/REVIEW.md`: `listeria` and
+6. ~~Merge the duplicates.~~ Settled 2026-11-01 without deleting any id
+   (`content/REVIEW.md`, Duplicates). Was: merge the duplicates in `content/REVIEW.md`: `listeria` and
    `listeria-foods`; the three pets entries; the three Braxton Hicks
    entries; leave after a loss (three); `brain-fog` and its card.
 7. Replace stale sources lines still rest on. Done 2026-10-31: Better
@@ -159,16 +160,21 @@ Noted 2026-10-31, after the full pass. In the order I'd take them.
    the 2019–2020 MotherSafe sheets are still MotherSafe's current ones.
    RANZCOG's 2017 screening leaflet and C-Obs 11 and 36 are still its
    current documents, so they stay; re-check when RANZCOG revises them.
-8. Record the review in the entries: many carry `checked: 2026-10-29`
+8. ~~Record the review in the entries.~~ Not wanted (2026-11-01). Was: many carry `checked: 2026-10-29`
    though edited since. A `reviewed:` date (schema change) would show it
    and drive the re-checks below.
-9. ~~Tidy `content/REVIEW.md`.~~ Done 2026-10-31: kombucha, the infant
+9. ~~Tidy `content/REVIEW.md`.~~ Done 2026-10-31, and the rest 2026-11-01
+   (private candidates now `discreet`, weak entries kept, cooking-with-alcohol kept): kombucha, the infant
    sleep standard (with `portable-cot` moved to AS/NZS 2195:2010), MSI and
    the four "couldn't be checked" marked settled. Still open there: the
    other `private` candidates, `cooking-with-alcohol`, the "no source says"
    entries, and the duplicates (item 6).
 10. ~~Run `bun run e2e`.~~ Done 2026-10-31: the whole gate passes (check,
     1,246 unit tests, lint, 106 e2e).
+
+11. ~~Check the Library against the national guidelines.~~ Done 2026-11-01:
+    all 280 recommendations read (`review-tier3.yaml`). Their drafts (iron,
+    omega-3) are said as drafts; re-check when the NHMRC approves them.
 
 **Ongoing**
 

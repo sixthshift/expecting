@@ -118,6 +118,8 @@ give two different positions to wait in for the ambulance, because two PBB
 pages differ (knees to chest, head down; or hands and knees, bottom up). Both
 entries put the 000 call first and credit each position.
 
+Settled 2026-11-01 by the national pregnancy care guidelines: vitamin D (no routine test or supplement, NHMRC August 2026) and hepatitis C (offered to everyone at the first visit, as the entries already said).
+
 Not decisions, but worth reading together: Better Health's "scuba reasonably
 safe to 18 m" (in `scuba-diving` and `swimming`) against everyone else's
 avoid; cycling (PBB's own pages contradict); vitamin D; folic acid duration;

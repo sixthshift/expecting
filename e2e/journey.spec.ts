@@ -561,7 +561,7 @@ test("This week offers an extra nobody has decided on, once", async ({ page, ope
   await expect(next).toHaveCount(0);
 
   await open("/library/listeria");
-  await expect(page.getByRole("heading", { level: 1, name: "Listeria and the foods that carry it" })).toBeAttached();
+  await expect(page.getByRole("heading", { level: 1, name: "The listeria rule" })).toBeAttached();
   await open("/settings");
   await expect(page.getByRole("switch", { name: "Food and drink" })).toBeChecked();
   await expect(page.getByRole("switch", { name: "Telling people" })).not.toBeChecked();
