@@ -11,7 +11,7 @@
     "lint": "biome check .",
     "format": "biome format --write .",
     "test": "bun --bun vitest run",
-    "e2e": "playwright test -c e2e",
+    "e2e": "$(command -v flock >/dev/null && echo flock /tmp/expecting-e2e.lock) playwright test -c e2e",
     "migrate": "bun run src/db/migrations/migrate.ts",
     "db:generate": "drizzle-kit generate",
     "version:next": "bun run scripts/version.ts",
