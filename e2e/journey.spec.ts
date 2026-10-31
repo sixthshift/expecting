@@ -158,11 +158,7 @@ test("an item is drawn by its type: a verdict, triage with the call to make, a d
   // A symptom: when to get help comes first, most urgent first, each with what to do in one tap.
   await open("/library/fall-or-blow-to-the-belly");
   const help = page.getByRole("region", { name: "When to get help" });
-  await expect(help.getByRole("heading", { level: 3 })).toHaveText([
-    "Call 000 or go to emergency",
-    "Contact your hospital now",
-    "See your doctor or midwife",
-  ]);
+  await expect(help.getByRole("heading", { level: 3 })).toHaveText(["Call 000 or go to emergency", "Contact your hospital now", "See your doctor or midwife"]);
   await expect(help.getByRole("link", { name: "Call 000" })).toHaveAttribute("href", "tel:000");
   await expect(help.getByRole("link", { name: "Add your birth suite's number to Emergency info" })).toBeVisible();
   // Any number in a body is one you can tap.
