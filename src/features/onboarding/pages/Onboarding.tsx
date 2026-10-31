@@ -7,7 +7,7 @@ import { usePeople } from "../../../api/rpc/people";
 import { finishOnboarding, useSettings } from "../../../api/rpc/settings";
 import { Redirect } from "../../../app/components/Redirect";
 import { useAction } from "../../../app/hooks/useAction";
-import { useBabyTheme } from "../../../app/hooks/useBabyTheme";
+import { useAppTheme } from "../../../app/hooks/useAppTheme";
 import { type Step, stepAfter } from "../../../lib/onboarding";
 import { babyStep } from "../components/steps/baby";
 import { dueStep } from "../components/steps/due";
@@ -30,7 +30,7 @@ const nextRoute = getRouteApi("/onboarding/");
 /** Around every step: the baby's colours. */
 export function OnboardingLayout() {
   const { data: settings } = useSettings();
-  useBabyTheme(settings.baby);
+  useAppTheme(settings.baby);
   return <Outlet />;
 }
 

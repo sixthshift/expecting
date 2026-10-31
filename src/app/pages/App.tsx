@@ -9,7 +9,7 @@ import { factsOf } from "../../lib/facts";
 import { PillarLayout } from "../components/layout/PillarLayout";
 import { PILLARS } from "../components/layout/pillars";
 import { WhatsNew } from "../components/WhatsNew";
-import { useBabyTheme } from "../hooks/useBabyTheme";
+import { useAppTheme } from "../hooks/useAppTheme";
 
 /**
  * Around every pillar: the baby's colours and the
@@ -23,7 +23,7 @@ export function App() {
   const { data: facts } = useAnswers({ select: factsOf });
   const { data: questions } = useQuestions();
   const { data: quiet } = useQuiet();
-  useBabyTheme(settings.baby);
+  useAppTheme(settings.baby);
   const { pathname } = useLocation();
 
   // A new pillar starts at its top; the timeline places itself (this week, or ?at=).
