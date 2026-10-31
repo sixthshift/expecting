@@ -334,7 +334,7 @@ The entry types are content (a YAML file), so adding one is a content change. Ea
   - a veto each.
 - **Secret mode,** for couples who keep the name until the birth.
 
-*Built: the game, in the Drawer, with the Choosing a name extra. Either of you adds names (adding one likes it), each votes on your own phone, and the matches show to both; nobody ever sees the other's votes. Not built: the shortlist's checks, popularity, and secret mode.*
+*Built: the game, a page of its own opened from the Drawer, with the Choosing a name extra ([plan](plan-names.md)). A deck of names from the registers of births of England & Wales, Ireland, Ontario, New Zealand and South Australia (and the US, when its file is given), each country counting the same: the 3,646 standard Western names, common in at least two of them, dealt, and the regional ones (Aroha, Seán) kept for later, dealt a card at a time in each person's own shuffle, swiped right to like or left to pass, only girls' or boys' names once you know which it is (all of them, or either, as you choose, until then), with undo and no count of what's left; each card says where it's in a top 10 or 100 now, or when it was most given, or how many babies get it. Either of you can also add names (adding one likes it). Each votes on your own phone, and the matches show to both; nobody ever sees the other's votes, and a name the other liked comes round sooner without being put first. Not built: the shortlist's checks, secret mode and the vetoes.*
 
 ## Records
 
