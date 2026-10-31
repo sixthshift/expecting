@@ -10,7 +10,6 @@ import { useQuiet } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import type { Item, Task } from "../../../content/schema";
-import { whose } from "../../../lib/people";
 import { type Ahead, planTasks, type Stage, stagesAhead } from "../../../lib/planner";
 import { WEEKS, type Week, weekLabel } from "../../../lib/timeline";
 import { type ToDo, whenToDo } from "../../../lib/todo";
@@ -21,6 +20,7 @@ import { AddQuestion, AskedQuestion, OpenQuestion } from "../../questions/compon
 import { PutAside } from "../../quiet/components/putAside/PutAside";
 import { AddTask, DeleteOwnTask } from "../../tasks/components/addTask/AddTask";
 import { TaskRow } from "../../tasks/components/TaskRow";
+import { Whose } from "../../tasks/components/Whose";
 import { useTasks } from "../../tasks/hooks/useTasks";
 
 const week = (w: Week) => weekLabel(w).toLowerCase();
@@ -58,7 +58,7 @@ export function PlannerPage() {
   const deadlines = [plan.next, ...plan.now].filter((t) => t?.why === "deadline" && !checklist.ticks[t.task.id]).length;
 
   const stay = (task: Task) => (ticked: boolean) => ticked && setTickedHere((ids) => new Set(ids).add(task.id));
-  const whoseIs = (task: Task) => (task.who === "together" ? null : <span>{whose(task.who, me, people)}</span>);
+  const whoseIs = (task: Task) => <Whose who={task.who} me={me} people={people} />;
   const why = (task: Task) =>
     task.origin === "own" ? (
       <DeleteOwnTask task={task} />
@@ -218,7 +218,7 @@ function NextUp({ task, ticked, item, meta }: { task: Task; ticked: boolean; ite
         <TaskRow task={task} ticked={ticked} action={task.origin === "own" ? <DeleteOwnTask task={task} /> : null} />
         <div className="flex flex-col gap-2 pl-9">
           <span className="flex flex-wrap items-center gap-x-2 text-sm text-fg-subtle">{meta}</span>
-          {item?.summary ? <p className="max-w-prose text-fg-normal">{item.summary}</p> : null}
+          {item?.summary ? <p className="max-w-prose text-sm text-fg-normal">{item.summary}</p> : null}
           {item ? (
             <ItemLink
               itemId={item.id}

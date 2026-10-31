@@ -32,7 +32,10 @@ const SHORT = { 1: "First", 2: "Second", 3: "Third" } as const;
  *
  * Desktop: the labels in a column beside the chart. Phone: the chart the
  * width of the screen, each label over its bar, starting where the bar does
- * (or ending where it does, for one late in the pregnancy, so it stays on screen).
+ * (or ending where it does, for one late in the pregnancy, so it stays on screen),
+ * in two lines if it needs them, and haloed in the page's colour so the lines
+ * behind it (today, the landmarks) don't run through the words. A key says
+ * what the bars' colours mean.
  */
 export function WindowsChart({ windows, now }: { windows: readonly MapWindow[]; now: Week | null }) {
   const trimesters = ([1, 2, 3] as const).map((t) => {
@@ -45,6 +48,7 @@ export function WindowsChart({ windows, now }: { windows: readonly MapWindow[]; 
       <h2 id="windows" className="text-lg font-display font-semibold text-fg-strong">
         What to do, and when
       </h2>
+      <Key />
       <div className="relative">
         {/* Behind everything, across the chart (beside the labels on a desktop). */}
         <div aria-hidden className="absolute inset-y-0 right-0 left-0 lg:left-56">
@@ -113,7 +117,7 @@ export function WindowsChart({ windows, now }: { windows: readonly MapWindow[]; 
                 >
                   <span
                     className={cn(
-                      "truncate text-sm group-hover:underline lg:w-56 lg:shrink-0 lg:pr-4 lg:pl-0 lg:text-left",
+                      "line-clamp-2 text-sm [text-shadow:0_0_2px_var(--expecting-page),0_0_4px_var(--expecting-page),0_0_6px_var(--expecting-page)] group-hover:underline lg:line-clamp-none lg:w-56 lg:shrink-0 lg:truncate lg:pr-4 lg:pl-0 lg:text-left lg:[text-shadow:none]",
                       late ? "pr-(--end) text-right" : "pl-(--start)",
                       w.state === "open" ? "font-medium text-fg-strong" : "text-fg-subtle"
                     )}
@@ -133,5 +137,24 @@ export function WindowsChart({ windows, now }: { windows: readonly MapWindow[]; 
         </ul>
       </div>
     </section>
+  );
+}
+
+/** What the bars' colours say, in the order they come: open now, ahead, then closed or done. */
+function Key() {
+  const keys: { state: WindowState; label: string }[] = [
+    { state: "open", label: "Open now" },
+    { state: "ahead", label: "Ahead" },
+    { state: "past", label: "Closed or done" },
+  ];
+  return (
+    <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-fg-subtle">
+      {keys.map(({ state, label }) => (
+        <li key={state} className="flex items-center gap-1.5">
+          <span aria-hidden className={cn("h-2.5 w-5 rounded-full", TONE[state])} />
+          {label}
+        </li>
+      ))}
+    </ul>
   );
 }

@@ -25,7 +25,7 @@ export function AddList() {
       <Input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="A list of your own: Bunnings run, ask Mum to bring"
+        placeholder="A list of your own"
         aria-label="A new list's name"
         maxLength={200}
         className="flex-1"

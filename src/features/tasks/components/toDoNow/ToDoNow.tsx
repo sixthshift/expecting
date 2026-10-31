@@ -7,11 +7,11 @@ import { checklistSaves, useChecklist } from "../../../../api/rpc/checklist";
 import { usePeople } from "../../../../api/rpc/people";
 import { useNow } from "../../../../api/rpc/settings";
 import { useSave } from "../../../../app/hooks/useSave";
-import { whose } from "../../../../lib/people";
 import { toDoNow, whenToDo } from "../../../../lib/todo";
 import { ItemLink } from "../../../library/components/ItemLink";
 import { useTasks } from "../../hooks/useTasks";
 import { TaskRow } from "../TaskRow";
+import { Whose } from "../Whose";
 
 /** How many To do now shows before handing over to the Planner. */
 const SHOWN = 5;
@@ -74,7 +74,7 @@ export function ToDoNow() {
                     <span>{whenToDo(entry, now)}</span>
                   )}
                   {/* Both of yours is the usual; only one person's job says whose. */}
-                  {entry.task.who === "together" ? null : <span>{whose(entry.task.who, me, people)}</span>}
+                  <Whose who={entry.task.who} me={me} people={people} />
                 </span>
               }
               action={
