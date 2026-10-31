@@ -91,7 +91,7 @@ committed on its own if Jason asks.
 2. **The Planner shows where from, and whose.** *Done 2026-10-31.* `OpenQuestion`
    and `AskedQuestion` draw "from *title*" (linking to `/library/<id>`) and
    whose it is. The timeline's asked questions too, if it fits the line.
-3. **The entry's action and sheet.** *Not started.* "Ask at my next
+3. **The entry's action and sheet.** *Done 2026-10-31.* "Ask at my next
    appointment" on every non-private item page, the sheet with suggestions
    (`appointment:` plus, on an `ask` verdict, the entry's `ask:`) and the
    free box. Check the design system's exports for a sheet/dialog first.
@@ -155,6 +155,16 @@ Record each session here: what was done, what was decided, where to pick up.
   the same cards show on This week. The timeline only counts asked
   questions, so it has nothing to add. Nothing sends an `itemId` yet, so
   the "from" half is first seen at step 3 (its e2e covers it). Next: step 3.
+- 2026-10-31: step 3 done. `AskAtAppointment`
+  (`src/features/library/components/askAtAppointment/`) under the entry's
+  card, on phone and desktop alike (the item page has one column, so no side
+  column yet). A `Modal`, as every sheet in the app is, not the design
+  system's `Sheet` (a side panel). Tapping a suggestion fills the box, to
+  send as it is or change; one already open on the list says "On your list"
+  and can't be added twice. Suggestions are `suggestionsFor`
+  (`src/features/library/model/suggestions.ts`): for now only an ask-first
+  can-i's own `ask:`; step 5 adds `appointment:`. The inline `Ask` sends the
+  entry from the route's `itemId`. Next: step 4.
 
 ## Not in this plan
 

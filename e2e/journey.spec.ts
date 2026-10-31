@@ -309,6 +309,20 @@ test("a question is added in the Planner, asked, and lands in this week", async 
   await expect(week(page, "28")).toContainText("1 question asked");
 });
 
+test("a question asked from an entry lands in the Planner, saying where it came from", async ({ page, open }) => {
+  await open("/library/altitude");
+  await page.getByRole("button", { name: "Ask at my next appointment" }).click();
+  await page.getByRole("button", { name: "Can I go to high altitude, like Cusco or a Himalayan trek?" }).click();
+  await page.getByRole("textbox", { name: "Your question" }).fill("Can I do the Inca Trail at 20 weeks?");
+  await page.getByRole("button", { name: "Add to my questions" }).click();
+
+  await open("/planner");
+  const card = page.getByText("Can I do the Inca Trail at 20 weeks?").locator("xpath=../..");
+  await expect(card).toContainText("from Altitude · Yours");
+  await card.getByRole("link", { name: "Altitude" }).click();
+  await expect(page).toHaveURL(/\/library\/altitude$/);
+});
+
 test("the answer to boy or girl sets the colours, and they survive a reload", async ({ page, open }) => {
   const theme = () => page.evaluate(() => document.documentElement.dataset.expectingTheme ?? "baby-purple");
   await open("/settings");
