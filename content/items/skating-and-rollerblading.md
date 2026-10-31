@@ -7,19 +7,19 @@ ask: Can I go ice skating or rollerblading?
 aliases: [ice skating, rollerblading, roller skating, skateboard, scooter, ice rink]
 who: carrying
 stakes: medium
-summary: "Avoid it: Better Health lists skating, with downhill skiing and horse riding, among activities with a risk of falling."
+summary: "Avoid it: skating carries a high risk of falling, and the national guidelines say to avoid any activity that does."
 verdict: avoid
 sources:
-  - title: Better Health Channel — Pregnancy and exercise
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+  - title: Australian Government — Physical activity recommendations for pregnancy
+    url: https://www.health.gov.au/topics/physical-activity-and-exercise/pregnancy
   - title: Pregnancy, Birth and Baby — Playing sport during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
   - title: Pregnancy, Birth and Baby — Bleeding during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/bleeding-during-pregnancy
 related: [skiing, falls-and-knocks, cycling]
-checked: 2026-10-29
+checked: 2026-10-31
 ---
-Best not. Better Health lists skating among the activities to avoid in pregnancy because of the risk of falling, next to downhill skiing and horse riding.
+Best not. No current Australian source names skating, but its risk is falling, and the national guidelines say to avoid any activity with a high risk of falling.
 
 ## Why
 

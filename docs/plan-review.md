@@ -139,10 +139,10 @@ Noted 2026-10-31, after the full pass. In the order I'd take them.
 6. Merge the duplicates in `content/REVIEW.md`: `listeria` and
    `listeria-foods`; the three pets entries; the three Braxton Hicks
    entries; leave after a loss (three); `brain-fog` and its card.
-7. Replace stale sources lines still rest on: Better Health's 2017
-   exercise page (its 2015 travel page is gone from every entry,
-   2026-10-31); MotherSafe sheets from 2019–2020; RANZCOG's
-   2017 screening leaflet; RANZCOG C-Obs 11 (breech) and 36 (prelabour
+7. Replace stale sources lines still rest on. Done 2026-10-31: Better
+   Health's 2015 travel and 2017 exercise pages are gone from every entry;
+   the 2019–2020 MotherSafe sheets are still MotherSafe's current ones.
+   Left: RANZCOG's 2017 screening leaflet; RANZCOG C-Obs 11 (breech) and 36 (prelabour
    rupture), overdue for review since July 2026.
 8. Record the review in the entries: many carry `checked: 2026-10-29`
    though edited since. A `reviewed:` date (schema change) would show it

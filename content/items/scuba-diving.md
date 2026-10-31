@@ -16,8 +16,8 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/things-to-avoid-during-pregnancy
   - title: The Royal Women's Hospital — Active pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
-  - title: Better Health Channel — Pregnancy and exercise
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+  - title: Australian Government — Physical activity recommendations for pregnancy
+    url: https://www.health.gov.au/topics/physical-activity-and-exercise/pregnancy
 related: [swimming, flying, skydiving]
 checked: 2026-10-31
 ---
@@ -25,7 +25,7 @@ No. Save the dive for after the baby.
 
 ## Why
 
-Pregnancy, Birth and Baby says to avoid activities with large changes in pressure, such as scuba diving, and lists it again among activities that aren't safe in pregnancy. The Royal Women's Hospital and Better Health's exercise page also list it to avoid.
+Pregnancy, Birth and Baby says to avoid activities with large changes in pressure, such as scuba diving, and lists it again among activities that aren't safe in pregnancy. The Royal Women's Hospital and the national guidelines also list it to avoid.
 
 ## What to do
 

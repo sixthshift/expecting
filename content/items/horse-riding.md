@@ -16,8 +16,6 @@ sources:
     url: https://ranzcog.edu.au/wp-content/uploads/Common-Questions-In-Pregnancy.pdf
   - title: Pregnancy, Birth and Baby — Injuries during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
-  - title: Better Health Channel — Pregnancy and exercise
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
   - title: Pregnancy, Birth and Baby — Exercising during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
   - title: MotherSafe (Royal Hospital for Women) — Diet and exercise before, during and after pregnancy
@@ -31,7 +29,7 @@ No. Put riding on hold until after the birth.
 
 ## Why
 
-RANZCOG, Pregnancy, Birth and Baby, MotherSafe and Better Health all list horse riding among activities with a risk of falling that should be avoided in pregnancy.
+RANZCOG, Pregnancy, Birth and Baby and MotherSafe all list horse riding among activities with a risk of falling that should be avoided in pregnancy.
 
 A fall from a horse, or a kick from one, is a blow to the abdomen, and the most serious common complication of that is placental abruption, where the placenta separates from the uterus.
 

@@ -19,10 +19,8 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
   - title: Pregnancy, Birth and Baby — Exercising during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
-  - title: Better Health Channel — Pregnancy and exercise
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
 related: [sleeping-on-your-back, abdominal-exercises, massage]
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 After 16 weeks, it's best to avoid exercises lying flat on your back.
 
@@ -34,5 +32,5 @@ It's the same reason you're advised to sleep on your side in the second half of 
 
 ## What to do
 
-- **Swap the position.** Better Health says some of these exercises can be modified by lying on your side. For core exercises it also gives sitting, standing and hands-and-knees versions.
+- **Ask for another position.** An instructor or physiotherapist can suggest a version that doesn't have you on your back.
 - **In a class,** tell the instructor how many weeks you are so they can modify the moves.

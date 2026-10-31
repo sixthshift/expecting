@@ -18,14 +18,12 @@ sources:
     url: https://ranzcog.edu.au/wp-content/uploads/Common-Questions-In-Pregnancy.pdf
   - title: MotherSafe (Royal Hospital for Women) — Diet and exercise before, during and after pregnancy
     url: https://www.seslhd.health.nsw.gov.au/sites/default/files/groups/Royal_Hospital_for_Women/Mothersafe/documents/dietexercise2020.pdf
-  - title: Better Health Channel — Pregnancy and exercise
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
   - title: Pregnancy, Birth and Baby — Playing sport during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
 related: [exercise-in-pregnancy, motorbikes-and-scooters, horse-riding]
 appointment:
   - Is riding outdoors okay for me?
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 A stationary bike, yes: Pregnancy, Birth and Baby calls it a great moderate activity that puts little stress on your joints. On the road or trail, it's the risk of falling that matters.
 

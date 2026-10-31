@@ -7,13 +7,13 @@ ask: Can I keep exercising now that I'm pregnant?
 aliases: [exercise, working out, keeping fit, gym, fitness, physical activity, how much exercise, cardio]
 who: carrying
 stakes: medium
-summary: "Yes: exercise is healthy in pregnancy; aim to be active on most days, keep to a level where you can talk but not sing, and don't step up the intensity."
+summary: "Yes: exercise is healthy in pregnancy; aim for 2.5 to 5 hours of moderate activity a week, at a level where you can still hold a conversation."
 verdict: yes
 sources:
   - title: Pregnancy, Birth and Baby — Exercising during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
-  - title: Better Health Channel — Pregnancy and exercise
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+  - title: Australian Government — Physical activity recommendations for pregnancy
+    url: https://www.health.gov.au/topics/physical-activity-and-exercise/pregnancy
   - title: The Royal Women's Hospital — Active pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/active-pregnancy
   - title: RANZCOG — Common questions in pregnancy
@@ -21,15 +21,15 @@ sources:
 related: [exercise-intensity-and-heart-rate, running, swimming, weights, exercise-lying-on-your-back, hot-yoga]
 appointment:
   - Is there any reason I shouldn't exercise?
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 Yes. Exercise is healthy in pregnancy: it can ease back and pelvic pain, help prepare your body for birth, and lower your risk of complications such as gestational diabetes. It's best to talk to your doctor or midwife before you start.
 
 ## Why
 
-**How much.** Aim for moderate activity on most days of the week, with strengthening exercises twice a week.
+**How much.** Aim to be active most days, preferably every day, adding up to 2.5 to 5 hours of moderate activity a week (or 1.25 to 2.5 hours of vigorous activity), with muscle strengthening at least 2 days a week and pelvic floor exercises every day (Australian Government guidelines).
 
-**How hard.** Your resting heart rate rises in pregnancy, so don't use a target heart rate. You're at a good level when you can talk normally but can't sing. Don't increase the intensity of your sport while pregnant.
+**How hard.** Use the talk test: during moderate activity you can still hold a conversation; during vigorous activity you'd find it hard. Your resting heart rate rises in pregnancy, leaving a smaller range up to a safe maximum, so keep it moderate (Royal Women's). If you're an athlete or already do more than the recommended amount, get advice from a qualified health professional.
 
 **What to avoid:**
 
@@ -40,8 +40,8 @@ Yes. Exercise is healthy in pregnancy: it can ease back and pelvic pain, help pr
 
 ## What to do
 
-- **New to exercise?** Start small, with 15-minute sessions, and build up.
-- **Don't exercise with a fever** or when you're unwell. Drink plenty of water.
+- **New to exercise?** Any activity is better than none: start with some, and build up slowly.
+- **Drink plenty of water,** and avoid exercising in hot, humid weather.
 - **Check with your doctor first** if you have pre-eclampsia, placenta praevia, twins or more, bleeding in the second or third trimester, a weak or short cervix, or your waters have broken.
 - **Call triple zero (000)** if you have chest pain or severe trouble breathing.
 - **If your baby is moving less,** contact your midwife or birth unit straight away; don't wait. See [The baby is moving less](baby-moving-less).

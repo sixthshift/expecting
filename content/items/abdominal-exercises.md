@@ -7,23 +7,21 @@ ask: Can I do sit-ups or ab work while pregnant?
 aliases: [sit-ups, crunches, planks, core, abs, abdominal separation, diastasis recti, pelvic tilt]
 who: carrying
 stakes: medium
-summary: "Skip sit-ups and crunches: they don't work in pregnancy, they're done on your back, and they may worsen abdominal separation. Gentle drawing-in exercises strengthen your core instead."
+summary: "Skip sit-ups and crunches: they don't work in pregnancy, and they're done on your back. Gentle drawing-in exercises strengthen your core instead."
 verdict: limit
 sources:
   - title: The Royal Women's Hospital — The abdominal muscles
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/the-abdominal-muscles
-  - title: Better Health Channel — Pregnancy and exercise
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
   - title: Pregnancy, Birth and Baby — Exercising during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
 related: [pilates, weights, exercise-lying-on-your-back, abdominal-separation]
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 Not sit-ups or crunches. Keep working your core, but in a different way.
 
 ## Why
 
-Your abdominal muscles stretch over the growing baby, so they can't work the way they did before. The Royal Women's Hospital calls sit-ups and crunches ineffective in pregnancy, and inappropriate because they're done lying on your back, where the baby can rest on major blood vessels and make you dizzy. Better Health adds that they may worsen abdominal separation, a painless splitting of the muscle down the middle that's common in pregnancy.
+Your abdominal muscles stretch over the growing baby, so they can't work the way they did before. The Royal Women's Hospital calls sit-ups and crunches ineffective in pregnancy, and inappropriate because they're done lying on your back, where the baby can rest on major blood vessels and make you dizzy.
 
 ## What to do
 

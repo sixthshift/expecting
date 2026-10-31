@@ -7,19 +7,19 @@ ask: Can I keep playing netball, soccer or footy?
 aliases: [netball, soccer, football, AFL, rugby, hockey, basketball, touch footy, cricket, softball, martial arts, boxing, squash, tennis, team sport, competitive sport]
 who: carrying
 stakes: high
-summary: "Avoid contact and collision sports, and sports with hard balls or sticks, in pregnancy: a knock to your abdomen can lead to serious complications, such as the placenta separating."
+summary: "Avoid contact and collision sports, and court sports with sudden changes of direction, in pregnancy: a knock to your abdomen can lead to serious complications, such as the placenta separating."
 verdict: avoid
 sources:
   - title: Pregnancy, Birth and Baby — Exercising during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/exercising-during-pregnancy
   - title: Pregnancy, Birth and Baby — Playing sport during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/playing-sport-during-pregnancy
-  - title: Better Health Channel — Pregnancy and exercise
-    url: https://www.betterhealth.vic.gov.au/health/healthyliving/pregnancy-and-exercise
+  - title: Australian Government — Physical activity recommendations for pregnancy
+    url: https://www.health.gov.au/topics/physical-activity-and-exercise/pregnancy
   - title: Pregnancy, Birth and Baby — Injuries during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/injuries-during-pregnancy
 related: [exercise-in-pregnancy, horse-riding, skiing, falls-and-knocks]
-checked: 2026-10-29
+checked: 2026-10-31
 ---
 Avoid them. Keeping active is good for you in pregnancy, but contact sports, where there's a risk of being hit, are on the list to avoid.
 
@@ -31,8 +31,7 @@ Pregnancy changes other things too. Your centre of gravity moves, so you're more
 
 The sources name these sports to avoid:
 
-- **Contact or collision:** football, soccer, basketball, martial arts, judo, kickboxing and other competition sports.
-- **Hard balls or sticks:** hockey, cricket, softball.
+- **Contact sports, where there's a risk of being hit:** football, hockey, judo, kickboxing (Pregnancy, Birth and Baby). The national guidelines add any activity with a high risk of collision.
 - **Court sports** with sudden changes in direction, such as tennis and squash.
 
 ## What to do
