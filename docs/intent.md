@@ -80,7 +80,7 @@ The modes sort into six pillars, by whose a thing is and what you do with it:
 | **Library** | Expecting's | read it | Guides, week by week, "nobody tells you" (a shelf of its own), "Can I…?", "Is this normal?", topics, search |
 | **Planner** | yours, ahead | do it | To do, what to get (the lists), decisions, appointments and their questions, contacts |
 | **Journal** | yours, behind | keep it | Movements, cravings, moods and symptoms, notes, bump photos, scans, results, documents |
-| **Drawer** | both, when it's time | reach for it | The handy things, each for its moment: the names game, the bump booth, the contraction timer, the hospital bag |
+| **Drawer** | both, when it's time | reach for it | The handy things, each for its moment: the names game, the contraction timer, the hospital bag |
 
 - **They are the things a pregnant person already keeps:** a book, a planner, a journal and a drawer of handy things.
 - **Home is this week, not the timeline.** The timeline answers "where are we in all of it"; opening the app asks "where are we now, and what matters". This week is that landing page, and it stays about the week: the handy things have a pillar of their own, the Drawer, rather than crowding it, at the cost of a sixth tab on a phone.

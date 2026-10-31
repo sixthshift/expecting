@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Baby, Camera, ChevronRight, Luggage, Timer } from "lucide-react";
+import { Baby, ChevronRight, Luggage, Timer } from "lucide-react";
 import { useExtras } from "../../../api/rpc/extras";
 import { useNames } from "../../../api/rpc/names";
 import { usePeople } from "../../../api/rpc/people";
@@ -10,7 +10,7 @@ import { extrasOn } from "../../../lib/extras";
 import { extra } from "../../settings/model/extras";
 
 /**
- * The handy things, each for its moment: the names (with the Choosing a name extra), the bump photos, the bag, the contractions.
+ * The handy things, each for its moment: the names (with the Choosing a name extra), the bag, the contractions.
  * While something has happened, the names and what's coming are put away, not deleted.
  */
 export function DrawerPage() {
@@ -57,11 +57,6 @@ export function DrawerPage() {
       {quiet ? null : (
         <Coming
           things={[
-            {
-              icon: Camera,
-              title: "Bump booth",
-              about: "A bump photo each week, with last week's showing faintly so you match the pose. At the birth, it plays back as a time-lapse.",
-            },
             { icon: Timer, title: "Contraction timer", about: "How long, how far apart, and when it's time to call." },
             { icon: Luggage, title: "Hospital bag", about: "What to pack, ticked off together." },
           ]}
