@@ -26,16 +26,16 @@
   --font-display--font-variation-settings: "SOFT" 100;
 }
 
-/* Two parts of the design system that don't survive the dark as they are.
-   The progress bar's track is bg-strong: a dark bar by day, so inverted at
-   night a near-white one that glows; in the dark it is a surface, and the
-   fill carries the colour. And a disabled button is its fill at half
-   opacity: by day a pale wash, but a pastel halved over a near-black page is
-   a muddy mid-tone; in the dark it is the intent's tint instead, which
-   recedes as the pale wash does. */
+/* Two parts of the design system that don't suit Expecting as they are.
+   The progress bar's track is bg-strong: a near-black bar by day, so an empty
+   bar reads as a full one (0 of 42 looked done); here the track is a faint
+   line in both modes, and the fill carries the colour. And a disabled button
+   is its fill at half opacity: by day a pale wash, but a pastel halved over a
+   near-black page is a muddy mid-tone; in the dark it is the intent's tint
+   instead, which recedes as the pale wash does. */
 @layer overrides {
-  [data-theme="dark"] .progress-bar {
-    --progress-bar-track-bg: var(--bg-subtle);
+  .progress-bar {
+    --progress-bar-track-bg: var(--border-subtle);
   }
 
   [data-theme="dark"] .btn[data-variant="solid"]:disabled {

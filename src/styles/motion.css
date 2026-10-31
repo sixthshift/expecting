@@ -1,0 +1,68 @@
+/*
+ * Motion: one set of timings and curves for everything that moves, so a sheet,
+ * a toast, a row leaving and a page changing feel like the same app.
+ *
+ *   fast  120ms  a press, a choice: something answering a tap
+ *   base  200ms  a row arriving or leaving, a fade
+ *   slow  320ms  a page or a sheet: something the eye follows
+ *
+ * Entering eases out (quick, then settling); leaving eases in (gathering, then
+ * gone). Quiet throughout: nothing bounces, nothing celebrates.
+ *
+ * In Tailwind: `duration-(--motion-base) ease-(--ease-enter)`, and the
+ * animations below as `animate-rise`, `animate-fade`.
+ */
+
+@theme {
+  --ease-enter: cubic-bezier(0.2, 0, 0, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
+  --animate-fade: fade-in 200ms var(--ease-enter) both;
+  --animate-rise: rise-in 320ms var(--ease-enter) both;
+  --animate-pop: pop 200ms var(--ease-enter);
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+  }
+  /* A choice made: a little give, then back. */
+  @keyframes pop {
+    50% {
+      transform: scale(0.92);
+    }
+  }
+}
+
+:root {
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --motion-slow: 320ms;
+}
+
+/* For anyone who has asked their device for less motion: nothing travels or
+   scales. Fades stay, cut short, so a change still reads as a change rather
+   than a jump; the loaders keep their own still frame (loading.css). Outside
+   any layer, so it wins over every component's and utility's own timing,
+   which all live in layers. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 1ms;
+    animation-iteration-count: 1;
+    transition-duration: 1ms;
+    scroll-behavior: auto;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none;
+  }
+}
