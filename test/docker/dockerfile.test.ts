@@ -60,12 +60,8 @@ describe("bun pin", () => {
 });
 
 describe("runtime contract", () => {
-  test("installs from the lockfile with the dependency patches, and builds", () => {
-    const install = lines.findIndex((line) => /^RUN\s+bun install --frozen-lockfile$/.test(line));
-    expect(install).toBeGreaterThan(-1);
-    // patchedDependencies are applied by the install, so the patches must be there first.
-    expect(lines.indexOf("COPY patches ./patches")).toBeGreaterThan(-1);
-    expect(lines.indexOf("COPY patches ./patches")).toBeLessThan(install);
+  test("installs from the lockfile, and builds", () => {
+    expect(lines).toContainEqual(expect.stringMatching(/^RUN\s+bun install --frozen-lockfile$/));
     expect(lines).toContainEqual(expect.stringMatching(/^RUN\s+bun run build$/));
   });
 
