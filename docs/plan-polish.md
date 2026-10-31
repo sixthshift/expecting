@@ -85,6 +85,24 @@ Not seen in a desktop browser, so to check on a phone: safe areas (the nav above
 
 Each step is one commit on `feat/polish`, with the gate.
 
+## Where it stands
+
+Steps 1 to 6 done, 2026-11-01; how it works now is `docs/architecture.md`, Motion and feel.
+
+1. **Foundations.** Done. Motion tokens and the reduced-motion rule. The "+" already had room left under each page; what covered rows was the button sitting over them mid-scroll, so it now steps aside while the page scrolls down (and the timeline's Today with it). The progress bar's track turned out to be Expecting's own to set (the theme's `overrides` layer), so no design-system spec was needed.
+2. **A tick and a capture.** Done in To do now, where a ticked task leaves the list. The Planner keeps a ticked row in place already (struck through), so it needs no fold or Undo. Toasts say what and where.
+3. **Moving around.** Done. On the way, a Library entry turned out to open on its "Opening…" spinner even when its words were loaded (`use()` suspends once on any new promise); it now opens whole.
+4. **Loading.** Done: skeletons in the frame, the stork for the first start.
+5. **The timeline and reading.** Done, except:
+   - **Emergency info's "Still blank" list:** kept as it is. That card is for whoever is treating her, and the list tells them what isn't known; a count would hide it.
+   - **The 000 button:** kept. It is already the first and filled one on the page.
+   - **The siren icon for Emergency info, and the faint disabled buttons:** not changed. The icon is a question of taste, and a disabled button's look is the design system's.
+6. **Empty states, PWA, desktop.** Done, except:
+   - **The Drawer:** left alone. Two other streams are rewriting it (It's time, and your people), and its "Coming" cards go with them.
+   - **This week's empty top right on a desktop:** a layout call to make with the page's owner.
+   - **Focus moving to the heading after navigation:** not done.
+   - **The badge** counts deadlines coming up only, not everything open: a badge that never clears is one nobody reads.
+
 ## Not doing
 
 - **A marker for offline:** the outbox already makes offline invisible, as decided.

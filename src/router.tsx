@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRouter } from "@tanstack/react-router";
 import { outboxCaches, queueSaves } from "./app/model/outbox";
-import { transitionBetween } from "./app/model/transitions";
+import { quietSkippedTransitions, transitionBetween } from "./app/model/transitions";
 import { PageSkeleton } from "./components/loading/Skeleton";
 import { isLoggedOut } from "./lib/errors";
 import { routeTree } from "./routes/tree";
@@ -27,6 +27,7 @@ export function getRouter() {
     },
   });
   queueSaves(queryClient);
+  quietSkippedTransitions();
 
   return createRouter({
     routeTree,

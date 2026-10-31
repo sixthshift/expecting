@@ -14,7 +14,13 @@ describe("transitionBetween", () => {
     expect(transitionBetween("/planner", "/", true)).toEqual(["across"]);
     expect(transitionBetween("/library/a", "/library/b", true)).toEqual(["across"]);
     expect(transitionBetween("/library/a", "/journal", true)).toEqual(["across"]);
-    expect(transitionBetween("/onboarding/due", "/onboarding/baby", true)).toEqual(["across"]);
+  });
+
+  it("has none for onboarding and login, plain pages reached through redirects", () => {
+    expect(transitionBetween("/onboarding/due", "/onboarding/baby", true)).toBe(false);
+    expect(transitionBetween("/", "/onboarding", true)).toBe(false);
+    expect(transitionBetween("/onboarding/ready", "/", true)).toBe(false);
+    expect(transitionBetween("/login", "/", true)).toBe(false);
   });
 
   it("has none when only the search changes, or on the first page", () => {
