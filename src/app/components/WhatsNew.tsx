@@ -2,7 +2,7 @@ import { Button } from "@sixthshift/design-system/button";
 import { Markdown } from "@sixthshift/design-system/markdown";
 import { Modal } from "@sixthshift/design-system/modal";
 import { useState } from "react";
-import { releases, releasesSince } from "../../content/releases";
+import { type Release, releases, releasesSince } from "../../content/releases";
 import { VERSION } from "../../lib/version";
 import { markSeen, seenVersion } from "../model/seenVersion";
 
@@ -25,9 +25,14 @@ export function WhatsNew() {
     setOpen(false);
   };
 
+  return <ReleaseNotes title="What's new in Expecting" shown={shown} onClose={close} />;
+}
+
+/** The notes for `shown` (oldest first) in a dialog, newest first, each under its version when there's more than one. */
+export function ReleaseNotes({ title, shown, onClose }: { title: string; shown: readonly Release[]; onClose: () => void }) {
   return (
-    <Modal size="md" onOpenChange={(next) => !next && close()}>
-      <Modal.Header>What's new in Expecting</Modal.Header>
+    <Modal size="md" onOpenChange={(next) => !next && onClose()}>
+      <Modal.Header>{title}</Modal.Header>
       <Modal.Body className="flex flex-col gap-5">
         {[...shown].reverse().map((release) => (
           <section key={release.version} className="flex flex-col gap-1">
@@ -37,7 +42,7 @@ export function WhatsNew() {
         ))}
       </Modal.Body>
       <Modal.Footer>
-        <Button intent="brand" onClick={close}>
+        <Button intent="brand" onClick={onClose}>
           Got it
         </Button>
       </Modal.Footer>

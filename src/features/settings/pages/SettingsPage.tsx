@@ -14,7 +14,6 @@ import { daysBetween, formatDate, todayISO } from "../../../lib/dates";
 import { asksFor, factsOf, isSettled, latestByKey } from "../../../lib/facts";
 import type { Person, Role } from "../../../lib/people";
 import { gestationLabel } from "../../../lib/timeline";
-import { COMMIT, VERSION } from "../../../lib/version";
 import { QuietSwitch } from "../../quiet/components/quietSwitch/QuietSwitch";
 import { Appearance } from "../components/appearance/Appearance";
 import { ColourChoice } from "../components/colour/ColourChoice";
@@ -23,6 +22,7 @@ import { ExtrasList } from "../components/extras/ExtrasList";
 import { FactRow } from "../components/facts/FactsForm";
 import { SettingList, SettingRow } from "../components/SettingRow";
 import { Session } from "../components/session/Session";
+import { Version } from "../components/version/Version";
 import { type Ask, GROUPS, type Group } from "../model/facts";
 
 const route = getRouteApi("/app/settings");
@@ -228,10 +228,7 @@ export function SettingsPage() {
             <Session me={me} people={people} />
           </Section>
 
-          <p className="text-xs text-fg-subtle">
-            Expecting {VERSION}
-            {COMMIT ? ` · ${COMMIT}` : ""}
-          </p>
+          <Version />
         </div>
       </div>
     </Page>
