@@ -140,7 +140,7 @@ const themeCards = themes
       <p class="num">28 <span>weeks</span></p>
       <p class="line"><b>28+0</b> · 84 days to go</p>
       <div class="soft">Nobody tells you: the RSV vaccine window opens this week.</div>
-      <div class="row"><span class="btn">Add task</span><span class="pill">Draft</span><span class="ring">Focused</span></div>
+      <div class="row"><span class="btn">Add task</span><span class="pill">Due soon</span><span class="ring">Focused</span></div>
       <div class="warn">One task has slipped past its week</div>
     </div>
   </div>

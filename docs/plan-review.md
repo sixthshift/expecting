@@ -1,6 +1,6 @@
 # Plan: the content review
 
-Every entry (893) and week note (42) is `draft: true`. The pass so far
+Every entry (893) and week note (42) was `draft: true` when this began; the review finished 2026-10-31 and the draft marker is gone from the schema and the app (2026-11-01). The pass so far
 (`content/map/checks/`) asked one question: does the cited page say this? It
 caught a lot (about 3 in 4 needed fixes), but it can't catch what a clinical
 editor would: something missing, a weak source, the same thing said two ways

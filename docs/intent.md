@@ -218,7 +218,7 @@ There isn't one shape of content. There are several, all Markdoc, all tagged wit
 | **Guides** | The long reads | Labour, feeding, recovery, the newborn |
 | **Terms** | A word you'll hear, in a sentence or two | Effaced, CTG, Anti-D |
 
-*Built: every type, 893 entries in all, drafted from the Library's map (`content/map/`) and all but 38 checked against their sources by a second reader, all still draft until we review them; and a note for each of the 42 weeks. The Library opens by the question you came with: search, then a door per type and a quiet one for when it's hard, then what's open right now, then every topic. Each entry's page is drawn by its type: a can-i's verdict, a symptom's levels most urgent first with a call button for each. On This week: what's worth knowing as each week starts, and a card as a heads-up. Not built: what you chose in a decision and why, and our own entries of the new types.*
+*Built: every type, 893 entries in all, drafted from the Library's map (`content/map/`) and checked against their sources by a second reader and reviewed; and a note for each of the 42 weeks. The Library opens by the question you came with: search, then a door per type and a quiet one for when it's hard, then what's open right now, then every topic. Each entry's page is drawn by its type: a can-i's verdict, a symptom's levels most urgent first with a call button for each. On This week: what's worth knowing as each week starts, and a card as a heads-up. Not built: what you chose in a decision and why, and our own entries of the new types.*
 
 ### Cards: "nobody tells you"
 
@@ -239,12 +239,11 @@ There isn't one shape of content. There are several, all Markdoc, all tagged wit
 - **Sources:** every page a claim comes from, preferring Australian sources: Pregnancy, Birth and Baby (healthdirect), Services Australia, RANZCOG (the college of obstetricians), state health departments.
 - **Last checked:** when the source was last confirmed. Entitlements change every financial year.
 - **Linked tasks:** optional. "Book the RSV vaccine" belongs to the item that explains the RSV vaccine.
-- **Draft:** set on every item Claude drafts, and cleared only once we have reviewed it. Drafts show with a marker.
 - **Private:** an entry about family violence or reproductive coercion is read and searched like any other, but leaves no trace in the space you share: nothing to save from it, never offered unasked, not in the address bar, and a quick exit.
 
 ### Two origins, one shape
 
-- **Built-in items** ship with the app. Claude drafts them; we review them before they count as trusted. The app can hide a built-in item but never edits it, so a content update can't clobber anything of ours.
+- **Built-in items** ship with the app. Claude writes and reviews them before they ship; there is no draft marker in the app. The app can hide a built-in item but never edits it, so a content update can't clobber anything of ours.
 - **Our own items** are added in the app: a friend's tip, something the midwife said. Same fields, same linked tasks.
 
 The app shows both the same way. A small marker says which is which.

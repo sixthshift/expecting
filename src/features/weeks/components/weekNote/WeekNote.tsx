@@ -1,4 +1,3 @@
-import { Badge } from "@sixthshift/design-system/badge";
 import { Card } from "@sixthshift/design-system/card";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { ExternalLink } from "lucide-react";
@@ -36,14 +35,7 @@ export function WeekNote({
   return (
     <Card>
       <article aria-labelledby={`note-${note.week}`} className="flex flex-col gap-3">
-        <div className="flex flex-wrap items-center gap-1.5">
-          <span className="text-xs font-semibold tracking-widest text-fg-subtle uppercase">Week {note.week}</span>
-          {note.draft ? (
-            <Badge size="sm" variant="outline" intent="warning" title="Drafted, not yet reviewed">
-              Draft
-            </Badge>
-          ) : null}
-        </div>
+        <span className="text-xs font-semibold tracking-widest text-fg-subtle uppercase">Week {note.week}</span>
         <h3 id={`note-${note.week}`} className="text-lg leading-snug font-display font-semibold text-fg-strong">
           {note.title}
         </h3>

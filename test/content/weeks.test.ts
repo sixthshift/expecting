@@ -18,7 +18,6 @@ describe("parseWeek", () => {
       week: 20,
       title: "Halfway",
       size: { length: 16, weight: 320, like: "a banana" },
-      draft: true,
       source: { title: "A source", url: "https://example.org/20" },
       checked: "2026-10-28",
     });

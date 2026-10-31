@@ -44,8 +44,6 @@ const frontmatterSchema = z
       })
       .strict()
       .optional(),
-    /** Drafted, not yet reviewed by us. Shown with a marker. */
-    draft: z.boolean().default(true),
     source: z.object({ title: z.string().min(1), url: z.url() }).optional(),
     /** When the source was last confirmed. */
     checked: isoDate.optional(),
@@ -59,7 +57,6 @@ export type WeekNote = {
   size: { length: number; weight: number | null; like: string | null; source: { title: string; url: string } | null } | null;
   /** Each part's body, parsed and checked, ready to render. */
   sections: Record<Section, Node>;
-  draft: boolean;
   source: { title: string; url: string } | null;
   checked: string | null;
 };
@@ -126,7 +123,6 @@ export function parseWeek(file: string, source: string): WeekNote {
     title: fm.title,
     size: fm.size ? { length: fm.size.length, weight: fm.size.weight ?? null, like: fm.size.like ?? null, source: fm.size.source ?? null } : null,
     sections: splitSections(file, ast),
-    draft: fm.draft,
     source: fm.source ?? null,
     checked: fm.checked ?? null,
   };

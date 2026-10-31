@@ -181,7 +181,7 @@ the gate.
 - **Mark it discreet** (`discreet: true`) where the entry's title would tell
   the partner what the question doesn't (mental health, drugs, smoking): a
   question from it then isn't shown "from <title>" on the shared list.
-- Edit frontmatter only. Never touch the body, `checked:`, or `draft:`.
+- Edit frontmatter only. Never touch the body or `checked:`.
 
 ## Progress
 

@@ -34,7 +34,6 @@ function item(id: string, from: number, topic: Topic, surprise = false): DatedIt
     surprise,
     private: false,
     discreet: false,
-    draft: true,
     when: {},
     extra: null,
     variables: [],

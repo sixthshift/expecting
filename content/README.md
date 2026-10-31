@@ -40,7 +40,6 @@ lines:                           # optional: what to get, a line each on a list 
     task: buy-bottles            # optional, one of this entry's tasks; never on a private entry
 appointment:                     # optional, at most 3: what to ask your midwife or doctor about your own case
   - Is soft cheese a risk with my results?   # first person, short (≤ 120), ends in ?; never on a card, term or private entry
-draft: true
 checked: 2026-10-29              # only once a second agent confirmed every claim against the sources
 ---
 ```

@@ -290,7 +290,7 @@ What every new extra here has to hold to, whichever part it's from.
   feature.
 - **The decks are writing.** The newborn jobs, the Same page questions,
   the weekly questions, the bingo squares and the grandparents' questions
-  are content: in `content/`, `draft: true` until reviewed, checked by the
+  are content: in `content/`, reviewed before they go in, checked by the
   content tests, under `content/REVIEW.md`. Which shape (a new kind of
   file, or a section of an entry) is open.
 - **Facts from a source, with a date.** The leave plan and childcare rest

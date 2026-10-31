@@ -55,11 +55,6 @@ export function ItemCard({
               Nobody tells you
             </Badge>
           ) : null}
-          {item.draft ? (
-            <Badge size="sm" variant="outline" intent="warning" title="Drafted, not yet reviewed">
-              Draft
-            </Badge>
-          ) : null}
           <span className="ml-auto text-xs text-fg-subtle">{rangeLabel(item)}</span>
         </div>
         <div className="flex flex-col gap-1">

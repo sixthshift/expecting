@@ -41,7 +41,7 @@ Tests live in `test/`, mirroring `src/`. A file named `*.dom.test.tsx` runs unde
 
 ## Content
 
-Built-in items are Markdown files in `content/`, one per item, with the frontmatter `src/content/schema.ts` defines. `bun run test` parses all of them, and a bad file fails the gate with its name and the problem. An item's `id` and its tasks' ids are what ticks in the database point at, so never rename one. New items are `draft: true` until reviewed, and `checked:` is set only once the facts have been confirmed against the source.
+Built-in items are Markdown files in `content/`, one per item, with the frontmatter `src/content/schema.ts` defines. `bun run test` parses all of them, and a bad file fails the gate with its name and the problem. An item's `id` and its tasks' ids are what ticks in the database point at, so never rename one. There is no draft marker: an entry goes in once it is reviewed, and `checked:` is set only once the facts have been confirmed against the source.
 
 ## Database
 

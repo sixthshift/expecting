@@ -28,7 +28,6 @@ describe("parseItem", () => {
       from: 28,
       to: 36,
       surprise: true,
-      draft: true,
       checked: "2026-10-27",
       body: "Some words.",
     });

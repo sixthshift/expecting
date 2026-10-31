@@ -127,8 +127,6 @@ export const indexSchema = z
      * would tell what its words don't (mental health, drugs, smoking).
      */
     discreet: z.boolean().default(false),
-    /** Drafted, not yet reviewed by us. Shown with a marker. */
-    draft: z.boolean().default(true),
     tasks: z
       .array(
         z
@@ -332,7 +330,6 @@ type ItemFields = {
   surprise: boolean;
   private: boolean;
   discreet: boolean;
-  draft: boolean;
   /** Who it is for; empty for everyone. */
   when: When;
   /** The extra it belongs to, shown only when that's on; null for everyone. */
