@@ -149,6 +149,16 @@ const jobs = {
   together: true,
 };
 
+const weekly = {
+  weeks: [
+    {
+      week: 20,
+      mine: { body: "Ask Mum", by: made.by, answeredAt: made.at },
+      theirs: { body: "Google", by: "00000000-0000-4000-8000-0000000000bb", answeredAt: made.at },
+    },
+  ],
+};
+
 const CASES: Record<string, [unknown, unknown[]]> = {
   setTicked: [
     checklist,
@@ -410,6 +420,14 @@ const CASES: Record<string, [unknown, unknown[]]> = {
     ],
   ],
   unpickJob: [jobs, [{ jobId: "nappies" }, { jobId: "washing" }]],
+  answerWeekly: [
+    weekly,
+    [
+      { week: 21, body: " The cups of tea " },
+      { week: 20, body: "Ask Mum, then Google" },
+      { week: 20, body: " " },
+    ],
+  ],
 };
 
 test("every save has its cases here", () => {

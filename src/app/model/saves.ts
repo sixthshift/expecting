@@ -20,6 +20,7 @@ import { photosSaves } from "../../api/rpc/photos";
 import { questionsSaves } from "../../api/rpc/questions";
 import { quietSaves } from "../../api/rpc/quiet";
 import { settingsSaves } from "../../api/rpc/settings";
+import { weeklySaves } from "../../api/rpc/weekly";
 import type { Save } from "../../lib/outbox";
 
 // biome-ignore lint/suspicious/noExplicitAny: each save's own types are checked where it is defined; here they are only passed through.
@@ -45,4 +46,5 @@ export const SAVES: readonly AnySave[] = [
   itsTimeSaves,
   circleSaves,
   jobsSaves,
+  weeklySaves,
 ].flatMap((saves) => Object.values(saves));

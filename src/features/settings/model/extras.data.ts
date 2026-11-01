@@ -145,6 +145,14 @@ export const EXTRA_LIST = [
     tool: "the jobs, in the Drawer",
   },
   {
+    id: "question-a-week",
+    name: "A question a week",
+    pitch: "One question for the two of you each week, answered on your own phones and kept in the Journal once you both have.",
+    group: "you-two",
+    offer: 6,
+    tool: "this week's question, on This week",
+  },
+  {
     id: "sleep-setup",
     name: "Sleeping well",
     pitch: "Pillows, positions and a bed set-up for the later months.",
