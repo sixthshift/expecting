@@ -83,19 +83,21 @@ function Week() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
-      <header className="flex items-start justify-between gap-3 pt-[max(1.5rem,env(safe-area-inset-top))] pb-6 lg:pt-10 lg:pb-10">
-        {position && dueDate && week !== null ? (
-          <Hero week={week} position={position} dueDate={dueDate} today={today} size={note?.week === week ? note.size : null} />
-        ) : (
-          <h1 className="text-2xl font-display font-semibold text-fg-strong lg:text-3xl">This week</h1>
-        )}
-        <PhoneCorner />
-      </header>
-      {!dueDate ? <Welcome /> : null}
-
-      {/* Phone: one column in `order`. Desktop: the week left, the doing right. */}
-      <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start lg:gap-10">
-        <div className="contents lg:flex lg:flex-col lg:gap-8">
+      {/* Phone: one column in `order`, the week's header first. Desktop: the header and the week on the left,
+          the doing on the right from the top, beside the header rather than under it. */}
+      <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:grid-rows-[auto_1fr] lg:items-start lg:gap-x-10 lg:gap-y-10">
+        <div className="flex flex-col gap-6 max-lg:-mb-2 lg:col-start-1 lg:row-start-1">
+          <header className="flex items-start justify-between gap-3 pt-[max(1.5rem,env(safe-area-inset-top))] lg:pt-10">
+            {position && dueDate && week !== null ? (
+              <Hero week={week} position={position} dueDate={dueDate} today={today} size={note?.week === week ? note.size : null} />
+            ) : (
+              <h1 className="text-2xl font-display font-semibold text-fg-strong lg:text-3xl">This week</h1>
+            )}
+            <PhoneCorner />
+          </header>
+          {!dueDate ? <Welcome /> : null}
+        </div>
+        <div className="contents lg:col-start-1 lg:row-start-2 lg:flex lg:flex-col lg:gap-8">
           {note ? (
             <div className="order-2 lg:order-0">
               <WeekNote key={note.week} note={note} showSize={note.week !== week} />
@@ -141,7 +143,7 @@ function Week() {
         </div>
 
         {peeking ? (
-          <div className="contents lg:sticky lg:top-6 lg:flex lg:flex-col lg:gap-8">
+          <div className="contents lg:sticky lg:top-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-10 lg:flex lg:flex-col lg:gap-8">
             <section aria-labelledby="that-week" className="order-1 flex flex-col gap-2 lg:order-0">
               <h2 id="that-week" className="text-lg font-display font-semibold text-fg-strong">
                 Best done that week
@@ -170,7 +172,7 @@ function Week() {
             </section>
           </div>
         ) : (
-          <div className="contents lg:sticky lg:top-6 lg:flex lg:flex-col lg:gap-8">
+          <div className="contents lg:sticky lg:top-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-10 lg:flex lg:flex-col lg:gap-8">
             <div className="order-1 empty:hidden lg:order-0">
               <LookThrough />
             </div>
