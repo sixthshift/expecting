@@ -302,6 +302,16 @@ All thirteen questions, settled with Jason on 2026-11-01:
   job at a time with undo, then To talk about and Settled, each changeable;
   in the Drawer, settled and to-talk counts. The "both answer, then reveal"
   rule lives in the repo's view, ready for A question a week.
+- 2026-11-01, A question a week (`feat/question-a-week`): its own extra
+  (For you two, offered at 6), a question for each week 4–41 (`WEEKLY`,
+  `src/lib/weekly.ts`, drafted, for Jason's review), each of you's answer
+  (`weekly_answer`, 033), the other's shown only once both have answered
+  (`WeeklyRepo.view`; a phone that hasn't said sees only those). This
+  week's question on This week, with the earlier weeks' folded beneath,
+  never counted; a week both have answered is a line in the Journal's
+  story (`question`), hidden while the extra is off. Settled with Jason:
+  on This week, from the week you're in, drafted by Claude for review, and
+  earlier weeks still answerable, found only when looked for.
 
 ## Not in this plan
 

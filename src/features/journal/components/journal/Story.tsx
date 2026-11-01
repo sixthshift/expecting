@@ -7,7 +7,7 @@
 
 import { Modal } from "@sixthshift/design-system/modal";
 import { cn } from "@sixthshift/design-system/utils";
-import { Check, FileText, Footprints, Hourglass, IceCreamCone, Star, Waves } from "lucide-react";
+import { Check, FileText, Footprints, Hourglass, IceCreamCone, MessagesSquare, Star, Waves } from "lucide-react";
 import { memo, type ReactNode, useCallback, useRef, useState } from "react";
 import { usePeople } from "../../../../api/rpc/people";
 import { useQuiet } from "../../../../api/rpc/quiet";
@@ -273,6 +273,29 @@ function NightLine({ item }: { item: Extract<StoryItem, { kind: "night" }> }) {
   );
 }
 
+/** A week's question, once both of you have answered: the question, then each answer and whose, the first given first. */
+function QuestionLine({ item }: { item: Extract<StoryItem, { kind: "question" }> }) {
+  const { data: people } = usePeople();
+  const name = (id: string) => (id === people.me?.id ? "You" : (people.people.find((p) => p.id === id)?.name ?? "One of you"));
+  return (
+    <div className="py-1">
+      <p className="flex items-start gap-2 font-medium text-fg-strong">
+        <MessagesSquare aria-hidden size={16} className="mt-1 shrink-0 text-fg-brand" />
+        <span>
+          <span className="sr-only">The week's question: </span>
+          {item.pair.question}
+        </span>
+      </p>
+      {item.pair.answers.map((a) => (
+        <p key={a.by} className="mt-1 ml-6 border-l-2 border-border-brand pl-3 whitespace-pre-line text-fg-normal">
+          {a.body}
+          <span className="text-sm text-fg-subtle"> — {name(a.by)}</span>
+        </p>
+      ))}
+    </div>
+  );
+}
+
 function DoneLine({ item }: { item: Extract<StoryItem, { kind: "done" }> }) {
   return (
     <p className="flex items-center gap-2 py-1 text-sm text-fg-subtle">
@@ -305,6 +328,8 @@ export function StoryLine({ item }: { item: StoryItem }) {
       return <DoneLine item={item} />;
     case "night":
       return <NightLine item={item} />;
+    case "question":
+      return <QuestionLine item={item} />;
     case "photo":
       return null;
   }

@@ -28,6 +28,7 @@ import { ComingUp } from "../../tasks/components/comingUp/ComingUp";
 import { TaskRow } from "../../tasks/components/TaskRow";
 import { ToDoNow } from "../../tasks/components/toDoNow/ToDoNow";
 import { useTasks } from "../../tasks/hooks/useTasks";
+import { WeeklyCard } from "../../weekly/components/WeeklyCard";
 import { WeekNote } from "../../weeks/components/weekNote/WeekNote";
 import { HeadsUp } from "../components/headsUp/HeadsUp";
 import { Hero, Welcome } from "../components/now/Now";
@@ -184,6 +185,9 @@ function Week() {
             </div>
             <div className="order-1 empty:hidden lg:order-0">
               <CheckIn />
+            </div>
+            <div className="order-3 empty:hidden lg:order-0">
+              <WeeklyCard />
             </div>
             <div className="order-3 empty:hidden lg:order-0">
               <AskNow />

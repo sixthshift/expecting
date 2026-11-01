@@ -16,6 +16,7 @@ import type { Paper } from "./papers";
 import { PAPER_KIND_LABEL } from "./papers";
 import { BUMP_SERIES, bumpWeeks, PHOTO_KIND_LABEL, type Photo } from "./photos";
 import type { Week } from "./timeline";
+import type { WeeklyPair } from "./weekly";
 
 /** One line of the story. */
 export type StoryItem = { key: string; day: ISODate; time: string | null; by: string | null; createdAt: string } & (
@@ -32,6 +33,7 @@ export type StoryItem = { key: string; day: ISODate; time: string | null; by: st
   | { kind: "done"; taskId: string; title: string }
   /** The night it started (It's time): its times on one line, never the contractions one by one. */
   | { kind: "night"; night: Night }
+  | { kind: "question"; pair: WeeklyPair }
 );
 
 type StoryKind = StoryItem["kind"];
@@ -62,6 +64,7 @@ const LENS_OF: Record<StoryKind, Lens | null> = {
   first: "firsts",
   done: null,
   night: null,
+  question: null,
 };
 
 /** The lens a line belongs to; what was done belongs only to All. */
@@ -92,6 +95,8 @@ export type StorySources = {
   titles: ReadonlyMap<string, string>;
   /** It's time's starts: the ones that ended "We're there" are in the story. */
   starts: readonly Start[];
+  /** A question a week's weeks both of you have answered. */
+  weekly?: readonly WeeklyPair[];
 };
 
 /** Newest first: by day, then time (a line with none after the timed ones), then when it was kept. */
@@ -128,6 +133,8 @@ export function storyItems(s: StorySources): StoryItem[] {
     const { start } = night;
     items.push({ ...base(`night-${start.id}`, dayOf(start.startedAt), timeNow(new Date(start.startedAt)), start.by, start.startedAt), kind: "night", night });
   }
+  for (const pair of s.weekly ?? [])
+    items.push({ ...base(`question-${pair.week}`, pair.day, null, null, pair.answers[1]!.answeredAt), kind: "question", pair });
   return items.sort(newest);
 }
 
@@ -163,6 +170,8 @@ function storyText(item: StoryItem, name: Namer = () => null): string {
         return [item.title, "done"];
       case "night":
         return [nightLine(item.night), "it started labour"];
+      case "question":
+        return [item.pair.question, ...item.pair.answers.map((a) => a.body), "question"];
     }
   })();
   return [...words, name(item.by)].filter(Boolean).join(" ").toLocaleLowerCase("en-AU");
