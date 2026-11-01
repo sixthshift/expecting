@@ -37,3 +37,4 @@ links to it.
 
 - [The Journal](journal.md)
 - [The Planner](planner.md)
+- [The Library](library.md)
