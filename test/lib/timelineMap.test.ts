@@ -121,6 +121,7 @@ describe("the weeks", () => {
       time: null,
       body: "…",
       different: false,
+      fromBoth: false,
       by: null,
       createdAt: "2026-10-30T00:00:00Z",
       editedBy: null,

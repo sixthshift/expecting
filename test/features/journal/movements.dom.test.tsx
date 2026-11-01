@@ -15,6 +15,7 @@ const moved: JournalEntry = {
   time: "21:15",
   body: "Hiccups",
   different: false,
+  fromBoth: false,
   by: SAM.id,
   createdAt: `${todayISO()}T00:00:00.000Z`,
   editedBy: null,
@@ -61,6 +62,11 @@ describe("Movement", () => {
     expect(screen.getByRole("alert").textContent).toContain("Call your midwife or birth unit now.");
     fireEvent.click(screen.getByRole("button", { name: "Done" }));
     expect(screen.queryByRole("alert")).toBeNull();
+  });
+
+  it("says who kept it, never just a name: it's the baby's, whoever felt it", () => {
+    render(<Movement entry={moved} />);
+    expect(screen.getByText(/Kept by you/)).toBeTruthy();
   });
 
   it("changed in any other way, no call", () => {

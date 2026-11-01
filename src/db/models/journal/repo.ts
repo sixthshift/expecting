@@ -4,8 +4,8 @@ import type { JournalEntry } from "../../../lib/journal";
 import { orm } from "../../connection/client";
 import { journalEntry, journalSeen } from "./schema";
 
-/** A note, or with `kind: "letter"` a letter to the baby (a note by default, as a phone before letters sends it). */
-export type NewNote = { id: string; day: string; time: string | null; body: string; kind?: "note" | "letter" };
+/** A note, or with `kind: "letter"` a letter to the baby (a note by default, as a phone before letters sends it), `fromBoth` if it's from both of you. */
+export type NewNote = { id: string; day: string; time: string | null; body: string; kind?: "note" | "letter"; fromBoth?: boolean };
 export type NewMovement = { id: string; day: string; time: string; body: string; different: boolean };
 
 export class JournalRepo {
@@ -22,12 +22,13 @@ export class JournalRepo {
 
   /** Add a note, by the id the phone gave it; one already here (the same save, sent twice) is left as it is. */
   add(note: NewNote, by: string | null, now: Date = new Date()): JournalEntry {
-    const { kind = "note", ...rest } = note;
+    const { kind = "note", fromBoth = false, ...rest } = note;
     const row: JournalEntry = {
       ...rest,
       kind,
       body: note.body.trim(),
       different: false,
+      fromBoth: kind === "letter" && fromBoth,
       by,
       createdAt: now.toISOString(),
       editedBy: null,
@@ -37,18 +38,37 @@ export class JournalRepo {
     return row;
   }
 
-  /** Change a note's words, day or time (or whether it's a letter, when said), saying who and when. */
+  /** Change a note's words, day or time (or whether it's a letter, and from both of you, when said), saying who and when. A note is never from both. */
   edit(note: NewNote, by: string | null, now: Date = new Date()): void {
+    // Whether it's from both is said only with its kind (a phone before letters from both says neither): a note never is.
+    const fromBoth = note.kind === "note" ? { fromBoth: false } : note.kind === "letter" && note.fromBoth !== undefined ? { fromBoth: note.fromBoth } : {};
     this.db
       .update(journalEntry)
-      .set({ day: note.day, time: note.time, body: note.body.trim(), ...(note.kind ? { kind: note.kind } : {}), editedBy: by, editedAt: now.toISOString() })
+      .set({
+        day: note.day,
+        time: note.time,
+        body: note.body.trim(),
+        ...(note.kind ? { kind: note.kind } : {}),
+        ...fromBoth,
+        editedBy: by,
+        editedAt: now.toISOString(),
+      })
       .where(and(eq(journalEntry.id, note.id), inArray(journalEntry.kind, ["note", "letter"])))
       .run();
   }
 
   /** Add a movement, by the id the phone gave it; one already here is left as it is. */
   addMovement(movement: NewMovement, by: string | null, now: Date = new Date()): JournalEntry {
-    const row: JournalEntry = { ...movement, kind: "movement", body: movement.body.trim(), by, createdAt: now.toISOString(), editedBy: null, editedAt: null };
+    const row: JournalEntry = {
+      ...movement,
+      kind: "movement",
+      body: movement.body.trim(),
+      fromBoth: false,
+      by,
+      createdAt: now.toISOString(),
+      editedBy: null,
+      editedAt: null,
+    };
     this.db.insert(journalEntry).values(row).onConflictDoNothing().run();
     return row;
   }

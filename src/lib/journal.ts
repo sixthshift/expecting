@@ -1,5 +1,5 @@
-// The Journal: what happens, kept. Each entry is on a day, written by one of
-// you, shared and editable by both. Its week is worked out from the due date
+// The Journal: what happens, kept. Each entry is on a day, kept by one of
+// you (a letter can be from both), shared and editable by both. Its week is worked out from the due date
 // as it's read, so a due date moved by the dating scan moves the entry's week
 // and never its day.
 
@@ -17,6 +17,8 @@ export type JournalEntry = {
   body: string;
   /** A movement felt as slower, weaker or stopped. Always false for a note. */
   different: boolean;
+  /** A letter from both of you: it's signed by both, whoever kept it. Always false for a note or a movement. */
+  fromBoth: boolean;
   by: string | null;
   createdAt: string;
   editedBy: string | null;
@@ -107,6 +109,30 @@ export function movementsOffered({ now, quiet, entries }: { now: Week | null; qu
   return now === null || now >= MOVEMENTS_FROM || entries.some((e) => e.kind === "movement");
 }
 
+/** Movements kept within this many minutes of each other are one: both of you tapping for the same kick is one movement. */
+export const SAME_MOVEMENT_MINUTES = 5;
+
+function minutes(time: string): number {
+  const [h, m] = time.split(":").map(Number) as [number, number];
+  return h * 60 + m;
+}
+
+/**
+ * A day's movements as the baby's rhythm, earliest first: those kept within
+ * a few minutes of the first of them are one (its time and id, felt as
+ * different if any of them was), whoever kept them. Never a count.
+ */
+export function asOne<M extends { id: string; time: string; different: boolean }>(moved: readonly M[]): M[] {
+  const out: M[] = [];
+  for (const m of [...moved].sort((a, b) => a.time.localeCompare(b.time))) {
+    const last = out.at(-1);
+    if (last && minutes(m.time) - minutes(last.time) <= SAME_MOVEMENT_MINUTES) {
+      if (m.different && !last.different) out[out.length - 1] = { ...last, different: true };
+    } else out.push(m);
+  }
+  return out;
+}
+
 /** How many days the movements' pattern looks back, today among them. */
 export const PATTERN_DAYS = 14;
 
@@ -115,9 +141,10 @@ export type PatternDay = { day: ISODate; moved: { id: string; time: string; diff
 
 /**
  * The movements of the last fortnight, newest day first, each at its time
- * of day, so the baby's own rhythm shows. Only days with one kept: a day
- * without is a day nobody wrote one down, not a day without movement. No
- * totals, and no line for what's usual.
+ * of day, so the baby's own rhythm shows; two kept within a few minutes are
+ * one (`asOne`). Only days with one kept: a day without is a day nobody
+ * wrote one down, not a day without movement. No totals, and no line for
+ * what's usual.
  */
 export function movementPattern(entries: readonly JournalEntry[], today: ISODate, days: number = PATTERN_DAYS): PatternDay[] {
   const from = addDays(today, 1 - days);
@@ -129,13 +156,10 @@ export function movementPattern(entries: readonly JournalEntry[], today: ISODate
     row.moved.push({ id: e.id, time: e.time, different: e.different });
     byDay.set(day, row);
   }
-  return [...byDay.values()]
-    .sort((a, b) => b.day.localeCompare(a.day))
-    .map((row) => ({ ...row, moved: row.moved.sort((a, b) => a.time.localeCompare(b.time)) }));
+  return [...byDay.values()].sort((a, b) => b.day.localeCompare(a.day)).map((row) => ({ ...row, moved: asOne(row.moved) }));
 }
 
 /** How far through the day a time is, 0 to 1: where its dot sits. */
 export function dayFraction(time: string): number {
-  const [h, m] = time.split(":").map(Number) as [number, number];
-  return (h * 60 + m) / (24 * 60);
+  return minutes(time) / (24 * 60);
 }

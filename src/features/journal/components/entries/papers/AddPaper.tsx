@@ -258,7 +258,9 @@ export function AddPaper({ files: given, onAdded }: { files?: File[]; onAdded?: 
           Start again
         </Button>
       </div>
-      <p className="text-xs text-fg-subtle">You both see every paper. Expecting keeps it for you; it doesn't read it.</p>
+      <p className="text-xs text-fg-subtle">
+        You both see every paper, so keep only what you're happy for both to see. Expecting keeps it for you; it doesn't read it.
+      </p>
     </form>
   );
 }

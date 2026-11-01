@@ -57,9 +57,17 @@ None of them is "choose a kind, then fill in its form".
   its sources are (the call) and about admin (a question for the
   appointment, a paper kept handy).
 - **Shared, mostly.** Both phones see everything, and either of you changes
-  any note, movement, sickness, craving, photo or paper; each says who kept
-  it. A feeling is the exception (below). Two voices show only when there
-  are two.
+  any note, movement, sickness, craving, photo or paper. A feeling is the
+  exception (below), and the one private corner: there are no private
+  notes and no private papers. With one password, a "just me" would only
+  be a courtesy, and on a medical record a courtesy reads as protection it
+  isn't. Two voices show only when there are two.
+- **Who kept it isn't whose it is.** Sickness and cravings are her body's
+  and movements the baby's, whoever held the phone (often the partner, at
+  3 am), so their lines never carry a name: "Alex · 3:12 am · Threw up"
+  reads as Alex being sick. Inside the entry it says "Kept by Alex". A
+  photo says the same. A name sits on the line only where the person is
+  the point: a note, a letter, a feeling, a first's words.
 
 ## The page
 
@@ -139,6 +147,12 @@ A note is anything, on its day and time, by whoever is holding the phone.
 A note can be a letter to the baby, from the note form; letters are in the
 story, the Notes lens and the recaps.
 
+- **A letter is signed.** It's read one day as from one of you, or, once
+  there are two of you, "From both of us": a letter written together
+  isn't one person's.
+- **No sealing, yet.** A letter neither reads until the birth needs the
+  birth to open it, which is out of the first version.
+
 ### Movements
 
 Australian advice is to know your baby's usual pattern, not to count kicks.
@@ -156,6 +170,9 @@ So:
 - **The pattern:** the last two weeks as a row per day, each movement a dot
   at its time of day, so the baby's own rhythm shows (the evenings, after
   meals). One marked as a change gets a ring, never red.
+- **One rhythm, the baby's.** Who felt it isn't on the line, and two kept
+  within five minutes (both of you, for the same kick) are one dot and one
+  time, ringed if either was a change. Each stays its own entry.
 - **From week 16,** where the advice's weeks start, or earlier once one has
   been kept.
 
@@ -251,6 +268,8 @@ be read as a verdict, and Expecting isn't the one to give it.
   summary, something else), what it's about (linked to its Library entry,
   where it shows under "Your papers"), its name, and the date on it, which
   is rarely today.
+- **Both of you see every paper,** said as you keep one: the private
+  choice is not to keep it here.
 - **Keep handy:** on top, on Emergency info ("Papers to hand"), and kept on
   each phone for when there's no signal. On by default for a plan, the
   blood group, the hospital referral and the discharge summary.
@@ -266,7 +285,10 @@ Found out, the first craving, the first scan, heard the heartbeat, told the
 family, started showing, the first kick, found out boy or girl (only if you
 know), felt from the outside, the first outfit, the cot is up, the bag is
 packed, it started. Each has the weeks it usually comes in and a question
-("Where were you?"), answered by each of you in your own words. Some are
+("Where were you?"), answered by each of you in your own words. A first
+has one day, the shared moment's, even when it came to each of you apart
+("She told me that Sunday" is in the words); the ones that truly differ are
+already two firsts (the first kick, felt from the outside). Some are
 suggested from what's kept or done (the first scan photo, the first
 movement, the cot and bag ticks), only ever as a question to confirm, on a
 day you can move, or put aside; never marked on their own.

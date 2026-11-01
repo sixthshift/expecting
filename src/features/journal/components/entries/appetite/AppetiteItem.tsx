@@ -19,6 +19,7 @@ import { useSave } from "../../../../../app/hooks/useSave";
 import { type AppetiteEntry, type AppetiteKind, describe, type How, inputOf } from "../../../../../lib/appetite";
 import type { ISODate } from "../../../../../lib/dates";
 import { when } from "../../../model/dates";
+import { keptBy } from "../../../model/keptBy";
 import { HowPicker, KIND_OPTIONS, WhenFields } from "./AppetiteFields";
 import { TooSick } from "./TooSick";
 
@@ -122,7 +123,7 @@ export function AppetiteItem({ entry }: { entry: AppetiteEntry }) {
       <p className="font-medium text-fg-strong">{describe(entry)}</p>
       {entry.note ? <p className="mt-1 whitespace-pre-wrap">{entry.note}</p> : null}
       <div className="mt-2 flex items-center gap-1 text-xs text-fg-subtle">
-        <span className="flex-1">{[name(entry.by), when(entry.day, entry.time)].filter(Boolean).join(" · ")}</span>
+        <span className="flex-1">{[keptBy(name(entry.by)), when(entry.day, entry.time)].filter(Boolean).join(" · ")}</span>
         <Button variant="ghost" size="sm" iconOnly aria-label="Change this" onClick={() => setEditing(true)}>
           <Pencil aria-hidden size={16} />
         </Button>

@@ -115,7 +115,7 @@ export function RecapPartView({ recap, part }: { recap: Recap; part: RecapPart }
           {recap.letters.map((l) => (
             <li key={l.id}>
               <p className="whitespace-pre-wrap font-display text-fg-normal">{l.body}</p>
-              <p className="mt-1 text-xs text-fg-subtle">{[name(l.by), week(l.day)].filter(Boolean).join(", ")}</p>
+              <p className="mt-1 text-xs text-fg-subtle">{[l.fromBoth ? "Both of you" : name(l.by), week(l.day)].filter(Boolean).join(", ")}</p>
             </li>
           ))}
         </ol>

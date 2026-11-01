@@ -1,6 +1,7 @@
 import { describe, expect, test } from "vitest";
 import type { ISODate } from "../../src/lib/dates";
 import {
+  asOne,
   dayFraction,
   entriesIn,
   formatTime,
@@ -21,6 +22,7 @@ const entry = (id: string, day: string, time: string | null = null, createdAt = 
   time,
   body: `Note ${id}`,
   different: false,
+  fromBoth: false,
   by: null,
   createdAt,
   editedBy: null,
@@ -132,6 +134,18 @@ describe("movements", () => {
       { day: "2026-10-28", moved: [{ id: "c", time: "13:00", different: false }] },
       { day: "2026-10-17", moved: [{ id: "e", time: "09:00", different: false }] },
     ]);
+  });
+
+  test("two kept within five minutes are one movement (both of you, the same kick), felt as different if either was", () => {
+    const pattern = movementPattern(
+      [moved("a", "2026-10-30", "21:15"), moved("b", "2026-10-30", "21:18", true), moved("c", "2026-10-30", "21:20"), moved("d", "2026-10-30", "21:21")],
+      "2026-10-30"
+    );
+    expect(pattern[0]!.moved).toEqual([
+      { id: "a", time: "21:15", different: true },
+      { id: "d", time: "21:21", different: false },
+    ]);
+    expect(asOne([])).toEqual([]);
   });
 
   test("a time's place in the day", () => {

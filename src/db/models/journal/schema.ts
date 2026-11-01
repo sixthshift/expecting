@@ -17,6 +17,8 @@ export const journalEntry = sqliteTable(
     body: text("body").notNull(),
     /** A movement felt as slower, weaker or stopped. Always false for a note. */
     different: integer("different", { mode: "boolean" }).notNull().default(false),
+    /** A letter from both of you, not just the one who kept it. Always false for a note or a movement. */
+    fromBoth: integer("from_both", { mode: "boolean" }).notNull().default(false),
     by: text("by").references(() => person.id, { onDelete: "set null" }),
     createdAt: text("created_at").notNull(),
     editedBy: text("edited_by").references(() => person.id, { onDelete: "set null" }),
@@ -26,6 +28,7 @@ export const journalEntry = sqliteTable(
     check("journal_entry_kind", sql`${t.kind} IN ('note', 'movement', 'letter')`),
     check("journal_entry_body", sql`${t.kind} = 'movement' OR length(trim(${t.body})) > 0`),
     check("journal_entry_different", sql`${t.kind} = 'movement' OR ${t.different} = 0`),
+    check("journal_entry_from_both", sql`${t.kind} = 'letter' OR ${t.fromBoth} = 0`),
     index("journal_entry_day").on(t.day),
   ]
 );

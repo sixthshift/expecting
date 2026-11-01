@@ -86,6 +86,25 @@ test("a letter to the baby is a note's kind: kept, changed back to a note, and n
   expect(() => db().run("INSERT INTO journal_entry (id, kind, day, time, body, created_at) VALUES ('b', 'letter', '2026-10-30', NULL, '  ', 'x')")).toThrow();
 });
 
+test("a letter can be from both of you; a note never is, and a phone that doesn't say leaves it as it was", () => {
+  const repo = new JournalRepo(db());
+  repo.add({ id: ID, day: "2026-10-30", time: null, body: "Dear you", kind: "letter", fromBoth: true }, null);
+  expect(repo.list()[0]).toMatchObject({ kind: "letter", fromBoth: true });
+  repo.edit({ id: ID, day: "2026-10-30", time: null, body: "Dear you, again" }, null);
+  expect(repo.list()[0]).toMatchObject({ fromBoth: true });
+  repo.edit({ id: ID, day: "2026-10-30", time: null, body: "Dear you", kind: "letter", fromBoth: false }, null);
+  expect(repo.list()[0]).toMatchObject({ fromBoth: false });
+  repo.edit({ id: ID, day: "2026-10-30", time: null, body: "Dear you", kind: "letter", fromBoth: true }, null);
+  repo.edit({ id: ID, day: "2026-10-30", time: null, body: "Just a note", kind: "note" }, null);
+  expect(repo.list()[0]).toMatchObject({ kind: "note", fromBoth: false });
+  const NOTE = "22222222-2222-4222-8222-222222222222";
+  repo.add({ id: NOTE, day: "2026-10-30", time: null, body: "Hi", kind: "note", fromBoth: true }, null);
+  expect(repo.list().find((e) => e.id === NOTE)).toMatchObject({ fromBoth: false });
+  expect(() =>
+    db().run("INSERT INTO journal_entry (id, kind, day, body, from_both, created_at) VALUES ('c', 'note', '2026-10-30', 'Hi', 1, '2026-10-30T00:00:00Z')")
+  ).toThrow(/CHECK/);
+});
+
 test("when each of you last opened the Journal, never going back", () => {
   const people = new PeopleRepo(db());
   const sam = people.add("Sam", "carrying");

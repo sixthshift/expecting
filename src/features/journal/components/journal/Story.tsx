@@ -18,7 +18,7 @@ import { formatDate, type ISODate, todayISO } from "../../../../lib/dates";
 import { isOwn, STEP_LABEL } from "../../../../lib/feelings";
 import { firstOf } from "../../../../lib/firsts";
 import { nightLine } from "../../../../lib/itsTime";
-import { formatTime } from "../../../../lib/journal";
+import { asOne, formatTime, type JournalEntry } from "../../../../lib/journal";
 import { PAPER_KIND_LABEL } from "../../../../lib/papers";
 import { kindsOffered, type Photo } from "../../../../lib/photos";
 import type { QuietWeek, StoryDay, StoryGap, StoryGroup, StoryItem } from "../../../../lib/story";
@@ -86,7 +86,7 @@ function Opens({ label, onOpen, children }: { label: string; onOpen: () => void;
   );
 }
 
-/** "— Sam", quietly after the words. */
+/** "— Sam", quietly after the words: only on a line that's someone's voice (a note, a letter, a feeling), never on her body's or the baby's. */
 function By({ name }: { name: string | null }) {
   return name ? <span className="text-sm text-fg-subtle"> — {name}</span> : null;
 }
@@ -105,7 +105,7 @@ function NoteLine({ item }: { item: Extract<StoryItem, { kind: "note" | "letter"
       <Opens label={`Open: ${item.entry.body.slice(0, 60)}`} onOpen={() => setOpen(true)}>
         {letter ? <span className="block text-xs font-semibold text-fg-brand">A letter to the baby</span> : null}
         <span className={cn("whitespace-pre-wrap text-fg-strong", letter && "font-display text-lg")}>{item.entry.body}</span>
-        <By name={other(item.by)} />
+        <By name={letter && item.entry.fromBoth ? "from both of you" : other(item.by)} />
         <At time={item.time} />
       </Opens>
       {open ? (
@@ -117,9 +117,15 @@ function NoteLine({ item }: { item: Extract<StoryItem, { kind: "note" | "letter"
   );
 }
 
+/** A day's movements' times, as one rhythm: two kept within a few minutes (both of you, for the same kick) are one time. One kept without a time stays as "a time". */
+function movedTimes(entries: readonly JournalEntry[]): { id: string; time: string | null; different: boolean }[] {
+  const timed = entries.flatMap((e) => (e.time ? [{ id: e.id, time: e.time, different: e.different }] : []));
+  return [...asOne(timed), ...entries.filter((e) => !e.time).map((e) => ({ id: e.id, time: null, different: e.different }))];
+}
+
+/** A day's movements on one line: the baby's, so no name, whoever felt them. */
 function MovedLine({ item }: { item: Extract<StoryItem, { kind: "movements" }> }) {
   const [open, setOpen] = useState(false);
-  const other = useOther();
   const words = item.entries.map((e) => e.body).filter(Boolean);
   return (
     <>
@@ -127,13 +133,12 @@ function MovedLine({ item }: { item: Extract<StoryItem, { kind: "movements" }> }
         <span className="flex flex-wrap items-center gap-x-2 gap-y-1 text-fg-normal">
           <Footprints aria-hidden size={16} className="text-fg-brand" />
           <span className="text-fg-strong">Felt moving</span>
-          {item.entries.map((e) => (
+          {movedTimes(item.entries).map((e) => (
             <span key={e.id} className={cn("text-sm", e.different ? "rounded-full px-1.5 ring-2 ring-fg-brand" : "text-fg-subtle")}>
               {e.time ? formatTime(e.time) : "a time"}
               {e.different ? <span className="sr-only">, slower, weaker or stopped</span> : null}
             </span>
           ))}
-          <By name={other(item.by)} />
         </span>
         {words.length > 0 ? <span className="mt-0.5 block text-fg-normal">{words.join(" · ")}</span> : null}
       </Opens>

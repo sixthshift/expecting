@@ -111,7 +111,7 @@ export function storyItems(s: StorySources): StoryItem[] {
   for (const [day, entries] of moved) {
     const sorted = [...entries].sort((a, b) => (a.time ?? "").localeCompare(b.time ?? ""));
     const last = sorted.at(-1)!;
-    // One by each of you on the same day is still one line; it says who only when it's one of you.
+    // One by each of you on the same day is still one line. It never says who (they're the baby's), but "since you looked" asks who kept them.
     const by = new Set(sorted.map((e) => e.by)).size === 1 ? last.by : null;
     items.push({ ...base(`moved-${day}`, day, last.time, by, last.createdAt), kind: "movements", entries: sorted });
   }

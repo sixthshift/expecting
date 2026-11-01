@@ -6,12 +6,13 @@ import { FormField } from "@sixthshift/design-system/form-field";
 import { Textarea } from "@sixthshift/design-system/textarea";
 import { TimePicker } from "@sixthshift/design-system/time-picker";
 import { type FormEvent, useState } from "react";
+import { usePeople } from "../../../../../api/rpc/people";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
 import { timeNow, toTime } from "../../../../../lib/journal";
 
-type Draft = { day: ISODate; time: string | null; body: string; letter: boolean };
+type Draft = { day: ISODate; time: string | null; body: string; letter: boolean; fromBoth: boolean };
 
-/** A note's words, and its day and time, kept folded as "Today, now" until changed. `start`: a new note's words to begin with. `letter`: a new note starts as a letter to the baby. */
+/** A note's words, and its day and time, kept folded as "Today, now" until changed. A letter can be from both of you, once there are two. `start`: a new note's words to begin with. `letter`: a new note starts as a letter to the baby. */
 export function NoteForm({
   initial,
   start,
@@ -29,6 +30,9 @@ export function NoteForm({
 }) {
   const [body, setBody] = useState(initial?.body ?? start?.slice(0, 10_000) ?? "");
   const [letter, setLetter] = useState(initial?.letter ?? startLetter);
+  const [fromBoth, setFromBoth] = useState(initial?.fromBoth ?? false);
+  const { data: people } = usePeople();
+  const two = people.people.length > 1;
   // A new note is now unless its day or time is changed; it's "now" as it's saved, not as the form opened.
   const [day, setDay] = useState<ISODate | null>(initial?.day ?? null);
   const [time, setTime] = useState<string | null>(initial ? initial.time : null);
@@ -38,10 +42,12 @@ export function NoteForm({
   function submit(event: FormEvent) {
     event.preventDefault();
     if (body.trim().length === 0) return;
-    onSave(choosing ? { day: day ?? today, time, body, letter } : { day: today, time: timeNow(), body, letter });
+    const both = letter && fromBoth;
+    onSave(choosing ? { day: day ?? today, time, body, letter, fromBoth: both } : { day: today, time: timeNow(), body, letter, fromBoth: both });
     if (!initial) {
       setBody("");
       setLetter(false);
+      setFromBoth(false);
       setChoosing(false);
       setDay(null);
       setTime(null);
@@ -60,6 +66,7 @@ export function NoteForm({
         maxLength={10_000}
       />
       <Checkbox checked={letter} onCheckedChange={setLetter} label="A letter to the baby" />
+      {letter && (two || fromBoth) ? <Checkbox checked={fromBoth} onCheckedChange={setFromBoth} label="From both of us" /> : null}
       {choosing ? (
         <div className="flex flex-wrap gap-3">
           <FormField label="Day">

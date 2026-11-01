@@ -27,6 +27,7 @@ import { weekLabel } from "../../../../../lib/timeline";
 import { forgetFile } from "../../../../../pwa/register";
 import { when } from "../../../model/dates";
 import { describePhoto, photoTitle } from "../../../model/describePhoto";
+import { keptBy } from "../../../model/keptBy";
 import { Picture } from "./Picture";
 
 /** Change what it is, when, and its words; never the picture. */
@@ -159,7 +160,11 @@ export function PhotoViewer({ ids, index: start, kinds, onClose }: { ids: string
           <>
             {photo.caption ? <p className="whitespace-pre-wrap text-fg-normal">{photo.caption}</p> : null}
             <p className="text-xs text-fg-subtle">
-              {[name(photo.by), when(photo.day, photo.time), changer ? `changed by ${changer === "You" ? "you" : changer}` : photo.editedAt ? "changed" : null]
+              {[
+                keptBy(name(photo.by)),
+                when(photo.day, photo.time),
+                changer ? `changed by ${changer === "You" ? "you" : changer}` : photo.editedAt ? "changed" : null,
+              ]
                 .filter(Boolean)
                 .join(" · ")}
             </p>

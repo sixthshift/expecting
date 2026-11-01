@@ -21,6 +21,7 @@ export function entry(kind: JournalEntry["kind"], day: string, over: Partial<Jou
     time: null,
     body: kind === "movement" ? "" : "words",
     different: false,
+    fromBoth: false,
     by: null,
     createdAt: at(day),
     editedBy: null,

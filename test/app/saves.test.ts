@@ -25,6 +25,7 @@ const note = {
   time: "07:30",
   body: "First kick!",
   different: false,
+  fromBoth: false,
   by: made.by,
   createdAt: made.at,
   editedBy: null,
@@ -448,6 +449,7 @@ test("a save changes what it says, and nothing it doesn't", () => {
       time: null,
       body: "Told Mum",
       different: false,
+      fromBoth: false,
       by: made.by,
       createdAt: made.at,
       editedBy: null,
@@ -455,7 +457,19 @@ test("a save changes what it says, and nothing it doesn't", () => {
     },
   ]);
   expect(byKey.addMovement!.apply([], { id: ID, day: "2026-10-30", time: "21:40", body: " ", different: true }, made)).toEqual([
-    { id: ID, kind: "movement", day: "2026-10-30", time: "21:40", body: "", different: true, by: made.by, createdAt: made.at, editedBy: null, editedAt: null },
+    {
+      id: ID,
+      kind: "movement",
+      day: "2026-10-30",
+      time: "21:40",
+      body: "",
+      different: true,
+      fromBoth: false,
+      by: made.by,
+      createdAt: made.at,
+      editedBy: null,
+      editedAt: null,
+    },
   ]);
   // A note and a movement are each changed only as what they are.
   expect(byKey.editMovement!.apply(journal, { id: ID, day: "2026-10-30", time: "21:10", body: "", different: true }, made)).toEqual(journal);

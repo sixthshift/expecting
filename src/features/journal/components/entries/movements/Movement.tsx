@@ -15,10 +15,11 @@ import { useSave } from "../../../../../app/hooks/useSave";
 import type { ISODate } from "../../../../../lib/dates";
 import type { JournalEntry } from "../../../../../lib/journal";
 import { when } from "../../../model/dates";
+import { keptBy } from "../../../model/keptBy";
 import { MovementForm } from "./MovementForm";
 import { MovementsChanged } from "./MovementsChanged";
 
-/** A movement: when, its words if any, whether it felt different, and who felt it. */
+/** A movement: when, its words if any, whether it felt different, and who kept it. */
 export function Movement({ entry }: { entry: JournalEntry }) {
   const [editing, setEditing] = useState(false);
   // Changed to slower, weaker or stopped: the call, as when it's first kept, until put away.
@@ -71,7 +72,7 @@ export function Movement({ entry }: { entry: JournalEntry }) {
       </p>
       {entry.body ? <p className="mt-1 whitespace-pre-wrap">{entry.body}</p> : null}
       <div className="mt-2 flex items-center gap-1 text-xs text-fg-subtle">
-        <span className="flex-1">{[name(entry.by), when(entry.day, entry.time)].filter(Boolean).join(" · ")}</span>
+        <span className="flex-1">{[keptBy(name(entry.by)), when(entry.day, entry.time)].filter(Boolean).join(" · ")}</span>
         <Button variant="ghost" size="sm" iconOnly aria-label="Change this movement" onClick={() => setEditing(true)}>
           <Pencil aria-hidden size={16} />
         </Button>

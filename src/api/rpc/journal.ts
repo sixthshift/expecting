@@ -29,6 +29,8 @@ const note = z
     body: z.string().trim().min(1).max(10_000),
     /** A letter to the baby; a phone before letters sends a note without it. */
     kind: z.enum(["note", "letter"]).optional(),
+    /** A letter from both of you; a phone before that sends a letter without it. */
+    fromBoth: z.boolean().optional(),
   })
   .strict();
 
@@ -62,8 +64,12 @@ export const editNote = createServerFn({ method: "POST" })
 
 // `different` defaults: a phone still running the build before movements sends a note without it.
 export const restoreNote = createServerFn({ method: "POST" })
-  .validator(note.extend({ kind: z.enum(["note", "letter"]), different: z.literal(false).default(false), ...kept }).strict())
-  .handler(({ data }) => new JournalRepo(getDb()).restore({ ...data, by: known(data.by), editedBy: known(data.editedBy) }));
+  .validator(
+    note.extend({ kind: z.enum(["note", "letter"]), different: z.literal(false).default(false), fromBoth: z.boolean().default(false), ...kept }).strict()
+  )
+  .handler(({ data }) =>
+    new JournalRepo(getDb()).restore({ ...data, fromBoth: data.kind === "letter" && data.fromBoth, by: known(data.by), editedBy: known(data.editedBy) })
+  );
 
 export const deleteNote = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid() }).strict())
@@ -78,7 +84,7 @@ export const editMovement = createServerFn({ method: "POST" })
   .handler(({ data }) => new JournalRepo(getDb()).editMovement(data, known(personId()), madeAt()));
 
 export const restoreMovement = createServerFn({ method: "POST" })
-  .validator(movement.extend({ kind: z.literal("movement"), ...kept }).strict())
+  .validator(movement.extend({ kind: z.literal("movement"), fromBoth: z.literal(false).default(false), ...kept }).strict())
   .handler(({ data }) => new JournalRepo(getDb()).restore({ ...data, by: known(data.by), editedBy: known(data.editedBy) }));
 
 export const deleteMovement = createServerFn({ method: "POST" })
@@ -103,7 +109,7 @@ export const journalSeenQuery = queryOptions({ queryKey: ["journalSeen"], queryF
 export type Journal = Awaited<ReturnType<typeof listJournal>>;
 export const journalQuery = queryOptions({ queryKey: ["journal"], queryFn: () => listJournal() });
 
-type NoteInput = { id: string; day: string; time: string | null; body: string; kind?: "note" | "letter" };
+type NoteInput = { id: string; day: string; time: string | null; body: string; kind?: "note" | "letter"; fromBoth?: boolean };
 type MovementInput = { id: string; day: string; time: string; body: string; different: boolean };
 
 /** The Journal's saves, through the outbox (src/app/model/outbox.ts): each shows at once, and is sent when it can be. */
@@ -122,6 +128,7 @@ export const journalSaves = {
               kind: input.kind ?? "note",
               body: input.body.trim(),
               different: false,
+              fromBoth: input.kind === "letter" && (input.fromBoth ?? false),
               by: made.by,
               createdAt: made.at,
               editedBy: null,
@@ -133,16 +140,21 @@ export const journalSaves = {
     key: "editNote",
     query: journalQuery.queryKey,
     send: (data: NoteInput, made) => editNote({ data, headers: stamped(made) }),
-    apply: (journal: Journal, { id, day, time, body, kind }, made) =>
-      journal.map((e) =>
-        e.id === id && e.kind !== "movement" ? { ...e, day, time, body: body.trim(), kind: kind ?? e.kind, editedBy: made.by, editedAt: made.at } : e
-      ),
+    apply: (journal: Journal, { id, day, time, body, kind, fromBoth }, made) =>
+      journal.map((e) => {
+        if (e.id !== id || e.kind === "movement") return e;
+        const both = kind === "note" ? false : kind === "letter" && fromBoth !== undefined ? fromBoth : e.fromBoth;
+        return { ...e, day, time, body: body.trim(), kind: kind ?? e.kind, fromBoth: both, editedBy: made.by, editedAt: made.at };
+      }),
   }),
   restoreNote: save({
     key: "restoreNote",
     query: journalQuery.queryKey,
     send: (data: JournalEntry, made) =>
-      restoreNote({ data: { ...data, kind: data.kind === "letter" ? "letter" : "note", different: false }, headers: stamped(made) }),
+      restoreNote({
+        data: { ...data, kind: data.kind === "letter" ? "letter" : "note", different: false, fromBoth: data.kind === "letter" && data.fromBoth },
+        headers: stamped(made),
+      }),
     apply: (journal: Journal, entry) => (journal.some((e) => e.id === entry.id) ? journal : [...journal, entry]),
   }),
   deleteNote: save({
@@ -158,7 +170,10 @@ export const journalSaves = {
     apply: (journal: Journal, input, made) =>
       journal.some((e) => e.id === input.id)
         ? journal
-        : [...journal, { ...input, kind: "movement" as const, body: input.body.trim(), by: made.by, createdAt: made.at, editedBy: null, editedAt: null }],
+        : [
+            ...journal,
+            { ...input, kind: "movement" as const, body: input.body.trim(), fromBoth: false, by: made.by, createdAt: made.at, editedBy: null, editedAt: null },
+          ],
   }),
   editMovement: save({
     key: "editMovement",
@@ -170,7 +185,7 @@ export const journalSaves = {
   restoreMovement: save({
     key: "restoreMovement",
     query: journalQuery.queryKey,
-    send: (data: JournalEntry & MovementInput, made) => restoreMovement({ data: { ...data, kind: "movement" }, headers: stamped(made) }),
+    send: (data: JournalEntry & MovementInput, made) => restoreMovement({ data: { ...data, kind: "movement", fromBoth: false }, headers: stamped(made) }),
     apply: (journal: Journal, entry) => (journal.some((e) => e.id === entry.id) ? journal : [...journal, entry]),
   }),
   deleteMovement: save({
