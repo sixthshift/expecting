@@ -289,7 +289,7 @@ export const ON_A_WEEK = 12;
 const STAKES_ORDER: Record<string, number> = { high: 0, medium: 1, low: 2 };
 
 /** Whether `item` may come to you unasked: the hard topics and private entries wait to be looked for. */
-function unasked(item: Item): boolean {
+export function unasked(item: Item): boolean {
   return !item.private && !HARD_TOPICS.includes(item.topic);
 }
 

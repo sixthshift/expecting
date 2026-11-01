@@ -119,3 +119,47 @@ next. Most entries have none; the reader can always write their own
 Check records live in `content/map/checks/`, as for the map. Records from
 before 2026-10-30 name files in `content/drafts/`, where the entries were
 drafted; they are the same entries, now in `content/items/`.
+
+# Writing a day's read
+
+Each week's note is its first day (+0). Every day after it, +1 to +6, brings
+one read: `content/days/<week>/<day>.md`, `20/3.md` for 20+3, checked by
+`src/content/days.ts` and `test/content/days.test.ts`. This week shows the
+reads out so far, today's first, one card at a time. A read is a way into the
+Library from where you are now: a short piece about this stage, built from
+entries that were already checked, ending in links to them.
+
+```yaml
+---
+title: What the scan is looking at   # a few words, sentence case; what it's about, not a teaser
+read: [morphology-scan]              # 1–3 entry ids: the links under it
+---
+```
+
+- **Only what its entries say.** Every claim in a read is in one of the
+  entries in `read`, which were checked against their sources. A read adds
+  framing ("this week", "the scan you're having"), never a fact. If it needs
+  a fact no entry has, write and check the entry first.
+- **Warnings whole or not at all.** Where a read touches something its entry
+  gives a red flag for, carry the flag in the entry's own urgency and words
+  (call 000 / contact your hospital now / see your doctor), every level of it
+  that applies, or leave that subject out. Never softer, never stronger.
+- **About this week.** Why now: what's happening to the baby or the body
+  around now, the scan or test due, what's about to start. Something that's
+  true for any week goes in the week where it first matters or is most
+  likely to be met.
+- **Not the week's note again,** and not a task: To do already says what to
+  book. A read can say what something is like; it doesn't tell you to do it.
+- **Each entry once, ideally.** An entry opens one read across the
+  pregnancy, in its most timely week; two only for different angles weeks
+  apart.
+- **Never** a private entry, a hard topic (loss, mental health, special
+  circumstances) or an extra's entry: reads come unasked. The test checks.
+- **Read by both of you.** "You" is the pregnant parent, as in the entries;
+  say "the partner" where it's theirs. Never "mum", "mother" or "woman".
+- **Short.** 90 to 160 words, two or three paragraphs, no headings, no lists,
+  no links in the body (the test refuses them). en-AU, metric.
+- **Tailoring** works as in an entry's body (`{% if %}` on the answers), for
+  a read that only fits some readers; prefer one that fits everyone.
+- **Six a week where there are six worth saying.** Day order is free, but put
+  what's soonest first (a scan early in the week, side sleeping late in 27).

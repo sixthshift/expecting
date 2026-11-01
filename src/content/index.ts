@@ -6,6 +6,7 @@
 // reaches a page.
 
 import halves from "virtual:expecting/items";
+import { type DayRead, parseDays } from "./days";
 import type { PageHalf } from "./file";
 import { indexAll, parsePage } from "./parse";
 import type { Item, ItemPage, Task } from "./schema";
@@ -27,6 +28,11 @@ const weekFiles = import.meta.glob<string>("../../content/weeks/*.md", { query: 
 
 /** This week's note for each week that has one, from content/weeks/<week>.md. */
 export const weekNotes: readonly WeekNote[] = parseWeeks(weekFiles).sort((a, b) => a.week - b.week);
+
+const dayFiles = import.meta.glob<string>("../../content/days/*/*.md", { query: "?raw", eager: true, import: "default" });
+
+/** Day by day: each week's reads after its note, from content/days/<week>/<day>.md. */
+export const dayReads: readonly DayRead[] = parseDays(dayFiles);
 
 export const builtInTasks: readonly Task[] = builtInItems.flatMap((item) => item.tasks);
 

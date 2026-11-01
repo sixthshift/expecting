@@ -44,6 +44,16 @@ row.
   A week on the strip goes to that week, as the steps do. It stands where
   the progress bar did, so home is no heavier for it.
 - **The week's note:** The baby, Your body, For the partner.
+- **Day by day:** after the note, a read for each day of the week (+1 to
+  +6), out one a day: at 19+4 there are four. They're one card at a time,
+  today's showing, the days missed a swipe back, so the page is no taller
+  for them. Each is a way into the Library from where you are, built from
+  entries already checked and ending in links to them, because the Library
+  knows far more about each stage than the week's note has room for, and
+  most of it has windows too wide (weeks 1 to 42) to ever be brought up on
+  a week. A week gone shows all six; a week to come, none yet. Never a
+  private entry, a hard topic or an extra's. How one is written is
+  `content/README.md`, Writing a day's read.
 - **One heads-up a week:** a "nobody tells you" card, under the note.
   Walking the weeks in order, each takes the card covering it that started
   nearest and hasn't been taken, so both phones see the same card all week
