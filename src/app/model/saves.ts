@@ -3,6 +3,7 @@
 // list is how that build knows it: a new save goes here.
 
 import { appetiteSaves } from "../../api/rpc/appetite";
+import { bingoSaves } from "../../api/rpc/bingo";
 import { checklistSaves } from "../../api/rpc/checklist";
 import { circleSaves } from "../../api/rpc/circle";
 import { emergencySaves } from "../../api/rpc/emergency";
@@ -47,4 +48,5 @@ export const SAVES: readonly AnySave[] = [
   circleSaves,
   jobsSaves,
   weeklySaves,
+  bingoSaves,
 ].flatMap((saves) => Object.values(saves));

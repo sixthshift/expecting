@@ -55,6 +55,15 @@ export const EXTRA_LIST = [
     onboarding: true,
   },
   {
+    id: "pregnancy-bingo",
+    name: "Pregnancy bingo",
+    pitch: "A bingo card each of the things people say and do: “Is it twins?”, a stranger touching the bump. First to a line wins.",
+    group: "celebrate",
+    offer: 12,
+    onboarding: true,
+    tool: "a bingo card each, in the Drawer",
+  },
+  {
     id: "grandparents",
     name: "Grandparents",
     pitch: "Talking with the grandparents-to-be about the help you'd like, and the role they'll have.",

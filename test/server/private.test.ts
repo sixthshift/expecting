@@ -3,6 +3,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 import { builtInItems } from "../../src/content";
+import { SQUARES } from "../../src/lib/bingo";
 
 // A private entry leaves no trace in the space both phones share: no write
 // path accepts its id, or the words the app would save for it. The rule is
@@ -69,6 +70,9 @@ const WRITES: Record<string, ((x: string) => unknown) | null> = {
   "jobs.ts:pickJob": (x) => ({ jobId: x, pick: "me" }),
   "jobs.ts:unpickJob": (x) => ({ jobId: x }),
   "weekly.ts:answerWeekly": (x) => ({ week: 20, body: x }),
+  "bingo.ts:dealCard": (x) => ({ squares: [x, ...SQUARES.slice(1, 24).map((s) => s.id)] }),
+  "bingo.ts:markSquare": (x) => ({ squareId: x, day: "2026-11-01", note: x }),
+  "bingo.ts:unmarkSquare": (x) => ({ squareId: x }),
   "quiet.ts:clearQuiet": null,
   "journal.ts:addNote": (x) => ({ id: UUID, day: "2026-10-30", time: null, body: x }),
   "journal.ts:editNote": (x) => ({ id: UUID, day: "2026-10-30", time: null, body: x, kind: "letter" }),

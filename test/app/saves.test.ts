@@ -1,5 +1,6 @@
 import { expect, test } from "vitest";
 import { SAVES } from "../../src/app/model/saves";
+import { SQUARES } from "../../src/lib/bingo";
 import type { Made } from "../../src/lib/outbox";
 
 // Every save's `apply` gives the same answer run twice: a fetch that already
@@ -156,6 +157,14 @@ const weekly = {
       mine: { body: "Ask Mum", by: made.by, answeredAt: made.at },
       theirs: { body: "Google", by: "00000000-0000-4000-8000-0000000000bb", answeredAt: made.at },
     },
+  ],
+};
+
+const CARD = SQUARES.slice(0, 24).map((sq) => sq.id);
+const bingo = {
+  cards: [
+    { personId: made.by, squares: CARD, dealtAt: made.at, marks: [{ squareId: CARD[0], day: "2026-10-30", note: null, markedAt: made.at }] },
+    { personId: "00000000-0000-4000-8000-0000000000bb", squares: CARD, dealtAt: made.at, marks: [] },
   ],
 };
 
@@ -420,6 +429,16 @@ const CASES: Record<string, [unknown, unknown[]]> = {
     ],
   ],
   unpickJob: [jobs, [{ jobId: "nappies" }, { jobId: "washing" }]],
+  dealCard: [bingo, [{ squares: SQUARES.slice(1, 25).map((sq) => sq.id) }]],
+  markSquare: [
+    bingo,
+    [
+      { squareId: CARD[1], day: "2026-10-31", note: " the lady at Woolies " },
+      { squareId: CARD[0], day: "2026-10-29", note: null },
+      { squareId: "not-on-the-card", day: "2026-10-31", note: null },
+    ],
+  ],
+  unmarkSquare: [bingo, [{ squareId: CARD[0] }, { squareId: CARD[5] }]],
   answerWeekly: [
     weekly,
     [
