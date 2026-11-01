@@ -28,6 +28,9 @@ export function save<Input, Data>(definition: Save<Input, Data>): Save<Input, Da
 /** The header a save carries: when it was made, so one sent hours later keeps its time (src/server/core/madeAt.ts). */
 export const MADE_AT_HEADER = "x-expecting-made-at";
 
+/** The header the service worker gives an answer it kept (src/pwa/worker.js): when it was asked for, in ms. */
+export const KEPT_AT_HEADER = "x-expecting-kept-at";
+
 /** The headers that stamp a save with when it was made. */
 export function stamped(made: Made): Record<string, string> {
   return { [MADE_AT_HEADER]: made.at };

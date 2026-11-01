@@ -1,6 +1,7 @@
 import { MutationObserver, onlineManager, QueryClient } from "@tanstack/react-query";
 import { afterEach, beforeEach, expect, test, vi } from "vitest";
 import { questionsQuery } from "../../src/api/rpc/questions";
+import { markKept } from "../../src/app/model/kept";
 import { outboxCaches, queueSaves, type Waiting } from "../../src/app/model/outbox";
 import { sendAgain } from "../../src/lib/errors";
 import type { Question } from "../../src/lib/questions";
@@ -44,6 +45,19 @@ function add(id: string, text: string) {
   void new MutationObserver<unknown, Error, Waiting<Sent>>(client, { mutationKey: ["addQuestion"] })
     .mutate({ id, made: { at: "2026-10-30T07:30:00.000Z", by: null }, input: { id, text } })
     .catch(() => {});
+}
+
+/** Fetch the questions as the service worker kept them, asked for at `asked`: `then`, not the server's now. */
+function fetchKept(then: Question[], asked: number) {
+  return client.fetchQuery({
+    queryKey: questionsQuery.queryKey,
+    queryFn: () => {
+      const data = structuredClone(then);
+      markKept(data, asked);
+      return data;
+    },
+    staleTime: 0,
+  });
 }
 
 const shown = () => client.getQueryData<Question[]>(questionsQuery.queryKey)?.map((q) => q.text);
@@ -92,6 +106,27 @@ test("a save the server turns away is taken back, and says so", async () => {
   add("11111111-1111-4111-8111-111111111111", "About family violence");
   await settled();
   expect(toast).toHaveBeenCalledWith(expect.objectContaining({ title: "That didn't save" }));
+  await fetchQuestions();
+  expect(shown()).toEqual([]);
+});
+
+test("a save that landed stays shown over an answer the worker kept from before it, and not over the network's", async () => {
+  await fetchQuestions();
+  const before = Date.now() - 1;
+  add("11111111-1111-4111-8111-111111111111", "Is the RSV vaccine free?");
+  await settled();
+  expect(server.map((q) => q.text)).toEqual(["Is the RSV vaccine free?"]);
+
+  // The connection drops as the page looks again: the worker answers with its copy, from before the save landed.
+  await fetchKept([], before);
+  expect(shown()).toEqual(["Is the RSV vaccine free?"]);
+
+  // A copy asked for after it landed already has it, or has it gone for a reason.
+  await fetchKept([], Date.now() + 1);
+  expect(shown()).toEqual([]);
+
+  // The network's answer is the server's: the other phone took it away.
+  server = [];
   await fetchQuestions();
   expect(shown()).toEqual([]);
 });

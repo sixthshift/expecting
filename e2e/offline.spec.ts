@@ -61,3 +61,28 @@ test("the app opens, reads and saves with no connection", async ({ page, context
   await other.getByRole("button", { name: /^Done/ }).click();
   await expect(other.getByRole("checkbox", { name })).toBeChecked();
 });
+
+test("a save that landed stays on screen when the worker answers from what it kept before it", async ({ page, context, open }) => {
+  await open("/planner");
+  await page.waitForFunction(async () => (await navigator.serviceWorker.ready).active !== null && navigator.serviceWorker.controller !== null, undefined, {
+    timeout: 60_000,
+    polling: 250,
+  });
+  // Through the worker now, so it keeps the questions as they are: without this one.
+  await page.reload({ waitUntil: "networkidle" });
+
+  // The worker's looks go nowhere (the connection drops as the page looks again); the save itself gets there.
+  await context.route("**/api/rpc/**", (route) =>
+    route.request().method() === "GET" && route.request().serviceWorker() ? route.abort("internetdisconnected") : route.fallback()
+  );
+  const kept = page.waitForResponse((response) => response.url().includes("/api/rpc/") && response.headers()["x-expecting-kept-at"] !== undefined);
+  const question = "Can we have the room with the bath?";
+  await page.getByRole("textbox", { name: "New question" }).fill(question);
+  await page.getByRole("button", { name: "Add question" }).click();
+  await expect.poll(() => waitingSaves(page)).toBe(0);
+  // It landed, so the page looks again, and the worker answers with what it kept, from before it.
+  await kept;
+  await page.waitForTimeout(250);
+  await expect(page.getByText(question)).toBeVisible();
+  await context.unrouteAll();
+});

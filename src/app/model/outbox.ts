@@ -12,6 +12,8 @@
 //              queue (restoreOutbox, before the app's first queries), shown
 //              again, and sent
 //   sent       taken off this phone; once nothing waits, every query refetches
+//   landed     remembered a while: an answer the service worker kept from
+//              before it (./kept.ts) has it applied over it again
 //   refused    taken off this phone, and put back on screen by a refetch, with
 //              a toast; a 401 keeps it, to go once logged in again
 //
@@ -21,8 +23,9 @@ import { toast } from "@sixthshift/design-system/overlay";
 import { hashKey, hydrate, MutationCache, onlineManager, QueryCache, type QueryClient, type QueryKey } from "@tanstack/react-query";
 import { isLoggedOut, sendAgain, sendAgainIn } from "../../lib/errors";
 import type { Made } from "../../lib/outbox";
+import { keptSince } from "./kept";
 import { loggedOut } from "./loggedOut";
-import { type Entry, forget, keep, nextSeq, waitingEntries } from "./outboxStore";
+import { type Entry, forget, keep, land, landedEntries, nextSeq, waitingEntries } from "./outboxStore";
 import { type AnySave, SAVES } from "./saves";
 
 /** One queue: saves go in the order made, so an untick never arrives before its tick. */
@@ -50,10 +53,20 @@ function waiting(client: QueryClient, except?: object): { save: AnySave; waiting
     });
 }
 
-/** `data`, as fetched for `queryKey`, with every save still waiting for it applied over it. */
+/**
+ * `data`, as fetched for `queryKey`, with every save still waiting for it
+ * applied over it; and, if the service worker answered from its copy, every
+ * one that landed after that copy was asked for, before them.
+ */
 function replay(client: QueryClient, queryKey: QueryKey, data: unknown): unknown {
   const hash = hashKey(queryKey);
+  const since = keptSince(data);
   let next = data;
+  if (since !== undefined)
+    for (const e of landedEntries()) {
+      const save = byKey.get(e.key);
+      if (save && e.landedAt > since && hashKey(save.query) === hash) next = save.apply(next, e.input, e.made);
+    }
   for (const { save, waiting: w } of waiting(client)) if (hashKey(save.query) === hash) next = save.apply(next, w.input, w.made);
   return next;
 }
@@ -82,8 +95,11 @@ export function outboxCaches(client: () => QueryClient) {
         show(client(), save, w);
       },
       onSuccess: (_data, variables, _context, mutation) => {
-        if (!saveOf(mutation)) return;
-        forget((variables as Waiting).id);
+        const save = saveOf(mutation);
+        if (!save) return;
+        const w = variables as Waiting;
+        land({ id: w.id, key: save.key, input: w.input, made: w.made });
+        forget(w.id);
         if (waiting(client(), mutation).length === 0) void client().invalidateQueries();
       },
       onError: (error, variables, _context, mutation) => {

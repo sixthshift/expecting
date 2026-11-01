@@ -129,6 +129,20 @@ function page(event) {
   return networkFirst(event, appCache, SHELL, (response) => response.ok && (response.headers.get("content-type") ?? "").includes("text/html"));
 }
 
+/**
+ * The header a kept answer is given: when it was asked for, so the page knows
+ * it from the network's, and which saves landed since (src/app/model/kept.ts).
+ * KEPT_AT_HEADER in src/lib/outbox.ts.
+ */
+const KEPT_AT = "x-expecting-kept-at";
+
+/** `response`, to keep: stamped with when it was asked for. */
+function stamped(response, asked) {
+  const headers = new Headers(response.headers);
+  headers.set(KEPT_AT, String(asked));
+  return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+}
+
 /** A server function's answer: the network's, kept; else the last one kept. An ended session forgets them all, and the pictures. */
 async function data(event) {
   return networkFirst(event, DATA_CACHE, event.request, (response) => {
@@ -181,8 +195,9 @@ async function file(request) {
  */
 async function networkFirst(event, cacheName, key, keep) {
   const cache = await caches.open(cacheName);
+  const asked = Date.now();
   const network = fetch(event.request).then(async (response) => {
-    if (keep(response)) await cache.put(key, response.clone());
+    if (keep(response)) await cache.put(key, stamped(response.clone(), asked));
     return response;
   });
   // Let a slow answer finish and refresh the cache after the kept one has been shown.

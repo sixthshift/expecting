@@ -52,3 +52,37 @@ export function forget(id: string): void {
 export function waitingEntries(): Entry[] {
   return read().sort((a, b) => a.seq - b.seq);
 }
+
+/** A save the server has: when it landed, by this phone's clock. */
+export type Landed = Omit<Entry, "seq"> & { landedAt: number };
+
+/** Where the saves that landed are kept, for an answer the service worker kept from before them (./kept.ts). */
+const LANDED_KEY = "expecting-outbox-landed";
+
+/** How many landed saves are kept: plenty for any answer the worker still has from before them. */
+const LANDED_MAX = 200;
+
+let landed: Landed[] | undefined;
+
+/** Every save that landed, in the order it did. */
+export function landedEntries(): Landed[] {
+  if (landed === undefined) {
+    try {
+      const kept = JSON.parse(localStorage.getItem(LANDED_KEY) ?? "[]");
+      landed = Array.isArray(kept) ? kept : [];
+    } catch {
+      landed = [];
+    }
+  }
+  return landed;
+}
+
+/** A save has landed: kept, the oldest let go past LANDED_MAX. */
+export function land(save: Omit<Landed, "landedAt">, landedAt: number = Date.now()): void {
+  landed = [...landedEntries().filter((e) => e.id !== save.id), { ...save, landedAt }].slice(-LANDED_MAX);
+  try {
+    localStorage.setItem(LANDED_KEY, JSON.stringify(landed));
+  } catch {
+    // No storage: kept while the page is open.
+  }
+}
