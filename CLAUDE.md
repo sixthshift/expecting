@@ -4,7 +4,7 @@ A personal pregnancy companion (later perhaps newborn and parenting) for two par
 
 ## Docs
 
-- [`docs/intent.md`](docs/intent.md) — what it is and why: the product, content model, checklist, store
+- [`docs/intent.md`](docs/intent.md) — what it is and why: who it is for, the principles every part keeps, what comes later
 - [`docs/architecture.md`](docs/architecture.md) — the intended shape; what is built and what is not
 - [`docs/development.md`](docs/development.md) — dev server, the gate, ports, building the image, releases
 - [`docs/product/`](docs/product/README.md) — what each part does and why, as it is now; a built plan is folded in here and deleted
