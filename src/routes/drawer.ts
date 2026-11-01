@@ -1,5 +1,6 @@
 import { createRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { circleQuery } from "../api/rpc/circle";
+import { jobsQuery } from "../api/rpc/jobs";
 import { namesQuery } from "../api/rpc/names";
 import { app } from "./app";
 
@@ -7,6 +8,7 @@ import { app } from "./app";
 export const drawer = createRoute({
   getParentRoute: () => app,
   path: "/drawer",
-  loader: ({ context: { queryClient } }) => Promise.all([queryClient.ensureQueryData(namesQuery), queryClient.ensureQueryData(circleQuery)]),
+  loader: ({ context: { queryClient } }) =>
+    Promise.all([queryClient.ensureQueryData(namesQuery), queryClient.ensureQueryData(circleQuery), queryClient.ensureQueryData(jobsQuery)]),
   component: lazyRouteComponent(() => import("../features/drawer/pages/DrawerPage"), "DrawerPage"),
 });

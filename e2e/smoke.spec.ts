@@ -13,6 +13,7 @@ const pages = [
   { path: "/drawer", heading: "Drawer" },
   { path: "/drawer/names", heading: "Baby names" },
   { path: "/drawer/people", heading: "Your people" },
+  { path: "/drawer/jobs", heading: "Who does what" },
   { path: "/emergency", heading: "Emergency info" },
   { path: "/settings", heading: "Settings" },
 ];

@@ -399,6 +399,14 @@ All thirteen questions, settled with Jason on 2026-11-01:
   the four extras says it brings it (`tool`). Step 5: `keeps: { people:
   <view> }`, so the four tasks that start each list ("Start a shared list of
   gifts", …) open their view ("Open the list"), left to tick when done.
+- 2026-11-01, Who does what (`feat/who-does-what`): part 3's first. Its own
+  extra (For you two, offered at 24), the jobs in code (`JOBS`,
+  `src/lib/jobs.ts`, 18 in five groups), each of you's answer (`job_pick`,
+  031) as me, you or together, the other's shown only for a job both have
+  answered (the names game's rule, `JobsRepo.view`), at `/drawer/jobs`: a
+  job at a time with undo, then To talk about and Settled, each changeable;
+  in the Drawer, settled and to-talk counts. The "both answer, then reveal"
+  rule lives in the repo's view, ready for A question a week.
 
 ## Not in this plan
 

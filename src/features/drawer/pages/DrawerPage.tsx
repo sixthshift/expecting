@@ -1,18 +1,21 @@
 import { Link } from "@tanstack/react-router";
-import { Baby, ChevronRight, Users } from "lucide-react";
+import { Baby, ChevronRight, Scale, Users } from "lucide-react";
 import { useCircle } from "../../../api/rpc/circle";
 import { useExtras } from "../../../api/rpc/extras";
+import { useJobs } from "../../../api/rpc/jobs";
 import { useNames } from "../../../api/rpc/names";
 import { usePeople } from "../../../api/rpc/people";
 import { useQuiet } from "../../../api/rpc/quiet";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { toThank, viewsOn } from "../../../lib/circle";
 import { extrasOn } from "../../../lib/extras";
+import { outcomes } from "../../../lib/jobs";
 import { extra } from "../../settings/model/extras";
 
 /**
- * The handy things, each for its moment: the names (with the Choosing a name extra) and your people (with any extra
- * that brings one of its views). While something has happened, they're put away, not deleted.
+ * The handy things, each for its moment: the names (with the Choosing a name extra), your people (with any extra
+ * that brings one of its views) and who does what (with its extra). While something has happened, they're put away,
+ * not deleted.
  */
 export function DrawerPage() {
   const { data: names } = useNames();
@@ -24,6 +27,10 @@ export function DrawerPage() {
   const { data: circle } = useCircle();
   const peopleOn = viewsOn(extras).length > 0;
   const thanks = toThank(circle.gifts).length;
+  const { data: jobs } = useJobs();
+  const sharing = extra("who-does-what");
+  const settled = outcomes(jobs.answers);
+  const toTalk = settled.filter((o) => !o.agreed).length;
 
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-6 px-4 pb-16 md:px-8">
@@ -82,6 +89,31 @@ export function DrawerPage() {
             comes with Visitors, Birth announcement, Lining up help or Thank-you notes.{" "}
             <Link to="/settings" search={{ ask: "extra:visitors" }} className="underline">
               Turn one on in settings
+            </Link>
+          </p>
+        </div>
+      )}
+      {quiet ? null : extras.has(sharing.id) ? (
+        <Link to="/drawer/jobs" className="flex max-w-3xl items-center gap-4 rounded-xl border border-border-subtle bg-bg-normal p-5 hover:border-border-brand">
+          <Scale aria-hidden size={28} className="shrink-0 text-fg-brand" />
+          <span className="flex flex-1 flex-col gap-1">
+            <span className="font-display text-xl font-semibold text-fg-strong">Who does what</span>
+            <span className="text-sm text-fg-normal">
+              {settled.length === 0
+                ? "Say who'll do each newborn job, on your own phone, then see where you agree."
+                : `${settled.length - toTalk} settled${toTalk > 0 ? `, ${toTalk} to talk about` : ""}.`}
+            </span>
+          </span>
+          <ChevronRight aria-hidden size={20} className="shrink-0 text-fg-subtle" />
+        </Link>
+      ) : (
+        <div className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
+          <Scale aria-hidden size={18} className="mt-0.5 shrink-0 text-fg-brand" />
+          <p className="text-sm text-fg-normal">
+            <span className="font-medium text-fg-strong">Who does what:</span> each of you says who'll do each newborn job, then you see where you agree. It
+            comes with {sharing.name}.{" "}
+            <Link to="/settings" search={{ ask: `extra:${sharing.id}` }} className="underline">
+              Turn on Who does what in settings
             </Link>
           </p>
         </div>
