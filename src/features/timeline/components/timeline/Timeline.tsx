@@ -63,7 +63,7 @@ export function Timeline({ at }: { at: Week | undefined }) {
     <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
       <MapHeader lead="Every week at once. Tap one to see it.">
         {now !== null ? (
-          <div className="mt-4 max-w-xl">
+          <div className="mt-4">
             <PregnancyStrip now={now} at={at ?? now} due={due} named />
           </div>
         ) : null}

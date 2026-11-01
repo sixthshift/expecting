@@ -23,11 +23,21 @@ export function PregnancyStrip({ now, at, due, named = false }: { now: Week; at:
   return (
     <div aria-hidden className="flex w-full flex-col gap-1.5">
       <div className="relative h-4 text-[0.625rem] font-medium text-fg-brand">
-        {Object.entries(LANDMARKS).map(([w, label]) => (
-          <span key={w} className="absolute top-0 flex -translate-x-1/2 items-center gap-1 whitespace-nowrap" style={{ left: mid(Number(w)) }}>
-            ◆{named && Number(w) !== 40 ? <span>{label}</span> : null}
-          </span>
-        ))}
+        {Object.entries(LANDMARKS).map(([w, label]) => {
+          // The mark sits on its week; its name reads to the right, or to the left when the next landmark is close (Full term, before the due date).
+          const crowded = Object.keys(LANDMARKS).some((o) => Number(o) > Number(w) && Number(o) - Number(w) <= 4);
+          const name = named && Number(w) !== 40;
+          return (
+            <span
+              key={w}
+              className={cn("absolute top-0 flex items-center gap-1 whitespace-nowrap", crowded && "flex-row-reverse")}
+              style={{ left: mid(Number(w)), transform: crowded && name ? "translateX(calc(-100% + 0.25rem))" : "translateX(-0.25rem)" }}
+            >
+              <span className="w-2 text-center">◆</span>
+              {name ? <span>{label}</span> : null}
+            </span>
+          );
+        })}
       </div>
       <div className="grid h-6 grid-cols-[repeat(42,minmax(0,1fr))] gap-px">
         {allWeeks().map((w) => (
