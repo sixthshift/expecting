@@ -7,6 +7,7 @@
 import { app } from "./app";
 import { login } from "./auth/login";
 import { drawer } from "./drawer";
+import { drawerBingo } from "./drawerBingo";
 import { drawerJobs } from "./drawerJobs";
 import { drawerNames } from "./drawerNames";
 import { drawerPeople } from "./drawerPeople";
@@ -57,6 +58,7 @@ export const routeTree = rootRoute.addChildren([
     drawerNames,
     drawerPeople,
     drawerJobs,
+    drawerBingo,
     emergency,
     itsTime,
     settings,

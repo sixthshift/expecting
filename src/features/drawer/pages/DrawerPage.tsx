@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Baby, ChevronRight, Scale, Users } from "lucide-react";
+import { Baby, ChevronRight, Grid3x3, Scale, Users } from "lucide-react";
+import { useBingo } from "../../../api/rpc/bingo";
 import { useCircle } from "../../../api/rpc/circle";
 import { useExtras } from "../../../api/rpc/extras";
 import { useJobs } from "../../../api/rpc/jobs";
@@ -7,6 +8,7 @@ import { useNames } from "../../../api/rpc/names";
 import { usePeople } from "../../../api/rpc/people";
 import { useQuiet } from "../../../api/rpc/quiet";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
+import { standing, standingLine } from "../../../lib/bingo";
 import { toThank, viewsOn } from "../../../lib/circle";
 import { extrasOn } from "../../../lib/extras";
 import { outcomes } from "../../../lib/jobs";
@@ -14,7 +16,7 @@ import { extra } from "../../settings/model/extras";
 
 /**
  * The handy things, each for its moment: the names (with the Choosing a name extra), your people (with any extra
- * that brings one of its views) and who does what (with its extra). While something has happened, they're put away,
+ * that brings one of its views), who does what and bingo (each with its extra). While something has happened, they're put away,
  * not deleted.
  */
 export function DrawerPage() {
@@ -29,6 +31,10 @@ export function DrawerPage() {
   const thanks = toThank(circle.gifts).length;
   const { data: jobs } = useJobs();
   const sharing = extra("who-does-what");
+  const playing = extra("pregnancy-bingo");
+  const { data: bingo } = useBingo();
+  const myCard = bingo.cards.find((c) => c.personId === me?.id) ?? null;
+  const theirCard = other ? (bingo.cards.find((c) => c.personId === other.id) ?? null) : null;
   const settled = outcomes(jobs.answers);
   const toTalk = settled.filter((o) => !o.agreed).length;
 
@@ -114,6 +120,36 @@ export function DrawerPage() {
             comes with {sharing.name}.{" "}
             <Link to="/settings" search={{ ask: `extra:${sharing.id}` }} className="underline">
               Turn on Who does what in settings
+            </Link>
+          </p>
+        </div>
+      )}
+      {quiet ? null : extras.has(playing.id) ? (
+        <Link
+          to="/drawer/bingo"
+          className="flex max-w-3xl items-center gap-4 rounded-xl border border-border-subtle bg-bg-normal p-5 hover:border-border-brand"
+        >
+          <Grid3x3 aria-hidden size={28} className="shrink-0 text-fg-brand" />
+          <span className="flex flex-1 flex-col gap-1">
+            <span className="font-display text-xl font-semibold text-fg-strong">Pregnancy bingo</span>
+            <span className="text-sm text-fg-normal">
+              {myCard || theirCard
+                ? [myCard ? `You: ${standingLine(standing(myCard))}` : null, theirCard && other ? `${other.name}: ${standingLine(standing(theirCard))}` : null]
+                    .filter(Boolean)
+                    .join(" · ")
+                : "A card each of the things people say and do. First to a line wins."}
+            </span>
+          </span>
+          <ChevronRight aria-hidden size={20} className="shrink-0 text-fg-subtle" />
+        </Link>
+      ) : (
+        <div className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
+          <Grid3x3 aria-hidden size={18} className="mt-0.5 shrink-0 text-fg-brand" />
+          <p className="text-sm text-fg-normal">
+            <span className="font-medium text-fg-strong">Pregnancy bingo:</span> a card each of the things people say and do, first to a line wins. It comes
+            with {playing.name}.{" "}
+            <Link to="/settings" search={{ ask: `extra:${playing.id}` }} className="underline">
+              Turn on bingo in settings
             </Link>
           </p>
         </div>

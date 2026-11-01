@@ -6,6 +6,7 @@
 // tells the story.
 
 import { type AppetiteEntry, describe as describeAppetite, sicknessWeeks, tally } from "./appetite";
+import type { BingoMoment } from "./bingo";
 import { addDays, type ISODate, todayISO } from "./dates";
 import type { Feeling } from "./feelings";
 import { feelingsOf, isOwn, STEP_LABEL } from "./feelings";
@@ -34,6 +35,7 @@ export type StoryItem = { key: string; day: ISODate; time: string | null; by: st
   /** The night it started (It's time): its times on one line, never the contractions one by one. */
   | { kind: "night"; night: Night }
   | { kind: "question"; pair: WeeklyPair }
+  | { kind: "bingo"; moment: BingoMoment }
 );
 
 type StoryKind = StoryItem["kind"];
@@ -65,6 +67,7 @@ const LENS_OF: Record<StoryKind, Lens | null> = {
   done: null,
   night: null,
   question: null,
+  bingo: null,
 };
 
 /** The lens a line belongs to; what was done belongs only to All. */
@@ -75,10 +78,12 @@ export function lensOf(item: StoryItem): Lens | null {
 /**
  * Folded away while something has happened, behind one quiet line: the
  * baby's movements, the sickness and cravings, the photos and the firsts.
- * The night it started too. The notes, letters, feelings, papers and what was done stay.
+ * The night it started too, and bingo. The notes, letters, feelings, papers and what was done stay.
  */
 export function foldedWhileQuiet(item: StoryItem): boolean {
-  return item.kind === "movements" || item.kind === "appetite" || item.kind === "photo" || item.kind === "first" || item.kind === "night";
+  return (
+    item.kind === "movements" || item.kind === "appetite" || item.kind === "photo" || item.kind === "first" || item.kind === "night" || item.kind === "bingo"
+  );
 }
 
 /** Everything that goes into the story. */
@@ -97,6 +102,8 @@ export type StorySources = {
   starts: readonly Start[];
   /** A question a week's weeks both of you have answered. */
   weekly?: readonly WeeklyPair[];
+  /** Pregnancy bingo's bingos and full houses. */
+  bingo?: readonly BingoMoment[];
 };
 
 /** Newest first: by day, then time (a line with none after the timed ones), then when it was kept. */
@@ -133,6 +140,8 @@ export function storyItems(s: StorySources): StoryItem[] {
     const { start } = night;
     items.push({ ...base(`night-${start.id}`, dayOf(start.startedAt), timeNow(new Date(start.startedAt)), start.by, start.startedAt), kind: "night", night });
   }
+  for (const m of s.bingo ?? [])
+    items.push({ ...base(`bingo-${m.kind}-${m.personId}`, m.day, null, m.personId, `${m.day}T23:59:59.999Z`), kind: "bingo", moment: m });
   for (const pair of s.weekly ?? [])
     items.push({ ...base(`question-${pair.week}`, pair.day, null, null, pair.answers[1]!.answeredAt), kind: "question", pair });
   return items.sort(newest);
@@ -172,6 +181,8 @@ function storyText(item: StoryItem, name: Namer = () => null): string {
         return [nightLine(item.night), "it started labour"];
       case "question":
         return [item.pair.question, ...item.pair.answers.map((a) => a.body), "question"];
+      case "bingo":
+        return [item.moment.kind === "full" ? "full house" : "bingo", "bingo"];
     }
   })();
   return [...words, name(item.by)].filter(Boolean).join(" ").toLocaleLowerCase("en-AU");

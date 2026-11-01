@@ -15,6 +15,7 @@ const pages = [
   { path: "/drawer/names", heading: "Baby names" },
   { path: "/drawer/people", heading: "Your people" },
   { path: "/drawer/jobs", heading: "Who does what" },
+  { path: "/drawer/bingo", heading: "Pregnancy bingo" },
   { path: "/emergency", heading: "Emergency info" },
   { path: "/settings", heading: "Settings" },
 ];

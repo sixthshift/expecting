@@ -7,7 +7,7 @@
 
 import { Modal } from "@sixthshift/design-system/modal";
 import { cn } from "@sixthshift/design-system/utils";
-import { Check, FileText, Footprints, Hourglass, IceCreamCone, MessagesSquare, Star, Waves } from "lucide-react";
+import { Check, FileText, Footprints, Hourglass, IceCreamCone, MessagesSquare, PartyPopper, Star, Waves } from "lucide-react";
 import { memo, type ReactNode, useCallback, useRef, useState } from "react";
 import { usePeople } from "../../../../api/rpc/people";
 import { useQuiet } from "../../../../api/rpc/quiet";
@@ -296,6 +296,18 @@ function QuestionLine({ item }: { item: Extract<StoryItem, { kind: "question" }>
   );
 }
 
+/** A bingo or a full house on someone's card, on the day it came. */
+function BingoLine({ item }: { item: Extract<StoryItem, { kind: "bingo" }> }) {
+  const { data: people } = usePeople();
+  const who = item.moment.personId === people.me?.id ? "You" : (people.people.find((p) => p.id === item.moment.personId)?.name ?? "One of you");
+  return (
+    <p className="flex items-center gap-2 py-1 font-medium text-fg-strong">
+      <PartyPopper aria-hidden size={16} className="shrink-0 text-fg-brand" />
+      {item.moment.kind === "full" ? `${who === "You" ? "Your" : `${who}'s`} full house at pregnancy bingo` : `${who} got bingo!`}
+    </p>
+  );
+}
+
 function DoneLine({ item }: { item: Extract<StoryItem, { kind: "done" }> }) {
   return (
     <p className="flex items-center gap-2 py-1 text-sm text-fg-subtle">
@@ -330,6 +342,8 @@ export function StoryLine({ item }: { item: StoryItem }) {
       return <NightLine item={item} />;
     case "question":
       return <QuestionLine item={item} />;
+    case "bingo":
+      return <BingoLine item={item} />;
     case "photo":
       return null;
   }

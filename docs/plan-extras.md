@@ -312,6 +312,15 @@ All thirteen questions, settled with Jason on 2026-11-01:
   story (`question`), hidden while the extra is off. Settled with Jason:
   on This week, from the week you're in, drafted by Claude for review, and
   earlier weeks still answerable, found only when looked for.
+- 2026-11-01, Pregnancy bingo (`feat/bingo`), Claude's lead: a card each, 5×5
+  with a free centre, dealt on the phone from 60 squares (`SQUARES`,
+  `src/lib/bingo.ts`: what people say and do around the two of you, never her
+  body) and dealt again until something's marked; a square marked with its
+  day and a few words, and whether it's on the other's card too; both cards
+  seen by both, your own yours to mark (`bingo_card`, `bingo_mark`, 034); one
+  away, bingo (the line lit, who got there first) and a full house, each a
+  line in the Journal's story (`bingo`, folded while quiet); at
+  `/drawer/bingo`, and in the Drawer with both scores.
 
 ## Not in this plan
 

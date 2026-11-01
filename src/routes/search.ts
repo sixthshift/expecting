@@ -68,6 +68,9 @@ export const peopleSearch = z.object({
     .catch(undefined),
 });
 
+/** Pregnancy bingo: your card, or the other's. */
+export const bingoSearch = z.object({ card: z.enum(["theirs"]).optional().catch(undefined) });
+
 /** The names game: which names it deals (`girls`, `boys`, `all`); without, all of them. Only while you don't know which it is: knowing, the deck is that one's. */
 export const namesSearch = z.object({
   names: z.enum(DECK_FILTERS).optional().catch(undefined),
