@@ -1,4 +1,4 @@
-// It's time: the page for the day it starts (docs/plan-its-time.md). A start
+// It's time: the page for the day it starts (docs/product/its-time.md). A start
 // is one go at it: opened when the waters break or the contractions start,
 // ended "We're there" or "False alarm, we're home". Its contractions are timed
 // by either phone; its last things are ticked for it alone. Nothing here

@@ -176,6 +176,10 @@ Noted 2026-10-31, after the full pass. In the order I'd take them.
     all 280 recommendations read (`review-tier3.yaml`). Their drafts (iron,
     omega-3) are said as drafts; re-check when the NHMRC approves them.
 
+12. Tailor It's time's entries by its two questions: `home-birth` and
+    `birth-centre` gain a `when` on `birthPlace` where it fits, and
+    `breech-birth` one on `presentation` (`docs/product/its-time.md`).
+
 **Ongoing**
 
 - Money: every 1 July, and the 20 March and 20 September indexations.

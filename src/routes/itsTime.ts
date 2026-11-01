@@ -3,7 +3,7 @@ import { emergencyQuery } from "../api/rpc/emergency";
 import { itsTimeQuery } from "../api/rpc/itsTime";
 import { app } from "./app";
 
-/** It's time: the page for the night it starts, beside Emergency info (docs/plan-its-time.md). */
+/** It's time: the page for the night it starts, beside Emergency info (docs/product/its-time.md). */
 export const itsTime = createRoute({
   getParentRoute: () => app,
   path: "/its-time",

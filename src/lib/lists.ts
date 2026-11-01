@@ -58,7 +58,7 @@ export const LISTS = {
     yours: "Meals to make",
     words: { none: "Still to do", arranged: "Someone's bringing it", got: "Done", "not-needed": "Not needed" },
   },
-  // It's time's (docs/plan-its-time.md): packed ahead, and its last things, the
+  // It's time's (docs/product/its-time.md): packed ahead, and its last things, the
   // lines that can only go in on the night, ticked off there.
   bag: {
     title: "The bag",

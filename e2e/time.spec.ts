@@ -1,4 +1,4 @@
-// It's time: the page for the night it starts (docs/plan-its-time.md). At 28
+// It's time: the page for the night it starts (docs/product/its-time.md). At 28
 // weeks (the journey's due date) the way in isn't drawn yet, but Emergency info
 // leads there for a labour that starts early. A start, from the contractions
 // to the waters to "We're there", partly with no connection; the night is then

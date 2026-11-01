@@ -101,7 +101,7 @@ The modes sort into six pillars, by whose a thing is and what you do with it:
 
 These are not views. They are different layouts for different moments, over the same data.
 
-*Built: the pregnancy, one app with its pillars. Getting ready and the baby's here were built as apps of their own and taken out to keep the first version to the pregnancy; they come back with their phases. Not built: the quiet first weeks. It's time is a page beside Emergency info (`/its-time`), not a mode: [plan](plan-its-time.md).*
+*Built: the pregnancy, one app with its pillars. Getting ready and the baby's here were built as apps of their own and taken out to keep the first version to the pregnancy; they come back with their phases. Not built: the quiet first weeks. It's time is a page beside Emergency info (`/its-time`), not a mode: [product](product/its-time.md).*
 
 ### Who to call
 
