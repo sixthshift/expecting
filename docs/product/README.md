@@ -43,3 +43,5 @@ links to it.
 - [The Drawer](drawer.md)
 - [Extras](extras.md)
 - [The capture "+"](capture.md)
+- [Emergency info, and who to call](emergency.md)
+- [Something has happened](quiet.md)
