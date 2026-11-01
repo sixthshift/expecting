@@ -26,118 +26,13 @@ Looked at with Jason on 2026-10-31, the 30 sort into:
   and turning it on gives you a task telling you to keep one somewhere
   else.
 
-## Part 1: extras that reach what's built
+## Parts 1 and 2: built
 
-### The idea: a task that ends by keeping something
-
-`FIRST_TICKS` (`src/lib/firsts.ts`) already does this once: ticking
-*Set up the cot* suggests the first *The cot is up*. Most of part 1 is that
-move, made general. A task can name what it keeps, in its frontmatter:
-
-```yaml
-tasks:
-  - id: letter-to-the-baby
-    title: Write a letter to the baby
-    due: 30
-    keeps: letter            # the Journal's letter, opened from the task
-```
-
-What `keeps` can name:
-
-| `keeps` | Opens | Already built |
-|---|---|---|
-| `letter` | The "+" at a letter | the Journal's `letter` kind |
-| `note` | The "+" at a note | the Journal's `note` kind |
-| `photo` | The "+" at a photo, of a kind (`photo: bump`) | Photos and scans |
-| `first: <key>` | Marks a first, on the day it's ticked, asking its question | the firsts, and `FIRST_TICKS` |
-| `emergency: <field>` | Emergency info, at that field | Emergency info |
-
-On the task it's a second button beside the tick ("Write it", "Add the
-photos", "Fill it in"). Ticking still works without it: keeping is offered,
-never required. `FIRST_TICKS` becomes `keeps: first: <key>` on those two
-tasks, so there's one way, not two. It isn't only for extras. *Book the
-20-week scan* could keep the scan. But the extras come first.
-
-### Each extra
-
-- **Keepsakes.** A new task, *Write a letter to the baby*
-  (`keeps: letter`), and the entry sends you to the Journal, not to "notes
-  on a phone". Prints and a belly cast, once made, are photos
-  (`keeps: photo`).
-- **Maternity photos.** *Book the photographer* stays as it is. A new
-  task, *Add your favourites from the shoot*, opens when the shoot is due
-  and keeps a photo of its own kind, `shoot` (settled, 2).
-- **Gender reveal.** *Ask for the sex in a sealed envelope* and *Plan the
-  reveal* already exist. The reveal task keeps `first: boy-or-girl`. That
-  first only shows to those who know (`knowing`), and a reveal is exactly
-  when you come to know. Marking it asks whether Expecting should use it
-  (settled, 3).
-- **Telling people.** The first *Told the family* already exists. A task
-  *Tell the family* keeps it, beside *Decide who to tell first*.
-- **The baby's doctor** stays content (settled, 4): Emergency info is
-  *hers*, and the baby's numbers wait for the weeks after the birth.
-
-## Part 2: your people
-
-### One list, not five
-
-The five feature-shaped extras are the same thing: **people you know, each
-with something about them.**
-
-| Extra | For each person |
-|---|---|
-| Thank-you notes | what they gave, and whether they've been thanked |
-| Lining up help | what they'll help with, and for meals, a day and what they're bringing (Meal train joins it: settled, 6) |
-| Visitors | when they're welcome: in hospital, the first weeks, not yet |
-| Birth announcement | when they hear: first, next, or with everyone |
-
-So it's one list, *Your people*, in the Drawer beside the names game, and
-each extra turned on adds its own view of it. Mum is on the meal train for
-the Tuesday, welcome in hospital, among the first to hear, and gave the
-pram, not yet thanked. If you've only turned on Visitors, you only see the
-visitors view. If none of the five are on, the list isn't there.
-
-```
-Your people                                   ‹ Drawer
- [ Visitors ]  [ Hearing first ]  [ Help ]  [ Meals ]  [ Gifts · 3 to thank ]
-──────────────────────────────────────────────────────────────────────
-Visitors
- In hospital          Mum · Dad · Priya
- The first weeks      Sam's parents · Ellie
- Not yet              Uncle Rob
- ┌──────────────────────────┐
- │ Add someone…             │ [ Add ]
- └──────────────────────────┘
-```
-
-- **A person is a name**, entered by either of you, with a few words
-  ("Sam's sister"; a number, if you like: there's no phone field). It's shared like everything else, saved through the
-  outbox, and shows who added it.
-- **Each view sets one thing about them.** Only that view's thing is shown
-  in it. A person can be in some views and not others.
-- **Gifts are many per person.** The others are one thing each. A gift is
-  a few words ("the pram", "knitted blanket") and thanked or not.
-- **It hands off rather than sends.** Friends can't log in and Expecting
-  sends nothing. For the birth announcement, Expecting keeps who hears when
-  and a message you write ahead, and on the day the message goes to the
-  share sheet (Web Share) for each round. You choose who it goes to in your
-  messaging app. For the meal train, the roster is copied out for whoever
-  is organising it.
-- **Quiet puts it away.** If something has happened (`quiet`), the
-  announcement and the visitors are the last things anyone should see.
-  Like the names, *Your people* is put away, and nothing is deleted.
-- **The tasks stay** and are met by the list. *Start a shared list of gifts*
-  opens the gifts view. *Agree who visits* opens visitors.
-
-### In the code
-
-- A new domain. `people` is taken by the two of you, so this needs another
-  name: `circle` (`circle_person`, `circle_gift`, and a column per view or a
-  `circle_role` table), working name.
-- A feature, `src/features/circle/`, at `/drawer/people`, with
-  `src/api/rpc/circle.ts` and its saves in `src/app/model/saves.ts`.
-- Each view belongs to its extra and shows only while that extra is on, like
-  an item. The data stays when an extra is turned off, as the names do.
+`keeps` (a task that ends by keeping something) and Your people with its
+four views are built: [`product/extras.md`](product/extras.md) and
+[`product/drawer.md`](product/drawer.md#your-people). Left from them:
+`emergency: <field>` (nothing needs it yet) and the maternity shoot's
+`shoot` photo kind, with *Add your favourites from the shoot*.
 
 ## Part 3: new extras like the names game
 
