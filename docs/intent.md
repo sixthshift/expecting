@@ -93,14 +93,14 @@ out, and they're unsure of their role.
 ## The ways people come to it
 
 People open a pregnancy app in different modes, and each mode has its own
-shape. The timeline answers *when*. Pregnancy also keeps asking *what*
+shape. The weeks answer *when*. Pregnancy also keeps asking *what*
 ("is this normal?", "can I?") and *which* (decisions). Forcing all of it
 into weeks is a mistake: it is why "nobody tells you" felt wrong as a view
-of the timeline.
+of the timeline, when there was one.
 
 | Mode | The moment | Its shape |
 |---|---|---|
-| **Where are we?** | The weekly ritual: the baby, my body, this week | Time: [This week](product/this-week.md), [the timeline](product/timeline.md) |
+| **Where are we?** | The weekly ritual: the baby, my body, this week | Time: [This week](product/this-week.md), [the whole pregnancy](product/timeline.md) |
 | **What do we need to do?** | Book the scan, claim the leave pay | Time with deadlines: [To do](#to-do) |
 | **Is this normal?** | 2 am, a cramp, spotting, itchy palms | Triage: fine, mention it, call today, call now |
 | **Can I…?** | Brie, coffee, hair dye, flying, paracetamol | Lookup: a verdict and why |
@@ -114,30 +114,31 @@ of the timeline.
 
 ### The pillars
 
-The modes sort into six pillars, by whose a thing is and what you do with
+The modes sort into five pillars, by whose a thing is and what you do with
 it:
 
 | Pillar | Whose | You… | What's in it |
 |---|---|---|---|
 | [**This week**](product/this-week.md) | both, now | open it | Where you are, what to do now, the week's note, what's worth knowing |
-| [**Timeline**](product/timeline.md) | both, through time | follow it | The whole pregnancy at a glance: what's coming, and behind today, what happened |
 | [**Library**](product/library.md) | Expecting's | read it | Everything it knows, by the question you came with |
-| [**Planner**](product/planner.md) | yours, ahead | do it | To do, what to get, questions for the appointment; later decisions, appointments, contacts |
+| [**Planner**](product/planner.md) | yours, ahead | do it | To do (and across the weeks), what to get, questions for the appointment; later decisions, appointments, contacts |
 | [**Journal**](product/journal.md) | yours, behind | keep it | Movements, sickness and cravings, feelings, notes and letters, photos and scans, papers, the firsts |
 | [**Drawer**](product/drawer.md) | both, when it's time | reach for it | The handy things you do together: the names game, Your people |
 
 - **They are the things a pregnant person already keeps:** a book, a
   planner, a journal and a drawer of handy things.
-- **Home is this week, not the timeline.** The timeline answers "where are
-  we in all of it"; opening the app asks "where are we now, and what
-  matters". It stays about the week: the handy things have the Drawer
-  rather than crowding it, at the cost of a sixth tab on a phone.
-- **The timeline is the thread through the others, not another shelf.** A
-  Library entry appears on the week it matters, a task on the week it's
-  due, a Journal entry on its day. The others are where things live; the
-  timeline is where they meet.
+- **Home is this week, with the whole pregnancy a tap away.** Opening the
+  app asks "where are we now, and what matters"; "where are we in all of
+  it" is a strip under the week's heading and the map it opens. It stays
+  about the week: the handy things have the Drawer rather than crowding it.
+- **The week is the thread through the pillars, not a pillar of its own.**
+  A Library entry appears on the week it matters, a task on the week it's
+  due, a Journal entry on its day. A pillar is where things live, and
+  nothing lives only on the weeks, so the whole pregnancy at once is a page
+  off This week, and what's to do across the weeks is a chart in the
+  Planner ([why](product/timeline.md#not-a-pillar)).
 - **Records live in the Journal:** a scan is something that happened,
-  dated, on the timeline.
+  dated, on its week.
 - **Outside every pillar:** the [capture "+"](product/capture.md), which
   files anything into its pillar, and the call button. Beside settings:
   [Emergency info](product/emergency.md) and, from 36 weeks,

@@ -5,7 +5,8 @@ import { expect, test } from "./fixtures";
 
 const pages = [
   { path: "/", heading: "This week" },
-  { path: "/timeline?at=36", heading: "Timeline" },
+  { path: "/timeline?at=36", heading: "The whole pregnancy" },
+  { path: "/planner/weeks?stage=37", heading: "Across the weeks" },
   { path: "/library", heading: "Library" },
   { path: "/library/rsv-vaccine", heading: "The RSV vaccine" },
   { path: "/planner", heading: "Planner" },
@@ -22,14 +23,14 @@ for (const { path, heading } of pages) {
   test(`${path} loads`, async ({ page, open }) => {
     await open(path);
     await expect(page.getByRole("heading", { level: 1, name: heading })).toBeAttached();
-    if (heading === "Timeline") await expect(page.locator('[data-week="36"]')).toBeVisible();
+    if (heading === "The whole pregnancy") await expect(page.locator('[data-week="36"]')).toBeVisible();
   });
 }
 
 test("every pillar and settings is reachable", async ({ page, open }) => {
   await open("/");
   const nav = page.getByRole("navigation", { name: "Expecting" });
-  for (const name of ["Timeline", "Library", "Planner", "Journal", "Drawer", "This week"]) {
+  for (const name of ["Library", "Planner", "Journal", "Drawer", "This week"]) {
     await nav.getByRole("link", { name }).click();
     await expect(nav.getByRole("link", { name })).toHaveAttribute("aria-current", "page");
     // Home is `/`, which every page sits under: it is current only on itself.
@@ -41,7 +42,7 @@ test("every pillar and settings is reachable", async ({ page, open }) => {
 });
 
 test("the + opens what to add, on a phone above the tab bar and on a desktop in the sidebar", async ({ page, open }) => {
-  await open("/timeline");
+  await open("/library");
   await page.getByRole("button", { name: "Add", exact: true }).click();
   const sheet = page.getByRole("dialog");
   await expect(sheet.getByRole("button", { name: "A note" })).toBeVisible();
@@ -50,7 +51,7 @@ test("the + opens what to add, on a phone above the tab bar and on a desktop in 
 });
 
 test("Emergency info is one tap from every pillar, once", async ({ page, open }) => {
-  for (const path of ["/", "/timeline", "/library", "/planner", "/journal", "/drawer"]) {
+  for (const path of ["/", "/library", "/planner", "/journal", "/drawer"]) {
     await open(path);
     // The call button calls once there's a number; it never doubles as a second way to Emergency info.
     // A call to make (the Journal keeps one on screen for a movement felt as different) has its own way there.
@@ -90,7 +91,7 @@ test.describe("a page that doesn't exist", () => {
   test("any other address keeps the pillars", async ({ page, open }) => {
     await open("/weeks");
     await expect(page.getByRole("heading", { level: 1, name: "Nothing at this address" })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Timeline" }).first()).toBeVisible();
+    await expect(page.getByRole("link", { name: "Library" }).first()).toBeVisible();
     await page.getByRole("link", { name: "Back to This week" }).click();
     await expect(page).toHaveURL(/\/$/);
   });

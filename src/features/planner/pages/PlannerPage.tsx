@@ -1,6 +1,7 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { Card } from "@sixthshift/design-system/card";
 import { ProgressBar } from "@sixthshift/design-system/progress-bar";
+import { Link } from "@tanstack/react-router";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { type ReactNode, useState } from "react";
 import { useChecklist } from "../../../api/rpc/checklist";
@@ -22,6 +23,7 @@ import { AddTask, DeleteOwnTask } from "../../tasks/components/addTask/AddTask";
 import { TaskRow } from "../../tasks/components/TaskRow";
 import { Whose } from "../../tasks/components/Whose";
 import { useTasks } from "../../tasks/hooks/useTasks";
+import { StageSpan } from "../components/weeks/StageSpan";
 
 const week = (w: Week) => weekLabel(w).toLowerCase();
 
@@ -151,9 +153,15 @@ export function PlannerPage() {
 
             {stages.length > 0 ? (
               <section aria-labelledby="horizon" className="flex flex-col gap-3">
-                <h3 id="horizon" className="text-sm font-semibold text-fg-normal">
-                  {now === null ? "To do" : "On the horizon"}
-                </h3>
+                <div className="flex items-center justify-between gap-3">
+                  <h3 id="horizon" className="text-sm font-semibold text-fg-normal">
+                    {now === null ? "To do" : "On the horizon"}
+                  </h3>
+                  <Link to="/planner/weeks" className="flex min-h-11 items-center gap-1 text-sm text-fg-subtle hover:text-fg-normal">
+                    Across the weeks
+                    <ChevronRight aria-hidden size={16} />
+                  </Link>
+                </div>
                 {stages.map((stage) => (
                   <StageCard key={stage.end} stage={stage} now={now}>
                     {stage.ahead.map(({ task, week: w, at }) => row(task, <span>{AHEAD_AT[at](w)}</span>))}
@@ -253,6 +261,7 @@ function StageCard({ stage, now, children }: { stage: Stage; now: Week | null; c
             {left === null ? null : left <= 0 ? " · this week" : ` · in ${left} ${left === 1 ? "week" : "weeks"}`}
           </span>
         </span>
+        <StageSpan start={stage.start} end={stage.end} now={now} />
         {open ? null : (
           <span className="flex flex-col text-sm text-fg-normal">
             {stage.ahead.slice(0, PREVIEW).map(({ task }) => (
@@ -275,6 +284,15 @@ function StageCard({ stage, now, children }: { stage: Stage; now: Week | null; c
         </span>
       </button>
       {open ? <div className="flex flex-col">{children}</div> : null}
+      <Link
+        to="/planner/weeks"
+        search={{ stage: stage.end }}
+        aria-label={`${stage.title}, on the chart`}
+        className="-mb-2 flex min-h-11 w-fit items-center gap-1 text-xs text-fg-subtle hover:text-fg-normal"
+      >
+        On the chart
+        <ChevronRight aria-hidden size={14} />
+      </Link>
     </Card>
   );
 }

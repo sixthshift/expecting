@@ -10,7 +10,6 @@ import { usePapers } from "../../../../api/rpc/papers";
 import { usePhotos } from "../../../../api/rpc/photos";
 import { useQuestions } from "../../../../api/rpc/questions";
 import { useNow, useSettings } from "../../../../api/rpc/settings";
-import { PillarHeader } from "../../../../app/components/layout/PillarLayout";
 import { useOutOfTheWay } from "../../../../app/hooks/useOutOfTheWay";
 import { weekNotes } from "../../../../content";
 import type { Week } from "../../../../lib/timeline";
@@ -18,8 +17,9 @@ import { mapWeeks, mapWindows } from "../../../../lib/timelineMap";
 import { useItems } from "../../../library/hooks/useItems";
 import { useTasks } from "../../../tasks/hooks/useTasks";
 import { Welcome } from "../../../thisWeek/components/now/Now";
+import { MapHeader } from "../header/MapHeader";
+import { PregnancyStrip } from "../strip/PregnancyStrip";
 import { WeekMap } from "../weekMap/WeekMap";
-import { WindowsChart } from "../windowsChart/WindowsChart";
 
 /** Bring a week's line into view: the middle of the screen, or the top for the first weeks. */
 function scrollToWeek(week: Week, smooth: boolean) {
@@ -27,12 +27,10 @@ function scrollToWeek(week: Week, smooth: boolean) {
 }
 
 /**
- * The whole pregnancy at once: the map. Every week a line, under its
- * trimester, with the landmarks; the windows, what each asks of you and
- * across which weeks. A week's detail is This week's: each line goes there.
- *
- * The windows are a chart across the pregnancy, the width of the screen on a
- * phone; the weeks below it are one column on a phone, and three on a
+ * The whole pregnancy at once: the map, opened from This week. The pregnancy
+ * in a line, then every week a line, under its trimester, with the landmarks.
+ * A week's detail is This week's: each line goes there. What's to do across
+ * the weeks is the Planner's chart. One column on a phone, and three on a
  * desktop, a trimester each.
  */
 export function Timeline({ at }: { at: Week | undefined }) {
@@ -48,11 +46,12 @@ export function Timeline({ at }: { at: Week | undefined }) {
   const { data: photos } = usePhotos();
   const { data: papers } = usePapers();
   const { dueDate } = settings;
+  const due = useMemo(() => new Set(tasks.filter((t) => !checklist.ticks[t.id]).map((t) => t.due)), [tasks, checklist.ticks]);
   const away = useOutOfTheWay();
   const windows = useMemo(() => mapWindows(items, checklist.ticks, now), [items, checklist.ticks, now]);
   const weeks = mapWeeks({ notes: weekNotes, windows, tasks, ticks: checklist.ticks, questions, journal, feelings, appetite, photos, papers, now, dueDate });
 
-  // Open at the top, where the chart has today on it; or at the week asked for, on a phone.
+  // Open at the week asked for, on a phone; else at the top, where the strip has today on it.
   useEffect(() => {
     if (at === undefined || window.matchMedia("(min-width: 64rem)").matches) return;
     // After the router has put the page at its top.
@@ -62,7 +61,13 @@ export function Timeline({ at }: { at: Week | undefined }) {
 
   return (
     <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
-      <PillarHeader title="Timeline" lead="The whole pregnancy at once. Tap a week to see it." />
+      <MapHeader lead="Every week at once. Tap one to see it.">
+        {now !== null ? (
+          <div className="mt-4 max-w-xl">
+            <PregnancyStrip now={now} at={at ?? now} due={due} named />
+          </div>
+        ) : null}
+      </MapHeader>
       {!dueDate ? <Welcome /> : null}
       {now !== null ? (
         <Button
@@ -80,9 +85,6 @@ export function Timeline({ at }: { at: Week | undefined }) {
         </Button>
       ) : null}
 
-      <div className="mb-10">
-        <WindowsChart windows={windows} now={now} />
-      </div>
       <WeekMap weeks={weeks} at={at} />
     </main>
   );

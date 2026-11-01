@@ -66,7 +66,7 @@ export function planTasks(tasks: readonly Task[], ticks: Record<string, string>,
 }
 
 /** Where the stages end: the weeks people mark, and one more where the admin crowds in. */
-const STAGES: readonly { end: Week; title: string }[] = [
+export const STAGES: readonly { end: Week; title: string }[] = [
   { end: 13, title: "Before the first trimester ends" },
   { end: 20, title: "By halfway" },
   { end: 27, title: "Before the third trimester" },
@@ -75,7 +75,18 @@ const STAGES: readonly { end: Week; title: string }[] = [
   { end: 42, title: "Before the birth" },
 ];
 
+/** Where the stage at `i` begins: week 1, or the week after the one before it ends. */
+const stageStart = (i: number): Week => (i === 0 ? 1 : STAGES[i - 1]!.end + 1);
+
+/** The stage that ends at `end`, if one does: a stage's own address. */
+export function stageEnding(end: Week): { start: Week; end: Week; title: string } | null {
+  const i = STAGES.findIndex((s) => s.end === end);
+  return i < 0 ? null : { ...STAGES[i]!, start: stageStart(i) };
+}
+
 export type Stage = {
+  /** Its first week: the week after the stage before it ends. */
+  start: Week;
   end: Week;
   title: string;
   /** Still to do, by the week each next asks of you. */
@@ -93,7 +104,7 @@ const aim = ({ task, week, at }: Ahead): Week => (at === "deadline" ? week : tas
  * stage with nothing left to do isn't one.
  */
 export function stagesAhead(plan: Plan): Stage[] {
-  const stages = STAGES.map((s) => ({ ...s, ahead: [] as Ahead[], done: [] as Task[] }));
+  const stages = STAGES.map((s, i) => ({ ...s, start: stageStart(i), ahead: [] as Ahead[], done: [] as Task[] }));
   // The last stage ends at the last week, so every week has one.
   const stageOf = (week: Week) => stages.find((s) => week <= s.end) as Stage;
   for (const entry of plan.ahead) stageOf(aim(entry)).ahead.push(entry);

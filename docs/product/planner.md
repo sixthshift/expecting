@@ -14,7 +14,8 @@ row in The pillars. Tasks themselves (windows, whose, urgency) are in
 
 1. **"What do we do next?"** There's always somewhere to start: one thing
    first, with when, whose and why.
-2. **"What's coming?"** The admin ahead, without reading every week.
+2. **"What's coming?"** The admin ahead, without reading every week; and
+   when you want the whole run of it, [across the weeks](#across-the-weeks).
 3. **"What do we still need?"** In a baby shop, the supermarket, or
    writing down what to ask Mum to bring.
 4. **"What did we want to ask?"** In the waiting room, or straight after,
@@ -51,6 +52,33 @@ tasks (a title and a week). A task that keeps something (a letter, a photo,
 a first, a list of your people) offers the way to keep it, and keeping it
 ticks the task.
 
+## Across the weeks
+
+To do drawn as a chart, at `/planner/weeks`, for when you want the whole
+run of it at once: what overlaps, how long a window has left, what's
+bunching up. It took over the timeline's windows chart when the timeline
+stopped being a pillar ([timeline.md](timeline.md#not-a-pillar)).
+
+- **The same plan as To do, drawn another way.** The same groups in the
+  same order: To do now, then a group per stage ahead, each ending at a
+  week people mark, then what's earlier and done, folded. The stages' ends
+  are dashed lines across the chart, so a stage card is visibly a slice of
+  it.
+- **A task a row,** not an entry a row: the Planner thinks in things to
+  do. Each is a bar from the week it opens to the week it closes (its
+  deadline, else where its entry's weeks end, never before its best-by
+  week), with a notch at its best-by week; coloured open now, ahead, past
+  its best-by week, or done. A row goes to its entry, for the why.
+- **Reached from To do, not a tab of its own:** "Across the weeks" beside
+  Ahead's heading opens it at the top, and each stage card's "On the chart"
+  opens it at that stage (`?stage=37`), shaded. Each card carries a thin
+  bar of the pregnancy with its stage's weeks tinted, so the card and the
+  chart speak the same language.
+- **For looking, not ticking.** Ticking is To do's, where nothing jumps.
+- **Desktop:** the titles in a column beside the bars. **Phone:** the
+  chart the width of the screen, each title over its bar, starting where
+  the bar does (or ending where it does, late in the pregnancy).
+
 ## The lists: what to get
 
 The Library knows what you need (the car seat, the pram, a cot, nappies),
@@ -59,7 +87,7 @@ still to get or tick it off together in a shop.
 
 - **The Planner's, not a seventh pillar.** Getting things is doing things,
   and the Planner already holds what to do and when. The tab bar stays at
-  six.
+  five.
 - **One list per job,** not one big list and not a list per topic: you use
   a list in one place at one moment. Topics (sleep, feeding, out and about,
   for you) are sections inside it.

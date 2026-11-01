@@ -1,8 +1,9 @@
 # This week
 
 Home: where you are, and what matters now. Opening the app asks "where are
-we now, and what matters?", not "where are we in all of it" (that's the
-[timeline](timeline.md)), so the landing page is the week.
+we now, and what matters?", not "where are we in all of it" (that's
+[the whole pregnancy](timeline.md), a tap away), so the landing page is the
+week.
 
 How it's built is [`architecture.md`](../architecture.md), the This week
 row.
@@ -17,8 +18,9 @@ row.
 ## What it holds to
 
 - **It stays about the week.** The handy things have the Drawer rather
-  than crowding it, at the cost of a sixth tab on a phone.
-- **Where you are, first:** the week, the baby's size, how far along.
+  than crowding it, and the whole pregnancy is a page off it, not a tab.
+- **Where you are, first:** the week, the baby's size, how far along, and
+  where that is in the whole pregnancy.
 - **To do now is short and ordered by urgency, not by week:** a deadline
   within two weeks or just missed, then what slipped in the last four
   weeks, then what's best done in the next two. Older slips are left to the
@@ -35,6 +37,12 @@ row.
 
 ## What's on it
 
+- **The week, in the whole pregnancy:** under the heading, a strip of the
+  42 weeks (the weeks behind tinted, this one solid, a dot under each week
+  ahead with something best done by then, the landmarks above and the
+  trimesters below), the days to go, and "The whole pregnancy", the map.
+  A week on the strip goes to that week, as the steps do. It stands where
+  the progress bar did, so home is no heavier for it.
 - **The week's note:** The baby, Your body, For the partner.
 - **One heads-up a week:** a "nobody tells you" card, under the note.
   Walking the weeks in order, each takes the card covering it that started

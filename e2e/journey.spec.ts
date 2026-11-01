@@ -63,8 +63,8 @@ test.describe("the first evening", () => {
     await expect(page.getByRole("heading", { level: 1, name: "This week Week 28" })).toBeVisible();
     await expect(page).toHaveURL((url) => url.pathname === "/");
     await expect(page.getByText("28+0 · 84 days to go")).toBeVisible();
-    // The timeline opens at this week too.
-    await page.getByRole("navigation", { name: "Expecting" }).getByRole("link", { name: "Timeline" }).click();
+    // The whole pregnancy opens at this week too.
+    await page.getByRole("link", { name: "The whole pregnancy" }).click();
     await expect(week(page, "28").getByRole("link")).toHaveAttribute("aria-current", "date");
   });
 });
@@ -95,11 +95,10 @@ test("the second phone is only asked who it is", async ({ page, open }) => {
   await expect(page.getByText("This is Sam's phone. Expecting is shared by Jason and Sam.")).toBeVisible();
 });
 
-test("the timeline is the map: what to do and when, the landmarks, and a week goes to This week", async ({ page, open }) => {
-  await open("/timeline");
-  const chart = page.getByRole("region", { name: "What to do, and when" });
-  await expect(chart.getByRole("link", { name: /^The RSV vaccine, weeks 28 to 36, open now/ })).toBeVisible();
-  await expect(chart.getByRole("link", { name: /^Packing the hospital bag, weeks \d+ to \d+, ahead/ })).toBeVisible();
+test("the whole pregnancy is the map, from This week: the landmarks, and a week goes to This week", async ({ page, open }) => {
+  await open("/");
+  await page.getByRole("link", { name: "The whole pregnancy" }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "The whole pregnancy" })).toBeVisible();
   await expect(week(page, "20")).toContainText("Halfway");
   await expect(week(page, "28")).toContainText("RSV vaccine opens");
 
@@ -111,6 +110,20 @@ test("the timeline is the map: what to do and when, the landmarks, and a week go
   await week(page, "32").getByRole("link").click();
   await expect(page).toHaveURL(/\/\?at=32$/);
   await expect(page.getByRole("heading", { level: 1, name: "In 4 weeks Week 32" })).toBeVisible();
+});
+
+test("the Planner draws what's to do across the weeks, in its stages, opened at one from its card", async ({ page, open }) => {
+  await open("/planner");
+  await page.getByRole("link", { name: "Across the weeks" }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "Across the weeks" })).toBeVisible();
+  const now = page.getByRole("region", { name: "To do now" });
+  await expect(now.getByRole("link", { name: /^Book the RSV vaccine: opens week 28, best by week \d+, closes week 36, open now/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: /^Pack the hospital bag: .*, ahead$/ })).toBeVisible();
+
+  await open("/planner");
+  await page.getByRole("link", { name: "By full term, on the chart" }).click();
+  await expect(page).toHaveURL(/\/planner\/weeks\?stage=37$/);
+  await expect(page.getByRole("region", { name: /^By full term/ })).toBeInViewport();
 });
 
 test("an own task is added in the Planner, and lands on its week", async ({ page, open }) => {
@@ -140,7 +153,7 @@ test("Why goes from a task to the item that explains it, and on to its week", as
   await expect(page).toHaveURL(/\/library\/rsv-vaccine$/);
   await expect(page.getByRole("heading", { level: 1, name: "The RSV vaccine" })).toBeAttached();
 
-  await page.getByRole("link", { name: "See week 28 on the timeline" }).click();
+  await page.getByRole("link", { name: "See week 28 in the whole pregnancy" }).click();
   await expect(week(page, "28")).toBeInViewport();
 });
 
@@ -343,8 +356,8 @@ test("the answer to boy or girl sets the colours, and they survive a reload", as
 
   await page.getByRole("radio", { name: "Boy" }).click();
   await expect.poll(theme).toBe("baby-blue");
-  await page.getByRole("link", { name: "Timeline" }).click();
-  await expect(page.getByRole("heading", { level: 1, name: "Timeline" })).toBeVisible();
+  await page.getByRole("link", { name: "Library" }).first().click();
+  await expect(page.getByRole("heading", { level: 1, name: "Library" })).toBeVisible();
   expect(await theme()).toBe("baby-blue");
 
   await open("/settings");

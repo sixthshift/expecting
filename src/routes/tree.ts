@@ -29,6 +29,7 @@ import { who } from "./onboarding/who";
 import { planner } from "./planner";
 import { plannerList } from "./plannerList";
 import { plannerLists } from "./plannerLists";
+import { plannerWeeks } from "./plannerWeeks";
 import { rootRoute } from "./root";
 import { settings } from "./settings";
 import { timeline } from "./timeline";
@@ -49,6 +50,7 @@ export const routeTree = rootRoute.addChildren([
     planner,
     plannerLists,
     plannerList,
+    plannerWeeks,
     journal,
     journalBook,
     drawer,

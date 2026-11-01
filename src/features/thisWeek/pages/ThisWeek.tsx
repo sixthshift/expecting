@@ -1,5 +1,4 @@
-import { getRouteApi, Link } from "@tanstack/react-router";
-import { CalendarRange, ChevronRight } from "lucide-react";
+import { getRouteApi } from "@tanstack/react-router";
 import { useMemo } from "react";
 import { useChecklist } from "../../../api/rpc/checklist";
 import { useJournal } from "../../../api/rpc/journal";
@@ -81,6 +80,8 @@ function Week() {
   const askedIn = askedWeeks(questions, dueDate);
   const asked = questions.filter((q) => week !== null && askedIn.get(q.id) === week);
   const kept = peeking && week !== null ? entriesIn(journal, week, dueDate) : [];
+  // The weeks with something still to do best done by then, for the strip.
+  const dueWeeks = new Set(tasks.filter((t) => !checklist.ticks[t.id]).map((t) => t.due));
 
   return (
     <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
@@ -90,7 +91,7 @@ function Week() {
         <div className="flex flex-col gap-6 max-lg:-mb-2 lg:col-start-1 lg:row-start-1">
           <header className="flex items-start justify-between gap-3 pt-[max(1.5rem,env(safe-area-inset-top))] lg:pt-10">
             {position && dueDate && week !== null ? (
-              <Hero week={week} position={position} dueDate={dueDate} today={today} size={note?.week === week ? note.size : null} />
+              <Hero week={week} position={position} dueDate={dueDate} today={today} size={note?.week === week ? note.size : null} due={dueWeeks} />
             ) : (
               <h1 className="text-2xl font-display font-semibold text-fg-strong lg:text-3xl">This week</h1>
             )}
@@ -132,15 +133,6 @@ function Week() {
               <WorthKnowing key={week} items={starting} peeking={peeking} />
             </div>
           ) : null}
-          <Link
-            to="/timeline"
-            search={peeking && week !== null ? { at: week } : {}}
-            className="order-7 flex min-h-11 w-fit items-center gap-2 rounded-md text-sm text-fg-subtle hover:text-fg-normal lg:order-0"
-          >
-            <CalendarRange aria-hidden size={16} className="text-fg-brand" />
-            The whole pregnancy, week by week
-            <ChevronRight aria-hidden size={16} />
-          </Link>
         </div>
 
         {peeking ? (

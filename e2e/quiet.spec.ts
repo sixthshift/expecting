@@ -20,7 +20,7 @@ test("hard news quiets every pillar, and becomes a loss", async ({ page, open })
   await expect(page.getByRole("heading", { name: "Your body" })).toBeHidden();
 
   await open("/timeline");
-  await expect(page.getByText(/The timeline is paused/)).toBeVisible();
+  await expect(page.getByText(/The weeks are paused/)).toBeVisible();
   await expect(page.locator("[data-week]")).toHaveCount(0);
 
   await open("/planner");

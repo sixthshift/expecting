@@ -6,6 +6,7 @@ import { TOPICS, type Topic, VERDICTS } from "../content/schema";
 import { VIEW_KEYS, type View } from "../lib/circle";
 import { DOORS } from "../lib/library";
 import { DECK_FILTERS } from "../lib/names";
+import { stageEnding } from "../lib/planner";
 import { LENSES } from "../lib/story";
 import { parseWeekKey } from "../lib/timeline";
 
@@ -70,4 +71,14 @@ export const peopleSearch = z.object({
 /** The names game: which names it deals (`girls`, `boys`, `all`); without, all of them. Only while you don't know which it is: knowing, the deck is that one's. */
 export const namesSearch = z.object({
   names: z.enum(DECK_FILTERS).optional().catch(undefined),
+});
+
+/** The Planner's chart: a stage to open at, by the week it ends (`32`); anything else opens at the top. */
+export const plannerWeeksSearch = z.object({
+  stage: z.coerce
+    .number()
+    .int()
+    .optional()
+    .catch(undefined)
+    .transform((end) => (end !== undefined && stageEnding(end) ? end : undefined)),
 });

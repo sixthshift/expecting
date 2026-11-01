@@ -27,7 +27,7 @@ import { pageOf } from "../model/pageOf";
 
 const route = getRouteApi("/app/library/$itemId");
 
-/** One item on its own page, with the way to its week on the timeline. */
+/** One item on its own page, with the way to its week in the whole pregnancy. */
 export function LibraryItemPage() {
   const { itemId } = route.useParams();
   const { data: checklist } = useChecklist();
@@ -94,7 +94,7 @@ export function LibraryItemPage() {
   );
 }
 
-/** The item with its page, once loaded: the card, a question to ask at the next appointment and those asked from it, the papers you kept about it, its week on the timeline, and what it links to. Something has happened's guide has its switch. */
+/** The item with its page, once loaded: the card, a question to ask at the next appointment and those asked from it, the papers you kept about it, its week in the whole pregnancy, and what it links to. Something has happened's guide has its switch. */
 function Page({ item, ticks }: { item: Item; ticks: Record<string, string> }) {
   const page = use(pageOf(item));
   return (
@@ -113,7 +113,7 @@ function Page({ item, ticks }: { item: Item; ticks: Record<string, string> }) {
           className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal"
         >
           <CalendarRange aria-hidden size={16} className="text-fg-brand" />
-          See {weekLabel(item.from).toLowerCase()} on the timeline
+          See {weekLabel(item.from).toLowerCase()} in the whole pregnancy
         </Link>
       ) : null}
       <Related ids={page.related} />
