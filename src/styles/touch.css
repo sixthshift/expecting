@@ -26,3 +26,11 @@
     outline: none;
   }
 }
+
+/* A row of chips that scrolls sideways on a phone: the chip cut off at the edge says there's more, so no scrollbar under it. */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

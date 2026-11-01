@@ -134,7 +134,7 @@ export function Lately({ patterns, onOpen }: { patterns: readonly Pattern[]; onO
       <h2 id="lately" className="text-sm font-semibold text-fg-strong">
         Lately
       </h2>
-      <ul className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 lg:mx-0 lg:grid lg:overflow-visible lg:px-0">
+      <ul className="scrollbar-none -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 lg:mx-0 lg:grid lg:overflow-visible lg:px-0">
         {patterns.map((p) => {
           const Mini = MINI[p];
           return (

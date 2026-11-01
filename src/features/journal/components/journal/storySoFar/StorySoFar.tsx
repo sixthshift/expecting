@@ -113,7 +113,7 @@ export function StorySoFar({ words, onWords }: { words: string; onWords: (words:
           variant="outline"
           size="sm"
           aria-label="Show"
-          className="-mx-4 overflow-x-auto px-4 lg:mx-0 lg:flex-wrap lg:px-0"
+          className="scrollbar-none -mx-4 overflow-x-auto px-4 lg:mx-0 lg:flex-wrap lg:px-0"
           value={lens}
           onValueChange={(value) => navigate({ search: { show: value && value !== "all" ? (value as Lens) : undefined } })}
           options={lenses.map((l) => ({ value: l, label: LENS_LABEL[l] }))}

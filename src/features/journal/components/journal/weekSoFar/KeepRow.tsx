@@ -35,7 +35,7 @@ export function KeepRow() {
 
   return (
     <>
-      <ul aria-label="Keep" className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 lg:mx-0 lg:flex-wrap lg:px-0">
+      <ul aria-label="Keep" className="scrollbar-none -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 lg:mx-0 lg:flex-wrap lg:px-0">
         {choices.map((c) => {
           const chip = CHIP[c];
           if (!chip) return null;
