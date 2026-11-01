@@ -63,128 +63,73 @@ None of them is "choose a kind, then fill in its form".
 
 ## The page
 
-### This week's page, first
+Made for the moment, in the order you need it: now first, then the story.
 
-The week, large, with its note's title and the baby this week (the first
-sentence of the note's "The baby", and its size when the note gives one).
-Then the firsts whose weeks take this one in, each with its question, to
-write in your own words or put off for the week. Then the Keep row, and
-what's kept this week.
+- **This week's page first:** the week, its note's title, the baby this
+  week, the firsts that usually come now (each with its question, to write
+  or put off for the week), the Keep row, and what's kept this week. "Did
+  it go in?" and "what's now?" are why most visits happen.
+- **The book, already begun.** From the first visit there's a cover (Our
+  pregnancy, your names, the due month and year) and contents: the
+  pregnancy's chapters, each with the firsts that usually come in it.
+  Every pregnancy journal starts early, because a moment not kept then is
+  missed for good, and the chapters show what it could become without
+  listing what's missing: a chapter is begun, now, still to come (faint),
+  or passed with nothing kept (faint, its moments still keepable). The
+  book on the page, the recaps and the print at `/journal/book` are one
+  book seen at different times, not three things. It's large while the
+  Journal is young (fewer than five things kept, ticks aside), then one
+  line ("Our pregnancy · 4 chapters begun"): said once. With no due date
+  the cover asks for one, since the due date is what writes the weeks in.
 
-### The book, already begun
+  | Chapter | Weeks | Its moments |
+  |---|---|---|
+  | Finding out | 1–6 | Found out |
+  | The first scan | 7–13 | The first scan, heard the heartbeat, the first craving |
+  | Telling people | 14–17 | Told the family, the first outfit |
+  | Halfway | 18–22 | Started showing, found out boy or girl |
+  | Feeling them move | 23–27 | The first kick, felt from the outside |
+  | Getting ready | 28–36 | The cot is up |
+  | The last weeks | 37–42 | The bag is packed, it started |
+  | The birth | | Drawn, never filled: the birth is out of the first version |
 
-The book exists from the first visit: a cover (Our pregnancy, your names,
-the due month and year) and its contents, the pregnancy's chapters. It's
-the same book the recaps step through and `/journal/book` prints: one idea,
-seen at different times.
-
-| Chapter | Weeks | Its moments |
-|---|---|---|
-| Finding out | 1–6 | Found out |
-| The first scan | 7–13 | The first scan, heard the heartbeat, the first craving |
-| Telling people | 14–17 | Told the family, the first outfit |
-| Halfway | 18–22 | Started showing, found out boy or girl |
-| Feeling them move | 23–27 | The first kick, felt from the outside |
-| Getting ready | 28–36 | The cot is up |
-| The last weeks | 37–42 | The bag is packed, it started |
-| The birth | | Drawn, never filled: the birth is out of the first version |
-
-Each chapter is begun (something kept in its weeks, or one of its firsts
-marked), now, still to come (faint), or passed with nothing kept (faint,
-and its moments can still be kept). You see the whole shape of what it
-could become without being told to fill it.
-
-While the Journal is young (fewer than five things kept, ticks aside) the
-cover and contents sit under this week's page; after that they're one line
-at the top ("Our pregnancy · 4 chapters begun"). With no due date the cover
-stays and asks for one, since the due date is what writes the weeks in.
-
-### Places ready
-
-At the moments that matter, Expecting has made a place and says so once,
-in a sentence; the place itself is the way in, with no shouting button:
-
-- the dating scan (weeks 6–13) and the morphology scan (16–20): "Your
-  dating scan is usually around now. There's a place ready for the
-  picture."
-- the glucose test (24–28): "There's a place ready for the glucose test's
-  result."
-- the bump, from week 12 until one is kept: "If you'd like a bump series,
-  the same spot each week works best. Expecting lines them up."
-
-A place goes once it's used or its weeks pass.
-
-### Catching up, as a courtesy
-
-"Some of this has already happened. You can still keep it, on the day it
-was." The firsts whose weeks are past, not marked and not put aside, each
-kept on the day you say, in your words. Opening the Journal for the first
-time at week 14 misses nothing for good.
-
-### The Keep row
-
-The "+"'s choices that file into the Journal, one tap each, opening the
-same sheet on its form: each form is written once and used everywhere.
-Under each label, where there's room, a few words on what it becomes (a
-bump photo "lined up week by week", a letter "for them to read one day", a
-movement "so you know their rhythm"): facts, not a pitch. Kept from here
-there's no toast, since the page shows it as just kept; kept from another
-pillar, the toast's "See it" opens the Journal on it.
-
-### A call to make, and Now
-
-A call to make is always first, and isn't counted among the cards: a
-movement felt as slower, weaker or stopped in the last two days, or can't
-keep fluids down today.
-
-Then Now: at most two cards, by fixed rules in a fixed order, so nothing
-jumps about.
-
-1. **Just kept,** with its thread: a craving's times and since when
-   ("Again: first time since week 22"), a movement on the fortnight's
-   pattern, a photo beside the last of its kind.
-2. **Since you looked:** what the other one kept since this phone's person
-   last opened the Journal. Never a feeling or a tick.
-3. **A first to claim,** suggested from what's kept (the first movement:
-   "was this the first kick?"), with its question.
-4. **A recap:** a trimester's in the week after it ends, the whole
-   pregnancy's from week 37.
-5. **Last week, kept,** in a week's first two days, if it had anything.
-6. **This day, weeks ago:** a first, photo or note from a whole number of
-   weeks ago today (two or more).
-
-### Lately
-
-The patterns there's enough for (movements, feelings, sickness, cravings,
-the bump), each opening its lens.
-
-### The story
-
-Everything, newest first, under its week and day, written like a diary,
-not as rows: the day in the margin, the words running as writing, photos
-large, a day's movements one line of times (never counted), a day's same
-craving one chip ("Pickles, twice"), sickness one line a day. No card and
-no buttons on a line: tap it, and it's changed or deleted in a sheet.
-Every week back to the first is on the spine, with its note's title.
-Without a due date it's grouped by month.
-
-- **Lenses** (Notes, Movements, Sickness & cravings, Photos, Feelings,
-  Papers, Firsts), each only once it has something: its pattern at full
-  size, its own tools, then its entries.
-- **Search** over all of it, held on the page, not in the address.
-- **Zoom:** Days (the story), Weeks (a tile a week under its trimester,
-  faint when nothing's kept) and Pregnancy (weeks 1–42 as one line, the
-  firsts as landmarks, you are here). A week opens at the same key as the
-  timeline's.
-
-### Recaps and the book
-
-Built from what's there, a part only when it has something: the firsts,
-the bump as a flipbook, the scans, the most craved, both voices (the
-firsts' answers), the letters, and what you got done. A trimester's recap
-is offered on Now the week after it ends, the whole pregnancy's from week
-37. Stepped through card by card, and the whole as a page to print or save
-as a PDF (`/journal/book`).
+- **Places ready,** at the moments that matter: the dating and morphology
+  scans' pictures, the glucose test's result, a bump series from week 12.
+  One sentence each ("Your dating scan is usually around now. There's a
+  place ready for the picture."), the place itself the way in, gone once
+  used or its weeks pass. It shows what Expecting can do at the moment it
+  matters, instead of asking for a habit.
+- **Catching up, as a courtesy:** "Some of this has already happened. You
+  can still keep it, on the day it was." So opening the Journal for the
+  first time at week 14 misses nothing for good.
+- **The Keep row:** the "+"'s Journal choices, opening the same forms,
+  each written once. Under each, what it becomes (a bump photo "lined up
+  week by week", a letter "for them to read one day"): facts, not a pitch.
+  Kept from here there's no toast, because the page shows it as just kept.
+- **A call to make, always first,** outside the count: a movement felt as
+  slower, weaker or stopped in the last two days, or can't keep fluids
+  down today.
+- **Now: at most two cards, by fixed rules in a fixed order,** so nothing
+  jumps about between visits: just kept, with its thread ("Again: first
+  time since week 22"); since you looked, what the other kept (never a
+  feeling or a tick); a first to claim, suggested from what's kept; a
+  recap, a trimester's the week after it ends and the whole pregnancy's
+  from week 37; last week, in a week's first two days; this day, two or
+  more whole weeks ago.
+- **Lately:** the patterns there's enough for, each opening its lens.
+- **The story, like a diary, not rows.** A list of records reads like a
+  database, so the day sits in the margin, the words run as writing,
+  photos are large, a day's movements are one line of times, a day's same
+  craving is one chip ("Pickles, twice"), and a line has no buttons: tap
+  it to change or delete it. Every week back to the first is on the spine
+  with its note's title. Lenses (Notes, Movements, Sickness & cravings,
+  Photos, Feelings, Papers, Firsts) each appear once they have something,
+  as their pattern at full size, their tools, then their entries. Search
+  covers everything. Zoom goes from days to weeks (a tile a week) to the
+  pregnancy (weeks 1–42 as one line, the firsts as landmarks).
+- **Recaps,** a part only when it has something: the firsts, the bump as a
+  flipbook, the scans, the most craved, both voices, the letters, what got
+  done. Stepped through card by card, or printed as the book.
 
 ## What's kept, kind by kind
 

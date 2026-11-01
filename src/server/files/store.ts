@@ -3,7 +3,7 @@
 // is a folder holding `original` (the file as given, untouched) and, for a
 // picture, `display` and `thumb` (JPEGs made on the phone). Its row is
 // `upload` (src/db/models/files/). Any record can keep one: it points at the
-// upload, and deleting the record drops it. See docs/plan-photos-scans.md.
+// upload, and deleting the record drops it. See docs/architecture.md, Uploads.
 
 import type { Database } from "bun:sqlite";
 import { existsSync } from "node:fs";

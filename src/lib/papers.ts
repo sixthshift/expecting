@@ -4,7 +4,7 @@
 // and finds them; it never reads them, so nothing here knows what a paper
 // says. The files are uploads (./files.ts); this is the record around them.
 // Its week is worked out from the due date as it's read, as a note's is.
-// See docs/plan-results-papers.md.
+// See docs/product/journal.md.
 
 import type { ISODate } from "./dates";
 import { FILE_PROBLEM, type FileProblem, type FileType, fileUrl, isImage, MAX_ORIGINAL } from "./files";

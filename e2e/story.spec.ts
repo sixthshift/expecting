@@ -1,4 +1,4 @@
-// The Journal as one story (docs/plan-journal.md): kept from its Keep row and
+// The Journal as one story (docs/product/journal.md): kept from its Keep row and
 // shown as just kept, without leaving the page; the lenses there's something
 // for; a first marked and answered in your own words; a letter to the baby;
 // what the other kept since you looked; zoomed out and back to a week; the

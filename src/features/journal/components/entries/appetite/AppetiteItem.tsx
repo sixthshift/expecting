@@ -4,7 +4,7 @@
 // later (what you craved, how often). Never a score and never advice about
 // her body: can't keep fluids down is a call, as `severe-vomiting` says, and
 // craving things that aren't food is worth mentioning, as
-// `food-cravings-and-aversions` says. See docs/plan-cravings-sickness.md.
+// `food-cravings-and-aversions` says. See docs/product/journal.md.
 
 import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";

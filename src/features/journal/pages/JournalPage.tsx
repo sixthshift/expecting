@@ -19,7 +19,7 @@ const route = getRouteApi("/app/journal");
  * whole pregnancy. Adding is the "+" and the Keep row. It shows what's kept,
  * never what's missing. While something has happened, the notes, letters,
  * feelings, papers and what was done stay, and the rest is folded behind one
- * quiet line. See docs/plan-journal.md.
+ * quiet line. See docs/product/journal.md.
  *
  * The page is three parts: the week so far (`WeekSoFar`), the highlights
  * beside it (`Highlights`, from `useHighlights`) and the story so far

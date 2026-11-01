@@ -3,7 +3,7 @@
 // "since when? how often? getting better?", and for fun later ("pickles, 14
 // times"). Never a score and never advice about her body: the only things it
 // says are its sources' (can't keep fluids down is a call; craving things
-// that aren't food is worth mentioning). See docs/plan-cravings-sickness.md.
+// that aren't food is worth mentioning). See docs/product/journal.md.
 
 import { addDays, daysBetween, type ISODate } from "./dates";
 import { type Place, placeOf } from "./journal";

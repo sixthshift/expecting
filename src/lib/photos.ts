@@ -2,7 +2,7 @@
 // a picture, each on its day, kept by either of you and shown to both. The
 // picture itself is an upload (./files.ts); this is the record around it.
 // Its week is worked out from the due date as it's read, as a note's is.
-// See docs/plan-photos-scans.md.
+// See docs/product/journal.md.
 
 import { type ISODate, todayISO } from "./dates";
 import { type Place, placeOf } from "./journal";

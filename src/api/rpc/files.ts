@@ -5,7 +5,7 @@
 //
 // A record's save sends its upload first: `withUpload` (below) in its `send`,
 // so a picture taken offline waits on the phone with its record, and both go
-// together. See docs/plan-photos-scans.md, For Results and papers.
+// together. See docs/architecture.md, Uploads.
 
 import { createServerFn } from "@tanstack/react-start";
 import { forgetOnPhone, onPhone } from "../../app/model/uploads";

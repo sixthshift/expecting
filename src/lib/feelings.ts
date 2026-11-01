@@ -2,7 +2,7 @@
 // The step is shared, so you can look out for each other; the words and
 // what you wrote are only ever sent to the phone of the person they're
 // about. A courtesy, not security: anyone with the password can say they're
-// you. See docs/plan-feelings.md.
+// you. See docs/product/journal.md.
 
 import { addDays, type ISODate } from "./dates";
 
@@ -109,7 +109,7 @@ export const FORTNIGHT = { days: 14, checkIns: 4 } as const;
  * Whether the last fortnight has been hard for someone, from their own
  * feelings: at least four days checked in, and on most of them the day ended
  * Low or Rough, or "anxious" was among the words. A first guess, not from a
- * source (docs/plan-feelings.md). It never names a condition.
+ * source (docs/product/journal.md). It never names a condition.
  */
 export function hardFortnight(feelings: readonly OwnFeeling[], today: ISODate): boolean {
   const from = addDays(today, 1 - FORTNIGHT.days);

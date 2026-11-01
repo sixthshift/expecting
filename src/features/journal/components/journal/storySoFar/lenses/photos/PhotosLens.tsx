@@ -1,7 +1,7 @@
 // Photos and scans in the Journal: the bump, week by week (the fun part:
 // a row of weeks, and two of them side by side), and every photo and scan
 // under its week. Shared: both of you see all of them, and either can change
-// or delete one. See docs/plan-photos-scans.md.
+// or delete one. See docs/product/journal.md.
 
 import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";

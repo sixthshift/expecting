@@ -1,7 +1,7 @@
 // The firsts: marked on their day by either of you, each with its question
 // answered in your own words, side by side. Suggested from what's kept only
 // as a question to confirm, with a day you can move, or put aside: a first
-// is yours to claim. See docs/plan-journal.md.
+// is yours to claim. See docs/product/journal.md.
 
 import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";
