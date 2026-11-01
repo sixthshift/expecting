@@ -282,7 +282,7 @@ What every new extra here has to hold to, whichever part it's from.
   exist, those dates are kept and shown in their feature, not on the
   Timeline.
 - **The Journal shows what's kept, never what's missing**
-  (`docs/plan-journal.md`). An answered question, a marked bingo square, a
+  (`docs/product/journal.md`). An answered question, a marked bingo square, a
   match belongs in the story; an unanswered question or an empty square
   doesn't, and nothing nags.
 - **Turning an extra off hides, never deletes.** Turned on again,
