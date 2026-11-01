@@ -139,6 +139,15 @@ const circle = {
   announcement: null,
 };
 
+const jobs = {
+  answers: [
+    { jobId: "nappies", mine: "me", theirs: "you" },
+    { jobId: "washing", mine: null, theirs: null },
+  ],
+  theirCount: 3,
+  together: true,
+};
+
 const CASES: Record<string, [unknown, unknown[]]> = {
   setTicked: [
     checklist,
@@ -392,6 +401,14 @@ const CASES: Record<string, [unknown, unknown[]]> = {
   ],
   deleteGift: [circle, [{ id: GIFT }]],
   setAnnouncement: [circle, [{ body: " She's here! " }, { body: " " }]],
+  pickJob: [
+    jobs,
+    [
+      { jobId: "washing", pick: "together" },
+      { jobId: "nappies", pick: "you" },
+    ],
+  ],
+  unpickJob: [jobs, [{ jobId: "nappies" }, { jobId: "washing" }]],
 };
 
 test("every save has its cases here", () => {

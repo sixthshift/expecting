@@ -137,6 +137,14 @@ export const EXTRA_LIST = [
     offer: 20,
   },
   {
+    id: "who-does-what",
+    name: "Who does what",
+    pitch: "Each of you says who'll do each newborn job, on your own phone: see where you agree, and what to talk about.",
+    group: "you-two",
+    offer: 24,
+    tool: "the jobs, in the Drawer",
+  },
+  {
     id: "sleep-setup",
     name: "Sleeping well",
     pitch: "Pillows, positions and a bed set-up for the later months.",

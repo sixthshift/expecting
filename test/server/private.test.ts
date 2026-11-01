@@ -66,6 +66,8 @@ const WRITES: Record<string, ((x: string) => unknown) | null> = {
   "circle.ts:thankGift": (x) => ({ id: x, thanked: true }),
   "circle.ts:deleteGift": (x) => ({ id: x }),
   "circle.ts:setAnnouncement": (x) => ({ body: x }),
+  "jobs.ts:pickJob": (x) => ({ jobId: x, pick: "me" }),
+  "jobs.ts:unpickJob": (x) => ({ jobId: x }),
   "quiet.ts:clearQuiet": null,
   "journal.ts:addNote": (x) => ({ id: UUID, day: "2026-10-30", time: null, body: x }),
   "journal.ts:editNote": (x) => ({ id: UUID, day: "2026-10-30", time: null, body: x, kind: "letter" }),
