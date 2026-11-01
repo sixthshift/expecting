@@ -40,3 +40,4 @@ links to it.
 - [The Library](library.md)
 - [The Drawer](drawer.md)
 - [Extras](extras.md)
+- [The capture "+"](capture.md)
