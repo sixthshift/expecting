@@ -11,6 +11,7 @@ import { PillarLayout } from "../components/layout/PillarLayout";
 import { PILLARS } from "../components/layout/pillars";
 import { WhatsNew } from "../components/WhatsNew";
 import { useAppTheme } from "../hooks/useAppTheme";
+import { useFocusOnArrival } from "../hooks/useFocusOnArrival";
 
 /**
  * Around every pillar: the baby's colours and the
@@ -36,6 +37,7 @@ export function App() {
   useDeadlineBadge(Boolean(quiet));
   const { pathname } = useLocation();
   const router = useRouter();
+  useFocusOnArrival();
 
   useEffect(() => {
     const warm = () => {

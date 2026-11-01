@@ -135,6 +135,7 @@ How it feels to use, beside what it does (`docs/plan-polish.md` has the walkthro
 - **Floating buttons step aside** while the page scrolls down and come back on the way up and at the ends (`useOutOfTheWay`, `src/app/hooks/`): the "+", the timeline's Today.
 - **On a phone**, no tap highlight, no selecting a button's text by a long press, no double-tap zoom wait (`src/styles/touch.css`); the app icon's badge counts the deadlines coming up, where badges exist (`useDeadlineBadge`).
 - **On a desktop**, `/` searches the Library from anywhere and `n` opens the "+" (`useShortcuts`, `src/app/hooks/useShortcuts.ts`), never while typing or under a dialog.
+- **Arriving on a page puts focus on its heading** (`useFocusOnArrival`, `src/app/hooks/`), once the router has drawn it (`onRendered`): a screen reader says where you are, and the next Tab starts at the top of the page. Not on the first page, not when only the search changes, never away from a field or a dialog; no ring after a tap or a click.
 
 ## Theme
 

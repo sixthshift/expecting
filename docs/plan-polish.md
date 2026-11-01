@@ -109,8 +109,8 @@ Steps 1 to 6 done, 2026-11-01; how it works now is `docs/architecture.md`, Motio
    - **The siren icon for Emergency info, and the faint disabled buttons:** not changed. The icon is a question of taste, and a disabled button's look is the design system's.
 6. **Empty states, PWA, desktop.** Done, except:
    - **The Drawer:** left alone. Two other streams are rewriting it (It's time, and your people), and its "Coming" cards go with them.
-   - **This week's empty top right on a desktop:** a layout call to make with the page's owner.
-   - **Focus moving to the heading after navigation:** not done.
+   - **This week's empty top right on a desktop:** done later the same day. The header sits over the week's note in the left column, and the doing starts at the top on the right.
+   - **Focus moving to the heading after navigation:** done later the same day (`useFocusOnArrival`).
    - **The badge** counts deadlines coming up only, not everything open: a badge that never clears is one nobody reads.
 
 ## Not doing

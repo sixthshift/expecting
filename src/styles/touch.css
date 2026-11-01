@@ -19,3 +19,10 @@
     touch-action: manipulation;
   }
 }
+
+/* A page's heading takes focus on arrival (useFocusOnArrival), to say where you are, not to be pressed: no ring, unless the keyboard brought you. */
+@layer base {
+  h1[tabindex="-1"]:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
