@@ -15,7 +15,7 @@ Looked at with Jason on 2026-10-31, the 30 sort into:
   Sleeping well, Freebies, Push present, Pets.
 - **Content, with the lists to come** (5): Birth playlist, The nursery,
   Second-hand gear, Baby shower and Freezer meals become lines in *To get*
-  and *The bag* (`docs/plan-lists.md`). Nothing more here.
+  and *The bag* (`docs/product/planner.md`). Nothing more here.
 - **Content, but what it's about is already built** (part 1): Keepsakes,
   Maternity photos, Gender reveal, Telling people, The baby's doctor. The
   entry tells you to keep something, and Expecting has the place to keep it,
@@ -339,7 +339,7 @@ All thirteen questions, settled with Jason on 2026-11-01:
 7. **"Your people"** in the app, `circle` in the code.
 8. **Gifts received and gifts wanted are two things.** Received is Your
    people's gifts view; wanted is a registry over *To get*, later, with
-   the Baby shower extra (`docs/plan-lists.md`).
+   the Baby shower extra (`docs/product/planner.md`).
 9. **Part 3 builds Who does what, then A question a week, then Pregnancy
    bingo.** The small ones join extras that exist: the date night picker
    Date nights, the shower games Baby shower, the time capsule and the

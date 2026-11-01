@@ -265,7 +265,7 @@ export const pageSchema = z
     checked: isoDate.optional(),
     /**
      * Up to 3 questions to ask your midwife or doctor about your own case,
-     * suggested on "Ask at my next appointment" (docs/plan-appointment-questions.md):
+     * suggested on "Ask at my next appointment" (docs/product/planner.md):
      * in the reader's voice, short, each a question. Never on a private entry, a card or a term.
      */
     appointment: z

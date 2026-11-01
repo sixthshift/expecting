@@ -1,7 +1,7 @@
 // On an entry: "Ask at my next appointment". A sheet with the questions the
 // entry suggests and a box for your own words; what's added remembers the
 // entry it came from. Never on a private entry. See
-// docs/plan-appointment-questions.md.
+// docs/product/planner.md.
 
 import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";

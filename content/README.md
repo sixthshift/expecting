@@ -67,6 +67,55 @@ its own urgency wording: never softer, never stronger, never merged.
 - `card`: no headings; a paragraph or two.
 - `term`: no headings; one or two short paragraphs.
 
+## Lines: what to get
+
+A line restates its entry and adds nothing new: the entry was checked
+against its sources, the line wasn't. One per thing to get, on the list
+for the job (`LISTS`) and in the section it's used in. Ids are stable
+slugs, unique across items, tasks and lines, and never renamed: the marks
+point at them. A line names its entry's task only when that task is the
+getting of it. No lines on a `private` entry: a line is shared.
+
+## Questions for the appointment
+
+`appointment:` holds what a reader would want their midwife or doctor to
+tell them about *them*: a result, a dose, whether it applies, what to do
+next. Most entries have none; the reader can always write their own
+(`docs/product/planner.md`).
+
+- **None on** a card, a term, a private entry, or entries on loss, money,
+  paperwork, gear, celebrations or the partner's own health (the
+  appointment is the carrying parent's).
+- **0–3, in the reader's voice,** as they'd say it to the midwife: first
+  person, plain, short, ending in `?`. "Can you check my iron?", not "What
+  is ferritin?" (the Library answers that). "We" and "us" on a `who:
+  together` entry, "I" and "me" elsewhere.
+- **Stay inside the entry:** every question follows from what it says. No
+  new medical claims, no advice.
+- **Not what the entry already says** for everyone ("every 4 to 6 weeks").
+- **Never about cost,** even on a decision: "Would you suggest NIPT for me,
+  given my age?", never "Is it covered?".
+- **Gently on hard news** (a high-chance result, a small baby): what comes
+  next for you ("What are my options from here?"), never outcomes or odds.
+- **Never the wrong channel:** where the entry says to act now (call, go
+  in, tell your doctor immediately, anti-D within 72 hours), no question
+  parks it for the next appointment.
+- **Never for some readers only** ("If I'm RhD negative, …"): every reader
+  sees the suggestions. Put it on the entry for those readers.
+- **"What did my … show?" only on the entry about that result,** not on
+  every entry that mentions the test.
+- **On an `ask` verdict** the entry's own `ask:` is already offered: add
+  others only if they're different.
+- **The list is shared:** nothing whose wording tells the partner what she
+  may not have said (drug use, a medicine she takes). Ask about the need
+  ("What else can I try for nausea or sleep?"), not the disclosure. Mark
+  the entry `discreet: true` where its title would tell what the question
+  doesn't.
+- **"The hospital I'm booked into",** not "this hospital": the appointment
+  may be with a GP.
+- **Have someone else review** each batch against its entry and these
+  rules: the writer doesn't catch their own blind spots.
+
 Check records live in `content/map/checks/`, as for the map. Records from
 before 2026-10-30 name files in `content/drafts/`, where the entries were
 drafted; they are the same entries, now in `content/items/`.

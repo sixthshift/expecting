@@ -1,5 +1,5 @@
 // What the sheet on an entry offers to ask at the next appointment
-// (docs/plan-appointment-questions.md): nothing on a private entry, which
+// (docs/product/planner.md): nothing on a private entry, which
 // leaves no trace; else the entry's own question, on a can-i whose answer is
 // to ask first, and those its page suggests (`appointment:`).
 

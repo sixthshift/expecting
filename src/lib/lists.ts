@@ -1,4 +1,4 @@
-// The lists: what to get, a list per job (docs/plan-lists.md). The built-in
+// The lists: what to get, a list per job (docs/product/planner.md). The built-in
 // lists are LISTS, and their lines come from the Library (an item's `lines`);
 // your own lists and lines sit beside them. Each line has a state, set by
 // either of you, or none: still to get. Any line can hold a few words.

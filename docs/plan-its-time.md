@@ -183,7 +183,7 @@ of the last few. Strength is a word you add if you want ("talking through it",
   phone has it).
 - **Tapped by mistake:** undo the last one, from its line.
 - **This is the Drawer's "Contraction timer".** It moves here, the way the
-  hospital bag moved to the Planner (`plan-lists.md`), and leaves the
+  hospital bag moved to the Planner (`product/planner.md`), and leaves the
   Drawer's coming list. That leaves the Drawer with the names game alone,
   which is a question about the Drawer for another day.
 
@@ -224,7 +224,7 @@ list:
 - **Ring to say you're on your way** (`getting-to-hospital`: it helps them
   plan).
 - **The bag:** a link to *The bag*, showing only its *Last thing* lines
-  (phone, charger, pillow: the state `plan-lists.md` already has for exactly
+  (phone, charger, pillow: the state `product/planner.md` already has for exactly
   this). If the bag isn't packed, it says so once and doesn't make a fuss.
 - **The car seat**, ticked off from its task if it's done
   (`buy-and-fit-car-seat`). Otherwise "Not fitted yet: it's needed to drive
@@ -378,7 +378,7 @@ In `src/features/settings/model/facts.data.ts`, beside `birth`, both in the
 3. **The timer:** the `contraction` table, the wake lock, the shared
    refetch; "Contraction timer" leaves the Drawer's coming list.
 4. **Getting ready:** the ready list, the This week card.
-5. **The bag's last things** once `plan-lists.md` step 1 is built (until
+5. **The bag's last things** once `product/planner.md` step 1 is built (until
    then, "The bag" links to the `hospital-bag` entry).
 6. **The questions:** `birthPlace` and `presentation`, and the page's home
    birth and breech turns.
@@ -396,7 +396,7 @@ In `src/features/settings/model/facts.data.ts`, beside `birth`, both in the
 
 - 2026-11-01: steps 1 to 8 built on `feat/its-time`, in one go. Decided on
   the way:
-  - **The bag is a list It's time owns,** not a link: `plan-lists.md` handed
+  - **The bag is a list It's time owns,** not a link: `product/planner.md` handed
     it over. `bag` in `LISTS` (`apart`, so not among the Planner's lists, and
     its page's back link is It's time), its lines in `hospital-bag`'s
     frontmatter restating the body, by section (papers, for her, for the

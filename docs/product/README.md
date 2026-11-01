@@ -36,3 +36,4 @@ links to it.
 ## The docs
 
 - [The Journal](journal.md)
+- [The Planner](planner.md)
