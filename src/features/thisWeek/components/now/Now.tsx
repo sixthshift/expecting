@@ -50,13 +50,14 @@ export function Hero({
   const peeking = week !== position.week;
   const dates = weekDates(week, dueDate);
   return (
-    <div className="flex min-w-0 flex-1 flex-col gap-2">
-      <h1 className="flex flex-col text-fg-strong">
+    // Its parts sit in the header's grid (ThisWeek): the heading beside the phone's corner, the rest the full width under both.
+    <div className="contents">
+      <h1 className="col-start-1 row-start-1 flex flex-col text-fg-strong">
         <span className="text-xs font-semibold tracking-widest text-fg-subtle uppercase">{weekFromNow(week, position.week)}</span>
         <span className="text-4xl font-display font-semibold lg:text-5xl">{weekLabel(week)}</span>
       </h1>
-      {label ? <p className="text-fg-normal">{label.charAt(0).toUpperCase() + label.slice(1)}.</p> : null}
-      <div className="flex max-w-md flex-col gap-2 pt-1">
+      {label ? <p className="col-span-full text-fg-normal">{label.charAt(0).toUpperCase() + label.slice(1)}.</p> : null}
+      <div className="col-span-full flex flex-col gap-2 pt-1">
         <PregnancyStrip now={position.week} at={week} due={due} />
         <div className="flex flex-wrap items-center justify-between gap-x-4">
           {peeking ? (
@@ -80,7 +81,9 @@ export function Hero({
           </Link>
         </div>
       </div>
-      <WeekStepper week={week} now={position.week} />
+      <div className="col-span-full">
+        <WeekStepper week={week} now={position.week} />
+      </div>
     </div>
   );
 }

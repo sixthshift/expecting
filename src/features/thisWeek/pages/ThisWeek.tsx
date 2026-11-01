@@ -89,13 +89,15 @@ function Week() {
           the doing on the right from the top, beside the header rather than under it. */}
       <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:grid-rows-[auto_1fr] lg:items-start lg:gap-x-10 lg:gap-y-10">
         <div className="flex flex-col gap-6 max-lg:-mb-2 lg:col-start-1 lg:row-start-1">
-          <header className="flex items-start justify-between gap-3 pt-[max(1.5rem,env(safe-area-inset-top))] lg:pt-10">
+          <header className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-3 gap-y-2 pt-[max(1.5rem,env(safe-area-inset-top))] lg:pt-10">
             {position && dueDate && week !== null ? (
               <Hero week={week} position={position} dueDate={dueDate} today={today} size={note?.week === week ? note.size : null} due={dueWeeks} />
             ) : (
-              <h1 className="text-2xl font-display font-semibold text-fg-strong lg:text-3xl">This week</h1>
+              <h1 className="col-start-1 row-start-1 text-2xl font-display font-semibold text-fg-strong lg:text-3xl">This week</h1>
             )}
-            <PhoneCorner />
+            <div className="col-start-2 row-start-1">
+              <PhoneCorner />
+            </div>
           </header>
           {!dueDate ? <Welcome /> : null}
         </div>

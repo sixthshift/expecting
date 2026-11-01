@@ -9,8 +9,9 @@ const mid = (week: number) => `${((week - WEEKS.first + 0.5) / SPAN) * 100}%`;
 const SHORT = { 1: "First", 2: "Second", 3: "Third" } as const;
 
 /**
- * The whole pregnancy in a line: a bar a week, the weeks behind tinted, this
- * one solid, the one looked at ringed, a dot under each week ahead with
+ * The whole pregnancy in a line: a bar a week, the weeks behind tinted and
+ * the weeks ahead a track of near the same weight, so it reads as the whole
+ * 42 with you on it rather than a bar filling up; this one solid, the one looked at ringed, a dot under each week ahead with
  * something best done by then; the landmarks above and the trimesters below.
  * A week goes to This week at that week, as the steps beside it do; the strip
  * is a quicker way there for a finger, so it's left out of the tab order and
@@ -41,8 +42,8 @@ export function PregnancyStrip({ now, at, due, named = false }: { now: Week; at:
               w === now
                 ? "-my-1 bg-fg-brand"
                 : w < now
-                  ? "bg-bg-brand-subtle-pressed hover:bg-bg-brand-subtle-hovered"
-                  : "bg-bg-subtle hover:bg-bg-subtle-pressed",
+                  ? "bg-bg-brand-subtle-hovered hover:bg-bg-brand-subtle-pressed"
+                  : "bg-border-subtle hover:bg-border-normal",
               w === at && w !== now && "ring-2 ring-border-brand-strong ring-offset-1 ring-offset-(--expecting-page)",
               // A breath between the trimesters.
               w > WEEKS.first && trimester(w) !== trimester(w - 1) && "ml-0.5"
