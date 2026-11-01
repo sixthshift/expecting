@@ -35,6 +35,8 @@ links to it.
 
 ## The docs
 
+- [This week](this-week.md)
+- [The timeline](timeline.md)
 - [The Journal](journal.md)
 - [The Planner](planner.md)
 - [The Library](library.md)
