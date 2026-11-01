@@ -147,7 +147,9 @@ read: [morphology-scan]              # 1–3 entry ids: the links under it
 - **About this week.** Why now: what's happening to the baby or the body
   around now, the scan or test due, what's about to start. Something that's
   true for any week goes in the week where it first matters or is most
-  likely to be met.
+  likely to be met. A read can come a week or two before its entry's window
+  opens, when knowing ahead is the point (the first hour after the birth,
+  read at 39).
 - **Not the week's note again,** and not a task: To do already says what to
   book. A read can say what something is like; it doesn't tell you to do it.
 - **Each entry once, ideally.** An entry opens one read across the
