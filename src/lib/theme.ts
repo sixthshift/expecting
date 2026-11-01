@@ -56,3 +56,22 @@ export function paintThemeColour(): void {
   }
   meta.content = page;
 }
+
+/**
+ * The browser tab's icon in each theme: the Baby on a tile of the theme's
+ * brand colour, Baby Purple's the default in root.tsx's link. The installed
+ * app's icon is another, the same for everyone (public/icon.svg).
+ */
+export const FAVICONS = {
+  "baby-blue": "/favicon-baby-blue.svg",
+  "baby-pink": "/favicon-baby-pink.svg",
+  "baby-purple": "/favicon.svg",
+} as const satisfies Record<Theme, string>;
+
+/** Point the tab's icon at the theme showing now. */
+export function paintFavicon(): void {
+  const theme = document.documentElement.dataset.expectingTheme as Theme | undefined;
+  const href = FAVICONS[theme ?? "baby-purple"] ?? FAVICONS["baby-purple"];
+  const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+  if (link && link.getAttribute("href") !== href) link.setAttribute("href", href);
+}

@@ -129,6 +129,9 @@ test.describe("logged out", () => {
     await expect(page.locator('link[rel="manifest"]')).toHaveAttribute("href", "/manifest.webmanifest");
     for (const path of [
       "/favicon.svg",
+      "/favicon-baby-blue.svg",
+      "/favicon-baby-pink.svg",
+      "/icon.svg",
       "/apple-touch-icon.png",
       "/manifest.webmanifest",
       "/icon-192.png",

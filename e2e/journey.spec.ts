@@ -344,25 +344,31 @@ test("a question asked from an entry lands in the Planner, saying where it came 
   await expect(yours).not.toContainText("On your list");
 });
 
-test("the answer to boy or girl sets the colours, and they survive a reload", async ({ page, open }) => {
+test("the answer to boy or girl sets the colours and the tab's icon, and they survive a reload", async ({ page, open }) => {
   const theme = () => page.evaluate(() => document.documentElement.dataset.expectingTheme ?? "baby-purple");
+  const favicon = page.locator('link[rel="icon"]');
   await open("/settings");
   expect(await theme()).toBe("baby-purple");
+  await expect(favicon).toHaveAttribute("href", "/favicon.svg");
 
   await page.getByRole("radio", { name: "Girl" }).click();
   await expect.poll(theme).toBe("baby-pink");
+  await expect(favicon).toHaveAttribute("href", "/favicon-baby-pink.svg");
   await page.reload({ waitUntil: "networkidle" });
   expect(await theme()).toBe("baby-pink");
+  await expect(favicon).toHaveAttribute("href", "/favicon-baby-pink.svg");
 
   await page.getByRole("radio", { name: "Boy" }).click();
   await expect.poll(theme).toBe("baby-blue");
   await page.getByRole("link", { name: "Library" }).first().click();
   await expect(page.getByRole("heading", { level: 1, name: "Library" })).toBeVisible();
   expect(await theme()).toBe("baby-blue");
+  await expect(favicon).toHaveAttribute("href", "/favicon-baby-blue.svg");
 
   await open("/settings");
   await page.getByRole("radio", { name: "Don't know / surprise" }).click();
   await expect.poll(theme).toBe("baby-purple");
+  await expect(favicon).toHaveAttribute("href", "/favicon.svg");
 });
 
 test("a phone in dark mode opens dark, and the switch on this phone keeps its choice", async ({ page }) => {
