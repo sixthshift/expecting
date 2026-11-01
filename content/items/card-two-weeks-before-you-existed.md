@@ -2,7 +2,7 @@
 id: card-two-weeks-before-you-existed
 title: Your pregnancy is counted from before you conceived
 type: card
-topic: mental-health
+topic: body
 ask: Why does the app say week 5 when we only just found out?
 aliases: [counting weeks, last period, week 4, dating]
 weeks: [4, 6]

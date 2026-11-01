@@ -13,6 +13,8 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-first-few-days-after-giving-birth
   - title: Pregnancy, Birth and Baby — Mum's first 24 hours after birth
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/mums-first-24-hours-after-birth
+  - title: Pregnancy, Birth and Baby — Postpartum haemorrhage
+    url: https://www.pregnancybirthbaby.org.au/postpartum-haemorrhage
   - title: RANZCOG — The first few weeks following birth
     url: https://ranzcog.edu.au/wp-content/uploads/First-Few-Weeks-Following-Birth.pdf
 related: [first-days-mum, hospital-bag]
@@ -20,4 +22,4 @@ checked: 2026-10-29
 ---
 Lochia is the bleeding from your vagina after the birth. It's bright red and heavy, perhaps with clots, for about the first 3 to 4 days (lochia rubra); reddish-brown from about day 4 to 10 (serosa); then white or yellow from about day 10 to 28 (alba). It can go on for up to about two months.
 
-Use maternity pads or period underwear until your 6-week check: tampons and menstrual cups may increase the chance of infection. If you pass large clots, or soak a pad an hour or more, call 000. Tell your midwife if you notice a bad smell.
+Use maternity pads or period underwear until your 6-week check: tampons and menstrual cups may increase the chance of infection. If you're bleeding heavily (soaking a pad every hour or two) or passing large clots, go to your hospital's emergency department straight away; call 000 and ask for an ambulance if you gave birth in the last 24 hours, or you feel unwell, dizzy or clammy, your heart is racing or you're short of breath. Tell your midwife if you notice a bad smell.

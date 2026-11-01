@@ -9,6 +9,8 @@ weeks: [36, 38]
 stakes: high
 summary: "An ECV is when an obstetrician presses on your belly to turn a breech baby head-down, usually from 37 weeks (36 for a first baby); it works about half the time, and about 1 in 200 lead to an emergency caesarean."
 sources:
+  - title: Pregnancy, Birth and Baby — Breech pregnancy
+    url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
   - title: Pregnancy, Birth and Baby — External cephalic version (ECV)
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/external-cephalic-version-ecv
   - title: RANZCOG — Breech Presentation at the End of Your Pregnancy (patient information)
@@ -47,6 +49,8 @@ About half the time, and more often if you've given birth before. RANZCOG's clin
 ECV is safe, and it doesn't start labour. Occasionally it causes bleeding from the placenta, changes in the baby's heart rate, or your waters to break. About 1 in 200 need an emergency caesarean because of complications.
 
 ## When to get help
+
+If your waters break and you've been told the baby isn't head first, call triple zero (000) and ask for an ambulance: there's a higher risk of cord prolapse, an emergency.
 
 After an ECV, contact your doctor or midwife immediately if you have:
 
