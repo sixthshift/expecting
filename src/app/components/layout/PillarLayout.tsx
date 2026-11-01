@@ -12,14 +12,15 @@ import { CallBirthSuite } from "./CallBirthSuite";
 export type Pillar = { to: AppPath; label: string; icon: LucideIcon };
 
 /**
- * The layout the pillars are drawn in. Desktop: a sidebar on the left with
+ * The layout the pillars are drawn in, `pillars` in the sidebar's order and
+ * `tabs` the same in the tab bar's (`PILLARS`, `TABS`). Desktop: a sidebar on the left with
  * the pillars, the call button, It's time (once it's near), Emergency info and settings. Phone: a tab bar under the thumb, its height in
  * `--tab-bar` so what sits above it (the timeline's scrubber, the capture
  * "+") can. The "+" is on the pillars only, not on settings or Emergency
  * info: on a desktop at the top of the sidebar, on a phone floating above
  * the tab bar, with room left under each page so it never covers the last row.
  */
-export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
+export function PillarLayout({ pillars, tabs }: { pillars: readonly Pillar[]; tabs: readonly Pillar[] }) {
   const { pathname } = useLocation();
   useShortcuts();
   const onPillar = pillars.some(({ to }) => pathname === to || (to !== "/" && pathname.startsWith(`${to}/`)));
@@ -73,7 +74,7 @@ export function PillarLayout({ pillars }: { pillars: readonly Pillar[] }) {
       <SharedIn />
 
       <div className="frame-tab-bar fixed inset-x-0 bottom-0 z-30 print:hidden border-t border-border-subtle bg-bg-normal/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden">
-        <PillarNav pillars={pillars} layout="tabs" />
+        <PillarNav pillars={tabs} layout="tabs" />
       </div>
     </div>
   );
@@ -86,12 +87,12 @@ function PillarNav({ pillars, layout }: { pillars: readonly Pillar[]; layout: "l
   return (
     <nav aria-label="Expecting">
       <ul className={tabs ? cn("grid h-15", TAB_COLUMNS[pillars.length]) : "flex flex-col gap-1"}>
-        {pillars.map(({ to, label, icon: Icon }, i) => (
+        {pillars.map(({ to, label, icon: Icon }) => (
           <li key={to}>
             <Link
               to={to}
-              // The first pillar is home, `/`, which every other page is under.
-              activeOptions={{ exact: i === 0, includeSearch: false }}
+              // Home is `/`, which every other page is under.
+              activeOptions={{ exact: to === "/", includeSearch: false }}
               activeProps={{
                 "aria-current": "page",
                 className: tabs ? "text-fg-brand" : "bg-bg-brand-subtle font-medium text-fg-on-brand-subtle",
