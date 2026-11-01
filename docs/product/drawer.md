@@ -1,7 +1,7 @@
 # The Drawer
 
 The handy things: tools you use together, each brought by an extra. Now
-the names game and Your people. Emergency info and It's time sit beside
+the names game, Who does what and Your people. Emergency info and It's time sit beside
 settings, not here ([emergency.md](emergency.md), [its-time.md](its-time.md)).
 
 How it's built is [`architecture.md`](../architecture.md), the Drawer's row,
@@ -58,6 +58,24 @@ names you'd never have thought to type.
 - **Add your own names,** which likes them; the other is dealt them first,
   since you asked for them.
 
+## Who does what
+
+The newborn jobs nobody talks about until 3 am: night wakes and feeds, the
+early mornings, nappies, the bath, settling, bottles, the washing,
+dinner, the groceries, registering the birth, Medicare and Centrelink, the
+baby's checks, visitors and messages. Its own extra, offered at 24 weeks.
+
+- **Each of you answers on your own phone,** a job at a time, as me, the
+  other, or together, with undo.
+- **Neither sees the other's answer until both have given one,** the names
+  game's rule, so nobody answers to match or to make a point. Then a job is
+  settled (you said the same) or one to talk about, with what each of you
+  said. Either is changeable.
+- **To talk about comes first:** that's the point of it. It starts a
+  conversation; it never decides for you.
+- **Kept on trust,** like the names: for the two of you, never a secret.
+- **Put away while something has happened.**
+
 ## Your people
 
 Visitors, Birth announcement, Lining up help and Thank-you notes all
@@ -97,5 +115,5 @@ own view of it.
   typing names is enough.
 - **Reminders on the day** for visitors and meals: the weeks after the
   birth aren't built.
-- **More tools** (Who does what, A question a week, Pregnancy bingo,
-  minding cards): [`plan-extras.md`](../plan-extras.md).
+- **More tools** (A question a week, on Who does what's "both answer,
+  then reveal"; Pregnancy bingo; minding cards): [`plan-extras.md`](../plan-extras.md).

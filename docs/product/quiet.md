@@ -47,7 +47,7 @@ happened.
   done, and folds the rest behind one quiet line
   ([journal.md](journal.md#while-something-has-happened)).
 - **The "+"** offers a note, a paper, a feeling and a question.
-- **The Drawer** is put away: the names game and Your people.
+- **The Drawer** is put away: the names game, Who does what and Your people.
 - **Emergency info** stays, and stops counting weeks after a loss.
 - **It's time** isn't shown.
 - **Settings** stops nudging you to answer the next question.

@@ -22,7 +22,7 @@ is `src/features/settings/model/extras.data.ts`.
 - **The best extras change the app, not just add reading.** Most bring an
   entry and its two or three tasks, and for many (food and drink, a doula,
   date nights, pets) that's the whole job. The ones worth most bring
-  something you *do*: Choosing a name brings the names game, and Visitors,
+  something you *do*: Choosing a name brings the names game, Who does what its own tool, and Visitors,
   Birth announcement, Lining up help and Thank-you notes each bring a view
   of [Your people](drawer.md#your-people). An extra that brings a tool says
   so wherever it's offered, so they stand out.
