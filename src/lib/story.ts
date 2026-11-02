@@ -111,41 +111,126 @@ function newest(a: StoryItem, b: StoryItem): number {
   return b.day.localeCompare(a.day) || (b.time ?? "").localeCompare(a.time ?? "") || b.createdAt.localeCompare(a.createdAt);
 }
 
-/** Every line of the story, newest first. */
+/** Every line of the story, newest first: a line for each thing kept or done, from each kind's own. */
 export function storyItems(s: StorySources): StoryItem[] {
-  const items: StoryItem[] = [];
-  const base = (key: string, day: string, time: string | null, by: string | null, createdAt: string) => ({ key, day: day as ISODate, time, by, createdAt });
-  const moved = new Map<string, JournalEntry[]>();
-  for (const e of s.journal) {
-    if (e.kind === "movement") moved.set(e.day, [...(moved.get(e.day) ?? []), e]);
-    else items.push({ ...base(e.id, e.day, e.time, e.by, e.createdAt), kind: e.kind, entry: e });
-  }
-  for (const [day, entries] of moved) {
+  return [
+    ...writtenLines(s.journal),
+    ...movementLines(s.journal),
+    ...s.appetite.map(appetiteLine),
+    ...s.photos.map(photoLine),
+    ...s.papers.map(paperLine),
+    ...s.feelings.map(feelingLine),
+    ...s.firsts.filter(isMarked).map(firstLine),
+    ...doneLines(s.ticks, s.titles),
+    ...nightsOf(s.starts).map(nightStoryLine),
+    ...(s.bingo ?? []).map(bingoLine),
+    ...(s.weekly ?? []).map(questionLine),
+  ].sort(newest);
+}
+
+/** A note or a letter: a line each. */
+function writtenLines(journal: readonly JournalEntry[]): StoryItem[] {
+  return journal.flatMap((e) =>
+    e.kind === "movement" ? [] : [{ key: e.id, day: e.day as ISODate, time: e.time, by: e.by, createdAt: e.createdAt, kind: e.kind, entry: e }]
+  );
+}
+
+/**
+ * A day's movements, on one line: their times in order, the line at the
+ * last. One by each of you on the same day is still one line. It never says
+ * who (they're the baby's), but "since you looked" asks who kept them, so it
+ * has a `by` while one of you kept them all.
+ */
+function movementLines(journal: readonly JournalEntry[]): StoryItem[] {
+  const byDay = new Map<string, JournalEntry[]>();
+  for (const e of journal) if (e.kind === "movement") byDay.set(e.day, [...(byDay.get(e.day) ?? []), e]);
+  return [...byDay].map(([day, entries]) => {
     const sorted = [...entries].sort((a, b) => (a.time ?? "").localeCompare(b.time ?? ""));
     const last = sorted.at(-1)!;
-    // One by each of you on the same day is still one line. It never says who (they're the baby's), but "since you looked" asks who kept them.
     const by = new Set(sorted.map((e) => e.by)).size === 1 ? last.by : null;
-    items.push({ ...base(`moved-${day}`, day, last.time, by, last.createdAt), kind: "movements", entries: sorted });
-  }
-  for (const e of s.appetite) items.push({ ...base(e.id, e.day, e.time, e.by, e.createdAt), kind: "appetite", entry: e });
-  for (const p of s.photos) items.push({ ...base(p.id, p.day, p.time, p.by, p.createdAt), kind: "photo", photo: p });
-  for (const p of s.papers) items.push({ ...base(p.id, p.day, null, p.by, p.createdAt), kind: "paper", paper: p });
-  for (const f of s.feelings) items.push({ ...base(f.id, f.day, f.time, f.by, f.createdAt), kind: "feeling", feeling: f });
-  for (const m of s.firsts) if (isMarked(m)) items.push({ ...base(`first-${m.key}`, m.day, null, m.by, m.createdAt), kind: "first", mark: m });
-  for (const [taskId, at] of Object.entries(s.ticks)) {
-    const title = s.titles.get(taskId);
-    if (title) items.push({ ...base(`done-${taskId}`, todayISO(new Date(at)), null, null, at), kind: "done", taskId, title });
-  }
-  for (const night of nightsOf(s.starts)) {
-    const { start } = night;
-    items.push({ ...base(`night-${start.id}`, dayOf(start.startedAt), timeNow(new Date(start.startedAt)), start.by, start.startedAt), kind: "night", night });
-  }
-  for (const m of s.bingo ?? [])
-    items.push({ ...base(`bingo-${m.kind}-${m.personId}`, m.day, null, m.personId, `${m.day}T23:59:59.999Z`), kind: "bingo", moment: m });
-  for (const pair of s.weekly ?? [])
-    items.push({ ...base(`question-${pair.week}`, pair.day, null, null, pair.answers[1]!.answeredAt), kind: "question", pair });
-  return items.sort(newest);
+    return { key: `moved-${day}`, day: day as ISODate, time: last.time, by, createdAt: last.createdAt, kind: "movements", entries: sorted };
+  });
 }
+
+const appetiteLine = (e: AppetiteEntry): StoryItem => ({
+  key: e.id,
+  day: e.day as ISODate,
+  time: e.time,
+  by: e.by,
+  createdAt: e.createdAt,
+  kind: "appetite",
+  entry: e,
+});
+
+const photoLine = (p: Photo): StoryItem => ({ key: p.id, day: p.day as ISODate, time: p.time, by: p.by, createdAt: p.createdAt, kind: "photo", photo: p });
+
+/** A paper has a day but no time. */
+const paperLine = (p: Paper): StoryItem => ({ key: p.id, day: p.day as ISODate, time: null, by: p.by, createdAt: p.createdAt, kind: "paper", paper: p });
+
+const feelingLine = (f: Feeling): StoryItem => ({
+  key: f.id,
+  day: f.day as ISODate,
+  time: f.time,
+  by: f.by,
+  createdAt: f.createdAt,
+  kind: "feeling",
+  feeling: f,
+});
+
+/** A first, once it's marked (a first can be put away unmarked). */
+const firstLine = (m: FirstMark & { day: string }): StoryItem => ({
+  key: `first-${m.key}`,
+  day: m.day as ISODate,
+  time: null,
+  by: m.by,
+  createdAt: m.createdAt,
+  kind: "first",
+  mark: m,
+});
+
+/** A task ticked off, on the day it was: only one still shown (its title is in `titles`). A tick says when, not who. */
+function doneLines(ticks: Record<string, string>, titles: ReadonlyMap<string, string>): StoryItem[] {
+  return Object.entries(ticks).flatMap(([taskId, at]) => {
+    const title = titles.get(taskId);
+    return title ? [{ key: `done-${taskId}`, day: todayISO(new Date(at)), time: null, by: null, createdAt: at, kind: "done" as const, taskId, title }] : [];
+  });
+}
+
+/** The night it started, at its start. */
+function nightStoryLine(night: Night): StoryItem {
+  const { start } = night;
+  return {
+    key: `night-${start.id}`,
+    day: dayOf(start.startedAt),
+    time: timeNow(new Date(start.startedAt)),
+    by: start.by,
+    createdAt: start.startedAt,
+    kind: "night",
+    night,
+  };
+}
+
+/** A bingo or a full house: on its day, after anything kept that day. */
+const bingoLine = (m: BingoMoment): StoryItem => ({
+  key: `bingo-${m.kind}-${m.personId}`,
+  day: m.day as ISODate,
+  time: null,
+  by: m.personId,
+  createdAt: `${m.day}T23:59:59.999Z`,
+  kind: "bingo",
+  moment: m,
+});
+
+/** A question a week, once both of you have answered: kept when the second answer was. */
+const questionLine = (pair: WeeklyPair): StoryItem => ({
+  key: `question-${pair.week}`,
+  day: pair.day as ISODate,
+  time: null,
+  by: null,
+  createdAt: pair.answers[1]!.answeredAt,
+  kind: "question",
+  pair,
+});
 
 /** The lenses there's something for, in their fixed order: All first, always. While something has happened, not the folded kinds. */
 export function lensesKept(items: readonly StoryItem[], quiet: boolean): Lens[] {
