@@ -129,8 +129,8 @@ Every feature has one shape, each folder only where it has something:
 `pages/` (what a route draws), `components/` (a folder per aspect, the
 shared parts loose), `hooks/`, `contexts/` (a page's context, at most one a
 page) and `model/` (no React: rules, types, paths). Settings owns the
-questions and the extras wherever they're drawn (`AskNow` on This week,
-`OfferExtra` in onboarding), and its `model/` is the only part of
+questions and the extras wherever they're drawn (`AskNow` and
+`OfferExtra` on This week), and its `model/` is the only part of
 `features/` that `lib/` and `content/` may import.
 
 Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
@@ -203,7 +203,7 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 - The strip is `PregnancyStrip` (`src/features/timeline/components/strip/`).
 - The week's note and the day reads are one carousel, `DayByDay`; the note
   reads as whoever holds the phone, with a toggle for the other's part
-  (`WeekNote`, `src/features/weeks/`).
+  (`WeekNote`, `src/features/thisWeek/components/weekNote/`).
 - What Expecting needs to know is `AskNow`, the extra on offer
   `extraToOffer`, the check-in `CheckIn` and `HardFortnight`
   (`src/features/feelings/`), the next appointment `NextAppointment`, and
@@ -248,7 +248,7 @@ from a Library list (`HistoryState.from`). Content is [below](#content).
   Ticks are `task_tick`, own tasks `own_task` (a title and a week).
 - **Across the weeks** (`/planner/weeks`, `?stage=37`): `WeeksPage`, the
   bars from `chartOf` (`src/lib/acrossTheWeeks.ts`).
-- **Lists** (`/planner/lists`, `/planner/lists/<id>`): `src/features/lists/`,
+- **Lists** (`/planner/lists`, `/planner/lists/<id>`): `src/features/planner/` (`ListsPage`, `ListPage`, `components/lists/`),
   rules `src/lib/lists.ts` (`LISTS`, the lines that apply, what's left). A
   built-in line comes from an item's `lines`, tailored like the item. The
   store is `own_list`, `own_line` and `list_mark` (a line's id, no foreign
@@ -314,7 +314,7 @@ on, the rest named by the extra that brings them.
 - **Pregnancy bingo** (`/drawer/bingo`, `src/features/bingo/`): `SQUARES`
   in `src/lib/bingo.ts`, a card each (`bingo_card`), its squares marked
   (`bingo_mark`).
-- **A question a week** is drawn on This week (`src/features/weekly/`):
+- **A question a week** is drawn on This week (`src/features/thisWeek/components/weeklyCard/`):
   `WEEKLY` in `src/lib/weekly.ts`, answers in `weekly_answer`.
 - **Both answer, then reveal** is one rule in the repos' views
   (`JobsRepo.view`, `WeeklyRepo.view`): the other's answer is sent only

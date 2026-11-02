@@ -24,7 +24,7 @@ How it's built is [`architecture.md`](../architecture.md), This week.
   "The size of a blueberry" before there are figures), kept on every week, even one with none, so stepping week to week
   moves nothing under it; the week's note has it in full. At the
   header's right, a flat drawing of that fruit or vegetable, a little
-  whimsy in its own colours (`src/features/weeks/model/sizeIcons.ts`, one
+  whimsy in its own colours (`src/features/thisWeek/model/sizeIcons.ts`, one
   for every `like`): opposite the week on a desktop, and on a phone, where
   that corner is the call, Emergency info and Settings, under them at the
   size line's end. Its place is kept on a week without one.
