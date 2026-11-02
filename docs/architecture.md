@@ -334,8 +334,10 @@ on, the rest named by the extra that brings them.
   (`model/handover.ts`) from them and the answers; then `PapersToHand` and
   `WarningSigns` (from `content/items/warning-signs.md`).
 - **It's time** (`/its-time`, `src/features/itsTime/`, rules
-  `src/lib/itsTime.ts`, [product](product/its-time.md)). Shown by
-  `itsTimeShown`; `stillToReady`, `flagsFor`, `theyllAsk`, `patternOf`. The
+  `src/lib/itsTime.ts`, [product](product/its-time.md), the map in its
+  `README.md`). Shown by `itsTimeShown`; one context,
+  `ItsTimePageProvider` (the start, a home birth, who's who); `stillToReady`,
+  `bagOf`, `flagsFor`, `theyllAsk`, `patternOf`. The
   store: `labour_start` (one under way at a time, a unique index),
   `contraction` (refetched every few seconds while under way; a wake lock
   keeps the screen on), `start_tick`, `start_line`; Emergency info holds
