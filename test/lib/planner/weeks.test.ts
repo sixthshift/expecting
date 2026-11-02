@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
-import type { Task } from "../../src/content/schema";
-import { barOf, chartOf } from "../../src/lib/acrossTheWeeks";
-import { planTasks, stageEnding, stagesAhead } from "../../src/lib/planner";
+import type { Task } from "../../../src/content/schema";
+import { planTasks, stageEnding, stagesAhead } from "../../../src/lib/planner/plan";
+import { barOf, weeksChart } from "../../../src/lib/planner/weeks";
 
 function task(id: string, due: number, extra: Partial<Task> = {}): Task {
   return { id, title: id, opens: 1, due, deadline: null, deadlineFrom: null, who: "together", keeps: null, itemId: null, origin: "own", ...extra };
@@ -27,7 +27,7 @@ test("the chart is the plan: to do now, a group per stage ahead, then earlier an
   const tasks = [task("far", 36), task("long-ago", 10), task("ticked", 12), task("this-week", 28), task("not-open", 31, { opens: 30 })];
   const ticks = { ticked: "2026-01-01" };
   const plan = planTasks(tasks, ticks, new Set(), 28);
-  const chart = chartOf(plan, stagesAhead(plan), ticks, 28, () => null);
+  const chart = weeksChart(plan, stagesAhead(plan), ticks, 28, () => null);
   expect(chart.groups.map((g) => [g.key, g.bars.map((b) => b.task.id)])).toEqual([
     ["now", ["this-week"]],
     [32, ["not-open"]],

@@ -9,7 +9,7 @@ import { ListCard } from "../components/lists/listCard/ListCard";
 import { useLines } from "../hooks/useLines";
 
 /**
- * The lists: what to get, a list per job. The built-in ones that have
+ * The lists: what to get, a list for each purpose. The built-in ones that have
  * something on them for you, each a card with where it's up to and what's
  * next; then your own, and a new one. While something has happened, they're
  * put away, not deleted.

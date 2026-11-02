@@ -5,8 +5,8 @@ import { useChecklistQuery } from "../../../api/rpc/checklist";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import type { Task } from "../../../content/schema";
-import { chartOf } from "../../../lib/acrossTheWeeks";
-import { planTasks, stageEnding, stagesAhead } from "../../../lib/planner";
+import { planTasks, stageEnding, stagesAhead } from "../../../lib/planner/plan";
+import { weeksChart } from "../../../lib/planner/weeks";
 import type { Week } from "../../../lib/timeline";
 import { useItems } from "../../library/hooks/useItems";
 import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
@@ -19,7 +19,7 @@ const route = getRouteApi("/app/planner/weeks");
 const NONE: ReadonlySet<string> = new Set();
 
 /**
- * Across the weeks: To do drawn as a chart, for when you want the whole run of
+ * The weeks ("Across the weeks" on screen): To do drawn as a chart, for when you want the whole run of
  * it at once. The same plan as To do, in the same groups; opened from Ahead's
  * heading, or from a stage's card at that stage. While something has
  * happened, put away like To do.
@@ -33,7 +33,7 @@ export function WeeksPage() {
   const items = useItems();
   const ends = useMemo(() => new Map(items.map((i) => [i.id, i.to])), [items]);
   const plan = planTasks(tasks, checklist.ticks, NONE, now);
-  const chart = chartOf(plan, stagesAhead(plan), checklist.ticks, now, (task: Task): Week | null => (task.itemId ? (ends.get(task.itemId) ?? null) : null));
+  const chart = weeksChart(plan, stagesAhead(plan), checklist.ticks, now, (task: Task): Week | null => (task.itemId ? (ends.get(task.itemId) ?? null) : null));
   const focus = stage === undefined ? null : stageEnding(stage);
 
   // Opened at a stage: bring its group into view, once the router has put the page at its top.

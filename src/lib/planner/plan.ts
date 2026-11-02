@@ -14,9 +14,9 @@
 // tick never makes the row you just touched jump away. Next up is the
 // exception: ticking it is how you get to the next one.
 
-import type { Task } from "../content/schema";
-import type { Week } from "./timeline";
-import { type ToDo, toDoNow } from "./todo";
+import type { Task } from "../../content/schema";
+import type { Week } from "../timeline";
+import { type ToDo, toDoNow } from "../todo";
 
 /** What a week ahead stands for: when the task opens, is best done by, or its deadline. */
 type AheadAt = "opens" | "due" | "deadline";

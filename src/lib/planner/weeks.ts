@@ -1,6 +1,6 @@
-// What's to do, across the weeks: the Planner's chart. Every task a bar, from
-// the week it opens to the week it closes, with a notch at its best-by week,
-// grouped as To do is (src/lib/planner.ts), so the chart and the list are one
+// The weeks: the Planner's chart of what's to do (/planner/weeks, "Across the
+// weeks" on screen). Every task a bar, from the week it opens to the week it
+// closes, with a notch at its best-by week, grouped as To do is (plan.ts), so the chart and the list are one
 // plan drawn two ways:
 //
 //   now      To do now: Next up and Also now
@@ -10,9 +10,9 @@
 // A task closes at its deadline, else where its item's weeks end, and never
 // before its best-by week. Pure, so it's tested apart from the screen.
 
-import type { Task } from "../content/schema";
-import type { Plan, Stage } from "./planner";
-import { WEEKS, type Week } from "./timeline";
+import type { Task } from "../../content/schema";
+import { WEEKS, type Week } from "../timeline";
+import type { Plan, Stage } from "./plan";
 
 /** Where a task stands today: open now, still to open, past its best-by week, or done. */
 export type BarState = "open" | "ahead" | "late" | "done";
@@ -34,8 +34,8 @@ export function barOf(task: Task, ticked: boolean, now: Week | null, itemEnd: We
   return { task, from, due, to, state };
 }
 
-/** The plan as a chart: To do now, then a group per stage ahead, then what's earlier and done. */
-export function chartOf(plan: Plan, stages: readonly Stage[], ticks: Record<string, string>, now: Week | null, itemEnd: (task: Task) => Week | null): Chart {
+/** The plan as the weeks chart: To do now, then a group per stage ahead, then what's earlier and done. */
+export function weeksChart(plan: Plan, stages: readonly Stage[], ticks: Record<string, string>, now: Week | null, itemEnd: (task: Task) => Week | null): Chart {
   const bar = (task: Task) => barOf(task, Boolean(ticks[task.id]), now, itemEnd(task));
   const toDoNow = [plan.next, ...plan.now].filter((t) => t !== null).map((t) => bar(t.task));
   const groups: BarGroup[] = [

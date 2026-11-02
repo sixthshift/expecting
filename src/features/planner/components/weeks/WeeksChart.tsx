@@ -1,9 +1,9 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { ChevronDown } from "lucide-react";
 import { type CSSProperties, type ReactNode, useState } from "react";
-import type { Bar, BarGroup, BarState, Chart } from "../../../../lib/acrossTheWeeks";
 import { inWeeks } from "../../../../lib/labels";
-import { STAGES } from "../../../../lib/planner";
+import { STAGES } from "../../../../lib/planner/plan";
+import type { Bar, BarGroup, BarState, Chart } from "../../../../lib/planner/weeks";
 import { TRIMESTERS, WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
 import { LANDMARKS } from "../../../../lib/timelineWeeks";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
@@ -28,7 +28,7 @@ const TONE: Record<BarState, string> = {
 const SHORT = { 1: "First", 2: "Second", 3: "Third" } as const;
 
 /**
- * What's to do, across the weeks: every task a bar, from when it opens to when
+ * The weeks: what's to do as a chart, every task a bar, from when it opens to when
  * it closes, a notch at its best-by week, grouped as To do is (To do now, then
  * a group per stage), with the trimesters behind, the stages' ends as dashed
  * lines, the landmarks, and today as a line. What's earlier and done is folded

@@ -3,9 +3,9 @@
 // days and weeks are said is src/lib/labels.ts.
 
 import type { Task } from "../../../content/schema";
-import type { Bar, BarState } from "../../../lib/acrossTheWeeks";
 import { weekInSentence } from "../../../lib/labels";
-import type { Ahead } from "../../../lib/planner";
+import type { Ahead } from "../../../lib/planner/plan";
+import type { Bar, BarState } from "../../../lib/planner/weeks";
 
 const AHEAD_AT: Record<Ahead["at"], string> = { opens: "opens", due: "by", deadline: "deadline" };
 

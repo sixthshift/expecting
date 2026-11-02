@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
-import type { Task } from "../../src/content/schema";
-import { planTasks, stagesAhead } from "../../src/lib/planner";
+import type { Task } from "../../../src/content/schema";
+import { planTasks, stagesAhead } from "../../../src/lib/planner/plan";
 
 function task(id: string, due: number, extra: Partial<Task> = {}): Task {
   return { id, title: id, opens: 1, due, deadline: null, deadlineFrom: null, who: "together", keeps: null, itemId: null, origin: "own", ...extra };

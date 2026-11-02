@@ -6,7 +6,7 @@ import { TOPICS, type Topic, VERDICTS } from "../content/schema";
 import { VIEW_KEYS, type View } from "../lib/circle";
 import { DOORS } from "../lib/library/doors";
 import { DECK_FILTERS } from "../lib/names";
-import { stageEnding } from "../lib/planner";
+import { stageEnding } from "../lib/planner/plan";
 import { STORY_VIEWS } from "../lib/story/views";
 import { parseWeekKey } from "../lib/timeline";
 

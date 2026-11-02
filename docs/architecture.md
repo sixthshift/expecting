@@ -254,11 +254,11 @@ from a Library list (`HistoryState.from`). Content is [below](#content).
 [Product](product/planner.md).
 
 - **To do** (`/planner`): `src/features/planner/` and `src/features/tasks/`
-  (`TaskRow`, `AddTask`, `KeepButton`), its shape `src/lib/planner.ts`
+  (`TaskRow`, `AddTask`, `KeepButton`), its shape `src/lib/planner/plan.ts`
   (`next`, `now`, `ahead` in `STAGES`, `earlier`, `done`) over `toDoNow`.
   Ticks are `task_tick`, own tasks `own_task` (a title and a week).
-- **Across the weeks** (`/planner/weeks`, `?stage=37`): `WeeksPage`, the
-  bars from `chartOf` (`src/lib/acrossTheWeeks.ts`).
+- **The weeks** ("Across the weeks", `/planner/weeks`, `?stage=37`): `WeeksPage`, the
+  bars from `weeksChart` (`src/lib/planner/weeks.ts`).
 - **Lists** (`/planner/lists`, `/planner/lists/<id>`): `src/features/planner/` (`ListsPage`, `ListPage`, `components/lists/`),
   rules `src/lib/lists.ts` (`LISTS`, the lines that apply, what's left). A
   built-in line comes from an item's `lines`, tailored like the item. The

@@ -16,7 +16,7 @@ import type { Item, Task } from "../../../content/schema";
 import { APPOINTMENT_WHEN, nextAppointment, splitAppointments } from "../../../lib/appointments";
 import { todayISO } from "../../../lib/dates";
 import { inWeeks, when } from "../../../lib/labels";
-import { planTasks, type Stage, stagesAhead } from "../../../lib/planner";
+import { planTasks, type Stage, stagesAhead } from "../../../lib/planner/plan";
 import { WEEKS, type Week, weekLabel } from "../../../lib/timeline";
 import { type ToDo, whenToDo } from "../../../lib/todo";
 import { AddAppointment } from "../../appointments/components/AddAppointment";
@@ -41,7 +41,7 @@ const PREVIEW = 2;
 /**
  * What to do and what to ask. To do starts somewhere: the one thing to do
  * next, then the rest of what to do now, with what's ahead, missed and done
- * folded away (src/lib/planner.ts). Beside it, the lists (what to get), the
+ * folded away (src/lib/planner/plan.ts). Beside it, the lists (what to get), the
  * appointments, and the questions for the next one. While something has happened, nothing to do: the list is put
  * aside, with what was already set in motion.
  */
@@ -151,9 +151,9 @@ export function PlannerPage() {
             ) : null}
 
             {stages.length > 0 ? (
-              <section aria-labelledby="horizon" className="flex flex-col gap-3">
+              <section aria-labelledby="ahead" className="flex flex-col gap-3">
                 <div className="flex items-center justify-between gap-3">
-                  <h3 id="horizon" className="text-sm font-semibold text-fg-normal">
+                  <h3 id="ahead" className="text-sm font-semibold text-fg-normal">
                     {now === null ? "To do" : "On the horizon"}
                   </h3>
                   <Link to="/planner/weeks" className="flex min-h-11 items-center gap-1 text-sm text-fg-subtle hover:text-fg-normal">
