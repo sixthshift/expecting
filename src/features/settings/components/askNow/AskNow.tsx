@@ -6,8 +6,8 @@ import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { useSave } from "../../../../app/hooks/useSave";
 import { DateForm } from "../../../../components/DateForm";
 import { questionsDue } from "../../../../lib/facts";
+import { askedOf } from "../../model/facts";
 import { AnswerInput } from "../answer/AnswerInput";
-import { askedOfIn } from "../questions/QuestionRow";
 
 /** How many questions This week asks at once; the rest wait their turn. */
 const SHOWN = 3;
@@ -38,7 +38,7 @@ export function AskNow() {
       <p className="text-sm text-fg-subtle">Your answers decide what's on your plan, and when.</p>
       <div className="flex flex-col gap-3">
         {due.slice(0, SHOWN).map((a) => {
-          const label = askedOfIn(a, people);
+          const label = askedOf(a, people);
           return (
             <Card key={a.key}>
               <fieldset className="flex flex-col items-start gap-2">

@@ -30,9 +30,17 @@ export function otherRole(role: Role): Role {
 export function whose(who: Who, me: Person | null, people: readonly Person[]): string {
   if (who === "together") return "Together";
   if (me?.role === who) return "Yours";
-  const them = people.find((p) => p.role === who);
-  if (them) return `${them.name}'s`;
-  return `${capitalise(ROLE_NAMES[who])}'s`;
+  return `${roleName(people, who, { start: true })}'s`;
+}
+
+/**
+ * One of you by role: their name once they've joined, else the role's name,
+ * "the partner" ("The partner" to start a sentence).
+ */
+export function roleName(people: readonly Person[], role: Role, { start = false }: { start?: boolean } = {}): string {
+  const name = people.find((p) => p.role === role)?.name;
+  if (name) return name;
+  return start ? capitalise(ROLE_NAMES[role]) : ROLE_NAMES[role];
 }
 
 /**

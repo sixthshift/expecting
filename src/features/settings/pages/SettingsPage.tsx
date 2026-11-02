@@ -13,7 +13,7 @@ import { Page, Section } from "../../../components/Page";
 import { todayISO } from "../../../lib/dates";
 import { asksFor, factsOf, isSettled, latestByKey } from "../../../lib/facts";
 import { fullDate, toGo } from "../../../lib/labels";
-import type { Person, Role } from "../../../lib/people";
+import { type Role, roleName } from "../../../lib/people";
 import { gestationLabel } from "../../../lib/timeline";
 import { Connections } from "../../connect/components/Connections";
 import { QuietSwitch } from "../../quiet/components/quietSwitch/QuietSwitch";
@@ -203,7 +203,7 @@ export function SettingsPage() {
                 {each.map((e) => (
                   <div key={e.role} className="flex flex-col gap-2">
                     {once.length > 0 || each.length > 1 ? (
-                      <h3 className={cn("text-sm font-medium text-fg-normal", once.length > 0 && "mt-2")}>{nameOf(e.role, people)}</h3>
+                      <h3 className={cn("text-sm font-medium text-fg-normal", once.length > 0 && "mt-2")}>{roleName(people, e.role, { start: true })}</h3>
                     ) : null}
                     <SettingList>{rows(e.asks)}</SettingList>
                   </div>
@@ -240,9 +240,4 @@ export function SettingsPage() {
       </div>
     </Page>
   );
-}
-
-/** Whose questions these are: their name once they've joined. */
-function nameOf(role: Role, people: readonly Person[]): string {
-  return people.find((p) => p.role === role)?.name ?? (role === "carrying" ? "The pregnant parent" : "The partner");
 }

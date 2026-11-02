@@ -8,7 +8,7 @@
 
 import { z } from "zod";
 import { isISODate } from "../../../lib/dates";
-import type { Role } from "../../../lib/people";
+import { type Person, type Role, roleName } from "../../../lib/people";
 import { WEEKS } from "../../../lib/timeline";
 import { QUESTION_LIST } from "./facts.data";
 
@@ -204,7 +204,7 @@ export function variables(facts: Facts): Record<string, string | Record<string, 
 }
 
 /** The question in words, for whoever it's about: "Does Sam work?", or "Does the partner work?" before Sam has joined. */
-export function askedOf(a: Ask, name: string | null): string {
+export function askedOf(a: Ask, people: readonly Person[]): string {
   if (a.about === null) return a.question.ask;
-  return a.question.ask.replaceAll("{name}", name ?? (a.about === "carrying" ? "the pregnant parent" : "the partner"));
+  return a.question.ask.replaceAll("{name}", roleName(people, a.about));
 }

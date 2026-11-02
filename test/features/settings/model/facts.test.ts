@@ -91,6 +91,6 @@ test("content reads a fact about each of you by whose it is", () => {
 
 test("a question about each of you names them, or says which of you before they've joined", () => {
   const work = ask("work.partner")!;
-  expect(askedOf(work, "Sam")).toBe("Does Sam work?");
-  expect(askedOf(work, null)).toBe("Does the partner work?");
+  expect(askedOf(work, [{ id: "sam", name: "Sam", role: "partner" }])).toBe("Does Sam work?");
+  expect(askedOf(work, [{ id: "jason", name: "Jason", role: "carrying" }])).toBe("Does the partner work?");
 });

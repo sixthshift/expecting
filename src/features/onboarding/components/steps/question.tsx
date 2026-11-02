@@ -5,8 +5,7 @@ import { DateForm } from "../../../../components/DateForm";
 import type { ISODate } from "../../../../lib/dates";
 import { latestByKey } from "../../../../lib/facts";
 import { AnswerInput } from "../../../settings/components/answer/AnswerInput";
-import { askedOfIn } from "../../../settings/components/questions/QuestionRow";
-import { type Ask, ask } from "../../../settings/model/facts";
+import { type Ask, ask, askedOf } from "../../../settings/model/facts";
 import type { Advance, Screen, StepContext } from "../../model/step";
 import { Choices, SkipButton } from "../parts";
 
@@ -22,7 +21,7 @@ export function questionStep({ answers, people, advance }: StepContext, key: str
   const save = (answer: string | null) => () => saveAnswer({ data: { key, answer } });
   const options = Object.entries(a.question.answers).map(([value, label]) => ({ value, label }));
   return {
-    title: askedOfIn(a, people),
+    title: askedOf(a, people),
     lead: "It tailors what Expecting shows you. Skip it and you'll see everything, and be asked again when it matters.",
     body: (
       <div className="flex flex-col gap-4">
@@ -38,7 +37,7 @@ export function questionStep({ answers, people, advance }: StepContext, key: str
         ) : options.length <= 4 ? (
           <Choices options={options} value={value} onChoose={(answer) => advance(save(answer))} />
         ) : (
-          <ChooseFromList ask={a} name={askedOfIn(a, people)} value={value} onDone={advance} />
+          <ChooseFromList ask={a} name={askedOf(a, people)} value={value} onDone={advance} />
         )}
         <SkipButton onClick={() => advance(last ? undefined : save(null))} />
       </div>

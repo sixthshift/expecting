@@ -41,7 +41,7 @@ export function QuestionRow({
 }) {
   const saveAnswer = useSave(factsSaves.saveAnswer);
   const save = async (key: string, answer: string | null) => saveAnswer({ key, answer });
-  const label = askedOfIn(a, people);
+  const label = askedOf(a, people);
   const value = last?.value ?? undefined;
   const settled = isSettled(a, last);
   const again = dueDate && !settled ? nextAsked(a, last, dueDate) : null;
@@ -118,11 +118,6 @@ function shown(q: FactQuestion, value: string): string {
 /** "This week asks in week 16", or that it's asking now. */
 function askedAgain(week: Week, now: Week): string {
   return week <= now ? "This week is asking" : `This week asks in week ${week}`;
-}
-
-/** The question in words, with the name of whoever it's about if they've joined. */
-export function askedOfIn(a: Ask, people: readonly Person[]): string {
-  return askedOf(a, a.about === null ? null : (people.find((p) => p.role === a.about)?.name ?? null));
 }
 
 /** "Jason answered, 3 Oct". */
