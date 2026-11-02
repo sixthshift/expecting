@@ -30,7 +30,8 @@ queries (journal, appetite, photos, papers, feelings, firsts, ticks, …)
 ```
 
 The collections read the queries too: `lib/summaries.ts` turns each into its
-answer, `components/collections/` draws them, and each in full.
+answer, `components/collections/Collections.tsx` draws the overview, and each
+kind's feature draws its own in full (`features/<kind>/components/collection/`).
 
 ## Where things are
 
@@ -45,10 +46,12 @@ components/
                 views/ZoomedOut (weeks, the whole pregnancy)
   thisWeek/     what's to keep now (KeepNow: around now, places, already happened) and the calls
   lines/        a file per kind of line, Day, StoryList; parts.tsx is what lines are made of
-  collections/  the overview (Collections), and each collection in full, <name>/
+  collections/  the overview (Collections)
   book/         the cover and contents, the recaps
   quiet/        the quiet Journal's story, and what's folded away
-  entries/      each kind's forms and rows; the "+" and other pillars use these
+features/       a feature per kind kept: appetite, feelings, firsts, movements, notes,
+                papers, photos. Each has its forms and rows loose in components/ (the "+"
+                and other pillars use these) and its collection in full, components/collection/
 ```
 
 How days and weeks are said ("Thu 29", "Week 28", "27 Oct – 2 Nov") is

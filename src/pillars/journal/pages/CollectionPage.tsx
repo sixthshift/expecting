@@ -1,15 +1,15 @@
 import { getRouteApi, Link, Navigate } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
 import { type Collection, FOLDED_WHILE_QUIET } from "../../../lib/story/collections";
-import { AppetiteCollection } from "../components/collections/appetite/AppetiteCollection";
-import { FirstsCollection } from "../components/collections/firsts/FirstsCollection";
-import { MovementsCollection } from "../components/collections/movements/MovementsCollection";
-import { NotesCollection } from "../components/collections/notes/NotesCollection";
-import { PapersCollection } from "../components/collections/papers/PapersCollection";
-import { PhotosCollection } from "../components/collections/photos/PhotosCollection";
 import { JournalFrame } from "../components/JournalFrame";
 import { JournalPageProvider, useJournalPage } from "../contexts/JournalPageContext";
+import { AppetiteCollection } from "../features/appetite/components/collection/AppetiteCollection";
 import { FeelingsCollection } from "../features/feelings/components/collection/FeelingsCollection";
+import { FirstsCollection } from "../features/firsts/components/collection/FirstsCollection";
+import { MovementsCollection } from "../features/movements/components/collection/MovementsCollection";
+import { NotesCollection } from "../features/notes/components/collection/NotesCollection";
+import { PapersCollection } from "../features/papers/components/collection/PapersCollection";
+import { PhotosCollection } from "../features/photos/components/collection/PhotosCollection";
 
 const route = getRouteApi("/app/journal/collections/$name");
 

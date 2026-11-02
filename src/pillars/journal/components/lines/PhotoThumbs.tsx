@@ -3,8 +3,8 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { useSettingsQuery } from "../../../../api/rpc/settings";
 import type { Photo } from "../../../../lib/photos";
+import { Picture } from "../../features/photos/components/Picture";
 import { describePhoto } from "../../model/labels";
-import { Picture } from "../entries/photos/Picture";
 
 /** Photos, large: one across the page, several two to a row, each with its words. */
 export function PhotoThumbs({ photos, onOpen }: { photos: readonly Photo[]; onOpen: (id: string) => void }) {

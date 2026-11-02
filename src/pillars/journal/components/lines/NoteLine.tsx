@@ -3,7 +3,7 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { useState } from "react";
 import type { StoryItem } from "../../../../lib/story/items";
-import { Note } from "../entries/notes/Note";
+import { Note } from "../../features/notes/components/Note";
 
 import { At, By, EntrySheet, Opens, useOther } from "./parts";
 

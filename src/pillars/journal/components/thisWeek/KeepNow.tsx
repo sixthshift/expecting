@@ -18,9 +18,9 @@ import { type ISODate, todayISO } from "../../../../lib/dates";
 import type { FirstDef } from "../../../../lib/firsts";
 import type { Place } from "../../../../lib/places";
 import { type Week, weekLabel } from "../../../../lib/timeline";
+import { DayField } from "../../features/firsts/components/DayField";
+import { AddPhoto } from "../../features/photos/components/AddPhoto";
 import { useOnThisPhone } from "../../hooks/useOnThisPhone";
-import { DayField } from "../entries/firsts/DayField";
-import { AddPhoto } from "../entries/photos/AddPhoto";
 
 /** A first that's around now: what, its question, and your words for it; kept, it's marked today (or the day you say). */
 function AroundNowFirst({ first, week, onNotYet, past = false }: { first: FirstDef; week: Week; onNotYet?: () => void; past?: boolean }) {

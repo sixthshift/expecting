@@ -4,7 +4,7 @@ import { useSettingsQuery } from "../../../../../api/rpc/settings";
 import { todayISO } from "../../../../../lib/dates";
 import { factsOf } from "../../../../../lib/facts";
 import { patternOf } from "../../../../../lib/itsTime";
-import { PapersToHand } from "../../../../../pillars/journal/components/entries/papers/PaperList";
+import { PapersToHand } from "../../../../../pillars/journal/features/papers/components/PaperList";
 import { useItsTimePage } from "../../contexts/ItsTimePageContext";
 import { theyllAsk } from "../../model/theyllAsk";
 import { Part } from "../Part";

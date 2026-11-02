@@ -8,7 +8,7 @@ import { marginDay } from "../../../../lib/labels";
 import { kindsOffered } from "../../../../lib/photos";
 import type { StoryItem } from "../../../../lib/story/items";
 import type { StoryDay, StoryPart } from "../../../../lib/story/spine";
-import { PhotoViewer } from "../entries/photos/PhotoViewer";
+import { PhotoViewer } from "../../features/photos/components/PhotoViewer";
 
 import { AppetiteLine } from "./AppetiteLine";
 import { PhotoThumbs } from "./PhotoThumbs";

@@ -1,7 +1,7 @@
 import { useJournalQuery } from "../../../../api/rpc/journal";
 import { entriesIn } from "../../../../lib/journal";
-import { Movement } from "../../../journal/components/entries/movements/Movement";
-import { Note } from "../../../journal/components/entries/notes/Note";
+import { Movement } from "../../../journal/features/movements/components/Movement";
+import { Note } from "../../../journal/features/notes/components/Note";
 import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
 
 /** A peek's notes and movements, kept on that week's days. This week's stay in the Journal. */

@@ -3,7 +3,7 @@
 import { IceCreamCone, Waves } from "lucide-react";
 import { useState } from "react";
 import { type AppetiteEntry, HOW_LABEL } from "../../../../lib/appetite";
-import { AppetiteItem } from "../entries/appetite/AppetiteItem";
+import { AppetiteItem } from "../../features/appetite/components/AppetiteItem";
 
 import { EntrySheet, Opens } from "./parts";
 

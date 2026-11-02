@@ -18,9 +18,9 @@ import { nameBy } from "../../../../lib/people";
 import { type Recap, type RecapPart, recapOf, recapParts } from "../../../../lib/recap";
 import type { StoryItem } from "../../../../lib/story/items";
 import { weekLabel } from "../../../../lib/timeline";
+import { Picture } from "../../features/photos/components/Picture";
+import { Flipbook } from "../../features/photos/components/Scrubber";
 import { describePhoto } from "../../model/labels";
-import { Picture } from "../entries/photos/Picture";
-import { Flipbook } from "../entries/photos/Scrubber";
 
 /** The recap of `span`, as what's kept changes; null without a due date (a recap is weeks). */
 export function useRecap(span: RecapSpan, items: readonly StoryItem[]): Recap | null {

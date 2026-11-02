@@ -36,8 +36,8 @@ import {
 } from "../../../../lib/summaries";
 import { weekLabel } from "../../../../lib/timeline";
 import { useJournalPage } from "../../contexts/JournalPageContext";
-import { PaperList } from "../entries/papers/PaperList";
-import { MovementPattern } from "./movements/MovementPattern";
+import { MovementPattern } from "../../features/movements/components/collection/MovementPattern";
+import { PaperList } from "../../features/papers/components/PaperList";
 
 /** A card on the page: what it's called, the collection it opens, the way to all of it, and whether it goes in the text for an appointment. */
 type Shown = { key: string; title: string; collection: Collection; more: string; summary: Summary; forAppointments: boolean };

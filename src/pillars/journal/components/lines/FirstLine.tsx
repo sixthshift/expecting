@@ -2,7 +2,7 @@ import { Star } from "lucide-react";
 import { useState } from "react";
 import { firstOf } from "../../../../lib/firsts";
 import type { StoryItem } from "../../../../lib/story/items";
-import { FirstSheet } from "../entries/firsts/FirstSheet";
+import { FirstSheet } from "../../features/firsts/components/FirstSheet";
 
 import { Opens, usePersonName } from "./parts";
 

@@ -2,7 +2,7 @@ import { FileText } from "lucide-react";
 import { useState } from "react";
 import { PAPER_KIND_LABEL } from "../../../../lib/papers";
 import type { StoryItem } from "../../../../lib/story/items";
-import { PaperViewer } from "../entries/papers/PaperViewer";
+import { PaperViewer } from "../../features/papers/components/PaperViewer";
 
 import { Opens } from "./parts";
 

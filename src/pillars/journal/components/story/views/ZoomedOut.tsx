@@ -13,7 +13,7 @@ import { COLLECTION_LABEL, type Collection } from "../../../../../lib/story/coll
 import type { StoryItem } from "../../../../../lib/story/items";
 import { landmarks, type WeekTile, weekTiles } from "../../../../../lib/story/zoom";
 import { TRIMESTERS, WEEKS, type Week, weekLabel } from "../../../../../lib/timeline";
-import { Picture } from "../../entries/photos/Picture";
+import { Picture } from "../../../features/photos/components/Picture";
 
 /** Each collection's mark. */
 const COLLECTION_ICON: Record<Collection, LucideIcon> = {

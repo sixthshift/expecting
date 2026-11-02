@@ -5,7 +5,7 @@ import { Footprints } from "lucide-react";
 import { useState } from "react";
 import { asOne, formatTime, type JournalEntry } from "../../../../lib/journal";
 import type { StoryItem } from "../../../../lib/story/items";
-import { Movement } from "../entries/movements/Movement";
+import { Movement } from "../../features/movements/components/Movement";
 
 import { EntrySheet, Opens } from "./parts";
 
