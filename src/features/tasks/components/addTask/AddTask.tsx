@@ -1,10 +1,9 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Input } from "@sixthshift/design-system/input";
-import { Plus, Trash2 } from "lucide-react";
+import { Plus } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { checklistSaves } from "../../../../api/rpc/checklist";
 import { useSave } from "../../../../app/hooks/useSave";
-import type { Task } from "../../../../content/schema";
 import { weekInSentence } from "../../../../lib/labels";
 import { newId } from "../../../../lib/outbox";
 import { type Week, weekLabel } from "../../../../lib/timeline";
@@ -36,14 +35,5 @@ export function AddTask({ week, text, onAdded }: { week: Week; text?: string; on
         <Plus aria-hidden size={16} />
       </Button>
     </form>
-  );
-}
-
-export function DeleteOwnTask({ task }: { task: Task }) {
-  const remove = useSave(checklistSaves.deleteOwnTask);
-  return (
-    <Button variant="ghost" size="sm" iconOnly aria-label={`Delete "${task.title}"`} onClick={() => remove({ id: task.id })}>
-      <Trash2 aria-hidden size={16} />
-    </Button>
   );
 }

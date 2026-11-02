@@ -4,7 +4,7 @@ import { useChecklistQuery } from "../../../../api/rpc/checklist";
 import type { ToDo } from "../../../../lib/todo";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 import { useItems } from "../../../library/hooks/useItems";
-import { DeleteOwnTask } from "../../../tasks/components/addTask/AddTask";
+import { DeleteOwnTask } from "../../../tasks/components/addTask/DeleteOwnTask";
 import { TaskRow } from "../../../tasks/components/TaskRow";
 import { Whose } from "../../../tasks/components/Whose";
 import { WhenNow } from "./WhenNow";
