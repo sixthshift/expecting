@@ -15,6 +15,7 @@ import { useSave } from "../../../app/hooks/useSave";
 import type { Line } from "../../../content/schema";
 import { isApart, isLeft, type ListSummary, listOf, listsOf, type Mark, sectionsOf, upToSaying } from "../../../lib/lists";
 import { weekLabel } from "../../../lib/timeline";
+import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { useTasks } from "../../tasks/hooks/useTasks";
 import { AddLine } from "../components/addLine/AddLine";
 import { listIcon, sectionIcon } from "../components/icons";
@@ -81,7 +82,7 @@ export function ListPage() {
           <ArrowLeft aria-hidden size={16} /> {isApart(listId) ? "It's time" : "Lists"}
         </Link>
         {quiet ? (
-          <p className="max-w-prose text-sm text-fg-subtle">The lists are put away while Expecting is quiet. Nothing is deleted.</p>
+          <PutAwayNotice subject="The lists" are className="max-w-prose" />
         ) : !summary ? (
           <div className="flex flex-col gap-2">
             <h1 className="text-2xl font-display font-semibold text-fg-strong">Not here</h1>

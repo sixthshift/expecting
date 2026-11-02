@@ -7,6 +7,7 @@ import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useSettingsQuery } from "../../../api/rpc/settings";
 import { extrasOn } from "../../../lib/extras";
 import { dealing } from "../../../lib/names";
+import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { extra } from "../../settings/model/extras";
 import { NamesGame } from "../components/namesGame/NamesGame";
 
@@ -34,7 +35,7 @@ export function NamesPage() {
       </Link>
       <h1 className="mb-4 font-display text-3xl font-semibold text-fg-strong">Baby names</h1>
       {quiet ? (
-        <p className="text-sm text-fg-subtle">The names are put away while Expecting is quiet. Nothing is deleted.</p>
+        <PutAwayNotice subject="The names" are />
       ) : !on ? (
         <p className="text-sm text-fg-normal">
           The names game comes with {naming.name}.{" "}

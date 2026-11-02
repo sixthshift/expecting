@@ -9,6 +9,7 @@ import { chartOf } from "../../../lib/acrossTheWeeks";
 import { planTasks, stageEnding, stagesAhead } from "../../../lib/planner";
 import type { Week } from "../../../lib/timeline";
 import { useItems } from "../../library/hooks/useItems";
+import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { useTasks } from "../../tasks/hooks/useTasks";
 import { WeeksChart } from "../components/weeks/WeeksChart";
 
@@ -52,11 +53,7 @@ export function WeeksPage() {
           <h1 className="text-2xl font-display font-semibold text-fg-strong lg:text-3xl">Across the weeks</h1>
           <p className="mt-1 max-w-prose text-fg-subtle">When each thing opens, when it's best done by, and when it closes.</p>
         </div>
-        {quiet ? (
-          <p className="max-w-prose text-sm text-fg-subtle">The to-do list is put aside while Expecting is quiet. Nothing is deleted.</p>
-        ) : (
-          <WeeksChart chart={chart} now={now} focus={focus} />
-        )}
+        {quiet ? <PutAwayNotice subject="The to-do list" aside className="max-w-prose" /> : <WeeksChart chart={chart} now={now} focus={focus} />}
       </div>
     </main>
   );

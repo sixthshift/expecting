@@ -7,6 +7,7 @@ import { useQuietQuery } from "../../../api/rpc/quiet";
 import { type Circle, type CirclePerson, groupsOf, HEARS, toThank, VIEWS, VISITS, type View, viewsOn } from "../../../lib/circle";
 import { formatDate } from "../../../lib/dates";
 import { extrasOn } from "../../../lib/extras";
+import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { AddPerson } from "../components/addPerson/AddPerson";
 import { Announcement } from "../components/announcement/Announcement";
 import { Gifts } from "../components/gifts/Gifts";
@@ -44,7 +45,7 @@ export function PeoplePage() {
       </Link>
       <h1 className="font-display text-3xl font-semibold text-fg-strong">Your people</h1>
       {quiet ? (
-        <p className="mt-2 text-sm text-fg-subtle">Your people are put away while Expecting is quiet. Nothing is deleted.</p>
+        <PutAwayNotice subject="Your people" are className="mt-2" />
       ) : !view ? (
         <p className="mt-2 text-sm text-fg-normal">
           Your people comes with Visitors, Birth announcement, Lining up help and Thank-you notes.{" "}

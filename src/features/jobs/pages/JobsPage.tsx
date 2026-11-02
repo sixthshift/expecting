@@ -6,6 +6,7 @@ import { usePeopleQuery } from "../../../api/rpc/people";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { extrasOn } from "../../../lib/extras";
 import { JOBS, outcomes, toAnswer, waiting } from "../../../lib/jobs";
+import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { extra } from "../../settings/model/extras";
 import { JobDeck } from "../components/deck/JobDeck";
 import { Results } from "../components/results/Results";
@@ -34,7 +35,7 @@ export function JobsPage() {
       </Link>
       <h1 className="mb-2 font-display text-3xl font-semibold text-fg-strong">Who does what</h1>
       {quiet ? (
-        <p className="text-sm text-fg-subtle">Who does what is put away while Expecting is quiet. Nothing is deleted.</p>
+        <PutAwayNotice subject="Who does what" />
       ) : !on ? (
         <p className="text-sm text-fg-normal">
           This comes with {tool.name}.{" "}

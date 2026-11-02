@@ -3,6 +3,7 @@ import { ArrowLeft, ListTodo } from "lucide-react";
 import { useListsQuery } from "../../../api/rpc/lists";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { inPlanner, listsOf } from "../../../lib/lists";
+import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { AddList } from "../components/addList/AddList";
 import { ListCard } from "../components/listCard/ListCard";
 import { useLines } from "../hooks/useLines";
@@ -32,7 +33,7 @@ export function ListsPage() {
           <p className="mt-1 max-w-prose text-fg-subtle">What to get, a list for each job, ticked off together wherever you are.</p>
         </div>
         {quiet ? (
-          <p className="max-w-prose text-sm text-fg-subtle">The lists are put away while Expecting is quiet. Nothing is deleted.</p>
+          <PutAwayNotice subject="The lists" are className="max-w-prose" />
         ) : (
           <>
             {builtIn.length > 0 ? (

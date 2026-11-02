@@ -12,6 +12,7 @@ import { standing, standingLine } from "../../../lib/bingo";
 import { toThank, viewsOn } from "../../../lib/circle";
 import { extrasOn } from "../../../lib/extras";
 import { outcomes } from "../../../lib/jobs";
+import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { extra } from "../../settings/model/extras";
 
 /**
@@ -42,7 +43,7 @@ export function DrawerPage() {
     <main className="mx-auto flex max-w-6xl flex-col gap-6 px-4 pb-16 md:px-8">
       <PillarHeader title="Drawer" lead="The handy things, kept where you can find them when their moment comes." />
       {quiet ? (
-        <p className="max-w-prose text-sm text-fg-subtle">The names and everything else here are put away while Expecting is quiet. Nothing is deleted.</p>
+        <PutAwayNotice subject="The names and everything else here" are className="max-w-prose" />
       ) : extras.has("choosing-names") ? (
         <Link
           to="/drawer/names"

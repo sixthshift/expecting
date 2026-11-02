@@ -10,6 +10,7 @@ import { useSave } from "../../../app/hooks/useSave";
 import { type Card, deal, type Standing, standing, standingLine } from "../../../lib/bingo";
 import { formatDate } from "../../../lib/dates";
 import { extrasOn } from "../../../lib/extras";
+import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { extra } from "../../settings/model/extras";
 import { BingoGrid } from "../components/card/BingoGrid";
 
@@ -43,7 +44,7 @@ export function BingoPage() {
       </Link>
       <h1 className="mb-2 font-display text-3xl font-semibold text-fg-strong">Pregnancy bingo</h1>
       {quiet ? (
-        <p className="text-sm text-fg-subtle">Bingo is put away while Expecting is quiet. Nothing is deleted.</p>
+        <PutAwayNotice subject="Bingo" />
       ) : !on ? (
         <p className="text-sm text-fg-normal">
           This comes with {tool.name}.{" "}
