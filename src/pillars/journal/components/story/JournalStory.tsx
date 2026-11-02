@@ -9,7 +9,8 @@ import { Calls } from "../thisWeek/Calls";
 import { JournalDays } from "./JournalDays";
 import { SearchResults } from "./SearchResults";
 import { StoryControls } from "./StoryControls";
-import { PregnancyView, WeeksView } from "./views/ZoomedOut";
+import { PregnancyView } from "./views/pregnancy/PregnancyView";
+import { WeeksView } from "./views/weeks/WeeksView";
 
 /**
  * The Journal: one story, newest first. A call to make, if there is one,

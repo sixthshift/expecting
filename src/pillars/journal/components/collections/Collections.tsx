@@ -7,117 +7,24 @@
 // has happened, the folded ones aren't here, as in the story.
 
 import { Button } from "@sixthshift/design-system/button";
-import { Card } from "@sixthshift/design-system/card";
 import { toast } from "@sixthshift/design-system/overlay";
-import { Link } from "@tanstack/react-router";
-import { ChevronRight, Copy } from "lucide-react";
-import { useAppetiteQuery } from "../../../../api/rpc/appetite";
-import { useFeelingsQuery } from "../../../../api/rpc/feelings";
-import { useFirstsQuery } from "../../../../api/rpc/firsts";
-import { useJournalQuery } from "../../../../api/rpc/journal";
+import { Copy } from "lucide-react";
 import { usePapersQuery } from "../../../../api/rpc/papers";
-import { usePeopleQuery } from "../../../../api/rpc/people";
-import { usePhotosQuery } from "../../../../api/rpc/photos";
-import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
+import { useNow } from "../../../../api/rpc/settings";
 import { formatDate, todayISO } from "../../../../lib/dates";
 import { ordered } from "../../../../lib/journal/papers";
-import { type Collection, FOLDED_WHILE_QUIET } from "../../../../lib/journal/story/collections";
-import { cravingsSummary } from "../../../../lib/journal/summaries/cravings";
-import { feelingsSummary } from "../../../../lib/journal/summaries/feelings";
-import { firstsSummary } from "../../../../lib/journal/summaries/firsts";
-import { movementsSummary } from "../../../../lib/journal/summaries/movements";
-import { notesSummary } from "../../../../lib/journal/summaries/notes";
-import { papersSummary } from "../../../../lib/journal/summaries/papers";
-import { photosSummary } from "../../../../lib/journal/summaries/photos";
-import { sicknessSummary } from "../../../../lib/journal/summaries/sickness";
-import type { Summary } from "../../../../lib/journal/summaries/summary";
 import { summariesText } from "../../../../lib/journal/summaries/text";
 import { weekLabel } from "../../../../lib/timeline";
 import { useJournalPage } from "../../contexts/JournalPageContext";
-import { MovementPattern } from "../../features/movements/components/collection/MovementPattern";
 import { PaperList } from "../../features/papers/components/PaperList";
-
-/** A card on the page: what it's called, the collection it opens, the way to all of it, and whether it goes in the text for an appointment. */
-type Shown = { key: string; title: string; collection: Collection; more: string; summary: Summary; forAppointments: boolean };
-
-/** One card: its name, its answer large, the lines behind it, and the way to all of it. */
-function CollectionCard({ shown }: { shown: Shown }) {
-  const { key, title, collection, more, summary } = shown;
-  return (
-    <Card>
-      <section aria-labelledby={`collection-${key}`} className="flex flex-col gap-3">
-        <div className="flex flex-col gap-1">
-          <h3 id={`collection-${key}`} className="text-sm font-semibold text-fg-subtle">
-            {title}
-          </h3>
-          <p className="font-display text-2xl font-semibold text-fg-strong">{summary.headline}</p>
-        </div>
-        {summary.lines.length > 0 ? (
-          <ul className="flex flex-col gap-1 text-sm text-fg-normal">
-            {summary.lines.map((line) => (
-              <li key={line}>{line}</li>
-            ))}
-          </ul>
-        ) : null}
-        {key === "movements" && summary.lately ? <MovementPattern /> : null}
-        <Link
-          to="/journal/collections/$name"
-          params={{ name: collection }}
-          className="flex min-h-10 items-center gap-1 self-start text-sm font-medium text-fg-brand hover:underline"
-        >
-          {more}
-          <ChevronRight aria-hidden size={16} />
-        </Link>
-      </section>
-    </Card>
-  );
-}
-
-/** A group of cards under its heading, or nothing. */
-function Group({ title, shown }: { title: string; shown: readonly Shown[] }) {
-  if (shown.length === 0) return null;
-  return (
-    <section aria-label={title} className="flex flex-col gap-3">
-      <h2 className="font-display text-lg font-semibold text-fg-strong">{title}</h2>
-      {shown.map((s) => (
-        <CollectionCard key={s.key} shown={s} />
-      ))}
-    </section>
-  );
-}
-
-/** What each card is, in the order they're shown: the ones an appointment asks about first. */
-function useCards(): Shown[] {
-  const { quiet } = useJournalPage();
-  const { data: journal } = useJournalQuery();
-  const { data: appetite } = useAppetiteQuery();
-  const { data: feelings } = useFeelingsQuery();
-  const { data: papers } = usePapersQuery();
-  const { data: photos } = usePhotosQuery();
-  const { data: firsts } = useFirstsQuery();
-  const { data: people } = usePeopleQuery();
-  const { data: settings } = useSettingsQuery();
-  const today = todayISO();
-  const { dueDate } = settings;
-  const card = (key: string, title: string, collection: Collection, more: string, summary: Summary | null, forAppointments: boolean): Shown | null =>
-    summary && !(quiet && FOLDED_WHILE_QUIET.includes(collection)) ? { key, title, collection, more, summary, forAppointments } : null;
-  return [
-    card("movements", "Movements", "movements", "Every movement", movementsSummary(journal, today, dueDate), true),
-    card("sickness", "Sickness", "appetite", "Every one kept", sicknessSummary(appetite, today, dueDate), true),
-    card("cravings", "Cravings", "appetite", "Every one kept", cravingsSummary(appetite, today), true),
-    card("feelings", "Feelings", "feelings", "Every check-in", feelingsSummary(feelings, people.people, people.me?.id ?? null, today), true),
-    card("papers", "Papers", "papers", "Every paper", papersSummary(papers, today, dueDate), false),
-    card("notes", "Notes & letters", "notes", "Every note", notesSummary(journal, today, dueDate), false),
-    card("photos", "Photos", "photos", "Every photo", photosSummary(photos, today, dueDate), false),
-    card("firsts", "Firsts", "firsts", "Every first", firstsSummary(firsts, settings.baby !== "unknown", today, dueDate), false),
-  ].filter((s): s is Shown => s !== null);
-}
+import { useCollectionCards } from "../../hooks/useCollectionCards";
+import { Group } from "./Group";
 
 export function Collections() {
   const { quiet } = useJournalPage();
   const { data: papers } = usePapersQuery();
   const now = useNow();
-  const shown = useCards();
+  const shown = useCollectionCards();
   const handy = ordered(papers.filter((p) => p.handy));
   const today = todayISO();
 

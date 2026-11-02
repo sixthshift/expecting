@@ -9,7 +9,8 @@ import { useStoryView } from "../../hooks/useStoryView";
 import { StoryList } from "../lines/StoryList";
 import { SearchResults } from "../story/SearchResults";
 import { StoryControls } from "../story/StoryControls";
-import { PregnancyView, WeeksView } from "../story/views/ZoomedOut";
+import { PregnancyView } from "../story/views/pregnancy/PregnancyView";
+import { WeeksView } from "../story/views/weeks/WeeksView";
 
 /**
  * The quiet Journal's story: what stays (the notes, letters, feelings,

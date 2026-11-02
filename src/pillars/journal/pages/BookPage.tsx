@@ -21,73 +21,12 @@ import { useKeepSame } from "../../../app/hooks/useKeepSame";
 import { formatDate, todayISO } from "../../../lib/dates";
 import { moments } from "../../../lib/drawer/bingo";
 import { extrasOn } from "../../../lib/extras";
-import { CHAPTERS, type Chapter, contents } from "../../../lib/journal/chapters";
-import { hasRecap, recapParts } from "../../../lib/journal/recap";
-import { type StoryItem, storyItems } from "../../../lib/journal/story/items";
+import { CHAPTERS, contents } from "../../../lib/journal/chapters";
+import { storyItems } from "../../../lib/journal/story/items";
 import { pairs } from "../../../lib/thisWeek/weekly";
-import { type Week, weekLabel } from "../../../lib/timeline";
 import { useTasks } from "../../planner/features/tasks/hooks/useTasks";
+import { ChapterPage } from "../components/book/ChapterPage";
 import { Contents } from "../components/book/Contents";
-import { RecapPartView, useRecap } from "../components/book/Recap";
-import { weekTitle } from "../model/labels";
-
-const PART_TITLE = {
-  firsts: "Firsts",
-  bump: "The bump",
-  scans: "Scans",
-  craved: "Most craved",
-  voices: "In your own words",
-  letters: "Letters to them",
-  done: "What you got done",
-} as const;
-
-/** The weeks of a chapter so far, as Expecting has written them: each week's title. */
-function WeeksWritten({ from, to }: { from: Week; to: Week }) {
-  const weeks = Array.from({ length: Math.max(0, to - from + 1) }, (_, i) => from + i);
-  if (weeks.length === 0) return null;
-  return (
-    <ol className="flex flex-col text-sm text-fg-subtle">
-      {weeks.map((w) => (
-        <li key={w} className="flex gap-3">
-          <span className="w-16 shrink-0 tabular-nums">{weekLabel(w)}</span>
-          <span>{weekTitle(w)}</span>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
-/** A chapter: its weeks so far, written, then what you kept in them, each part only when it has something. */
-function ChapterPage({ chapter, items, now }: { chapter: Chapter; items: readonly StoryItem[]; now: Week | null }) {
-  const weeks = chapter.weeks ?? [1, 1];
-  const recap = useRecap({ key: chapter.key, title: chapter.title, from: weeks[0], to: weeks[1] }, items);
-  const reached = chapter.weeks !== null && now !== null && now >= weeks[0];
-  return (
-    <section aria-labelledby={`chapter-${chapter.key}`} className="flex break-inside-avoid-page flex-col gap-5">
-      <h2 id={`chapter-${chapter.key}`} className="font-display text-2xl font-semibold text-fg-strong">
-        {chapter.title}
-      </h2>
-      {chapter.weeks === null ? (
-        <p className="text-fg-subtle">This chapter comes with the birth.</p>
-      ) : !reached ? (
-        <p className="text-fg-subtle">Still to come: {`weeks ${weeks[0]}–${weeks[1]}`}.</p>
-      ) : (
-        <>
-          <WeeksWritten from={weeks[0]} to={Math.min(weeks[1], now ?? weeks[1])} />
-          {recap && hasRecap(recap)
-            ? recapParts(recap).map((part) => (
-                <section key={part} aria-label={PART_TITLE[part]} className="flex break-inside-avoid flex-col gap-3">
-                  <h3 className="text-sm font-semibold tracking-wide text-fg-subtle uppercase">{PART_TITLE[part]}</h3>
-                  {/* The flipbook prints as its last frame. */}
-                  <RecapPartView recap={recap} part={part} />
-                </section>
-              ))
-            : null}
-        </>
-      )}
-    </section>
-  );
-}
 
 /**
  * The book: the pregnancy, a chapter a part of it, begun by Expecting from

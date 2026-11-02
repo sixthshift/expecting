@@ -36,22 +36,28 @@ kind's feature draws its own in full (`features/<kind>/components/collection/`).
 ## Where things are
 
 ```
-pages/          JournalPage (the story, or the quiet one), CollectionsPage, CollectionPage, BookPage
+pages/          JournalPage (its context, then JournalRendering), CollectionsPage, CollectionPage, BookPage
 contexts/       JournalPageContext: the story's lines, and whether something has happened
-hooks/          useStoryView, useStorySearch, useScrollToWeek, useBook, useOnThisPhone
+hooks/          useStoryView, useStorySearch, useScrollToWeek, useOpenWeek, useBook, useOnThisPhone,
+                useCollectionCards (the collections' cards, each with its summary)
 model/labels.ts the Journal's words: a photo's title, who kept it, a week's title
 components/
   JournalTabs   Story and Collections, at the top of every page (each page is a PillarLayout)
-  story/        the Journal's story: JournalStory, its controls and search, JournalDays,
-                views/ZoomedOut (weeks, the whole pregnancy)
-  thisWeek/     what's to keep now (KeepNow: around now, places, already happened) and the calls
+  JournalRendering  the story, or while something has happened the quiet Journal
+  story/        the story: Journal (the page), JournalStory, its controls and search, JournalDays;
+                views/weeks/ (WeeksView, WeekGrid, Tile) and views/pregnancy/ (PregnancyView,
+                PregnancyLine), the story zoomed out
+  thisWeek/     what's to keep now: firsts/ (AroundNow, AlreadyHappened, AroundNowFirst),
+                places/ (Places, PlaceReady), and the calls
   lines/        a file per kind of line, Day, StoryList; parts.tsx is what lines are made of
-  collections/  the overview (Collections)
-  book/         the cover and contents, the recaps
-  quiet/        the quiet Journal's story, and what's folded away
+  collections/  the overview: Collections, Group, CollectionCard
+  book/         the cover and contents, the recaps, a chapter (ChapterPage, WeeksWritten)
+  quiet/        the quiet Journal (QuietJournal), its story, and what's folded away
 features/       a feature per kind kept: appetite, feelings, firsts, movements, notes,
                 papers, photos. Each has its forms and rows loose in components/ (the "+"
                 and other pillars use these) and its collection in full, components/collection/
+                (sickness/ and cravings/ for appetite's); a paper opened is PaperViewer, its
+                parts in viewer/, and its change model/change.ts
 ```
 
 How days and weeks are said ("Thu 29", "Week 28", "27 Oct – 2 Nov") is

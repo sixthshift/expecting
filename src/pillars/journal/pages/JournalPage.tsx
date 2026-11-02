@@ -1,9 +1,5 @@
-import { PillarLayout } from "../../../app/components/layout/PillarLayout";
-import { JournalTabs } from "../components/JournalTabs";
-import { KeptBefore } from "../components/quiet/KeptBefore";
-import { QuietStory } from "../components/quiet/QuietStory";
-import { JournalStory } from "../components/story/JournalStory";
-import { JournalPageProvider, useJournalPage } from "../contexts/JournalPageContext";
+import { JournalRendering } from "../components/JournalRendering";
+import { JournalPageProvider } from "../contexts/JournalPageContext";
 
 /**
  * The Journal: the pregnancy, kept and given back, as one story: everything
@@ -24,42 +20,7 @@ import { JournalPageProvider, useJournalPage } from "../contexts/JournalPageCont
 export function JournalPage() {
   return (
     <JournalPageProvider>
-      <Rendering />
+      <JournalRendering />
     </JournalPageProvider>
-  );
-}
-
-/** Which page draws the context: the quiet Journal while something has happened. */
-function Rendering() {
-  const { quiet } = useJournalPage();
-  return quiet ? <QuietJournal /> : <Journal />;
-}
-
-/** The Journal: its story. */
-function Journal() {
-  return (
-    <PillarLayout title="Journal" className="gap-6">
-      <JournalTabs current="story" />
-      <JournalStory />
-    </PillarLayout>
-  );
-}
-
-/**
- * The Journal while something has happened: the story, as kept. Drawn by
- * `JournalPage` from the same context as the Journal (`JournalPageProvider`),
- * rendered as what it is. No week counted and nothing about the baby: no
- * call to make, no week's page, no places made ready, no firsts and no
- * book. The story of what stays (the notes, letters, feelings, papers and
- * what was done); and what's folded away, behind one quiet line. See
- * docs/product/journal.md, While something has happened.
- */
-function QuietJournal() {
-  return (
-    <PillarLayout title="Journal" className="gap-6">
-      <JournalTabs current="story" />
-      <QuietStory />
-      <KeptBefore />
-    </PillarLayout>
   );
 }

@@ -9,7 +9,9 @@ import type { StoryItem } from "../../../../lib/journal/story/items";
 import { storySpine } from "../../../../lib/journal/story/spine";
 import { BookCover } from "../book/BookCover";
 import { StoryList } from "../lines/StoryList";
-import { AlreadyHappened, AroundNow, Places } from "../thisWeek/KeepNow";
+import { AlreadyHappened } from "../thisWeek/firsts/AlreadyHappened";
+import { AroundNow } from "../thisWeek/firsts/AroundNow";
+import { Places } from "../thisWeek/places/Places";
 
 /**
  * The story in days, as the Journal opens: what's to keep now (the firsts
