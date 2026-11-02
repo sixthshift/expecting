@@ -57,13 +57,13 @@ export function JournalPageProvider({ children }: { children: ReactNode }) {
 /** The Journal page's shared parts, inside `JournalPageProvider`. */
 export function useJournalPage(): JournalPage {
   const page = use(PageContext);
-  if (!page) throw new Error("useJournalPage is used inside JournalPageProvider");
+  if (!page) throw new Error("useJournalPage must be called inside JournalPageProvider");
   return page;
 }
 
 /** The story's search words, inside `JournalPageProvider`. */
 export function useJournalSearch(): JournalSearch {
   const search = use(SearchContext);
-  if (!search) throw new Error("useJournalSearch is used inside JournalPageProvider");
+  if (!search) throw new Error("useJournalSearch must be called inside JournalPageProvider");
   return search;
 }

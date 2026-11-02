@@ -24,34 +24,41 @@ import { JournalPageProvider, useJournalPage } from "../contexts/JournalPageCont
  * lens, zoomed or searched, when the week leaves out its days.
  */
 export function JournalPage() {
-  const { highlights } = useJournalPage();
   return (
     <JournalPageProvider>
-      <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
-        <PillarHeader title="Journal" />
-        {/* The highlights only when there are some: an empty one would leave its column blank. */}
-        {/* Without the highlights, one column at a reading width rather than the whole screen's. */}
-        <div
-          className={cn(
-            "flex flex-col gap-8",
-            highlights.shown ? "lg:grid lg:grid-cols-[minmax(0,1fr)_20rem] lg:grid-rows-[auto_1fr] lg:gap-x-10" : "lg:max-w-3xl"
-          )}
-        >
-          <div className="flex min-w-0 flex-col gap-6 lg:col-start-1 lg:row-start-1">
-            <WeekSoFar />
-          </div>
-
-          {highlights.shown ? (
-            <aside aria-label="Now and lately" className="flex flex-col gap-4 lg:sticky lg:top-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start">
-              <Highlights />
-            </aside>
-          ) : null}
-
-          <div className="flex min-w-0 flex-col gap-4 lg:col-start-1 lg:row-start-2">
-            <StorySoFar />
-          </div>
-        </div>
-      </main>
+      <Journal />
     </JournalPageProvider>
+  );
+}
+
+/** The page's layout, inside its provider: two columns on desktop while there are highlights, one at a reading width without. */
+function Journal() {
+  const { highlights } = useJournalPage();
+  return (
+    <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
+      <PillarHeader title="Journal" />
+      {/* The highlights only when there are some: an empty one would leave its column blank. */}
+      {/* Without the highlights, one column at a reading width rather than the whole screen's. */}
+      <div
+        className={cn(
+          "flex flex-col gap-8",
+          highlights.shown ? "lg:grid lg:grid-cols-[minmax(0,1fr)_20rem] lg:grid-rows-[auto_1fr] lg:gap-x-10" : "lg:max-w-3xl"
+        )}
+      >
+        <div className="flex min-w-0 flex-col gap-6 lg:col-start-1 lg:row-start-1">
+          <WeekSoFar />
+        </div>
+
+        {highlights.shown ? (
+          <aside aria-label="Now and lately" className="flex flex-col gap-4 lg:sticky lg:top-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start">
+            <Highlights />
+          </aside>
+        ) : null}
+
+        <div className="flex min-w-0 flex-col gap-4 lg:col-start-1 lg:row-start-2">
+          <StorySoFar />
+        </div>
+      </div>
+    </main>
   );
 }
