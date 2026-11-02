@@ -58,6 +58,18 @@ const WRITES: Record<string, ((x: string) => unknown) | null> = {
   "settings.ts:saveSettings": (x) => ({ dueDate: x }),
   "settings.ts:finishOnboarding": null,
   "emergency.ts:saveEmergency": (x) => ({ carerPhone: x, notes: x }),
+  "connections.ts:approveConnection": (x) => ({
+    request: {
+      response_type: "code",
+      client_id: x,
+      redirect_uri: "https://claude.ai/cb",
+      code_challenge: "a".repeat(43),
+      code_challenge_method: "S256",
+      state: x,
+    },
+    personId: UUID,
+  }),
+  "connections.ts:disconnect": (x) => ({ id: x }),
   "quiet.ts:setQuiet": (x) => ({ kind: x }),
   "circle.ts:addCirclePerson": (x) => ({ id: UUID, name: x, note: x }),
   "circle.ts:renameCirclePerson": (x) => ({ id: UUID, name: x, note: x }),

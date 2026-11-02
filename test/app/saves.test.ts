@@ -168,7 +168,13 @@ const bingo = {
   ],
 };
 
+const connections = [
+  { id: ID, clientName: "Claude", personId: made.by, personName: "Sam", createdAt: made.at, lastUsedAt: made.at },
+  { id: GIFT, clientName: "Claude Code", personId: made.by, personName: "Sam", createdAt: made.at, lastUsedAt: made.at },
+];
+
 const CASES: Record<string, [unknown, unknown[]]> = {
+  disconnect: [connections, [{ id: ID }, { id: MUM }]],
   setTicked: [
     checklist,
     [

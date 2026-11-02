@@ -7,6 +7,7 @@
 
 import { filesRoute } from "./files";
 import { healthRoute } from "./health";
+import { mcpRoute } from "./mcp";
 import { oauthRoutes } from "./oauth";
 
-export const restRoutes = [healthRoute, filesRoute, ...oauthRoutes] as const;
+export const restRoutes = [healthRoute, filesRoute, mcpRoute, ...oauthRoutes] as const;

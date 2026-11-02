@@ -1,7 +1,8 @@
 # Product
 
 What each part of Expecting does and why, as it is now: one doc per pillar,
-and one for each part outside them (the "+", Emergency info, It's time).
+and one for each part outside them (the "+", Emergency info, It's time,
+Claude).
 
 ## Which doc says what
 
@@ -46,3 +47,4 @@ links to it.
 - [Emergency info, and who to call](emergency.md)
 - [Something has happened](quiet.md)
 - [It's time](its-time.md)
+- [Claude](mcp.md)

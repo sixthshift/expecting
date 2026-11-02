@@ -53,6 +53,10 @@ bun run db:generate   # drizzle-kit writes SQL into .drizzle/ (gitignored)
 
 Review it, then copy the statements into `src/db/migrations/NNN_name.sql`. The server applies pending migrations on every start; `bun run migrate` applies them without starting it.
 
+## Connecting Claude
+
+Settings' Claude section gives the address to add as a custom connector: `<origin>/api/mcp`. Claude Code can connect to the dev server directly: `claude mcp add --transport http expecting http://localhost:9966/api/mcp`, then `/mcp` to authorise in the browser. The Claude app and claude.ai connect from Anthropic's servers, so they need Expecting at a public HTTPS address (`tailscale funnel 9966`, or the reverse proxy). Set `EXPECTING_URL` to that address so OAuth hands it out, and `TZ` to where you are, so "today" is yours. Logins must be on. The [MCP Inspector](https://github.com/modelcontextprotocol/inspector) (`bunx @modelcontextprotocol/inspector`) is the quickest way to call a tool by hand.
+
 ## Run from a build
 
 ```bash
