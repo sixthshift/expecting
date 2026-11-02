@@ -2,8 +2,7 @@
 // week. The step is shared; the words are only ever sent to the phone of the
 // person they're about.
 
-import { expect, test } from "./fixtures";
-import { PASSWORD } from "./playwright.config";
+import { expect, logIn, test } from "./fixtures";
 
 test("a check-in is kept with its words, and the other phone sees the step but never the words", async ({ page, open, browser }) => {
   await open("/");
@@ -30,13 +29,7 @@ test("a check-in is kept with its words, and the other phone sees the step but n
     // A body cut off by the page moving on is gone either way.
     if (response.url().includes("/api/rpc/")) bodies.push(await response.text().catch(() => ""));
   });
-  await sam.goto("/login", { waitUntil: "networkidle" });
-  await sam.getByLabel("Password").fill(PASSWORD);
-  await sam.getByRole("button", { name: "Log in" }).click();
-  await sam.waitForURL((url) => url.pathname !== "/login");
-  await sam.goto("/onboarding", { waitUntil: "networkidle" });
-  await sam.getByRole("button", { name: "I'm Sam" }).click();
-  await sam.waitForURL((url) => !url.pathname.startsWith("/onboarding"));
+  await logIn(sam, "Sam");
   await expect(sam.getByRole("heading", { name: "How are you today, Sam?" })).toBeVisible();
   await sam.goto("/journal/collections/feelings", { waitUntil: "networkidle" });
   const samFeelings = sam.getByRole("region", { name: "How you're feeling" });

@@ -3,8 +3,8 @@
 // answer to a week's question until both have given one (as Who does what,
 // src/lib/jobs.ts); then both are in the Journal, under the week. This week's
 // question is on This week; an earlier one can still be answered, found when
-// you look for it, never counted or chased. Kept on trust: who's holding the
-// phone is a choice, not a login.
+// you look for it, never counted or chased. Each of you logs in as yourself,
+// so the other's answer stays theirs until then.
 
 import type { ISODate } from "./dates";
 import type { Week } from "./timeline";

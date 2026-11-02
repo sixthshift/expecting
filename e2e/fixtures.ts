@@ -3,32 +3,31 @@
 // check that nothing on its way threw — the failure the unit suite cannot see.
 // A test that expects one (a 404 it asked for) names it in `allowedErrors`.
 //
-// Every page starts logged in, through the same form a phone uses. A test
-// about logging in opts out with `loggedIn: false`.
+// Every page starts logged in, as `person` (Jason unless a test says), through
+// the same form a phone uses. A test about logging in opts out with
+// `loggedIn: false`.
 //
-// The form is filled once per worker, not once per test: the session cookie it
-// sets, and the cookie saying who's holding the phone, are kept and handed to
-// each new browser after. Every test is still a new phone, with nothing else
-// carried over. A test that ends its session (logging out, clearing cookies)
-// leaves no session to keep, so the next test logs in through the form again.
+// The form is filled once per person per worker, not once per test: the
+// session cookie it sets is kept and handed to each new browser after. Every
+// test is still a new phone, with nothing else carried over. A test that ends
+// its session (logging out, clearing cookies) leaves no session to keep, so
+// the next test logs in through the form again.
 import { type BrowserContext, test as base, type Cookie, expect, type Page } from "@playwright/test";
-import { PASSWORD } from "./playwright.config";
+import { PASSWORDS } from "./playwright.config";
 
 type Fixtures = {
   /** Patterns of page errors this test expects; any other fails it. */
   allowedErrors: RegExp[];
   /** Whether the page starts with a session. Default true. */
   loggedIn: boolean;
-  /** Who this phone says it is, chosen on the first-run screen once there are any. Null to leave it unsaid. */
-  person: string | null;
+  /** Who this phone is logged in as: Jason, set up by global-setup.ts, or Sam, once she has joined (journey.spec.ts). */
+  person: keyof typeof PASSWORDS;
   /** Go to `path` and resolve once the page has drawn its heading. */
   open: (path: string) => Promise<void>;
 };
 
-/** The session cookie the form last set, while it is still live. */
-let session: Cookie[] | null = null;
-/** The cookie each person's "I'm …" set, by name. */
-const people = new Map<string, Cookie[]>();
+/** The session cookie the form last set for each person, while it is still live. */
+const sessions = new Map<string, Cookie[]>();
 
 /** The cookies `context` holds now that it didn't hold in `before`. */
 async function added(context: BrowserContext, before: Cookie[]): Promise<Cookie[]> {
@@ -36,28 +35,31 @@ async function added(context: BrowserContext, before: Cookie[]): Promise<Cookie[
   return (await context.cookies()).filter((cookie) => !names.has(cookie.name));
 }
 
+/**
+ * Log `page` in as `person` through /login: their name, when there are two of
+ * you to choose from, then their password. Resolves once it has gone on.
+ */
+export async function logIn(page: Page, person: keyof typeof PASSWORDS): Promise<void> {
+  await page.goto("/login", { waitUntil: "networkidle" });
+  const pick = page.getByRole("button", { name: `I'm ${person}` });
+  const password = page.getByLabel("Password", { exact: true });
+  await expect(pick.or(password)).toBeVisible();
+  if (await pick.isVisible()) await pick.click();
+  await password.fill(PASSWORDS[person]);
+  await page.getByRole("button", { name: "Log in" }).click();
+  await page.waitForURL((url) => url.pathname !== "/login");
+}
+
 export const test = base.extend<Fixtures>({
   allowedErrors: [[], { option: true }],
   loggedIn: [true, { option: true }],
   person: ["Jason", { option: true }],
   page: async ({ page, context, allowedErrors, loggedIn, person }, use) => {
-    if (loggedIn && session) await context.addCookies(session);
+    const kept = loggedIn ? sessions.get(person) : undefined;
+    if (kept) await context.addCookies(kept);
     else if (loggedIn) {
-      await page.goto("/login");
-      await page.getByLabel("Password").fill(PASSWORD);
-      await page.getByRole("button", { name: "Log in" }).click();
-      await page.waitForURL((url) => url.pathname !== "/login");
-      session = await added(context, []);
-    }
-    const held = person && people.get(person);
-    if (loggedIn && held) await context.addCookies(held);
-    else if (loggedIn && person) {
-      // Every test is a new phone: say who's holding it, the way the second parent would.
-      const before = await context.cookies();
-      await page.goto("/onboarding");
-      await page.getByRole("button", { name: `I'm ${person}` }).click();
-      await page.waitForURL((url) => !url.pathname.startsWith("/onboarding"));
-      people.set(person, await added(context, before));
+      await logIn(page, person);
+      sessions.set(person, await added(context, []));
     }
     const errors: string[] = [];
     const record = (text: string) => {
@@ -69,8 +71,9 @@ export const test = base.extend<Fixtures>({
     });
     await use(page);
     // A session this test ended (or whose cookie it cleared) is not one to hand on.
-    const kept = await context.cookies();
-    if (session && !session.every((cookie) => kept.some((k) => k.name === cookie.name && k.value === cookie.value))) session = null;
+    const left = await context.cookies();
+    const session = sessions.get(person);
+    if (session && !session.every((cookie) => left.some((k) => k.name === cookie.name && k.value === cookie.value))) sessions.delete(person);
     // A save shows at once and is sent behind it (src/app/model/outbox.ts): a phone keeps one still
     // waiting, but this browser goes with the test, so every save gets there first.
     if (!page.isClosed()) await expect.poll(() => waitingSaves(page), { message: "saves still waiting to be sent" }).toBe(0);

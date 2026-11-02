@@ -1,8 +1,7 @@
 // A question a week: one question for the two of you each week, answered on
 // your own phones. Neither sees the other's answer until both have given one;
 // then both are in the Journal, under the week.
-import { expect, test } from "./fixtures";
-import { PASSWORD } from "./playwright.config";
+import { expect, logIn, test } from "./fixtures";
 
 test("a question a week: answered on two phones, shown once both have, and kept in the Journal", async ({ page, open, browser }) => {
   await open("/settings");
@@ -25,13 +24,7 @@ test("a question a week: answered on two phones, shown once both have, and kept 
   // Sam, on the other phone, doesn't see Jason's answer until she's given hers.
   const phone = await browser.newContext();
   const sam = await phone.newPage();
-  await sam.goto("/login", { waitUntil: "networkidle" });
-  await sam.getByLabel("Password").fill(PASSWORD);
-  await sam.getByRole("button", { name: "Log in" }).click();
-  await sam.waitForURL((url) => url.pathname !== "/login");
-  await sam.goto("/onboarding", { waitUntil: "networkidle" });
-  await sam.getByRole("button", { name: "I'm Sam" }).click();
-  await sam.waitForURL((url) => !url.pathname.startsWith("/onboarding"));
+  await logIn(sam, "Sam");
   await sam.goto("/", { waitUntil: "networkidle" });
   const samCard = sam.getByRole("region", { name: "This week's question" });
   await expect(samCard.getByText("A long lunch by the water")).toHaveCount(0);

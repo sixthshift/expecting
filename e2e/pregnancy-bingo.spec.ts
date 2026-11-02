@@ -1,8 +1,7 @@
 // Pregnancy bingo, the Drawer's: a card each, dealt on your own phone. A
 // square marked when it happens; the middle row, with its free centre, is
 // bingo with four marks. The other sees your card, and the Journal keeps it.
-import { expect, test, waitingSaves } from "./fixtures";
-import { PASSWORD } from "./playwright.config";
+import { expect, logIn, test, waitingSaves } from "./fixtures";
 
 test("pregnancy bingo: dealt, the middle row marked to bingo, seen on the other phone and in the Journal", async ({ page, open, browser }) => {
   await open("/settings");
@@ -37,13 +36,7 @@ test("pregnancy bingo: dealt, the middle row marked to bingo, seen on the other 
   // Sam sees Jason's card, his words, and deals her own.
   const phone = await browser.newContext();
   const sam = await phone.newPage();
-  await sam.goto("/login", { waitUntil: "networkidle" });
-  await sam.getByLabel("Password").fill(PASSWORD);
-  await sam.getByRole("button", { name: "Log in" }).click();
-  await sam.waitForURL((url) => url.pathname !== "/login");
-  await sam.goto("/onboarding", { waitUntil: "networkidle" });
-  await sam.getByRole("button", { name: "I'm Sam" }).click();
-  await sam.waitForURL((url) => !url.pathname.startsWith("/onboarding"));
+  await logIn(sam, "Sam");
   await sam.goto("/drawer/bingo", { waitUntil: "networkidle" });
   await expect(sam.getByText("Bingo! Jason got there first.")).toBeVisible();
   await sam.getByRole("radio", { name: /^Jason/ }).click();

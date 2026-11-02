@@ -1,5 +1,5 @@
-// Connecting Claude: a client registers itself, /connect lets it in as one of
-// you, the code it is sent back with becomes a token that answers at
+// Connecting Claude: a client registers itself, /connect lets it in as
+// whoever is logged in, the code it is sent back with becomes a token that answers at
 // /api/mcp, and Settings lists it and disconnects it.
 import { createHash } from "node:crypto";
 import { expect, test } from "./fixtures";
@@ -28,6 +28,8 @@ test("connect Claude, call a tool as Jason, then disconnect it", async ({ page, 
   });
   await open(`/connect?${query}`);
   await expect(page.getByRole("heading", { name: "Connect Claude" })).toBeVisible();
+  // As whoever is logged in: there's no choosing someone else.
+  await expect(page.getByText("What it keeps is kept as Jason.", { exact: false })).toBeVisible();
   await page.getByRole("button", { name: "Allow" }).click();
   await expect(page.getByRole("heading", { name: "Back in Claude" })).toBeVisible();
   expect(back!.searchParams.get("state")).toBe("1234");

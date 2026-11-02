@@ -66,9 +66,9 @@ one.
 - **Shared, mostly.** Both phones see everything, and either of you changes
   any note, movement, sickness, craving, photo or paper. A feeling is the
   exception (below), and the one private corner: there are no private
-  notes and no private papers. With one password, a "just me" would only
-  be a courtesy, and on a medical record a courtesy reads as protection it
-  isn't. Two voices show only when there are two.
+  notes and no private papers: the space is shared on purpose, and a
+  medical record is one you both may need. Two voices show only when there
+  are two.
 - **Who kept it isn't whose it is.** Sickness and cravings are her body's
   and movements the baby's, whoever held the phone (often the partner, at
   3 am), so their lines never carry a name: "Alex · 3:12 am · Threw up"
@@ -293,9 +293,8 @@ holding the phone; and for the midwife's "since when?" weeks later.
 - **Both of you.** Partners get perinatal depression too.
 - **The step is shared, the words are yours.** The other sees your step
   (that's how you look out for each other); your words go only to your
-  phone, so you can be honest. A courtesy, not security: with one password,
-  anyone can say they're you. Only the person a feeling is about changes
-  or deletes it.
+  phones, so you can be honest: each of you logs in as yourself, so they
+  stay yours. Only the person a feeling is about changes or deletes it.
 - **Rough is never met with alarm:** one quiet line, someone to talk to
   (PANDA, and Lifeline if it's a crisis).
 - **A hard fortnight** (at least four days checked in over fourteen, most
@@ -413,7 +412,7 @@ into the other. They share only the story's parts.
   it again, until it's missed.
 - **What's behind a feeling** (sleep, work, money, us): a second row of
   words, if the first proves light enough.
-- **A stronger lock for medical papers** than the shared password: still
+- **A stronger lock for medical papers** than your logins: still
   the hosting question in [`intent.md`](../intent.md).
 
 ## First guesses, to judge on a phone

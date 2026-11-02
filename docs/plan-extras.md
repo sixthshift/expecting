@@ -155,13 +155,13 @@ lists, so the minding cards come first here.
 
 What every new extra here has to hold to, whichever part it's from.
 
-- **Hidden is on trust.** The names game's server returns only your own
+- **Hidden holds.** The names game's server returns only your own
   votes and the matches (`src/api/rpc/names.ts`), and part 3's reveals
-  would do the same. But who's holding the phone is a choice, not a login
-  (`src/api/rpc/people.ts`): switch to the other one and their answers are
-  there. Fine for a game between the two of you; say so plainly where
-  something is "sealed", and never use it for anything that has to stay
-  secret (a push present, a surprise, anything private).
+  do the same. Each of you logs in as yourself (two accounts,
+  `docs/architecture.md`, Access), so the other's answers stay theirs.
+  Still never use it for anything that must stay secret from someone who
+  knows your password or holds your logged-in phone (a push present, a
+  surprise).
 - **Quiet puts it all away.** After a loss, predictions, bingo, the size
   of the week, a question a week, the announcement and the visitors must
   not be seen. Each feature says what it does while quiet, as the names do,

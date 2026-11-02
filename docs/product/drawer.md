@@ -14,10 +14,9 @@ Extras, and The names deck. What an extra is: [extras.md](extras.md).
   entry.
 - **The tools you've turned on first;** the rest as a line each saying
   which extra brings them.
-- **Hidden is on trust.** Who's holding the phone is a choice, not a login:
-  switch to the other one and their votes are there. Fine for a game
-  between the two of you, so it's said plainly, and never used for
-  anything that has to stay secret.
+- **Hidden holds.** Each of you logs in as yourself, so the other's votes
+  stay theirs until you've voted too; on a phone you share, logging out is
+  what hands it over.
 - **Put away while something has happened,** never deleted.
 
 ## The names game

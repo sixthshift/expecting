@@ -1,8 +1,8 @@
 // Who does what (docs/plan-extras.md, part 3): the newborn jobs, each answered
 // by each of you on your own phone as me, you or together. Neither sees the
 // other's answer to a job until both have given one; then a job is settled
-// (you said the same) or one to talk about. Kept on trust: who's holding the
-// phone is a choice, not a login, so it's for the two of you, never a secret.
+// (you said the same) or one to talk about. Each of you logs in as yourself,
+// so the other's answers stay theirs until then.
 
 /** Your answer to a job, from where you stand: you'll do it, the other will, or both of you. */
 export const PICKS = ["me", "you", "together"] as const;

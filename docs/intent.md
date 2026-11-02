@@ -72,13 +72,14 @@ out, and they're unsure of their role.
 ## Who uses it
 
 - **Both parents, one space.** Shared by default. Everything either of you
-  adds, the other sees and can edit. One password, no accounts.
-- **But each with a name.** Each phone says who is holding it ("I'm
-  Jason"), once. That needs no account. It's what lets Expecting say who
-  kept something and whose a task is, ask each of you how you are, run the
-  names game, and tell one of you what the other added since you last
-  looked. It's a courtesy, not security: anyone with the password can say
-  they're you, so nothing that must stay secret rests on it.
+  adds, the other sees and can edit. Two accounts, one each.
+- **But each with a name.** Each of you logs in as yourself ("I'm Jason",
+  then your password), so Expecting can say who kept something and whose
+  a task is, ask each of you how you are, run the names game, and tell one
+  of you what the other added since you last looked. The few things that
+  are one person's own (the words of how you're feeling, your votes before
+  the other has voted) stay so. Either of you can set it up; the other
+  joins by invite, or never: one of you is a whole setup.
 - **In the baby's colours.** One question (boy, girl, or don't know /
   keeping it a surprise) sets the theme: blue, pink, or purple. Light or
   dark is each phone's own.
@@ -336,4 +337,4 @@ and the app has no birth to score against).
 - **The newborn mode.** How much of feed, sleep and nappy tracking belongs
   here, and where it would end before "parenting" begins.
 - **Hosting and access.** Where it runs, which backup covers it, HTTPS,
-  and whether health papers want a stronger lock than the shared password.
+  and whether health papers want a stronger lock than your logins.

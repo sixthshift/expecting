@@ -22,11 +22,10 @@ How it's built is [`architecture.md`](../architecture.md), Claude (MCP).
 
 ## Connecting
 
-- **Connecting goes through the shared password.** Claude registers itself
-  and sends you to `/connect`, which sits behind the password like every
-  page. Logged out, you log in first. The page asks who is connecting and
-  whether to allow it.
-- **A connection is one of you.** Whatever it keeps is kept as that person,
+- **Connecting goes through your login.** Claude registers itself and
+  sends you to `/connect`, which sits behind the login like every page.
+  Logged out, you log in first. The page asks whether to allow it, as you.
+- **A connection is one of you:** whoever allowed it. Whatever it keeps is kept as that person,
   so the Journal says who kept it, and feelings' words stay that person's,
   as on their phone. Each of you can connect your own Claude.
 - **Disconnecting is in Settings.** Each connection shows its client, whose
@@ -36,7 +35,7 @@ How it's built is [`architecture.md`](../architecture.md), Claude (MCP).
 - **It needs a public HTTPS address.** The Claude app and claude.ai reach
   Expecting from Anthropic's servers, not from your phone, so a Tailscale
   name alone isn't enough (Tailscale Funnel or a reverse proxy is).
-  Turning this on puts Expecting on the internet, behind the password.
+  Turning this on puts Expecting on the internet, behind your logins.
 
 ## What it can do
 

@@ -1,8 +1,7 @@
 // Who does what, the Drawer's: each of you says who'll do each newborn job on
 // your own phone, and neither sees the other's answer to a job until both
 // have given one. Then it's settled, or one to talk about.
-import { expect, test } from "./fixtures";
-import { PASSWORD } from "./playwright.config";
+import { expect, logIn, test } from "./fixtures";
 
 test("who does what: answered on two phones, settled where you agree, and to talk about where you don't", async ({ page, open, browser }) => {
   await open("/settings");
@@ -32,13 +31,7 @@ test("who does what: answered on two phones, settled where you agree, and to tal
   // Sam, on the other phone, sees none of Jason's answers, and gives hers.
   const phone = await browser.newContext();
   const sam = await phone.newPage();
-  await sam.goto("/login", { waitUntil: "networkidle" });
-  await sam.getByLabel("Password").fill(PASSWORD);
-  await sam.getByRole("button", { name: "Log in" }).click();
-  await sam.waitForURL((url) => url.pathname !== "/login");
-  await sam.goto("/onboarding", { waitUntil: "networkidle" });
-  await sam.getByRole("button", { name: "I'm Sam" }).click();
-  await sam.waitForURL((url) => !url.pathname.startsWith("/onboarding"));
+  await logIn(sam, "Sam");
   await sam.goto("/drawer/jobs", { waitUntil: "networkidle" });
   const samDeck = sam.getByRole("region", { name: "To answer" });
   await expect(sam.getByText("Jason has answered 3 of 18.")).toBeVisible();

@@ -2,6 +2,7 @@
 // error. A page that throws as its bundle loads fails here and nowhere else.
 // Runs at phone and desktop size (playwright.config.ts).
 import { expect, test } from "./fixtures";
+import { PASSWORDS } from "./playwright.config";
 
 const pages = [
   { path: "/", heading: "This week" },
@@ -107,19 +108,26 @@ test("/api/health answers", async ({ request }) => {
 test.describe("logged out", () => {
   test.use({ loggedIn: false });
 
-  test("a page sends you to log in, then to say who you are", async ({ page, open }) => {
+  test("a page sends you to log in, as which of you, then on to where it was going", async ({ page, open }) => {
     await open("/settings");
     await expect(page).toHaveURL(/\/login\?next=%2Fsettings$/);
 
+    // Each of you by name, and only the two of you: no place to claim.
+    await expect(page.getByRole("button", { name: /^I'm / })).toHaveCount(2);
+    await page.getByRole("button", { name: "I'm Jason" }).click();
     await page.getByLabel("Password").fill("not it");
     await page.getByRole("button", { name: "Log in" }).click();
     await expect(page.getByText("That's not the password.")).toBeVisible();
 
-    await page.getByLabel("Password").fill("e2e-password");
+    // Sam's password is not Jason's. A wrong one empties the field once its answer is in.
+    await page.getByLabel("Password").fill(PASSWORDS.Sam);
     await page.getByRole("button", { name: "Log in" }).click();
-    // A phone that hasn't said who's holding it is asked first, then goes on.
-    await page.getByRole("button", { name: "I'm Jason" }).click();
-    await expect(page.getByRole("heading", { level: 1, name: "This week" })).toBeAttached();
+    await expect(page.getByLabel("Password")).toHaveValue("");
+
+    await page.getByLabel("Password").fill(PASSWORDS.Jason);
+    await page.getByRole("button", { name: "Log in" }).click();
+    await expect(page).toHaveURL(/\/settings$/);
+    await expect(page.getByText("Logged in as Jason.")).toBeVisible();
   });
 
   test("the login page has the icon, the manifest and the worker", async ({ page, open, request }) => {
@@ -157,6 +165,13 @@ test("server functions refuse a caller without a session", async ({ page, open, 
   const stranger = await playwright.request.newContext({ baseURL });
   for (const url of calls) {
     const response = await stranger.get(url, { headers: { accept: "application/json" } });
+    // But one: who's here to log in as (getAccess, src/api/rpc/session.ts), which says your names and nothing else.
+    if (response.status() === 200) {
+      const body = await response.text();
+      expect(body, url).toContain("hasPassword");
+      expect(body, url).not.toMatch(/dueDate|password_hash|\$argon2/);
+      continue;
+    }
     expect(response.status(), url).toBe(401);
   }
   await stranger.dispose();
@@ -164,10 +179,10 @@ test("server functions refuse a caller without a session", async ({ page, open, 
 
 test("logging out ends the session", async ({ page, open }) => {
   await open("/settings");
-  await page.getByRole("button", { name: "Log out" }).click();
+  await page.getByRole("button", { name: "Log out", exact: true }).click();
   // It asks first, and Cancel keeps you in.
   await page.getByRole("button", { name: "Cancel" }).click();
-  await page.getByRole("button", { name: "Log out" }).click();
+  await page.getByRole("button", { name: "Log out", exact: true }).click();
   await page.getByRole("button", { name: "Yes, log out" }).click();
   await expect(page).toHaveURL(/\/login$/);
   await open("/settings");

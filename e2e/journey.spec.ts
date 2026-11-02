@@ -2,8 +2,8 @@
 // the ruler, a task of their own that stays ticked, a jump from a task to why
 // it matters, and a question for the midwife. Runs first, on the phone, against
 // the empty database the config makes.
-import { expect, test, waitingSaves } from "./fixtures";
-import { PASSWORD } from "./playwright.config";
+import { expect, logIn, test, waitingSaves } from "./fixtures";
+import { PASSWORDS } from "./playwright.config";
 
 /** dd, mm, yyyy of today plus `days`, in this machine's local time, as the app sees it. */
 function daysFromToday(days: number): string {
@@ -16,83 +16,89 @@ test.describe.configure({ mode: "serial" });
 
 const week = (page: import("@playwright/test").Page, key: string) => page.locator(`[data-week="${key}"]`);
 
-test.describe("the first evening", () => {
-  // This phone is the first: nobody to choose yet.
-  test.use({ person: null });
+test("the first evening: set up as Jason, onboarding asks the due date, and opens at this week", async ({ page, open }) => {
+  // global-setup.ts set Expecting up as Jason; nothing more is asked of who he is.
+  await open("/");
+  await expect(page).toHaveURL(/\/onboarding\/due$/);
 
-  test("onboarding asks who, then the due date, and opens at this week", async ({ page, open }) => {
-    await open("/");
-    await expect(page).toHaveURL(/\/onboarding\/who$/);
-    await expect(page.getByRole("heading", { name: "Welcome to Expecting. Who's holding this phone?" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "When's the baby due?" })).toBeVisible();
+  await page.getByRole("spinbutton", { name: /day/i }).click();
+  // 12 weeks to go is 28+0.
+  await page.keyboard.type(daysFromToday(12 * 7));
+  await page.getByRole("button", { name: "Next" }).click();
 
-    await page.getByLabel("Your name").fill("Jason");
-    await page.getByRole("button", { name: "I'm the partner" }).click();
-    await page.getByRole("button", { name: "Continue" }).click();
+  // Each new screen after the first takes focus to its question.
+  await expect(page.getByRole("heading", { name: "Do you know if it's a boy or a girl?" })).toBeFocused();
+  // Each question is its own page: the phone's back gesture goes back one, with the answer kept.
+  await expect(page).toHaveURL(/\/onboarding\/baby$/);
+  await page.goBack();
+  await expect(page.getByRole("heading", { name: "When's the baby due?" })).toBeVisible();
+  await page.getByRole("button", { name: "Next" }).click();
+  await expect(page).toHaveURL(/\/onboarding\/baby$/);
 
-    // Each new screen takes focus to its question.
-    await expect(page.getByRole("heading", { name: "When's the baby due?" })).toBeFocused();
-    await page.getByRole("spinbutton", { name: /day/i }).click();
-    // 12 weeks to go is 28+0.
-    await page.keyboard.type(daysFromToday(12 * 7));
-    await page.getByRole("button", { name: "Next" }).click();
+  await page.getByRole("button", { name: "Don't know / surprise" }).click();
+  await expect(page.getByRole("heading", { name: "Do you know if it's a boy or a girl?" })).toBeHidden();
+  // The questions that build the plan: all skipped, so nothing is hidden.
+  // A skip saves, then moves to the next question's page: wait for that page before asking again.
+  const allSet = page.getByRole("heading", { name: "You're all set" });
+  const skip = page.getByRole("button", { name: "Skip for now" });
+  while (!(await allSet.isVisible())) {
+    const question = await page.getByRole("heading", { level: 1 }).textContent();
+    await skip.click();
+    await expect(page.getByRole("heading", { level: 1, name: question ?? "" })).toBeHidden();
+    await expect(allSet.or(skip)).toBeVisible();
+  }
 
-    // Each question is its own page: the phone's back gesture goes back one, with the answer kept.
-    await expect(page).toHaveURL(/\/onboarding\/baby$/);
-    await page.goBack();
-    await expect(page.getByRole("heading", { name: "When's the baby due?" })).toBeVisible();
-    await page.getByRole("button", { name: "Next" }).click();
-    await expect(page).toHaveURL(/\/onboarding\/baby$/);
+  await expect(page.getByRole("heading", { name: "You're all set" })).toBeVisible();
+  await expect(page.getByText("Expecting opens at week 28 (28+0)")).toBeVisible();
+  await page.getByRole("button", { name: "Open Expecting" }).click();
 
-    await page.getByRole("button", { name: "Don't know / surprise" }).click();
-    await expect(page.getByRole("heading", { name: "Do you know if it's a boy or a girl?" })).toBeHidden();
-    // The questions that build the plan: all skipped, so nothing is hidden.
-    // A skip saves, then moves to the next question's page: wait for that page before asking again.
-    const allSet = page.getByRole("heading", { name: "You're all set" });
-    const skip = page.getByRole("button", { name: "Skip for now" });
-    while (!(await allSet.isVisible())) {
-      const question = await page.getByRole("heading", { level: 1 }).textContent();
-      await skip.click();
-      await expect(page.getByRole("heading", { level: 1, name: question ?? "" })).toBeHidden();
-      await expect(allSet.or(skip)).toBeVisible();
-    }
-
-    await expect(page.getByRole("heading", { name: "You're all set" })).toBeVisible();
-    await expect(page.getByText("Expecting opens at week 28 (28+0)")).toBeVisible();
-    await page.getByRole("button", { name: "Open Expecting" }).click();
-
-    await expect(page.getByRole("heading", { level: 1, name: "This week Week 28" })).toBeVisible();
-    await expect(page).toHaveURL((url) => url.pathname === "/");
-    await expect(page.getByText("28+0 · 84 days to go")).toBeVisible();
-    // The whole pregnancy opens at this week too.
-    await page.getByRole("link", { name: "The whole pregnancy" }).click();
-    await expect(week(page, "28").getByRole("link")).toHaveAttribute("aria-current", "date");
-  });
+  await expect(page.getByRole("heading", { level: 1, name: "This week Week 28" })).toBeVisible();
+  await expect(page).toHaveURL((url) => url.pathname === "/");
+  await expect(page.getByText("28+0 · 84 days to go")).toBeVisible();
+  // The whole pregnancy opens at this week too.
+  await page.getByRole("link", { name: "The whole pregnancy" }).click();
+  await expect(week(page, "28").getByRole("link")).toHaveAttribute("aria-current", "date");
 });
 
-test("the second phone is only asked who it is", async ({ page, open }) => {
-  // The fixture has already said "I'm Jason"; this phone is someone new.
+test("Sam joins by Jason's invite, as the other of them, and goes straight in", async ({ page, open, browser }) => {
   await open("/settings");
-  await expect(page.getByText("This is Jason's phone.")).toBeVisible();
-  await page.getByRole("button", { name: "Someone else is using it" }).click();
+  const account = page.getByRole("region", { name: "Account" });
+  await expect(account.getByText("Logged in as Jason.")).toBeVisible();
+  // Only by invite: the login page offers no place to claim.
+  await account.getByRole("button", { name: "Invite the pregnant parent" }).click();
+  const link = await account.locator("code").textContent();
+  expect(link).toMatch(/\/join\?code=/);
 
-  await expect(page.getByRole("heading", { name: "Who's this?" })).toBeVisible();
-  await page.getByRole("button", { name: "Someone else" }).click();
-  await page.getByLabel("Your name").fill("Sam");
-  // There's a partner already, so the second person is offered the other role.
-  await expect(page.getByRole("button", { name: "I'm the one who's pregnant (or will be)" })).toHaveAttribute("aria-pressed", "true");
-  await page.getByRole("button", { name: "Continue" }).click();
+  const phone = await browser.newContext();
+  const sam = await phone.newPage();
+  await sam.goto("/login", { waitUntil: "networkidle" });
+  await expect(sam.getByText("Log in as Jason. Joining? Open the invite Jason sent you.")).toBeVisible();
+  await sam.goto(link!, { waitUntil: "networkidle" });
+  await expect(sam.getByText("Jason has invited you to share Expecting, as the pregnant parent.")).toBeVisible();
+  await sam.getByLabel("Your name").fill("Sam");
+  await sam.getByLabel("Password", { exact: true }).fill(PASSWORDS.Sam);
+  await sam.getByLabel("The same again").fill(PASSWORDS.Sam);
+  await sam.getByRole("button", { name: "Join" }).click();
 
   // It's already set up: straight to This week.
-  await expect(page.getByRole("heading", { level: 1, name: "This week Week 28" })).toBeVisible();
+  await expect(sam.getByRole("heading", { level: 1, name: "This week Week 28" })).toBeVisible();
   // The week's note reads as the one holding the phone, and flips to the other.
-  const note = page.getByRole("article", { name: "The home stretch begins" });
+  const note = sam.getByRole("article", { name: "The home stretch begins" });
   await expect(note.getByRole("heading", { name: "Your body" })).toBeVisible();
   await expect(note.getByRole("heading", { name: "For the partner" })).toHaveCount(0);
   await note.getByRole("radio", { name: "For Jason" }).click();
   await expect(note.getByRole("heading", { name: "For the partner" })).toBeVisible();
   await expect(note.getByRole("heading", { name: "Your body" })).toHaveCount(0);
+  await sam.goto("/settings", { waitUntil: "networkidle" });
+  await expect(sam.getByText("Logged in as Sam. Expecting is shared with Jason.")).toBeVisible();
+
+  // The invite worked once, and there's no place left to invite to.
+  await sam.goto(link!, { waitUntil: "networkidle" });
+  await expect(sam.getByText(/That code isn't live/)).toBeVisible();
+  await phone.close();
   await open("/settings");
-  await expect(page.getByText("This is Sam's phone. Expecting is shared by Jason and Sam.")).toBeVisible();
+  await expect(page.getByRole("button", { name: /^Invite/ })).toHaveCount(0);
 });
 
 test("the whole pregnancy is the map, from This week: the landmarks, and a week goes to This week", async ({ page, open }) => {
@@ -622,13 +628,7 @@ test("the names game: a name is shortlisted only when you both like it, or one o
   // Sam, on another phone, sees the names but not Jason's votes, and likes one.
   const phone = await browser.newContext();
   const sam = await phone.newPage();
-  await sam.goto("/login", { waitUntil: "networkidle" });
-  await sam.getByLabel("Password").fill(PASSWORD);
-  await sam.getByRole("button", { name: "Log in" }).click();
-  await sam.waitForURL((url) => url.pathname !== "/login");
-  await sam.goto("/onboarding", { waitUntil: "networkidle" });
-  await sam.getByRole("button", { name: "I'm Sam" }).click();
-  await sam.waitForURL((url) => !url.pathname.startsWith("/onboarding"));
+  await logIn(sam, "Sam");
   await sam.goto("/drawer/names", { waitUntil: "networkidle" });
   const samNames = sam.getByRole("main");
   // The names Jason added come first.
@@ -787,12 +787,10 @@ test.describe("a save after the session ends", () => {
     await page.waitForURL((url) => url.pathname === "/login");
 
     // The save waits on the phone, and goes once logged in again.
-    await page.getByLabel("Password").fill(PASSWORD);
+    await page.getByRole("button", { name: "I'm Jason" }).click();
+    await page.getByLabel("Password").fill(PASSWORDS.Jason);
     await page.getByRole("button", { name: "Log in" }).click();
     await expect.poll(() => waitingSaves(page)).toBe(0);
-    // The cookies went, who's holding this phone with them.
-    await page.getByRole("button", { name: "I'm Jason" }).click();
-    await page.waitForURL((url) => !url.pathname.startsWith("/onboarding"));
     await open("/settings");
     const shower = page.getByRole("switch", { name: "Baby shower" });
     await expect(shower).toBeChecked();

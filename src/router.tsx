@@ -21,7 +21,7 @@ export function getRouter() {
         // Once more after a failure, unless the session has ended: no point asking again.
         retry: (count, error) => count < 1 && !isLoggedOut(error),
       },
-      // What isn't a save (logging in, who's holding the phone, onboarding's finish) fails at once with no
+      // What isn't a save (logging in, your account's upkeep, onboarding's finish) fails at once with no
       // connection, and says so (useAction's toast). A save waits for one (queueSaves).
       mutations: { networkMode: "always" },
     },

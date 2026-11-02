@@ -23,10 +23,11 @@ const PORT = Number(process.env.E2E_PORT) || 9967 + SLOT;
 // database is still there to open afterwards.
 export const DATA_DIR = join(tmpdir(), SLOT ? `expecting-e2e-${SLOT}` : "expecting-e2e");
 
-// The password the specs log in with, chosen by global-setup.ts on
-// the empty database's first visit. A test-only secret: it guards an empty
+// The passwords the specs log in with: Jason's, chosen by global-setup.ts
+// setting Expecting up on the empty database, and Sam's, chosen as she joins
+// by Jason's invite (journey.spec.ts). Test-only secrets: they guard an empty
 // temp database and nothing else.
-export const PASSWORD = "e2e-password";
+export const PASSWORDS = { Jason: "e2e-password", Sam: "e2e-password-sam" } as const;
 
 export default defineConfig({
   testDir: ".",
@@ -34,7 +35,7 @@ export default defineConfig({
   workers: 1,
   forbidOnly: Boolean(process.env.CI),
   retries: 0,
-  // After the server is up, before any spec: the first visit, which chooses the password.
+  // After the server is up, before any spec: the first visit, which sets Expecting up as Jason.
   globalSetup: "./global-setup.ts",
   reporter: process.env.CI ? [["list"], ["html", { open: "never", outputFolder: "../playwright-report" }]] : "list",
   outputDir: "../test-results",

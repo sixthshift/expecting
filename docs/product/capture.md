@@ -32,8 +32,7 @@ pillar's: [journal.md](journal.md), [planner.md](planner.md).
 
 ## What's offered when
 
-- **How I'm feeling** only from a phone that's said who's holding it: a
-  feeling is someone's.
+- **How I'm feeling** as whoever is logged in: a feeling is someone's.
 - **The baby moved** from week 16, or earlier once one's been kept.
 - **Sickness, cravings, photos, firsts and something to do** at any week.
 - **While something has happened:** a note, a result or paper (papers are
