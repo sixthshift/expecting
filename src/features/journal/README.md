@@ -6,9 +6,8 @@ of the code.
 
 ## Words
 
-The Journal is the same things two ways: **the story**, everything by time
-(its tab says Timeline), and **the collections**, everything by what it is.
-In code it stays the story: `/timeline` is the whole pregnancy's map.
+The Journal is the same things two ways: **the story**, everything by time,
+and **the collections**, everything by what it is.
 
 | Word | Means | Where |
 |---|---|---|
