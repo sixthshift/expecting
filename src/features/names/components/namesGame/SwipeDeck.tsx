@@ -1,7 +1,8 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Heart, Star, X } from "lucide-react";
-import { type HTMLAttributes, type PointerEvent, useRef, useState } from "react";
-import { aboutName, type DeckCard, SEX_LABEL } from "../../../../lib/nameDeck";
+import { type PointerEvent, useRef, useState } from "react";
+import type { DeckCard } from "../../../../lib/nameDeck";
+import { CardFace } from "./CardFace";
 
 /** How far a card is dragged before letting go likes or passes it. */
 const THROW = 96;
@@ -85,7 +86,7 @@ export function SwipeDeck({
     <div className="flex w-full flex-col items-center gap-4">
       <div className="grid w-full max-w-sm">
         {under ? (
-          <Face
+          <CardFace
             card={under}
             showSex={showSex}
             inert
@@ -93,7 +94,7 @@ export function SwipeDeck({
             className={dragging ? "" : "motion-safe:transition-[transform,opacity]"}
           />
         ) : null}
-        <Face
+        <CardFace
           card={card}
           showSex={showSex}
           aria-describedby="swipe-how"
@@ -125,7 +126,7 @@ export function SwipeDeck({
           >
             <Star size={14} /> Superlike
           </span>
-        </Face>
+        </CardFace>
       </div>
       <p id="swipe-how" className="text-xs text-fg-subtle">
         Swipe right to like, left to pass. A superlike puts it on the shortlist straight away: one a day.
@@ -150,24 +151,5 @@ export function SwipeDeck({
         </Button>
       </div>
     </div>
-  );
-}
-
-/** A card's face: the name, whose it mostly is, and how given it is. The one under the top is only seen. */
-function Face({ card, showSex, inert, className, children, ...rest }: { card: DeckCard; showSex: boolean; inert?: boolean } & HTMLAttributes<HTMLElement>) {
-  const about = aboutName(card.deck);
-  return (
-    <article
-      aria-label={inert ? undefined : card.name}
-      aria-hidden={inert || undefined}
-      inert={inert}
-      {...rest}
-      className={`relative flex min-h-[min(55vh,26rem)] select-none flex-col items-center justify-center gap-2 rounded-xl border border-border-subtle bg-bg-normal px-6 py-8 text-center [grid-area:1/1] ${className ?? ""}`}
-    >
-      {children}
-      {showSex && card.deck ? <span className="text-xs tracking-wide text-fg-subtle uppercase">{SEX_LABEL[card.deck.sex]}</span> : null}
-      <p className="font-display text-5xl font-semibold break-words text-fg-strong">{card.name}</p>
-      {about ? <p className="text-sm text-fg-subtle">{about}</p> : null}
-    </article>
   );
 }

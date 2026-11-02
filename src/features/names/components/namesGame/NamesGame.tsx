@@ -1,15 +1,16 @@
 import { Button } from "@sixthshift/design-system/button";
-import { Input } from "@sixthshift/design-system/input";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
-import { Plus, Star, Undo2, X } from "lucide-react";
-import { type FormEvent, useMemo, useState } from "react";
+import { Undo2 } from "lucide-react";
+import { useMemo, useState } from "react";
 import { namesSaves } from "../../../../api/rpc/names";
 import { useSave } from "../../../../app/hooks/useSave";
 import { todayISO } from "../../../../lib/dates";
 import { DECK_CREDIT, DECK_PLACES, type DeckCard, upNext } from "../../../../lib/nameDeck";
-import { type DeckFilter, type NamesView, type Shortlisted, superlikeLeft } from "../../../../lib/names";
+import { type DeckFilter, type NamesView, superlikeLeft } from "../../../../lib/names";
 import { newId } from "../../../../lib/outbox";
 import type { Person } from "../../../../lib/people";
+import { Shortlist } from "../shortlist/Shortlist";
+import { AddName } from "./AddName";
 import { SwipeDeck, type Vote } from "./SwipeDeck";
 
 /**
@@ -36,7 +37,6 @@ export function NamesGame({
   const saveSwipe = useSave(namesSaves.swipeName);
   const saveSuper = useSave(namesSaves.superlikeName);
   const saveUnvote = useSave(namesSaves.unvoteName);
-  const saveTakeOff = useSave(namesSaves.takeOffName);
   // The last name voted on, to undo; and one undone, dealt again first.
   const [last, setLast] = useState<string | null>(null);
   const [again, setAgain] = useState<string | null>(null);
@@ -93,29 +93,7 @@ export function NamesGame({
         </Button>
       </div>
 
-      <section
-        aria-label="Shortlist"
-        className="flex flex-col gap-2 rounded-lg bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) p-4"
-      >
-        <h2 className="text-sm font-semibold text-fg-strong">
-          {view.shortlist.length === 0
-            ? "The shortlist is empty"
-            : `The shortlist: ${view.shortlist.length === 1 ? "one name" : `${view.shortlist.length} names`}`}
-        </h2>
-        {view.shortlist.length > 0 ? (
-          <ul className="flex flex-wrap gap-2">
-            {view.shortlist.map((n) => (
-              <ShortlistName key={n.id} name={n} onTakeOff={() => saveTakeOff({ id: n.id })} />
-            ))}
-          </ul>
-        ) : (
-          <p className="text-sm text-fg-normal">
-            {view.together
-              ? "A name goes on when you both like it, or when one of you superlikes it."
-              : `Once ${other?.name ?? "your partner"} joins on their own phone, names you both like go on here. A superlike puts one on now.`}
-          </p>
-        )}
-      </section>
+      <Shortlist view={view} other={other} />
 
       <AddName />
 
@@ -123,58 +101,5 @@ export function NamesGame({
         Names from the registers of births of {DECK_PLACES.map((p) => p.place).join(", ")}: {DECK_CREDIT}.
       </p>
     </div>
-  );
-}
-
-/** A name on the shortlist: starred if a superlike put it there; taken off with a second tap to be sure, as it doesn't come back round. */
-function ShortlistName({ name, onTakeOff }: { name: Shortlisted; onTakeOff: () => void }) {
-  const [sure, setSure] = useState(false);
-  return (
-    <li className="flex items-center gap-1 rounded-full bg-bg-normal py-1 pr-1 pl-3">
-      <span className="font-display text-lg text-fg-strong">{name.name}</span>
-      {name.star ? <Star role="img" aria-label="Superliked" size={14} className="fill-current text-fg-brand" /> : null}
-      {sure ? (
-        <>
-          <Button variant="ghost" size="sm" onClick={onTakeOff}>
-            Take off
-          </Button>
-          <Button variant="ghost" size="sm" onClick={() => setSure(false)}>
-            Keep
-          </Button>
-        </>
-      ) : (
-        <Button variant="ghost" size="sm" iconOnly aria-label={`Take ${name.name} off the shortlist`} onClick={() => setSure(true)}>
-          <X aria-hidden size={14} />
-        </Button>
-      )}
-    </li>
-  );
-}
-
-function AddName() {
-  const [name, setName] = useState("");
-  const add = useSave(namesSaves.addName);
-
-  function submit(event: FormEvent) {
-    event.preventDefault();
-    if (name.trim().length === 0) return;
-    add({ id: newId(), name });
-    setName("");
-  }
-
-  return (
-    <form onSubmit={submit} className="flex gap-2">
-      <Input
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Add a name you like"
-        aria-label="A name to add"
-        maxLength={60}
-        className="flex-1"
-      />
-      <Button type="submit" variant="outline" iconOnly aria-label="Add name" disabled={name.trim().length === 0}>
-        <Plus aria-hidden size={16} />
-      </Button>
-    </form>
   );
 }
