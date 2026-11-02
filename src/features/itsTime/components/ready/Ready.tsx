@@ -1,8 +1,13 @@
 import { Button } from "@sixthshift/design-system/button";
+import { useChecklistQuery } from "../../../../api/rpc/checklist";
+import { useEmergencyQuery } from "../../../../api/rpc/emergency";
+import { useAnswersQuery } from "../../../../api/rpc/facts";
 import { itsTimeSaves } from "../../../../api/rpc/itsTime";
 import { useSave } from "../../../../app/hooks/useSave";
+import { factsOf } from "../../../../lib/facts";
 import { newId } from "../../../../lib/outbox";
-import type { ReadyThing } from "../../model/ready";
+import { useItsTimePage } from "../../contexts/ItsTimePageContext";
+import { stillToReady } from "../../model/ready";
 import { Part } from "../Part";
 import { ThingLink } from "./ThingLink";
 
@@ -12,7 +17,12 @@ import { ThingLink } from "./ThingLink";
  * once, ringing the number to check it. Below this the rest of the page shows
  * as it will on the night: the practice run.
  */
-export function Ready({ things, home }: { things: readonly ReadyThing[]; home: boolean }) {
+export function Ready() {
+  const { home } = useItsTimePage();
+  const { values } = useEmergencyQuery().data;
+  const { data: facts } = useAnswersQuery({ select: factsOf });
+  const { ticks } = useChecklistQuery().data;
+  const things = stillToReady({ values, facts, ticks });
   const begin = useSave(itsTimeSaves.beginStart);
   return (
     <div className="flex flex-col gap-6">

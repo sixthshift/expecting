@@ -1,9 +1,32 @@
+import { useEmergencyQuery } from "../../../../api/rpc/emergency";
+import { useAnswersQuery } from "../../../../api/rpc/facts";
+import { useSettingsQuery } from "../../../../api/rpc/settings";
+import { todayISO } from "../../../../lib/dates";
+import { factsOf } from "../../../../lib/facts";
+import { patternOf } from "../../../../lib/itsTime";
 import { PapersToHand } from "../../../journal/components/entries/papers/PaperList";
-import type { AskRow } from "../../model/theyllAsk";
+import { useItsTimePage } from "../../contexts/ItsTimePageContext";
+import { theyllAsk } from "../../model/theyllAsk";
 import { Part } from "../Part";
 
 /** When you ring, they'll ask: the call, already answered, in the order a midwife asks. The papers kept handy (the birth plan) are one tap from here, with no signal too. */
-export function TheyllAsk({ rows, hospitalSaid, home }: { rows: readonly AskRow[]; hospitalSaid: string | undefined; home: boolean }) {
+export function TheyllAsk() {
+  const { start, home, me, carrying } = useItsTimePage();
+  const { values } = useEmergencyQuery().data;
+  const { data: facts } = useAnswersQuery({ select: factsOf });
+  const { data: dueDate } = useSettingsQuery({ select: (s) => s.dueDate });
+  const rows = theyllAsk({
+    values,
+    facts,
+    carrying: carrying?.name ?? null,
+    dueDate,
+    today: todayISO(),
+    start,
+    pattern: start ? patternOf(start.contractions, new Date()) : null,
+    holding: me?.role ?? null,
+  });
+  // On the night it's under the timer's numbers; before, it's here.
+  const hospitalSaid = start ? undefined : values.hospitalSaid;
   return (
     <Part id="theyll-ask" title="When you ring, they'll ask">
       <dl className="grid grid-cols-[auto_1fr] gap-x-4 rounded-xl border border-border-subtle bg-bg-normal px-4 py-1">

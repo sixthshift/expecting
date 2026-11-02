@@ -1,8 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
-import { clock, type Start, TERM_WEEK, WATERS_LABEL } from "../../../../lib/itsTime";
-import type { Person } from "../../../../lib/people";
-import { gestationLabel, type Position } from "../../../../lib/timeline";
+import { useEmergencyQuery } from "../../../../api/rpc/emergency";
+import { useAnswersQuery } from "../../../../api/rpc/facts";
+import { usePosition } from "../../../../api/rpc/settings";
+import { factsOf } from "../../../../lib/facts";
+import { clock, TERM_WEEK, WATERS_LABEL } from "../../../../lib/itsTime";
+import { gestationLabel } from "../../../../lib/timeline";
+import { useItsTimePage } from "../../contexts/ItsTimePageContext";
+import { breechWaters } from "../../model/callNow";
 import { CallButton } from "../CallButton";
 import { Alarm } from "./Alarm";
 
@@ -13,23 +18,11 @@ import { Alarm } from "./Alarm";
  * with a baby you've been told isn't head-first) above them all; and who's
  * holding the phone changes what comes first.
  */
-export function Top({
-  start,
-  position,
-  values,
-  home,
-  breechWaters,
-  me,
-  partner,
-}: {
-  start: Start | null;
-  position: Position | null;
-  values: Readonly<Record<string, string>>;
-  home: boolean;
-  breechWaters: boolean;
-  me: Person | null;
-  partner: Person | null;
-}) {
+export function Top() {
+  const { start, home, me, partner } = useItsTimePage();
+  const position = usePosition();
+  const { values } = useEmergencyQuery().data;
+  const { data: breech } = useAnswersQuery({ select: (a) => breechWaters(factsOf(a), start) });
   const first = home ? values.carerPhone : values.birthSuitePhone;
   const firstLabel = home ? `Call ${values.carer ?? "the midwife"}` : "Call the birth suite";
   const early = position !== null && position.week < TERM_WEEK;
@@ -51,7 +44,7 @@ export function Top({
     <div className="flex flex-col gap-3">
       {state ? <p className="font-medium text-fg-strong">{state}</p> : null}
 
-      {breechWaters ? (
+      {breech ? (
         <Alarm>
           The waters have broken and you've been told the baby isn't head-first: call 000 and ask for an ambulance. There's a higher risk of cord prolapse.
         </Alarm>
@@ -72,13 +65,13 @@ export function Top({
             Call {ringPartner.name}
           </CallButton>
         ) : null}
-        {breechWaters ? (
+        {breech ? (
           <CallButton phone="000" tone="danger">
             Call 000
           </CallButton>
         ) : null}
         {first ? (
-          <CallButton phone={first} tone={ringPartner || breechWaters ? "plain" : colour ? "danger" : "strong"}>
+          <CallButton phone={first} tone={ringPartner || breech ? "plain" : colour ? "danger" : "strong"}>
             {firstLabel}
           </CallButton>
         ) : (
@@ -90,7 +83,7 @@ export function Top({
             <ChevronRight aria-hidden size={18} />
           </Link>
         )}
-        {breechWaters ? null : <CallButton phone="000">Call 000</CallButton>}
+        {breech ? null : <CallButton phone="000">Call 000</CallButton>}
       </nav>
     </div>
   );

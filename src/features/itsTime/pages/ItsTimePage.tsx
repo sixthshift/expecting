@@ -2,19 +2,9 @@ import { cn } from "@sixthshift/design-system/utils";
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
 import { useEffect } from "react";
-import { useChecklistQuery } from "../../../api/rpc/checklist";
-import { useEmergencyQuery } from "../../../api/rpc/emergency";
-import { useAnswersQuery } from "../../../api/rpc/facts";
 import { useItsTimeQuery } from "../../../api/rpc/itsTime";
-import { useListsQuery } from "../../../api/rpc/lists";
-import { usePeopleQuery } from "../../../api/rpc/people";
 import { useQuietQuery } from "../../../api/rpc/quiet";
-import { usePosition, useSettingsQuery } from "../../../api/rpc/settings";
 import { Redirect } from "../../../app/components/Redirect";
-import { todayISO } from "../../../lib/dates";
-import { factsOf } from "../../../lib/facts";
-import { openStart, patternOf } from "../../../lib/itsTime";
-import { useLines } from "../../planner/hooks/useLines";
 import { BeforeYouGo } from "../components/beforeYouGo/BeforeYouGo";
 import { CallNow } from "../components/callNow/CallNow";
 import { End } from "../components/end/End";
@@ -24,10 +14,8 @@ import { TheyllAsk } from "../components/theyllAsk/TheyllAsk";
 import { Timer } from "../components/timer/Timer";
 import { Top } from "../components/top/Top";
 import { Waters } from "../components/waters/Waters";
-import { breechWaters } from "../model/callNow";
+import { ItsTimePageProvider, useItsTimePage } from "../contexts/ItsTimePageContext";
 import { markLooked } from "../model/looked";
-import { atHome, bagOf, CAR_SEAT_TASK, stillToReady } from "../model/ready";
-import { theyllAsk } from "../model/theyllAsk";
 
 /** How long after a false alarm the page says so, kindly. */
 const SENT_HOME_MS = 12 * 3_600_000;
@@ -39,46 +27,25 @@ const SENT_HOME_MS = 12 * 3_600_000;
  * practice run: the two ways in, what the night still needs, and the rest of
  * the page greyed, as the night will show it. One column, the phone's, even
  * on a desktop. Never while something has happened: Emergency info instead.
+ *
+ * One context, `ItsTimePageProvider`: the start, whether it's a home birth,
+ * and who's who. Each part reads the rest itself.
  */
 export function ItsTimePage() {
   const { data: quiet } = useQuietQuery();
   if (quiet) return <Redirect href="/emergency" />;
-  return <ItsTime />;
+  return (
+    <ItsTimePageProvider>
+      <ItsTime />
+    </ItsTimePageProvider>
+  );
 }
 
 function ItsTime() {
   useEffect(markLooked, []);
-  const { data: itsTime } = useItsTimeQuery();
-  const { values } = useEmergencyQuery().data;
-  const { data: facts } = useAnswersQuery({ select: factsOf });
-  const { data: people } = usePeopleQuery();
-  const { data: settings } = useSettingsQuery();
-  const { ticks } = useChecklistQuery().data;
-  const { marks } = useListsQuery().data;
-  const lines = useLines();
-  const position = usePosition();
-  const start = openStart(itsTime);
-  const home = atHome(facts);
-  const me = people.me;
-  const partner = people.people.find((p) => p.role === "partner") ?? null;
-  const carrying = people.people.find((p) => p.role === "carrying") ?? null;
-
-  const bag = bagOf(lines, marks);
-
-  const rows = theyllAsk({
-    values,
-    facts,
-    carrying: carrying?.name ?? null,
-    dueDate: settings.dueDate,
-    today: todayISO(),
-    start,
-    pattern: start ? patternOf(start.contractions, new Date()) : null,
-    holding: me?.role ?? null,
-  });
-  const latest = itsTime.starts[0];
+  const { start } = useItsTimePage();
+  const { data: latest } = useItsTimeQuery({ select: (t) => t.starts[0] });
   const sentHome = !start && latest?.ended === "home" && latest.endedAt && Date.now() - new Date(latest.endedAt).getTime() < SENT_HOME_MS;
-
-  const gettingThere = <GettingThere values={values} home={home} />;
   const left = Boolean(start?.leftAt);
 
   return (
@@ -97,17 +64,17 @@ function ItsTime() {
           </p>
         ) : null}
 
-        <Top start={start} position={position} values={values} home={home} breechWaters={breechWaters(facts, start)} me={me} partner={partner} />
+        <Top />
 
-        {start ? null : <Ready things={stillToReady({ values, facts, ticks })} home={home} />}
+        {start ? null : <Ready />}
 
-        {left ? gettingThere : null}
+        {left ? <GettingThere /> : null}
 
-        <CallNow facts={facts} home={home} />
+        <CallNow />
 
         {start ? (
           <>
-            <Timer start={start} hospitalSaid={values.hospitalSaid} />
+            <Timer start={start} />
             <Waters start={start} />
           </>
         ) : null}
@@ -115,20 +82,12 @@ function ItsTime() {
         {/* Before a start, the rest as the night will show it: the practice run. */}
         <div className={cn("flex flex-col gap-6", !start && "opacity-75")}>
           {start ? null : <h2 className="font-display text-lg font-semibold text-fg-strong">On the night, the rest of this page</h2>}
-          <TheyllAsk rows={rows} hospitalSaid={start ? undefined : values.hospitalSaid} home={home} />
-          <BeforeYouGo
-            start={start}
-            bag={bag}
-            carSeatFitted={Boolean(ticks[CAR_SEAT_TASK])}
-            ownLines={itsTime.lines}
-            values={values}
-            home={home}
-            showMinder={facts.firstBaby === "no" || Boolean(values.minder)}
-          />
-          {left ? null : gettingThere}
+          <TheyllAsk />
+          <BeforeYouGo />
+          {left ? null : <GettingThere />}
         </div>
 
-        {start ? <End startId={start.id} home={home} /> : null}
+        {start ? <End /> : null}
       </div>
     </main>
   );

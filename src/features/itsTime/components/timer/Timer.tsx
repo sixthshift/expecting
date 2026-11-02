@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+import { useEmergencyQuery } from "../../../../api/rpc/emergency";
 import { itsTimeSaves } from "../../../../api/rpc/itsTime";
 import { useSave } from "../../../../app/hooks/useSave";
 import { patternOf, type Start, sayPattern } from "../../../../lib/itsTime";
@@ -18,7 +19,8 @@ const SHOWN = 6;
  * you sits under the numbers instead. Either phone taps, and the screen stays
  * on while a start is under way.
  */
-export function Timer({ start, hospitalSaid }: { start: Start; hospitalSaid: string | undefined }) {
+export function Timer({ start }: { start: Start }) {
+  const { hospitalSaid } = useEmergencyQuery().data.values;
   const begin = useSave(itsTimeSaves.beginContraction);
   const end = useSave(itsTimeSaves.endContraction);
   const running = start.contractions.find((c) => c.endedAt === null) ?? null;

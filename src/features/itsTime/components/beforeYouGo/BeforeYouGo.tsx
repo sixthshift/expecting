@@ -2,10 +2,17 @@ import { Button } from "@sixthshift/design-system/button";
 import { Checkbox } from "@sixthshift/design-system/checkbox";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
-import { itsTimeSaves } from "../../../../api/rpc/itsTime";
+import { useChecklistQuery } from "../../../../api/rpc/checklist";
+import { useEmergencyQuery } from "../../../../api/rpc/emergency";
+import { useAnswersQuery } from "../../../../api/rpc/facts";
+import { itsTimeSaves, useItsTimeQuery } from "../../../../api/rpc/itsTime";
+import { useListsQuery } from "../../../../api/rpc/lists";
 import { useSave } from "../../../../app/hooks/useSave";
-import { clock, type Start, type StartLine } from "../../../../lib/itsTime";
-import type { Bag } from "../../model/ready";
+import { factsOf } from "../../../../lib/facts";
+import { clock } from "../../../../lib/itsTime";
+import { useLines } from "../../../planner/hooks/useLines";
+import { useItsTimePage } from "../../contexts/ItsTimePageContext";
+import { bagOf, CAR_SEAT_TASK } from "../../model/ready";
 import { CallButton } from "../CallButton";
 import { Part } from "../Part";
 import { AddOwn } from "./AddOwn";
@@ -23,24 +30,17 @@ const PAPERS = "papers";
  * Then "We're leaving", which keeps the time. For a home birth it's before the
  * midwife arrives, with no trip to make.
  */
-export function BeforeYouGo({
-  start,
-  bag,
-  carSeatFitted,
-  ownLines,
-  values,
-  home,
-  showMinder,
-}: {
-  /** Null while getting ready: shown greyed, nothing to tick. */
-  start: Start | null;
-  bag: Bag;
-  carSeatFitted: boolean;
-  ownLines: readonly StartLine[];
-  values: Readonly<Record<string, string>>;
-  home: boolean;
-  showMinder: boolean;
-}) {
+export function BeforeYouGo() {
+  // Before a start, shown greyed, nothing to tick.
+  const { start, home } = useItsTimePage();
+  const { values } = useEmergencyQuery().data;
+  const { data: firstBaby } = useAnswersQuery({ select: (a) => factsOf(a).firstBaby });
+  const { data: carSeatFitted } = useChecklistQuery({ select: (c) => Boolean(c.ticks[CAR_SEAT_TASK]) });
+  const { data: ownLines } = useItsTimeQuery({ select: (t) => t.lines });
+  const { marks } = useListsQuery().data;
+  const lines = useLines();
+  const bag = bagOf(lines, marks);
+  const showMinder = firstBaby === "no" || Boolean(values.minder);
   const tick = useSave(itsTimeSaves.tickStart);
   const leave = useSave(itsTimeSaves.leaveStart);
   const ticked = new Set(start?.ticks ?? []);

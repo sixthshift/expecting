@@ -1,5 +1,7 @@
 import { ChevronRight, MapPin } from "lucide-react";
+import { useEmergencyQuery } from "../../../../api/rpc/emergency";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
+import { useItsTimePage } from "../../contexts/ItsTimePageContext";
 import { CallButton } from "../CallButton";
 import { Part } from "../Part";
 
@@ -14,7 +16,9 @@ function mapsHref(address: string): string {
  * 000 line for a baby coming on the way (`getting-to-hospital`). For a home
  * birth it turns round: the hospital is the backup, for a transfer.
  */
-export function GettingThere({ values, home }: { values: Readonly<Record<string, string>>; home: boolean }) {
+export function GettingThere() {
+  const { home } = useItsTimePage();
+  const { values } = useEmergencyQuery().data;
   return (
     <Part id="getting-there" title={home ? "If you need to go in" : "Getting there"}>
       <div className="flex flex-col gap-3 rounded-xl border border-border-subtle bg-bg-normal px-4 py-3">

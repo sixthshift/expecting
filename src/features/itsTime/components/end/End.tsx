@@ -3,11 +3,15 @@ import { useState } from "react";
 import { itsTimeSaves } from "../../../../api/rpc/itsTime";
 import { useSave } from "../../../../app/hooks/useSave";
 import type { Ending } from "../../../../lib/itsTime";
+import { useItsTimePage } from "../../contexts/ItsTimePageContext";
 
 /** The end of a start: we're there, or a false alarm and home again. Asked twice: a stray tap shouldn't end the night. */
-export function End({ startId, home }: { startId: string; home: boolean }) {
+export function End() {
+  const { start, home } = useItsTimePage();
   const end = useSave(itsTimeSaves.endStart);
   const [asking, setAsking] = useState<Ending | null>(null);
+  if (!start) return null;
+  const startId = start.id;
   const label: Record<Ending, string> = { there: home ? "The midwife's here" : "We're there", home: "False alarm, we're home" };
   if (asking) {
     return (

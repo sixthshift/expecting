@@ -1,7 +1,9 @@
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import { useAnswersQuery } from "../../../../api/rpc/facts";
+import { factsOf } from "../../../../lib/facts";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
-import type { Facts } from "../../../settings/model/facts";
+import { useItsTimePage } from "../../contexts/ItsTimePageContext";
 import { flagsFor } from "../../model/callNow";
 
 /**
@@ -9,7 +11,9 @@ import { flagsFor } from "../../model/callNow";
  * folded. Not red: the danger colour is kept for a call your own tap has set
  * off. The why is a tap away, in the entries they come from.
  */
-export function CallNow({ facts, home }: { facts: Facts; home: boolean }) {
+export function CallNow() {
+  const { home } = useItsTimePage();
+  const { data: facts } = useAnswersQuery({ select: factsOf });
   const [open, setOpen] = useState(true);
   const { call, tripleZero } = flagsFor(facts);
   return (
