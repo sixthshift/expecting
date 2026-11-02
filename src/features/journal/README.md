@@ -40,7 +40,7 @@ components/
   JournalFrame  every page's header, Story and Records, and column
   story/        the Journal's story: JournalStory, its controls and search, JournalDays,
                 views/ (KindView, ZoomedOut, photos/, firsts/)
-  thisWeek/     this week's page (WeekPage, places, already happened) and the calls
+  thisWeek/     what's to keep now (KeepNow: around now, places, already happened) and the calls
   lines/        a file per kind of line, Day, StoryList; parts.tsx is what lines are made of
   records/      the overview (Records), and each record at full size, <kind>/
   book/         the cover and contents, the recaps

@@ -93,12 +93,13 @@ describe("the story", () => {
   });
 });
 
-test("the spine: every week back to the first, each kept or empty, this week left out", () => {
+test("the spine: every week from this one back to the first, each kept or empty", () => {
   const items = storyItems(sources({ journal: [entry("note", "2026-10-28"), entry("note", "2026-10-20")] }));
-  const spine = storySpine(items, DUE, 28, 28);
-  expect(spine).toHaveLength(27);
-  expect(spine[0]).toMatchObject({ kind: "group", place: 27 });
-  expect(spine[1]).toEqual({ kind: "empty", key: "empty-26", from: 26, to: 26 });
+  const spine = storySpine(items, DUE, 28);
+  expect(spine).toHaveLength(28);
+  expect(spine[0]).toMatchObject({ kind: "group", place: 28 });
+  expect(spine[1]).toMatchObject({ kind: "group", place: 27 });
+  expect(spine[2]).toEqual({ kind: "empty", key: "empty-26", from: 26, to: 26 });
   expect(spine.at(-1)).toMatchObject({ kind: "empty", from: 1, to: 1 });
   expect(storySpine(items, null, null).map((g) => g.kind)).toEqual(["group"]);
 });

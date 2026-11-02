@@ -79,15 +79,17 @@ one.
 
 One story, newest first, made for the moment: it opens on now.
 
-- **This week is the story's first page,** not a part beside it: the week,
-  its note's title, the baby this week, the firsts that usually come now
-  (each with its question, to write or put off for the week), the Keep
-  row, and what's kept this week; then every week before it. "Did it go
-  in?" and "what's now?" are why most visits happen. Until 2026-11-02 the
-  week and the story were two parts, the story leaving this week out and
-  the week hiding its days while the story was in a lens or zoomed: one
-  story has no seam to keep in step. As one kind, zoomed or searched, that
-  is the story instead, this week's page with it.
+- **This week is the story's first week,** headed like any other ("Week
+  38 · Any time now · This week"), under what's to keep now: the firsts
+  that usually come now (each with its question, to write or put off for
+  the week), the places made ready, what's already happened. "Did it go
+  in?" and "what's now?" are why most visits happen. No card saying which
+  week it is, the baby this week or its size: that's This week's, and the
+  Journal said it again (taken out 2026-11-02). Until then too the week and
+  the story were two parts, the story leaving this week out and the week
+  hiding its days while the story was in a lens or zoomed: one story has
+  no seam to keep in step. As one kind, zoomed or searched, that is the
+  story instead.
 - **The book, already begun.** From the first visit there's a cover (Our
   pregnancy, your names, the due month and year) and contents: the
   pregnancy's chapters, each with the firsts that usually come in it.

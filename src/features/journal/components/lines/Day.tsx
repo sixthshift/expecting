@@ -1,15 +1,13 @@
-// A day of the story: the day in the margin, its photos, then its lines; and
-// a run of days, as this week's page draws them.
+// A day of the story: the day in the margin, its photos, then its lines.
 
 import { memo, useCallback, useRef, useState } from "react";
 import { useQuietQuery } from "../../../../api/rpc/quiet";
-import { useKeepSame } from "../../../../app/hooks/useKeepSame";
 import type { AppetiteEntry } from "../../../../lib/appetite";
-import { type ISODate, todayISO } from "../../../../lib/dates";
+import type { ISODate } from "../../../../lib/dates";
 import { marginDay } from "../../../../lib/labels";
 import { kindsOffered } from "../../../../lib/photos";
 import type { StoryItem } from "../../../../lib/story/items";
-import type { StoryDay, StoryGroup, StoryPart } from "../../../../lib/story/spine";
+import type { StoryDay, StoryPart } from "../../../../lib/story/spine";
 import { PhotoViewer } from "../entries/photos/PhotoViewer";
 
 import { AppetiteLine } from "./AppetiteLine";
@@ -66,22 +64,4 @@ export function usePhotoViewer(groups: readonly StoryPart[]) {
     <PhotoViewer ids={viewing.ids} index={viewing.index} kinds={kindsOffered(quiet?.kind ?? null)} onClose={() => setViewing(null)} />
   ) : null;
   return { open, viewer };
-}
-
-/** A run of days, as the diary draws them. */
-export function Days({ days: given }: { days: readonly StoryDay[] }) {
-  const days = useKeepSame(given);
-  const today = todayISO();
-  const group: StoryGroup = { kind: "group", key: "days", place: null, month: null, days: [...days] };
-  const { open, viewer } = usePhotoViewer([group]);
-  return (
-    <>
-      <ol className="flex flex-col gap-4">
-        {days.map((d) => (
-          <Day key={d.day} day={d} today={today} onOpenPhoto={open} />
-        ))}
-      </ol>
-      {viewer}
-    </>
-  );
 }

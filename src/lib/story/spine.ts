@@ -49,24 +49,17 @@ export function storyGroups(items: readonly StoryItem[], dueDate: ISODate | null
 /**
  * The story as a spine of weeks: every week from the latest (at least
  * `now`) back to the first, each with what's kept in it, or empty: the
- * pregnancy's own weeks, never a blank slot. `except` is left out (this
- * week, drawn as its own page). After week 42 first, before the pregnancy
+ * pregnancy's own weeks, never a blank slot. After week 42 first, before the pregnancy
  * last. Without a due date, the months as kept.
  */
-export function storySpine(items: readonly StoryItem[], dueDate: ISODate | null, now: Week | null, except: Week | null = null): StoryPart[] {
+export function storySpine(items: readonly StoryItem[], dueDate: ISODate | null, now: Week | null): StoryPart[] {
   const groups = storyGroups(items, dueDate).filter((g): g is StoryGroup => g.kind === "group");
   if (!dueDate) return groups;
   const byWeek = new Map(groups.flatMap((g) => (typeof g.place === "number" ? [[g.place, g] as const] : [])));
   const last = Math.max(now ?? 0, ...byWeek.keys());
   const out: StoryPart[] = groups.filter((g) => g.place === "after");
   for (let week = last; week >= 1; week--) {
-    if (week === except) continue;
     out.push(byWeek.get(week) ?? { kind: "empty", key: `empty-${week}`, from: week, to: week });
   }
   return [...out, ...groups.filter((g) => g.place === "before")];
-}
-
-/** The lines of one week. */
-export function inWeek(items: readonly StoryItem[], week: Week, dueDate: ISODate | null): StoryItem[] {
-  return dueDate ? items.filter((i) => placeOf(i.day, dueDate) === week) : [];
 }

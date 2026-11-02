@@ -57,7 +57,7 @@ export function StoryList({ groups: given, label = "The story", titled = true }:
           const aside = week ? [week === now ? "This week" : null, weekRange(week, settings.dueDate)].filter(Boolean).join(" · ") : null;
           return (
             <li key={g.key} id={week ? `week-${week}` : undefined} className="scroll-mt-24 border-t border-border-subtle pt-3 pb-5">
-              <section aria-label={placeHeading(g.place, g.month)} className="flex flex-col gap-3">
+              <section aria-label={week !== null && week === now ? "This week" : placeHeading(g.place, g.month)} className="flex flex-col gap-3">
                 <h3 className="flex flex-wrap items-baseline gap-x-2">
                   <span className="font-display text-lg font-semibold text-fg-strong">{placeHeading(g.place, g.month)}</span>
                   {title ? <span className="font-display text-fg-normal">{title}</span> : null}

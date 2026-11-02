@@ -1,10 +1,8 @@
-// This week's page: the top of the Journal, already partly written before
-// anything is kept. The week, its note's title and the baby this week (from
-// the week notes); around now, the firsts whose weeks take this one in, each
-// an invitation with its question, answered in your own words;
-// and what's kept this week, as the diary draws it. Then the places
-// Expecting has made ready, and what's already happened that can still be
-// kept. Nothing about the baby while something has happened.
+// Above the story, what's to keep now: around now, the firsts whose weeks
+// take this one in, each an invitation with its question, answered in your
+// own words; the places Expecting has made ready; and what's already
+// happened that can still be kept. Where you are in the pregnancy is This
+// week's, not the Journal's: this week is the story's first week, as any.
 
 import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
@@ -15,18 +13,14 @@ import { useState } from "react";
 import { firstsSaves } from "../../../../api/rpc/firsts";
 import { usePeopleQuery } from "../../../../api/rpc/people";
 import { useSave } from "../../../../app/hooks/useSave";
-import { weekNotes } from "../../../../content";
-import { babyLead, noteFor, sizeLabel } from "../../../../content/weeks";
 import { type ISODate, todayISO } from "../../../../lib/dates";
 import type { FirstDef } from "../../../../lib/firsts";
 import type { Place } from "../../../../lib/places";
-import type { StoryDay } from "../../../../lib/story/spine";
 import { type Week, weekLabel } from "../../../../lib/timeline";
 import { CaptureSheet } from "../../../capture/components/CaptureSheet";
 import { useOnThisPhone } from "../../hooks/useOnThisPhone";
 import { DayField } from "../entries/firsts/DayField";
 import { AddPhoto } from "../entries/photos/AddPhoto";
-import { Days } from "../lines/Day";
 
 /** A first that's around now: what, its question, and your words for it; kept, it's marked today (or the day you say). */
 function AroundNowFirst({ first, week, onNotYet, past = false }: { first: FirstDef; week: Week; onNotYet?: () => void; past?: boolean }) {
@@ -102,47 +96,21 @@ function AroundNowFirst({ first, week, onNotYet, past = false }: { first: FirstD
   );
 }
 
-/** "About 1.6 cm from head to bottom: about the size of a blueberry." */
-function sizeLine(week: Week): string | null {
-  const note = noteFor(weekNotes, week);
-  if (!note?.size || note.week !== week) return null;
-  const label = sizeLabel(note.size);
-  return `${label.charAt(0).toUpperCase()}${label.slice(1)}.`;
-}
-
-/** This week's page: the week, the firsts around now, and what's kept this week. */
-export function WeekPage({ week, around, days }: { week: Week; around: readonly FirstDef[]; days: readonly StoryDay[] }) {
+/** The firsts that usually come around now, each to write or put off for the week; nothing once each is kept or put off. */
+export function AroundNow({ week, around }: { week: Week; around: readonly FirstDef[] }) {
   const [notYet, putOff] = useOnThisPhone("expecting:first-not-yet");
-  const note = noteFor(weekNotes, week);
   const shown = around.filter((f) => !notYet.includes(`${f.key}@${week}`));
-  const size = sizeLine(week);
-
+  if (shown.length === 0) return null;
   return (
-    <section id={`week-${week}`} aria-label="This week" className="flex scroll-mt-4 flex-col gap-5">
-      <header className="flex flex-col gap-2 rounded-xl bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) p-5">
-        <p className="text-sm font-medium tracking-wide text-fg-subtle uppercase">This week</p>
-        <h2 className="flex flex-wrap items-baseline gap-x-3">
-          <span className="font-display text-4xl font-semibold text-fg-strong">{weekLabel(week)}</span>
-          {note ? <span className="font-display text-xl text-fg-normal">{note.title}</span> : null}
-        </h2>
-        {note ? <p className="max-w-prose text-fg-normal">{babyLead(note)}</p> : null}
-        {size ? <p className="text-sm text-fg-subtle">{size}</p> : null}
-      </header>
-
-      {shown.length > 0 ? (
-        <section aria-labelledby="around-now" className="flex flex-col gap-3">
-          <h3 id="around-now" className="text-sm font-semibold text-fg-strong">
-            Around now
-          </h3>
-          <ul className="flex flex-col gap-3">
-            {shown.map((f) => (
-              <AroundNowFirst key={f.key} first={f} week={week} onNotYet={() => putOff(`${f.key}@${week}`)} />
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      {days.length > 0 ? <Days days={days} /> : null}
+    <section aria-labelledby="around-now" className="flex flex-col gap-3">
+      <h2 id="around-now" className="text-sm font-semibold text-fg-strong">
+        Around now
+      </h2>
+      <ul className="flex flex-col gap-3">
+        {shown.map((f) => (
+          <AroundNowFirst key={f.key} first={f} week={week} onNotYet={() => putOff(`${f.key}@${week}`)} />
+        ))}
+      </ul>
     </section>
   );
 }
