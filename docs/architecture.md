@@ -315,9 +315,10 @@ add a kind of line is
 - `JournalPageProvider` builds the story's lines once; `Journal`, or while
   something has happened `QuietJournal`, draws them inside `PillarLayout`, under `JournalTabs`.
 - `components/` has a folder per part (`story/`, `thisWeek/`, `lines/`,
-  `collections/`, `book/`, `quiet/`) and `entries/<kind>/`, each kind's forms
-  and rows, which the "+" and other pillars import.
-- The rules are `src/lib/`: `story/` (the lines, collections, views,
+  `collections/`, `book/`, `quiet/`); each kind kept is a feature,
+  `features/<kind>/`, its forms and rows (which the "+" and other pillars
+  import) and its collection in full.
+- The rules are `src/lib/journal/`: `story/` (the lines, collections, views,
   search, spine, zoom), `summaries/` (each collection's answer, a file each),
   `labels.ts`, `journal.ts`, `firsts.ts`, `chapters.ts`, `places.ts`,
   `recap.ts`, `appetite.ts`, `feelings.ts`, `photos.ts`, `papers.ts`.
