@@ -51,9 +51,6 @@ export const VIEWS = {
 export type View = keyof typeof VIEWS;
 export const VIEW_KEYS = Object.keys(VIEWS) as View[];
 
-/** The extras that bring Your people: with none on, it isn't there. */
-export const CIRCLE_EXTRAS: readonly string[] = VIEW_KEYS.map((v) => VIEWS[v].extra);
-
 /** The views whose extra is on, in order. */
 export function viewsOn(on: ReadonlySet<string>): View[] {
   return VIEW_KEYS.filter((v) => on.has(VIEWS[v].extra));

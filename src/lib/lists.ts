@@ -76,7 +76,7 @@ export const LISTS = {
   },
 } as const satisfies Record<string, ListDef>;
 
-export type ListId = keyof typeof LISTS;
+type ListId = keyof typeof LISTS;
 
 /** A built-in list, by id. */
 export function listOf(id: string): ListDef | undefined {

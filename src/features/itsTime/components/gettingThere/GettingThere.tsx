@@ -3,7 +3,7 @@ import { ItemLink } from "../../../library/components/ItemLink";
 import { CallButton, Part } from "../CallButton";
 
 /** A plain maps link: the phone picks its own app. */
-export function mapsHref(address: string): string {
+function mapsHref(address: string): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address.replace(/\n/g, ", "))}`;
 }
 

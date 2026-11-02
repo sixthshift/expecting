@@ -277,7 +277,7 @@ export function standingLabel(standing: Standing, now: Week): string {
 }
 
 /** A window longer than this many weeks is any time: it's in the Library, not on a week. */
-export const ON_A_WEEK = 12;
+const ON_A_WEEK = 12;
 
 const STAKES_ORDER: Record<string, number> = { high: 0, medium: 1, low: 2 };
 

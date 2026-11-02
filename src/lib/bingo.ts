@@ -10,7 +10,7 @@
 
 import type { ISODate } from "./dates";
 
-export type Square = { id: string; text: string };
+type Square = { id: string; text: string };
 
 /** The squares a card is dealt from. Ids are stored: never rename one. Short enough for a fifth of a phone's width. */
 export const SQUARES: readonly Square[] = [

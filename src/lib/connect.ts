@@ -19,7 +19,6 @@ export const authorisation = z.object({
   scope: z.string().max(500).optional(),
   resource: z.string().max(2000).optional(),
 });
-export type Authorisation = z.infer<typeof authorisation>;
 
 /** A client may be sent back only over HTTPS, or to this machine (a local client's listener). */
 export function redirectAllowed(uri: string): boolean {

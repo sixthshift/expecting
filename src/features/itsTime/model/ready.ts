@@ -6,7 +6,7 @@
 import type { Facts } from "../../settings/model/facts";
 
 /** The bag's task and the car seat's: ticked in the Planner. */
-export const BAG_TASK = "pack-hospital-bag";
+const BAG_TASK = "pack-hospital-bag";
 export const CAR_SEAT_TASK = "buy-and-fit-car-seat";
 
 export type ReadyThing = { key: string; text: string; to: "emergency" | "bag" | "planner" };

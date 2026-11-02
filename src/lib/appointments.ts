@@ -25,7 +25,7 @@ export type Appointment = {
 };
 
 /** Earliest first: by day, then time, a day's untimed one first. */
-export function byWhen(a: Appointment, b: Appointment): number {
+function byWhen(a: Appointment, b: Appointment): number {
   return a.day.localeCompare(b.day) || (a.time ?? "").localeCompare(b.time ?? "") || a.createdAt.localeCompare(b.createdAt);
 }
 

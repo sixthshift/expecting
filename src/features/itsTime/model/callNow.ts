@@ -35,7 +35,7 @@ const CAESAREAN: Flag = { key: "caesarean", text: "labour starts before the plan
 export const ALL_FLAGS: readonly Flag[] = [...CALL, ...TRIPLE_ZERO, BREECH, CAESAREAN];
 
 /** Whether the baby may not be head-first: told so, or not sure (or not asked); told head down, it isn't. */
-export function mayBeBreech(facts: Facts): boolean {
+function mayBeBreech(facts: Facts): boolean {
   return facts.birth !== "caesarean" && facts.presentation !== "head-down";
 }
 

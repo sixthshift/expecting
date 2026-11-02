@@ -15,7 +15,7 @@ export const THEMES = { boy: "baby-blue", girl: "baby-pink", unknown: "baby-purp
 export type Theme = (typeof THEMES)[Baby];
 
 /** Where the browser remembers the theme, so a reload paints in it before any data arrives. */
-export const THEME_STORAGE_KEY = "expecting-theme";
+const THEME_STORAGE_KEY = "expecting-theme";
 
 /** Show `theme` now and remember it for the next load. */
 export function applyTheme(theme: Theme): void {
@@ -32,7 +32,7 @@ export function applyTheme(theme: Theme): void {
  * match the phone), as JSON. Its `bootstrapTheme()` and `useTheme()` own it;
  * the boot script only reads it, so the two never disagree.
  */
-export const MODE_STORAGE_KEY = "theme";
+const MODE_STORAGE_KEY = "theme";
 
 /**
  * Runs in <head> before the page paints, so a returning phone opens in its
@@ -62,7 +62,7 @@ export function paintThemeColour(): void {
  * brand colour, Baby Purple's the default in root.tsx's link. The installed
  * app's icon is another, the same for everyone (public/icon.svg).
  */
-export const FAVICONS = {
+const FAVICONS = {
   "baby-blue": "/favicon-baby-blue.svg",
   "baby-pink": "/favicon-baby-pink.svg",
   "baby-purple": "/favicon.svg",

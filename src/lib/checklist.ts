@@ -30,8 +30,3 @@ export function buildChecklist(builtIn: readonly Task[], own: readonly OwnTaskRo
     .sort((a, b) => a.task.due - b.task.due || a.i - b.i)
     .map(({ task }) => task);
 }
-
-/** Unticked tasks due before `now`. */
-export function overdue(tasks: readonly Task[], ticks: Record<string, string>, now: Week): Task[] {
-  return tasks.filter((t) => !ticks[t.id] && t.due < now);
-}

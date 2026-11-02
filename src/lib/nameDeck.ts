@@ -7,9 +7,9 @@ import data from "./nameDeck.data.json";
 import { type DeckFilter, type NameCard, type NamesView, settled } from "./names";
 
 /** Mostly girls (`f`), mostly boys (`m`), or given to either (`u`). */
-export type DeckSex = "f" | "m" | "u";
+type DeckSex = "f" | "m" | "u";
 
-export type DeckName = {
+type DeckName = {
   name: string;
   sex: DeckSex;
   /** Babies in a million given it lately, averaged over the sources, each counting the same. */
@@ -27,7 +27,7 @@ export type DeckName = {
  * place's own (Aroha in New Zealand, Seán in Ireland). The regional ones stay in the deck, with where
  * they're common, for dealing by region one day.
  */
-export const WIDESPREAD = 2;
+const WIDESPREAD = 2;
 
 /** Whether a name is common in enough places to be dealt. */
 export function widespread(d: DeckName): boolean {

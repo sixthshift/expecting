@@ -2,7 +2,6 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { useExtrasQuery } from "../../../api/rpc/extras";
 import { usePeopleQuery } from "../../../api/rpc/people";
-import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { useWeeklyQuery } from "../../../api/rpc/weekly";
 import { extrasOn } from "../../../lib/extras";
@@ -20,12 +19,11 @@ import { WeekQuestion } from "./WeekQuestion";
  */
 export function WeeklyCard() {
   const { data: on } = useExtrasQuery({ select: (e) => extrasOn(e).has("question-a-week") });
-  const { data: quiet } = useQuietQuery();
   const { data: view } = useWeeklyQuery();
   const { me, people } = usePeopleQuery().data;
   const now = useNow();
   const [showEarlier, setShowEarlier] = useState(false);
-  if (!on || quiet || now === null || !me) return null;
+  if (!on || now === null || !me) return null;
   const other = otherName(people, me);
   const before = earlier(now);
   const asked = questionOf(now) !== undefined;
