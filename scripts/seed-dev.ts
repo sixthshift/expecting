@@ -1,35 +1,76 @@
-// Fills the dev database with a pregnancy's worth of Journal, so the Journal
-// (and the weeks, the timeline and the book) have something to show: notes
-// and letters, movements, sickness and cravings, feelings, the firsts with
-// both your words, bump photos, scans and other pictures, papers (PDFs), a
-// few tasks done and bingo squares. Weeks 4 to the current one, from the due
-// date in settings.
+// Fills the dev database with a pregnancy's worth of everything, so every
+// pillar has something to show. The Journal: notes and letters, movements,
+// sickness and cravings, feelings, the firsts with both your words, bump
+// photos, scans and other pictures, papers (PDFs). The Planner: tasks done,
+// your own tasks, appointments, questions, the lists marked and your own. The
+// Drawer: names and votes, Who does what, Your people and their gifts, bingo,
+// the question a week. Emergency info, and the extras turned on. Weeks 4 to
+// the current one, from the due date in settings.
 //
 //   bun scripts/seed-dev.ts            (DATA_DIR, default ./data)
 //
+// On a new database (one of you, or no due date) it sets one up first: a due
+// date ten weeks off (week 30), the other of you (no password: the first login
+// sets it), onboarding done and the questions answered. What's already there
+// it keeps.
+//
 // Run it again to start over: what it added has ids beginning `5eed` (and
-// their uploads' folders), dropped first; the firsts, ticks and bingo marks
-// are set, not added. It never touches anything else, and refuses a database
-// with no due date or fewer than two people. The pictures and PDFs are drawn
-// by Playwright's Chromium (the e2e's), made up, and say so.
+// their uploads' folders), dropped first; the firsts, ticks, marks, picks,
+// answers to the weekly question, the extras and Emergency info are set, not
+// added. The pictures and PDFs are drawn by Playwright's Chromium (the e2e's),
+// made up, and say so.
 
 import { Database } from "bun:sqlite";
 import { mkdir, rm } from "node:fs/promises";
 import { join } from "node:path";
 import { chromium } from "playwright";
+import { parse } from "yaml";
+import { deal } from "../src/lib/bingo";
+import { JOBS } from "../src/lib/jobs";
+import { DECK, widespread } from "../src/lib/nameDeck";
+import { WEEKLY } from "../src/lib/weekly";
 
 const DATA_DIR = process.env.DATA_DIR ?? "./data";
 const db = new Database(join(DATA_DIR, "expecting.db"));
 db.exec("PRAGMA foreign_keys = ON");
 
+/** The same "random" every run, so a re-seed looks the same. */
+let rngState = 0x5eed;
+const rand = () => {
+  rngState = (rngState * 1103515245 + 12345) & 0x7fffffff;
+  return rngState / 0x7fffffff;
+};
+const chance = (p: number) => rand() < p;
+const pick = <T>(xs: readonly T[]): T => xs[Math.floor(rand() * xs.length)]!;
+
+// ── Set up, if it's new ─────────────────────────────────────────────────────
+
+const nowIso = new Date().toISOString();
+const NAMES = { carrying: "Cindy", partner: "Jason" } as const;
+const already = db.query<{ id: string; name: string; role: "carrying" | "partner" }, []>("SELECT id, name, role FROM person ORDER BY created_at").all();
+if (already.length === 0) throw new Error("No one here yet: open the app and set yourself up first.");
+if (already.length === 1) {
+  const role = already[0]!.role === "carrying" ? "partner" : "carrying";
+  db.query("INSERT INTO person (id, name, role, created_at) VALUES (?, ?, ?, ?)").run(crypto.randomUUID(), NAMES[role], role, nowIso);
+}
+const settingsNow = db.query<{ due_date: string | null }, []>("SELECT due_date FROM settings WHERE id = 1").get();
+if (!settingsNow?.due_date) {
+  const dueDay = new Date(Date.now() + 70 * 86_400_000).toISOString().slice(0, 10);
+  db.query(
+    "INSERT INTO settings (id, due_date, baby, onboarded_at, updated_at) VALUES (1, ?, 'boy', ?, ?) ON CONFLICT(id) DO UPDATE SET due_date = excluded.due_date, baby = excluded.baby, onboarded_at = coalesce(settings.onboarded_at, excluded.onboarded_at), updated_at = excluded.updated_at"
+  ).run(dueDay, nowIso, nowIso);
+}
+
 // ── What's there ────────────────────────────────────────────────────────────
 
 const settings = db.query<{ due_date: string | null }, []>("SELECT due_date FROM settings WHERE id = 1").get();
-const people = db.query<{ id: string; name: string; role: string }, []>("SELECT id, name, role FROM person ORDER BY created_at").all();
-if (!settings?.due_date) throw new Error("No due date in settings: finish onboarding first.");
+const people = db.query<{ id: string; name: string; role: string }, []>("SELECT id, name, role FROM person ORDER BY role").all();
+if (!settings?.due_date) throw new Error("No due date in settings.");
 if (people.length < 2) throw new Error("Two people, please: the Journal is for both of you.");
 const due = settings.due_date;
-const [A, B] = [people[0]!, people[1]!];
+/** A carries, B is the partner. */
+const A = people.find((p) => p.role === "carrying") ?? people[0]!;
+const B = people.find((p) => p !== A)!;
 
 // ── Days and ids ────────────────────────────────────────────────────────────
 
@@ -51,7 +92,24 @@ const id = () => `5eed0000-0000-4000-8000-${(++n).toString(16).padStart(12, "0")
 
 const seededUploads = db.query<{ id: string }, []>("SELECT id FROM upload WHERE id LIKE '5eed%'").all();
 db.transaction(() => {
-  for (const t of ["journal_entry", "appetite_entry", "feeling", "photo", "paper"]) db.exec(`DELETE FROM ${t} WHERE id LIKE '5eed%'`);
+  for (const t of [
+    "journal_entry",
+    "appetite_entry",
+    "feeling",
+    "photo",
+    "paper",
+    "appointment",
+    "question",
+    "baby_name",
+    "circle_gift",
+    "circle_person",
+    "own_line",
+    "own_list",
+    "own_task",
+  ])
+    db.exec(`DELETE FROM ${t} WHERE id LIKE '5eed%'`);
+  db.exec("DELETE FROM task_tick WHERE task_id LIKE '5eed%'");
+  db.exec("DELETE FROM list_mark WHERE line_id LIKE '5eed%'");
   db.exec("DELETE FROM upload WHERE id LIKE '5eed%'");
 })();
 for (const u of seededUploads) await rm(join(DATA_DIR, "uploads", u.id), { recursive: true, force: true });
@@ -233,7 +291,7 @@ const notes: (Kept & { kind: "note" | "letter"; body: string; fromBoth?: boolean
 const movements: (Kept & { body: string; different?: boolean })[] = [];
 const said = ["Hiccups after dinner", "Big roll during the news", "Kicked the remote off the bump", "Wriggly in the bath", "Very busy at 2 am", ""];
 for (let w = 18; w <= nowWeek; w++) {
-  const days = w < 24 ? [3] : w < 32 ? [1, 4] : [0, 2, 3, 5, 6];
+  const days = w < 22 ? [3] : w < 26 ? [1, 4] : w < 32 ? [0, 2, 4, 6] : [0, 1, 2, 3, 4, 5, 6];
   for (const d of days) {
     const k = w * 7 + d;
     const times = w >= 34 && k % 3 === 0 ? ["09:20", "21:40"] : [k % 2 ? "20:30" : "07:50"];
@@ -269,11 +327,11 @@ appetite.push(
   { w: 33, d: 1, time: "13:15", by: A, kind: "craving", what: "Ice" },
   { w: 36, d: 5, time: "16:40", by: A, kind: "craving", what: "Ice" }
 );
-
+/** How each of you is feeling: once a week each. */
 /** How each of you is feeling: now and then early on, twice a week from week 28. */
 const STEPS = ["rough", "low", "okay", "good", "great"] as const;
 const feelings: (Kept & { step: (typeof STEPS)[number]; words: string[]; note?: string })[] = [];
-for (let w = 6; w <= nowWeek; w += w < 28 ? 3 : 1) {
+for (let w = 6; w <= nowWeek; w++) {
   for (const [i, by] of [A, B].entries()) {
     const d = (w + i * 3) % 7;
     const sickWeeks = w >= 8 && w <= 10 && by === A;
@@ -345,6 +403,541 @@ const ticks: [string, number, number][] = [
   ["pack-hospital-bag", 36, 3],
 ];
 
+// ── More of the Journal ─────────────────────────────────────────────────────
+
+/** Everyday notes, a few a week, on the days the story above leaves free. */
+const everyday: [string, string][] = [
+  ["A", "Fell asleep on the couch at 8:15. Again."],
+  ["B", "Made a spreadsheet of prams. Nobody asked for it."],
+  ["A", "Walked to the beach and back. Slower than last month, still lovely."],
+  ["B", "Read the week's note out loud over breakfast. Apparently he has eyelashes now."],
+  ["A", "Bought maternity jeans. Life-changing."],
+  ["B", "Rubbed her feet while we watched the cricket. Both counted it as a win."],
+  ["A", "Couldn't find my keys. They were in the fridge."],
+  ["B", "Started reading the birth book. Got to chapter three and had to have a lie down."],
+  ["A", "Swim at the local pool. Felt weightless for half an hour."],
+  ["B", "Assembled the change table. One screw left over, which is apparently normal."],
+  ["A", "Heartburn from a single spoon of curry. Worth it."],
+  ["B", "Her sister came round with a bag of hand-me-downs. Sorted them into keep and op shop."],
+  ["A", "Pregnancy yoga. Mostly lying on a bolster, which suits me."],
+  ["B", "Booked the car in for a service before it's too late to bother."],
+  ["A", "Dreamt he arrived with a full beard. Woke up laughing."],
+  ["B", "Played him some Paul Kelly through the bump. He kicked at the chorus."],
+  ["A", "Work farewell lunch planned for my last week. Already know what I'm ordering."],
+  ["B", "Cleaned out the spare room. Found three boxes of cables we'll never use."],
+  ["A", "Slept nine hours straight. Unheard of."],
+  ["B", "Practised the drive to the hospital at 5 pm. Twenty-two minutes."],
+  ["A", "Sat in the garden with a lemonade and did absolutely nothing."],
+  ["B", "Did the hospital paperwork online. Had to look up my own Medicare number."],
+  ["A", "Friends over for dinner. Everyone wanted to feel a kick, and he refused."],
+  ["B", "Learned how to fold a pram one-handed in the Baby Bunting car park."],
+];
+const usedDays = new Set(notes.map((e) => `${e.w}:${e.d}`));
+let ev = 0;
+for (let w = 6; w <= nowWeek; w++) {
+  for (const d of [1, 4]) {
+    if (usedDays.has(`${w}:${d}`) || !chance(0.7)) continue;
+    const [who, body] = everyday[ev++ % everyday.length]!;
+    notes.push({ w, d, time: pick(["07:45", "12:30", "18:15", "21:20"]), by: who === "A" ? A : B, kind: "note", body });
+  }
+}
+
+// ── Setting up: answers, extras ─────────────────────────────────────────────
+
+const anyAnswer = db.query("SELECT 1 FROM answer LIMIT 1").get();
+if (!anyAnswer) {
+  const leave = (w: number) => on(w, 0);
+  const answers: [string, "carrying" | "partner" | null, string, number][] = [
+    ["firstBaby", null, "yes", 4],
+    ["babies", null, "one", 4],
+    ["care", null, "public", 4],
+    ["booked", null, "yes", 10],
+    ["cover", null, "no", 4],
+    ["birth", null, "vaginal", 4],
+    ["birthPlace", null, "hospital", 20],
+    ["work", "carrying", "employee", 4],
+    ["work", "partner", "employee", 4],
+    ["state", null, "nsw", 4],
+    ["rhd", null, "positive", 12],
+    ["childcare", null, "yes", 12],
+    ["feeding", null, "breast", 24],
+    ["paidLeave", "carrying", "yes", 20],
+    ["paidLeave", "partner", "yes", 20],
+    ["leaveStart", "carrying", leave(37), 20],
+    ["leaveStart", "partner", leave(40), 20],
+  ];
+  const ins = db.query("INSERT INTO answer (id, question, about, value, answered_by, answered_at) VALUES (?, ?, ?, ?, ?, ?)");
+  for (const [q, about, value, w] of answers) ins.run(crypto.randomUUID(), q, about, value, w <= 4 ? B.id : A.id, at(past(on(w)) ? on(w) : today, "20:00"));
+}
+
+const EXTRAS_ON = [
+  "food-safety",
+  "announcing",
+  "baby-budget",
+  "pregnancy-bingo",
+  "grandparents",
+  "exercise",
+  "babymoon",
+  "choosing-names",
+  "partner-prep",
+  "nursery",
+  "date-nights",
+  "who-does-what",
+  "question-a-week",
+  "sleep-setup",
+  "second-hand",
+  "baby-shower",
+  "freebies",
+  "keepsakes",
+  "help-network",
+  "thank-you-notes",
+  "freezer-meals",
+  "birth-playlist",
+  "visitors",
+  "birth-announcement",
+];
+const extraOn = new Set(EXTRAS_ON);
+
+// ── What the content asks: tasks and lines ──────────────────────────────────
+
+type Front = {
+  id: string;
+  extra?: string;
+  private?: boolean;
+  decide_by?: number;
+  tasks?: { id: string; due?: number; opens?: number }[];
+  lines?: { id: string; list: string; section?: string; when?: number; task?: string }[];
+};
+const fronts: Front[] = [];
+for await (const file of new Bun.Glob("content/items/*.md").scan(".")) {
+  const text = await Bun.file(file).text();
+  const m = text.match(/^---\n([\s\S]*?)\n---/);
+  if (m) fronts.push(parse(m[1]!) as Front);
+}
+const shown = fronts.filter((f) => !f.private && (!f.extra || extraOn.has(f.extra)));
+const tasks = shown.flatMap((f) => [
+  ...(f.tasks ?? []).map((t) => ({ id: t.id, due: t.due ?? t.opens ?? 20 })),
+  ...(f.decide_by ? [{ id: `decide-${f.id}`, due: f.decide_by }] : []),
+]);
+const lines = shown.flatMap((f) => f.lines ?? []);
+const taskIds = new Set(tasks.map((t) => t.id));
+
+// ── The Planner ─────────────────────────────────────────────────────────────
+
+/** Done: most of what was due by now, a few just ahead, on or near the day it was due. */
+for (const t of tasks) {
+  if (ticks.some(([id]) => id === t.id)) continue;
+  if (t.due < nowWeek - 1 ? chance(0.88) : t.due <= nowWeek + 2 ? chance(0.35) : chance(0.04)) {
+    const w = Math.max(4, Math.min(nowWeek, t.due - Math.floor(rand() * 3)));
+    ticks.push([t.id, w, Math.floor(rand() * 7)]);
+  }
+}
+for (let i = ticks.length - 1; i >= 0; i--) if (!taskIds.has(ticks[i]![0])) ticks.splice(i, 1);
+
+const ownTasks: [string, number, boolean][] = [
+  ["Tell the landlord about the baby", 14, true],
+  ["Clear out the spare room", 20, true],
+  ["Sort Mum's hand-me-down bag", 22, true],
+  ["Get the car serviced", 27, true],
+  ["Ask work about the parking spot", 29, false],
+  ["Frame the scan picture for Nan", 30, false],
+  ["Cancel the gym membership", 33, false],
+  ["Fill the freezer before the 38th week", 36, false],
+  ["Write thank-you cards from the shower", 31, false],
+  ["Install the white-noise app on both phones", 35, false],
+];
+
+const appointments: [string, number, number, string | null, string | null, string | null][] = [
+  ["GP: confirm the pregnancy", 6, 3, "09:15", "Sample Street Medical", "Bring the list of medicines"],
+  ["First blood tests", 7, 1, "07:30", "Laverty Pathology, Sample St", "Fasting not needed"],
+  ["Dating scan", 12, 2, "14:00", "Sample Imaging, Level 2", "Full bladder: drink 1 litre an hour before"],
+  ["Booking-in visit", 13, 1, "10:00", "Sample Hospital antenatal clinic", "Both of us. Allow two hours."],
+  ["Midwife check", 16, 3, "11:30", "Sample Hospital antenatal clinic", null],
+  ["Morphology scan", 20, 1, "15:30", "Sample Imaging, Level 2", "Decide beforehand if we want to know"],
+  ["Midwife check", 22, 2, "11:00", "Sample Hospital antenatal clinic", null],
+  ["Dentist (free check while pregnant)", 23, 4, "16:15", "Smile Dental", null],
+  ["Glucose tolerance test", 26, 3, "08:00", "Laverty Pathology, Sample St", "Fasting from 10 pm. Bring a book: two hours."],
+  ["Midwife check", 26, 3, "11:15", "Sample Hospital antenatal clinic", null],
+  ["Antenatal class 1 of 4", 28, 3, "18:30", "Sample Hospital, Education Room 3", null],
+  ["Whooping cough vaccine", 28, 1, "12:40", "Sample Street Medical", null],
+  ["Antenatal class 2 of 4", 29, 3, "18:30", "Sample Hospital, Education Room 3", null],
+  ["Midwife check", 30, 2, "10:30", "Sample Hospital antenatal clinic", "Ask about the hospital tour"],
+  ["Antenatal class 3 of 4", 30, 3, "18:30", "Sample Hospital, Education Room 3", "Breastfeeding session"],
+  ["Physio: pelvic floor", 30, 5, "09:00", "Women's Physio Co", null],
+  ["Antenatal class 4 of 4", 31, 3, "18:30", "Sample Hospital, Education Room 3", null],
+  ["Hospital tour", 32, 2, "13:00", "Sample Hospital, main entrance", "Meet at the front desk"],
+  ["Midwife check", 32, 4, "11:00", "Sample Hospital antenatal clinic", null],
+  ["Midwife check", 34, 2, "11:00", "Sample Hospital antenatal clinic", null],
+  ["GBS swab and midwife check", 36, 1, "10:30", "Sample Hospital antenatal clinic", "Talk through the birth plan"],
+  ["Midwife check", 37, 2, "10:30", "Sample Hospital antenatal clinic", null],
+  ["Midwife check", 38, 2, "10:30", "Sample Hospital antenatal clinic", null],
+  ["Midwife check", 39, 2, "10:30", "Sample Hospital antenatal clinic", null],
+  ["Midwife check: 40 weeks", 40, 1, "09:30", "Sample Hospital antenatal clinic", "Ask about what happens if we go over"],
+];
+
+const questions: [string, string | null, number | null, number][] = [
+  ["Is it okay to keep drinking one coffee a day?", "Yes: up to 200 mg of caffeine, about one or two cups.", 6, 6],
+  ["Which pain relief can I take for headaches?", "Paracetamol is fine. Avoid ibuprofen.", 13, 9],
+  ["Do we need to do the NIPT, or is the combined screen enough?", "Combined screen first; NIPT if the result is high chance.", 12, 10],
+  ["How long can I keep flying for?", "Domestic until 36 weeks with a letter after 28.", 22, 18],
+  ["Is my iron level okay, or should I take a supplement?", "A bit low: one iron tablet every second day, not with tea.", 26, 24],
+  ["When should we come in once labour starts?", "Contractions 3 in 10 lasting a minute, or waters break, or anything worrying.", 30, 27],
+  ["Can the partner stay overnight after the birth?", null, null, 28],
+  ["Do they have a birth pool, and how do we ask for it?", null, null, 29],
+  ["Is it okay to sleep on my back now and then?", null, null, 30],
+  ["When will we know if he's head down?", null, null, 30],
+  ["Should we bring our own pillows to the birth suite?", null, null, 30],
+  ["What happens if I go past 41 weeks?", null, null, 30],
+];
+
+// ── The Drawer ──────────────────────────────────────────────────────────────
+
+const ownNames = ["Oscar", "Harvey", "Theodore", "Archie", "Felix"];
+const deckBoys = DECK.filter((d) => d.sex === "m" && widespread(d));
+const deckNames = Array.from(new Set([...Array.from({ length: 40 }, () => pick(deckBoys.slice(0, 300)).name)]));
+
+const circle: [string, string | null, "hospital" | "first-weeks" | "not-yet" | null, "first" | "next" | "everyone" | null, string | null, number | null][] = [
+  ["Mum (Linda)", "Cindy's mum, 20 minutes away", "hospital", "first", "Washing and the first few dinners", 1],
+  ["Dad (Peter)", null, "hospital", "first", "Mowing and the bins", null],
+  ["Margaret", "Jason's mum, in Newcastle", "first-weeks", "first", "Staying the second week", 8],
+  ["Nan", null, "first-weeks", "first", null, null],
+  ["Sophie", "Cindy's sister", "hospital", "first", "Walking the dog", 3],
+  ["Tom and Priya", "Next door", "first-weeks", "next", "Meals", 5],
+  ["Ben", "Jason's brother", "first-weeks", "next", "Picking up groceries", 10],
+  ["Aunty Jo", null, "not-yet", "next", null, null],
+  ["Hannah", "Uni friend, three kids, all the advice", "first-weeks", "next", "Lasagne, apparently famous", 12],
+  ["Mike and Sarah", "Antenatal class friends", "not-yet", "everyone", null, null],
+  ["Raj", "Jason's work", null, "everyone", null, null],
+  ["The book club", null, "not-yet", "everyone", "A meal roster of their own", 15],
+  ["Grace", "Cindy's oldest friend", "first-weeks", "next", "A night off: babysitting when we're ready", null],
+  ["Uncle Dave", null, "not-yet", "everyone", null, null],
+];
+const gifts: [string, string, boolean][] = [
+  ["Mum (Linda)", "The cot and mattress", true],
+  ["Margaret", "A knitted blanket", true],
+  ["Sophie", "A bag of hand-me-down clothes", true],
+  ["Hannah", "The bouncer, second hand", false],
+  ["Tom and Priya", "Nappies, two boxes", false],
+  ["The book club", "A voucher for Baby Bunting", false],
+  ["Nan", "A silver money box", true],
+  ["Grace", "A pram organiser and the good burp cloths", false],
+  ["Mike and Sarah", "Board books", false],
+  ["Raj", "A tiny Swans jersey", false],
+];
+
+const weeklyWords: Record<number, [string, string]> = {
+  4: ["Shaky, then very calm.", "Like the floor dropped away, in a good way."],
+  5: ["My sister. She'd never forgive me otherwise.", "Dad. He's been dropping hints for years."],
+  6: ["Lazy Saturday mornings in bed with the paper.", "Spontaneous dinners out."],
+  7: ["The first time he grabs my finger.", "Teaching him to swim."],
+  8: ["That something will go wrong and I won't notice.", "Whether I'll be any good at the night shift."],
+  9: ["They always turned up. Every game, every concert.", "Mum made the house feel safe. Always."],
+  10: ["Talk more about feelings.", "Fewer rules about dinner."],
+  11: ["The smell of Nan's kitchen at Christmas.", "The sound of the surf at Kiama."],
+  12: ["Stubbornness, sorry.", "My terrible jokes."],
+  13: ["Her kindness. Hopefully her ears.", "His patience. Definitely his height."],
+  14: ["Pancakes every Sunday.", "A walk after Christmas lunch."],
+  15: ["Slow coffee, a park, a nap for everyone.", "Footy on, baby asleep on my chest."],
+  16: ["How to cook.", "Riding a bike."],
+  17: ["How to slow down.", "How to be less serious."],
+  18: ["My sister.", "Ben. He'll be the fun uncle."],
+  19: ["Sleep when you're tired, not when the baby sleeps.", "Get the car seat fitted early."],
+  20: ["Anything involving a full moon.", "That the partner's job is to stay out of the way."],
+  21: ["The foot rubs. And the spreadsheets.", "How calm she's been, all of it."],
+  22: ["Spontaneous weekends away.", "Sleeping in."],
+  23: ["Wondering if we'll ever be ready.", "The waiting."],
+  24: ["The Princess Bride.", "Calvin and Hobbes."],
+  25: ["Tag out before we snap.", "Say it out loud when we need a break."],
+  26: ["We already love you, whoever you turn out to be.", "Take your time in there. We'll be ready."],
+  27: ["Loud, warm and a bit messy.", "Somewhere he can always come back to."],
+  28: ["One last weekend at the beach.", "A proper fancy dinner."],
+  29: ["How it feels when he kicks during the news.", "Her laughing at the antenatal class doll."],
+  30: ["We'll always listen.", "I'll always pick you up, wherever you are."],
+};
+
+// ── Write it ─────────────────────────────────────────────────────────────────
+
+const more = {
+  extras: 0,
+  appointments: 0,
+  questions: 0,
+  ownTasks: 0,
+  names: 0,
+  votes: 0,
+  circle: 0,
+  gifts: 0,
+  jobs: 0,
+  listMarks: 0,
+  ownLines: 0,
+  weekly: 0,
+  bingo: 0,
+};
+db.transaction(() => {
+  for (const e of EXTRAS_ON) {
+    db.query('INSERT INTO extra (id, "on", changed_by, changed_at) VALUES (?, 1, ?, ?) ON CONFLICT(id) DO UPDATE SET "on" = 1').run(
+      e,
+      B.id,
+      at(on(8), "20:00")
+    );
+    more.extras++;
+  }
+
+  for (const [title, w, d, time, place, notesText] of appointments) {
+    const day = on(w, d);
+    db.query("INSERT INTO appointment (id, title, day, time, place, notes, by, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)").run(
+      id(),
+      title,
+      day,
+      time,
+      place,
+      notesText,
+      chance(0.6) ? A.id : B.id,
+      at(on(Math.max(4, Math.min(nowWeek, w - 3))), "20:00")
+    );
+    more.appointments++;
+  }
+
+  for (const [text, answer, askedW, w] of questions) {
+    db.query("INSERT INTO question (id, text, answer, asked_at, created_at, item_id, by) VALUES (?, ?, ?, ?, ?, NULL, ?)").run(
+      id(),
+      text,
+      answer,
+      askedW ? at(on(askedW, 2), "11:00") : null,
+      at(on(w, 4), "21:00"),
+      chance(0.7) ? A.id : B.id
+    );
+    more.questions++;
+  }
+
+  for (const [title, w, done] of ownTasks) {
+    const taskId = id();
+    db.query("INSERT INTO own_task (id, title, week, created_at) VALUES (?, ?, ?, ?)").run(taskId, title, w, at(on(Math.min(w, nowWeek) - 2), "19:00"));
+    if (done && w <= nowWeek) db.query("INSERT INTO task_tick (task_id, ticked_at) VALUES (?, ?)").run(taskId, at(on(w, 3), "18:00"));
+    more.ownTasks++;
+  }
+
+  // Names: a few typed in, the rest from the deck, voted on by both; three superlikes each.
+  const superDays = { [A.id]: 0, [B.id]: 0 };
+  for (const [i, name] of [...ownNames, ...deckNames].entries()) {
+    const fromDeck = i >= ownNames.length;
+    if (db.query("SELECT 1 FROM baby_name WHERE lower(name) = lower(?)").get(name)) continue;
+    const nameId = id();
+    const w = 16 + Math.floor(rand() * (nowWeek - 16));
+    db.query("INSERT INTO baby_name (id, name, added_by, added_at, from_deck) VALUES (?, ?, ?, ?, ?)").run(
+      nameId,
+      name,
+      fromDeck ? null : pick([A, B]).id,
+      at(on(w), "21:00"),
+      fromDeck ? 1 : 0
+    );
+    more.names++;
+    const loved = !fromDeck || chance(0.25);
+    for (const who of [A, B]) {
+      if (!chance(fromDeck ? 0.85 : 0.95)) continue;
+      const liked = loved ? chance(0.8) : chance(0.3);
+      const superOn = liked && superDays[who.id]! < 3 && chance(0.2) ? on(16 + superDays[who.id]! * 4, who === A ? 1 : 2) : null;
+      if (superOn) superDays[who.id]!++;
+      db.query("INSERT INTO name_vote (name_id, person_id, liked, voted_at, super_on) VALUES (?, ?, ?, ?, ?)").run(
+        nameId,
+        who.id,
+        liked ? 1 : 0,
+        at(on(w, 1), "21:30"),
+        superOn
+      );
+      more.votes++;
+    }
+  }
+
+  // Who does what: both have answered every job, mostly agreeing; a few to talk about.
+  for (const job of JOBS) {
+    const a = pick(["me", "you", "together"] as const);
+    const flip = { me: "you", you: "me", together: "together" } as const;
+    const b = chance(0.75) ? flip[a] : pick(["me", "you", "together"] as const);
+    for (const [who, p] of [
+      [A, a],
+      [B, b],
+    ] as const) {
+      db.query("INSERT INTO job_pick (job_id, person_id, pick, updated_at) VALUES (?, ?, ?, ?) ON CONFLICT DO UPDATE SET pick = excluded.pick").run(
+        job.id,
+        who.id,
+        p,
+        at(on(nowWeek - 2), "21:00")
+      );
+      more.jobs++;
+    }
+  }
+
+  // Your people.
+  const circleIds = new Map<string, string>();
+  for (const [name, note, visit, hears, help, mealOffset] of circle) {
+    const personId = id();
+    circleIds.set(name, personId);
+    db.query("INSERT INTO circle_person (id, name, note, visit, hears, help, meal_day, by, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)").run(
+      personId,
+      name,
+      note,
+      visit,
+      hears,
+      help,
+      mealOffset === null ? null : new Date(new Date(`${due}T00:00:00Z`).getTime() + mealOffset * DAY).toISOString().slice(0, 10),
+      pick([A, B]).id,
+      at(on(24 + Math.floor(rand() * (nowWeek - 24))), "20:00")
+    );
+    more.circle++;
+  }
+  for (const [name, what, thanked] of gifts) {
+    const w = 22 + Math.floor(rand() * (nowWeek - 22));
+    db.query("INSERT INTO circle_gift (id, person_id, what, thanked_at, by, created_at) VALUES (?, ?, ?, ?, ?, ?)").run(
+      id(),
+      circleIds.get(name)!,
+      what,
+      thanked ? at(on(Math.min(nowWeek, w + 1)), "19:00") : null,
+      pick([A, B]).id,
+      at(on(w), "18:00")
+    );
+    more.gifts++;
+  }
+  db.query("INSERT INTO announcement (id, body, by, updated_at) VALUES (1, ?, ?, ?) ON CONFLICT(id) DO NOTHING").run(
+    "He's here! [name] arrived on [day] at [time], [weight]. Mum and baby are doing well and we're all a bit in love. Thank you for all the love, and give us a week or two before visiting.",
+    A.id,
+    at(on(nowWeek - 1), "21:00")
+  );
+
+  // The lists: most of the baby list sorted by now, some of the freezer meals, the bag begun.
+  const hows = ["bought", "bought", "bought", "borrowed", "second-hand", "given"] as const;
+  for (const line of lines) {
+    const p = line.list === "baby" ? 0.65 : line.list === "freezer-meals" ? 0.35 : line.list === "bag" ? 0.3 : 0;
+    if (!chance(p)) continue;
+    const r = rand();
+    const state = r < 0.7 ? "got" : r < 0.9 ? "arranged" : "not-needed";
+    const how = state === "got" ? pick(hows) : null;
+    const note = how === "given" ? pick(["From Mum", "Sophie's old one", "From the shower"]) : how === "borrowed" ? "Hannah's, back by Easter" : null;
+    db.query(
+      "INSERT INTO list_mark (line_id, state, how, note, by, updated_at) VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT(line_id) DO UPDATE SET state = excluded.state, how = excluded.how, note = excluded.note"
+    ).run(line.id, state, how, note, pick([A, B]).id, at(on(Math.max(14, nowWeek - Math.floor(rand() * 12))), "17:00"));
+    more.listMarks++;
+  }
+  const ownList = id();
+  db.query("INSERT INTO own_list (id, title, by, created_at) VALUES (?, ?, ?, ?)").run(ownList, "The nursery", B.id, at(on(22), "20:00"));
+  const ownLineRows: [string, string, string | null, string | null][] = [
+    [ownList, "Blackout blind", null, "got"],
+    [ownList, "Rug for the floor", null, "got"],
+    [ownList, "Night light, warm and dim", null, null],
+    [ownList, "Hooks for the back of the door", null, "arranged"],
+    [ownList, "A comfy chair for feeds", null, "got"],
+    [ownList, "Frames for the scan pictures", null, null],
+    ["baby", "A second set of sheets for the bassinet", "sleep", "got"],
+    ["baby", "Muslin wraps, lots", "clothes", null],
+    ["bag", "The good lip balm", "for-her", "got"],
+    ["bag", "Snacks for the partner", "for-partner", null],
+    ["freezer-meals", "Lasagne, two trays", null, "got"],
+    ["freezer-meals", "Dal and rice", null, null],
+    ["freezer-meals", "Bolognese", null, "got"],
+  ];
+  for (const [listId, title, section, state] of ownLineRows) {
+    const lineId = id();
+    db.query("INSERT INTO own_line (id, list_id, title, section, by, created_at) VALUES (?, ?, ?, ?, ?, ?)").run(
+      lineId,
+      listId,
+      title,
+      section,
+      pick([A, B]).id,
+      at(on(24), "20:00")
+    );
+    if (state)
+      db.query("INSERT INTO list_mark (line_id, state, how, note, by, updated_at) VALUES (?, ?, ?, NULL, ?, ?)").run(
+        lineId,
+        state,
+        state === "got" ? "bought" : null,
+        A.id,
+        at(on(nowWeek - 1), "17:00")
+      );
+    more.ownLines++;
+  }
+
+  // The question a week, from both of you; the odd one only one of you got to.
+  for (const [w, [a, b]] of Object.entries(weeklyWords)) {
+    const week = Number(w);
+    if (!WEEKLY[week as keyof typeof WEEKLY] || week > nowWeek) continue;
+    for (const [who, body] of [
+      [A, a],
+      [B, b],
+    ] as const) {
+      if (week < nowWeek - 1 && !chance(0.92)) continue;
+      if (week >= nowWeek - 1 && who === B) continue;
+      db.query("INSERT INTO weekly_answer (week, person_id, body, answered_at) VALUES (?, ?, ?, ?) ON CONFLICT DO UPDATE SET body = excluded.body").run(
+        week,
+        who.id,
+        body,
+        at(on(week, 5), "21:30")
+      );
+      more.weekly++;
+    }
+  }
+
+  // Bingo: a card each, and a race on.
+  const bingoNotes = [
+    "At the bakery",
+    "Aunty Jo, at Christmas in July",
+    "A stranger at Bunnings",
+    "Twice in one day",
+    "Work morning tea",
+    "At the antenatal class, of all places",
+    null,
+    null,
+  ];
+  for (const who of [A, B]) {
+    const existing = db.query<{ squares: string }, [string]>("SELECT squares FROM bingo_card WHERE person_id = ?").get(who.id);
+    const squares: string[] = existing ? JSON.parse(existing.squares) : deal(rand);
+    if (!existing) db.query("INSERT INTO bingo_card (person_id, squares, dealt_at) VALUES (?, ?, ?)").run(who.id, JSON.stringify(squares), at(on(14), "20:00"));
+    const marked = squares.filter(() => chance(who === A ? 0.5 : 0.35));
+    for (const square of marked) {
+      const day = on(14 + Math.floor(rand() * (nowWeek - 14)), Math.floor(rand() * 7));
+      if (!past(day)) continue;
+      db.query(
+        "INSERT INTO bingo_mark (person_id, square_id, day, note, marked_at) VALUES (?, ?, ?, ?, ?) ON CONFLICT DO UPDATE SET day = excluded.day, note = excluded.note"
+      ).run(who.id, square, day, pick(bingoNotes), at(day, "19:00"));
+      more.bingo++;
+    }
+  }
+
+  // Emergency info: every field.
+  const emergency: Record<string, string> = {
+    fullName: `${A.name} Sample`,
+    dateOfBirth: "1992-03-14",
+    allergies: "Penicillin: hives",
+    bloodGroup: "O positive",
+    pregnancy: "Low iron at 26 weeks, on a supplement. GBS swab due at 36 weeks.",
+    pastPregnancies: "None: first baby",
+    medications: "Pregnancy multivitamin with iodine, daily\\nIron, every second day",
+    conditions: "Asthma, mild, no inhaler needed since 2019",
+    hospital: "Sample Hospital\\n1 Sample Road, Sampleton NSW 2000",
+    birthSuitePhone: "02 9000 1234",
+    hospitalWayIn: "Car park P2 off Sample Road. After 8 pm, the emergency entrance, then the lifts to level 3.",
+    hospitalSaid: "Come in with contractions 3 in 10, lasting a minute, or any time the waters break, there's bleeding, or he's moving less.",
+    hospitalRecord: "MRN 1234567",
+    carer: "Midwives' clinic (Team Banksia)",
+    carerPhone: "02 9000 1250",
+    partnerPhone: "0400 000 111",
+    gp: "Dr Sample, Sample Street Medical",
+    gpPhone: "02 9000 5678",
+    support: "Linda (Mum): 0400 000 222",
+    minder: "Tom next door, for the dog",
+    minderPhone: "0400 000 333",
+    backupDriver: "Sophie",
+    backupDriverPhone: "0400 000 444",
+    medicare: "1234 56789 0, number 1",
+    healthFund: "None: public",
+  };
+  for (const [field, value] of Object.entries(emergency))
+    db.query("INSERT INTO emergency (field, value, changed_by, changed_at) VALUES (?, ?, ?, ?) ON CONFLICT(field) DO UPDATE SET value = excluded.value").run(
+      field,
+      value.replaceAll("\\n", "\n"),
+      B.id,
+      at(on(nowWeek - 3), "20:30")
+    );
+})();
+
 // ── Write it ────────────────────────────────────────────────────────────────
 
 const insertEntry = db.query("INSERT INTO journal_entry (id, kind, day, time, body, different, by, created_at, from_both) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -406,24 +999,6 @@ db.transaction(() => {
     count.ticks++;
   }
 })();
-
-// Bingo: a few squares on the first person's card, if one's dealt.
-const card = db.query<{ squares: string }, [string]>("SELECT squares FROM bingo_card WHERE person_id = ?").get(A.id);
-if (card) {
-  const squares: string[] = JSON.parse(card.squares);
-  const marks: [string, number, string | null][] = [
-    ["size-of-fruit", 14, "An avocado, apparently"],
-    ["guess-from-bump", 24, "The lady at the bakery said girl"],
-    ["offered-seat", 31, null],
-    ["bump-touch", 33, "A stranger at Bunnings"],
-  ];
-  for (const [square, w, note] of marks) {
-    if (!squares.includes(square) || !past(on(w, 3))) continue;
-    db.query(
-      "INSERT INTO bingo_mark (person_id, square_id, day, note, marked_at) VALUES (?, ?, ?, ?, ?) ON CONFLICT DO UPDATE SET day = excluded.day, note = excluded.note"
-    ).run(A.id, square, on(w, 3), note, at(on(w, 3), "13:00"));
-  }
-}
 
 // Photos: the bump every four weeks from 12, the two scans, and a few others.
 const photos: { kind: "bump" | "scan" | "other"; w: number; d: number; by: typeof A; caption: string | null; html: () => string; size: [number, number] }[] = [
@@ -595,4 +1170,4 @@ for (const p of papers) {
 }
 
 await browser.close();
-console.log(`Week ${nowWeek} (due ${due}), for ${A.name} and ${B.name}:`, count);
+console.log(`Week ${nowWeek} (due ${due}), for ${A.name} and ${B.name}:`, { ...count, ...more });
