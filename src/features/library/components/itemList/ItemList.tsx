@@ -1,10 +1,10 @@
 import { ChevronRight } from "lucide-react";
-import { useReadsQuery } from "../../../api/rpc/reads";
-import type { Item } from "../../../content/schema";
-import { DOOR_INFO, doorOf } from "../../../lib/library";
-import { rangeLabel } from "./ItemCard";
-import { ItemLink } from "./ItemLink";
-import { ReadMark } from "./ReadMark";
+import { useReadsQuery } from "../../../../api/rpc/reads";
+import type { Item } from "../../../../content/schema";
+import { DOOR_INFO, doorOf } from "../../../../lib/library";
+import { rangeLabel } from "../ItemCard";
+import { ItemLink } from "../itemLink/ItemLink";
+import { ReadMark } from "../ReadMark";
 
 /** Items as a list of links, each to its own page, with why it matters and the door it's behind, ticked once you've read it: search results, and what's worth knowing this week. */
 export function ItemList({ items }: { items: readonly Item[] }) {

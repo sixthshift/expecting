@@ -1,7 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import { useReadsQuery } from "../../../../api/rpc/reads";
 import type { Group } from "../../../../lib/library";
-import { ItemLink } from "../ItemLink";
+import { ItemLink } from "../itemLink/ItemLink";
 import { ReadMark } from "../ReadMark";
 
 const letterId = (letter: string) => `letter-${letter === "#" ? "other" : letter}`;

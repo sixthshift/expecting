@@ -6,7 +6,8 @@ import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { useSave } from "../../../../app/hooks/useSave";
 import { DateForm } from "../../../../components/DateForm";
 import { questionsDue } from "../../../../lib/facts";
-import { AnswerInput, askedOfIn } from "./FactsForm";
+import { AnswerInput } from "../answer/AnswerInput";
+import { askedOfIn } from "../facts/FactsForm";
 
 /** How many questions This week asks at once; the rest wait their turn. */
 const SHOWN = 3;

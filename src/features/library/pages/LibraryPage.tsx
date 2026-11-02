@@ -7,7 +7,7 @@ import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { search } from "../../../lib/library";
 import { Topics } from "../components/browse/Topics";
 import { Doors, HardDoor } from "../components/doors/Doors";
-import { ItemList } from "../components/ItemList";
+import { ItemList } from "../components/itemList/ItemList";
 import { RightNow } from "../components/rightNow/RightNow";
 import { Shelf } from "../components/shelf/Shelf";
 import { useItems } from "../hooks/useItems";

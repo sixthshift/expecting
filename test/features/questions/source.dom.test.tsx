@@ -14,11 +14,11 @@ vi.mock("../../../src/content", () => ({
     { id: "antenatal-anxiety", title: "Anxiety during pregnancy", private: false, discreet: true },
   ],
 }));
-vi.mock("../../../src/features/library/components/ItemLink", () => ({
+vi.mock("../../../src/features/library/components/itemLink/ItemLink", () => ({
   ItemLink: ({ children }: { children: ReactNode }) => <a href="/library">{children}</a>,
 }));
 
-const { OpenQuestion } = await import("../../../src/features/questions/components/questions/questions");
+const { OpenQuestion } = await import("../../../src/features/questions/components/OpenQuestion");
 
 function question(itemId: string): Question {
   return {

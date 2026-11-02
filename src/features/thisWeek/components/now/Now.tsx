@@ -1,14 +1,10 @@
-import { Card } from "@sixthshift/design-system/card";
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
-import { settingsSaves } from "../../../../api/rpc/settings";
-import { useSave } from "../../../../app/hooks/useSave";
-import { DateForm } from "../../../../components/DateForm";
 import { sizeLabel, sizeLine, type WeekNote } from "../../../../content/weeks";
-import { formatDate, type ISODate, todayISO } from "../../../../lib/dates";
+import { formatDate, type ISODate } from "../../../../lib/dates";
 import { toGo, weekRange } from "../../../../lib/labels";
-import { dueDateBounds, gestationLabel, type Position, WEEKS, type Week, weekFromNow, weekLabel } from "../../../../lib/timeline";
+import { gestationLabel, type Position, WEEKS, type Week, weekFromNow, weekLabel } from "../../../../lib/timeline";
 import { PregnancyStrip } from "../../../timeline/components/strip/PregnancyStrip";
 import { SizeIcon } from "../sizeIcon/SizeIcon";
 
@@ -121,23 +117,5 @@ function WeekStepper({ week, now }: { week: Week; now: Week }) {
         </Link>
       ) : null}
     </nav>
-  );
-}
-
-/** No due date yet (onboarding skipped it). Entering one places "now". */
-export function Welcome() {
-  const today = todayISO();
-  const save = useSave(settingsSaves.saveSettings);
-  return (
-    <Card size="lg" className="my-6 max-w-lg">
-      <DateForm
-        label="When's the baby due?"
-        description="Your best estimate is fine; change it after the dating scan. Every week is readable either way."
-        value={null}
-        submitLabel="Start"
-        {...dueDateBounds(today)}
-        onSave={async (dueDate: ISODate | null) => save({ dueDate })}
-      />
-    </Card>
   );
 }

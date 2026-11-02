@@ -12,7 +12,7 @@ vi.mock("../../../src/api/rpc/lists", () => ({
   listsSaves: { markLine: { key: "markLine" }, changeLine: { key: "changeLine" }, deleteLine: { key: "deleteLine" } },
 }));
 vi.mock("../../../src/app/hooks/useSave", () => ({ useSave: (save: { key: string }) => (input: unknown) => saved.push({ key: save.key, input }) }));
-vi.mock("../../../src/features/library/components/ItemLink", () => ({
+vi.mock("../../../src/features/library/components/itemLink/ItemLink", () => ({
   ItemLink: ({ children }: { children: unknown }) => <a href="#entry">{children as string}</a>,
 }));
 

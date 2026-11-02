@@ -8,7 +8,7 @@ import { cravingChips, notFood, notFoodQuestion } from "../../../../../lib/appet
 import { todayISO } from "../../../../../lib/dates";
 import { timeNow } from "../../../../../lib/journal";
 import { newId } from "../../../../../lib/outbox";
-import { ItemLink } from "../../../../library/components/ItemLink";
+import { ItemLink } from "../../../../library/components/itemLink/ItemLink";
 import { KIND_OPTIONS } from "./AppetiteFields";
 import { AskAtAppointment } from "./AskAtAppointment";
 

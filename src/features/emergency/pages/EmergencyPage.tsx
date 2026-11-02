@@ -15,7 +15,7 @@ import { useSave } from "../../../app/hooks/useSave";
 import { formatDate, isISODate, todayISO } from "../../../lib/dates";
 import { ALWAYS, EMERGENCY, EMERGENCY_FIELDS, EMERGENCY_MAX, type EmergencyInfo, TICKED, telHref } from "../../../lib/emergency";
 import { factsOf } from "../../../lib/facts";
-import { useItsTimeShown } from "../../itsTime/components/wayIn/ItsTimeWayIn";
+import { useItsTimeShown } from "../../itsTime/hooks/useItsTimeShown";
 import { PapersToHand } from "../../journal/components/entries/papers/PaperList";
 import { WarningSigns } from "../components/warningSigns/WarningSigns";
 import { handover } from "../model/handover";

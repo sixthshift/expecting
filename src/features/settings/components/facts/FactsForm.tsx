@@ -1,6 +1,4 @@
 import { Badge } from "@sixthshift/design-system/badge";
-import { RadioButtonGroup } from "@sixthshift/design-system/radio-button-group";
-import { Select } from "@sixthshift/design-system/select";
 import { useExtrasQuery } from "../../../../api/rpc/extras";
 import { factsSaves } from "../../../../api/rpc/facts";
 import { useSave } from "../../../../app/hooks/useSave";
@@ -12,8 +10,9 @@ import { type Answer, decides, isSettled, nextAsked } from "../../../../lib/fact
 import { didOn, fullDate } from "../../../../lib/labels";
 import type { Person } from "../../../../lib/people";
 import type { Week } from "../../../../lib/timeline";
-import { ItemLink } from "../../../library/components/ItemLink";
+import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 import { type Ask, askedOf, type FactQuestion, UNSURE } from "../../model/facts";
+import { AnswerInput } from "../answer/AnswerInput";
 import { SettingRow } from "../SettingRow";
 
 /**
@@ -129,27 +128,4 @@ export function askedOfIn(a: Ask, people: readonly Person[]): string {
 /** "Jason answered, 3 Oct". */
 function answeredBy(a: Answer, people: readonly Person[]): string {
   return didOn(people.find((p) => p.id === a.answeredBy)?.name, "answered", a.answeredAt, { comma: false });
-}
-
-/** A few answers as buttons; a long list (a state) as a select. */
-export function AnswerInput({
-  question,
-  label,
-  value,
-  onChange,
-  inline = false,
-}: {
-  question: FactQuestion;
-  label: string;
-  value: string | undefined;
-  onChange: (answer: string) => void;
-  /** The options in a row, where room is short (This week). */
-  inline?: boolean;
-}) {
-  const options = Object.entries(question.answers).map(([answer, label]) => ({ value: answer, label }));
-  if (options.length <= 4)
-    return (
-      <RadioButtonGroup aria-label={label} options={options} orientation={inline ? "horizontal" : "vertical"} value={value ?? ""} onValueChange={onChange} />
-    );
-  return <Select aria-label={label} options={options} value={value} placeholder="Choose…" onValueChange={onChange} className="w-full max-w-xs" />;
 }

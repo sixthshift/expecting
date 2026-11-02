@@ -8,7 +8,7 @@ import { listsSaves } from "../../../../../api/rpc/lists";
 import { useSave } from "../../../../../app/hooks/useSave";
 import type { Line } from "../../../../../content/schema";
 import { HOWS, type How, LINE_STATES, type LineState, type Mark, wordsFor } from "../../../../../lib/lists";
-import { ItemLink } from "../../../../library/components/ItemLink";
+import { ItemLink } from "../../../../library/components/itemLink/ItemLink";
 
 const NONE = "none";
 

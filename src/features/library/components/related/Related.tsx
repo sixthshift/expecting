@@ -1,5 +1,5 @@
 import { useItems } from "../../hooks/useItems";
-import { ItemList } from "../ItemList";
+import { ItemList } from "../itemList/ItemList";
 
 /** What an item links to, as your Library has them: one hidden by an answer or an extra that's off isn't offered. */
 export function Related({ ids }: { ids: readonly string[] }) {

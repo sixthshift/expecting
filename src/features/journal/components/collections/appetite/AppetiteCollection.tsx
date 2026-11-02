@@ -20,7 +20,7 @@ import { formatDate, type ISODate, todayISO } from "../../../../../lib/dates";
 import { placeOf } from "../../../../../lib/journal";
 import { dayAndWeek, shortDate, when } from "../../../../../lib/labels";
 import { weekLabel } from "../../../../../lib/timeline";
-import { ItemLink } from "../../../../library/components/ItemLink";
+import { ItemLink } from "../../../../library/components/itemLink/ItemLink";
 import { AppetiteItem } from "../../entries/appetite/AppetiteItem";
 import { AskAtAppointment } from "../../entries/appetite/AskAtAppointment";
 import { SEVERE } from "../../entries/appetite/TooSick";

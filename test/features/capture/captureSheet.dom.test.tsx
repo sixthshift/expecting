@@ -45,7 +45,7 @@ vi.mock("../../../src/app/hooks/useSave", () => ({
   },
 }));
 vi.mock("../../../src/app/components/layout/CallBirthSuite", () => ({ CallBirthSuite: () => <a href="tel:0390000000">Call the birth suite</a> }));
-vi.mock("../../../src/features/library/components/ItemLink", () => ({ ItemLink: ({ children }: { children: ReactNode }) => children }));
+vi.mock("../../../src/features/library/components/itemLink/ItemLink", () => ({ ItemLink: ({ children }: { children: ReactNode }) => children }));
 vi.mock("@sixthshift/design-system/overlay", () => ({ toast: (t: { title: string }) => toasts.push(t) }));
 // Where the sheet was opened: kept from the Journal itself, the toast has no way there.
 let pathname = "/";

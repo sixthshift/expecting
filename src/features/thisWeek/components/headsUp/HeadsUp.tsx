@@ -1,6 +1,6 @@
 import { Lightbulb } from "lucide-react";
 import type { Item } from "../../../../content/schema";
-import { ItemLink } from "../../../library/components/ItemLink";
+import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 
 /** The week's heads-up: one of the things nobody tells you (`headsUps` in src/lib/library.ts), read without opening. */
 export function HeadsUp({ card }: { card: Item }) {

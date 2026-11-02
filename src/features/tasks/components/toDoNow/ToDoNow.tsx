@@ -8,7 +8,7 @@ import { usePeopleQuery } from "../../../../api/rpc/people";
 import { useNow } from "../../../../api/rpc/settings";
 import { useSave } from "../../../../app/hooks/useSave";
 import { toDoNow, whenToDo } from "../../../../lib/todo";
-import { ItemLink } from "../../../library/components/ItemLink";
+import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 import { useTasks } from "../../hooks/useTasks";
 import { TaskRow } from "../TaskRow";
 import { Whose } from "../Whose";

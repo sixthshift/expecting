@@ -1,7 +1,7 @@
 import { Message } from "@sixthshift/design-system/message";
 import { Link } from "@tanstack/react-router";
 import { CallBirthSuite } from "../../../../../app/components/layout/CallBirthSuite";
-import { ItemLink } from "../../../../library/components/ItemLink";
+import { ItemLink } from "../../../../library/components/itemLink/ItemLink";
 
 /** The entry whose advice this follows, checked against Safer Baby. */
 const ADVICE_ITEM = "baby-movements";

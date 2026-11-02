@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Item } from "../../../../content/schema";
-import { ItemList } from "../../../library/components/ItemList";
+import { ItemList } from "../../../library/components/itemList/ItemList";
 
 /** How many are shown before "Show all": the highest stakes, enough to read without the list taking the page. */
 const FIRST = 5;

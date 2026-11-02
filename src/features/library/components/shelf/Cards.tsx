@@ -1,7 +1,7 @@
 import { useReadsQuery } from "../../../../api/rpc/reads";
 import type { Item } from "../../../../content/schema";
 import { rangeLabel } from "../ItemCard";
-import { ItemLink } from "../ItemLink";
+import { ItemLink } from "../itemLink/ItemLink";
 import { ReadMark } from "../ReadMark";
 
 /** The things nobody tells you, as cards: each one's surprise is its summary, so it's read without opening. */

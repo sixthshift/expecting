@@ -23,7 +23,7 @@ import { when } from "../../../../../lib/labels";
 import { isPicturePage, type Paper, type PaperChange, type PaperPage } from "../../../../../lib/papers";
 import { nameBy } from "../../../../../lib/people";
 import { forgetFile } from "../../../../../pwa/register";
-import { ItemLink } from "../../../../library/components/ItemLink";
+import { ItemLink } from "../../../../library/components/itemLink/ItemLink";
 import { Picture } from "../photos/Picture";
 import { complete, type PaperDraft, PaperFields } from "./PaperFields";
 import { paperLine } from "./PaperRow";

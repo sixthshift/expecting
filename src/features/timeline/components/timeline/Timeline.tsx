@@ -17,7 +17,7 @@ import type { Week } from "../../../../lib/timeline";
 import { mapWeeks, mapWindows } from "../../../../lib/timelineMap";
 import { useItems } from "../../../library/hooks/useItems";
 import { useTasks } from "../../../tasks/hooks/useTasks";
-import { Welcome } from "../../../thisWeek/components/now/Now";
+import { Welcome } from "../../../thisWeek/components/welcome/Welcome";
 import { MapHeader } from "../header/MapHeader";
 import { PregnancyStrip } from "../strip/PregnancyStrip";
 import { WeekMap } from "../weekMap/WeekMap";

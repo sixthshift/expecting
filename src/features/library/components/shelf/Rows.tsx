@@ -3,7 +3,7 @@ import { useReadsQuery } from "../../../../api/rpc/reads";
 import type { Item } from "../../../../content/schema";
 import { Verdict } from "../content/Verdict";
 import { rangeLabel } from "../ItemCard";
-import { ItemLink } from "../ItemLink";
+import { ItemLink } from "../itemLink/ItemLink";
 import { ReadMark } from "../ReadMark";
 
 /** What a row says on its right, by type: a can-i's verdict, a decision's week, when a moment or payment comes. */

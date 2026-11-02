@@ -46,7 +46,7 @@ vi.mock("../../../src/api/rpc/people", () => ({ usePeopleQuery: () => ({ data: {
 vi.mock("../../../src/api/rpc/settings", () => ({ useSettingsQuery: () => ({ data: { dueDate: null } }) }));
 vi.mock("../../../src/app/hooks/useSave", () => ({ useSave: (save: { key: string }) => (input: unknown) => saved.push({ key: save.key, input }) }));
 vi.mock("../../../src/app/components/layout/CallBirthSuite", () => ({ CallBirthSuite: () => <a href="tel:0390000000">Call the birth suite</a> }));
-vi.mock("../../../src/features/library/components/ItemLink", () => ({ ItemLink: ({ children }: { children: ReactNode }) => children }));
+vi.mock("../../../src/features/library/components/itemLink/ItemLink", () => ({ ItemLink: ({ children }: { children: ReactNode }) => children }));
 vi.mock("@sixthshift/design-system/overlay", () => ({ toast: () => undefined }));
 vi.mock("@tanstack/react-router", () => ({ Link: ({ children }: { children: ReactNode }) => <a href="/emergency">{children}</a> }));
 

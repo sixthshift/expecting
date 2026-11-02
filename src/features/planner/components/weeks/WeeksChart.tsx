@@ -6,7 +6,7 @@ import { inWeeks } from "../../../../lib/labels";
 import { STAGES } from "../../../../lib/planner";
 import { TRIMESTERS, WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
 import { LANDMARKS } from "../../../../lib/timelineMap";
-import { ItemLink } from "../../../library/components/ItemLink";
+import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 
 const SPAN = WEEKS.last - WEEKS.first + 1;
 const WEEK_LIST = Array.from({ length: SPAN }, (_, i) => i + WEEKS.first);

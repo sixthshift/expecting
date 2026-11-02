@@ -5,7 +5,7 @@ import { builtInItems } from "../../../../content";
 import type { Item } from "../../../../content/schema";
 import { sectionsOf } from "../../../../content/sections";
 import { ItemBody } from "../../../library/components/content/ItemBody";
-import { ItemLink } from "../../../library/components/ItemLink";
+import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 import { pageOf } from "../../../library/model/pageOf";
 
 /** The guide the list comes from: written and sourced once, in content/items/warning-signs.md. */

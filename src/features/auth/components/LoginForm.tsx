@@ -5,8 +5,8 @@ import { getRouteApi } from "@tanstack/react-router";
 import { type FormEvent, useState } from "react";
 import { login, useAccessQuery } from "../../../api/rpc/session";
 import { useEnter } from "../hooks/useEnter";
+import { useNewPassword } from "../hooks/useNewPassword";
 import { Choice } from "./Choice";
-import { useNewPassword } from "./NewPassword";
 
 const route = getRouteApi("/login");
 

@@ -7,7 +7,7 @@ import { logout, useAccessQuery } from "../../../../api/rpc/session";
 import { useAction } from "../../../../app/hooks/useAction";
 import { otherOf, ROLE_NAMES } from "../../../../lib/people";
 import { forgetData } from "../../../../pwa/register";
-import { useNewPassword } from "../../../auth/components/NewPassword";
+import { useNewPassword } from "../../../auth/hooks/useNewPassword";
 
 /**
  * Who this phone is logged in as, and the account's upkeep: an invite for the

@@ -1,5 +1,5 @@
 import { ChevronRight, MapPin } from "lucide-react";
-import { ItemLink } from "../../../library/components/ItemLink";
+import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 import { CallButton, Part } from "../CallButton";
 
 /** A plain maps link: the phone picks its own app. */

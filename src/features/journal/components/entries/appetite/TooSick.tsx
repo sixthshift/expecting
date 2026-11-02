@@ -1,7 +1,7 @@
 import { Message } from "@sixthshift/design-system/message";
 import { Link } from "@tanstack/react-router";
 import { CallBirthSuite } from "../../../../../app/components/layout/CallBirthSuite";
-import { ItemLink } from "../../../../library/components/ItemLink";
+import { ItemLink } from "../../../../library/components/itemLink/ItemLink";
 
 /** The entries whose words this follows, each checked against its source. */
 export const SEVERE = "severe-vomiting";

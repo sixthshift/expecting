@@ -1,7 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import type { Item, Task } from "../../../../content/schema";
 import { type QuietKind, setInMotion } from "../../../../lib/quiet";
-import { ItemLink } from "../../../library/components/ItemLink";
+import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 
 /**
  * The Planner's To do while Expecting is quiet: nothing to do, the list put

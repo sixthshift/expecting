@@ -22,20 +22,22 @@ import { HardFortnight } from "../../feelings/components/fortnight/HardFortnight
 import { LookThrough } from "../../itsTime/components/wayIn/LookThrough";
 import { Movement } from "../../journal/components/entries/movements/Movement";
 import { Note } from "../../journal/components/entries/notes/Note";
-import { ItemLink } from "../../library/components/ItemLink";
+import { ItemLink } from "../../library/components/itemLink/ItemLink";
 import { useItems } from "../../library/hooks/useItems";
-import { AskedQuestion, QuestionsWaiting } from "../../questions/components/questions/questions";
-import { OfferExtra } from "../../settings/components/extras/OfferExtra";
-import { AskNow } from "../../settings/components/facts/AskNow";
+import { AskedQuestion } from "../../questions/components/AskedQuestion";
+import { QuestionsWaiting } from "../../questions/components/QuestionsWaiting";
+import { AskNow } from "../../settings/components/askNow/AskNow";
+import { OfferExtra } from "../../settings/components/offerExtra/OfferExtra";
 import { ComingUp } from "../../tasks/components/comingUp/ComingUp";
 import { TaskRow } from "../../tasks/components/TaskRow";
 import { ToDoNow } from "../../tasks/components/toDoNow/ToDoNow";
 import { useTasks } from "../../tasks/hooks/useTasks";
 import { DayByDay } from "../components/dayByDay/DayByDay";
 import { HeadsUp } from "../components/headsUp/HeadsUp";
-import { Hero, Welcome } from "../components/now/Now";
+import { Hero } from "../components/now/Now";
 import { QuietWeek } from "../components/quiet/QuietWeek";
 import { WeeklyCard } from "../components/weeklyCard/WeeklyCard";
+import { Welcome } from "../components/welcome/Welcome";
 import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
 
 /**

@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, Hourglass } from "lucide-react";
 import { useState } from "react";
+import { useItsTimeShown } from "../../hooks/useItsTimeShown";
 import { hasLooked } from "../../model/looked";
-import { useItsTimeShown } from "./ItsTimeWayIn";
 
 /**
  * On This week once It's time is near, until this phone has opened it: the

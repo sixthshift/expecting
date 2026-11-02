@@ -4,7 +4,7 @@ import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { closest, search } from "../../../../lib/library";
 import { useItems } from "../../hooks/useItems";
-import { ItemList } from "../ItemList";
+import { ItemList } from "../itemList/ItemList";
 
 /**
  * Where an address that leads nowhere might have meant: a search filled from

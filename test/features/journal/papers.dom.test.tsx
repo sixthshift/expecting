@@ -45,7 +45,7 @@ vi.mock("../../../src/app/hooks/useSave", () => ({ useSave: (save: { key: string
 vi.mock("../../../src/app/hooks/useUploadSrc", () => ({ useUploadSrc: (id: string, variant: string) => `/api/files/${id}/${variant}` }));
 vi.mock("../../../src/pwa/register", () => ({ forgetFile: async () => undefined }));
 vi.mock("@sixthshift/design-system/overlay", () => ({ toast: () => undefined }));
-vi.mock("../../../src/features/library/components/ItemLink", () => ({
+vi.mock("../../../src/features/library/components/itemLink/ItemLink", () => ({
   ItemLink: ({ children }: { children: ReactNode }) => <a href="/library">{children}</a>,
 }));
 vi.mock("@tanstack/react-router", () => ({ Link: ({ children }: { children: ReactNode }) => <a href="/journal">{children}</a> }));

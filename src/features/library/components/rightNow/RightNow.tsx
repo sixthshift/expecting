@@ -4,7 +4,7 @@ import { useReadsQuery } from "../../../../api/rpc/reads";
 import type { Item } from "../../../../content/schema";
 import { rightNow, type Standing, standingLabel } from "../../../../lib/library";
 import type { Week } from "../../../../lib/timeline";
-import { ItemLink } from "../ItemLink";
+import { ItemLink } from "../itemLink/ItemLink";
 import { ReadMark } from "../ReadMark";
 
 const intent: Record<Standing["kind"], "warning" | "brand" | "neutral"> = { closing: "warning", left: "brand", open: "neutral" };

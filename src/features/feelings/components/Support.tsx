@@ -1,6 +1,6 @@
 import { Phone } from "lucide-react";
 import type { Role } from "../../../lib/people";
-import { ItemLink } from "../../library/components/ItemLink";
+import { ItemLink } from "../../library/components/itemLink/ItemLink";
 
 /** Who to call, from the checked entry `perinatal-mental-health-help`: PANDA, and Lifeline in a crisis. */
 const PANDA = { name: "PANDA", phone: "1300 726 306" };

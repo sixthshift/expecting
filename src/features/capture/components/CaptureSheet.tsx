@@ -45,7 +45,7 @@ import { AddMovement } from "../../journal/components/entries/movements/AddMovem
 import { AddNote } from "../../journal/components/entries/notes/AddNote";
 import { AddPaper } from "../../journal/components/entries/papers/AddPaper";
 import { AddPhoto } from "../../journal/components/entries/photos/AddPhoto";
-import { AddQuestion } from "../../questions/components/questions/questions";
+import { AddQuestion } from "../../questions/components/AddQuestion";
 import { AddTask } from "../../tasks/components/addTask/AddTask";
 import { type Capture, captureChoices, FILED_IN, sharedChoices } from "../model/choices";
 

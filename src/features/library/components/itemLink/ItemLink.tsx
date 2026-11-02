@@ -1,6 +1,6 @@
 import { Link, useParams, useRouterState } from "@tanstack/react-router";
 import type { CSSProperties, ReactNode } from "react";
-import { isPrivateItem } from "../../../content";
+import { isPrivateItem } from "../../../../content";
 
 /**
  * A link to an entry's page; every link to one is this. A private entry's

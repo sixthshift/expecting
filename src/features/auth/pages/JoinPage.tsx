@@ -9,8 +9,8 @@ import { codeQuery, join, useAccessQuery } from "../../../api/rpc/session";
 import { Page } from "../../../components/Page";
 import { ROLE_NAMES, type Role } from "../../../lib/people";
 import { CodeEntry } from "../components/CodeEntry";
-import { useNewPassword } from "../components/NewPassword";
 import { useEnter } from "../hooks/useEnter";
+import { useNewPassword } from "../hooks/useNewPassword";
 
 const route = getRouteApi("/join");
 

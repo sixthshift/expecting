@@ -6,7 +6,7 @@ import { itsTimeSaves } from "../../../../api/rpc/itsTime";
 import { useSave } from "../../../../app/hooks/useSave";
 import { type Contraction, clock, lasted, patternOf, type Start, sayPattern, WORDS_MAX } from "../../../../lib/itsTime";
 import { newId } from "../../../../lib/outbox";
-import { ItemLink } from "../../../library/components/ItemLink";
+import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 import { useClock } from "../../hooks/useClock";
 import { useWakeLock } from "../../hooks/useWakeLock";
 

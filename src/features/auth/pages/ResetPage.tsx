@@ -6,8 +6,8 @@ import { type FormEvent, useState } from "react";
 import { codeQuery, resetPassword } from "../../../api/rpc/session";
 import { Page } from "../../../components/Page";
 import { CodeEntry } from "../components/CodeEntry";
-import { useNewPassword } from "../components/NewPassword";
 import { useEnter } from "../hooks/useEnter";
+import { useNewPassword } from "../hooks/useNewPassword";
 
 const route = getRouteApi("/reset");
 

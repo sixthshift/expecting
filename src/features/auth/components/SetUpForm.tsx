@@ -7,8 +7,8 @@ import { type FormEvent, useState } from "react";
 import { accessQuery, setUp, useAccessQuery } from "../../../api/rpc/session";
 import { ROLES, type Role } from "../../../lib/people";
 import { useEnter } from "../hooks/useEnter";
+import { useNewPassword } from "../hooks/useNewPassword";
 import { Choice } from "./Choice";
-import { useNewPassword } from "./NewPassword";
 
 const route = getRouteApi("/login");
 

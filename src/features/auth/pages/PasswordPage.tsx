@@ -4,8 +4,8 @@ import { getRouteApi } from "@tanstack/react-router";
 import { type FormEvent, useState } from "react";
 import { choosePassword, usePeopleQuery } from "../../../api/rpc/people";
 import { Page } from "../../../components/Page";
-import { useNewPassword } from "../components/NewPassword";
 import { useEnter } from "../hooks/useEnter";
+import { useNewPassword } from "../hooks/useNewPassword";
 
 const route = getRouteApi("/password");
 

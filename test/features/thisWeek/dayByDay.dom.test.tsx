@@ -7,7 +7,7 @@ import { parseWeek } from "../../../src/content/weeks";
 // The week, day by day: the note on its first day, a read each day after, one
 // card at a time, the newest showing, the days before it a swipe back; each
 // read ends in the entries it opens onto, those you'd see.
-vi.mock("../../../src/features/library/components/ItemLink", () => ({
+vi.mock("../../../src/features/library/components/itemLink/ItemLink", () => ({
   ItemLink: ({ children, itemId }: { children: unknown; itemId: string }) => <a href={`#${itemId}`}>{children as string}</a>,
 }));
 vi.mock("../../../src/api/rpc/people", () => ({ usePeopleQuery: () => ({ data: { me: null, people: [] } }) }));

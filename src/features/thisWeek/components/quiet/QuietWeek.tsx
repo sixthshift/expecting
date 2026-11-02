@@ -9,7 +9,7 @@ import type { Item } from "../../../../content/schema";
 import { sectionsOf } from "../../../../content/sections";
 import { nextSteps, pausedAt, QUIET_ITEM, QUIET_PARTS, type Quiet } from "../../../../lib/quiet";
 import { ItemBody } from "../../../library/components/content/ItemBody";
-import { ItemList } from "../../../library/components/ItemList";
+import { ItemList } from "../../../library/components/itemList/ItemList";
 import { useItems } from "../../../library/hooks/useItems";
 import { pageOf } from "../../../library/model/pageOf";
 
