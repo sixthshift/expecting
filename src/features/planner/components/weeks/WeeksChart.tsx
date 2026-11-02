@@ -1,29 +1,14 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { ChevronDown } from "lucide-react";
-import { type CSSProperties, type ReactNode, useState } from "react";
-import { inWeeks } from "../../../../lib/labels";
+import { useState } from "react";
 import { STAGES } from "../../../../lib/planner/plan";
-import type { Bar, BarGroup, BarState, Chart } from "../../../../lib/planner/weeks";
-import { TRIMESTERS, WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
+import type { Chart } from "../../../../lib/planner/weeks";
+import { TRIMESTERS, type Week, weekLabel } from "../../../../lib/timeline";
 import { LANDMARKS } from "../../../../lib/timelineWeeks";
-import { ItemLink } from "../../../library/components/itemLink/ItemLink";
-import { barLabel } from "../../model/labels";
-
-const SPAN = WEEKS.last - WEEKS.first + 1;
-const WEEK_LIST = Array.from({ length: SPAN }, (_, i) => i + WEEKS.first);
-/** Where a week starts across the chart, as a percentage. */
-const x = (week: number) => `${((week - WEEKS.first) / SPAN) * 100}%`;
-/** The middle of a week. */
-const mid = (week: number) => `calc(${x(week)} + ${100 / SPAN / 2}%)`;
-const width = (from: Week, to: Week) => `${((to - from + 1) / SPAN) * 100}%`;
-
-/** A bar's colour by where it stands: open now is the brand, ahead a lighter one, late a warning, done quiet. */
-const TONE: Record<BarState, string> = {
-  open: "bg-fg-brand",
-  ahead: "bg-bg-brand-subtle border border-border-brand",
-  late: "bg-bg-warning-subtle border border-border-warning",
-  done: "bg-border-normal",
-};
+import { Bars } from "./Bars";
+import { Key } from "./Key";
+import { StageGroup } from "./StageGroup";
+import { mid, WEEK_LIST, width, x } from "./scale";
 
 const SHORT = { 1: "First", 2: "Second", 3: "Third" } as const;
 
@@ -104,7 +89,7 @@ export function WeeksChart({ chart, now, focus }: { chart: Chart; now: Week | nu
 
         <div className="relative mt-2 flex flex-col gap-5">
           {chart.groups.map((group) => (
-            <Group key={group.key} group={group} focused={focus !== null && group.key === focus.end} now={now} />
+            <StageGroup key={group.key} group={group} focused={focus !== null && group.key === focus.end} now={now} />
           ))}
           {chart.earlier.length > 0 ? (
             <section className="flex flex-col gap-1">
@@ -123,102 +108,5 @@ export function WeeksChart({ chart, now, focus }: { chart: Chart; now: Week | nu
         </div>
       </div>
     </div>
-  );
-}
-
-function Group({ group, focused, now }: { group: BarGroup; focused: boolean; now: Week | null }) {
-  const left = group.key === "now" || now === null ? null : group.end - now;
-  return (
-    <section aria-labelledby={`stage-${group.key}`} data-stage={group.key} className="flex scroll-mt-24 flex-col gap-1">
-      <h2 id={`stage-${group.key}`} className={cn("flex items-baseline gap-2 text-sm font-semibold lg:w-64", focused ? "text-fg-brand" : "text-fg-strong")}>
-        <span>{group.title}</span>
-        {group.key === "now" ? null : (
-          <span className="text-xs font-normal text-fg-subtle">
-            {weekLabel(group.end)}
-            {left === null ? null : ` · ${inWeeks(left)}`}
-          </span>
-        )}
-      </h2>
-      <Bars bars={group.bars} />
-    </section>
-  );
-}
-
-function Bars({ bars }: { bars: readonly Bar[] }) {
-  return (
-    <ul className="flex flex-col gap-1 lg:gap-0">
-      {bars.map((bar) => (
-        <li key={bar.task.id}>
-          <BarRow bar={bar} />
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-/** One task: its title over its bar on a phone, beside it on a desktop; to its item, when it has one. */
-function BarRow({ bar }: { bar: Bar }) {
-  const { task, from, due, to, state } = bar;
-  const late = from > SPAN / 2;
-  const place = { "--start": x(from), "--end": `calc(100% - ${x(to + 1)})` } as CSSProperties;
-  const label = barLabel(bar);
-  const inner: ReactNode = (
-    <>
-      <span
-        className={cn(
-          "line-clamp-2 text-sm [text-shadow:0_0_2px_var(--expecting-page),0_0_4px_var(--expecting-page),0_0_6px_var(--expecting-page)] lg:line-clamp-none lg:w-64 lg:shrink-0 lg:truncate lg:pr-4 lg:pl-0 lg:text-left lg:[text-shadow:none]",
-          task.itemId && "group-hover:underline",
-          late ? "pr-(--end) text-right" : "pl-(--start)",
-          state === "open" || state === "late" ? "font-medium text-fg-strong" : "text-fg-subtle",
-          state === "done" && "line-through"
-        )}
-      >
-        {task.title}
-      </span>
-      <span aria-hidden className="relative h-3 lg:flex-1">
-        <span className={cn("absolute inset-y-0 rounded-full group-hover:opacity-80", TONE[state])} style={{ left: x(from), width: width(from, to) }} />
-        {state === "done" ? null : (
-          <span
-            className={cn("absolute -inset-y-1 w-1 -translate-x-1/2 rounded-full", state === "ahead" ? "bg-fg-brand" : "bg-fg-strong")}
-            style={{ left: mid(due) }}
-          />
-        )}
-      </span>
-    </>
-  );
-  const row = "group flex flex-col gap-1 rounded-sm py-0.5 lg:h-8 lg:flex-row lg:items-center lg:gap-0 lg:py-0";
-  return task.itemId ? (
-    <ItemLink itemId={task.itemId} aria-label={label} className={row} style={place}>
-      {inner}
-    </ItemLink>
-  ) : (
-    // biome-ignore lint/a11y/useSemanticElements: a row of the chart, read as one thing; it goes nowhere, so it isn't a link.
-    <div role="group" aria-label={label} className={row} style={place}>
-      {inner}
-    </div>
-  );
-}
-
-/** What the bars say, in the order they come: open now, ahead, late, done, and the notch. */
-function Key() {
-  const keys: { state: BarState; label: string }[] = [
-    { state: "open", label: "Open now" },
-    { state: "ahead", label: "Ahead" },
-    { state: "late", label: "Past its best-by week" },
-    { state: "done", label: "Done" },
-  ];
-  return (
-    <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-fg-subtle">
-      {keys.map(({ state, label }) => (
-        <li key={state} className="flex items-center gap-1.5">
-          <span aria-hidden className={cn("h-2.5 w-5 rounded-full", TONE[state])} />
-          {label}
-        </li>
-      ))}
-      <li className="flex items-center gap-1.5">
-        <span aria-hidden className="h-3.5 w-1 rounded-full bg-fg-strong" />
-        Best by
-      </li>
-    </ul>
   );
 }
