@@ -12,6 +12,7 @@ import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { useNow, useSettingsQuery } from "../../../../../api/rpc/settings";
 import { builtInItems } from "../../../../../content";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
+import { when } from "../../../../../lib/labels";
 import {
   handyByDefault,
   PAPER_KIND_HINT,
@@ -25,7 +26,6 @@ import {
 } from "../../../../../lib/papers";
 import type { QuietKind } from "../../../../../lib/quiet";
 import { weekLabel } from "../../../../../lib/timeline";
-import { when } from "../../../model/dates";
 
 /** A paper as it's being filled in. `titled`: its name was typed, so choosing what it's about leaves it be. `handy` null: as its kind suggests. */
 export type PaperDraft = {

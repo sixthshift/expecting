@@ -9,11 +9,12 @@ import { Camera, Columns2 } from "lucide-react";
 import { useState } from "react";
 import { usePhotosQuery } from "../../../../../../api/rpc/photos";
 import { useNow, useSettingsQuery } from "../../../../../../api/rpc/settings";
-import { formatDate, type ISODate } from "../../../../../../lib/dates";
+import type { ISODate } from "../../../../../../lib/dates";
+import { placeHeading, weekRange } from "../../../../../../lib/labels";
 import { BUMP_SERIES, type BumpWeek, bumpToTake, bumpWeeks, kindsOffered, type PhotoGroup, type PhotoKind, photoGroups } from "../../../../../../lib/photos";
 import type { QuietKind } from "../../../../../../lib/quiet";
-import { type Week, weekDates, weekLabel } from "../../../../../../lib/timeline";
-import { describePhoto } from "../../../../model/describePhoto";
+import { type Week, weekLabel } from "../../../../../../lib/timeline";
+import { describePhoto } from "../../../../model/labels";
 import { AddPhoto } from "../../../entries/photos/AddPhoto";
 import { PhotoViewer } from "../../../entries/photos/PhotoViewer";
 import { Picture } from "../../../entries/photos/Picture";
@@ -23,19 +24,10 @@ import { SideBySide } from "./SideBySide";
 /** How many weeks are shown before "Show every week". */
 const WEEKS_SHOWN = 6;
 
-/** "Week 28", "Before the pregnancy", "After week 42", or with no due date the month: "October 2026". */
-function heading(group: PhotoGroup): string {
-  if (group.place === "before") return "Before the pregnancy";
-  if (group.place === "after") return "After week 42";
-  if (group.place !== null) return weekLabel(group.place);
-  return formatDate(`${group.month}-01` as ISODate, { month: "long", year: "numeric" });
-}
-
 /** A week's days, and whether it's this one: "This week · 27 Oct – 2 Nov". */
 function aside(group: PhotoGroup, dueDate: ISODate | null, now: Week | null): string | null {
   if (typeof group.place !== "number") return null;
-  const dates = weekDates(group.place, dueDate);
-  const range = dates ? `${formatDate(dates.start, { day: "numeric", month: "short" })} – ${formatDate(dates.end, { day: "numeric", month: "short" })}` : null;
+  const range = weekRange(group.place, dueDate);
   return [group.place === now ? "This week" : null, range].filter(Boolean).join(" · ") || null;
 }
 
@@ -159,9 +151,9 @@ export function PhotosLens({ quiet }: { quiet: QuietKind | null }) {
         </>
       )}
       {shown.map((group) => (
-        <section key={group.key} aria-label={heading(group)} className="flex flex-col gap-2">
+        <section key={group.key} aria-label={placeHeading(group.place, group.month)} className="flex flex-col gap-2">
           <h3 className="flex items-baseline gap-2 text-sm font-semibold text-fg-strong">
-            {heading(group)}
+            {placeHeading(group.place, group.month)}
             <span className="font-normal text-fg-subtle">{aside(group, dueDate, now)}</span>
           </h3>
           <ul className="grid grid-cols-3 gap-2 sm:grid-cols-4 lg:grid-cols-6">

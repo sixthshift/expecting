@@ -1,12 +1,8 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { useJournalQuery } from "../../../../api/rpc/journal";
-import { formatDate, type ISODate, todayISO } from "../../../../lib/dates";
+import { todayISO } from "../../../../lib/dates";
 import { dayFraction, formatTime, movementPattern, PATTERN_DAYS } from "../../../../lib/journal";
-
-/** "Today", "Tue 27 Oct". */
-function dayLabel(day: ISODate, today: ISODate): string {
-  return day === today ? "Today" : formatDate(day, { weekday: "short", day: "numeric", month: "short" });
-}
+import { weekdayDate } from "../../../../lib/labels";
 
 /**
  * The last fortnight's movements, a row a day, each a dot at its time of
@@ -25,7 +21,7 @@ export function MovementPattern() {
       <ol className="flex flex-col gap-1">
         {days.map((d) => (
           <li key={d.day} className="flex items-center gap-3">
-            <span className="w-24 shrink-0 text-xs text-fg-subtle">{dayLabel(d.day, today)}</span>
+            <span className="w-24 shrink-0 text-xs text-fg-subtle">{weekdayDate(d.day, today)}</span>
             <span className="sr-only">{d.moved.map((m) => formatTime(m.time) + (m.different ? ", slower, weaker or stopped" : "")).join("; ")}</span>
             <span aria-hidden className="relative h-4 flex-1 rounded-full bg-bg-subtle">
               {d.moved.map((m) => (

@@ -3,8 +3,9 @@ import { Modal } from "@sixthshift/design-system/modal";
 import { Star } from "lucide-react";
 import { useState } from "react";
 import { useFirstsQuery } from "../../../../../../api/rpc/firsts";
+import type { ISODate } from "../../../../../../lib/dates";
 import { type FirstMark, firstOf, isMarked } from "../../../../../../lib/firsts";
-import { dayOf } from "../../../../model/dates";
+import { weekdayDate } from "../../../../../../lib/labels";
 import { FirstSheet } from "../../../entries/firsts/FirstSheet";
 import { MarkFirst } from "../../../entries/firsts/MarkFirst";
 
@@ -52,7 +53,7 @@ export function FirstsLens() {
       <ol className="flex flex-col">
         {marked.map((m) => (
           <li key={m.key} className="flex items-start gap-3">
-            <span className="w-20 shrink-0 pt-2 text-xs text-fg-subtle">{dayOf(m.day)}</span>
+            <span className="w-20 shrink-0 pt-2 text-xs text-fg-subtle">{weekdayDate(m.day as ISODate)}</span>
             <span className="flex-1">
               <FirstLine mark={m} />
             </span>

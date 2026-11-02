@@ -28,7 +28,7 @@ import { pairs } from "../../../lib/weekly";
 import { useTasks } from "../../tasks/hooks/useTasks";
 import { Contents } from "../components/Contents";
 import { RecapPartView, useRecap } from "../components/Recap";
-import { weekTitle } from "../model/weekTitle";
+import { weekTitle } from "../model/labels";
 
 const PART_TITLE = {
   firsts: "Firsts",

@@ -22,12 +22,11 @@ import { isOnPhone } from "../../../../../app/model/uploads";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
 import { fileUrl } from "../../../../../lib/files";
 import { placeOf, toTime } from "../../../../../lib/journal";
+import { when } from "../../../../../lib/labels";
 import { PHOTO_KIND_LABEL, type Photo, type PhotoKind } from "../../../../../lib/photos";
 import { weekLabel } from "../../../../../lib/timeline";
 import { forgetFile } from "../../../../../pwa/register";
-import { when } from "../../../model/dates";
-import { describePhoto, photoTitle } from "../../../model/describePhoto";
-import { keptBy } from "../../../model/keptBy";
+import { describePhoto, keptBy, photoTitle } from "../../../model/labels";
 import { Picture } from "./Picture";
 
 /** Change what it is, when, and its words; never the picture. */

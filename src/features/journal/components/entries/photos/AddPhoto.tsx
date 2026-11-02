@@ -22,10 +22,10 @@ import { FileProblemError, keepOnPhone, type Prepared, prepareFile, previewUrl }
 import { type ISODate, todayISO } from "../../../../../lib/dates";
 import { FILE_PROBLEM, type FileProblem, isImage, MAX_ORIGINAL } from "../../../../../lib/files";
 import { placeOf, toTime } from "../../../../../lib/journal";
+import { when } from "../../../../../lib/labels";
 import { newId } from "../../../../../lib/outbox";
 import { PHOTO_KIND_LABEL, PHOTO_KINDS, type PhotoKind, takenOn } from "../../../../../lib/photos";
 import { weekLabel } from "../../../../../lib/timeline";
-import { when } from "../../../model/dates";
 
 /** A picture made ready, with its preview while it's on screen here. */
 type Shot = Prepared & { preview: string | null };

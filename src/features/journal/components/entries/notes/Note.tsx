@@ -12,7 +12,7 @@ import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSave } from "../../../../../app/hooks/useSave";
 import type { ISODate } from "../../../../../lib/dates";
 import type { JournalEntry } from "../../../../../lib/journal";
-import { when } from "../../../model/dates";
+import { when } from "../../../../../lib/labels";
 import { NoteForm } from "./NoteForm";
 
 /** A note (or a letter to the baby, said so): its words, then who wrote it and when, and who changed it last. */

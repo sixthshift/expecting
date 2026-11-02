@@ -14,8 +14,8 @@ import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSave } from "../../../../../app/hooks/useSave";
 import type { ISODate } from "../../../../../lib/dates";
 import type { JournalEntry } from "../../../../../lib/journal";
-import { when } from "../../../model/dates";
-import { keptBy } from "../../../model/keptBy";
+import { when } from "../../../../../lib/labels";
+import { keptBy } from "../../../model/labels";
 import { MovementForm } from "./MovementForm";
 import { MovementsChanged } from "./MovementsChanged";
 

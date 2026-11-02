@@ -14,19 +14,19 @@ import { useQuietQuery } from "../../../../api/rpc/quiet";
 import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { useKeepSame } from "../../../../app/hooks/useKeepSame";
 import { type AppetiteEntry, HOW_LABEL } from "../../../../lib/appetite";
-import { formatDate, type ISODate, todayISO } from "../../../../lib/dates";
+import { type ISODate, todayISO } from "../../../../lib/dates";
 import { isOwn, STEP_LABEL } from "../../../../lib/feelings";
 import { firstOf } from "../../../../lib/firsts";
 import { nightLine } from "../../../../lib/itsTime";
 import { asOne, formatTime, type JournalEntry } from "../../../../lib/journal";
+import { marginDay, placeHeading, weekRange } from "../../../../lib/labels";
 import { PAPER_KIND_LABEL } from "../../../../lib/papers";
 import { kindsOffered, type Photo } from "../../../../lib/photos";
 import type { QuietWeek, StoryDay, StoryGap, StoryGroup, StoryItem } from "../../../../lib/story";
-import { type Week, weekDates, weekLabel } from "../../../../lib/timeline";
+import { type Week, weekLabel } from "../../../../lib/timeline";
 import { Face } from "../../../feelings/components/Face";
 import { NightDetail } from "../../../itsTime/components/night/NightDetail";
-import { describePhoto } from "../../model/describePhoto";
-import { weekTitle } from "../../model/weekTitle";
+import { describePhoto, weekTitle } from "../../model/labels";
 import { AppetiteItem } from "../entries/appetite/AppetiteItem";
 import { FirstSheet } from "../entries/firsts/FirstSheet";
 import { Movement } from "../entries/movements/Movement";
@@ -34,25 +34,6 @@ import { Note } from "../entries/notes/Note";
 import { PaperViewer } from "../entries/papers/PaperViewer";
 import { PhotoViewer } from "../entries/photos/PhotoViewer";
 import { Picture } from "../entries/photos/Picture";
-
-/** "Week 28", "Before the pregnancy", "After week 42", or with no due date the month: "October 2026". */
-function groupHeading(group: StoryGroup): string {
-  if (group.place === "before") return "Before the pregnancy";
-  if (group.place === "after") return "After week 42";
-  if (group.place !== null) return weekLabel(group.place);
-  return formatDate(`${group.month}-01` as ISODate, { month: "long", year: "numeric" });
-}
-
-/** "27 Oct – 2 Nov". */
-function range(week: Week, dueDate: ISODate | null): string | null {
-  const dates = weekDates(week, dueDate);
-  return dates ? `${formatDate(dates.start, { day: "numeric", month: "short" })} – ${formatDate(dates.end, { day: "numeric", month: "short" })}` : null;
-}
-
-/** "Today", "Thu 29". */
-function dayLabel(day: ISODate, today: ISODate): string {
-  return day === today ? "Today" : formatDate(day, { weekday: "short", day: "numeric" });
-}
 
 /** The name a line says when it isn't yours: "Sam". Yours says nothing, as a diary wouldn't. */
 function useOther(): (id: string | null) => string | null {
@@ -408,7 +389,7 @@ const Day = memo(function Day({ day, today, onOpenPhoto }: { day: StoryDay; toda
   const photos = day.items.flatMap((i) => (i.kind === "photo" ? [i.photo] : []));
   return (
     <li className="grid grid-cols-[3.25rem_minmax(0,1fr)] gap-x-3">
-      <h4 className="pt-1.5 text-xs font-medium tracking-wide text-fg-subtle uppercase">{dayLabel(day.day, today)}</h4>
+      <h4 className="pt-1.5 text-xs font-medium tracking-wide text-fg-subtle uppercase">{marginDay(day.day, today)}</h4>
       <div className="flex flex-col gap-1">
         {photos.length > 0 ? <PhotoThumbs photos={photos} onOpen={onOpenPhoto} /> : null}
         {dayLines(day.items).map((line) =>
@@ -502,12 +483,12 @@ export function StoryList({
           }
           const week = typeof g.place === "number" ? g.place : null;
           const title = week ? titleOf(week) : null;
-          const aside = week ? [week === now ? "This week" : null, range(week, settings.dueDate)].filter(Boolean).join(" · ") : null;
+          const aside = week ? [week === now ? "This week" : null, weekRange(week, settings.dueDate)].filter(Boolean).join(" · ") : null;
           return (
             <li key={g.key} id={week ? `week-${week}` : undefined} className="scroll-mt-24 border-t border-border-subtle pt-3 pb-5">
-              <section aria-label={groupHeading(g)} className="flex flex-col gap-3">
+              <section aria-label={placeHeading(g.place, g.month)} className="flex flex-col gap-3">
                 <h3 className="flex flex-wrap items-baseline gap-x-2">
-                  <span className="font-display text-lg font-semibold text-fg-strong">{groupHeading(g)}</span>
+                  <span className="font-display text-lg font-semibold text-fg-strong">{placeHeading(g.place, g.month)}</span>
                   {title ? <span className="font-display text-fg-normal">{title}</span> : null}
                   {aside ? <span className="text-sm text-fg-subtle">{aside}</span> : null}
                 </h3>

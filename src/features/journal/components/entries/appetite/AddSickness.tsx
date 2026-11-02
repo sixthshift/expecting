@@ -6,8 +6,8 @@ import { useSave } from "../../../../../app/hooks/useSave";
 import { type AppetiteEntry, type How, inputOf } from "../../../../../lib/appetite";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
 import { timeNow } from "../../../../../lib/journal";
+import { when } from "../../../../../lib/labels";
 import { newId } from "../../../../../lib/outbox";
-import { when } from "../../../model/dates";
 import { HowPicker, WhenFields } from "./AppetiteFields";
 import { TooSick } from "./TooSick";
 

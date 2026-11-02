@@ -18,9 +18,9 @@ import {
 } from "../../../../../lib/appetite";
 import { formatDate, type ISODate, todayISO } from "../../../../../lib/dates";
 import { placeOf } from "../../../../../lib/journal";
+import { dayAndWeek, shortDate, when } from "../../../../../lib/labels";
 import { weekLabel } from "../../../../../lib/timeline";
 import { ItemLink } from "../../../../library/components/ItemLink";
-import { when } from "../../../model/dates";
 import { AppetiteItem } from "../../entries/appetite/AppetiteItem";
 import { AskAtAppointment } from "../../entries/appetite/AskAtAppointment";
 import { SEVERE } from "../../entries/appetite/TooSick";
@@ -31,18 +31,6 @@ const STRENGTH: Record<How, string> = {
   vomited: "opacity-75",
   fluids: "opacity-100 ring-2 ring-fg-brand ring-offset-1 ring-offset-bg-normal",
 };
-
-/** "8 Sep", or "8 Sep 2025" in another year. */
-function shortDate(day: ISODate, today: ISODate): string {
-  return formatDate(day, { day: "numeric", month: "short", ...(day.slice(0, 4) === today.slice(0, 4) ? {} : { year: "numeric" }) });
-}
-
-/** "Tue 8 Sep, week 6": a day, and its week when there's a due date. */
-function dayAndWeek(day: ISODate, dueDate: ISODate | null): string {
-  const date = formatDate(day, { weekday: "short", day: "numeric", month: "short" });
-  const place = dueDate ? placeOf(day, dueDate) : null;
-  return typeof place === "number" ? `${date}, ${weekLabel(place).toLowerCase()}` : date;
-}
 
 /** A week's row label: "Week 9", "Before the pregnancy", or with no due date the days: "24–30 Oct". */
 function weekName(w: SickWeek, today: ISODate): string {

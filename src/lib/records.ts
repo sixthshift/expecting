@@ -5,10 +5,10 @@
 // with nothing kept has no record). See docs/product/journal.md, The records.
 
 import { type AppetiteEntry, tally } from "./appetite";
-import { addDays, daysBetween, formatDate, type ISODate } from "./dates";
+import { addDays, daysBetween, type ISODate } from "./dates";
 import { type Feeling, feelingsOf, isOwn, type OwnFeeling, STEP_LABEL, weekStep, wordsUsed } from "./feelings";
 import { formatTime, type JournalEntry, placeOf } from "./journal";
-import { weekLabel } from "./timeline";
+import { dayInSentence, placeInSentence } from "./labels";
 
 /** The kinds kept as records, in the order they're shown. */
 export const RECORDS = ["movements", "appetite", "feelings", "papers"] as const;
@@ -33,23 +33,6 @@ export const LATELY_DAYS = 14;
 
 /** How far back feelings look, today among them. */
 const FEELING_DAYS = 28;
-
-/** "today", "yesterday", or "Sat 31 Oct". */
-function dayWord(day: ISODate, today: ISODate): string {
-  const ago = daysBetween(day, today);
-  if (ago === 0) return "today";
-  if (ago === 1) return "yesterday";
-  return formatDate(day, { weekday: "short", day: "numeric", month: "short" });
-}
-
-/** "week 12", or with no due date the day. */
-function whenWord(day: ISODate, dueDate: ISODate | null): string {
-  if (!dueDate) return formatDate(day, { day: "numeric", month: "short" });
-  const place = placeOf(day, dueDate);
-  if (place === "before") return "before the pregnancy";
-  if (place === "after") return "after week 42";
-  return weekLabel(place).toLowerCase();
-}
 
 /** "3 times", "twice", "once". */
 function times(n: number): string {
@@ -88,7 +71,7 @@ export function movementsRecord(journal: readonly JournalEntry[], today: ISODate
   const lines: string[] = [];
   const days = new Set(lately.map((e) => e.day)).size;
   // Felt as different comes first: it's the one the midwife needs to hear.
-  const different = lately.filter((e) => e.different).map((e) => dayWord(e.day as ISODate, today));
+  const different = lately.filter((e) => e.different).map((e) => dayInSentence(e.day as ISODate, today));
   if (different.length > 0) lines.push(`Felt as slower, weaker or stopped ${list([...new Set(different)])}.`);
   const timed = lately.flatMap((e) => (e.time ? [partOf(e.time)] : []));
   if (timed.length >= 3) {
@@ -98,8 +81,8 @@ export function movementsRecord(journal: readonly JournalEntry[], today: ISODate
     if (usual.length > 0 && usual.length < 4) lines.push(`Usually in ${list(usual)}.`);
   }
   const last = kept.at(-1)!;
-  lines.push(`Last kept ${dayWord(last.day as ISODate, today)}${last.time ? `, ${formatTime(last.time)}` : ""}.`);
-  lines.push(`First kept in ${whenWord(kept[0]!.day as ISODate, dueDate)}.`);
+  lines.push(`Last kept ${dayInSentence(last.day as ISODate, today)}${last.time ? `, ${formatTime(last.time)}` : ""}.`);
+  lines.push(`First kept in ${placeInSentence(kept[0]!.day as ISODate, dueDate)}.`);
   const headline = days > 0 ? `${days} of the last ${LATELY_DAYS} days` : `None in the last ${LATELY_DAYS} days`;
   return { headline, lines, lately: days > 0 };
 }
@@ -114,8 +97,8 @@ function dayCount(n: number): string {
 
 /** Where a run of days falls: "in week 9", "from week 6 to week 13", or by date without a due date. */
 function span(first: ISODate, last: ISODate, dueDate: ISODate | null): string {
-  const a = whenWord(first, dueDate);
-  const b = whenWord(last, dueDate);
+  const a = placeInSentence(first, dueDate);
+  const b = placeInSentence(last, dueDate);
   return a === b ? `in ${a}` : `from ${a} to ${b}`;
 }
 
@@ -160,8 +143,8 @@ export function sicknessRecord(appetite: readonly AppetiteEntry[], today: ISODat
   if (fluids > 0) lines.push(`Couldn't keep fluids down on ${dayCount(fluids)}.`);
   const last = days.at(-1)!;
   const lately = days.filter((d) => d >= addDays(today, 1 - LATELY_DAYS)).length;
-  if (lately > 0) lines.push(`Last kept ${dayWord(last, today)}.`);
-  const headline = lately > 0 ? `${lately} of the last ${LATELY_DAYS} days` : `None since ${whenWord(last, dueDate)}`;
+  if (lately > 0) lines.push(`Last kept ${dayInSentence(last, today)}.`);
+  const headline = lately > 0 ? `${lately} of the last ${LATELY_DAYS} days` : `None since ${placeInSentence(last, dueDate)}`;
   return { headline, lines, lately: lately > 0 };
 }
 

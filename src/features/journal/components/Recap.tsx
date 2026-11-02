@@ -9,14 +9,15 @@ import { Check, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { useState } from "react";
 import { usePeopleQuery } from "../../../api/rpc/people";
 import { useSettingsQuery } from "../../../api/rpc/settings";
-import { formatDate, type ISODate } from "../../../lib/dates";
+import { type ISODate, todayISO } from "../../../lib/dates";
 import { firstOf } from "../../../lib/firsts";
 import { placeOf } from "../../../lib/journal";
 import type { RecapSpan } from "../../../lib/journalNow";
+import { shortDate } from "../../../lib/labels";
 import { type Recap, type RecapPart, recapOf, recapParts } from "../../../lib/recap";
 import type { StoryItem } from "../../../lib/story";
 import { weekLabel } from "../../../lib/timeline";
-import { describePhoto } from "../model/describePhoto";
+import { describePhoto } from "../model/labels";
 import { Picture } from "./entries/photos/Picture";
 import { Flipbook } from "./entries/photos/Scrubber";
 
@@ -37,10 +38,6 @@ const PART_TITLE: Record<RecapPart, string> = {
   done: "What you got done",
 };
 
-function dayOf(day: string): string {
-  return formatDate(day as ISODate, { day: "numeric", month: "short" });
-}
-
 /** One part of a recap, drawn. */
 export function RecapPartView({ recap, part }: { recap: Recap; part: RecapPart }) {
   const { data: settings } = useSettingsQuery();
@@ -48,7 +45,7 @@ export function RecapPartView({ recap, part }: { recap: Recap; part: RecapPart }
   const name = (id: string | null) => (id === null ? null : id === people.me?.id ? "You" : (people.people.find((p) => p.id === id)?.name ?? null));
   const week = (day: string) => {
     const place = settings.dueDate ? placeOf(day as ISODate, settings.dueDate) : null;
-    return typeof place === "number" ? weekLabel(place) : dayOf(day);
+    return typeof place === "number" ? weekLabel(place) : shortDate(day as ISODate, todayISO());
   };
 
   switch (part) {

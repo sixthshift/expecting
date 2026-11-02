@@ -18,8 +18,8 @@ import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { type AppetiteEntry, type AppetiteKind, describe, type How, inputOf } from "../../../../../lib/appetite";
 import type { ISODate } from "../../../../../lib/dates";
-import { when } from "../../../model/dates";
-import { keptBy } from "../../../model/keptBy";
+import { when } from "../../../../../lib/labels";
+import { keptBy } from "../../../model/labels";
 import { HowPicker, KIND_OPTIONS, WhenFields } from "./AppetiteFields";
 import { TooSick } from "./TooSick";
 
