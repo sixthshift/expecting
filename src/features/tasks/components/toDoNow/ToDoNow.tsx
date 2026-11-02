@@ -4,7 +4,6 @@ import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { checklistSaves, useChecklistQuery } from "../../../../api/rpc/checklist";
-import { usePeopleQuery } from "../../../../api/rpc/people";
 import { useNow } from "../../../../api/rpc/settings";
 import { useSave } from "../../../../app/hooks/useSave";
 import { toDoNow, whenToDo } from "../../../../lib/todo";
@@ -26,7 +25,6 @@ const LEAVING_MS = 750;
  * ticked, and a toast offers it back.
  */
 export function ToDoNow() {
-  const { me, people } = usePeopleQuery().data;
   const { data: checklist } = useChecklistQuery();
   const now = useNow();
   const tasks = useTasks();
@@ -74,7 +72,7 @@ export function ToDoNow() {
                     <span>{whenToDo(entry, now)}</span>
                   )}
                   {/* Both of yours is the usual; only one person's job says whose. */}
-                  <Whose who={entry.task.who} me={me} people={people} />
+                  <Whose who={entry.task.who} />
                 </span>
               }
               action={

@@ -1,6 +1,6 @@
 import { UserRound } from "lucide-react";
+import { usePeopleQuery } from "../../../api/rpc/people";
 import type { Task } from "../../../content/schema";
-import type { Person } from "../../../lib/people";
 import { whose } from "../../../lib/people";
 
 /**
@@ -8,12 +8,13 @@ import { whose } from "../../../lib/people";
  * "Yours", "Sam's", "The pregnant parent's", marked with a person so it reads as
  * whose job it is rather than a word left hanging. Nothing for a job together.
  */
-export function Whose({ who, me, people }: { who: Task["who"]; me: Person | null; people: readonly Person[] }) {
+export function Whose({ who }: { who: Task["who"] }) {
+  const { data: people } = usePeopleQuery();
   if (who === "together") return null;
   return (
     <span className="inline-flex items-center gap-1">
       <UserRound aria-hidden size={12} />
-      {whose(who, me, people)}
+      {whose(who, people.me, people.people)}
     </span>
   );
 }

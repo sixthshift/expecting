@@ -5,18 +5,15 @@ import { useChecklistQuery } from "../../../api/rpc/checklist";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import type { Task } from "../../../content/schema";
-import { planTasks, stageEnding, stagesAhead } from "../../../lib/planner/plan";
+import { stageEnding } from "../../../lib/planner/plan";
 import { weeksChart } from "../../../lib/planner/weeks";
 import type { Week } from "../../../lib/timeline";
 import { useItems } from "../../library/hooks/useItems";
 import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
-import { useTasks } from "../../tasks/hooks/useTasks";
 import { WeeksChart } from "../components/weeks/WeeksChart";
+import { usePlan } from "../hooks/usePlan";
 
 const route = getRouteApi("/app/planner/weeks");
-
-/** Nothing ticked during this visit here: the chart is for looking, and ticking is To do's. */
-const NONE: ReadonlySet<string> = new Set();
 
 /**
  * The weeks ("Across the weeks" on screen): To do drawn as a chart, for when you want the whole run of
@@ -29,11 +26,11 @@ export function WeeksPage() {
   const { data: checklist } = useChecklistQuery();
   const { data: quiet } = useQuietQuery();
   const now = useNow();
-  const tasks = useTasks();
+  // Nothing ticked during this visit here: the chart is for looking, and ticking is To do's.
+  const { plan, stages } = usePlan();
   const items = useItems();
   const ends = useMemo(() => new Map(items.map((i) => [i.id, i.to])), [items]);
-  const plan = planTasks(tasks, checklist.ticks, NONE, now);
-  const chart = weeksChart(plan, stagesAhead(plan), checklist.ticks, now, (task: Task): Week | null => (task.itemId ? (ends.get(task.itemId) ?? null) : null));
+  const chart = weeksChart(plan, stages, checklist.ticks, now, (task: Task): Week | null => (task.itemId ? (ends.get(task.itemId) ?? null) : null));
   const focus = stage === undefined ? null : stageEnding(stage);
 
   // Opened at a stage: bring its group into view, once the router has put the page at its top.
