@@ -50,6 +50,8 @@ export const VIEWS = {
 } as const;
 export type View = keyof typeof VIEWS;
 export const VIEW_KEYS = Object.keys(VIEWS) as View[];
+/** The extras that bring Your people, one for each view, in order. */
+export const VIEW_EXTRAS = VIEW_KEYS.map((v) => VIEWS[v].extra);
 
 /** The views whose extra is on, in order. */
 export function viewsOn(on: ReadonlySet<string>): View[] {

@@ -596,7 +596,7 @@ test("This week offers an extra nobody has decided on, once", async ({ page, ope
 test("the names game: a name is shortlisted only when you both like it, or one of you superlikes it", async ({ page, open, browser }) => {
   // It comes with the Choosing a name extra.
   await open("/drawer");
-  await page.getByRole("link", { name: "Turn it on in settings" }).click();
+  await page.getByRole("region", { name: "Baby names" }).getByRole("link", { name: "Turn it on in settings" }).click();
   await page.getByRole("switch", { name: "Choosing a name" }).click();
   await expect(page.getByRole("switch", { name: "Choosing a name" })).toBeChecked();
 

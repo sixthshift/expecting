@@ -1,19 +1,15 @@
 import { Button } from "@sixthshift/design-system/button";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
-import { getRouteApi, Link } from "@tanstack/react-router";
-import { ChevronLeft, PartyPopper, Shuffle } from "lucide-react";
+import { getRouteApi } from "@tanstack/react-router";
+import { PartyPopper, Shuffle } from "lucide-react";
 import { bingoSaves, useBingoQuery } from "../../../api/rpc/bingo";
-import { useExtrasQuery } from "../../../api/rpc/extras";
 import { usePeopleQuery } from "../../../api/rpc/people";
-import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useSave } from "../../../app/hooks/useSave";
 import { type Card, deal, type Standing, standing, standingLine } from "../../../lib/bingo";
 import type { ISODate } from "../../../lib/dates";
-import { extrasOn } from "../../../lib/extras";
 import { dayMonth } from "../../../lib/labels";
 import { OTHER_ONE, otherOf } from "../../../lib/people";
-import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
-import { extra } from "../../settings/model/extras";
+import { DrawerFrame } from "../../drawer/components/frame/DrawerFrame";
 import { BingoGrid } from "../components/card/BingoGrid";
 
 const route = getRouteApi("/app/drawer/bingo");
@@ -27,8 +23,6 @@ const route = getRouteApi("/app/drawer/bingo");
 export function BingoPage() {
   const { data: bingo } = useBingoQuery();
   const { me, people } = usePeopleQuery().data;
-  const { data: on } = useExtrasQuery({ select: (e) => extrasOn(e).has("pregnancy-bingo") });
-  const { data: quiet } = useQuietQuery();
   const dealCard = useSave(bingoSaves.dealCard);
   const navigate = route.useNavigate();
   const showing = route.useSearch().card ?? "mine";
@@ -36,25 +30,11 @@ export function BingoPage() {
   const mine = bingo.cards.find((c) => c.personId === me?.id) ?? null;
   const theirs = them ? (bingo.cards.find((c) => c.personId === them.id) ?? null) : null;
   const other = them?.name ?? OTHER_ONE;
-  const tool = extra("pregnancy-bingo");
   const card = showing === "theirs" ? theirs : mine;
 
   return (
-    <main className="mx-auto w-full max-w-2xl px-4 pb-16 md:px-8">
-      <Link to="/drawer" className="mt-4 flex min-h-11 items-center gap-1 text-sm text-fg-subtle">
-        <ChevronLeft aria-hidden size={16} /> The Drawer
-      </Link>
-      <h1 className="mb-2 font-display text-3xl font-semibold text-fg-strong">Pregnancy bingo</h1>
-      {quiet ? (
-        <PutAwayNotice subject="Bingo" />
-      ) : !on ? (
-        <p className="text-sm text-fg-normal">
-          This comes with {tool.name}.{" "}
-          <Link to="/settings" search={{ ask: `extra:${tool.id}` }} className="underline">
-            Turn it on in settings
-          </Link>
-        </p>
-      ) : !me ? (
+    <DrawerFrame title="Pregnancy bingo" width="2xl" putAway={{ subject: "Bingo" }} extras={["pregnancy-bingo"]}>
+      {!me ? (
         <p className="text-sm text-fg-normal">Say who's holding this phone, and you'll be dealt a card.</p>
       ) : (
         <div className="flex flex-col gap-5">
@@ -98,7 +78,7 @@ export function BingoPage() {
           )}
         </div>
       )}
-    </main>
+    </DrawerFrame>
   );
 }
 

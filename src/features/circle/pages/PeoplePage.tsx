@@ -1,13 +1,11 @@
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
-import { getRouteApi, Link } from "@tanstack/react-router";
-import { ChevronLeft } from "lucide-react";
+import { getRouteApi } from "@tanstack/react-router";
 import { useCircleQuery } from "../../../api/rpc/circle";
 import { useExtrasQuery } from "../../../api/rpc/extras";
-import { useQuietQuery } from "../../../api/rpc/quiet";
-import { type Circle, type CirclePerson, groupsOf, HEARS, toThank, VIEWS, VISITS, type View, viewsOn } from "../../../lib/circle";
+import { type Circle, type CirclePerson, groupsOf, HEARS, toThank, VIEW_EXTRAS, VIEWS, VISITS, type View, viewsOn } from "../../../lib/circle";
 import { extrasOn } from "../../../lib/extras";
 import { weekdayDate } from "../../../lib/labels";
-import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
+import { DrawerFrame } from "../../drawer/components/frame/DrawerFrame";
 import { AddPerson } from "../components/addPerson/AddPerson";
 import { Announcement } from "../components/announcement/Announcement";
 import { Gifts } from "../components/gifts/Gifts";
@@ -32,29 +30,15 @@ const ABOUT: Record<View, string> = {
 export function PeoplePage() {
   const { data: circle } = useCircleQuery();
   const { data: on } = useExtrasQuery({ select: extrasOn });
-  const { data: quiet } = useQuietQuery();
   const navigate = route.useNavigate();
   const views = viewsOn(on);
   const asked = route.useSearch().view;
   const view = asked && views.includes(asked) ? asked : views[0];
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-4 pb-16 md:px-8">
-      <Link to="/drawer" className="mt-4 flex min-h-11 items-center gap-1 text-sm text-fg-subtle">
-        <ChevronLeft aria-hidden size={16} /> The Drawer
-      </Link>
-      <h1 className="font-display text-3xl font-semibold text-fg-strong">Your people</h1>
-      {quiet ? (
-        <PutAwayNotice subject="Your people" are className="mt-2" />
-      ) : !view ? (
-        <p className="mt-2 text-sm text-fg-normal">
-          Your people comes with Visitors, Birth announcement, Lining up help and Thank-you notes.{" "}
-          <Link to="/settings" search={{ ask: `extra:${VIEWS.visitors.extra}` }} className="underline">
-            Turn one on in settings
-          </Link>
-        </p>
-      ) : (
-        <div className="mt-2 flex flex-col gap-5">
+    <DrawerFrame title="Your people" putAway={{ subject: "Your people", are: true }} extras={VIEW_EXTRAS}>
+      {view ? (
+        <div className="flex flex-col gap-5">
           <p className="text-fg-subtle">The people around you two, and what each of them is doing. Only you two see it.</p>
           {views.length > 1 ? (
             <ToggleGroup
@@ -73,8 +57,8 @@ export function PeoplePage() {
           <ViewBody view={view} circle={circle} />
           <AddPerson />
         </div>
-      )}
-    </main>
+      ) : null}
+    </DrawerFrame>
   );
 }
 

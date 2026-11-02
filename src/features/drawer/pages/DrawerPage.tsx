@@ -9,12 +9,12 @@ import { usePeopleQuery } from "../../../api/rpc/people";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { standing, standingLine } from "../../../lib/bingo";
-import { toThank, viewsOn } from "../../../lib/circle";
+import { toThank, VIEW_EXTRAS, viewsOn } from "../../../lib/circle";
 import { extrasOn } from "../../../lib/extras";
 import { outcomes } from "../../../lib/jobs";
 import { otherOf } from "../../../lib/people";
 import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
-import { extra } from "../../settings/model/extras";
+import { ComesWith } from "../components/ComesWith";
 
 /**
  * The handy things, each for its moment: the names (with the Choosing a name extra), your people (with any extra
@@ -26,14 +26,11 @@ export function DrawerPage() {
   const { me, people } = usePeopleQuery().data;
   const { data: extras } = useExtrasQuery({ select: extrasOn });
   const other = otherOf(people, me);
-  const naming = extra("choosing-names");
   const { data: quiet } = useQuietQuery();
   const { data: circle } = useCircleQuery();
   const peopleOn = viewsOn(extras).length > 0;
   const thanks = toThank(circle.gifts).length;
   const { data: jobs } = useJobsQuery();
-  const sharing = extra("who-does-what");
-  const playing = extra("pregnancy-bingo");
   const { data: bingo } = useBingoQuery();
   const myCard = bingo.cards.find((c) => c.personId === me?.id) ?? null;
   const theirCard = other ? (bingo.cards.find((c) => c.personId === other.id) ?? null) : null;
@@ -62,16 +59,13 @@ export function DrawerPage() {
           <ChevronRight aria-hidden size={20} className="shrink-0 text-fg-subtle" />
         </Link>
       ) : (
-        <div className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
+        <section aria-label="Baby names" className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
           <Baby aria-hidden size={18} className="mt-0.5 shrink-0 text-fg-brand" />
           <p className="text-sm text-fg-normal">
             <span className="font-medium text-fg-strong">Baby names:</span> swipe through names on your own phones; a name is a match only when you both like
-            it. It comes with {naming.name}.{" "}
-            <Link to="/settings" search={{ ask: `extra:${naming.id}` }} className="underline">
-              Turn it on in settings
-            </Link>
+            it. <ComesWith extras={["choosing-names"]} />
           </p>
-        </div>
+        </section>
       )}
       {quiet ? null : peopleOn ? (
         <Link
@@ -90,18 +84,15 @@ export function DrawerPage() {
           <ChevronRight aria-hidden size={20} className="shrink-0 text-fg-subtle" />
         </Link>
       ) : (
-        <div className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
+        <section aria-label="Your people" className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
           <Users aria-hidden size={18} className="mt-0.5 shrink-0 text-fg-brand" />
           <p className="text-sm text-fg-normal">
-            <span className="font-medium text-fg-strong">Your people:</span> who visits, who hears first, who helps, and who gave what, kept by you both. It
-            comes with Visitors, Birth announcement, Lining up help or Thank-you notes.{" "}
-            <Link to="/settings" search={{ ask: "extra:visitors" }} className="underline">
-              Turn one on in settings
-            </Link>
+            <span className="font-medium text-fg-strong">Your people:</span> who visits, who hears first, who helps, and who gave what, kept by you both.{" "}
+            <ComesWith extras={VIEW_EXTRAS} />
           </p>
-        </div>
+        </section>
       )}
-      {quiet ? null : extras.has(sharing.id) ? (
+      {quiet ? null : extras.has("who-does-what") ? (
         <Link to="/drawer/jobs" className="flex max-w-3xl items-center gap-4 rounded-xl border border-border-subtle bg-bg-normal p-5 hover:border-border-brand">
           <Scale aria-hidden size={28} className="shrink-0 text-fg-brand" />
           <span className="flex flex-1 flex-col gap-1">
@@ -115,18 +106,15 @@ export function DrawerPage() {
           <ChevronRight aria-hidden size={20} className="shrink-0 text-fg-subtle" />
         </Link>
       ) : (
-        <div className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
+        <section aria-label="Who does what" className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
           <Scale aria-hidden size={18} className="mt-0.5 shrink-0 text-fg-brand" />
           <p className="text-sm text-fg-normal">
-            <span className="font-medium text-fg-strong">Who does what:</span> each of you says who'll do each newborn job, then you see where you agree. It
-            comes with {sharing.name}.{" "}
-            <Link to="/settings" search={{ ask: `extra:${sharing.id}` }} className="underline">
-              Turn on Who does what in settings
-            </Link>
+            <span className="font-medium text-fg-strong">Who does what:</span> each of you says who'll do each newborn job, then you see where you agree.{" "}
+            <ComesWith extras={["who-does-what"]} />
           </p>
-        </div>
+        </section>
       )}
-      {quiet ? null : extras.has(playing.id) ? (
+      {quiet ? null : extras.has("pregnancy-bingo") ? (
         <Link
           to="/drawer/bingo"
           className="flex max-w-3xl items-center gap-4 rounded-xl border border-border-subtle bg-bg-normal p-5 hover:border-border-brand"
@@ -145,16 +133,13 @@ export function DrawerPage() {
           <ChevronRight aria-hidden size={20} className="shrink-0 text-fg-subtle" />
         </Link>
       ) : (
-        <div className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
+        <section aria-label="Pregnancy bingo" className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
           <Grid3x3 aria-hidden size={18} className="mt-0.5 shrink-0 text-fg-brand" />
           <p className="text-sm text-fg-normal">
-            <span className="font-medium text-fg-strong">Pregnancy bingo:</span> a card each of the things people say and do, first to a line wins. It comes
-            with {playing.name}.{" "}
-            <Link to="/settings" search={{ ask: `extra:${playing.id}` }} className="underline">
-              Turn on bingo in settings
-            </Link>
+            <span className="font-medium text-fg-strong">Pregnancy bingo:</span> a card each of the things people say and do, first to a line wins.{" "}
+            <ComesWith extras={["pregnancy-bingo"]} />
           </p>
-        </div>
+        </section>
       )}
     </main>
   );
