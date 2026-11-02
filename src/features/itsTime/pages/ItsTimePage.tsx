@@ -1,24 +1,23 @@
-import { Button } from "@sixthshift/design-system/button";
 import { cn } from "@sixthshift/design-system/utils";
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useChecklistQuery } from "../../../api/rpc/checklist";
 import { useEmergencyQuery } from "../../../api/rpc/emergency";
 import { useAnswersQuery } from "../../../api/rpc/facts";
-import { itsTimeSaves, useItsTimeQuery } from "../../../api/rpc/itsTime";
+import { useItsTimeQuery } from "../../../api/rpc/itsTime";
 import { useListsQuery } from "../../../api/rpc/lists";
 import { usePeopleQuery } from "../../../api/rpc/people";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { usePosition, useSettingsQuery } from "../../../api/rpc/settings";
 import { Redirect } from "../../../app/components/Redirect";
-import { useSave } from "../../../app/hooks/useSave";
 import { todayISO } from "../../../lib/dates";
 import { factsOf } from "../../../lib/facts";
-import { type Ending, openStart, patternOf } from "../../../lib/itsTime";
+import { openStart, patternOf } from "../../../lib/itsTime";
 import { useLines } from "../../planner/hooks/useLines";
 import { BeforeYouGo } from "../components/beforeYouGo/BeforeYouGo";
 import { CallNow } from "../components/callNow/CallNow";
+import { End } from "../components/end/End";
 import { GettingThere } from "../components/gettingThere/GettingThere";
 import { Ready } from "../components/ready/Ready";
 import { TheyllAsk } from "../components/theyllAsk/TheyllAsk";
@@ -132,39 +131,5 @@ function ItsTime() {
         {start ? <End startId={start.id} home={home} /> : null}
       </div>
     </main>
-  );
-}
-
-/** The end of a start: we're there, or a false alarm and home again. Asked twice: a stray tap shouldn't end the night. */
-function End({ startId, home }: { startId: string; home: boolean }) {
-  const end = useSave(itsTimeSaves.endStart);
-  const [asking, setAsking] = useState<Ending | null>(null);
-  const label: Record<Ending, string> = { there: home ? "The midwife's here" : "We're there", home: "False alarm, we're home" };
-  if (asking) {
-    return (
-      <div className="flex flex-col gap-2 rounded-xl border border-border-subtle bg-bg-subtle p-4">
-        <p className="text-fg-strong">
-          {asking === "there" ? "End this start? The night is kept in the Journal." : "End this start? The contractions are kept here."}
-        </p>
-        <div className="flex gap-2">
-          <Button intent="brand" onClick={() => end({ startId, ended: asking })}>
-            {label[asking]}
-          </Button>
-          <Button variant="outline" onClick={() => setAsking(null)}>
-            Not yet
-          </Button>
-        </div>
-      </div>
-    );
-  }
-  return (
-    <div className="flex flex-col gap-2 border-border-subtle border-t pt-6 sm:flex-row">
-      <Button size="lg" variant="outline" className="min-h-14 flex-1" onClick={() => setAsking("there")}>
-        {label.there}
-      </Button>
-      <Button size="lg" variant="ghost" className="min-h-14 flex-1" onClick={() => setAsking("home")}>
-        {label.home}
-      </Button>
-    </div>
   );
 }
