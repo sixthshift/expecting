@@ -1,7 +1,7 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { Link } from "@tanstack/react-router";
 import { allWeeks, trimester, WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
-import { LANDMARKS } from "../../../../lib/timelineMap";
+import { LANDMARKS } from "../../../../lib/timelineWeeks";
 
 const SPAN = WEEKS.last - WEEKS.first + 1;
 /** The middle of a week across the strip, as a percentage. */
@@ -17,7 +17,7 @@ const SHORT = { 1: "First", 2: "Second", 3: "Third" } as const;
  * is a quicker way there for a finger, so it's left out of the tab order and
  * read as words by the line beside it.
  *
- * `named` gives the landmarks their names, where there's room (the map's head).
+ * `named` gives the landmarks their names, where there's room (the timeline's head).
  */
 export function PregnancyStrip({ now, at, due, named = false }: { now: Week; at: Week; due: ReadonlySet<Week>; named?: boolean }) {
   return (

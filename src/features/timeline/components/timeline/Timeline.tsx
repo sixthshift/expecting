@@ -14,13 +14,13 @@ import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { useOutOfTheWay } from "../../../../app/hooks/useOutOfTheWay";
 import { weekNotes } from "../../../../content";
 import type { Week } from "../../../../lib/timeline";
-import { mapWeeks, mapWindows } from "../../../../lib/timelineMap";
+import { timelineWeeks, timelineWindows } from "../../../../lib/timelineWeeks";
 import { useItems } from "../../../library/hooks/useItems";
 import { useTasks } from "../../../tasks/hooks/useTasks";
 import { Welcome } from "../../../thisWeek/components/welcome/Welcome";
-import { MapHeader } from "../header/MapHeader";
+import { TimelineHeader } from "../header/TimelineHeader";
 import { PregnancyStrip } from "../strip/PregnancyStrip";
-import { WeekMap } from "../weekMap/WeekMap";
+import { TimelineWeeks } from "../weeks/TimelineWeeks";
 
 /** Bring a week's line into view: the middle of the screen, or the top for the first weeks. */
 function scrollToWeek(week: Week, smooth: boolean) {
@@ -28,7 +28,7 @@ function scrollToWeek(week: Week, smooth: boolean) {
 }
 
 /**
- * The whole pregnancy at once: the map, opened from This week. The pregnancy
+ * The whole pregnancy at once: the timeline, opened from This week. The pregnancy
  * in a line, then every week a line, under its trimester, with the landmarks.
  * A week's detail is This week's: each line goes there. What's to do across
  * the weeks is the Planner's chart. One column on a phone, and three on a
@@ -50,8 +50,8 @@ export function Timeline({ at }: { at: Week | undefined }) {
   const { dueDate } = settings;
   const due = useMemo(() => new Set(tasks.filter((t) => !checklist.ticks[t.id]).map((t) => t.due)), [tasks, checklist.ticks]);
   const away = useOutOfTheWay();
-  const windows = useMemo(() => mapWindows(items, checklist.ticks, now), [items, checklist.ticks, now]);
-  const weeks = mapWeeks({
+  const windows = useMemo(() => timelineWindows(items, checklist.ticks, now), [items, checklist.ticks, now]);
+  const weeks = timelineWeeks({
     notes: weekNotes,
     windows,
     tasks,
@@ -77,13 +77,13 @@ export function Timeline({ at }: { at: Week | undefined }) {
 
   return (
     <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
-      <MapHeader lead="Every week at once. Tap one to see it.">
+      <TimelineHeader lead="Every week at once. Tap one to see it.">
         {now !== null ? (
           <div className="mt-4">
             <PregnancyStrip now={now} at={at ?? now} due={due} named />
           </div>
         ) : null}
-      </MapHeader>
+      </TimelineHeader>
       {!dueDate ? <Welcome /> : null}
       {now !== null ? (
         <Button
@@ -101,7 +101,7 @@ export function Timeline({ at }: { at: Week | undefined }) {
         </Button>
       ) : null}
 
-      <WeekMap weeks={weeks} at={at} />
+      <TimelineWeeks weeks={weeks} at={at} />
     </main>
   );
 }

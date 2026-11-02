@@ -17,7 +17,7 @@ import { WeekStepper } from "./WeekStepper";
  * baby's size when that week's own note gives it, and how far along you are.
  * Peeking at another week, the heading is that week, as seen from this one
  * ("Next week"), with its dates. Under it the whole pregnancy in a line (a
- * week goes to that week) and the way to the map; then a step back or ahead.
+ * week goes to that week) and the way to the timeline; then a step back or ahead.
  */
 export function Hero() {
   const { week, position, dueDate, note, peeking } = useThisWeekPage();

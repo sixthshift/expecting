@@ -5,7 +5,7 @@ import type { Bar, BarGroup, BarState, Chart } from "../../../../lib/acrossTheWe
 import { inWeeks } from "../../../../lib/labels";
 import { STAGES } from "../../../../lib/planner";
 import { TRIMESTERS, WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
-import { LANDMARKS } from "../../../../lib/timelineMap";
+import { LANDMARKS } from "../../../../lib/timelineWeeks";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 
 const SPAN = WEEKS.last - WEEKS.first + 1;

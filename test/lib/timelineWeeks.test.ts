@@ -5,7 +5,7 @@ import type { ISODate } from "../../src/lib/dates";
 import type { Step } from "../../src/lib/feelings";
 import type { JournalEntry } from "../../src/lib/journal";
 import type { Question } from "../../src/lib/questions";
-import { type MapInput, mapWeeks, mapWindows } from "../../src/lib/timelineMap";
+import { type TimelineInput, timelineWeeks, timelineWindows } from "../../src/lib/timelineWeeks";
 
 const task = (id: string, due: number, itemId: string | null = "i"): Task => ({
   id,
@@ -54,7 +54,7 @@ const bag = item("bag", 32, 36);
 const reading = item("reading", 20, 22, []);
 
 describe("the windows", () => {
-  const windows = mapWindows([rsv, reading, gtt, bag, screening], {}, 28);
+  const windows = timelineWindows([rsv, reading, gtt, bag, screening], {}, 28);
 
   test("only what asks something of you, by its first week", () => {
     expect(windows.map((w) => w.item.id)).toEqual(["screening", "gtt", "rsv", "bag"]);
@@ -65,14 +65,14 @@ describe("the windows", () => {
   });
 
   test("a window whose tasks are all ticked is done, whenever it is", () => {
-    expect(mapWindows([bag], { "bag-task": "2026-10-28T00:00:00Z" }, 28)[0]?.state).toBe("done");
+    expect(timelineWindows([bag], { "bag-task": "2026-10-28T00:00:00Z" }, 28)[0]?.state).toBe("done");
   });
 });
 
 describe("the weeks", () => {
-  const input: MapInput = {
+  const input: TimelineInput = {
     notes: [],
-    windows: mapWindows([gtt, rsv], {}, 28),
+    windows: timelineWindows([gtt, rsv], {}, 28),
     tasks: [task("gtt-task", 26, "gtt"), task("rsv-task", 30, "rsv"), task("snacks", 28, null), task("done", 28, null)],
     ticks: { done: "2026-10-28T00:00:00Z" },
     questions: [],
@@ -82,7 +82,7 @@ describe("the weeks", () => {
     now: 28,
     dueDate: "2027-01-19" as ISODate,
   };
-  const weeks = mapWeeks(input);
+  const weeks = timelineWeeks(input);
   const at = (w: number) => weeks.find((m) => m.week === w)!;
 
   test("every week, 1 to 42, with the landmarks", () => {
@@ -109,7 +109,7 @@ describe("the weeks", () => {
 
   test("an asked question counts in the week it was asked", () => {
     const asked: Question = { id: "q", text: "?", answer: null, askedAt: "2026-10-29T01:00:00Z", itemId: null, by: null, createdAt: "2026-10-01T00:00:00Z" };
-    const w = mapWeeks({ ...input, questions: [asked] });
+    const w = timelineWeeks({ ...input, questions: [asked] });
     expect(w.filter((m) => m.asked > 0).map((m) => m.week)).toEqual([28]);
   });
 
@@ -127,20 +127,20 @@ describe("the weeks", () => {
       editedBy: null,
       editedAt: null,
     });
-    const w = mapWeeks({ ...input, journal: [note("a", "2026-10-30"), note("b", "2026-11-02"), note("c", "2026-01-01")] });
+    const w = timelineWeeks({ ...input, journal: [note("a", "2026-10-30"), note("b", "2026-11-02"), note("c", "2026-01-01")] });
     expect(w.filter((m) => m.kept > 0).map((m) => [m.week, m.kept])).toEqual([[28, 2]]);
     expect(w.some((m) => m.moved)).toBe(false);
 
     // A movement marks its week, uncounted, and isn't a note.
     const moved = (id: string, day: string): JournalEntry => ({ ...note(id, day), kind: "movement", body: "", time: "21:00" });
-    const m = mapWeeks({ ...input, journal: [note("a", "2026-10-30"), moved("b", "2026-10-30"), moved("c", "2026-10-31")] });
+    const m = timelineWeeks({ ...input, journal: [note("a", "2026-10-30"), moved("b", "2026-10-30"), moved("c", "2026-10-31")] });
     expect(m.filter((x) => x.moved).map((x) => x.week)).toEqual([28]);
     expect(m.find((x) => x.week === 28)?.kept).toBe(1);
   });
 
   test("a week shows how each of you felt, one step each, and nothing for a week without", () => {
     const felt = (id: string, by: string, day: string, step: Step) => ({ id, by, day, time: "20:00", step, createdAt: `${day}T00:00:00Z` });
-    const w = mapWeeks({
+    const w = timelineWeeks({
       ...input,
       feelings: [
         felt("a", "sam", "2026-10-30", "low"),
@@ -150,7 +150,7 @@ describe("the weeks", () => {
       ],
     });
     expect(w.filter((m) => m.felt.length > 0).map((m) => [m.week, m.felt])).toEqual([[28, ["great", "okay"]]]);
-    expect(mapWeeks({ ...input, dueDate: null, feelings: [felt("a", "sam", "2026-10-30", "low")] }).every((m) => m.felt.length === 0)).toBe(true);
+    expect(timelineWeeks({ ...input, dueDate: null, feelings: [felt("a", "sam", "2026-10-30", "low")] }).every((m) => m.felt.length === 0)).toBe(true);
   });
 
   test("a week says how many days had sickness, and its most kept craving", () => {
@@ -168,7 +168,7 @@ describe("the weeks", () => {
       editedAt: null,
       ...rest,
     });
-    const w = mapWeeks({
+    const w = timelineWeeks({
       ...input,
       appetite: [
         kept("a", "2026-10-30", {}),
@@ -194,10 +194,10 @@ describe("the weeks", () => {
       editedBy: null,
       editedAt: null,
     });
-    const w = mapWeeks({ ...input, photos: [shot("a", "2026-10-30", "bump"), shot("b", "2026-10-31", "scan"), shot("c", "2026-10-31", "scan")] });
+    const w = timelineWeeks({ ...input, photos: [shot("a", "2026-10-30", "bump"), shot("b", "2026-10-31", "scan"), shot("c", "2026-10-31", "scan")] });
     expect(w.find((m) => m.week === 28)!.photos).toEqual({ bump: true, scans: 2, others: 0 });
     expect(w.filter((m) => m.photos.bump || m.photos.scans > 0).map((m) => m.week)).toEqual([28]);
-    expect(mapWeeks(input).every((m) => !m.photos.bump && m.photos.scans === 0 && m.photos.others === 0)).toBe(true);
+    expect(timelineWeeks(input).every((m) => !m.photos.bump && m.photos.scans === 0 && m.photos.others === 0)).toBe(true);
   });
 
   test("a week says what papers are dated in it, by kind, and nothing without them", () => {
@@ -215,9 +215,9 @@ describe("the weeks", () => {
       editedBy: null,
       editedAt: null,
     });
-    const w = mapWeeks({ ...input, papers: [paper("a", "2026-10-30", "result"), paper("b", "2026-10-31", "result"), paper("c", "2026-10-31", "letter")] });
+    const w = timelineWeeks({ ...input, papers: [paper("a", "2026-10-30", "result"), paper("b", "2026-10-31", "result"), paper("c", "2026-10-31", "letter")] });
     expect(w.find((m) => m.week === 28)!.papers).toEqual({ result: 2, letter: 1 });
     expect(w.filter((m) => Object.keys(m.papers).length > 0).map((m) => m.week)).toEqual([28]);
-    expect(mapWeeks(input).every((m) => Object.keys(m.papers).length === 0)).toBe(true);
+    expect(timelineWeeks(input).every((m) => Object.keys(m.papers).length === 0)).toBe(true);
   });
 });

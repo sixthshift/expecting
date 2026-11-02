@@ -1,4 +1,4 @@
-// The timeline as a map: the whole pregnancy at once. Pure, so what it shows
+// The timeline: the whole pregnancy at once, week by week. Pure, so what it shows
 // is tested apart from the screen.
 //
 //   every week, 1 to 42, one line each: its note's title or a landmark, what
@@ -19,16 +19,16 @@ import { type Photo, type WeekPhotos, weekPhotos } from "./photos";
 import type { Question } from "./questions";
 import { allWeeks, positionOn, type Week, weekDates } from "./timeline";
 
-/** The weeks people mark. The trimesters are the map's chapters, not landmarks. */
+/** The weeks people mark. The trimesters are the timeline's chapters, not landmarks. */
 export const LANDMARKS: Readonly<Record<Week, string>> = { 20: "Halfway", 37: "Full term", 40: "Due date" };
 
 /** Where a window stands today: behind, open now, ahead, or done (every task ticked). */
 export type WindowState = "past" | "open" | "ahead" | "done";
 
 /** An item that asks something of you, across its weeks. */
-export type MapWindow = { item: DatedItem; from: Week; to: Week; state: WindowState };
+export type TimelineWindow = { item: DatedItem; from: Week; to: Week; state: WindowState };
 
-export function mapWindows(items: readonly Item[], ticks: Record<string, string>, now: Week | null): MapWindow[] {
+export function timelineWindows(items: readonly Item[], ticks: Record<string, string>, now: Week | null): TimelineWindow[] {
   const asking = items.filter(asks).sort((a, b) => a.from - b.from || a.to - b.to);
   return asking.map((item) => {
     const done = item.tasks.every((t) => ticks[t.id]);
@@ -37,8 +37,8 @@ export function mapWindows(items: readonly Item[], ticks: Record<string, string>
   });
 }
 
-/** One week on the map. */
-export type MapWeek = {
+/** One week on the timeline. */
+export type TimelineWeek = {
   week: Week;
   isNow: boolean;
   isPast: boolean;
@@ -72,9 +72,9 @@ export type MapWeek = {
   papers: WeekPapers;
 };
 
-export type MapInput = {
+export type TimelineInput = {
   notes: readonly WeekNote[];
-  windows: readonly MapWindow[];
+  windows: readonly TimelineWindow[];
   tasks: readonly Task[];
   ticks: Record<string, string>;
   questions: readonly Question[];
@@ -91,7 +91,7 @@ export type MapInput = {
   dueDate: ISODate | null;
 };
 
-export function mapWeeks({
+export function timelineWeeks({
   notes,
   windows,
   tasks,
@@ -105,7 +105,7 @@ export function mapWeeks({
   appointments = [],
   now,
   dueDate,
-}: MapInput): MapWeek[] {
+}: TimelineInput): TimelineWeek[] {
   const asked = askedWeeks(questions, dueDate);
   const feelers = [...new Set(feelings.map((f) => f.by))].sort();
   const booked = dueDate ? appointments.map((a) => placeOf(a.day as ISODate, dueDate)) : [];
