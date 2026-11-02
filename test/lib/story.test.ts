@@ -1,6 +1,17 @@
 import { describe, expect, test } from "vitest";
-import { foldedWhileQuiet, landmarks, lensesKept, patternsKept, storyGroups, storyItems, storyMatches, trimesterOf, weekTiles } from "../../src/lib/story";
-import { appetite, DUE, entry, feeling, first, paper, photo, sources } from "./storyFixtures";
+import {
+  foldedWhileQuiet,
+  landmarks,
+  lensesKept,
+  patternsKept,
+  type StorySources,
+  storyGroups,
+  storyItems,
+  storyMatches,
+  trimesterOf,
+  weekTiles,
+} from "../../src/lib/story";
+import { appetite, DUE, entry, feeling, first, paper, photo, sources, story } from "./storyFixtures";
 
 describe("the story", () => {
   test("everything kept and done, newest first; a day's movements on one line, in time order", () => {
@@ -93,24 +104,25 @@ describe("the story", () => {
 
 describe("the patterns: only with enough to be one", () => {
   const today = "2026-10-31";
-  const base = { journal: [], appetite: [], feelings: [], photos: [], today, dueDate: DUE, me: "sam", quiet: false } as const;
+  const patterns = ({ quiet = false, ...kept }: Partial<StorySources> & { quiet?: boolean }) =>
+    patternsKept({ items: story(kept), today, dueDate: DUE, me: "sam", quiet });
 
   test("movements on three days of the fortnight", () => {
     const two = [entry("movement", "2026-10-30", { time: "09:00" }), entry("movement", "2026-10-29", { time: "09:00" })];
-    expect(patternsKept({ ...base, journal: two })).toEqual([]);
-    expect(patternsKept({ ...base, journal: [...two, entry("movement", "2026-10-20", { time: "09:00" })] })).toEqual(["movements"]);
+    expect(patterns({ journal: two })).toEqual([]);
+    expect(patterns({ journal: [...two, entry("movement", "2026-10-20", { time: "09:00" })] })).toEqual(["movements"]);
   });
 
   test("a craving kept twice, sickness in two weeks, three check-ins of yours, the bump in two weeks", () => {
-    expect(patternsKept({ ...base, appetite: [appetite("craving", "2026-10-30"), appetite("craving", "2026-10-01")] })).toEqual(["cravings"]);
-    expect(patternsKept({ ...base, appetite: [appetite("sick", "2026-10-30"), appetite("sick", "2026-10-20")] })).toEqual(["sickness"]);
+    expect(patterns({ appetite: [appetite("craving", "2026-10-30"), appetite("craving", "2026-10-01")] })).toEqual(["cravings"]);
+    expect(patterns({ appetite: [appetite("sick", "2026-10-30"), appetite("sick", "2026-10-20")] })).toEqual(["sickness"]);
     // Long over, it's lines in the story, not a pattern.
-    expect(patternsKept({ ...base, appetite: [appetite("sick", "2026-08-30"), appetite("sick", "2026-08-20")] })).toEqual([]);
+    expect(patterns({ appetite: [appetite("sick", "2026-08-30"), appetite("sick", "2026-08-20")] })).toEqual([]);
     const feelings = [feeling("sam", "2026-10-30"), feeling("sam", "2026-10-29"), feeling("alex", "2026-10-28")];
-    expect(patternsKept({ ...base, feelings })).toEqual([]);
-    expect(patternsKept({ ...base, feelings: [...feelings, feeling("sam", "2026-10-10")] })).toEqual(["feelings"]);
-    expect(patternsKept({ ...base, photos: [photo("bump", "2026-10-30"), photo("bump", "2026-10-20")] })).toEqual(["bump"]);
-    expect(patternsKept({ ...base, photos: [photo("bump", "2026-10-30"), photo("bump", "2026-10-20")], quiet: true })).toEqual([]);
+    expect(patterns({ feelings })).toEqual([]);
+    expect(patterns({ feelings: [...feelings, feeling("sam", "2026-10-10")] })).toEqual(["feelings"]);
+    expect(patterns({ photos: [photo("bump", "2026-10-30"), photo("bump", "2026-10-20")] })).toEqual(["bump"]);
+    expect(patterns({ photos: [photo("bump", "2026-10-30"), photo("bump", "2026-10-20")], quiet: true })).toEqual([]);
   });
 });
 

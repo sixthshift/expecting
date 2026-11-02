@@ -232,6 +232,26 @@ const questionLine = (pair: WeeklyPair): StoryItem => ({
   pair,
 });
 
+/** The records behind the story's lines, each kind's own: for what's worked out from them (the patterns, a recap). */
+export function keptIn(items: readonly StoryItem[]) {
+  const kept = {
+    journal: [] as JournalEntry[],
+    appetite: [] as AppetiteEntry[],
+    photos: [] as Photo[],
+    feelings: [] as Feeling[],
+    firsts: [] as (FirstMark & { day: string })[],
+  };
+  for (const i of items) {
+    if (i.kind === "note" || i.kind === "letter") kept.journal.push(i.entry);
+    else if (i.kind === "movements") kept.journal.push(...i.entries);
+    else if (i.kind === "appetite") kept.appetite.push(i.entry);
+    else if (i.kind === "photo") kept.photos.push(i.photo);
+    else if (i.kind === "feeling") kept.feelings.push(i.feeling);
+    else if (i.kind === "first") kept.firsts.push(i.mark);
+  }
+  return kept;
+}
+
 /** The lenses there's something for, in their fixed order: All first, always. While something has happened, not the folded kinds. */
 export function lensesKept(items: readonly StoryItem[], quiet: boolean): Lens[] {
   const kept = new Set(items.filter((i) => !(quiet && foldedWhileQuiet(i))).map(lensOf));
@@ -384,24 +404,19 @@ export type Pattern = "movements" | "sickness" | "cravings" | "feelings" | "bump
 
 /** The patterns there's enough for, in a fixed order. `me`: whose feelings (a pattern of your own); none without. */
 export function patternsKept({
-  journal,
-  appetite,
-  feelings,
-  photos,
+  items,
   today,
   dueDate,
   me,
   quiet,
 }: {
-  journal: readonly JournalEntry[];
-  appetite: readonly AppetiteEntry[];
-  feelings: readonly Feeling[];
-  photos: readonly Photo[];
+  items: readonly StoryItem[];
   today: ISODate;
   dueDate: ISODate | null;
   me: string | null;
   quiet: boolean;
 }): Pattern[] {
+  const { journal, appetite, feelings, photos } = keptIn(items);
   const from = addDays(today, 1 - PATTERN_DAYS);
   const movedDays = new Set(journal.filter((e) => e.kind === "movement" && e.day >= from && e.day <= today).map((e) => e.day));
   // Sickness is a pattern only while it's still going: some in the last fortnight, and in two weeks.

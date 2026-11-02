@@ -1,13 +1,8 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { useAppetite } from "../../../api/rpc/appetite";
-import { useChecklist } from "../../../api/rpc/checklist";
-import { useFeelings } from "../../../api/rpc/feelings";
 import { useFirsts } from "../../../api/rpc/firsts";
-import { useItsTime } from "../../../api/rpc/itsTime";
-import { journalSeenSaves, useJournal, useJournalSeen } from "../../../api/rpc/journal";
+import { journalSeenSaves, useJournalSeen } from "../../../api/rpc/journal";
 import { usePeople } from "../../../api/rpc/people";
-import { usePhotos } from "../../../api/rpc/photos";
 import { useQuiet } from "../../../api/rpc/quiet";
 import { usePosition, useSettings } from "../../../api/rpc/settings";
 import { useKeepSame } from "../../../app/hooks/useKeepSame";
@@ -45,13 +40,7 @@ export function useHighlights(items: StoryItem[]): HighlightsData {
   const { data: quiet } = useQuiet();
   const { data: settings } = useSettings();
   const { data: people } = usePeople();
-  const { data: journal } = useJournal();
-  const { data: appetite } = useAppetite();
-  const { data: feelings } = useFeelings();
-  const { data: photos } = usePhotos();
   const { data: firsts } = useFirsts();
-  const { data: itsTime } = useItsTime();
-  const { data: checklist } = useChecklist();
   const tasks = useTasks();
   const { data: seen } = useJournalSeen();
   const position = usePosition();
@@ -76,25 +65,15 @@ export function useHighlights(items: StoryItem[]): HighlightsData {
     seen: lastSeen,
     me: people.me,
     people: people.people,
-    suggestions: suggestFirsts({
-      marks: firsts,
-      journal,
-      photos,
-      appetite,
-      ticks: checklist.ticks,
-      tasks,
-      people: people.people,
-      quiet: isQuiet,
-      starts: itsTime.starts,
-    }),
+    suggestions: suggestFirsts({ items, marks: firsts, tasks, people: people.people, quiet: isQuiet }),
     today,
     position,
     dueDate,
     quiet: isQuiet,
     recapsOpened: opened,
-    recapHas: (span) => (dueDate ? hasRecap(recapOf({ span, dueDate, firsts, photos, appetite, journal, items })) : false),
+    recapHas: (span) => (dueDate ? hasRecap(recapOf({ span, dueDate, items })) : false),
   });
-  const patterns = patternsKept({ journal, appetite, feelings, photos, today, dueDate, me: people.me?.id ?? null, quiet: isQuiet });
+  const patterns = patternsKept({ items, today, dueDate, me: people.me?.id ?? null, quiet: isQuiet });
   // Kept the same while nothing in them changed, so the page's context (and the memo week so far) doesn't change with every save.
   const same = useKeepSame({ cards, patterns, suggested: cards.flatMap((c) => (c.kind === "first" ? [c.suggestion.key] : [])) });
 

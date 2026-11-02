@@ -6,7 +6,7 @@ import type { FirstKey, FirstMark } from "../../src/lib/firsts";
 import type { JournalEntry } from "../../src/lib/journal";
 import type { Paper } from "../../src/lib/papers";
 import type { Photo } from "../../src/lib/photos";
-import type { StorySources } from "../../src/lib/story";
+import { type StoryItem, type StorySources, storyItems } from "../../src/lib/story";
 
 /** Due 2027-01-19: week 28 runs Tue 27 Oct to Mon 2 Nov 2026, week 27 from 20 Oct. */
 export const DUE = "2027-01-19" as const;
@@ -91,4 +91,9 @@ export function first(key: FirstKey, day: string | null, over: Partial<FirstMark
 
 export function sources(over: Partial<StorySources> = {}): StorySources {
   return { journal: [], appetite: [], photos: [], papers: [], feelings: [], firsts: [], ticks: {}, titles: new Map(), starts: [], ...over };
+}
+
+/** The story of what's given: its lines, as `storyItems` makes them. */
+export function story(over: Partial<StorySources> = {}): StoryItem[] {
+  return storyItems(sources(over));
 }

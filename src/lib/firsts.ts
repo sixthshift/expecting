@@ -5,12 +5,9 @@
 // yours to claim. One said no to is put aside (`day` null) and not asked again.
 
 import type { Task } from "../content/schema";
-import type { AppetiteEntry } from "./appetite";
-import { type ISODate, todayISO } from "./dates";
-import { dayOf, nightsOf, type Start } from "./itsTime";
-import type { JournalEntry } from "./journal";
+import type { ISODate } from "./dates";
 import type { Person } from "./people";
-import type { Photo } from "./photos";
+import type { StoryItem } from "./story";
 import type { Week } from "./timeline";
 
 export const FIRST_KEYS = [
@@ -86,62 +83,70 @@ export function firstsOffered(knowing: boolean): FirstDef[] {
 /** A first suggested from what's kept or done: which, the day, and why. */
 export type Suggestion = { key: FirstKey; day: ISODate; why: string };
 
-/** The earliest of `items` by day, then time. */
-function earliest<T extends { day: string; time: string | null }>(items: readonly T[]): T | undefined {
-  return [...items].sort((a, b) => a.day.localeCompare(b.day) || (a.time ?? "").localeCompare(b.time ?? ""))[0];
-}
+/** What the suggestions look at besides a line: who the partner is, and the first each task keeps. */
+type Looking = { partners: ReadonlySet<string>; keeps: ReadonlyMap<string, FirstKey> };
+
+/** A first that `line` counts for: the key when `counts` says it does. */
+const when =
+  (key: FirstKey, counts: (line: StoryItem, looking: Looking) => boolean) =>
+  (line: StoryItem, looking: Looking): FirstKey | null =>
+    counts(line, looking) ? key : null;
 
 /**
- * The firsts suggested by what's kept or done, in FIRSTS's order, leaving
- * out any marked or put aside: the first scan photo, the first bump photo,
- * the first movement, the first one kept by the partner, the first craving,
- * a task ticked that keeps a first (`keeps: { first }`: the cot, the bag),
- * and the night it started. Never while something has happened.
+ * What suggests a first: the story's lines that count for it, and why. The
+ * earliest line that counts gives the first its day.
+ */
+const SUGGESTED_BY: readonly { why: string; first: (line: StoryItem, looking: Looking) => FirstKey | null }[] = [
+  { why: "Your first scan photo", first: when("first-scan", (l) => l.kind === "photo" && l.photo.kind === "scan") },
+  { why: "Your first bump photo", first: when("showing", (l) => l.kind === "photo" && l.photo.kind === "bump") },
+  { why: "The first movement you kept", first: when("first-kick", (l) => l.kind === "movements") },
+  {
+    why: "The first movement the partner kept",
+    first: when("felt-outside", (l, { partners }) => l.kind === "movements" && l.entries.some((e) => e.by !== null && partners.has(e.by))),
+  },
+  { why: "The first craving you kept", first: when("first-craving", (l) => l.kind === "appetite" && l.entry.kind === "craving") },
+  // A task that keeps a first (`keeps: { first }`: the cot, the bag), ticked.
+  { why: "Ticked off in the Planner", first: (l, { keeps }) => (l.kind === "done" ? (keeps.get(l.taskId) ?? null) : null) },
+  { why: "The night it started, in It's time", first: when("it-started", (l) => l.kind === "night") },
+];
+
+/**
+ * The firsts the story suggests (`items`, from `storyItems`), in FIRSTS's
+ * order, each on the day of the earliest line that counts for it (see
+ * SUGGESTED_BY), leaving out any marked or put aside (`marks`). Never while
+ * something has happened.
  */
 export function suggestFirsts({
+  items,
   marks,
-  journal,
-  photos,
-  appetite,
-  ticks,
   tasks,
   people,
   quiet,
-  starts = [],
 }: {
+  items: readonly StoryItem[];
   marks: readonly FirstMark[];
-  journal: readonly JournalEntry[];
-  photos: readonly Photo[];
-  appetite: readonly AppetiteEntry[];
-  ticks: Record<string, string>;
   /** The tasks, for those that keep a first. */
   tasks: readonly Pick<Task, "id" | "keeps">[];
   people: readonly Person[];
   quiet: boolean;
-  /** It's time's starts: the first that ended "We're there" suggests "It started". */
-  starts?: readonly Start[];
 }): Suggestion[] {
   if (quiet) return [];
-  const kept = new Set(marks.map((m) => m.key));
-  const partners = new Set(people.filter((p) => p.role === "partner").map((p) => p.id));
-  const movements = journal.filter((e) => e.kind === "movement");
-  const found: Partial<Record<FirstKey, { day: string; why: string } | undefined>> = {};
-  const from = (item: { day: string } | undefined, why: string) => (item ? { day: item.day, why } : undefined);
-  found["first-scan"] = from(earliest(photos.filter((p) => p.kind === "scan")), "Your first scan photo");
-  found.showing = from(earliest(photos.filter((p) => p.kind === "bump")), "Your first bump photo");
-  found["first-kick"] = from(earliest(movements), "The first movement you kept");
-  found["felt-outside"] = from(earliest(movements.filter((e) => e.by !== null && partners.has(e.by))), "The first movement the partner kept");
-  found["first-craving"] = from(earliest(appetite.filter((e) => e.kind === "craving")), "The first craving you kept");
-  const night = nightsOf(starts).at(-1);
-  if (night) found["it-started"] = { day: dayOf(night.start.startedAt), why: "The night it started, in It's time" };
-  for (const task of tasks) {
-    const at = ticks[task.id];
-    if (at && typeof task.keeps === "object" && task.keeps !== null && "first" in task.keeps)
-      found[task.keeps.first] = { day: todayISO(new Date(at)), why: "Ticked off in the Planner" };
+  const looking: Looking = {
+    partners: new Set(people.filter((p) => p.role === "partner").map((p) => p.id)),
+    keeps: new Map(tasks.flatMap((t) => (typeof t.keeps === "object" && t.keeps !== null && "first" in t.keeps ? [[t.id, t.keeps.first]] : []))),
+  };
+  const found = new Map<FirstKey, Suggestion>();
+  // Oldest first (the story is newest first), so the first line found for a first is its earliest.
+  for (const line of [...items].reverse()) {
+    for (const { why, first } of SUGGESTED_BY) {
+      const key = first(line, looking);
+      if (key && !found.has(key)) found.set(key, { key, day: line.day, why });
+    }
   }
+  const kept = new Set(marks.map((m) => m.key));
   return FIRSTS.flatMap((f) => {
-    const s = found[f.key];
-    return s && !kept.has(f.key) ? [{ key: f.key, day: s.day as ISODate, why: s.why }] : [];
+    const s = found.get(f.key);
+    return s && !kept.has(f.key) ? [s] : [];
   });
 }
 

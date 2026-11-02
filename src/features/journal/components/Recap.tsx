@@ -7,11 +7,7 @@ import { Modal } from "@sixthshift/design-system/modal";
 import { Link } from "@tanstack/react-router";
 import { Check, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { useState } from "react";
-import { useAppetite } from "../../../api/rpc/appetite";
-import { useFirsts } from "../../../api/rpc/firsts";
-import { useJournal } from "../../../api/rpc/journal";
 import { usePeople } from "../../../api/rpc/people";
-import { usePhotos } from "../../../api/rpc/photos";
 import { useSettings } from "../../../api/rpc/settings";
 import { formatDate, type ISODate } from "../../../lib/dates";
 import { firstOf } from "../../../lib/firsts";
@@ -27,12 +23,8 @@ import { Flipbook } from "./entries/photos/Scrubber";
 /** The recap of `span`, as what's kept changes; null without a due date (a recap is weeks). */
 export function useRecap(span: RecapSpan, items: readonly StoryItem[]): Recap | null {
   const { data: settings } = useSettings();
-  const { data: firsts } = useFirsts();
-  const { data: photos } = usePhotos();
-  const { data: appetite } = useAppetite();
-  const { data: journal } = useJournal();
   if (!settings.dueDate) return null;
-  return recapOf({ span, dueDate: settings.dueDate, firsts, photos, appetite, journal, items });
+  return recapOf({ span, dueDate: settings.dueDate, items });
 }
 
 const PART_TITLE: Record<RecapPart, string> = {
