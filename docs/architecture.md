@@ -260,7 +260,7 @@ from a Library list (`HistoryState.from`). Content is [below](#content).
 - **The weeks** ("Across the weeks", `/planner/weeks`, `?stage=37`): `WeeksPage`, the
   bars from `weeksChart` (`src/lib/planner/weeks.ts`).
 - **Lists** (`/planner/lists`, `/planner/lists/<id>`): `src/features/planner/` (`ListsPage`, `ListPage`, `components/lists/`),
-  rules `src/lib/lists.ts` (`LISTS`, the lines that apply, what's left). A
+  rules `src/lib/lists/` (`LISTS` in `builtIn.ts`; the lines that apply, `lines.ts`; what's left, `summaries.ts`; by section, `sections.ts`). A
   built-in line comes from an item's `lines`, tailored like the item. The
   store is `own_list`, `own_line` and `list_mark` (a line's id, no foreign
   key, like `task_tick`; no row is still to get).

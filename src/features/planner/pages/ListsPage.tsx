@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ListTodo } from "lucide-react";
 import { useListsQuery } from "../../../api/rpc/lists";
 import { useQuietQuery } from "../../../api/rpc/quiet";
-import { inPlanner, listsOf } from "../../../lib/lists";
+import { inPlanner, listsOf } from "../../../lib/lists/summaries";
 import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { AddList } from "../components/lists/addList/AddList";
 import { ListCard } from "../components/lists/listCard/ListCard";

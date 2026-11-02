@@ -7,7 +7,8 @@ import { useState } from "react";
 import { listsSaves } from "../../../../../api/rpc/lists";
 import { useSave } from "../../../../../app/hooks/useSave";
 import type { Line } from "../../../../../content/schema";
-import { HOWS, type Mark, wordsFor } from "../../../../../lib/lists";
+import { wordsFor } from "../../../../../lib/lists/builtIn";
+import { HOWS, type Mark } from "../../../../../lib/lists/lines";
 import { LineSheet } from "./LineSheet";
 
 /** What a line's task says under it: "by week 36", close or not, or done in To do. */

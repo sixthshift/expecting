@@ -32,7 +32,7 @@ sources:                         # every page a claim in the body comes from
   - title: Publisher — Page title
     url: https://...
 related: [deli-meats, listeria-foods]
-lines:                           # optional: what to get, a line each on a list (src/lib/lists.ts), restating the body
+lines:                           # optional: what to get, a line each on a list (src/lib/lists/builtIn.ts), restating the body
   - id: get-bottles              # stable, unique across items, tasks and lines: marks point at it
     title: Bottles
     list: baby                   # one of LISTS

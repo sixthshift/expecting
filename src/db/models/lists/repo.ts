@@ -1,6 +1,6 @@
 import type { Database } from "bun:sqlite";
 import { asc, eq, inArray } from "drizzle-orm";
-import type { How, LineState, Mark, OwnLineRow, OwnList } from "../../../lib/lists";
+import type { How, LineState, Mark, OwnLineRow, OwnList } from "../../../lib/lists/lines";
 import { orm } from "../../connection/client";
 import { listMark, ownLine, ownList } from "./schema";
 

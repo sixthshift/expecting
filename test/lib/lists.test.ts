@@ -1,7 +1,10 @@
 import { expect, test } from "vitest";
 import { builtInItems } from "../../src/content";
 import type { Item, Line } from "../../src/content/schema";
-import { inPlanner, isApart, isLeft, LAST_THING, leftSaying, listsOf, type Mark, sectionsOf, tailorLines, upToSaying, wordsFor } from "../../src/lib/lists";
+import { isApart, LAST_THING, wordsFor } from "../../src/lib/lists/builtIn";
+import { isLeft, type Mark, tailorLines } from "../../src/lib/lists/lines";
+import { sectionsOf } from "../../src/lib/lists/sections";
+import { inPlanner, leftSaying, listsOf, upToSaying } from "../../src/lib/lists/summaries";
 
 const line = (id: string, listId: string, section: string | null, fields: Partial<Line> = {}): Line => ({
   id,

@@ -1,7 +1,7 @@
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { Line } from "../../../src/content/schema";
-import type { Mark } from "../../../src/lib/lists";
+import type { Mark } from "../../../src/lib/lists/lines";
 
 // A line on a list, with the outbox stood in for: ticked got and back
 // (keeping its words), and opened to say it's arranged, how it was got and a

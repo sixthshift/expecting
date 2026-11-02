@@ -7,7 +7,8 @@ import { type FormEvent, useState } from "react";
 import { listsSaves } from "../../../../../api/rpc/lists";
 import { useSave } from "../../../../../app/hooks/useSave";
 import type { Line } from "../../../../../content/schema";
-import { HOWS, type How, LINE_STATES, type LineState, type Mark, wordsFor } from "../../../../../lib/lists";
+import { wordsFor } from "../../../../../lib/lists/builtIn";
+import { HOWS, type How, LINE_STATES, type LineState, type Mark } from "../../../../../lib/lists/lines";
 import { ItemLink } from "../../../../library/components/itemLink/ItemLink";
 
 const NONE = "none";

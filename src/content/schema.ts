@@ -9,7 +9,7 @@ import { checkWhen, question, type When, whenSchema } from "../features/settings
 import { VIEW_KEYS, type View } from "../lib/circle";
 import { isISODate } from "../lib/dates";
 import { FIRST_KEYS, type FirstKey } from "../lib/firsts";
-import { LISTS, listOf } from "../lib/lists";
+import { LISTS, listOf } from "../lib/lists/builtIn";
 import type { Who } from "../lib/people";
 import { WEEKS, type Week } from "../lib/timeline";
 
@@ -161,7 +161,7 @@ export const indexSchema = z
           .strict()
       )
       .default([]),
-    /** What to get, a line each on one of the lists (src/lib/lists.ts), restating what the body says. */
+    /** What to get, a line each on one of the lists (src/lib/lists/builtIn.ts), restating what the body says. */
     lines: z
       .array(
         z
