@@ -11,11 +11,11 @@
 //   ready      where Expecting will open, and in
 
 import { ASKS, type Facts } from "../features/settings/model/facts";
-import { isAsked } from "./facts";
+import { type Answer, factsOf, isAsked } from "./facts";
 
 export type Step = "due" | "baby" | "extras" | "ready" | `q:${string}`;
 
-export type OnboardingState = {
+type OnboardingState = {
   /** Whether onboarding is finished. */
   onboarded: boolean;
   /** What has been said so far: a question depending on another is asked only when its answer fits. */
@@ -28,6 +28,11 @@ export function onboardingSteps({ onboarded, facts = {} }: OnboardingState): Ste
   for (const a of ASKS) if (a.question.asked === "onboarding" && isAsked(a, facts)) steps.push(`q:${a.key}`);
   steps.push("extras", "ready");
   return steps;
+}
+
+/** The first-run questions the two of you still have to answer, from the settings and the answers as stored. None once it's set up. */
+export function onboardingLeft({ onboardedAt, answers }: { onboardedAt: string | null; answers: readonly Answer[] }): Step[] {
+  return onboardingSteps({ onboarded: onboardedAt !== null, facts: factsOf(answers) });
 }
 
 /** Every step there could be, in the order they're asked. */

@@ -8,13 +8,12 @@ import { finishOnboarding, useSettingsQuery } from "../../../api/rpc/settings";
 import { Redirect } from "../../../app/components/Redirect";
 import { useAction } from "../../../app/hooks/useAction";
 import { useAppTheme } from "../../../app/hooks/useAppTheme";
-import { type Step, stepAfter } from "../../../lib/onboarding";
+import { onboardingLeft, type Step, stepAfter } from "../../../lib/onboarding";
 import { babyStep } from "../components/steps/baby";
 import { dueStep } from "../components/steps/due";
 import { extrasStep } from "../components/steps/extras";
 import { questionStep } from "../components/steps/question";
 import { readyStep } from "../components/steps/ready";
-import { onboardingLeft } from "../model/left";
 import { stepAt, stepHref } from "../model/paths";
 import type { Screen, StepContext } from "../model/step";
 

@@ -4,7 +4,7 @@ import { answersQuery } from "../../api/rpc/facts";
 import { peopleQuery } from "../../api/rpc/people";
 import { settingsQuery } from "../../api/rpc/settings";
 import { LoadingPage } from "../../components/loading/Loading";
-import { onboardingLeft } from "../../features/onboarding/model/left";
+import { onboardingLeft } from "../../lib/onboarding";
 import { rootRoute } from "../root";
 
 /**

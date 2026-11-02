@@ -15,7 +15,7 @@ import { weeklyQuery } from "../api/rpc/weekly";
 import { restoreOutbox } from "../app/model/outbox";
 import { App } from "../app/pages/App";
 import { LoadingPage } from "../components/loading/Loading";
-import { onboardingLeft } from "../features/onboarding/model/left";
+import { onboardingLeft } from "../lib/onboarding";
 import { rootRoute } from "./root";
 
 /**
