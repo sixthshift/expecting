@@ -7,7 +7,7 @@ import { useNow, useSettingsQuery } from "../../api/rpc/settings";
 import { ContentContext } from "../../features/library/components/content/context";
 import { useDeadlineBadge } from "../../features/tasks/hooks/useDeadlineBadge";
 import { factsOf } from "../../lib/facts";
-import { inLibrary } from "../../lib/library";
+import { inLibrary } from "../../lib/library/doors";
 import { PillarLayout } from "../components/layout/PillarLayout";
 import { PILLARS, TABS } from "../components/layout/pillars";
 import { WhatsNew } from "../components/WhatsNew";

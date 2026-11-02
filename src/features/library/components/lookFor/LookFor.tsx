@@ -2,7 +2,8 @@ import { SearchInput } from "@sixthshift/design-system/search-input";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { useState } from "react";
-import { closest, search } from "../../../../lib/library";
+import { closest } from "../../../../lib/library/clues";
+import { search } from "../../../../lib/library/search";
 import { useItems } from "../../hooks/useItems";
 import { ItemList } from "../itemList/ItemList";
 

@@ -1,6 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { useReadsQuery } from "../../../../api/rpc/reads";
-import type { Group } from "../../../../lib/library";
+import type { Group } from "../../../../lib/library/doors";
 import { ItemLink } from "../itemLink/ItemLink";
 import { ReadMark } from "../ReadMark";
 

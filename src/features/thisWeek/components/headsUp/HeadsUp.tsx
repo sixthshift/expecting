@@ -1,11 +1,11 @@
 import { Lightbulb } from "lucide-react";
 import { useMemo } from "react";
-import { headsUps } from "../../../../lib/library";
+import { headsUps } from "../../../../lib/library/thisWeek";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 import { useItems } from "../../../library/hooks/useItems";
 import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
 
-/** The week's heads-up: one of the things nobody tells you (`headsUps` in src/lib/library.ts), read without opening. */
+/** The week's heads-up: one of the things nobody tells you (`headsUps` in src/lib/library/thisWeek.ts), read without opening. */
 export function HeadsUp() {
   const { week } = useThisWeekPage();
   const items = useItems();

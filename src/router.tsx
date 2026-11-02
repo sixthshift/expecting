@@ -4,7 +4,7 @@ import { outboxCaches, queueSaves } from "./app/model/outbox";
 import { quietSkippedTransitions, transitionBetween } from "./app/model/transitions";
 import { PageSkeleton } from "./components/loading/Skeleton";
 import { isLoggedOut } from "./lib/errors";
-import { inLibrary } from "./lib/library";
+import { inLibrary } from "./lib/library/doors";
 import { routeTree } from "./routes/tree";
 
 export function getRouter() {

@@ -2,7 +2,7 @@ import { describe, expect, test } from "vitest";
 import { builtInItems, dayReads } from "../../src/content";
 import { parseDay, readsOut } from "../../src/content/days";
 import { ContentError } from "../../src/content/file";
-import { unasked } from "../../src/lib/library";
+import { unasked } from "../../src/lib/library/thisWeek";
 
 const day = (frontmatter = "title: The scan\nread: [morphology-scan]", body = "It looks at everything.") => `---\n${frontmatter}\n---\n${body}\n`;
 

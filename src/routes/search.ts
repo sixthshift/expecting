@@ -4,7 +4,7 @@
 import { z } from "zod";
 import { TOPICS, type Topic, VERDICTS } from "../content/schema";
 import { VIEW_KEYS, type View } from "../lib/circle";
-import { DOORS } from "../lib/library";
+import { DOORS } from "../lib/library/doors";
 import { DECK_FILTERS } from "../lib/names";
 import { stageEnding } from "../lib/planner";
 import { STORY_VIEWS } from "../lib/story/views";

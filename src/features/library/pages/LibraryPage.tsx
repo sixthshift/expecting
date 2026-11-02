@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
-import { search } from "../../../lib/library";
+import { search } from "../../../lib/library/search";
 import { Topics } from "../components/browse/Topics";
 import { Doors, HardDoor } from "../components/doors/Doors";
 import { ItemList } from "../components/itemList/ItemList";
@@ -15,7 +15,7 @@ import { useItems } from "../hooks/useItems";
 const route = getRouteApi("/app/library");
 
 /**
- * Everything Expecting knows, by the question you came with (src/lib/library.ts).
+ * Everything Expecting knows, by the question you came with (src/lib/library/doors.ts).
  * Its home lists none of the entries: search first, then the doors, what's open
  * right now, the topics, and the quiet door for when it's hard. A door or a
  * topic opens in place (`?door=can-i`, `?topic=food`), narrowed by chips. Each

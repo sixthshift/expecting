@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { Item } from "../../../../content/schema";
-import { topicsIn } from "../../../../lib/library";
+import { topicsIn } from "../../../../lib/library/doors";
 
 /** Every topic, in its usual order, with how many entries it has: each opens on its own. */
 export function Topics({ items }: { items: readonly Item[] }) {

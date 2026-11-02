@@ -1,7 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import { useReadsQuery } from "../../../../api/rpc/reads";
 import type { Item } from "../../../../content/schema";
-import { DOOR_INFO, doorOf } from "../../../../lib/library";
+import { DOOR_INFO, doorOf } from "../../../../lib/library/doors";
 import { rangeLabel } from "../ItemCard";
 import { ItemLink } from "../itemLink/ItemLink";
 import { ReadMark } from "../ReadMark";

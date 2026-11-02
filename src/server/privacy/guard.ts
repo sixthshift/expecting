@@ -7,7 +7,7 @@
 
 import { builtInItems } from "../../content";
 import type { Item } from "../../content/schema";
-import { namesPrivate } from "../../lib/library";
+import { namesPrivate } from "../../lib/library/clues";
 
 /** Every string in `data`, however deep: values and keys, and a form's fields and file names. */
 function* strings(data: unknown): Generator<string> {

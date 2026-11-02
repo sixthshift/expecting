@@ -2,7 +2,7 @@ import { Badge } from "@sixthshift/design-system/badge";
 import { useState } from "react";
 import { useReadsQuery } from "../../../../api/rpc/reads";
 import type { Item } from "../../../../content/schema";
-import { rightNow, type Standing, standingLabel } from "../../../../lib/library";
+import { rightNow, type Standing, standingLabel } from "../../../../lib/library/rightNow";
 import type { Week } from "../../../../lib/timeline";
 import { ItemLink } from "../itemLink/ItemLink";
 import { ReadMark } from "../ReadMark";
@@ -14,7 +14,7 @@ const FIRST = 4;
 
 /**
  * Right now, at week N: what's open this week, soonest-closing first
- * (src/lib/library.ts), each with why it matters and where its window stands.
+ * (src/lib/library/rightNow.ts), each with why it matters and where its window stands.
  * The first few, then the rest on asking.
  */
 export function RightNow({ items, now }: { items: readonly Item[]; now: Week }) {

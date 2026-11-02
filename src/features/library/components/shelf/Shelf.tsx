@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 import { type Item, TOPICS, type Topic, VERDICTS, type Verdict } from "../../../../content/schema";
-import { behind, DOOR_INFO, type Door, forPartner, type Group, topicByDoor, topicsIn } from "../../../../lib/library";
+import { behind, DOOR_INFO, type Door, forPartner, type Group, topicByDoor, topicsIn } from "../../../../lib/library/doors";
 import { VERDICT } from "../content/Verdict";
 import { Cards } from "./Cards";
 import { Glossary } from "./Glossary";

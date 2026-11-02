@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { worthKnowing } from "../../../../lib/library";
+import { worthKnowing } from "../../../../lib/library/thisWeek";
 import { ItemList } from "../../../library/components/itemList/ItemList";
 import { useItems } from "../../../library/hooks/useItems";
 import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
@@ -8,7 +8,7 @@ import { whichWeek } from "../../model/labels";
 /** How many are shown before "Show all": the highest stakes, enough to read without the list taking the page. */
 const FIRST = 5;
 
-/** What's worth knowing as a week starts (`worthKnowing` in src/lib/library.ts): the first few, then the rest on asking. */
+/** What's worth knowing as a week starts (`worthKnowing` in src/lib/library/thisWeek.ts): the first few, then the rest on asking. */
 export function WorthKnowing() {
   const { week, peeking } = useThisWeekPage();
   const [all, setAll] = useState(false);

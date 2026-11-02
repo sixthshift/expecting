@@ -13,7 +13,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import type { Item } from "../../../../content/schema";
-import { behind, DOOR_INFO, DOORS, type Door } from "../../../../lib/library";
+import { behind, DOOR_INFO, DOORS, type Door } from "../../../../lib/library/doors";
 
 const DOOR_ICONS: Record<Door, LucideIcon> = {
   "can-i": CircleHelp,
