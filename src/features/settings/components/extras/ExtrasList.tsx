@@ -8,6 +8,7 @@ import { factsOf } from "../../../../lib/facts";
 import { didOn } from "../../../../lib/labels";
 import type { Person } from "../../../../lib/people";
 import { EXTRA_GROUPS, type ExtraGroup } from "../../model/extras";
+import { ExtraPitch } from "../extraPitch/ExtraPitch";
 import { SettingList } from "../settingRow/SettingList";
 
 /**
@@ -46,11 +47,11 @@ export function ExtrasList({ choices, people, highlight }: { choices: readonly C
                     className={cn("flex scroll-mt-24 items-center gap-4 px-4 py-3", highlight === e.id && "bg-bg-brand-subtle")}
                   >
                     <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-                      <label htmlFor={control} className="text-sm font-medium text-fg-strong">
-                        {e.name}
-                      </label>
-                      <span className={quiet}>{e.pitch}</span>
-                      {e.tool ? <span className="text-xs font-medium text-fg-brand">And {e.tool}</span> : null}
+                      <ExtraPitch extra={e} pitchClassName={quiet}>
+                        <label htmlFor={control} className="text-sm font-medium text-fg-strong">
+                          {e.name}
+                        </label>
+                      </ExtraPitch>
                       {choice ? <span className={quiet}>{changedBy(choice, people)}</span> : null}
                     </div>
                     <Switch id={control} checked={on} onCheckedChange={(next) => setExtras([{ id: e.id, on: next }])} />

@@ -7,6 +7,7 @@ import { useNow } from "../../../../api/rpc/settings";
 import { useSave } from "../../../../app/hooks/useSave";
 import { extraToOffer } from "../../../../lib/extras";
 import { factsOf } from "../../../../lib/facts";
+import { ExtraPitch } from "../extraPitch/ExtraPitch";
 
 /**
  * This week offers an extra once, in its week (`offer` in
@@ -31,11 +32,11 @@ export function OfferExtra() {
       <div className="flex items-start gap-3">
         <Sparkles aria-hidden size={18} className="mt-0.5 shrink-0 text-fg-brand" />
         <div className="flex flex-col gap-1">
-          <h2 id="offer-extra" className="font-display font-semibold text-fg-strong">
-            Add {extra.name.toLowerCase()}?
-          </h2>
-          <p className="text-sm text-fg-normal">{extra.pitch}</p>
-          {extra.tool ? <p className="text-xs font-medium text-fg-brand">And {extra.tool}</p> : null}
+          <ExtraPitch extra={extra} pitchClassName="text-sm text-fg-normal">
+            <h2 id="offer-extra" className="font-display font-semibold text-fg-strong">
+              Add {extra.name.toLowerCase()}?
+            </h2>
+          </ExtraPitch>
         </div>
       </div>
       <div className="flex flex-wrap items-center gap-2">

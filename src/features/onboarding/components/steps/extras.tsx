@@ -5,6 +5,7 @@ import { useState } from "react";
 import { setExtras } from "../../../../api/rpc/extras";
 import { extrasFor, extrasOn } from "../../../../lib/extras";
 import { factsOf } from "../../../../lib/facts";
+import { ExtraPitch } from "../../../settings/components/extraPitch/ExtraPitch";
 import type { Extra } from "../../../settings/model/extras";
 import type { Advance, Screen, StepContext } from "../../model/step";
 import { SkipButton } from "../parts";
@@ -45,9 +46,9 @@ function Extras({ offered, on, onDone }: { offered: readonly Extra[]; on: Readon
               )}
             >
               <span className="flex flex-1 flex-col gap-0.5">
-                <span className={cn("text-base", picked ? "text-fg-on-brand-subtle" : "text-fg-strong")}>{e.name}</span>
-                <span className={cn("text-sm", picked ? "text-fg-normal" : "text-fg-subtle")}>{e.pitch}</span>
-                {e.tool ? <span className="text-xs font-medium text-fg-brand">And {e.tool}</span> : null}
+                <ExtraPitch extra={e} pitchClassName={cn("text-sm", picked ? "text-fg-normal" : "text-fg-subtle")}>
+                  <span className={cn("text-base", picked ? "text-fg-on-brand-subtle" : "text-fg-strong")}>{e.name}</span>
+                </ExtraPitch>
               </span>
               <span
                 aria-hidden
