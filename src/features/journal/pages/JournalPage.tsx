@@ -1,5 +1,4 @@
-import { PillarHeader } from "../../../app/components/layout/PillarLayout";
-import { JournalTabs } from "../components/JournalTabs";
+import { JournalFrame } from "../components/JournalFrame";
 import { KeptBefore } from "../components/quiet/KeptBefore";
 import { QuietStory } from "../components/quiet/QuietStory";
 import { JournalStory } from "../components/story/JournalStory";
@@ -18,7 +17,7 @@ import { JournalPageProvider, useJournalPage } from "../contexts/JournalPageCont
  * (`components/story/`).
  *
  * The Journal is one part, `JournalStory`; the quiet one, `QuietStory` and
- * `KeptBefore`. Above both, the way to the records (`JournalTabs`,
+ * `KeptBefore`. Above both, the way to the records (`JournalFrame`,
  * `RecordsPage`), what's kept said in a few lines, to look up.
  */
 export function JournalPage() {
@@ -35,16 +34,12 @@ function Rendering() {
   return quiet ? <QuietJournal /> : <Journal />;
 }
 
-/** The page's layout, inside its provider: one column, the pillar's full width (max-w-6xl). */
+/** The Journal: its story. */
 function Journal() {
   return (
-    <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
-      <PillarHeader title="Journal" />
-      <div className="flex min-w-0 flex-col gap-6">
-        <JournalTabs current="story" />
-        <JournalStory />
-      </div>
-    </main>
+    <JournalFrame current="story">
+      <JournalStory />
+    </JournalFrame>
   );
 }
 
@@ -53,22 +48,15 @@ function Journal() {
  * `JournalPage` from the same context as the Journal (`JournalPageProvider`),
  * rendered as what it is. No week counted and nothing about the baby: no
  * call to make, no week's page, no places made ready, no firsts and no
- * book. The story of what stays
- * (the notes, letters, feelings, papers and what was done); and what's
- * folded away, behind one quiet line. See docs/product/journal.md, While
- * something has happened.
+ * book. The story of what stays (the notes, letters, feelings, papers and
+ * what was done); and what's folded away, behind one quiet line. See
+ * docs/product/journal.md, While something has happened.
  */
 function QuietJournal() {
   return (
-    <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
-      <PillarHeader title="Journal" />
-      <div className="flex flex-col gap-8">
-        <JournalTabs current="story" />
-        <div className="flex min-w-0 flex-col gap-4">
-          <QuietStory />
-          <KeptBefore />
-        </div>
-      </div>
-    </main>
+    <JournalFrame current="story">
+      <QuietStory />
+      <KeptBefore />
+    </JournalFrame>
   );
 }
