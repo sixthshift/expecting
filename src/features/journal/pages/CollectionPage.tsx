@@ -1,7 +1,7 @@
 import { getRouteApi, Link, Navigate } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
 import { type Collection, FOLDED_WHILE_QUIET } from "../../../lib/story/collections";
-import { FeelingsCollection } from "../../feelings/components/history/Feelings";
+import { FeelingsCollection } from "../../feelings/components/collection/FeelingsCollection";
 import { AppetiteCollection } from "../components/collections/appetite/AppetiteCollection";
 import { FirstsCollection } from "../components/collections/firsts/FirstsCollection";
 import { MovementsCollection } from "../components/collections/movements/MovementsCollection";
