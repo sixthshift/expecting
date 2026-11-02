@@ -16,7 +16,7 @@ bun install
 bun run dev
 ```
 
-The dev server runs on http://localhost:9966, bound to all interfaces so the devcontainer's published port reaches it. 9966 is expecting's port everywhere: dev, `bun run start` and the Docker image. With the machine-wide Traefik proxy running, http://expecting.localhost works too (see `.devcontainer/CLAUDE_CODE_USAGE.md`).
+The dev server runs on http://localhost:9966, bound to all interfaces so the devcontainer's published port reaches it. 9966 is Expecting's port everywhere: dev, `bun run start` and the Docker image. With the machine-wide Traefik proxy running, http://expecting.localhost works too (see `.devcontainer/CLAUDE_CODE_USAGE.md`).
 
 The first start creates `./data/` and migrates `expecting.db`.
 
@@ -35,13 +35,20 @@ bun run lint    # Biome
 bun run e2e     # Playwright over the production build
 ```
 
-`bun test` is a different runner and will not work. `bun run e2e` builds the app and serves it on port 9967 over an empty database, so the dev server can stay up. A git worktree gets its own port (9968–9998, from its path) and its own database, so checkouts never trip over each other; `E2E_PORT` overrides the port. Runs still take turns: where `flock` exists, `bun run e2e` waits on `/tmp/expecting-e2e.lock` until no other checkout's run is going, because two at once (each a build, a server and Chromium) is more than the dev container has. It needs Playwright's Chromium once per machine: `bunx playwright install chromium`. On a bare Debian container, also `bunx playwright install-deps chromium` for its system libraries. `e2e/global-setup.ts` sets the empty database up as Jason with a test-only password (`PASSWORDS` in `e2e/playwright.config.ts`), `journey.spec.ts` has Sam join by his invite, and `e2e/fixtures.ts` logs each page in as its `person` (`logIn`).
+`bun test` is a different runner and will not work.
+
+`bun run e2e` builds the app and serves it on port 9967 over an empty database, so the dev server can stay up.
+
+- A git worktree gets its own port (9968–9998, from its path) and its own database; `E2E_PORT` overrides the port.
+- Runs take turns: where `flock` exists, a run waits on `/tmp/expecting-e2e.lock` until no other checkout's run is going, since two at once (each a build, a server and Chromium) is more than the dev container has.
+- It needs Playwright's Chromium once per machine: `bunx playwright install chromium` (and on a bare Debian container, `bunx playwright install-deps chromium`).
+- `e2e/global-setup.ts` sets the database up as Jason with a test-only password (`PASSWORDS` in `e2e/playwright.config.ts`), `journey.spec.ts` has Sam join by invite, and `e2e/fixtures.ts` logs each page in as its `person` (`logIn`). Specs import `e2e/fixtures.ts`, not `@playwright/test`.
 
 Tests live in `test/`, mirroring `src/`. A file named `*.dom.test.tsx` runs under happy-dom with Testing Library; everything else runs in plain `node`. Name a file `.dom.test.tsx` only when it presses something.
 
 ## Content
 
-Built-in items are Markdown files in `content/`, one per item, with the frontmatter `src/content/schema.ts` defines. `bun run test` parses all of them, and a bad file fails the gate with its name and the problem. An item's `id` and its tasks' ids are what ticks in the database point at, so never rename one. There is no draft marker: an entry goes in once it is reviewed, and `checked:` is set only once the facts have been confirmed against the source.
+Built-in items are Markdown files in `content/`, one per item, with the frontmatter `src/content/schema.ts` defines. `bun run test` parses all of them, and a bad file fails the gate with its name and the problem. An item's `id` and its tasks' ids are what ticks in the database point at, so never rename one. How to write one is [`content/README.md`](../content/README.md); how it's reviewed, [`content/REVIEW.md`](../content/REVIEW.md).
 
 ## Database
 

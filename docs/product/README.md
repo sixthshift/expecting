@@ -23,8 +23,12 @@ links to it.
 
 ## Writing one
 
-- **Present tense, as it is.** No steps, dates or "decided on". When it
-  changes, change the doc.
+- **Present tense, as it is.** No steps, dates, "was" or "taken out". When
+  it changes, change the doc; git keeps the story.
+- **History only as a rule.** If something tried and dropped is worth
+  remembering, write the rule it taught, with its reason: "No row of keep
+  buttons: beside the story's views it reads as filtering", not "There was
+  a Keep row; taken out in November".
 - **Every rule carries its reason.** A rule without one gets "improved" away
   by the next session. "No numbers: a 3/5 is a score."
 - **Behaviour, not layout.** Say what a part does and why, not where each

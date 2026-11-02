@@ -1,11 +1,13 @@
 # The Drawer
 
-The handy things: tools you use together, each brought by an extra. Now
-the names game, Who does what and Your people. Emergency info and It's time sit beside
-settings, not here ([emergency.md](emergency.md), [its-time.md](its-time.md)).
+The handy things: tools you use together, each brought by an extra. The
+names game, Who does what, Your people and Pregnancy bingo; and A question
+a week, which lives on This week but plays by the same rule. Emergency info
+and It's time sit beside settings, not here ([emergency.md](emergency.md),
+[its-time.md](its-time.md)).
 
-How it's built is [`architecture.md`](../architecture.md), the Drawer's row,
-Extras, and The names deck. What an extra is: [extras.md](extras.md).
+How it's built is [`architecture.md`](../architecture.md), Drawer, Extras
+and The names deck. What an extra is: [extras.md](extras.md).
 
 ## What it holds to
 
@@ -14,9 +16,13 @@ Extras, and The names deck. What an extra is: [extras.md](extras.md).
   entry.
 - **The tools you've turned on first;** the rest as a line each saying
   which extra brings them.
+- **Each of you plays on your own phone, and something is revealed when
+  you both have:** a match, or both answers. That's what makes the names
+  game work, and the rule every tool here is built on.
 - **Hidden holds.** Each of you logs in as yourself, so the other's votes
   stay theirs until you've voted too; on a phone you share, logging out is
-  what hands it over.
+  what hands it over. Still, nothing here is for keeping a secret from
+  someone who holds your logged-in phone (a push present, a surprise).
 - **Put away while something has happened,** never deleted.
 
 ## The names game
@@ -77,9 +83,8 @@ baby's checks, visitors and messages. Its own extra, offered at 24 weeks.
 
 ## Your people
 
-Visitors, Birth announcement, Lining up help and Thank-you notes all
-promised a list, and turning one on used to give you a task telling you to
-keep one somewhere else. They're the same thing: people you know, each with
+Visitors, Birth announcement, Lining up help and Thank-you notes each
+promise a list, and they're the same list: people you know, each with
 something about them. So it's one list, and each of those extras adds its
 own view of it.
 
@@ -103,6 +108,35 @@ own view of it.
 - **Turning an extra off hides its view;** the people stay.
 - **"Your people" in the app,** `circle` in the code.
 
+## Pregnancy bingo
+
+A card each, ticked over the months: a stranger asks "is it twins?",
+someone tells you to sleep while you can, a birth story you didn't ask for.
+
+- **5×5 with a free centre,** each card dealt from sixty squares, so your
+  two cards differ and it's a race. Dealt again until something's marked.
+- **The squares are what people say and do around the two of you,** and
+  what you two get up to: never her body, never a symptom, and every one
+  fits either of you.
+- **A square is marked** with its day and a few words, and says whether
+  it's on the other's card too. Both cards are seen by both; only your own
+  is yours to mark.
+- **Bingo is a line,** lit, with who got there first; play goes on to a
+  full house. Each is a line in the Journal's story.
+
+## A question a week
+
+One question each week, from week 4 ("What's one thing you're quietly
+nervous about?"), on This week while its extra is on. Each of you answers
+on your own phone, and the answers show once both are in. The firsts ask a
+question each; this is that, weekly.
+
+- **From the week you're in.** Earlier weeks' questions are folded beneath,
+  still there to answer, never counted.
+- **A week you've both answered** is a line in the Journal's story.
+- **Waiting is never blame:** the other's answer may still be on their
+  phone, so it says "waiting for Sam", not "Sam hasn't answered".
+
 ## Not yet
 
 - **The shortlist's checks** (said aloud with your surname, initials,
@@ -114,5 +148,4 @@ own view of it.
   typing names is enough.
 - **Reminders on the day** for visitors and meals: the weeks after the
   birth aren't built.
-- **More tools** (A question a week, on Who does what's "both answer,
-  then reveal"; Pregnancy bingo; minding cards): [`plan-extras.md`](../plan-extras.md).
+- **More tools,** such as minding cards: [`plan-extras.md`](../plan-extras.md).

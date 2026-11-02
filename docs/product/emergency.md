@@ -6,8 +6,8 @@ among the pillars, one tap from every pillar. The most important button
 in the app is personal: **your** birth suite's number, one tap away
 everywhere.
 
-How it's built is [`architecture.md`](../architecture.md), The pillars (the
-call button, Emergency info).
+How it's built is [`architecture.md`](../architecture.md), The frame (the
+call button) and Outside the pillars.
 
 ## Why you open it
 

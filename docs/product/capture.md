@@ -3,11 +3,11 @@
 One way in to keep anything, from any pillar, without leaving where you
 are: a movement, sickness, a craving, a note, a photo or scan, a result or
 paper, how you're feeling, a first, an appointment, a question for the
-appointment, or something to do. Each is filed into its pillar, the Journal or the
-Planner.
+appointment, or something to do. Each is filed into its pillar, the
+Journal or the Planner.
 
-How it's built is [`architecture.md`](../architecture.md), The pillars (the
-capture "+") and PWA (sharing in). What each thing becomes once kept is its
+How it's built is [`architecture.md`](../architecture.md), Outside the
+pillars and PWA (sharing in). What each thing becomes once kept is its
 pillar's: [journal.md](journal.md), [planner.md](planner.md).
 
 ## What it holds to

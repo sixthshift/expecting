@@ -5,8 +5,7 @@ we now, and what matters?", not "where are we in all of it" (that's
 [the whole pregnancy](timeline.md), a tap away), so the landing page is the
 week.
 
-How it's built is [`architecture.md`](../architecture.md), the This week
-row.
+How it's built is [`architecture.md`](../architecture.md), This week.
 
 ## Why you open it
 
@@ -41,8 +40,8 @@ row.
   42 weeks (the weeks behind tinted, this one solid, a dot under each week
   ahead with something best done by then, the landmarks above and the
   trimesters below), the days to go, and "The whole pregnancy", the map.
-  A week on the strip goes to that week, as the steps do. It stands where
-  the progress bar did, so home is no heavier for it.
+  A week on the strip goes to that week, as the steps do. It's no taller
+  than a progress bar, so home is no heavier for it.
 - **The week, day by day:** one thing, not two. The week's note (The
   baby, Your body, For the partner) is its first day, +0, and each day
   after it (+1 to +6) brings a read, out one a day: at 19+4 there are five
@@ -67,6 +66,8 @@ row.
   hard topic (loss, mental health, special circumstances) or a private
   entry: those wait to be looked for.
 - **Coming up:** the next eight weeks after To do now's two, by week.
+- **This week's question,** while A question a week is on
+  ([drawer.md](drawer.md#a-question-a-week)).
 - **The next appointment,** once it's within a fortnight: what, when
   ("Tomorrow · Fri 6 Nov, 10:30 am"), where, and how many questions are
   waiting for it, the way to them. Further off it stays in the Planner, and
@@ -89,6 +90,5 @@ offer, and no peeking at another week.
 
 ## Not yet
 
-- **The appointment waiting room:** on appointment day, your questions,
-  then a few cards while you wait.
-- **The quiet first weeks,** before you've told anyone.
+- **The appointment waiting room** ([planner.md](planner.md#not-yet)).
+- **The discreet first weeks,** before you've told anyone.

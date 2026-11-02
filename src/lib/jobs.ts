@@ -1,4 +1,4 @@
-// Who does what (docs/plan-extras.md, part 3): the newborn jobs, each answered
+// Who does what (docs/product/drawer.md): the newborn jobs, each answered
 // by each of you on your own phone as me, you or together. Neither sees the
 // other's answer to a job until both have given one; then a job is settled
 // (you said the same) or one to talk about. Each of you logs in as yourself,

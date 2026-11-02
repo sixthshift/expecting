@@ -11,8 +11,8 @@ ask, what to grab, and how to get there**, in that order, with everything
 Expecting already knows filled in. It doesn't teach; it's a set of
 instructions, and it works with no signal.
 
-How it's built is [`architecture.md`](../architecture.md), The pillars (It's
-time).
+How it's built is [`architecture.md`](../architecture.md), Outside the
+pillars.
 
 ## What it holds to
 

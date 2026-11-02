@@ -8,25 +8,21 @@ the weeks is the Planner's chart, [Across the weeks](planner.md#across-the-weeks
 How it's built is [`architecture.md`](../architecture.md), The whole
 pregnancy; the week itself is `src/lib/timeline.ts`.
 
-## Not a pillar
+## Why it isn't a pillar
 
-It was one, the Timeline, until November 2026. A pillar is where things
-live, and nothing lived only on the timeline: its own doc said so ("a
-thread, not a shelf"). Each of its jobs belonged to a pillar that already
-had the thing:
+A pillar is where things live, and nothing lives only on the weeks. Each
+job a timeline might do belongs to a pillar that already has the thing:
 
 - **"Where are we in all of it?"** This week, which already said where you
   are. The strip under its heading puts the week in the whole pregnancy,
   and opens the map.
-- **"When do we have to…?"** The Planner, which holds what's asked of you.
-  The windows chart became its Across the weeks, task by task, in To do's
-  stages.
+- **"When do we have to…?"** The Planner, which holds what's asked of you,
+  with its chart, Across the weeks.
 - **"What happened in week 22?"** The Journal, which is already by week.
 
-So the week stays the thread through everything, as data
-(`src/lib/timeline.ts`: every dated thing has a week), and the bird's-eye
-view stays a page, without a tab of its own. Five tabs fit a phone better
-than six, and each answers a different question.
+So the week is the thread through everything, as data (every dated thing
+has a week), and the bird's-eye view is a page without a tab. Five tabs fit
+a phone better than six, and each answers a different question.
 
 ## Why you open it
 
@@ -47,8 +43,8 @@ than six, and each answers a different question.
 - **Everything with a date has a week.** Ahead of today, the map is the
   plan; behind today, the diary; by the birth, the story of the pregnancy,
   without anyone having sat down to write it.
-- **A thread, not a shelf.** Nothing lives only on the map. A week's detail
-  is This week's: every week's line opens This week at that week.
+- **A thread, not a shelf.** A week's detail is This week's: every week's
+  line opens This week at that week.
 - **Expecting knows what to do; you don't fill it in.** The weeks carry no
   add box. An own task for the odd thing Expecting couldn't know is added
   in the Planner, and shows on its week like any other.

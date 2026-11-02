@@ -1,10 +1,25 @@
 # Expecting
 
-A companion for one household through the pregnancy, running on your own network. Getting ready before it and the months after the birth come later. It is meant to hold a shared checklist, a week-by-week guide to what to expect, the surprising things nobody tells you, and one place to keep everything you've both learned.
+A pregnancy companion for two parents, running on your own server. It runs
+the admin (what to book, claim and buy, and when), says what to expect week
+by week, keeps what happens, and gives you both one place for all of it.
+Australian, on phone and desktop.
 
-**Early days.** What's here: onboarding for both of you, this week (where you are and what matters now), the timeline (every week), the Library, the Planner (a checklist that ticks everywhere, your own tasks, questions for appointments), and built-in content tailored by your answers (all still drafts until reviewed). Not yet: the Journal and the Drawer's handy things (they say what's coming), photos, contacts, appointments, or saving changes with no connection. It installs to the home screen and reads offline (over HTTPS).
+What's here: This week (where you are and what to do now), the Library
+(some 900 entries from Australian sources, tailored by your answers), the
+Planner (to do, lists of what to get, appointments and questions for them),
+the Journal (notes, movements, feelings, photos, papers, the firsts) and
+the Drawer (the names game and other things you do together), with
+Emergency info, a page for the night labour starts, and a way to connect
+Claude. It installs to the home screen and works with no signal (over
+HTTPS). Getting ready before a pregnancy and the months after the birth
+come later.
 
-Each of you has an account, your own password (or none, if you turn logins off), and each phone stays logged in for months. Even so, keep it off the public internet. A VPN such as Tailscale is the intended way in from outside home.
+Each of you has an account and your own password (or none, if you turn
+logins off), and each phone stays logged in for months. Even so, keep it
+off the public internet: a VPN such as Tailscale is the intended way in
+from outside home. (Connecting the Claude app is the exception, and needs a
+public HTTPS address: [Claude](docs/product/mcp.md).)
 
 ## Quick start
 
@@ -26,5 +41,7 @@ Everything lives in one folder on the host: `docker/data/`, or wherever `EXPECTI
 
 ## More
 
-- [Intent](docs/intent.md) and [architecture](docs/architecture.md) — what it is for and how it will be built.
+- [Intent](docs/intent.md) — what it's for, and the principles it keeps.
+- [Product](docs/product/README.md) — what each part does, and why.
+- [Architecture](docs/architecture.md) — how it's built.
 - [Development](docs/development.md) — working on Expecting from a checkout: the dev server, the gate, building the image, releases.

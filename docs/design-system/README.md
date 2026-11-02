@@ -1,13 +1,38 @@
 # Requests to the design system
 
-Changes Expecting asks of `@sixthshift/design-system`, one file per component,
-each written to be carried over to that project and built there. A request is
-only what any app would want; what is Expecting's own stays in Expecting.
+Expecting uses `@sixthshift/design-system` (0.12.1, no patches). What it
+asks of the design system goes here as a spec, one file per component, to be
+carried over and built in that repo. A request is only what any app would
+want; Expecting's own look stays in Expecting (`src/styles/theme/`).
 
-- [`message.md`](message.md): an actions slot, `"brand"` in the intent type,
-  the title's line height. Done in 0.12.0; follow-up: `title`'s type.
-- [`focus-scroll.md`](focus-scroll.md): popups focus themselves without
-  scrolling the page. Done in 0.12.1, TimeColumn included; Expecting's patch
-  is gone.
+`docs/components.html` shows each pattern the app still writes by hand
+beside the component it would become, in every theme, light and dark;
+`bun run components:sheet` regenerates its styles.
 
-Where it all stands, and what's next: [`handoff.md`](handoff.md).
+## Open
+
+- [`message.md`](message.md): `MessageProps` should leave out HTML's own
+  `title`, so a heading can be passed as `title`.
+- **Card `asChild`** (a link drawn as a Card): discussed, not yet written.
+
+## Decisions waiting
+
+Each blocks moving hand-written parts onto a component:
+
+1. **Card's look:** a subtle border and no shadow, like the hand-written
+   panels, or Card's own border and shadow (about 16 panels).
+2. **SectionTitle:** medium weight as it ships, or semibold like ours (about
+   17 eyebrow labels).
+3. **Progress bars:** `ProgressBar`'s flat fill, or keep the gradient
+   (onboarding, Settings).
+4. **Button `inline` for text links:** it underlines only on hover and has
+   no 44px height (about 20 links).
+
+## Can be done without a decision
+
+- The hand-written text styles onto **Muted, Caption and Body**, about 107
+  places, no visual change. Touches many files: best in its own worktree.
+- **List and ListRow:** move `SettingList` out of settings into
+  `src/components/`.
+
+The counts are rough: recount before starting.

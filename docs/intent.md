@@ -1,20 +1,19 @@
 # Intent
 
 Why Expecting exists, who it's for, and the principles every part of it
-keeps. Vision, not spec: what each part does now, and why, is
-[`product/`](product/README.md); how it's built is
-[architecture.md](architecture.md). When this file and the code disagree,
-the code is right and this is stale.
+keeps. What each part does now is [`product/`](product/README.md); how it's
+built is [architecture.md](architecture.md). Where this file and the code
+disagree, the code is right and this file is stale.
 
 ## What it is
 
 A pregnancy companion for one couple, expecting in Australia. Self-hosted.
 Not a product.
 
-It covers the pregnancy, weeks 1 to 42. That is the first version: getting
-ready before a pregnancy and the fourth trimester after the birth (the
-first three months) come later, and it may grow into newborn and parenting
-after that. Nothing is built for them now, but nothing should prevent them.
+It covers the pregnancy, weeks 1 to 42. Getting ready before a pregnancy
+and the fourth trimester after the birth come later, and perhaps newborn
+and parenting after that ([Later](#later)). Nothing is built for them, but
+nothing should prevent them.
 
 **It runs the admin.** Having a baby in Australia comes with a long tail of
 bookings, claims, forms and purchases, each with its own window and lead
@@ -95,9 +94,8 @@ out, and they're unsure of their role.
 
 People open a pregnancy app in different modes, and each mode has its own
 shape. The weeks answer *when*. Pregnancy also keeps asking *what*
-("is this normal?", "can I?") and *which* (decisions). Forcing all of it
-into weeks is a mistake: it is why "nobody tells you" felt wrong as a view
-of the timeline, when there was one.
+("is this normal?", "can I?") and *which* (decisions), and forcing those
+into weeks loses them.
 
 | Mode | The moment | Its shape |
 |---|---|---|
@@ -111,7 +109,7 @@ of the timeline, when there was one.
 | **Something happened** | A kick, a craving, a bad day, a scan photo | Kept: [the Journal](product/journal.md) |
 | **It's time** | Contractions, the bag, who to call | A page: big buttons and nothing else ([It's time](product/its-time.md)) |
 | **3 am with a newborn** | Feeds, nappies, "is this crying normal?" | A mode: one hand, dark, tired (later) |
-| **Feelings** | Anxiety, the quiet first weeks, after a scare | A voice: gentle, with support one tap away |
+| **Feelings** | Anxiety, a hard fortnight, after a scare | A voice: gentle, with support one tap away |
 
 ### The pillars
 
@@ -130,14 +128,11 @@ it:
   planner, a journal and a drawer of handy things.
 - **Home is this week, with the whole pregnancy a tap away.** Opening the
   app asks "where are we now, and what matters"; "where are we in all of
-  it" is a strip under the week's heading and the map it opens. It stays
-  about the week: the handy things have the Drawer rather than crowding it.
+  it" is a strip under the week's heading and the map it opens.
 - **The week is the thread through the pillars, not a pillar of its own.**
   A Library entry appears on the week it matters, a task on the week it's
-  due, a Journal entry on its day. A pillar is where things live, and
-  nothing lives only on the weeks, so the whole pregnancy at once is a page
-  off This week, and what's to do across the weeks is a chart in the
-  Planner ([why](product/timeline.md#not-a-pillar)).
+  due, a Journal entry on its day. Nothing lives only on the weeks
+  ([why](product/timeline.md#why-it-isnt-a-pillar)).
 - **Records live in the Journal:** a scan is something that happened,
   dated, on its week.
 - **Outside every pillar:** the [capture "+"](product/capture.md), which
@@ -149,7 +144,7 @@ it:
 
 | Stretch | Mode |
 |---|---|
-| The first weeks | Quiet: before you've told anyone (not built) |
+| The first weeks | Discreet: before you've told anyone (not built) |
 | Pregnancy | The pillars |
 | From 36 weeks | It's time, beside Emergency info |
 | After the birth | Newborn: one-handed, at night (later) |
@@ -253,29 +248,22 @@ before 14 weeks, midwifery group practice places that fill in the first
 trimester, childcare waitlists.
 
 A decision has options, each with its trade-offs; a decide-by week; who
-decides; and what you chose and why. It's the one place the two of you
-most act together, and the record of "what we chose and why" outlasts the
-choice. *Today a decision is a Library entry whose decide-by, from a
-source, becomes a task. Not built: who decides, and what you chose and
-why.*
+decides; and what you chose and why. It's where the two of you most act
+together, and the record of "what we chose and why" outlasts the choice.
+Today a decision is a Library entry whose decide-by, from a source, becomes
+a task; who decides and what you chose are not built.
 
 ## Content
 
-- **Written and reviewed before it ships,** by Claude, from sources; no
-  draft marker in the app. Reviewed like code: diffs, history, and a build
-  that refuses a bad file. How an entry is written is
-  [`content/README.md`](../content/README.md).
+- **Written and reviewed before it ships,** by Claude, from sources.
+  Reviewed like code: diffs, history, and a build that refuses a bad file.
+  How an entry is written is [`content/README.md`](../content/README.md).
 - **Several shapes, one item:** the week's note, moments, payments,
   decisions, can-i, symptoms, guides, cards and terms
   ([Library](product/library.md#the-types)).
 - **"Nobody tells you" is a voice, not a place:** one-liners with a
-  paragraph behind them, as a door in the Library, a heads-up on This week
-  just before it matters, and later as a deck and as fillers wherever the
-  app makes you wait.
-- **Two origins, one shape.** Built-in entries ship with the app; later,
-  our own entries (a friend's tip, something the midwife said), the same
-  fields, with a small marker. The app can hide a built-in entry but never
-  edits it, so an update can't clobber anything of ours.
+  paragraph behind them, as a door in the Library and a heads-up on This
+  week just before it matters.
 - **Content decides where; code decides how.** An entry places a tag (a
   question to ask, its window against today, a passage for some readers);
   a component draws it.
@@ -284,9 +272,8 @@ why.*
 
 ### Phases and chapters
 
-The first version is the pregnancy alone, weeks 1–42, and the code has no
-phases. Later the timeline grows segments, and with them the data learns
-which one an item belongs to:
+Later the timeline grows segments, and the content learns which one an
+item belongs to:
 
 | Phase | Span | Counted from |
 |---|---|---|
@@ -302,23 +289,24 @@ The chapters are the names people actually think in, derived from the
 week, never written into content, so they can be renamed freely: getting
 ready, the early weeks (1–13), the middle (14–27), the home stretch
 (28–36), any day now (37–42), the birth, the first days (counted in days),
-the fourth trimester. This asks for a birth slot between week 42 and
-postpartum week 1, the first days counted in days, and phases and chapters
-as content, not code.
+the fourth trimester. That needs a birth slot between week 42 and
+postpartum week 1, and phases and chapters as content, not code.
 
 ### The rest of the store
 
-All shared, all editable by both:
+All shared, all editable by both. Each part's own "Not yet" says what's
+next for it; the larger pieces:
 
-- **More to appointments** (what, the day, the time, the place and notes
-  are built: [the Planner](product/planner.md#appointments)): a question
-  aimed at one, the Journal's summary since the last one ("headaches on 3 days, sickness
-  easing, movements daily": the answer to the midwife's "since when?"),
-  and a waiting-room mode on the day.
-- **Contacts:** midwife, OB, hospital, birth suite, GP, maternal and child
-  health nurse. Begun as Emergency info.
-- **The log's other kinds:** symptoms, and weight and blood pressure only
-  if switched on.
+- **More to appointments:** a question aimed at one, the Journal's summary
+  since the last one (the answer to the midwife's "since when?"), and a
+  waiting-room mode on the day.
+- **Contacts:** midwife, OB, hospital, GP, maternal and child health nurse.
+  Begun as Emergency info.
+- **Other symptoms,** and weight and blood pressure only if switched on.
+- **Our own entries** (a friend's tip, something the midwife said), the
+  same shape as built-in ones with a small marker, and hiding a built-in
+  one. The app never edits a built-in entry, so an update can't clobber
+  ours.
 
 Left out on purpose: a kick counter (Australian guidance is to know your
 baby's pattern, not to count kicks) and a baby pool (friends can't log in,
@@ -337,5 +325,7 @@ and the app has no birth to score against).
   entitlements change each financial year.
 - **The newborn mode.** How much of feed, sleep and nappy tracking belongs
   here, and where it would end before "parenting" begins.
-- **Hosting and access.** Where it runs, which backup covers it, HTTPS,
-  and whether health papers want a stronger lock than your logins.
+- **Hosting and access.** Where it runs (and so which backup covers it),
+  how it gets HTTPS (which the PWA needs), whether it's reachable outside
+  home (a VPN such as Tailscale, or public behind a reverse proxy), and
+  whether health papers want a stronger lock than your logins.

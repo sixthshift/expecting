@@ -1,4 +1,4 @@
-// Your people (docs/plan-extras.md, part 2): the people you know, each with
+// Your people (docs/product/drawer.md): the people you know, each with
 // something about them, kept by either of you. One list, and a view of it
 // for each extra turned on: who visits, who hears first, who helps (and the
 // meal train), and who gave what. Expecting keeps it and sends nothing: the

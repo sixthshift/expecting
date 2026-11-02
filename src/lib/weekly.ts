@@ -1,4 +1,4 @@
-// A question a week (docs/plan-extras.md, part 3): one question for the two of
+// A question a week (docs/product/drawer.md): one question for the two of
 // you each week, each answered on your own phone. Neither sees the other's
 // answer to a week's question until both have given one (as Who does what,
 // src/lib/jobs.ts); then both are in the Journal, under the week. This week's

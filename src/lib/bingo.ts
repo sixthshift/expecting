@@ -1,4 +1,4 @@
-// Pregnancy bingo (docs/plan-extras.md, part 3): a card each, 5×5 with a free
+// Pregnancy bingo (docs/product/drawer.md): a card each, 5×5 with a free
 // centre, dealt from the squares below, so your two cards differ and it's a
 // race. A square is marked when it happens, with its day and a few words. Five
 // in a row, a column or a diagonal is bingo; play goes on to a full house.

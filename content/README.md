@@ -4,7 +4,8 @@ How a Library entry (`content/items/<id>.md`) is written: its frontmatter and
 the shape of its body by type. `src/content/schema.ts` and
 `src/content/parse.ts` check both, so a file that breaks them fails the gate.
 Most entries were drafted from the map (`content/map/*.yaml`); `REVIEW.md`,
-beside this file, holds the calls left for the review pass. Week notes are
+beside this file, is the bar an entry is reviewed against and the calls
+already made. Week notes are
 `content/weeks/<week>.md` (`src/content/weeks.ts`).
 
 One file per entry, named for its id (the map's id, where it came from the map). Ids are stable: never rename one.
@@ -116,9 +117,8 @@ next. Most entries have none; the reader can always write their own
 - **Have someone else review** each batch against its entry and these
   rules: the writer doesn't catch their own blind spots.
 
-Check records live in `content/map/checks/`, as for the map. Records from
-before 2026-10-30 name files in `content/drafts/`, where the entries were
-drafted; they are the same entries, now in `content/items/`.
+Check records live in `content/map/checks/`. A path in them under
+`content/drafts/` means the same entry in `content/items/`.
 
 # Writing a day's read
 

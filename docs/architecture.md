@@ -1,19 +1,26 @@
 # Architecture
 
-How expecting is built. What it is and why: [intent.md](intent.md). Running it: [development.md](development.md).
+How Expecting is built, and where the code is. Why it exists is
+[intent.md](intent.md); what each part does, and why, is
+[product/](product/README.md), which this file links to rather than
+restates. Running it is [development.md](development.md).
 
-## Built so far
-
-The pregnancy's five pillars (This week, with the whole pregnancy off it, the Library, the Planner, the Journal, one story of what's kept and done, with notes and letters, movements, sickness and cravings, photos and scans, how you're feeling, results and papers, and the firsts, zoomed out to weeks or the whole pregnancy, and the same things by what they are, the collections, and recaps and a book, and the Drawer with the names game), the capture "+", built-in content in Markdoc tailored by your answers, onboarding, two accounts, own tasks, questions for appointments, notes, movements, sickness and cravings, photos and scans, and results and papers in the Journal, uploads (the file store, for any record), how you're feeling, the due date, the quiet "something has happened" path, and Claude, over MCP ([Claude (MCP)](#claude-mcp)). Getting ready and the weeks after the birth are out of the first version ([One app, the pregnancy](#one-app-the-pregnancy)). Not yet: the rest of the store (appointments, contacts, other symptoms), our own items, hiding built-in items. Everything below is the intended shape; where it isn't built, it says so.
-
-Expecting has the same shape as garnish. Where this file says "as garnish", garnish's `docs/architecture.md` is the reference.
+Built: the five pillars, the capture "+", Emergency info, It's time, the
+quiet path, two accounts, built-in content tailored by your answers and
+extras, onboarding, uploads, the PWA (offline reads and writes) and Claude
+over MCP. Not built: our own entries and hiding built-in ones, contacts as a
+store, other symptoms, and the phases before and after the pregnancy
+([One app, the pregnancy](#one-app-the-pregnancy)).
 
 ## Shape
 
-- One Bun process. TanStack Start on Nitro's Bun preset serves the app, server functions and `/api/*` routes.
+- One Bun process. TanStack Start on Nitro's Bun preset serves the app, the
+  server functions and `/api/*`.
 - One SQLite file, `DATA_DIR/expecting.db`, through Drizzle.
-- One directory of uploads, `DATA_DIR/uploads/`, a folder per upload: photos and scans, and the pages of results and papers ([Uploads](#uploads)).
-- One Docker container, with `DATA_DIR` on a mounted volume. That volume is everything worth backing up.
+- One directory of uploads, `DATA_DIR/uploads/`, a folder per upload
+  ([Uploads](#uploads)).
+- One Docker container, with `DATA_DIR` on a mounted volume. That volume is
+  everything worth backing up.
 
 ```
 phone (PWA) ──server fns / HTTP──▶ TanStack Start (Nitro, Bun) ──▶ bun:sqlite ──▶ expecting.db
@@ -23,275 +30,670 @@ content/ (in the repo, bundled at build) ──▶ built-in items
 
 ## Access: two accounts
 
-- **The two of you are two accounts.** Each person row (`person`, `src/db/models/people/`) is one of you: a name, `carrying` or `partner`, and your own password, stored only as its argon2id hash. Two at most, one in each role, held by the database (the `person_two_at_most` trigger, so a database from before that holds more still opens). No usernames: `/login` shows your names, you tap yours, then your password.
-- **Either of you sets it up, and one is a whole setup.** On a new instance `/login` asks which of you you are, your name and a password (`setUp`). Whoever reaches it first sets it up, accepted because it is self-hosted on your own network: you set it up straight after starting the container, and if someone beat you to it, you delete the data folder and start again. Nothing assumes the one holding the phone is the one who's pregnant: a partner running the admin for someone who doesn't want another app is one account, as is a single parent.
-- **The other joins only by invite.** Once one of you is here the login page offers no place to claim. In Settings, an invite (`makeInvite`, `src/api/rpc/people.ts`) is a code, `K7Q-MP3-XD9-VA2`, in a link (`/join?code=…`), alive a week, used once, one at a time; opening it asks the other's name and password, for the place left, and logs that phone in (`join`). Codes are Crockford base32, typed with any case, spaces or dashes, and only their SHA-256 is kept (`invite`, `src/db/models/auth/`).
-- **No primary.** Each of you can let the other back in: a reset link (`makeReset`, `/reset?code=…`, alive a day, used once) to choose a new password, which logs out every phone of theirs (`resetPassword`). Each of you changes your own (`choosePassword`, asking the one you have now; your other phones are logged out), and logs out on this phone or everywhere (`logOutEverywhere`). Alone, the way back is the server: turn logins off, log in by your name, choose a new password in Settings (with logins off it doesn't ask the one you have), and turn them back on.
-- **Moving from the shared password** (`036_accounts.sql`): its hash went to everyone already here, marked not yet chosen, so you each log in with it once, under your own name, and then must choose your own before going on (`/password`, sent there by the frame while `mustChoosePassword`). Sessions from before were no one's, so every phone logged in once more.
-- **Why accounts, and why only now.** One password with a cookie saying who's holding the phone was chosen first, since nothing in the shared space needs hiding from the other. But a few things were always one person's own (the words of how you're feeling, your names-game votes before the other has voted, who does what before both have answered), and with one password those were a courtesy anyone could undo by saying they were the other. Now they hold, and "Jason did this" is true. Chosen over **no auth** because this data is personal and the app is meant to be reachable from a phone at the hospital. Not now: a guest (a birth support, grandparents), who would be a narrow, read-mostly link, not a third account.
-- Logging in sets a long-lived, HTTP-only session cookie, so a phone stays logged in for months. Sessions are rows holding the SHA-256 of the cookie's token and whose they are (`session.person_id`), so a copy of the database is not a login. A session lives 400 days from its last use.
-- Login attempts are rate limited: ten failures in fifteen minutes locks that client out of that person, in memory, so guessing at one of you doesn't lock out the other; a wrong code counts against the client alone.
-- Every request passes request middleware, which judges it by path: pages without a session redirect to `/login`, other `/api/*` calls get a 401, and only `/login`, `/join`, `/reset` and `/api/health` are open.
-- Server functions answer under `/api/rpc/`, each at a generated id, so request middleware lets those calls on, and function middleware judges each one by the file it is defined in: without a session, only `src/api/rpc/session.ts` answers. That file holds `getAccess`, `setUp`, `login`, `checkCode`, `join`, `resetPassword` and `logout`, ordinary server functions like the rest, so the app has one way of calling the server, and `src/api/rest/` is left for callers that aren't the app.
-- **Who you are is your session.** `personId()` (`src/server/core/person.ts`) reads it from the session (`sessionOf`, `src/server/auth/gate.ts`, looked up once a request), for every server function that keeps who did something. There is no other cookie saying who.
-- `EXPECTING_LOGIN=off` stops asking for passwords, not who you are: `/login` is your names, and tapping one is logging in; setting up and joining ask no password; Settings offers choosing a new password without the one you have (the way back in for one of you alone), and Log out hands the phone to the other. For keeping it on a LAN you trust. On is the default, so leaving the variable out never opens anything, and a value that is neither `on` nor `off` is an error rather than a guess. The dev server reads it too. Turning it back on later: one of you with no password chooses it on their next login.
+- **Two of you, two accounts.** A `person` row (`src/db/models/people/`) is
+  one of you: a name, `carrying` or `partner`, and your own password, kept
+  only as its argon2id hash. Two at most, one in each role, held by a
+  trigger (`person_two_at_most`). No usernames: `/login` shows your names,
+  you tap yours, then give your password.
+- **Why accounts.** A few things are one person's own (the words of how
+  you're feeling, your votes before the other has voted), and only a login
+  of your own makes that hold, and makes "Jason did this" true. Not no
+  auth: the data is personal and meant to be reachable from a phone at the
+  hospital. A guest (a birth support, grandparents) would be a narrow,
+  read-mostly link, not a third account; not built.
+- **Either of you sets it up; one is a whole setup.** On a new instance
+  `/login` asks which of you you are, your name and a password (`setUp`).
+  Whoever gets there first sets it up, which is fine self-hosted: you do it
+  straight after starting the container. Nothing assumes the one holding
+  the phone is pregnant: a partner running the admin alone is one account,
+  as is a single parent.
+- **The other joins only by invite.** From Settings (`makeInvite`,
+  `src/api/rpc/people.ts`): a code such as `K7Q-MP3-XD9-VA2` in a link
+  (`/join?code=…`), alive a week, used once. Opening it asks the other's
+  name and password and logs that phone in (`join`). Codes are Crockford
+  base32, typed with any case, spaces or dashes; only their SHA-256 is kept
+  (`invite`, `src/db/models/auth/`).
+- **No primary.** Each of you can make the other a reset link (`makeReset`,
+  `/reset?code=…`, a day, once), which logs out every phone of theirs.
+  Each changes your own password (`choosePassword`) and can log out
+  everywhere (`logOutEverywhere`). Alone and locked out, the way back is the
+  server: turn logins off, choose a new password in Settings, turn them back
+  on.
+- **Sessions.** Logging in sets an HTTP-only cookie whose token is stored
+  only as a SHA-256 (`session.person_id` says whose), so a copy of the
+  database is not a login. A session lives 400 days from its last use.
+  `personId()` (`src/server/core/person.ts`) reads who you are from it
+  (`sessionOf`, looked up once a request); there is no other cookie saying
+  who.
+- **Rate limits.** Ten failed logins in fifteen minutes lock that client out
+  of that person, in memory, so guessing at one of you doesn't lock out the
+  other; a wrong code counts against the client alone.
+- **The gate** (`src/server/auth/gate.ts`), applied twice in `src/start.ts`.
+  Request middleware judges by path: a page without a session goes to
+  `/login`, an `/api/*` call gets a 401; only `/login`, `/join`, `/reset`,
+  `/api/health` and the OAuth endpoints are open, and `/api/mcp` is judged
+  by its bearer token ([Claude](#claude-mcp)). Function middleware judges
+  each server function by the file it's defined in: without a session only
+  `src/api/rpc/session.ts` answers (`getAccess`, `setUp`, `login`,
+  `checkCode`, `join`, `resetPassword`, `logout`), so the app has one way of
+  calling the server.
+- **`EXPECTING_LOGIN=off`** stops asking for passwords, not who you are:
+  `/login` is your names and tapping one logs you in; Settings lets you
+  choose a password without the old one; Log out hands the phone to the
+  other. For a LAN you trust. On is the default, and a value that is neither
+  `on` nor `off` is an error, so a typo never opens anything. Turned back on,
+  one of you without a password chooses it at the next login.
 
-Open, and it decides the PWA: a service worker and installing to the home screen need HTTPS, which plain `http://<lan-host>:9966` is not. Tailscale (`tailscale serve` gives HTTPS on a `*.ts.net` name) is the easiest way to get both. Also open: whether expecting is reachable outside the LAN, and how — a VPN such as Tailscale, or public through the reverse proxy. The password is needed either way; a public route raises the bar for everything else.
+Where it runs, HTTPS and reaching it from outside home are still open
+([intent](intent.md#open-questions)). They decide the PWA, which needs
+HTTPS: `tailscale serve` is the easiest way to get it.
 
 ## One app, the pregnancy
 
-The first version of Expecting is the pregnancy alone: weeks 1–42, from the due date. Getting ready before a pregnancy and the weeks after the birth were built as apps of their own (preconception and postpartum, each a phase with its own pillars) and taken out to keep the first version small. The code has no phases now: no phase type, no phase in the URL, no birth date.
+The first version is the pregnancy alone, weeks 1–42, from the due date.
+Don't add phases, a phase type, a phase in the URL or a birth date until
+getting ready or the weeks after the birth are being built: they would make
+every part harder for a version that has none. When they come, a slot
+becomes a phase and a week, and the content says which phase an item is
+in.
 
-- **The URL is the page.** Home is `/`, and each pillar sits at its own path: `/library`, `/library/<id>`, `/planner`, `/journal`, `/drawer`, and the whole pregnancy (`/timeline`), `/emergency` and `/settings` beside them. The navigation is `PILLARS` (`src/app/components/layout/pillars.ts`), typed against the route tree, so a pillar can't point at a page that isn't there.
-- `App` (`src/app/pages/App.tsx`, the `app` route's component) keeps the baby's colours and the content context, and draws the pillars in `PillarLayout` (`src/app/components/layout/PillarLayout.tsx`), the sidebar and tab bar.
-- **Naming.** "Shell" means only what TanStack Start means by it: the HTML document (`shellComponent`, our `Document`) and SPA shell mode. The component around the pillars is `App`; what's drawn around them is a layout.
-- **When the other phases come back,** the pregnancy's week stops being the whole timeline: a slot becomes a phase and a week, and the content's folders say which phase an item is in. Git history has both apps as they were.
+- **The URL is the page.** Home is `/`; each pillar has its path
+  (`/library`, `/planner`, `/journal`, `/drawer`), with `/timeline`,
+  `/emergency`, `/its-time` and `/settings` beside them. The navigation is
+  `PILLARS` (`src/app/components/layout/pillars.ts`), typed against the
+  route tree, so a pillar can't point at a page that isn't there.
+- **Naming.** "Shell" means only what TanStack Start means: the HTML
+  document (`Document`) and SPA shell mode. The component around the
+  pillars is `App` (`src/app/pages/App.tsx`); what it draws around them is
+  `PillarLayout`, the sidebar and tab bar.
 
 ## Code layout
 
 ```
 src/
-  app/          the app itself, not a domain: the document, the frame around the pillars (App, PillarLayout, PILLARS), the error and not-found pages, useAction; in a feature's shape
-  features/     a folder per domain: its pages and its parts (thisWeek, timeline, library, planner, journal, drawer, emergency, names, weeks, tasks, questions, feelings, capture, quiet, settings, onboarding, auth)
-  components/   generic parts with no domain: Page, DateForm, Coming
+  app/          the app itself, not a domain: the document, the frame (App, PillarLayout, PILLARS), the error pages, the outbox, useSave, useAction
+  features/     a folder per domain: its pages and parts
+  components/   generic parts with no domain: Page, DateForm, loading
   lib/          pure rules and types: no React, no router, no store
-  content/      the built-in items, bundled
-  routes/       the pages' routes, definitions only: root.tsx, a file per route, onboarding/, tree.ts (the shape), search.ts
-  api/          everything that answers at /api
-    rest/       the server routes: fixed URLs for callers outside the app (/api/health, /api/mcp, OAuth), uploads' bytes (/api/files/<id>/<variant>), and an appointment's calendar file (/api/appointments/<id>/calendar.ics)
-    rpc/        the server functions: what the app calls, run on the server (/api/rpc/<id>)
-    mcp/        the MCP server's tools, for Claude (/api/mcp, served from rest/)
+  content/      reading and checking the built-in content
+  routes/       route definitions only: root.tsx, a file per route, onboarding/, auth/, tree.ts, search.ts
+  api/
+    rest/       server routes: /api/health, /api/mcp and OAuth, an upload's bytes, an appointment's calendar file
+    rpc/        server functions, what the app calls (/api/rpc/<id>)
+    mcp/        the MCP server's tools
   db/ server/   server only: the store, auth, boot
-  pwa/          the service worker (worker.js), the Vite plugin that emits it, and its registration
+  pwa/          the service worker, the Vite plugin that emits it, its registration
 ```
 
-Every feature has one predictable shape, each folder only where it has something: `pages/` its pages (what a route draws), `components/` its parts (a folder per aspect, as settings' `facts/`, `extras/`, `colour/`, `appearance/`, `session/`, and loose the parts they share, as `SettingRow`), `hooks/` its hooks (`useItems`, `useTasks`, `useAction`), `contexts/` a page's context (`JournalPageContext`, at most one a page), and `model/` what has no React in it: rules, types, paths. Settings' `model/` is the one the rest of the app (`lib/`, `content/`, `api/rpc/`) may import too. Settings owns the questions and the extras, wherever they are drawn: `AskNow` on This week and `OfferExtra` in onboarding are its components.
+Every feature has one shape, each folder only where it has something:
+`pages/` (what a route draws), `components/` (a folder per aspect, the
+shared parts loose), `hooks/`, `contexts/` (a page's context, at most one a
+page) and `model/` (no React: rules, types, paths). Settings owns the
+questions and the extras wherever they're drawn (`AskNow` on This week,
+`OfferExtra` in onboarding), and its `model/` is the only part of
+`features/` that `lib/` and `content/` may import.
 
-```
-features/settings/
-  pages/        SettingsPage
-  components/   SettingRow; facts/ (FactsForm, AskNow), extras/ (ExtrasList, OfferExtra), colour/, appearance/, session/
-  model/        facts.ts + facts.data.ts (the questions), extras.ts + extras.data.ts (the extras)
+Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
+`server/` and `api/` import the store or `server/`; nothing imports
+`api/rest/` or `routes/` (a page reads its route through `getRouteApi`);
+`lib/` and `content/` import no React, router or server.
 
-features/library/
-  pages/        LibraryPage, LibraryItemPage
-  components/   ItemCard, ItemList; content/ (the Markdoc tags), doors/, related/, rightNow/
-  hooks/        useItems
-  model/        pageOf
-```
+## Data in the app
 
-Biome holds the boundaries (`noRestrictedImports` in `biome.json`): only `db/`, `server/` and `api/` import the store or `server/`, and nothing else imports `api/rest/`, so the browser reaches the server only through `api/rpc/`; nothing imports `routes/` (a page reads its route through `getRouteApi`); and `lib/` and `content/` import no React, router or server, and nothing from `features/` but `features/settings/model/` (the questions and extras: pure, and held to the same rule). Routes are code, a file per route in `src/routes/`, put together in `tree.ts`.
+- **A query per thing, beside its server function.** Each
+  `src/api/rpc/<thing>.ts` holds its server functions, its query and the
+  query's hook, `use<Thing>Query`: `useSuspenseQuery` over the query,
+  returned as is, with any options overriding the defaults. What's worked
+  out from one query is a `select`:
+  `const { data: facts } = useAnswersQuery({ select: factsOf })`.
+  `usePosition()` and `useNow()` (settings) need today as well as the due
+  date. TanStack Start's compiler turns each server function into a fetch
+  in the browser, so a page can import the file whole.
+- **The query cache is the only store of data:** no data provider, no
+  aggregate. `useItems()` (the items your facts and extras fit) and
+  `useTasks()` (their tasks, timed, then your own) combine several, each a
+  pure function in a `useMemo`, cheap enough for every caller to do its own.
+  The `app` route's loader loads what nearly every page reads before any
+  pillar draws, so moving between pillars is instant.
+- **Every change goes through one of two hooks.** A save is `useSave`
+  (`src/app/hooks/useSave.ts`) through the outbox ([PWA](#pwa)): it shows at
+  once, by its `apply` on the query it changes, and is sent behind it. What
+  can't wait for a connection (logging in, your account, onboarding) is
+  `useAction`: it saves, refetches the queries on screen with the page still
+  drawn, then resolves. Either way a failed save says so in a toast, and an
+  ended session goes to log in.
+- **A page may have one context,** its organising layer: `<Page>Provider`
+  and `use<Page>Page()` in its feature's `contexts/<Page>PageContext.tsx`.
+  It holds the page's shared state, what must be worked out once, and what
+  several parts must agree on; never the data, which stays in the cache.
+  What only one part needs, that part works out itself. Its parts read it
+  rather than take props. A value that changes often goes in a second
+  context from the same provider, so parts that don't read it aren't drawn
+  again. The Journal is the first (`JournalPageProvider`); other pages take
+  it up as they're next changed.
+
+## The frame
+
+- **Five pillars:** a sidebar on a desktop, a tab bar on a phone, in two
+  orders (`PILLARS` and `TABS`). The sidebar reads top to bottom: This week,
+  the Planner, the Journal (now, ahead, behind), the Library, the Drawer.
+  The tab bar goes from the middle out, where a thumb reaches best: This
+  week in the middle, the Journal and the Planner either side (past to
+  future, as on the strip), the Library and the Drawer at the edges.
+- **Beside settings, not pillars:** Emergency info and It's time, in the
+  phone's top corner (`PhoneCorner`) and the sidebar, and the call button
+  (`CallBirthSuite`): the birth suite's number from Emergency info, drawn
+  once it's filled in, and read without suspense so the frame never waits
+  for it. A symptom's `Triage` calls the same number.
+- **The frame provides what content renders against** (the answers, now,
+  the questions already asked), so a Markdoc tag works the same everywhere.
+- **Each thing lives in one pillar and meets the others on its week.**
+- Settings sits in the frame; onboarding and login don't.
 
 ## The pillars
 
-The app is five pillars in its frame: a sidebar on a desktop, a tab bar on a phone. The whole pregnancy, the map, is a page off This week ([The whole pregnancy](#the-whole-pregnancy)).
+### This week
 
-The two orders differ, each for how it's used, with the same weight in both (`PILLARS` and `TABS`, `src/app/components/layout/pillars.ts`). The sidebar is read top to bottom: This week, the Planner, the Journal, the Library, the Drawer, the three about your pregnancy in time first (now, ahead, behind; the Planner before the Journal, as what Expecting asks of you), then what it knows, then the handy things. The tab bar goes from the middle out, where a thumb reaches best: the Library, the Journal, This week, the Planner, the Drawer. This week is in the middle; the Journal (behind) and the Planner (ahead) either side, past to future the way the weeks run on the strip, the Planner on the right, the easier side for most thumbs; the Library and the Drawer at the edges.
+`/`, `?at=29` to peek at another week ([product](product/this-week.md)).
+`src/features/thisWeek/`.
 
-| Pillar | Route | Holds |
-|---|---|---|
-| **This week** | `/`, `?at=29` | Home: what it does and why is [`product/this-week.md`](product/this-week.md). `src/features/thisWeek/`: the week's heading, To do now (`src/features/tasks/components/toDoNow/ToDoNow.tsx` over `toDoNow`, `src/lib/todo.ts`), `CheckIn` and `HardFortnight` (`src/features/feelings/`), the week's note, the heads-up (`headsUps`) and Worth knowing (`worthKnowing`, `ON_A_WEEK`; both `src/lib/library.ts`), what Expecting needs to know (the next due question, `src/features/settings/model/facts.ts`) and the extra to offer (`extraToOffer`), Coming up (`comingUp`, `src/lib/todo.ts`) and the questions waiting. `?at=` peeks at another week. The heading's strip of the pregnancy is `PregnancyStrip` (`src/features/timeline/components/strip/`), its weeks links to `?at=`. While something has happened it's `QuietWeek`. |
-| **Library** | `/library`, `?q=`, `?door=`, `?topic=`, `?verdict=`, `?for=partner`; `/library/<id>` | Everything Expecting knows, by the question you came with: what it does and why is [`product/library.md`](product/library.md). The page is `src/features/library/` (the home's search, doors, Right now and topics; `ItemCard` draws an entry by its type, with `Verdict`, `Triage`, `Related`, its sources and `AskAtAppointment`); the rules are `src/lib/library.ts` (search and its ranking, `DOOR_INFO`, Right now, `worthKnowing` and `headsUps` for This week, `namesPrivate`); every link to an entry is `ItemLink`. Content is below. |
-| **Planner** | `/planner`, `/planner/weeks`, `?stage=37`; `/planner/lists`, `/planner/lists/<id>` | To do, the lists of what to get, the appointments, and the questions for the next one: what it does and why is [`product/planner.md`](product/planner.md). To do is `src/features/planner/` and `src/features/tasks/` (`TaskRow`, `AddTask`, `KeepButton`), its shape `src/lib/planner.ts` (`next`, `now`, `ahead` in `STAGES`, `earlier`, `done`) over To do now (`toDoNow`, `src/lib/todo.ts`); Across the weeks (`WeeksPage`, `WeeksChart`) is the same plan as bars, `chartOf` in `src/lib/acrossTheWeeks.ts`, and each stage card's `StageSpan` its weeks; ticks are `task_tick`, own tasks `own_task` (a title and a week). The lists are `src/features/lists/`, their rules `src/lib/lists.ts` (`LISTS`, the lines that apply, by section, what's left), the lines an item's `lines` (tailored like the item, with a line's own `when`, as the bottles and formula by the `feeding` answer); the store is `own_list`, `own_line` and `list_mark` (a built-in or own line's id, no foreign key, as `task_tick`; no row, or no state, is still to get). The appointments are `src/features/appointments/` (`AppointmentCard`, `AddAppointment`, and on This week `NextAppointment`) and the `appointment` table (a title, a `day`, perhaps a `time`, a `place` and `notes`, `by`, `edited_by`; one-off, nothing repeats), their rules `src/lib/appointments.ts` (the next is the earliest still ahead, today's included; their week from the due date on read, like a Journal entry's). Add to calendar is a plain link to `GET /api/appointments/<id>/calendar.ics` (`src/api/rest/calendar.ts`, `serveAppointmentIcs`; the file is `icsOf`, `src/lib/calendar.ts`): a server route, not a server function, as a phone hands a file to its calendar only when it's opened from a URL with its own type (`text/calendar`, inline, never kept). Its time floats (local, no zone), an hour long, or all day without a time; its `UID` is the appointment's id. The worker leaves every `/api/` path but `/api/rpc/` to the network, page or not, so it's never answered with the shell. The questions are `src/features/questions/` and the `question` table (`answer`, `asked_at`, the `item_id` it came from, `by`); the way in from an entry is `AskAtAppointment` (`src/features/library/components/askAtAppointment/`, suggestions from `suggestionsFor`: an ask-first can-i's `ask:`, then `appointment:`), and an entry's own questions back are `QuestionsAbout`. A private `itemId` is refused by the privacy middleware, an unknown one by `isBuiltInItemId`. |
-| **Journal** | `/journal`, `?view=`, `?at=`; `/journal/collections`, `/journal/collections/<name>`; `/journal/book` | What happens, kept and given back: what it does and why is [`product/journal.md`](product/journal.md); the map of its code, its words (line, view, collection, summary, quiet) and how to add a kind of line is [`src/features/journal/README.md`](../src/features/journal/README.md). The page is `src/features/journal/`, one context and two renderings: `JournalPageProvider` (`contexts/`) builds the story's lines once, and what draws them is `Journal` or, while something has happened, `QuietJournal` (`pages/JournalPage.tsx`), each inside `JournalFrame`. A part per folder of `components/`: `story/` (`JournalStory`, its controls, search and `views/`), `thisWeek/`, `lines/` (a file per kind of line), `collections/`, `book/`, `quiet/`, and `entries/<kind>/`, each kind's forms and rows, quiet-aware wherever they're opened, which the "+" and other pillars import. The collections are `pages/CollectionsPage.tsx` and `pages/CollectionPage.tsx`, inside the same provider. Feelings are `src/features/feelings/`, drawn here and on This week. The rules are in `src/lib/`: `story/` (`items.ts`, the lines; `collections.ts`; `views.ts`; `search.ts`; `spine.ts`, weeks and days as drawn; `zoom.ts`), `summaries.ts` (each collection's answer), `labels.ts` (how every day and week is said), `journal.ts` (notes and movements, `movementPattern`, `MOVEMENTS_FROM`), `journalNow.ts` (`callsToMake`, `recapsSoFar`), `firsts.ts` (`FIRSTS`, `aroundNow`, `alreadyHappened`), `chapters.ts` (`CHAPTERS`, `young`), `places.ts` (`PLACES`, `placesReady`), `recap.ts` (`recapOf`), `appetite.ts`, `feelings.ts`, `photos.ts` and `papers.ts` (`PAPER_TOPICS`, `handyByDefault`, `offlineFiles`); while something has happened, `foldedWhileQuiet`. The store: `journal_entry` (`kind`: `note`, `movement`, `letter`; a movement's `body` may be empty, and only a movement may be `different`), `first_mark` and `first_words`, `journal_seen`, `feeling`, `appetite_entry`, `photo` and `paper` with `paper_page` (both on uploads, [Uploads](#uploads)). A week's dates are worked out from the due date as they're read, so a moved due date moves an entry's week, never its day. Emergency info draws the handy papers (`PapersToHand`) and a Library entry its own (`PapersAbout`); the timeline's `MapWeek` carries each kind's mark. |
-| **Drawer** | `/drawer`, `/drawer/names`, `/drawer/jobs`, `/drawer/people`, `?view=` | The handy things: what they do and why is [`product/drawer.md`](product/drawer.md). The Drawer is `src/features/drawer/`, with each tool shown once its extra is on and the rest named by the extra that brings them. The names game is `src/features/names/` (`NamesPage`, `SwipeDeck`), dealt by `upNext` in `src/lib/nameDeck.ts` (`WIDESPREAD`) over `src/lib/nameDeck.data.json` ([The names deck](#the-names-deck)), the sex from the colours (`dealing`, `src/lib/names.ts`, or `?names=girls`), loaded with the Drawer's page only. Who does what is `src/features/jobs/` at `/drawer/jobs` (`JobDeck`, `Results`), the jobs `JOBS` in `src/lib/jobs.ts`, each answer a `job_pick` row, the other's shown only once both have answered (`JobsRepo.view`). Your people is `src/features/circle/`, rules `src/lib/circle.ts`, a view per extra (`?view=`). |
+- To do now is `toDoNow` (`src/lib/todo.ts`), Coming up `comingUp`; the
+  heads-up and Worth knowing are `headsUps` and `worthKnowing`
+  (`src/lib/library.ts`).
+- The strip is `PregnancyStrip` (`src/features/timeline/components/strip/`).
+- The week's note and the day reads are one carousel, `DayByDay`; the note
+  reads as whoever holds the phone, with a toggle for the other's part
+  (`WeekNote`, `src/features/weeks/`).
+- What Expecting needs to know is `AskNow`, the extra on offer
+  `extraToOffer`, the check-in `CheckIn` and `HardFortnight`
+  (`src/features/feelings/`), the next appointment `NextAppointment`, and
+  the week's question `WeeklyCard` while A question a week is on.
+- While something has happened it's `QuietWeek`.
 
-- **A query per thing, beside its server function.** Each file in `src/api/rpc/` holds both sides of one thing: its server functions, its query, and the query's hook, named for what it holds with `Query` after it (`useSettingsQuery`, `useAnswersQuery`, `useExtrasQuery`, `usePeopleQuery`, `useChecklistQuery`, `useQuestionsQuery`, `useNamesQuery`, `useEmergencyQuery`). A hook is only a shortcut: `useSuspenseQuery` over its query, returned as is for the caller to destructure, with any options it's given overriding the defaults. What's worked out from one query is a `select`, which runs only when the data changes and keeps its result between renders: `const { data: facts } = useAnswersQuery({ select: factsOf })`, `useExtrasQuery({ select: extrasOn })`. `settings.ts` also has `usePosition()` and `useNow()`, which need today as well as the due date. TanStack Start's compiler turns each server function into a fetch in the browser and drops what only its handler imports, so a page can import the file whole. The `app` route's loader makes sure of the queries nearly every page reads, side by side, before any pillar draws (and the papers, so the handy ones are on each phone with no signal, Emergency info's included); the names and Emergency info only their pages load. The query cache is the only store of data: no data provider, no aggregate. A component reads the queries and hooks it needs; `useItems()` (the items the facts and extras fit, `src/features/library/hooks/useItems.ts`) and `useTasks()` (their tasks, timed, then your own, `src/features/tasks/hooks/useTasks.ts`) combine several, each a pure function (`tailorItems`, `tailorTasks`) in a `useMemo`, about a tenth of a millisecond, so each caller doing its own costs nothing. Moving between pillars is instant, and they never disagree once a save is in. A save goes through `useSave` (`src/app/hooks/useSave.ts`) and the outbox ([PWA](#pwa), Offline writes): it shows at once, by its `apply` on the query it changes, and is sent behind it. What can't wait for a connection (logging in, your account's upkeep, onboarding's steps and finish) goes through `useAction` (`src/app/hooks/useAction.ts`): it saves, then refetches the queries on screen with the page still drawn (never the loading page, which would lose your place), and only then resolves, so what comes next draws what was saved; onboarding keeps its step drawn while a save is pending, rather than react to a half-refetched state. Either way, a failed save says so in a toast and an ended session goes to log in. Every change goes through one of them: a save that doesn't leaves the queries stale.
-- **A page's context, its organising layer.** A page may have one context, made by `<Page>Provider` and read with `use<Page>Page()`, in its feature's `contexts/<Page>PageContext.tsx` (a feature's fifth folder, only where a page has one). It holds what the page works out once and what its parts share: what several parts would each work out (the Journal's story, built in its provider once, for the story and the quiet Journal's folded part), a hook that must have one caller, what one part decides for another, and the page's own state when several parts share it. What only one part needs, that part works out from the context itself (the view, `useStoryView`; the search, `useStorySearch`; the quiet story's lines; what's folded away): the context holds the state, what must be worked out once, and what several parts must agree on, nothing more. It never holds the data: queries stay in the cache, read through their hooks, by the page's parts as by any component. The page draws its provider around its layout, and its parts read the context rather than take what it holds as props. A value that changes often and several parts share goes in a second context beside the first, from the same provider, so a `memo` part that doesn't read it isn't drawn again; each value is kept the same between renders while nothing in it changed (`useMemo`, `useKeepSame`). The Journal is the first (`src/features/journal/contexts/JournalPageContext.tsx`); the other pages take it up as they're next changed.
-- **The capture "+"** (`src/features/capture/`): what it does and why is [`product/capture.md`](product/capture.md). Drawn by `PillarLayout` on the pillars only; a `Modal` (it slides up from the bottom on a phone) listing `captureChoices` (`src/features/capture/model/choices.ts`, the order and what's offered when; `FILED_IN`, where each goes and its toast), each its pillar's own form reused (`AddMovement`, `AddSickness`, `AddCraving`, `AddNote`, `AddPhoto`, `AddPaper`, `CheckInNow`, `AddQuestion`, `AddTask`, each with an `onAdded`). A movement is a `kind` of `journal_entry` (`body` may be empty, `different` marks slower, weaker or stopped; `018_movement.sql` rebuilt the table, as SQLite can't alter a `CHECK`).
-- **The call button** (`CallBirthSuite`, `src/app/components/layout/`): the birth suite's number from Emergency info, one tap from every pillar: on a phone beside settings at the top of each (`PhoneCorner`), on a desktop in the sidebar. Until the number is filled in it isn't drawn: the way to Emergency info beside it is where the number goes. Read without suspense, so the frame never waits for it. A symptom's triage (`Triage`) calls the same number.
-- **The frame provides what content renders against** (the answers, now, the questions already on your list), so a Markdoc tag works the same on This week and in the Library.
-- **It's time** (`/its-time`, `src/features/itsTime/`, rules in `src/lib/itsTime.ts`) is the page for the night it starts, beside Emergency info and, like it, not a pillar: what it does and why is [`product/its-time.md`](product/its-time.md). The way in is `ItsTimeWayIn` (a pill in `PhoneCorner`, a row in the sidebar), shown by `itsTimeShown`; the ready list is `stillToReady`, the red flags `flagsFor` (each line naming its entry), the card `theyllAsk`, the pattern `patternOf`. The store: `labour_start` (one under way at a time, a unique index; every tap but starting lands on the one under way), `contraction` (refetched every few seconds while a start is under way; the wake lock keeps the screen on), `start_tick` (this start's last things), `start_line` (your own, kept between starts); Emergency info's `partnerPhone`, `hospitalWayIn`, `hospitalSaid`, `minder`/`minderPhone`, `backupDriver`/`backupDriverPhone`. Every save names its start and a contraction's end carries its beginning, so saves arriving out of order make the same night. The bag is `bag` in `LISTS` (`isApart`, kept out of the Planner's lists), its lines in `hospital-bag`'s frontmatter. The night's Journal line is `nightsOf`/`nightLine`. The questions are `birthPlace` and `presentation` (its `askAgain` lists `breech`). This Week's card (`LookThrough`) is once a phone, in browser storage.
-- **Emergency info** (`/emergency`, `src/features/emergency/`) is its own page, not a pillar, one tap from every pillar beside settings (a link in the phone's top corner, `PhoneCorner`, and in the sidebar): what it does and why is [`product/emergency.md`](product/emergency.md). The handover is built by `handover` (`src/features/emergency/model/handover.ts`) from the fields in `src/lib/emergency.ts` and the answers; the values are the `emergency` table, shared and editable by both. Below it `PapersToHand`, `WarningSigns` (from `content/items/warning-signs.md`), everyone else and the front desk.
-- **Settings sits in the frame too**; onboarding and login don't.
-- **A week's note reads as whoever holds the phone:** the baby, then your body or the partner's part, with a toggle to read it as the other (`src/features/weeks/components/weekNote/WeekNote.tsx`).
-- **Each thing lives in one pillar and meets the others on its week.** A task is the Planner's, and shows in its week; an asked question is the Planner's, and lands in the week it was asked; an item is the Library's, and appears in the week it starts.
+### The whole pregnancy
 
-## The whole pregnancy
+`/timeline`, `?at=28` ([product](product/timeline.md)): opened from This
+week, not a pillar, so no tab and no "+". `src/features/timeline/`, the
+rules in `src/lib/timelineMap.ts`. A week is a line (`WeekMap`) that links
+to This week at it (`/?at=<week>`). The strip's weeks are left out of the
+tab order; the steps beside it are the keyboard's way.
 
-The map, at `/timeline`: the whole pregnancy at once, weeks 1–42 under their trimesters (`src/features/timeline/`), opened from This week; not a pillar, so it has no tab and no "+". What it does and why (and why it stopped being a pillar) is [`product/timeline.md`](product/timeline.md). A week's detail is This week's: every week links to `/?at=<week>`. The rules are in `src/lib/timelineMap.ts`, tested apart from the screen.
+### Library
 
-- **The strip** (`PregnancyStrip`): a bar a week, on This week under its heading and at the map's head. Its weeks are links to This week at them, left out of the tab order (the steps beside it are the keyboard's way).
+`/library` (`?q=`, `?door=`, `?topic=`, `?verdict=`, `?for=partner`),
+`/library/<id>` ([product](product/library.md)). `src/features/library/`;
+the rules (search and its ranking, the doors, Right now, `namesPrivate`)
+are `src/lib/library.ts`. `ItemCard` draws an entry by its type. Every link
+to an entry is `ItemLink`. An entry's words load in its route's loader, so
+it opens whole. Content is [below](#content).
 
-- **A week is a line** (`WeekMap`): its note's title, or a landmark (Halfway, Full term, Due date), and what it has: what opens, what's to do or has slipped, what's done, the questions asked there. Today is marked.
-- **The weeks:** one column on a phone, with a Today button to its line; three on a desktop, a trimester each. The windows chart that sat above them is the Planner's Across the weeks now.
-- **Expecting knows what to do; you don't fill it in.** The weeks carry no add box. An own task, for the odd thing Expecting couldn't know, is added at the foot of the Planner's To do, for this week, and shows on its week like any other. A question is added in the Planner.
-- `?at=28` opens at another week; an item's page links to its week this way.
+### Planner
 
-## Adaptive
+[Product](product/planner.md).
 
-- Both sizes get a designed layout. Desktop: the pillars in a sidebar on the left; the whole pregnancy's weeks in three columns; the Planner in two columns, and its chart with the titles in a column. Phone: the tab bar under the thumb, settings behind a gear at the top of each pillar, the Planner's chart the width of the screen, each title over its bar. Item bodies keep a readable line length at every size.
-- One width for the pillars: every pillar's page, and settings, is `max-w-6xl`, so its header stays put as you move between them; what's read rather than scanned (Emergency info, a Library entry, the book) is the same width, its column `max-w-3xl` at the left, so its title lines up too (Emergency info is for a phone, so a desktop gets the phone's one column, not a layout of its own); and a single thing on a pillar (the search, the names game) keeps to `max-w-3xl` inside it.
-- Tap targets are at least 44px. No hover-only interactions. Safe areas are respected.
-- e2e loads every page at both sizes (`phone` and `desktop` projects).
+- **To do** (`/planner`): `src/features/planner/` and `src/features/tasks/`
+  (`TaskRow`, `AddTask`, `KeepButton`), its shape `src/lib/planner.ts`
+  (`next`, `now`, `ahead` in `STAGES`, `earlier`, `done`) over `toDoNow`.
+  Ticks are `task_tick`, own tasks `own_task` (a title and a week).
+- **Across the weeks** (`/planner/weeks`, `?stage=37`): `WeeksPage`, the
+  bars from `chartOf` (`src/lib/acrossTheWeeks.ts`).
+- **Lists** (`/planner/lists`, `/planner/lists/<id>`): `src/features/lists/`,
+  rules `src/lib/lists.ts` (`LISTS`, the lines that apply, what's left). A
+  built-in line comes from an item's `lines`, tailored like the item. The
+  store is `own_list`, `own_line` and `list_mark` (a line's id, no foreign
+  key, like `task_tick`; no row is still to get).
+- **Appointments:** `src/features/appointments/`, the `appointment` table
+  (title, `day`, perhaps `time`, `place`, `notes`), rules
+  `src/lib/appointments.ts` (the next is the earliest still ahead, today's
+  included; its week from the due date on read). Add to calendar is a plain
+  link to `GET /api/appointments/<id>/calendar.ics` (`src/api/rest/calendar.ts`,
+  the file from `icsOf`, `src/lib/calendar.ts`): a server route, because a
+  phone hands a file to its calendar only from a URL with its own type. The
+  time floats (local, no zone), an hour long, or all day; the `UID` is the
+  appointment's id.
+- **Questions:** `src/features/questions/`, the `question` table (`answer`,
+  `asked_at`, the `item_id` it came from). The way in from an entry is
+  `AskAtAppointment` (suggestions from `suggestionsFor`), and an entry's own
+  questions back are `QuestionsAbout`. An unknown `itemId` is refused by
+  `isBuiltInItemId`, a private one by the privacy middleware.
 
-## Motion and feel
+### Journal
 
-How it feels to use, beside what it does (`docs/plan-polish.md` has the walkthrough it came from).
+`/journal` (`?view=`, `?at=`), `/journal/collections`,
+`/journal/collections/<name>`, `/journal/book`
+([product](product/journal.md)). The map of its code, its words and how to
+add a kind of line is
+[`src/features/journal/README.md`](../src/features/journal/README.md).
 
-- **One set of timings** (`src/styles/motion.css`): fast 120ms (answering a tap), base 200ms (a row arriving or leaving), slow 320ms (a page, a sheet); entering eases out, leaving eases in; `animate-fade`, `animate-rise`, `animate-pop`. Nothing bounces or celebrates. Anyone who has asked their phone for less motion gets fades cut short and no travel, from one rule outside every layer.
-- **Pages give way to each other** through the View Transitions API: the router's `defaultViewTransition` asks `transitionBetween` (`src/app/model/transitions.ts`) for `in` (to a page under this one), `out` (back up) or `across` (another pillar), and `src/styles/transitions.css` draws them; a change of search alone has none. The tab bar, the sidebar and the "+" have their own `view-transition-name`, so the frame holds still. A Library entry loads its words in its route's loader (and so on a link's hover or press), and `pageOf` marks its promise settled, so it opens whole.
-- **Loading has a shape.** In the frame, a slow page draws `PageSkeleton` (`src/components/loading/Skeleton.tsx`), after the router's 400ms; the stork is the app's first start only (the `app` route, onboarding, login), when there's no frame to draw in. The Journal, the Planner and the timeline name what they read beyond the frame's in their routes' loaders, and `App` preloads every pillar while the phone is idle once it has drawn, so a pillar seldom waits at all.
-- **A tick is seen going.** In To do now a ticked task is struck through, held a beat, then folds away (`TaskRow`'s `leaving`), with a toast to undo it; a light tap on Android (`feelDone`, `src/app/model/feel.ts`). After the "+", the toast says what was kept and where ("Note kept", In the Journal). On a phone, toasts sit above the tab bar and left of the "+".
-- **Floating buttons step aside** while the page scrolls down and come back on the way up and at the ends (`useOutOfTheWay`, `src/app/hooks/`): the "+", the map's Today.
-- **On a phone**, no tap highlight, no selecting a button's text by a long press, no double-tap zoom wait (`src/styles/touch.css`); the app icon's badge counts the deadlines coming up, where badges exist (`useDeadlineBadge`).
-- **On a desktop**, `/` searches the Library from anywhere and `n` opens the "+" (`useShortcuts`, `src/app/hooks/useShortcuts.ts`), never while typing or under a dialog.
-- **Arriving on a page puts focus on its heading** (`useFocusOnArrival`, `src/app/hooks/`), once the router has drawn it (`onRendered`): a screen reader says where you are, and the next Tab starts at the top of the page. Not on the first page, not when only the search changes, never away from a field or a dialog; no ring after a tap or a click.
+- `JournalPageProvider` builds the story's lines once; `Journal`, or while
+  something has happened `QuietJournal`, draws them inside `JournalFrame`.
+- `components/` has a folder per part (`story/`, `thisWeek/`, `lines/`,
+  `collections/`, `book/`, `quiet/`) and `entries/<kind>/`, each kind's forms
+  and rows, which the "+" and other pillars import.
+- The rules are `src/lib/`: `story/` (the lines, collections, views,
+  search, spine, zoom), `summaries.ts` (each collection's answer),
+  `labels.ts`, `journal.ts`, `firsts.ts`, `chapters.ts`, `places.ts`,
+  `recap.ts`, `appetite.ts`, `feelings.ts`, `photos.ts`, `papers.ts`.
+- The store: `journal_entry` (`note`, `movement`, `letter`), `first_mark`
+  and `first_words`, `journal_seen`, `feeling`, `appetite_entry`, `photo`,
+  and `paper` with `paper_page` (both on uploads). An entry keeps its day;
+  its week is worked out from the due date as it's read.
+- **Feelings' words never reach the other phone.** `FeelingsRepo.list(asker)`
+  sends the asker's own whole and the other's step only; `change` and
+  `delete` act only on the asker's own. Tested in the repo and on the wire
+  (`e2e/mood.spec.ts`).
 
-## Theme
+### Drawer
 
-Expecting has its own theme, not the design system's Linen. It's built from a reference palette: `#9DC3E2` blue, `#9DD2D8` aqua, `#FADCE4` blush, `#FFB5CC` pink, `#E2B9DB` lilac.
+`/drawer` ([product](product/drawer.md)): each tool shown once its extra is
+on, the rest named by the extra that brings them.
 
-- **Palette** (`src/styles/theme/palette.css`): a 50–950 scale per family, generated by `bun run palette` from `scripts/palette.ts`. The reference colours sit exactly on the step their lightness puts them; the rest of each scale is built around them in OKLCH. The families are sky, lagoon, blossom (pink), lilac, mist (the neutral), sea (success), peach (warning) and cherry (danger). Steps 600 and darker carry text, and a test holds them to AA contrast on white; the pastels themselves can't. In the dark it's the other way round: 300 and lighter carry text on a dark surface (`mist-900`), and 400 and lighter take dark text (`mist-950`), held by the same test.
-- **The sheet** (`docs/palette.html`): every family and the three themes, drawn from the CSS the app ships, to open in a browser. `bun run palette` writes it after the palette (`scripts/palette-sheet.ts`).
-- **Three themes**, chosen by one question in Settings (boy, girl, or don't know / keeping it a surprise):
-  - **Baby Blue** (`baby-blue.css`): a boy. Blue brand, sky-to-aqua accent.
-  - **Baby Pink** (`baby-pink.css`): a girl. Pink brand, pink-to-lilac accent.
-  - **Baby Purple** (`baby-purple.css`): don't know or surprise, and the default. Lilac brand, blue-to-pink accent.
-- Each theme sets every semantic token the design system reads, in light mode and again in dark. Each also sets Expecting's own `--expecting-accent-*` pair, for the gradients in progress bars (onboarding, an item's window of weeks). The page is white with at most a temperature (`--expecting-page`): a cool white in Baby Blue, a warm white in Baby Pink, plain white in Baby Purple. By night it's a near-black with the same temperature, surfaces rise from it in mist, fills are the pastels themselves (400) with dark text, and coloured text is the 300s, so nothing glows. Colour comes in accents (the brand, the progress bars, the timeline's windows), never as a fill. Never as a border on one side of a box, either: a card is outlined all round or not at all. Neutral, success, warning, danger, the corner scale and the type stacks are shared.
-- **Contrast is tested, all six.** `test/styles/theme/contrast.test.ts` resolves each theme's tokens, light and dark, through the palette and holds them to AA where they're drawn: body text at 4.5:1 on the page and the surfaces, and on the tints (the `*-subtle` fills and the soft accent); the focus ring and the edges and marks that carry meaning at 3:1. `fg-subtle` is for surfaces: on a tint, quiet text is `fg-normal`. Hairlines (`border-subtle`, `border-normal`) only separate, and are left to taste.
-- **Two design-system parts are restyled**, in `src/styles/theme/index.css`'s `overrides` layer: the progress bar's track (`bg-strong`, a near-black bar by day that made an empty bar look full, and a glowing near-white one by night) is a faint line (`border-subtle`) in both modes; and in the dark, a disabled solid button (its fill at half opacity, a muddy mid-tone over a near-black page) is its intent's tint.
-- `data-expecting-theme` on `<html>` picks the theme (`src/lib/theme.ts`). The answer is a setting (`baby`, in `settingsQuery`). The browser remembers the last theme in `localStorage`, and an inline script in `<head>` applies it before paint, so a reload doesn't flash Baby Purple.
-- **Why a dark mode, for all three:** the moments that matter most are at night (3 am wondering whether something's normal, Emergency info overnight, the contraction timer), and a white screen then is harsh and lights up the room beside a sleeping partner. The palette is the household's and the mode is each phone's, so every palette needs both: a palette without a dark one would let the household's answer decide whether one of you can have it.
-- **Light or dark is the phone's, not shared.** `data-theme` on `<html>` picks the mode, kept per phone by the design system (`bootstrapTheme()` and `useTheme()` from `@sixthshift/design-system/hooks`, in `localStorage` under `theme`): Light, Dark or System (the default: match the phone), switched under Appearance in Settings. The same boot script paints it before the first frame, reading the design system's key so the two never disagree. `Root` (`src/app/pages/Root.tsx`, the root route's component, so login and onboarding too) starts the design system's mode and points `<meta name="theme-color">` at the page as drawn. Each theme's dark block answers to `[data-theme="dark"]` paired with its `data-expecting-theme`, and to a preview inside a dark page. Expecting's own hook is `useAppTheme` (`src/app/hooks/useAppTheme.ts`), so "theme" means one thing in each file.
-- The three are separate files on purpose, so each can be judged on its own. If they turn out to differ only in brand, they can merge into one theme with named brands, which the design system supports through `data-brand`.
+- **The names game** (`/drawer/names`, `src/features/names/`): dealt by
+  `upNext` (`src/lib/nameDeck.ts`) from [the names deck](#the-names-deck),
+  the sex from the colours (`dealing`, `src/lib/names.ts`). The store is
+  `baby_name` (a deck name gets a row the first time either of you votes on
+  it; `off_at` takes it off the shortlist) and `name_vote` (`super_on`, a
+  superlike's day). `src/api/rpc/names.ts` answers only with your own votes,
+  your superlike and the shortlist, never the other's votes.
+- **Who does what** (`/drawer/jobs`, `src/features/jobs/`): `JOBS` in
+  `src/lib/jobs.ts`, each answer a `job_pick`.
+- **Your people** (`/drawer/people`, `?view=`, `src/features/circle/`):
+  `circle_person`, `circle_gift`, `announcement`, a view per extra
+  (`src/lib/circle.ts`).
+- **Pregnancy bingo** (`/drawer/bingo`, `src/features/bingo/`): `SQUARES`
+  in `src/lib/bingo.ts`, a card each (`bingo_card`), its squares marked
+  (`bingo_mark`).
+- **A question a week** is drawn on This week (`src/features/weekly/`):
+  `WEEKLY` in `src/lib/weekly.ts`, answers in `weekly_answer`.
+- **Both answer, then reveal** is one rule in the repos' views
+  (`JobsRepo.view`, `WeeklyRepo.view`): the other's answer is sent only
+  once you've both given one.
 
-## PWA
+## Outside the pillars
 
-Both need HTTPS, except on `localhost`: how expecting gets it is still open ([Access](#access-two-accounts)).
-
-- **Installable.** `public/manifest.webmanifest` (standalone, white like the page), the app's icons rendered from `public/icon.svg`, the Baby on baby blue to baby pink, the same whatever the theme (192 and 512, a maskable 512 with the Baby inside the safe zone, and the Apple 180). The browser tab's icon is another: `public/favicon.svg` (Baby Purple, the default) and one per theme beside it, which `paintFavicon` (`src/lib/theme.ts`) points the tab at as the theme changes, and the Apple metas in `src/routes/root.tsx`. All public files, served ahead of the gate, so the login page has them.
-- **Service worker.** Hand-written, no Workbox: `src/pwa/worker.js`. `src/pwa/vite.ts` emits it as `/sw.js` from the client build, with the build's files written in above it (`VERSION`, `CORE`, `PAGES`), so a build that changes a file is a new worker, which takes over at once and drops the old caches. `Root` registers it (`src/pwa/register.ts`), in a build only; dev unregisters any a build left behind, since both are on 9966.
-- **Offline reads.** Built: every page answers with the same shell, so the worker keeps one; it fetches the app's files as it installs, and the items' pages (a chunk each, some 900) just after, so every item reads offline, opened before or not. Each server function's last answer is kept as it's fetched (`expecting-data`). Pages and data go to the network first and fall back to what's kept, after four seconds if the network is slow (hospital Wi-Fi), and the slow answer still refreshes the cache; the build's files come from the cache first. The queries are `networkMode: "offlineFirst"`, so they ask with the phone offline and the worker answers. A 401 forgets the kept data, as does logging out (`forgetData`); a new build forgets it too, since its shape may have changed. The e2e spec `e2e/offline.spec.ts` takes the phone offline.
-- **Offline writes.** Built, as an outbox over TanStack Query's mutations (`src/app/model/outbox.ts`). Every save (`Save`, `src/lib/outbox.ts`) is defined beside its server function (`checklistSaves`, …) with `apply`, what it does to the one query it changes, and listed in `src/app/model/saves.ts`. A save is written to the phone (localStorage, `expecting-outbox`: synchronous, so it's kept before the tap returns, even if the app is swiped away straight after) and shown at once; it's sent one at a time in the order made (one mutation scope), paused while the phone says it's offline (`networkMode: "online"`), and tried again with a connection that goes nowhere (a `TypeError`) until it gets through. While it waits, it's applied over every answer fetched for its query, so the worker's kept answer, from before it, never undoes it on screen; `apply` gives the same answer run twice, since a fetch may already include it (`test/app/saves.test.ts`). Saves left waiting when the app closed are put back in the queue by the `app` route's loader before its queries (`restoreOutbox`). Sent, it's taken off the phone, and once nothing waits every query refetches. It's remembered as landed (the last 200, `expecting-outbox-landed`), for the worker's kept answers: each is stamped with when it was asked for (`x-expecting-kept-at`), a function middleware marks an answer that came with it (`src/app/model/kept.ts`), and the outbox applies over it every save that landed after that, before those still waiting. Without that, a connection dropped as the page looks again (a refetch after a save) put the screen back to before saves that had landed, and It's time's button did the opposite of what it had just said. One the server turns away (a 4xx; a server error after a few tries) is taken off and put back on screen by a refetch, with a toast; a 401 keeps it, to go once logged in again. The server stores each with the time it was made, which the phone stamps (`x-expecting-made-at`, believed if not in the future and under 60 days old: `src/server/core/madeAt.ts`), and what it adds carries the phone's own id, so a save sent twice adds it once. Conflicts: the last to arrive wins, but the facts keep the latest by when it was made. Not covered: two tabs open on one phone each send what's waiting; a save counts for whoever is logged in when it's sent, so one still waiting when a session ends (a 401 keeps it) goes as whoever logs in next on that phone, the other of you if it's them. A save with an upload (a photo, a paper's pages) keeps the picture's parts on the phone first, in IndexedDB (`keepOnPhone`, `src/app/model/uploads.ts`: pictures don't fit in localStorage), then is made like any other; its `send` (`withUpload`, or `withUploads` for several, `src/api/rpc/files.ts`) puts the upload first, then the record, then forgets the phone's copy, and both sides keep one however often it's sent. Until it's up, the picture is drawn from the phone's copy (`useUploadSrc`), offline and after a restart too. Turned away (a 4xx that isn't a lost session), the phone's copy goes with it. Without IndexedDB, the parts are kept in the page only.
-  - **Known: saves resumed together.** Saves that waited offline can reach the server out of order on reconnect: TanStack Query's `resumePausedMutations` continues every paused mutation at once, despite the one scope (It's time's e2e saw a contraction's end arrive before its beginning). It's time's saves are written to give the same night in any order; the outbox should send one at a time for every save.
-- **Sharing in.** Built, where the phone supports it (Android's Chrome and Samsung Internet, installed; not Safari, which has no share target, so not an iPhone): the manifest's `share_target` puts Expecting in the phone's share sheet, for pictures, PDFs, words and links. The phone posts them to `/share`, which only the worker answers (`share`, `src/pwa/worker.js`): it keeps them (`expecting-shared`, one share at a time, a newer one in its place; it outlives a new build and goes on logging out) and opens the app at `/`. The frame takes them once (`takeShared`, `src/pwa/share.ts`; one older than an hour is let go), so a share outlasts logging in or the first-run questions, and opens the "+" with them (`SharedIn`): offering only what they can become (`sharedChoices`: pictures a photo or a paper, a PDF a paper, words a note, a question or a task), straight to the form if that's one, its files made ready or its words filled in. With no worker (none yet, or dev), the server answers `/share` with the shell and the share is lost.
-
-## Claude (MCP)
-
-What it does and why: [product/mcp.md](product/mcp.md).
-
-- **One endpoint, `/api/mcp`** (`src/api/rest/mcp.ts`): MCP over Streamable HTTP, stateless. Each request gets a fresh `McpServer` and the SDK's `WebStandardStreamableHTTPServerTransport`, which answer as JSON and keep nothing between requests. The tools are `src/api/mcp/`: `read.ts`, `write.ts`, `files.ts` and their `server.ts` (with the instructions Claude is given). They call the repositories directly, not the server functions, so they keep the same rules a different way: what the app shows is tailored by `src/content/tailor.ts`, which the app's hooks use too, and a body is Markdown through `src/content/text.ts`. Every write tool's arguments pass `refusePrivate`, as a server function's input does (`keep`, `write.ts`). Each tool reads the moment it runs, on the server's clock, so `TZ` should be set to where you are (`Australia/Sydney`).
-- **Auth is OAuth 2.1, with your login as the consent.** Clients register themselves (`/api/oauth/register`, RFC 7591), are all public (no secret, PKCE S256 only), and find everything from `/.well-known/oauth-protected-resource` and `/.well-known/oauth-authorization-server` (`src/server/oauth/endpoints.ts`). Authorising is the page `/connect`, behind the gate like any page, so a client is let in only by one of you, logged in. `approveConnection` (`src/api/rpc/connections.ts`) makes a connection (a client and whoever is logged in) and a code that lives a minute, then `/api/oauth/token` swaps it for an access token (a day) and a refresh token (400 days from its last use, replaced on each use). Like sessions, only their SHA-256 is stored (the `connections` domain: `oauth_client`, `connection`, `oauth_code`, `oauth_token`). Disconnecting deletes the connection, and its codes and tokens go with it. A client nobody connected is forgotten a day after it registered, because registering is open to anyone.
-- **The gate:** the metadata, `register`, `token` and `revoke` are open. `/api/mcp` is passed on to its handler, which judges it by its bearer token (`grantOf`, `src/server/auth/gate.ts`) and turns anything else away with a 401 that points at the metadata (RFC 9728). The cookie never counts there. With `EXPECTING_LOGIN=off`, `/connect` refuses, so no token can be got.
-- **The public address** the metadata hands out is `EXPECTING_URL` if set, else what the proxy says (`X-Forwarded-Proto`, `X-Forwarded-Host`), else the request's own (`src/server/oauth/origin.ts`). The OAuth endpoints and `/api/mcp` answer any origin (CORS `*`), because they take bearer tokens, never cookies.
-
-## Uploads
-
-Files kept for a record, whatever the record: photos and scans, and the pages of results and papers ([product](product/journal.md)).
-
-- **On disk,** in `DATA_DIR/uploads/<id>/`, beside the database on the same volume, so one backup takes both: `original` (the file as given, untouched, EXIF and all) and, for a picture, `display` (a JPEG at most 2048 px on its long edge) and `thumb` (480 px). Written into a folder of its own, then renamed into place, so a half-written upload is never served (`FileStore`, `src/server/files/store.ts`).
-- **A row each,** `upload` (`src/db/models/files/`): the phone's id (sending twice keeps one), its name, its type, its size, a picture's width and height, which copies it has, who and when.
-- **Typed by its bytes,** never by its name or the browser's say-so (`sniff`, `src/lib/files.ts`): JPEG, PNG, WebP, HEIC, HEIF and PDF, up to 30 MB. No SVG or HTML: nothing that can run in the page.
-- **Made smaller on the phone,** not the server (`prepareFile`, `src/app/model/uploads.ts`): the browser has the picture decoded and upright already, and its canvas makes a good JPEG, where the server would need an image library with native parts and a HEIC decoder. The copies are drawn afresh, so they carry no EXIF, location included. A HEIC the browser can't open (Chrome on a desktop) is refused in words; an iPhone hands Safari a JPEG anyway.
-- **Owned by its record.** A record's table points at its upload (`file_id REFERENCES upload(id)`, as `photo` and `paper_page` do), and deleting the record drops the upload (`dropUpload`). One nothing points to a day after it arrived is swept as the next arrives (`FilesRepo.unclaimed`, which finds every column referencing `upload` by asking SQLite, so a new record's table counts without being listed).
-- **Up through a server function,** `putUpload` (`src/api/rpc/files.ts`), as `multipart/form-data`, judged by the gate and the privacy rule (which reads a form's fields and file names) like every save, and sent by the record's own save (`withUpload`, [PWA](#pwa), Offline writes).
-- **Down through a server route,** `GET /api/files/<id>/<variant>` (`src/api/rest/files.ts`, `serveFile`): one of the two server routes the app itself calls, on purpose (the other is an appointment's calendar file), since an `<img>` needs a plain URL it can GET and a server function is a POST to a generated id. Behind the gate like every `/api/*` path (no session, a 401), sent with the type that was sniffed, `nosniff`, `private, immutable` (each upload is a new id), and with `?download` as an attachment under its own name.
-- **Offline,** the worker keeps each thumbnail and display copy as it's first drawn (`expecting-files`, cache first), never an original and nothing up front, but a handy paper's pages: the page puts them there itself as the papers' list arrives (`keepHandyOffline`, `src/pwa/register.ts`; `offlineFiles`, `src/lib/papers.ts`), a PDF's original too, and lets a PDF go once its paper isn't handy. The worker answers an original from that cache when it's there and from the network when it isn't, never keeping it, and answers every `/api/files/` path itself, a navigation too (a PDF opened in its own tab), so an upload is never answered with the shell. The cache outlives a new build, and goes on logging out or a lost session, and a deleted photo's or paper's with it (`forgetFile`).
-
-## Onboarding
-
-- `/onboarding` asks the first-run questions, one to a screen and each at its own URL (`/onboarding/due`, `/onboarding/q/cover`; routes in `src/routes/onboarding/`, screens in `src/features/onboarding/components/steps/`), so the phone's back gesture goes back a question. The frame sends anyone there who still has a step, after your own password if you must choose one: the first of you gets all of them, and the other, joining once it's done, goes straight in. Who you are isn't a step: setting up or joining has said it.
-- After an answer, `/onboarding?after=due` goes on to the next step still to ask, worked out afresh (`stepAfter`), since what's left can change: the other phone may have finished onboarding meanwhile. A URL for a step that isn't asked goes to the one that is.
-- Which steps are asked is a pure function of what is known (`src/lib/onboarding.ts`): the due date and the baby's colours, then every `asked: onboarding` question in `src/features/settings/model/facts.data.ts` (once for each of you where it is about each, and only where its `when` fits the answers so far), then where Expecting will open.
-- Each answer is saved as it's given, so a reload resumes. A database with a due date from before onboarding existed counts as onboarded.
-- With the due date skipped, This week asks for it, and every week is still readable in the whole pregnancy.
-
-## Tailoring
-
-- `src/features/settings/model/facts.data.ts` holds the questions; `src/features/settings/model/facts.ts` reads them and has the rules (`applies`, `checkWhen`), and `src/lib/facts.ts` what the answers become (`factsOf`, `questionsDue`, `timeTask`), both tested apart from the screen. Settings shows every question, built from the file: in its `group` (the sections, `GROUPS`), each a row with its answer, who gave it and when This week asks again (`nextAsked`), opening to change it and to list what it decides (`decides`: the items its `when`, `$id` or a deadline reads). `/settings?ask=<key>` opens at a question, as a hidden item's page links to the answer that hid it.
-- An item's `when:` hides it on a definite answer; `{% if equals($cover, "yes") %}` tailors a passage. An unanswered question hides nothing, and neither does `unsure`, so nothing is written against it (`checkWhen` refuses it) and the `{% else %}` branch is the general wording.
-
-### Facts
-
-The answers are what Expecting knows about you, asked as the pregnancy unfolds, not a profile filled in once.
-
-- **Questions are code, not content:** they drive behaviour (onboarding, settings, what an item shows), so they are a typed list in `src/features/settings/model/facts.data.ts`, checked as it loads by `facts.ts` beside it, co-located with settings, the feature that owns them, not a file in `content/`. Their ids are types (`QuestionId`, and `ExtraId` for the extras), so code naming one is checked by `tsc`; content names them as strings, checked by the tests. A new one is still not a migration. Each has:
-  - `type`: `choice` (its `answers`) or `date`. *Not built: `text`, until a question needs it.*
-  - `each: true`: asked once for each of you instead of once and worded with your name (`Does {name} work?`; "the partner" before they've joined). A fact's key is the id, or the id and whose: `cover`, `work.partner`; content writes the same, `when: { work.partner: [employee] }`, `$work.partner`.
-  - `when:`, the rule items use, so a question waits on another answer: a previous caesarean is asked only when this isn't the first baby. In a question about each of you, a bare `work` is the same person's.
-  - `asked: onboarding`, to be asked up front, and `week`, when This week asks it.
-- **Answers are rows,** in the `answer` table (`src/db/models/facts/`): the question, whose it is (`carrying` or `partner`, or null for a question asked once), the value, who answered and when. A new answer is a new row and the latest counts, so a fact keeps its history. A skip ("Not now", or Skip for now in onboarding) or a clear is a row with no value.
-- **The history decides when to ask again** (`questionsDue`). A question comes up on This week (`src/features/settings/components/facts/AskNow.tsx`, three at a time) once its `week` has come, while it is unknown or `unsure`. Answered or skipped before its week, it comes back at its week; since then, only four weeks after (`ASK_AGAIN_AFTER`), so "not sure" isn't asked every week.
-- **Who answered** puts who's who to use: settings says "Jason answered, 3 Oct".
-- **A task can be timed from a fact** (`timeTask`): `deadline: { before: leaveStart, weeks: 10, week: 30 }` is notice to the employer 10 weeks before leave begins, whose leave by the task's `who` (the earlier of the two for one you do together), and best by moves up to meet it. Until the date is known, `week` stands in. This is what makes the plan a schedule.
-- **Facts are not records.** A fact changes what Expecting tells you to do; a record is something you look up. The birth suite's number is a contact, and a planned caesarean's date is an appointment, even where a fact (`birth: caesarean`) points at it. Without this line, the facts grow into the whole store.
-- The code's word is **facts**. The screens say "About you", "Expecting needs to know", or ask the question itself.
-
-## Extras
-
-- The optional parts of Expecting, `src/features/settings/model/extras.data.ts`: off until one of you turns one on, unlike a question, which hides nothing until answered. Read by `src/features/settings/model/extras.ts`; what the choices mean is `src/lib/extras.ts` (`extrasOn`, `inExtras`, `extraToOffer`).
-- An item with `extra: <id>` is shown only while that extra is on, so `useItems` drops it, and `useTasks` its tasks, from every pillar. Its own page says which extra it's part of and links to the switch (`/settings?ask=extra:<id>`).
-- An extra can be only for some pregnancies (`when`, as an item's), is offered in onboarding only with `onboarding: true`, and sits in a group in settings (`EXTRA_GROUPS`). An extra can bring a feature as well as items: Choosing a name brings the names game in the Drawer ([product](product/extras.md)) (`baby_name` and `name_vote`; `src/api/rpc/names.ts` answers only as the person holding the phone, with their own votes, their latest superlike and the shortlist, never the other's votes; and Visitors, Birth announcement, Lining up help and Thank-you notes each bring a view of Your people (`circle_person`, `circle_gift`, `announcement`), which says so in settings (`tool`); `name_vote.super_on` is a superlike's day (the phone's date, one a day each), `baby_name.off_at` a name taken off the shortlist, never dealt again; a deck name is in `baby_name`, `from_deck`, once someone votes on it, and shown to the other only once they have, or it was liked).
-- Your choices are the `extra` table, a row per extra once decided (on or off, who, when); no row is undecided. Onboarding's extras step decides them all, or none if skipped; This week offers the first undecided one whose `offer` week has come, once.
-
-## The names deck
-
-`src/lib/nameDeck.data.json`, generated by `bun run names` (`scripts/names.ts`) from registers of births that publish every name given each year, with its count: England & Wales (ONS, 3+ a year, OGL v3), Ireland (CSO VSA50/VSA60, 3+, CC BY 4.0), Ontario (ServiceOntario, 5+, OGL-Ontario), New Zealand (DIA, 10+, CC BY 4.0), South Australia (data.sa.gov.au, every name 1944–2017 and the top 100 since, CC BY 4.0), and the US optionally (SSA, 5+, public domain: the SSA turns away scripted downloads, so download `names.zip` from ssa.gov/oact/babynames/limits.html and run `NAMES_US=<path> bun run names`). Rerun each year once the new lists are out. The ONS spreadsheets are read by the script itself (`readSheet`), with no library.
-
-- A name's popularity in a year is its share of that country's babies of its sex; the countries' shares are averaged. It's in the deck if, in some country, it averaged at least 1 in 10,000 of a decade's babies since 1950, or is in a country's latest top 100 (6,578 names). Dealt are those common in at least two places (`widespread`, 3,646); the rest keep the places they're common in (`common`). "Either" is at least a fifth of the other sex.
-- Not names: registry entries like `UNNAMED` and `BABY`, and anything but letters, apostrophes and hyphens. SA and Ontario write in capitals, so a name is spelled as the registers that keep the case write it.
-- Not used: British Columbia (Ontario has three times the births), NSW, Victoria and Queensland (a top 100 only), Alberta and Quebec, Scotland (worth adding if easy), the `babynames` R package (the SSA's own zip is better), and any dataset built from leaked social-media data. Meanings: none free (Behind the Name excludes apps, Wiktionary is CC BY-SA); Wikidata (CC0) has variants, nicknames and pronunciations, for the shortlist later.
-- A deck name gets its `baby_name` row (`from_deck`) the first time either of you votes on it, and is shown to the other only once they've voted on it or someone liked it. Undo takes back a vote by name. The server checks a swiped name is in the deck. The deck is 43 KB compressed, loaded with the Drawer's page and on the server only when a swipe arrives.
-
-## How you're feeling
-
-A step a day, or more, for each of you, with words if you want them: what it does and why is [`product/journal.md`](product/journal.md#how-youre-feeling). The rules are `src/lib/feelings.ts` (`STEPS`, `WORDS`, `hardFortnight` and `FORTNIGHT`, `weekStep` for the timeline's dot); the store is `feeling` (`src/db/models/feelings/`); the parts are `src/features/feelings/` (`CheckIn` on This week, `HardFortnight`, `Support`, `Face`), drawn by This week and the Journal.
-
-- **The words never leave the server for the other phone.** `FeelingsRepo.list(asker)` sends the asker's own whole and the other's step only, and `change` and `delete` act only on the asker's own. Tested in the repo (`test/db/feelings.test.ts`) and on the wire (`e2e/mood.spec.ts`).
-
-## Something has happened
-
-After a loss, or news that turns everything over, Expecting goes quiet for both of you ([intent](intent.md#when-things-go-wrong)). The rules are `src/lib/quiet.ts`; the state is `src/api/rpc/quiet.ts` (`useQuietQuery`), read by every pillar.
-
-- **Two kinds:** `loss` or `news`.
-- What it does and why, and what each pillar does while it's quiet, is [`product/quiet.md`](product/quiet.md). The way in is `QuietSwitch` (`src/features/quiet/`), drawn by the guide's page (`/library/something-has-happened`) and Settings (`/settings?ask=quiet`). The way back is `canBecome`. By pillar: `QuietWeek`, `QUIET_PARTS` and `nextSteps`/`NEXT_STEPS` on This week; `pausedAt` on the timeline; `PutAside` and `setInMotion` in the Planner; the quiet door and `{% window %}`'s missing today in the Library; `foldedWhileQuiet` in the Journal; `captureChoices` for the "+"; `itsTimeShown` for It's time.
-- It's one row (`quiet`: the kind, who said so and when), deleted to come back. Nothing else is touched, so the ticks and tasks put aside return as they were.
+- **The capture "+"** (`src/features/capture/`,
+  [product](product/capture.md)): drawn by `PillarLayout` on the pillars
+  only, a `Modal` listing `captureChoices` (`model/choices.ts`: the order,
+  what's offered when, and `FILED_IN`, where each goes). Each choice is its
+  pillar's own form (`AddMovement`, `AddNote`, `AddPhoto`, …) with an
+  `onAdded`.
+- **Emergency info** (`/emergency`, `src/features/emergency/`,
+  [product](product/emergency.md)): the `emergency` table, the fields in
+  `src/lib/emergency.ts`, the handover built by `handover`
+  (`model/handover.ts`) from them and the answers; then `PapersToHand` and
+  `WarningSigns` (from `content/items/warning-signs.md`).
+- **It's time** (`/its-time`, `src/features/itsTime/`, rules
+  `src/lib/itsTime.ts`, [product](product/its-time.md)). Shown by
+  `itsTimeShown`; `stillToReady`, `flagsFor`, `theyllAsk`, `patternOf`. The
+  store: `labour_start` (one under way at a time, a unique index),
+  `contraction` (refetched every few seconds while under way; a wake lock
+  keeps the screen on), `start_tick`, `start_line`; Emergency info holds
+  its fields (`partnerPhone`, `hospitalWayIn`, `hospitalSaid`, the minder,
+  the backup driver). Every save names its start and a contraction's end
+  carries its beginning, so saves arriving out of order make the same night.
+  The bag is `bag` in `LISTS` (`isApart`, kept out of the Planner's lists).
+  The night's Journal line is `nightLine`. This week's look-through card is
+  once a phone, in browser storage.
+- **Something has happened** ([product](product/quiet.md)): one row
+  (`quiet`: `loss` or `news`, who, when), deleted to come back, so nothing
+  else is touched. Rules `src/lib/quiet.ts`, state `useQuietQuery`, read by
+  every pillar. The way in is `QuietSwitch` (`src/features/quiet/`), on the
+  guide's page and in Settings (`/settings?ask=quiet`); the way back is
+  `canBecome`. Per pillar: `QuietWeek` and `nextSteps`, `pausedAt`,
+  `PutAside` and `setInMotion`, `foldedWhileQuiet`, `captureChoices`,
+  `itsTimeShown`.
 
 ## Content
 
-- Built-in items live in the repo as `content/items/<id>.md`, one Markdoc file per item, with frontmatter for its type, topic, weeks, `when`, sources, last checked and linked tasks. How one is written, by type, is `content/README.md`; the calls left for the review pass are `content/REVIEW.md`. The questions it is tailored by (`src/features/settings/model/facts.data.ts`) and the extras (`src/features/settings/model/extras.data.ts`) are not in `content/`: they shape what the app does, so they sit with settings, in `src/features/settings/`.
-- **One item, typed** (`src/content/schema.ts`): not a model per type but one `Item` with a `type`, so there's one read path, one page route, one search, and the timeline, Planner and This week work off one list. The eight types: `moment` and `payment` (something that happens, or is claimed, in a window, with tasks), `decision` (options to weigh, with a `decide_by` week from its source that makes it a task, `decide-<id>`), `can-i` (a `verdict`: yes, limit, avoid, ask), `symptom` (what's usual, then the levels its sources give, most urgent first), `guide` (the long reads), `card` (nobody tells you) and `term` (the glossary). Each has a `topic`, one of `TOPICS` (the map's 23 and celebrations), and may have an `ask` (the question as people ask it), `aliases`, `who` (its audience), `stakes`, `related` and `sources`. Weeks are optional: without them an entry is in the Library only. An entry may list what to get (`lines`: each on one of `LISTS`, in one of its sections, with its own `when` and one of the entry's tasks), restating its body. Each type's body has its shape (`## Why` for a can-i, the decision's three sections, a card or term short and without headings), checked by `src/content/parse.ts`.
-- **The index and the page:** `src/content/vite.ts` splits each file at build time. One virtual module holds every item's index (the frontmatter lists read, and the `$questions` its body names), so every list and search works offline at once; each page (body, sources, related, checked) is its own chunk, loaded by `loadPage` when it opens. Tests parse every file whole.
-- **The file's name is its id:** a file outside `items/` or named for another id fails the gate.
-- Bodies are Markdoc: Markdown plus declared tags (`src/content/markdoc.ts`), each drawn by a component in `src/features/library/components/content/`. `{% ask %}` is a suggested question, added to your list in one tap; `{% window %}` draws an item's weeks against today. Every tag, attribute, `$question` and answer is checked as the content loads. Every entry but a private one has "Ask at my next appointment" (`src/features/library/components/askAtAppointment/`): a question in your own words, or one it suggests, which remembers the entry it came from; the entry then shows the questions asked from it and what you were told. It suggests an ask-first can-i's own `ask:`, and the page's `appointment:` list (at most 3, each a short question about your own case, never on a card, a term or a private entry; how they're written is `content/README.md`, Questions for the appointment; what it does and why is [`product/planner.md`](product/planner.md#questions-for-the-next-appointment)).
-- **This week** is its own shape, `content/weeks/<week>.md`, named for the week (`28`): a title, the baby's size (length head to bottom in cm, weight in g, and something that size), and three parts, each a `##` heading in this order: The baby, Your body, For the partner (`src/content/weeks.ts`). Each part is Markdoc like an item's body. The note is on This week (and on a peek at its week), and its title is its week's line on the timeline.
-- **Day by day** is `content/days/<week>/<day>.md`, the days after the note, +1 to +6 (`src/content/days.ts`): a title, `read` (the entries it opens onto) and a short Markdoc body with no links. `readsOut` gives the week's reads up to today; This week draws the week's note and them as one carousel (`DayByDay`), the note the first card, one card at a time, each read ending in `ItemLink`s to its entries, leaving off any the answers hide.
-- They are validated with zod when the content module loads, and `bun run test` loads it, so a malformed item fails the gate, not the page.
-- Each item's weeks are a range within 1–42, the same `Week` that `src/lib/timeline.ts` derives the current week as.
-- **A linked task has a window and an owner:** `opens` (defaults to the item's first week), `due` (best by, defaults to its last), an optional hard `deadline` (on or after `due`, by week 42, from the item's source), and `who` (`carrying`, `partner` or `together`, the default). `src/lib/todo.ts` orders the open ones into To do now; `whose()` in `src/lib/people.ts` names the owner for the phone holding it ("Yours", "Sam's").
-- Each item and each linked task has a stable id in its frontmatter. Ticks and hides in the database point at that id, so editing an item's wording never loses state.
-- Chosen over **content in the database**, because built-in content is reviewed like code: diffs, history, and a build that refuses bad data.
-- **A private entry leaves no trace** (`private: true`: family violence and reproductive coercion). Both phones share one space, and the other parent may be the one causing harm, so such an entry can be read and searched, and nothing about it is kept where the other phone sees it:
-  - **Nothing to save.** The content rules refuse a private entry with tasks, lines, a `decide_by`, a `when`, an extra, an `{% ask %}` or `appointment:` questions (a tick, a shared answer, a question on the list), and its page offers no question to ask; a symptom's "Mention it at your next visit" offers no question for one. On the server, function middleware (`src/server/privacy/`, after the gate in `src/start.ts`) refuses any server function's input that names one: its id anywhere, or its title, question or "About …" as the whole of a string (`namesPrivate` in `src/lib/library.ts`). Words someone types themselves are theirs to save. The session's functions are exempt, and a password anywhere (`password`, `current`): a password is only a hash. `test/server/private.test.ts` runs every write path through it, and fails when a new one isn't listed.
-  - **Never offered.** Not on This week (Worth knowing, the heads-up), Right now or the timeline, and not in settings' "What this answer changes": it waits to be looked for.
-  - **Not in the address or the history.** Every link to an entry is `ItemLink`, which masks a private one's address as `/library` (the router keeps the real one in the history entry's state, so Back and a reload find it), and replaces a private page rather than stack another on it. One opened by its own address is masked in place. Search words that find a private entry are held on the page, not put in `?q=`.
-  - **A quick exit.** Held at the top of its page, and Esc: to This week, replacing the page in the history. This week rather than another site: always there, offline too, at once, and unremarkable in an app both of you use.
-  - **The service worker is no trace:** it fetches every entry's page as it installs, so a private page's chunk is kept whether or not anyone opened it, and no server function's answer carries one. The document's title is always "Expecting".
-- **A discreet entry is shared, but not named where both of you look** (`discreet: true`: mental health, drugs, smoking). A question asked from one is kept and shared like any other, in your words, but the Planner and This week don't say "from *title*" under it, as the title would tell the other parent what the words don't. The entry's own page still lists its questions. The words are yours to choose: its suggestions are worded to ask about the need, not the disclosure.
+- **Built-in items are files:** `content/items/<id>.md`, one Markdoc file
+  each, the name its id. How one is written is
+  [`content/README.md`](../content/README.md); the review's standing calls
+  are [`content/REVIEW.md`](../content/REVIEW.md). Chosen over content in
+  the database because it's reviewed like code: diffs, history, and a build
+  that refuses bad data.
+- **One item, typed** (`src/content/schema.ts`): one `Item` with a `type`,
+  not a model per type, so there's one read path, one page, one search, and
+  every pillar works off one list. The types are in
+  [the Library](product/library.md#the-types). Each has one `topic`
+  (`TOPICS`) and may have `ask`, `aliases`, `who`, `stakes`, `related`,
+  `sources`, weeks (within 1–42), tasks and `lines`. Each type's body has its
+  shape, checked by `src/content/parse.ts`.
+- **A linked task** has `opens` (default: the item's first week), `due`
+  (best by, default its last), an optional `deadline` (from the source, on
+  or after `due`) and `who` (`carrying`, `partner`, `together`, the
+  default). A decision's `decide_by` makes a task, `decide-<id>`. Ids are
+  stable: ticks point at them, so wording can change without losing state.
+- **Checked as it loads.** zod validates every file when the content module
+  loads, and `bun run test` loads it, so a bad file fails the gate, not the
+  page. Every tag, attribute, `$question` and answer is checked too.
+- **The index and the page.** `src/content/vite.ts` splits each file at
+  build time: one module holds every item's index (so lists and search work
+  offline at once), and each page's body is its own chunk, loaded by
+  `loadPage`.
+- **Markdoc tags** (`src/content/markdoc.ts`) are drawn by components in
+  `src/features/library/components/content/`: `{% ask %}` a suggested
+  question, `{% window %}` an item's weeks against today, `{% if %}` a
+  passage for some readers. Content decides where; code decides how.
+- **The week's note** is `content/weeks/<week>.md`: a title, perhaps the
+  baby's size, and three `##` parts (The baby, Your body, For the partner),
+  checked by `src/content/weeks.ts`. **A day's read** is
+  `content/days/<week>/<day>.md`, +1 to +6: a title, `read` (the entries it
+  opens onto) and a short body with no links (`src/content/days.ts`).
+- **A private entry leaves no trace** (`private: true`: family violence,
+  reproductive coercion). The other parent may be the one causing harm.
+  What it does is in [the Library](product/library.md#private-entries); how:
+  - The content rules refuse one with tasks, lines, `decide_by`, `when`, an
+    extra, `{% ask %}` or `appointment:` questions.
+  - Function middleware (`src/server/privacy/`, after the gate) refuses any
+    server function's input that names one: its id anywhere, or its title,
+    question or "About …" as the whole of a string (`namesPrivate`). The
+    session's functions and passwords are exempt.
+    `test/server/private.test.ts` runs every write path through it and fails
+    when a new one isn't listed.
+  - `ItemLink` masks a private entry's address as `/library` (the router
+    keeps the real one in the history entry's state, so Back and a reload
+    find it) and replaces rather than stacks it. Search words that find one
+    are held on the page, not in `?q=`.
+  - The service worker fetches every page as it installs, so a private one
+    being kept says nothing. The document's title is always "Expecting".
+- **A discreet entry** (`discreet: true`: mental health, drugs, smoking) is
+  shared, but a question asked from it isn't labelled "from *title*" on the
+  Planner or This week.
 
-Our own items are rows in the database with the same fields. One read path merges the two, so screens never ask where an item came from.
+## Tailoring
+
+- **The questions** are `src/features/settings/model/facts.data.ts`, read
+  and checked by `facts.ts` beside it (`applies`, `checkWhen`); what the
+  answers become is `src/lib/facts.ts` (`factsOf`, `questionsDue`,
+  `timeTask`). They drive behaviour, so they're code, not content: their ids
+  are types (`QuestionId`), checked by `tsc`, and content names them as
+  strings, checked by the tests. Each has a `type` (`choice` or `date`), and
+  may have `each: true` (asked of each of you: the key is `work.partner`), a
+  `when` (it waits on another answer), `asked: onboarding` and a `week`.
+- **Answers are rows** in `answer`: the question, whose (`carrying`,
+  `partner` or null), the value, who and when. The latest counts, so a fact
+  keeps its history; a skip or a clear is a row with no value.
+  `questionsDue` decides when to ask again: from its `week`, while unknown or
+  `unsure`, and four weeks after a skip (`ASK_AGAIN_AFTER`).
+- **An item's `when:`** hides it on a definite answer; `{% if %}` tailors a
+  passage. Nothing is written against `unsure` (`checkWhen` refuses it), so
+  the `{% else %}` branch is the general wording.
+- **A task can be timed from a fact** (`timeTask`):
+  `deadline: { before: leaveStart, weeks: 10, week: 30 }` is notice 10 weeks
+  before leave begins, whose leave by the task's `who`; `week` stands in
+  until the date is known.
+- **Facts are not records.** A fact changes what Expecting tells you to do;
+  a record is something you look up. The birth suite's number is a contact
+  and a caesarean's date an appointment, even where a fact points at it.
+  Without this line the facts grow into the whole store.
+- Settings shows every question by `group`, with who answered, when it's
+  next asked and what it decides; `/settings?ask=<key>` opens at one. The
+  code says **facts**; the screens say "About you" or ask the question.
+
+## Extras
+
+`src/features/settings/model/extras.data.ts`, read by `extras.ts` beside it;
+what the choices mean is `src/lib/extras.ts` (`extrasOn`, `inExtras`,
+`extraToOffer`). [Product](product/extras.md).
+
+- An item with `extra: <id>` shows only while it's on: `useItems` drops it
+  and `useTasks` its tasks. Its page links to the switch
+  (`/settings?ask=extra:<id>`).
+- An extra may have a `when` (as an item's), `onboarding: true`, an `offer`
+  week, a group (`EXTRA_GROUPS`) and a `tool` (what it brings beyond its
+  items, said wherever it's offered).
+- Choices are the `extra` table, a row once decided (on or off, who, when);
+  no row is undecided.
+
+## Onboarding
+
+- `/onboarding` asks a question a screen, each at its own URL
+  (`/onboarding/due`, `/onboarding/q/cover`), so the back gesture goes back
+  a question. The frame sends anyone with a step left there; the first of
+  you gets all of them, and the other, joining later, goes straight in.
+- Which steps are asked is a pure function of what's known
+  (`src/lib/onboarding.ts`): the due date, the colours, every
+  `asked: onboarding` question that fits so far, the extras, where it will
+  open. `/onboarding?after=due` works out the next afresh (`stepAfter`),
+  since the other phone may have answered meanwhile.
+- Each answer is saved as it's given, so a reload resumes. With the due
+  date skipped, This week asks for it.
+
+## The names deck
+
+`src/lib/nameDeck.data.json`, generated by `bun run names`
+(`scripts/names.ts`) from registers that publish every name given each year
+with its count: England & Wales (ONS, OGL v3), Ireland (CSO, CC BY 4.0),
+Ontario (OGL-Ontario), New Zealand (DIA, CC BY 4.0), South Australia (CC BY
+4.0) and optionally the US (SSA, public domain: download `names.zip` by hand
+and run `NAMES_US=<path> bun run names`, as the SSA turns away scripts).
+Rerun each year once the new lists are out.
+
+- A name's popularity is its share of a country's babies of its sex,
+  averaged across countries. It's in the deck if it averaged at least 1 in
+  10,000 of a decade's babies since 1950 somewhere, or is in a latest top
+  100. Dealt are those common in at least two places; the rest are kept but
+  not dealt. "Either" is at least a fifth of the other sex.
+- Not names: registry entries like `UNNAMED`, and anything but letters,
+  apostrophes and hyphens. Spelled as the registers that keep case write it.
+- Not used: British Columbia, NSW, Victoria and Queensland (top 100 only),
+  Alberta, Quebec, Scotland (worth adding), anything from leaked
+  social-media data. Meanings: none free; Wikidata (CC0) has variants and
+  nicknames, for the shortlist later.
+- 43 KB compressed, loaded with the Drawer's page, and on the server only
+  when a swipe arrives (it checks the name is in the deck).
+
+## Uploads
+
+Files kept for a record: photos and scans, the pages of results and papers.
+
+- **On disk** in `DATA_DIR/uploads/<id>/`, beside the database, so one
+  backup takes both: `original` (untouched, EXIF and all) and for a picture
+  `display` (JPEG, 2048 px long edge) and `thumb` (480 px). Written to a
+  folder of its own, then renamed into place, so a half-written upload is
+  never served (`FileStore`, `src/server/files/store.ts`).
+- **A row each,** `upload`: the phone's id (sending twice keeps one), name,
+  type, size, a picture's dimensions, its copies, who and when.
+- **Typed by its bytes** (`sniff`, `src/lib/files.ts`): JPEG, PNG, WebP,
+  HEIC, HEIF and PDF, up to 30 MB. Never SVG or HTML: nothing that can run
+  in the page.
+- **Made smaller on the phone** (`prepareFile`, `src/app/model/uploads.ts`):
+  the browser already has the picture decoded and upright, where the server
+  would need native image libraries. The copies carry no EXIF, location
+  included. A HEIC the browser can't open is refused in words.
+- **Owned by its record:** `file_id REFERENCES upload(id)` (`photo`,
+  `paper_page`), and deleting the record drops the upload. One nothing
+  points to a day on is swept (`FilesRepo.unclaimed`, which asks SQLite for
+  every column referencing `upload`, so a new table counts unlisted).
+- **Up** through `putUpload` (`src/api/rpc/files.ts`), as a form, judged by
+  the gate and the privacy rule like every save.
+- **Down** through `GET /api/files/<id>/<variant>` (`src/api/rest/files.ts`):
+  a server route because an `<img>` needs a plain URL. Behind the gate, sent
+  with its sniffed type, `nosniff`, `private, immutable`, and with
+  `?download` as an attachment.
+
+## PWA
+
+Installing and the service worker need HTTPS, except on `localhost`.
+
+- **Installable.** `public/manifest.webmanifest`, the icons rendered from
+  `public/icon.svg` (192, 512, a maskable 512, the Apple 180), and a favicon
+  per theme that `paintFavicon` (`src/lib/theme.ts`) switches. Public files,
+  served ahead of the gate.
+- **Service worker,** hand-written: `src/pwa/worker.js`, emitted as `/sw.js`
+  by `src/pwa/vite.ts` in a build only, with the build's files written in,
+  so a new build is a new worker that takes over and drops the old caches.
+  Dev has none, and unregisters any a build left behind.
+- **Offline reads.** Every page is the same shell, so the worker keeps one;
+  it fetches the app's files as it installs and every item's page just after.
+  Each server function's last answer is kept (`expecting-data`). Pages and
+  data go to the network first and fall back to what's kept after four
+  seconds (hospital Wi-Fi); the build's files come from the cache first.
+  Queries are `networkMode: "offlineFirst"` so they ask offline and the
+  worker answers. A 401, logging out and a new build forget the kept data.
+  Every `/api/` path but `/api/rpc/` goes to the network, so it's never
+  answered with the shell.
+- **Offline writes,** as an outbox over TanStack Query's mutations
+  (`src/app/model/outbox.ts`). Each `Save` is defined beside its server
+  function, with `apply` (what it does to the one query it changes, giving
+  the same answer run twice: `test/app/saves.test.ts`), and listed in
+  `src/app/model/saves.ts`.
+  - A save is written to localStorage (`expecting-outbox`, synchronous, so
+    it survives the app being swiped away), shown at once, and sent one at a
+    time, retried until it gets through. While it waits it's applied over
+    every answer fetched, so a kept answer from before it never undoes it on
+    screen. Left waiting when the app closed, it's restored by the `app`
+    route's loader (`restoreOutbox`).
+  - Landed saves are remembered (the last 200). The worker stamps each kept
+    answer with when it was asked for (`x-expecting-kept-at`), and the outbox
+    re-applies every save that landed after it, so a dropped connection
+    can't put the screen back to before a landed save.
+  - Turned away (a 4xx, or a server error after a few tries), a save is
+    dropped with a toast and the screen refetched; a 401 keeps it for after
+    logging in, when it goes as whoever logs in next.
+  - The phone stamps when each was made (`x-expecting-made-at`, believed if
+    not in the future and under 60 days old); what it adds carries the
+    phone's own id, so a save sent twice adds once. The last to arrive wins,
+    except the facts, which keep the latest made.
+  - A save with an upload keeps its parts in IndexedDB first (`keepOnPhone`,
+    `src/app/model/uploads.ts`), drawn from there until they're up
+    (`useUploadSrc`); its `send` (`withUpload`, `withUploads`) puts the
+    upload first, then the record, then forgets the phone's copy.
+  - **Known gap:** saves that waited offline can reach the server out of
+    order on reconnect, as `resumePausedMutations` continues every paused
+    mutation at once. It's time's saves give the same night in any order;
+    the outbox should send one at a time for every save. Also not covered:
+    two tabs on one phone each send what's waiting.
+- **Uploads offline.** The worker keeps each thumbnail and display copy as
+  it's drawn (`expecting-files`, cache first), and originals only for a
+  handy paper, which the page puts there itself (`keepHandyOffline`). It
+  answers every `/api/files/` path itself, so an upload is never answered
+  with the shell. This cache outlives a new build; logging out clears it.
+- **Sharing in** (Android only; Safari has no share target): the manifest's
+  `share_target` posts to `/share`, which only the worker answers, keeping
+  the share (`expecting-shared`, one at a time) and opening the app. The
+  frame takes it once (`takeShared`, `src/pwa/share.ts`; under an hour old),
+  after any login or onboarding, into the "+" (`SharedIn`, offering
+  `sharedChoices`).
+
+## Claude (MCP)
+
+[Product](product/mcp.md).
+
+- **One endpoint, `/api/mcp`** (`src/api/rest/mcp.ts`): MCP over Streamable
+  HTTP, stateless, a fresh `McpServer` per request. The tools are
+  `src/api/mcp/` (`read.ts`, `write.ts`, `files.ts`, and `server.ts` with the
+  instructions Claude is given). They call the repositories directly and
+  keep the app's rules: tailoring through `src/content/tailor.ts`, which the
+  app's hooks use too; every write's arguments through `refusePrivate`. Each
+  tool reads the server's clock, so set `TZ`.
+- **OAuth 2.1, with your login as the consent.** Clients register
+  themselves (`/api/oauth/register`), are public (PKCE S256, no secret), and
+  find everything from the `/.well-known/` metadata
+  (`src/server/oauth/endpoints.ts`). Authorising is `/connect`, behind the
+  gate, so only one of you lets a client in (`approveConnection`). Codes
+  live a minute, access tokens a day, refresh tokens 400 days from last use
+  (replaced on each use); only their SHA-256 is stored (the `connections`
+  domain). Disconnecting deletes the connection and its tokens. A client
+  nobody connected is forgotten after a day, since registering is open.
+- **The gate:** the metadata, `register`, `token` and `revoke` are open.
+  `/api/mcp` is judged by its bearer token (`grantOf`); a cookie never
+  counts there, and anything else gets a 401 pointing at the metadata. With
+  logins off, `/connect` refuses.
+- **The public address** is `EXPECTING_URL`, else the proxy's
+  `X-Forwarded-*`, else the request's (`src/server/oauth/origin.ts`). These
+  endpoints answer any origin (CORS `*`), since they take tokens, never
+  cookies.
+
+## Look and feel
+
+### Adaptive
+
+- A layout designed for each: on a desktop the sidebar, the map's three
+  columns, the Planner's two; on a phone the tab bar under the thumb and
+  settings behind a gear.
+- One width for the pillars (`max-w-6xl`), so the header stays put between
+  them; what's read rather than scanned (a Library entry, Emergency info,
+  the book) keeps a `max-w-3xl` column at the left.
+- Tap targets at least 44px, no hover-only interactions, safe areas
+  respected. e2e loads every page at both sizes.
+
+### Motion
+
+- **One set of timings** (`src/styles/motion.css`): 120ms for answering a
+  tap, 200ms for a row arriving or leaving, 320ms for a page or a sheet.
+  Nothing bounces or celebrates, and nothing does on the quiet path. Reduced
+  motion gets short fades and no travel, from one rule.
+- **Pages give way to each other** through View Transitions:
+  `transitionBetween` (`src/app/model/transitions.ts`) picks in, out or
+  across; a change of search alone has none, and the frame holds still.
+- **Loading has a shape:** in the frame a slow page draws `PageSkeleton`
+  after 400ms; the stork is for the first start only. Pillars' routes load
+  what they read, and `App` warms every pillar once idle.
+- **A tick is seen going:** in To do now it strikes through, holds a beat,
+  folds away, with a toast to undo it and a light tap on Android
+  (`feelDone`). After the "+", the toast says what was kept and where.
+- **Floating buttons step aside** while the page scrolls down
+  (`useOutOfTheWay`).
+- **On a phone,** no tap highlight, no text selection on a long press, no
+  double-tap wait (`src/styles/touch.css`), and the icon's badge counts the
+  deadlines coming up (`useDeadlineBadge`): a badge that never clears is one
+  nobody reads.
+- **On a desktop,** `/` searches the Library and `n` opens the "+"
+  (`useShortcuts`), never while typing or under a dialog.
+- **Arriving on a page focuses its heading** (`useFocusOnArrival`), so a
+  screen reader says where you are; not on the first page, not on a search
+  change, never away from a field or a dialog.
+- No offline marker: the outbox makes offline invisible.
+
+### Theme
+
+Expecting's own, not the design system's Linen, built from a reference
+palette: `#9DC3E2` blue, `#9DD2D8` aqua, `#FADCE4` blush, `#FFB5CC` pink,
+`#E2B9DB` lilac.
+
+- **Palette** (`src/styles/theme/palette.css`): a 50–950 scale per family,
+  generated by `bun run palette` (`scripts/palette.ts`), in OKLCH around the
+  reference colours. Sky, lagoon, blossom, lilac, mist (neutral), sea
+  (success), peach (warning), cherry (danger). It also writes
+  `docs/palette.html`, every family and theme to open in a browser.
+- **Three themes,** picked by the colours question: Baby Blue (a boy), Baby
+  Pink (a girl) and Baby Purple (don't know or a surprise, and the default),
+  each a file (`baby-*.css`) so each can be judged alone. Each sets every
+  semantic token the design system reads, light and dark, plus
+  `--expecting-accent-*` for the progress gradients and `--expecting-page`
+  (a white with at most a temperature). `data-expecting-theme` on `<html>`
+  picks it (`src/lib/theme.ts`); an inline script applies the last one
+  before paint.
+- **Colour comes in accents,** never as a fill, and never as a border on
+  one side of a box: a card is outlined all round or not at all.
+- **Contrast is tested,** all six (`test/styles/theme/contrast.test.ts`):
+  body text 4.5:1 on the page, surfaces and tints; the focus ring and
+  meaningful marks 3:1. On a tint, quiet text is `fg-normal`, not
+  `fg-subtle`.
+- **Dark, for all three,** because the moments that matter most are at
+  night, beside a sleeping partner. The palette is the household's and the
+  mode each phone's (`data-theme`, the design system's `bootstrapTheme()`
+  and `useTheme()`): Light, Dark or System, under Appearance. Expecting's own
+  hook is `useAppTheme`, so "theme" means one thing in each file.
+- **Two design-system parts are restyled** in the theme's `overrides`
+  layer: the progress bar's track is a faint line (its near-black made an
+  empty bar look full), and a disabled solid button in the dark is its
+  intent's tint.
 
 ## Data
 
-The database holds only what we create:
-
-- our own items and their tasks
-- task state: ticked, and when — for built-in and own tasks alike
-- hidden built-in items
-- appointments, questions, contacts, symptoms, baby names
-- the Journal: notes, letters and movements (`journal_entry`), how you're feeling (`feeling`), sickness and cravings (`appetite_entry`), the firsts (`first_mark`, `first_words`), and when each of you last looked (`journal_seen`)
-- uploads (`upload`: what each file is; the bytes are in `uploads/`), and the records that point at them: photos and scans (`photo`), results and papers (`paper`, and its pages, `paper_page`)
-- the settings (`settings`, one row): the due date, the baby's colours, and when onboarding finished
-- the answers to the questions, every one kept (see [Facts](#facts))
-- whether something has happened (`quiet`, one row while it has; see [Something has happened](#something-has-happened))
-- the people, each an account with their password's hash
-- sessions, and invites to join or to choose a new password
-
-The current week is derived from the due date on read, never stored.
+The database holds only what you create: the people, sessions and invites;
+the settings (the due date, the colours, onboarding finished); the answers;
+the extras chosen; ticks and own tasks; lists; appointments and questions;
+the Journal's entries, feelings, firsts, photos and papers, and the uploads
+under them; Emergency info and It's time's nights; the names, jobs, Your
+people, bingo and the weekly answers; whether something has happened; and
+Claude's connections. Built-in content is in the repo. The current week is
+derived from the due date, never stored.
 
 ## Backups
 
-`DATA_DIR` holds the database and the uploads, and nothing else. Back up the volume with the host's existing backup. A backup is only trusted once a restore has been tested.
-
-Open: which host — Castle or Tower — and so which backup job covers it.
+`DATA_DIR` holds the database and the uploads, and nothing else. Back up the
+volume with the host's backup; a backup is only trusted once a restore has
+been tested.

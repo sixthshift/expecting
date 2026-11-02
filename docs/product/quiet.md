@@ -6,8 +6,8 @@ lemon" after a loss is cruel. So Expecting has a quiet path, designed in
 from the start: it pauses the weeks for both of you and offers support in
 their place. Every pillar says what it does while it's quiet.
 
-How it's built is [`architecture.md`](../architecture.md), Something has
-happened.
+How it's built is [`architecture.md`](../architecture.md), Outside the
+pillars.
 
 ## What it holds to
 
@@ -38,6 +38,7 @@ happened.
 
 - **This week** is support: someone to talk to, and the next steps that
   fit the week it happened ([this-week.md](this-week.md#while-something-has-happened)).
+  No question of the week.
 - **The timeline** is paused at the week it happened.
 - **The Library** opens with its quiet door first, and nothing open now.
 - **The Planner** puts To do aside and lists what was already set in
@@ -47,7 +48,8 @@ happened.
   done, and folds the rest behind one quiet line
   ([journal.md](journal.md#while-something-has-happened)).
 - **The "+"** offers a note, a paper, a feeling and a question.
-- **The Drawer** is put away: the names game, Who does what and Your people.
+- **The Drawer** is put away: the names game, Who does what, Your people
+  and bingo.
 - **Emergency info** stays, and stops counting weeks after a loss.
 - **It's time** isn't shown.
 - **Settings** stops nudging you to answer the next question.

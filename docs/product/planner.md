@@ -5,8 +5,7 @@ the lists of what to get (`/planner/lists`), the appointments, and the
 questions for the next one. This is where Expecting is directive: about bookings,
 claims and purchases, never about her body.
 
-How it's built is [`architecture.md`](../architecture.md), the Planner's
-row in The pillars. Tasks themselves (windows, whose, urgency) are in
+How it's built is [`architecture.md`](../architecture.md), Planner. Tasks themselves (windows, whose, urgency) are in
 [`intent.md`](../intent.md#to-do), and how they're written is
 [`content/README.md`](../../content/README.md).
 
@@ -58,8 +57,7 @@ ticks the task.
 
 To do drawn as a chart, at `/planner/weeks`, for when you want the whole
 run of it at once: what overlaps, how long a window has left, what's
-bunching up. It took over the timeline's windows chart when the timeline
-stopped being a pillar ([timeline.md](timeline.md#not-a-pillar)).
+bunching up.
 
 - **The same plan as To do, drawn another way.** The same groups in the
   same order: To do now, then a group per stage ahead, each ending at a
@@ -84,12 +82,11 @@ stopped being a pillar ([timeline.md](timeline.md#not-a-pillar)).
 ## The lists: what to get
 
 The Library knows what you need (the car seat, the pram, a cot, nappies),
-but it's prose spread across entries, and there was nowhere to see what's
-still to get or tick it off together in a shop.
+but as prose spread across entries. The lists are where you see what's
+still to get and tick it off together in a shop.
 
-- **The Planner's, not a seventh pillar.** Getting things is doing things,
-  and the Planner already holds what to do and when. The tab bar stays at
-  five.
+- **The Planner's, not a pillar of its own.** Getting things is doing
+  things, and the Planner already holds what to do and when.
 - **One list per job,** not one big list and not a list per topic: you use
   a list in one place at one moment. Topics (sleep, feeding, out and about,
   for you) are sections inside it.
@@ -189,8 +186,8 @@ appointment.
 To do is put aside, not deleted, and the lists are put away. The Planner
 lists instead what was already set in motion (the ticked tasks): claims
 that may still apply, and bookings you might cancel. The appointments and
-the questions stay: there are often more appointments, not fewer. Everything comes back as it
-was.
+the questions stay: there are often more appointments, not fewer.
+Everything comes back as it was.
 
 ## Not doing
 
@@ -203,8 +200,9 @@ was.
 ## Not yet
 
 - **More to an appointment:** a question aimed at a particular one, the
-  Journal's summary since the last one, a waiting-room mode on the day, and
-  repeating ones.
+  Journal's summary since the last one ("sickness on 5 days, easing"), a
+  waiting-room mode on the day (your questions, then a few cards while you
+  wait), and repeating ones.
 - **Decisions you've made:** who decides, what you chose and why. Today a
   decision is a Library entry whose decide-by becomes a task.
 - **Own tasks with a window or an owner,** and most built-in tasks'

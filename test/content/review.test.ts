@@ -1,4 +1,4 @@
-// The content review's rules (docs/plan-review.md), kept as tests so what it
+// The content review's rules (content/REVIEW.md), kept as tests so what it
 // fixed can't come back: no lines left over from the drafting template, and
 // every phone number the one this table gives its service. A new number goes
 // into the table first, from the service's own page.

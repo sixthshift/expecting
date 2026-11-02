@@ -1,7 +1,7 @@
 # Extras
 
-The optional parts of Expecting: thirty of them, from choosing a name to a
-babymoon, the baby shower and freezer meals. Off until one of you turns one
+The optional parts of Expecting, some thirty of them, from choosing a name
+to a babymoon, the baby shower and freezer meals. Off until one of you turns one
 on, in onboarding (a few), in settings (all), or when This week offers one
 in its week.
 
@@ -15,18 +15,23 @@ is `src/features/settings/model/extras.data.ts`.
   have no baby shower or babymoon, and a Planner full of them would bury
   the admin that matters.
 - **Fewer offers, not more.** This week offers one undecided extra at a
-  time, once, in its week; onboarding offers only a few, so it stays
-  short.
+  time, once, in its week; onboarding offers only a few, so it stays short.
 - **Turning one off hides, never deletes.** Turned on again, everything is
   where it was: one rule for every extra.
 - **The best extras change the app, not just add reading.** Most bring an
   entry and its two or three tasks, and for many (food and drink, a doula,
   date nights, pets) that's the whole job. The ones worth most bring
-  something you *do*: Choosing a name brings the names game, Who does what its own tool, and Visitors,
-  Birth announcement, Lining up help and Thank-you notes each bring a view
-  of [Your people](drawer.md#your-people). An extra that brings a tool says
-  so wherever it's offered, so they stand out.
+  something you *do* ([the Drawer](drawer.md)): the names game, Who does
+  what, Pregnancy bingo, A question a week, and a view of
+  [Your people](drawer.md#your-people) each for Visitors, Birth
+  announcement, Lining up help and Thank-you notes. An extra that brings a
+  tool says so wherever it's offered, so they stand out.
 - **A private entry is never part of one:** an extra is a shared switch.
+- **Quiet puts it all away,** and each tool says what it does while
+  something has happened ([quiet.md](quiet.md)).
+- **Sends nothing.** No messages, invitations or emails go out from
+  Expecting, and friends can't log in: a handover is the share sheet or
+  paper, never a public link.
 
 ## A task that ends by keeping something
 
@@ -49,8 +54,6 @@ bag is packed".
 
 ## Not yet
 
-New extras built like the names game (each of you plays on your own phone,
-something is revealed when you both have), extras for the admin (childcare
-waitlists, minding cards) and the rest are
-[`plan-extras.md`](../plan-extras.md), still in flight; so are the
-maternity shoot's photo kind and Emergency info as a place a task keeps.
+More extras that change the app, from the admin (childcare waitlists,
+minding cards) to keepsakes, and the maternity shoot's own photo kind:
+[`plan-extras.md`](../plan-extras.md).

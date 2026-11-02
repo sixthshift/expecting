@@ -1,11 +1,12 @@
 # The Library
 
-Everything Expecting knows: 893 entries and a note for each of the 42
-weeks, written from Australian sources, each checked against them. It's
+Everything Expecting knows: some 900 entries, a note for each of the 42
+weeks and a read for each day, written from Australian sources and checked
+against them. It's
 opened by the question you came with, not by a table of contents.
 
-How it's built is [`architecture.md`](../architecture.md), the Library's
-row and Content. How an entry is written is
+How it's built is [`architecture.md`](../architecture.md), Library and
+Content. How an entry is written is
 [`content/README.md`](../../content/README.md); the review's standing
 calls are [`content/REVIEW.md`](../../content/REVIEW.md).
 
@@ -40,8 +41,9 @@ calls are [`content/REVIEW.md`](../../content/REVIEW.md).
   whether to worry needs that first. Each level has its action: 000, the
   birth suite's number (or a way to add it), the midwife's and GP's, or a
   question for the next visit. Every phone number is tappable.
-- **Written once, reviewed, then shipped.** There's no draft marker in the
-  app: an entry ships once it's written and reviewed.
+- **Reviewed, then shipped.** An entry goes in once it's written and
+  reviewed ([`content/REVIEW.md`](../../content/REVIEW.md)); there are no
+  drafts in the app.
 - **Tailored by your answers and extras.** An entry for some readers only
   (private cover, a planned caesarean, the baby shower) shows to them
   alone. An unanswered question hides nothing.
@@ -140,13 +142,11 @@ today against its weeks. Everything is still there to be looked for.
 
 ## Not yet
 
-- **Our own entries** (a friend's tip, something the midwife said), the
-  same shape, with a small marker; and hiding a built-in one. The app
-  never edits a built-in entry, so an update can't clobber what's ours.
+- **Our own entries,** and hiding a built-in one
+  ([intent](../intent.md#the-rest-of-the-store)).
 - **The cards as a deck** that remembers what you've seen and saves, and
   as fillers while you wait (loading, an empty view, the appointment
   waiting room).
 - **What you chose in a decision, and why,** and who decides.
 - **A term linked to its glossary entry** wherever it's used.
 - **Videos and animations** in an entry.
-- **A midwife reading the symptom pages.**

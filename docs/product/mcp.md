@@ -11,8 +11,8 @@ How it's built is [`architecture.md`](../architecture.md), Claude (MCP).
 ## Why you'd reach for it
 
 - **Talking it through.** "We're at 24 weeks: what should we be booking?"
-  "Can she have brie?" "Draft the questions for Thursday's appointment." "Add the 20-week scan, Tuesday at 9:15."
-  Claude answers from Expecting's own entries, Australian and sourced, not
+  "Can she have brie?" "Draft the questions for Thursday's appointment."
+  "Add the 20-week scan, Tuesday at 9:15." Claude answers from Expecting's own entries, Australian and sourced, not
   from wherever it last read.
 - **Keeping things hands-free.** "Log that she felt it kick after dinner."
   "Put the pram on as a task for week 30." These are kept as if typed into
@@ -25,8 +25,8 @@ How it's built is [`architecture.md`](../architecture.md), Claude (MCP).
 - **Connecting goes through your login.** Claude registers itself and
   sends you to `/connect`, which sits behind the login like every page.
   Logged out, you log in first. The page asks whether to allow it, as you.
-- **A connection is one of you:** whoever allowed it. Whatever it keeps is kept as that person,
-  so the Journal says who kept it, and feelings' words stay that person's,
+- **A connection is one of you:** whoever allowed it. Whatever it keeps is
+  kept as that person, so the Journal says who kept it, and feelings' words stay that person's,
   as on their phone. Each of you can connect your own Claude.
 - **Disconnecting is in Settings.** Each connection shows its client, whose
   it is, and when it was last used. Disconnecting ends its access at once.

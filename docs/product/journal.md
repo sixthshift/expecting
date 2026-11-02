@@ -7,8 +7,8 @@ It's built for the reasons you open it, not shaped like the store: you keep
 things with the "+" ([capture](capture.md)), and the Journal gives them
 back.
 
-How it's built is [`architecture.md`](../architecture.md), the Journal's row
-in The pillars, and Uploads.
+How it's built is [`architecture.md`](../architecture.md), Journal and
+Uploads.
 
 ## Why you open it
 
@@ -21,13 +21,16 @@ in The pillars, and Uploads.
 5. **"What did they add?"** What the other one kept since you last looked.
 
 None of them is "choose a kind, then fill in its form". Two ways in, at the
-top of the Journal: the Story (`/journal`), everything by time, for
-reading back; and the Collections (`/journal/collections`), everything by
-what it is, each with its answer at the top, for looking something up
+top of the Journal: the **Story** (`/journal`), everything by time, for
+reading back; and the **Collections** (`/journal/collections`), everything
+by what it is, each with its answer at the top, for looking something up
 (the third and fourth, often under pressure) and for a look back at one
-sort of thing (the letters, the bump). The fifth has no answer of its own since the
-highlights went (below); a quiet mark on the other's lines is the likely
-one.
+sort of thing (the letters, the bump). The fifth has no answer yet
+([Not yet](#not-yet)).
+
+The names: **Journal** is the whole of it, the book you keep. Not "Diary":
+a diary in a journal is the same word twice. Not "Timeline": that's the
+whole pregnancy's map, past and ahead.
 
 ## What it holds to
 
@@ -82,16 +85,12 @@ One story, newest first, made for the moment: it opens on now.
 
 - **This week is the story's first week,** headed like any other ("Week
   38 · Any time now · This week"), under what's to keep now: "Has it
-  happened yet?", the firsts that usually come now (each with its
-  question, to write or put off for the week; it was "Around now", which
-  said when but not what), the places made ready, what's already happened. "Did it go
-  in?" and "what's now?" are why most visits happen. No card saying which
-  week it is, the baby this week or its size: that's This week's, and the
-  Journal said it again (taken out 2026-11-02). Until then too the week and
-  the story were two parts, the story leaving this week out and the week
-  hiding its days while the story was in a lens or zoomed: one story has
-  no seam to keep in step. As one kind, zoomed or searched, that is the
-  story instead.
+  happened yet?", the firsts that usually come now (each with its question,
+  to write or put off for the week), the places made ready, what's already
+  happened. "Did it go in?" and "what's now?" are why most visits happen.
+  No card for the week, the baby or its size: that's This week's, and
+  saying it twice adds nothing. Zoomed or searched, the story is what's
+  shown, this week included: one story has no seam to keep in step.
 - **The book, already begun.** From the first visit there's a cover (Our
   pregnancy, your names, the due month and year) and contents: the
   pregnancy's chapters, each with the firsts that usually come in it.
@@ -125,22 +124,17 @@ One story, newest first, made for the moment: it opens on now.
 - **Catching up, as a courtesy:** "Some of this has already happened. You
   can still keep it, on the day it was." So opening the Journal for the
   first time at week 14 misses nothing for good.
-- **No Keep row.** There was a row of the "+"'s Journal choices (Moved,
-  Sick, Craving, Note, …) on this week's page. Taken out (2026-11-02): it
-  was drawn as the same pills as the ways to look at the story, under
-  them, so adding read as filtering, and the "+" is on every page for it.
-  Kept from the "+" on the Journal, the toast says so with no way there:
-  it's on this week's page, in front of you.
+- **No row of keep buttons.** The "+" is on every page for keeping, and a
+  row of choices beside the ways to look at the story reads as filtering.
+  Kept from the "+" on the Journal, the toast has no way there: it's in
+  front of you.
 - **A call to make, always first,** outside the count: a movement felt as
   slower, weaker or stopped in the last two days, or can't keep fluids
   down today.
-- **No column of highlights.** There were Now cards (just kept, since you
-  looked, a first suggested from what's kept, a recap, last week, this day
-  weeks ago) and Lately (the patterns, each opening its lens) beside the
-  story. Taken out (2026-11-02): they showed again what the week and the
-  story already show, and they steered the story from beside it. The page
-  is one story, in one column; the patterns are in the collections; the recaps
-  are on the whole pregnancy's line.
+- **One column, no highlights beside it.** Cards of what's just been kept
+  or the latest patterns would show again what the week and the story
+  already show. The patterns are in the collections; the recaps are on the
+  whole pregnancy's line.
 - **The story, like a diary, not rows.** A list of records reads like a
   database, so the day sits in the margin, the words run as writing,
   photos are large, a day's movements are one line of times, a day's same
@@ -199,18 +193,6 @@ What each says:
 While something has happened, the collections keep to what stays, as the
 story does: notes and letters, feelings, papers. Movements, sickness and
 cravings, photos and firsts are folded away, even asked for by address.
-
-Until 2026-11-02 there were lenses on the story (Notes, Photos, Firsts,
-Movements, …), then "records" for the four an appointment asks about. Both
-were the same thing, everything by what it is; the question an appointment
-asks is only the answer at the top of one. One page for it, with the
-story beside it, by time.
-
-The names: **Journal** is the whole of it, the book you keep, and it holds
-two things, the **Story** (as it happened) and the **Collections** (by
-sort). Not "Diary": a diary in a journal is the same word twice. Not
-"Timeline": that's the whole pregnancy's map (`/timeline`), weeks 1–42
-past and ahead, which the word fits better than a diary of what's kept. Its old addresses still land.
 
 ## What's kept, kind by kind
 
@@ -399,14 +381,13 @@ into the other. They share only the story's parts.
 - **Sharing out:** no public link for grandparents or the GP. Friends and
   doctors can't log in, and a public link is a hole in the gate.
 - **Editing pictures:** crop and rotate happen in the phone's editor first.
-- **A summary to show the midwife** ("sickness on 5 days, easing"): comes
-  with appointments, which aren't built, and will read from what's kept.
 
 ## Not yet
 
-- **A way from a timeline week to the Journal at it.** The week's line
-  already opens This week; a second link inside it isn't possible, so it
-  wants its own design.
+- **What the other kept since you last looked:** likely a quiet mark on
+  their lines.
+- **A summary to show at an appointment** ("sickness on 5 days, easing"),
+  read from what's kept ([planner.md](planner.md#not-yet)).
 - **Video** (4D scan clips), on the same store.
 - **Adding a page to a kept paper,** or reordering pages: delete and keep
   it again, until it's missed.
