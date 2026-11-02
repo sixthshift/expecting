@@ -12,6 +12,7 @@ export function useStoryView() {
   const { data: zoomable } = useSettingsQuery({ select: (s) => s.dueDate !== null });
   const views = viewsOffered(zoomable);
   const view: StoryView = asked && views.includes(asked) ? asked : "days";
-  const open = useCallback((next: StoryView) => navigate({ search: { view: next === "days" ? undefined : next } }), [navigate]);
+  // Where you are on the page stays: the router otherwise scrolls to the top on every navigation, a new view included.
+  const open = useCallback((next: StoryView) => navigate({ search: { view: next === "days" ? undefined : next }, resetScroll: false }), [navigate]);
   return { view, views, open };
 }
