@@ -297,7 +297,11 @@ add a kind of line is
 ### Drawer
 
 `/drawer` ([product](product/drawer.md)): each tool shown once its extra is
-on, the rest named by the extra that brings them.
+on, the rest named by the extra that brings them. The map of its code, its
+words and how to add a tool is
+[`src/features/drawer/README.md`](../src/features/drawer/README.md): each
+tool's page is drawn inside `DrawerFrame`, which says when it's put away or
+off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
 
 - **The names game** (`/drawer/names`, `src/features/names/`): dealt by
   `upNext` (`src/lib/nameDeck.ts`) from [the names deck](#the-names-deck),
