@@ -11,8 +11,20 @@ const saved: { key: string; input: unknown }[] = [];
 vi.mock("../../../src/api/rpc/questions", () => ({ questionsSaves: { addQuestion: { key: "addQuestion" } } }));
 vi.mock("../../../src/app/hooks/useSave", () => ({ useSave: (save: { key: string }) => (input: unknown) => saved.push({ key: save.key, input }) }));
 vi.mock("@sixthshift/design-system/overlay", () => ({ toast: () => undefined }));
+// The entry's page stood in for: the entry in your Library, its words already loaded.
+let shown: { entry: Item; appointment: string[] };
+vi.mock("../../../src/features/library/hooks/useItems", () => ({ useItems: () => [shown.entry] }));
+vi.mock("../../../src/api/rpc/facts", () => ({ useAnswersQuery: () => ({ data: {} }) }));
+vi.mock("../../../src/api/rpc/extras", () => ({ useExtrasQuery: () => ({ data: new Set() }) }));
+vi.mock("../../../src/features/library/model/pageOf", () => ({
+  pageOf: () => {
+    const value = { appointment: shown.appointment };
+    return Object.assign(Promise.resolve(value), { status: "fulfilled", value });
+  },
+}));
 
 const { AskAtAppointment } = await import("../../../src/features/library/components/askAtAppointment/AskAtAppointment");
+const { LibraryItemPageProvider } = await import("../../../src/features/library/contexts/LibraryItemPageContext");
 
 function item(rest: Partial<Item> = {}): Item {
   return {
@@ -42,9 +54,12 @@ function item(rest: Partial<Item> = {}): Item {
 }
 
 function draw(entry: Item, openQuestions: string[] = [], appointment: string[] = []) {
+  shown = { entry, appointment };
   render(
     <ContentContext.Provider value={{ facts: {}, now: null, openQuestions }}>
-      <AskAtAppointment item={entry} page={{ appointment }} />
+      <LibraryItemPageProvider itemId={entry.id}>
+        <AskAtAppointment />
+      </LibraryItemPageProvider>
     </ContentContext.Provider>
   );
 }
