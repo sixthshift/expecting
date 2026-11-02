@@ -120,6 +120,7 @@ const WRITES: Record<string, ((x: string) => unknown) | null> = {
   }),
   "journal.ts:deleteMovement": (x) => ({ id: x }),
   "journal.ts:markJournalSeen": null,
+  "reads.ts:markRead": (x) => ({ itemId: x }),
   "firsts.ts:markFirst": (x) => ({ key: x, day: "2026-10-30" }),
   "firsts.ts:setFirstAside": (x) => ({ key: x }),
   "firsts.ts:unmarkFirst": (x) => ({ key: x }),

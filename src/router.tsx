@@ -4,6 +4,7 @@ import { outboxCaches, queueSaves } from "./app/model/outbox";
 import { quietSkippedTransitions, transitionBetween } from "./app/model/transitions";
 import { PageSkeleton } from "./components/loading/Skeleton";
 import { isLoggedOut } from "./lib/errors";
+import { inLibrary } from "./lib/library";
 import { routeTree } from "./routes/tree";
 
 export function getRouter() {
@@ -34,9 +35,10 @@ export function getRouter() {
     // The loaders' way to the queries (each beside its server functions, in src/api/rpc/).
     context: { queryClient },
     Wrap: ({ children }) => <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>,
-    // Off: the timeline decides where it opens (this week, or ?at=), and a
-    // restored position would fight it.
-    scrollRestoration: false,
+    // The Library's only: back out of an entry to the list you were scrolled down, by
+    // history entry. Everywhere else App starts a new page at its top, and the timeline
+    // decides where it opens (this week, or ?at=), which a restored position would fight.
+    scrollRestoration: ({ location }) => inLibrary(location.pathname),
     defaultPreload: "intent",
     // A page whose data or code is slow draws its shape in its place, in the frame: not for a quick load
     // (under 400ms, so it doesn't flash), and once shown, for at least the router's half a second. The
@@ -64,9 +66,12 @@ declare module "@tanstack/react-start" {
   }
 }
 
-// What a page keeps in its history entry: a private entry's page marks its address masked (LibraryItemPage).
+// What a page keeps in its history entry: a private entry's page marks its address masked (LibraryItemPage),
+// and an entry opened from a list keeps that list's ids, to swipe through, and where it was opened from (ItemLink).
 declare module "@tanstack/history" {
   interface HistoryState {
     masked?: boolean;
+    list?: readonly string[];
+    from?: string;
   }
 }

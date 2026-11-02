@@ -26,6 +26,8 @@ export function Shelf({ items, narrowing }: { items: readonly Item[]; narrowing:
   const inTopic = door && topic ? scoped.filter((i) => i.topic === topic) : scoped;
   const shown = verdict ? inTopic.filter((i) => i.verdict === verdict) : inTopic;
   const groups: Group[] = info ? info.group(shown) : topicByDoor(shown);
+  // An entry opened from the shelf swipes through the whole shelf, group after group.
+  const list = groups.flatMap((g) => g.items.map((i) => i.id));
   const title = info?.title ?? (topic ? TOPICS[topic] : "Library");
 
   return (
@@ -89,7 +91,7 @@ export function Shelf({ items, narrowing }: { items: readonly Item[]; narrowing:
           {groups.map((g) => (
             <section key={g.key} aria-label={g.title} className="flex flex-col gap-3">
               <h2 className="text-sm font-semibold tracking-wide text-fg-subtle uppercase">{g.title}</h2>
-              <Rows items={g.items} />
+              <Rows items={g.items} list={list} />
             </section>
           ))}
         </div>
@@ -143,6 +145,7 @@ function Chip({ search, active, count, children }: { search: Narrowing; active: 
       to="/library"
       search={search}
       replace
+      resetScroll={false}
       // The router marks a link to exactly this page as current; "For the partner" links to turning itself off, so say it's on here.
       activeOptions={{ exact: true, includeSearch: true, explicitUndefined: true }}
       inactiveProps={{ "aria-current": active ? "page" : undefined }}

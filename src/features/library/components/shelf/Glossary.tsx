@@ -1,6 +1,8 @@
 import { ChevronDown } from "lucide-react";
+import { useReadsQuery } from "../../../../api/rpc/reads";
 import type { Group } from "../../../../lib/library";
 import { ItemLink } from "../ItemLink";
+import { ReadMark } from "../ReadMark";
 
 const letterId = (letter: string) => `letter-${letter === "#" ? "other" : letter}`;
 
@@ -9,6 +11,8 @@ const letterId = (letter: string) => `letter-${letter === "#" ? "other" : letter
  * opens in place to say what it means, with the way to its whole page.
  */
 export function Glossary({ groups }: { groups: readonly Group[] }) {
+  const { data: reads } = useReadsQuery();
+  const list = groups.flatMap((g) => g.items.map((i) => i.id));
   return (
     <div className="flex flex-col gap-6">
       <nav aria-label="Letters" className="flex flex-wrap gap-1">
@@ -32,12 +36,13 @@ export function Glossary({ groups }: { groups: readonly Group[] }) {
                 <details className="group">
                   <summary className="flex min-h-12 cursor-pointer list-none items-center gap-3 px-4 py-2.5 hover:bg-bg-normal-hovered [&::-webkit-details-marker]:hidden">
                     <span className="min-w-0 flex-1 text-fg-strong">{item.title}</span>
+                    {reads[item.id] ? <ReadMark /> : null}
                     <ChevronDown aria-hidden size={16} className="shrink-0 text-fg-subtle transition-transform group-open:rotate-180" />
                   </summary>
                   <div className="flex flex-col gap-2 px-4 pb-4">
                     {item.aliases.length > 0 ? <p className="text-sm text-fg-subtle">Also called {item.aliases.join(", ")}</p> : null}
                     {item.summary ? <p className="text-fg-normal">{item.summary}</p> : null}
-                    <ItemLink itemId={item.id} className="w-fit text-sm font-medium text-fg-brand underline">
+                    <ItemLink itemId={item.id} list={list} className="w-fit text-sm font-medium text-fg-brand underline">
                       Read more about {item.title}
                     </ItemLink>
                   </div>

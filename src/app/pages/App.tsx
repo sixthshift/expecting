@@ -7,6 +7,7 @@ import { useNow, useSettingsQuery } from "../../api/rpc/settings";
 import { ContentContext } from "../../features/library/components/content/context";
 import { useDeadlineBadge } from "../../features/tasks/hooks/useDeadlineBadge";
 import { factsOf } from "../../lib/facts";
+import { inLibrary } from "../../lib/library";
 import { PillarLayout } from "../components/layout/PillarLayout";
 import { PILLARS, TABS } from "../components/layout/pillars";
 import { WhatsNew } from "../components/WhatsNew";
@@ -51,9 +52,10 @@ export function App() {
     return () => clearTimeout(id);
   }, [router]);
 
-  // A new pillar starts at its top; the timeline places itself (this week, or ?at=).
+  // A new pillar starts at its top; the timeline places itself (this week, or ?at=), and the
+  // Library's pages are the router's, which puts a list back where it was (src/router.tsx).
   useEffect(() => {
-    if (pathname !== "/timeline") window.scrollTo(0, 0);
+    if (pathname !== "/timeline" && !inLibrary(pathname)) window.scrollTo(0, 0);
   }, [pathname]);
 
   const content = useMemo(

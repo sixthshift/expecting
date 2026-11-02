@@ -38,7 +38,7 @@ export function LibraryPage() {
   function onSearch(value: string) {
     const findsPrivate = value.trim() !== "" && search(items, value).some((i) => i.private);
     setHeld(findsPrivate ? value : null);
-    navigate({ to: ".", search: { q: findsPrivate ? undefined : value || undefined }, replace: true });
+    navigate({ to: ".", search: { q: findsPrivate ? undefined : value || undefined }, replace: true, resetScroll: false });
   }
 
   if (!results && (door || topic)) {

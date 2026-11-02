@@ -9,6 +9,7 @@ import { papersQuery } from "../api/rpc/papers";
 import { peopleQuery } from "../api/rpc/people";
 import { questionsQuery } from "../api/rpc/questions";
 import { quietQuery } from "../api/rpc/quiet";
+import { readsQuery } from "../api/rpc/reads";
 import { settingsQuery } from "../api/rpc/settings";
 import { weeklyQuery } from "../api/rpc/weekly";
 import { restoreOutbox } from "../app/model/outbox";
@@ -40,6 +41,7 @@ export const app = createRoute({
       queryClient.ensureQueryData(journalQuery),
       queryClient.ensureQueryData(weeklyQuery),
       queryClient.ensureQueryData(bingoQuery),
+      queryClient.ensureQueryData(readsQuery),
       // Small, and wanted with no signal: the handy papers are on Emergency info.
       queryClient.ensureQueryData(papersQuery),
     ]);

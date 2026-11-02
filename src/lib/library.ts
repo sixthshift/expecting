@@ -123,6 +123,11 @@ export const DOOR_INFO: Record<Door, DoorInfo> = {
   },
 };
 
+/** Whether a path is one of the Library's pages: its home, doors and search, or an entry's. */
+export function inLibrary(pathname: string): boolean {
+  return pathname === "/library" || pathname.startsWith("/library/");
+}
+
 /** What's behind `door`. */
 export function behind(door: Door, items: readonly Item[]): Item[] {
   return items.filter(DOOR_INFO[door].holds);

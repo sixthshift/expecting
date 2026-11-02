@@ -67,7 +67,26 @@ It lists no entries, because nobody comes to browse 893:
   soonest-closing first.
 - **The topics,** with their counts, for whoever does want to browse.
 
-An entry's page leads back to the door it came from.
+An entry's page leads back to the door it came from. Opened from a list
+(a door's whole shelf, search results, Right now, Related, This week's worth
+knowing), it goes on through that list: swipe left for the next, right for
+the one before, or the Previous and Next links at its foot. Each takes the
+page's place in the history, so Back is still to the list. One an answer
+hides is passed over.
+
+Back out of an entry, by its link at the top or the phone's Back, and the
+list is as you left it, scrolled to where you were, so a long shelf isn't
+started again from the top.
+
+## Read
+
+Opening an entry marks it read, for whoever opened it: each of you has your
+own, so a tick on your phone means you've read it, not that one of you has.
+Wherever entries are listed (the doors' shelves, search, Right now, Related,
+This week's worth knowing) a read one wears a quiet tick, so you can see
+what's new to you. The first time you opened it is kept; there's nothing to
+undo, as opening it is all it takes. A private entry is never marked: it
+leaves no trace.
 
 ## The types
 

@@ -22,6 +22,7 @@ import { papersSaves } from "../../api/rpc/papers";
 import { photosSaves } from "../../api/rpc/photos";
 import { questionsSaves } from "../../api/rpc/questions";
 import { quietSaves } from "../../api/rpc/quiet";
+import { readsSaves } from "../../api/rpc/reads";
 import { settingsSaves } from "../../api/rpc/settings";
 import { weeklySaves } from "../../api/rpc/weekly";
 import type { Save } from "../../lib/outbox";
@@ -53,4 +54,5 @@ export const SAVES: readonly AnySave[] = [
   weeklySaves,
   bingoSaves,
   connectionsSaves,
+  readsSaves,
 ].flatMap((saves) => Object.values(saves));

@@ -225,7 +225,18 @@ tab order; the steps beside it are the keyboard's way.
 the rules (search and its ranking, the doors, Right now, `namesPrivate`)
 are `src/lib/library.ts`. `ItemCard` draws an entry by its type. Every link
 to an entry is `ItemLink`. An entry's words load in its route's loader, so
-it opens whole. Content is [below](#content).
+it opens whole. What you've read is `item_read` (yours alone: a person, an
+item's id with no foreign key, when first opened), marked by
+`LibraryItemPage` through `readsSaves.markRead` (`src/api/rpc/reads.ts`) and
+shown by `ReadMark`; never for a private entry. A list passes its ids to
+`ItemLink` (`list`), kept in the history entry's state (`HistoryState.list`,
+`src/router.tsx`), not the address, so a private entry stays masked; the
+entry's page (`Through`) swipes through them (`useSwipe`) and links the
+neighbours, each replacing the page in the history. The Library's pages
+alone have the router's scroll restoration (`scrollRestoration`,
+`inLibrary`), by history entry; `App` starts every other page at its top.
+An entry's way back (`WayBack`) is the history's Back when it was opened
+from a Library list (`HistoryState.from`). Content is [below](#content).
 
 ### Planner
 

@@ -1,9 +1,11 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { useState } from "react";
+import { useReadsQuery } from "../../../../api/rpc/reads";
 import type { Item } from "../../../../content/schema";
 import { rightNow, type Standing, standingLabel } from "../../../../lib/library";
 import type { Week } from "../../../../lib/timeline";
 import { ItemLink } from "../ItemLink";
+import { ReadMark } from "../ReadMark";
 
 const intent: Record<Standing["kind"], "warning" | "brand" | "neutral"> = { closing: "warning", left: "brand", open: "neutral" };
 
@@ -17,6 +19,7 @@ const FIRST = 4;
  */
 export function RightNow({ items, now }: { items: readonly Item[]; now: Week }) {
   const [all, setAll] = useState(false);
+  const { data: reads } = useReadsQuery();
   const open = rightNow(items, now);
   if (open.length === 0) return null;
   const shown = all ? open : open.slice(0, FIRST);
@@ -30,10 +33,17 @@ export function RightNow({ items, now }: { items: readonly Item[]; now: Week }) 
       <ul className="grid gap-px overflow-hidden rounded-xl border border-border-subtle bg-border-subtle lg:grid-cols-2">
         {shown.map(({ item, standing }) => (
           <li key={item.id} className="bg-bg-normal lg:last:odd:col-span-2">
-            <ItemLink itemId={item.id} className="flex h-full flex-col items-start gap-1 px-4 py-3 hover:bg-bg-normal-hovered">
-              <Badge size="sm" variant="soft" intent={intent[standing.kind]}>
-                {standingLabel(standing, now)}
-              </Badge>
+            <ItemLink
+              itemId={item.id}
+              list={open.map((o) => o.item.id)}
+              className="flex h-full flex-col items-start gap-1 px-4 py-3 hover:bg-bg-normal-hovered"
+            >
+              <span className="flex w-full items-center justify-between gap-2">
+                <Badge size="sm" variant="soft" intent={intent[standing.kind]}>
+                  {standingLabel(standing, now)}
+                </Badge>
+                {reads[item.id] ? <ReadMark /> : null}
+              </span>
               <span className="text-fg-strong">{item.title}</span>
               {item.summary ? <span className="text-sm text-fg-normal">{item.summary}</span> : null}
             </ItemLink>
