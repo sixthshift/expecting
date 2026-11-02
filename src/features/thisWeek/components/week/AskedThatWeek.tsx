@@ -2,6 +2,7 @@ import { useQuestionsQuery } from "../../../../api/rpc/questions";
 import { askedWeeks } from "../../../../lib/timelineMap";
 import { AskedQuestion } from "../../../questions/components/AskedQuestion";
 import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
+import { whichWeek } from "../../model/labels";
 
 /** The questions asked at an appointment in the week shown, this one or a peek's. */
 export function AskedThatWeek() {
@@ -13,7 +14,7 @@ export function AskedThatWeek() {
   return (
     <section aria-labelledby="asked" className="flex flex-col gap-2">
       <h2 id="asked" className="text-lg font-display font-semibold text-fg-strong">
-        {peeking ? "Asked that week" : "Asked this week"}
+        {`Asked ${whichWeek(peeking)}`}
       </h2>
       {asked.map((q) => (
         <AskedQuestion key={q.id} question={q} />

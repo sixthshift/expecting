@@ -3,6 +3,7 @@ import { worthKnowing } from "../../../../lib/library";
 import { ItemList } from "../../../library/components/itemList/ItemList";
 import { useItems } from "../../../library/hooks/useItems";
 import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
+import { whichWeek } from "../../model/labels";
 
 /** How many are shown before "Show all": the highest stakes, enough to read without the list taking the page. */
 const FIRST = 5;
@@ -20,7 +21,7 @@ export function WorthKnowing() {
   return (
     <section aria-labelledby="worth-knowing" className="flex flex-col gap-2">
       <h2 id="worth-knowing" className="text-lg font-display font-semibold text-fg-strong">
-        {peeking ? "Worth knowing that week" : "Worth knowing this week"}
+        {`Worth knowing ${whichWeek(peeking)}`}
       </h2>
       <ItemList items={shown} />
       {items.length > shown.length ? (
