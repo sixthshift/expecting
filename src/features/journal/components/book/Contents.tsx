@@ -1,5 +1,5 @@
 import { cn } from "@sixthshift/design-system/utils";
-import type { ChapterLine } from "../../../lib/chapters";
+import type { ChapterLine } from "../../../../lib/chapters";
 
 const STATE_LABEL = { begun: "Begun", now: "Now", "to-come": "Still to come", passed: "Can still be kept" } as const;
 

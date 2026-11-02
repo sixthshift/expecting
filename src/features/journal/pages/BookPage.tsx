@@ -26,8 +26,8 @@ import { type StoryItem, storyItems } from "../../../lib/story/items";
 import { type Week, weekLabel } from "../../../lib/timeline";
 import { pairs } from "../../../lib/weekly";
 import { useTasks } from "../../tasks/hooks/useTasks";
-import { Contents } from "../components/Contents";
-import { RecapPartView, useRecap } from "../components/Recap";
+import { Contents } from "../components/book/Contents";
+import { RecapPartView, useRecap } from "../components/book/Recap";
 import { weekTitle } from "../model/labels";
 
 const PART_TITLE = {

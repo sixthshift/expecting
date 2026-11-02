@@ -3,14 +3,14 @@ import { useState } from "react";
 import { useJournalQuery } from "../../../../../api/rpc/journal";
 import { newestFirst } from "../../../../../lib/journal";
 import { Movement } from "../../entries/movements/Movement";
-import { MovementPattern } from "../../story/MovementPattern";
+import { MovementPattern } from "./MovementPattern";
 
 /** How many movements are listed before "Show all". */
 const LISTED = 8;
 
 /**
- * The Journal's Movements lens: the pattern, then each, newest first. New
- * ones come in through the "+"; the lens is
+ * The Journal's Movements record at full size: the pattern, then each, newest first. New
+ * ones come in through the "+"; the record is
  * there only once one is kept, and never while something has happened (the
  * Journal folds them away then).
  */

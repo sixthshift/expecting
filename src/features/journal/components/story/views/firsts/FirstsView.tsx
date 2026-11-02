@@ -35,7 +35,7 @@ function FirstLine({ mark }: { mark: FirstMark & { day: string } }) {
   );
 }
 
-/** The Firsts lens: every one marked, in the order they came, and a way to mark another. */
+/** The story as its firsts: every one marked, in the order they came, and a way to mark another. */
 export function FirstsView() {
   const { data: firsts } = useFirstsQuery();
   const [marking, setMarking] = useState(false);

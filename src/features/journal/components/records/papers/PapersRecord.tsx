@@ -14,7 +14,7 @@ const SHOWN = 8;
 const SEARCH_FROM = 5;
 
 /**
- * The Journal's Papers lens: every one, handy first and then newest by the
+ * The Journal's Papers record at full size: every one, handy first and then newest by the
  * date on it, with the kinds there are to filter by and a search from five.
  * New ones come in through the "+". Stays as it is while something has
  * happened: papers are admin, and there are more after a loss, not fewer (the

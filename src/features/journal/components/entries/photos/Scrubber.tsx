@@ -77,7 +77,7 @@ export function Flipbook({ weeks, size = "md" }: { weeks: readonly BumpWeek[]; s
   );
 }
 
-/** In the Photos lens: the bump through the weeks. */
+/** In the Photos view: the bump through the weeks. */
 export function Scrubber({ weeks }: { weeks: readonly BumpWeek[] }) {
   return (
     <section aria-labelledby="scrubber" className="flex flex-col gap-2">

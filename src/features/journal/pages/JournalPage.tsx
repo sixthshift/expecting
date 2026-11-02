@@ -1,14 +1,14 @@
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { JournalTabs } from "../components/JournalTabs";
-import { JournalStory } from "../components/journal/JournalStory";
 import { KeptBefore } from "../components/quiet/KeptBefore";
 import { QuietStory } from "../components/quiet/QuietStory";
+import { JournalStory } from "../components/story/JournalStory";
 import { JournalPageProvider, useJournalPage } from "../contexts/JournalPageContext";
 
 /**
  * The Journal: the pregnancy, kept and given back, as one story: everything
  * kept and done, newest first under its week and day, opening on this week
- * as its own page; in a lens, searched, or zoomed out to weeks or the whole
+ * as its own page; as one kind, searched, or zoomed out to weeks or the whole
  * pregnancy. Adding is the "+". It shows what's kept, never what's missing. See
  * docs/product/journal.md.
  *

@@ -7,19 +7,19 @@ import { Modal } from "@sixthshift/design-system/modal";
 import { Link } from "@tanstack/react-router";
 import { Check, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { useState } from "react";
-import { usePeopleQuery } from "../../../api/rpc/people";
-import { useSettingsQuery } from "../../../api/rpc/settings";
-import { type ISODate, todayISO } from "../../../lib/dates";
-import { firstOf } from "../../../lib/firsts";
-import { placeOf } from "../../../lib/journal";
-import type { RecapSpan } from "../../../lib/journalNow";
-import { shortDate } from "../../../lib/labels";
-import { type Recap, type RecapPart, recapOf, recapParts } from "../../../lib/recap";
-import type { StoryItem } from "../../../lib/story/items";
-import { weekLabel } from "../../../lib/timeline";
-import { describePhoto } from "../model/labels";
-import { Picture } from "./entries/photos/Picture";
-import { Flipbook } from "./entries/photos/Scrubber";
+import { usePeopleQuery } from "../../../../api/rpc/people";
+import { useSettingsQuery } from "../../../../api/rpc/settings";
+import { type ISODate, todayISO } from "../../../../lib/dates";
+import { firstOf } from "../../../../lib/firsts";
+import { placeOf } from "../../../../lib/journal";
+import type { RecapSpan } from "../../../../lib/journalNow";
+import { shortDate } from "../../../../lib/labels";
+import { type Recap, type RecapPart, recapOf, recapParts } from "../../../../lib/recap";
+import type { StoryItem } from "../../../../lib/story/items";
+import { weekLabel } from "../../../../lib/timeline";
+import { describePhoto } from "../../model/labels";
+import { Picture } from "../entries/photos/Picture";
+import { Flipbook } from "../entries/photos/Scrubber";
 
 /** The recap of `span`, as what's kept changes; null without a due date (a recap is weeks). */
 export function useRecap(span: RecapSpan, items: readonly StoryItem[]): Recap | null {

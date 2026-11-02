@@ -4,14 +4,14 @@ import { useBook } from "../../hooks/useBook";
 import { useScrollToWeek } from "../../hooks/useScrollToWeek";
 import { useStorySearch } from "../../hooks/useStorySearch";
 import { useStoryView } from "../../hooks/useStoryView";
-import { KindView } from "../story/KindView";
-import { SearchResults } from "../story/SearchResults";
-import { StoryControls } from "../story/StoryTools";
-import { PregnancyView, WeeksView } from "../story/Zoom";
+import { BookLine } from "../book/BookCover";
+import { Recaps } from "../book/Recaps";
+import { Calls } from "../thisWeek/Calls";
 import { JournalDays } from "./JournalDays";
-import { Recaps } from "./Recaps";
-import { BookLine } from "./thisWeek/BookCover";
-import { Calls } from "./thisWeek/Calls";
+import { SearchResults } from "./SearchResults";
+import { StoryControls } from "./StoryControls";
+import { KindView } from "./views/KindView";
+import { PregnancyView, WeeksView } from "./views/ZoomedOut";
 
 /**
  * The Journal: one story, newest first. A call to make, if there is one,

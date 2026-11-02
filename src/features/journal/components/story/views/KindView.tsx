@@ -1,11 +1,11 @@
-import { useSettingsQuery } from "../../../../api/rpc/settings";
-import type { QuietKind } from "../../../../lib/quiet";
-import type { StoryItem } from "../../../../lib/story/items";
-import { storyGroups } from "../../../../lib/story/spine";
-import type { KindView as Kind } from "../../../../lib/story/views";
-import { StoryList } from "../lines/StoryList";
-import { FirstsView } from "./views/firsts/FirstsView";
-import { PhotosView } from "./views/photos/PhotosView";
+import { useSettingsQuery } from "../../../../../api/rpc/settings";
+import type { QuietKind } from "../../../../../lib/quiet";
+import type { StoryItem } from "../../../../../lib/story/items";
+import { storyGroups } from "../../../../../lib/story/spine";
+import type { KindView as Kind } from "../../../../../lib/story/views";
+import { StoryList } from "../../lines/StoryList";
+import { FirstsView } from "./firsts/FirstsView";
+import { PhotosView } from "./photos/PhotosView";
 
 /** The story as one kind: the notes and letters, the photos, or the firsts. `quiet`: what has happened, on the quiet Journal (null on the Journal). */
 export function KindView({ kind, items, quiet }: { kind: Kind; items: readonly StoryItem[]; quiet: QuietKind | null }) {

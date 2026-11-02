@@ -1,8 +1,8 @@
 import { cn } from "@sixthshift/design-system/utils";
-import { useJournalQuery } from "../../../../api/rpc/journal";
-import { todayISO } from "../../../../lib/dates";
-import { dayFraction, formatTime, movementPattern, PATTERN_DAYS } from "../../../../lib/journal";
-import { weekdayDate } from "../../../../lib/labels";
+import { useJournalQuery } from "../../../../../api/rpc/journal";
+import { todayISO } from "../../../../../lib/dates";
+import { dayFraction, formatTime, movementPattern, PATTERN_DAYS } from "../../../../../lib/journal";
+import { weekdayDate } from "../../../../../lib/labels";
 
 /**
  * The last fortnight's movements, a row a day, each a dot at its time of

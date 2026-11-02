@@ -100,7 +100,7 @@ function BumpRow({
 }
 
 /**
- * The Journal's Photos lens: the bump week by week (once there's a series:
+ * The story as its photos: the bump week by week (once there's a series:
  * the row, the scrubber, side by side), and every one under its week. New
  * ones come in through the "+". While something has happened it's only
  * drawn inside the Journal's fold, and then plain: the album by week, no

@@ -6,11 +6,11 @@
 
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
-import { usePeopleQuery } from "../../../../../api/rpc/people";
-import { useSettingsQuery } from "../../../../../api/rpc/settings";
-import type { ChapterLine } from "../../../../../lib/chapters";
-import { formatDate } from "../../../../../lib/dates";
-import { Contents } from "../../Contents";
+import { usePeopleQuery } from "../../../../api/rpc/people";
+import { useSettingsQuery } from "../../../../api/rpc/settings";
+import type { ChapterLine } from "../../../../lib/chapters";
+import { formatDate } from "../../../../lib/dates";
+import { Contents } from "./Contents";
 
 /** "Sam & Jason": whoever's carrying first. */
 function useNamesQuery(): string | null {

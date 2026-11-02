@@ -22,7 +22,7 @@ import { useTasks } from "../../tasks/hooks/useTasks";
 
 /**
  * The Journal's context: what must be worked out once. What only one part
- * needs, that part works out (the lens, the quiet story's lines, what's
+ * needs, that part works out (the view, the quiet story's lines, what's
  * folded away).
  */
 export type JournalPage = {

@@ -163,9 +163,9 @@ function Cravings() {
 const LISTED = 8;
 
 /**
- * The Journal's Sickness & cravings lens: sickness since when as weeks of
+ * The Journal's Sickness & cravings record at full size: sickness since when as weeks of
  * days, what's been craved and gone off, then each entry. New ones come in
- * through the "+"; the lens is there only once one is kept, and never while
+ * through the "+"; the record is there only once one is kept, and never while
  * something has happened (the Journal folds them away then).
  */
 export function AppetiteRecord() {

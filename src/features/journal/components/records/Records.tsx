@@ -31,7 +31,7 @@ import {
 } from "../../../../lib/records";
 import { weekLabel } from "../../../../lib/timeline";
 import { PaperList } from "../entries/papers/PaperList";
-import { MovementPattern } from "../story/MovementPattern";
+import { MovementPattern } from "./movements/MovementPattern";
 
 /** How many papers are listed besides the handy ones. */
 const LATEST_PAPERS = 3;

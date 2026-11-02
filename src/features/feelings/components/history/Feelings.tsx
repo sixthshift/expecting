@@ -1,4 +1,4 @@
-// How you're feeling, kept: the Journal's Feelings lens. Check in through the
+// How you're feeling, kept: the Journal's Feelings record. Check in through the
 // "+" (and This week) at any time; here, the last four weeks as rows of dots, a row each, the dot's strength
 // the step (no line chart: a line going down reads as a grade); under your own
 // row the words you used most; and a day's check-ins, your own with their

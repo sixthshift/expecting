@@ -7,9 +7,9 @@ import { alreadyHappened, aroundNow } from "../../../../lib/firsts";
 import { placesReady } from "../../../../lib/places";
 import type { StoryItem } from "../../../../lib/story/items";
 import { inWeek, storyGroups, storySpine } from "../../../../lib/story/spine";
+import { BookCover } from "../book/BookCover";
 import { StoryList } from "../lines/StoryList";
-import { BookCover } from "./thisWeek/BookCover";
-import { AlreadyHappened, Places, WeekPage } from "./thisWeek/WeekPage";
+import { AlreadyHappened, Places, WeekPage } from "../thisWeek/WeekPage";
 
 /**
  * The story in days, as the Journal opens: this week as its own page (the

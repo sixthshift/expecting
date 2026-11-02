@@ -8,10 +8,10 @@ import { useScrollToWeek } from "../../hooks/useScrollToWeek";
 import { useStorySearch } from "../../hooks/useStorySearch";
 import { useStoryView } from "../../hooks/useStoryView";
 import { StoryList } from "../lines/StoryList";
-import { KindView } from "../story/KindView";
 import { SearchResults } from "../story/SearchResults";
-import { StoryControls } from "../story/StoryTools";
-import { PregnancyView, WeeksView } from "../story/Zoom";
+import { StoryControls } from "../story/StoryControls";
+import { KindView } from "../story/views/KindView";
+import { PregnancyView, WeeksView } from "../story/views/ZoomedOut";
 
 /**
  * The quiet Journal's story: what stays (the notes, letters, feelings,

@@ -6,14 +6,14 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { getRouteApi } from "@tanstack/react-router";
 import { Camera, FileText, Footprints, IceCreamCone, type LucideIcon, NotebookPen, Smile, Star } from "lucide-react";
-import { useFirstsQuery } from "../../../../api/rpc/firsts";
-import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
-import { type FirstMark, firstOf } from "../../../../lib/firsts";
-import type { StoryItem } from "../../../../lib/story/items";
-import { KEPT_KIND_LABEL, type KeptKind } from "../../../../lib/story/kinds";
-import { landmarks, TRIMESTERS, type WeekTile, weekTiles } from "../../../../lib/story/zoom";
-import { WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
-import { Picture } from "../entries/photos/Picture";
+import { useFirstsQuery } from "../../../../../api/rpc/firsts";
+import { useNow, useSettingsQuery } from "../../../../../api/rpc/settings";
+import { type FirstMark, firstOf } from "../../../../../lib/firsts";
+import type { StoryItem } from "../../../../../lib/story/items";
+import { KEPT_KIND_LABEL, type KeptKind } from "../../../../../lib/story/kinds";
+import { landmarks, TRIMESTERS, type WeekTile, weekTiles } from "../../../../../lib/story/zoom";
+import { WEEKS, type Week, weekLabel } from "../../../../../lib/timeline";
+import { Picture } from "../../entries/photos/Picture";
 
 /** Each kind's mark. */
 const KIND_ICON: Record<KeptKind, LucideIcon> = {

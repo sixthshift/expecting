@@ -12,21 +12,21 @@ import { Modal } from "@sixthshift/design-system/modal";
 import { Textarea } from "@sixthshift/design-system/textarea";
 import { Camera, FileText, Star } from "lucide-react";
 import { useState } from "react";
-import { firstsSaves } from "../../../../../api/rpc/firsts";
-import { usePeopleQuery } from "../../../../../api/rpc/people";
-import { useSave } from "../../../../../app/hooks/useSave";
-import { weekNotes } from "../../../../../content";
-import { babyLead, noteFor, sizeLabel } from "../../../../../content/weeks";
-import { type ISODate, todayISO } from "../../../../../lib/dates";
-import type { FirstDef } from "../../../../../lib/firsts";
-import type { Place } from "../../../../../lib/places";
-import type { StoryDay } from "../../../../../lib/story/spine";
-import { type Week, weekLabel } from "../../../../../lib/timeline";
-import { CaptureSheet } from "../../../../capture/components/CaptureSheet";
-import { useOnThisPhone } from "../../../hooks/useOnThisPhone";
-import { DayField } from "../../entries/firsts/DayField";
-import { AddPhoto } from "../../entries/photos/AddPhoto";
-import { Days } from "../../lines/Day";
+import { firstsSaves } from "../../../../api/rpc/firsts";
+import { usePeopleQuery } from "../../../../api/rpc/people";
+import { useSave } from "../../../../app/hooks/useSave";
+import { weekNotes } from "../../../../content";
+import { babyLead, noteFor, sizeLabel } from "../../../../content/weeks";
+import { type ISODate, todayISO } from "../../../../lib/dates";
+import type { FirstDef } from "../../../../lib/firsts";
+import type { Place } from "../../../../lib/places";
+import type { StoryDay } from "../../../../lib/story/spine";
+import { type Week, weekLabel } from "../../../../lib/timeline";
+import { CaptureSheet } from "../../../capture/components/CaptureSheet";
+import { useOnThisPhone } from "../../hooks/useOnThisPhone";
+import { DayField } from "../entries/firsts/DayField";
+import { AddPhoto } from "../entries/photos/AddPhoto";
+import { Days } from "../lines/Day";
 
 /** A first that's around now: what, its question, and your words for it; kept, it's marked today (or the day you say). */
 function AroundNowFirst({ first, week, onNotYet, past = false }: { first: FirstDef; week: Week; onNotYet?: () => void; past?: boolean }) {
