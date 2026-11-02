@@ -14,7 +14,7 @@ You need a machine on your network with [Docker](https://docs.docker.com/get-doc
 docker compose up -d
 ```
 
-Open `http://<that machine>:9966`. The first visit sets it up: which of you you are, your name and your password. Until then, whoever reaches the page first sets it up, so do it straight away. The other of you joins by an invite you make in Settings. If you forget your password, the other can make you a link to choose a new one; if someone else got there first, or you're alone and forget it, stop the container and delete `docker/data/` to start again (which deletes everything else too).
+Open `http://<that machine>:9966`. The first visit sets it up: which of you you are, your name and your password. Until then, whoever reaches the page first sets it up, so do it straight away. The other of you joins by an invite you make in Settings. If you forget your password, the other can make you a link to choose a new one; if you're alone and forget it, put `EXPECTING_LOGIN=off` in `docker/.env`, restart, choose a new one in Settings, then take the line out and restart again. If someone else got there first, stop the container and delete `docker/data/` to start again (which deletes everything else too).
 
 If it stays on a home network you trust and you'd rather have no password, put `EXPECTING_LOGIN=off` in `docker/.env` and run `docker compose up -d` again. Each phone still says which of you is holding it.
 

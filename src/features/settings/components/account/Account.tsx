@@ -13,7 +13,8 @@ import { useNewPassword } from "../../../auth/components/NewPassword";
  * Who this phone is logged in as, and the account's upkeep: an invite for the
  * other while there's a place, a link for the other to choose a new password,
  * your own password, and the ways out (this phone, or every one of yours).
- * With logins off, only the invite and logging out, to hand the phone over.
+ * With logins off, the invite, choosing a password without the one you have
+ * (the way back in for one of you alone who forgot it), and logging out.
  */
 export function Account() {
   const { data: people } = usePeopleQuery();
@@ -32,7 +33,7 @@ export function Account() {
       </p>
       {people.openRole ? <Invite who={ROLE_NAMES[people.openRole]} /> : null}
       {login && other ? <Reset name={other.name} /> : null}
-      {login ? <ChangePassword /> : null}
+      <ChangePassword askCurrent={login} />
       <LogOut login={login} />
     </div>
   );
@@ -129,14 +130,15 @@ function Reset({ name }: { name: string }) {
   );
 }
 
-function ChangePassword() {
+/** Your password: the one you have now asked first, unless logins are off. */
+function ChangePassword({ askCurrent }: { askCurrent: boolean }) {
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState("");
   const [wrong, setWrong] = useState(false);
   const [done, setDone] = useState(false);
   const { password, check, fields } = useNewPassword();
   const [change, changing] = useAction(async () => {
-    const result = await choosePassword({ data: { current, password } });
+    const result = await choosePassword({ data: { current: askCurrent ? current : undefined, password } });
     if (result.ok) {
       setOpen(false);
       setDone(true);
@@ -147,9 +149,13 @@ function ChangePassword() {
     return (
       <div className="flex flex-col gap-1">
         <Button variant="outline" className="self-start" onClick={() => setOpen(true)}>
-          Change your password
+          {askCurrent ? "Change your password" : "Choose a new password"}
         </Button>
-        {done ? <p className="text-xs text-fg-subtle">Changed. Your other phones and computers will ask for it.</p> : null}
+        {done ? (
+          <p className="text-xs text-fg-subtle">
+            {askCurrent ? "Changed. Your other phones and computers will ask for it." : "Chosen. It's asked for once logins are on."}
+          </p>
+        ) : null}
       </div>
     );
 
@@ -160,19 +166,23 @@ function ChangePassword() {
 
   return (
     <form onSubmit={submit} className="flex flex-col gap-4 rounded-lg bg-bg-subtle p-3">
-      <FormField label="Your password now" feedback={wrong ? { message: "That's not it.", intent: "danger" } : undefined}>
-        <Input
-          type="password"
-          name="current"
-          autoComplete="current-password"
-          required
-          value={current}
-          onChange={(e) => {
-            setCurrent(e.target.value);
-            setWrong(false);
-          }}
-        />
-      </FormField>
+      {askCurrent ? (
+        <FormField label="Your password now" feedback={wrong ? { message: "That's not it.", intent: "danger" } : undefined}>
+          <Input
+            type="password"
+            name="current"
+            autoComplete="current-password"
+            required
+            value={current}
+            onChange={(e) => {
+              setCurrent(e.target.value);
+              setWrong(false);
+            }}
+          />
+        </FormField>
+      ) : (
+        <p className="text-sm text-fg-normal">Logins are off, so your password now isn't asked. Once they're on, this is the one to use.</p>
+      )}
       {fields}
       <div className="flex flex-wrap gap-2">
         <Button type="submit" intent="brand" loading={changing}>

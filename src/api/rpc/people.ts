@@ -45,17 +45,19 @@ export type ChangeResult = { ok: true } | { ok: false; error: "wrong" };
 
 /**
  * Your own password. The current one is asked, unless you must choose one
- * (still the shared one, just logged in with). Your other phones are logged
- * out; this one stays in.
+ * (still the shared one, just logged in with), or logins are off: then
+ * whoever reaches Expecting is trusted already, and this is the way back in
+ * for one of you alone who forgot theirs (turn logins off, choose a new one,
+ * turn them on). Your other phones are logged out; this one stays in.
  */
 export const choosePassword = createServerFn({ method: "POST" })
   .validator(z.object({ current: z.string().max(1024).optional(), password: z.string().min(MIN_PASSWORD).max(1024) }).strict())
   .handler(async ({ data }): Promise<ChangeResult> => {
-    if (!loginOn()) throw new Error("Logins are off");
     const id = me();
     const people = new PeopleRepo(getDb());
     const password = people.password(id);
-    if (password?.chosen && !(password.hash && data.current && (await verifyPassword(data.current, password.hash)))) return { ok: false, error: "wrong" };
+    if (loginOn() && password?.chosen && !(password.hash && data.current && (await verifyPassword(data.current, password.hash))))
+      return { ok: false, error: "wrong" };
     people.setPassword(id, await hashPassword(data.password));
     new SessionRepo(getDb()).endAllFor(id, readSessionCookie(getRequest()) ?? undefined);
     return { ok: true };
