@@ -48,7 +48,7 @@ test('a scan from the "+", kept by week in the Journal, drawn from the server, a
   await expect(page.getByText("In the Journal")).toBeVisible();
   await expect(page).toHaveURL(/\/planner$/);
 
-  await open("/journal?show=photos");
+  await open("/journal?view=photos");
   const section = page.getByRole("region", { name: "Photos and scans" });
   const scan = section.getByRole("img", { name: /^Scan, week 28, .*20-week scan, all well$/ });
   await expect(scan).toBeVisible();
@@ -69,7 +69,7 @@ test('a bump photo from the "+" on the Journal, then opened, and its original do
   await sheet.getByRole("button", { name: "Keep it" }).click();
   await expect(sheet).toBeHidden();
   // One week isn't a series yet: no frame asks for the next.
-  await open("/journal?show=photos");
+  await open("/journal?view=photos");
   const row = page.getByRole("region", { name: "Your bump, week by week" });
   await expect(row.getByRole("img", { name: "Your bump at week 28" })).toBeVisible();
   await expect(row.getByRole("button", { name: /^Take week/ })).toBeHidden();
@@ -93,7 +93,7 @@ test('a bump photo from the "+" on the Journal, then opened, and its original do
 });
 
 test("deleting asks first, and then it's gone from the Journal", async ({ page, open }) => {
-  await open("/journal?show=photos");
+  await open("/journal?view=photos");
   const section = page.getByRole("region", { name: "Photos and scans" });
   await section.getByRole("img", { name: /^Scan, week 28/ }).click();
   const viewer = page.getByRole("dialog");
@@ -103,7 +103,7 @@ test("deleting asks first, and then it's gone from the Journal", async ({ page, 
   await expect(viewer).toBeHidden();
   await expect(section.getByRole("img", { name: /^Scan, week 28/ })).toBeHidden();
 
-  await open("/journal?show=photos");
+  await open("/journal?view=photos");
   await expect(page.getByRole("region", { name: "Photos and scans" }).getByRole("img", { name: /^Scan, week 28/ })).toBeHidden();
   // The bump stays, for quiet.spec.ts to find folded away.
   await expect(page.getByRole("region", { name: "Your bump, week by week" }).getByRole("img", { name: "Your bump at week 28" })).toBeVisible();

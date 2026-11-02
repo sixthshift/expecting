@@ -9,7 +9,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
 import { toast } from "@sixthshift/design-system/overlay";
-import { getRouteApi } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { ChevronRight, Copy } from "lucide-react";
 import { useAppetiteQuery } from "../../../../api/rpc/appetite";
 import { useFeelingsQuery } from "../../../../api/rpc/feelings";
@@ -20,23 +20,28 @@ import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { formatDate, todayISO } from "../../../../lib/dates";
 import { ordered } from "../../../../lib/papers";
 import type { QuietKind } from "../../../../lib/quiet";
-import { cravingsRecord, feelingsRecord, type KeptRecord, movementsRecord, type RecordKind, recordsText, sicknessRecord } from "../../../../lib/records";
+import {
+  cravingsSummary,
+  feelingsSummary,
+  movementsSummary,
+  type RecordKind,
+  type RecordSummary,
+  sicknessSummary,
+  summariesText,
+} from "../../../../lib/records";
 import { weekLabel } from "../../../../lib/timeline";
 import { PaperList } from "../entries/papers/PaperList";
 import { MovementPattern } from "../story/MovementPattern";
-
-const route = getRouteApi("/app/journal/records");
 
 /** How many papers are listed besides the handy ones. */
 const LATEST_PAPERS = 3;
 
 /** A record on the page: what it's called, the kind it opens, and the way to every one. */
-type Shown = { key: string; title: string; kind: RecordKind; more: string; record: KeptRecord };
+type Shown = { key: string; title: string; kind: RecordKind; more: string; summary: RecordSummary };
 
 /** One record: its name, its answer large, the lines behind it, and the way to every one. */
 function RecordCard({ shown }: { shown: Shown }) {
-  const navigate = route.useNavigate();
-  const { key, title, kind, more, record } = shown;
+  const { key, title, kind, more, summary } = shown;
   return (
     <Card>
       <section aria-labelledby={`record-${key}`} className="flex flex-col gap-3">
@@ -44,24 +49,24 @@ function RecordCard({ shown }: { shown: Shown }) {
           <h3 id={`record-${key}`} className="text-sm font-semibold text-fg-subtle">
             {title}
           </h3>
-          <p className="font-display text-2xl font-semibold text-fg-strong">{record.headline}</p>
+          <p className="font-display text-2xl font-semibold text-fg-strong">{summary.headline}</p>
         </div>
-        {record.lines.length > 0 ? (
+        {summary.lines.length > 0 ? (
           <ul className="flex flex-col gap-1 text-sm text-fg-normal">
-            {record.lines.map((line) => (
+            {summary.lines.map((line) => (
               <li key={line}>{line}</li>
             ))}
           </ul>
         ) : null}
-        {key === "movements" && record.lately ? <MovementPattern /> : null}
-        <button
-          type="button"
-          onClick={() => navigate({ search: { show: kind } })}
+        {key === "movements" && summary.lately ? <MovementPattern /> : null}
+        <Link
+          to="/journal/records/$kind"
+          params={{ kind: kind }}
           className="flex min-h-10 items-center gap-1 self-start text-sm font-medium text-fg-brand hover:underline"
         >
           {more}
           <ChevronRight aria-hidden size={16} />
-        </button>
+        </Link>
       </section>
     </Card>
   );
@@ -81,7 +86,6 @@ function Group({ title, shown }: { title: string; shown: readonly Shown[] }) {
 }
 
 export function Records({ quiet }: { quiet: QuietKind | null }) {
-  const navigate = route.useNavigate();
   const { data: journal } = useJournalQuery();
   const { data: appetite } = useAppetiteQuery();
   const { data: feelings } = useFeelingsQuery();
@@ -93,14 +97,14 @@ export function Records({ quiet }: { quiet: QuietKind | null }) {
   const { dueDate } = settings;
 
   const all: (Shown | null)[] = [
-    quiet ? null : withRecord("movements", "Movements", "movements", "Every movement", movementsRecord(journal, today, dueDate)),
-    quiet ? null : withRecord("sickness", "Sickness", "appetite", "Every one kept", sicknessRecord(appetite, today, dueDate)),
-    quiet ? null : withRecord("cravings", "Cravings", "appetite", "Every one kept", cravingsRecord(appetite, today)),
-    withRecord("feelings", "Feelings", "feelings", "Every check-in", feelingsRecord(feelings, people.people, people.me?.id ?? null, today)),
+    quiet ? null : shownAs("movements", "Movements", "movements", "Every movement", movementsSummary(journal, today, dueDate)),
+    quiet ? null : shownAs("sickness", "Sickness", "appetite", "Every one kept", sicknessSummary(appetite, today, dueDate)),
+    quiet ? null : shownAs("cravings", "Cravings", "appetite", "Every one kept", cravingsSummary(appetite, today)),
+    shownAs("feelings", "Feelings", "feelings", "Every check-in", feelingsSummary(feelings, people.people, people.me?.id ?? null, today)),
   ];
   const shown = all.filter((s): s is Shown => s !== null);
-  const lately = shown.filter((s) => s.record.lately);
-  const earlier = shown.filter((s) => !s.record.lately);
+  const lately = shown.filter((s) => s.summary.lately);
+  const earlier = shown.filter((s) => !s.summary.lately);
   const handy = ordered(papers.filter((p) => p.handy));
   const latest = ordered(papers.filter((p) => !p.handy)).slice(0, LATEST_PAPERS);
 
@@ -115,7 +119,7 @@ export function Records({ quiet }: { quiet: QuietKind | null }) {
 
   async function copy() {
     const heading = `Records, ${formatDate(today, { weekday: "short", day: "numeric", month: "short", year: "numeric" })}${now !== null && !quiet ? `, ${weekLabel(now).toLowerCase()}` : ""}`;
-    const text = recordsText({ heading, records: shown.map((s) => ({ title: s.title, record: s.record })), papers: ordered(papers).map((p) => p.title) });
+    const text = summariesText({ heading, records: shown.map((s) => ({ title: s.title, summary: s.summary })), papers: ordered(papers).map((p) => p.title) });
     try {
       await navigator.clipboard.writeText(text);
       toast({ title: "Copied", children: "Ready to paste into a message or a form." });
@@ -152,29 +156,29 @@ export function Records({ quiet }: { quiet: QuietKind | null }) {
           <div className="rounded-xl border border-border-subtle bg-bg-normal p-1">
             <PaperList papers={latest} label="The latest papers" />
           </div>
-          <button
-            type="button"
-            onClick={() => navigate({ search: { show: "papers" } })}
+          <Link
+            to="/journal/records/$kind"
+            params={{ kind: "papers" }}
             className="flex min-h-10 items-center gap-1 self-start text-sm font-medium text-fg-brand hover:underline"
           >
             {papers.length === 1 ? "The paper" : `All ${papers.length} papers`}
             <ChevronRight aria-hidden size={16} />
-          </button>
+          </Link>
         </section>
       ) : handy.length > 0 ? (
-        <button
-          type="button"
-          onClick={() => navigate({ search: { show: "papers" } })}
+        <Link
+          to="/journal/records/$kind"
+          params={{ kind: "papers" }}
           className="-mt-5 flex min-h-10 items-center gap-1 self-start text-sm font-medium text-fg-brand hover:underline"
         >
           {papers.length === 1 ? "The paper" : `All ${papers.length} papers`}
           <ChevronRight aria-hidden size={16} />
-        </button>
+        </Link>
       ) : null}
     </div>
   );
 }
 
-function withRecord(key: string, title: string, kind: RecordKind, more: string, record: KeptRecord | null): Shown | null {
-  return record ? { key, title, kind, more, record } : null;
+function shownAs(key: string, title: string, kind: RecordKind, more: string, summary: RecordSummary | null): Shown | null {
+  return summary ? { key, title, kind, more, summary } : null;
 }

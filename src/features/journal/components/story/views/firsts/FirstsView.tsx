@@ -36,7 +36,7 @@ function FirstLine({ mark }: { mark: FirstMark & { day: string } }) {
 }
 
 /** The Firsts lens: every one marked, in the order they came, and a way to mark another. */
-export function FirstsLens() {
+export function FirstsView() {
   const { data: firsts } = useFirstsQuery();
   const [marking, setMarking] = useState(false);
   const marked = firsts.filter(isMarked).sort((a, b) => a.day.localeCompare(b.day));

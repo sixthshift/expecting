@@ -2,7 +2,7 @@ import { describe, expect, test } from "vitest";
 import { foldedWhileQuiet, storyItems } from "../../src/lib/story/items";
 import { storyMatches } from "../../src/lib/story/search";
 import { storyGroups, storySpine } from "../../src/lib/story/spine";
-import { lensesKept } from "../../src/lib/story/views";
+import { viewsKept } from "../../src/lib/story/views";
 import { landmarks, weekTiles } from "../../src/lib/story/zoom";
 import { appetite, DUE, entry, feeling, first, paper, photo, sources } from "./storyFixtures";
 
@@ -37,11 +37,11 @@ describe("the story", () => {
     expect(line!.by).toBeNull();
   });
 
-  test("a lens only once its kind has something; All always; the folded kinds not while something has happened", () => {
-    expect(lensesKept([], false)).toEqual(["all"]);
+  test("a view of a kind only once it has something; days always; weeks and the pregnancy with a due date; the folded kinds not while something has happened", () => {
+    expect(viewsKept([], { quiet: false, zoomable: false })).toEqual(["days"]);
     const items = storyItems(sources({ journal: [entry("note", "2026-10-27")], photos: [photo("scan", "2026-10-27")] }));
-    expect(lensesKept(items, false)).toEqual(["all", "notes", "photos"]);
-    expect(lensesKept(items, true)).toEqual(["all", "notes"]);
+    expect(viewsKept(items, { quiet: false, zoomable: true })).toEqual(["days", "weeks", "pregnancy", "notes", "photos"]);
+    expect(viewsKept(items, { quiet: true, zoomable: false })).toEqual(["days", "notes"]);
     expect(items.filter(foldedWhileQuiet).map((i) => i.kind)).toEqual(["photo"]);
   });
 
@@ -75,7 +75,7 @@ describe("the story", () => {
     expect(groups.map((g) => g.kind === "group" && g.month)).toEqual(["2026-10", "2026-07"]);
   });
 
-  test("zoomed out, a tile a week to now, the bump its picture, the quiet ones quiet", () => {
+  test("zoomed out, a tile a week to now, the bump its picture, the empty ones empty", () => {
     const items = storyItems(
       sources({
         photos: [photo("scan", "2026-10-27"), photo("bump", "2026-10-28")],
@@ -85,10 +85,10 @@ describe("the story", () => {
     );
     const tiles = weekTiles(items, DUE, 28);
     expect(tiles).toHaveLength(28);
-    expect(tiles[0]).toMatchObject({ week: 28, lenses: ["photos"], quiet: false });
+    expect(tiles[0]).toMatchObject({ week: 28, kinds: ["photos"], empty: false });
     expect(tiles[0]!.photo?.kind).toBe("bump");
-    expect(tiles[1]).toMatchObject({ week: 27, lenses: ["notes", "firsts"] });
-    expect(tiles[2]).toMatchObject({ week: 26, quiet: true, photo: null });
+    expect(tiles[1]).toMatchObject({ week: 27, kinds: ["notes", "firsts"] });
+    expect(tiles[2]).toMatchObject({ week: 26, empty: true, photo: null });
     expect(landmarks([first("first-kick", "2026-10-20"), first("first-scan", null)], DUE).map((l) => l.week)).toEqual([27]);
   });
 });

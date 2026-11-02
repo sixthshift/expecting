@@ -4,15 +4,19 @@
 // firsts as its landmarks, and where you are. A week opens the story at it.
 
 import { cn } from "@sixthshift/design-system/utils";
+import { getRouteApi } from "@tanstack/react-router";
 import { Camera, FileText, Footprints, IceCreamCone, type LucideIcon, NotebookPen, Smile, Star } from "lucide-react";
+import { useFirstsQuery } from "../../../../api/rpc/firsts";
+import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { type FirstMark, firstOf } from "../../../../lib/firsts";
-import { LENS_LABEL, type Lens } from "../../../../lib/story/views";
-import { TRIMESTERS, type WeekTile } from "../../../../lib/story/zoom";
+import type { StoryItem } from "../../../../lib/story/items";
+import { KEPT_KIND_LABEL, type KeptKind } from "../../../../lib/story/kinds";
+import { landmarks, TRIMESTERS, type WeekTile, weekTiles } from "../../../../lib/story/zoom";
 import { WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
 import { Picture } from "../entries/photos/Picture";
 
-/** Each lens's mark. */
-const LENS_ICON: Record<Exclude<Lens, "all">, LucideIcon> = {
+/** Each kind's mark. */
+const KIND_ICON: Record<KeptKind, LucideIcon> = {
   notes: NotebookPen,
   movements: Footprints,
   appetite: IceCreamCone,
@@ -24,16 +28,16 @@ const LENS_ICON: Record<Exclude<Lens, "all">, LucideIcon> = {
 
 /** A week zoomed out, opening the story at it. */
 function Tile({ tile, now, onOpen }: { tile: WeekTile; now: Week | null; onOpen: (week: Week) => void }) {
-  const marks = tile.lenses.filter((l): l is Exclude<Lens, "all"> => l !== "all" && l !== "photos");
+  const marks = tile.kinds.filter((k) => k !== "photos");
   return (
     <li>
       <button
         type="button"
         onClick={() => onOpen(tile.week)}
-        aria-label={`${weekLabel(tile.week)}${tile.quiet ? ", nothing kept" : `: ${tile.lenses.map((l) => LENS_LABEL[l].toLowerCase()).join(", ")}`}`}
+        aria-label={`${weekLabel(tile.week)}${tile.empty ? ", nothing kept" : `: ${tile.kinds.map((l) => KEPT_KIND_LABEL[l].toLowerCase()).join(", ")}`}`}
         className={cn(
           "flex w-full flex-col gap-1 rounded-lg border p-1.5 text-left focus-visible:ring-2 focus-visible:ring-border-focus",
-          tile.quiet ? "border-border-subtle opacity-50" : "border-border-normal hover:bg-bg-normal-hovered",
+          tile.empty ? "border-border-subtle opacity-50" : "border-border-normal hover:bg-bg-normal-hovered",
           tile.week === now && "border-border-brand"
         )}
       >
@@ -48,7 +52,7 @@ function Tile({ tile, now, onOpen }: { tile: WeekTile; now: Week | null; onOpen:
           {tile.photo ? <span className="font-medium text-fg-strong">{tile.week}</span> : null}
           <span aria-hidden className="flex flex-wrap gap-0.5 text-fg-brand">
             {marks.map((l) => {
-              const Icon = LENS_ICON[l];
+              const Icon = KIND_ICON[l];
               return <Icon key={l} size={12} className={l === "firsts" ? "fill-current" : undefined} />;
             })}
           </span>
@@ -59,7 +63,7 @@ function Tile({ tile, now, onOpen }: { tile: WeekTile; now: Week | null; onOpen:
 }
 
 /** Weeks, a tile each, newest first, under their trimesters. */
-export function WeeksZoom({ tiles, now, onOpen }: { tiles: readonly WeekTile[]; now: Week | null; onOpen: (week: Week) => void }) {
+function WeekGrid({ tiles, now, onOpen }: { tiles: readonly WeekTile[]; now: Week | null; onOpen: (week: Week) => void }) {
   return (
     <div className="flex flex-col gap-6">
       {[...TRIMESTERS].reverse().map((t) => {
@@ -81,7 +85,7 @@ export function WeeksZoom({ tiles, now, onOpen }: { tiles: readonly WeekTile[]; 
 }
 
 /** The whole pregnancy as one line: the weeks, the firsts on it, and where you are. */
-export function PregnancyZoom({
+function PregnancyLine({
   landmarks,
   tiles,
   now,
@@ -92,7 +96,7 @@ export function PregnancyZoom({
   now: Week | null;
   onOpen: (week: Week) => void;
 }) {
-  const kept = new Set(tiles.filter((t) => !t.quiet).map((t) => t.week));
+  const kept = new Set(tiles.filter((t) => !t.empty).map((t) => t.week));
   const at = (week: Week) => `${((week - WEEKS.first) / (WEEKS.last - WEEKS.first)) * 100}%`;
   return (
     <figure className="flex flex-col gap-4">
@@ -142,4 +146,31 @@ export function PregnancyZoom({
       ) : null}
     </figure>
   );
+}
+
+const route = getRouteApi("/app/journal");
+
+/** Opening a week from a zoomed-out view: the story in days, at that week (`?at=`). */
+function useOpenWeek() {
+  const navigate = route.useNavigate();
+  return (week: Week) => navigate({ search: { at: week } });
+}
+
+/** The story zoomed out to weeks: a tile a week, under its trimester. Needs a due date (the view isn't offered without one). */
+export function WeeksView({ items }: { items: readonly StoryItem[] }) {
+  const { data: dueDate } = useSettingsQuery({ select: (s) => s.dueDate });
+  const now = useNow();
+  const onOpen = useOpenWeek();
+  if (!dueDate) return null;
+  return <WeekGrid tiles={weekTiles(items, dueDate, now)} now={now} onOpen={onOpen} />;
+}
+
+/** The whole pregnancy as one line, with the firsts on it as landmarks (`withFirsts`; not on the quiet Journal). Needs a due date. */
+export function PregnancyView({ items, withFirsts }: { items: readonly StoryItem[]; withFirsts: boolean }) {
+  const { data: dueDate } = useSettingsQuery({ select: (s) => s.dueDate });
+  const { data: firsts } = useFirstsQuery();
+  const now = useNow();
+  const onOpen = useOpenWeek();
+  if (!dueDate) return null;
+  return <PregnancyLine landmarks={withFirsts ? landmarks(firsts, dueDate) : []} tiles={weekTiles(items, dueDate, now)} now={now} onOpen={onOpen} />;
 }

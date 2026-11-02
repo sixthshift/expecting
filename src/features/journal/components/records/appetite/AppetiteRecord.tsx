@@ -168,7 +168,7 @@ const LISTED = 8;
  * through the "+"; the lens is there only once one is kept, and never while
  * something has happened (the Journal folds them away then).
  */
-export function AppetiteLens() {
+export function AppetiteRecord() {
   const { data: entries } = useAppetiteQuery();
   const [all, setAll] = useState(false);
   const listed = latestFirst(entries);

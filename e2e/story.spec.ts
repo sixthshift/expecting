@@ -46,11 +46,11 @@ test("the story's lenses are ways to read it; the records say each kind in a few
       .getByText(/^\d+ of the last 14 days$/)
   ).toBeVisible();
   await expect(page.getByRole("button", { name: "Copy as text" })).toBeVisible();
-  await page.getByRole("button", { name: "Every movement" }).click();
-  await expect(page).toHaveURL(/show=movements/);
+  await page.getByRole("link", { name: "Every movement" }).click();
+  await expect(page).toHaveURL(/\/journal\/records\/movements$/);
   await expect(page.getByRole("region", { name: "Movements" }).getByRole("figure")).toBeVisible();
-  await page.getByRole("button", { name: "All records" }).click();
-  await page.getByRole("button", { name: /^(All \d+ papers|The paper)$/ }).click();
+  await page.getByRole("link", { name: "All records" }).click();
+  await page.getByRole("link", { name: /^(All \d+ papers|The paper)$/ }).click();
   await expect(page.getByRole("region", { name: "Results and papers" })).toBeVisible();
 });
 
@@ -71,7 +71,7 @@ test("a first, marked and answered in your own words, then in its lens and on th
   await expect(firsts.getByText("Bought the first outfit")).toBeVisible();
   await expect(firsts.getByText("A tiny yellow onesie, from Nan")).toBeVisible();
 
-  await open("/journal?zoom=pregnancy");
+  await open("/journal?view=pregnancy");
   await expect(page.getByRole("list", { name: "Your firsts" }).getByText("Bought the first outfit")).toBeVisible();
 });
 
@@ -114,7 +114,7 @@ test("a letter to the baby, said so in the story", async ({ page, open }) => {
 test("zoomed out to the weeks, a week opens the story at it; the search finds any kind", async ({ page, open }) => {
   await open("/journal");
   await page.getByRole("radiogroup", { name: "Show" }).getByRole("radio", { name: "Weeks" }).click();
-  await expect(page).toHaveURL(/zoom=weeks/);
+  await expect(page).toHaveURL(/view=weeks/);
   const third = page.getByRole("region", { name: "Third trimester" });
   await expect(third.getByRole("button", { name: /^Week 27, nothing kept$/ })).toHaveCount(0);
   await third.getByRole("button", { name: /^Week 28:/ }).click();

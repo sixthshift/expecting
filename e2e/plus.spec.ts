@@ -24,7 +24,7 @@ test("a movement is kept from any pillar, lands in the Journal, and marks its we
   await page.getByRole("button", { name: "See it" }).click();
   await expect(page).toHaveURL(/\/journal$/);
   await expect(page.getByRole("region", { name: "This week" }).getByText("Hiccups after dinner")).toBeVisible();
-  await open("/journal/records?show=movements");
+  await open("/journal/records/movements");
   await expect(page.getByRole("region", { name: "Movements" }).getByRole("figure")).toBeVisible();
   await expect(page.getByRole("region", { name: "Movements" }).getByText("Hiccups after dinner")).toBeVisible();
 
@@ -46,7 +46,7 @@ test("a movement felt as slower, weaker or stopped keeps the call on screen unti
   // On the Journal the call stays first for today and tomorrow.
   await open("/journal");
   await expect(page.getByRole("alert").filter({ hasText: "Call your midwife or birth unit now." })).toBeVisible();
-  await open("/journal/records?show=movements");
+  await open("/journal/records/movements");
   await expect(page.getByRole("region", { name: "Movements" }).getByText("· slower, weaker or stopped")).toBeVisible();
 });
 

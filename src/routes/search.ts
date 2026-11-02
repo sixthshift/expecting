@@ -7,8 +7,7 @@ import { VIEW_KEYS, type View } from "../lib/circle";
 import { DOORS } from "../lib/library";
 import { DECK_FILTERS } from "../lib/names";
 import { stageEnding } from "../lib/planner";
-import { RECORDS } from "../lib/records";
-import { STORY_LENSES } from "../lib/story/views";
+import { STORY_VIEWS } from "../lib/story/views";
 import { parseWeekKey } from "../lib/timeline";
 
 /** The timeline: a week to open at instead of this one (`28`). */
@@ -41,18 +40,14 @@ export const librarySearch = z.object({
 });
 
 /**
- * The Journal: the lens (`photos`), how far it's zoomed out (`weeks`,
- * `pregnancy`), and a week to open at (`22`, as the timeline's). Anything
- * unknown is dropped.
+ * The Journal: the way the story is looked at (`weeks`, `photos`; days has
+ * none), and a week to open at (`22`, as the timeline's). Anything unknown
+ * is dropped.
  */
 export const journalSearch = z.object({
-  show: z.enum(STORY_LENSES).optional().catch(undefined),
-  zoom: z.enum(["weeks", "pregnancy"]).optional().catch(undefined),
+  view: z.enum(STORY_VIEWS).optional().catch(undefined),
   at: timelineSearch.shape.at,
 });
-
-/** The Journal's records: one kind open at full size (`movements`, `appetite`, `feelings`, `papers`), or all of them in a few lines. */
-export const recordsSearch = z.object({ show: z.enum(RECORDS).optional().catch(undefined) });
 
 /** Settings: a question to open at (`cover`, `work.partner`). */
 export const settingsSearch = z.object({ ask: z.string().optional().catch(undefined) });

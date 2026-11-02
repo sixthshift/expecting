@@ -1,73 +1,50 @@
-import { getRouteApi } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
-import { usePeopleQuery } from "../../../../api/rpc/people";
-import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
+import { useMemo } from "react";
+import { useSettingsQuery } from "../../../../api/rpc/settings";
 import { foldedWhileQuiet } from "../../../../lib/story/items";
-import { storyMatches } from "../../../../lib/story/search";
 import { storyGroups } from "../../../../lib/story/spine";
-import { weekTiles } from "../../../../lib/story/zoom";
-import type { Week } from "../../../../lib/timeline";
+import { isKindView } from "../../../../lib/story/views";
 import { useJournalPage } from "../../contexts/JournalPageContext";
-import { useLens } from "../../hooks/useLens";
-import { LensView } from "../story/LensView";
+import { useScrollToWeek } from "../../hooks/useScrollToWeek";
+import { useStorySearch } from "../../hooks/useStorySearch";
+import { useStoryView } from "../../hooks/useStoryView";
+import { KindView } from "../story/KindView";
+import { SearchResults } from "../story/SearchResults";
 import { StoryList } from "../story/Story";
 import { StoryControls } from "../story/StoryTools";
-import { PregnancyZoom, WeeksZoom } from "../story/Zoom";
-
-const route = getRouteApi("/app/journal");
+import { PregnancyView, WeeksView } from "../story/Zoom";
 
 /**
  * The quiet Journal's story: what stays (the notes, letters, feelings,
  * papers and what was done), newest first under the weeks that have
- * something in them, with no week's title (they're about the baby); in a
- * lens, zoomed out, or searched. No firsts on the pregnancy's line, no
- * recaps and no book.
+ * something in them, with no week's title (they're about the baby);
+ * looked at the same ways as the Journal's, and searched. No firsts on the
+ * pregnancy's line, no recaps and no book.
  */
 export function QuietStory() {
   const { quiet, items } = useJournalPage();
-  const { lens, lenses } = useLens(items, true);
-  const [words, setWords] = useState("");
-  const { zoom, at } = route.useSearch();
-  const navigate = route.useNavigate();
-  const { data: settings } = useSettingsQuery();
-  const { data: people } = usePeopleQuery();
-  const now = useNow();
-  const { dueDate } = settings;
-
-  // A week to open at: scrolled to, as the timeline's are.
-  useEffect(() => {
-    if (at !== undefined && !zoom) document.getElementById(`week-${at}`)?.scrollIntoView({ block: "start" });
-  }, [at, zoom]);
-
   const shown = useMemo(() => items.filter((i) => !foldedWhileQuiet(i)), [items]);
-  const name = (id: string | null) => (id === null ? null : (people.people.find((p) => p.id === id)?.name ?? null));
-  const found = shown.filter((i) => storyMatches(i, words, name));
-  const searching = words.trim().length > 0;
-  const openWeek = (week: Week) => navigate({ search: { at: week } });
+  const { view, views, open } = useStoryView(shown, { quiet: true });
+  const search = useStorySearch(shown, () => open("days"));
+  const { data: dueDate } = useSettingsQuery({ select: (s) => s.dueDate });
+  useScrollToWeek();
 
   return (
     <>
       <h2 className="font-display text-xl font-semibold text-fg-strong">The story so far</h2>
-      <StoryControls lenses={lenses} zoomable={Boolean(dueDate)} searchable={shown.length > 1} words={words} onWords={setWords} />
-
-      {lens !== "all" ? (
-        <LensView lens={lens} items={shown} quiet={quiet} />
-      ) : (
-        <section aria-label="The story" className="flex flex-col gap-4">
-          {zoom === "weeks" && dueDate ? (
-            <WeeksZoom tiles={weekTiles(shown, dueDate, now)} now={now} onOpen={openWeek} />
-          ) : zoom === "pregnancy" && dueDate ? (
-            <PregnancyZoom landmarks={[]} tiles={weekTiles(shown, dueDate, now)} now={now} onOpen={openWeek} />
-          ) : searching ? (
-            <>
-              {found.length === 0 ? <p className="text-fg-subtle">Nothing kept has those words.</p> : null}
-              <StoryList groups={storyGroups(found, dueDate)} titled={false} />
-            </>
-          ) : (
-            <StoryList groups={storyGroups(shown, dueDate)} titled={false} />
-          )}
-        </section>
-      )}
+      <StoryControls views={views} view={view} onView={open} searchable={shown.length > 1} words={search.words} onWords={search.look} />
+      <section aria-label="The story" className="flex flex-col gap-4">
+        {search.searching ? (
+          <SearchResults found={search.found} titled={false} />
+        ) : view === "weeks" ? (
+          <WeeksView items={shown} />
+        ) : view === "pregnancy" ? (
+          <PregnancyView items={shown} withFirsts={false} />
+        ) : isKindView(view) ? (
+          <KindView kind={view} items={shown} quiet={quiet} />
+        ) : (
+          <StoryList groups={storyGroups(shown, dueDate)} titled={false} />
+        )}
+      </section>
     </>
   );
 }

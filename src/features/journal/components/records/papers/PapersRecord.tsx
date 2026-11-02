@@ -20,7 +20,7 @@ const SEARCH_FROM = 5;
  * happened: papers are admin, and there are more after a loss, not fewer (the
  * form suggests nothing pregnancy-forward then).
  */
-export function PapersLens({ quiet }: { quiet: QuietKind | null }) {
+export function PapersRecord({ quiet }: { quiet: QuietKind | null }) {
   const { data: papers } = usePapersQuery();
   const [words, setWords] = useState("");
   const [kind, setKind] = useState<PaperKind | "all">("all");

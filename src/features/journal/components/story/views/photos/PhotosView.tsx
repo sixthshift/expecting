@@ -107,7 +107,7 @@ function BumpRow({
  * bump row, no empty frame, no scrubber, no side by side, and one way to add
  * a photo (never a bump after a loss). Never deleted.
  */
-export function PhotosLens({ quiet }: { quiet: QuietKind | null }) {
+export function PhotosView({ quiet }: { quiet: QuietKind | null }) {
   const { data: photos } = usePhotosQuery();
   const { data: settings } = useSettingsQuery();
   const now = useNow();

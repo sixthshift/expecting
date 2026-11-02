@@ -2,15 +2,15 @@ import { useSettingsQuery } from "../../../../api/rpc/settings";
 import type { QuietKind } from "../../../../lib/quiet";
 import type { StoryItem } from "../../../../lib/story/items";
 import { storyGroups } from "../../../../lib/story/spine";
-import type { StoryLens } from "../../../../lib/story/views";
-import { FirstsLens } from "./lenses/firsts/FirstsLens";
-import { PhotosLens } from "./lenses/photos/PhotosLens";
+import type { KindView as Kind } from "../../../../lib/story/views";
 import { StoryList } from "./Story";
+import { FirstsView } from "./views/firsts/FirstsView";
+import { PhotosView } from "./views/photos/PhotosView";
 
-/** One way to read the story: the notes and letters, the photos, or the firsts. `quiet`: what has happened, on the quiet Journal (null on the Journal). */
-export function LensView({ lens, items, quiet }: { lens: Exclude<StoryLens, "all">; items: readonly StoryItem[]; quiet: QuietKind | null }) {
+/** The story as one kind: the notes and letters, the photos, or the firsts. `quiet`: what has happened, on the quiet Journal (null on the Journal). */
+export function KindView({ kind, items, quiet }: { kind: Kind; items: readonly StoryItem[]; quiet: QuietKind | null }) {
   const { data: settings } = useSettingsQuery();
-  switch (lens) {
+  switch (kind) {
     case "notes":
       return (
         <section aria-labelledby="notes" className="flex flex-col gap-4">
@@ -28,8 +28,8 @@ export function LensView({ lens, items, quiet }: { lens: Exclude<StoryLens, "all
         </section>
       );
     case "photos":
-      return <PhotosLens quiet={null} />;
+      return <PhotosView quiet={quiet} />;
     case "firsts":
-      return <FirstsLens />;
+      return <FirstsView />;
   }
 }

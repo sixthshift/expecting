@@ -45,7 +45,7 @@ vi.mock("@sixthshift/design-system/overlay", () => ({ toast: () => undefined }))
 vi.mock("@tanstack/react-router", () => ({ Link: ({ children }: { children: ReactNode }) => <a href="/emergency">{children}</a> }));
 
 const { Movement } = await import("../../../src/features/journal/components/entries/movements/Movement");
-const { MovementsLens } = await import("../../../src/features/journal/components/records/movements/MovementsLens");
+const { MovementsRecord } = await import("../../../src/features/journal/components/records/movements/MovementsRecord");
 
 beforeEach(() => {
   journal = [];
@@ -78,10 +78,10 @@ describe("Movement", () => {
   });
 });
 
-describe("MovementsLens", () => {
+describe("MovementsRecord", () => {
   it('shows the pattern and each movement, and nothing to add: that\'s the "+"', () => {
     journal = [moved];
-    render(<MovementsLens />);
+    render(<MovementsRecord />);
     expect(screen.getByRole("figure")).toBeTruthy();
     expect(screen.getByText("Hiccups")).toBeTruthy();
     expect(screen.queryByRole("button", { name: "Keep it" })).toBeNull();

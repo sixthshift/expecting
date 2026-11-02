@@ -1,48 +1,37 @@
-// The ways to look at the story, and which there's something for.
+// The ways to look at the story, one at a time: in days (all of it), zoomed
+// out to weeks or the whole pregnancy, or one kind of thing kept. Each is
+// `?view=` on /journal; days is the default and has no `?view=`.
 
-import { foldedWhileQuiet, type StoryItem, type StoryKind } from "./items";
+import { foldedWhileQuiet, type StoryItem } from "./items";
+import { KEPT_KIND_LABEL, type KeptKind, keptKindOf } from "./kinds";
 
-/** The ways to look at the story: all of it, or one kind. */
-export const LENSES = ["all", "notes", "movements", "appetite", "photos", "feelings", "papers", "firsts"] as const;
-export type Lens = (typeof LENSES)[number];
+export const STORY_VIEWS = ["days", "weeks", "pregnancy", "notes", "photos", "firsts"] as const;
+export type StoryView = (typeof STORY_VIEWS)[number];
 
-/** The lenses the story offers: ways to read it. The rest (movements, sickness and cravings, feelings, papers) are looked up in the records (`src/lib/records.ts`). */
-export const STORY_LENSES = ["all", "notes", "photos", "firsts"] as const satisfies readonly Lens[];
-export type StoryLens = (typeof STORY_LENSES)[number];
+/** The views that are one kind of thing kept. The other kinds are records (`src/lib/records.ts`). */
+export type KindView = Extract<StoryView, KeptKind>;
+const KIND_VIEWS: readonly KindView[] = ["notes", "photos", "firsts"];
 
-export const LENS_LABEL: Record<Lens, string> = {
-  all: "All",
-  notes: "Notes",
-  movements: "Movements",
-  appetite: "Sickness & cravings",
-  photos: "Photos",
-  feelings: "Feelings",
-  papers: "Papers",
-  firsts: "Firsts",
+export const VIEW_LABEL: Record<StoryView, string> = {
+  days: "Days",
+  weeks: "Weeks",
+  pregnancy: "Whole pregnancy",
+  notes: KEPT_KIND_LABEL.notes,
+  photos: KEPT_KIND_LABEL.photos,
+  firsts: KEPT_KIND_LABEL.firsts,
 };
 
-const LENS_OF: Record<StoryKind, Lens | null> = {
-  note: "notes",
-  letter: "notes",
-  movements: "movements",
-  appetite: "appetite",
-  photo: "photos",
-  paper: "papers",
-  feeling: "feelings",
-  first: "firsts",
-  done: null,
-  night: null,
-  question: null,
-  bingo: null,
-};
-
-/** The lens a line belongs to; what was done belongs only to All. */
-export function lensOf(item: StoryItem): Lens | null {
-  return LENS_OF[item.kind];
+export function isKindView(view: StoryView): view is KindView {
+  return (KIND_VIEWS as readonly StoryView[]).includes(view);
 }
 
-/** The lenses there's something for, in their fixed order: All first, always. While something has happened, not the folded kinds. */
-export function lensesKept(items: readonly StoryItem[], quiet: boolean): StoryLens[] {
-  const kept = new Set(items.filter((i) => !(quiet && foldedWhileQuiet(i))).map(lensOf));
-  return STORY_LENSES.filter((l) => l === "all" || kept.has(l));
+/**
+ * The views there's something for, in their fixed order: days always; weeks
+ * and the whole pregnancy with a due date to count them from (`zoomable`);
+ * a kind once something of it is kept (while something has happened, not
+ * the folded kinds).
+ */
+export function viewsKept(items: readonly StoryItem[], { quiet, zoomable }: { quiet: boolean; zoomable: boolean }): StoryView[] {
+  const kept = new Set(items.filter((i) => !(quiet && foldedWhileQuiet(i))).map(keptKindOf));
+  return STORY_VIEWS.filter((v) => v === "days" || (v === "weeks" || v === "pregnancy" ? zoomable : kept.has(v)));
 }

@@ -9,24 +9,22 @@ import { addDays, daysBetween, type ISODate } from "./dates";
 import { type Feeling, feelingsOf, isOwn, type OwnFeeling, STEP_LABEL, weekStep, wordsUsed } from "./feelings";
 import { formatTime, type JournalEntry, placeOf } from "./journal";
 import { dayInSentence, placeInSentence } from "./labels";
+import type { KeptKind } from "./story/kinds";
 
-/** The kinds kept as records, in the order they're shown. */
-export const RECORDS = ["movements", "appetite", "feelings", "papers"] as const;
+/** The kinds kept as records, in the order they're shown: looked up rather than read back. */
+export const RECORDS = ["movements", "appetite", "feelings", "papers"] as const satisfies readonly KeptKind[];
 export type RecordKind = (typeof RECORDS)[number];
 
-export const RECORD_LABEL: Record<RecordKind, string> = {
-  movements: "Movements",
-  appetite: "Sickness & cravings",
-  feelings: "Feelings",
-  papers: "Papers",
-};
+export function isRecordKind(kind: string): kind is RecordKind {
+  return (RECORDS as readonly string[]).includes(kind);
+}
 
 /**
  * A kind's record: the answer, short enough to read across a room
  * (`headline`), what backs it up (`lines`), and whether any of it is from
  * the last fortnight (`lately`): the records put what's going on now first.
  */
-export type KeptRecord = { headline: string; lines: string[]; lately: boolean };
+export type RecordSummary = { headline: string; lines: string[]; lately: boolean };
 
 /** How far back "lately" looks, today among them. */
 export const LATELY_DAYS = 14;
@@ -63,7 +61,7 @@ function partOf(time: string): string {
  * different lately, the parts of the day they're kept in (any with at least
  * a quarter of them), the last, and since when. Null with none kept.
  */
-export function movementsRecord(journal: readonly JournalEntry[], today: ISODate, dueDate: ISODate | null): KeptRecord | null {
+export function movementsSummary(journal: readonly JournalEntry[], today: ISODate, dueDate: ISODate | null): RecordSummary | null {
   const kept = journal.filter((e) => e.kind === "movement" && e.day <= today).sort((a, b) => (a.day + (a.time ?? "")).localeCompare(b.day + (b.time ?? "")));
   if (kept.length === 0) return null;
   const from = addDays(today, 1 - LATELY_DAYS);
@@ -116,7 +114,7 @@ function weeksSaid(weeks: readonly number[]): string {
  * how many days threw up or couldn't keep fluids down. Its answer: how many
  * of the last fortnight's days, or none since when. Null with none kept.
  */
-export function sicknessRecord(appetite: readonly AppetiteEntry[], today: ISODate, dueDate: ISODate | null): KeptRecord | null {
+export function sicknessSummary(appetite: readonly AppetiteEntry[], today: ISODate, dueDate: ISODate | null): RecordSummary | null {
   const sick = appetite.filter((e) => e.kind === "sick" && e.day <= today);
   if (sick.length === 0) return null;
   const days = [...new Set(sick.map((e) => e.day))].sort() as ISODate[];
@@ -152,7 +150,7 @@ export function sicknessRecord(appetite: readonly AppetiteEntry[], today: ISODat
 const CRAVINGS_NAMED = 6;
 
 /** Cravings and what's gone off: each by how often, most first; its answer, the most craved. Null with neither kept. */
-export function cravingsRecord(appetite: readonly AppetiteEntry[], today: ISODate): KeptRecord | null {
+export function cravingsSummary(appetite: readonly AppetiteEntry[], today: ISODate): RecordSummary | null {
   const craved = tally(appetite, "craving");
   const off = tally(appetite, "off");
   if (craved.length === 0 && off.length === 0) return null;
@@ -182,7 +180,12 @@ export type Named = { id: string; name: string };
  * many days and the middle step; your own words most used, which only your
  * phone has. Null with none kept in that time.
  */
-export function feelingsRecord(feelings: readonly (Feeling | OwnFeeling)[], people: readonly Named[], me: string | null, today: ISODate): KeptRecord | null {
+export function feelingsSummary(
+  feelings: readonly (Feeling | OwnFeeling)[],
+  people: readonly Named[],
+  me: string | null,
+  today: ISODate
+): RecordSummary | null {
   const from = addDays(today, 1 - FEELING_DAYS);
   const lines: string[] = [];
   let headline: string | null = null;
@@ -214,15 +217,15 @@ export function feelingsRecord(feelings: readonly (Feeling | OwnFeeling)[], peop
 }
 
 /** A record as it's read out or pasted: its name, its answer, then each line. */
-export type Titled = { title: string; record: KeptRecord };
+export type Titled = { title: string; summary: RecordSummary };
 
 /**
  * The records as plain text, to paste into a message or a form: a heading
  * (when, and the week), then each with its answer and lines, and the
  * papers by name. What's said is what's on the page, nothing more.
  */
-export function recordsText({ heading, records, papers }: { heading: string; records: readonly Titled[]; papers: readonly string[] }): string {
-  const parts = [heading, ...records.map(({ title, record }) => [`${title}: ${record.headline}`, ...record.lines.map((l) => `- ${l}`)].join("\n"))];
+export function summariesText({ heading, records, papers }: { heading: string; records: readonly Titled[]; papers: readonly string[] }): string {
+  const parts = [heading, ...records.map(({ title, summary }) => [`${title}: ${summary.headline}`, ...summary.lines.map((l) => `- ${l}`)].join("\n"))];
   if (papers.length > 0) parts.push(["Papers kept", ...papers.map((p) => `- ${p}`)].join("\n"));
   return parts.join("\n\n");
 }

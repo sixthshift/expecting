@@ -56,7 +56,7 @@ vi.mock("../../../src/app/model/uploads", () => {
 });
 
 const { AddPhoto } = await import("../../../src/features/journal/components/entries/photos/AddPhoto");
-const { PhotosLens } = await import("../../../src/features/journal/components/story/lenses/photos/PhotosLens");
+const { PhotosView } = await import("../../../src/features/journal/components/story/views/photos/PhotosView");
 const { FileProblemError } = await import("../../../src/app/model/uploads");
 
 const prepared = (takenAt: { day: string; time: string } | null) => ({
@@ -128,10 +128,10 @@ describe("AddPhoto", () => {
   });
 });
 
-describe("PhotosLens", () => {
+describe("PhotosView", () => {
   it("the bump week by week, ending in this week's empty frame, side by side and the scrubber from two weeks", () => {
     photos = [shot("a", "2026-07-08", "bump"), shot("b", "2026-09-02", "bump"), shot("c", "2026-09-03", "scan", "Morphology scan")];
-    render(<PhotosLens quiet={null} />);
+    render(<PhotosView quiet={null} />);
     const row = screen.getByRole("region", { name: "Your bump, week by week" });
     expect(
       within(row)
@@ -148,7 +148,7 @@ describe("PhotosLens", () => {
 
   it("one bump week isn't a series yet: no empty frame asking for this week's, no scrubber", () => {
     photos = [shot("a", "2026-07-08", "bump")];
-    render(<PhotosLens quiet={null} />);
+    render(<PhotosView quiet={null} />);
     expect(screen.queryByRole("button", { name: /^Take week/ })).toBeNull();
     expect(screen.queryByRole("slider")).toBeNull();
     expect(screen.queryByRole("button", { name: /Side by side/ })).toBeNull();
@@ -156,13 +156,13 @@ describe("PhotosLens", () => {
 
   it("no bump photos, no bump row at all", () => {
     photos = [shot("c", "2026-09-03", "scan")];
-    render(<PhotosLens quiet={null} />);
+    render(<PhotosView quiet={null} />);
     expect(screen.queryByRole("region", { name: "Your bump, week by week" })).toBeNull();
   });
 
   it("deleting asks first, and then goes from both phones", () => {
     photos = [shot("a", "2026-10-28", "other", "The first outfit")];
-    render(<PhotosLens quiet={null} />);
+    render(<PhotosView quiet={null} />);
     fireEvent.click(screen.getByRole("img", { name: /The first outfit/ }).closest("button")!);
     const viewer = screen.getByRole("dialog");
     fireEvent.click(within(viewer).getByRole("button", { name: "Delete" }));
@@ -175,7 +175,7 @@ describe("PhotosLens", () => {
   it("while something has happened, plain, with a way to add one but never a bump after a loss", async () => {
     quiet = "loss";
     photos = [shot("a", "2026-07-08", "bump"), shot("b", "2026-09-02", "scan")];
-    render(<PhotosLens quiet={quiet} />);
+    render(<PhotosView quiet={quiet} />);
     expect(screen.getByRole("region", { name: "Photos and scans" })).toBeTruthy();
     expect(screen.queryByRole("slider")).toBeNull();
     expect(screen.queryByRole("region", { name: "Your bump, week by week" })).toBeNull();
