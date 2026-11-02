@@ -8,8 +8,9 @@ import { usePeopleQuery } from "../../../api/rpc/people";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useSave } from "../../../app/hooks/useSave";
 import { type Card, deal, type Standing, standing, standingLine } from "../../../lib/bingo";
-import { formatDate } from "../../../lib/dates";
+import type { ISODate } from "../../../lib/dates";
 import { extrasOn } from "../../../lib/extras";
+import { dayMonth } from "../../../lib/labels";
 import { OTHER_ONE, otherOf } from "../../../lib/people";
 import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { extra } from "../../settings/model/extras";
@@ -112,7 +113,6 @@ function Winner({ mine, theirs, other }: { mine: Card | null; theirs: Card | nul
     return null;
   }
   const first = myDay && (!theirDay || myDay < theirDay) ? "you" : theirDay && (!myDay || theirDay < myDay) ? "them" : "tie";
-  const day = (d: string) => formatDate(d as never, { day: "numeric", month: "short" });
   return (
     <section
       aria-label="Bingo"
@@ -124,7 +124,7 @@ function Winner({ mine, theirs, other }: { mine: Card | null; theirs: Card | nul
           {first === "you" ? "Bingo! You got there first." : first === "them" ? `Bingo! ${other} got there first.` : "Bingo, both of you, the same day!"}
         </p>
         <p className="text-sm text-fg-normal">
-          {[myDay ? `You: ${day(myDay)}` : null, theirDay ? `${other}: ${day(theirDay)}` : null].filter(Boolean).join(" · ")}
+          {[myDay ? `You: ${dayMonth(myDay as ISODate)}` : null, theirDay ? `${other}: ${dayMonth(theirDay as ISODate)}` : null].filter(Boolean).join(" · ")}
           {me?.full ? " · You've a full house!" : them?.full ? ` · ${other} has a full house!` : " · Keep going for a full house."}
         </p>
       </div>

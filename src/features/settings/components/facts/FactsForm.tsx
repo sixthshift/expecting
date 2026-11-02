@@ -6,9 +6,10 @@ import { factsSaves } from "../../../../api/rpc/facts";
 import { useSave } from "../../../../app/hooks/useSave";
 import { DateForm } from "../../../../components/DateForm";
 import { builtInItems } from "../../../../content";
-import { formatDate, type ISODate, todayISO } from "../../../../lib/dates";
+import type { ISODate } from "../../../../lib/dates";
 import { extrasOn, inExtras } from "../../../../lib/extras";
 import { type Answer, decides, isSettled, nextAsked } from "../../../../lib/facts";
+import { didOn, fullDate } from "../../../../lib/labels";
 import type { Person } from "../../../../lib/people";
 import type { Week } from "../../../../lib/timeline";
 import { ItemLink } from "../../../library/components/ItemLink";
@@ -112,7 +113,7 @@ export function FactRow({
 
 /** An answer in words: its label, or the date. */
 function shown(q: FactQuestion, value: string): string {
-  return q.type === "date" ? formatDate(value as ISODate, { day: "numeric", month: "short", year: "numeric" }) : (q.answers[value] ?? value);
+  return q.type === "date" ? fullDate(value as ISODate) : (q.answers[value] ?? value);
 }
 
 /** "This week asks in week 16", or that it's asking now. */
@@ -127,9 +128,7 @@ export function askedOfIn(a: Ask, people: readonly Person[]): string {
 
 /** "Jason answered, 3 Oct". */
 function answeredBy(a: Answer, people: readonly Person[]): string {
-  const who = people.find((p) => p.id === a.answeredBy)?.name;
-  const when = formatDate(todayISO(new Date(a.answeredAt)), { day: "numeric", month: "short" });
-  return who ? `${who} answered, ${when}` : `Answered ${when}`;
+  return didOn(people.find((p) => p.id === a.answeredBy)?.name, "answered", a.answeredAt, { comma: false });
 }
 
 /** A few answers as buttons; a long list (a state) as a select. */

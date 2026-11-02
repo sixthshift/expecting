@@ -3,9 +3,9 @@ import { cn } from "@sixthshift/design-system/utils";
 import { extrasSaves, useExtrasQuery } from "../../../../api/rpc/extras";
 import { useAnswersQuery } from "../../../../api/rpc/facts";
 import { useSave } from "../../../../app/hooks/useSave";
-import { formatDate, todayISO } from "../../../../lib/dates";
 import { type Choice, extrasFor, extrasOn } from "../../../../lib/extras";
 import { factsOf } from "../../../../lib/facts";
+import { didOn } from "../../../../lib/labels";
 import type { Person } from "../../../../lib/people";
 import { EXTRA_GROUPS, type ExtraGroup } from "../../model/extras";
 import { SettingList } from "../SettingRow";
@@ -67,8 +67,5 @@ export function ExtrasList({ choices, people, highlight }: { choices: readonly C
 
 /** "Sam turned it on, 3 Oct". */
 function changedBy(c: Choice, people: readonly Person[]): string {
-  const who = people.find((p) => p.id === c.changedBy)?.name;
-  const when = formatDate(todayISO(new Date(c.changedAt)), { day: "numeric", month: "short" });
-  const what = c.on ? "turned it on" : "turned it off";
-  return who ? `${who} ${what}, ${when}` : `${what[0]!.toUpperCase()}${what.slice(1)}, ${when}`;
+  return didOn(people.find((p) => p.id === c.changedBy)?.name, c.on ? "turned it on" : "turned it off", c.changedAt);
 }

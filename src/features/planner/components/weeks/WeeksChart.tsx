@@ -2,6 +2,7 @@ import { cn } from "@sixthshift/design-system/utils";
 import { ChevronDown } from "lucide-react";
 import { type CSSProperties, type ReactNode, useState } from "react";
 import type { Bar, BarGroup, BarState, Chart } from "../../../../lib/acrossTheWeeks";
+import { inWeeks } from "../../../../lib/labels";
 import { STAGES } from "../../../../lib/planner";
 import { TRIMESTERS, WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
 import { LANDMARKS } from "../../../../lib/timelineMap";
@@ -135,7 +136,7 @@ function Group({ group, focused, now }: { group: BarGroup; focused: boolean; now
         {group.key === "now" ? null : (
           <span className="text-xs font-normal text-fg-subtle">
             {weekLabel(group.end)}
-            {left === null ? null : left <= 0 ? " · this week" : ` · in ${left} ${left === 1 ? "week" : "weeks"}`}
+            {left === null ? null : ` · ${inWeeks(left)}`}
           </span>
         )}
       </h2>

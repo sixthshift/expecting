@@ -1,5 +1,6 @@
 import { expect, test } from "vitest";
-import { type Appointment, appointmentSoon, appointmentsIn, appointmentWhen, nextAppointment, splitAppointments } from "../../src/lib/appointments";
+import { APPOINTMENT_WHEN, type Appointment, appointmentSoon, appointmentsIn, nextAppointment, splitAppointments } from "../../src/lib/appointments";
+import { when } from "../../src/lib/labels";
 
 function appt(title: string, day: string, time: string | null = null): Appointment {
   return { id: title, title, day, time, place: null, notes: null, by: null, createdAt: "2026-10-01T00:00:00Z", editedBy: null, editedAt: null };
@@ -21,9 +22,10 @@ test("ahead earliest first, an untimed one first on its day; gone latest first",
 });
 
 test("when, in en-AU words, the year only when it isn't this one", () => {
-  expect(appointmentWhen({ day: "2026-11-06", time: "10:30" }, today)).toBe("Fri 6 Nov, 10:30 am");
-  expect(appointmentWhen({ day: "2026-11-06", time: null }, today)).toBe("Fri 6 Nov");
-  expect(appointmentWhen({ day: "2027-01-08", time: "14:00" }, today)).toBe("Fri 8 Jan 2027, 2:00 pm");
+  expect(when("2026-11-06", "10:30", today, APPOINTMENT_WHEN)).toBe("Fri 6 Nov, 10:30 am");
+  expect(when("2026-11-06", null, today, APPOINTMENT_WHEN)).toBe("Fri 6 Nov");
+  expect(when(today, "09:00", today, APPOINTMENT_WHEN)).toBe("Mon 2 Nov, 9:00 am");
+  expect(when("2027-01-08", "14:00", today, APPOINTMENT_WHEN)).toBe("Fri 8 Jan 2027, 2:00 pm");
 });
 
 test("how soon, within a fortnight", () => {

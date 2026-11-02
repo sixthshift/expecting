@@ -13,9 +13,10 @@ import { useState } from "react";
 import { feelingsSaves, useFeelingsQuery } from "../../../../api/rpc/feelings";
 import { usePeopleQuery } from "../../../../api/rpc/people";
 import { useSave } from "../../../../app/hooks/useSave";
-import { addDays, formatDate, type ISODate, todayISO } from "../../../../lib/dates";
+import { addDays, type ISODate, todayISO } from "../../../../lib/dates";
 import { type Feeling, feelingsOf, isOwn, type OwnFeeling, STEP_LABEL, type Step, stepsByDay, wordsUsed } from "../../../../lib/feelings";
 import { formatTime } from "../../../../lib/journal";
+import { weekdayDate } from "../../../../lib/labels";
 import { nameBy } from "../../../../lib/people";
 import { Face } from "../Face";
 import { MoreWords } from "../MoreWords";
@@ -26,10 +27,6 @@ const DAYS = 28;
 
 /** A dot's strength: the step, from faint to full, in the brand's colour. Never red or green. */
 const STRENGTH: Record<Step, string> = { rough: "opacity-25", low: "opacity-45", okay: "opacity-65", good: "opacity-85", great: "opacity-100" };
-
-function dayLabel(day: ISODate, today: ISODate): string {
-  return day === today ? "Today" : formatDate(day, { weekday: "short", day: "numeric", month: "short" });
-}
 
 export function FeelingsCollection() {
   const { data: people } = usePeopleQuery();
@@ -64,7 +61,7 @@ export function FeelingsCollection() {
                       key={d}
                       type="button"
                       onClick={() => setDay(d)}
-                      aria-label={`${dayLabel(d, today)}: ${step ? STEP_LABEL[step] : "no check-in"}`}
+                      aria-label={`${weekdayDate(d, today)}: ${step ? STEP_LABEL[step] : "no check-in"}`}
                       aria-pressed={d === day}
                       className={cn("flex aspect-square min-h-5 items-center justify-center rounded-md", d === day && "bg-bg-subtle ring-1 ring-border-strong")}
                     >
@@ -85,7 +82,7 @@ export function FeelingsCollection() {
 
           <section aria-labelledby="feelings-day" className="flex flex-col gap-2">
             <h3 id="feelings-day" className="text-sm font-semibold text-fg-strong">
-              {dayLabel(day, today)}
+              {weekdayDate(day, today)}
             </h3>
             {onDay.length === 0 ? <p className="text-sm text-fg-subtle">No check-ins that day.</p> : null}
             {feelingsOf(onDay, me?.id ?? "")

@@ -6,9 +6,10 @@ import { CalendarPlus, MapPin, Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { appointmentsSaves } from "../../../api/rpc/appointments";
 import { useSave } from "../../../app/hooks/useSave";
-import { type Appointment, appointmentSoon, appointmentWhen } from "../../../lib/appointments";
+import { APPOINTMENT_WHEN, type Appointment, appointmentSoon } from "../../../lib/appointments";
 import { icsPath } from "../../../lib/calendar";
 import { type ISODate, todayISO } from "../../../lib/dates";
+import { when } from "../../../lib/labels";
 import { AppointmentForm } from "./AppointmentForm";
 
 /**
@@ -59,7 +60,7 @@ export function AppointmentCard({ appointment, size = "sm" }: { appointment: App
         <div className="flex flex-1 flex-col gap-0.5">
           <p className={size === "md" ? "font-display text-lg font-semibold text-fg-strong" : "font-medium text-fg-strong"}>{appointment.title}</p>
           <p className="flex flex-wrap items-center gap-x-2 text-sm text-fg-normal">
-            {appointmentWhen(appointment, today)}
+            {when(appointment.day, appointment.time, today, APPOINTMENT_WHEN)}
             {soon ? (
               <Badge size="sm" variant="soft" intent={soon === "Today" ? "brand" : "neutral"}>
                 {soon}

@@ -3,8 +3,9 @@ import { Link } from "@tanstack/react-router";
 import { CalendarClock, ChevronRight, MapPin } from "lucide-react";
 import { useAppointmentsQuery } from "../../../api/rpc/appointments";
 import { useQuestionsQuery } from "../../../api/rpc/questions";
-import { appointmentSoon, appointmentWhen, nextAppointment } from "../../../lib/appointments";
+import { APPOINTMENT_WHEN, appointmentSoon, nextAppointment } from "../../../lib/appointments";
 import { todayISO } from "../../../lib/dates";
+import { when } from "../../../lib/labels";
 
 /**
  * On This week: the next appointment, once it's within a fortnight, with how
@@ -31,7 +32,7 @@ export function NextAppointment() {
         </p>
         <p className="pl-6.5 text-sm text-fg-normal">
           {soon === "Today" || soon === "Tomorrow" ? `${soon} · ` : null}
-          {appointmentWhen(next, today)}
+          {when(next.day, next.time, today, APPOINTMENT_WHEN)}
         </p>
         {next.place ? (
           <p className="flex items-center gap-1 pl-6.5 text-sm text-fg-subtle">

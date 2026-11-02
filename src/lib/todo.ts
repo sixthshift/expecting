@@ -13,7 +13,8 @@
 // it up early; nothing here needs to know the lead time itself.
 
 import type { Task } from "../content/schema";
-import { type Week, weekLabel } from "./timeline";
+import { weekInSentence } from "./labels";
+import type { Week } from "./timeline";
 
 /** How many weeks ahead "now" looks: a task best done within them is on the list. */
 const HORIZON_WEEKS = 2;
@@ -25,15 +26,13 @@ type Why = "deadline" | "slipped" | "soon";
 
 export type ToDo = { task: Task; why: Why };
 
-const week = (w: Week) => weekLabel(w).toLowerCase();
-
 /** When, in a few words: "deadline week 30", "was due week 25", "this week", "by week 30". */
 export function whenToDo({ task, why }: ToDo, now: Week): string {
   if (why === "deadline" && task.deadline !== null) {
-    return task.deadline < now ? `deadline was ${week(task.deadline)}` : `deadline ${week(task.deadline)}`;
+    return task.deadline < now ? `deadline was ${weekInSentence(task.deadline)}` : `deadline ${weekInSentence(task.deadline)}`;
   }
-  if (why === "slipped") return `was due ${week(task.due)}`;
-  return task.due === now ? "this week" : `by ${week(task.due)}`;
+  if (why === "slipped") return `was due ${weekInSentence(task.due)}`;
+  return task.due === now ? "this week" : `by ${weekInSentence(task.due)}`;
 }
 
 const ORDER: Record<Why, number> = { deadline: 0, slipped: 1, soon: 2 };

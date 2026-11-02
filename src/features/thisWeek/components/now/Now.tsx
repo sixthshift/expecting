@@ -6,19 +6,19 @@ import { settingsSaves } from "../../../../api/rpc/settings";
 import { useSave } from "../../../../app/hooks/useSave";
 import { DateForm } from "../../../../components/DateForm";
 import { sizeLabel, sizeLine, type WeekNote } from "../../../../content/weeks";
-import { daysBetween, formatDate, type ISODate, todayISO } from "../../../../lib/dates";
-import { dueDateBounds, gestationLabel, type Position, WEEKS, type Week, weekDates, weekFromNow, weekLabel } from "../../../../lib/timeline";
+import { formatDate, type ISODate, todayISO } from "../../../../lib/dates";
+import { toGo, weekRange } from "../../../../lib/labels";
+import { dueDateBounds, gestationLabel, type Position, WEEKS, type Week, weekFromNow, weekLabel } from "../../../../lib/timeline";
 import { PregnancyStrip } from "../../../timeline/components/strip/PregnancyStrip";
 import { SizeIcon } from "../../../weeks/components/sizeIcon/SizeIcon";
 
 /** Where you are: "28+0 · 84 days to go · due Wed, 20 Jan 2027". */
 function NowLine({ position, dueDate, today, small }: { position: Position; dueDate: ISODate; today: ISODate; small?: boolean }): ReactNode {
-  const toGo = daysBetween(today, dueDate);
   return (
     <p className={small ? "text-sm text-fg-strong" : "text-lg text-fg-strong"}>
       <span className="font-semibold">{gestationLabel(position.gestationDays)}</span>
       {" · "}
-      {toGo > 0 ? `${toGo} days to go` : toGo === 0 ? "due today" : `${-toGo} days past the due date`}
+      {toGo(today, dueDate)}
       <span className="text-fg-subtle"> · due {formatDate(dueDate)}</span>
     </p>
   );
@@ -49,7 +49,7 @@ export function Hero({
 }) {
   const line = size ? sizeLine(size) : null;
   const peeking = week !== position.week;
-  const dates = weekDates(week, dueDate);
+  const range = weekRange(week, dueDate);
   return (
     // Its parts sit in the header's grid (ThisWeek): the heading beside the phone's corner, the size line under it with
     // the size's drawing at its right, under the corner; on a desktop, with no corner, the drawing is opposite the week.
@@ -70,10 +70,8 @@ export function Hero({
         <PregnancyStrip now={position.week} at={week} due={due} />
         <div className="flex flex-wrap items-center justify-between gap-x-4">
           {peeking ? (
-            dates ? (
-              <p className="text-sm text-fg-subtle">
-                {formatDate(dates.start, { day: "numeric", month: "short" })} – {formatDate(dates.end, { day: "numeric", month: "short" })}
-              </p>
+            range ? (
+              <p className="text-sm text-fg-subtle">{range}</p>
             ) : (
               <span />
             )

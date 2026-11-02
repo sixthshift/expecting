@@ -12,7 +12,8 @@ import { usePeopleQuery } from "../../../../api/rpc/people";
 import { questionsSaves, useQuestionsQuery } from "../../../../api/rpc/questions";
 import { useSave } from "../../../../app/hooks/useSave";
 import { builtInItems } from "../../../../content";
-import { formatDate, todayISO } from "../../../../lib/dates";
+import { todayISO } from "../../../../lib/dates";
+import { dayOfMoment, fullDate } from "../../../../lib/labels";
 import { newId } from "../../../../lib/outbox";
 import { whoseBy } from "../../../../lib/people";
 import type { Question } from "../../../../lib/questions";
@@ -105,7 +106,7 @@ export function AskedQuestion({ question }: { question: Question }) {
       <Source question={question} />
       {question.answer ? <p className="mt-1 whitespace-pre-wrap text-fg-normal">{question.answer}</p> : null}
       <div className="mt-2 flex items-center justify-between gap-2 text-xs text-fg-subtle">
-        <span>Asked {formatDate(todayISO(new Date(question.askedAt!)), { day: "numeric", month: "short", year: "numeric" })}</span>
+        <span>Asked {fullDate(todayISO(new Date(question.askedAt!)))}</span>
         <Button variant="ghost" size="sm" onClick={() => reopen({ id: question.id })}>
           Ask again
         </Button>
@@ -178,7 +179,7 @@ export function QuestionsAbout({ itemId }: { itemId: string }) {
           <li key={q.id} className="rounded-lg border border-border-subtle p-3 text-sm">
             <p className="whitespace-pre-wrap font-medium text-fg-normal">{q.text}</p>
             <p className="mt-1 whitespace-pre-wrap text-fg-normal">
-              <span className="text-fg-subtle">You asked on {formatDate(todayISO(new Date(q.askedAt!)), { day: "numeric", month: "short" })}</span>
+              <span className="text-fg-subtle">You asked on {dayOfMoment(q.askedAt!)}</span>
               {q.answer ? `: ${q.answer}` : "."}
             </p>
           </li>

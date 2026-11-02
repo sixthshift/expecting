@@ -13,8 +13,9 @@ import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import type { Item, Task } from "../../../content/schema";
-import { appointmentWhen, nextAppointment, splitAppointments } from "../../../lib/appointments";
+import { APPOINTMENT_WHEN, nextAppointment, splitAppointments } from "../../../lib/appointments";
 import { todayISO } from "../../../lib/dates";
+import { inWeeks, weekInSentence, when } from "../../../lib/labels";
 import { type Ahead, planTasks, type Stage, stagesAhead } from "../../../lib/planner";
 import { WEEKS, type Week, weekLabel } from "../../../lib/timeline";
 import { type ToDo, whenToDo } from "../../../lib/todo";
@@ -31,15 +32,13 @@ import { Whose } from "../../tasks/components/Whose";
 import { useTasks } from "../../tasks/hooks/useTasks";
 import { StageSpan } from "../components/weeks/StageSpan";
 
-const week = (w: Week) => weekLabel(w).toLowerCase();
-
 /** How many of a stage's tasks it names while folded, before "and N more". */
 const PREVIEW = 2;
 
 const AHEAD_AT: Record<Ahead["at"], (w: Week) => string> = {
-  opens: (w) => `opens ${week(w)}`,
-  due: (w) => `by ${week(w)}`,
-  deadline: (w) => `deadline ${week(w)}`,
+  opens: (w) => `opens ${weekInSentence(w)}`,
+  due: (w) => `by ${weekInSentence(w)}`,
+  deadline: (w) => `deadline ${weekInSentence(w)}`,
 };
 
 /**
@@ -182,7 +181,7 @@ export function PlannerPage() {
 
             {plan.earlier.length > 0 ? (
               <Group title="Missed earlier" count={plan.earlier.length} folded>
-                {plan.earlier.map((task) => row(task, <span>was due {week(task.due)}</span>))}
+                {plan.earlier.map((task) => row(task, <span>was due {weekInSentence(task.due)}</span>))}
               </Group>
             ) : null}
 
@@ -207,7 +206,7 @@ export function PlannerPage() {
               </h2>
               {next ? (
                 <p className="text-sm text-fg-subtle">
-                  {next.title}, {appointmentWhen(next, today)}
+                  {next.title}, {when(next.day, next.time, today, APPOINTMENT_WHEN)}
                 </p>
               ) : null}
             </div>
@@ -324,7 +323,7 @@ function StageCard({ stage, now, children }: { stage: Stage; now: Week | null; c
           <span className="font-semibold text-fg-strong">{stage.title}</span>
           <span className="shrink-0 text-xs text-fg-subtle">
             {weekLabel(stage.end)}
-            {left === null ? null : left <= 0 ? " · this week" : ` · in ${left} ${left === 1 ? "week" : "weeks"}`}
+            {left === null ? null : ` · ${inWeeks(left)}`}
           </span>
         </span>
         <StageSpan start={stage.start} end={stage.end} now={now} />

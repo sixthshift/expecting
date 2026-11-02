@@ -5,8 +5,8 @@ import { useCircleQuery } from "../../../api/rpc/circle";
 import { useExtrasQuery } from "../../../api/rpc/extras";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { type Circle, type CirclePerson, groupsOf, HEARS, toThank, VIEWS, VISITS, type View, viewsOn } from "../../../lib/circle";
-import { formatDate } from "../../../lib/dates";
 import { extrasOn } from "../../../lib/extras";
+import { weekdayDate } from "../../../lib/labels";
 import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { AddPerson } from "../components/addPerson/AddPerson";
 import { Announcement } from "../components/announcement/Announcement";
@@ -88,8 +88,7 @@ function ViewBody({ view, circle }: { view: View; circle: Circle }) {
   const { people, gifts, announcement } = circle;
   if (view === "gifts") return <Gifts people={people} gifts={gifts} />;
   if (view === "help") {
-    const meta = (p: CirclePerson) =>
-      [p.help, p.mealDay ? `meals ${formatDate(p.mealDay, { weekday: "short", day: "numeric", month: "short" })}` : null].filter(Boolean).join(" · ");
+    const meta = (p: CirclePerson) => [p.help, p.mealDay ? `meals ${weekdayDate(p.mealDay)}` : null].filter(Boolean).join(" · ");
     return (
       <>
         <Grouped

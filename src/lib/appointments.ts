@@ -4,8 +4,8 @@
 // there in the waiting room. Its week is worked out from the due date on read,
 // like a Journal entry's, so a moved due date moves its week and never its day.
 
-import { daysBetween, formatDate, type ISODate } from "./dates";
-import { formatTime, placeOf } from "./journal";
+import { daysBetween, type ISODate } from "./dates";
+import { placeOf } from "./journal";
 import type { Week } from "./timeline";
 
 export type Appointment = {
@@ -40,18 +40,8 @@ export function nextAppointment(appointments: readonly Appointment[], today: ISO
   return splitAppointments(appointments, today).ahead[0] ?? null;
 }
 
-/** "Thu 6 Nov, 10:30 am", or without a time "Thu 6 Nov"; the year only when it isn't this one's. */
-export function appointmentWhen(appointment: Pick<Appointment, "day" | "time">, today: ISODate): string {
-  const day = appointment.day as ISODate;
-  // "Fri, 6 Nov" as en-AU writes it, without its comma.
-  const date = formatDate(day, {
-    weekday: "short",
-    day: "numeric",
-    month: "short",
-    ...(day.slice(0, 4) === today.slice(0, 4) ? {} : { year: "numeric" }),
-  }).replace(",", "");
-  return appointment.time ? `${date}, ${formatTime(appointment.time)}` : date;
-}
+/** How an appointment's when is said, through labels' `when`: "Thu 6 Nov, 10:30 am", its date even today, without en-AU's comma. */
+export const APPOINTMENT_WHEN = { sayToday: false, weekdayComma: false } as const;
 
 /** How soon, in words: "Today", "Tomorrow", "In 5 days"; null once it's gone or more than a fortnight off. */
 export function appointmentSoon(appointment: Pick<Appointment, "day">, today: ISODate): string | null {

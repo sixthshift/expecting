@@ -10,8 +10,9 @@ import { useQuietQuery } from "../../../api/rpc/quiet";
 import { settingsSaves, useNow, usePosition, useSettingsQuery } from "../../../api/rpc/settings";
 import { useSave } from "../../../app/hooks/useSave";
 import { Page, Section } from "../../../components/Page";
-import { daysBetween, formatDate, todayISO } from "../../../lib/dates";
+import { todayISO } from "../../../lib/dates";
 import { asksFor, factsOf, isSettled, latestByKey } from "../../../lib/facts";
+import { fullDate, toGo } from "../../../lib/labels";
 import type { Person, Role } from "../../../lib/people";
 import { gestationLabel } from "../../../lib/timeline";
 import { Connections } from "../../connect/components/Connections";
@@ -87,7 +88,6 @@ export function SettingsPage() {
     list.map((a) => (
       <FactRow key={a.key} a={a} last={latest[a.key]} people={people} dueDate={dueDate} now={now} open={open === a.key} onToggle={() => toggle(a.key)} />
     ));
-  const toGo = dueDate ? daysBetween(today, dueDate) : 0;
 
   return (
     <Page title="Settings">
@@ -161,7 +161,7 @@ export function SettingsPage() {
                       onToggle={() => toggle(DUE_DATE)}
                       value={
                         dueDate ? (
-                          formatDate(dueDate, { day: "numeric", month: "short", year: "numeric" })
+                          fullDate(dueDate)
                         ) : (
                           <Badge variant="soft" intent="brand" size="sm">
                             Not set
@@ -170,7 +170,7 @@ export function SettingsPage() {
                       }
                       meta={
                         position && dueDate
-                          ? `${gestationLabel(position.gestationDays)} today · ${toGo > 0 ? `${toGo} days to go` : toGo === 0 ? "due today" : `${-toGo} days past`}`
+                          ? `${gestationLabel(position.gestationDays)} today · ${toGo(today, dueDate, { short: true })}`
                           : "Until there is one, Expecting opens at week 1"
                       }
                     >

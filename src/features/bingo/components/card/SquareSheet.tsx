@@ -7,7 +7,8 @@ import { type FormEvent, useState } from "react";
 import { bingoSaves } from "../../../../api/rpc/bingo";
 import { useSave } from "../../../../app/hooks/useSave";
 import { type Card, squareOf } from "../../../../lib/bingo";
-import { formatDate, type ISODate, todayISO } from "../../../../lib/dates";
+import { type ISODate, todayISO } from "../../../../lib/dates";
+import { weekdayDate } from "../../../../lib/labels";
 
 /**
  * A square opened. On your own card: when it happened (today unless changed)
@@ -92,7 +93,7 @@ export function SquareSheet({
           </form>
         ) : was ? (
           <p className="text-fg-normal">
-            Marked {formatDate(was.day, { weekday: "short", day: "numeric", month: "short" })}
+            Marked {weekdayDate(was.day)}
             {was.note ? `: “${was.note}”` : "."}
           </p>
         ) : (
