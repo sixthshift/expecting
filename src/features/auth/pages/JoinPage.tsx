@@ -10,12 +10,13 @@ import { ROLE_NAMES, type Role } from "../../../lib/people";
 import { CodeEntry } from "../components/CodeEntry";
 import { useEnter } from "../hooks/useEnter";
 import { useNewPassword } from "../hooks/useNewPassword";
+import { LOCKED } from "../model/labels";
 
 const route = getRouteApi("/join");
 
 const problems = {
   code: "That code isn't live: it's been used, or it's more than a week old. Ask for a new one.",
-  locked: "Too many tries. Wait a few minutes, then try again.",
+  locked: LOCKED,
   full: "There are two of you already.",
   password: "Choose a password.",
 } as const;

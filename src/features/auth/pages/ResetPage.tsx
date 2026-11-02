@@ -7,12 +7,13 @@ import { Alone } from "../../../components/Alone";
 import { CodeEntry } from "../components/CodeEntry";
 import { useEnter } from "../hooks/useEnter";
 import { useNewPassword } from "../hooks/useNewPassword";
+import { LOCKED } from "../model/labels";
 
 const route = getRouteApi("/reset");
 
 const problems = {
   code: "That code isn't live: it's been used, or it's more than a day old. Ask for a new one.",
-  locked: "Too many tries. Wait a few minutes, then try again.",
+  locked: LOCKED,
 } as const;
 
 /** A new password, by the link the other of you made: every phone of yours logs out, and this one in. */

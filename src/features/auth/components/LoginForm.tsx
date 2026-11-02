@@ -7,12 +7,13 @@ import { login, useAccessQuery } from "../../../api/rpc/session";
 import { Choice } from "../../../components/Choice";
 import { useEnter } from "../hooks/useEnter";
 import { useNewPassword } from "../hooks/useNewPassword";
+import { LOCKED } from "../model/labels";
 
 const route = getRouteApi("/login");
 
 const errors = {
   wrong: "That's not the password.",
-  locked: "Too many tries. Wait a few minutes, then try again.",
+  locked: LOCKED,
   unknown: "That person isn't here any more.",
 } as const;
 
