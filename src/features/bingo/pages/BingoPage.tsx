@@ -65,7 +65,7 @@ export function BingoPage() {
               intent="brand"
               aria-label="Whose card"
               value={showing}
-              onValueChange={(v) => (v ? navigate({ search: { card: v === "theirs" ? "theirs" : undefined }, replace: true }) : null)}
+              onValueChange={(v) => (v ? navigate({ search: { card: v === "theirs" ? "theirs" : undefined }, replace: true, resetScroll: false }) : null)}
               options={[
                 { value: "mine", label: mine ? `You · ${standingLine(standing(mine))}` : "You" },
                 { value: "theirs", label: theirs ? `${other} · ${standingLine(standing(theirs))}` : other },

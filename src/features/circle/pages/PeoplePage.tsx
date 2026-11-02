@@ -64,7 +64,7 @@ export function PeoplePage() {
               aria-label="View"
               className="flex-wrap"
               value={view}
-              onValueChange={(v) => (v ? navigate({ search: { view: v as View }, replace: true }) : null)}
+              onValueChange={(v) => (v ? navigate({ search: { view: v as View }, replace: true, resetScroll: false }) : null)}
               options={views.map((v) => ({ value: v, label: label(v, circle) }))}
             />
           ) : null}
