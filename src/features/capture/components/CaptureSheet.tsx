@@ -12,21 +12,7 @@ import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";
 import { toast } from "@sixthshift/design-system/overlay";
 import { useLocation, useNavigate } from "@tanstack/react-router";
-import {
-  CalendarClock,
-  Camera,
-  ChevronLeft,
-  FileText,
-  Footprints,
-  IceCreamCone,
-  ListChecks,
-  type LucideIcon,
-  MessageCircleQuestion,
-  NotebookPen,
-  Smile,
-  Star,
-  Waves,
-} from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { useState } from "react";
 import { useJournalQuery } from "../../../api/rpc/journal";
 import { usePeopleQuery } from "../../../api/rpc/people";
@@ -34,35 +20,10 @@ import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import type { FirstKey } from "../../../lib/firsts";
 import { movementsOffered } from "../../../lib/journal";
-import { WEEKS } from "../../../lib/timeline";
 import type { Shared } from "../../../pwa/share";
-import { AddAppointment } from "../../appointments/components/AddAppointment";
-import { CheckInNow } from "../../feelings/components/checkIn/CheckInNow";
-import { AddCraving } from "../../journal/components/entries/appetite/AddCraving";
-import { AddSickness } from "../../journal/components/entries/appetite/AddSickness";
-import { MarkFirst } from "../../journal/components/entries/firsts/MarkFirst";
-import { AddMovement } from "../../journal/components/entries/movements/AddMovement";
-import { AddNote } from "../../journal/components/entries/notes/AddNote";
-import { AddPaper } from "../../journal/components/entries/papers/AddPaper";
-import { AddPhoto } from "../../journal/components/entries/photos/AddPhoto";
-import { AddQuestion } from "../../questions/components/AddQuestion";
-import { AddTask } from "../../tasks/components/addTask/AddTask";
-import { type Capture, captureChoices, FILED_IN, sharedChoices } from "../model/choices";
-
-/** Each choice: what it is, and in a few words what it becomes. Facts, not a pitch. */
-const CHOICE: Record<Capture, { label: string; icon: LucideIcon; becomes: string }> = {
-  movement: { label: "The baby moved", icon: Footprints, becomes: "So you know their rhythm" },
-  sick: { label: "Sick or queasy", icon: Waves, becomes: "Since when, if you're asked" },
-  craving: { label: "A craving", icon: IceCreamCone, becomes: "Tallied, for later" },
-  note: { label: "A note", icon: NotebookPen, becomes: "On its day, for you both, or to the baby" },
-  photo: { label: "A photo or scan", icon: Camera, becomes: "The bump lined up week by week" },
-  paper: { label: "A result or paper", icon: FileText, becomes: "Found in a moment" },
-  feeling: { label: "How I'm feeling", icon: Smile, becomes: "The weeks, at a glance" },
-  first: { label: "A first", icon: Star, becomes: "In both your words" },
-  appointment: { label: "An appointment", icon: CalendarClock, becomes: "On its week, with your questions" },
-  question: { label: "A question to ask", icon: MessageCircleQuestion, becomes: "Ready for the appointment" },
-  task: { label: "Something to do", icon: ListChecks, becomes: "In the Planner" },
-};
+import { type Capture, CHOICE, captureChoices, FILED_IN, sharedChoices } from "../model/choices";
+import { CaptureForm } from "./CaptureForm";
+import { ChoiceList } from "./ChoiceList";
 
 /**
  * `initial`: open on that one's form (a place made ready, a task that keeps something). `letter`: a note
@@ -123,53 +84,10 @@ export function CaptureSheet({
       </Modal.Header>
       <Modal.Body className="px-6 pb-6">
         {chosen === null ? (
-          <ul className="flex flex-col gap-1">
-            {choices.map((c) => {
-              const { label, icon: Icon, becomes } = CHOICE[c];
-              return (
-                <li key={c}>
-                  <button
-                    type="button"
-                    onClick={() => setChosen(c)}
-                    aria-label={label}
-                    aria-describedby={`becomes-${c}`}
-                    className="flex min-h-12 w-full items-center gap-3 rounded-md px-3 py-1.5 text-left text-fg-normal hover:bg-bg-normal-hovered"
-                  >
-                    <Icon aria-hidden size={20} className="shrink-0 text-fg-brand" />
-                    <span className="flex flex-col">
-                      <span data-choice>{label}</span>
-                      <span id={`becomes-${c}`} className="text-xs text-fg-subtle">
-                        {becomes}
-                      </span>
-                    </span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        ) : chosen === "movement" ? (
-          <AddMovement onAdded={() => filed("movement")} />
-        ) : chosen === "sick" ? (
-          <AddSickness onAdded={() => filed("sick")} />
-        ) : chosen === "craving" ? (
-          <AddCraving onAdded={() => filed("craving")} />
-        ) : chosen === "note" ? (
-          <AddNote text={text} letter={letter} onAdded={() => filed("note")} />
-        ) : chosen === "photo" ? (
-          <AddPhoto files={files} onAdded={() => filed("photo")} />
-        ) : chosen === "paper" ? (
-          <AddPaper files={files} onAdded={() => filed("paper")} />
-        ) : chosen === "feeling" && people.me ? (
-          <CheckInNow me={people.me} onDone={() => filed("feeling")} />
-        ) : chosen === "first" ? (
-          <MarkFirst first={first} onAdded={() => filed("first")} />
-        ) : chosen === "appointment" ? (
-          <AddAppointment onAdded={() => filed("appointment")} />
-        ) : chosen === "question" ? (
-          <AddQuestion text={text} onAdded={() => filed("question")} />
-        ) : chosen === "task" ? (
-          <AddTask week={now ?? WEEKS.first} text={text} onAdded={() => filed("task")} />
-        ) : null}
+          <ChoiceList choices={choices} onChoose={setChosen} />
+        ) : (
+          <CaptureForm capture={chosen} me={people.me} now={now} text={text} files={files} letter={letter} first={first} onFiled={filed} />
+        )}
       </Modal.Body>
     </Modal>
   );

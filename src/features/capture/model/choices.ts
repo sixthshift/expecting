@@ -7,6 +7,21 @@
 /** One thing the "+" can file. */
 export type Capture = "movement" | "sick" | "craving" | "note" | "photo" | "paper" | "feeling" | "first" | "appointment" | "question" | "task";
 
+/** Each choice: what it is, and in a few words what it becomes. Facts, not a pitch. */
+export const CHOICE: Record<Capture, { label: string; becomes: string }> = {
+  movement: { label: "The baby moved", becomes: "So you know their rhythm" },
+  sick: { label: "Sick or queasy", becomes: "Since when, if you're asked" },
+  craving: { label: "A craving", becomes: "Tallied, for later" },
+  note: { label: "A note", becomes: "On its day, for you both, or to the baby" },
+  photo: { label: "A photo or scan", becomes: "The bump lined up week by week" },
+  paper: { label: "A result or paper", becomes: "Found in a moment" },
+  feeling: { label: "How I'm feeling", becomes: "The weeks, at a glance" },
+  first: { label: "A first", becomes: "In both your words" },
+  appointment: { label: "An appointment", becomes: "On its week, with your questions" },
+  question: { label: "A question to ask", becomes: "Ready for the appointment" },
+  task: { label: "Something to do", becomes: "In the Planner" },
+};
+
 /** Where each one goes and what its toast calls it ("Note kept", In the Journal), as its link opens. */
 export const FILED_IN: Record<Capture, { pillar: "Journal" | "Planner"; to: "/journal" | "/planner"; kept: string }> = {
   movement: { pillar: "Journal", to: "/journal", kept: "Movement kept" },
