@@ -17,26 +17,26 @@ const toasts: { title: string }[] = [];
 
 vi.mock("../../../src/api/rpc/journal", () => ({
   journalSaves: { addNote: { key: "addNote" }, addMovement: { key: "addMovement" } },
-  useJournal: () => ({ data: [] }),
+  useJournalQuery: () => ({ data: [] }),
 }));
 vi.mock("../../../src/api/rpc/feelings", () => ({
   feelingsSaves: { addFeeling: { key: "addFeeling" }, changeFeeling: { key: "changeFeeling" } },
-  useFeelings: () => ({ data: [] }),
+  useFeelingsQuery: () => ({ data: [] }),
 }));
 vi.mock("../../../src/api/rpc/appetite", () => ({
   appetiteSaves: { addAppetite: { key: "addAppetite" }, editAppetite: { key: "editAppetite" } },
-  useAppetite: () => ({ data: appetite }),
+  useAppetiteQuery: () => ({ data: appetite }),
 }));
-vi.mock("../../../src/api/rpc/photos", () => ({ photosSaves: { addPhoto: { key: "addPhoto" } }, usePhotos: () => ({ data: [] }) }));
-vi.mock("../../../src/api/rpc/papers", () => ({ papersSaves: { addPaper: { key: "addPaper" } }, usePapers: () => ({ data: [] }) }));
-vi.mock("../../../src/api/rpc/questions", () => ({ questionsSaves: { addQuestion: { key: "addQuestion" } }, useQuestions: () => ({ data: [] }) }));
+vi.mock("../../../src/api/rpc/photos", () => ({ photosSaves: { addPhoto: { key: "addPhoto" } }, usePhotosQuery: () => ({ data: [] }) }));
+vi.mock("../../../src/api/rpc/papers", () => ({ papersSaves: { addPaper: { key: "addPaper" } }, usePapersQuery: () => ({ data: [] }) }));
+vi.mock("../../../src/api/rpc/questions", () => ({ questionsSaves: { addQuestion: { key: "addQuestion" } }, useQuestionsQuery: () => ({ data: [] }) }));
 vi.mock("../../../src/api/rpc/checklist", () => ({ checklistSaves: { addOwnTask: { key: "addOwnTask" } } }));
-vi.mock("../../../src/api/rpc/people", () => ({ usePeople: () => ({ data: { me, people: [SAM] } }) }));
-vi.mock("../../../src/api/rpc/quiet", () => ({ useQuiet: () => ({ data: quiet }) }));
+vi.mock("../../../src/api/rpc/people", () => ({ usePeopleQuery: () => ({ data: { me, people: [SAM] } }) }));
+vi.mock("../../../src/api/rpc/quiet", () => ({ useQuietQuery: () => ({ data: quiet }) }));
 vi.mock("../../../src/api/rpc/settings", () => ({
   settingsSaves: { saveSettings: { key: "saveSettings" } },
   useNow: () => now,
-  useSettings: () => ({ data: { dueDate: null, baby: "unknown" } }),
+  useSettingsQuery: () => ({ data: { dueDate: null, baby: "unknown" } }),
 }));
 vi.mock("../../../src/app/hooks/useSave", () => ({
   useSave: (save: { key: string }) => (input: { id: string }) => {
@@ -50,7 +50,7 @@ vi.mock("@sixthshift/design-system/overlay", () => ({ toast: (t: { title: string
 // Where the sheet was opened: kept from the Journal itself, there's no toast, the Journal shows it.
 let pathname = "/";
 const navigated: unknown[] = [];
-vi.mock("../../../src/api/rpc/firsts", () => ({ firstsSaves: { markFirst: { key: "markFirst" } }, useFirsts: () => ({ data: [] }) }));
+vi.mock("../../../src/api/rpc/firsts", () => ({ firstsSaves: { markFirst: { key: "markFirst" } }, useFirstsQuery: () => ({ data: [] }) }));
 vi.mock("@tanstack/react-router", () => ({
   useNavigate: () => (to: unknown) => navigated.push(to),
   useLocation: () => ({ pathname }),

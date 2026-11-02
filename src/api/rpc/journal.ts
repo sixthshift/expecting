@@ -207,11 +207,11 @@ export const journalSeenSaves = {
 };
 
 /** When this phone's person last opened the Journal. */
-export function useJournalSeen() {
+export function useJournalSeenQuery() {
   return useSuspenseQuery(journalSeenQuery);
 }
 
 /** journalQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useJournal<TData = Journal>(options?: Omit<UseSuspenseQueryOptions<Journal, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useJournalQuery<TData = Journal>(options?: Omit<UseSuspenseQueryOptions<Journal, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...journalQuery, ...options } as UseSuspenseQueryOptions<Journal, Error, TData, string[]>);
 }

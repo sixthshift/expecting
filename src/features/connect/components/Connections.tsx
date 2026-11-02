@@ -1,15 +1,15 @@
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
-import { connectionsSaves, useConnections } from "../../../api/rpc/connections";
-import { useAccess } from "../../../api/rpc/session";
+import { connectionsSaves, useConnectionsQuery } from "../../../api/rpc/connections";
+import { useAccessQuery } from "../../../api/rpc/session";
 import { useSave } from "../../../app/hooks/useSave";
 import { MCP_PATH } from "../../../lib/connect";
 import { formatDate, type ISODate } from "../../../lib/dates";
 
 /** Settings' Claude: the address to add it at, what's connected, and disconnecting one. */
 export function Connections() {
-  const { data: connections } = useConnections();
-  const { data: login } = useAccess({ select: (access) => access.login });
+  const { data: connections } = useConnectionsQuery();
+  const { data: login } = useAccessQuery({ select: (access) => access.login });
   const disconnect = useSave(connectionsSaves.disconnect);
   const [copied, setCopied] = useState(false);
   const address = `${window.location.origin}${MCP_PATH}`;

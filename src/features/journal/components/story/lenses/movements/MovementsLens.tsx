@@ -1,6 +1,6 @@
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
-import { useJournal } from "../../../../../../api/rpc/journal";
+import { useJournalQuery } from "../../../../../../api/rpc/journal";
 import { newestFirst } from "../../../../../../lib/journal";
 import { Movement } from "../../../entries/movements/Movement";
 import { MovementPattern } from "../../MovementPattern";
@@ -15,7 +15,7 @@ const LISTED = 8;
  * Journal folds them away then).
  */
 export function MovementsLens() {
-  const { data: journal } = useJournal();
+  const { data: journal } = useJournalQuery();
   const [all, setAll] = useState(false);
   const movements = newestFirst(journal.filter((e) => e.kind === "movement"));
   const listed = all ? movements : movements.slice(0, LISTED);

@@ -6,7 +6,7 @@ import { FormField } from "@sixthshift/design-system/form-field";
 import { Textarea } from "@sixthshift/design-system/textarea";
 import { TimePicker } from "@sixthshift/design-system/time-picker";
 import { type FormEvent, useState } from "react";
-import { usePeople } from "../../../../../api/rpc/people";
+import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
 import { timeNow, toTime } from "../../../../../lib/journal";
 
@@ -31,7 +31,7 @@ export function NoteForm({
   const [body, setBody] = useState(initial?.body ?? start?.slice(0, 10_000) ?? "");
   const [letter, setLetter] = useState(initial?.letter ?? startLetter);
   const [fromBoth, setFromBoth] = useState(initial?.fromBoth ?? false);
-  const { data: people } = usePeople();
+  const { data: people } = usePeopleQuery();
   const two = people.people.length > 1;
   // A new note is now unless its day or time is changed; it's "now" as it's saved, not as the form opened.
   const [day, setDay] = useState<ISODate | null>(initial?.day ?? null);

@@ -46,6 +46,6 @@ export const extrasSaves = {
 };
 
 /** extrasQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useExtras<TData = Choices>(options?: Omit<UseSuspenseQueryOptions<Choices, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useExtrasQuery<TData = Choices>(options?: Omit<UseSuspenseQueryOptions<Choices, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...extrasQuery, ...options } as UseSuspenseQueryOptions<Choices, Error, TData, string[]>);
 }

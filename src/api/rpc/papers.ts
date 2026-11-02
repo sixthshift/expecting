@@ -130,6 +130,6 @@ export const papersSaves = {
 };
 
 /** papersQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function usePapers<TData = Papers>(options?: Omit<UseSuspenseQueryOptions<Papers, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function usePapersQuery<TData = Papers>(options?: Omit<UseSuspenseQueryOptions<Papers, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...papersQuery, ...options } as UseSuspenseQueryOptions<Papers, Error, TData, string[]>);
 }

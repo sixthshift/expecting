@@ -39,11 +39,11 @@ vi.mock("../../../src/api/rpc/appetite", () => ({
     deleteAppetite: { key: "deleteAppetite" },
     restoreAppetite: { key: "restoreAppetite" },
   },
-  useAppetite: () => ({ data: appetite }),
+  useAppetiteQuery: () => ({ data: appetite }),
 }));
-vi.mock("../../../src/api/rpc/questions", () => ({ questionsSaves: { addQuestion: { key: "addQuestion" } }, useQuestions: () => ({ data: [] }) }));
-vi.mock("../../../src/api/rpc/people", () => ({ usePeople: () => ({ data: { me: SAM, people: [SAM] } }) }));
-vi.mock("../../../src/api/rpc/settings", () => ({ useSettings: () => ({ data: { dueDate: null } }) }));
+vi.mock("../../../src/api/rpc/questions", () => ({ questionsSaves: { addQuestion: { key: "addQuestion" } }, useQuestionsQuery: () => ({ data: [] }) }));
+vi.mock("../../../src/api/rpc/people", () => ({ usePeopleQuery: () => ({ data: { me: SAM, people: [SAM] } }) }));
+vi.mock("../../../src/api/rpc/settings", () => ({ useSettingsQuery: () => ({ data: { dueDate: null } }) }));
 vi.mock("../../../src/app/hooks/useSave", () => ({ useSave: (save: { key: string }) => (input: unknown) => saved.push({ key: save.key, input }) }));
 vi.mock("../../../src/app/components/layout/CallBirthSuite", () => ({ CallBirthSuite: () => <a href="tel:0390000000">Call the birth suite</a> }));
 vi.mock("../../../src/features/library/components/ItemLink", () => ({ ItemLink: ({ children }: { children: ReactNode }) => children }));

@@ -10,8 +10,8 @@ import { toast } from "@sixthshift/design-system/overlay";
 import { cn } from "@sixthshift/design-system/utils";
 import { Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
-import { feelingsSaves, useFeelings } from "../../../../api/rpc/feelings";
-import { usePeople } from "../../../../api/rpc/people";
+import { feelingsSaves, useFeelingsQuery } from "../../../../api/rpc/feelings";
+import { usePeopleQuery } from "../../../../api/rpc/people";
 import { useSave } from "../../../../app/hooks/useSave";
 import { addDays, formatDate, type ISODate, todayISO } from "../../../../lib/dates";
 import { type Feeling, feelingsOf, isOwn, type OwnFeeling, STEP_LABEL, type Step, stepsByDay, wordsUsed } from "../../../../lib/feelings";
@@ -31,8 +31,8 @@ function dayLabel(day: ISODate, today: ISODate): string {
 }
 
 export function FeelingsLens() {
-  const { data: people } = usePeople();
-  const { data: feelings } = useFeelings();
+  const { data: people } = usePeopleQuery();
+  const { data: feelings } = useFeelingsQuery();
   const today = todayISO();
   const [day, setDay] = useState<ISODate>(today);
   const me = people.me;
@@ -101,7 +101,7 @@ export function FeelingsLens() {
 
 /** One check-in: whose, when and the step; your own with its words and what you wrote, to change or delete. */
 function CheckedIn({ feeling }: { feeling: Feeling | OwnFeeling }) {
-  const { data: people } = usePeople();
+  const { data: people } = usePeopleQuery();
   const [editing, setEditing] = useState(false);
   const change = useSave(feelingsSaves.changeFeeling);
   const remove = useSave(feelingsSaves.deleteFeeling);

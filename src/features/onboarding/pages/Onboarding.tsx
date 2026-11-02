@@ -1,10 +1,10 @@
 import { getRouteApi, Outlet, useMatch, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, Baby } from "lucide-react";
 import { type ReactNode, useEffect, useRef } from "react";
-import { useExtras } from "../../../api/rpc/extras";
-import { useAnswers } from "../../../api/rpc/facts";
-import { usePeople } from "../../../api/rpc/people";
-import { finishOnboarding, useSettings } from "../../../api/rpc/settings";
+import { useExtrasQuery } from "../../../api/rpc/extras";
+import { useAnswersQuery } from "../../../api/rpc/facts";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { finishOnboarding, useSettingsQuery } from "../../../api/rpc/settings";
 import { Redirect } from "../../../app/components/Redirect";
 import { useAction } from "../../../app/hooks/useAction";
 import { useAppTheme } from "../../../app/hooks/useAppTheme";
@@ -29,7 +29,7 @@ const nextRoute = getRouteApi("/onboarding/");
 
 /** Around every step: the baby's colours. */
 export function OnboardingLayout() {
-  const { data: settings } = useSettings();
+  const { data: settings } = useSettingsQuery();
   useAppTheme(settings.baby);
   return <Outlet />;
 }
@@ -39,9 +39,9 @@ export function OnboardingLayout() {
  * next one still to ask, from what's known now; else the first.
  */
 export function OnboardingNext() {
-  const { data: settings } = useSettings();
-  const { data: answers } = useAnswers();
-  const { data: people } = usePeople();
+  const { data: settings } = useSettingsQuery();
+  const { data: answers } = useAnswersQuery();
+  const { data: people } = usePeopleQuery();
   const { after } = nextRoute.useSearch();
   const steps = onboardingLeft({ me: people.me, onboardedAt: settings.onboardedAt, answers });
   const next = after ? stepAfter(steps, after as Step) : steps[0];
@@ -53,10 +53,10 @@ let shownOne = false;
 
 /** One step, the one the URL names. A step that isn't (or is no longer) asked goes on to the one that is. */
 export function OnboardingStep() {
-  const { data: settings } = useSettings();
-  const { data: answers } = useAnswers();
-  const { data: extras } = useExtras();
-  const { data: people } = usePeople();
+  const { data: settings } = useSettingsQuery();
+  const { data: answers } = useAnswersQuery();
+  const { data: extras } = useExtrasQuery();
+  const { data: people } = usePeopleQuery();
   const navigate = useNavigate();
   // This page's own match, not the location: while a navigation away is pending, the location is already
   // the next one, and this page, still drawn, would take it for a step that isn't there.

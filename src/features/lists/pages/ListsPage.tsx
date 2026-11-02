@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ListTodo } from "lucide-react";
-import { useLists } from "../../../api/rpc/lists";
-import { useQuiet } from "../../../api/rpc/quiet";
+import { useListsQuery } from "../../../api/rpc/lists";
+import { useQuietQuery } from "../../../api/rpc/quiet";
 import { inPlanner, listsOf } from "../../../lib/lists";
 import { AddList } from "../components/addList/AddList";
 import { ListCard } from "../components/listCard/ListCard";
@@ -15,8 +15,8 @@ import { useLines } from "../hooks/useLines";
  */
 export function ListsPage() {
   const lines = useLines();
-  const { data: lists } = useLists();
-  const { data: quiet } = useQuiet();
+  const { data: lists } = useListsQuery();
+  const { data: quiet } = useQuietQuery();
   const all = listsOf(lines, lists.ownLists, lists.marks).filter(inPlanner);
   const builtIn = all.filter((l) => l.origin === "built-in");
   const own = all.filter((l) => l.origin === "own");

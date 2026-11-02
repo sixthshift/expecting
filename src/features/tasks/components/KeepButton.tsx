@@ -1,8 +1,8 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { useFirsts } from "../../../api/rpc/firsts";
-import { useQuiet } from "../../../api/rpc/quiet";
+import { useFirstsQuery } from "../../../api/rpc/firsts";
+import { useQuietQuery } from "../../../api/rpc/quiet";
 import type { Keeps } from "../../../content/schema";
 import { CaptureSheet } from "../../capture/components/CaptureSheet";
 
@@ -18,8 +18,8 @@ const LABEL = { letter: "Write it", photo: "Add it", first: "Mark it" } as const
  * already marked or put aside.
  */
 export function KeepButton({ keeps, onKept }: { keeps: Keeps; onKept: () => void }) {
-  const { data: quiet } = useQuiet();
-  const { data: firsts } = useFirsts();
+  const { data: quiet } = useQuietQuery();
+  const { data: firsts } = useFirstsQuery();
   const [open, setOpen] = useState(false);
   if (quiet) return null;
   if (typeof keeps === "object" && "people" in keeps)

@@ -165,6 +165,6 @@ export const circleSaves = {
 };
 
 /** circleQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useCircle<TData = Circle>(options?: Omit<UseSuspenseQueryOptions<Circle, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useCircleQuery<TData = Circle>(options?: Omit<UseSuspenseQueryOptions<Circle, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...circleQuery, ...options } as UseSuspenseQueryOptions<Circle, Error, TData, string[]>);
 }

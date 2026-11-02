@@ -95,6 +95,6 @@ export const feelingsSaves = {
 };
 
 /** feelingsQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useFeelings<TData = Feelings>(options?: Omit<UseSuspenseQueryOptions<Feelings, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useFeelingsQuery<TData = Feelings>(options?: Omit<UseSuspenseQueryOptions<Feelings, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...feelingsQuery, ...options } as UseSuspenseQueryOptions<Feelings, Error, TData, string[]>);
 }

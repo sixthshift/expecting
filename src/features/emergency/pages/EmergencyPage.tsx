@@ -6,11 +6,11 @@ import { Textarea } from "@sixthshift/design-system/textarea";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, Hourglass, Pencil, Phone, TriangleAlert } from "lucide-react";
 import { type FormEvent, useState } from "react";
-import { emergencySaves, useEmergency } from "../../../api/rpc/emergency";
-import { useAnswers } from "../../../api/rpc/facts";
-import { usePeople } from "../../../api/rpc/people";
-import { useQuiet } from "../../../api/rpc/quiet";
-import { useSettings } from "../../../api/rpc/settings";
+import { emergencySaves, useEmergencyQuery } from "../../../api/rpc/emergency";
+import { useAnswersQuery } from "../../../api/rpc/facts";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { useQuietQuery } from "../../../api/rpc/quiet";
+import { useSettingsQuery } from "../../../api/rpc/settings";
 import { useSave } from "../../../app/hooks/useSave";
 import { formatDate, isISODate, todayISO } from "../../../lib/dates";
 import { ALWAYS, EMERGENCY, EMERGENCY_FIELDS, EMERGENCY_MAX, type EmergencyInfo, TICKED, telHref } from "../../../lib/emergency";
@@ -29,7 +29,7 @@ import { handover } from "../model/handover";
  * call and the front desk's numbers. Both of you fill it in.
  */
 export function EmergencyPage() {
-  const { data: emergency } = useEmergency();
+  const { data: emergency } = useEmergencyQuery();
   const [editing, setEditing] = useState(false);
 
   return (
@@ -50,10 +50,10 @@ export function EmergencyPage() {
 }
 
 function EmergencyView({ emergency }: { emergency: EmergencyInfo }) {
-  const { data: settings } = useSettings();
-  const { people } = usePeople().data;
-  const { data: facts } = useAnswers({ select: factsOf });
-  const { data: quiet } = useQuiet();
+  const { data: settings } = useSettingsQuery();
+  const { people } = usePeopleQuery().data;
+  const { data: facts } = useAnswersQuery({ select: factsOf });
+  const { data: quiet } = useQuietQuery();
   const { values } = emergency;
   const today = todayISO();
   const carrying = people.find((p) => p.role === "carrying");
@@ -185,7 +185,7 @@ function EmergencyView({ emergency }: { emergency: EmergencyInfo }) {
  * so a labour that starts early finds it too. Never while something has happened.
  */
 function ItsTimeLink() {
-  const { data: quiet } = useQuiet();
+  const { data: quiet } = useQuietQuery();
   const { shown } = useItsTimeShown();
   if (quiet) return null;
   return (

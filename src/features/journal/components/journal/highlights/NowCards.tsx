@@ -7,8 +7,8 @@ import { Card } from "@sixthshift/design-system/card";
 import { getRouteApi, useNavigate } from "@tanstack/react-router";
 import { X } from "lucide-react";
 import { useState } from "react";
-import { useAppetite } from "../../../../../api/rpc/appetite";
-import { useSettings } from "../../../../../api/rpc/settings";
+import { useAppetiteQuery } from "../../../../../api/rpc/appetite";
+import { useSettingsQuery } from "../../../../../api/rpc/settings";
 import { formatDate, type ISODate } from "../../../../../lib/dates";
 import { placeOf } from "../../../../../lib/journal";
 import type { NowCard, RecapSpan } from "../../../../../lib/journalNow";
@@ -30,8 +30,8 @@ function Line({ item, onOpenPhoto }: { item: StoryItem; onOpenPhoto?: () => void
 /** What was just kept, and its thread: a craving's times, a movement on the pattern. */
 function Kept({ item }: { item: StoryItem }) {
   const navigate = useNavigate();
-  const { data: appetite } = useAppetite();
-  const { data: settings } = useSettings();
+  const { data: appetite } = useAppetiteQuery();
+  const { data: settings } = useSettingsQuery();
   const lens = lensOf(item);
   const thread = item.kind === "appetite" ? cravingThread(appetite, item.entry.id) : null;
   const weekOf = (day: ISODate) => {

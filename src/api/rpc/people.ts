@@ -65,6 +65,6 @@ export type People = Awaited<ReturnType<typeof getPeople>>;
 export const peopleQuery = queryOptions({ queryKey: ["people"], queryFn: () => getPeople() });
 
 /** peopleQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function usePeople<TData = People>(options?: Omit<UseSuspenseQueryOptions<People, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function usePeopleQuery<TData = People>(options?: Omit<UseSuspenseQueryOptions<People, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...peopleQuery, ...options } as UseSuspenseQueryOptions<People, Error, TData, string[]>);
 }

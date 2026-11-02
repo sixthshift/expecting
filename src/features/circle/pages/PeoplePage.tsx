@@ -1,9 +1,9 @@
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { getRouteApi, Link } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
-import { useCircle } from "../../../api/rpc/circle";
-import { useExtras } from "../../../api/rpc/extras";
-import { useQuiet } from "../../../api/rpc/quiet";
+import { useCircleQuery } from "../../../api/rpc/circle";
+import { useExtrasQuery } from "../../../api/rpc/extras";
+import { useQuietQuery } from "../../../api/rpc/quiet";
 import { type Circle, type CirclePerson, groupsOf, HEARS, toThank, VIEWS, VISITS, type View, viewsOn } from "../../../lib/circle";
 import { formatDate } from "../../../lib/dates";
 import { extrasOn } from "../../../lib/extras";
@@ -29,9 +29,9 @@ const ABOUT: Record<View, string> = {
  * something has happened it's put away; nothing is deleted.
  */
 export function PeoplePage() {
-  const { data: circle } = useCircle();
-  const { data: on } = useExtras({ select: extrasOn });
-  const { data: quiet } = useQuiet();
+  const { data: circle } = useCircleQuery();
+  const { data: on } = useExtrasQuery({ select: extrasOn });
+  const { data: quiet } = useQuietQuery();
   const navigate = route.useNavigate();
   const views = viewsOn(on);
   const asked = route.useSearch().view;

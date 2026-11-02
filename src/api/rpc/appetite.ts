@@ -93,6 +93,6 @@ export const appetiteSaves = {
 };
 
 /** appetiteQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useAppetite<TData = Appetite>(options?: Omit<UseSuspenseQueryOptions<Appetite, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useAppetiteQuery<TData = Appetite>(options?: Omit<UseSuspenseQueryOptions<Appetite, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...appetiteQuery, ...options } as UseSuspenseQueryOptions<Appetite, Error, TData, string[]>);
 }

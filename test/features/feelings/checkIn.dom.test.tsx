@@ -12,9 +12,9 @@ const saved: { key: string; input: unknown }[] = [];
 
 vi.mock("../../../src/api/rpc/feelings", () => ({
   feelingsSaves: { addFeeling: { key: "addFeeling" }, changeFeeling: { key: "changeFeeling" } },
-  useFeelings: () => ({ data: feelings }),
+  useFeelingsQuery: () => ({ data: feelings }),
 }));
-vi.mock("../../../src/api/rpc/people", () => ({ usePeople: () => ({ data: { me: SAM, people: [SAM, ALEX] } }) }));
+vi.mock("../../../src/api/rpc/people", () => ({ usePeopleQuery: () => ({ data: { me: SAM, people: [SAM, ALEX] } }) }));
 vi.mock("../../../src/app/hooks/useSave", () => ({ useSave: (save: { key: string }) => (input: unknown) => saved.push({ key: save.key, input }) }));
 vi.mock("../../../src/features/library/components/ItemLink", () => ({ ItemLink: ({ children }: { children: unknown }) => children }));
 

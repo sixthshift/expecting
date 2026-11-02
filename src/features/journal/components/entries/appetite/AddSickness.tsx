@@ -1,7 +1,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Input } from "@sixthshift/design-system/input";
 import { useState } from "react";
-import { appetiteSaves, useAppetite } from "../../../../../api/rpc/appetite";
+import { appetiteSaves, useAppetiteQuery } from "../../../../../api/rpc/appetite";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { type AppetiteEntry, type How, inputOf } from "../../../../../lib/appetite";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
@@ -48,7 +48,7 @@ function MoreAboutIt({ entry, onDone }: { entry: AppetiteEntry; onDone: (more: {
  * down keeps the call on screen, and the sheet open, until Done.
  */
 export function AddSickness({ onAdded }: { onAdded?: (id: string) => void }) {
-  const { data: entries } = useAppetite();
+  const { data: entries } = useAppetiteQuery();
   const add = useSave(appetiteSaves.addAppetite);
   const edit = useSave(appetiteSaves.editAppetite);
   // The one just kept here, open for its words until done.

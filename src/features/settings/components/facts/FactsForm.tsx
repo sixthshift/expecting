@@ -1,7 +1,7 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { RadioButtonGroup } from "@sixthshift/design-system/radio-button-group";
 import { Select } from "@sixthshift/design-system/select";
-import { useExtras } from "../../../../api/rpc/extras";
+import { useExtrasQuery } from "../../../../api/rpc/extras";
 import { factsSaves } from "../../../../api/rpc/facts";
 import { useSave } from "../../../../app/hooks/useSave";
 import { DateForm } from "../../../../components/DateForm";
@@ -45,7 +45,7 @@ export function FactRow({
   const value = last?.value ?? undefined;
   const settled = isSettled(a, last);
   const again = dueDate && !settled ? nextAsked(a, last, dueDate) : null;
-  const { data: extras } = useExtras({ select: extrasOn });
+  const { data: extras } = useExtrasQuery({ select: extrasOn });
   // What it decides among everything that could show: not an extra that's off.
   const uses = open ? decides(a.question.id, builtInItems).filter((i) => inExtras(i.extra, extras)) : [];
 

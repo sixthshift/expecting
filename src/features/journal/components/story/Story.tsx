@@ -9,9 +9,9 @@ import { Modal } from "@sixthshift/design-system/modal";
 import { cn } from "@sixthshift/design-system/utils";
 import { Check, FileText, Footprints, Hourglass, IceCreamCone, MessagesSquare, PartyPopper, Star, Waves } from "lucide-react";
 import { memo, type ReactNode, useCallback, useRef, useState } from "react";
-import { usePeople } from "../../../../api/rpc/people";
-import { useQuiet } from "../../../../api/rpc/quiet";
-import { useNow, useSettings } from "../../../../api/rpc/settings";
+import { usePeopleQuery } from "../../../../api/rpc/people";
+import { useQuietQuery } from "../../../../api/rpc/quiet";
+import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { useKeepSame } from "../../../../app/hooks/useKeepSame";
 import { type AppetiteEntry, HOW_LABEL } from "../../../../lib/appetite";
 import { formatDate, type ISODate, todayISO } from "../../../../lib/dates";
@@ -56,7 +56,7 @@ function dayLabel(day: ISODate, today: ISODate): string {
 
 /** The name a line says when it isn't yours: "Sam". Yours says nothing, as a diary wouldn't. */
 function useOther(): (id: string | null) => string | null {
-  const { data: people } = usePeople();
+  const { data: people } = usePeopleQuery();
   return (id) => (id === null || id === people.me?.id ? null : (people.people.find((p) => p.id === id)?.name ?? null));
 }
 
@@ -228,7 +228,7 @@ function FeelingLine({ item }: { item: Extract<StoryItem, { kind: "feeling" }> }
 
 function FirstLine({ item }: { item: Extract<StoryItem, { kind: "first" }> }) {
   const [open, setOpen] = useState(false);
-  const { data: people } = usePeople();
+  const { data: people } = usePeopleQuery();
   const name = (id: string) => (id === people.me?.id ? "You" : (people.people.find((p) => p.id === id)?.name ?? "One of you"));
   const { title, question } = firstOf(item.mark.key);
   return (
@@ -275,7 +275,7 @@ function NightLine({ item }: { item: Extract<StoryItem, { kind: "night" }> }) {
 
 /** A week's question, once both of you have answered: the question, then each answer and whose, the first given first. */
 function QuestionLine({ item }: { item: Extract<StoryItem, { kind: "question" }> }) {
-  const { data: people } = usePeople();
+  const { data: people } = usePeopleQuery();
   const name = (id: string) => (id === people.me?.id ? "You" : (people.people.find((p) => p.id === id)?.name ?? "One of you"));
   return (
     <div className="py-1">
@@ -298,7 +298,7 @@ function QuestionLine({ item }: { item: Extract<StoryItem, { kind: "question" }>
 
 /** A bingo or a full house on someone's card, on the day it came. */
 function BingoLine({ item }: { item: Extract<StoryItem, { kind: "bingo" }> }) {
-  const { data: people } = usePeople();
+  const { data: people } = usePeopleQuery();
   const who = item.moment.personId === people.me?.id ? "You" : (people.people.find((p) => p.id === item.moment.personId)?.name ?? "One of you");
   return (
     <p className="flex items-center gap-2 py-1 font-medium text-fg-strong">
@@ -351,7 +351,7 @@ export function StoryLine({ item }: { item: StoryItem }) {
 
 /** Photos, large: one across the page, several two to a row, each with its words. */
 export function PhotoThumbs({ photos, onOpen }: { photos: readonly Photo[]; onOpen: (id: string) => void }) {
-  const { data: settings } = useSettings();
+  const { data: settings } = useSettingsQuery();
   return (
     <ul className={cn("grid gap-2", photos.length > 1 && "grid-cols-2")}>
       {photos.map((photo) => (
@@ -421,7 +421,7 @@ const Day = memo(function Day({ day, today, onOpenPhoto }: { day: StoryDay; toda
 
 /** Photos, opened from any day of `groups`, one after another. `open` is the same each render, so a day isn't drawn again for it. */
 function usePhotoViewer(groups: readonly (StoryGroup | StoryGap | QuietWeek)[]) {
-  const { data: quiet } = useQuiet();
+  const { data: quiet } = useQuietQuery();
   const [viewing, setViewing] = useState<{ ids: string[]; index: number } | null>(null);
   const order = useRef<string[]>([]);
   order.current = groups.flatMap((g) => (g.kind === "group" ? g.days.flatMap((d) => d.items.flatMap((i) => (i.kind === "photo" ? [i.photo.id] : []))) : []));
@@ -467,7 +467,7 @@ export function StoryList({
 }) {
   // Worked out afresh each render: the weeks and days that didn't change are kept as they were.
   const groups = useKeepSame(given);
-  const { data: settings } = useSettings();
+  const { data: settings } = useSettingsQuery();
   const now = useNow();
   const today = todayISO();
   const { open, viewer } = usePhotoViewer(groups);

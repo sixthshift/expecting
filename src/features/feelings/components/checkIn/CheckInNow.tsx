@@ -3,8 +3,8 @@
 // Rough adds someone to talk to. For whoever is holding the phone.
 
 import { useState } from "react";
-import { feelingsSaves, useFeelings } from "../../../../api/rpc/feelings";
-import { useQuiet } from "../../../../api/rpc/quiet";
+import { feelingsSaves, useFeelingsQuery } from "../../../../api/rpc/feelings";
+import { useQuietQuery } from "../../../../api/rpc/quiet";
 import { useSave } from "../../../../app/hooks/useSave";
 import { todayISO } from "../../../../lib/dates";
 import { feelingsOf, isOwn, type Step } from "../../../../lib/feelings";
@@ -17,8 +17,8 @@ import { Support, supportItem } from "../Support";
 
 /** `onKept` as a new feeling is kept; `onDone`, with its id, once its words are. */
 export function CheckInNow({ me, onKept, onDone }: { me: Person; onKept?: () => void; onDone?: (id: string) => void }) {
-  const { data: feelings } = useFeelings();
-  const { data: quiet } = useQuiet();
+  const { data: feelings } = useFeelingsQuery();
+  const { data: quiet } = useQuietQuery();
   const add = useSave(feelingsSaves.addFeeling);
   const change = useSave(feelingsSaves.changeFeeling);
   // The check-in just made here, open for its words until done.

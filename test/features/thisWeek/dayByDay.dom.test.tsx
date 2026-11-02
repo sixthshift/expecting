@@ -10,7 +10,7 @@ import { parseWeek } from "../../../src/content/weeks";
 vi.mock("../../../src/features/library/components/ItemLink", () => ({
   ItemLink: ({ children, itemId }: { children: unknown; itemId: string }) => <a href={`#${itemId}`}>{children as string}</a>,
 }));
-vi.mock("../../../src/api/rpc/people", () => ({ usePeople: () => ({ data: { me: null, people: [] } }) }));
+vi.mock("../../../src/api/rpc/people", () => ({ usePeopleQuery: () => ({ data: { me: null, people: [] } }) }));
 
 const { DayByDay } = await import("../../../src/features/thisWeek/components/dayByDay/DayByDay");
 

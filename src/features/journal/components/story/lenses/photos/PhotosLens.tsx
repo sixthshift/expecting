@@ -7,8 +7,8 @@ import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";
 import { Camera, Columns2 } from "lucide-react";
 import { useState } from "react";
-import { usePhotos } from "../../../../../../api/rpc/photos";
-import { useNow, useSettings } from "../../../../../../api/rpc/settings";
+import { usePhotosQuery } from "../../../../../../api/rpc/photos";
+import { useNow, useSettingsQuery } from "../../../../../../api/rpc/settings";
 import { formatDate, type ISODate } from "../../../../../../lib/dates";
 import { BUMP_SERIES, type BumpWeek, bumpToTake, bumpWeeks, kindsOffered, type PhotoGroup, type PhotoKind, photoGroups } from "../../../../../../lib/photos";
 import type { QuietKind } from "../../../../../../lib/quiet";
@@ -116,8 +116,8 @@ function BumpRow({
  * a photo (never a bump after a loss). Never deleted.
  */
 export function PhotosLens({ quiet }: { quiet: QuietKind | null }) {
-  const { data: photos } = usePhotos();
-  const { data: settings } = useSettings();
+  const { data: photos } = usePhotosQuery();
+  const { data: settings } = useSettingsQuery();
   const now = useNow();
   const [all, setAll] = useState(false);
   const [viewing, setViewing] = useState<{ ids: string[]; index: number } | null>(null);

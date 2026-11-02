@@ -3,8 +3,8 @@ import { toast } from "@sixthshift/design-system/overlay";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { checklistSaves, useChecklist } from "../../../../api/rpc/checklist";
-import { usePeople } from "../../../../api/rpc/people";
+import { checklistSaves, useChecklistQuery } from "../../../../api/rpc/checklist";
+import { usePeopleQuery } from "../../../../api/rpc/people";
 import { useNow } from "../../../../api/rpc/settings";
 import { useSave } from "../../../../app/hooks/useSave";
 import { toDoNow, whenToDo } from "../../../../lib/todo";
@@ -26,8 +26,8 @@ const LEAVING_MS = 750;
  * ticked, and a toast offers it back.
  */
 export function ToDoNow() {
-  const { me, people } = usePeople().data;
-  const { data: checklist } = useChecklist();
+  const { me, people } = usePeopleQuery().data;
+  const { data: checklist } = useChecklistQuery();
   const now = useNow();
   const tasks = useTasks();
   const save = useSave(checklistSaves.setTicked);

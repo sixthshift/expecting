@@ -50,6 +50,6 @@ export const emergencySaves = {
 };
 
 /** emergencyQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useEmergency<TData = Emergency>(options?: Omit<UseSuspenseQueryOptions<Emergency, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useEmergencyQuery<TData = Emergency>(options?: Omit<UseSuspenseQueryOptions<Emergency, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...emergencyQuery, ...options } as UseSuspenseQueryOptions<Emergency, Error, TData, string[]>);
 }

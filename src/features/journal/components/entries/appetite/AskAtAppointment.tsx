@@ -1,12 +1,12 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Check, MessageCircleQuestion, Plus } from "lucide-react";
-import { questionsSaves, useQuestions } from "../../../../../api/rpc/questions";
+import { questionsSaves, useQuestionsQuery } from "../../../../../api/rpc/questions";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { newId } from "../../../../../lib/outbox";
 
 /** A question for the next appointment, added to the Planner's list in one tap; once there, it says so. */
 export function AskAtAppointment({ text }: { text: string }) {
-  const { data: questions } = useQuestions();
+  const { data: questions } = useQuestionsQuery();
   const add = useSave(questionsSaves.addQuestion);
   const onList = questions.some((q) => q.askedAt === null && q.text === text);
 

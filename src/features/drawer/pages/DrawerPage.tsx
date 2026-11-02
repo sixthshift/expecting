@@ -1,12 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { Baby, ChevronRight, Grid3x3, Scale, Users } from "lucide-react";
-import { useBingo } from "../../../api/rpc/bingo";
-import { useCircle } from "../../../api/rpc/circle";
-import { useExtras } from "../../../api/rpc/extras";
-import { useJobs } from "../../../api/rpc/jobs";
-import { useNames } from "../../../api/rpc/names";
-import { usePeople } from "../../../api/rpc/people";
-import { useQuiet } from "../../../api/rpc/quiet";
+import { useBingoQuery } from "../../../api/rpc/bingo";
+import { useCircleQuery } from "../../../api/rpc/circle";
+import { useExtrasQuery } from "../../../api/rpc/extras";
+import { useJobsQuery } from "../../../api/rpc/jobs";
+import { useNamesQuery } from "../../../api/rpc/names";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { useQuietQuery } from "../../../api/rpc/quiet";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { standing, standingLine } from "../../../lib/bingo";
 import { toThank, viewsOn } from "../../../lib/circle";
@@ -20,19 +20,19 @@ import { extra } from "../../settings/model/extras";
  * not deleted.
  */
 export function DrawerPage() {
-  const { data: names } = useNames();
-  const { me, people } = usePeople().data;
-  const { data: extras } = useExtras({ select: extrasOn });
+  const { data: names } = useNamesQuery();
+  const { me, people } = usePeopleQuery().data;
+  const { data: extras } = useExtrasQuery({ select: extrasOn });
   const other = people.find((p) => p.id !== me?.id) ?? null;
   const naming = extra("choosing-names");
-  const { data: quiet } = useQuiet();
-  const { data: circle } = useCircle();
+  const { data: quiet } = useQuietQuery();
+  const { data: circle } = useCircleQuery();
   const peopleOn = viewsOn(extras).length > 0;
   const thanks = toThank(circle.gifts).length;
-  const { data: jobs } = useJobs();
+  const { data: jobs } = useJobsQuery();
   const sharing = extra("who-does-what");
   const playing = extra("pregnancy-bingo");
-  const { data: bingo } = useBingo();
+  const { data: bingo } = useBingoQuery();
   const myCard = bingo.cards.find((c) => c.personId === me?.id) ?? null;
   const theirCard = other ? (bingo.cards.find((c) => c.personId === other.id) ?? null) : null;
   const settled = outcomes(jobs.answers);

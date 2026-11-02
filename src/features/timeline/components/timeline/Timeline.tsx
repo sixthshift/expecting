@@ -2,14 +2,14 @@ import { Button } from "@sixthshift/design-system/button";
 import { cn } from "@sixthshift/design-system/utils";
 import { LocateFixed } from "lucide-react";
 import { useEffect, useMemo } from "react";
-import { useAppetite } from "../../../../api/rpc/appetite";
-import { useChecklist } from "../../../../api/rpc/checklist";
-import { useFeelings } from "../../../../api/rpc/feelings";
-import { useJournal } from "../../../../api/rpc/journal";
-import { usePapers } from "../../../../api/rpc/papers";
-import { usePhotos } from "../../../../api/rpc/photos";
-import { useQuestions } from "../../../../api/rpc/questions";
-import { useNow, useSettings } from "../../../../api/rpc/settings";
+import { useAppetiteQuery } from "../../../../api/rpc/appetite";
+import { useChecklistQuery } from "../../../../api/rpc/checklist";
+import { useFeelingsQuery } from "../../../../api/rpc/feelings";
+import { useJournalQuery } from "../../../../api/rpc/journal";
+import { usePapersQuery } from "../../../../api/rpc/papers";
+import { usePhotosQuery } from "../../../../api/rpc/photos";
+import { useQuestionsQuery } from "../../../../api/rpc/questions";
+import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { useOutOfTheWay } from "../../../../app/hooks/useOutOfTheWay";
 import { weekNotes } from "../../../../content";
 import type { Week } from "../../../../lib/timeline";
@@ -34,17 +34,17 @@ function scrollToWeek(week: Week, smooth: boolean) {
  * desktop, a trimester each.
  */
 export function Timeline({ at }: { at: Week | undefined }) {
-  const { data: settings } = useSettings();
-  const { data: checklist } = useChecklist();
+  const { data: settings } = useSettingsQuery();
+  const { data: checklist } = useChecklistQuery();
   const now = useNow();
   const items = useItems();
   const tasks = useTasks();
-  const { data: questions } = useQuestions();
-  const { data: journal } = useJournal();
-  const { data: feelings } = useFeelings();
-  const { data: appetite } = useAppetite();
-  const { data: photos } = usePhotos();
-  const { data: papers } = usePapers();
+  const { data: questions } = useQuestionsQuery();
+  const { data: journal } = useJournalQuery();
+  const { data: feelings } = useFeelingsQuery();
+  const { data: appetite } = useAppetiteQuery();
+  const { data: photos } = usePhotosQuery();
+  const { data: papers } = usePapersQuery();
   const { dueDate } = settings;
   const due = useMemo(() => new Set(tasks.filter((t) => !checklist.ticks[t.id]).map((t) => t.due)), [tasks, checklist.ticks]);
   const away = useOutOfTheWay();

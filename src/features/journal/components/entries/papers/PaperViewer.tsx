@@ -9,10 +9,10 @@ import { toast } from "@sixthshift/design-system/overlay";
 import { Switch } from "@sixthshift/design-system/switch";
 import { Download, ExternalLink, FileText, Pencil, Trash2 } from "lucide-react";
 import { type FormEvent, useEffect, useState } from "react";
-import { papersSaves, usePapers } from "../../../../../api/rpc/papers";
-import { usePeople } from "../../../../../api/rpc/people";
-import { useQuiet } from "../../../../../api/rpc/quiet";
-import { useSettings } from "../../../../../api/rpc/settings";
+import { papersSaves, usePapersQuery } from "../../../../../api/rpc/papers";
+import { usePeopleQuery } from "../../../../../api/rpc/people";
+import { useQuietQuery } from "../../../../../api/rpc/quiet";
+import { useSettingsQuery } from "../../../../../api/rpc/settings";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { useUploadSrc } from "../../../../../app/hooks/useUploadSrc";
 import { isOnPhone } from "../../../../../app/model/uploads";
@@ -79,7 +79,7 @@ function PicturePage({ page, alt, label }: { page: PaperPage; alt: string; label
 /** Change what it is, its name, what it's about, its date, its words: never its pages. */
 function ChangePaper({ paper, onDone }: { paper: Paper; onDone: () => void }) {
   const edit = useSave(papersSaves.editPaper);
-  const { data: quiet } = useQuiet();
+  const { data: quiet } = useQuietQuery();
   const [draft, setDraft] = useState<PaperDraft>({
     kind: paper.kind,
     itemId: paper.itemId,
@@ -134,9 +134,9 @@ function changeOf(paper: Paper, fields: Partial<PaperChange> = {}): PaperChange 
  * both phones, with nothing to put back.
  */
 export function PaperViewer({ id, onClose }: { id: string; onClose: () => void }) {
-  const { data: papers } = usePapers();
-  const { data: settings } = useSettings();
-  const { data: people } = usePeople();
+  const { data: papers } = usePapersQuery();
+  const { data: settings } = useSettingsQuery();
+  const { data: people } = usePeopleQuery();
   const edit = useSave(papersSaves.editPaper);
   const remove = useSave(papersSaves.deletePaper);
   const [changing, setChanging] = useState(false);

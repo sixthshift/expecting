@@ -1,8 +1,8 @@
 import { getRouteApi, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { useEffect, useMemo } from "react";
-import { useChecklist } from "../../../api/rpc/checklist";
-import { useQuiet } from "../../../api/rpc/quiet";
+import { useChecklistQuery } from "../../../api/rpc/checklist";
+import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import type { Task } from "../../../content/schema";
 import { chartOf } from "../../../lib/acrossTheWeeks";
@@ -25,8 +25,8 @@ const NONE: ReadonlySet<string> = new Set();
  */
 export function WeeksPage() {
   const { stage } = route.useSearch();
-  const { data: checklist } = useChecklist();
-  const { data: quiet } = useQuiet();
+  const { data: checklist } = useChecklistQuery();
+  const { data: quiet } = useQuietQuery();
   const now = useNow();
   const tasks = useTasks();
   const items = useItems();

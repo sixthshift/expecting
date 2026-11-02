@@ -2,7 +2,7 @@ import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
 import { Star } from "lucide-react";
 import { useState } from "react";
-import { firstsSaves, useFirsts } from "../../../../../api/rpc/firsts";
+import { firstsSaves, useFirstsQuery } from "../../../../../api/rpc/firsts";
 import { useSave } from "../../../../../app/hooks/useSave";
 import type { ISODate } from "../../../../../lib/dates";
 import { firstOf, isMarked, type Suggestion } from "../../../../../lib/firsts";
@@ -16,7 +16,7 @@ import { FirstWords } from "../../entries/firsts/FirstWords";
  * marked, its question.
  */
 export function SuggestedFirst({ suggestion }: { suggestion: Suggestion }) {
-  const { data: firsts } = useFirsts();
+  const { data: firsts } = useFirstsQuery();
   const mark = useSave(firstsSaves.markFirst);
   const aside = useSave(firstsSaves.setFirstAside);
   const [choosing, setChoosing] = useState(false);

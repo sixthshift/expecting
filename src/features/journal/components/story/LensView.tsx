@@ -1,4 +1,4 @@
-import { useSettings } from "../../../../api/rpc/settings";
+import { useSettingsQuery } from "../../../../api/rpc/settings";
 import type { QuietKind } from "../../../../lib/quiet";
 import { type Lens, type StoryItem, storyGroups } from "../../../../lib/story";
 import { FeelingsLens } from "../../../feelings/components/history/Feelings";
@@ -11,7 +11,7 @@ import { StoryList } from "./Story";
 
 /** One kind, at full size: its pattern, its tools, then each. `quiet`: what has happened, on the quiet Journal (null on the Journal). */
 export function LensView({ lens, items, quiet }: { lens: Exclude<Lens, "all">; items: readonly StoryItem[]; quiet: QuietKind | null }) {
-  const { data: settings } = useSettings();
+  const { data: settings } = useSettingsQuery();
   switch (lens) {
     case "notes":
       return (

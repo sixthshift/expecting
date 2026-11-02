@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { Suspense, use } from "react";
-import { useSettings } from "../../../../api/rpc/settings";
+import { useSettingsQuery } from "../../../../api/rpc/settings";
 import { PhoneCorner } from "../../../../app/components/layout/PillarLayout";
 import { SkeletonText } from "../../../../components/loading/Skeleton";
 import { builtInItems } from "../../../../content";
@@ -22,7 +22,7 @@ const guide = builtInItems.find((i) => i.id === QUIET_ITEM);
  * steps, one at a time, for when you want them, and where it can be changed.
  */
 export function QuietWeek({ quiet }: { quiet: Quiet }) {
-  const { data: settings } = useSettings();
+  const { data: settings } = useSettingsQuery();
   const items = useItems();
   const steps = nextSteps(items, quiet.kind, pausedAt(quiet, settings.dueDate));
 

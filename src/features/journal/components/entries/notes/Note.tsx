@@ -8,7 +8,7 @@ import { toast } from "@sixthshift/design-system/overlay";
 import { Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { journalSaves } from "../../../../../api/rpc/journal";
-import { usePeople } from "../../../../../api/rpc/people";
+import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSave } from "../../../../../app/hooks/useSave";
 import type { ISODate } from "../../../../../lib/dates";
 import type { JournalEntry } from "../../../../../lib/journal";
@@ -21,7 +21,7 @@ export function Note({ entry }: { entry: JournalEntry }) {
   const edit = useSave(journalSaves.editNote);
   const remove = useSave(journalSaves.deleteNote);
   const restore = useSave(journalSaves.restoreNote);
-  const { data: people } = usePeople();
+  const { data: people } = usePeopleQuery();
   const name = (id: string | null) => (id === null ? null : id === people.me?.id ? "You" : (people.people.find((p) => p.id === id)?.name ?? null));
   // Changed by the one who wrote it, or by someone forgotten since: only "changed".
   const changer = entry.editedBy !== entry.by ? name(entry.editedBy) : null;

@@ -169,6 +169,6 @@ export const listsSaves = {
 };
 
 /** listsQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useLists<TData = Lists>(options?: Omit<UseSuspenseQueryOptions<Lists, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useListsQuery<TData = Lists>(options?: Omit<UseSuspenseQueryOptions<Lists, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...listsQuery, ...options } as UseSuspenseQueryOptions<Lists, Error, TData, string[]>);
 }

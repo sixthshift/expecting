@@ -87,6 +87,6 @@ export const photosSaves = {
 };
 
 /** photosQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function usePhotos<TData = Photos>(options?: Omit<UseSuspenseQueryOptions<Photos, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function usePhotosQuery<TData = Photos>(options?: Omit<UseSuspenseQueryOptions<Photos, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...photosQuery, ...options } as UseSuspenseQueryOptions<Photos, Error, TData, string[]>);
 }

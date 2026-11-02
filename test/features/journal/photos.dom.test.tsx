@@ -30,10 +30,10 @@ const shot = (id: string, day: string, kind: Photo["kind"], caption: string | nu
 
 vi.mock("../../../src/api/rpc/photos", () => ({
   photosSaves: { addPhoto: { key: "addPhoto" }, editPhoto: { key: "editPhoto" }, deletePhoto: { key: "deletePhoto" } },
-  usePhotos: () => ({ data: photos }),
+  usePhotosQuery: () => ({ data: photos }),
 }));
-vi.mock("../../../src/api/rpc/settings", () => ({ useNow: () => 28, useSettings: () => ({ data: { dueDate: DUE } }) }));
-vi.mock("../../../src/api/rpc/people", () => ({ usePeople: () => ({ data: { me: SAM, people: [SAM] } }) }));
+vi.mock("../../../src/api/rpc/settings", () => ({ useNow: () => 28, useSettingsQuery: () => ({ data: { dueDate: DUE } }) }));
+vi.mock("../../../src/api/rpc/people", () => ({ usePeopleQuery: () => ({ data: { me: SAM, people: [SAM] } }) }));
 vi.mock("../../../src/app/hooks/useSave", () => ({ useSave: (save: { key: string }) => (input: unknown) => saved.push({ key: save.key, input }) }));
 vi.mock("../../../src/app/hooks/useUploadSrc", () => ({ useUploadSrc: (id: string, variant: string) => `/api/files/${id}/${variant}` }));
 vi.mock("../../../src/pwa/register", () => ({ forgetFile: async () => undefined }));

@@ -36,11 +36,11 @@ const paper = (id: string, fields: Partial<Paper> = {}): Paper => ({
 
 vi.mock("../../../src/api/rpc/papers", () => ({
   papersSaves: { addPaper: { key: "addPaper" }, editPaper: { key: "editPaper" }, deletePaper: { key: "deletePaper" } },
-  usePapers: () => ({ data: papers }),
+  usePapersQuery: () => ({ data: papers }),
 }));
-vi.mock("../../../src/api/rpc/settings", () => ({ useNow: () => 28, useSettings: () => ({ data: { dueDate: DUE } }) }));
-vi.mock("../../../src/api/rpc/people", () => ({ usePeople: () => ({ data: { me: SAM, people: [SAM] } }) }));
-vi.mock("../../../src/api/rpc/quiet", () => ({ useQuiet: () => ({ data: quiet }) }));
+vi.mock("../../../src/api/rpc/settings", () => ({ useNow: () => 28, useSettingsQuery: () => ({ data: { dueDate: DUE } }) }));
+vi.mock("../../../src/api/rpc/people", () => ({ usePeopleQuery: () => ({ data: { me: SAM, people: [SAM] } }) }));
+vi.mock("../../../src/api/rpc/quiet", () => ({ useQuietQuery: () => ({ data: quiet }) }));
 vi.mock("../../../src/app/hooks/useSave", () => ({ useSave: (save: { key: string }) => (input: unknown) => saved.push({ key: save.key, input }) }));
 vi.mock("../../../src/app/hooks/useUploadSrc", () => ({ useUploadSrc: (id: string, variant: string) => `/api/files/${id}/${variant}` }));
 vi.mock("../../../src/pwa/register", () => ({ forgetFile: async () => undefined }));

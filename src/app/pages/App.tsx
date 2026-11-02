@@ -1,9 +1,9 @@
 import { useLocation, useRouter } from "@tanstack/react-router";
 import { useEffect, useMemo } from "react";
-import { useAnswers } from "../../api/rpc/facts";
-import { useQuestions } from "../../api/rpc/questions";
-import { useQuiet } from "../../api/rpc/quiet";
-import { useNow, useSettings } from "../../api/rpc/settings";
+import { useAnswersQuery } from "../../api/rpc/facts";
+import { useQuestionsQuery } from "../../api/rpc/questions";
+import { useQuietQuery } from "../../api/rpc/quiet";
+import { useNow, useSettingsQuery } from "../../api/rpc/settings";
 import { ContentContext } from "../../features/library/components/content/context";
 import { useDeadlineBadge } from "../../features/tasks/hooks/useDeadlineBadge";
 import { factsOf } from "../../lib/facts";
@@ -28,11 +28,11 @@ import { useFocusOnArrival } from "../hooks/useFocusOnArrival";
 const WARMED = [...PILLARS.map((p) => p.to), "/emergency", "/its-time"] as const;
 
 export function App() {
-  const { data: settings } = useSettings();
+  const { data: settings } = useSettingsQuery();
   const now = useNow();
-  const { data: facts } = useAnswers({ select: factsOf });
-  const { data: questions } = useQuestions();
-  const { data: quiet } = useQuiet();
+  const { data: facts } = useAnswersQuery({ select: factsOf });
+  const { data: questions } = useQuestionsQuery();
+  const { data: quiet } = useQuietQuery();
   useAppTheme(settings.baby);
   useDeadlineBadge(Boolean(quiet));
   const { pathname } = useLocation();

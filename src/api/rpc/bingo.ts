@@ -99,6 +99,6 @@ export const bingoSaves = {
 };
 
 /** bingoQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useBingo<TData = Bingo>(options?: Omit<UseSuspenseQueryOptions<Bingo, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useBingoQuery<TData = Bingo>(options?: Omit<UseSuspenseQueryOptions<Bingo, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...bingoQuery, ...options } as UseSuspenseQueryOptions<Bingo, Error, TData, string[]>);
 }

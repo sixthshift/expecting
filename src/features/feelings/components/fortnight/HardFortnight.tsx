@@ -6,8 +6,8 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Heart } from "lucide-react";
 import { useState } from "react";
-import { useFeelings } from "../../../../api/rpc/feelings";
-import { usePeople } from "../../../../api/rpc/people";
+import { useFeelingsQuery } from "../../../../api/rpc/feelings";
+import { usePeopleQuery } from "../../../../api/rpc/people";
 import { addDays, type ISODate, todayISO } from "../../../../lib/dates";
 import { FORTNIGHT, feelingsOf, hardFortnight, isOwn } from "../../../../lib/feelings";
 import { Support, supportItem } from "../Support";
@@ -24,8 +24,8 @@ function dismissedOn(): ISODate | null {
 }
 
 export function HardFortnight() {
-  const { data: people } = usePeople();
-  const { data: feelings } = useFeelings();
+  const { data: people } = usePeopleQuery();
+  const { data: feelings } = useFeelingsQuery();
   const [dismissed, setDismissed] = useState(dismissedOn);
   const me = people.me;
   const today = todayISO();

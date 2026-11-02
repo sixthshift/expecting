@@ -1,5 +1,5 @@
 import { cn } from "@sixthshift/design-system/utils";
-import { useJournal } from "../../../../api/rpc/journal";
+import { useJournalQuery } from "../../../../api/rpc/journal";
 import { formatDate, type ISODate, todayISO } from "../../../../lib/dates";
 import { dayFraction, formatTime, movementPattern, PATTERN_DAYS } from "../../../../lib/journal";
 
@@ -14,7 +14,7 @@ function dayLabel(day: ISODate, today: ISODate): string {
  * one felt as different is ringed, never red.
  */
 export function MovementPattern() {
-  const { data: journal } = useJournal();
+  const { data: journal } = useJournalQuery();
   const today = todayISO();
   const days = movementPattern(journal, today);
   if (days.length === 0) return null;

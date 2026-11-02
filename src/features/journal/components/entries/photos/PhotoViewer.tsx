@@ -14,9 +14,9 @@ import { TimePicker } from "@sixthshift/design-system/time-picker";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { ChevronLeft, ChevronRight, Download, Pencil, Trash2 } from "lucide-react";
 import { type FormEvent, useEffect, useState } from "react";
-import { usePeople } from "../../../../../api/rpc/people";
-import { photosSaves, usePhotos } from "../../../../../api/rpc/photos";
-import { useSettings } from "../../../../../api/rpc/settings";
+import { usePeopleQuery } from "../../../../../api/rpc/people";
+import { photosSaves, usePhotosQuery } from "../../../../../api/rpc/photos";
+import { useSettingsQuery } from "../../../../../api/rpc/settings";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { isOnPhone } from "../../../../../app/model/uploads";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
@@ -94,9 +94,9 @@ function ChangePhoto({ photo, kinds, onDone }: { photo: Photo; kinds: readonly P
  * Deleting asks first: the picture goes from both phones, with nothing to put back.
  */
 export function PhotoViewer({ ids, index: start, kinds, onClose }: { ids: string[]; index: number; kinds: readonly PhotoKind[]; onClose: () => void }) {
-  const { data: photos } = usePhotos();
-  const { data: settings } = useSettings();
-  const { data: people } = usePeople();
+  const { data: photos } = usePhotosQuery();
+  const { data: settings } = useSettingsQuery();
+  const { data: people } = usePeopleQuery();
   const remove = useSave(photosSaves.deletePhoto);
   const [index, setIndex] = useState(start);
   const [changing, setChanging] = useState(false);

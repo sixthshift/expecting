@@ -2,7 +2,7 @@ import { Button } from "@sixthshift/design-system/button";
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { forgetPerson } from "../../../../api/rpc/people";
-import { logout, useAccess } from "../../../../api/rpc/session";
+import { logout, useAccessQuery } from "../../../../api/rpc/session";
 import { useAction } from "../../../../app/hooks/useAction";
 import type { Person } from "../../../../lib/people";
 import { forgetData } from "../../../../pwa/register";
@@ -10,7 +10,7 @@ import { forgetData } from "../../../../pwa/register";
 /** Who's holding this phone, who it's shared with, and the way out (with logins on). */
 export function Session({ me, people }: { me: Person | null; people: readonly Person[] }) {
   const navigate = useNavigate();
-  const { data: login } = useAccess({ select: (access) => access.login });
+  const { data: login } = useAccessQuery({ select: (access) => access.login });
   const [leaving, setLeaving] = useState(false);
   const [forget, forgetting] = useAction(() => forgetPerson());
 

@@ -3,14 +3,14 @@ import { cn } from "@sixthshift/design-system/utils";
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useChecklist } from "../../../api/rpc/checklist";
-import { useEmergency } from "../../../api/rpc/emergency";
-import { useAnswers } from "../../../api/rpc/facts";
-import { itsTimeSaves, useItsTime } from "../../../api/rpc/itsTime";
-import { useLists } from "../../../api/rpc/lists";
-import { usePeople } from "../../../api/rpc/people";
-import { useQuiet } from "../../../api/rpc/quiet";
-import { usePosition, useSettings } from "../../../api/rpc/settings";
+import { useChecklistQuery } from "../../../api/rpc/checklist";
+import { useEmergencyQuery } from "../../../api/rpc/emergency";
+import { useAnswersQuery } from "../../../api/rpc/facts";
+import { itsTimeSaves, useItsTimeQuery } from "../../../api/rpc/itsTime";
+import { useListsQuery } from "../../../api/rpc/lists";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { useQuietQuery } from "../../../api/rpc/quiet";
+import { usePosition, useSettingsQuery } from "../../../api/rpc/settings";
 import { Redirect } from "../../../app/components/Redirect";
 import { useSave } from "../../../app/hooks/useSave";
 import { todayISO } from "../../../lib/dates";
@@ -43,20 +43,20 @@ const SENT_HOME_MS = 12 * 3_600_000;
  * on a desktop. Never while something has happened: Emergency info instead.
  */
 export function ItsTimePage() {
-  const { data: quiet } = useQuiet();
+  const { data: quiet } = useQuietQuery();
   if (quiet) return <Redirect href="/emergency" />;
   return <ItsTime />;
 }
 
 function ItsTime() {
   useEffect(markLooked, []);
-  const { data: itsTime } = useItsTime();
-  const { values } = useEmergency().data;
-  const { data: facts } = useAnswers({ select: factsOf });
-  const { data: people } = usePeople();
-  const { data: settings } = useSettings();
-  const { ticks } = useChecklist().data;
-  const { marks } = useLists().data;
+  const { data: itsTime } = useItsTimeQuery();
+  const { values } = useEmergencyQuery().data;
+  const { data: facts } = useAnswersQuery({ select: factsOf });
+  const { data: people } = usePeopleQuery();
+  const { data: settings } = useSettingsQuery();
+  const { ticks } = useChecklistQuery().data;
+  const { marks } = useListsQuery().data;
   const lines = useLines();
   const position = usePosition();
   const start = openStart(itsTime);

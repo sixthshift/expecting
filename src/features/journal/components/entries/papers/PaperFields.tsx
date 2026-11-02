@@ -9,7 +9,7 @@ import { Input } from "@sixthshift/design-system/input";
 import { Select } from "@sixthshift/design-system/select";
 import { Switch } from "@sixthshift/design-system/switch";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
-import { useNow, useSettings } from "../../../../../api/rpc/settings";
+import { useNow, useSettingsQuery } from "../../../../../api/rpc/settings";
 import { builtInItems } from "../../../../../content";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
 import {
@@ -66,7 +66,7 @@ function span(id: string) {
 }
 
 export function PaperFields({ draft, onChange, quiet }: { draft: PaperDraft; onChange: (draft: PaperDraft) => void; quiet: QuietKind | null }) {
-  const { data: settings } = useSettings();
+  const { data: settings } = useSettingsQuery();
   const now = useNow();
   const today = todayISO();
   const set = (fields: Partial<PaperDraft>) => onChange({ ...draft, ...fields });

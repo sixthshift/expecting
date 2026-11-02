@@ -4,12 +4,12 @@
 
 import { cn } from "@sixthshift/design-system/utils";
 import type { ReactNode } from "react";
-import { useAppetite } from "../../../api/rpc/appetite";
-import { useFeelings } from "../../../api/rpc/feelings";
-import { useJournal } from "../../../api/rpc/journal";
-import { usePeople } from "../../../api/rpc/people";
-import { usePhotos } from "../../../api/rpc/photos";
-import { useSettings } from "../../../api/rpc/settings";
+import { useAppetiteQuery } from "../../../api/rpc/appetite";
+import { useFeelingsQuery } from "../../../api/rpc/feelings";
+import { useJournalQuery } from "../../../api/rpc/journal";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { usePhotosQuery } from "../../../api/rpc/photos";
+import { useSettingsQuery } from "../../../api/rpc/settings";
 import { sicknessWeeks, tally } from "../../../lib/appetite";
 import { todayISO } from "../../../lib/dates";
 import { type Step, stepsByDay } from "../../../lib/feelings";
@@ -33,7 +33,7 @@ const TITLE: Record<Pattern, string> = {
 const STRENGTH: Record<Step, string> = { rough: "opacity-25", low: "opacity-45", okay: "opacity-65", good: "opacity-85", great: "opacity-100" };
 
 function MovementsMini() {
-  const { data: journal } = useJournal();
+  const { data: journal } = useJournalQuery();
   const today = todayISO();
   const days = movementPattern(journal, today, 7);
   return (
@@ -54,8 +54,8 @@ function MovementsMini() {
 }
 
 function SicknessMini() {
-  const { data: entries } = useAppetite();
-  const { data: settings } = useSettings();
+  const { data: entries } = useAppetiteQuery();
+  const { data: settings } = useSettingsQuery();
   const weeks = sicknessWeeks(entries, todayISO(), settings.dueDate).slice(0, 2);
   const fill = { queasy: "opacity-40", vomited: "opacity-75", fluids: "opacity-100" } as const;
   return (
@@ -72,7 +72,7 @@ function SicknessMini() {
 }
 
 function CravingsMini() {
-  const { data: entries } = useAppetite();
+  const { data: entries } = useAppetiteQuery();
   const top = tally(entries, "craving").slice(0, 2);
   return (
     <span className="flex flex-col text-sm text-fg-normal">
@@ -86,8 +86,8 @@ function CravingsMini() {
 }
 
 function FeelingsMini() {
-  const { data: feelings } = useFeelings();
-  const { data: people } = usePeople();
+  const { data: feelings } = useFeelingsQuery();
+  const { data: people } = usePeopleQuery();
   if (!people.me) return null;
   const days = stepsByDay(feelings, people.me.id, todayISO(), 14);
   return (
@@ -100,8 +100,8 @@ function FeelingsMini() {
 }
 
 function BumpMini() {
-  const { data: photos } = usePhotos();
-  const { data: settings } = useSettings();
+  const { data: photos } = usePhotosQuery();
+  const { data: settings } = useSettingsQuery();
   const weeks = bumpWeeks(photos, settings.dueDate).slice(-4);
   return (
     <span className="flex gap-1">

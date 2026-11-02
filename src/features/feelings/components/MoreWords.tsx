@@ -2,7 +2,7 @@ import { Button } from "@sixthshift/design-system/button";
 import { Textarea } from "@sixthshift/design-system/textarea";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { useState } from "react";
-import { usePeople } from "../../../api/rpc/people";
+import { usePeopleQuery } from "../../../api/rpc/people";
 import { type OwnFeeling, WORDS, type Word } from "../../../lib/feelings";
 
 const OPTIONS = WORDS.map((word) => ({ value: word, label: word }));
@@ -11,7 +11,7 @@ const OPTIONS = WORDS.map((word) => ({ value: word, label: word }));
 export function MoreWords({ feeling, onDone }: { feeling: OwnFeeling; onDone: (more: { words: Word[]; note: string | null }) => void }) {
   const [words, setWords] = useState<Word[]>(feeling.words);
   const [note, setNote] = useState(feeling.note ?? "");
-  const { data: people } = usePeople();
+  const { data: people } = usePeopleQuery();
   const other = people.people.find((p) => p.id !== people.me?.id);
 
   return (

@@ -86,6 +86,6 @@ export const firstsSaves = {
 };
 
 /** firstsQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. */
-export function useFirsts<TData = Firsts>(options?: Omit<UseSuspenseQueryOptions<Firsts, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useFirstsQuery<TData = Firsts>(options?: Omit<UseSuspenseQueryOptions<Firsts, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...firstsQuery, ...options } as UseSuspenseQueryOptions<Firsts, Error, TData, string[]>);
 }

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useChecklist } from "../../../api/rpc/checklist";
+import { useChecklistQuery } from "../../../api/rpc/checklist";
 import { useNow } from "../../../api/rpc/settings";
 import { toDoNow } from "../../../lib/todo";
 import { useTasks } from "./useTasks";
@@ -13,7 +13,7 @@ import { useTasks } from "./useTasks";
  * there are none.
  */
 export function useDeadlineBadge(quiet: boolean): void {
-  const { data: checklist } = useChecklist();
+  const { data: checklist } = useChecklistQuery();
   const now = useNow();
   const tasks = useTasks();
   const count = quiet || now === null ? 0 : toDoNow(tasks, checklist.ticks, now).filter((t) => t.why === "deadline").length;

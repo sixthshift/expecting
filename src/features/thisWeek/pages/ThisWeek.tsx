@@ -1,10 +1,10 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { useMemo } from "react";
-import { useChecklist } from "../../../api/rpc/checklist";
-import { useJournal } from "../../../api/rpc/journal";
-import { useQuestions } from "../../../api/rpc/questions";
-import { useQuiet } from "../../../api/rpc/quiet";
-import { useNow, usePosition, useSettings } from "../../../api/rpc/settings";
+import { useChecklistQuery } from "../../../api/rpc/checklist";
+import { useJournalQuery } from "../../../api/rpc/journal";
+import { useQuestionsQuery } from "../../../api/rpc/questions";
+import { useQuietQuery } from "../../../api/rpc/quiet";
+import { useNow, usePosition, useSettingsQuery } from "../../../api/rpc/settings";
 import { PhoneCorner } from "../../../app/components/layout/PillarLayout";
 import { dayReads, weekNotes } from "../../../content";
 import { readsOut } from "../../../content/days";
@@ -50,19 +50,19 @@ import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
 const route = getRouteApi("/app/");
 
 export function ThisWeek() {
-  const { data: quiet } = useQuiet();
+  const { data: quiet } = useQuietQuery();
   return quiet ? <QuietWeek quiet={quiet} /> : <Week />;
 }
 
 function Week() {
-  const { data: settings } = useSettings();
-  const { data: checklist } = useChecklist();
+  const { data: settings } = useSettingsQuery();
+  const { data: checklist } = useChecklistQuery();
   const position = usePosition();
   const now = useNow();
   const items = useItems();
   const tasks = useTasks();
-  const { data: questions } = useQuestions();
-  const { data: journal } = useJournal();
+  const { data: questions } = useQuestionsQuery();
+  const { data: journal } = useJournalQuery();
   const today = todayISO();
   const { at } = route.useSearch();
   const { dueDate } = settings;

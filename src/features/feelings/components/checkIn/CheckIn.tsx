@@ -4,8 +4,8 @@
 
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
-import { feelingsSaves, useFeelings } from "../../../../api/rpc/feelings";
-import { usePeople } from "../../../../api/rpc/people";
+import { feelingsSaves, useFeelingsQuery } from "../../../../api/rpc/feelings";
+import { usePeopleQuery } from "../../../../api/rpc/people";
 import { useSave } from "../../../../app/hooks/useSave";
 import { todayISO } from "../../../../lib/dates";
 import { isOwn, latestOn, type OwnFeeling, STEP_LABEL, type Step } from "../../../../lib/feelings";
@@ -32,8 +32,8 @@ function useKeepStep() {
 
 /** This week's check-in: the question, or today's answer folded, with a way to change it. */
 export function CheckIn() {
-  const { data: people } = usePeople();
-  const { data: feelings } = useFeelings();
+  const { data: people } = usePeopleQuery();
+  const { data: feelings } = useFeelingsQuery();
   const keepStep = useKeepStep();
   const change = useSave(feelingsSaves.changeFeeling);
   const [open, setOpen] = useState(false);

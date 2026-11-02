@@ -1,9 +1,9 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { memo } from "react";
-import { useFirsts } from "../../../../../api/rpc/firsts";
-import { usePapers } from "../../../../../api/rpc/papers";
-import { usePhotos } from "../../../../../api/rpc/photos";
-import { useNow, useSettings } from "../../../../../api/rpc/settings";
+import { useFirstsQuery } from "../../../../../api/rpc/firsts";
+import { usePapersQuery } from "../../../../../api/rpc/papers";
+import { usePhotosQuery } from "../../../../../api/rpc/photos";
+import { useNow, useSettingsQuery } from "../../../../../api/rpc/settings";
 import { contents, young } from "../../../../../lib/chapters";
 import { alreadyHappened, aroundNow } from "../../../../../lib/firsts";
 import { placesReady } from "../../../../../lib/places";
@@ -32,10 +32,10 @@ export const WeekSoFar = memo(function WeekSoFar() {
   } = useJournalPage();
   const { words } = useJournalSearch();
   const { zoom } = route.useSearch();
-  const { data: settings } = useSettings();
-  const { data: firsts } = useFirsts();
-  const { data: photos } = usePhotos();
-  const { data: papers } = usePapers();
+  const { data: settings } = useSettingsQuery();
+  const { data: firsts } = useFirstsQuery();
+  const { data: photos } = usePhotosQuery();
+  const { data: papers } = usePapersQuery();
   const now = useNow();
   const { dueDate } = settings;
   const knowing = settings.baby !== "unknown";

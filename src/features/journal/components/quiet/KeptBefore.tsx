@@ -1,7 +1,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";
 import { useState } from "react";
-import { useSettings } from "../../../../api/rpc/settings";
+import { useSettingsQuery } from "../../../../api/rpc/settings";
 import { kindsOffered } from "../../../../lib/photos";
 import { foldedWhileQuiet, storyGroups } from "../../../../lib/story";
 import { useJournalPage } from "../../contexts/JournalPageContext";
@@ -12,7 +12,7 @@ import { StoryList } from "../story/Story";
 export function KeptBefore() {
   const { quiet, items } = useJournalPage();
   const folded = items.filter(foldedWhileQuiet);
-  const { data: settings } = useSettings();
+  const { data: settings } = useSettingsQuery();
   const [open, setOpen] = useState(false);
   const [adding, setAdding] = useState(false);
   if (folded.length === 0) return null;

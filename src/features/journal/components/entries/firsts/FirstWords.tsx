@@ -2,13 +2,13 @@ import { Button } from "@sixthshift/design-system/button";
 import { Textarea } from "@sixthshift/design-system/textarea";
 import { useState } from "react";
 import { firstsSaves } from "../../../../../api/rpc/firsts";
-import { usePeople } from "../../../../../api/rpc/people";
+import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { type FirstMark, firstOf } from "../../../../../lib/firsts";
 
 /** A first's question, and each of you's words: yours to write (with someone holding the phone), the other's to read. */
 export function FirstWords({ mark, onDone }: { mark: FirstMark & { day: string }; onDone?: () => void }) {
-  const { data: people } = usePeople();
+  const { data: people } = usePeopleQuery();
   const setWords = useSave(firstsSaves.setFirstWords);
   const me = people.me;
   const mine = mark.words.find((w) => w.by === me?.id)?.body ?? "";

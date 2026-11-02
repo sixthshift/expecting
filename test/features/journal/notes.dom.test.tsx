@@ -17,7 +17,7 @@ vi.mock("../../../src/api/rpc/journal", () => ({
     restoreNote: { key: "restoreNote" },
   },
 }));
-vi.mock("../../../src/api/rpc/people", () => ({ usePeople: () => ({ data: people }) }));
+vi.mock("../../../src/api/rpc/people", () => ({ usePeopleQuery: () => ({ data: people }) }));
 vi.mock("../../../src/app/hooks/useSave", () => ({ useSave: (save: { key: string }) => (input: unknown) => saved.push({ key: save.key, input }) }));
 vi.mock("@sixthshift/design-system/overlay", () => ({ toast: () => undefined }));
 

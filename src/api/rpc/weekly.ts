@@ -60,6 +60,6 @@ export const weeklySaves = {
 };
 
 /** weeklyQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useWeekly<TData = WeeklyView>(options?: Omit<UseSuspenseQueryOptions<WeeklyView, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useWeeklyQuery<TData = WeeklyView>(options?: Omit<UseSuspenseQueryOptions<WeeklyView, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...weeklyQuery, ...options } as UseSuspenseQueryOptions<WeeklyView, Error, TData, string[]>);
 }

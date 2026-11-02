@@ -2,7 +2,7 @@ import { Card } from "@sixthshift/design-system/card";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { ExternalLink } from "lucide-react";
 import { useState } from "react";
-import { usePeople } from "../../../../api/rpc/people";
+import { usePeopleQuery } from "../../../../api/rpc/people";
 import { type WeekNote as Note, SECTIONS, type Section, sizeLabel } from "../../../../content/weeks";
 import { formatDate, type ISODate } from "../../../../lib/dates";
 import type { Role } from "../../../../lib/people";
@@ -27,7 +27,7 @@ export function WeekNote({
   /** The line above the title, "Week 28" unless given: the day by day says "28+0". */
   eyebrow?: string;
 }) {
-  const { me, people } = usePeople().data;
+  const { me, people } = usePeopleQuery().data;
   const [lens, setLens] = useState<Role>(me?.role ?? "carrying");
   const size = showSize && note.size ? sizeLabel(note.size) : null;
   const named = (role: Role, fallback: string) => {

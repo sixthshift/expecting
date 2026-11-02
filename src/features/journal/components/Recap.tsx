@@ -7,8 +7,8 @@ import { Modal } from "@sixthshift/design-system/modal";
 import { Link } from "@tanstack/react-router";
 import { Check, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { useState } from "react";
-import { usePeople } from "../../../api/rpc/people";
-import { useSettings } from "../../../api/rpc/settings";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { useSettingsQuery } from "../../../api/rpc/settings";
 import { formatDate, type ISODate } from "../../../lib/dates";
 import { firstOf } from "../../../lib/firsts";
 import { placeOf } from "../../../lib/journal";
@@ -22,7 +22,7 @@ import { Flipbook } from "./entries/photos/Scrubber";
 
 /** The recap of `span`, as what's kept changes; null without a due date (a recap is weeks). */
 export function useRecap(span: RecapSpan, items: readonly StoryItem[]): Recap | null {
-  const { data: settings } = useSettings();
+  const { data: settings } = useSettingsQuery();
   if (!settings.dueDate) return null;
   return recapOf({ span, dueDate: settings.dueDate, items });
 }
@@ -43,8 +43,8 @@ function dayOf(day: string): string {
 
 /** One part of a recap, drawn. */
 export function RecapPartView({ recap, part }: { recap: Recap; part: RecapPart }) {
-  const { data: settings } = useSettings();
-  const { data: people } = usePeople();
+  const { data: settings } = useSettingsQuery();
+  const { data: people } = usePeopleQuery();
   const name = (id: string | null) => (id === null ? null : id === people.me?.id ? "You" : (people.people.find((p) => p.id === id)?.name ?? null));
   const week = (day: string) => {
     const place = settings.dueDate ? placeOf(day as ISODate, settings.dueDate) : null;

@@ -52,6 +52,6 @@ export const jobsSaves = {
 };
 
 /** jobsQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useJobs<TData = JobsView>(options?: Omit<UseSuspenseQueryOptions<JobsView, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useJobsQuery<TData = JobsView>(options?: Omit<UseSuspenseQueryOptions<JobsView, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...jobsQuery, ...options } as UseSuspenseQueryOptions<JobsView, Error, TData, string[]>);
 }

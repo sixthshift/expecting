@@ -8,8 +8,8 @@ import { Textarea } from "@sixthshift/design-system/textarea";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, MessageCircleQuestion, Trash2 } from "lucide-react";
 import { type FormEvent, useState } from "react";
-import { usePeople } from "../../../../api/rpc/people";
-import { questionsSaves, useQuestions } from "../../../../api/rpc/questions";
+import { usePeopleQuery } from "../../../../api/rpc/people";
+import { questionsSaves, useQuestionsQuery } from "../../../../api/rpc/questions";
 import { useSave } from "../../../../app/hooks/useSave";
 import { builtInItems } from "../../../../content";
 import { formatDate, todayISO } from "../../../../lib/dates";
@@ -119,7 +119,7 @@ export function AskedQuestion({ question }: { question: Question }) {
  * A discreet entry isn't named: its title would say what the question's words don't.
  */
 function Source({ question }: { question: Question }) {
-  const { me, people } = usePeople().data;
+  const { me, people } = usePeopleQuery().data;
   // A private entry never sends one (src/server/privacy/); this only makes sure none is drawn.
   const item = question.itemId ? builtInItems.find((i) => i.id === question.itemId && !i.private && !i.discreet) : undefined;
   const whose = whoseBy(question.by, me, people);
@@ -155,7 +155,7 @@ function DeleteButton({ id, text }: { id: string; text: string }) {
  * private entry, which nothing can point at.
  */
 export function QuestionsAbout({ itemId }: { itemId: string }) {
-  const { data: about } = useQuestions({ select: (questions) => questions.filter((q) => q.itemId === itemId) });
+  const { data: about } = useQuestionsQuery({ select: (questions) => questions.filter((q) => q.itemId === itemId) });
   if (about.length === 0) return null;
   const open = about.filter((q) => !q.askedAt);
   // Most recently asked first.

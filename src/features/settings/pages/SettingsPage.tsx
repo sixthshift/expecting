@@ -3,11 +3,11 @@ import { Button } from "@sixthshift/design-system/button";
 import { cn } from "@sixthshift/design-system/utils";
 import { getRouteApi } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { useExtras } from "../../../api/rpc/extras";
-import { useAnswers } from "../../../api/rpc/facts";
-import { usePeople } from "../../../api/rpc/people";
-import { useQuiet } from "../../../api/rpc/quiet";
-import { settingsSaves, useNow, usePosition, useSettings } from "../../../api/rpc/settings";
+import { useExtrasQuery } from "../../../api/rpc/extras";
+import { useAnswersQuery } from "../../../api/rpc/facts";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { useQuietQuery } from "../../../api/rpc/quiet";
+import { settingsSaves, useNow, usePosition, useSettingsQuery } from "../../../api/rpc/settings";
 import { useSave } from "../../../app/hooks/useSave";
 import { Page, Section } from "../../../components/Page";
 import { daysBetween, formatDate, todayISO } from "../../../lib/dates";
@@ -51,15 +51,15 @@ const SECTIONS = [
 export function SettingsPage() {
   const { ask } = route.useSearch();
   const save = useSave(settingsSaves.saveSettings);
-  const { data: settings } = useSettings();
-  const { data: answers } = useAnswers();
-  const { data: choices } = useExtras();
-  const { data: facts } = useAnswers({ select: factsOf });
+  const { data: settings } = useSettingsQuery();
+  const { data: answers } = useAnswersQuery();
+  const { data: choices } = useExtrasQuery();
+  const { data: facts } = useAnswersQuery({ select: factsOf });
   const position = usePosition();
   const now = useNow();
   const today = todayISO();
-  const { me, people } = usePeople().data;
-  const { data: quiet } = useQuiet();
+  const { me, people } = usePeopleQuery().data;
+  const { data: quiet } = useQuietQuery();
   const { dueDate, baby } = settings;
 
   const asks = asksFor(facts);

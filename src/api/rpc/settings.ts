@@ -54,13 +54,13 @@ export const settingsSaves = {
 };
 
 /** settingsQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useSettings<TData = Settings>(options?: Omit<UseSuspenseQueryOptions<Settings, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useSettingsQuery<TData = Settings>(options?: Omit<UseSuspenseQueryOptions<Settings, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...settingsQuery, ...options } as UseSuspenseQueryOptions<Settings, Error, TData, string[]>);
 }
 
 /** Where today falls in the pregnancy; null until there's a due date. */
 export function usePosition() {
-  const { data: settings } = useSettings();
+  const { data: settings } = useSettingsQuery();
   const today = todayISO();
   return useMemo(() => (settings.dueDate ? positionOn(today, settings.dueDate) : null), [settings.dueDate, today]);
 }

@@ -1,8 +1,8 @@
 import { Button } from "@sixthshift/design-system/button";
 import { cn } from "@sixthshift/design-system/utils";
 import { useState } from "react";
-import { useAppetite } from "../../../../../../api/rpc/appetite";
-import { useSettings } from "../../../../../../api/rpc/settings";
+import { useAppetiteQuery } from "../../../../../../api/rpc/appetite";
+import { useSettingsQuery } from "../../../../../../api/rpc/settings";
 import {
   HOW_LABEL,
   type How,
@@ -70,8 +70,8 @@ const WEEKS_SHOWN = 8;
  * she's been sick often lately, one quiet line and a question to take along.
  */
 function SicknessWeeks() {
-  const { data: entries } = useAppetite();
-  const { data: settings } = useSettings();
+  const { data: entries } = useAppetiteQuery();
+  const { data: settings } = useSettingsQuery();
   const [all, setAll] = useState(false);
   const today = todayISO();
   const since = sicknessSince(entries);
@@ -161,8 +161,8 @@ function TallyList({ title, tallies, dueDate, times }: { title: string; tallies:
 
 /** What you've craved, most first, and what you've gone off: the fun part, for later. */
 function Cravings() {
-  const { data: entries } = useAppetite();
-  const { data: settings } = useSettings();
+  const { data: entries } = useAppetiteQuery();
+  const { data: settings } = useSettingsQuery();
   return (
     <div className="flex flex-col gap-4 sm:flex-row sm:gap-12">
       <TallyList title="What you've craved" tallies={tally(entries, "craving")} dueDate={settings.dueDate} times />
@@ -181,7 +181,7 @@ const LISTED = 8;
  * something has happened (the Journal folds them away then).
  */
 export function AppetiteLens() {
-  const { data: entries } = useAppetite();
+  const { data: entries } = useAppetiteQuery();
   const [all, setAll] = useState(false);
   const listed = latestFirst(entries);
   const shown = all ? listed : listed.slice(0, LISTED);

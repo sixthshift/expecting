@@ -1,8 +1,8 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Star } from "lucide-react";
 import { useState } from "react";
-import { firstsSaves, useFirsts } from "../../../../../api/rpc/firsts";
-import { settingsSaves, useSettings } from "../../../../../api/rpc/settings";
+import { firstsSaves, useFirstsQuery } from "../../../../../api/rpc/firsts";
+import { settingsSaves, useSettingsQuery } from "../../../../../api/rpc/settings";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
 import { type FirstKey, firstOf, firstsOffered, isMarked } from "../../../../../lib/firsts";
@@ -18,8 +18,8 @@ import { FirstWords } from "./FirstWords";
  * done, with its key.
  */
 export function MarkFirst({ first, onAdded }: { first?: FirstKey; onAdded?: (key: FirstKey) => void }) {
-  const { data: firsts } = useFirsts();
-  const { data: settings } = useSettings();
+  const { data: firsts } = useFirstsQuery();
+  const { data: settings } = useSettingsQuery();
   const mark = useSave(firstsSaves.markFirst);
   const saveSettings = useSave(settingsSaves.saveSettings);
   const [chosen, setChosen] = useState<FirstKey | null>(first ?? null);

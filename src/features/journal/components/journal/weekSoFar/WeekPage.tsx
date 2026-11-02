@@ -13,7 +13,7 @@ import { Textarea } from "@sixthshift/design-system/textarea";
 import { Camera, FileText, Star } from "lucide-react";
 import { type ReactNode, useState } from "react";
 import { firstsSaves } from "../../../../../api/rpc/firsts";
-import { usePeople } from "../../../../../api/rpc/people";
+import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { weekNotes } from "../../../../../content";
 import { babyLead, noteFor, sizeLabel } from "../../../../../content/weeks";
@@ -30,7 +30,7 @@ import { Days } from "../../story/Story";
 
 /** A first that's around now: what, its question, and your words for it; kept, it's marked today (or the day you say). */
 function AroundNowFirst({ first, week, onNotYet, past = false }: { first: FirstDef; week: Week; onNotYet?: () => void; past?: boolean }) {
-  const { data: people } = usePeople();
+  const { data: people } = usePeopleQuery();
   const mark = useSave(firstsSaves.markFirst);
   const setWords = useSave(firstsSaves.setFirstWords);
   // One that's already happened is written at once, on the day it was.

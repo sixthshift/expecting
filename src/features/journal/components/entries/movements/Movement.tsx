@@ -10,7 +10,7 @@ import { toast } from "@sixthshift/design-system/overlay";
 import { Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { journalSaves } from "../../../../../api/rpc/journal";
-import { usePeople } from "../../../../../api/rpc/people";
+import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSave } from "../../../../../app/hooks/useSave";
 import type { ISODate } from "../../../../../lib/dates";
 import type { JournalEntry } from "../../../../../lib/journal";
@@ -27,7 +27,7 @@ export function Movement({ entry }: { entry: JournalEntry }) {
   const edit = useSave(journalSaves.editMovement);
   const remove = useSave(journalSaves.deleteMovement);
   const restore = useSave(journalSaves.restoreMovement);
-  const { data: people } = usePeople();
+  const { data: people } = usePeopleQuery();
   const name = (id: string | null) => (id === null ? null : id === people.me?.id ? "You" : (people.people.find((p) => p.id === id)?.name ?? null));
   const time = entry.time ?? "00:00";
 

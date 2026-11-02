@@ -14,7 +14,7 @@ import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { appetiteSaves } from "../../../../../api/rpc/appetite";
-import { usePeople } from "../../../../../api/rpc/people";
+import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { type AppetiteEntry, type AppetiteKind, describe, type How, inputOf } from "../../../../../lib/appetite";
 import type { ISODate } from "../../../../../lib/dates";
@@ -83,7 +83,7 @@ export function AppetiteItem({ entry }: { entry: AppetiteEntry }) {
   const edit = useSave(appetiteSaves.editAppetite);
   const remove = useSave(appetiteSaves.deleteAppetite);
   const restore = useSave(appetiteSaves.restoreAppetite);
-  const { data: people } = usePeople();
+  const { data: people } = usePeopleQuery();
   const name = (id: string | null) => (id === null ? null : id === people.me?.id ? "You" : (people.people.find((p) => p.id === id)?.name ?? null));
 
   function deleteIt() {

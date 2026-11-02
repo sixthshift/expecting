@@ -64,6 +64,6 @@ export const connectionsSaves = {
 };
 
 /** connectionsQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. */
-export function useConnections<TData = Connections>(options?: Omit<UseSuspenseQueryOptions<Connections, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useConnectionsQuery<TData = Connections>(options?: Omit<UseSuspenseQueryOptions<Connections, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...connectionsQuery, ...options } as UseSuspenseQueryOptions<Connections, Error, TData, string[]>);
 }

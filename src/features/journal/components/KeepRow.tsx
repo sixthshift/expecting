@@ -4,9 +4,9 @@
 
 import { Camera, FileText, Footprints, IceCreamCone, type LucideIcon, NotebookPen, Smile, Star, Waves } from "lucide-react";
 import { useState } from "react";
-import { useJournal } from "../../../api/rpc/journal";
-import { usePeople } from "../../../api/rpc/people";
-import { useQuiet } from "../../../api/rpc/quiet";
+import { useJournalQuery } from "../../../api/rpc/journal";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { movementsOffered } from "../../../lib/journal";
 import { CaptureSheet } from "../../capture/components/CaptureSheet";
@@ -24,9 +24,9 @@ const CHIP: Partial<Record<Capture, { label: string; icon: LucideIcon }>> = {
 };
 
 export function KeepRow() {
-  const { data: people } = usePeople();
-  const { data: quiet } = useQuiet();
-  const { data: journal } = useJournal();
+  const { data: people } = usePeopleQuery();
+  const { data: quiet } = useQuietQuery();
+  const { data: journal } = useJournalQuery();
   const now = useNow();
   const [open, setOpen] = useState<Capture | null>(null);
   const choices = journalChoices(

@@ -1,8 +1,8 @@
 import { Card } from "@sixthshift/design-system/card";
 import { Link } from "@tanstack/react-router";
-import { factsSaves, useAnswers } from "../../../../api/rpc/facts";
-import { usePeople } from "../../../../api/rpc/people";
-import { useNow, useSettings } from "../../../../api/rpc/settings";
+import { factsSaves, useAnswersQuery } from "../../../../api/rpc/facts";
+import { usePeopleQuery } from "../../../../api/rpc/people";
+import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { useSave } from "../../../../app/hooks/useSave";
 import { DateForm } from "../../../../components/DateForm";
 import { questionsDue } from "../../../../lib/facts";
@@ -17,9 +17,9 @@ const SHOWN = 3;
  * a few weeks. Every answer can be changed in settings.
  */
 export function AskNow() {
-  const { data: settings } = useSettings();
-  const { data: answers } = useAnswers();
-  const { people } = usePeople().data;
+  const { data: settings } = useSettingsQuery();
+  const { data: answers } = useAnswersQuery();
+  const { people } = usePeopleQuery().data;
   const now = useNow();
   const saveAnswer = useSave(factsSaves.saveAnswer);
   const save = async (key: string, answer: string | null) => saveAnswer({ key, answer });

@@ -1,8 +1,8 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { useMemo } from "react";
-import { useFirsts } from "../../../api/rpc/firsts";
-import { usePeople } from "../../../api/rpc/people";
-import { usePosition, useSettings } from "../../../api/rpc/settings";
+import { useFirstsQuery } from "../../../api/rpc/firsts";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { usePosition, useSettingsQuery } from "../../../api/rpc/settings";
 import { useKeepSame } from "../../../app/hooks/useKeepSame";
 import { todayISO } from "../../../lib/dates";
 import { suggestFirsts } from "../../../lib/firsts";
@@ -39,9 +39,9 @@ function keptLine(items: readonly StoryItem[], id: string | undefined): StoryIte
  */
 export function useHighlights(items: StoryItem[], quiet: boolean): HighlightsData {
   const { kept } = route.useSearch();
-  const { data: settings } = useSettings();
-  const { data: people } = usePeople();
-  const { data: firsts } = useFirsts();
+  const { data: settings } = useSettingsQuery();
+  const { data: people } = usePeopleQuery();
+  const { data: firsts } = useFirstsQuery();
   const tasks = useTasks();
   const position = usePosition();
   const lastSeen = useSeenThisVisit();

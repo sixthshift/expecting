@@ -2,10 +2,10 @@ import { Button } from "@sixthshift/design-system/button";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { getRouteApi, Link } from "@tanstack/react-router";
 import { ChevronLeft, PartyPopper, Shuffle } from "lucide-react";
-import { bingoSaves, useBingo } from "../../../api/rpc/bingo";
-import { useExtras } from "../../../api/rpc/extras";
-import { usePeople } from "../../../api/rpc/people";
-import { useQuiet } from "../../../api/rpc/quiet";
+import { bingoSaves, useBingoQuery } from "../../../api/rpc/bingo";
+import { useExtrasQuery } from "../../../api/rpc/extras";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useSave } from "../../../app/hooks/useSave";
 import { type Card, deal, type Standing, standing, standingLine } from "../../../lib/bingo";
 import { formatDate } from "../../../lib/dates";
@@ -22,10 +22,10 @@ const route = getRouteApi("/app/drawer/bingo");
  * says so; while something has happened, it's put away.
  */
 export function BingoPage() {
-  const { data: bingo } = useBingo();
-  const { me, people } = usePeople().data;
-  const { data: on } = useExtras({ select: (e) => extrasOn(e).has("pregnancy-bingo") });
-  const { data: quiet } = useQuiet();
+  const { data: bingo } = useBingoQuery();
+  const { me, people } = usePeopleQuery().data;
+  const { data: on } = useExtrasQuery({ select: (e) => extrasOn(e).has("pregnancy-bingo") });
+  const { data: quiet } = useQuietQuery();
   const dealCard = useSave(bingoSaves.dealCard);
   const navigate = route.useNavigate();
   const showing = route.useSearch().card ?? "mine";

@@ -1,10 +1,10 @@
 import { getRouteApi, Link } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
-import { useExtras } from "../../../api/rpc/extras";
-import { useNames } from "../../../api/rpc/names";
-import { usePeople } from "../../../api/rpc/people";
-import { useQuiet } from "../../../api/rpc/quiet";
-import { useSettings } from "../../../api/rpc/settings";
+import { useExtrasQuery } from "../../../api/rpc/extras";
+import { useNamesQuery } from "../../../api/rpc/names";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { useQuietQuery } from "../../../api/rpc/quiet";
+import { useSettingsQuery } from "../../../api/rpc/settings";
 import { extrasOn } from "../../../lib/extras";
 import { dealing } from "../../../lib/names";
 import { extra } from "../../settings/model/extras";
@@ -17,11 +17,11 @@ const route = getRouteApi("/app/drawer/names");
  * and a name to add. With the Choosing a name extra; put away while something has happened.
  */
 export function NamesPage() {
-  const { data: names } = useNames();
-  const { me, people } = usePeople().data;
-  const { data: on } = useExtras({ select: (e) => extrasOn(e).has("choosing-names") });
-  const { data: quiet } = useQuiet();
-  const { data: baby } = useSettings({ select: (s) => s.baby });
+  const { data: names } = useNamesQuery();
+  const { me, people } = usePeopleQuery().data;
+  const { data: on } = useExtrasQuery({ select: (e) => extrasOn(e).has("choosing-names") });
+  const { data: quiet } = useQuietQuery();
+  const { data: baby } = useSettingsQuery({ select: (s) => s.baby });
   const { filter, choosable } = dealing(baby, route.useSearch().names);
   const navigate = route.useNavigate();
   const other = people.find((p) => p.id !== me?.id) ?? null;

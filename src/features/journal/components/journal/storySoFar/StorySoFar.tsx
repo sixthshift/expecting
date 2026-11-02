@@ -1,9 +1,9 @@
 import { Button } from "@sixthshift/design-system/button";
 import { getRouteApi, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { useFirsts } from "../../../../../api/rpc/firsts";
-import { usePeople } from "../../../../../api/rpc/people";
-import { useNow, useSettings } from "../../../../../api/rpc/settings";
+import { useFirstsQuery } from "../../../../../api/rpc/firsts";
+import { usePeopleQuery } from "../../../../../api/rpc/people";
+import { useNow, useSettingsQuery } from "../../../../../api/rpc/settings";
 import { type RecapSpan, recapsSoFar } from "../../../../../lib/journalNow";
 import { hasRecap } from "../../../../../lib/recap";
 import { landmarks, type StoryItem, storyGroups, storyMatches, storySpine, weekTiles } from "../../../../../lib/story";
@@ -45,9 +45,9 @@ export function StorySoFar() {
   const { items, lens, lenses } = useJournalPage();
   const { zoom, at } = route.useSearch();
   const navigate = route.useNavigate();
-  const { data: settings } = useSettings();
-  const { data: people } = usePeople();
-  const { data: firsts } = useFirsts();
+  const { data: settings } = useSettingsQuery();
+  const { data: people } = usePeopleQuery();
+  const { data: firsts } = useFirstsQuery();
   const now = useNow();
   const { dueDate } = settings;
 

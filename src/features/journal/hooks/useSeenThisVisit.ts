@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { journalSeenSaves, useJournalSeen } from "../../../api/rpc/journal";
-import { usePeople } from "../../../api/rpc/people";
+import { journalSeenSaves, useJournalSeenQuery } from "../../../api/rpc/journal";
+import { usePeopleQuery } from "../../../api/rpc/people";
 import { useSave } from "../../../app/hooks/useSave";
 
 /**
@@ -10,8 +10,8 @@ import { useSave } from "../../../app/hooks/useSave";
  * visit marks it, and what it shows stays for this visit.
  */
 export function useSeenThisVisit(): string | null {
-  const { data: seen } = useJournalSeen();
-  const { data: people } = usePeople();
+  const { data: seen } = useJournalSeenQuery();
+  const { data: people } = usePeopleQuery();
   const markSeen = useSave(journalSeenSaves.markJournalSeen);
   const [lastSeen] = useState(seen);
 

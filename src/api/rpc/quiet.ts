@@ -52,6 +52,6 @@ export const quietSaves = {
 };
 
 /** quietQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useQuiet<TData = Quiet | null>(options?: Omit<UseSuspenseQueryOptions<Quiet | null, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useQuietQuery<TData = Quiet | null>(options?: Omit<UseSuspenseQueryOptions<Quiet | null, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...quietQuery, ...options } as UseSuspenseQueryOptions<Quiet | null, Error, TData, string[]>);
 }

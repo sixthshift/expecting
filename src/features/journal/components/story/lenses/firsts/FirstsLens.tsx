@@ -2,7 +2,7 @@ import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";
 import { Star } from "lucide-react";
 import { useState } from "react";
-import { useFirsts } from "../../../../../../api/rpc/firsts";
+import { useFirstsQuery } from "../../../../../../api/rpc/firsts";
 import { type FirstMark, firstOf, isMarked } from "../../../../../../lib/firsts";
 import { dayOf } from "../../../../model/dates";
 import { FirstSheet } from "../../../entries/firsts/FirstSheet";
@@ -36,7 +36,7 @@ function FirstLine({ mark }: { mark: FirstMark & { day: string } }) {
 
 /** The Firsts lens: every one marked, in the order they came, and a way to mark another. */
 export function FirstsLens() {
-  const { data: firsts } = useFirsts();
+  const { data: firsts } = useFirstsQuery();
   const [marking, setMarking] = useState(false);
   const marked = firsts.filter(isMarked).sort((a, b) => a.day.localeCompare(b.day));
   return (

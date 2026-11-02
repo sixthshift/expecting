@@ -1,8 +1,8 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Link } from "@tanstack/react-router";
 import { Sparkles } from "lucide-react";
-import { extrasSaves, useExtras } from "../../../../api/rpc/extras";
-import { useAnswers } from "../../../../api/rpc/facts";
+import { extrasSaves, useExtrasQuery } from "../../../../api/rpc/extras";
+import { useAnswersQuery } from "../../../../api/rpc/facts";
 import { useNow } from "../../../../api/rpc/settings";
 import { useSave } from "../../../../app/hooks/useSave";
 import { extraToOffer } from "../../../../lib/extras";
@@ -14,9 +14,9 @@ import { factsOf } from "../../../../lib/facts";
  * answer decides it, so it isn't offered again; settings can change it.
  */
 export function OfferExtra() {
-  const { data: choices } = useExtras();
+  const { data: choices } = useExtrasQuery();
   const now = useNow();
-  const { data: facts } = useAnswers({ select: factsOf });
+  const { data: facts } = useAnswersQuery({ select: factsOf });
   const setExtras = useSave(extrasSaves.setExtras);
   const save = (id: string, on: boolean) => setExtras([{ id, on }]);
   if (now === null) return null;

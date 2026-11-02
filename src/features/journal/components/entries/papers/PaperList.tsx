@@ -1,14 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { usePapers } from "../../../../../api/rpc/papers";
-import { useSettings } from "../../../../../api/rpc/settings";
+import { usePapersQuery } from "../../../../../api/rpc/papers";
+import { useSettingsQuery } from "../../../../../api/rpc/settings";
 import { ordered, type Paper } from "../../../../../lib/papers";
 import { PaperRow } from "./PaperRow";
 import { PaperViewer } from "./PaperViewer";
 
 /** Papers as rows, each opened in place. */
 export function PaperList({ papers, label }: { papers: Paper[]; label: string }) {
-  const { data: settings } = useSettings();
+  const { data: settings } = useSettingsQuery();
   const [open, setOpen] = useState<string | null>(null);
   return (
     <>
@@ -26,7 +26,7 @@ export function PaperList({ papers, label }: { papers: Paper[]; label: string })
 
 /** Under a Library entry: the papers kept about it, if any. What it is, linked to what you kept. */
 export function PapersAbout({ itemId }: { itemId: string }) {
-  const { data: papers } = usePapers();
+  const { data: papers } = usePapersQuery();
   const about = ordered(papers.filter((p) => p.itemId === itemId));
   if (about.length === 0) return null;
   return (
@@ -44,7 +44,7 @@ export function PapersAbout({ itemId }: { itemId: string }) {
  * signal too (each phone keeps their pages). With none, how to put one there.
  */
 export function PapersToHand() {
-  const { data: papers } = usePapers();
+  const { data: papers } = usePapersQuery();
   const handy = ordered(papers.filter((p) => p.handy));
   return (
     <section aria-labelledby="emergency-papers" className="flex flex-col gap-3">

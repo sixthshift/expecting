@@ -243,6 +243,6 @@ export const itsTimeSaves = {
 };
 
 /** itsTimeQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. */
-export function useItsTime<TData = ItsTime>(options?: Omit<UseSuspenseQueryOptions<ItsTime, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useItsTimeQuery<TData = ItsTime>(options?: Omit<UseSuspenseQueryOptions<ItsTime, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...itsTimeQuery, ...options } as UseSuspenseQueryOptions<ItsTime, Error, TData, string[]>);
 }

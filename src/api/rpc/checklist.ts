@@ -75,6 +75,6 @@ export const checklistSaves = {
 };
 
 /** checklistQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useChecklist<TData = Checklist>(options?: Omit<UseSuspenseQueryOptions<Checklist, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useChecklistQuery<TData = Checklist>(options?: Omit<UseSuspenseQueryOptions<Checklist, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...checklistQuery, ...options } as UseSuspenseQueryOptions<Checklist, Error, TData, string[]>);
 }

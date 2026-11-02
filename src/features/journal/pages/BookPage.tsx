@@ -2,20 +2,20 @@ import { Button } from "@sixthshift/design-system/button";
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft, Printer } from "lucide-react";
 import { useMemo } from "react";
-import { useAppetite } from "../../../api/rpc/appetite";
-import { useBingo } from "../../../api/rpc/bingo";
-import { useChecklist } from "../../../api/rpc/checklist";
-import { useExtras } from "../../../api/rpc/extras";
-import { useFeelings } from "../../../api/rpc/feelings";
-import { useFirsts } from "../../../api/rpc/firsts";
-import { useItsTime } from "../../../api/rpc/itsTime";
-import { useJournal } from "../../../api/rpc/journal";
-import { usePapers } from "../../../api/rpc/papers";
-import { usePeople } from "../../../api/rpc/people";
-import { usePhotos } from "../../../api/rpc/photos";
-import { useQuiet } from "../../../api/rpc/quiet";
-import { useNow, useSettings } from "../../../api/rpc/settings";
-import { useWeekly } from "../../../api/rpc/weekly";
+import { useAppetiteQuery } from "../../../api/rpc/appetite";
+import { useBingoQuery } from "../../../api/rpc/bingo";
+import { useChecklistQuery } from "../../../api/rpc/checklist";
+import { useExtrasQuery } from "../../../api/rpc/extras";
+import { useFeelingsQuery } from "../../../api/rpc/feelings";
+import { useFirstsQuery } from "../../../api/rpc/firsts";
+import { useItsTimeQuery } from "../../../api/rpc/itsTime";
+import { useJournalQuery } from "../../../api/rpc/journal";
+import { usePapersQuery } from "../../../api/rpc/papers";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { usePhotosQuery } from "../../../api/rpc/photos";
+import { useQuietQuery } from "../../../api/rpc/quiet";
+import { useNow, useSettingsQuery } from "../../../api/rpc/settings";
+import { useWeeklyQuery } from "../../../api/rpc/weekly";
 import { useKeepSame } from "../../../app/hooks/useKeepSame";
 import { moments } from "../../../lib/bingo";
 import { CHAPTERS, type Chapter, contents } from "../../../lib/chapters";
@@ -97,19 +97,19 @@ function ChapterPage({ chapter, items, now }: { chapter: Chapter; items: readonl
  */
 export function BookPage() {
   // The story, built as the Journal builds it (`JournalPageProvider`).
-  const { data: journal } = useJournal();
-  const { data: appetite } = useAppetite();
-  const { data: photos } = usePhotos();
-  const { data: papers } = usePapers();
-  const { data: feelings } = useFeelings();
-  const { data: firsts } = useFirsts();
-  const { data: checklist } = useChecklist();
-  const { data: itsTime } = useItsTime();
-  const { data: weekly } = useWeekly();
+  const { data: journal } = useJournalQuery();
+  const { data: appetite } = useAppetiteQuery();
+  const { data: photos } = usePhotosQuery();
+  const { data: papers } = usePapersQuery();
+  const { data: feelings } = useFeelingsQuery();
+  const { data: firsts } = useFirstsQuery();
+  const { data: checklist } = useChecklistQuery();
+  const { data: itsTime } = useItsTimeQuery();
+  const { data: weekly } = useWeeklyQuery();
   // A question a week's answers, while its extra is on: turned off, they're hidden, not deleted.
-  const { data: asking } = useExtras({ select: (e) => extrasOn(e).has("question-a-week") });
-  const { data: bingo } = useBingo();
-  const { data: playing } = useExtras({ select: (e) => extrasOn(e).has("pregnancy-bingo") });
+  const { data: asking } = useExtrasQuery({ select: (e) => extrasOn(e).has("question-a-week") });
+  const { data: bingo } = useBingoQuery();
+  const { data: playing } = useExtrasQuery({ select: (e) => extrasOn(e).has("pregnancy-bingo") });
   const tasks = useTasks();
   const built = useMemo(
     () =>
@@ -130,9 +130,9 @@ export function BookPage() {
   );
   // Rebuilt in full on any change: the lines that didn't change are kept as they were, so their days aren't drawn again.
   const items = useKeepSame(built);
-  const { data: quiet } = useQuiet();
-  const { data: settings } = useSettings();
-  const { data: people } = usePeople();
+  const { data: quiet } = useQuietQuery();
+  const { data: settings } = useSettingsQuery();
+  const { data: people } = usePeopleQuery();
   const now = useNow();
   const names = [...people.people].sort((a, b) => Number(b.role === "carrying") - Number(a.role === "carrying")).map((p) => p.name);
   const lines = contents({ items, dueDate: settings.dueDate, now });

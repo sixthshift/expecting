@@ -1,10 +1,10 @@
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { useState } from "react";
-import { useExtras } from "../../../api/rpc/extras";
-import { usePeople } from "../../../api/rpc/people";
-import { useQuiet } from "../../../api/rpc/quiet";
+import { useExtrasQuery } from "../../../api/rpc/extras";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
-import { useWeekly } from "../../../api/rpc/weekly";
+import { useWeeklyQuery } from "../../../api/rpc/weekly";
 import { extrasOn } from "../../../lib/extras";
 import { weekLabel } from "../../../lib/timeline";
 import { earlier, questionOf, weekOf } from "../../../lib/weekly";
@@ -18,10 +18,10 @@ import { WeekQuestion } from "./WeekQuestion";
  * said who's holding it.
  */
 export function WeeklyCard() {
-  const { data: on } = useExtras({ select: (e) => extrasOn(e).has("question-a-week") });
-  const { data: quiet } = useQuiet();
-  const { data: view } = useWeekly();
-  const { me, people } = usePeople().data;
+  const { data: on } = useExtrasQuery({ select: (e) => extrasOn(e).has("question-a-week") });
+  const { data: quiet } = useQuietQuery();
+  const { data: view } = useWeeklyQuery();
+  const { me, people } = usePeopleQuery().data;
   const now = useNow();
   const [showEarlier, setShowEarlier] = useState(false);
   if (!on || quiet || now === null || !me) return null;

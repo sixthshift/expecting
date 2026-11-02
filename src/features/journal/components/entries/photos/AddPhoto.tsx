@@ -16,7 +16,7 @@ import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { Camera, Images } from "lucide-react";
 import { type ChangeEvent, type FormEvent, useEffect, useState } from "react";
 import { photosSaves } from "../../../../../api/rpc/photos";
-import { useSettings } from "../../../../../api/rpc/settings";
+import { useSettingsQuery } from "../../../../../api/rpc/settings";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { FileProblemError, keepOnPhone, type Prepared, prepareFile, previewUrl } from "../../../../../app/model/uploads";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
@@ -62,7 +62,7 @@ export function AddPhoto({
   onAdded?: (id: string) => void;
 }) {
   const add = useSave(photosSaves.addPhoto);
-  const { data: settings } = useSettings();
+  const { data: settings } = useSettingsQuery();
   const [shots, setShots] = useState<Shot[]>([]);
   const [readying, setReadying] = useState(false);
   const [problem, setProblem] = useState<string | null>(null);

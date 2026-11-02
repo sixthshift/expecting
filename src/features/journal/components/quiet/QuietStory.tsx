@@ -1,7 +1,7 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { useEffect, useMemo } from "react";
-import { usePeople } from "../../../../api/rpc/people";
-import { useNow, useSettings } from "../../../../api/rpc/settings";
+import { usePeopleQuery } from "../../../../api/rpc/people";
+import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { foldedWhileQuiet, storyGroups, storyMatches, weekTiles } from "../../../../lib/story";
 import type { Week } from "../../../../lib/timeline";
 import { useJournalPage, useJournalSearch } from "../../contexts/JournalPageContext";
@@ -24,8 +24,8 @@ export function QuietStory() {
   const { words, setWords } = useJournalSearch();
   const { zoom, at } = route.useSearch();
   const navigate = route.useNavigate();
-  const { data: settings } = useSettings();
-  const { data: people } = usePeople();
+  const { data: settings } = useSettingsQuery();
+  const { data: people } = usePeopleQuery();
   const now = useNow();
   const { dueDate } = settings;
 

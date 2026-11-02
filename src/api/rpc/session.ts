@@ -76,6 +76,6 @@ export const logout = createServerFn({ method: "POST" }).handler(() => {
 export const accessQuery = queryOptions({ queryKey: ["access"], queryFn: () => getAccess() });
 
 /** accessQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useAccess<TData = Access>(options?: Omit<UseSuspenseQueryOptions<Access, Error, TData, string[]>, "queryKey" | "queryFn">) {
+export function useAccessQuery<TData = Access>(options?: Omit<UseSuspenseQueryOptions<Access, Error, TData, string[]>, "queryKey" | "queryFn">) {
   return useSuspenseQuery({ ...accessQuery, ...options } as UseSuspenseQueryOptions<Access, Error, TData, string[]>);
 }

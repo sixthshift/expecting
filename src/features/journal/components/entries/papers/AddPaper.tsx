@@ -10,7 +10,7 @@ import { Spinner } from "@sixthshift/design-system/spinner";
 import { Camera, FilePlus, FileText, X } from "lucide-react";
 import { type ChangeEvent, type FormEvent, useEffect, useRef, useState } from "react";
 import { papersSaves } from "../../../../../api/rpc/papers";
-import { useQuiet } from "../../../../../api/rpc/quiet";
+import { useQuietQuery } from "../../../../../api/rpc/quiet";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { FileProblemError, keepOnPhone, type Prepared, prepareFile, previewUrl } from "../../../../../app/model/uploads";
 import { type FileProblem, formatSize, isImage, MAX_ORIGINAL } from "../../../../../lib/files";
@@ -71,7 +71,7 @@ function Pick({
  */
 export function AddPaper({ files: given, onAdded }: { files?: File[]; onAdded?: (id: string) => void }) {
   const add = useSave(papersSaves.addPaper);
-  const { data: quietNow } = useQuiet();
+  const { data: quietNow } = useQuietQuery();
   const quiet = quietNow?.kind ?? null;
   const [pages, setPages] = useState<Sheet[]>([]);
   const [readying, setReadying] = useState(false);

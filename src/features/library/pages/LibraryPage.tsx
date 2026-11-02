@@ -1,7 +1,7 @@
 import { SearchInput } from "@sixthshift/design-system/search-input";
 import { getRouteApi, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { useQuiet } from "../../../api/rpc/quiet";
+import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { search } from "../../../lib/library";
@@ -26,7 +26,7 @@ const route = getRouteApi("/app/library");
 export function LibraryPage() {
   const items = useItems();
   const now = useNow();
-  const { data: quiet } = useQuiet();
+  const { data: quiet } = useQuietQuery();
   const narrowing = route.useSearch();
   const { q: inAddress = "", door, topic } = narrowing;
   const navigate = useNavigate();

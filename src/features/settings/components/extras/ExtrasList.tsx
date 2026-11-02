@@ -1,7 +1,7 @@
 import { Switch } from "@sixthshift/design-system/switch";
 import { cn } from "@sixthshift/design-system/utils";
-import { extrasSaves, useExtras } from "../../../../api/rpc/extras";
-import { useAnswers } from "../../../../api/rpc/facts";
+import { extrasSaves, useExtrasQuery } from "../../../../api/rpc/extras";
+import { useAnswersQuery } from "../../../../api/rpc/facts";
 import { useSave } from "../../../../app/hooks/useSave";
 import { formatDate, todayISO } from "../../../../lib/dates";
 import { type Choice, extrasFor, extrasOn } from "../../../../lib/extras";
@@ -18,8 +18,8 @@ import { SettingList } from "../SettingRow";
  * `highlight` marks the one a link opened settings at.
  */
 export function ExtrasList({ choices, people, highlight }: { choices: readonly Choice[]; people: readonly Person[]; highlight?: string }) {
-  const { data: facts } = useAnswers({ select: factsOf });
-  const { data: extras } = useExtras({ select: extrasOn });
+  const { data: facts } = useAnswersQuery({ select: factsOf });
+  const { data: extras } = useExtrasQuery({ select: extrasOn });
   const setExtras = useSave(extrasSaves.setExtras);
 
   const offered = extrasFor(facts, extras);

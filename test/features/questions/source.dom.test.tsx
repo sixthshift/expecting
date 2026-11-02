@@ -5,8 +5,8 @@ import type { Question } from "../../../src/lib/questions";
 
 // An open question in the Planner names the entry it was asked from, unless
 // that entry is discreet: its title would tell what the question's words don't.
-vi.mock("../../../src/api/rpc/people", () => ({ usePeople: () => ({ data: { me: { id: "p1", name: "Alex" }, people: [{ id: "p1", name: "Alex" }] } }) }));
-vi.mock("../../../src/api/rpc/questions", () => ({ questionsSaves: {}, useQuestions: () => ({ data: [] }) }));
+vi.mock("../../../src/api/rpc/people", () => ({ usePeopleQuery: () => ({ data: { me: { id: "p1", name: "Alex" }, people: [{ id: "p1", name: "Alex" }] } }) }));
+vi.mock("../../../src/api/rpc/questions", () => ({ questionsSaves: {}, useQuestionsQuery: () => ({ data: [] }) }));
 vi.mock("../../../src/app/hooks/useSave", () => ({ useSave: () => () => undefined }));
 vi.mock("../../../src/content", () => ({
   builtInItems: [

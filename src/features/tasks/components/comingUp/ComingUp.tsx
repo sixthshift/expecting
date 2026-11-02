@@ -1,5 +1,5 @@
-import { useChecklist } from "../../../../api/rpc/checklist";
-import { usePeople } from "../../../../api/rpc/people";
+import { useChecklistQuery } from "../../../../api/rpc/checklist";
+import { usePeopleQuery } from "../../../../api/rpc/people";
 import { useNow } from "../../../../api/rpc/settings";
 import { whose } from "../../../../lib/people";
 import { weekLabel } from "../../../../lib/timeline";
@@ -15,8 +15,8 @@ const SHOWN = 5;
  * nothing arrives as a surprise. Each one goes to why it matters.
  */
 export function ComingUp() {
-  const { me, people } = usePeople().data;
-  const { data: checklist } = useChecklist();
+  const { me, people } = usePeopleQuery().data;
+  const { data: checklist } = useChecklistQuery();
   const now = useNow();
   const tasks = useTasks();
   if (now === null) return null;

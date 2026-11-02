@@ -5,7 +5,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { getRouteApi } from "@tanstack/react-router";
 import { useState } from "react";
 import { approveConnection, connectRequestQuery } from "../../../api/rpc/connections";
-import { usePeople } from "../../../api/rpc/people";
+import { usePeopleQuery } from "../../../api/rpc/people";
 import { useAction } from "../../../app/hooks/useAction";
 import { Page } from "../../../components/Page";
 import { authorisation, sendBack } from "../../../lib/connect";
@@ -24,7 +24,7 @@ const REFUSED = {
 export function ConnectPage() {
   const search = route.useSearch();
   const { data: known } = useSuspenseQuery(connectRequestQuery(search.client_id ?? "", search.redirect_uri ?? ""));
-  const { data: people } = usePeople();
+  const { data: people } = usePeopleQuery();
   const request = authorisation.safeParse(search);
   const [personId, setPersonId] = useState(people.me?.id ?? people.people[0]?.id ?? "");
   const [allow, allowing] = useAction(async () => window.location.assign((await approveConnection({ data: { request: request.data!, personId } })).to));

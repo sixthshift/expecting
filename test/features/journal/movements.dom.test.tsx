@@ -35,9 +35,9 @@ vi.mock("../../../src/api/rpc/journal", () => ({
     deleteMovement: { key: "deleteMovement" },
     restoreMovement: { key: "restoreMovement" },
   },
-  useJournal: () => ({ data: journal }),
+  useJournalQuery: () => ({ data: journal }),
 }));
-vi.mock("../../../src/api/rpc/people", () => ({ usePeople: () => ({ data: { me: SAM, people: [SAM] } }) }));
+vi.mock("../../../src/api/rpc/people", () => ({ usePeopleQuery: () => ({ data: { me: SAM, people: [SAM] } }) }));
 vi.mock("../../../src/app/hooks/useSave", () => ({ useSave: (save: { key: string }) => (input: unknown) => saved.push({ key: save.key, input }) }));
 vi.mock("../../../src/app/components/layout/CallBirthSuite", () => ({ CallBirthSuite: () => <a href="tel:0390000000">Call the birth suite</a> }));
 vi.mock("../../../src/features/library/components/ItemLink", () => ({ ItemLink: ({ children }: { children: ReactNode }) => children }));

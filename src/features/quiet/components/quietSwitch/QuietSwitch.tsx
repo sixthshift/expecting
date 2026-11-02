@@ -1,8 +1,8 @@
 import { Button } from "@sixthshift/design-system/button";
 import { cn } from "@sixthshift/design-system/utils";
 import { useState } from "react";
-import { usePeople } from "../../../../api/rpc/people";
-import { quietSaves, useQuiet } from "../../../../api/rpc/quiet";
+import { usePeopleQuery } from "../../../../api/rpc/people";
+import { quietSaves, useQuietQuery } from "../../../../api/rpc/quiet";
 import { useSave } from "../../../../app/hooks/useSave";
 import { formatDate, todayISO } from "../../../../lib/dates";
 import { QUIET_KINDS, QUIET_LABELS, type QuietKind, WAY_BACK } from "../../../../lib/quiet";
@@ -14,8 +14,8 @@ import { QUIET_KINDS, QUIET_LABELS, type QuietKind, WAY_BACK } from "../../../..
  * back as it was; a loss can only be undone as a mistake.
  */
 export function QuietSwitch() {
-  const { data: quiet } = useQuiet();
-  const { people } = usePeople().data;
+  const { data: quiet } = useQuietQuery();
+  const { people } = usePeopleQuery().data;
   const [choosing, setChoosing] = useState(false);
   const [kind, setKind] = useState<QuietKind | null>(null);
   const [leaving, setLeaving] = useState(false);

@@ -4,10 +4,10 @@ import { ProgressBar } from "@sixthshift/design-system/progress-bar";
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { type ReactNode, useState } from "react";
-import { useChecklist } from "../../../api/rpc/checklist";
-import { usePeople } from "../../../api/rpc/people";
-import { useQuestions } from "../../../api/rpc/questions";
-import { useQuiet } from "../../../api/rpc/quiet";
+import { useChecklistQuery } from "../../../api/rpc/checklist";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { useQuestionsQuery } from "../../../api/rpc/questions";
+import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import type { Item, Task } from "../../../content/schema";
@@ -44,13 +44,13 @@ const AHEAD_AT: Record<Ahead["at"], (w: Week) => string> = {
  * aside, with what was already set in motion.
  */
 export function PlannerPage() {
-  const { me, people } = usePeople().data;
-  const { data: checklist } = useChecklist();
+  const { me, people } = usePeopleQuery().data;
+  const { data: checklist } = useChecklistQuery();
   const now = useNow();
   const tasks = useTasks();
   const items = useItems();
-  const { data: questions } = useQuestions();
-  const { data: quiet } = useQuiet();
+  const { data: questions } = useQuestionsQuery();
+  const { data: quiet } = useQuietQuery();
   // Ticked during this visit: they stay where they were until the next one.
   const [tickedHere, setTickedHere] = useState<ReadonlySet<string>>(new Set());
   const plan = planTasks(tasks, checklist.ticks, tickedHere, now);

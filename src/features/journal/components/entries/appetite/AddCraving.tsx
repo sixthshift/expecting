@@ -2,7 +2,7 @@ import { Button } from "@sixthshift/design-system/button";
 import { Input } from "@sixthshift/design-system/input";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { type FormEvent, useState } from "react";
-import { appetiteSaves, useAppetite } from "../../../../../api/rpc/appetite";
+import { appetiteSaves, useAppetiteQuery } from "../../../../../api/rpc/appetite";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { cravingChips, notFood, notFoodQuestion } from "../../../../../lib/appetite";
 import { todayISO } from "../../../../../lib/dates";
@@ -36,7 +36,7 @@ function NotFood({ what }: { what: string }) {
  * until Done.
  */
 export function AddCraving({ onAdded }: { onAdded?: (id: string) => void }) {
-  const { data: entries } = useAppetite();
+  const { data: entries } = useAppetiteQuery();
   const add = useSave(appetiteSaves.addAppetite);
   const [kind, setKind] = useState<"craving" | "off">("craving");
   const [what, setWhat] = useState("");

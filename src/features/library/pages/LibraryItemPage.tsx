@@ -1,9 +1,9 @@
 import { getRouteApi, Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { ArrowLeft, CalendarRange } from "lucide-react";
 import { Suspense, use, useEffect } from "react";
-import { useChecklist } from "../../../api/rpc/checklist";
-import { useExtras } from "../../../api/rpc/extras";
-import { useAnswers } from "../../../api/rpc/facts";
+import { useChecklistQuery } from "../../../api/rpc/checklist";
+import { useExtrasQuery } from "../../../api/rpc/extras";
+import { useAnswersQuery } from "../../../api/rpc/facts";
 import { Skeleton, SkeletonText } from "../../../components/loading/Skeleton";
 import { NothingHere } from "../../../components/NothingHere";
 import { builtInItems } from "../../../content";
@@ -30,10 +30,10 @@ const route = getRouteApi("/app/library/$itemId");
 /** One item on its own page, with the way to its week in the whole pregnancy. */
 export function LibraryItemPage() {
   const { itemId } = route.useParams();
-  const { data: checklist } = useChecklist();
+  const { data: checklist } = useChecklistQuery();
   const items = useItems();
-  const { data: facts } = useAnswers({ select: factsOf });
-  const { data: extras } = useExtras({ select: extrasOn });
+  const { data: facts } = useAnswersQuery({ select: factsOf });
+  const { data: extras } = useExtrasQuery({ select: extrasOn });
   const item = items.find((i) => i.id === itemId);
   // Hidden by an answer, rather than not there at all: say so, and open settings at it.
   const hidden = item ? undefined : builtInItems.find((i) => i.id === itemId);

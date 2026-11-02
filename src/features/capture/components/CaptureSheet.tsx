@@ -26,9 +26,9 @@ import {
   Waves,
 } from "lucide-react";
 import { useState } from "react";
-import { useJournal } from "../../../api/rpc/journal";
-import { usePeople } from "../../../api/rpc/people";
-import { useQuiet } from "../../../api/rpc/quiet";
+import { useJournalQuery } from "../../../api/rpc/journal";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import type { FirstKey } from "../../../lib/firsts";
 import { movementsOffered } from "../../../lib/journal";
@@ -80,9 +80,9 @@ export function CaptureSheet({
   onKept?: () => void;
   onClose: () => void;
 }) {
-  const { data: people } = usePeople();
-  const { data: quiet } = useQuiet();
-  const { data: journal } = useJournal();
+  const { data: people } = usePeopleQuery();
+  const { data: quiet } = useQuietQuery();
+  const { data: journal } = useJournalQuery();
   const now = useNow();
   const navigate = useNavigate();
   const { pathname } = useLocation();

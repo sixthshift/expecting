@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
-import { useExtras } from "../../../api/rpc/extras";
-import { useJobs } from "../../../api/rpc/jobs";
-import { usePeople } from "../../../api/rpc/people";
-import { useQuiet } from "../../../api/rpc/quiet";
+import { useExtrasQuery } from "../../../api/rpc/extras";
+import { useJobsQuery } from "../../../api/rpc/jobs";
+import { usePeopleQuery } from "../../../api/rpc/people";
+import { useQuietQuery } from "../../../api/rpc/quiet";
 import { extrasOn } from "../../../lib/extras";
 import { JOBS, outcomes, toAnswer, waiting } from "../../../lib/jobs";
 import { extra } from "../../settings/model/extras";
@@ -17,10 +17,10 @@ import { Results } from "../components/results/Results";
  * while something has happened, it's put away.
  */
 export function JobsPage() {
-  const { data: view } = useJobs();
-  const { me, people } = usePeople().data;
-  const { data: on } = useExtras({ select: (e) => extrasOn(e).has("who-does-what") });
-  const { data: quiet } = useQuiet();
+  const { data: view } = useJobsQuery();
+  const { me, people } = usePeopleQuery().data;
+  const { data: on } = useExtrasQuery({ select: (e) => extrasOn(e).has("who-does-what") });
+  const { data: quiet } = useQuietQuery();
   const other = people.find((p) => p.id !== me?.id)?.name ?? "The other one";
   const deck = toAnswer(view.answers);
   const results = outcomes(view.answers);
