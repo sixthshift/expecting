@@ -204,7 +204,13 @@ Until 2026-11-02 there were lenses on the story (Notes, Photos, Firsts,
 Movements, …), then "records" for the four an appointment asks about. Both
 were the same thing, everything by what it is; the question an appointment
 asks is only the answer at the top of one. One page for it, with the
-story beside it, by time. Its old addresses still land.
+story beside it, by time.
+
+The names: **Journal** is the whole of it, the book you keep, and it holds
+two things, the **Story** (as it happened) and the **Collections** (by
+sort). Not "Diary": a diary in a journal is the same word twice. Not
+"Timeline": that's the whole pregnancy's map (`/timeline`), weeks 1–42
+past and ahead, which the word fits better than a diary of what's kept. Its old addresses still land.
 
 ## What's kept, kind by kind
 
