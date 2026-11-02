@@ -456,7 +456,8 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
   next asked and what it decides; `/settings?ask=<key>` opens at one. A
   **question** is what's asked and an **answer** what's kept, in the code
   as on the screens (`QuestionRow`, `useAnswersQuery`); **facts** are only
-  the rules over them (`facts.ts`, `src/lib/facts.ts`).
+  the rules over them (`facts.ts`, `src/lib/facts.ts`). The map of
+  Settings' code is `src/features/settings/README.md`.
 
 ## Extras
 
@@ -486,6 +487,9 @@ what the choices mean is `src/lib/extras.ts` (`extrasOn`, `inExtras`,
   since the other phone may have answered meanwhile.
 - Each answer is saved as it's given, so a reload resumes. With the due
   date skipped, This week asks for it.
+- Each step is a component reading its own queries, drawn in
+  `OnboardingFrame`; `OnboardingPageProvider` holds only where it is and
+  the ways on. The map is `src/features/onboarding/README.md`.
 
 ## The names deck
 
