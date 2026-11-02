@@ -18,8 +18,10 @@ sources:
     url: https://www.privatehealth.gov.au/health_insurance/surcharges_incentives/index.htm
   - title: Pregnancy, Birth and Baby — Private health insurance and pregnancy
     url: https://www.pregnancybirthbaby.org.au/healthcare-and-services/medicare-insurance-and-digital-services/private-health-insurance-and-pregnancy
+  - title: healthdirect — Planning for your pregnancy
+    url: https://www.healthdirect.gov.au/planning-for-your-pregnancy
 related: [cost-of-having-a-baby, adding-baby-to-private-health-cover, medicare-safety-net]
-checked: 2026-10-29
+checked: 2026-11-02
 ---
 If you're already pregnant and only just took out private health insurance, or upgraded it, it may not pay for this pregnancy. Here's how to tell, and what your options are.
 
@@ -28,6 +30,8 @@ If you're already pregnant and only just took out private health insurance, or u
 When you start a new policy or increase your level of cover, you have to serve waiting periods before you can claim benefits at the new level. The maximum waiting period for pregnancy and birth is 12 months. The pregnant parent needs to have served the full waiting period before being admitted to hospital to claim benefits.
 
 Pregnancy, Birth and Baby says most policies have a 12-month waiting period for pregnancy, and during it you can't claim any pregnancy-related health expenses. For private obstetric care, you'd need to have bought or upgraded relevant cover at least 12 months before becoming pregnant, or pay for private care yourself.
+
+If you're upgrading before you start trying (for a next pregnancy, say), allow for it taking a while: healthdirect says most healthy couples become pregnant within 6 to 12 months of trying. Budget for the higher premium from the upgrade until the birth, not just for the 12-month wait.
 
 If the baby is due inside the waiting period, that leaves public care, which everyone with a Medicare number can get in a public hospital or birth centre, fully covered by Medicare, or paying privately.
 

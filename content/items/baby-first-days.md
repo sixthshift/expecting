@@ -13,8 +13,10 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/babys-first-24-hours
   - title: Pregnancy, Birth and Baby — Your baby in the first few days
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/after-birth/your-baby-in-the-first-few-days
+  - title: Australian Breastfeeding Association — Do I need to wake my baby?
+    url: https://www.breastfeeding.asn.au/resources/wake-my-baby
 related: [term-vernix, term-meconium, newborn-checks, first-feed, going-home]
-checked: 2026-10-29
+checked: 2026-11-02
 ---
 The first few days are exciting and tiring, and every baby is different. Here's what's usual for a healthy baby born at full term.
 
@@ -27,6 +29,8 @@ The midwife checks your baby's condition at 1 and 5 minutes (the Apgar score), a
 ## Feeding and sleeping
 
 Your baby may want to feed often, perhaps every hour: as a rough guide, 8 to 12 times or more in the first 24 hours, and 8 to 14 or more feeds a day after that, including overnight. Signs of hunger include getting restless, sucking their hands, murmuring, and turning their head with an open mouth.
+
+A newborn won't always wake for these feeds. Little babies need to feed at least 8 times in 24 hours, including overnight, so if your newborn sleeps for long periods, you may need to wake them. Taking off a layer of clothing or undressing them, or holding them facing you and talking softly, can help. If your baby is very sleepy or hard to wake, check with your doctor or child health nurse.
 
 Most newborns sleep 14 to 17 hours a day, in stretches of 2 to 4 hours, and don't know day from night yet. Don't set strict schedules in the first couple of months.
 

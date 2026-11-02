@@ -20,10 +20,12 @@ sources:
     url: https://www.servicesaustralia.gov.au/income-test-for-family-tax-benefit-part-b
   - title: Fair Work Ombudsman — Accruing and taking other leave during parental leave
     url: https://www.fairwork.gov.au/leave/parental-leave/during-parental-leave/accruing-and-taking-other-leave-during-parental-leave
+  - title: Fair Work Ombudsman — Final pay
+    url: https://www.fairwork.gov.au/ending-employment/final-pay
   - title: ATO — Paid Parental Leave Superannuation Contribution
     url: https://www.ato.gov.au/individuals-and-families/super-for-individuals-and-families/super/growing-and-keeping-track-of-your-super/how-to-save-more-in-your-super/government-super-contributions/paid-parental-leave-superannuation-contribution
 related: [parental-leave-pay, employer-paid-parental-leave, family-tax-benefit-b, child-care-subsidy, parental-leave-pay-employer-delivered]
-checked: 2026-10-29
+checked: 2026-11-02
 ---
 A year of leave isn't one budget, it's several: the weeks when employer pay comes in, the weeks of government pay, and the weeks after both stop. Moneysmart's five steps for a budget work for each of them.
 
@@ -33,7 +35,7 @@ Moneysmart's first step is to list every bit of income: wages, government paymen
 
 - **Paid parental leave from your employer**, if you get it.
 - **[Parental Leave Pay](parental-leave-pay)** from the government: for a child born from 1 July 2026, up to 130 days for the family, at $200.94 a day before tax, or $1,004.70 for a 5-day week, in 2026–27. It's taxable, and the rate usually changes each 1 July. If you have a partner, 20 of the days are reserved for them, and you decide together how to use the rest.
-- **Annual leave and long service leave.** You can get Parental Leave Pay before, after or at the same time as them.
+- **Annual leave and long service leave.** You can get Parental Leave Pay before, after or at the same time as them. If you might not go back to the job, know that unused annual leave is paid out when your employment ends, but sick and carer's leave isn't.
 - **[Family Tax Benefit Part B](family-tax-benefit-b)** can't be paid on the days Parental Leave Pay is paid.
 
 Then mark the week the money stops. If an income varies, Moneysmart suggests working out an average.
