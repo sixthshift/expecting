@@ -7,7 +7,7 @@ import { alreadyHappened, aroundNow } from "../../../../lib/firsts";
 import { placesReady } from "../../../../lib/places";
 import type { StoryItem } from "../../../../lib/story/items";
 import { inWeek, storyGroups, storySpine } from "../../../../lib/story/spine";
-import { StoryList } from "../story/Story";
+import { StoryList } from "../lines/StoryList";
 import { BookCover } from "./thisWeek/BookCover";
 import { AlreadyHappened, Places, WeekPage } from "./thisWeek/WeekPage";
 

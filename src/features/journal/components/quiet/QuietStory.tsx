@@ -7,9 +7,9 @@ import { useJournalPage } from "../../contexts/JournalPageContext";
 import { useScrollToWeek } from "../../hooks/useScrollToWeek";
 import { useStorySearch } from "../../hooks/useStorySearch";
 import { useStoryView } from "../../hooks/useStoryView";
+import { StoryList } from "../lines/StoryList";
 import { KindView } from "../story/KindView";
 import { SearchResults } from "../story/SearchResults";
-import { StoryList } from "../story/Story";
 import { StoryControls } from "../story/StoryTools";
 import { PregnancyView, WeeksView } from "../story/Zoom";
 

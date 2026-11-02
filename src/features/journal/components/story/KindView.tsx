@@ -3,7 +3,7 @@ import type { QuietKind } from "../../../../lib/quiet";
 import type { StoryItem } from "../../../../lib/story/items";
 import { storyGroups } from "../../../../lib/story/spine";
 import type { KindView as Kind } from "../../../../lib/story/views";
-import { StoryList } from "./Story";
+import { StoryList } from "../lines/StoryList";
 import { FirstsView } from "./views/firsts/FirstsView";
 import { PhotosView } from "./views/photos/PhotosView";
 

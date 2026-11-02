@@ -7,7 +7,7 @@ import { foldedWhileQuiet } from "../../../../lib/story/items";
 import { storyGroups } from "../../../../lib/story/spine";
 import { useJournalPage } from "../../contexts/JournalPageContext";
 import { AddPhoto } from "../entries/photos/AddPhoto";
-import { StoryList } from "../story/Story";
+import { StoryList } from "../lines/StoryList";
 
 /** What's folded away, behind one quiet line, with one quiet way to add a photo. */
 export function KeptBefore() {

@@ -26,7 +26,7 @@ import { CaptureSheet } from "../../../../capture/components/CaptureSheet";
 import { useOnThisPhone } from "../../../hooks/useOnThisPhone";
 import { DayField } from "../../entries/firsts/DayField";
 import { AddPhoto } from "../../entries/photos/AddPhoto";
-import { Days } from "../../story/Story";
+import { Days } from "../../lines/Day";
 
 /** A first that's around now: what, its question, and your words for it; kept, it's marked today (or the day you say). */
 function AroundNowFirst({ first, week, onNotYet, past = false }: { first: FirstDef; week: Week; onNotYet?: () => void; past?: boolean }) {
