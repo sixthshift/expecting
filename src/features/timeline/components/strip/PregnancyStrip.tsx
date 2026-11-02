@@ -54,7 +54,8 @@ export function PregnancyStrip({ now, at, due, named = false }: { now: Week; at:
                 : w < now
                   ? "bg-bg-brand-subtle-hovered hover:bg-bg-brand-subtle-pressed"
                   : "bg-border-subtle hover:bg-border-normal",
-              w === at && w !== now && "ring-2 ring-border-brand-strong ring-offset-1 ring-offset-(--expecting-page)",
+              // Above its neighbours, which come later and would paint over the ring.
+              w === at && w !== now && "z-10 ring-2 ring-border-brand-strong ring-offset-1 ring-offset-(--expecting-page)",
               // A breath between the trimesters.
               w > WEEKS.first && trimester(w) !== trimester(w - 1) && "ml-0.5"
             )}
