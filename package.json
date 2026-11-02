@@ -17,7 +17,8 @@
     "version:next": "bun run scripts/version.ts",
     "names": "bun run scripts/names.ts",
     "palette": "bun run scripts/palette.ts && bun run scripts/palette-sheet.ts",
-    "components:sheet": "bun run scripts/components-sheet.ts"
+    "components:sheet": "bun run scripts/components-sheet.ts",
+    "screenshots": "playwright test -c e2e/screenshots/config.ts"
   },
   "dependencies": {
     "@fontsource-variable/figtree": "^5.3.0",

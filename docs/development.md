@@ -73,6 +73,10 @@ bun run start
 
 `DATA_DIR` (default `./data`) says where `expecting.db` lives; `PORT` (default 9966) is the server's port. `GET /api/health` answers `{"ok":true,"version":"…","commit":"…"}`.
 
+## Screenshots
+
+The README's pictures are taken by `bun run screenshots`: the production build on port 9965 over an empty database of its own, set up through the UI as Sam at 26 weeks with Jason joined, then photographed on a phone and a desktop (`e2e/screenshots/`). It isn't part of the gate. Run it when the look changes, and commit what it writes to `docs/screenshots/`.
+
 ## Building the image
 
 GitHub Actions builds and publishes the image on every push to `main` (`.github/workflows/docker.yml`). To run a local build instead:
