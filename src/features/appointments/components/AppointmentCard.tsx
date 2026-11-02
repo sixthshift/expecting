@@ -2,17 +2,19 @@ import { Badge } from "@sixthshift/design-system/badge";
 import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
 import { toast } from "@sixthshift/design-system/overlay";
-import { MapPin, Pencil, Trash2 } from "lucide-react";
+import { CalendarPlus, MapPin, Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { appointmentsSaves } from "../../../api/rpc/appointments";
 import { useSave } from "../../../app/hooks/useSave";
 import { type Appointment, appointmentSoon, appointmentWhen } from "../../../lib/appointments";
+import { icsPath } from "../../../lib/calendar";
 import { type ISODate, todayISO } from "../../../lib/dates";
 import { AppointmentForm } from "./AppointmentForm";
 
 /**
  * One appointment: what, when (and how soon, within a fortnight), where, and
  * its notes. Either of you can change it or delete it; a delete can be undone.
+ * One still ahead can go in the phone's own calendar, for its reminders.
  * `size`: the next one is given room.
  */
 export function AppointmentCard({ appointment, size = "sm" }: { appointment: Appointment; size?: "sm" | "md" }) {
@@ -79,6 +81,16 @@ export function AppointmentCard({ appointment, size = "sm" }: { appointment: App
         </Button>
       </div>
       {appointment.notes ? <p className="mt-2 whitespace-pre-wrap text-sm text-fg-normal">{appointment.notes}</p> : null}
+      {appointment.day >= today ? (
+        <a
+          href={icsPath(appointment.id)}
+          aria-label={`Add "${appointment.title}" to your calendar`}
+          className="-mb-2 flex min-h-11 w-fit items-center gap-1 text-sm text-fg-subtle hover:text-fg-normal"
+        >
+          <CalendarPlus aria-hidden size={16} />
+          Add to calendar
+        </a>
+      ) : null}
     </Card>
   );
 }

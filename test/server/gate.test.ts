@@ -51,6 +51,14 @@ describe("without a session", () => {
     expect(gateModule.gate(request(`/api/files/${id}/original?download`))?.status).toBe(401);
   });
 
+  test("an appointment's calendar file, opened as a page, goes to log in first and back to it", () => {
+    const path = "/api/appointments/11111111-1111-4111-8111-111111111111/calendar.ics";
+    const response = gateModule.gate(request(path, { headers: { accept: "text/html" } }));
+    expect(response?.status).toBe(302);
+    expect(response?.headers.get("location")).toBe(`http://expecting.lan/login?next=${encodeURIComponent(path)}`);
+    expect(gateModule.gate(request(path))?.status).toBe(401);
+  });
+
   test("the login page, joining, resetting and the health check are open", () => {
     expect(gateModule.gate(request("/login", { headers: { accept: "text/html" } }))).toBeNull();
     expect(gateModule.gate(request("/join?code=ABC", { headers: { accept: "text/html" } }))).toBeNull();

@@ -145,8 +145,14 @@ change one or delete it (a delete can be undone).
   fortnight, with the questions waiting; a peek at another week shows that
   week's; the map counts them. Its week is worked out from the due date, so
   a moved due date moves its week, never its day.
-- **Nothing repeats, and nothing reminds.** No recurring appointments, no
-  notifications, no calendar export: a phone's own calendar does those.
+- **Add to calendar,** on each one still ahead: the phone's own calendar
+  does the reminders, and fits it among the rest of the week. An iPhone
+  shows the event with Add to Calendar; a computer downloads the file for
+  its calendar app. Without a time it's all day; with one, an hour, as
+  nothing says how long. Changed later, add it again: a calendar that
+  knows it updates it, one that doesn't keeps both.
+- **Nothing repeats, and Expecting doesn't remind.** No recurring
+  appointments and no notifications: the calendar does those.
 - **Kept while something has happened,** like the questions: there are
   often more appointments, not fewer.
 

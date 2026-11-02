@@ -100,6 +100,12 @@ test("an appointment is kept from the +, heads the Planner's questions, and is o
   await expect(appointments.getByText("In 3 days")).toBeVisible();
   await expect(page.getByRole("region", { name: "For the next appointment" }).getByText(/^Midwife, /)).toBeVisible();
 
+  // Its calendar file, for the phone's own calendar.
+  const href = await appointments.getByRole("link", { name: 'Add "Midwife" to your calendar' }).getAttribute("href");
+  const ics = await page.request.get(href!);
+  expect(ics.headers()["content-type"]).toBe("text/calendar; charset=utf-8");
+  expect(await ics.text()).toContain("SUMMARY:Midwife");
+
   await open("/");
   const next = page.getByRole("region", { name: "Next appointment" });
   await expect(next.getByText("Midwife")).toBeVisible();

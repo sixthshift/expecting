@@ -89,9 +89,10 @@ self.addEventListener("fetch", (event) => {
   // An upload, even opened as a page (a PDF in its own tab): never answered with the shell.
   if (KEPT_PICTURE.test(url.pathname)) event.respondWith(picture(event));
   else if (KEPT_ORIGINAL.test(url.pathname)) event.respondWith(original(event));
-  else if (request.mode === "navigate") event.respondWith(page(event));
   else if (url.pathname.startsWith("/api/rpc/")) event.respondWith(data(event));
+  // Any other /api/ path is the server's, even opened as a page (an appointment's calendar file): never the shell.
   else if (url.pathname.startsWith("/api/")) return;
+  else if (request.mode === "navigate") event.respondWith(page(event));
   else event.respondWith(file(request));
 });
 
