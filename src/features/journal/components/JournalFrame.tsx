@@ -6,11 +6,11 @@ import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 /**
  * Every page of the Journal: the pillar's header, its two ways in, and the
  * page under them, one column at the pillar's width. The ways in are the
- * story, to read back (`/journal`), and the records, to look something up
- * (`/journal/records`): links, so each is its own address and back goes
- * between them.
+ * story, everything by time (`/journal`), and the collections, everything
+ * by what it is (`/journal/collections`): links, so each is its own address
+ * and back goes between them.
  */
-export function JournalFrame({ current, children }: { current: "story" | "records"; children: ReactNode }) {
+export function JournalFrame({ current, children }: { current: "story" | "collections"; children: ReactNode }) {
   const tab = (active: boolean) =>
     cn(
       "flex min-h-10 items-center rounded-full px-4 text-sm font-medium",
@@ -24,8 +24,8 @@ export function JournalFrame({ current, children }: { current: "story" | "record
           <Link to="/journal" aria-current={current === "story" ? "page" : undefined} className={tab(current === "story")}>
             Story
           </Link>
-          <Link to="/journal/records" aria-current={current === "records" ? "page" : undefined} className={tab(current === "records")}>
-            Records
+          <Link to="/journal/collections" aria-current={current === "collections" ? "page" : undefined} className={tab(current === "collections")}>
+            Collections
           </Link>
         </nav>
         {children}

@@ -1,7 +1,16 @@
 import { expect, test } from "vitest";
 import { addDays, type ISODate } from "../../src/lib/dates";
-import { cravingsSummary, feelingsSummary, movementsSummary, sicknessSummary, summariesText } from "../../src/lib/records";
-import { appetite, DUE, entry, feeling } from "./storyFixtures";
+import {
+  cravingsSummary,
+  feelingsSummary,
+  firstsSummary,
+  movementsSummary,
+  notesSummary,
+  photosSummary,
+  sicknessSummary,
+  summariesText,
+} from "../../src/lib/summaries";
+import { appetite, DUE, entry, feeling, first, photo } from "./storyFixtures";
 
 /** Week `w`, day `d` of the fixtures' pregnancy. */
 const on = (w: number, d = 0) => addDays(addDays(DUE, -280), w * 7 + d);
@@ -111,8 +120,26 @@ test("feelings: you first, then the other, over four weeks; your words only from
 test("as text, to paste: a heading, each record with its answer and lines, then the papers", () => {
   const text = summariesText({
     heading: "Records at week 30",
-    records: [{ title: "Movements", summary: { headline: "4 of the last 14 days", lines: ["Last kept yesterday."], lately: true } }],
+    summaries: [{ title: "Movements", summary: { headline: "4 of the last 14 days", lines: ["Last kept yesterday."], lately: true } }],
     papers: ["Birth plan"],
   });
   expect(text).toBe("Records at week 30\n\nMovements: 4 of the last 14 days\n- Last kept yesterday.\n\nPapers kept\n- Birth plan");
+});
+
+test("notes and letters, photos and firsts: how many, and what's in them", () => {
+  expect(notesSummary([entry("note", on(4, 2)), entry("letter", on(20, 1)), entry("note", on(30, 2)), entry("movement", on(30, 2))], today, DUE)).toEqual({
+    headline: "2 notes · 1 letter",
+    lines: ["Last kept yesterday.", "The first in week 4."],
+    lately: true,
+  });
+  expect(photosSummary([photo("bump", on(12, 0)), photo("bump", on(20, 0)), photo("scan", on(12, 2)), photo("other", on(22, 0))], today, DUE)).toEqual({
+    headline: "4 photos",
+    lines: ["The bump in 2 weeks, from week 12 to week 20.", "A scan: week 12.", expect.stringMatching(/^Last kept /)],
+    lately: false,
+  });
+  const firsts = firstsSummary([first("found-out", on(4, 2)), first("first-kick", on(19, 2)), first("showing", null)], true, today, DUE);
+  expect(firsts?.headline).toBe("2 of 13 kept");
+  expect(firsts?.lines[0]).toBe("The latest: felt the first kick, week 19.");
+  expect(notesSummary([], today, DUE)).toBeNull();
+  expect(firstsSummary([first("showing", null)], true, today, DUE)).toBeNull();
 });

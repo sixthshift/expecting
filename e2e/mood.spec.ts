@@ -14,7 +14,7 @@ test("a check-in is kept with its words, and the other phone sees the step but n
   await checkIn.getByRole("button", { name: "Done" }).click();
   await expect(page.getByRole("heading", { name: "Low today" })).toBeVisible();
 
-  await open("/journal/records/feelings");
+  await open("/journal/collections/feelings");
   const feelings = page.getByRole("region", { name: "How you're feeling" });
   await expect(feelings.getByText("Your words: tired, 1 day")).toBeVisible();
   await expect(feelings.getByText("Long day at work")).toBeVisible();
@@ -38,7 +38,7 @@ test("a check-in is kept with its words, and the other phone sees the step but n
   await sam.getByRole("button", { name: "I'm Sam" }).click();
   await sam.waitForURL((url) => !url.pathname.startsWith("/onboarding"));
   await expect(sam.getByRole("heading", { name: "How are you today, Sam?" })).toBeVisible();
-  await sam.goto("/journal/records/feelings", { waitUntil: "networkidle" });
+  await sam.goto("/journal/collections/feelings", { waitUntil: "networkidle" });
   const samFeelings = sam.getByRole("region", { name: "How you're feeling" });
   await expect(samFeelings.getByText("Jason", { exact: true })).toBeVisible();
   await expect(samFeelings.getByRole("region", { name: "Today" }).getByText("Low", { exact: true })).toBeVisible();
@@ -53,7 +53,7 @@ test("a check-in is kept with its words, and the other phone sees the step but n
   await phone.close();
 
   // Only Jason can change or delete it, and a deleted check-in can be put back.
-  await open("/journal/records/feelings");
+  await open("/journal/collections/feelings");
   await feelings.getByRole("button", { name: "Delete this check-in" }).click();
   await expect(feelings.getByText("Long day at work")).toBeHidden();
   await page.getByRole("button", { name: "Undo" }).click();

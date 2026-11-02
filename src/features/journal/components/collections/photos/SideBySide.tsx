@@ -1,9 +1,9 @@
 import { Modal } from "@sixthshift/design-system/modal";
 import { Select } from "@sixthshift/design-system/select";
 import { useState } from "react";
-import { type BumpWeek, sideBySide } from "../../../../../../lib/photos";
-import { weekLabel } from "../../../../../../lib/timeline";
-import { Picture } from "../../../entries/photos/Picture";
+import { type BumpWeek, sideBySide } from "../../../../../lib/photos";
+import { weekLabel } from "../../../../../lib/timeline";
+import { Picture } from "../../entries/photos/Picture";
 
 /**
  * The bump side by side: two weeks next to each other, the first and the

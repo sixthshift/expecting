@@ -1,30 +1,25 @@
-// The records: what's been kept, said in a few lines, for looking up rather
-// than reading back. The answer to the midwife's "since when?", "how
-// often?", "is it easing?", from what's kept and nothing else: counts, days
-// and weeks, never "normal", never a score, never what's missing (a kind
-// with nothing kept has no record). See docs/product/journal.md, The records.
+// What each collection says at its top: a short answer, short enough to read
+// across a room, and the lines behind it. For the midwife's "since when?",
+// "how often?", "is it easing?", and for what's been kept so far. From
+// what's kept and nothing else: counts, days and weeks, never "normal",
+// never a score, never what's missing (a collection with nothing kept has
+// no summary). See docs/product/journal.md, The collections.
 
 import { type AppetiteEntry, tally } from "./appetite";
 import { addDays, daysBetween, type ISODate } from "./dates";
 import { type Feeling, feelingsOf, isOwn, type OwnFeeling, STEP_LABEL, weekStep, wordsUsed } from "./feelings";
+import { type FirstMark, firstOf, firstsOffered, isMarked } from "./firsts";
 import { formatTime, type JournalEntry, placeOf } from "./journal";
 import { dayInSentence, placeInSentence } from "./labels";
-import type { KeptKind } from "./story/kinds";
-
-/** The kinds kept as records, in the order they're shown: looked up rather than read back. */
-export const RECORDS = ["movements", "appetite", "feelings", "papers"] as const satisfies readonly KeptKind[];
-export type RecordKind = (typeof RECORDS)[number];
-
-export function isRecordKind(kind: string): kind is RecordKind {
-  return (RECORDS as readonly string[]).includes(kind);
-}
+import type { Paper } from "./papers";
+import { bumpWeeks, type Photo } from "./photos";
 
 /**
- * A kind's record: the answer, short enough to read across a room
- * (`headline`), what backs it up (`lines`), and whether any of it is from
- * the last fortnight (`lately`): the records put what's going on now first.
+ * A collection's summary: the answer (`headline`), what backs it up
+ * (`lines`), and whether any of it is from the last fortnight (`lately`):
+ * the collections put what's going on now first.
  */
-export type RecordSummary = { headline: string; lines: string[]; lately: boolean };
+export type Summary = { headline: string; lines: string[]; lately: boolean };
 
 /** How far back "lately" looks, today among them. */
 export const LATELY_DAYS = 14;
@@ -61,7 +56,7 @@ function partOf(time: string): string {
  * different lately, the parts of the day they're kept in (any with at least
  * a quarter of them), the last, and since when. Null with none kept.
  */
-export function movementsSummary(journal: readonly JournalEntry[], today: ISODate, dueDate: ISODate | null): RecordSummary | null {
+export function movementsSummary(journal: readonly JournalEntry[], today: ISODate, dueDate: ISODate | null): Summary | null {
   const kept = journal.filter((e) => e.kind === "movement" && e.day <= today).sort((a, b) => (a.day + (a.time ?? "")).localeCompare(b.day + (b.time ?? "")));
   if (kept.length === 0) return null;
   const from = addDays(today, 1 - LATELY_DAYS);
@@ -114,7 +109,7 @@ function weeksSaid(weeks: readonly number[]): string {
  * how many days threw up or couldn't keep fluids down. Its answer: how many
  * of the last fortnight's days, or none since when. Null with none kept.
  */
-export function sicknessSummary(appetite: readonly AppetiteEntry[], today: ISODate, dueDate: ISODate | null): RecordSummary | null {
+export function sicknessSummary(appetite: readonly AppetiteEntry[], today: ISODate, dueDate: ISODate | null): Summary | null {
   const sick = appetite.filter((e) => e.kind === "sick" && e.day <= today);
   if (sick.length === 0) return null;
   const days = [...new Set(sick.map((e) => e.day))].sort() as ISODate[];
@@ -150,7 +145,7 @@ export function sicknessSummary(appetite: readonly AppetiteEntry[], today: ISODa
 const CRAVINGS_NAMED = 6;
 
 /** Cravings and what's gone off: each by how often, most first; its answer, the most craved. Null with neither kept. */
-export function cravingsSummary(appetite: readonly AppetiteEntry[], today: ISODate): RecordSummary | null {
+export function cravingsSummary(appetite: readonly AppetiteEntry[], today: ISODate): Summary | null {
   const craved = tally(appetite, "craving");
   const off = tally(appetite, "off");
   if (craved.length === 0 && off.length === 0) return null;
@@ -180,12 +175,7 @@ export type Named = { id: string; name: string };
  * many days and the middle step; your own words most used, which only your
  * phone has. Null with none kept in that time.
  */
-export function feelingsSummary(
-  feelings: readonly (Feeling | OwnFeeling)[],
-  people: readonly Named[],
-  me: string | null,
-  today: ISODate
-): RecordSummary | null {
+export function feelingsSummary(feelings: readonly (Feeling | OwnFeeling)[], people: readonly Named[], me: string | null, today: ISODate): Summary | null {
   const from = addDays(today, 1 - FEELING_DAYS);
   const lines: string[] = [];
   let headline: string | null = null;
@@ -217,15 +207,99 @@ export function feelingsSummary(
 }
 
 /** A record as it's read out or pasted: its name, its answer, then each line. */
-export type Titled = { title: string; summary: RecordSummary };
+export type Titled = { title: string; summary: Summary };
 
 /**
  * The records as plain text, to paste into a message or a form: a heading
  * (when, and the week), then each with its answer and lines, and the
  * papers by name. What's said is what's on the page, nothing more.
  */
-export function summariesText({ heading, records, papers }: { heading: string; records: readonly Titled[]; papers: readonly string[] }): string {
-  const parts = [heading, ...records.map(({ title, summary }) => [`${title}: ${summary.headline}`, ...summary.lines.map((l) => `- ${l}`)].join("\n"))];
+export function summariesText({ heading, summaries, papers }: { heading: string; summaries: readonly Titled[]; papers: readonly string[] }): string {
+  const parts = [heading, ...summaries.map(({ title, summary }) => [`${title}: ${summary.headline}`, ...summary.lines.map((l) => `- ${l}`)].join("\n"))];
   if (papers.length > 0) parts.push(["Papers kept", ...papers.map((p) => `- ${p}`)].join("\n"));
   return parts.join("\n\n");
+}
+
+/** "1 note", "24 notes". */
+function count(n: number, one: string, many: string): string {
+  return `${n} ${n === 1 ? one : many}`;
+}
+
+/** Whether any of `days` is in the last fortnight. */
+function anyLately(days: readonly string[], today: ISODate): boolean {
+  const from = addDays(today, 1 - LATELY_DAYS);
+  return days.some((d) => d >= from && d <= today);
+}
+
+/** Notes and letters: how many of each, the last, and since when. Null with none. */
+export function notesSummary(journal: readonly JournalEntry[], today: ISODate, dueDate: ISODate | null): Summary | null {
+  const written = journal.filter((e) => (e.kind === "note" || e.kind === "letter") && e.day <= today).sort((a, b) => a.day.localeCompare(b.day));
+  if (written.length === 0) return null;
+  const letters = written.filter((e) => e.kind === "letter").length;
+  const notes = written.length - letters;
+  const headline = [notes > 0 ? count(notes, "note", "notes") : null, letters > 0 ? count(letters, "letter", "letters") : null].filter(Boolean).join(" · ");
+  const lines = [`Last kept ${dayInSentence(written.at(-1)!.day as ISODate, today)}.`, `The first in ${placeInSentence(written[0]!.day as ISODate, dueDate)}.`];
+  return {
+    headline,
+    lines,
+    lately: anyLately(
+      written.map((e) => e.day),
+      today
+    ),
+  };
+}
+
+/** Photos: how many, the bump week by week, the scans, and the last. Null with none. */
+export function photosSummary(photos: readonly Photo[], today: ISODate, dueDate: ISODate | null): Summary | null {
+  const kept = photos.filter((p) => p.day <= today).sort((a, b) => a.day.localeCompare(b.day));
+  if (kept.length === 0) return null;
+  const lines: string[] = [];
+  const bump = bumpWeeks(kept, dueDate);
+  if (bump.length > 1) lines.push(`The bump in ${bump.length} weeks, from week ${bump[0]!.week} to week ${bump.at(-1)!.week}.`);
+  else if (bump.length === 1) lines.push(`The bump in week ${bump[0]!.week}.`);
+  const scans = kept.filter((p) => p.kind === "scan");
+  if (scans.length > 0)
+    lines.push(`${scans.length === 1 ? "A scan" : `${scans.length} scans`}: ${scans.map((p) => placeInSentence(p.day as ISODate, dueDate)).join(", ")}.`);
+  lines.push(`Last kept ${dayInSentence(kept.at(-1)!.day as ISODate, today)}.`);
+  return {
+    headline: count(kept.length, "photo", "photos"),
+    lines,
+    lately: anyLately(
+      kept.map((p) => p.day),
+      today
+    ),
+  };
+}
+
+/** Firsts: how many of them are kept, the latest, and what's still to come. Null with none kept. */
+export function firstsSummary(marks: readonly FirstMark[], knowing: boolean, today: ISODate, dueDate: ISODate | null): Summary | null {
+  const kept = marks.filter(isMarked).sort((a, b) => a.day.localeCompare(b.day));
+  if (kept.length === 0) return null;
+  const offered = firstsOffered(knowing);
+  const latest = kept.at(-1)!;
+  const lines = [`The latest: ${firstOf(latest.key).title.toLowerCase()}, ${placeInSentence(latest.day as ISODate, dueDate)}.`];
+  const toCome = offered.filter((f) => !marks.some((m) => m.key === f.key));
+  if (toCome.length > 0 && toCome.length <= 3) lines.push(`Still to come: ${list(toCome.map((f) => f.title.toLowerCase()))}.`);
+  return {
+    headline: `${kept.length} of ${offered.length} kept`,
+    lines,
+    lately: anyLately(
+      kept.map((m) => m.day),
+      today
+    ),
+  };
+}
+
+/** Papers: how many, and the latest. Null with none. (The handy ones are drawn as they are, to open.) */
+export function papersSummary(papers: readonly Paper[], today: ISODate, dueDate: ISODate | null): Summary | null {
+  if (papers.length === 0) return null;
+  const latest = [...papers].sort((a, b) => a.day.localeCompare(b.day)).at(-1)!;
+  return {
+    headline: count(papers.length, "paper", "papers"),
+    lines: [`The latest: ${latest.title}, ${placeInSentence(latest.day as ISODate, dueDate)}.`],
+    lately: anyLately(
+      papers.map((p) => p.createdAt.slice(0, 10)),
+      today
+    ),
+  };
 }

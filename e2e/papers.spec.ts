@@ -49,7 +49,7 @@ test('a photographed result of two pages from the "+", about the glucose test, k
   await expect(page.getByText("In the Journal")).toBeVisible();
   await expect(page).toHaveURL(/\/planner$/);
 
-  await open("/journal/records/papers");
+  await open("/journal/collections/papers");
   const section = page.getByRole("region", { name: "Results and papers" });
   const row = section.getByRole("button", { name: /^Glucose tolerance test/ });
   await expect(row).toContainText("Result · Dated today · Week 28 · 2 pages");
@@ -88,7 +88,7 @@ test('a PDF letter from the "+" on the Journal, opened behind the gate', async (
   await expect(page.getByRole("region", { name: "This week" }).getByRole("button", { name: "Open: Referral to the hospital" })).toContainText(
     "Letter or referral"
   );
-  await open("/journal/records/papers");
+  await open("/journal/collections/papers");
   await page
     .getByRole("region", { name: "Results and papers" })
     .getByRole("button", { name: /^Referral to the hospital/ })
@@ -107,7 +107,7 @@ test('a PDF letter from the "+" on the Journal, opened behind the gate', async (
 });
 
 test("deleting asks first, and then it's gone", async ({ page, open }) => {
-  await open("/journal/records/papers");
+  await open("/journal/collections/papers");
   const section = page.getByRole("region", { name: "Results and papers" });
   await section.getByRole("button", { name: /^Referral to the hospital/ }).click();
   const viewer = page.getByRole("dialog", { name: "Referral to the hospital" });
@@ -117,7 +117,7 @@ test("deleting asks first, and then it's gone", async ({ page, open }) => {
   await expect(viewer).toBeHidden();
   await expect(section.getByRole("button", { name: /^Referral to the hospital/ })).toBeHidden();
 
-  await open("/journal/records/papers");
+  await open("/journal/collections/papers");
   await expect(page.getByRole("region", { name: "Results and papers" }).getByRole("button", { name: /^Referral to the hospital/ })).toBeHidden();
   // The handy result stays.
   await expect(page.getByRole("region", { name: "Results and papers" }).getByRole("button", { name: /^Glucose tolerance test/ })).toBeVisible();

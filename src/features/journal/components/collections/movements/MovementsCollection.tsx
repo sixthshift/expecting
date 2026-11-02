@@ -14,7 +14,7 @@ const LISTED = 8;
  * there only once one is kept, and never while something has happened (the
  * Journal folds them away then).
  */
-export function MovementsRecord() {
+export function MovementsCollection() {
   const { data: journal } = useJournalQuery();
   const [all, setAll] = useState(false);
   const movements = newestFirst(journal.filter((e) => e.kind === "movement"));

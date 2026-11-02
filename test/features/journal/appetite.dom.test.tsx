@@ -52,17 +52,17 @@ vi.mock("@tanstack/react-router", () => ({ Link: ({ children }: { children: Reac
 
 const { AddCraving } = await import("../../../src/features/journal/components/entries/appetite/AddCraving");
 const { AppetiteItem } = await import("../../../src/features/journal/components/entries/appetite/AppetiteItem");
-const { AppetiteRecord } = await import("../../../src/features/journal/components/records/appetite/AppetiteRecord");
+const { AppetiteCollection } = await import("../../../src/features/journal/components/collections/appetite/AppetiteCollection");
 
 beforeEach(() => {
   appetite = [];
   saved.length = 0;
 });
 
-describe("AppetiteRecord", () => {
+describe("AppetiteCollection", () => {
   it("says since when, and draws the weeks as rows of days", () => {
     appetite = [kept(addDays(today, -9), { how: "queasy" }), kept(today)];
-    render(<AppetiteRecord />);
+    render(<AppetiteCollection />);
     expect(screen.getByText(/^Since /)).toBeTruthy();
     expect(screen.getByText(/Last: today, 3:10 am, threw up\./)).toBeTruthy();
     const rows = within(screen.getByRole("figure")).getAllByRole("listitem");
@@ -73,7 +73,7 @@ describe("AppetiteRecord", () => {
 
   it("when she's been sick often, says so quietly, with the question to take along", () => {
     appetite = [0, 1, 2, 3].map((d) => kept(addDays(today, -d)));
-    render(<AppetiteRecord />);
+    render(<AppetiteCollection />);
     expect(screen.getByText(/Threw up on 4 of the last 7 days\. Being sick often is worth a call/)).toBeTruthy();
     expect(screen.queryByRole("alert")).toBeNull();
     fireEvent.click(screen.getByRole("button", { name: /^Add to your questions: I've been sick on 4 of the last 7 days/ }));
@@ -91,7 +91,7 @@ describe("AppetiteRecord", () => {
       kept(today, { kind: "craving", how: null, what: "pickles" }),
       kept(today, { kind: "off", how: null, what: "Coffee" }),
     ];
-    render(<AppetiteRecord />);
+    render(<AppetiteCollection />);
     expect(screen.getByText("What you've craved")).toBeTruthy();
     expect(screen.getByText(/2 times/)).toBeTruthy();
     expect(screen.getByRole("heading", { name: "Gone off" })).toBeTruthy();

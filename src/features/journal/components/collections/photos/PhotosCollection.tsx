@@ -7,18 +7,18 @@ import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";
 import { Camera, Columns2 } from "lucide-react";
 import { useState } from "react";
-import { usePhotosQuery } from "../../../../../../api/rpc/photos";
-import { useNow, useSettingsQuery } from "../../../../../../api/rpc/settings";
-import type { ISODate } from "../../../../../../lib/dates";
-import { placeHeading, weekRange } from "../../../../../../lib/labels";
-import { BUMP_SERIES, type BumpWeek, bumpToTake, bumpWeeks, kindsOffered, type PhotoGroup, type PhotoKind, photoGroups } from "../../../../../../lib/photos";
-import type { QuietKind } from "../../../../../../lib/quiet";
-import { type Week, weekLabel } from "../../../../../../lib/timeline";
-import { describePhoto } from "../../../../model/labels";
-import { AddPhoto } from "../../../entries/photos/AddPhoto";
-import { PhotoViewer } from "../../../entries/photos/PhotoViewer";
-import { Picture } from "../../../entries/photos/Picture";
-import { Scrubber } from "../../../entries/photos/Scrubber";
+import { usePhotosQuery } from "../../../../../api/rpc/photos";
+import { useNow, useSettingsQuery } from "../../../../../api/rpc/settings";
+import type { ISODate } from "../../../../../lib/dates";
+import { placeHeading, weekRange } from "../../../../../lib/labels";
+import { BUMP_SERIES, type BumpWeek, bumpToTake, bumpWeeks, kindsOffered, type PhotoGroup, type PhotoKind, photoGroups } from "../../../../../lib/photos";
+import type { QuietKind } from "../../../../../lib/quiet";
+import { type Week, weekLabel } from "../../../../../lib/timeline";
+import { describePhoto } from "../../../model/labels";
+import { AddPhoto } from "../../entries/photos/AddPhoto";
+import { PhotoViewer } from "../../entries/photos/PhotoViewer";
+import { Picture } from "../../entries/photos/Picture";
+import { Scrubber } from "../../entries/photos/Scrubber";
 import { SideBySide } from "./SideBySide";
 
 /** How many weeks are shown before "Show every week". */
@@ -107,7 +107,7 @@ function BumpRow({
  * bump row, no empty frame, no scrubber, no side by side, and one way to add
  * a photo (never a bump after a loss). Never deleted.
  */
-export function PhotosView({ quiet }: { quiet: QuietKind | null }) {
+export function PhotosCollection({ quiet }: { quiet: QuietKind | null }) {
   const { data: photos } = usePhotosQuery();
   const { data: settings } = useSettingsQuery();
   const now = useNow();

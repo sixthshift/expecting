@@ -1,16 +1,11 @@
-import { createRoute, lazyRouteComponent, redirect } from "@tanstack/react-router";
-import { appetiteQuery } from "../api/rpc/appetite";
-import { feelingsQuery } from "../api/rpc/feelings";
-import { isRecordKind } from "../lib/records";
+import { createRoute, redirect } from "@tanstack/react-router";
 import { app } from "./app";
 
-/** One of the Journal's records at full size: `/journal/records/movements`, `appetite`, `feelings` or `papers`; anything else is the records. */
+/** Where one collection was, as a record (until 2026-11-02): `/journal/records/movements` is `/journal/collections/movements`. */
 export const journalRecord = createRoute({
   getParentRoute: () => app,
   path: "/journal/records/$kind",
   beforeLoad: ({ params }) => {
-    if (!isRecordKind(params.kind)) throw redirect({ to: "/journal/records" });
+    throw redirect({ to: "/journal/collections/$name", params: { name: params.kind }, replace: true });
   },
-  loader: ({ context: { queryClient } }) => Promise.all([queryClient.ensureQueryData(feelingsQuery), queryClient.ensureQueryData(appetiteQuery)]),
-  component: lazyRouteComponent(() => import("../features/journal/pages/RecordPage"), "RecordPage"),
 });

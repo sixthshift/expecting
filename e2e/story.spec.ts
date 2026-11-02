@@ -1,6 +1,6 @@
 // The Journal as one story (docs/product/journal.md): kept from the "+",
-// on this week's page without leaving the Journal; the lenses there's something
-// for; a first marked and answered in your own words; a letter to the baby;
+// on this week's page without leaving the Journal; the story by time and the
+// collections by what it is; a first marked and answered in your own words; a letter to the baby;
 // zoomed out and back to a week; the
 // search; and the book. Runs last, as specs run by name: after the others
 // have kept notes, movements, sickness and cravings, a bump, papers and a
@@ -22,23 +22,23 @@ test("kept from the \"+\" on the Journal, it's on this week's page, and the page
   await expect(page.getByRole("region", { name: "This week" }).getByText("Painted the nursery yellow")).toBeVisible();
 });
 
-test("the story's lenses are ways to read it; the records say each kind in a few lines, and open it at full size", async ({ page, open }) => {
+test("the story is by time; the collections are by what it is, each its answer first, and opened in full", async ({ page, open }) => {
   await open("/journal");
   const show = page.getByRole("radiogroup", { name: "Show" });
-  for (const lens of ["Days", "Weeks", "Whole pregnancy", "Notes", "Photos"]) {
-    await expect(show.getByRole("radio", { name: lens, exact: true })).toBeVisible();
+  for (const view of ["Days", "Weeks", "Whole pregnancy"]) {
+    await expect(show.getByRole("radio", { name: view, exact: true })).toBeVisible();
   }
-  // What's looked up is in the records, not the story.
-  await expect(show.getByRole("radio", { name: "Movements" })).toBeHidden();
-  // No first is marked yet: no lens for them.
-  await expect(show.getByRole("radio", { name: "Firsts" })).toBeHidden();
+  // What it is is the collections', not the story's.
+  await expect(show.getByRole("radio", { name: "Notes" })).toBeHidden();
 
-  await page.getByRole("navigation", { name: "Journal" }).getByRole("link", { name: "Records" }).click();
-  await expect(page).toHaveURL(/\/journal\/records$/);
-  // Each kind kept, as its answer: what's going on lately first.
-  for (const record of ["Movements", "Sickness", "Cravings", "Feelings"]) {
-    await expect(page.getByRole("region", { name: record, exact: true })).toBeVisible();
+  await page.getByRole("navigation", { name: "Journal" }).getByRole("link", { name: "Collections" }).click();
+  await expect(page).toHaveURL(/\/journal\/collections$/);
+  // Each collection with something in, as its answer: what's going on lately first.
+  for (const collection of ["Movements", "Sickness", "Cravings", "Feelings", "Papers", "Notes & letters", "Photos"]) {
+    await expect(page.getByRole("region", { name: collection, exact: true })).toBeVisible();
   }
+  // No first is marked yet: no collection for them.
+  await expect(page.getByRole("region", { name: "Firsts", exact: true })).toBeHidden();
   await expect(
     page
       .getByRole("region", { name: "Lately" })
@@ -47,14 +47,18 @@ test("the story's lenses are ways to read it; the records say each kind in a few
   ).toBeVisible();
   await expect(page.getByRole("button", { name: "Copy as text" })).toBeVisible();
   await page.getByRole("link", { name: "Every movement" }).click();
-  await expect(page).toHaveURL(/\/journal\/records\/movements$/);
+  await expect(page).toHaveURL(/\/journal\/collections\/movements$/);
   await expect(page.getByRole("region", { name: "Movements" }).getByRole("figure")).toBeVisible();
-  await page.getByRole("link", { name: "All records" }).click();
-  await page.getByRole("link", { name: /^(All \d+ papers|The paper)$/ }).click();
+  await page.getByRole("link", { name: "All collections" }).click();
+  await page.getByRole("link", { name: "Every paper" }).click();
   await expect(page.getByRole("region", { name: "Results and papers" })).toBeVisible();
+
+  // Where they were, as records, still lands.
+  await open("/journal/records/movements");
+  await expect(page).toHaveURL(/\/journal\/collections\/movements$/);
 });
 
-test("a first, marked and answered in your own words, then in its lens and on the whole pregnancy's line", async ({ page, open }) => {
+test("a first, marked and answered in your own words, then in its collection and on the whole pregnancy's line", async ({ page, open }) => {
   await open("/journal");
   await page.getByRole("button", { name: "Add", exact: true }).click();
   await page.getByRole("dialog").getByRole("button", { name: "A first" }).click();
@@ -66,7 +70,7 @@ test("a first, marked and answered in your own words, then in its lens and on th
   await sheet.getByRole("button", { name: "Keep your words" }).click();
   await expect(sheet).toBeHidden();
 
-  await page.getByRole("radiogroup", { name: "Show" }).getByRole("radio", { name: "Firsts" }).click();
+  await open("/journal/collections/firsts");
   const firsts = page.getByRole("region", { name: "Firsts" });
   await expect(firsts.getByText("Bought the first outfit")).toBeVisible();
   await expect(firsts.getByText("A tiny yellow onesie, from Nan")).toBeVisible();

@@ -9,14 +9,14 @@ import { Camera, FileText, Footprints, IceCreamCone, type LucideIcon, NotebookPe
 import { useFirstsQuery } from "../../../../../api/rpc/firsts";
 import { useNow, useSettingsQuery } from "../../../../../api/rpc/settings";
 import { type FirstMark, firstOf } from "../../../../../lib/firsts";
+import { COLLECTION_LABEL, type Collection } from "../../../../../lib/story/collections";
 import type { StoryItem } from "../../../../../lib/story/items";
-import { KEPT_KIND_LABEL, type KeptKind } from "../../../../../lib/story/kinds";
 import { landmarks, TRIMESTERS, type WeekTile, weekTiles } from "../../../../../lib/story/zoom";
 import { WEEKS, type Week, weekLabel } from "../../../../../lib/timeline";
 import { Picture } from "../../entries/photos/Picture";
 
-/** Each kind's mark. */
-const KIND_ICON: Record<KeptKind, LucideIcon> = {
+/** Each collection's mark. */
+const COLLECTION_ICON: Record<Collection, LucideIcon> = {
   notes: NotebookPen,
   movements: Footprints,
   appetite: IceCreamCone,
@@ -28,13 +28,13 @@ const KIND_ICON: Record<KeptKind, LucideIcon> = {
 
 /** A week zoomed out, opening the story at it. */
 function Tile({ tile, now, onOpen }: { tile: WeekTile; now: Week | null; onOpen: (week: Week) => void }) {
-  const marks = tile.kinds.filter((k) => k !== "photos");
+  const marks = tile.collections.filter((k) => k !== "photos");
   return (
     <li>
       <button
         type="button"
         onClick={() => onOpen(tile.week)}
-        aria-label={`${weekLabel(tile.week)}${tile.empty ? ", nothing kept" : `: ${tile.kinds.map((l) => KEPT_KIND_LABEL[l].toLowerCase()).join(", ")}`}`}
+        aria-label={`${weekLabel(tile.week)}${tile.empty ? ", nothing kept" : `: ${tile.collections.map((l) => COLLECTION_LABEL[l].toLowerCase()).join(", ")}`}`}
         className={cn(
           "flex w-full flex-col gap-1 rounded-lg border p-1.5 text-left focus-visible:ring-2 focus-visible:ring-border-focus",
           tile.empty ? "border-border-subtle opacity-50" : "border-border-normal hover:bg-bg-normal-hovered",
@@ -52,7 +52,7 @@ function Tile({ tile, now, onOpen }: { tile: WeekTile; now: Week | null; onOpen:
           {tile.photo ? <span className="font-medium text-fg-strong">{tile.week}</span> : null}
           <span aria-hidden className="flex flex-wrap gap-0.5 text-fg-brand">
             {marks.map((l) => {
-              const Icon = KIND_ICON[l];
+              const Icon = COLLECTION_ICON[l];
               return <Icon key={l} size={12} className={l === "firsts" ? "fill-current" : undefined} />;
             })}
           </span>

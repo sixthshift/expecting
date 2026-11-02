@@ -20,11 +20,12 @@ in The pillars, and Uploads.
    plan at triage.
 5. **"What did they add?"** What the other one kept since you last looked.
 
-None of them is "choose a kind, then fill in its form". The first two are
-reading back, and the story answers them; the third and fourth are looking
-something up, often under pressure, and the records answer them. Two ways
-in, at the top of the Journal: Story (`/journal`) and Records
-(`/journal/records`). The fifth has no answer of its own since the
+None of them is "choose a kind, then fill in its form". Two ways in, at the
+top of the Journal: the Story (`/journal`), everything by time, for
+reading back; and the Collections (`/journal/collections`), everything by
+what it is, each with its answer at the top, for looking something up
+(the third and fourth, often under pressure) and for a look back at one
+sort of thing (the letters, the bump). The fifth has no answer of its own since the
 highlights went (below); a quiet mark on the other's lines is the likely
 one.
 
@@ -36,7 +37,7 @@ one.
   page is made for the moment.
 - **What's kept, never what's missing.** Some keep nothing, some one kind,
   some everything, and each gets a Journal that's theirs:
-  - No empty slots. A view, a record or a part of a recap appears only once
+  - No empty slots. A collection, a summary or a part of a recap appears only once
     its kind has something. Never "no movements yet".
   - A pattern needs enough to be one: movements on three days of the
     fortnight, sickness in two weeks, a craving kept twice, three check-ins,
@@ -138,52 +139,49 @@ One story, newest first, made for the moment: it opens on now.
   weeks ago) and Lately (the patterns, each opening its lens) beside the
   story. Taken out (2026-11-02): they showed again what the week and the
   story already show, and they steered the story from beside it. The page
-  is one story, in one column; the patterns are in the records; the recaps
+  is one story, in one column; the patterns are in the collections; the recaps
   are on the whole pregnancy's line.
 - **The story, like a diary, not rows.** A list of records reads like a
   database, so the day sits in the margin, the words run as writing,
   photos are large, a day's movements are one line of times, a day's same
   craving is one chip ("Pickles, twice"), and a line has no buttons: tap
   it to change or delete it. Every week back to the first is on the spine
-  with its note's title. One row of ways to look at it, one
-  at a time: Days (all of it), Weeks (a tile a week), Whole pregnancy
-  (weeks 1–42 as one line, the firsts as landmarks), then a kind once
-  there's something of it (Notes, Photos, Firsts). They were two rows, the
-  lenses and the zoom, though only one could be open: one choice, one
-  row, and one address, `?view=`. The search under it covers everything,
-  in days: typing leaves a zoom or a kind.
+  with its note's title. One row of ways to look at it, all by time:
+  Days (all of it), Weeks (a tile a week), Whole pregnancy (weeks 1–42 as
+  one line, the firsts as landmarks), at one address, `?view=`. One sort
+  of thing (the notes, the photos, the firsts) is a collection, not a view
+  of the story. The search under it covers everything, in days: typing
+  leaves a zoom.
 - **Recaps,** a part only when it has something: the firsts, the bump as a
   flipbook, the scans, the most craved, both voices, the letters, what got
   done. Stepped through card by card, or printed as the book.
 
-## The records
+## The collections
 
-What's kept, said short, to look up rather than read back: the answer to
-the midwife's "since when?", "how often?", "is it easing?", and the paper
-asked for at triage. The lines are counts, days and weeks from what's kept
-(`src/lib/records.ts`): never "normal", never a score, never advice; a
-kind with nothing kept has no record.
+Everything kept, by what it is: movements, sickness & cravings, feelings,
+papers, notes & letters, photos, firsts. The story is the same things by
+time. A collection leads with a short answer, large enough to read across
+a room, and the lines behind it, quietly (`src/lib/summaries.ts`): the
+answer to the midwife's "since when?", "how often?", "is it easing?", the
+paper asked for at triage, the bump so far. Counts, days and weeks from
+what's kept: never "normal", never a score, never advice; a collection with
+nothing in it isn't there.
 
-- **An answer first.** Each record leads with one short answer, large
-  enough to read across a room ("10 of the last 14 days", "None since week
-  13", "Mostly good"), and the lines behind it under it, quietly. Four
-  blocks of sentences of the same weight read as a report; nobody finds
-  the answer in one at an appointment.
 - **Now first.** Lately (anything in the last fortnight), then Earlier. At
   week 38, sickness from weeks 6 to 13 is history: it goes under Earlier.
-- **The papers to hand at the top,** the handy ones, to open at triage;
-  the latest three at the bottom, and every one from there.
-- **Copy as text,** the whole page as plain lines, to paste into a message
-  or the hospital's form: what's on the page, nothing more.
-- **Each opens at full size:** its pattern, its tools, then every one
-  (`/journal/records/movements`, `appetite`, `feelings`, `papers`), with All records
-  to go back.
+- **The papers to hand at the top,** the handy ones, to open at triage.
+- **Copy as text:** what an appointment asks about (movements, sickness,
+  cravings, feelings) and the papers by name, as plain lines to paste into
+  a message or the hospital's form. Not the letters or the photos.
+- **Each opens in full** at `/journal/collections/<name>`: what it shows
+  best first (the fortnight's pattern, sickness as weeks of days, the bump
+  week by week), then every one; All collections to go back.
 
-The records:
+What each says:
 
 - **Movements:** how many of the last fortnight's days; any felt as
   slower, weaker or stopped lately, first; the parts of the day they're
-  kept in; the last; since when. The fortnight's pattern under it.
+  kept in; the last; since when.
 - **Sickness:** how many of the last fortnight's days, or none since when;
   each spell (a gap of more than a fortnight starts another), the week or
   weeks with the most, the days it threw up or couldn't keep fluids down.
@@ -192,14 +190,21 @@ The records:
 - **Feelings:** over four weeks, mostly what (yours, if you checked in);
   each of you who did, how many days and mostly what; your own words most
   used, which only your phone has.
+- **Papers:** how many, and the latest.
+- **Notes & letters:** how many of each, the last, and since when.
+- **Photos:** how many; the bump, from which week to which; the scans.
+- **Firsts:** how many of them are kept, the latest, and what's still to
+  come once it's only a few.
 
-While something has happened, the records keep to what stays, as the
-story does: feelings and papers. Movements and sickness and cravings are
-folded away, even asked for by address.
+While something has happened, the collections keep to what stays, as the
+story does: notes and letters, feelings, papers. Movements, sickness and
+cravings, photos and firsts are folded away, even asked for by address.
 
-These were lenses on the story until 2026-11-02: tabs beside Notes and
-Photos, under a diary, where the one thing wanted at an appointment was a
-scroll and a tab away.
+Until 2026-11-02 there were lenses on the story (Notes, Photos, Firsts,
+Movements, …), then "records" for the four an appointment asks about. Both
+were the same thing, everything by what it is; the question an appointment
+asks is only the answer at the top of one. One page for it, with the
+story beside it, by time. Its old addresses still land.
 
 ## What's kept, kind by kind
 
@@ -207,7 +212,7 @@ scroll and a tab away.
 
 A note is anything, on its day and time, by whoever is holding the phone.
 A note can be a letter to the baby, from the note form; letters are in the
-story, the Notes lens and the recaps.
+story, the Notes & letters collection and the recaps.
 
 - **A letter is signed.** It's read one day as from one of you, or, once
   there are two of you, "From both of us": a letter written together

@@ -18,7 +18,7 @@ import { JournalPageProvider, useJournalPage } from "../contexts/JournalPageCont
  *
  * The Journal is one part, `JournalStory`; the quiet one, `QuietStory` and
  * `KeptBefore`. Above both, the way to the records (`JournalFrame`,
- * `RecordsPage`), what's kept said in a few lines, to look up.
+ * `CollectionsPage`), what's kept said in a few lines, to look up.
  */
 export function JournalPage() {
   return (

@@ -58,7 +58,7 @@ export function PapersToHand() {
       ) : (
         <p className="text-sm text-fg-subtle">
           The birth plan, or a result you'll be asked for:{" "}
-          <Link to="/journal/records/$kind" params={{ kind: "papers" }} className="underline">
+          <Link to="/journal/collections/$name" params={{ name: "papers" }} className="underline">
             keep it handy in the Journal
           </Link>{" "}
           and it's here, with no signal too.

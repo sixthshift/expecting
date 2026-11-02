@@ -6,9 +6,8 @@ import { type FirstMark, isMarked } from "../firsts";
 import { placeOf } from "../journal";
 import type { Photo } from "../photos";
 import type { Week } from "../timeline";
-
+import { COLLECTIONS, type Collection, collectionOf } from "./collections";
 import type { StoryItem } from "./items";
-import { KEPT_KINDS, type KeptKind, keptKindOf } from "./kinds";
 
 /** The trimesters, as weeks. */
 export const TRIMESTERS = [
@@ -18,8 +17,8 @@ export const TRIMESTERS = [
 ] as const;
 export type Trimester = (typeof TRIMESTERS)[number];
 
-/** A week zoomed out: its picture (the bump, else any photo), the kinds it has something of, and its firsts. */
-export type WeekTile = { week: Week; photo: Photo | null; kinds: KeptKind[]; firsts: FirstMark[]; done: number; empty: boolean };
+/** A week zoomed out: its picture (the bump, else any photo), the collections it has something in, and its firsts. */
+export type WeekTile = { week: Week; photo: Photo | null; collections: Collection[]; firsts: FirstMark[]; done: number; empty: boolean };
 
 /** Every week from the first to the last that has anything (at least to `now`), newest first, each a tile; one with nothing is empty. */
 export function weekTiles(items: readonly StoryItem[], dueDate: ISODate, now: Week | null): WeekTile[] {
@@ -36,7 +35,7 @@ export function weekTiles(items: readonly StoryItem[], dueDate: ISODate, now: We
     tiles.push({
       week,
       photo: photos.find((p) => p.kind === "bump") ?? photos[0] ?? null,
-      kinds: KEPT_KINDS.filter((k) => these.some((i) => keptKindOf(i) === k)),
+      collections: COLLECTIONS.filter((c) => these.some((i) => collectionOf(i) === c)),
       firsts: these.flatMap((i) => (i.kind === "first" ? [i.mark] : [])),
       done: these.filter((i) => i.kind === "done").length,
       empty: these.length === 0,

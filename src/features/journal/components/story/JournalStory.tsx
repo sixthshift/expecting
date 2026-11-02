@@ -1,4 +1,3 @@
-import { isKindView } from "../../../../lib/story/views";
 import { useJournalPage } from "../../contexts/JournalPageContext";
 import { useBook } from "../../hooks/useBook";
 import { useScrollToWeek } from "../../hooks/useScrollToWeek";
@@ -10,7 +9,6 @@ import { Calls } from "../thisWeek/Calls";
 import { JournalDays } from "./JournalDays";
 import { SearchResults } from "./SearchResults";
 import { StoryControls } from "./StoryControls";
-import { KindView } from "./views/KindView";
 import { PregnancyView, WeeksView } from "./views/ZoomedOut";
 
 /**
@@ -18,12 +16,12 @@ import { PregnancyView, WeeksView } from "./views/ZoomedOut";
  * above everything; the book's line once it's under way; the ways to look
  * at the story and the search; then the story as it's looked at: what a
  * search found, zoomed out to weeks or the whole pregnancy (with the
- * recaps), one kind, or in days (`JournalDays`, opening on this week). The
+ * recaps), or in days (`JournalDays`, opening on this week). The
  * quiet Journal's story is its own (`QuietStory`).
  */
 export function JournalStory() {
   const { items } = useJournalPage();
-  const { view, views, open } = useStoryView(items, { quiet: false });
+  const { view, views, open } = useStoryView();
   const search = useStorySearch(items, () => open("days"));
   const book = useBook(items);
   useScrollToWeek();
@@ -43,8 +41,6 @@ export function JournalStory() {
             <PregnancyView items={items} withFirsts />
             <Recaps items={items} />
           </>
-        ) : isKindView(view) ? (
-          <KindView kind={view} items={items} quiet={null} />
         ) : (
           <JournalDays items={items} cover={book.cover ? book.chapters : null} />
         )}

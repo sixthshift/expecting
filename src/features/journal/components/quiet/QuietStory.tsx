@@ -2,7 +2,6 @@ import { useMemo } from "react";
 import { useSettingsQuery } from "../../../../api/rpc/settings";
 import { foldedWhileQuiet } from "../../../../lib/story/items";
 import { storyGroups } from "../../../../lib/story/spine";
-import { isKindView } from "../../../../lib/story/views";
 import { useJournalPage } from "../../contexts/JournalPageContext";
 import { useScrollToWeek } from "../../hooks/useScrollToWeek";
 import { useStorySearch } from "../../hooks/useStorySearch";
@@ -10,20 +9,19 @@ import { useStoryView } from "../../hooks/useStoryView";
 import { StoryList } from "../lines/StoryList";
 import { SearchResults } from "../story/SearchResults";
 import { StoryControls } from "../story/StoryControls";
-import { KindView } from "../story/views/KindView";
 import { PregnancyView, WeeksView } from "../story/views/ZoomedOut";
 
 /**
  * The quiet Journal's story: what stays (the notes, letters, feelings,
  * papers and what was done), newest first under the weeks that have
  * something in them, with no week's title (they're about the baby);
- * looked at the same ways as the Journal's, and searched. No firsts on the
+ * looked at the same ways as the Journal's, and searched; by what it is, the collections. No firsts on the
  * pregnancy's line, no recaps and no book.
  */
 export function QuietStory() {
-  const { quiet, items } = useJournalPage();
+  const { items } = useJournalPage();
   const shown = useMemo(() => items.filter((i) => !foldedWhileQuiet(i)), [items]);
-  const { view, views, open } = useStoryView(shown, { quiet: true });
+  const { view, views, open } = useStoryView();
   const search = useStorySearch(shown, () => open("days"));
   const { data: dueDate } = useSettingsQuery({ select: (s) => s.dueDate });
   useScrollToWeek();
@@ -39,8 +37,6 @@ export function QuietStory() {
           <WeeksView items={shown} />
         ) : view === "pregnancy" ? (
           <PregnancyView items={shown} withFirsts={false} />
-        ) : isKindView(view) ? (
-          <KindView kind={view} items={shown} quiet={quiet} />
         ) : (
           <StoryList groups={storyGroups(shown, dueDate)} titled={false} />
         )}

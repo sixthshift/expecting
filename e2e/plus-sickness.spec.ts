@@ -26,7 +26,7 @@ test("sickness is kept in a tap, and the Journal says since when", async ({ page
   await expect(page.getByText("In the Journal")).toBeVisible();
   await expect(page).toHaveURL(/\/planner$/);
 
-  await open("/journal/records/appetite");
+  await open("/journal/collections/appetite");
   const section = page.getByRole("region", { name: "Sickness and cravings" });
   await expect(section.getByText(/^Since /).first()).toBeVisible();
   await expect(section.getByText(/threw up\.$/)).toBeVisible();
@@ -56,7 +56,7 @@ test("a craving, then the same again in one tap, tallied in the Journal and mark
   await page.getByRole("dialog").getByRole("button", { name: "Keep Pickles again" }).click();
   await expect(page.getByRole("dialog")).toBeHidden();
 
-  await open("/journal/records/appetite");
+  await open("/journal/collections/appetite");
   const section = page.getByRole("region", { name: "Sickness and cravings" });
   await expect(section.getByRole("heading", { name: "What you've craved" })).toBeVisible();
   await expect(section.getByText("2 times · from week 28")).toBeVisible();

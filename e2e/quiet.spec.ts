@@ -75,13 +75,13 @@ test("hard news quiets every pillar, and becomes a loss", async ({ page, open })
   await expect(page.getByRole("region", { name: "Your bump, week by week" })).toBeHidden();
   await expect(kept.getByRole("button", { name: "Add a photo" })).toBeVisible();
 
-  // The records keep to what stays: no movements, no sickness and cravings, even asked for by address.
-  await open("/journal/records");
+  // The collections keep to what stays: no movements, no sickness and cravings, even asked for by address.
+  await open("/journal/collections");
   await expect(page.getByRole("region", { name: "Movements" })).toBeHidden();
   await expect(page.getByRole("region", { name: "Sickness" })).toBeHidden();
   await expect(page.getByRole("region", { name: "Cravings" })).toBeHidden();
-  await open("/journal/records/movements");
-  await expect(page).toHaveURL(/\/journal\/records$/);
+  await open("/journal/collections/movements");
+  await expect(page).toHaveURL(/\/journal\/collections$/);
 
   // The Drawer is put away; Emergency info stops counting the weeks.
   await open("/drawer");

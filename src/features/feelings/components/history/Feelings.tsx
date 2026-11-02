@@ -30,7 +30,7 @@ function dayLabel(day: ISODate, today: ISODate): string {
   return day === today ? "Today" : formatDate(day, { weekday: "short", day: "numeric", month: "short" });
 }
 
-export function FeelingsRecord() {
+export function FeelingsCollection() {
   const { data: people } = usePeopleQuery();
   const { data: feelings } = useFeelingsQuery();
   const today = todayISO();
