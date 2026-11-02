@@ -1,6 +1,7 @@
 import { useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, Baby } from "lucide-react";
 import { type ReactNode, useEffect, useRef } from "react";
+import { ProgressBar } from "../../../components/ProgressBar";
 import { useOnboardingPage } from "../contexts/OnboardingPageContext";
 import { stepHref } from "../model/paths";
 
@@ -40,19 +41,7 @@ export function OnboardingFrame({ title, lead, children }: { title: string; lead
         )}
         <span className="font-semibold text-fg-strong">Expecting</span>
         {steps.length > 1 ? (
-          <div
-            role="progressbar"
-            aria-label="Getting started"
-            aria-valuemin={1}
-            aria-valuemax={steps.length}
-            aria-valuenow={index + 1}
-            className="ml-auto h-1 w-24 overflow-hidden rounded-full bg-bg-subtle"
-          >
-            <div
-              className="h-full rounded-full bg-linear-to-r from-(--expecting-accent-from) to-(--expecting-accent-to) motion-safe:transition-[width] motion-safe:duration-500"
-              style={{ width: `${((index + 1) / steps.length) * 100}%` }}
-            />
-          </div>
+          <ProgressBar label="Getting started" value={index + 1} min={1} max={steps.length} className="ml-auto h-1 w-24 bg-bg-subtle" />
         ) : null}
       </header>
 

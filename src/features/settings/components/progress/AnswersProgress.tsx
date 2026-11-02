@@ -1,4 +1,5 @@
 import { Button } from "@sixthshift/design-system/button";
+import { ProgressBar } from "../../../../components/ProgressBar";
 import { useSettingsPage } from "../../contexts/SettingsPageContext";
 
 /** How many questions are answered, and the way to the next one. Not drawn while something has happened. */
@@ -11,20 +12,8 @@ export function AnswersProgress() {
           {answered === total ? "Every question answered" : `${answered} of ${total} answered`}
         </p>
         <p className="text-sm text-fg-normal">Each answer tailors what Expecting tells you to do, and when. Change any of them here.</p>
-        {/* Onboarding's bar, on a surface so it shows on the tint. */}
-        <div
-          role="progressbar"
-          aria-label="Questions answered"
-          aria-valuemin={0}
-          aria-valuemax={total}
-          aria-valuenow={answered}
-          className="mt-1 h-1.5 overflow-hidden rounded-full bg-bg-normal"
-        >
-          <div
-            className="h-full rounded-full bg-linear-to-r from-(--expecting-accent-from) to-(--expecting-accent-to) motion-safe:transition-[width] motion-safe:duration-500"
-            style={{ width: `${(answered / total) * 100}%` }}
-          />
-        </div>
+        {/* On a surface, so it shows on the tint. */}
+        <ProgressBar label="Questions answered" value={answered} max={total} className="mt-1 h-1.5 bg-bg-normal" />
       </div>
       {next ? (
         <Button intent="brand" onClick={() => goTo(next)} className="self-start sm:self-center">
