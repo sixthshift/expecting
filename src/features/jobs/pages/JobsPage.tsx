@@ -1,6 +1,6 @@
 import { useJobsQuery } from "../../../api/rpc/jobs";
 import { usePeopleQuery } from "../../../api/rpc/people";
-import { JOBS, outcomes, toAnswer, waiting } from "../../../lib/jobs";
+import { JOBS, results, toAnswer, waiting } from "../../../lib/jobs";
 import { otherName } from "../../../lib/people";
 import { DrawerFrame } from "../../drawer/components/frame/DrawerFrame";
 import { JobDeck } from "../components/deck/JobDeck";
@@ -17,7 +17,7 @@ export function JobsPage() {
   const { me, people } = usePeopleQuery().data;
   const other = otherName(people, me);
   const deck = toAnswer(view.answers);
-  const results = outcomes(view.answers);
+  const answered = results(view.answers);
   const waits = waiting(view.answers);
 
   return (
@@ -29,7 +29,7 @@ export function JobsPage() {
           {view.together ? `${other} has answered ${view.theirCount} of ${JOBS.length}.` : "Once the other of you has said who they are, they can answer too."}
           {waits > 0 && view.together ? ` ${waits === 1 ? "One of your answers waits" : `${waits} of your answers wait`} for theirs.` : ""}
         </p>
-        <Results outcomes={results} other={other} />
+        <Results results={answered} other={other} />
       </div>
     </DrawerFrame>
   );

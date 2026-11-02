@@ -73,6 +73,12 @@ export function outcomes(answers: readonly JobAnswer[]): Outcome[] {
   });
 }
 
+/** The jobs both have answered, split: those to talk about, and those settled, each in their order. */
+export function results(answers: readonly JobAnswer[]): { toTalk: Extract<Outcome, { agreed: false }>[]; settled: Extract<Outcome, { agreed: true }>[] } {
+  const all = outcomes(answers);
+  return { toTalk: all.filter((o) => !o.agreed), settled: all.filter((o) => o.agreed) };
+}
+
 /** The jobs you haven't answered, in order: the deck. */
 export function toAnswer(answers: readonly JobAnswer[]): Job[] {
   return JOBS.filter((job) => !answers.find((a) => a.jobId === job.id)?.mine);
