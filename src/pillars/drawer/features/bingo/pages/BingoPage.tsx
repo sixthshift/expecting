@@ -32,12 +32,17 @@ export function BingoPage() {
   const card = showing === "theirs" ? theirs : mine;
 
   return (
-    <DrawerTool title="Pregnancy bingo" width="2xl" putAway={{ subject: "Bingo" }} extras={["pregnancy-bingo"]}>
+    <DrawerTool
+      title="Pregnancy bingo"
+      lead="Mark a square when it happens. Five in a row, a column or a diagonal is bingo; the centre's free."
+      width="2xl"
+      putAway={{ subject: "Bingo" }}
+      extras={["pregnancy-bingo"]}
+    >
       {!me ? (
         <p className="text-sm text-fg-normal">Say who's holding this phone, and you'll be dealt a card.</p>
       ) : (
         <div className="flex flex-col gap-5">
-          <p className="text-fg-subtle">Mark a square when it happens. Five in a row, a column or a diagonal is bingo; the centre's free.</p>
           <Winner mine={mine} theirs={theirs} other={other} />
           {them ? (
             <ToggleGroup

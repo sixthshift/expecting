@@ -21,9 +21,13 @@ export function JobsPage() {
   const waits = waiting(view.answers);
 
   return (
-    <DrawerTool title="Who does what" putAway={{ subject: "Who does what" }} extras={["who-does-what"]}>
+    <DrawerTool
+      title="Who does what"
+      lead={`Say who'll do each newborn job, on your own phone. You'll see ${other}'s answer to a job once you've both given one.`}
+      putAway={{ subject: "Who does what" }}
+      extras={["who-does-what"]}
+    >
       <div className="flex flex-col gap-6">
-        <p className="text-fg-subtle">Say who'll do each newborn job, on your own phone. You'll see {other}'s answer to a job once you've both given one.</p>
         <JobDeck deck={deck} other={other} />
         <p className="text-sm text-fg-normal">
           {view.together ? `${other} has answered ${view.theirCount} of ${JOBS.length}.` : "Once the other of you has said who they are, they can answer too."}
