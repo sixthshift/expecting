@@ -25,7 +25,7 @@ export function ReadyStep() {
     <OnboardingFrame title="You're all set" lead={lead}>
       <div className="flex flex-col gap-4">
         <p className="text-sm text-fg-subtle">
-          On your partner's phone, open Expecting and log in with the same password: it will ask who they are, and nothing else.
+          To share it, invite the other of you from Settings, under Account: they choose their own name and password, and go straight in.
         </p>
         <Button
           intent="brand"
