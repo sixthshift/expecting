@@ -18,8 +18,8 @@ import { timelineWeeks, timelineWindows } from "../../../../lib/timelineWeeks";
 import { useItems } from "../../../library/hooks/useItems";
 import { useTasks } from "../../../tasks/hooks/useTasks";
 import { Welcome } from "../../../thisWeek/components/welcome/Welcome";
-import { TimelineHeader } from "../header/TimelineHeader";
 import { PregnancyStrip } from "../strip/PregnancyStrip";
+import { TimelineFrame } from "../TimelineFrame";
 import { TimelineWeeks } from "../weeks/TimelineWeeks";
 
 /** Bring a week's line into view: the middle of the screen, or the top for the first weeks. */
@@ -76,14 +76,16 @@ export function Timeline({ at }: { at: Week | undefined }) {
   }, [at]);
 
   return (
-    <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
-      <TimelineHeader lead="Every week at once. Tap one to see it.">
-        {now !== null ? (
+    <TimelineFrame
+      lead="Every week at once. Tap one to see it."
+      head={
+        now !== null ? (
           <div className="mt-4">
             <PregnancyStrip now={now} at={at ?? now} due={due} named />
           </div>
-        ) : null}
-      </TimelineHeader>
+        ) : null
+      }
+    >
       {!dueDate ? <Welcome /> : null}
       {now !== null ? (
         <Button
@@ -102,6 +104,6 @@ export function Timeline({ at }: { at: Week | undefined }) {
       ) : null}
 
       <TimelineWeeks weeks={weeks} at={at} />
-    </main>
+    </TimelineFrame>
   );
 }
