@@ -6,9 +6,9 @@ Parental Leave Pay this week"), says what to expect week by week, and keeps
 what happens, in one space you both share, on your phones and at the
 computer.
 
-It was built for one couple and is public so others can run it too. It is
-not a product: there's no hosted version, no account to sign up for, and no
-support line.
+It was built for one couple and is public so others can run it too. There's
+no hosted version, no account to sign up for, and no support line: you run
+your own ([licence](#licence)).
 
 ![This week on a desktop: week 26, the week's note for Sam, and what to do now](docs/screenshots/desktop.png)
 
@@ -193,3 +193,13 @@ Commits are [Conventional Commits](https://www.conventionalcommits.org/),
 and the `feat:` and `fix:` subjects become the release notes the two of
 you read on your phones, so write them for the two of you ("the names
 game", not "add NamesGame component").
+
+## Licence
+
+[Functional Source License 1.1, Apache 2.0 future](LICENSE.md)
+(FSL-1.1-ALv2). You can read it, run it for your own family, change it and
+share your changes. What you can't do is offer it to others as a commercial
+product or service. Two years after each version is released, it becomes
+Apache 2.0, with no such limit.
+
+The content in `content/` is under the same licence.

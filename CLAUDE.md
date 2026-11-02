@@ -5,7 +5,7 @@ A pregnancy companion for two parents, Australian, on phone and desktop: one sha
 - **Five pillars:** This week (home, `/`; the strip opens the whole pregnancy at `/timeline`, which is not a pillar), the Library, the Planner (to do, `/planner/weeks`, `/planner/lists`, appointments, questions), the Journal (the story; `/journal/collections`; `/journal/book`) and the Drawer (the names game, Who does what, Your people, bingo).
 - **Outside them:** the capture "+" on every pillar (`src/features/capture/`), Emergency info (`/emergency`), It's time (`/its-time`, from week 36, 32 for twins), Settings, onboarding (`/onboarding`, a step to a URL).
 - **Underneath:** built-in content tailored by the answers (`src/features/settings/model/facts.data.ts`) and the extras (`extras.data.ts` beside it), two accounts joined by invite, uploads, the PWA (offline reads and writes), and Claude over MCP (`/api/mcp`, OAuth at `/connect`; `src/api/mcp/`).
-- **Not built:** our own entries, contacts as a store, other symptoms, and the phases before and after the pregnancy.
+- **Not built:** our own entries and hiding built-in ones, contacts as a store, other symptoms, and the phases before and after the pregnancy.
 
 ## Docs
 
