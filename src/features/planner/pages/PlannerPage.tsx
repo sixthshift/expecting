@@ -15,8 +15,8 @@ import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import type { Item, Task } from "../../../content/schema";
 import { APPOINTMENT_WHEN, nextAppointment, splitAppointments } from "../../../lib/appointments";
 import { todayISO } from "../../../lib/dates";
-import { inWeeks, weekInSentence, when } from "../../../lib/labels";
-import { type Ahead, planTasks, type Stage, stagesAhead } from "../../../lib/planner";
+import { inWeeks, when } from "../../../lib/labels";
+import { planTasks, type Stage, stagesAhead } from "../../../lib/planner";
 import { WEEKS, type Week, weekLabel } from "../../../lib/timeline";
 import { type ToDo, whenToDo } from "../../../lib/todo";
 import { AddAppointment } from "../../appointments/components/AddAppointment";
@@ -33,15 +33,10 @@ import { useTasks } from "../../tasks/hooks/useTasks";
 import { ListsWayIn } from "../components/lists/wayIn/ListsWayIn";
 import { PutAside } from "../components/quiet/PutAside";
 import { StageSpan } from "../components/weeks/StageSpan";
+import { aheadWhen, missedWhen, toDoSoFar } from "../model/labels";
 
 /** How many of a stage's tasks it names while folded, before "and N more". */
 const PREVIEW = 2;
-
-const AHEAD_AT: Record<Ahead["at"], (w: Week) => string> = {
-  opens: (w) => `opens ${weekInSentence(w)}`,
-  due: (w) => `by ${weekInSentence(w)}`,
-  deadline: (w) => `deadline ${weekInSentence(w)}`,
-};
 
 /**
  * What to do and what to ask. To do starts somewhere: the one thing to do
@@ -128,13 +123,7 @@ export function PlannerPage() {
                   <ProgressBar completed={plan.progress.done} total={plan.progress.total} showFraction={false} label="Done so far" />
                   <p className="text-sm text-fg-subtle">
                     {plan.progress.done} of {plan.progress.total} done
-                    {now === null
-                      ? null
-                      : deadlines > 0
-                        ? ` · ${deadlines === 1 ? "a deadline" : `${deadlines} deadlines`} close`
-                        : plan.next
-                          ? " · nothing urgent"
-                          : " · nothing to do right now"}
+                    {now === null ? null : toDoSoFar(deadlines, plan.next !== null)}
                   </p>
                 </div>
               ) : null}
@@ -174,7 +163,7 @@ export function PlannerPage() {
                 </div>
                 {stages.map((stage) => (
                   <StageCard key={stage.end} stage={stage} now={now}>
-                    {stage.ahead.map(({ task, week: w, at }) => row(task, <span>{AHEAD_AT[at](w)}</span>))}
+                    {stage.ahead.map((entry) => row(entry.task, <span>{aheadWhen(entry)}</span>))}
                     {stage.done.map((task) => row(task, null))}
                   </StageCard>
                 ))}
@@ -183,7 +172,7 @@ export function PlannerPage() {
 
             {plan.earlier.length > 0 ? (
               <Group title="Missed earlier" count={plan.earlier.length} folded>
-                {plan.earlier.map((task) => row(task, <span>was due {weekInSentence(task.due)}</span>))}
+                {plan.earlier.map((task) => row(task, <span>{missedWhen(task)}</span>))}
               </Group>
             ) : null}
 

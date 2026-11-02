@@ -13,9 +13,9 @@ import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { useSave } from "../../../app/hooks/useSave";
 import type { Line } from "../../../content/schema";
+import { weekInSentence } from "../../../lib/labels";
 import { isApart, isLeft, type ListSummary, listOf, listsOf, type Mark, sectionsOf, upToSaying } from "../../../lib/lists";
 import { nameBy } from "../../../lib/people";
-import { weekLabel } from "../../../lib/timeline";
 import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { useTasks } from "../../tasks/hooks/useTasks";
 import { AddLine } from "../components/lists/addLine/AddLine";
@@ -56,7 +56,7 @@ export function ListPage() {
     const task = line.taskId ? tasks.find((t) => t.id === line.taskId) : undefined;
     if (!task) return null;
     if (checklist.ticks[task.id]) return { label: "done in To do", soon: false, done: true };
-    return { label: `by ${weekLabel(task.due).toLowerCase()}`, soon: now !== null && task.due - now <= SOON, done: false };
+    return { label: `by ${weekInSentence(task.due)}`, soon: now !== null && task.due - now <= SOON, done: false };
   };
   const row = (line: Line) => {
     const mark = lists.marks[line.id];

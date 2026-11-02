@@ -5,6 +5,7 @@ import { type FormEvent, useState } from "react";
 import { checklistSaves } from "../../../../api/rpc/checklist";
 import { useSave } from "../../../../app/hooks/useSave";
 import type { Task } from "../../../../content/schema";
+import { weekInSentence } from "../../../../lib/labels";
 import { newId } from "../../../../lib/outbox";
 import { type Week, weekLabel } from "../../../../lib/timeline";
 
@@ -26,7 +27,7 @@ export function AddTask({ week, text, onAdded }: { week: Week; text?: string; on
       <Input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder={`Add a task for ${weekLabel(week).toLowerCase()}`}
+        placeholder={`Add a task for ${weekInSentence(week)}`}
         aria-label={`New task for ${weekLabel(week)}`}
         maxLength={200}
         className="flex-1"

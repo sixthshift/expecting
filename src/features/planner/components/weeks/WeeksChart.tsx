@@ -7,6 +7,7 @@ import { STAGES } from "../../../../lib/planner";
 import { TRIMESTERS, WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
 import { LANDMARKS } from "../../../../lib/timelineWeeks";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
+import { barLabel } from "../../model/labels";
 
 const SPAN = WEEKS.last - WEEKS.first + 1;
 const WEEK_LIST = Array.from({ length: SPAN }, (_, i) => i + WEEKS.first);
@@ -23,8 +24,6 @@ const TONE: Record<BarState, string> = {
   late: "bg-bg-warning-subtle border border-border-warning",
   done: "bg-border-normal",
 };
-
-const STATE: Record<BarState, string> = { open: "open now", ahead: "ahead", late: "past its best-by week", done: "done" };
 
 const SHORT = { 1: "First", 2: "Second", 3: "Third" } as const;
 
@@ -162,7 +161,7 @@ function BarRow({ bar }: { bar: Bar }) {
   const { task, from, due, to, state } = bar;
   const late = from > SPAN / 2;
   const place = { "--start": x(from), "--end": `calc(100% - ${x(to + 1)})` } as CSSProperties;
-  const label = `${task.title}: opens ${weekLabel(from).toLowerCase()}, best by ${weekLabel(due).toLowerCase()}, closes ${weekLabel(to).toLowerCase()}, ${STATE[state]}`;
+  const label = barLabel(bar);
   const inner: ReactNode = (
     <>
       <span
