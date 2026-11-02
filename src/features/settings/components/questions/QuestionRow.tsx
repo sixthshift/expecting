@@ -1,6 +1,8 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { useExtrasQuery } from "../../../../api/rpc/extras";
 import { factsSaves } from "../../../../api/rpc/facts";
+import { usePeopleQuery } from "../../../../api/rpc/people";
+import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { useSave } from "../../../../app/hooks/useSave";
 import { builtInItems } from "../../../../content";
 import type { ISODate } from "../../../../lib/dates";
@@ -10,6 +12,7 @@ import { didOn, fullDate } from "../../../../lib/labels";
 import type { Person } from "../../../../lib/people";
 import type { Week } from "../../../../lib/timeline";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
+import { useSettingsPage } from "../../contexts/SettingsPageContext";
 import { type Ask, askedOf, type FactQuestion, UNSURE } from "../../model/facts";
 import { AnswerField } from "../answer/AnswerField";
 import { SettingRow } from "../settingRow/SettingRow";
@@ -21,23 +24,13 @@ import { SettingRow } from "../settingRow/SettingRow";
  * what it decides. Nothing here names a question, so a new one in the file
  * appears by itself.
  */
-export function QuestionRow({
-  a,
-  last,
-  people,
-  dueDate,
-  now,
-  open,
-  onToggle,
-}: {
-  a: Ask;
-  last: Answer | undefined;
-  people: readonly Person[];
-  dueDate: ISODate | null;
-  now: Week | null;
-  open: boolean;
-  onToggle: () => void;
-}) {
+export function QuestionRow({ a }: { a: Ask }) {
+  const { open: openRow, toggle, latest } = useSettingsPage();
+  const { people } = usePeopleQuery().data;
+  const { data: dueDate } = useSettingsQuery({ select: (s) => s.dueDate });
+  const now = useNow();
+  const last = latest[a.key];
+  const open = openRow === a.key;
   const saveAnswer = useSave(factsSaves.saveAnswer);
   const save = async (key: string, answer: string | null) => saveAnswer({ key, answer });
   const label = askedOf(a, people);
@@ -53,7 +46,7 @@ export function QuestionRow({
       id={a.key}
       label={label}
       open={open}
-      onToggle={onToggle}
+      onToggle={() => toggle(a.key)}
       value={
         settled ? (
           shown(a.question, value!)

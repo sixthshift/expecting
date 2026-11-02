@@ -2,11 +2,13 @@ import { Switch } from "@sixthshift/design-system/switch";
 import { cn } from "@sixthshift/design-system/utils";
 import { extrasSaves, useExtrasQuery } from "../../../../api/rpc/extras";
 import { useAnswersQuery } from "../../../../api/rpc/facts";
+import { usePeopleQuery } from "../../../../api/rpc/people";
 import { useSave } from "../../../../app/hooks/useSave";
 import { type Choice, extrasFor, extrasOn } from "../../../../lib/extras";
 import { factsOf } from "../../../../lib/facts";
 import { didOn } from "../../../../lib/labels";
 import type { Person } from "../../../../lib/people";
+import { useSettingsPage } from "../../contexts/SettingsPageContext";
 import { EXTRA_GROUPS, type ExtraGroup } from "../../model/extras";
 import { ExtraPitch } from "../extraPitch/ExtraPitch";
 import { SettingList } from "../settingRow/SettingList";
@@ -16,9 +18,12 @@ import { SettingList } from "../settingRow/SettingList";
  * fits, or it's on), with its switch: on, its items appear
  * wherever they belong; off, they're gone. Each says who last changed it,
  * and one that brings a tool says which.
- * `highlight` marks the one a link opened settings at.
+ * The one a link opened Settings at is marked.
  */
-export function ExtrasList({ choices, people, highlight }: { choices: readonly Choice[]; people: readonly Person[]; highlight?: string }) {
+export function ExtrasList() {
+  const { highlight } = useSettingsPage();
+  const { data: choices } = useExtrasQuery();
+  const { people } = usePeopleQuery().data;
   const { data: facts } = useAnswersQuery({ select: factsOf });
   const { data: extras } = useExtrasQuery({ select: extrasOn });
   const setExtras = useSave(extrasSaves.setExtras);
