@@ -4,10 +4,9 @@ import { factsSaves, useAnswersQuery } from "../../../../api/rpc/facts";
 import { usePeopleQuery } from "../../../../api/rpc/people";
 import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { useSave } from "../../../../app/hooks/useSave";
-import { DateForm } from "../../../../components/DateForm";
 import { questionsDue } from "../../../../lib/facts";
 import { askedOf } from "../../model/facts";
-import { AnswerInput } from "../answer/AnswerInput";
+import { AnswerField } from "../answer/AnswerField";
 
 /** How many questions This week asks at once; the rest wait their turn. */
 const SHOWN = 3;
@@ -43,11 +42,7 @@ export function AskNow() {
             <Card key={a.key}>
               <fieldset className="flex flex-col items-start gap-2">
                 <legend className="mb-2 font-medium text-fg-strong">{label}</legend>
-                {a.question.type === "date" ? (
-                  <DateForm label="Date" value={null} submitLabel="Save" onSave={(date) => save(a.key, date)} />
-                ) : (
-                  <AnswerInput question={a.question} label={label} value={undefined} inline onChange={(answer) => save(a.key, answer)} />
-                )}
+                <AnswerField question={a.question} label={label} value={undefined} inline onAnswer={(answer) => save(a.key, answer)} />
                 <button
                   type="button"
                   onClick={() => save(a.key, null)}

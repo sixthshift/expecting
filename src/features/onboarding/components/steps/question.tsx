@@ -1,9 +1,8 @@
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
 import { saveAnswer } from "../../../../api/rpc/facts";
-import { DateForm } from "../../../../components/DateForm";
-import type { ISODate } from "../../../../lib/dates";
 import { latestByKey } from "../../../../lib/facts";
+import { AnswerField } from "../../../settings/components/answer/AnswerField";
 import { AnswerInput } from "../../../settings/components/answer/AnswerInput";
 import { type Ask, ask, askedOf } from "../../../settings/model/facts";
 import type { Advance, Screen, StepContext } from "../../model/step";
@@ -25,20 +24,22 @@ export function questionStep({ answers, people, advance }: StepContext, key: str
     lead: "It tailors what Expecting shows you. Skip it and you'll see everything, and be asked again when it matters.",
     body: (
       <div className="flex flex-col gap-4">
-        {a.question.type === "date" ? (
-          <DateForm
-            label="Date"
-            value={(value as ISODate | undefined) ?? null}
-            submitLabel="Next"
-            wide
-            requireChange={false}
-            onSave={(date) => advance(save(date))}
-          />
-        ) : options.length <= 4 ? (
-          <Choices options={options} value={value} onChoose={(answer) => advance(save(answer))} />
-        ) : (
-          <ChooseFromList ask={a} name={askedOf(a, people)} value={value} onDone={advance} />
-        )}
+        <AnswerField
+          question={a.question}
+          label={askedOf(a, people)}
+          value={value}
+          submitLabel="Next"
+          wide
+          requireChange={false}
+          onAnswer={(answer) => advance(save(answer))}
+          choice={
+            options.length <= 4 ? (
+              <Choices options={options} value={value} onChoose={(answer) => advance(save(answer))} />
+            ) : (
+              <ChooseFromList ask={a} name={askedOf(a, people)} value={value} onDone={advance} />
+            )
+          }
+        />
         <SkipButton onClick={() => advance(last ? undefined : save(null))} />
       </div>
     ),

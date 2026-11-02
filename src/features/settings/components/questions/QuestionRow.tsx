@@ -2,7 +2,6 @@ import { Badge } from "@sixthshift/design-system/badge";
 import { useExtrasQuery } from "../../../../api/rpc/extras";
 import { factsSaves } from "../../../../api/rpc/facts";
 import { useSave } from "../../../../app/hooks/useSave";
-import { DateForm } from "../../../../components/DateForm";
 import { builtInItems } from "../../../../content";
 import type { ISODate } from "../../../../lib/dates";
 import { extrasOn, inExtras } from "../../../../lib/extras";
@@ -12,7 +11,7 @@ import type { Person } from "../../../../lib/people";
 import type { Week } from "../../../../lib/timeline";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 import { type Ask, askedOf, type FactQuestion, UNSURE } from "../../model/facts";
-import { AnswerInput } from "../answer/AnswerInput";
+import { AnswerField } from "../answer/AnswerField";
 import { SettingRow } from "../settingRow/SettingRow";
 
 /**
@@ -71,11 +70,7 @@ export function QuestionRow({
       meta={[value ? answeredBy(last!, people) : null, again !== null && now !== null ? askedAgain(again, now) : null].filter(Boolean).join(" · ") || undefined}
     >
       <div className="flex flex-col gap-4">
-        {a.question.type === "date" ? (
-          <DateForm label="Date" value={(value as ISODate | undefined) ?? null} submitLabel="Save" onSave={(date) => save(a.key, date)} />
-        ) : (
-          <AnswerInput question={a.question} label={label} value={value} onChange={(answer) => save(a.key, answer)} />
-        )}
+        <AnswerField question={a.question} label={label} value={value} onAnswer={(answer) => save(a.key, answer)} />
         {value ? (
           <button
             type="button"
