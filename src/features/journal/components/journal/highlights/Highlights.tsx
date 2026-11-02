@@ -1,5 +1,5 @@
 import { getRouteApi } from "@tanstack/react-router";
-import { useJournalPage } from "../../../hooks/useJournalPage";
+import { useJournalPage } from "../../../contexts/JournalPageContext";
 import { useStory } from "../../../hooks/useStory";
 import { Lately } from "./Lately";
 import { NowCards } from "./NowCards";

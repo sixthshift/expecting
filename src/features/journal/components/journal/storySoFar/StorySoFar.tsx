@@ -13,7 +13,7 @@ import { kindsOffered } from "../../../../../lib/photos";
 import { hasRecap } from "../../../../../lib/recap";
 import { foldedWhileQuiet, LENS_LABEL, type Lens, landmarks, type StoryItem, storyGroups, storyMatches, storySpine, weekTiles } from "../../../../../lib/story";
 import type { Week } from "../../../../../lib/timeline";
-import { useJournalSearch } from "../../../hooks/useJournalPage";
+import { useJournalSearch } from "../../../contexts/JournalPageContext";
 import { useLens } from "../../../hooks/useLens";
 import { useStory } from "../../../hooks/useStory";
 import { AddPhoto } from "../../entries/photos/AddPhoto";

@@ -1,7 +1,7 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { createContext, type ReactNode, use, useMemo, useState } from "react";
-import { type HighlightsData, useHighlights } from "./useHighlights";
-import { useLens } from "./useLens";
+import { type HighlightsData, useHighlights } from "../hooks/useHighlights";
+import { useLens } from "../hooks/useLens";
 
 const route = getRouteApi("/app/journal");
 

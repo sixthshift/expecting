@@ -8,7 +8,7 @@ import { contents, young } from "../../../../../lib/chapters";
 import { alreadyHappened, aroundNow } from "../../../../../lib/firsts";
 import { placesReady } from "../../../../../lib/places";
 import { inWeek, storyGroups } from "../../../../../lib/story";
-import { useJournalPage } from "../../../hooks/useJournalPage";
+import { useJournalPage } from "../../../contexts/JournalPageContext";
 import { useStory } from "../../../hooks/useStory";
 import { BookCover, BookLine } from "./BookCover";
 import { Calls } from "./Calls";
