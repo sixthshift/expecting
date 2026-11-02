@@ -318,7 +318,7 @@ add a kind of line is
   `collections/`, `book/`, `quiet/`) and `entries/<kind>/`, each kind's forms
   and rows, which the "+" and other pillars import.
 - The rules are `src/lib/`: `story/` (the lines, collections, views,
-  search, spine, zoom), `summaries.ts` (each collection's answer),
+  search, spine, zoom), `summaries/` (each collection's answer, a file each),
   `labels.ts`, `journal.ts`, `firsts.ts`, `chapters.ts`, `places.ts`,
   `recap.ts`, `appetite.ts`, `feelings.ts`, `photos.ts`, `papers.ts`.
 - The store: `journal_entry` (`note`, `movement`, `letter`), `first_mark`

@@ -155,7 +155,7 @@ One story, newest first, made for the moment: it opens on now.
 Everything kept, by what it is: movements, sickness & cravings, feelings,
 papers, notes & letters, photos, firsts. The story is the same things by
 time. A collection leads with a short answer, large enough to read across
-a room, and the lines behind it, quietly (`src/lib/journal/summaries.ts`): the
+a room, and the lines behind it, quietly (`src/lib/journal/summaries/`): the
 answer to the midwife's "since when?", "how often?", "is it easing?", the
 paper asked for at triage, the bump so far. Counts, days and weeks from
 what's kept: never "normal", never a score, never advice; a collection with

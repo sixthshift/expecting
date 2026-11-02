@@ -14,7 +14,7 @@ and **the collections**, everything by what it is.
 | **line** | One line of the story: a note, a day's movements, a photo, a first, a task done… (`StoryItem`) | `src/lib/journal/story/items.ts` |
 | **view** | A way to look at the story, all by time: days, weeks, the whole pregnancy. `?view=` on `/journal`. | `src/lib/journal/story/views.ts` |
 | **collection** | One sort of thing kept: movements, sickness & cravings (`appetite`), feelings, papers, notes & letters, photos, firsts. `/journal/collections`, and one in full at `/journal/collections/<name>`. What was done, the night it started, a week's question and bingo are lines, but in no collection. | `src/lib/journal/story/collections.ts` |
-| **summary** | A collection's short answer at its top ("10 of the last 14 days") and the lines behind it. | `src/lib/journal/summaries.ts` |
+| **summary** | A collection's short answer at its top ("10 of the last 14 days") and the lines behind it. | `src/lib/journal/summaries/` |
 | **quiet** | Something has happened (a loss, hard news): the quiet Journal, which folds away what's about the baby. Not "a week with nothing kept": that's **empty**. | `src/lib/quiet.ts` |
 
 ## From the store to the screen
@@ -29,7 +29,7 @@ queries (journal, appetite, photos, papers, feelings, firsts, ticks, …)
   → StoryLine               one line, by its kind              components/lines/
 ```
 
-The collections read the queries too: `lib/journal/summaries.ts` turns each into its
+The collections read the queries too: `lib/journal/summaries/` turns each into its
 answer, `components/collections/Collections.tsx` draws the overview, and each
 kind's feature draws its own in full (`features/<kind>/components/collection/`).
 

@@ -1,6 +1,6 @@
 // The Journal's collections: everything kept, grouped by what it is. The
 // story is everything by time; a collection is one sort of thing, with a
-// short answer at the top where one makes sense (`src/lib/journal/summaries.ts`)
+// short answer at the top where one makes sense (`src/lib/journal/summaries/`)
 // and every one under it. What was done in the Planner, the night it
 // started, a week's question and bingo are lines of the story, but in no
 // collection.

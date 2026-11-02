@@ -1,5 +1,5 @@
 // The collections, all at once: everything kept, grouped by what it is, each
-// said as a short answer and the lines behind it (`src/lib/journal/summaries.ts`),
+// said as a short answer and the lines behind it (`src/lib/journal/summaries/`),
 // and opened in full. What's going on now first, what's over under Earlier;
 // the papers kept handy at the top, to open at triage; and what an
 // appointment asks about as text, to paste into a message or a form. Only
@@ -22,18 +22,16 @@ import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { formatDate, todayISO } from "../../../../lib/dates";
 import { ordered } from "../../../../lib/journal/papers";
 import { type Collection, FOLDED_WHILE_QUIET } from "../../../../lib/journal/story/collections";
-import {
-  cravingsSummary,
-  feelingsSummary,
-  firstsSummary,
-  movementsSummary,
-  notesSummary,
-  papersSummary,
-  photosSummary,
-  type Summary,
-  sicknessSummary,
-  summariesText,
-} from "../../../../lib/journal/summaries";
+import { cravingsSummary } from "../../../../lib/journal/summaries/cravings";
+import { feelingsSummary } from "../../../../lib/journal/summaries/feelings";
+import { firstsSummary } from "../../../../lib/journal/summaries/firsts";
+import { movementsSummary } from "../../../../lib/journal/summaries/movements";
+import { notesSummary } from "../../../../lib/journal/summaries/notes";
+import { papersSummary } from "../../../../lib/journal/summaries/papers";
+import { photosSummary } from "../../../../lib/journal/summaries/photos";
+import { sicknessSummary } from "../../../../lib/journal/summaries/sickness";
+import type { Summary } from "../../../../lib/journal/summaries/summary";
+import { summariesText } from "../../../../lib/journal/summaries/text";
 import { weekLabel } from "../../../../lib/timeline";
 import { useJournalPage } from "../../contexts/JournalPageContext";
 import { MovementPattern } from "../../features/movements/components/collection/MovementPattern";
