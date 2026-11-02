@@ -2,6 +2,7 @@ import { getRouteApi } from "@tanstack/react-router";
 import { Suspense } from "react";
 import { Entry } from "../components/entry/Entry";
 import { ItemSkeleton } from "../components/entry/ItemSkeleton";
+import { LibraryFrame } from "../components/LibraryFrame";
 import { HiddenEntry } from "../components/notInLibrary/HiddenEntry";
 import { NoEntry } from "../components/notInLibrary/NoEntry";
 import { Private } from "../components/private/Private";
@@ -20,11 +21,11 @@ export function LibraryItemPage() {
   const { itemId } = route.useParams();
   return (
     <LibraryItemPageProvider itemId={itemId}>
-      <main className="mx-auto w-full max-w-6xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-8">
+      <LibraryFrame>
         <div className="max-w-3xl">
           <Rendering />
         </div>
-      </main>
+      </LibraryFrame>
     </LibraryItemPageProvider>
   );
 }

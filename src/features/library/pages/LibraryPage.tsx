@@ -3,11 +3,11 @@ import { getRouteApi, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
-import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { search } from "../../../lib/library/search";
 import { Doors } from "../components/doors/Doors";
 import { HardDoor } from "../components/doors/HardDoor";
 import { ItemList } from "../components/itemList/ItemList";
+import { LibraryFrame } from "../components/LibraryFrame";
 import { RightNow } from "../components/rightNow/RightNow";
 import { Shelf } from "../components/shelf/Shelf";
 import { Topics } from "../components/topics/Topics";
@@ -44,15 +44,14 @@ export function LibraryPage() {
 
   if (!results && (door || topic)) {
     return (
-      <main className="mx-auto max-w-6xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-8">
+      <LibraryFrame>
         <Shelf narrowing={narrowing} />
-      </main>
+      </LibraryFrame>
     );
   }
 
   return (
-    <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
-      <PillarHeader title="Library" lead="Everything Expecting knows, to read any time. Each piece also turns up on its week." />
+    <LibraryFrame header>
       <SearchInput
         value={q}
         onValueChange={onSearch}
@@ -75,6 +74,6 @@ export function LibraryPage() {
           {quiet ? null : <HardDoor />}
         </div>
       )}
-    </main>
+    </LibraryFrame>
   );
 }
