@@ -29,7 +29,6 @@ import { TaskRow } from "../../tasks/components/TaskRow";
 import { ToDoNow } from "../../tasks/components/toDoNow/ToDoNow";
 import { useTasks } from "../../tasks/hooks/useTasks";
 import { WeeklyCard } from "../../weekly/components/WeeklyCard";
-import { WeekNote } from "../../weeks/components/weekNote/WeekNote";
 import { DayByDay } from "../components/dayByDay/DayByDay";
 import { HeadsUp } from "../components/headsUp/HeadsUp";
 import { Hero, Welcome } from "../components/now/Now";
@@ -37,7 +36,7 @@ import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
 
 /**
  * This week, home: what you open the app for. Where you are first, then what
- * to do now, how you are today, the week's note (read as you), the day's read, the week's heads-up, what
+ * to do now, how you are today, the week day by day (its note, read as you, then a read a day), the week's heads-up, what
  * Expecting needs to know, what's worth knowing this week, and what's coming. On a desktop the
  * week sits on the left and the doing on the right; on a phone it's one
  * column, the doing first.
@@ -106,14 +105,17 @@ function Week() {
           {!dueDate ? <Welcome /> : null}
         </div>
         <div className="contents lg:col-start-1 lg:row-start-2 lg:flex lg:flex-col lg:gap-8">
-          {note ? (
+          {week !== null && (note || reads.length > 0) ? (
             <div className="order-2 lg:order-0">
-              <WeekNote key={note.week} note={note} showSize={note.week !== week} />
-            </div>
-          ) : null}
-          {reads.length > 0 && position ? (
-            <div className="order-2 lg:order-0">
-              <DayByDay key={week} reads={reads} items={items} today={peeking ? null : position.gestationDays - position.week * 7} peeking={peeking} />
+              <DayByDay
+                key={week}
+                week={week}
+                note={note}
+                reads={reads}
+                items={items}
+                today={peeking || !position ? null : position.gestationDays - position.week * 7}
+                showSize={note?.week !== week}
+              />
             </div>
           ) : null}
           {headsUp ? (

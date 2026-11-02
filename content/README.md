@@ -124,8 +124,9 @@ drafted; they are the same entries, now in `content/items/`.
 
 Each week's note is its first day (+0). Every day after it, +1 to +6, brings
 one read: `content/days/<week>/<day>.md`, `20/3.md` for 20+3, checked by
-`src/content/days.ts` and `test/content/days.test.ts`. This week shows the
-reads out so far, today's first, one card at a time. A read is a way into the
+`src/content/days.ts` and `test/content/days.test.ts`. On This week the
+note and the reads are one thing, the week day by day: the note the first
+card, a read each day after, out so far, today's showing, one card at a time. A read is a way into the
 Library from where you are now: a short piece about this stage, built from
 entries that were already checked, ending in links to them.
 

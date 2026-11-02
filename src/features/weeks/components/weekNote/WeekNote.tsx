@@ -19,10 +19,13 @@ const LENS: Record<Role, Section[]> = { carrying: ["baby", "body"], partner: ["b
 export function WeekNote({
   note,
   showSize = true,
+  eyebrow,
 }: {
   note: Note;
   /** Off where the size is already said: This week's heading. */
   showSize?: boolean;
+  /** The line above the title, "Week 28" unless given: the day by day says "28+0". */
+  eyebrow?: string;
 }) {
   const { me, people } = usePeople().data;
   const [lens, setLens] = useState<Role>(me?.role ?? "carrying");
@@ -35,7 +38,7 @@ export function WeekNote({
   return (
     <Card>
       <article aria-labelledby={`note-${note.week}`} className="flex flex-col gap-3">
-        <span className="text-xs font-semibold tracking-widest text-fg-subtle uppercase">Week {note.week}</span>
+        <span className="text-xs font-semibold tracking-widest text-fg-subtle uppercase">{eyebrow ?? `Week ${note.week}`}</span>
         <h3 id={`note-${note.week}`} className="text-lg leading-snug font-display font-semibold text-fg-strong">
           {note.title}
         </h3>
