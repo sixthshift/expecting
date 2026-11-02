@@ -1,12 +1,11 @@
 import { Button } from "@sixthshift/design-system/button";
-import { Card } from "@sixthshift/design-system/card";
 import { FormField } from "@sixthshift/design-system/form-field";
 import { Input } from "@sixthshift/design-system/input";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { getRouteApi } from "@tanstack/react-router";
 import { type FormEvent, useState } from "react";
 import { codeQuery, join, useAccessQuery } from "../../../api/rpc/session";
-import { Page } from "../../../components/Page";
+import { Alone } from "../../../components/Alone";
 import { ROLE_NAMES, type Role } from "../../../lib/people";
 import { CodeEntry } from "../components/CodeEntry";
 import { useEnter } from "../hooks/useEnter";
@@ -25,13 +24,9 @@ const problems = {
 export function JoinPage() {
   const { code } = route.useSearch();
   return (
-    <div className="lg:mx-auto lg:flex lg:min-h-dvh lg:max-w-lg lg:items-center">
-      <Page title="Join Expecting" subtitle={code ? undefined : "The code from the invite you were sent."}>
-        <Card size="lg" className="w-full max-w-md">
-          {code ? <Invited code={code} /> : <CodeEntry to="/join" />}
-        </Card>
-      </Page>
-    </div>
+    <Alone title="Join Expecting" subtitle={code ? undefined : "The code from the invite you were sent."}>
+      {code ? <Invited code={code} /> : <CodeEntry to="/join" />}
+    </Alone>
   );
 }
 

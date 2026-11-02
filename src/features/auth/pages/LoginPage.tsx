@@ -1,6 +1,5 @@
-import { Card } from "@sixthshift/design-system/card";
 import { useAccessQuery } from "../../../api/rpc/session";
-import { Page } from "../../../components/Page";
+import { Alone } from "../../../components/Alone";
 import { LoginForm } from "../components/LoginForm";
 import { SetUpForm } from "../components/SetUpForm";
 
@@ -17,13 +16,8 @@ export function LoginPage() {
           ? "Which of you, then your password, once per phone or computer."
           : "Which of you, once per phone or computer.";
   return (
-    // No navigation here, so on a large screen the form sits alone, centred.
-    <div className="lg:mx-auto lg:flex lg:min-h-dvh lg:max-w-lg lg:items-center">
-      <Page title="Expecting" subtitle={subtitle}>
-        <Card size="lg" className="w-full max-w-md">
-          {access.people.length === 0 ? <SetUpForm /> : <LoginForm />}
-        </Card>
-      </Page>
-    </div>
+    <Alone title="Expecting" subtitle={subtitle}>
+      {access.people.length === 0 ? <SetUpForm /> : <LoginForm />}
+    </Alone>
   );
 }

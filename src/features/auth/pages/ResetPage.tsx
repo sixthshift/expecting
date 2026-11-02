@@ -1,10 +1,9 @@
 import { Button } from "@sixthshift/design-system/button";
-import { Card } from "@sixthshift/design-system/card";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { getRouteApi } from "@tanstack/react-router";
 import { type FormEvent, useState } from "react";
 import { codeQuery, resetPassword } from "../../../api/rpc/session";
-import { Page } from "../../../components/Page";
+import { Alone } from "../../../components/Alone";
 import { CodeEntry } from "../components/CodeEntry";
 import { useEnter } from "../hooks/useEnter";
 import { useNewPassword } from "../hooks/useNewPassword";
@@ -20,13 +19,9 @@ const problems = {
 export function ResetPage() {
   const { code } = route.useSearch();
   return (
-    <div className="lg:mx-auto lg:flex lg:min-h-dvh lg:max-w-lg lg:items-center">
-      <Page title="A new password" subtitle={code ? undefined : "The code from the link you were sent."}>
-        <Card size="lg" className="w-full max-w-md">
-          {code ? <Resetting code={code} /> : <CodeEntry to="/reset" />}
-        </Card>
-      </Page>
-    </div>
+    <Alone title="A new password" subtitle={code ? undefined : "The code from the link you were sent."}>
+      {code ? <Resetting code={code} /> : <CodeEntry to="/reset" />}
+    </Alone>
   );
 }
 
