@@ -1,6 +1,7 @@
 // One line of the story, by its kind: each kind's line is its own file
 // beside this one.
 
+import type { ReactElement } from "react";
 import type { StoryItem } from "../../../../lib/story/items";
 import { AppetiteLine } from "./AppetiteLine";
 import { BingoLine } from "./BingoLine";
@@ -14,7 +15,7 @@ import { PaperLine } from "./PaperLine";
 import { QuestionLine } from "./QuestionLine";
 
 /** One line of the story, but a photo (a day's are drawn together) or sickness and cravings (a day's are grouped). */
-export function StoryLine({ item }: { item: StoryItem }) {
+export function StoryLine({ item }: { item: StoryItem }): ReactElement | null {
   switch (item.kind) {
     case "note":
     case "letter":

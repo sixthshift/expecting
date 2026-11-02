@@ -36,7 +36,7 @@ one.
   page is made for the moment.
 - **What's kept, never what's missing.** Some keep nothing, some one kind,
   some everything, and each gets a Journal that's theirs:
-  - No empty slots. A lens, a pattern or a part of a recap appears only once
+  - No empty slots. A view, a record or a part of a recap appears only once
     its kind has something. Never "no movements yet".
   - A pattern needs enough to be one: movements on three days of the
     fortnight, sickness in two weeks, a craving kept twice, three check-ins,
@@ -86,7 +86,7 @@ One story, newest first, made for the moment: it opens on now.
   in?" and "what's now?" are why most visits happen. Until 2026-11-02 the
   week and the story were two parts, the story leaving this week out and
   the week hiding its days while the story was in a lens or zoomed: one
-  story has no seam to keep in step. In a lens, zoomed or searched, that
+  story has no seam to keep in step. As one kind, zoomed or searched, that
   is the story instead, this week's page with it.
 - **The book, already begun.** From the first visit there's a cover (Our
   pregnancy, your names, the due month and year) and contents: the
@@ -147,8 +147,8 @@ One story, newest first, made for the moment: it opens on now.
   (weeks 1–42 as one line, the firsts as landmarks), then a kind once
   there's something of it (Notes, Photos, Firsts). They were two rows, the
   lenses and the zoom, though only one could be open: one choice, one
-  row. The search under it covers everything, in days: typing leaves a
-  zoom or a kind.
+  row, and one address, `?view=`. The search under it covers everything,
+  in days: typing leaves a zoom or a kind.
 - **Recaps,** a part only when it has something: the firsts, the bump as a
   flipbook, the scans, the most craved, both voices, the letters, what got
   done. Stepped through card by card, or printed as the book.
@@ -173,7 +173,7 @@ kind with nothing kept has no record.
 - **Copy as text,** the whole page as plain lines, to paste into a message
   or the hospital's form: what's on the page, nothing more.
 - **Each opens at full size:** its pattern, its tools, then every one
-  (`?show=movements`, `appetite`, `feelings`, `papers`), with All records
+  (`/journal/records/movements`, `appetite`, `feelings`, `papers`), with All records
   to go back.
 
 The records:

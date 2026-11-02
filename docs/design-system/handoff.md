@@ -33,7 +33,7 @@
      (compound parts, `role="note"`, `h3` titles) and the Library's "Worried
      now?" in `Shelf.tsx` (`role="note"`). `Ask` gained a `className`.
    - **Card `variant="placeholder"`** for `PlaceReady`
-     (`src/features/journal/components/journal/thisWeek/WeekPage.tsx`).
+     (`src/features/journal/components/thisWeek/WeekPage.tsx`).
      Tests pass, but it hasn't been checked visually.
 
 ## Requests to the design system
