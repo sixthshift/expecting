@@ -5,7 +5,7 @@ import { type FormEvent, type ReactNode, useState } from "react";
 import { choosePassword, logOutEverywhere, makeInvite, makeReset, usePeopleQuery } from "../../../../api/rpc/people";
 import { logout, useAccessQuery } from "../../../../api/rpc/session";
 import { useAction } from "../../../../app/hooks/useAction";
-import { ROLE_NAMES } from "../../../../lib/people";
+import { otherOf, ROLE_NAMES } from "../../../../lib/people";
 import { forgetData } from "../../../../pwa/register";
 import { useNewPassword } from "../../../auth/components/NewPassword";
 
@@ -19,7 +19,7 @@ import { useNewPassword } from "../../../auth/components/NewPassword";
 export function Account() {
   const { data: people } = usePeopleQuery();
   const { data: login } = useAccessQuery({ select: (access) => access.login });
-  const other = people.people.find((p) => p.id !== people.me?.id);
+  const other = otherOf(people.people, people.me);
 
   return (
     <div className="flex flex-col gap-4 rounded-xl border border-border-subtle bg-bg-normal p-4">

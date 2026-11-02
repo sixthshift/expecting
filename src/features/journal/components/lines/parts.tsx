@@ -5,6 +5,7 @@ import { Modal } from "@sixthshift/design-system/modal";
 import type { ReactNode } from "react";
 import { usePeopleQuery } from "../../../../api/rpc/people";
 import { formatTime } from "../../../../lib/journal";
+import { nameBy } from "../../../../lib/people";
 
 /** The name a line says when it isn't yours: "Sam". Yours says nothing, as a diary wouldn't. */
 export function useOther(): (id: string | null) => string | null {
@@ -51,5 +52,5 @@ export function At({ time }: { time: string | null }) {
 /** A person as a line names them: "You", their name, or "One of you" for someone no longer here. */
 export function usePersonName(): (id: string) => string {
   const { data: people } = usePeopleQuery();
-  return (id) => (id === people.me?.id ? "You" : (people.people.find((p) => p.id === id)?.name ?? "One of you"));
+  return (id) => nameBy(id, people.me, people.people) ?? "One of you";
 }

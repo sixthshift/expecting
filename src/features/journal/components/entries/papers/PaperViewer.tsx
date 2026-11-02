@@ -21,6 +21,7 @@ import type { ISODate } from "../../../../../lib/dates";
 import { fileUrl, formatSize } from "../../../../../lib/files";
 import { when } from "../../../../../lib/labels";
 import { isPicturePage, type Paper, type PaperChange, type PaperPage } from "../../../../../lib/papers";
+import { nameBy } from "../../../../../lib/people";
 import { forgetFile } from "../../../../../pwa/register";
 import { ItemLink } from "../../../../library/components/ItemLink";
 import { Picture } from "../photos/Picture";
@@ -142,7 +143,7 @@ export function PaperViewer({ id, onClose }: { id: string; onClose: () => void }
   const [changing, setChanging] = useState(false);
   const [confirming, setConfirming] = useState(false);
   const paper = papers.find((p) => p.id === id);
-  const name = (who: string | null) => (who === null ? null : who === people.me?.id ? "You" : (people.people.find((p) => p.id === who)?.name ?? null));
+  const name = (who: string | null) => nameBy(who, people.me, people.people);
 
   // Deleted, here or on the other phone: nothing left to show.
   useEffect(() => {
@@ -151,7 +152,7 @@ export function PaperViewer({ id, onClose }: { id: string; onClose: () => void }
   if (!paper) return null;
 
   const item = paper.itemId ? builtInItems.find((i) => i.id === paper.itemId && !i.private) : undefined;
-  const changer = paper.editedAt && paper.editedBy !== paper.by ? name(paper.editedBy) : null;
+  const changer = paper.editedAt && paper.editedBy !== paper.by ? nameBy(paper.editedBy, people.me, people.people, "you") : null;
   const total = paper.pages.length;
   const pageLabel = (i: number) => (total > 1 ? `Page ${i + 1} of ${total}` : "The page");
 
@@ -198,7 +199,7 @@ export function PaperViewer({ id, onClose }: { id: string; onClose: () => void }
               {[
                 name(paper.by),
                 `kept ${when(paper.createdAt.slice(0, 10), null).replace(/^Today/, "today")}`,
-                changer ? `changed by ${changer === "You" ? "you" : changer}` : paper.editedAt ? "changed" : null,
+                changer ? `changed by ${changer}` : paper.editedAt ? "changed" : null,
               ]
                 .filter(Boolean)
                 .join(" · ")}

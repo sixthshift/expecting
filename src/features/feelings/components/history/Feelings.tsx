@@ -16,6 +16,7 @@ import { useSave } from "../../../../app/hooks/useSave";
 import { addDays, formatDate, type ISODate, todayISO } from "../../../../lib/dates";
 import { type Feeling, feelingsOf, isOwn, type OwnFeeling, STEP_LABEL, type Step, stepsByDay, wordsUsed } from "../../../../lib/feelings";
 import { formatTime } from "../../../../lib/journal";
+import { nameBy } from "../../../../lib/people";
 import { Face } from "../Face";
 import { MoreWords } from "../MoreWords";
 import { StepPicker } from "../StepPicker";
@@ -106,7 +107,7 @@ function CheckedIn({ feeling }: { feeling: Feeling | OwnFeeling }) {
   const change = useSave(feelingsSaves.changeFeeling);
   const remove = useSave(feelingsSaves.deleteFeeling);
   const add = useSave(feelingsSaves.addFeeling);
-  const who = feeling.by === people.me?.id ? "You" : (people.people.find((p) => p.id === feeling.by)?.name ?? "");
+  const who = nameBy(feeling.by, people.me, people.people) ?? "";
   const line = [who, feeling.time ? formatTime(feeling.time) : null].filter(Boolean).join(" · ");
 
   if (!isOwn(feeling)) {

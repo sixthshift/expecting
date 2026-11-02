@@ -13,6 +13,7 @@ import { useSave } from "../../../../../app/hooks/useSave";
 import type { ISODate } from "../../../../../lib/dates";
 import type { JournalEntry } from "../../../../../lib/journal";
 import { when } from "../../../../../lib/labels";
+import { nameBy } from "../../../../../lib/people";
 import { NoteForm } from "./NoteForm";
 
 /** A note (or a letter to the baby, said so): its words, then who wrote it and when, and who changed it last. */
@@ -22,12 +23,12 @@ export function Note({ entry }: { entry: JournalEntry }) {
   const remove = useSave(journalSaves.deleteNote);
   const restore = useSave(journalSaves.restoreNote);
   const { data: people } = usePeopleQuery();
-  const name = (id: string | null) => (id === null ? null : id === people.me?.id ? "You" : (people.people.find((p) => p.id === id)?.name ?? null));
+  const name = (id: string | null) => nameBy(id, people.me, people.people);
   // Changed by the one who wrote it, or by someone forgotten since: only "changed".
-  const changer = entry.editedBy !== entry.by ? name(entry.editedBy) : null;
+  const changer = entry.editedBy !== entry.by ? nameBy(entry.editedBy, people.me, people.people, "you") : null;
   // A letter from both is signed by both, whoever kept it.
   const signed = entry.kind === "letter" && entry.fromBoth ? "From both of you" : name(entry.by);
-  const changed = entry.editedAt ? (changer ? `changed by ${changer === "You" ? "you" : changer}` : "changed") : null;
+  const changed = entry.editedAt ? (changer ? `changed by ${changer}` : "changed") : null;
 
   function deleteIt() {
     remove({ id: entry.id });

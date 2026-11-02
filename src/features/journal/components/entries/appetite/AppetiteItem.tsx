@@ -19,6 +19,7 @@ import { useSave } from "../../../../../app/hooks/useSave";
 import { type AppetiteEntry, type AppetiteKind, describe, type How, inputOf } from "../../../../../lib/appetite";
 import type { ISODate } from "../../../../../lib/dates";
 import { when } from "../../../../../lib/labels";
+import { nameBy } from "../../../../../lib/people";
 import { keptBy } from "../../../model/labels";
 import { HowPicker, KIND_OPTIONS, WhenFields } from "./AppetiteFields";
 import { TooSick } from "./TooSick";
@@ -84,7 +85,7 @@ export function AppetiteItem({ entry }: { entry: AppetiteEntry }) {
   const remove = useSave(appetiteSaves.deleteAppetite);
   const restore = useSave(appetiteSaves.restoreAppetite);
   const { data: people } = usePeopleQuery();
-  const name = (id: string | null) => (id === null ? null : id === people.me?.id ? "You" : (people.people.find((p) => p.id === id)?.name ?? null));
+  const name = (id: string | null) => nameBy(id, people.me, people.people);
 
   function deleteIt() {
     remove({ id: entry.id });

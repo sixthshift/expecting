@@ -47,6 +47,30 @@ export function whoseBy(by: string | null, me: Person | null, people: readonly P
   return them ? `${them.name}'s` : null;
 }
 
+/** What the other of the two is called before they've joined. */
+export const OTHER_ONE = "The other one";
+
+/** The other of the two, as the person holding this phone sees it: null before they've joined. */
+export function otherOf(people: readonly Person[], me: Person | null): Person | null {
+  return people.find((p) => p.id !== me?.id) ?? null;
+}
+
+/** The other one's name, or "The other one" before they've joined. */
+export function otherName(people: readonly Person[], me: Person | null): string {
+  return otherOf(people, me)?.name ?? OTHER_ONE;
+}
+
+/**
+ * Who one of you is, by their id, as the person holding this phone reads it:
+ * "You" (or `you`, mid-sentence) or their name. Null for nobody (from before
+ * it was kept, or a person since forgotten).
+ */
+export function nameBy(by: string | null, me: Person | null, people: readonly Person[], you = "You"): string | null {
+  if (by === null) return null;
+  if (me?.id === by) return you;
+  return people.find((p) => p.id === by)?.name ?? null;
+}
+
 function capitalise(text: string): string {
   return text.charAt(0).toUpperCase() + text.slice(1);
 }

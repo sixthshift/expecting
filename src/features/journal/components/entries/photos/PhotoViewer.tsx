@@ -23,6 +23,7 @@ import { type ISODate, todayISO } from "../../../../../lib/dates";
 import { fileUrl } from "../../../../../lib/files";
 import { placeOf, toTime } from "../../../../../lib/journal";
 import { when } from "../../../../../lib/labels";
+import { nameBy } from "../../../../../lib/people";
 import { PHOTO_KIND_LABEL, type Photo, type PhotoKind } from "../../../../../lib/photos";
 import { weekLabel } from "../../../../../lib/timeline";
 import { forgetFile } from "../../../../../pwa/register";
@@ -103,7 +104,7 @@ export function PhotoViewer({ ids, index: start, kinds, onClose }: { ids: string
   const here = ids.filter((id) => photos.some((p) => p.id === id));
   const at = Math.min(index, here.length - 1);
   const photo = photos.find((p) => p.id === here[at]);
-  const name = (id: string | null) => (id === null ? null : id === people.me?.id ? "You" : (people.people.find((p) => p.id === id)?.name ?? null));
+  const name = (id: string | null) => nameBy(id, people.me, people.people);
 
   // Deleted, here or on the other phone: nothing left to show.
   useEffect(() => {
@@ -113,7 +114,7 @@ export function PhotoViewer({ ids, index: start, kinds, onClose }: { ids: string
 
   const place = settings.dueDate ? placeOf(photo.day as ISODate, settings.dueDate) : null;
   const title = [photoTitle(photo.kind), typeof place === "number" ? weekLabel(place) : null].filter(Boolean).join(" · ");
-  const changer = photo.editedAt && photo.editedBy !== photo.by ? name(photo.editedBy) : null;
+  const changer = photo.editedAt && photo.editedBy !== photo.by ? nameBy(photo.editedBy, people.me, people.people, "you") : null;
 
   function go(step: number) {
     setIndex((i) => (i + step + here.length) % here.length);
@@ -159,11 +160,7 @@ export function PhotoViewer({ ids, index: start, kinds, onClose }: { ids: string
           <>
             {photo.caption ? <p className="whitespace-pre-wrap text-fg-normal">{photo.caption}</p> : null}
             <p className="text-xs text-fg-subtle">
-              {[
-                keptBy(name(photo.by)),
-                when(photo.day, photo.time),
-                changer ? `changed by ${changer === "You" ? "you" : changer}` : photo.editedAt ? "changed" : null,
-              ]
+              {[keptBy(name(photo.by)), when(photo.day, photo.time), changer ? `changed by ${changer}` : photo.editedAt ? "changed" : null]
                 .filter(Boolean)
                 .join(" · ")}
             </p>

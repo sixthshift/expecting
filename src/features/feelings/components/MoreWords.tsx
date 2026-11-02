@@ -4,6 +4,7 @@ import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { useState } from "react";
 import { usePeopleQuery } from "../../../api/rpc/people";
 import { type OwnFeeling, WORDS, type Word } from "../../../lib/feelings";
+import { otherOf } from "../../../lib/people";
 
 const OPTIONS = WORDS.map((word) => ({ value: word, label: word }));
 
@@ -12,7 +13,7 @@ export function MoreWords({ feeling, onDone }: { feeling: OwnFeeling; onDone: (m
   const [words, setWords] = useState<Word[]>(feeling.words);
   const [note, setNote] = useState(feeling.note ?? "");
   const { data: people } = usePeopleQuery();
-  const other = people.people.find((p) => p.id !== people.me?.id);
+  const other = otherOf(people.people, people.me);
 
   return (
     <form

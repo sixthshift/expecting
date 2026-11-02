@@ -10,6 +10,7 @@ import { useSave } from "../../../app/hooks/useSave";
 import { type Card, deal, type Standing, standing, standingLine } from "../../../lib/bingo";
 import { formatDate } from "../../../lib/dates";
 import { extrasOn } from "../../../lib/extras";
+import { OTHER_ONE, otherOf } from "../../../lib/people";
 import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { extra } from "../../settings/model/extras";
 import { BingoGrid } from "../components/card/BingoGrid";
@@ -30,10 +31,10 @@ export function BingoPage() {
   const dealCard = useSave(bingoSaves.dealCard);
   const navigate = route.useNavigate();
   const showing = route.useSearch().card ?? "mine";
-  const them = people.find((p) => p.id !== me?.id) ?? null;
+  const them = otherOf(people, me);
   const mine = bingo.cards.find((c) => c.personId === me?.id) ?? null;
   const theirs = them ? (bingo.cards.find((c) => c.personId === them.id) ?? null) : null;
-  const other = them?.name ?? "The other one";
+  const other = them?.name ?? OTHER_ONE;
   const tool = extra("pregnancy-bingo");
   const card = showing === "theirs" ? theirs : mine;
 

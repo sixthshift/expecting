@@ -6,6 +6,7 @@ import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { useWeeklyQuery } from "../../../api/rpc/weekly";
 import { extrasOn } from "../../../lib/extras";
+import { otherName } from "../../../lib/people";
 import { weekLabel } from "../../../lib/timeline";
 import { earlier, questionOf, weekOf } from "../../../lib/weekly";
 import { WeekQuestion } from "./WeekQuestion";
@@ -25,7 +26,7 @@ export function WeeklyCard() {
   const now = useNow();
   const [showEarlier, setShowEarlier] = useState(false);
   if (!on || quiet || now === null || !me) return null;
-  const other = people.find((p) => p.id !== me.id)?.name ?? "The other one";
+  const other = otherName(people, me);
   const before = earlier(now);
   const asked = questionOf(now) !== undefined;
   if (!asked && before.length === 0) return null;

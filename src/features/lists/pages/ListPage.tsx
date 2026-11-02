@@ -14,6 +14,7 @@ import { useNow } from "../../../api/rpc/settings";
 import { useSave } from "../../../app/hooks/useSave";
 import type { Line } from "../../../content/schema";
 import { isApart, isLeft, type ListSummary, listOf, listsOf, type Mark, sectionsOf, upToSaying } from "../../../lib/lists";
+import { nameBy } from "../../../lib/people";
 import { weekLabel } from "../../../lib/timeline";
 import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { useTasks } from "../../tasks/hooks/useTasks";
@@ -50,7 +51,7 @@ export function ListPage() {
   const summary = listsOf(lines, lists.ownLists, lists.marks).find((l) => l.id === listId);
   const own = lists.ownLists.find((l) => l.id === listId);
 
-  const by = (id: string | null) => (id === null ? null : id === people.me?.id ? "you" : (people.people.find((p) => p.id === id)?.name ?? null));
+  const by = (id: string | null) => nameBy(id, people.me, people.people, "you");
   const taskOf = (line: Line): LineTask | null => {
     const task = line.taskId ? tasks.find((t) => t.id === line.taskId) : undefined;
     if (!task) return null;

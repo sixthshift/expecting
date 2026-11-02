@@ -6,6 +6,7 @@ import { usePeopleQuery } from "../../../api/rpc/people";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { extrasOn } from "../../../lib/extras";
 import { JOBS, outcomes, toAnswer, waiting } from "../../../lib/jobs";
+import { otherName } from "../../../lib/people";
 import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { extra } from "../../settings/model/extras";
 import { JobDeck } from "../components/deck/JobDeck";
@@ -22,7 +23,7 @@ export function JobsPage() {
   const { me, people } = usePeopleQuery().data;
   const { data: on } = useExtrasQuery({ select: (e) => extrasOn(e).has("who-does-what") });
   const { data: quiet } = useQuietQuery();
-  const other = people.find((p) => p.id !== me?.id)?.name ?? "The other one";
+  const other = otherName(people, me);
   const deck = toAnswer(view.answers);
   const results = outcomes(view.answers);
   const waits = waiting(view.answers);

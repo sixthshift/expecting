@@ -15,6 +15,7 @@ import { useSave } from "../../../../../app/hooks/useSave";
 import type { ISODate } from "../../../../../lib/dates";
 import type { JournalEntry } from "../../../../../lib/journal";
 import { when } from "../../../../../lib/labels";
+import { nameBy } from "../../../../../lib/people";
 import { keptBy } from "../../../model/labels";
 import { MovementForm } from "./MovementForm";
 import { MovementsChanged } from "./MovementsChanged";
@@ -28,7 +29,7 @@ export function Movement({ entry }: { entry: JournalEntry }) {
   const remove = useSave(journalSaves.deleteMovement);
   const restore = useSave(journalSaves.restoreMovement);
   const { data: people } = usePeopleQuery();
-  const name = (id: string | null) => (id === null ? null : id === people.me?.id ? "You" : (people.people.find((p) => p.id === id)?.name ?? null));
+  const name = (id: string | null) => nameBy(id, people.me, people.people);
   const time = entry.time ?? "00:00";
 
   function deleteIt() {

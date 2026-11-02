@@ -7,6 +7,7 @@ import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useSettingsQuery } from "../../../api/rpc/settings";
 import { extrasOn } from "../../../lib/extras";
 import { dealing } from "../../../lib/names";
+import { otherOf } from "../../../lib/people";
 import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { extra } from "../../settings/model/extras";
 import { NamesGame } from "../components/namesGame/NamesGame";
@@ -25,7 +26,7 @@ export function NamesPage() {
   const { data: baby } = useSettingsQuery({ select: (s) => s.baby });
   const { filter, choosable } = dealing(baby, route.useSearch().names);
   const navigate = route.useNavigate();
-  const other = people.find((p) => p.id !== me?.id) ?? null;
+  const other = otherOf(people, me);
   const naming = extra("choosing-names");
 
   return (

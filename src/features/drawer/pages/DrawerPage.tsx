@@ -12,6 +12,7 @@ import { standing, standingLine } from "../../../lib/bingo";
 import { toThank, viewsOn } from "../../../lib/circle";
 import { extrasOn } from "../../../lib/extras";
 import { outcomes } from "../../../lib/jobs";
+import { otherOf } from "../../../lib/people";
 import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { extra } from "../../settings/model/extras";
 
@@ -24,7 +25,7 @@ export function DrawerPage() {
   const { data: names } = useNamesQuery();
   const { me, people } = usePeopleQuery().data;
   const { data: extras } = useExtrasQuery({ select: extrasOn });
-  const other = people.find((p) => p.id !== me?.id) ?? null;
+  const other = otherOf(people, me);
   const naming = extra("choosing-names");
   const { data: quiet } = useQuietQuery();
   const { data: circle } = useCircleQuery();

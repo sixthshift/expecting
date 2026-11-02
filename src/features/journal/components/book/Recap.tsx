@@ -14,6 +14,7 @@ import { firstOf } from "../../../../lib/firsts";
 import { placeOf } from "../../../../lib/journal";
 import type { RecapSpan } from "../../../../lib/journalNow";
 import { shortDate } from "../../../../lib/labels";
+import { nameBy } from "../../../../lib/people";
 import { type Recap, type RecapPart, recapOf, recapParts } from "../../../../lib/recap";
 import type { StoryItem } from "../../../../lib/story/items";
 import { weekLabel } from "../../../../lib/timeline";
@@ -42,7 +43,7 @@ const PART_TITLE: Record<RecapPart, string> = {
 export function RecapPartView({ recap, part }: { recap: Recap; part: RecapPart }) {
   const { data: settings } = useSettingsQuery();
   const { data: people } = usePeopleQuery();
-  const name = (id: string | null) => (id === null ? null : id === people.me?.id ? "You" : (people.people.find((p) => p.id === id)?.name ?? null));
+  const name = (id: string | null) => nameBy(id, people.me, people.people);
   const week = (day: string) => {
     const place = settings.dueDate ? placeOf(day as ISODate, settings.dueDate) : null;
     return typeof place === "number" ? weekLabel(place) : shortDate(day as ISODate, todayISO());
