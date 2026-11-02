@@ -5,10 +5,11 @@ import type { ReactNode } from "react";
 import { settingsSaves } from "../../../../api/rpc/settings";
 import { useSave } from "../../../../app/hooks/useSave";
 import { DateForm } from "../../../../components/DateForm";
-import { sizeLabel, type WeekNote } from "../../../../content/weeks";
+import { sizeLabel, sizeLine, type WeekNote } from "../../../../content/weeks";
 import { daysBetween, formatDate, type ISODate, todayISO } from "../../../../lib/dates";
 import { dueDateBounds, gestationLabel, type Position, WEEKS, type Week, weekDates, weekFromNow, weekLabel } from "../../../../lib/timeline";
 import { PregnancyStrip } from "../../../timeline/components/strip/PregnancyStrip";
+import { SizeIcon } from "../../../weeks/components/sizeIcon/SizeIcon";
 
 /** Where you are: "28+0 · 84 days to go · due Wed, 20 Jan 2027". */
 function NowLine({ position, dueDate, today, small }: { position: Position; dueDate: ISODate; today: ISODate; small?: boolean }): ReactNode {
@@ -46,17 +47,25 @@ export function Hero({
   /** The weeks ahead with something best done by then, dotted on the strip. */
   due: ReadonlySet<Week>;
 }) {
-  const label = size ? sizeLabel(size) : null;
+  const line = size ? sizeLine(size) : null;
   const peeking = week !== position.week;
   const dates = weekDates(week, dueDate);
   return (
-    // Its parts sit in the header's grid (ThisWeek): the heading beside the phone's corner, the rest the full width under both.
+    // Its parts sit in the header's grid (ThisWeek): the heading beside the phone's corner, the size line under it with
+    // the size's drawing at its right, under the corner; on a desktop, with no corner, the drawing is opposite the week.
     <div className="contents">
       <h1 className="col-start-1 row-start-1 flex flex-col text-fg-strong">
         <span className="text-xs font-semibold tracking-widest text-fg-subtle uppercase">{weekFromNow(week, position.week)}</span>
         <span className="text-4xl font-display font-semibold lg:text-5xl">{weekLabel(week)}</span>
       </h1>
-      {label ? <p className="col-span-full text-fg-normal">{label.charAt(0).toUpperCase() + label.slice(1)}.</p> : null}
+      {/* One line, kept on every week, so going week to week moves nothing under it; a narrow phone cuts it short (read out whole), and the sentence is its title. On a phone it leaves room at its end for the drawing. */}
+      <p className="col-span-full row-start-2 self-center truncate pr-13 text-fg-normal lg:pr-0" title={size ? sizeLabel(size) : undefined}>
+        {line ?? "\u00a0"}
+      </p>
+      {/* Its place is kept on a week without one, so the header is the same height every week. */}
+      <div className="col-start-2 row-start-2 size-10 justify-self-end lg:row-start-1 lg:size-14 lg:self-end">
+        {size?.like ? <SizeIcon like={size.like} className="size-full" /> : null}
+      </div>
       <div className="col-span-full flex flex-col gap-2 pt-1">
         <PregnancyStrip now={position.week} at={week} due={due} />
         <div className="flex flex-wrap items-center justify-between gap-x-4">

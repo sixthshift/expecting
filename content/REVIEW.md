@@ -84,6 +84,18 @@ and statistics use legitimately.
   `term-gravida-para` cites Queensland Health's Pregnancy Health Record.
 - `brain-fog` is a card, not a symptom (PBB gives one sentence).
 - `anaemia-in-pregnancy` gives no thresholds: PBB's table has a unit error.
+- The weeks' sizes: what it's like (`size.like`) is PBB's "How big is your
+  baby?" for weeks 4 to 40, as it has them (its grouped weeks each get the
+  group's: 22–24 an eggplant, 25–28 a papaya, 29–32 a pumpkin, 33–36 a
+  honeydew melon, 37–40 a watermelon; "naval orange" spelt navel). Weeks 1
+  to 3, 41 and 42 have none. The length and weight, weeks 8 to 41, are
+  BabyCenter Australia's average fetal length and weight chart, every week
+  from the one table (Jason's call: no Australian health source has one;
+  Better Health gives ten weeks and Raising Children refuses automated
+  reads). A commercial site, below the bar, accepted for a line that's for
+  fun. Its length is crown to rump to week 13, crown to heel from 14 (`to:
+  bottom`, `to: heel`), so the jump from 13 to 14 is the measure, not the
+  baby.
 
 ## Not written, for want of a source
 

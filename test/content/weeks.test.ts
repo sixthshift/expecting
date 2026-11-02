@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
 import { weekNotes } from "../../src/content";
 import { ContentError } from "../../src/content/file";
-import { noteFor, parseWeek, SECTIONS, sizeLabel } from "../../src/content/weeks";
+import { noteFor, parseWeek, SECTIONS, sizeLabel, sizeLine } from "../../src/content/weeks";
 
 const BODY = "## The baby\n\nGrowing.\n\n## Your body\n\nTired.\n\n## For the partner\n\nCook.";
 const note = (frontmatter = "title: Halfway", body = BODY) => `---\n${frontmatter}\n---\n${body}\n`;
@@ -11,13 +11,13 @@ describe("parseWeek", () => {
     const parsed = parseWeek(
       "weeks/20.md",
       note(
-        "title: Halfway\nsize:\n  length: 16\n  weight: 320\n  like: a banana\nsource:\n  title: A source\n  url: https://example.org/20\nchecked: 2026-10-28"
+        "title: Halfway\nsize:\n  length: 16\n  to: heel\n  weight: 320\n  like: a banana\n  source:\n    title: Sizes\n    url: https://example.org/sizes\nsource:\n  title: A source\n  url: https://example.org/20\nchecked: 2026-10-28"
       )
     );
     expect(parsed).toMatchObject({
       week: 20,
       title: "Halfway",
-      size: { length: 16, weight: 320, like: "a banana" },
+      size: { length: 16, to: "heel", weight: 320, like: "a banana", source: { title: "Sizes", url: "https://example.org/sizes" } },
       source: { title: "A source", url: "https://example.org/20" },
       checked: "2026-10-28",
     });
@@ -26,8 +26,11 @@ describe("parseWeek", () => {
   });
 
   test("a size can name its own source", () => {
-    const parsed = parseWeek("weeks/10.md", note("title: Tiny\nsize:\n  length: 3.5\n  source:\n    title: Sizes\n    url: https://example.org/sizes"));
-    expect(parsed.size).toEqual({ length: 3.5, weight: null, like: null, source: { title: "Sizes", url: "https://example.org/sizes" } });
+    const parsed = parseWeek(
+      "weeks/10.md",
+      note("title: Tiny\nsize:\n  length: 3.5\n  to: bottom\n  source:\n    title: Sizes\n    url: https://example.org/sizes")
+    );
+    expect(parsed.size).toEqual({ length: 3.5, to: "bottom", weight: null, like: null, source: { title: "Sizes", url: "https://example.org/sizes" } });
   });
 
   test("the file's name is its week, however the path starts", () => {
@@ -55,16 +58,36 @@ describe("parseWeek", () => {
   test("the frontmatter is strict", () => {
     expect(() => parseWeek("weeks/20.md", note("title: Halfway\nweeks: 20"))).toThrow(/weeks/);
     expect(() => parseWeek("weeks/20.md", note("size:\n  length: 16"))).toThrow(/title/);
-    expect(() => parseWeek("weeks/20.md", note("title: Halfway\nsize:\n  weight: 320"))).toThrow(/length/);
   });
 });
 
 describe("sizeLabel", () => {
-  test("millimetres while tiny, kilograms once heavy", () => {
-    expect(sizeLabel({ length: 0.5, weight: null, like: "a lentil" })).toBe("about 5 mm from head to bottom: about the size of a lentil");
-    expect(sizeLabel({ length: 16, weight: 320, like: null })).toBe("about 16 cm from head to bottom and about 320 g");
-    expect(sizeLabel({ length: 25, weight: 1000, like: "an eggplant" })).toBe("about 25 cm from head to bottom and about 1 kg: about the size of an eggplant");
-    expect(sizeLabel({ length: 33.4, weight: 1460, like: null })).toBe("about 33.4 cm from head to bottom and about 1.5 kg");
+  test("millimetres while tiny, kilograms once heavy, to the bottom or the heel", () => {
+    expect(sizeLabel({ length: 0.5, to: "bottom", weight: null, like: "a lentil" })).toBe("about 5 mm from head to bottom: about the size of a lentil");
+    expect(sizeLabel({ length: 6.7, to: "bottom", weight: 73, like: null })).toBe("about 6.7 cm from head to bottom and about 73 g");
+    expect(sizeLabel({ length: 37.6, to: "heel", weight: 1210, like: "a papaya" })).toBe(
+      "about 37.6 cm from head to heel and about 1.2 kg: about the size of a papaya"
+    );
+    expect(sizeLabel({ length: null, to: null, weight: null, like: "a mango" })).toBe("about the size of a mango");
+  });
+});
+
+describe("sizeLine", () => {
+  test("a few words: what it's like, then the figures, or the size of it with none", () => {
+    expect(sizeLine({ length: 0.5, to: "bottom", weight: null, like: "a lentil" })).toBe("A lentil · 5 mm");
+    expect(sizeLine({ length: 37.6, to: "heel", weight: 1210, like: "a papaya" })).toBe("A papaya · 37.6 cm, 1.2 kg");
+    expect(sizeLine({ length: 51.8, to: "heel", weight: 3787, like: null })).toBe("About 51.8 cm, 3.8 kg");
+    expect(sizeLine({ length: null, to: null, weight: null, like: "a mango" })).toBe("The size of a mango");
+  });
+
+  test("a size says how long or what it's like; a weight only with a length; a length what it's to, and its source", () => {
+    const src = "\n  source:\n    title: A\n    url: https://example.com";
+    expect(() => parseWeek("weeks/20.md", note("title: Halfway\nsize:\n  like: a mango"))).not.toThrow();
+    expect(() => parseWeek("weeks/20.md", note(`title: Halfway\nsize:\n  length: 25.7\n  to: heel\n  weight: 331${src}`))).not.toThrow();
+    expect(() => parseWeek("weeks/20.md", note(`title: Halfway\nsize:${src}`))).toThrow(/length or what/);
+    expect(() => parseWeek("weeks/20.md", note("title: Halfway\nsize:\n  weight: 320\n  like: a mango"))).toThrow(/weight only/);
+    expect(() => parseWeek("weeks/20.md", note(`title: Halfway\nsize:\n  length: 25.7${src}`))).toThrow(/measured to/);
+    expect(() => parseWeek("weeks/20.md", note("title: Halfway\nsize:\n  length: 25.7\n  to: heel"))).toThrow(/its source/);
   });
 });
 

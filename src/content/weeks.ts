@@ -6,7 +6,7 @@
 //
 //   ---
 //   title: Lungs getting ready
-//   size: { length: 25, weight: 1000, like: an eggplant }
+//   size: { length: 37.6, to: heel, weight: 1210, like: a papaya }
 //   source: { title: …, url: … }
 //   ---
 //   ## The baby
@@ -30,19 +30,25 @@ const frontmatterSchema = z
   .object({
     /** A few words for the week, shown above its parts and on the folded week. */
     title: z.string().min(1),
-    /** How big the baby is, from the source. Length is head to bottom. */
+    /** How big the baby is: what it's like, and its length and weight where `source` gives them. */
     size: z
       .object({
-        /** Centimetres, head to bottom. */
-        length: z.number().positive(),
+        /** Centimetres, from `source`. Omitted where no source gives it. */
+        length: z.number().positive().optional(),
+        /** What the length is measured to from the head: the bottom while the legs are curled, then the heel, as `source` says. */
+        to: z.enum(["bottom", "heel"]).optional(),
         /** Grams. Omitted while too small to say. */
         weight: z.number().positive().optional(),
-        /** Something about that size, for fun: "an eggplant". */
+        /** The fruit or vegetable it's the size of, always as LIKE_SOURCE has it for the week: "a papaya". */
         like: z.string().min(1).optional(),
         /** Where the length and weight come from, when it isn't the note's own source. */
         source: z.object({ title: z.string().min(1), url: z.url() }).optional(),
       })
       .strict()
+      .refine((s) => s.length !== undefined || s.like !== undefined, "a length or what it's like")
+      .refine((s) => s.weight === undefined || s.length !== undefined, "a weight only with a length")
+      .refine((s) => (s.length === undefined) === (s.to === undefined), "a length says what it's measured to (to: bottom or heel), and only a length")
+      .refine((s) => s.length === undefined || s.source !== undefined, "a length gives its source")
       .optional(),
     source: z.object({ title: z.string().min(1), url: z.url() }).optional(),
     /** When the source was last confirmed. */
@@ -54,7 +60,13 @@ export type WeekNote = {
   /** The week, which is also the file's name: `28`. */
   week: Week;
   title: string;
-  size: { length: number; weight: number | null; like: string | null; source: { title: string; url: string } | null } | null;
+  size: {
+    length: number | null;
+    to: "bottom" | "heel" | null;
+    weight: number | null;
+    like: string | null;
+    source: { title: string; url: string } | null;
+  } | null;
   /** Each part's body, parsed and checked, ready to render. */
   sections: Record<Section, Node>;
   source: { title: string; url: string } | null;
@@ -121,7 +133,9 @@ export function parseWeek(file: string, source: string): WeekNote {
   return {
     week,
     title: fm.title,
-    size: fm.size ? { length: fm.size.length, weight: fm.size.weight ?? null, like: fm.size.like ?? null, source: fm.size.source ?? null } : null,
+    size: fm.size
+      ? { length: fm.size.length ?? null, to: fm.size.to ?? null, weight: fm.size.weight ?? null, like: fm.size.like ?? null, source: fm.size.source ?? null }
+      : null,
     sections: splitSections(file, ast),
     source: fm.source ?? null,
     checked: fm.checked ?? null,
@@ -133,12 +147,43 @@ export function parseWeeks(files: Record<string, string>): WeekNote[] {
   return Object.entries(files).map(([file, source]) => parseWeek(file, source));
 }
 
-/** "about 25 cm from head to bottom and about 1 kg, the size of an eggplant". */
-export function sizeLabel(size: Pick<NonNullable<WeekNote["size"]>, "length" | "weight" | "like">): string {
+/**
+ * Where every week's `like` comes from: one page, weeks 4 to 40, "for fun
+ * purposes only". Weeks 1 to 3 and 41 and 42 have none.
+ */
+export const LIKE_SOURCE = {
+  title: "Pregnancy, Birth and Baby — How big is your baby?",
+  url: "https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/how-big-is-your-baby-infographic",
+} as const;
+
+type Size = Pick<NonNullable<WeekNote["size"]>, "length" | "to" | "weight" | "like">;
+
+/** A size's figures in their units, "25 cm, 1 kg": millimetres while tiny, kilograms once heavy. */
+function figures(size: Size): { length: string; weight: string | null } | null {
+  if (size.length === null) return null;
   const length = size.length < 1 ? `${Math.round(size.length * 10)} mm` : `${Number(size.length.toFixed(1))} cm`;
   const weight = size.weight === null ? null : size.weight < 1000 ? `${Math.round(size.weight)} g` : `${Number((size.weight / 1000).toFixed(1))} kg`;
-  const measures = weight ? `about ${length} from head to bottom and about ${weight}` : `about ${length} from head to bottom`;
-  return size.like ? `${measures}: about the size of ${size.like}` : measures;
+  return { length, weight };
+}
+
+/**
+ * The size in a few words, to sit on one line at a phone's width beside its drawing: "A papaya · 37.6 cm, 1.2 kg",
+ * or "The size of a blueberry" with no figures.
+ */
+export function sizeLine(size: Size): string {
+  const f = figures(size);
+  const said = f ? (f.weight ? `${f.length}, ${f.weight}` : f.length) : null;
+  if (!size.like) return `About ${said}`;
+  return said ? `${size.like.charAt(0).toUpperCase()}${size.like.slice(1)} · ${said}` : `The size of ${size.like}`;
+}
+
+/** "about 37.6 cm from head to heel and about 1.2 kg: about the size of a papaya". */
+export function sizeLabel(size: Size): string {
+  const f = figures(size);
+  const span = `from head to ${size.to === "heel" ? "heel" : "bottom"}`;
+  const measured = f ? (f.weight ? `about ${f.length} ${span} and about ${f.weight}` : `about ${f.length} ${span}`) : null;
+  if (!size.like) return measured ?? "";
+  return measured ? `${measured}: about the size of ${size.like}` : `about the size of ${size.like}`;
 }
 
 /** The first sentence of the baby's part, as plain text: what this week's page opens with. */

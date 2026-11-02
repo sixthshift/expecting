@@ -3,7 +3,7 @@ import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { usePeopleQuery } from "../../../../api/rpc/people";
-import { type WeekNote as Note, SECTIONS, type Section, sizeLabel } from "../../../../content/weeks";
+import { LIKE_SOURCE, type WeekNote as Note, SECTIONS, type Section, sizeLabel } from "../../../../content/weeks";
 import { formatDate, type ISODate } from "../../../../lib/dates";
 import type { Role } from "../../../../lib/people";
 import { ItemBody } from "../../../library/components/content/ItemBody";
@@ -73,6 +73,12 @@ export function WeekNote({
             {size && note.size?.source ? (
               <a href={note.size.source.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 underline">
                 {note.size.source.title}
+                <ExternalLink aria-hidden size={12} />
+              </a>
+            ) : null}
+            {size && note.size?.like ? (
+              <a href={LIKE_SOURCE.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 underline">
+                {LIKE_SOURCE.title}
                 <ExternalLink aria-hidden size={12} />
               </a>
             ) : null}
