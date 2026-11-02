@@ -2,7 +2,7 @@ import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { getRouteApi } from "@tanstack/react-router";
 import { useCircleQuery } from "../../../api/rpc/circle";
 import { useExtrasQuery } from "../../../api/rpc/extras";
-import { type Circle, type CirclePerson, groupsOf, HEARS, toThank, VIEW_EXTRAS, VIEWS, VISITS, type View, viewsOn } from "../../../lib/circle";
+import { type Circle, type CirclePerson, groupsOf, HEARS, toThank, VIEWS, VISITS, type View, viewsOn } from "../../../lib/circle";
 import { extrasOn } from "../../../lib/extras";
 import { weekdayDate } from "../../../lib/labels";
 import { DrawerFrame } from "../../drawer/components/frame/DrawerFrame";
@@ -11,6 +11,7 @@ import { Announcement } from "../components/announcement/Announcement";
 import { Gifts } from "../components/gifts/Gifts";
 import { MealTrain } from "../components/meals/MealTrain";
 import { PersonRow } from "../components/person/PersonRow";
+import { CIRCLE_EXTRAS } from "../model/extras";
 
 const route = getRouteApi("/app/drawer/people");
 
@@ -36,7 +37,7 @@ export function PeoplePage() {
   const view = asked && views.includes(asked) ? asked : views[0];
 
   return (
-    <DrawerFrame title="Your people" putAway={{ subject: "Your people", are: true }} extras={VIEW_EXTRAS}>
+    <DrawerFrame title="Your people" putAway={{ subject: "Your people", are: true }} extras={CIRCLE_EXTRAS}>
       {view ? (
         <div className="flex flex-col gap-5">
           <p className="text-fg-subtle">The people around you two, and what each of them is doing. Only you two see it.</p>

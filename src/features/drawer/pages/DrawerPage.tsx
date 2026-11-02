@@ -1,20 +1,16 @@
-import { Link } from "@tanstack/react-router";
-import { Baby, ChevronRight, Grid3x3, Scale, Users } from "lucide-react";
-import { useBingoQuery } from "../../../api/rpc/bingo";
-import { useCircleQuery } from "../../../api/rpc/circle";
+import { Baby, Grid3x3, Scale, Users } from "lucide-react";
 import { useExtrasQuery } from "../../../api/rpc/extras";
-import { useJobsQuery } from "../../../api/rpc/jobs";
-import { useNamesQuery } from "../../../api/rpc/names";
-import { usePeopleQuery } from "../../../api/rpc/people";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
-import { standing, standingLine } from "../../../lib/bingo";
-import { toThank, VIEW_EXTRAS, viewsOn } from "../../../lib/circle";
 import { extrasOn } from "../../../lib/extras";
-import { outcomes } from "../../../lib/jobs";
-import { otherOf } from "../../../lib/people";
+import { BingoSummary } from "../../bingo/components/summary/BingoSummary";
+import { CircleSummary } from "../../circle/components/summary/CircleSummary";
+import { CIRCLE_EXTRAS } from "../../circle/model/extras";
+import { JobsSummary } from "../../jobs/components/summary/JobsSummary";
+import { NamesSummary } from "../../names/components/summary/NamesSummary";
 import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
-import { ComesWith } from "../components/ComesWith";
+import { ToolOff } from "../components/tools/ToolOff";
+import { ToolTile } from "../components/tools/ToolTile";
 
 /**
  * The handy things, each for its moment: the names (with the Choosing a name extra), your people (with any extra
@@ -22,124 +18,53 @@ import { ComesWith } from "../components/ComesWith";
  * not deleted.
  */
 export function DrawerPage() {
-  const { data: names } = useNamesQuery();
-  const { me, people } = usePeopleQuery().data;
   const { data: extras } = useExtrasQuery({ select: extrasOn });
-  const other = otherOf(people, me);
   const { data: quiet } = useQuietQuery();
-  const { data: circle } = useCircleQuery();
-  const peopleOn = viewsOn(extras).length > 0;
-  const thanks = toThank(circle.gifts).length;
-  const { data: jobs } = useJobsQuery();
-  const { data: bingo } = useBingoQuery();
-  const myCard = bingo.cards.find((c) => c.personId === me?.id) ?? null;
-  const theirCard = other ? (bingo.cards.find((c) => c.personId === other.id) ?? null) : null;
-  const settled = outcomes(jobs.answers);
-  const toTalk = settled.filter((o) => !o.agreed).length;
 
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-6 px-4 pb-16 md:px-8">
       <PillarHeader title="Drawer" lead="The handy things, kept where you can find them when their moment comes." />
       {quiet ? (
         <PutAwayNotice subject="The names and everything else here" are className="max-w-prose" />
-      ) : extras.has("choosing-names") ? (
-        <Link
-          to="/drawer/names"
-          className="flex max-w-3xl items-center gap-4 rounded-xl border border-border-subtle bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) p-5 hover:border-border-brand"
-        >
-          <Baby aria-hidden size={28} className="shrink-0 text-fg-brand" />
-          <span className="flex flex-1 flex-col gap-1">
-            <span className="font-display text-xl font-semibold text-fg-strong">Baby names</span>
-            <span className="text-sm text-fg-normal">
-              {names.shortlist.length > 0
-                ? `On the shortlist: ${names.shortlist.length === 1 ? names.shortlist[0]!.name : `${names.shortlist.length} names`}. Keep swiping.`
-                : `Swipe through names on your own phone. A name goes on the shortlist when ${other ? `you and ${other.name}` : "you both"} like it.`}
-            </span>
-          </span>
-          <ChevronRight aria-hidden size={20} className="shrink-0 text-fg-subtle" />
-        </Link>
       ) : (
-        <section aria-label="Baby names" className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
-          <Baby aria-hidden size={18} className="mt-0.5 shrink-0 text-fg-brand" />
-          <p className="text-sm text-fg-normal">
-            <span className="font-medium text-fg-strong">Baby names:</span> swipe through names on your own phones; a name is a match only when you both like
-            it. <ComesWith extras={["choosing-names"]} />
-          </p>
-        </section>
-      )}
-      {quiet ? null : peopleOn ? (
-        <Link
-          to="/drawer/people"
-          className="flex max-w-3xl items-center gap-4 rounded-xl border border-border-subtle bg-bg-normal p-5 hover:border-border-brand"
-        >
-          <Users aria-hidden size={28} className="shrink-0 text-fg-brand" />
-          <span className="flex flex-1 flex-col gap-1">
-            <span className="font-display text-xl font-semibold text-fg-strong">Your people</span>
-            <span className="text-sm text-fg-normal">
-              {circle.people.length === 0
-                ? "Who visits, who hears first, who helps, and who gave what: kept by you both."
-                : `${circle.people.length === 1 ? "1 person" : `${circle.people.length} people`}${thanks > 0 ? `, ${thanks} ${thanks === 1 ? "gift" : "gifts"} to thank for` : ""}.`}
-            </span>
-          </span>
-          <ChevronRight aria-hidden size={20} className="shrink-0 text-fg-subtle" />
-        </Link>
-      ) : (
-        <section aria-label="Your people" className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
-          <Users aria-hidden size={18} className="mt-0.5 shrink-0 text-fg-brand" />
-          <p className="text-sm text-fg-normal">
-            <span className="font-medium text-fg-strong">Your people:</span> who visits, who hears first, who helps, and who gave what, kept by you both.{" "}
-            <ComesWith extras={VIEW_EXTRAS} />
-          </p>
-        </section>
-      )}
-      {quiet ? null : extras.has("who-does-what") ? (
-        <Link to="/drawer/jobs" className="flex max-w-3xl items-center gap-4 rounded-xl border border-border-subtle bg-bg-normal p-5 hover:border-border-brand">
-          <Scale aria-hidden size={28} className="shrink-0 text-fg-brand" />
-          <span className="flex flex-1 flex-col gap-1">
-            <span className="font-display text-xl font-semibold text-fg-strong">Who does what</span>
-            <span className="text-sm text-fg-normal">
-              {settled.length === 0
-                ? "Say who'll do each newborn job, on your own phone, then see where you agree."
-                : `${settled.length - toTalk} settled${toTalk > 0 ? `, ${toTalk} to talk about` : ""}.`}
-            </span>
-          </span>
-          <ChevronRight aria-hidden size={20} className="shrink-0 text-fg-subtle" />
-        </Link>
-      ) : (
-        <section aria-label="Who does what" className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
-          <Scale aria-hidden size={18} className="mt-0.5 shrink-0 text-fg-brand" />
-          <p className="text-sm text-fg-normal">
-            <span className="font-medium text-fg-strong">Who does what:</span> each of you says who'll do each newborn job, then you see where you agree.{" "}
-            <ComesWith extras={["who-does-what"]} />
-          </p>
-        </section>
-      )}
-      {quiet ? null : extras.has("pregnancy-bingo") ? (
-        <Link
-          to="/drawer/bingo"
-          className="flex max-w-3xl items-center gap-4 rounded-xl border border-border-subtle bg-bg-normal p-5 hover:border-border-brand"
-        >
-          <Grid3x3 aria-hidden size={28} className="shrink-0 text-fg-brand" />
-          <span className="flex flex-1 flex-col gap-1">
-            <span className="font-display text-xl font-semibold text-fg-strong">Pregnancy bingo</span>
-            <span className="text-sm text-fg-normal">
-              {myCard || theirCard
-                ? [myCard ? `You: ${standingLine(standing(myCard))}` : null, theirCard && other ? `${other.name}: ${standingLine(standing(theirCard))}` : null]
-                    .filter(Boolean)
-                    .join(" · ")
-                : "A card each of the things people say and do. First to a line wins."}
-            </span>
-          </span>
-          <ChevronRight aria-hidden size={20} className="shrink-0 text-fg-subtle" />
-        </Link>
-      ) : (
-        <section aria-label="Pregnancy bingo" className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
-          <Grid3x3 aria-hidden size={18} className="mt-0.5 shrink-0 text-fg-brand" />
-          <p className="text-sm text-fg-normal">
-            <span className="font-medium text-fg-strong">Pregnancy bingo:</span> a card each of the things people say and do, first to a line wins.{" "}
-            <ComesWith extras={["pregnancy-bingo"]} />
-          </p>
-        </section>
+        <>
+          {extras.has("choosing-names") ? (
+            <ToolTile to="/drawer/names" icon={Baby} title="Baby names" featured>
+              <NamesSummary />
+            </ToolTile>
+          ) : (
+            <ToolOff icon={Baby} title="Baby names" extras={["choosing-names"]}>
+              swipe through names on your own phones; a name is a match only when you both like it.
+            </ToolOff>
+          )}
+          {CIRCLE_EXTRAS.some((id) => extras.has(id)) ? (
+            <ToolTile to="/drawer/people" icon={Users} title="Your people">
+              <CircleSummary />
+            </ToolTile>
+          ) : (
+            <ToolOff icon={Users} title="Your people" extras={CIRCLE_EXTRAS}>
+              who visits, who hears first, who helps, and who gave what, kept by you both.
+            </ToolOff>
+          )}
+          {extras.has("who-does-what") ? (
+            <ToolTile to="/drawer/jobs" icon={Scale} title="Who does what">
+              <JobsSummary />
+            </ToolTile>
+          ) : (
+            <ToolOff icon={Scale} title="Who does what" extras={["who-does-what"]}>
+              each of you says who'll do each newborn job, then you see where you agree.
+            </ToolOff>
+          )}
+          {extras.has("pregnancy-bingo") ? (
+            <ToolTile to="/drawer/bingo" icon={Grid3x3} title="Pregnancy bingo">
+              <BingoSummary />
+            </ToolTile>
+          ) : (
+            <ToolOff icon={Grid3x3} title="Pregnancy bingo" extras={["pregnancy-bingo"]}>
+              a card each of the things people say and do, first to a line wins.
+            </ToolOff>
+          )}
+        </>
       )}
     </main>
   );
