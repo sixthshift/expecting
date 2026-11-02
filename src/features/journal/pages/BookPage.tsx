@@ -22,7 +22,7 @@ import { CHAPTERS, type Chapter, contents } from "../../../lib/chapters";
 import { formatDate, todayISO } from "../../../lib/dates";
 import { extrasOn } from "../../../lib/extras";
 import { hasRecap, recapParts } from "../../../lib/recap";
-import { type StoryItem, storyItems } from "../../../lib/story";
+import { type StoryItem, storyItems } from "../../../lib/story/items";
 import { type Week, weekLabel } from "../../../lib/timeline";
 import { pairs } from "../../../lib/weekly";
 import { useTasks } from "../../tasks/hooks/useTasks";

@@ -6,7 +6,8 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { Camera, FileText, Footprints, IceCreamCone, type LucideIcon, NotebookPen, Smile, Star } from "lucide-react";
 import { type FirstMark, firstOf } from "../../../../lib/firsts";
-import { LENS_LABEL, type Lens, TRIMESTERS, type WeekTile } from "../../../../lib/story";
+import { LENS_LABEL, type Lens } from "../../../../lib/story/views";
+import { TRIMESTERS, type WeekTile } from "../../../../lib/story/zoom";
 import { WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
 import { Picture } from "../entries/photos/Picture";
 

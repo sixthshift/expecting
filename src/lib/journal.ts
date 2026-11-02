@@ -64,36 +64,9 @@ export function placeOf(day: ISODate, dueDate: ISODate): Place {
   return week > WEEKS.last ? "after" : week;
 }
 
-/** A run of entries under one heading: a week, before or after the pregnancy, or (with no due date) a month. */
-export type EntryGroup = { key: string; place: Place | null; month: string | null; entries: JournalEntry[] };
-
-/** Entries newest first, grouped by where they fall: by week, or by month while there's no due date. */
-export function groupEntries(entries: readonly JournalEntry[], dueDate: ISODate | null): EntryGroup[] {
-  const groups: EntryGroup[] = [];
-  for (const entry of newestFirst(entries)) {
-    const place = dueDate ? placeOf(entry.day as ISODate, dueDate) : null;
-    const month = dueDate ? null : entry.day.slice(0, 7);
-    const key = String(place ?? month);
-    const last = groups.at(-1);
-    if (last?.key === key) last.entries.push(entry);
-    else groups.push({ key, place, month, entries: [entry] });
-  }
-  return groups;
-}
-
 /** The entries in `week`. */
 export function entriesIn(entries: readonly JournalEntry[], week: Week, dueDate: ISODate | null): JournalEntry[] {
   return dueDate ? newestFirst(entries).filter((e) => placeOf(e.day as ISODate, dueDate) === week) : [];
-}
-
-/** Whether an entry has every word of `query` in it, in any case. An empty query matches all. */
-export function matches(entry: JournalEntry, query: string): boolean {
-  const body = entry.body.toLocaleLowerCase("en-AU");
-  return query
-    .toLocaleLowerCase("en-AU")
-    .split(/\s+/)
-    .filter(Boolean)
-    .every((word) => body.includes(word));
 }
 
 /**

@@ -9,7 +9,7 @@ import type { FirstMark } from "./firsts";
 import { type JournalEntry, newestFirst, placeOf } from "./journal";
 import type { RecapSpan } from "./journalNow";
 import { type BumpWeek, bumpWeeks, type Photo } from "./photos";
-import { keptIn, type StoryItem } from "./story";
+import { keptIn, type StoryItem } from "./story/items";
 
 export type Recap = {
   span: RecapSpan;

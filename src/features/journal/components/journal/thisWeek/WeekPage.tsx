@@ -20,7 +20,7 @@ import { babyLead, noteFor, sizeLabel } from "../../../../../content/weeks";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
 import type { FirstDef } from "../../../../../lib/firsts";
 import type { Place } from "../../../../../lib/places";
-import type { StoryDay } from "../../../../../lib/story";
+import type { StoryDay } from "../../../../../lib/story/spine";
 import { type Week, weekLabel } from "../../../../../lib/timeline";
 import { CaptureSheet } from "../../../../capture/components/CaptureSheet";
 import { useOnThisPhone } from "../../../hooks/useOnThisPhone";

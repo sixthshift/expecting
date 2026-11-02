@@ -7,7 +7,7 @@
 import type { ISODate } from "./dates";
 import type { FirstKey } from "./firsts";
 import { placeOf } from "./journal";
-import type { StoryItem } from "./story";
+import type { StoryItem } from "./story/items";
 import type { Week } from "./timeline";
 
 export type Chapter = { key: string; title: string; weeks: [Week, Week] | null; firsts: readonly FirstKey[] };

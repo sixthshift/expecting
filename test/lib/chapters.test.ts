@@ -3,7 +3,7 @@ import { builtInItems } from "../../src/content";
 import { CHAPTERS, chapterOf, contents, young } from "../../src/lib/chapters";
 import { FIRSTS } from "../../src/lib/firsts";
 import { PLACES, placesReady } from "../../src/lib/places";
-import { storyItems } from "../../src/lib/story";
+import { storyItems } from "../../src/lib/story/items";
 import { DUE, entry, first, paper, photo, sources } from "./storyFixtures";
 
 test("the chapters run through the weeks without a gap, and every first is in one", () => {

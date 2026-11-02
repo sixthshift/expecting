@@ -1,7 +1,7 @@
 import { SearchInput } from "@sixthshift/design-system/search-input";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { getRouteApi } from "@tanstack/react-router";
-import { LENS_LABEL, type StoryLens } from "../../../../lib/story";
+import { LENS_LABEL, type StoryLens } from "../../../../lib/story/views";
 
 const route = getRouteApi("/app/journal");
 

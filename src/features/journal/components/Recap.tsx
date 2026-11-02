@@ -15,7 +15,7 @@ import { placeOf } from "../../../lib/journal";
 import type { RecapSpan } from "../../../lib/journalNow";
 import { shortDate } from "../../../lib/labels";
 import { type Recap, type RecapPart, recapOf, recapParts } from "../../../lib/recap";
-import type { StoryItem } from "../../../lib/story";
+import type { StoryItem } from "../../../lib/story/items";
 import { weekLabel } from "../../../lib/timeline";
 import { describePhoto } from "../model/labels";
 import { Picture } from "./entries/photos/Picture";

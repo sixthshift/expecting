@@ -6,7 +6,7 @@ import type { FirstKey, FirstMark } from "../../src/lib/firsts";
 import type { JournalEntry } from "../../src/lib/journal";
 import type { Paper } from "../../src/lib/papers";
 import type { Photo } from "../../src/lib/photos";
-import { type StoryItem, type StorySources, storyItems } from "../../src/lib/story";
+import { type StoryItem, type StorySources, storyItems } from "../../src/lib/story/items";
 
 /** Due 2027-01-19: week 28 runs Tue 27 Oct to Mon 2 Nov 2026, week 27 from 20 Oct. */
 export const DUE = "2027-01-19" as const;

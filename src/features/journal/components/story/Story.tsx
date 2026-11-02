@@ -22,7 +22,8 @@ import { asOne, formatTime, type JournalEntry } from "../../../../lib/journal";
 import { marginDay, placeHeading, weekRange } from "../../../../lib/labels";
 import { PAPER_KIND_LABEL } from "../../../../lib/papers";
 import { kindsOffered, type Photo } from "../../../../lib/photos";
-import type { QuietWeek, StoryDay, StoryGap, StoryGroup, StoryItem } from "../../../../lib/story";
+import type { StoryItem } from "../../../../lib/story/items";
+import type { StoryDay, StoryGroup, StoryPart } from "../../../../lib/story/spine";
 import { type Week, weekLabel } from "../../../../lib/timeline";
 import { Face } from "../../../feelings/components/Face";
 import { NightDetail } from "../../../itsTime/components/night/NightDetail";
@@ -401,7 +402,7 @@ const Day = memo(function Day({ day, today, onOpenPhoto }: { day: StoryDay; toda
 });
 
 /** Photos, opened from any day of `groups`, one after another. `open` is the same each render, so a day isn't drawn again for it. */
-function usePhotoViewer(groups: readonly (StoryGroup | StoryGap | QuietWeek)[]) {
+function usePhotoViewer(groups: readonly StoryPart[]) {
   const { data: quiet } = useQuietQuery();
   const [viewing, setViewing] = useState<{ ids: string[]; index: number } | null>(null);
   const order = useRef<string[]>([]);
@@ -433,19 +434,11 @@ export function Days({ days: given }: { days: readonly StoryDay[] }) {
 
 /**
  * The story: its weeks newest first, each with its note's title and its
- * days; a quiet week one faint line; a run of them (in a search) one line.
+ * days; a week with nothing kept one faint line, a run of them one line.
  * Each week is `#week-28`, for a week to open at. `titled` false leaves out
  * the weeks' titles, which are about the baby (the quiet Journal).
  */
-export function StoryList({
-  groups: given,
-  label = "The story",
-  titled = true,
-}: {
-  groups: readonly (StoryGroup | StoryGap | QuietWeek)[];
-  label?: string;
-  titled?: boolean;
-}) {
+export function StoryList({ groups: given, label = "The story", titled = true }: { groups: readonly StoryPart[]; label?: string; titled?: boolean }) {
   // Worked out afresh each render: the weeks and days that didn't change are kept as they were.
   const groups = useKeepSame(given);
   const { data: settings } = useSettingsQuery();
@@ -458,24 +451,19 @@ export function StoryList({
     <>
       <ol aria-label={label} className="flex flex-col">
         {groups.map((g) => {
-          if (g.kind === "gap") {
-            return (
-              <li key={g.key} className="py-1 text-sm text-fg-subtle">
-                {g.from === g.to ? weekLabel(g.from) : `Weeks ${g.from}–${g.to}`}
-              </li>
-            );
-          }
-          if (g.kind === "quiet") {
-            const title = titleOf(g.week);
+          if (g.kind === "empty") {
+            const single = g.from === g.to;
+            const title = single ? titleOf(g.from) : null;
+            const label = single ? weekLabel(g.from) : `Weeks ${g.from}–${g.to}`;
             return (
               <li
                 key={g.key}
-                id={`week-${g.week}`}
-                aria-label={`${weekLabel(g.week)}, nothing kept`}
+                id={single ? `week-${g.from}` : undefined}
+                aria-label={`${label}, nothing kept`}
                 className="scroll-mt-24 border-t border-border-subtle py-1.5"
               >
                 <p className="flex items-baseline gap-2 text-sm text-fg-subtle opacity-70">
-                  <span className="w-16 shrink-0 tabular-nums">{weekLabel(g.week)}</span>
+                  <span className="shrink-0 tabular-nums">{label}</span>
                   {title ? <span className="truncate">{title}</span> : null}
                 </p>
               </li>

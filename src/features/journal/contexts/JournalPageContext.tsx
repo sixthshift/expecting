@@ -16,7 +16,7 @@ import { moments } from "../../../lib/bingo";
 import { todayISO } from "../../../lib/dates";
 import { extrasOn } from "../../../lib/extras";
 import type { QuietKind } from "../../../lib/quiet";
-import { type StoryItem, storyItems } from "../../../lib/story";
+import { type StoryItem, storyItems } from "../../../lib/story/items";
 import { pairs } from "../../../lib/weekly";
 import { useTasks } from "../../tasks/hooks/useTasks";
 

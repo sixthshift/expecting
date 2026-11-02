@@ -1,6 +1,8 @@
 import { useSettingsQuery } from "../../../../api/rpc/settings";
 import type { QuietKind } from "../../../../lib/quiet";
-import { type StoryItem, type StoryLens, storyGroups } from "../../../../lib/story";
+import type { StoryItem } from "../../../../lib/story/items";
+import { storyGroups } from "../../../../lib/story/spine";
+import type { StoryLens } from "../../../../lib/story/views";
 import { FirstsLens } from "./lenses/firsts/FirstsLens";
 import { PhotosLens } from "./lenses/photos/PhotosLens";
 import { StoryList } from "./Story";

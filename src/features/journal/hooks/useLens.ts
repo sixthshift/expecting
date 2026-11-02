@@ -1,6 +1,7 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { useMemo } from "react";
-import { lensesKept, type StoryItem, type StoryLens } from "../../../lib/story";
+import type { StoryItem } from "../../../lib/story/items";
+import { lensesKept, type StoryLens } from "../../../lib/story/views";
 
 const route = getRouteApi("/app/journal");
 

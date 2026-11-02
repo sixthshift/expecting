@@ -1,5 +1,9 @@
 import { describe, expect, test } from "vitest";
-import { foldedWhileQuiet, landmarks, lensesKept, storyGroups, storyItems, storyMatches, trimesterOf, weekTiles } from "../../src/lib/story";
+import { foldedWhileQuiet, storyItems } from "../../src/lib/story/items";
+import { storyMatches } from "../../src/lib/story/search";
+import { storyGroups, storySpine } from "../../src/lib/story/spine";
+import { lensesKept } from "../../src/lib/story/views";
+import { landmarks, weekTiles } from "../../src/lib/story/zoom";
 import { appetite, DUE, entry, feeling, first, paper, photo, sources } from "./storyFixtures";
 
 describe("the story", () => {
@@ -58,7 +62,7 @@ describe("the story", () => {
       })
     );
     const groups = storyGroups(items, DUE);
-    expect(groups.map((g) => (g.kind === "gap" ? `gap ${g.from}-${g.to}` : `week ${g.place}`))).toEqual(["week 28", "gap 21-27", "week 20"]);
+    expect(groups.map((g) => (g.kind === "empty" ? `empty ${g.from}-${g.to}` : `week ${g.place}`))).toEqual(["week 28", "empty 21-27", "week 20"]);
     const week = groups[0]!;
     expect(week.kind === "group" && week.days.map((d) => [d.day, d.items.length])).toEqual([
       ["2026-10-28", 1],
@@ -66,7 +70,7 @@ describe("the story", () => {
     ]);
   });
 
-  test("by month with no due date, and no gaps", () => {
+  test("by month with no due date, and no empty weeks", () => {
     const groups = storyGroups(storyItems(sources({ journal: [entry("note", "2026-10-28"), entry("note", "2026-07-01")] })), null);
     expect(groups.map((g) => g.kind === "group" && g.month)).toEqual(["2026-10", "2026-07"]);
   });
@@ -86,18 +90,15 @@ describe("the story", () => {
     expect(tiles[1]).toMatchObject({ week: 27, lenses: ["notes", "firsts"] });
     expect(tiles[2]).toMatchObject({ week: 26, quiet: true, photo: null });
     expect(landmarks([first("first-kick", "2026-10-20"), first("first-scan", null)], DUE).map((l) => l.week)).toEqual([27]);
-    expect(trimesterOf(13).key).toBe("first");
-    expect(trimesterOf(14).key).toBe("second");
   });
 });
 
-test("the spine: every week back to the first, each kept or quiet, this week left out", async () => {
-  const { storySpine } = await import("../../src/lib/story");
+test("the spine: every week back to the first, each kept or empty, this week left out", () => {
   const items = storyItems(sources({ journal: [entry("note", "2026-10-28"), entry("note", "2026-10-20")] }));
   const spine = storySpine(items, DUE, 28, 28);
   expect(spine).toHaveLength(27);
   expect(spine[0]).toMatchObject({ kind: "group", place: 27 });
-  expect(spine[1]).toEqual({ kind: "quiet", key: "quiet-26", week: 26 });
-  expect(spine.at(-1)).toMatchObject({ kind: "quiet", week: 1 });
+  expect(spine[1]).toEqual({ kind: "empty", key: "empty-26", from: 26, to: 26 });
+  expect(spine.at(-1)).toMatchObject({ kind: "empty", from: 1, to: 1 });
   expect(storySpine(items, null, null).map((g) => g.kind)).toEqual(["group"]);
 });

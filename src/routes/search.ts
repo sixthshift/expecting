@@ -8,7 +8,7 @@ import { DOORS } from "../lib/library";
 import { DECK_FILTERS } from "../lib/names";
 import { stageEnding } from "../lib/planner";
 import { RECORDS } from "../lib/records";
-import { STORY_LENSES } from "../lib/story";
+import { STORY_LENSES } from "../lib/story/views";
 import { parseWeekKey } from "../lib/timeline";
 
 /** The timeline: a week to open at instead of this one (`28`). */

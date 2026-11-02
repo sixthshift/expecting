@@ -4,7 +4,7 @@
 import type { AppetiteEntry } from "./appetite";
 import { addDays, type ISODate } from "./dates";
 import type { JournalEntry } from "./journal";
-import { TRIMESTERS } from "./story";
+import { TRIMESTERS } from "./story/zoom";
 import { WEEKS, type Week } from "./timeline";
 
 /** How long a movement felt as different keeps the call on the Journal: today and yesterday. */

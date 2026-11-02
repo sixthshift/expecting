@@ -5,9 +5,7 @@ import {
   dayFraction,
   entriesIn,
   formatTime,
-  groupEntries,
   type JournalEntry,
-  matches,
   movementPattern,
   movementsOffered,
   newestFirst,
@@ -61,30 +59,10 @@ test("newest first: by day, then time, then when written", () => {
   expect(ordered.map((e) => e.id)).toEqual(["d", "c", "b", "a"]);
 });
 
-test("grouped by week, or by month with no due date", () => {
-  const entries = [entry("a", "2026-10-30"), entry("b", "2026-10-27"), entry("c", "2026-10-20"), entry("d", "2026-01-01")];
-  expect(groupEntries(entries, due).map((g) => [g.place, g.entries.map((e) => e.id)])).toEqual([
-    [28, ["a", "b"]],
-    [27, ["c"]],
-    ["before", ["d"]],
-  ]);
-  expect(groupEntries(entries, null).map((g) => [g.month, g.entries.length])).toEqual([
-    ["2026-10", 3],
-    ["2026-01", 1],
-  ]);
-});
-
 test("a week's entries; none without a due date", () => {
   const entries = [entry("a", "2026-10-30"), entry("c", "2026-10-20")];
   expect(entriesIn(entries, 28, due).map((e) => e.id)).toEqual(["a"]);
   expect(entriesIn(entries, 28, null)).toEqual([]);
-});
-
-test("search finds every word, in any case", () => {
-  const e = { ...entry("a", "2026-10-30"), body: "Headache again after lunch" };
-  expect(matches(e, "")).toBe(true);
-  expect(matches(e, "headache LUNCH")).toBe(true);
-  expect(matches(e, "headache dinner")).toBe(false);
 });
 
 test("times: kept as HH:MM, shown as on a clock", () => {
