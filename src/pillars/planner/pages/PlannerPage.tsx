@@ -1,10 +1,10 @@
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { Appointments } from "../components/appointments/Appointments";
-import { ListsWayIn } from "../components/lists/wayIn/ListsWayIn";
 import { ForNextAppointment } from "../components/questions/ForNextAppointment";
 import { PutAside } from "../components/quiet/PutAside";
 import { ToDo } from "../components/toDo/ToDo";
 import { PlannerPageProvider, usePlannerPage } from "../contexts/PlannerPageContext";
+import { ListsWayIn } from "../features/lists/components/wayIn/ListsWayIn";
 
 /**
  * What to do and what to ask. To do starts somewhere: the one thing to do

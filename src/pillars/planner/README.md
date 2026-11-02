@@ -48,20 +48,25 @@ useLines (items' lines that apply, and your own)  + lists (own lists, marks)
 ## Where things are
 
 ```
-pages/          PlannerPage (To do, or put aside; the lists, appointments, questions), WeeksPage, ListsPage, ListPage
+pages/          PlannerPage (To do, or put aside; the lists, appointments, questions)
 contexts/       PlannerPageContext: the plan, its stages, what's ticked this visit, the appointments
-                ListPageContext: one list, just what's left, what's got this visit, its lines' tasks
-hooks/          usePlan (the plan, To do's and the weeks'), useLines
+hooks/          usePlan (the plan, To do's and the weeks')
 model/labels.ts the Planner's words: when a task ahead or missed is due, how To do is going, a bar read out
 components/
   PlannerFrame  the weeks', the lists' and a list's column, way back, title and what's put away
   Fold          a titled run of rows, open or folded (Also now, Missed earlier, Done, Been, Asked)
   toDo/         To do: its progress, Next up, Ahead and a stage's card, a task's line
-  weeks/        the weeks chart: its scale, a stage's group, the bars, the key
-  lists/        the way in, a list's card, its heading, its sections, a line and its sheet, adding
   appointments/ the appointments, next first
   questions/    for the next appointment
   quiet/        To do put aside while something has happened, and what was set in motion
+features/
+  tasks/        a task's row, whose it is, keeping one, adding your own; useTasks (This week,
+                the Library and the "+" draw these too)
+  questions/    a question to ask: adding, open, asked, about an entry, waiting
+  appointments/ an appointment's card and form, the next one
+  lists/        ListsPage, ListPage and ListPageContext; useLines; the way in, a list's card,
+                its heading, sections, a line and its sheet, adding
+  weeks/        WeeksPage and the weeks chart: its scale, a stage's group, the bars, the key
 ```
 
 ## Adding a stage

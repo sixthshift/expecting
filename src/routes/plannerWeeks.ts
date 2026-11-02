@@ -7,5 +7,5 @@ export const plannerWeeks = createRoute({
   getParentRoute: () => app,
   path: "/planner/weeks",
   validateSearch: plannerWeeksSearch,
-  component: lazyRouteComponent(() => import("../pillars/planner/pages/WeeksPage"), "WeeksPage"),
+  component: lazyRouteComponent(() => import("../pillars/planner/features/weeks/pages/WeeksPage"), "WeeksPage"),
 });

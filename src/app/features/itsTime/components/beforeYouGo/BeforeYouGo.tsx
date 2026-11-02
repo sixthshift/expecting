@@ -9,7 +9,7 @@ import { itsTimeSaves, useItsTimeQuery } from "../../../../../api/rpc/itsTime";
 import { useListsQuery } from "../../../../../api/rpc/lists";
 import { factsOf } from "../../../../../lib/facts";
 import { clock } from "../../../../../lib/itsTime";
-import { useLines } from "../../../../../pillars/planner/hooks/useLines";
+import { useLines } from "../../../../../pillars/planner/features/lists/hooks/useLines";
 import { useSave } from "../../../../hooks/useSave";
 import { useItsTimePage } from "../../contexts/ItsTimePageContext";
 import { bagOf, CAR_SEAT_TASK } from "../../model/ready";
