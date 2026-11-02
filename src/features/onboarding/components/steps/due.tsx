@@ -2,7 +2,7 @@ import { saveSettings } from "../../../../api/rpc/settings";
 import type { ISODate } from "../../../../lib/dates";
 import { DueDateForm } from "../../../settings/components/dueDate/DueDateForm";
 import type { Advance, Screen, StepContext } from "../../model/step";
-import { SkipButton } from "../parts";
+import { SkipButton } from "../SkipButton";
 
 /** The due date, or worked out from the last period. */
 export function dueStep({ settings, advance }: StepContext): Screen {

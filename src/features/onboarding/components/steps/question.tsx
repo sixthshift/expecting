@@ -6,7 +6,8 @@ import { AnswerField } from "../../../settings/components/answer/AnswerField";
 import { AnswerInput } from "../../../settings/components/answer/AnswerInput";
 import { type Ask, ask, askedOf } from "../../../settings/model/facts";
 import type { Advance, Screen, StepContext } from "../../model/step";
-import { Choices, SkipButton } from "../parts";
+import { Choices } from "../Choices";
+import { SkipButton } from "../SkipButton";
 
 /**
  * One of src/features/settings/model/facts.data.ts's onboarding questions, skippable. A skip is kept,

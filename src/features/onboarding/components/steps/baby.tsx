@@ -1,7 +1,7 @@
 import { saveSettings } from "../../../../api/rpc/settings";
 import { applyTheme, BABY, type Baby, THEMES } from "../../../../lib/theme";
 import type { Screen, StepContext } from "../../model/step";
-import { Choices } from "../parts";
+import { Choices } from "../Choices";
 
 /** Boy, girl, or don't know: the colours. */
 export function babyStep({ settings, advance }: StepContext): Screen {

@@ -8,7 +8,7 @@ import { factsOf } from "../../../../lib/facts";
 import { ExtraPitch } from "../../../settings/components/extraPitch/ExtraPitch";
 import type { Extra } from "../../../settings/model/extras";
 import type { Advance, Screen, StepContext } from "../../model/step";
-import { SkipButton } from "../parts";
+import { SkipButton } from "../SkipButton";
 
 /** The extras onboarding offers (`onboarding: true`): any to turn on now. Adding decides every one (those not chosen, off); a skip decides none, so This week can offer each in its week, as it does every extra onboarding doesn't offer. */
 export function extrasStep({ answers, extras, advance }: StepContext): Screen {

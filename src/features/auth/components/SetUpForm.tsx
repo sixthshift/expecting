@@ -5,10 +5,10 @@ import { useQueryClient } from "@tanstack/react-query";
 import { getRouteApi } from "@tanstack/react-router";
 import { type FormEvent, useState } from "react";
 import { accessQuery, setUp, useAccessQuery } from "../../../api/rpc/session";
+import { Choice } from "../../../components/Choice";
 import { ROLES, type Role } from "../../../lib/people";
 import { useEnter } from "../hooks/useEnter";
 import { useNewPassword } from "../hooks/useNewPassword";
-import { Choice } from "./Choice";
 
 const route = getRouteApi("/login");
 
