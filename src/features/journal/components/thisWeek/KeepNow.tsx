@@ -104,7 +104,7 @@ export function AroundNow({ week, around }: { week: Week; around: readonly First
   return (
     <section aria-labelledby="around-now" className="flex flex-col gap-3">
       <h2 id="around-now" className="text-sm font-semibold text-fg-strong">
-        Around now
+        Has it happened yet?
       </h2>
       <ul className="flex flex-col gap-3">
         {shown.map((f) => (

@@ -80,9 +80,10 @@ one.
 One story, newest first, made for the moment: it opens on now.
 
 - **This week is the story's first week,** headed like any other ("Week
-  38 · Any time now · This week"), under what's to keep now: the firsts
-  that usually come now (each with its question, to write or put off for
-  the week), the places made ready, what's already happened. "Did it go
+  38 · Any time now · This week"), under what's to keep now: "Has it
+  happened yet?", the firsts that usually come now (each with its
+  question, to write or put off for the week; it was "Around now", which
+  said when but not what), the places made ready, what's already happened. "Did it go
   in?" and "what's now?" are why most visits happen. No card saying which
   week it is, the baby this week or its size: that's This week's, and the
   Journal said it again (taken out 2026-11-02). Until then too the week and

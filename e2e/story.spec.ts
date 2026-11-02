@@ -79,7 +79,7 @@ test("this week's page, before anything else: the week, around now's firsts to w
   await open("/journal");
   const week = page.getByRole("region", { name: "This week" });
   await expect(week.getByRole("heading", { name: /^Week 28/ })).toBeVisible();
-  const around = page.getByRole("region", { name: "Around now" });
+  const around = page.getByRole("region", { name: "Has it happened yet?" });
   await expect(around.getByText("The cot is up")).toBeVisible();
   await expect(around.getByText("Where is it, and who put it together?")).toBeVisible();
   // What's already happened can still be kept, on the day it was.
