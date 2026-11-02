@@ -22,13 +22,6 @@ import { allWeeks, positionOn, type Week, weekDates } from "./timeline";
 /** The weeks people mark. The trimesters are the map's chapters, not landmarks. */
 export const LANDMARKS: Readonly<Record<Week, string>> = { 20: "Halfway", 37: "Full term", 40: "Due date" };
 
-/** Where the pregnancy changes chapter. */
-export function trimester(week: Week): 1 | 2 | 3 {
-  return week <= 13 ? 1 : week <= 27 ? 2 : 3;
-}
-
-export const TRIMESTERS = { 1: "First trimester", 2: "Second trimester", 3: "Third trimester" } as const;
-
 /** Where a window stands today: behind, open now, ahead, or done (every task ticked). */
 export type WindowState = "past" | "open" | "ahead" | "done";
 

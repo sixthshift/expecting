@@ -14,6 +14,19 @@ export type Week = number;
 
 export const WEEKS = { first: 1, last: 42 } as const;
 
+/** The three trimesters, as weeks: 1–13, 14–27, 28–42. */
+export const TRIMESTERS = [
+  { n: 1, key: "first", title: "First trimester", from: 1, to: 13 },
+  { n: 2, key: "second", title: "Second trimester", from: 14, to: 27 },
+  { n: 3, key: "third", title: "Third trimester", from: 28, to: 42 },
+] as const;
+export type Trimester = (typeof TRIMESTERS)[number];
+
+/** The trimester a week is in: where the pregnancy changes chapter. */
+export function trimester(week: Week): Trimester {
+  return TRIMESTERS.find((t) => week <= t.to) ?? TRIMESTERS[2];
+}
+
 /** Days from the first day of the last period to the due date: 40+0. */
 export const TERM_DAYS = 280;
 

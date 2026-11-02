@@ -11,8 +11,8 @@ import { useNow, useSettingsQuery } from "../../../../../api/rpc/settings";
 import { type FirstMark, firstOf } from "../../../../../lib/firsts";
 import { COLLECTION_LABEL, type Collection } from "../../../../../lib/story/collections";
 import type { StoryItem } from "../../../../../lib/story/items";
-import { landmarks, TRIMESTERS, type WeekTile, weekTiles } from "../../../../../lib/story/zoom";
-import { WEEKS, type Week, weekLabel } from "../../../../../lib/timeline";
+import { landmarks, type WeekTile, weekTiles } from "../../../../../lib/story/zoom";
+import { TRIMESTERS, WEEKS, type Week, weekLabel } from "../../../../../lib/timeline";
 import { Picture } from "../../entries/photos/Picture";
 
 /** Each collection's mark. */

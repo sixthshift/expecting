@@ -6,7 +6,8 @@ import { STEP_LABEL, type Step } from "../../../../lib/feelings";
 import { weekPaperWords } from "../../../../lib/papers";
 import { weekPhotoWords } from "../../../../lib/photos";
 import type { Week } from "../../../../lib/timeline";
-import { type MapWeek, TRIMESTERS, trimester } from "../../../../lib/timelineMap";
+import { TRIMESTERS, trimester } from "../../../../lib/timeline";
+import type { MapWeek } from "../../../../lib/timelineMap";
 
 /** What a week has, in a few words: what opens, what's to do, what's done, its appointments, what was kept. */
 function line(w: MapWeek): { text: string; warn: boolean }[] {
@@ -31,14 +32,14 @@ function line(w: MapWeek): { text: string; warn: boolean }[] {
  * detail is. One column on a phone; the trimesters side by side on a desktop.
  */
 export function WeekMap({ weeks, at }: { weeks: MapWeek[]; at: Week | undefined }) {
-  const chapters = ([1, 2, 3] as const).map((t) => ({ t, weeks: weeks.filter((w) => trimester(w.week) === t) }));
+  const chapters = TRIMESTERS.map((t) => ({ t, weeks: weeks.filter((w) => trimester(w.week) === t) }));
 
   return (
     <div className="flex flex-col gap-6 lg:grid lg:grid-cols-3 lg:gap-8">
       {chapters.map(({ t, weeks }) => (
-        <section key={t} aria-labelledby={`trimester-${t}`}>
-          <h2 id={`trimester-${t}`} className="mb-1 text-xs font-semibold tracking-widest text-fg-subtle uppercase">
-            {TRIMESTERS[t]}
+        <section key={t.n} aria-labelledby={`trimester-${t.n}`}>
+          <h2 id={`trimester-${t.n}`} className="mb-1 text-xs font-semibold tracking-widest text-fg-subtle uppercase">
+            {t.title}
           </h2>
           <ol className="flex flex-col">
             {weeks.map((w) => (

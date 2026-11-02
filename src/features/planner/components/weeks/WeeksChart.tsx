@@ -3,8 +3,8 @@ import { ChevronDown } from "lucide-react";
 import { type CSSProperties, type ReactNode, useState } from "react";
 import type { Bar, BarGroup, BarState, Chart } from "../../../../lib/acrossTheWeeks";
 import { STAGES } from "../../../../lib/planner";
-import { WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
-import { LANDMARKS, TRIMESTERS, trimester } from "../../../../lib/timelineMap";
+import { TRIMESTERS, WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
+import { LANDMARKS } from "../../../../lib/timelineMap";
 import { ItemLink } from "../../../library/components/ItemLink";
 
 const SPAN = WEEKS.last - WEEKS.first + 1;
@@ -41,10 +41,6 @@ const SHORT = { 1: "First", 2: "Second", 3: "Third" } as const;
  */
 export function WeeksChart({ chart, now, focus }: { chart: Chart; now: Week | null; focus: { start: Week; end: Week } | null }) {
   const [earlierOpen, setEarlierOpen] = useState(false);
-  const trimesters = ([1, 2, 3] as const).map((t) => {
-    const weeks = WEEK_LIST.filter((w) => trimester(w) === t);
-    return { t, from: weeks[0]!, to: weeks.at(-1)! };
-  });
 
   return (
     <div className="flex flex-col gap-3">
@@ -52,7 +48,7 @@ export function WeeksChart({ chart, now, focus }: { chart: Chart; now: Week | nu
       <div className="relative">
         {/* Behind everything, across the chart (beside the labels on a desktop). */}
         <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 left-0 lg:left-64">
-          {trimesters.map(({ t, from, to }) => (
+          {TRIMESTERS.map(({ n: t, from, to, title }) => (
             <div
               key={t}
               className={cn("absolute inset-y-0 border-l border-border-subtle", t === 2 && "bg-bg-subtle/60")}
@@ -60,7 +56,7 @@ export function WeeksChart({ chart, now, focus }: { chart: Chart; now: Week | nu
             >
               <span className="block truncate px-1.5 pt-0.5 text-xs font-semibold tracking-widest text-fg-subtle uppercase lg:px-2">
                 <span className="lg:hidden">{SHORT[t]}</span>
-                <span className="hidden lg:inline">{TRIMESTERS[t]}</span>
+                <span className="hidden lg:inline">{title}</span>
               </span>
             </div>
           ))}

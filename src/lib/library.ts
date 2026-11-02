@@ -18,7 +18,7 @@
 // week's heads-up, one card nobody tells you about.
 
 import { asks, type DatedItem, type Item, type ItemType, isDated, TOPICS, type Topic } from "../content/schema";
-import { allWeeks, type Week } from "./timeline";
+import { allWeeks, TRIMESTERS, type Week } from "./timeline";
 
 /** The doors, in their order on the page. All but `hard` are a type of entry; `hard` gathers the topics nobody wants to need. */
 export const DOORS = ["can-i", "normal", "surprises", "glossary", "moments", "decisions", "money", "guides", "hard"] as const;
@@ -201,29 +201,17 @@ function byLetter(items: readonly Item[]): Group[] {
   return letters.map((l) => ({ key: l, title: l, items: byTitle(items.filter((i) => letter(i) === l)) }));
 }
 
-/** The three trimesters, as weeks: 1–13, 14–27, 28–42. */
-const TRIMESTERS = [
-  { key: "first", title: "First trimester, weeks 1–13", to: 13 },
-  { key: "second", title: "Second trimester, weeks 14–27", to: 27 },
-  { key: "third", title: "Third trimester, weeks 28–42", to: 42 },
-] as const;
-
 /** In order of the week `at` gives, under its trimester; those without a week last, under Any time. */
 function byTrimester(items: readonly Item[], at: (item: Item) => Week | null): Group[] {
   const sorted = [...items].sort((a, b) => (at(a) ?? 99) - (at(b) ?? 99) || (a.to ?? 99) - (b.to ?? 99) || a.title.localeCompare(b.title));
-  let from = 0;
-  const groups: Group[] = TRIMESTERS.map(({ key, title, to }) => {
-    const group = {
-      key,
-      title,
-      items: sorted.filter((i) => {
-        const w = at(i);
-        return w !== null && w > from && w <= to;
-      }),
-    };
-    from = to;
-    return group;
-  });
+  const groups: Group[] = TRIMESTERS.map(({ key, title, from, to }) => ({
+    key,
+    title: `${title}, weeks ${from}–${to}`,
+    items: sorted.filter((i) => {
+      const w = at(i);
+      return w !== null && w >= from && w <= to;
+    }),
+  }));
   groups.push({ key: "any", title: "Any time", items: sorted.filter((i) => at(i) === null) });
   return groups.filter((g) => g.items.length > 0);
 }

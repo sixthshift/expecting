@@ -9,14 +9,6 @@ import type { Week } from "../timeline";
 import { COLLECTIONS, type Collection, collectionOf } from "./collections";
 import type { StoryItem } from "./items";
 
-/** The trimesters, as weeks. */
-export const TRIMESTERS = [
-  { key: "first", title: "First trimester", from: 1, to: 13 },
-  { key: "second", title: "Second trimester", from: 14, to: 27 },
-  { key: "third", title: "Third trimester", from: 28, to: 42 },
-] as const;
-export type Trimester = (typeof TRIMESTERS)[number];
-
 /** A week zoomed out: its picture (the bump, else any photo), the collections it has something in, and its firsts. */
 export type WeekTile = { week: Week; photo: Photo | null; collections: Collection[]; firsts: FirstMark[]; done: number; empty: boolean };
 

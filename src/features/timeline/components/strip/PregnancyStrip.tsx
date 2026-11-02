@@ -1,7 +1,7 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { Link } from "@tanstack/react-router";
-import { allWeeks, WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
-import { LANDMARKS, trimester } from "../../../../lib/timelineMap";
+import { allWeeks, trimester, WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
+import { LANDMARKS } from "../../../../lib/timelineMap";
 
 const SPAN = WEEKS.last - WEEKS.first + 1;
 /** The middle of a week across the strip, as a percentage. */

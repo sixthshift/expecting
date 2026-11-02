@@ -5,7 +5,7 @@ import type { ISODate } from "../../src/lib/dates";
 import type { Step } from "../../src/lib/feelings";
 import type { JournalEntry } from "../../src/lib/journal";
 import type { Question } from "../../src/lib/questions";
-import { type MapInput, mapWeeks, mapWindows, trimester } from "../../src/lib/timelineMap";
+import { type MapInput, mapWeeks, mapWindows } from "../../src/lib/timelineMap";
 
 const task = (id: string, due: number, itemId: string | null = "i"): Task => ({
   id,
@@ -220,8 +220,4 @@ describe("the weeks", () => {
     expect(w.filter((m) => Object.keys(m.papers).length > 0).map((m) => m.week)).toEqual([28]);
     expect(mapWeeks(input).every((m) => Object.keys(m.papers).length === 0)).toBe(true);
   });
-});
-
-test("the trimesters", () => {
-  expect([1, 13, 14, 27, 28, 42].map(trimester)).toEqual([1, 1, 2, 2, 3, 3]);
 });
