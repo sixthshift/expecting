@@ -2,7 +2,7 @@ import { useJobsQuery } from "../../../../../api/rpc/jobs";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { JOBS, results, toAnswer, waiting } from "../../../../../lib/jobs";
 import { otherName } from "../../../../../lib/people";
-import { DrawerFrame } from "../../../components/frame/DrawerFrame";
+import { DrawerTool } from "../../../components/tool/DrawerTool";
 import { JobDeck } from "../components/deck/JobDeck";
 import { Results } from "../components/results/Results";
 
@@ -21,7 +21,7 @@ export function JobsPage() {
   const waits = waiting(view.answers);
 
   return (
-    <DrawerFrame title="Who does what" putAway={{ subject: "Who does what" }} extras={["who-does-what"]}>
+    <DrawerTool title="Who does what" putAway={{ subject: "Who does what" }} extras={["who-does-what"]}>
       <div className="flex flex-col gap-6">
         <p className="text-fg-subtle">Say who'll do each newborn job, on your own phone. You'll see {other}'s answer to a job once you've both given one.</p>
         <JobDeck deck={deck} other={other} />
@@ -31,6 +31,6 @@ export function JobsPage() {
         </p>
         <Results results={answered} other={other} />
       </div>
-    </DrawerFrame>
+    </DrawerTool>
   );
 }

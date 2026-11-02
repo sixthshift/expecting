@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { Suspense } from "react";
 import { useSettingsQuery } from "../../../../api/rpc/settings";
+import { PillarLayout } from "../../../../app/components/layout/PillarLayout";
 import { SkeletonText } from "../../../../components/loading/Skeleton";
 import { builtInItems } from "../../../../content";
 import { nextSteps, pausedAt, QUIET_ITEM, type Quiet } from "../../../../lib/quiet";
@@ -23,7 +24,7 @@ export function QuietWeek({ quiet }: { quiet: Quiet }) {
   const steps = nextSteps(items, quiet.kind, pausedAt(quiet, settings.dueDate));
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-10">
+    <PillarLayout className="pt-[max(1.5rem,env(safe-area-inset-top))] lg:pt-10">
       <div className="max-w-3xl">
         <div className="flex flex-col gap-8">
           {guide ? (
@@ -50,6 +51,6 @@ export function QuietWeek({ quiet }: { quiet: Quiet }) {
           </Link>
         </div>
       </div>
-    </main>
+    </PillarLayout>
   );
 }

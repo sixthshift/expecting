@@ -1,8 +1,8 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { Suspense } from "react";
+import { PillarLayout } from "../../../app/components/layout/PillarLayout";
 import { Entry } from "../components/entry/Entry";
 import { ItemSkeleton } from "../components/entry/ItemSkeleton";
-import { LibraryFrame } from "../components/LibraryFrame";
 import { HiddenEntry } from "../components/notInLibrary/HiddenEntry";
 import { NoEntry } from "../components/notInLibrary/NoEntry";
 import { Private } from "../components/private/Private";
@@ -21,11 +21,11 @@ export function LibraryItemPage() {
   const { itemId } = route.useParams();
   return (
     <LibraryItemPageProvider itemId={itemId}>
-      <LibraryFrame>
+      <PillarLayout className="pt-[max(1rem,env(safe-area-inset-top))] lg:pt-8">
         <div className="max-w-3xl">
           <Rendering />
         </div>
-      </LibraryFrame>
+      </PillarLayout>
     </LibraryItemPageProvider>
   );
 }

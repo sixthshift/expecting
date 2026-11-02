@@ -8,7 +8,7 @@ import { extrasFor, extrasOn } from "../../../../../lib/extras";
 import { factsOf } from "../../../../../lib/facts";
 import { ExtraPitch } from "../../../settings/components/extraPitch/ExtraPitch";
 import { useOnboardingPage } from "../../contexts/OnboardingPageContext";
-import { OnboardingFrame } from "../OnboardingFrame";
+import { OnboardingLayout } from "../OnboardingLayout";
 import { SkipButton } from "../SkipButton";
 
 /** The extras onboarding offers (`onboarding: true`): any to turn on now. Adding decides every one (those not chosen, off); a skip decides none, so This week can offer each in its week, as it does every extra onboarding doesn't offer. */
@@ -27,7 +27,7 @@ export function ExtrasStep() {
     });
 
   return (
-    <OnboardingFrame title="Anything else you'd like?" lead="Expecting can do a few extra things. Choose any that suit you; you can change them in settings.">
+    <OnboardingLayout title="Anything else you'd like?" lead="Expecting can do a few extra things. Choose any that suit you; you can change them in settings.">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-3">
           {offered.map((e) => {
@@ -81,6 +81,6 @@ export function ExtrasStep() {
         ) : null}
         <SkipButton onClick={() => advance()} />
       </div>
-    </OnboardingFrame>
+    </OnboardingLayout>
   );
 }

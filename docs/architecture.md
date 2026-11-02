@@ -105,13 +105,13 @@ in.
 - **Naming.** "Shell" means only what TanStack Start means: the HTML
   document (`Document`) and SPA shell mode. The component around the
   pillars is `App` (`src/app/pages/App.tsx`); what it draws around them is
-  `PillarLayout`, the sidebar and tab bar.
+  `AppLayout`, the sidebar and tab bar.
 
 ## Code layout
 
 ```
 src/
-  app/          the app itself, not a domain: the document, the frame (App, PillarLayout, PILLARS), the error pages, the outbox, useSave, useAction
+  app/          the app itself, not a domain: the document, the app's layout (App, AppLayout, PillarLayout, PILLARS), the error pages, the outbox, useSave, useAction
     features/   what's outside the pillars: capture (the +), emergency, itsTime, quiet, settings, onboarding, auth, connect
   pillars/      the five pillars: thisWeek, library, planner, journal, drawer
     <pillar>/features/  what lives in a pillar, each a feature: planner/features/{tasks,questions,appointments,lists,weeks}, …
@@ -186,7 +186,7 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
   again. The Planner, its lists, Settings, onboarding, This week, It's time,
   a Library entry and the Journal have one.
 
-## The frame
+## The app's layout
 
 - **Five pillars:** a sidebar on a desktop, a tab bar on a phone, in two
   orders (`PILLARS` and `TABS`). The sidebar reads top to bottom: This week,
@@ -197,12 +197,20 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 - **Beside settings, not pillars:** Emergency info and It's time, in the
   phone's top corner (`PhoneCorner`) and the sidebar, and the call button
   (`CallBirthSuite`): the birth suite's number from Emergency info, drawn
-  once it's filled in, and read without suspense so the frame never waits
+  once it's filled in, and read without suspense so the app's layout never waits
   for it. A symptom's `Triage` calls the same number.
-- **The frame provides what content renders against** (the answers, now,
+- **The app's layout provides what content renders against** (the answers, now,
   the questions already asked), so a Markdoc tag works the same everywhere.
 - **Each thing lives in one pillar and meets the others on its week.**
-- Settings sits in the frame; onboarding and login don't.
+- Settings sits in the app's layout; onboarding and login don't.
+- **Every page inside a pillar draws `PillarLayout`** (`src/app/components/layout/PillarLayout.tsx`):
+  one column at the page's width, and its top. A pillar's own page has its
+  title and lead, with `PhoneCorner` on a phone; a page under it (`back`) has
+  the way back, then its title; a page that draws its own top (This week's
+  hero, a Library entry) has neither. While something has happened,
+  `putAway` says what's put away in place of the page. A pillar adds what's
+  its own around it: `JournalTabs`, `DrawerTool`. So `AppLayout` is the app's
+  layout (the sidebar, the tab bar, the "+") and `PillarLayout` a page's.
 
 ## The pillars
 
@@ -234,7 +242,7 @@ section is [`src/pillars/thisWeek/README.md`](../src/pillars/thisWeek/README.md)
 
 `/timeline`, `?at=28` ([product](product/timeline.md)): opened from This
 week, not a pillar, so no tab and no "+". `src/pillars/thisWeek/features/timeline/`, the
-rules in `src/lib/timelineWeeks.ts`. `TimelineFrame` draws it, as it is and
+rules in `src/lib/timelineWeeks.ts`. `PillarLayout` draws its top, as it is and
 while paused. A week is a line (`TimelineWeeks`) that links
 to This week at it (`/?at=<week>`). The strip's weeks are left out of the
 tab order; the steps beside it are the keyboard's way.
@@ -305,7 +313,7 @@ add a kind of line is
 [`src/pillars/journal/README.md`](../src/pillars/journal/README.md).
 
 - `JournalPageProvider` builds the story's lines once; `Journal`, or while
-  something has happened `QuietJournal`, draws them inside `JournalFrame`.
+  something has happened `QuietJournal`, draws them inside `PillarLayout`, under `JournalTabs`.
 - `components/` has a folder per part (`story/`, `thisWeek/`, `lines/`,
   `collections/`, `book/`, `quiet/`) and `entries/<kind>/`, each kind's forms
   and rows, which the "+" and other pillars import.
@@ -328,7 +336,7 @@ add a kind of line is
 on, the rest named by the extra that brings them. The map of its code, its
 words and how to add a tool is
 [`src/pillars/drawer/README.md`](../src/pillars/drawer/README.md): each
-tool's page is drawn inside `DrawerFrame`, which says when it's put away or
+tool's page is drawn inside `DrawerTool`, which says when it's put away or
 off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
 
 - **The names game** (`/drawer/names`, `src/pillars/drawer/features/names/`): dealt by
@@ -355,7 +363,7 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
 ## Outside the pillars
 
 - **The capture "+"** (`src/app/features/capture/`,
-  [product](product/capture.md)): drawn by `PillarLayout` on the pillars
+  [product](product/capture.md)): drawn by `AppLayout` on the pillars
   only, a `Modal` listing `captureChoices` (`model/choices.ts`: the order,
   what's offered when, `CHOICE`, what each is called, and `FILED_IN`, where
   each goes). Each choice is its pillar's own form (`AddMovement`,
@@ -499,7 +507,7 @@ what the choices mean is `src/lib/extras.ts` (`extrasOn`, `inExtras`,
 
 - `/onboarding` asks a question a screen, each at its own URL
   (`/onboarding/due`, `/onboarding/q/cover`), so the back gesture goes back
-  a question. The frame sends anyone with a step left there; the first of
+  a question. The app's layout sends anyone with a step left there; the first of
   you gets all of them, and the other, joining later, goes straight in.
 - Which steps are asked is a pure function of what's known
   (`src/lib/onboarding.ts`): the due date, the colours, every
@@ -509,7 +517,7 @@ what the choices mean is `src/lib/extras.ts` (`extrasOn`, `inExtras`,
 - Each answer is saved as it's given, so a reload resumes. With the due
   date skipped, This week asks for it.
 - Each step is a component reading its own queries, drawn in
-  `OnboardingFrame`; `OnboardingPageProvider` holds only where it is and
+  `OnboardingLayout`; `OnboardingPageProvider` holds only where it is and
   the ways on. The map is `src/app/features/onboarding/README.md`.
 
 ## The names deck
@@ -624,8 +632,8 @@ Installing and the service worker need HTTPS, except on `localhost`.
   with the shell. This cache outlives a new build; logging out clears it.
 - **Sharing in** (Android only; Safari has no share target): the manifest's
   `share_target` posts to `/share`, which only the worker answers, keeping
-  the share (`expecting-shared`, one at a time) and opening the app. The
-  frame takes it once (`takeShared`, `src/pwa/share.ts`; under an hour old),
+  the share (`expecting-shared`, one at a time) and opening the app. The app's
+  layout takes it once (`takeShared`, `src/pwa/share.ts`; under an hour old),
   after any login or onboarding, into the "+" (`SharedIn`, offering
   `sharedChoices`).
 
@@ -679,8 +687,8 @@ Installing and the service worker need HTTPS, except on `localhost`.
   motion gets short fades and no travel, from one rule.
 - **Pages give way to each other** through View Transitions:
   `transitionBetween` (`src/app/model/transitions.ts`) picks in, out or
-  across; a change of search alone has none, and the frame holds still.
-- **Loading has a shape:** in the frame a slow page draws `PageSkeleton`
+  across; a change of search alone has none, and the app's layout holds still.
+- **Loading has a shape:** in the app's layout a slow page draws `PageSkeleton`
   after 400ms; the stork is for the first start only. Pillars' routes load
   what they read, and `App` warms every pillar once idle.
 - **A tick is seen going:** in To do now it strikes through, holds a beat,

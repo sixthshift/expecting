@@ -12,7 +12,7 @@ let shownOne = false;
  * Every step's screen: the way back (or the baby, on the first), how far
  * along, then its question, a line under it, and the way to answer.
  */
-export function OnboardingFrame({ title, lead, children }: { title: string; lead?: ReactNode; children: ReactNode }) {
+export function OnboardingLayout({ title, lead, children }: { title: string; lead?: ReactNode; children: ReactNode }) {
   const { steps, current, previous } = useOnboardingPage();
   const navigate = useNavigate();
   const index = steps.indexOf(current);

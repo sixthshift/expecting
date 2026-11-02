@@ -11,6 +11,7 @@ import { usePapersQuery } from "../../../../../../api/rpc/papers";
 import { usePhotosQuery } from "../../../../../../api/rpc/photos";
 import { useQuestionsQuery } from "../../../../../../api/rpc/questions";
 import { useNow, useSettingsQuery } from "../../../../../../api/rpc/settings";
+import { PillarLayout } from "../../../../../../app/components/layout/PillarLayout";
 import { useOutOfTheWay } from "../../../../../../app/hooks/useOutOfTheWay";
 import { weekNotes } from "../../../../../../content";
 import type { Week } from "../../../../../../lib/timeline";
@@ -19,7 +20,6 @@ import { useItems } from "../../../../../library/hooks/useItems";
 import { useTasks } from "../../../../../planner/features/tasks/hooks/useTasks";
 import { Welcome } from "../../../../components/welcome/Welcome";
 import { PregnancyStrip } from "../strip/PregnancyStrip";
-import { TimelineFrame } from "../TimelineFrame";
 import { TimelineWeeks } from "../weeks/TimelineWeeks";
 
 /** Bring a week's line into view: the middle of the screen, or the top for the first weeks. */
@@ -76,7 +76,9 @@ export function Timeline({ at }: { at: Week | undefined }) {
   }, [at]);
 
   return (
-    <TimelineFrame
+    <PillarLayout
+      back={{ to: "/", label: "This week" }}
+      title="The whole pregnancy"
       lead="Every week at once. Tap one to see it."
       head={
         now !== null ? (
@@ -104,6 +106,6 @@ export function Timeline({ at }: { at: Week | undefined }) {
       ) : null}
 
       <TimelineWeeks weeks={weeks} at={at} />
-    </TimelineFrame>
+    </PillarLayout>
   );
 }

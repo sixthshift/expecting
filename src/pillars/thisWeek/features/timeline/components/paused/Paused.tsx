@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
+import { PillarLayout } from "../../../../../../app/components/layout/PillarLayout";
 import { weekInSentence } from "../../../../../../lib/labels";
 import type { Week } from "../../../../../../lib/timeline";
-import { TimelineFrame } from "../TimelineFrame";
 
 /**
  * The timeline while something has happened: paused at its week, the weeks
@@ -11,7 +11,7 @@ import { TimelineFrame } from "../TimelineFrame";
  */
 export function Paused({ week }: { week: Week | null }) {
   return (
-    <TimelineFrame>
+    <PillarLayout back={{ to: "/", label: "This week" }} title="The whole pregnancy">
       <div className="flex max-w-3xl flex-col gap-3">
         <p className="max-w-prose text-fg-normal">
           The weeks are paused{week === null ? "" : ` at ${weekInSentence(week)}`}. They're put away, and nothing here moves on until you choose.
@@ -21,6 +21,6 @@ export function Paused({ week }: { week: Week | null }) {
           <ChevronRight aria-hidden size={16} />
         </Link>
       </div>
-    </TimelineFrame>
+    </PillarLayout>
   );
 }

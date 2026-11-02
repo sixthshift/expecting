@@ -8,7 +8,7 @@ import { factsOf } from "../../lib/facts";
 import { inLibrary } from "../../lib/library/doors";
 import { ContentContext } from "../../pillars/library/components/content/context";
 import { useDeadlineBadge } from "../../pillars/planner/features/tasks/hooks/useDeadlineBadge";
-import { PillarLayout } from "../components/layout/PillarLayout";
+import { AppLayout } from "../components/layout/AppLayout";
 import { PILLARS, TABS } from "../components/layout/pillars";
 import { WhatsNew } from "../components/WhatsNew";
 import { useAppTheme } from "../hooks/useAppTheme";
@@ -65,7 +65,7 @@ export function App() {
 
   return (
     <ContentContext.Provider value={content}>
-      <PillarLayout pillars={PILLARS} tabs={TABS} />
+      <AppLayout pillars={PILLARS} tabs={TABS} />
       {quiet ? null : <WhatsNew />}
     </ContentContext.Provider>
   );

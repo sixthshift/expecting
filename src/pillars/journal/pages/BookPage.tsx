@@ -1,6 +1,6 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Link } from "@tanstack/react-router";
-import { ChevronLeft, Printer } from "lucide-react";
+import { Printer } from "lucide-react";
 import { useMemo } from "react";
 import { useAppetiteQuery } from "../../../api/rpc/appetite";
 import { useBingoQuery } from "../../../api/rpc/bingo";
@@ -16,6 +16,7 @@ import { usePhotosQuery } from "../../../api/rpc/photos";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow, useSettingsQuery } from "../../../api/rpc/settings";
 import { useWeeklyQuery } from "../../../api/rpc/weekly";
+import { PillarLayout } from "../../../app/components/layout/PillarLayout";
 import { useKeepSame } from "../../../app/hooks/useKeepSame";
 import { moments } from "../../../lib/bingo";
 import { CHAPTERS, type Chapter, contents } from "../../../lib/chapters";
@@ -138,11 +139,8 @@ export function BookPage() {
   const lines = contents({ items, dueDate: settings.dueDate, now });
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 pb-16 md:px-8">
+    <PillarLayout back={{ to: "/journal", label: "The Journal" }}>
       <div className="max-w-3xl">
-        <Link to="/journal" className="mt-4 flex min-h-11 items-center gap-1 text-sm text-fg-subtle print:hidden">
-          <ChevronLeft aria-hidden size={16} /> The Journal
-        </Link>
         {quiet ? (
           <p className="py-10 text-fg-subtle">Everything you kept is in the Journal, as it was.</p>
         ) : (
@@ -176,6 +174,6 @@ export function BookPage() {
           </>
         )}
       </div>
-    </main>
+    </PillarLayout>
   );
 }

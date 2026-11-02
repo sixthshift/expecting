@@ -1,6 +1,6 @@
 import { getRouteApi } from "@tanstack/react-router";
+import { PillarLayout } from "../../../../../app/components/layout/PillarLayout";
 import { isApart } from "../../../../../lib/lists/builtIn";
-import { PlannerFrame } from "../../../components/PlannerFrame";
 import { AddLine } from "../components/addLine/AddLine";
 import { ListHeading } from "../components/heading/ListHeading";
 import { Sections } from "../components/sections/Sections";
@@ -30,7 +30,8 @@ function List() {
   const { listId, summary } = useListPage();
   return (
     // The bag is It's time's: back is there.
-    <PlannerFrame
+    <PillarLayout
+      className="gap-6"
       back={isApart(listId) ? { to: "/its-time", label: "It's time" } : { to: "/planner/lists", label: "Lists" }}
       putAway={{ subject: "The lists", are: true }}
     >
@@ -46,6 +47,6 @@ function List() {
           <AddLine listId={listId} />
         </>
       )}
-    </PlannerFrame>
+    </PillarLayout>
   );
 }

@@ -4,7 +4,7 @@ import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSettingsQuery } from "../../../../../api/rpc/settings";
 import { dealing } from "../../../../../lib/names";
 import { otherOf } from "../../../../../lib/people";
-import { DrawerFrame } from "../../../components/frame/DrawerFrame";
+import { DrawerTool } from "../../../components/tool/DrawerTool";
 import { NamesGame } from "../components/namesGame/NamesGame";
 
 const route = getRouteApi("/app/drawer/names");
@@ -22,7 +22,7 @@ export function NamesPage() {
   const other = otherOf(people, me);
 
   return (
-    <DrawerFrame title="Baby names" putAway={{ subject: "The names", are: true }} extras={["choosing-names"]}>
+    <DrawerTool title="Baby names" putAway={{ subject: "The names", are: true }} extras={["choosing-names"]}>
       <NamesGame
         view={names}
         other={other}
@@ -30,6 +30,6 @@ export function NamesPage() {
         filter={filter}
         onFilter={choosable ? (choice) => navigate({ search: { names: choice === "all" ? undefined : choice }, replace: true, resetScroll: false }) : undefined}
       />
-    </DrawerFrame>
+    </DrawerTool>
   );
 }

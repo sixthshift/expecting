@@ -1,5 +1,5 @@
 import { use } from "react";
-import { PhoneCorner } from "../../../../app/components/layout/PillarLayout";
+import { PhoneCorner } from "../../../../app/components/layout/AppLayout";
 import type { Item } from "../../../../content/schema";
 import { sectionsOf } from "../../../../content/sections";
 import { QUIET_PARTS, type Quiet } from "../../../../lib/quiet";

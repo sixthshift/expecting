@@ -7,7 +7,7 @@ import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { deal, standing, standingLine } from "../../../../../lib/bingo";
 import { OTHER_ONE, otherOf } from "../../../../../lib/people";
-import { DrawerFrame } from "../../../components/frame/DrawerFrame";
+import { DrawerTool } from "../../../components/tool/DrawerTool";
 import { BingoGrid } from "../components/card/BingoGrid";
 import { Winner } from "../components/winner/Winner";
 
@@ -32,7 +32,7 @@ export function BingoPage() {
   const card = showing === "theirs" ? theirs : mine;
 
   return (
-    <DrawerFrame title="Pregnancy bingo" width="2xl" putAway={{ subject: "Bingo" }} extras={["pregnancy-bingo"]}>
+    <DrawerTool title="Pregnancy bingo" width="2xl" putAway={{ subject: "Bingo" }} extras={["pregnancy-bingo"]}>
       {!me ? (
         <p className="text-sm text-fg-normal">Say who's holding this phone, and you'll be dealt a card.</p>
       ) : (
@@ -77,6 +77,6 @@ export function BingoPage() {
           )}
         </div>
       )}
-    </DrawerFrame>
+    </DrawerTool>
   );
 }

@@ -53,7 +53,6 @@ contexts/       PlannerPageContext: the plan, its stages, what's ticked this vis
 hooks/          usePlan (the plan, To do's and the weeks')
 model/labels.ts the Planner's words: when a task ahead or missed is due, how To do is going, a bar read out
 components/
-  PlannerFrame  the weeks', the lists' and a list's column, way back, title and what's put away
   Fold          a titled run of rows, open or folded (Also now, Missed earlier, Done, Been, Asked)
   toDo/         To do: its progress, Next up, Ahead and a stage's card, a task's line
   appointments/ the appointments, next first

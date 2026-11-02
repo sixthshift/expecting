@@ -24,7 +24,7 @@ export function SkeletonText({ lines = 3, className }: { lines?: number; classNa
 
 /**
  * A pillar's page still loading, in the frame: its heading, a line under it,
- * then cards, in the page's own width and gutters (as PillarHeader and the
+ * then cards, in the page's own width and gutters (as PillarLayout and the
  * pages lay them out). Said once to a screen reader.
  */
 export function PageSkeleton() {

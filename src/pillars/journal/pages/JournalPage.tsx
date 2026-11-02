@@ -1,4 +1,5 @@
-import { JournalFrame } from "../components/JournalFrame";
+import { PillarLayout } from "../../../app/components/layout/PillarLayout";
+import { JournalTabs } from "../components/JournalTabs";
 import { KeptBefore } from "../components/quiet/KeptBefore";
 import { QuietStory } from "../components/quiet/QuietStory";
 import { JournalStory } from "../components/story/JournalStory";
@@ -17,7 +18,7 @@ import { JournalPageProvider, useJournalPage } from "../contexts/JournalPageCont
  * (`components/story/`).
  *
  * The Journal is one part, `JournalStory`; the quiet one, `QuietStory` and
- * `KeptBefore`. Above both, the way to the records (`JournalFrame`,
+ * `KeptBefore`. Above both, the way to the records (`JournalTabs`,
  * `CollectionsPage`), what's kept said in a few lines, to look up.
  */
 export function JournalPage() {
@@ -37,9 +38,10 @@ function Rendering() {
 /** The Journal: its story. */
 function Journal() {
   return (
-    <JournalFrame current="story">
+    <PillarLayout title="Journal" className="gap-6">
+      <JournalTabs current="story" />
       <JournalStory />
-    </JournalFrame>
+    </PillarLayout>
   );
 }
 
@@ -54,9 +56,10 @@ function Journal() {
  */
 function QuietJournal() {
   return (
-    <JournalFrame current="story">
+    <PillarLayout title="Journal" className="gap-6">
+      <JournalTabs current="story" />
       <QuietStory />
       <KeptBefore />
-    </JournalFrame>
+    </PillarLayout>
   );
 }

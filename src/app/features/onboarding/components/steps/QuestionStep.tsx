@@ -5,7 +5,7 @@ import { AnswerField } from "../../../settings/components/answer/AnswerField";
 import { ask, askedOf } from "../../../settings/model/facts";
 import { useOnboardingPage } from "../../contexts/OnboardingPageContext";
 import { Choices } from "../Choices";
-import { OnboardingFrame } from "../OnboardingFrame";
+import { OnboardingLayout } from "../OnboardingLayout";
 import { SkipButton } from "../SkipButton";
 import { ChooseFromList } from "./ChooseFromList";
 
@@ -25,7 +25,7 @@ export function QuestionStep({ askKey }: { askKey: string }) {
   const options = Object.entries(a.question.answers).map(([value, label]) => ({ value, label }));
 
   return (
-    <OnboardingFrame title={label} lead="It tailors what Expecting shows you. Skip it and you'll see everything, and be asked again when it matters.">
+    <OnboardingLayout title={label} lead="It tailors what Expecting shows you. Skip it and you'll see everything, and be asked again when it matters.">
       <div className="flex flex-col gap-4">
         <AnswerField
           question={a.question}
@@ -45,6 +45,6 @@ export function QuestionStep({ askKey }: { askKey: string }) {
         />
         <SkipButton onClick={() => advance(last ? undefined : save(null))} />
       </div>
-    </OnboardingFrame>
+    </OnboardingLayout>
   );
 }

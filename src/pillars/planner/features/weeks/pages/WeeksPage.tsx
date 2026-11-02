@@ -2,12 +2,12 @@ import { getRouteApi } from "@tanstack/react-router";
 import { useEffect, useMemo } from "react";
 import { useChecklistQuery } from "../../../../../api/rpc/checklist";
 import { useNow } from "../../../../../api/rpc/settings";
+import { PillarLayout } from "../../../../../app/components/layout/PillarLayout";
 import type { Task } from "../../../../../content/schema";
 import { stageEnding } from "../../../../../lib/planner/plan";
 import { weeksChart } from "../../../../../lib/planner/weeks";
 import type { Week } from "../../../../../lib/timeline";
 import { useItems } from "../../../../library/hooks/useItems";
-import { PlannerFrame } from "../../../components/PlannerFrame";
 import { usePlan } from "../../../hooks/usePlan";
 import { WeeksChart } from "../components/WeeksChart";
 
@@ -38,12 +38,14 @@ export function WeeksPage() {
   }, [stage]);
 
   return (
-    <PlannerFrame
+    <PillarLayout
+      back={{ to: "/planner", label: "Planner" }}
+      className="gap-6"
       title="Across the weeks"
       lead="When each thing opens, when it's best done by, and when it closes."
       putAway={{ subject: "The to-do list", aside: true }}
     >
       <WeeksChart chart={chart} now={now} focus={focus} />
-    </PlannerFrame>
+    </PillarLayout>
   );
 }

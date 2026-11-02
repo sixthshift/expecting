@@ -1,6 +1,6 @@
 import { Archive, BookOpen, ListChecks, NotebookPen, Sun } from "lucide-react";
 import type { AppPath } from "../../model/paths";
-import type { Pillar } from "./PillarLayout";
+import type { Pillar } from "./AppLayout";
 
 /**
  * Expecting's pillars, in the sidebar's order: read top to bottom, by weight.

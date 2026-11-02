@@ -25,7 +25,7 @@ resumes and the other phone's answers count:
 queries (settings, answers)
   → OnboardingPageProvider   the steps left, the current, the previous, advance, finish   contexts/
   → CurrentStep              the step the URL names                                      components/steps/
-  → <Kind>Step               reads its own queries; draws OnboardingFrame                components/steps/
+  → <Kind>Step               reads its own queries; draws OnboardingLayout                components/steps/
 ```
 
 `advance(save)` saves the step's answer (or nothing, to skip), waits for
@@ -40,7 +40,7 @@ pages/          OnboardingLayout (the baby's colours), OnboardingNext (on to the
 contexts/       OnboardingPageContext: where the step is, and the ways on
 model/paths.ts  a step's URL, and the step a URL is
 components/
-  OnboardingFrame  every step's screen: the way back, how far along, the question
+  OnboardingLayout  every step's screen: the way back, how far along, the question
   Choices, SkipButton  what the steps share
   steps/        CurrentStep, a file for each step, ChooseFromList (a long list's answers)
 ```
@@ -56,5 +56,5 @@ A question needs none: `asked: "onboarding"` in `facts.data.ts` makes it a
 1. Add it to `Step` and to `onboardingSteps`, in its place
    (`src/lib/onboarding.ts`), and its route (`src/routes/onboarding/`, added
    to `tree.ts`).
-2. Draw it: `components/steps/<Kind>Step.tsx`, in `OnboardingFrame`, going
+2. Draw it: `components/steps/<Kind>Step.tsx`, in `OnboardingLayout`, going
    on with `advance` from `useOnboardingPage()`; and a case in `CurrentStep`.

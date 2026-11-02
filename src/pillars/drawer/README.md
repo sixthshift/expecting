@@ -33,10 +33,10 @@ path. The rules of each tool are `src/lib/<tool>.ts` (`names`, `nameDeck`,
 ```
 pages/        DrawerPage
 components/
-  frame/      DrawerFrame: every tool's page, its way back, name and column,
-              and the put-away and extra-off states; the tools import it
+  tool/       DrawerTool: every tool's page, a PillarLayout back to the Drawer with
+              the tool's name, and the put-away and extra-off states; the tools import it
   tools/      ToolTile (a tool that's on) and ToolOff (one that's off)
-  ComesWith   "It comes with …. Turn it on in settings", for the frame and ToolOff
+  ComesWith   "It comes with …. Turn it on in settings", for DrawerTool and ToolOff
 features/     a feature per tool, each with its page, its parts and its summary line:
   names/      the names game and the shortlist (/drawer/names)
   jobs/       Who does what (/drawer/jobs)
@@ -50,7 +50,7 @@ features/     a feature per tool, each with its page, its parts and its summary 
    with its `tool` line.
 2. Its feature, `src/pillars/drawer/features/<tool>/`, and a route file in `src/routes/`
    (`drawer<Tool>.ts`, at `/drawer/<tool>`), added to `tree.ts`.
-3. Its page inside `DrawerFrame`, with its extra in `extras`: the frame says
+3. Its page inside `DrawerTool`, with its extra in `extras`: it says
    when it's put away or off, and draws the tool only when it's on.
 4. Its tile on `DrawerPage`: a `ToolTile` with the tool's own summary while
    its extra is on, a `ToolOff` while it isn't.

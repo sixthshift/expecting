@@ -1,7 +1,8 @@
 import { getRouteApi, Link, Navigate } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
+import { PillarLayout } from "../../../app/components/layout/PillarLayout";
 import { type Collection, FOLDED_WHILE_QUIET } from "../../../lib/story/collections";
-import { JournalFrame } from "../components/JournalFrame";
+import { JournalTabs } from "../components/JournalTabs";
 import { JournalPageProvider, useJournalPage } from "../contexts/JournalPageContext";
 import { AppetiteCollection } from "../features/appetite/components/collection/AppetiteCollection";
 import { FeelingsCollection } from "../features/feelings/components/collection/FeelingsCollection";
@@ -17,9 +18,10 @@ const route = getRouteApi("/app/journal/collections/$name");
 export function CollectionPage() {
   return (
     <JournalPageProvider>
-      <JournalFrame current="collections">
+      <PillarLayout title="Journal" className="gap-6">
+        <JournalTabs current="collections" />
         <OneCollection />
-      </JournalFrame>
+      </PillarLayout>
     </JournalPageProvider>
   );
 }

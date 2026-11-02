@@ -4,7 +4,7 @@ import { useCircleQuery } from "../../../../../api/rpc/circle";
 import { useExtrasQuery } from "../../../../../api/rpc/extras";
 import { type View, viewsOn } from "../../../../../lib/circle";
 import { extrasOn } from "../../../../../lib/extras";
-import { DrawerFrame } from "../../../components/frame/DrawerFrame";
+import { DrawerTool } from "../../../components/tool/DrawerTool";
 import { AddPerson } from "../components/addPerson/AddPerson";
 import { ViewBody } from "../components/views/ViewBody";
 import { CIRCLE_EXTRAS } from "../model/extras";
@@ -26,7 +26,7 @@ export function CirclePage() {
   const view = asked && views.includes(asked) ? asked : views[0];
 
   return (
-    <DrawerFrame title="Your people" putAway={{ subject: "Your people", are: true }} extras={CIRCLE_EXTRAS}>
+    <DrawerTool title="Your people" putAway={{ subject: "Your people", are: true }} extras={CIRCLE_EXTRAS}>
       {view ? (
         <div className="flex flex-col gap-5">
           <p className="text-fg-subtle">The people around you two, and what each of them is doing. Only you two see it.</p>
@@ -48,6 +48,6 @@ export function CirclePage() {
           <AddPerson />
         </div>
       ) : null}
-    </DrawerFrame>
+    </DrawerTool>
   );
 }

@@ -49,7 +49,7 @@ components/
   welcome/        Welcome: no due date yet
   quiet/          QuietWeek and its Guide
 features/
-  timeline/       the whole pregnancy at /timeline: TimelinePage, its frame, the weeks, the strip
+  timeline/       the whole pregnancy at /timeline: TimelinePage, the weeks, the strip
   weekly/         the week's question, and the earlier weeks'
 ```
 

@@ -44,7 +44,6 @@ hooks/          useItems (your entries), useSwipe
 model/          labels (an entry's weeks), narrowing (a shelf's search params),
                 pageOf (an entry's words, loaded once), suggestions (what to ask)
 components/
-  LibraryFrame  every page's column; the home's under the pillar's header
   ReadMark      the read mark, on every list
   itemLink/     every link to an entry (masks a private one); other pillars use it
   itemList/     a list of entries; other pillars use it

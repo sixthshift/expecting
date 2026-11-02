@@ -1,5 +1,6 @@
 import { useQuietQuery } from "../../../api/rpc/quiet";
-import { PhoneCorner } from "../../../app/components/layout/PillarLayout";
+import { PhoneCorner } from "../../../app/components/layout/AppLayout";
+import { PillarLayout } from "../../../app/components/layout/PillarLayout";
 import { DayByDay } from "../components/dayByDay/DayByDay";
 import { BestDoneThatWeek } from "../components/doing/BestDoneThatWeek";
 import { DoingNow } from "../components/doing/DoingNow";
@@ -35,7 +36,7 @@ function Week() {
   const { week, peeking, dueDate } = useThisWeekPage();
 
   return (
-    <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
+    <PillarLayout>
       {/* Phone: one column in `order`, the week's header first. Desktop: the header and the week on the left,
           the doing on the right from the top, beside the header rather than under it. */}
       <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:grid-rows-[auto_1fr] lg:items-start lg:gap-x-10 lg:gap-y-10">
@@ -73,6 +74,6 @@ function Week() {
           {peeking ? <BestDoneThatWeek /> : <DoingNow />}
         </div>
       </div>
-    </main>
+    </PillarLayout>
   );
 }

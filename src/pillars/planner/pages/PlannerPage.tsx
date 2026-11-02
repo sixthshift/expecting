@@ -1,4 +1,4 @@
-import { PillarHeader } from "../../../app/components/layout/PillarLayout";
+import { PillarLayout } from "../../../app/components/layout/PillarLayout";
 import { Appointments } from "../components/appointments/Appointments";
 import { ForNextAppointment } from "../components/questions/ForNextAppointment";
 import { PutAside } from "../components/quiet/PutAside";
@@ -26,11 +26,10 @@ export function PlannerPage() {
 function Planner() {
   const { quiet } = usePlannerPage();
   return (
-    <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
-      <PillarHeader
-        title="Planner"
-        lead={quiet ? "Nothing needs doing. What's here is for when you want it." : "What to do and what to ask, so nothing sneaks up on you."}
-      />
+    <PillarLayout
+      title="Planner"
+      lead={quiet ? "Nothing needs doing. What's here is for when you want it." : "What to do and what to ask, so nothing sneaks up on you."}
+    >
       <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start lg:gap-10">
         {quiet ? <PutAside /> : <ToDo />}
         <div className="flex flex-col gap-10 lg:sticky lg:top-6">
@@ -39,6 +38,6 @@ function Planner() {
           <ForNextAppointment />
         </div>
       </div>
-    </main>
+    </PillarLayout>
   );
 }

@@ -41,7 +41,7 @@ contexts/       JournalPageContext: the story's lines, and whether something has
 hooks/          useStoryView, useStorySearch, useScrollToWeek, useBook, useOnThisPhone
 model/labels.ts the Journal's words: a photo's title, who kept it, a week's title
 components/
-  JournalFrame  every page's header, Story and Collections, and column
+  JournalTabs   Story and Collections, at the top of every page (each page is a PillarLayout)
   story/        the Journal's story: JournalStory, its controls and search, JournalDays,
                 views/ZoomedOut (weeks, the whole pregnancy)
   thisWeek/     what's to keep now (KeepNow: around now, places, already happened) and the calls

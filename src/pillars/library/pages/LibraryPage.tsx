@@ -3,11 +3,11 @@ import { getRouteApi, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
+import { PillarLayout } from "../../../app/components/layout/PillarLayout";
 import { search } from "../../../lib/library/search";
 import { Doors } from "../components/doors/Doors";
 import { HardDoor } from "../components/doors/HardDoor";
 import { ItemList } from "../components/itemList/ItemList";
-import { LibraryFrame } from "../components/LibraryFrame";
 import { RightNow } from "../components/rightNow/RightNow";
 import { Shelf } from "../components/shelf/Shelf";
 import { Topics } from "../components/topics/Topics";
@@ -44,14 +44,14 @@ export function LibraryPage() {
 
   if (!results && (door || topic)) {
     return (
-      <LibraryFrame>
+      <PillarLayout className="pt-[max(1rem,env(safe-area-inset-top))] lg:pt-8">
         <Shelf narrowing={narrowing} />
-      </LibraryFrame>
+      </PillarLayout>
     );
   }
 
   return (
-    <LibraryFrame header>
+    <PillarLayout title="Library" lead="Everything Expecting knows, to read any time. Each piece also turns up on its week.">
       <SearchInput
         value={q}
         onValueChange={onSearch}
@@ -74,6 +74,6 @@ export function LibraryPage() {
           {quiet ? null : <HardDoor />}
         </div>
       )}
-    </LibraryFrame>
+    </PillarLayout>
   );
 }

@@ -1,7 +1,7 @@
 import { ListTodo } from "lucide-react";
 import { useListsQuery } from "../../../../../api/rpc/lists";
+import { PillarLayout } from "../../../../../app/components/layout/PillarLayout";
 import { inPlanner, listsOf } from "../../../../../lib/lists/summaries";
-import { PlannerFrame } from "../../../components/PlannerFrame";
 import { AddList } from "../components/addList/AddList";
 import { ListCard } from "../components/listCard/ListCard";
 import { useLines } from "../hooks/useLines";
@@ -20,7 +20,8 @@ export function ListsPage() {
   const own = all.filter((l) => l.origin === "own");
 
   return (
-    <PlannerFrame
+    <PillarLayout
+      back={{ to: "/planner", label: "Planner" }}
       title="Lists"
       lead="What to get, a list for each job, ticked off together wherever you are."
       putAway={{ subject: "The lists", are: true }}
@@ -57,6 +58,6 @@ export function ListsPage() {
         )}
         <AddList />
       </section>
-    </PlannerFrame>
+    </PillarLayout>
   );
 }

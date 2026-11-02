@@ -4,7 +4,7 @@ import { useSettingsQuery } from "../../../../../api/rpc/settings";
 import { formatDate, todayISO } from "../../../../../lib/dates";
 import { gestationLabel, positionOn, weekLabel } from "../../../../../lib/timeline";
 import { useOnboardingPage } from "../../contexts/OnboardingPageContext";
-import { OnboardingFrame } from "../OnboardingFrame";
+import { OnboardingLayout } from "../OnboardingLayout";
 
 /** Done: where Expecting will open, and in. */
 export function ReadyStep() {
@@ -22,7 +22,7 @@ export function ReadyStep() {
     );
 
   return (
-    <OnboardingFrame title="You're all set" lead={lead}>
+    <OnboardingLayout title="You're all set" lead={lead}>
       <div className="flex flex-col gap-4">
         <p className="text-sm text-fg-subtle">
           To share it, invite the other of you from Settings, under Account: they choose their own name and password, and go straight in.
@@ -40,6 +40,6 @@ export function ReadyStep() {
           Open Expecting
         </Button>
       </div>
-    </OnboardingFrame>
+    </OnboardingLayout>
   );
 }
