@@ -21,7 +21,7 @@ in The pillars, and Uploads.
 5. **"What did they add?"** What the other one kept since you last looked.
 
 None of them is "choose a kind, then fill in its form". Two ways in, at the
-top of the Journal: the Story (`/journal`), everything by time, for
+top of the Journal: Timeline (`/journal`), the story, everything by time, for
 reading back; and the Collections (`/journal/collections`), everything by
 what it is, each with its answer at the top, for looking something up
 (the third and fourth, often under pressure) and for a look back at one
@@ -204,7 +204,8 @@ Until 2026-11-02 there were lenses on the story (Notes, Photos, Firsts,
 Movements, …), then "records" for the four an appointment asks about. Both
 were the same thing, everything by what it is; the question an appointment
 asks is only the answer at the top of one. One page for it, with the
-story beside it, by time. Its old addresses still land.
+story beside it, by time: its tab is Timeline, a word the app never showed
+(the whole pregnancy's map at `/timeline` is titled The whole pregnancy). Its old addresses still land.
 
 ## What's kept, kind by kind
 
