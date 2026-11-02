@@ -206,20 +206,20 @@ section is [`src/pillars/thisWeek/README.md`](../src/pillars/thisWeek/README.md)
 - To do now is `toDoNow` (`src/lib/todo.ts`), Coming up `comingUp`; the
   heads-up and Worth knowing are `headsUps` and `worthKnowing`
   (`src/lib/library/thisWeek.ts`).
-- The strip is `PregnancyStrip` (`src/features/timeline/components/strip/`).
+- The strip is `PregnancyStrip` (`src/pillars/thisWeek/features/timeline/components/strip/`).
 - The week's note and the day reads are one carousel, `DayByDay`; the note
   reads as whoever holds the phone, with a toggle for the other's part
   (`WeekNote`, `src/pillars/thisWeek/components/weekNote/`).
 - What Expecting needs to know is `AskNow`, the extra on offer
   `extraToOffer`, the check-in `CheckIn` and `HardFortnight`
-  (`src/features/feelings/`), the next appointment `NextAppointment`, and
+  (`src/pillars/journal/features/feelings/`), the next appointment `NextAppointment`, and
   the week's question `WeeklyCard` while A question a week is on.
 - While something has happened it's `QuietWeek`.
 
 ### The whole pregnancy
 
 `/timeline`, `?at=28` ([product](product/timeline.md)): opened from This
-week, not a pillar, so no tab and no "+". `src/features/timeline/`, the
+week, not a pillar, so no tab and no "+". `src/pillars/thisWeek/features/timeline/`, the
 rules in `src/lib/timelineWeeks.ts`. `TimelineFrame` draws it, as it is and
 while paused. A week is a line (`TimelineWeeks`) that links
 to This week at it (`/?at=<week>`). The strip's weeks are left out of the
@@ -255,7 +255,7 @@ from a Library list (`HistoryState.from`). Content is [below](#content).
 
 The map of the code is `src/pillars/planner/README.md`.
 
-- **To do** (`/planner`): `src/pillars/planner/` and `src/features/tasks/`
+- **To do** (`/planner`): `src/pillars/planner/` and `src/pillars/planner/features/tasks/`
   (`TaskRow`, `AddTask`, `KeepButton`), its shape `src/lib/planner/plan.ts`
   (`next`, `now`, `ahead` in `STAGES`, `earlier`, `done`) over `toDoNow`,
   worked out once for the page in `PlannerPageProvider` (`usePlan`).
@@ -267,7 +267,7 @@ The map of the code is `src/pillars/planner/README.md`.
   built-in line comes from an item's `lines`, tailored like the item. The
   store is `own_list`, `own_line` and `list_mark` (a line's id, no foreign
   key, like `task_tick`; no row is still to get).
-- **Appointments:** `src/features/appointments/`, the `appointment` table
+- **Appointments:** `src/pillars/planner/features/appointments/`, the `appointment` table
   (title, `day`, perhaps `time`, `place`, `notes`), rules
   `src/lib/appointments.ts` (the next is the earliest still ahead, today's
   included; its week from the due date on read). Add to calendar is a plain
@@ -276,7 +276,7 @@ The map of the code is `src/pillars/planner/README.md`.
   phone hands a file to its calendar only from a URL with its own type. The
   time floats (local, no zone), an hour long, or all day; the `UID` is the
   appointment's id.
-- **Questions:** `src/features/questions/`, the `question` table (`answer`,
+- **Questions:** `src/pillars/planner/features/questions/`, the `question` table (`answer`,
   `asked_at`, the `item_id` it came from). The way in from an entry is
   `AskAtAppointment` (suggestions from `suggestionsFor`), and an entry's own
   questions back are `QuestionsAbout`. An unknown `itemId` is refused by
@@ -317,22 +317,22 @@ words and how to add a tool is
 tool's page is drawn inside `DrawerFrame`, which says when it's put away or
 off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
 
-- **The names game** (`/drawer/names`, `src/features/names/`): dealt by
+- **The names game** (`/drawer/names`, `src/pillars/drawer/features/names/`): dealt by
   `upNext` (`src/lib/nameDeck.ts`) from [the names deck](#the-names-deck),
   the sex from the colours (`dealing`, `src/lib/names.ts`). The store is
   `baby_name` (a deck name gets a row the first time either of you votes on
   it; `off_at` takes it off the shortlist) and `name_vote` (`super_on`, a
   superlike's day). `src/api/rpc/names.ts` answers only with your own votes,
   your superlike and the shortlist, never the other's votes.
-- **Who does what** (`/drawer/jobs`, `src/features/jobs/`): `JOBS` in
+- **Who does what** (`/drawer/jobs`, `src/pillars/drawer/features/jobs/`): `JOBS` in
   `src/lib/jobs.ts`, each answer a `job_pick`.
-- **Your people** (`/drawer/people`, `?view=`, `src/features/circle/`):
+- **Your people** (`/drawer/people`, `?view=`, `src/pillars/drawer/features/circle/`):
   `circle_person`, `circle_gift`, `announcement`, a view per extra
   (`src/lib/circle.ts`).
-- **Pregnancy bingo** (`/drawer/bingo`, `src/features/bingo/`): `SQUARES`
+- **Pregnancy bingo** (`/drawer/bingo`, `src/pillars/drawer/features/bingo/`): `SQUARES`
   in `src/lib/bingo.ts`, a card each (`bingo_card`), its squares marked
   (`bingo_mark`).
-- **A question a week** is drawn on This week (`src/pillars/thisWeek/components/weeklyCard/`):
+- **A question a week** is drawn on This week (`src/pillars/thisWeek/features/weekly/components/`):
   `WEEKLY` in `src/lib/weekly.ts`, answers in `weekly_answer`.
 - **Both answer, then reveal** is one rule in the repos' views
   (`JobsRepo.view`, `WeeklyRepo.view`): the other's answer is sent only

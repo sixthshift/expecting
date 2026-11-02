@@ -1,8 +1,8 @@
 import { useChecklistQuery } from "../../../../api/rpc/checklist";
-import { useTasks } from "../../../../features/tasks/hooks/useTasks";
 import { setInMotion } from "../../../../lib/quiet";
 import { useItems } from "../../../library/hooks/useItems";
 import { usePlannerPage } from "../../contexts/PlannerPageContext";
+import { useTasks } from "../../features/tasks/hooks/useTasks";
 import { InMotion } from "./InMotion";
 
 /**

@@ -3,15 +3,15 @@ import { useQuestionsQuery } from "../../../../api/rpc/questions";
 import { LookThrough } from "../../../../app/features/itsTime/components/wayIn/LookThrough";
 import { AskNow } from "../../../../app/features/settings/components/askNow/AskNow";
 import { OfferExtra } from "../../../../app/features/settings/components/offerExtra/OfferExtra";
-import { NextAppointment } from "../../../../features/appointments/components/NextAppointment";
-import { CheckIn } from "../../../../features/feelings/components/checkIn/CheckIn";
-import { HardFortnight } from "../../../../features/feelings/components/fortnight/HardFortnight";
-import { QuestionsWaiting } from "../../../../features/questions/components/QuestionsWaiting";
-import { ComingUp } from "../../../../features/tasks/components/comingUp/ComingUp";
-import { ToDoNow } from "../../../../features/tasks/components/toDoNow/ToDoNow";
 import { appointmentSoon, nextAppointment } from "../../../../lib/appointments";
+import { CheckIn } from "../../../journal/features/feelings/components/checkIn/CheckIn";
+import { HardFortnight } from "../../../journal/features/feelings/components/fortnight/HardFortnight";
+import { NextAppointment } from "../../../planner/features/appointments/components/NextAppointment";
+import { QuestionsWaiting } from "../../../planner/features/questions/components/QuestionsWaiting";
+import { ComingUp } from "../../../planner/features/tasks/components/comingUp/ComingUp";
+import { ToDoNow } from "../../../planner/features/tasks/components/toDoNow/ToDoNow";
 import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
-import { WeeklyCard } from "../weeklyCard/WeeklyCard";
+import { WeeklyCard } from "../../features/weekly/components/WeeklyCard";
 
 /**
  * The doing, this week: the next appointment once it's close, what to do now,

@@ -1,6 +1,5 @@
 import { getRouteApi, Link, Navigate } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
-import { FeelingsCollection } from "../../../features/feelings/components/collection/FeelingsCollection";
 import { type Collection, FOLDED_WHILE_QUIET } from "../../../lib/story/collections";
 import { AppetiteCollection } from "../components/collections/appetite/AppetiteCollection";
 import { FirstsCollection } from "../components/collections/firsts/FirstsCollection";
@@ -10,6 +9,7 @@ import { PapersCollection } from "../components/collections/papers/PapersCollect
 import { PhotosCollection } from "../components/collections/photos/PhotosCollection";
 import { JournalFrame } from "../components/JournalFrame";
 import { JournalPageProvider, useJournalPage } from "../contexts/JournalPageContext";
+import { FeelingsCollection } from "../features/feelings/components/collection/FeelingsCollection";
 
 const route = getRouteApi("/app/journal/collections/$name");
 

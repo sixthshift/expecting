@@ -1,12 +1,12 @@
 import { Card } from "@sixthshift/design-system/card";
 import { ChevronRight } from "lucide-react";
 import { useChecklistQuery } from "../../../../api/rpc/checklist";
-import { DeleteOwnTask } from "../../../../features/tasks/components/addTask/DeleteOwnTask";
-import { TaskRow } from "../../../../features/tasks/components/TaskRow";
-import { Whose } from "../../../../features/tasks/components/Whose";
 import type { ToDo } from "../../../../lib/todo";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 import { useItems } from "../../../library/hooks/useItems";
+import { DeleteOwnTask } from "../../features/tasks/components/addTask/DeleteOwnTask";
+import { TaskRow } from "../../features/tasks/components/TaskRow";
+import { Whose } from "../../features/tasks/components/Whose";
 import { WhenNow } from "./WhenNow";
 
 /** The one thing to do first, given room: when, whose, and why it matters. Ticking it brings up the next. */

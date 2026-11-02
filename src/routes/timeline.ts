@@ -13,5 +13,5 @@ export const timeline = createRoute({
   // What the timeline's weeks read beyond the frame's: there before it draws, and fetched ahead when the app warms the pillars (App).
   loader: ({ context: { queryClient } }) =>
     Promise.all([queryClient.ensureQueryData(photosQuery), queryClient.ensureQueryData(feelingsQuery), queryClient.ensureQueryData(appetiteQuery)]),
-  component: lazyRouteComponent(() => import("../features/timeline/pages/TimelinePage"), "TimelinePage"),
+  component: lazyRouteComponent(() => import("../pillars/thisWeek/features/timeline/pages/TimelinePage"), "TimelinePage"),
 });

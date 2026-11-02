@@ -3,14 +3,14 @@ import { useExtrasQuery } from "../../../api/rpc/extras";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { PutAwayNotice } from "../../../app/features/quiet/components/PutAwayNotice";
-import { BingoSummary } from "../../../features/bingo/components/summary/BingoSummary";
-import { CircleSummary } from "../../../features/circle/components/summary/CircleSummary";
-import { CIRCLE_EXTRAS } from "../../../features/circle/model/extras";
-import { JobsSummary } from "../../../features/jobs/components/summary/JobsSummary";
-import { NamesSummary } from "../../../features/names/components/summary/NamesSummary";
 import { extrasOn } from "../../../lib/extras";
 import { ToolOff } from "../components/tools/ToolOff";
 import { ToolTile } from "../components/tools/ToolTile";
+import { BingoSummary } from "../features/bingo/components/summary/BingoSummary";
+import { CircleSummary } from "../features/circle/components/summary/CircleSummary";
+import { CIRCLE_EXTRAS } from "../features/circle/model/extras";
+import { JobsSummary } from "../features/jobs/components/summary/JobsSummary";
+import { NamesSummary } from "../features/names/components/summary/NamesSummary";
 
 /**
  * The handy things, each for its moment: the names (with the Choosing a name extra), your people (with any extra

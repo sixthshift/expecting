@@ -1,6 +1,6 @@
 import { useAppointmentsQuery } from "../../../../api/rpc/appointments";
-import { AppointmentCard } from "../../../../features/appointments/components/AppointmentCard";
 import { appointmentsIn } from "../../../../lib/appointments";
+import { AppointmentCard } from "../../../planner/features/appointments/components/AppointmentCard";
 import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
 
 /** A peek's appointments, on that week's days. Now, the next one is with the doing (`NextAppointment`). */

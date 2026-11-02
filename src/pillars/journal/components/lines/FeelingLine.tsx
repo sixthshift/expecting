@@ -1,8 +1,8 @@
 // A check-in: how, and your own words only on your phone.
 
-import { Face } from "../../../../features/feelings/components/Face";
 import { isOwn, STEP_LABEL } from "../../../../lib/feelings";
 import type { StoryItem } from "../../../../lib/story/items";
+import { Face } from "../../features/feelings/components/Face";
 
 import { By, useOther } from "./parts";
 

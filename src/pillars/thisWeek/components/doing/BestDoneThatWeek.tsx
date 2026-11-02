@@ -1,7 +1,7 @@
 import { useChecklistQuery } from "../../../../api/rpc/checklist";
-import { TaskRow } from "../../../../features/tasks/components/TaskRow";
-import { useTasks } from "../../../../features/tasks/hooks/useTasks";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
+import { TaskRow } from "../../../planner/features/tasks/components/TaskRow";
+import { useTasks } from "../../../planner/features/tasks/hooks/useTasks";
 import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
 
 /** The doing, on a peek: what's best done that week, or falls due in it, each with why. What to do now stays with now. */

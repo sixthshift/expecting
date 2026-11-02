@@ -18,10 +18,10 @@ this is the map of the code.
 | Route | Page | Feature |
 |---|---|---|
 | `/drawer` | `DrawerPage`: a tile for each tool that's on, a note for each that's off | `drawer/` |
-| `/drawer/names` (`?names=`) | `NamesPage`, the names game | `src/features/names/` |
-| `/drawer/jobs` | `JobsPage`, Who does what | `src/features/jobs/` |
-| `/drawer/people` (`?view=`) | `CirclePage`, Your people (`circle` in code) | `src/features/circle/` |
-| `/drawer/bingo` (`?card=`) | `BingoPage`, Pregnancy bingo | `src/features/bingo/` |
+| `/drawer/names` (`?names=`) | `NamesPage`, the names game | `src/pillars/drawer/features/names/` |
+| `/drawer/jobs` | `JobsPage`, Who does what | `src/pillars/drawer/features/jobs/` |
+| `/drawer/people` (`?view=`) | `CirclePage`, Your people (`circle` in code) | `src/pillars/drawer/features/circle/` |
+| `/drawer/bingo` (`?card=`) | `BingoPage`, Pregnancy bingo | `src/pillars/drawer/features/bingo/` |
 
 Each route is a file in `src/routes/` (`drawerNames.ts`, …), named for its
 path. The rules of each tool are `src/lib/<tool>.ts` (`names`, `nameDeck`,

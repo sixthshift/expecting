@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import { useChecklistQuery } from "../../../../api/rpc/checklist";
 import type { Task } from "../../../../content/schema";
-import { TaskRow } from "../../../../features/tasks/components/TaskRow";
-import { Whose } from "../../../../features/tasks/components/Whose";
 import { usePlannerPage } from "../../contexts/PlannerPageContext";
+import { TaskRow } from "../../features/tasks/components/TaskRow";
+import { Whose } from "../../features/tasks/components/Whose";
 import { Why } from "./Why";
 
 /** One of To do's tasks: its tick, when (`when`) and whose under it, and why. Ticked, it stays put until the next visit. */

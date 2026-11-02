@@ -3,7 +3,7 @@ import { Card } from "@sixthshift/design-system/card";
 import { CalendarClock } from "lucide-react";
 import { useChecklistQuery } from "../../../../api/rpc/checklist";
 import { TOPICS, TYPE_LABELS } from "../../../../content/schema";
-import { TaskRow } from "../../../../features/tasks/components/TaskRow";
+import { TaskRow } from "../../../planner/features/tasks/components/TaskRow";
 import { useEntry } from "../../contexts/LibraryItemPageContext";
 import { rangeLabel } from "../../model/labels";
 import { Verdict } from "../content/Verdict";

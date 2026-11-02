@@ -1,11 +1,11 @@
 import { useQuestionsQuery } from "../../../../api/rpc/questions";
-import { AddQuestion } from "../../../../features/questions/components/AddQuestion";
-import { AskedQuestion } from "../../../../features/questions/components/AskedQuestion";
-import { OpenQuestion } from "../../../../features/questions/components/OpenQuestion";
 import { APPOINTMENT_WHEN } from "../../../../lib/appointments";
 import { todayISO } from "../../../../lib/dates";
 import { when } from "../../../../lib/labels";
 import { usePlannerPage } from "../../contexts/PlannerPageContext";
+import { AddQuestion } from "../../features/questions/components/AddQuestion";
+import { AskedQuestion } from "../../features/questions/components/AskedQuestion";
+import { OpenQuestion } from "../../features/questions/components/OpenQuestion";
 import { Fold } from "../Fold";
 
 /** The questions, for the next appointment (named, when there is one): a way to add one, those still to ask, and those asked folded away. */

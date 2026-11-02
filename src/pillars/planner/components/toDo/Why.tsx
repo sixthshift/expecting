@@ -1,6 +1,6 @@
 import type { Task } from "../../../../content/schema";
-import { DeleteOwnTask } from "../../../../features/tasks/components/addTask/DeleteOwnTask";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
+import { DeleteOwnTask } from "../../features/tasks/components/addTask/DeleteOwnTask";
 
 /** A task's action in its row: your own one's delete, else the way to its item's why. */
 export function Why({ task }: { task: Task }) {

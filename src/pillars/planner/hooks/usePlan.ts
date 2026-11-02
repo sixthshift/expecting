@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import { useChecklistQuery } from "../../../api/rpc/checklist";
 import { useNow } from "../../../api/rpc/settings";
-import { useTasks } from "../../../features/tasks/hooks/useTasks";
 import { type Plan, planTasks, type Stage, stagesAhead } from "../../../lib/planner/plan";
+import { useTasks } from "../features/tasks/hooks/useTasks";
 
 /** Nothing ticked during this visit: where the plan is only looked at (the weeks). */
 const NONE: ReadonlySet<string> = new Set();

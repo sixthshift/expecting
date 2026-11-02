@@ -2,9 +2,9 @@ import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
 import { Plus } from "lucide-react";
 import { useState } from "react";
-import { AddAppointment } from "../../../../features/appointments/components/AddAppointment";
-import { AppointmentCard } from "../../../../features/appointments/components/AppointmentCard";
 import { usePlannerPage } from "../../contexts/PlannerPageContext";
+import { AddAppointment } from "../../features/appointments/components/AddAppointment";
+import { AppointmentCard } from "../../features/appointments/components/AppointmentCard";
 import { Fold } from "../Fold";
 
 /**

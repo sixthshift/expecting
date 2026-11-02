@@ -7,5 +7,5 @@ export const drawerJobs = createRoute({
   getParentRoute: () => app,
   path: "/drawer/jobs",
   loader: ({ context: { queryClient } }) => queryClient.ensureQueryData(jobsQuery),
-  component: lazyRouteComponent(() => import("../features/jobs/pages/JobsPage"), "JobsPage"),
+  component: lazyRouteComponent(() => import("../pillars/drawer/features/jobs/pages/JobsPage"), "JobsPage"),
 });

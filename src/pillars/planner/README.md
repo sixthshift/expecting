@@ -2,9 +2,9 @@
 
 What to do, what to get and what to ask, so nothing sneaks up on you. What
 it does and why is [`docs/product/planner.md`](../../../docs/product/planner.md);
-this is the map of the code. Beside it, `src/features/tasks/` (a task's row
+this is the map of the code. Beside it, `src/pillars/planner/features/tasks/` (a task's row
 and tick, To do now and Coming up on This week) and
-`src/features/appointments/` (an appointment's card and form).
+`src/pillars/planner/features/appointments/` (an appointment's card and form).
 
 ## Words
 
@@ -19,7 +19,7 @@ and tick, To do now and Coming up on This week) and
 | **line** | One thing on a list: built in (an item's `lines`, tailored like the item) or your own. | `Line`; `src/lib/lists/lines.ts`; `useLines` |
 | **mark** | A line's state, set by either of you: arranged, got or not needed, how it was got, a few words. No mark is still to get. | `Mark`, `list_mark` |
 | **got** | A line marked got. Each list says it its own way (`words`: "Packed", "Done"). | `wordsFor` |
-| **question** | Something to ask at the next appointment. Asked, it folds away. | `src/features/questions/`; `components/questions/` |
+| **question** | Something to ask at the next appointment. Asked, it folds away. | `src/pillars/planner/features/questions/`; `components/questions/` |
 | **appointment** | One-off, with a day and perhaps a time and place. The next is the earliest still ahead, today's included. | `src/lib/appointments.ts` |
 
 `checklist` is only the store's name (`task_tick`, `own_task`,

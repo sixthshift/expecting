@@ -3,7 +3,7 @@
 Home, `/`: where you are and what matters now. What it does and why is
 [`docs/product/this-week.md`](../../../docs/product/this-week.md); this is the
 map of the code. The whole pregnancy at once, `/timeline`, is
-`src/features/timeline/`.
+`src/pillars/thisWeek/features/timeline/`.
 
 ## Words
 

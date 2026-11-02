@@ -9,5 +9,5 @@ export const drawerBingo = createRoute({
   path: "/drawer/bingo",
   validateSearch: bingoSearch,
   loader: ({ context: { queryClient } }) => queryClient.ensureQueryData(bingoQuery),
-  component: lazyRouteComponent(() => import("../features/bingo/pages/BingoPage"), "BingoPage"),
+  component: lazyRouteComponent(() => import("../pillars/drawer/features/bingo/pages/BingoPage"), "BingoPage"),
 });

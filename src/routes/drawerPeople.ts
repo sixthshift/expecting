@@ -9,5 +9,5 @@ export const drawerPeople = createRoute({
   path: "/drawer/people",
   validateSearch: peopleSearch,
   loader: ({ context: { queryClient } }) => queryClient.ensureQueryData(circleQuery),
-  component: lazyRouteComponent(() => import("../features/circle/pages/CirclePage"), "CirclePage"),
+  component: lazyRouteComponent(() => import("../pillars/drawer/features/circle/pages/CirclePage"), "CirclePage"),
 });

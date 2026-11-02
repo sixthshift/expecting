@@ -9,5 +9,5 @@ export const drawerNames = createRoute({
   path: "/drawer/names",
   validateSearch: namesSearch,
   loader: ({ context: { queryClient } }) => queryClient.ensureQueryData(namesQuery),
-  component: lazyRouteComponent(() => import("../features/names/pages/NamesPage"), "NamesPage"),
+  component: lazyRouteComponent(() => import("../pillars/drawer/features/names/pages/NamesPage"), "NamesPage"),
 });

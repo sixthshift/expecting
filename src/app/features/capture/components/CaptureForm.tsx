@@ -1,7 +1,3 @@
-import { AddAppointment } from "../../../../features/appointments/components/AddAppointment";
-import { CheckInNow } from "../../../../features/feelings/components/checkIn/CheckInNow";
-import { AddQuestion } from "../../../../features/questions/components/AddQuestion";
-import { AddTask } from "../../../../features/tasks/components/addTask/AddTask";
 import type { FirstKey } from "../../../../lib/firsts";
 import type { Person } from "../../../../lib/people";
 import { WEEKS, type Week } from "../../../../lib/timeline";
@@ -12,6 +8,10 @@ import { AddMovement } from "../../../../pillars/journal/components/entries/move
 import { AddNote } from "../../../../pillars/journal/components/entries/notes/AddNote";
 import { AddPaper } from "../../../../pillars/journal/components/entries/papers/AddPaper";
 import { AddPhoto } from "../../../../pillars/journal/components/entries/photos/AddPhoto";
+import { CheckInNow } from "../../../../pillars/journal/features/feelings/components/checkIn/CheckInNow";
+import { AddAppointment } from "../../../../pillars/planner/features/appointments/components/AddAppointment";
+import { AddQuestion } from "../../../../pillars/planner/features/questions/components/AddQuestion";
+import { AddTask } from "../../../../pillars/planner/features/tasks/components/addTask/AddTask";
 import type { Capture } from "../model/choices";
 
 /**
