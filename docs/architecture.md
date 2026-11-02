@@ -205,7 +205,7 @@ section is [`src/features/thisWeek/README.md`](../src/features/thisWeek/README.m
 
 - To do now is `toDoNow` (`src/lib/todo.ts`), Coming up `comingUp`; the
   heads-up and Worth knowing are `headsUps` and `worthKnowing`
-  (`src/lib/library.ts`).
+  (`src/lib/library/thisWeek.ts`).
 - The strip is `PregnancyStrip` (`src/features/timeline/components/strip/`).
 - The week's note and the day reads are one carousel, `DayByDay`; the note
   reads as whoever holds the phone, with a toggle for the other's part
@@ -228,13 +228,17 @@ tab order; the steps beside it are the keyboard's way.
 ### Library
 
 `/library` (`?q=`, `?door=`, `?topic=`, `?verdict=`, `?for=partner`),
-`/library/<id>` ([product](product/library.md)). `src/features/library/`;
-the rules (search and its ranking, the doors, Right now, `namesPrivate`)
-are `src/lib/library.ts`. `ItemCard` draws an entry by its type. Every link
-to an entry is `ItemLink`. An entry's words load in its route's loader, so
-it opens whole. What you've read is `item_read` (yours alone: a person, an
-item's id with no foreign key, when first opened), marked by
-`LibraryItemPage` through `readsSaves.markRead` (`src/api/rpc/reads.ts`) and
+`/library/<id>` ([product](product/library.md)). `src/features/library/`,
+mapped in its [README](../src/features/library/README.md); the rules are
+`src/lib/library/`, a file each: the doors and their shelves, search and
+its ranking, Right now, what This week takes, and the clues
+(`namesPrivate`, `cluesIn`). An entry's page is `LibraryItemPageProvider`
+(`useLibraryItemPage`, `useEntry`), worked out once from its id;
+`ItemCard` draws an entry by its type. Every link to an entry is
+`ItemLink`. An entry's words load in its route's loader, so it opens
+whole. What you've read is `item_read` (yours alone: a person, an item's
+id with no foreign key, when first opened), marked by the entry's page
+(`Entry`) through `readsSaves.markRead` (`src/api/rpc/reads.ts`) and
 shown by `ReadMark`; never for a private entry. A list passes its ids to
 `ItemLink` (`list`), kept in the history entry's state (`HistoryState.list`,
 `src/router.tsx`), not the address, so a private entry stays masked; the
