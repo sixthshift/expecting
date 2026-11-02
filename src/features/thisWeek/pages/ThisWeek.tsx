@@ -1,19 +1,11 @@
-import { getRouteApi } from "@tanstack/react-router";
-import { useMemo } from "react";
 import { useAppointmentsQuery } from "../../../api/rpc/appointments";
 import { useChecklistQuery } from "../../../api/rpc/checklist";
 import { useJournalQuery } from "../../../api/rpc/journal";
 import { useQuestionsQuery } from "../../../api/rpc/questions";
 import { useQuietQuery } from "../../../api/rpc/quiet";
-import { useNow, usePosition, useSettingsQuery } from "../../../api/rpc/settings";
 import { PhoneCorner } from "../../../app/components/layout/PillarLayout";
-import { dayReads, weekNotes } from "../../../content";
-import { readsOut } from "../../../content/days";
-import { noteFor } from "../../../content/weeks";
 import { appointmentSoon, appointmentsIn, nextAppointment } from "../../../lib/appointments";
-import { todayISO } from "../../../lib/dates";
 import { entriesIn } from "../../../lib/journal";
-import { headsUps, worthKnowing } from "../../../lib/library";
 import { askedWeeks } from "../../../lib/timelineMap";
 import { AppointmentCard } from "../../appointments/components/AppointmentCard";
 import { NextAppointment } from "../../appointments/components/NextAppointment";
@@ -23,7 +15,6 @@ import { LookThrough } from "../../itsTime/components/wayIn/LookThrough";
 import { Movement } from "../../journal/components/entries/movements/Movement";
 import { Note } from "../../journal/components/entries/notes/Note";
 import { ItemLink } from "../../library/components/itemLink/ItemLink";
-import { useItems } from "../../library/hooks/useItems";
 import { AskedQuestion } from "../../questions/components/AskedQuestion";
 import { QuestionsWaiting } from "../../questions/components/QuestionsWaiting";
 import { AskNow } from "../../settings/components/askNow/AskNow";
@@ -39,6 +30,7 @@ import { QuietWeek } from "../components/quiet/QuietWeek";
 import { WeeklyCard } from "../components/weeklyCard/WeeklyCard";
 import { Welcome } from "../components/welcome/Welcome";
 import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
+import { ThisWeekPageProvider, useThisWeekPage } from "../contexts/ThisWeekPageContext";
 
 /**
  * This week, home: what you open the app for. Where you are first, then what
@@ -53,38 +45,18 @@ import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
  *
  * While something has happened, none of it: support and the next steps instead.
  */
-const route = getRouteApi("/app/");
-
 export function ThisWeek() {
   const { data: quiet } = useQuietQuery();
-  return quiet ? <QuietWeek quiet={quiet} /> : <Week />;
+  return <ThisWeekPageProvider>{quiet ? <QuietWeek quiet={quiet} /> : <Week />}</ThisWeekPageProvider>;
 }
 
 function Week() {
-  const { data: settings } = useSettingsQuery();
+  const { week, peeking, dueDate, today } = useThisWeekPage();
   const { data: checklist } = useChecklistQuery();
-  const position = usePosition();
-  const now = useNow();
-  const items = useItems();
   const tasks = useTasks();
   const { data: questions } = useQuestionsQuery();
   const { data: journal } = useJournalQuery();
   const { data: appointments } = useAppointmentsQuery();
-  const today = todayISO();
-  const { at } = route.useSearch();
-  const { dueDate } = settings;
-  // The week shown: this one, or the one peeked at (only once there is a this week).
-  const week = now === null ? null : (at ?? now);
-  const peeking = week !== now;
-  // Now, the note in force carries on until the next; a peek shows only that week's own.
-  const inForce = week === null ? null : noteFor(weekNotes, week);
-  const note = peeking && inForce?.week !== week ? null : inForce;
-  // What starts this week and belongs to it; what's any time is in the Library.
-  const starting = week === null ? [] : worthKnowing(items, week);
-  const cards = useMemo(() => headsUps(items), [items]);
-  const headsUp = week === null ? undefined : cards.get(week);
-  // The week's reads out so far: up to today in this one, all of a week gone, none of one to come.
-  const reads = week === null || !position ? [] : readsOut(dayReads, week, position.gestationDays);
   const thatWeek = week === null ? [] : tasks.filter((t) => t.due === week || t.deadline === week);
   const openQuestions = questions.filter((q) => !q.askedAt).length;
   const askedIn = askedWeeks(questions, dueDate);
@@ -94,8 +66,6 @@ function Week() {
   const next = nextAppointment(appointments, today);
   const nextSoon = next !== null && appointmentSoon(next, today) !== null;
   const kept = peeking && week !== null ? entriesIn(journal, week, dueDate) : [];
-  // The weeks with something still to do best done by then, for the strip.
-  const dueWeeks = new Set(tasks.filter((t) => !checklist.ticks[t.id]).map((t) => t.due));
 
   return (
     <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
@@ -104,11 +74,7 @@ function Week() {
       <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:grid-rows-[auto_1fr] lg:items-start lg:gap-x-10 lg:gap-y-10">
         <div className="flex flex-col gap-6 max-lg:-mb-2 lg:col-start-1 lg:row-start-1">
           <header className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-3 gap-y-2 pt-[max(1.5rem,env(safe-area-inset-top))] lg:pt-10">
-            {position && dueDate && week !== null ? (
-              <Hero week={week} position={position} dueDate={dueDate} today={today} size={note?.week === week ? note.size : null} due={dueWeeks} />
-            ) : (
-              <h1 className="col-start-1 row-start-1 text-2xl font-display font-semibold text-fg-strong lg:text-3xl">This week</h1>
-            )}
+            {week !== null ? <Hero /> : <h1 className="col-start-1 row-start-1 text-2xl font-display font-semibold text-fg-strong lg:text-3xl">This week</h1>}
             <div className="col-start-2 row-start-1">
               <PhoneCorner />
             </div>
@@ -116,24 +82,12 @@ function Week() {
           {!dueDate ? <Welcome /> : null}
         </div>
         <div className="contents lg:col-start-1 lg:row-start-2 lg:flex lg:flex-col lg:gap-8">
-          {week !== null && (note || reads.length > 0) ? (
-            <div className="order-2 lg:order-0">
-              <DayByDay
-                key={week}
-                week={week}
-                note={note}
-                reads={reads}
-                items={items}
-                today={peeking || !position ? null : position.gestationDays - position.week * 7}
-                showSize={note?.week !== week}
-              />
-            </div>
-          ) : null}
-          {headsUp ? (
-            <div className="order-2 lg:order-0">
-              <HeadsUp card={headsUp} />
-            </div>
-          ) : null}
+          <div className="order-2 empty:hidden lg:order-0">
+            <DayByDay key={week} />
+          </div>
+          <div className="order-2 empty:hidden lg:order-0">
+            <HeadsUp />
+          </div>
           {thatWeeksAppointments.length > 0 ? (
             <section aria-labelledby="appointments-that-week" className="order-4 flex flex-col gap-2 lg:order-0">
               <h2 id="appointments-that-week" className="text-lg font-display font-semibold text-fg-strong">
@@ -162,11 +116,9 @@ function Week() {
               {kept.map((entry) => (entry.kind === "movement" ? <Movement key={entry.id} entry={entry} /> : <Note key={entry.id} entry={entry} />))}
             </section>
           ) : null}
-          {starting.length > 0 ? (
-            <div className="order-4 lg:order-0">
-              <WorthKnowing key={week} items={starting} peeking={peeking} />
-            </div>
-          ) : null}
+          <div className="order-4 empty:hidden lg:order-0">
+            <WorthKnowing key={week} />
+          </div>
         </div>
 
         {peeking ? (

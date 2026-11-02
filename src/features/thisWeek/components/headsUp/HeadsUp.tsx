@@ -1,9 +1,17 @@
 import { Lightbulb } from "lucide-react";
-import type { Item } from "../../../../content/schema";
+import { useMemo } from "react";
+import { headsUps } from "../../../../lib/library";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
+import { useItems } from "../../../library/hooks/useItems";
+import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
 
 /** The week's heads-up: one of the things nobody tells you (`headsUps` in src/lib/library.ts), read without opening. */
-export function HeadsUp({ card }: { card: Item }) {
+export function HeadsUp() {
+  const { week } = useThisWeekPage();
+  const items = useItems();
+  const cards = useMemo(() => headsUps(items), [items]);
+  const card = week === null ? undefined : cards.get(week);
+  if (!card) return null;
   return (
     <section aria-labelledby="heads-up" className="flex flex-col gap-2">
       <h2 id="heads-up" className="flex items-center gap-2 text-sm font-medium text-fg-subtle">

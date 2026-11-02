@@ -2,12 +2,14 @@ import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
 import { BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLayoutEffect, useRef, useState } from "react";
-import type { DayRead } from "../../../../content/days";
-import type { Item } from "../../../../content/schema";
+import { dayReads } from "../../../../content";
+import { type DayRead, readsOut } from "../../../../content/days";
 import type { WeekNote as Note } from "../../../../content/weeks";
-import { gestationLabel, type Week } from "../../../../lib/timeline";
+import { gestationLabel } from "../../../../lib/timeline";
 import { ItemBody } from "../../../library/components/content/ItemBody";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
+import { useItems } from "../../../library/hooks/useItems";
+import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
 import { WeekNote } from "../weekNote/WeekNote";
 
 /** A day of the week: the note on its first (+0), a read on each after. */
@@ -21,26 +23,16 @@ type Day = { day: number; note: Note; read?: never } | { day: number; read: DayR
  * peeked at opens on its first day, the note, and reads forward. Each
  * read ends in the entries it opens onto, as you'd find them in the Library.
  */
-export function DayByDay({
-  week,
-  note,
-  reads,
-  items,
-  today,
-  showSize = false,
-}: {
-  week: Week;
-  /** The note read on the week's first day, or none (a peek at a week without its own). */
-  note: Note | null;
-  /** Oldest first. */
-  reads: readonly DayRead[];
-  /** The Library as tailored for you: a link to an entry you'd not see is left off. */
-  items: readonly Item[];
-  /** Today's day of the week, 0–6, or null when it isn't this week. */
-  today: number | null;
-  /** The note says the baby's size: off where the heading already does. */
-  showSize?: boolean;
-}) {
+export function DayByDay() {
+  const { week, note, peeking, position } = useThisWeekPage();
+  // The Library as tailored for you: a link to an entry you'd not see is left off.
+  const items = useItems();
+  // The week's reads out so far, oldest first: up to today in this one, all of a week gone, none of one to come.
+  const reads = week === null || !position ? [] : readsOut(dayReads, week, position.gestationDays);
+  // Today's day of the week, 0–6, or null when it isn't this week.
+  const today = peeking || !position ? null : position.gestationDays - position.week * 7;
+  // The note says the baby's size: off where the heading already does.
+  const showSize = note?.week !== week;
   const days: Day[] = [...(note ? [{ day: 0, note }] : []), ...reads.map((read) => ({ day: read.day, read }))];
   const track = useRef<HTMLDivElement>(null);
   // This week opens on today's; another week on its first day.
@@ -77,6 +69,7 @@ export function DayByDay({
     if (el && el.clientWidth > 0) setAt(Math.round(el.scrollLeft / el.clientWidth));
   };
 
+  if (week === null || days.length === 0) return null;
   const when = (day: number) => {
     // A note carried on from an earlier week (none of this week's own) is named for its week.
     const label = day === 0 && note && note.week !== week ? `Week ${note.week}` : gestationLabel(week * 7 + day);
@@ -86,7 +79,6 @@ export function DayByDay({
     return label;
   };
 
-  if (days.length === 0) return null;
   return (
     <section aria-labelledby="day-by-day" aria-roledescription="carousel" className="flex flex-col gap-2">
       <div className="flex items-center justify-between gap-2">

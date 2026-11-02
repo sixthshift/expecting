@@ -1,13 +1,19 @@
 import { useState } from "react";
-import type { Item } from "../../../../content/schema";
+import { worthKnowing } from "../../../../lib/library";
 import { ItemList } from "../../../library/components/itemList/ItemList";
+import { useItems } from "../../../library/hooks/useItems";
+import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
 
 /** How many are shown before "Show all": the highest stakes, enough to read without the list taking the page. */
 const FIRST = 5;
 
 /** What's worth knowing as a week starts (`worthKnowing` in src/lib/library.ts): the first few, then the rest on asking. */
-export function WorthKnowing({ items, peeking }: { items: readonly Item[]; peeking: boolean }) {
+export function WorthKnowing() {
+  const { week, peeking } = useThisWeekPage();
   const [all, setAll] = useState(false);
+  // What starts this week and belongs to it; what's any time is in the Library.
+  const tailored = useItems();
+  const items = week === null ? [] : worthKnowing(tailored, week);
   if (items.length === 0) return null;
   const shown = all ? items : items.slice(0, FIRST);
 

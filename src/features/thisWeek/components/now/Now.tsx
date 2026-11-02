@@ -1,11 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import type { ReactNode } from "react";
-import { sizeLabel, sizeLine, type WeekNote } from "../../../../content/weeks";
+import { type ReactNode, useMemo } from "react";
+import { useChecklistQuery } from "../../../../api/rpc/checklist";
+import { sizeLabel, sizeLine } from "../../../../content/weeks";
 import { formatDate, type ISODate } from "../../../../lib/dates";
 import { toGo, weekRange } from "../../../../lib/labels";
 import { gestationLabel, type Position, WEEKS, type Week, weekFromNow, weekLabel } from "../../../../lib/timeline";
+import { useTasks } from "../../../tasks/hooks/useTasks";
 import { PregnancyStrip } from "../../../timeline/components/strip/PregnancyStrip";
+import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
 import { SizeIcon } from "../sizeIcon/SizeIcon";
 
 /** Where you are: "28+0 · 84 days to go · due Wed, 20 Jan 2027". */
@@ -27,24 +30,16 @@ function NowLine({ position, dueDate, today, small }: { position: Position; dueD
  * ("Next week"), with its dates. Under it the whole pregnancy in a line (a
  * week goes to that week) and the way to the map; then a step back or ahead.
  */
-export function Hero({
-  week,
-  position,
-  dueDate,
-  today,
-  size,
-  due,
-}: {
-  week: Week;
-  position: Position;
-  dueDate: ISODate;
-  today: ISODate;
-  size: WeekNote["size"];
-  /** The weeks ahead with something best done by then, dotted on the strip. */
-  due: ReadonlySet<Week>;
-}) {
+export function Hero() {
+  const { week, position, dueDate, today, note, peeking } = useThisWeekPage();
+  const { data: checklist } = useChecklistQuery();
+  const tasks = useTasks();
+  // The weeks with something still to do best done by then, dotted on the strip.
+  const due = useMemo(() => new Set(tasks.filter((t) => !checklist.ticks[t.id]).map((t) => t.due)), [tasks, checklist.ticks]);
+  if (week === null || !position || !dueDate) return null;
+  // The size, when that week's own note gives it.
+  const size = note?.week === week ? note.size : null;
   const line = size ? sizeLine(size) : null;
-  const peeking = week !== position.week;
   const range = weekRange(week, dueDate);
   return (
     // Its parts sit in the header's grid (ThisWeek): the heading beside the phone's corner, the size line under it with
