@@ -6,6 +6,7 @@
 
 import { app } from "./app";
 import { login } from "./auth/login";
+import { connect } from "./connect";
 import { drawer } from "./drawer";
 import { drawerBingo } from "./drawerBingo";
 import { drawerJobs } from "./drawerJobs";
@@ -64,8 +65,9 @@ export const routeTree = rootRoute.addChildren([
     settings,
     notFound,
   ]),
-  // Outside the frame: the first-run questions, a step to a URL, and logging in.
+  // Outside the frame: the first-run questions, a step to a URL, logging in, and letting Claude in.
   onboarding.addChildren([onboardingNext, who, due, baby, question, extras, ready]),
   login,
+  connect,
   ...api,
 ]);

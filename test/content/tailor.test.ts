@@ -1,7 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { tailorItems } from "../../../../src/features/library/hooks/useItems";
-import { tailorTasks } from "../../../../src/features/tasks/hooks/useTasks";
-import type { ISODate } from "../../../../src/lib/dates";
+import { tailorItems, tailorTasks } from "../../src/content/tailor";
+import type { ISODate } from "../../src/lib/dates";
 
 const ids = (facts: Record<string, string>, on: string[] = []) => new Set(tailorItems(facts, new Set(on)).map((i) => i.id));
 

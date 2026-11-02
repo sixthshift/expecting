@@ -1,17 +1,10 @@
 import { useMemo } from "react";
 import { useExtras } from "../../../api/rpc/extras";
 import { useAnswers } from "../../../api/rpc/facts";
-import { builtInItems } from "../../../content";
 import type { Item } from "../../../content/schema";
-import { extrasOn, inExtras } from "../../../lib/extras";
+import { tailorItems } from "../../../content/tailor";
+import { extrasOn } from "../../../lib/extras";
 import { factsOf } from "../../../lib/facts";
-import type { Facts } from "../../settings/model/facts";
-import { applies } from "../../settings/model/facts";
-
-/** The items for you: only those your facts fit, and in an extra only once that's on. */
-export function tailorItems(facts: Facts, on: ReadonlySet<string>): Item[] {
-  return builtInItems.filter((i) => applies(i.when, facts) && inExtras(i.extra, on));
-}
 
 /** The items for you, tailored as your answers and extras change. */
 export function useItems(): Item[] {

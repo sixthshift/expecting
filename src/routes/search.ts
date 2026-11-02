@@ -85,3 +85,21 @@ export const plannerWeeksSearch = z.object({
     .catch(undefined)
     .transform((end) => (end !== undefined && stageEnding(end) ? end : undefined)),
 });
+
+/** A value the router may have read as a number or a boolean (`?state=123`), back to the string it was sent as. */
+const raw = z
+  .union([z.string(), z.number().transform(String), z.boolean().transform(String)])
+  .optional()
+  .catch(undefined);
+
+/** Connecting a client: an OAuth authorisation request, as sent. The page judges it (`authorisation`, src/lib/connect.ts). */
+export const connectSearch = z.object({
+  response_type: raw,
+  client_id: raw,
+  redirect_uri: raw,
+  code_challenge: raw,
+  code_challenge_method: raw,
+  state: raw,
+  scope: raw,
+  resource: raw,
+});

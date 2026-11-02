@@ -14,6 +14,7 @@ import { daysBetween, formatDate, todayISO } from "../../../lib/dates";
 import { asksFor, factsOf, isSettled, latestByKey } from "../../../lib/facts";
 import type { Person, Role } from "../../../lib/people";
 import { gestationLabel } from "../../../lib/timeline";
+import { Connections } from "../../connect/components/Connections";
 import { QuietSwitch } from "../../quiet/components/quietSwitch/QuietSwitch";
 import { Appearance } from "../components/appearance/Appearance";
 import { ColourChoice } from "../components/colour/ColourChoice";
@@ -29,11 +30,12 @@ const route = getRouteApi("/app/settings");
 
 const DUE_DATE = "dueDate";
 
-/** The sections, in order: the question groups, the extras, something has happened, then this phone's: its appearance and its session. */
+/** The sections, in order: the question groups, the extras, something has happened, Claude, then this phone's: its appearance and its session. */
 const SECTIONS = [
   ...(Object.entries(GROUPS) as [Group, string][]).map(([id, title]) => ({ id, title })),
   { id: "extras", title: "Extras" },
   { id: "quiet", title: "Something has happened" },
+  { id: "claude", title: "Claude" },
   { id: "appearance", title: "Appearance" },
   { id: "session", title: "Session" },
 ];
@@ -218,6 +220,10 @@ export function SettingsPage() {
             <div id="setting-quiet" className="scroll-mt-6">
               <QuietSwitch />
             </div>
+          </Section>
+
+          <Section id="settings-claude" title="Claude" className="scroll-mt-6">
+            <Connections />
           </Section>
 
           <Section id="settings-appearance" title="Appearance" className="scroll-mt-6">

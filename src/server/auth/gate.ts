@@ -6,8 +6,15 @@
 // middleware. A server function's path is a generated id, so it is judged by
 // the file it is defined in, in function middleware: every function needs a
 // session except those in OPEN_FUNCTIONS, which are how you get one.
+//
+// An MCP client (src/api/rest/mcp.ts) has no cookie: /api/mcp is judged by its
+// bearer token instead (`grantOf`), and the OAuth endpoints it gets one from
+// are open. The token is got at /connect, a page like any other, so it is the
+// password that lets a client in.
 
 import { SessionRepo } from "../../db/models/auth/repo";
+import { ConnectionsRepo, type Grant } from "../../db/models/connections/repo";
+import { MCP_PATH } from "../../lib/connect";
 import { getDb } from "../core/db";
 import { readSessionCookie } from "./cookie";
 import { LoginLimiter, loginRequired } from "./password";
@@ -25,8 +32,17 @@ export function loginOn(): boolean {
 
 export const limiter = new LoginLimiter();
 
-/** Paths anyone may reach: the login page and the health check. */
-const OPEN = new Set(["/login", "/api/health"]);
+/** Paths anyone may reach: the login page, the health check, and how an MCP client gets a token (src/server/oauth/endpoints.ts). */
+const OPEN = new Set([
+  "/login",
+  "/api/health",
+  "/.well-known/oauth-protected-resource",
+  `/.well-known/oauth-protected-resource${MCP_PATH}`,
+  "/.well-known/oauth-authorization-server",
+  "/api/oauth/register",
+  "/api/oauth/token",
+  "/api/oauth/revoke",
+]);
 
 /** Where Start serves server functions. Those requests are judged by `refuseFunction`. */
 const SERVER_FN_BASE = process.env.TSS_SERVER_FN_BASE ?? "/api/rpc/";
@@ -55,13 +71,14 @@ function unauthorised(): Response {
 /**
  * Null to let the request through; otherwise the response that turns it away.
  * A page load is redirected to /login (remembering where it was going), and
- * an API call gets a bare 401. Server functions pass on to `refuseFunction`.
+ * an API call gets a bare 401. Server functions pass on to `refuseFunction`,
+ * and /api/mcp to its handler, which asks `grantOf`.
  * With logins off, /login has nothing to ask, so it sends you on.
  */
 export function gate(request: Request): Response | null {
   const url = new URL(request.url);
   if (!loginOn() && url.pathname === "/login") return Response.redirect(new URL(safeNext(url.searchParams.get("next")), url), 302);
-  if (url.pathname.startsWith(SERVER_FN_BASE) || isOpenPath(url.pathname) || hasSession(request)) return null;
+  if (url.pathname.startsWith(SERVER_FN_BASE) || url.pathname === MCP_PATH || isOpenPath(url.pathname) || hasSession(request)) return null;
   const wantsPage = request.method === "GET" && (request.headers.get("accept") ?? "").includes("text/html");
   if (wantsPage) {
     const next = url.pathname + url.search;
@@ -73,6 +90,12 @@ export function gate(request: Request): Response | null {
 /** Null to let a call to a server function defined in `filename` through; otherwise a 401. */
 export function refuseFunction(request: Request, filename: string): Response | null {
   return isOpenFunction(filename) || hasSession(request) ? null : unauthorised();
+}
+
+/** Who an MCP request speaks for, by its bearer token; null without a live one. Logins off or on, a client needs one. */
+export function grantOf(request: Request): Grant | null {
+  const token = request.headers.get("authorization")?.match(/^Bearer\s+(\S+)$/i)?.[1];
+  return token ? new ConnectionsRepo(getDb()).check(token) : null;
 }
 
 /** The client a failed login counts against: the proxy's view of it if there is one. */
