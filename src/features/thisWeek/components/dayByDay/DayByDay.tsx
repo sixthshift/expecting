@@ -1,16 +1,14 @@
 import { Button } from "@sixthshift/design-system/button";
-import { Card } from "@sixthshift/design-system/card";
 import { BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLayoutEffect, useRef, useState } from "react";
 import { dayReads } from "../../../../content";
 import { type DayRead, readsOut } from "../../../../content/days";
 import type { WeekNote as Note } from "../../../../content/weeks";
 import { gestationLabel } from "../../../../lib/timeline";
-import { ItemBody } from "../../../library/components/content/ItemBody";
-import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 import { useItems } from "../../../library/hooks/useItems";
 import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
 import { WeekNote } from "../weekNote/WeekNote";
+import { Read } from "./Read";
 
 /** A day of the week: the note on its first (+0), a read on each after. */
 type Day = { day: number; note: Note; read?: never } | { day: number; read: DayRead; note?: never };
@@ -132,27 +130,5 @@ export function DayByDay() {
         </div>
       ) : null}
     </section>
-  );
-}
-
-function Read({ read, label, titles }: { read: DayRead; label: string; titles: ReadonlyMap<string, string> }) {
-  const links = read.read.filter((id) => titles.has(id));
-  return (
-    <Card className="w-full">
-      <article className="flex flex-col gap-2">
-        <span className="text-xs font-semibold tracking-widest text-fg-subtle uppercase">{label}</span>
-        <h3 className="text-lg leading-snug font-display font-semibold text-fg-strong">{read.title}</h3>
-        <ItemBody doc={read.body} className="max-w-prose" />
-        {links.length > 0 ? (
-          <p className="flex flex-wrap gap-x-3 gap-y-1 pt-1 text-sm">
-            {links.map((id) => (
-              <ItemLink key={id} itemId={id} className="font-medium text-fg-brand underline">
-                {titles.get(id)}
-              </ItemLink>
-            ))}
-          </p>
-        ) : null}
-      </article>
-    </Card>
   );
 }

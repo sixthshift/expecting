@@ -4,6 +4,7 @@ import { useState } from "react";
 import { weeklySaves } from "../../../../api/rpc/weekly";
 import { useSave } from "../../../../app/hooks/useSave";
 import { questionOf, type WeeklyWeek } from "../../../../lib/weekly";
+import { Said } from "./Said";
 
 /**
  * A week's question as this phone has it: still to answer, answered and
@@ -51,14 +52,5 @@ export function WeekQuestion({ week, other, heading }: { week: WeeklyWeek; other
         </>
       )}
     </div>
-  );
-}
-
-function Said({ body, who }: { body: string; who: string }) {
-  return (
-    <p className="border-l-2 border-border-brand pl-3 whitespace-pre-line text-fg-normal">
-      {body}
-      <span className="text-sm text-fg-subtle"> — {who}</span>
-    </p>
   );
 }

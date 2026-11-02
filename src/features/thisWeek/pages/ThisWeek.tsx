@@ -1,21 +1,14 @@
-import { useAppointmentsQuery } from "../../../api/rpc/appointments";
-import { useJournalQuery } from "../../../api/rpc/journal";
-import { useQuestionsQuery } from "../../../api/rpc/questions";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { PhoneCorner } from "../../../app/components/layout/PillarLayout";
-import { appointmentsIn } from "../../../lib/appointments";
-import { entriesIn } from "../../../lib/journal";
-import { askedWeeks } from "../../../lib/timelineMap";
-import { AppointmentCard } from "../../appointments/components/AppointmentCard";
-import { Movement } from "../../journal/components/entries/movements/Movement";
-import { Note } from "../../journal/components/entries/notes/Note";
-import { AskedQuestion } from "../../questions/components/AskedQuestion";
 import { DayByDay } from "../components/dayByDay/DayByDay";
 import { BestDoneThatWeek } from "../components/doing/BestDoneThatWeek";
 import { DoingNow } from "../components/doing/DoingNow";
+import { Hero } from "../components/header/Hero";
 import { HeadsUp } from "../components/headsUp/HeadsUp";
-import { Hero } from "../components/now/Now";
 import { QuietWeek } from "../components/quiet/QuietWeek";
+import { AppointmentsThatWeek } from "../components/week/AppointmentsThatWeek";
+import { AskedThatWeek } from "../components/week/AskedThatWeek";
+import { KeptThatWeek } from "../components/week/KeptThatWeek";
 import { Welcome } from "../components/welcome/Welcome";
 import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
 import { ThisWeekPageProvider, useThisWeekPage } from "../contexts/ThisWeekPageContext";
@@ -40,14 +33,6 @@ export function ThisWeek() {
 
 function Week() {
   const { week, peeking, dueDate } = useThisWeekPage();
-  const { data: questions } = useQuestionsQuery();
-  const { data: journal } = useJournalQuery();
-  const { data: appointments } = useAppointmentsQuery();
-  const askedIn = askedWeeks(questions, dueDate);
-  const asked = questions.filter((q) => week !== null && askedIn.get(q.id) === week);
-  // A peek shows that week's appointments; now, the next one is with the doing.
-  const thatWeeksAppointments = peeking && week !== null ? appointmentsIn(appointments, week, dueDate) : [];
-  const kept = peeking && week !== null ? entriesIn(journal, week, dueDate) : [];
 
   return (
     <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
@@ -70,34 +55,15 @@ function Week() {
           <div className="order-2 empty:hidden lg:order-0">
             <HeadsUp />
           </div>
-          {thatWeeksAppointments.length > 0 ? (
-            <section aria-labelledby="appointments-that-week" className="order-4 flex flex-col gap-2 lg:order-0">
-              <h2 id="appointments-that-week" className="text-lg font-display font-semibold text-fg-strong">
-                Appointments that week
-              </h2>
-              {thatWeeksAppointments.map((a) => (
-                <AppointmentCard key={a.id} appointment={a} />
-              ))}
-            </section>
-          ) : null}
-          {asked.length > 0 ? (
-            <section aria-labelledby="asked" className="order-4 flex flex-col gap-2 lg:order-0">
-              <h2 id="asked" className="text-lg font-display font-semibold text-fg-strong">
-                {peeking ? "Asked that week" : "Asked this week"}
-              </h2>
-              {asked.map((q) => (
-                <AskedQuestion key={q.id} question={q} />
-              ))}
-            </section>
-          ) : null}
-          {kept.length > 0 ? (
-            <section aria-labelledby="kept" className="order-4 flex flex-col gap-2 lg:order-0">
-              <h2 id="kept" className="text-lg font-display font-semibold text-fg-strong">
-                Kept that week
-              </h2>
-              {kept.map((entry) => (entry.kind === "movement" ? <Movement key={entry.id} entry={entry} /> : <Note key={entry.id} entry={entry} />))}
-            </section>
-          ) : null}
+          <div className="order-4 empty:hidden lg:order-0">
+            <AppointmentsThatWeek />
+          </div>
+          <div className="order-4 empty:hidden lg:order-0">
+            <AskedThatWeek />
+          </div>
+          <div className="order-4 empty:hidden lg:order-0">
+            <KeptThatWeek />
+          </div>
           <div className="order-4 empty:hidden lg:order-0">
             <WorthKnowing key={week} />
           </div>
