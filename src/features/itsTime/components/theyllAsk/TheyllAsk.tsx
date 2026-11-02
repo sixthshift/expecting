@@ -1,6 +1,6 @@
 import { PapersToHand } from "../../../journal/components/entries/papers/PaperList";
 import type { AskRow } from "../../model/theyllAsk";
-import { Part } from "../CallButton";
+import { Part } from "../Part";
 
 /** When you ring, they'll ask: the call, already answered, in the order a midwife asks. The papers kept handy (the birth plan) are one tap from here, with no signal too. */
 export function TheyllAsk({ rows, hospitalSaid, home }: { rows: readonly AskRow[]; hospitalSaid: string | undefined; home: boolean }) {

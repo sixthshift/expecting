@@ -1,15 +1,15 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Checkbox } from "@sixthshift/design-system/checkbox";
-import { Input } from "@sixthshift/design-system/input";
 import { Link } from "@tanstack/react-router";
-import { ChevronRight, Trash2 } from "lucide-react";
-import { type FormEvent, useState } from "react";
+import { ChevronRight } from "lucide-react";
 import { itsTimeSaves } from "../../../../api/rpc/itsTime";
 import { useSave } from "../../../../app/hooks/useSave";
 import type { Line } from "../../../../content/schema";
-import { clock, type Start, type StartLine, WORDS_MAX } from "../../../../lib/itsTime";
-import { newId } from "../../../../lib/outbox";
-import { CallButton, Part } from "../CallButton";
+import { clock, type Start, type StartLine } from "../../../../lib/itsTime";
+import { CallButton } from "../CallButton";
+import { Part } from "../Part";
+import { AddOwn } from "./AddOwn";
+import { OwnLine } from "./OwnLine";
 
 /** The page's own last things, by key: ticked for this start only. */
 const RING = "ring-on-the-way";
@@ -115,44 +115,5 @@ export function BeforeYouGo({
         )
       ) : null}
     </Part>
-  );
-}
-
-function OwnLine({ line, checked, disabled, onTick }: { line: StartLine; checked: boolean; disabled: boolean; onTick: (on: boolean) => void }) {
-  const remove = useSave(itsTimeSaves.deleteStartLine);
-  return (
-    <li className="flex min-h-11 items-center justify-between gap-2">
-      <Checkbox label={line.title} checked={checked} disabled={disabled} onCheckedChange={(on) => onTick(on === true)} />
-      <Button variant="ghost" size="sm" iconOnly aria-label={`Take off “${line.title}”`} onClick={() => remove({ id: line.id })}>
-        <Trash2 aria-hidden size={16} />
-      </Button>
-    </li>
-  );
-}
-
-/** A last thing of your own ("Turn the heater off"), kept for every start. */
-function AddOwn() {
-  const add = useSave(itsTimeSaves.addStartLine);
-  const [title, setTitle] = useState("");
-  function submit(e: FormEvent) {
-    e.preventDefault();
-    if (!title.trim()) return;
-    add({ id: newId(), title });
-    setTitle("");
-  }
-  return (
-    <form onSubmit={submit} className="flex gap-2 py-2">
-      <Input
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        maxLength={WORDS_MAX}
-        placeholder="Add one: turn the heater off"
-        aria-label="A last thing of your own"
-        className="flex-1"
-      />
-      <Button type="submit" variant="outline" size="sm">
-        Add
-      </Button>
-    </form>
   );
 }

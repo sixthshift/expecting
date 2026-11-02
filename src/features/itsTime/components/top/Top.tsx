@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { ChevronRight, TriangleAlert } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { clock, type Start, TERM_WEEK, WATERS_LABEL } from "../../../../lib/itsTime";
 import type { Person } from "../../../../lib/people";
 import { gestationLabel, type Position } from "../../../../lib/timeline";
 import { CallButton } from "../CallButton";
+import { Alarm } from "./Alarm";
 
 /**
  * The top: where it's at in one line, then the calls. The birth suite (the
@@ -92,15 +93,5 @@ export function Top({
         {breechWaters ? null : <CallButton phone="000">Call 000</CallButton>}
       </nav>
     </div>
-  );
-}
-
-/** The danger colour, kept for a call your own tap has set off. */
-function Alarm({ children }: { children: React.ReactNode }) {
-  return (
-    <p role="alert" className="flex gap-2 rounded-xl border border-border-danger bg-bg-danger-subtle px-4 py-3 font-semibold text-fg-strong">
-      <TriangleAlert aria-hidden size={20} className="mt-0.5 shrink-0 text-fg-danger" />
-      <span>{children}</span>
-    </p>
   );
 }

@@ -5,7 +5,7 @@ import { itsTimeSaves } from "../../../../api/rpc/itsTime";
 import { useSave } from "../../../../app/hooks/useSave";
 import { clock, type Start, WATERS, WATERS_LABEL } from "../../../../lib/itsTime";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
-import { Part } from "../CallButton";
+import { Part } from "../Part";
 
 /**
  * The waters: one tap keeps the time, the first thing they'll ask; then the

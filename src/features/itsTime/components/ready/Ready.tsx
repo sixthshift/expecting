@@ -1,11 +1,10 @@
 import { Button } from "@sixthshift/design-system/button";
-import { Link } from "@tanstack/react-router";
-import { ChevronRight } from "lucide-react";
 import { itsTimeSaves } from "../../../../api/rpc/itsTime";
 import { useSave } from "../../../../app/hooks/useSave";
 import { newId } from "../../../../lib/outbox";
 import type { ReadyThing } from "../../model/ready";
-import { Part } from "../CallButton";
+import { Part } from "../Part";
+import { ThingLink } from "./ThingLink";
 
 /**
  * Getting ready: nothing has started. The two ways in, each opening a start;
@@ -49,26 +48,5 @@ export function Ready({ things, home }: { things: readonly ReadyThing[]; home: b
         </p>
       </Part>
     </div>
-  );
-}
-
-function ThingLink({ thing }: { thing: ReadyThing }) {
-  const cls = "flex min-h-12 items-center justify-between gap-3 px-4 text-fg-normal hover:text-fg-strong";
-  const inner = (
-    <>
-      {thing.text}
-      <ChevronRight aria-hidden size={16} className="shrink-0 text-fg-subtle" />
-    </>
-  );
-  if (thing.to === "bag")
-    return (
-      <Link to="/planner/lists/$listId" params={{ listId: "bag" }} className={cls}>
-        {inner}
-      </Link>
-    );
-  return (
-    <Link to={thing.to === "planner" ? "/planner" : "/emergency"} className={cls}>
-      {inner}
-    </Link>
   );
 }
