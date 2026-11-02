@@ -1,12 +1,12 @@
-// The facts: your answers to src/features/settings/model/facts.data.ts's questions, each
+// The facts: your answers to src/app/features/settings/model/facts.data.ts's questions, each
 // kept with who answered and when.
 
 import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { ask, factKey, isAnswer } from "../../app/features/settings/model/facts";
 import { FactsRepo } from "../../db/models/facts/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
-import { ask, factKey, isAnswer } from "../../features/settings/model/facts";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";

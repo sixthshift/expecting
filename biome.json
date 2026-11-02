@@ -152,71 +152,7 @@
       }
     },
     {
-      "includes": ["src/features/*/*"],
-      "linter": {
-        "rules": {
-          "style": {
-            "noRestrictedImports": {
-              "level": "error",
-              "options": {
-                "patterns": [
-                  {
-                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
-                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
-                  },
-                  {
-                    "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
-                  },
-                  {
-                    "group": ["**/api/rest", "**/api/rest/**"],
-                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
-                  },
-                  {
-                    "group": ["**/routes/**"],
-                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    {
-      "includes": ["src/features/*/*/*"],
-      "linter": {
-        "rules": {
-          "style": {
-            "noRestrictedImports": {
-              "level": "error",
-              "options": {
-                "patterns": [
-                  {
-                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
-                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
-                  },
-                  {
-                    "group": ["**/server/**"],
-                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
-                  },
-                  {
-                    "group": ["**/api/rest", "**/api/rest/**"],
-                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
-                  },
-                  {
-                    "group": ["**/routes/**"],
-                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    {
-      "includes": ["src/features/*/*/*/*"],
+      "includes": ["src/pillars/**", "src/app/features/**"],
       "linter": {
         "rules": {
           "style": {
@@ -344,7 +280,7 @@
       }
     },
     {
-      "includes": ["src/lib/**", "src/content/**", "src/features/settings/model/**"],
+      "includes": ["src/lib/**", "src/content/**", "src/app/features/settings/model/**"],
       "linter": {
         "rules": {
           "style": {
@@ -366,7 +302,7 @@
                   },
                   {
                     "group": ["react", "react-dom", "@tanstack/**", "**/components/**", "**/features/**", "!**/features/settings/model/*", "**/server/**"],
-                    "message": "src/lib/, src/content/ and the questions and extras (src/features/settings/model/) are pure rules and types: no React, no router, no server. Of features/, only settings/model/ may be imported from here."
+                    "message": "src/lib/, src/content/ and the questions and extras (src/app/features/settings/model/) are pure rules and types: no React, no router, no server. Of features/, only settings/model/ may be imported from here."
                   }
                 ]
               }

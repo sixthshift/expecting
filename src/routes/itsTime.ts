@@ -8,5 +8,5 @@ export const itsTime = createRoute({
   getParentRoute: () => app,
   path: "/its-time",
   loader: ({ context: { queryClient } }) => Promise.all([queryClient.ensureQueryData(itsTimeQuery), queryClient.ensureQueryData(emergencyQuery)]),
-  component: lazyRouteComponent(() => import("../features/itsTime/pages/ItsTimePage"), "ItsTimePage"),
+  component: lazyRouteComponent(() => import("../app/features/itsTime/pages/ItsTimePage"), "ItsTimePage"),
 });

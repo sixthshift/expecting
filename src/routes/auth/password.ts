@@ -16,5 +16,5 @@ export const password = createRoute({
     if (!people.mustChoosePassword) throw redirect({ href: safeNext(deps.next) });
   },
   pendingComponent: LoadingPage,
-  component: lazyRouteComponent(() => import("../../features/auth/pages/PasswordPage"), "PasswordPage"),
+  component: lazyRouteComponent(() => import("../../app/features/auth/pages/PasswordPage"), "PasswordPage"),
 });

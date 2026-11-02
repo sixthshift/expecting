@@ -1,8 +1,8 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Link, useLocation } from "@tanstack/react-router";
 import { NothingHere } from "../../components/NothingHere";
-import { LookFor } from "../../features/library/components/lookFor/LookFor";
 import { cluesIn } from "../../lib/library/clues";
+import { LookFor } from "../../pillars/library/components/lookFor/LookFor";
 
 /**
  * An address in the app with no page: still in the frame, with the pillars

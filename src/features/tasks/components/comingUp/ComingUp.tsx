@@ -4,7 +4,7 @@ import { useNow } from "../../../../api/rpc/settings";
 import { whose } from "../../../../lib/people";
 import { weekLabel } from "../../../../lib/timeline";
 import { comingUp } from "../../../../lib/todo";
-import { ItemLink } from "../../../library/components/itemLink/ItemLink";
+import { ItemLink } from "../../../../pillars/library/components/itemLink/ItemLink";
 import { useTasks } from "../../hooks/useTasks";
 
 /** How many Coming up shows; the Planner has the rest. */

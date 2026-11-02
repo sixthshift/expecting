@@ -6,7 +6,7 @@ on, in onboarding (a few), in settings (all), or when This week offers one
 in its week.
 
 How it's built is [`architecture.md`](../architecture.md), Extras. The list
-is `src/features/settings/model/extras.data.ts`.
+is `src/app/features/settings/model/extras.data.ts`.
 
 ## What it holds to
 

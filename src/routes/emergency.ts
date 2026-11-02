@@ -7,5 +7,5 @@ export const emergency = createRoute({
   getParentRoute: () => app,
   path: "/emergency",
   loader: ({ context: { queryClient } }) => queryClient.ensureQueryData(emergencyQuery),
-  component: lazyRouteComponent(() => import("../features/emergency/pages/EmergencyPage"), "EmergencyPage"),
+  component: lazyRouteComponent(() => import("../app/features/emergency/pages/EmergencyPage"), "EmergencyPage"),
 });

@@ -14,7 +14,7 @@ vi.mock("../../../src/content", () => ({
     { id: "antenatal-anxiety", title: "Anxiety during pregnancy", private: false, discreet: true },
   ],
 }));
-vi.mock("../../../src/features/library/components/itemLink/ItemLink", () => ({
+vi.mock("../../../src/pillars/library/components/itemLink/ItemLink", () => ({
   ItemLink: ({ children }: { children: ReactNode }) => <a href="/library">{children}</a>,
 }));
 

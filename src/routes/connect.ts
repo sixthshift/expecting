@@ -14,5 +14,5 @@ export const connect = createRoute({
   loader: ({ context: { queryClient }, deps }) =>
     Promise.all([queryClient.ensureQueryData(peopleQuery), queryClient.ensureQueryData(connectRequestQuery(deps.clientId, deps.redirectUri))]),
   pendingComponent: LoadingPage,
-  component: lazyRouteComponent(() => import("../features/connect/pages/ConnectPage"), "ConnectPage"),
+  component: lazyRouteComponent(() => import("../app/features/connect/pages/ConnectPage"), "ConnectPage"),
 });

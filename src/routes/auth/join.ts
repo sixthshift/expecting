@@ -13,5 +13,5 @@ export const join = createRoute({
   loader: ({ context: { queryClient }, deps }) =>
     Promise.all([queryClient.ensureQueryData(accessQuery), deps.code ? queryClient.ensureQueryData(codeQuery("join", deps.code)) : null]),
   pendingComponent: LoadingPage,
-  component: lazyRouteComponent(() => import("../../features/auth/pages/JoinPage"), "JoinPage"),
+  component: lazyRouteComponent(() => import("../../app/features/auth/pages/JoinPage"), "JoinPage"),
 });

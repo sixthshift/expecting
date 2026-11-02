@@ -2,8 +2,8 @@
 // and your extras turn on, and the tasks of those items, timed. Pure, so the
 // app's hooks and the server (src/api/mcp/) tailor alike.
 
-import type { Facts } from "../features/settings/model/facts";
-import { applies } from "../features/settings/model/facts";
+import type { Facts } from "../app/features/settings/model/facts";
+import { applies } from "../app/features/settings/model/facts";
 import { buildChecklist, type OwnTaskRow } from "../lib/checklist";
 import type { ISODate } from "../lib/dates";
 import { inExtras } from "../lib/extras";

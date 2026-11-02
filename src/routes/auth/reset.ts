@@ -12,5 +12,5 @@ export const reset = createRoute({
   loaderDeps: ({ search }) => ({ code: search.code }),
   loader: ({ context: { queryClient }, deps }) => (deps.code ? queryClient.ensureQueryData(codeQuery("reset", deps.code)) : null),
   pendingComponent: LoadingPage,
-  component: lazyRouteComponent(() => import("../../features/auth/pages/ResetPage"), "ResetPage"),
+  component: lazyRouteComponent(() => import("../../app/features/auth/pages/ResetPage"), "ResetPage"),
 });

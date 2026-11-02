@@ -8,7 +8,7 @@ import { useSave } from "../../../app/hooks/useSave";
 import { builtInItems } from "../../../content";
 import { whoseBy } from "../../../lib/people";
 import type { Question } from "../../../lib/questions";
-import { ItemLink } from "../../library/components/itemLink/ItemLink";
+import { ItemLink } from "../../../pillars/library/components/itemLink/ItemLink";
 
 /**
  * "from *Anaemia and low iron* · Sam's": the entry it was asked from, and whose it is; nothing when neither is known.

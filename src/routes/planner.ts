@@ -9,5 +9,5 @@ export const planner = createRoute({
   path: "/planner",
   // What the Planner reads beyond the frame's: there before it draws, and fetched ahead when the app warms the pillars (App).
   loader: ({ context: { queryClient } }) => Promise.all([queryClient.ensureQueryData(listsQuery), queryClient.ensureQueryData(feelingsQuery)]),
-  component: lazyRouteComponent(() => import("../features/planner/pages/PlannerPage"), "PlannerPage"),
+  component: lazyRouteComponent(() => import("../pillars/planner/pages/PlannerPage"), "PlannerPage"),
 });

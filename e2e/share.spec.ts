@@ -1,7 +1,7 @@
 // Sharing into Expecting: the phone's share sheet posts to /share (the
 // manifest's share_target), the service worker keeps what came and opens the
 // app (src/pwa/worker.js), and the "+" opens with it, offering only what it
-// can become (src/features/capture/components/SharedIn.tsx). The share sheet
+// can become (src/app/features/capture/components/SharedIn.tsx). The share sheet
 // itself is the phone's; here the page posts the same form the phone would.
 import type { Page } from "@playwright/test";
 import { expect, test } from "./fixtures";

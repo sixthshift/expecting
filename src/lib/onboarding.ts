@@ -4,13 +4,13 @@
 //
 //   due        the due date (once, for both of you)
 //   baby       boy, girl or don't know: the colours
-//   q:<key>    src/features/settings/model/facts.data.ts's `asked: onboarding` questions, once for
+//   q:<key>    src/app/features/settings/model/facts.data.ts's `asked: onboarding` questions, once for
 //              each of you where they're about each, and only where their
 //              `when` fits the answers so far
-//   extras     the extras in src/features/settings/model/extras.data.ts, any of which to turn on
+//   extras     the extras in src/app/features/settings/model/extras.data.ts, any of which to turn on
 //   ready      where Expecting will open, and in
 
-import { ASKS, type Facts } from "../features/settings/model/facts";
+import { ASKS, type Facts } from "../app/features/settings/model/facts";
 import { type Answer, factsOf, isAsked } from "./facts";
 
 export type Step = "due" | "baby" | "extras" | "ready" | `q:${string}`;

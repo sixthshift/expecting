@@ -5,7 +5,7 @@ import { useSettingsQuery } from "../../../api/rpc/settings";
 import type { Task } from "../../../content/schema";
 import { tailorTasks } from "../../../content/tailor";
 import { factsOf } from "../../../lib/facts";
-import { useItems } from "../../library/hooks/useItems";
+import { useItems } from "../../../pillars/library/hooks/useItems";
 
 /** The checklist, as the items, answers, due date and own tasks change. */
 export function useTasks(): Task[] {

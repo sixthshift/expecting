@@ -7,7 +7,7 @@ import { usePeopleQuery } from "../../../api/rpc/people";
 import { useSave } from "../../../app/hooks/useSave";
 import { deal, standing, standingLine } from "../../../lib/bingo";
 import { OTHER_ONE, otherOf } from "../../../lib/people";
-import { DrawerFrame } from "../../drawer/components/frame/DrawerFrame";
+import { DrawerFrame } from "../../../pillars/drawer/components/frame/DrawerFrame";
 import { BingoGrid } from "../components/card/BingoGrid";
 import { Winner } from "../components/winner/Winner";
 

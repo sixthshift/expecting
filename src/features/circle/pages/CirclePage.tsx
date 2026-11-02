@@ -4,7 +4,7 @@ import { useCircleQuery } from "../../../api/rpc/circle";
 import { useExtrasQuery } from "../../../api/rpc/extras";
 import { type View, viewsOn } from "../../../lib/circle";
 import { extrasOn } from "../../../lib/extras";
-import { DrawerFrame } from "../../drawer/components/frame/DrawerFrame";
+import { DrawerFrame } from "../../../pillars/drawer/components/frame/DrawerFrame";
 import { AddPerson } from "../components/addPerson/AddPerson";
 import { ViewBody } from "../components/views/ViewBody";
 import { CIRCLE_EXTRAS } from "../model/extras";

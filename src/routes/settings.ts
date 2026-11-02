@@ -11,5 +11,5 @@ export const settings = createRoute({
   validateSearch: settingsSearch,
   // Whether there is a way out to offer (with logins off, there is no logging out), and what Claude has connected.
   loader: ({ context: { queryClient } }) => Promise.all([queryClient.ensureQueryData(accessQuery), queryClient.ensureQueryData(connectionsQuery)]),
-  component: lazyRouteComponent(() => import("../features/settings/pages/SettingsPage"), "SettingsPage"),
+  component: lazyRouteComponent(() => import("../app/features/settings/pages/SettingsPage"), "SettingsPage"),
 });

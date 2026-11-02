@@ -6,6 +6,6 @@ export const libraryItem = createRoute({
   getParentRoute: () => app,
   path: "/library/$itemId",
   // Its words before the page changes (and on a link's hover or press, by the router's preload).
-  loader: async ({ params }) => (await import("../features/library/model/pageOf")).preloadPage(params.itemId),
-  component: lazyRouteComponent(() => import("../features/library/pages/LibraryItemPage"), "LibraryItemPage"),
+  loader: async ({ params }) => (await import("../pillars/library/model/pageOf")).preloadPage(params.itemId),
+  component: lazyRouteComponent(() => import("../pillars/library/pages/LibraryItemPage"), "LibraryItemPage"),
 });

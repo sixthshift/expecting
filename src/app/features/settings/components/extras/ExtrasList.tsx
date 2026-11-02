@@ -1,0 +1,77 @@
+import { Switch } from "@sixthshift/design-system/switch";
+import { cn } from "@sixthshift/design-system/utils";
+import { extrasSaves, useExtrasQuery } from "../../../../../api/rpc/extras";
+import { useAnswersQuery } from "../../../../../api/rpc/facts";
+import { usePeopleQuery } from "../../../../../api/rpc/people";
+import { type Choice, extrasFor, extrasOn } from "../../../../../lib/extras";
+import { factsOf } from "../../../../../lib/facts";
+import { didOn } from "../../../../../lib/labels";
+import type { Person } from "../../../../../lib/people";
+import { useSave } from "../../../../hooks/useSave";
+import { useSettingsPage } from "../../contexts/SettingsPageContext";
+import { EXTRA_GROUPS, type ExtraGroup } from "../../model/extras";
+import { ExtraPitch } from "../extraPitch/ExtraPitch";
+import { SettingList } from "../settingRow/SettingList";
+
+/**
+ * Every extra in src/app/features/settings/model/extras.data.ts you're offered (its `when`
+ * fits, or it's on), with its switch: on, its items appear
+ * wherever they belong; off, they're gone. Each says who last changed it,
+ * and one that brings a tool says which.
+ * The one a link opened Settings at is marked.
+ */
+export function ExtrasList() {
+  const { highlight } = useSettingsPage();
+  const { data: choices } = useExtrasQuery();
+  const { people } = usePeopleQuery().data;
+  const { data: facts } = useAnswersQuery({ select: factsOf });
+  const { data: extras } = useExtrasQuery({ select: extrasOn });
+  const setExtras = useSave(extrasSaves.setExtras);
+
+  const offered = extrasFor(facts, extras);
+
+  return (
+    <div className="flex flex-col gap-4">
+      {(Object.entries(EXTRA_GROUPS) as [ExtraGroup, string][]).map(([group, title]) => {
+        const inGroup = offered.filter((e) => e.group === group);
+        if (inGroup.length === 0) return null;
+        return (
+          <div key={group} className="flex flex-col gap-2">
+            <h3 className="text-sm font-medium text-fg-normal">{title}</h3>
+            <SettingList>
+              {inGroup.map((e) => {
+                const choice = choices.find((c) => c.id === e.id);
+                const on = choice?.on ?? false;
+                const control = `extra-${e.id}`;
+                // On the brand tint, quiet text is fg-normal: fg-subtle is for surfaces.
+                const quiet = cn("text-xs", highlight === e.id ? "text-fg-normal" : "text-fg-subtle");
+                return (
+                  <div
+                    key={e.id}
+                    id={`setting-extra:${e.id}`}
+                    className={cn("flex scroll-mt-24 items-center gap-4 px-4 py-3", highlight === e.id && "bg-bg-brand-subtle")}
+                  >
+                    <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+                      <ExtraPitch extra={e} pitchClassName={quiet}>
+                        <label htmlFor={control} className="text-sm font-medium text-fg-strong">
+                          {e.name}
+                        </label>
+                      </ExtraPitch>
+                      {choice ? <span className={quiet}>{changedBy(choice, people)}</span> : null}
+                    </div>
+                    <Switch id={control} checked={on} onCheckedChange={(next) => setExtras([{ id: e.id, on: next }])} />
+                  </div>
+                );
+              })}
+            </SettingList>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/** "Sam turned it on, 3 Oct". */
+function changedBy(c: Choice, people: readonly Person[]): string {
+  return didOn(people.find((p) => p.id === c.changedBy)?.name, c.on ? "turned it on" : "turned it off", c.changedAt);
+}

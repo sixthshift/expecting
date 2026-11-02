@@ -16,7 +16,7 @@ vi.mock("../../../src/api/rpc/feelings", () => ({
 }));
 vi.mock("../../../src/api/rpc/people", () => ({ usePeopleQuery: () => ({ data: { me: SAM, people: [SAM, ALEX] } }) }));
 vi.mock("../../../src/app/hooks/useSave", () => ({ useSave: (save: { key: string }) => (input: unknown) => saved.push({ key: save.key, input }) }));
-vi.mock("../../../src/features/library/components/itemLink/ItemLink", () => ({ ItemLink: ({ children }: { children: unknown }) => children }));
+vi.mock("../../../src/pillars/library/components/itemLink/ItemLink", () => ({ ItemLink: ({ children }: { children: unknown }) => children }));
 
 const { CheckIn } = await import("../../../src/features/feelings/components/checkIn/CheckIn");
 const { HardFortnight, FORTNIGHT_DISMISSED_KEY } = await import("../../../src/features/feelings/components/fortnight/HardFortnight");

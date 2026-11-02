@@ -16,5 +16,5 @@ export const login = createRoute({
     if (access.me) throw redirect({ href: safeNext(deps.next) });
   },
   pendingComponent: LoadingPage,
-  component: lazyRouteComponent(() => import("../../features/auth/pages/LoginPage"), "LoginPage"),
+  component: lazyRouteComponent(() => import("../../app/features/auth/pages/LoginPage"), "LoginPage"),
 });

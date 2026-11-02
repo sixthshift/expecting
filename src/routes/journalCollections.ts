@@ -17,5 +17,5 @@ export const journalCollections = createRoute({
       queryClient.ensureQueryData(photosQuery),
       queryClient.ensureQueryData(firstsQuery),
     ]),
-  component: lazyRouteComponent(() => import("../features/journal/pages/CollectionsPage"), "CollectionsPage"),
+  component: lazyRouteComponent(() => import("../pillars/journal/pages/CollectionsPage"), "CollectionsPage"),
 });

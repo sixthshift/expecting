@@ -5,6 +5,7 @@
 
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
+import type { Facts } from "../../app/features/settings/model/facts";
 import { builtInItems, dayReads, loadPage, weekNotes } from "../../content";
 import { readsOut } from "../../content/days";
 import type { Item, Task } from "../../content/schema";
@@ -20,7 +21,6 @@ import { ListsRepo } from "../../db/models/lists/repo";
 import { PapersRepo } from "../../db/models/papers/repo";
 import { PhotosRepo } from "../../db/models/photos/repo";
 import { QuestionsRepo } from "../../db/models/questions/repo";
-import type { Facts } from "../../features/settings/model/facts";
 import { splitAppointments } from "../../lib/appointments";
 import { EMERGENCY_FIELDS } from "../../lib/emergency";
 import { isOwn } from "../../lib/feelings";

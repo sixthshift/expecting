@@ -2,8 +2,8 @@
 // them. Each has a state, set by either of you, or none: still to get. Any
 // line can hold a few words.
 
+import { applies, type Facts } from "../../app/features/settings/model/facts";
 import type { Item, Line } from "../../content/schema";
-import { applies, type Facts } from "../../features/settings/model/facts";
 
 /** A line's state once marked; no mark is still to get. */
 export const LINE_STATES = ["arranged", "got", "not-needed"] as const;

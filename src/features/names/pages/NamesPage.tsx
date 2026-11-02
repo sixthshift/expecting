@@ -4,7 +4,7 @@ import { usePeopleQuery } from "../../../api/rpc/people";
 import { useSettingsQuery } from "../../../api/rpc/settings";
 import { dealing } from "../../../lib/names";
 import { otherOf } from "../../../lib/people";
-import { DrawerFrame } from "../../drawer/components/frame/DrawerFrame";
+import { DrawerFrame } from "../../../pillars/drawer/components/frame/DrawerFrame";
 import { NamesGame } from "../components/namesGame/NamesGame";
 
 const route = getRouteApi("/app/drawer/names");

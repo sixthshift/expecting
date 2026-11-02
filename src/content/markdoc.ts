@@ -2,14 +2,14 @@
 // here with its attributes, and conditions on your answers. The
 // body is parsed and checked once, as the content loads, so a mistyped tag, an
 // unknown $question or an answer that doesn't exist fails the gate. Rendering
-// is in src/features/library/components/content/, which maps each tag to a component.
+// is in src/pillars/library/components/content/, which maps each tag to a component.
 //
 //   {% if equals($cover, "yes") %} … {% else /%} … {% /if %}
 //   {% ask "Is it too late after 36 weeks?" /%}      a question to add in one tap
 //   {% window from=28 to=36 /%}                      the weeks it applies, against today
 
 import Markdoc, { Ast, type Config, type Node, type Schema } from "@markdoc/markdoc";
-import { QUESTIONS, question } from "../features/settings/model/facts";
+import { QUESTIONS, question } from "../app/features/settings/model/facts";
 import { WEEKS } from "../lib/timeline";
 
 const ask: Schema = {

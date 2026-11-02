@@ -6,6 +6,6 @@ export function step<const P extends string>(path: P) {
   return createRoute({
     getParentRoute: () => onboarding,
     path,
-    component: lazyRouteComponent(() => import("../../features/onboarding/pages/OnboardingStep"), "OnboardingStep"),
+    component: lazyRouteComponent(() => import("../../app/features/onboarding/pages/OnboardingStep"), "OnboardingStep"),
   });
 }

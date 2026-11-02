@@ -3,8 +3,8 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { useFirstsQuery } from "../../../api/rpc/firsts";
 import { useQuietQuery } from "../../../api/rpc/quiet";
+import { CaptureSheet } from "../../../app/features/capture/components/CaptureSheet";
 import type { Keeps } from "../../../content/schema";
-import { CaptureSheet } from "../../capture/components/CaptureSheet";
 
 /** What the button says, by what the task keeps. */
 const LABEL = { letter: "Write it", photo: "Add it", first: "Mark it" } as const;

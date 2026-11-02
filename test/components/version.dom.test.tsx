@@ -12,7 +12,7 @@ vi.mock("../../src/content/releases", async (actual) => ({
   ],
 }));
 
-const { Version } = await import("../../src/features/settings/components/version/Version");
+const { Version } = await import("../../src/app/features/settings/components/version/Version");
 
 describe("Version", () => {
   it("shows the version, and opens every release up to it on asking", () => {

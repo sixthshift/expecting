@@ -5,5 +5,5 @@ import { app } from "./app";
 export const journalBook = createRoute({
   getParentRoute: () => app,
   path: "/journal/book",
-  component: lazyRouteComponent(() => import("../features/journal/pages/BookPage"), "BookPage"),
+  component: lazyRouteComponent(() => import("../pillars/journal/pages/BookPage"), "BookPage"),
 });

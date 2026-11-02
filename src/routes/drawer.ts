@@ -10,5 +10,5 @@ export const drawer = createRoute({
   path: "/drawer",
   loader: ({ context: { queryClient } }) =>
     Promise.all([queryClient.ensureQueryData(namesQuery), queryClient.ensureQueryData(circleQuery), queryClient.ensureQueryData(jobsQuery)]),
-  component: lazyRouteComponent(() => import("../features/drawer/pages/DrawerPage"), "DrawerPage"),
+  component: lazyRouteComponent(() => import("../pillars/drawer/pages/DrawerPage"), "DrawerPage"),
 });

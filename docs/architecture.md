@@ -195,8 +195,8 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 ### This week
 
 `/`, `?at=29` to peek at another week ([product](product/this-week.md)).
-`src/features/thisWeek/`. The map of its code, its words and how to add a
-section is [`src/features/thisWeek/README.md`](../src/features/thisWeek/README.md).
+`src/pillars/thisWeek/`. The map of its code, its words and how to add a
+section is [`src/pillars/thisWeek/README.md`](../src/pillars/thisWeek/README.md).
 
 - `ThisWeekPageProvider` works out the week shown, whether it's a peek and
   the week's note once; `Week`, or while something has happened
@@ -209,7 +209,7 @@ section is [`src/features/thisWeek/README.md`](../src/features/thisWeek/README.m
 - The strip is `PregnancyStrip` (`src/features/timeline/components/strip/`).
 - The week's note and the day reads are one carousel, `DayByDay`; the note
   reads as whoever holds the phone, with a toggle for the other's part
-  (`WeekNote`, `src/features/thisWeek/components/weekNote/`).
+  (`WeekNote`, `src/pillars/thisWeek/components/weekNote/`).
 - What Expecting needs to know is `AskNow`, the extra on offer
   `extraToOffer`, the check-in `CheckIn` and `HardFortnight`
   (`src/features/feelings/`), the next appointment `NextAppointment`, and
@@ -228,8 +228,8 @@ tab order; the steps beside it are the keyboard's way.
 ### Library
 
 `/library` (`?q=`, `?door=`, `?topic=`, `?verdict=`, `?for=partner`),
-`/library/<id>` ([product](product/library.md)). `src/features/library/`,
-mapped in its [README](../src/features/library/README.md); the rules are
+`/library/<id>` ([product](product/library.md)). `src/pillars/library/`,
+mapped in its [README](../src/pillars/library/README.md); the rules are
 `src/lib/library/`, a file each: the doors and their shelves, search and
 its ranking, Right now, what This week takes, and the clues
 (`namesPrivate`, `cluesIn`). An entry's page is `LibraryItemPageProvider`
@@ -253,16 +253,16 @@ from a Library list (`HistoryState.from`). Content is [below](#content).
 
 [Product](product/planner.md).
 
-The map of the code is `src/features/planner/README.md`.
+The map of the code is `src/pillars/planner/README.md`.
 
-- **To do** (`/planner`): `src/features/planner/` and `src/features/tasks/`
+- **To do** (`/planner`): `src/pillars/planner/` and `src/features/tasks/`
   (`TaskRow`, `AddTask`, `KeepButton`), its shape `src/lib/planner/plan.ts`
   (`next`, `now`, `ahead` in `STAGES`, `earlier`, `done`) over `toDoNow`,
   worked out once for the page in `PlannerPageProvider` (`usePlan`).
   Ticks are `task_tick`, own tasks `own_task` (a title and a week).
 - **The weeks** ("Across the weeks", `/planner/weeks`, `?stage=37`): `WeeksPage`, the
   bars from `weeksChart` (`src/lib/planner/weeks.ts`).
-- **Lists** (`/planner/lists`, `/planner/lists/<id>`): `src/features/planner/` (`ListsPage`, `ListPage` and `ListPageProvider`, `components/lists/`),
+- **Lists** (`/planner/lists`, `/planner/lists/<id>`): `src/pillars/planner/` (`ListsPage`, `ListPage` and `ListPageProvider`, `components/lists/`),
   rules `src/lib/lists/` (`LISTS` in `builtIn.ts`; the lines that apply, `lines.ts`; what's left, `summaries.ts`; by section, `sections.ts`). A
   built-in line comes from an item's `lines`, tailored like the item. The
   store is `own_list`, `own_line` and `list_mark` (a line's id, no foreign
@@ -288,7 +288,7 @@ The map of the code is `src/features/planner/README.md`.
 `/journal/collections/<name>`, `/journal/book`
 ([product](product/journal.md)). The map of its code, its words and how to
 add a kind of line is
-[`src/features/journal/README.md`](../src/features/journal/README.md).
+[`src/pillars/journal/README.md`](../src/pillars/journal/README.md).
 
 - `JournalPageProvider` builds the story's lines once; `Journal`, or while
   something has happened `QuietJournal`, draws them inside `JournalFrame`.
@@ -313,7 +313,7 @@ add a kind of line is
 `/drawer` ([product](product/drawer.md)): each tool shown once its extra is
 on, the rest named by the extra that brings them. The map of its code, its
 words and how to add a tool is
-[`src/features/drawer/README.md`](../src/features/drawer/README.md): each
+[`src/pillars/drawer/README.md`](../src/pillars/drawer/README.md): each
 tool's page is drawn inside `DrawerFrame`, which says when it's put away or
 off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
 
@@ -332,7 +332,7 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
 - **Pregnancy bingo** (`/drawer/bingo`, `src/features/bingo/`): `SQUARES`
   in `src/lib/bingo.ts`, a card each (`bingo_card`), its squares marked
   (`bingo_mark`).
-- **A question a week** is drawn on This week (`src/features/thisWeek/components/weeklyCard/`):
+- **A question a week** is drawn on This week (`src/pillars/thisWeek/components/weeklyCard/`):
   `WEEKLY` in `src/lib/weekly.ts`, answers in `weekly_answer`.
 - **Both answer, then reveal** is one rule in the repos' views
   (`JobsRepo.view`, `WeeklyRepo.view`): the other's answer is sent only
@@ -340,20 +340,20 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
 
 ## Outside the pillars
 
-- **The capture "+"** (`src/features/capture/`,
+- **The capture "+"** (`src/app/features/capture/`,
   [product](product/capture.md)): drawn by `PillarLayout` on the pillars
   only, a `Modal` listing `captureChoices` (`model/choices.ts`: the order,
   what's offered when, `CHOICE`, what each is called, and `FILED_IN`, where
   each goes). Each choice is its pillar's own form (`AddMovement`,
   `AddNote`, `AddPhoto`, …) with an `onAdded`, picked in `CaptureForm`, a
   switch over every kind, so a new one doesn't compile without its form.
-- **Emergency info** (`/emergency`, `src/features/emergency/`,
+- **Emergency info** (`/emergency`, `src/app/features/emergency/`,
   [product](product/emergency.md)): the `emergency` table, the fields in
   `src/lib/emergency.ts`, the handover built by `handover`
   (`model/handover.ts`) from them and the answers; then `PapersToHand` and
   `WarningSigns` (from `content/items/warning-signs.md`). Read as
   `components/view/`, filled in as `components/form/`.
-- **It's time** (`/its-time`, `src/features/itsTime/`, rules
+- **It's time** (`/its-time`, `src/app/features/itsTime/`, rules
   `src/lib/itsTime.ts`, [product](product/its-time.md), the map in its
   `README.md`). Shown by `itsTimeShown`; one context,
   `ItsTimePageProvider` (the start, a home birth, who's who); `stillToReady`,
@@ -370,7 +370,7 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
 - **Something has happened** ([product](product/quiet.md)): one row
   (`quiet`: `loss` or `news`, who, when), deleted to come back, so nothing
   else is touched. Rules `src/lib/quiet.ts`, state `useQuietQuery`, read by
-  every pillar. The way in is `QuietSwitch` (`src/features/quiet/`), on the
+  every pillar. The way in is `QuietSwitch` (`src/app/features/quiet/`), on the
   guide's page and in Settings (`/settings?ask=quiet`); the way back is
   `canBecome`. Per pillar: `QuietWeek` and `nextSteps`, `pausedAt`,
   `PutAside` and `setInMotion`, `foldedWhileQuiet`, `captureChoices`,
@@ -404,7 +404,7 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
   offline at once), and each page's body is its own chunk, loaded by
   `loadPage`.
 - **Markdoc tags** (`src/content/markdoc.ts`) are drawn by components in
-  `src/features/library/components/content/`: `{% ask %}` a suggested
+  `src/pillars/library/components/content/`: `{% ask %}` a suggested
   question, `{% window %}` an item's weeks against today, `{% if %}` a
   passage for some readers. Content decides where; code decides how.
 - **The week's note** is `content/weeks/<week>.md`: a title, perhaps the
@@ -435,7 +435,7 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
 
 ## Tailoring
 
-- **The questions** are `src/features/settings/model/facts.data.ts`, read
+- **The questions** are `src/app/features/settings/model/facts.data.ts`, read
   and checked by `facts.ts` beside it (`applies`, `checkWhen`); what the
   answers become is `src/lib/facts.ts` (`factsOf`, `questionsDue`,
   `timeTask`). They drive behaviour, so they're code, not content: their ids
@@ -464,11 +464,11 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
   **question** is what's asked and an **answer** what's kept, in the code
   as on the screens (`QuestionRow`, `useAnswersQuery`); **facts** are only
   the rules over them (`facts.ts`, `src/lib/facts.ts`). The map of
-  Settings' code is `src/features/settings/README.md`.
+  Settings' code is `src/app/features/settings/README.md`.
 
 ## Extras
 
-`src/features/settings/model/extras.data.ts`, read by `extras.ts` beside it;
+`src/app/features/settings/model/extras.data.ts`, read by `extras.ts` beside it;
 what the choices mean is `src/lib/extras.ts` (`extrasOn`, `inExtras`,
 `extraToOffer`). [Product](product/extras.md).
 
@@ -496,7 +496,7 @@ what the choices mean is `src/lib/extras.ts` (`extrasOn`, `inExtras`,
   date skipped, This week asks for it.
 - Each step is a component reading its own queries, drawn in
   `OnboardingFrame`; `OnboardingPageProvider` holds only where it is and
-  the ways on. The map is `src/features/onboarding/README.md`.
+  the ways on. The map is `src/app/features/onboarding/README.md`.
 
 ## The names deck
 

@@ -3,6 +3,7 @@
 // (src/content/tailor.ts): the items, the tasks and where you are.
 
 import type { Database } from "bun:sqlite";
+import type { Facts } from "../../app/features/settings/model/facts";
 import type { Item, Task } from "../../content/schema";
 import { tailorItems, tailorTasks } from "../../content/tailor";
 import { ChecklistRepo } from "../../db/models/checklist/repo";
@@ -10,7 +11,6 @@ import { ExtrasRepo } from "../../db/models/extras/repo";
 import { FactsRepo } from "../../db/models/facts/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
 import { SettingsRepo } from "../../db/models/settings/repo";
-import type { Facts } from "../../features/settings/model/facts";
 import { type ISODate, todayISO } from "../../lib/dates";
 import { extrasOn } from "../../lib/extras";
 import { factsOf } from "../../lib/facts";

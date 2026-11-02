@@ -1,12 +1,12 @@
-// The extras you've turned on or off (src/features/settings/model/extras.data.ts), each
+// The extras you've turned on or off (src/app/features/settings/model/extras.data.ts), each
 // with who changed it and when.
 
 import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { EXTRAS, extra } from "../../app/features/settings/model/extras";
 import { ExtrasRepo } from "../../db/models/extras/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
-import { EXTRAS, extra } from "../../features/settings/model/extras";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";

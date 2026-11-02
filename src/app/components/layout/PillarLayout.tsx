@@ -1,9 +1,9 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { Link, Outlet, useLocation } from "@tanstack/react-router";
 import { Baby, type LucideIcon, Settings, Siren } from "lucide-react";
-import { CaptureButton } from "../../../features/capture/components/CaptureButton";
-import { SharedIn } from "../../../features/capture/components/SharedIn";
-import { ItsTimeWayIn } from "../../../features/itsTime/components/wayIn/ItsTimeWayIn";
+import { CaptureButton } from "../../features/capture/components/CaptureButton";
+import { SharedIn } from "../../features/capture/components/SharedIn";
+import { ItsTimeWayIn } from "../../features/itsTime/components/wayIn/ItsTimeWayIn";
 import { useShortcuts } from "../../hooks/useShortcuts";
 import type { AppPath } from "../../model/paths";
 import { CallBirthSuite } from "./CallBirthSuite";

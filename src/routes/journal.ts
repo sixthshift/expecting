@@ -23,5 +23,5 @@ export const journal = createRoute({
       queryClient.ensureQueryData(listsQuery),
       queryClient.ensureQueryData(namesQuery),
     ]),
-  component: lazyRouteComponent(() => import("../features/journal/pages/JournalPage"), "JournalPage"),
+  component: lazyRouteComponent(() => import("../pillars/journal/pages/JournalPage"), "JournalPage"),
 });

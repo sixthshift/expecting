@@ -4,8 +4,8 @@
 
 import type { Node } from "@markdoc/markdoc";
 import { z } from "zod";
-import { extra } from "../features/settings/model/extras";
-import { checkWhen, question, type When, whenSchema } from "../features/settings/model/facts";
+import { extra } from "../app/features/settings/model/extras";
+import { checkWhen, question, type When, whenSchema } from "../app/features/settings/model/facts";
 import { VIEW_KEYS, type View } from "../lib/circle";
 import { isISODate } from "../lib/dates";
 import { FIRST_KEYS, type FirstKey } from "../lib/firsts";
@@ -114,9 +114,9 @@ export const indexSchema = z
     verdict: z.enum(VERDICTS).optional(),
     /** A decision's week to decide by, from its source, within its weeks: it becomes a task, `decide-<id>`. */
     decide_by: z.number().int().optional(),
-    /** Only when your answers match: `{ cover: "no", state: [vic, nsw] }`. See src/features/settings/model/facts.data.ts. */
+    /** Only when your answers match: `{ cover: "no", state: [vic, nsw] }`. See src/app/features/settings/model/facts.data.ts. */
     when: whenSchema.default({}),
-    /** Part of an extra in src/features/settings/model/extras.data.ts: shown only once you turn it on. */
+    /** Part of an extra in src/app/features/settings/model/extras.data.ts: shown only once you turn it on. */
     extra: z.string().optional(),
     /** One of the things nobody tells you. A card is one by type. */
     surprise: z.boolean().default(false),

@@ -4,7 +4,7 @@
 // applies (`{% window %}`).
 
 import Markdoc, { type Node, type RenderableTreeNode, Tag } from "@markdoc/markdoc";
-import { type Facts, variables } from "../features/settings/model/facts";
+import { type Facts, variables } from "../app/features/settings/model/facts";
 import { markdocConfig } from "./markdoc";
 
 function inline(nodes: readonly RenderableTreeNode[]): string {

@@ -7,5 +7,5 @@ export const index = createRoute({
   getParentRoute: () => app,
   path: "/",
   validateSearch: thisWeekSearch,
-  component: lazyRouteComponent(() => import("../features/thisWeek/pages/ThisWeek"), "ThisWeek"),
+  component: lazyRouteComponent(() => import("../pillars/thisWeek/pages/ThisWeek"), "ThisWeek"),
 });

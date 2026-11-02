@@ -4,7 +4,7 @@
 // by either phone; its last things are ticked for it alone. Nothing here
 // judges the numbers: the birth suite does that.
 
-import type { Facts } from "../features/settings/model/facts";
+import type { Facts } from "../app/features/settings/model/facts";
 import { addDays, type ISODate, todayISO } from "./dates";
 import { formatTime, timeNow } from "./journal";
 import type { Week } from "./timeline";

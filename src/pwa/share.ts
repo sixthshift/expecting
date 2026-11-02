@@ -1,6 +1,6 @@
 // The page's half of sharing into Expecting: what another app shared, kept by
 // the service worker (src/pwa/worker.js, `share`) as it opened the app, taken
-// once by the "+" (src/features/capture/components/SharedIn.tsx). Taken on the
+// once by the "+" (src/app/features/capture/components/SharedIn.tsx). Taken on the
 // first page in the frame, so a share outlasts logging in or the first-run
 // questions; one left longer than FRESH_MS is let go, not offered out of the blue.
 
