@@ -31,3 +31,8 @@ const BAR_STATE: Record<BarState, string> = { open: "open now", ahead: "ahead", 
 export function barLabel({ task, from, due, to, state }: Bar): string {
   return `${task.title}: opens ${weekInSentence(from)}, best by ${weekInSentence(due)}, closes ${weekInSentence(to)}, ${BAR_STATE[state]}`;
 }
+
+/** What a line's task says under it, until it's done: "by week 36". */
+export function lineTaskWhen(task: Task): string {
+  return `by ${weekInSentence(task.due)}`;
+}
