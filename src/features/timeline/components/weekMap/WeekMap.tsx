@@ -8,12 +8,13 @@ import { weekPhotoWords } from "../../../../lib/photos";
 import type { Week } from "../../../../lib/timeline";
 import { type MapWeek, TRIMESTERS, trimester } from "../../../../lib/timelineMap";
 
-/** What a week has, in a few words: what opens, what's to do, what's done, what was kept. */
+/** What a week has, in a few words: what opens, what's to do, what's done, its appointments, what was kept. */
 function line(w: MapWeek): { text: string; warn: boolean }[] {
   const parts: { text: string; warn: boolean }[] = w.opening.map((i) => ({ text: `${i.title} opens`, warn: false }));
   if (w.slipped) parts.push({ text: `${w.toDo} slipped`, warn: true });
   else if (w.toDo > 0) parts.push({ text: `${w.toDo} to do`, warn: false });
   if (w.done > 0) parts.push({ text: `✓ ${w.done} done`, warn: false });
+  if (w.appointments > 0) parts.push({ text: w.appointments === 1 ? "an appointment" : `${w.appointments} appointments`, warn: false });
   if (w.asked > 0) parts.push({ text: w.asked === 1 ? "1 question asked" : `${w.asked} questions asked`, warn: false });
   if (w.kept > 0) parts.push({ text: w.kept === 1 ? "1 note" : `${w.kept} notes`, warn: false });
   if (w.moved) parts.push({ text: "felt moving", warn: false });

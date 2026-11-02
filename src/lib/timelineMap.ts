@@ -10,6 +10,7 @@
 import { asks, type DatedItem, type Item, type Task } from "../content/schema";
 import type { WeekNote } from "../content/weeks";
 import { type AppetiteEntry, weekAppetite } from "./appetite";
+import type { Appointment } from "./appointments";
 import { type ISODate, todayISO } from "./dates";
 import { type Feeling, type Step, weekStep } from "./feelings";
 import { type JournalEntry, placeOf } from "./journal";
@@ -58,6 +59,8 @@ export type MapWeek = {
   done: number;
   /** Behind today, still to do: slipped. */
   slipped: boolean;
+  /** Appointments on its days. */
+  appointments: number;
   /** Questions asked at an appointment this week. */
   asked: number;
   /** Notes kept in the Journal on its days. */
@@ -89,6 +92,8 @@ export type MapInput = {
   photos?: readonly Photo[];
   /** Results and papers; none if not given. */
   papers?: readonly Paper[];
+  /** Appointments; none if not given. */
+  appointments?: readonly Appointment[];
   now: Week | null;
   dueDate: ISODate | null;
 };
@@ -104,11 +109,13 @@ export function mapWeeks({
   appetite,
   photos = [],
   papers = [],
+  appointments = [],
   now,
   dueDate,
 }: MapInput): MapWeek[] {
   const asked = askedWeeks(questions, dueDate);
   const feelers = [...new Set(feelings.map((f) => f.by))].sort();
+  const booked = dueDate ? appointments.map((a) => placeOf(a.day as ISODate, dueDate)) : [];
   const placed = dueDate ? journal.map((e) => ({ kind: e.kind, place: placeOf(e.day as ISODate, dueDate) })) : [];
   return allWeeks().map((week) => {
     const due = tasks.filter((t) => t.due === week);
@@ -124,6 +131,7 @@ export function mapWeeks({
       toDo,
       done: due.length - toDo,
       slipped: isPast && toDo > 0,
+      appointments: booked.filter((place) => place === week).length,
       asked: [...asked.values()].filter((w) => w === week).length,
       kept: placed.filter((e) => e.kind === "note" && e.place === week).length,
       moved: placed.some((e) => e.kind === "movement" && e.place === week),

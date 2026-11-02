@@ -1,5 +1,6 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { useMemo } from "react";
+import { useAppointmentsQuery } from "../../../api/rpc/appointments";
 import { useChecklistQuery } from "../../../api/rpc/checklist";
 import { useJournalQuery } from "../../../api/rpc/journal";
 import { useQuestionsQuery } from "../../../api/rpc/questions";
@@ -9,10 +10,13 @@ import { PhoneCorner } from "../../../app/components/layout/PillarLayout";
 import { dayReads, weekNotes } from "../../../content";
 import { readsOut } from "../../../content/days";
 import { noteFor } from "../../../content/weeks";
+import { appointmentSoon, appointmentsIn, nextAppointment } from "../../../lib/appointments";
 import { todayISO } from "../../../lib/dates";
 import { entriesIn } from "../../../lib/journal";
 import { headsUps, worthKnowing } from "../../../lib/library";
 import { askedWeeks } from "../../../lib/timelineMap";
+import { AppointmentCard } from "../../appointments/components/AppointmentCard";
+import { NextAppointment } from "../../appointments/components/NextAppointment";
 import { CheckIn } from "../../feelings/components/checkIn/CheckIn";
 import { HardFortnight } from "../../feelings/components/fortnight/HardFortnight";
 import { LookThrough } from "../../itsTime/components/wayIn/LookThrough";
@@ -36,14 +40,14 @@ import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
 
 /**
  * This week, home: what you open the app for. Where you are first, then what
- * to do now, how you are today, the week day by day (its note, read as you, then a read a day), the week's heads-up, what
+ * to do now (after the next appointment, once it's within a fortnight), how you are today, the week day by day (its note, read as you, then a read a day), the week's heads-up, what
  * Expecting needs to know, what's worth knowing this week, and what's coming. On a desktop the
  * week sits on the left and the doing on the right; on a phone it's one
  * column, the doing first.
  *
  * A peek at another week (?at=29) shows that week instead: its note, its
- * heads-up, what's worth knowing, what's best done then, and the notes kept
- * then. What to do now stays with now; this week's notes stay in the Journal.
+ * heads-up, what's worth knowing, what's best done then, its appointments,
+ * and the notes kept then. What to do now stays with now; this week's notes stay in the Journal.
  *
  * While something has happened, none of it: support and the next steps instead.
  */
@@ -63,6 +67,7 @@ function Week() {
   const tasks = useTasks();
   const { data: questions } = useQuestionsQuery();
   const { data: journal } = useJournalQuery();
+  const { data: appointments } = useAppointmentsQuery();
   const today = todayISO();
   const { at } = route.useSearch();
   const { dueDate } = settings;
@@ -82,6 +87,10 @@ function Week() {
   const openQuestions = questions.filter((q) => !q.askedAt).length;
   const askedIn = askedWeeks(questions, dueDate);
   const asked = questions.filter((q) => week !== null && askedIn.get(q.id) === week);
+  // A peek shows that week's appointments; now, the next one is on the right once it's close, and with it the questions.
+  const thatWeeksAppointments = peeking && week !== null ? appointmentsIn(appointments, week, dueDate) : [];
+  const next = nextAppointment(appointments, today);
+  const nextSoon = next !== null && appointmentSoon(next, today) !== null;
   const kept = peeking && week !== null ? entriesIn(journal, week, dueDate) : [];
   // The weeks with something still to do best done by then, for the strip.
   const dueWeeks = new Set(tasks.filter((t) => !checklist.ticks[t.id]).map((t) => t.due));
@@ -122,6 +131,16 @@ function Week() {
             <div className="order-2 lg:order-0">
               <HeadsUp card={headsUp} />
             </div>
+          ) : null}
+          {thatWeeksAppointments.length > 0 ? (
+            <section aria-labelledby="appointments-that-week" className="order-4 flex flex-col gap-2 lg:order-0">
+              <h2 id="appointments-that-week" className="text-lg font-display font-semibold text-fg-strong">
+                Appointments that week
+              </h2>
+              {thatWeeksAppointments.map((a) => (
+                <AppointmentCard key={a.id} appointment={a} />
+              ))}
+            </section>
           ) : null}
           {asked.length > 0 ? (
             <section aria-labelledby="asked" className="order-4 flex flex-col gap-2 lg:order-0">
@@ -182,6 +201,9 @@ function Week() {
             <div className="order-1 empty:hidden lg:order-0">
               <LookThrough />
             </div>
+            <div className="order-1 empty:hidden lg:order-0">
+              <NextAppointment />
+            </div>
             <div className="order-1 lg:order-0">
               <ToDoNow />
             </div>
@@ -203,7 +225,7 @@ function Week() {
             <div className="order-5 empty:hidden lg:order-0">
               <ComingUp />
             </div>
-            {openQuestions > 0 ? (
+            {openQuestions > 0 && !nextSoon ? (
               <div className="order-6 lg:order-0">
                 <QuestionsWaiting count={openQuestions} />
               </div>

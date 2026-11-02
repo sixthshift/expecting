@@ -1,4 +1,5 @@
 import { createRoute, redirect } from "@tanstack/react-router";
+import { appointmentsQuery } from "../api/rpc/appointments";
 import { bingoQuery } from "../api/rpc/bingo";
 import { checklistQuery } from "../api/rpc/checklist";
 import { extrasQuery } from "../api/rpc/extras";
@@ -34,6 +35,7 @@ export const app = createRoute({
       queryClient.ensureQueryData(extrasQuery),
       queryClient.ensureQueryData(checklistQuery),
       queryClient.ensureQueryData(questionsQuery),
+      queryClient.ensureQueryData(appointmentsQuery),
       queryClient.ensureQueryData(quietQuery),
       queryClient.ensureQueryData(journalQuery),
       queryClient.ensureQueryData(weeklyQuery),

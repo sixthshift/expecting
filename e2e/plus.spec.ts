@@ -80,6 +80,32 @@ test("a note, a feeling, a question and a task each go to their pillar", async (
   await expect(page.getByText("Pack the hospital bag")).toBeVisible();
 });
 
+test("an appointment is kept from the +, heads the Planner's questions, and is on This week once close", async ({ page, open }) => {
+  await open("/library");
+  await add(page, "An appointment");
+  const sheet = page.getByRole("dialog");
+  await sheet.getByRole("textbox", { name: "What it is" }).fill("Midwife");
+  await sheet.getByRole("spinbutton", { name: /day/i }).click();
+  const d = new Date();
+  d.setDate(d.getDate() + 3);
+  await page.keyboard.type(`${String(d.getDate()).padStart(2, "0")}${String(d.getMonth() + 1).padStart(2, "0")}${d.getFullYear()}`);
+  await sheet.getByRole("textbox", { name: "Where" }).fill("Antenatal clinic");
+  await sheet.getByRole("button", { name: "Add appointment" }).click();
+  await expect(page.getByRole("dialog")).toBeHidden();
+  await expect(page.getByText("In the Planner")).toBeVisible();
+
+  await open("/planner");
+  const appointments = page.getByRole("region", { name: "Appointments" });
+  await expect(appointments.getByText("Midwife")).toBeVisible();
+  await expect(appointments.getByText("In 3 days")).toBeVisible();
+  await expect(page.getByRole("region", { name: "For the next appointment" }).getByText(/^Midwife, /)).toBeVisible();
+
+  await open("/");
+  const next = page.getByRole("region", { name: "Next appointment" });
+  await expect(next.getByText("Midwife")).toBeVisible();
+  await expect(next.getByText("Antenatal clinic")).toBeVisible();
+});
+
 test("the + is on the pillars, not on settings or Emergency info", async ({ page, open }) => {
   const plus = page.getByRole("button", { name: "Add", exact: true });
   await open("/drawer");

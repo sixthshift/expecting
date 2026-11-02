@@ -1,9 +1,11 @@
 import { Badge } from "@sixthshift/design-system/badge";
+import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
 import { ProgressBar } from "@sixthshift/design-system/progress-bar";
 import { Link } from "@tanstack/react-router";
-import { ChevronDown, ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronRight, Plus } from "lucide-react";
 import { type ReactNode, useState } from "react";
+import { useAppointmentsQuery } from "../../../api/rpc/appointments";
 import { useChecklistQuery } from "../../../api/rpc/checklist";
 import { usePeopleQuery } from "../../../api/rpc/people";
 import { useQuestionsQuery } from "../../../api/rpc/questions";
@@ -11,9 +13,13 @@ import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import type { Item, Task } from "../../../content/schema";
+import { appointmentWhen, nextAppointment, splitAppointments } from "../../../lib/appointments";
+import { todayISO } from "../../../lib/dates";
 import { type Ahead, planTasks, type Stage, stagesAhead } from "../../../lib/planner";
 import { WEEKS, type Week, weekLabel } from "../../../lib/timeline";
 import { type ToDo, whenToDo } from "../../../lib/todo";
+import { AddAppointment } from "../../appointments/components/AddAppointment";
+import { AppointmentCard } from "../../appointments/components/AppointmentCard";
 import { ItemLink } from "../../library/components/ItemLink";
 import { useItems } from "../../library/hooks/useItems";
 import { ListsWayIn } from "../../lists/components/wayIn/ListsWayIn";
@@ -39,8 +45,8 @@ const AHEAD_AT: Record<Ahead["at"], (w: Week) => string> = {
 /**
  * What to do and what to ask. To do starts somewhere: the one thing to do
  * next, then the rest of what to do now, with what's ahead, missed and done
- * folded away (src/lib/planner.ts). Beside it, the lists (what to get) and
- * the questions for the next appointment. While something has happened, nothing to do: the list is put
+ * folded away (src/lib/planner.ts). Beside it, the lists (what to get), the
+ * appointments, and the questions for the next one. While something has happened, nothing to do: the list is put
  * aside, with what was already set in motion.
  */
 export function PlannerPage() {
@@ -50,6 +56,9 @@ export function PlannerPage() {
   const tasks = useTasks();
   const items = useItems();
   const { data: questions } = useQuestionsQuery();
+  const { data: appointments } = useAppointmentsQuery();
+  const today = todayISO();
+  const next = nextAppointment(appointments, today);
   const { data: quiet } = useQuietQuery();
   // Ticked during this visit: they stay where they were until the next one.
   const [tickedHere, setTickedHere] = useState<ReadonlySet<string>>(new Set());
@@ -190,10 +199,18 @@ export function PlannerPage() {
 
         <div className="flex flex-col gap-10 lg:sticky lg:top-6">
           {quiet ? null : <ListsWayIn />}
+          <Appointments />
           <section id="questions" aria-labelledby="questions-heading" className="flex scroll-mt-6 flex-col gap-4">
-            <h2 id="questions-heading" className="text-lg font-display font-semibold text-fg-strong">
-              For the next appointment
-            </h2>
+            <div className="flex flex-col gap-0.5">
+              <h2 id="questions-heading" className="text-lg font-display font-semibold text-fg-strong">
+                For the next appointment
+              </h2>
+              {next ? (
+                <p className="text-sm text-fg-subtle">
+                  {next.title}, {appointmentWhen(next, today)}
+                </p>
+              ) : null}
+            </div>
             <AddQuestion />
             {open.length === 0 ? <p className="text-sm text-fg-subtle">Nothing to ask yet. Add a question as it comes to you.</p> : null}
             {open.map((q) => (
@@ -212,6 +229,55 @@ export function PlannerPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+/**
+ * The appointments: the next given room, then the rest still ahead, a way to
+ * add one, and those gone folded away. Kept while something has happened:
+ * there are more appointments then, not fewer.
+ */
+function Appointments() {
+  const { data: appointments } = useAppointmentsQuery();
+  const [adding, setAdding] = useState(false);
+  const { ahead, past } = splitAppointments(appointments, todayISO());
+  const [next, ...later] = ahead;
+  return (
+    <section id="appointments" aria-labelledby="appointments-heading" className="flex scroll-mt-6 flex-col gap-3">
+      <div className="flex items-center justify-between gap-3">
+        <h2 id="appointments-heading" className="text-lg font-display font-semibold text-fg-strong">
+          Appointments
+        </h2>
+        {adding ? null : (
+          <Button variant="outline" size="sm" onClick={() => setAdding(true)}>
+            <Plus aria-hidden size={16} />
+            Add appointment
+          </Button>
+        )}
+      </div>
+      {adding ? (
+        <Card size="sm">
+          <AddAppointment onAdded={() => setAdding(false)} onCancel={() => setAdding(false)} />
+        </Card>
+      ) : null}
+      {next ? (
+        <AppointmentCard appointment={next} size="md" />
+      ) : adding ? null : (
+        <p className="text-sm text-fg-subtle">None coming up. Add one once it's booked.</p>
+      )}
+      {later.map((a) => (
+        <AppointmentCard key={a.id} appointment={a} />
+      ))}
+      {past.length > 0 ? (
+        <Group title="Been" count={past.length} folded>
+          <div className="flex flex-col gap-3">
+            {past.map((a) => (
+              <AppointmentCard key={a.id} appointment={a} />
+            ))}
+          </div>
+        </Group>
+      ) : null}
+    </section>
   );
 }
 

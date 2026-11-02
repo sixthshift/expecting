@@ -3,6 +3,7 @@ import { cn } from "@sixthshift/design-system/utils";
 import { LocateFixed } from "lucide-react";
 import { useEffect, useMemo } from "react";
 import { useAppetiteQuery } from "../../../../api/rpc/appetite";
+import { useAppointmentsQuery } from "../../../../api/rpc/appointments";
 import { useChecklistQuery } from "../../../../api/rpc/checklist";
 import { useFeelingsQuery } from "../../../../api/rpc/feelings";
 import { useJournalQuery } from "../../../../api/rpc/journal";
@@ -45,11 +46,26 @@ export function Timeline({ at }: { at: Week | undefined }) {
   const { data: appetite } = useAppetiteQuery();
   const { data: photos } = usePhotosQuery();
   const { data: papers } = usePapersQuery();
+  const { data: appointments } = useAppointmentsQuery();
   const { dueDate } = settings;
   const due = useMemo(() => new Set(tasks.filter((t) => !checklist.ticks[t.id]).map((t) => t.due)), [tasks, checklist.ticks]);
   const away = useOutOfTheWay();
   const windows = useMemo(() => mapWindows(items, checklist.ticks, now), [items, checklist.ticks, now]);
-  const weeks = mapWeeks({ notes: weekNotes, windows, tasks, ticks: checklist.ticks, questions, journal, feelings, appetite, photos, papers, now, dueDate });
+  const weeks = mapWeeks({
+    notes: weekNotes,
+    windows,
+    tasks,
+    ticks: checklist.ticks,
+    questions,
+    journal,
+    feelings,
+    appetite,
+    photos,
+    papers,
+    appointments,
+    now,
+    dueDate,
+  });
 
   // Open at the week asked for, on a phone; else at the top, where the strip has today on it.
   useEffect(() => {

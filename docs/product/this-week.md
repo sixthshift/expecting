@@ -67,10 +67,14 @@ row.
   hard topic (loss, mental health, special circumstances) or a private
   entry: those wait to be looked for.
 - **Coming up:** the next eight weeks after To do now's two, by week.
-- **The questions waiting** for the next appointment.
+- **The next appointment,** once it's within a fortnight: what, when
+  ("Tomorrow · Fri 6 Nov, 10:30 am"), where, and how many questions are
+  waiting for it, the way to them. Further off it stays in the Planner, and
+  without one close, just **the questions waiting** for the next
+  appointment.
 - **A peek at another week** (a step back or ahead): its days, heads-up,
-  what's worth knowing and what's best done then, and that week's notes and
-  movements, with a way back to this week.
+  what's worth knowing and what's best done then, that week's appointments,
+  and that week's notes and movements, with a way back to this week.
 
 On a desktop, the week on the left and the doing on the right.
 
@@ -86,5 +90,5 @@ offer, and no peeking at another week.
 ## Not yet
 
 - **The appointment waiting room:** on appointment day, your questions,
-  then a few cards while you wait. Waits for appointments.
+  then a few cards while you wait.
 - **The quiet first weeks,** before you've told anyone.

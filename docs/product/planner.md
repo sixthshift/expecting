@@ -1,8 +1,8 @@
 # The Planner
 
 What to do, what to get, and what to ask: the admin, run for you. To do,
-the lists of what to get (`/planner/lists`), and the questions for the
-next appointment. This is where Expecting is directive: about bookings,
+the lists of what to get (`/planner/lists`), the appointments, and the
+questions for the next one. This is where Expecting is directive: about bookings,
 claims and purchases, never about her body.
 
 How it's built is [`architecture.md`](../architecture.md), the Planner's
@@ -18,7 +18,9 @@ row in The pillars. Tasks themselves (windows, whose, urgency) are in
    when you want the whole run of it, [across the weeks](#across-the-weeks).
 3. **"What do we still need?"** In a baby shop, the supermarket, or
    writing down what to ask Mum to bring.
-4. **"What did we want to ask?"** In the waiting room, or straight after,
+4. **"When's the next appointment?"** The day, the time, where, and what to
+   bring, without digging through texts from the clinic.
+5. **"What did we want to ask?"** In the waiting room, or straight after,
    writing down what they said.
 
 ## What it holds to
@@ -125,6 +127,29 @@ still to get or tick it off together in a shop.
 - **The hospital bag isn't here.** It's [It's time](its-time.md)'s, with
   its last things.
 
+## Appointments
+
+What's booked, kept where both of you can see it. One-off: an appointment
+is what it is ("Midwife", "20-week scan"), its day, and its time, place and
+notes if you have them. Added from the "+" or here; either of you can
+change one or delete it (a delete can be undone).
+
+- **The next one is given room,** with how soon once it's within a
+  fortnight ("Tomorrow"), then the rest still ahead, earliest first. Those
+  gone fold away under Been, latest first.
+- **"The next appointment" is the earliest still ahead,** today's included
+  until the day is over, so its questions are there in the waiting room.
+  The questions below are for it, and say so ("Midwife, Fri 6 Nov");
+  without one booked they're for whichever comes next.
+- **On its week.** This week shows the next one once it's within a
+  fortnight, with the questions waiting; a peek at another week shows that
+  week's; the map counts them. Its week is worked out from the due date, so
+  a moved due date moves its week, never its day.
+- **Nothing repeats, and nothing reminds.** No recurring appointments, no
+  notifications, no calendar export: a phone's own calendar does those.
+- **Kept while something has happened,** like the questions: there are
+  often more appointments, not fewer.
+
 ## Questions for the next appointment
 
 The midwife has ten minutes, and the question you had on Tuesday is gone
@@ -157,8 +182,8 @@ appointment.
 
 To do is put aside, not deleted, and the lists are put away. The Planner
 lists instead what was already set in motion (the ticked tasks): claims
-that may still apply, and bookings you might cancel. The questions stay:
-there are often more appointments, not fewer. Everything comes back as it
+that may still apply, and bookings you might cancel. The appointments and
+the questions stay: there are often more appointments, not fewer. Everything comes back as it
 was.
 
 ## Not doing
@@ -171,10 +196,9 @@ was.
 
 ## Not yet
 
-- **Appointments as things** (a date, who with, where, a waiting-room mode
-  on the day). Until then "the next appointment" is whichever comes next.
-  When they exist, a question may be aimed at one, and the Journal's
-  summary since the last one comes with them.
+- **More to an appointment:** a question aimed at a particular one, the
+  Journal's summary since the last one, a waiting-room mode on the day, and
+  repeating ones.
 - **Decisions you've made:** who decides, what you chose and why. Today a
   decision is a Library entry whose decide-by becomes a task.
 - **Own tasks with a window or an owner,** and most built-in tasks'

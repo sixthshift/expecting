@@ -11,7 +11,7 @@ How it's built is [`architecture.md`](../architecture.md), Claude (MCP).
 ## Why you'd reach for it
 
 - **Talking it through.** "We're at 24 weeks: what should we be booking?"
-  "Can she have brie?" "Draft the questions for Thursday's appointment."
+  "Can she have brie?" "Draft the questions for Thursday's appointment." "Add the 20-week scan, Tuesday at 9:15."
   Claude answers from Expecting's own entries, Australian and sourced, not
   from wherever it last read.
 - **Keeping things hands-free.** "Log that she felt it kick after dinner."
@@ -41,12 +41,12 @@ How it's built is [`architecture.md`](../architecture.md), Claude (MCP).
 
 - **Read:** where you are this week (the note, today's read, what to do
   now), any week, the to do, the Library (search, and an entry whole, its
-  words fitted to your answers), the Journal, the questions for
-  appointments, Emergency info, the lists, and photos and papers' pages.
+  words fitted to your answers), the Journal, the appointments and the
+  questions for them, Emergency info, the lists, and photos and papers' pages.
 - **Keep:** a note or a letter, a movement, sickness, a craving or
-  something gone off, how you're feeling, a first, a question for an
-  appointment, a task of your own. It can also tick a task off, or mark a
-  question asked.
+  something gone off, how you're feeling, a first, an appointment, a
+  question for an appointment, a task of your own. It can also tick a task
+  off, change an appointment, or mark a question asked.
 - **Not:** upload photos or papers, delete anything, or change the
   answers, extras or settings. Those stay in the app, where you can see
   what you're changing.

@@ -1,11 +1,11 @@
 // What the capture "+" offers, in a fixed order: rows that move are harder to
 // hit with a thumb, so there's no "most used first" and no last pick
 // remembered. Each files into its pillar: a movement, sickness, a craving, a
-// note, a photo, a paper, a feeling and a first into the Journal, a question
-// and a task into the Planner.
+// note, a photo, a paper, a feeling and a first into the Journal, an
+// appointment, a question and a task into the Planner.
 
 /** One thing the "+" can file. */
-export type Capture = "movement" | "sick" | "craving" | "note" | "photo" | "paper" | "feeling" | "first" | "question" | "task";
+export type Capture = "movement" | "sick" | "craving" | "note" | "photo" | "paper" | "feeling" | "first" | "appointment" | "question" | "task";
 
 /** Where each one goes and what its toast calls it ("Note kept", In the Journal), as its link opens. */
 export const FILED_IN: Record<Capture, { pillar: "Journal" | "Planner"; to: "/journal" | "/planner"; kept: string }> = {
@@ -17,6 +17,7 @@ export const FILED_IN: Record<Capture, { pillar: "Journal" | "Planner"; to: "/jo
   paper: { pillar: "Journal", to: "/journal", kept: "Paper kept" },
   feeling: { pillar: "Journal", to: "/journal", kept: "Feeling kept" },
   first: { pillar: "Journal", to: "/journal", kept: "First kept" },
+  appointment: { pillar: "Planner", to: "/planner", kept: "Appointment added" },
   question: { pillar: "Planner", to: "/planner", kept: "Question added" },
   task: { pillar: "Planner", to: "/planner", kept: "Task added" },
 };
@@ -27,8 +28,9 @@ export const FILED_IN: Record<Capture, { pillar: "Journal" | "Planner"; to: "/jo
  * (`movementsOffered`, never while something has happened); sickness and
  * cravings at any week, but never while something has happened; a photo or
  * scan at any week, but never offered while something has happened (the
- * Journal keeps a way to add one, folded away); a result or paper always,
- * as papers are admin and there are more after a loss, not fewer; a first
+ * Journal keeps a way to add one, folded away); a result or paper and an
+ * appointment always, as they are admin and there are more after a loss,
+ * not fewer; a first
  * never while something has happened; and nothing to do while something has
  * happened, as To do is put aside.
  */
@@ -42,6 +44,7 @@ export function captureChoices({ holding, quiet, movements }: { holding: boolean
     ["paper", true],
     ["feeling", holding],
     ["first", !quiet],
+    ["appointment", true],
     ["question", true],
     ["task", !quiet],
   ];

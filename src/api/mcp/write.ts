@@ -1,4 +1,5 @@
-// The tools that keep things: what the "+" keeps, and ticking off a task.
+// The tools that keep things: what the "+" keeps, ticking off a task, and
+// changing an appointment.
 // Each is kept as the person the connection speaks for, stamped now. Like a
 // server function's input, every tool's arguments pass refusePrivate first
 // (src/server/privacy/guard.ts): nothing that names a private entry is saved.
@@ -9,6 +10,7 @@ import type { CallToolResult, ToolAnnotations } from "@modelcontextprotocol/sdk/
 import { z } from "zod";
 import { isBuiltInItemId, isBuiltInTaskId } from "../../content";
 import { AppetiteRepo } from "../../db/models/appetite/repo";
+import { AppointmentsRepo } from "../../db/models/appointments/repo";
 import { ChecklistRepo } from "../../db/models/checklist/repo";
 import { FeelingsRepo } from "../../db/models/feelings/repo";
 import { FirstsRepo } from "../../db/models/firsts/repo";
@@ -70,6 +72,45 @@ export function writeTools(server: McpServer, ctx: () => Context) {
       const { db, now } = ctx();
       const task = new ChecklistRepo(db).addOwnTask({ title, week: week as never }, now);
       return answer({ kept: "task", id: task.id });
+    }
+  );
+
+  /** An appointment's words, as a tool takes them. */
+  const appointment = {
+    title: z.string().trim().min(1).max(200).describe('What it is: "Midwife", "20-week scan"'),
+    day: z.string().refine(isISODate, "A date, YYYY-MM-DD").describe("Its day, YYYY-MM-DD"),
+    time: z.string().regex(TIME, "HH:MM").nullable().default(null).describe("Its time, HH:MM, 24-hour, if known"),
+    place: z.string().max(500).nullable().default(null).describe("Where, if given"),
+    notes: z.string().max(10_000).nullable().default(null).describe("Anything to remember, before or after"),
+  };
+
+  keep(
+    "add_appointment",
+    {
+      title: "Add an appointment",
+      description: "Keep an appointment: what it is, its day, and its time, place and notes if known. One-off; nothing repeats.",
+      inputSchema: appointment,
+    },
+    (input) => {
+      const { db, personId, now } = ctx();
+      const kept = new AppointmentsRepo(db).add({ id: crypto.randomUUID(), ...input }, personId, now);
+      return answer({ kept: "appointment", id: kept.id });
+    }
+  );
+
+  keep(
+    "change_appointment",
+    {
+      title: "Change an appointment",
+      description: "Change an appointment, by its id from appointments: give it whole, as it should now be (what, day, time, place, notes).",
+      inputSchema: { id: z.uuid(), ...appointment },
+    },
+    (input) => {
+      const { db, personId, now } = ctx();
+      const repo = new AppointmentsRepo(db);
+      if (!repo.list().some((a) => a.id === input.id)) return refuse(`No appointment ${input.id}: the appointments tool lists them.`);
+      repo.edit(input, personId, now);
+      return answer("Changed.");
     }
   );
 

@@ -1,6 +1,7 @@
 // The capture sheet: what to add, then its form, in the same sheet. Each
 // form is its pillar's own, reused: the Journal's note, movement, sickness and
-// craving, photo, paper, first, the check-in, the Planner's question and task.
+// craving, photo, paper, first, the check-in, the Planner's appointment,
+// question and task.
 // Once kept, the sheet closes and a toast says where it went, with the way to
 // it; you stay on the page you were on. Kept from the Journal itself, there's
 // no toast: the Journal shows what was just kept (`?kept=`). Opened with
@@ -12,6 +13,7 @@ import { Modal } from "@sixthshift/design-system/modal";
 import { toast } from "@sixthshift/design-system/overlay";
 import { useLocation, useNavigate } from "@tanstack/react-router";
 import {
+  CalendarClock,
   Camera,
   ChevronLeft,
   FileText,
@@ -34,6 +36,7 @@ import type { FirstKey } from "../../../lib/firsts";
 import { movementsOffered } from "../../../lib/journal";
 import { WEEKS } from "../../../lib/timeline";
 import type { Shared } from "../../../pwa/share";
+import { AddAppointment } from "../../appointments/components/AddAppointment";
 import { CheckInNow } from "../../feelings/components/checkIn/CheckInNow";
 import { AddCraving } from "../../journal/components/entries/appetite/AddCraving";
 import { AddSickness } from "../../journal/components/entries/appetite/AddSickness";
@@ -56,6 +59,7 @@ const CHOICE: Record<Capture, { label: string; icon: LucideIcon; becomes: string
   paper: { label: "A result or paper", icon: FileText, becomes: "Found in a moment" },
   feeling: { label: "How I'm feeling", icon: Smile, becomes: "The weeks, at a glance" },
   first: { label: "A first", icon: Star, becomes: "In both your words" },
+  appointment: { label: "An appointment", icon: CalendarClock, becomes: "On its week, with your questions" },
   question: { label: "A question to ask", icon: MessageCircleQuestion, becomes: "Ready for the appointment" },
   task: { label: "Something to do", icon: ListChecks, becomes: "In the Planner" },
 };
@@ -159,6 +163,8 @@ export function CaptureSheet({
           <CheckInNow me={people.me} onDone={() => filed("feeling")} />
         ) : chosen === "first" ? (
           <MarkFirst first={first} onAdded={() => filed("first")} />
+        ) : chosen === "appointment" ? (
+          <AddAppointment onAdded={() => filed("appointment")} />
         ) : chosen === "question" ? (
           <AddQuestion text={text} onAdded={() => filed("question")} />
         ) : chosen === "task" ? (

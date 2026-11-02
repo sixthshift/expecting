@@ -3,6 +3,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 import { builtInItems } from "../../src/content";
+import { todayISO } from "../../src/lib/dates";
 
 // /api/mcp as Claude calls it: JSON-RPC over HTTP with a bearer token got by
 // connecting, against a real database in a temp DATA_DIR.
@@ -106,6 +107,18 @@ describe("keeping", () => {
     await call("tick_task", { task: task.id });
     expect(JSON.parse((await call("tasks", { show: "done" })).text).map((t: { id: string }) => t.id)).toContain(task.id);
     expect((await call("tick_task", { task: "no-such-task" })).isError).toBe(true);
+  });
+
+  test("an appointment is kept, read with its week, and changed; an unknown one refused", async () => {
+    const today = todayISO();
+    const { id } = JSON.parse((await call("add_appointment", { title: "Midwife", day: today, time: "10:30" })).text);
+    expect(JSON.parse((await call("appointments")).text)).toEqual([
+      { id, title: "Midwife", day: today, week: 28, time: "10:30", place: null, notes: null, by: "Sam" },
+    ]);
+    await call("change_appointment", { id, title: "Midwife", day: today, time: null, place: "Clinic" });
+    expect(JSON.parse((await call("appointments")).text)[0]).toMatchObject({ time: null, place: "Clinic" });
+    const nobody = await call("change_appointment", { id: crypto.randomUUID(), title: "GP", day: today });
+    expect(nobody.isError).toBe(true);
   });
 
   test("nothing that names a private entry is kept", async () => {

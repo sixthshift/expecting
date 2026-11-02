@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 import { captureChoices, sharedChoices } from "../../../src/features/capture/model/choices";
 
-test("all ten, in their fixed order, for a phone that's said who's holding it", () => {
+test("all eleven, in their fixed order, for a phone that's said who's holding it", () => {
   expect(captureChoices({ holding: true, quiet: false, movements: true })).toEqual([
     "movement",
     "sick",
@@ -11,6 +11,7 @@ test("all ten, in their fixed order, for a phone that's said who's holding it", 
     "paper",
     "feeling",
     "first",
+    "appointment",
     "question",
     "task",
   ]);
@@ -24,13 +25,14 @@ test("a feeling only from a phone that's said who's holding it, and a movement o
     "photo",
     "paper",
     "first",
+    "appointment",
     "question",
     "task",
   ]);
 });
 
-test("while something has happened: never a movement, sickness, a craving, a photo or a first, and nothing to do; a paper still, as papers are admin", () => {
-  expect(captureChoices({ holding: true, quiet: true, movements: true })).toEqual(["note", "paper", "feeling", "question"]);
+test("while something has happened: never a movement, sickness, a craving, a photo or a first, and nothing to do; a paper and an appointment still, as they are admin", () => {
+  expect(captureChoices({ holding: true, quiet: true, movements: true })).toEqual(["note", "paper", "feeling", "appointment", "question"]);
 });
 
 test("something shared: pictures a photo or a paper, a PDF a paper, words a note, a question or a task", () => {

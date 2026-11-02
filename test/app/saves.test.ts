@@ -11,6 +11,20 @@ const ID = "11111111-1111-4111-8111-111111111111";
 
 const checklist = { ticks: { "book-rsv-vaccine": "2026-10-01T00:00:00.000Z" }, ownTasks: [{ id: ID, title: "Cot", week: 30, createdAt: made.at }] };
 const questions = [{ id: ID, text: "Free?", answer: null, askedAt: null, itemId: null, by: null, createdAt: made.at }];
+const appointments = [
+  {
+    id: ID,
+    title: "Midwife",
+    day: "2026-11-06",
+    time: "10:30",
+    place: "Clinic",
+    notes: null,
+    by: made.by,
+    createdAt: made.at,
+    editedBy: null,
+    editedAt: null,
+  },
+];
 const names = {
   names: [{ id: ID, name: "Ada", mine: null, deck: false }],
   shortlist: [{ id: ID, name: "Ada", star: false }],
@@ -195,6 +209,21 @@ const CASES: Record<string, [unknown, unknown[]]> = {
   ],
   reopenQuestion: [questions, [{ id: ID }]],
   deleteQuestion: [questions, [{ id: ID }]],
+  addAppointment: [
+    appointments,
+    [
+      { id: "22222222-2222-4222-8222-222222222222", title: " 20-week scan ", day: "2026-11-20", time: null, place: " ", notes: " Full bladder " },
+      { id: ID, title: "Again", day: "2026-11-06", time: null, place: null, notes: null },
+    ],
+  ],
+  editAppointment: [
+    appointments,
+    [
+      { id: ID, title: " Midwife ", day: "2026-11-07", time: null, place: "", notes: " Bring the referral " },
+      { id: "22222222-2222-4222-8222-222222222222", title: "Not here", day: "2026-11-07", time: null, place: null, notes: null },
+    ],
+  ],
+  deleteAppointment: [appointments, [{ id: ID }, { id: "22222222-2222-4222-8222-222222222222" }]],
   addName: [
     names,
     [
@@ -474,6 +503,18 @@ test("a save changes what it says, and nothing it doesn't", () => {
   expect(byKey.setTicked!.apply(checklist, { taskId: "x", ticked: true }, made).ticks).toEqual({ ...checklist.ticks, x: made.at });
   expect(byKey.deleteOwnTask!.apply({ ...checklist, ticks: { [ID]: made.at } }, { id: ID }, made)).toEqual({ ticks: {}, ownTasks: [] });
   expect(byKey.markAsked!.apply(questions, { id: ID, answer: " Yes " }, made)[0]).toMatchObject({ askedAt: made.at, answer: "Yes" });
+  expect(
+    byKey.editAppointment!.apply(appointments, { id: ID, title: " Midwife ", day: "2026-11-07", time: null, place: " ", notes: "Referral" }, made)[0]
+  ).toEqual({
+    ...appointments[0],
+    title: "Midwife",
+    day: "2026-11-07",
+    time: null,
+    place: null,
+    notes: "Referral",
+    editedBy: made.by,
+    editedAt: made.at,
+  });
   expect(byKey.addName!.apply(names, { id: "22222222-2222-4222-8222-222222222222", name: "ADA" }, made).names).toEqual([
     { id: ID, name: "Ada", mine: true, deck: false },
   ]);

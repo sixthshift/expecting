@@ -122,7 +122,7 @@ it:
 |---|---|---|---|
 | [**This week**](product/this-week.md) | both, now | open it | Where you are, what to do now, the week's note, what's worth knowing |
 | [**Library**](product/library.md) | Expecting's | read it | Everything it knows, by the question you came with |
-| [**Planner**](product/planner.md) | yours, ahead | do it | To do (and across the weeks), what to get, questions for the appointment; later decisions, appointments, contacts |
+| [**Planner**](product/planner.md) | yours, ahead | do it | To do (and across the weeks), what to get, appointments and the questions for them; later decisions, contacts |
 | [**Journal**](product/journal.md) | yours, behind | keep it | Movements, sickness and cravings, feelings, notes and letters, photos and scans, papers, the firsts |
 | [**Drawer**](product/drawer.md) | both, when it's time | reach for it | The handy things you do together: the names game, Your people |
 
@@ -310,8 +310,9 @@ as content, not code.
 
 All shared, all editable by both:
 
-- **Appointments:** date, who with, notes, the questions to ask, the
-  Journal's summary since the last one ("headaches on 3 days, sickness
+- **More to appointments** (what, the day, the time, the place and notes
+  are built: [the Planner](product/planner.md#appointments)): a question
+  aimed at one, the Journal's summary since the last one ("headaches on 3 days, sickness
   easing, movements daily": the answer to the midwife's "since when?"),
   and a waiting-room mode on the day.
 - **Contacts:** midwife, OB, hospital, birth suite, GP, maternal and child

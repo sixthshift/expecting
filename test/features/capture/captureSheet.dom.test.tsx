@@ -76,7 +76,7 @@ const offered = () =>
     .map((li) => li.querySelector("[data-choice]")?.textContent);
 
 describe("CaptureSheet", () => {
-  it("offers all ten, in their fixed order", () => {
+  it("offers all eleven, in their fixed order", () => {
     render(<CaptureSheet onClose={() => undefined} />);
     expect(offered()).toEqual([
       "The baby moved",
@@ -87,6 +87,7 @@ describe("CaptureSheet", () => {
       "A result or paper",
       "How I'm feeling",
       "A first",
+      "An appointment",
       "A question to ask",
       "Something to do",
     ]);
@@ -103,15 +104,16 @@ describe("CaptureSheet", () => {
       "A photo or scan",
       "A result or paper",
       "A first",
+      "An appointment",
       "A question to ask",
       "Something to do",
     ]);
   });
 
-  it("while something has happened, never a movement, sickness, a craving or a photo, and nothing to do; a paper still", () => {
+  it("while something has happened, never a movement, sickness, a craving or a photo, and nothing to do; a paper and an appointment still", () => {
     quiet = { kind: "loss", setBy: null, setAt: "2026-10-30T00:00:00.000Z" };
     render(<CaptureSheet onClose={() => undefined} />);
-    expect(offered()).toEqual(["A note", "A result or paper", "How I'm feeling", "A question to ask"]);
+    expect(offered()).toEqual(["A note", "A result or paper", "How I'm feeling", "An appointment", "A question to ask"]);
   });
 
   it("keeps a movement in one tap, closes, and says where it went", () => {
@@ -200,7 +202,7 @@ describe("CaptureSheet", () => {
     render(<CaptureSheet onClose={() => undefined} />);
     fireEvent.click(screen.getByRole("button", { name: "A note" }));
     fireEvent.click(screen.getByRole("button", { name: "Back to what to add" }));
-    expect(offered()).toHaveLength(10);
+    expect(offered()).toHaveLength(11);
   });
 
   it("a photo: the camera one tap away, the phone's own picker beside it", () => {

@@ -3,6 +3,7 @@
 // list is how that build knows it: a new save goes here.
 
 import { appetiteSaves } from "../../api/rpc/appetite";
+import { appointmentsSaves } from "../../api/rpc/appointments";
 import { bingoSaves } from "../../api/rpc/bingo";
 import { checklistSaves } from "../../api/rpc/checklist";
 import { circleSaves } from "../../api/rpc/circle";
@@ -31,6 +32,7 @@ export type AnySave = Save<any, any>;
 export const SAVES: readonly AnySave[] = [
   checklistSaves,
   questionsSaves,
+  appointmentsSaves,
   namesSaves,
   factsSaves,
   extrasSaves,

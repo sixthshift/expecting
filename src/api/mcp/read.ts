@@ -1,5 +1,5 @@
 // The tools that read: where you are, a week, the to do, the Library, the
-// Journal, the questions for appointments, Emergency info and the lists. They
+// Journal, the appointments and the questions for them, Emergency info and the lists. They
 // show what the app shows, tailored by your answers and extras. A private
 // entry (family violence, reproductive coercion) is never among them.
 
@@ -11,6 +11,7 @@ import type { Item, Task } from "../../content/schema";
 import { asText } from "../../content/text";
 import { noteFor, SECTIONS, type WeekNote } from "../../content/weeks";
 import { AppetiteRepo } from "../../db/models/appetite/repo";
+import { AppointmentsRepo } from "../../db/models/appointments/repo";
 import { EmergencyRepo } from "../../db/models/emergency/repo";
 import { FeelingsRepo } from "../../db/models/feelings/repo";
 import { FirstsRepo } from "../../db/models/firsts/repo";
@@ -20,6 +21,7 @@ import { PapersRepo } from "../../db/models/papers/repo";
 import { PhotosRepo } from "../../db/models/photos/repo";
 import { QuestionsRepo } from "../../db/models/questions/repo";
 import type { Facts } from "../../features/settings/model/facts";
+import { splitAppointments } from "../../lib/appointments";
 import { EMERGENCY_FIELDS } from "../../lib/emergency";
 import { isOwn } from "../../lib/feelings";
 import { firstOf } from "../../lib/firsts";
@@ -272,6 +274,35 @@ export function readTools(server: McpServer, ctx: () => Context) {
         .sort((a, b) => `${b.day} ${b.time ?? ""}`.localeCompare(`${a.day} ${a.time ?? ""}`))
         .slice(0, limit);
       return answer(story);
+    }
+  );
+
+  server.registerTool(
+    "appointments",
+    {
+      title: "Appointments",
+      description:
+        "The appointments kept: what each is, its day (YYYY-MM-DD) and its pregnancy week, its time (HH:MM, if known), where and any notes. `ahead` (today's included, earliest first) or `past` (latest first). The next one is the first ahead; the questions kept are for it.",
+      inputSchema: { show: z.enum(["ahead", "past", "all"]).default("ahead") },
+      annotations: READ,
+    },
+    ({ show }) => {
+      const c = ctx();
+      const k = known(c);
+      const { ahead, past } = splitAppointments(new AppointmentsRepo(c.db).list(), k.today);
+      const shown = show === "ahead" ? ahead : show === "past" ? past : [...ahead, ...past];
+      return answer(
+        shown.map((a) => ({
+          id: a.id,
+          title: a.title,
+          day: a.day,
+          week: weekOf(a.day, k),
+          time: a.time,
+          place: a.place,
+          notes: a.notes,
+          by: nameOf(k.people, a.by),
+        }))
+      );
     }
   );
 
