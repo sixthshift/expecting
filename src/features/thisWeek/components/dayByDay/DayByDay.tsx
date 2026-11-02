@@ -92,7 +92,7 @@ export function DayByDay({
       <div className="flex items-center justify-between gap-2">
         <h2 id="day-by-day" className="flex items-center gap-2 text-sm font-medium text-fg-subtle">
           <BookOpen aria-hidden size={16} className="text-fg-brand" />
-          Week {week}, day by day
+          Week {week}
         </h2>
         {days.length > 1 ? (
           <div className="flex items-center gap-1">

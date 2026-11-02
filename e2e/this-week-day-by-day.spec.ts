@@ -6,7 +6,7 @@ import { expect, test } from "./fixtures";
 
 test("the note on the first day, a read a day after it, today's first, the days before a step back", async ({ page, open }) => {
   await open("/");
-  const week = page.getByRole("region", { name: "Week 28, day by day" });
+  const week = page.getByRole("region", { name: "Week 28", exact: true });
   await expect(week.getByRole("region", { name: "28+0 · Today, 1 of 1" })).toBeVisible();
   await expect(week.getByRole("button", { name: "The day before" })).toHaveCount(0);
 

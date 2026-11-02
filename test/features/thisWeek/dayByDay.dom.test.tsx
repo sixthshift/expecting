@@ -36,7 +36,7 @@ afterEach(cleanup);
 describe("DayByDay", () => {
   it("starts with the note, shows today's read, and keeps the days before it out of reach until swiped to", () => {
     render(<DayByDay week={20} note={note} reads={reads} items={items} today={3} />);
-    expect(screen.getByRole("heading", { name: "Week 20, day by day" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Week 20" })).toBeTruthy();
     expect(document.querySelector('[aria-label="20+0, 1 of 4"]')?.getAttribute("aria-hidden")).toBe("true");
     const today = screen.getByRole("region", { name: "20+3 · Today, 4 of 4" });
     expect(today.getAttribute("aria-hidden")).toBe("false");
