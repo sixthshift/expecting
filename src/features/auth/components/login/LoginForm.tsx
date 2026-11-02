@@ -3,11 +3,11 @@ import { FormField } from "@sixthshift/design-system/form-field";
 import { Input } from "@sixthshift/design-system/input";
 import { getRouteApi } from "@tanstack/react-router";
 import { type FormEvent, useState } from "react";
-import { login, useAccessQuery } from "../../../api/rpc/session";
-import { Choice } from "../../../components/Choice";
-import { useEnter } from "../hooks/useEnter";
-import { useNewPassword } from "../hooks/useNewPassword";
-import { LOCKED } from "../model/labels";
+import { login, useAccessQuery } from "../../../../api/rpc/session";
+import { Choice } from "../../../../components/Choice";
+import { useEnter } from "../../hooks/useEnter";
+import { useNewPassword } from "../../hooks/useNewPassword";
+import { LOCKED } from "../../model/labels";
 
 const route = getRouteApi("/login");
 

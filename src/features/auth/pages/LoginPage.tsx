@@ -1,7 +1,7 @@
 import { useAccessQuery } from "../../../api/rpc/session";
 import { Alone } from "../../../components/Alone";
-import { LoginForm } from "../components/LoginForm";
-import { SetUpForm } from "../components/SetUpForm";
+import { LoginForm } from "../components/login/LoginForm";
+import { SetUpForm } from "../components/login/SetUpForm";
 
 /** Logging in as one of you, or, on a new instance, setting Expecting up as the first of you. */
 export function LoginPage() {
