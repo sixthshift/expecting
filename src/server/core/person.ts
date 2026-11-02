@@ -1,11 +1,10 @@
-// Who is holding this device: a cookie naming a person, set by
-// src/api/rpc/people.ts. Read here too, so an answer can say who gave it.
+// Who is holding this device: whoever its session is logged in as
+// (src/server/auth/gate.ts). Read by every server function that keeps who did something.
 
-import { getCookie } from "@tanstack/react-start/server";
+import { getRequest } from "@tanstack/react-start/server";
+import { sessionOf } from "../auth/gate";
 
-export const PERSON_COOKIE = "expecting_person";
-
-/** The person this device says it is, by id; undefined if it hasn't said. */
+/** The person this device is logged in as, by id; undefined without a session. */
 export function personId(): string | undefined {
-  return getCookie(PERSON_COOKIE);
+  return sessionOf(getRequest()) ?? undefined;
 }

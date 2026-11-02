@@ -29,15 +29,12 @@ function request(path: string, init: RequestInit = {}) {
   return new Request(`http://expecting.lan${path}`, init);
 }
 
-test("without a session, pages, API calls and every server function get through", () => {
-  expect(gateModule.gate(request("/settings", { headers: { accept: "text/html" } }))).toBeNull();
-  expect(gateModule.gate(request("/api/anything", { method: "POST" }))).toBeNull();
-  expect(gateModule.refuseFunction(request("/api/rpc/abc", { method: "POST" }), "src/api/rpc/people.ts")).toBeNull();
-});
-
-test("/login has nothing to ask, so it sends you on, never off the site", () => {
-  const login = (search: string) => gateModule.gate(request(`/login${search}`, { headers: { accept: "text/html" } }));
-  expect(login("?next=%2Fsettings")?.headers.get("location")).toBe("http://expecting.lan/settings");
-  expect(login("")?.headers.get("location")).toBe("http://expecting.lan/");
-  expect(login("?next=%2F%2Fevil.example")?.headers.get("location")).toBe("http://expecting.lan/");
+test("logins off stops asking for passwords, not who you are: without a session, it's still to /login", () => {
+  expect(gateModule.loginOn()).toBe(false);
+  expect(gateModule.gate(request("/settings", { headers: { accept: "text/html" } }))?.headers.get("location")).toBe(
+    "http://expecting.lan/login?next=%2Fsettings"
+  );
+  expect(gateModule.gate(request("/login", { headers: { accept: "text/html" } }))).toBeNull();
+  expect(gateModule.gate(request("/api/anything", { method: "POST" }))?.status).toBe(401);
+  expect(gateModule.refuseFunction(request("/api/rpc/abc", { method: "POST" }), "src/api/rpc/people.ts")?.status).toBe(401);
 });

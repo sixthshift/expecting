@@ -1,8 +1,10 @@
 import { existsSync } from "node:fs";
 import { describe, expect, test } from "vitest";
-import { PasswordRepo, SessionRepo } from "../../src/db/models/auth/repo";
+import { InviteRepo, normaliseCode, SessionRepo } from "../../src/db/models/auth/repo";
+import { PeopleRepo } from "../../src/db/models/people/repo";
+import { safeNext } from "../../src/lib/next";
 import { readSessionCookie, sessionCookieOptions } from "../../src/server/auth/cookie";
-import { isOpenFunction, isOpenPath, safeNext } from "../../src/server/auth/gate";
+import { isOpenFunction, isOpenPath } from "../../src/server/auth/gate";
 import { hashPassword, LoginLimiter, loginRequired, verifyPassword } from "../../src/server/auth/password";
 import { useTestDb } from "../db/helpers";
 
@@ -50,8 +52,11 @@ test("the cookie round-trips and is Secure only over HTTPS", () => {
 });
 
 describe("what is open without a session", () => {
-  test("by path, only the login page and the health check", () => {
+  test("by path, only the login page, joining and resetting by a code, and the health check", () => {
     expect(isOpenPath("/login")).toBe(true);
+    expect(isOpenPath("/join")).toBe(true);
+    expect(isOpenPath("/reset")).toBe(true);
+    expect(isOpenPath("/password")).toBe(false);
     expect(isOpenPath("/api/health")).toBe(true);
     expect(isOpenPath("/api/login")).toBe(false);
     expect(isOpenPath("/settings")).toBe(false);
@@ -70,18 +75,20 @@ describe("what is open without a session", () => {
 
 describe("sessions", () => {
   const db = useTestDb();
+  const sam = () => new PeopleRepo(db()).add("Sam", "carrying").id;
 
-  test("a created session checks out, and ends", () => {
+  test("a created session is its person's, and ends", () => {
     const repo = new SessionRepo(db());
-    const token = repo.create();
-    expect(repo.check(token)).toBe(true);
-    expect(repo.check("not-a-token")).toBe(false);
+    const id = sam();
+    const token = repo.create(id);
+    expect(repo.check(token)).toBe(id);
+    expect(repo.check("not-a-token")).toBeNull();
     repo.end(token);
-    expect(repo.check(token)).toBe(false);
+    expect(repo.check(token)).toBeNull();
   });
 
   test("the database holds a hash, not the token", () => {
-    const token = new SessionRepo(db()).create();
+    const token = new SessionRepo(db()).create(sam());
     const row = db().query<{ token_hash: string }, []>("SELECT token_hash FROM session").get();
     expect(row!.token_hash).not.toContain(token);
     expect(row!.token_hash).toMatch(/^[0-9a-f]{64}$/);
@@ -89,25 +96,77 @@ describe("sessions", () => {
 
   test("a session unused for over 400 days has expired", () => {
     const repo = new SessionRepo(db());
-    const token = repo.create(new Date("2026-01-01T00:00:00Z"));
-    expect(repo.check(token, new Date("2026-12-01T00:00:00Z"))).toBe(true);
+    const id = sam();
+    const token = repo.create(id, new Date("2026-01-01T00:00:00Z"));
+    expect(repo.check(token, new Date("2026-12-01T00:00:00Z"))).toBe(id);
     // Used on 1 Dec, so it lives 400 days from then.
-    expect(repo.check(token, new Date("2027-12-01T00:00:00Z"))).toBe(true);
-    expect(repo.check(token, new Date("2029-02-01T00:00:00Z"))).toBe(false);
+    expect(repo.check(token, new Date("2027-12-01T00:00:00Z"))).toBe(id);
+    expect(repo.check(token, new Date("2029-02-01T00:00:00Z"))).toBeNull();
+  });
+
+  test("logging out everywhere ends a person's sessions, but the one kept, and not the other's", () => {
+    const repo = new SessionRepo(db());
+    const id = sam();
+    const jason = new PeopleRepo(db()).add("Jason", "partner").id;
+    const [here, there, his] = [repo.create(id), repo.create(id), repo.create(jason)];
+    repo.endAllFor(id, here);
+    expect([repo.check(here), repo.check(there), repo.check(his)]).toEqual([id, null, jason]);
+    repo.endAllFor(id);
+    expect(repo.check(here)).toBeNull();
+  });
+
+  test("a person removed takes their sessions with them", () => {
+    const repo = new SessionRepo(db());
+    const id = sam();
+    const token = repo.create(id);
+    db().run("DELETE FROM person WHERE id = ?", [id]);
+    expect(repo.check(token)).toBeNull();
   });
 });
 
-describe("the password", () => {
+describe("invites", () => {
   const db = useTestDb();
+  const now = new Date("2026-11-02T09:00:00Z");
+  const days = (n: number) => new Date(now.getTime() + n * 86_400_000);
 
-  test("is unset in a new database", () => {
-    expect(new PasswordRepo(db()).hash()).toBeNull();
+  test("a code is twelve characters in threes, easy to read off a screen and type", () => {
+    const sam = new PeopleRepo(db()).add("Sam", "carrying").id;
+    const { code } = new InviteRepo(db()).create("join", sam, null, now);
+    expect(code).toMatch(/^[0-9A-HJKMNP-TV-Z]{3}(-[0-9A-HJKMNP-TV-Z]{3}){3}$/);
+    expect(normaliseCode(code.toLowerCase().replaceAll("-", " "))).toBe(code);
+    expect(normaliseCode("o1l-")).toBe("011");
   });
 
-  test("is chosen once: whoever is first keeps it", () => {
-    const repo = new PasswordRepo(db());
-    expect(repo.choose("$argon2id$first")).toBe(true);
-    expect(repo.choose("$argon2id$second")).toBe(false);
-    expect(repo.hash()).toBe("$argon2id$first");
+  test("an invite to join lives a week, and works once", () => {
+    const repo = new InviteRepo(db());
+    const sam = new PeopleRepo(db()).add("Sam", "carrying").id;
+    const { code, expiresAt } = repo.create("join", sam, null, now);
+    expect(expiresAt).toBe(days(7).toISOString());
+    expect(repo.find(code, "join", days(6))).toEqual({ kind: "join", personId: null, by: sam, expiresAt });
+    expect(repo.find(code, "reset", now)).toBeNull();
+    expect(repo.find(code, "join", days(8))).toBeNull();
+    repo.use(code.toLowerCase());
+    expect(repo.find(code, "join", now)).toBeNull();
+  });
+
+  test("one at a time: a new invite ends the last", () => {
+    const repo = new InviteRepo(db());
+    const sam = new PeopleRepo(db()).add("Sam", "carrying").id;
+    const first = repo.create("join", sam, null, now);
+    const second = repo.create("join", sam, null, now);
+    expect(repo.find(first.code, "join", now)).toBeNull();
+    expect(repo.find(second.code, "join", now)).not.toBeNull();
+  });
+
+  test("a reset is for one person, lives a day, and only its code is kept", () => {
+    const repo = new InviteRepo(db());
+    const people = new PeopleRepo(db());
+    const sam = people.add("Sam", "carrying").id;
+    const jason = people.add("Jason", "partner").id;
+    const { code } = repo.create("reset", sam, jason, now);
+    expect(repo.find(code, "reset", now)?.personId).toBe(jason);
+    expect(repo.find(code, "reset", days(2))).toBeNull();
+    const row = db().query<{ code_hash: string }, []>("SELECT code_hash FROM invite").get();
+    expect(row!.code_hash).toMatch(/^[0-9a-f]{64}$/);
   });
 });

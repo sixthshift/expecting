@@ -16,13 +16,13 @@ import type { Person, Role } from "../../../lib/people";
 import { gestationLabel } from "../../../lib/timeline";
 import { Connections } from "../../connect/components/Connections";
 import { QuietSwitch } from "../../quiet/components/quietSwitch/QuietSwitch";
+import { Account } from "../components/account/Account";
 import { Appearance } from "../components/appearance/Appearance";
 import { ColourChoice } from "../components/colour/ColourChoice";
 import { DueDateForm } from "../components/dueDate/DueDateForm";
 import { ExtrasList } from "../components/extras/ExtrasList";
 import { FactRow } from "../components/facts/FactsForm";
 import { SettingList, SettingRow } from "../components/SettingRow";
-import { Session } from "../components/session/Session";
 import { Version } from "../components/version/Version";
 import { type Ask, GROUPS, type Group } from "../model/facts";
 
@@ -30,21 +30,21 @@ const route = getRouteApi("/app/settings");
 
 const DUE_DATE = "dueDate";
 
-/** The sections, in order: the question groups, the extras, something has happened, Claude, then this phone's: its appearance and its session. */
+/** The sections, in order: the question groups, the extras, something has happened, Claude, then this phone's: its appearance and your account. */
 const SECTIONS = [
   ...(Object.entries(GROUPS) as [Group, string][]).map(([id, title]) => ({ id, title })),
   { id: "extras", title: "Extras" },
   { id: "quiet", title: "Something has happened" },
   { id: "claude", title: "Claude" },
   { id: "appearance", title: "Appearance" },
-  { id: "session", title: "Session" },
+  { id: "account", title: "Account" },
 ];
 
 /**
  * Everything Expecting has been told, grouped and readable at a glance: the
  * due date and colours with the pregnancy, every question in
  * src/features/settings/model/facts.data.ts in its group (each of yours under your name), how many
- * are settled and the next to answer (not while something has happened); the extras; something has happened; then this phone's appearance and session. `?ask=cover` opens at a
+ * are settled and the next to answer (not while something has happened); the extras; something has happened; then this phone's appearance and your account. `?ask=cover` opens at a
  * question (or `?ask=extra:babymoon` at an extra, `?ask=quiet` at something has happened), as a hidden item's page links
  * here.
  */
@@ -58,7 +58,7 @@ export function SettingsPage() {
   const position = usePosition();
   const now = useNow();
   const today = todayISO();
-  const { me, people } = usePeopleQuery().data;
+  const { people } = usePeopleQuery().data;
   const { data: quiet } = useQuietQuery();
   const { dueDate, baby } = settings;
 
@@ -230,8 +230,8 @@ export function SettingsPage() {
             <Appearance />
           </Section>
 
-          <Section id="settings-session" title="Session" className="scroll-mt-6">
-            <Session me={me} people={people} />
+          <Section id="settings-account" title="Account" className="scroll-mt-6">
+            <Account />
           </Section>
 
           <Version />

@@ -1,6 +1,5 @@
-// The one shared password, held only as an argon2id hash in the database
-// (PasswordRepo), chosen by whoever visits first, unless EXPECTING_LOGIN=off
-// turns logins off altogether.
+// Each of you has a password, held only as its argon2id hash on your person
+// row (PeopleRepo), unless EXPECTING_LOGIN=off, which stops asking for them.
 
 /**
  * Whether the gate asks for the password: EXPECTING_LOGIN is `on` (the
@@ -23,9 +22,11 @@ export function verifyPassword(password: string, hash: string): Promise<boolean>
 }
 
 /**
- * Failed logins per client, in memory. Ten failures in fifteen minutes locks
- * that client out until the oldest one ages out. A restart forgets, which is
- * fine: the hash is slow to check, and this only has to make guessing tedious.
+ * Failures per key, in memory: a client and the person it tried (logging in),
+ * or a client alone (a wrong code). Ten failures in fifteen minutes locks that
+ * key out until the oldest one ages out, so guessing at one of you doesn't
+ * lock out the other. A restart forgets, which is fine: the hash is slow to
+ * check, and this only has to make guessing tedious.
  */
 export class LoginLimiter {
   private readonly failures = new Map<string, number[]>();

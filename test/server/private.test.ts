@@ -51,9 +51,10 @@ const WRITES: Record<string, ((x: string) => unknown) | null> = {
   "names.ts:superlikeName": (x) => ({ id: UUID, name: x, day: "2026-11-01" }),
   "names.ts:takeOffName": (x) => ({ id: x }),
   "facts.ts:saveAnswer": (x) => ({ key: "cover", answer: x }),
-  "people.ts:becomePerson": (x) => ({ id: x }),
-  "people.ts:addPerson": (x) => ({ name: x, role: "partner" }),
-  "people.ts:forgetPerson": null,
+  "people.ts:choosePassword": null,
+  "people.ts:logOutEverywhere": null,
+  "people.ts:makeInvite": null,
+  "people.ts:makeReset": null,
   "extras.ts:setExtras": (x) => [{ id: x, on: true }],
   "settings.ts:saveSettings": (x) => ({ dueDate: x }),
   "settings.ts:finishOnboarding": null,
@@ -67,7 +68,6 @@ const WRITES: Record<string, ((x: string) => unknown) | null> = {
       code_challenge_method: "S256",
       state: x,
     },
-    personId: UUID,
   }),
   "connections.ts:disconnect": (x) => ({ id: x }),
   "quiet.ts:setQuiet": (x) => ({ kind: x }),
@@ -186,8 +186,8 @@ function upload(x: string): FormData {
   return form;
 }
 
-/** The session's own: choosing the password and logging in, which save only a hash and must never be refused. */
-const SESSION = ["session.ts:choosePassword", "session.ts:login", "session.ts:logout"];
+/** The session's own: setting up, logging in, joining and resetting, which save only a name and a hash and must never be refused. */
+const SESSION = ["session.ts:setUp", "session.ts:login", "session.ts:checkCode", "session.ts:join", "session.ts:resetPassword", "session.ts:logout"];
 
 const RPC = "src/api/rpc";
 
@@ -251,5 +251,9 @@ describe("no write path accepts a private entry", () => {
 
   test("the session's own are never refused: a password is only ever a hash", async () => {
     expect(await call("session.ts", { password: secret[0]!.title })).toBeNull();
+  });
+
+  test("nor is a password anywhere else: changing yours", async () => {
+    expect(await call("people.ts", { current: secret[0]!.title, password: secret[0]!.title })).toBeNull();
   });
 });

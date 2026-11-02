@@ -11,7 +11,7 @@ test("whose a task is, from the phone holding it", () => {
 });
 
 test("with nobody in the role yet, the role names it", () => {
-  expect(whose("carrying", jason, [jason])).toBe("The birth parent's");
+  expect(whose("carrying", jason, [jason])).toBe("The pregnant parent's");
   expect(whose("partner", null, [])).toBe("The partner's");
 });
 

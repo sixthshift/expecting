@@ -5,7 +5,10 @@
 // route's data through getRouteApi, so nothing imports a route but the router.
 
 import { app } from "./app";
+import { join } from "./auth/join";
 import { login } from "./auth/login";
+import { password } from "./auth/password";
+import { reset } from "./auth/reset";
 import { connect } from "./connect";
 import { drawer } from "./drawer";
 import { drawerBingo } from "./drawerBingo";
@@ -31,7 +34,6 @@ import { extras } from "./onboarding/extras";
 import { onboardingNext } from "./onboarding/next";
 import { question } from "./onboarding/question";
 import { ready } from "./onboarding/ready";
-import { who } from "./onboarding/who";
 import { planner } from "./planner";
 import { plannerList } from "./plannerList";
 import { plannerLists } from "./plannerLists";
@@ -74,9 +76,12 @@ export const routeTree = rootRoute.addChildren([
     settings,
     notFound,
   ]),
-  // Outside the frame: the first-run questions, a step to a URL, logging in, and letting Claude in.
-  onboarding.addChildren([onboardingNext, who, due, baby, question, extras, ready]),
+  // Outside the frame: the first-run questions, a step to a URL, logging in, joining, a new password, and letting Claude in.
+  onboarding.addChildren([onboardingNext, due, baby, question, extras, ready]),
   login,
+  join,
+  reset,
+  password,
   connect,
   ...api,
 ]);

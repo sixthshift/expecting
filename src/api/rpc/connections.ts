@@ -1,17 +1,17 @@
 // Claude, or another MCP client, connected to Expecting (src/api/rest/mcp.ts).
-// /connect is where a client is let in: it asks who the request is from and
-// whether to allow it, and approving it sends the client back with a code.
+// /connect is where a client is let in: it asks whether to allow it, as
+// whoever is logged in, and approving it sends the client back with a code.
 // Settings lists what's connected, and disconnects one.
 
 import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { ConnectionsRepo } from "../../db/models/connections/repo";
-import { PeopleRepo } from "../../db/models/people/repo";
 import { authorisation, sendBack } from "../../lib/connect";
 import { save } from "../../lib/outbox";
 import { loginOn } from "../../server/auth/gate";
 import { getDb } from "../../server/core/db";
+import { personId } from "../../server/core/person";
 
 /** What /connect can say about a request: who's asking, or why it can't go ahead (and so no sending back). */
 export type ConnectRequest = { ok: true; clientName: string } | { ok: false; why: "login-off" | "unknown-client" | "bad-redirect" };
@@ -29,14 +29,15 @@ export const getConnectRequest = createServerFn({ method: "GET" })
   .validator(z.object({ clientId: z.string().max(100), redirectUri: z.string().max(2000) }).strict())
   .handler(({ data }) => judge(data.clientId, data.redirectUri));
 
-/** Let the client in as `personId`: where to send the browser, with its code. */
+/** Let the client in as whoever is logged in: where to send the browser, with its code. */
 export const approveConnection = createServerFn({ method: "POST" })
-  .validator(z.object({ request: authorisation, personId: z.uuid() }).strict())
-  .handler(({ data: { request, personId } }) => {
+  .validator(z.object({ request: authorisation }).strict())
+  .handler(({ data: { request } }) => {
     const judged = judge(request.client_id, request.redirect_uri);
     if (!judged.ok) throw new Error(`Can't connect: ${judged.why}`);
-    if (!new PeopleRepo(getDb()).get(personId)) throw new Error("No such person");
-    const code = new ConnectionsRepo(getDb()).approve(request.client_id, personId, request.code_challenge, request.redirect_uri);
+    const by = personId();
+    if (!by) throw new Error("Log in first");
+    const code = new ConnectionsRepo(getDb()).approve(request.client_id, by, request.code_challenge, request.redirect_uri);
     return { to: sendBack(request.redirect_uri, { code }, request.state) };
   });
 

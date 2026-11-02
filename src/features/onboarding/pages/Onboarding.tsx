@@ -14,7 +14,6 @@ import { dueStep } from "../components/steps/due";
 import { extrasStep } from "../components/steps/extras";
 import { questionStep } from "../components/steps/question";
 import { readyStep } from "../components/steps/ready";
-import { whoStep } from "../components/steps/who";
 import { onboardingLeft } from "../model/left";
 import { stepAt, stepHref } from "../model/paths";
 import type { Screen, StepContext } from "../model/step";
@@ -22,8 +21,8 @@ import type { Screen, StepContext } from "../model/step";
 // The first-run questions, one to a screen, each at its own URL
 // (`/onboarding/due`), so the phone's back gesture goes back a question. Each
 // answer is saved as it is given, and what's left to ask is worked out afresh
-// from what is known (onboardingLeft): the second parent's phone is only asked
-// who's holding it.
+// from what is known (onboardingLeft): once one of you has finished, the other
+// joins straight into the app.
 
 const nextRoute = getRouteApi("/onboarding/");
 
@@ -41,9 +40,8 @@ export function OnboardingLayout() {
 export function OnboardingNext() {
   const { data: settings } = useSettingsQuery();
   const { data: answers } = useAnswersQuery();
-  const { data: people } = usePeopleQuery();
   const { after } = nextRoute.useSearch();
-  const steps = onboardingLeft({ me: people.me, onboardedAt: settings.onboardedAt, answers });
+  const steps = onboardingLeft({ onboardedAt: settings.onboardedAt, answers });
   const next = after ? stepAfter(steps, after as Step) : steps[0];
   return <Redirect href={next ? stepHref(next) : "/"} />;
 }
@@ -61,7 +59,7 @@ export function OnboardingStep() {
   // This page's own match, not the location: while a navigation away is pending, the location is already
   // the next one, and this page, still drawn, would take it for a step that isn't there.
   const current = stepAt(useMatch({ strict: false, select: (match) => match.pathname }));
-  const steps = onboardingLeft({ me: people.me, onboardedAt: settings.onboardedAt, answers });
+  const steps = onboardingLeft({ onboardedAt: settings.onboardedAt, answers });
 
   /** Save, reload what's known, then on to whatever's next. */
   const [save, saving] = useAction(async (step?: () => Promise<unknown>) => {
@@ -150,8 +148,6 @@ export function OnboardingStep() {
 /** The screen for a step. Each step is its own file in steps/. */
 function renderStep(step: Step, context: StepContext): Screen {
   switch (step) {
-    case "who":
-      return whoStep(context);
     case "due":
       return dueStep(context);
     case "baby":

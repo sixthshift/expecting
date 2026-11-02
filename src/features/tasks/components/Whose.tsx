@@ -5,7 +5,7 @@ import { whose } from "../../../lib/people";
 
 /**
  * Whose a task is, in its meta line, when it's one of you rather than both:
- * "Yours", "Sam's", "The birth parent's", marked with a person so it reads as
+ * "Yours", "Sam's", "The pregnant parent's", marked with a person so it reads as
  * whose job it is rather than a word left hanging. Nothing for a job together.
  */
 export function Whose({ who, me, people }: { who: Task["who"]; me: Person | null; people: readonly Person[] }) {

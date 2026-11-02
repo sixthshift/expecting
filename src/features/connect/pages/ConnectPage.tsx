@@ -1,9 +1,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
-import { RadioButtonGroup } from "@sixthshift/design-system/radio-button-group";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { getRouteApi } from "@tanstack/react-router";
-import { useState } from "react";
 import { approveConnection, connectRequestQuery } from "../../../api/rpc/connections";
 import { usePeopleQuery } from "../../../api/rpc/people";
 import { useAction } from "../../../app/hooks/useAction";
@@ -20,22 +18,15 @@ const REFUSED = {
   "bad-request": "This link is missing something it needs. Start connecting again from Claude.",
 } as const;
 
-/** Letting Claude (or another MCP client) into Expecting: as whom, and whether at all. */
+/** Letting Claude (or another MCP client) into Expecting, as whoever is logged in, or not. */
 export function ConnectPage() {
   const search = route.useSearch();
   const { data: known } = useSuspenseQuery(connectRequestQuery(search.client_id ?? "", search.redirect_uri ?? ""));
-  const { data: people } = usePeopleQuery();
+  const { data: me } = usePeopleQuery({ select: (people) => people.me });
   const request = authorisation.safeParse(search);
-  const [personId, setPersonId] = useState(people.me?.id ?? people.people[0]?.id ?? "");
-  const [allow, allowing] = useAction(async () => window.location.assign((await approveConnection({ data: { request: request.data!, personId } })).to));
+  const [allow, allowing] = useAction(async () => window.location.assign((await approveConnection({ data: { request: request.data! } })).to));
 
-  const refused = !known.ok
-    ? REFUSED[known.why]
-    : !request.success
-      ? REFUSED["bad-request"]
-      : people.people.length === 0
-        ? "Set Expecting up first, then connect."
-        : null;
+  const refused = !known.ok ? REFUSED[known.why] : !request.success ? REFUSED["bad-request"] : null;
 
   return (
     // No navigation here, as at /login: on a large screen the card sits alone, centred.
@@ -54,21 +45,10 @@ export function ConnectPage() {
                   It can read everything here: the weeks, the Library, your to do, the Journal, and your photos and papers too. It can keep what the + keeps and
                   tick off what's done.
                 </p>
-                <p className="text-fg-subtle">What it keeps is kept as whoever you choose. Disconnect it in Settings any time.</p>
+                <p className="text-fg-subtle">What it keeps is kept as {me ? me.name : "you"}. Disconnect it in Settings any time.</p>
               </div>
-              {people.people.length > 1 ? (
-                <div className="flex flex-col gap-2">
-                  <p className="text-sm font-medium text-fg-strong">Who's connecting?</p>
-                  <RadioButtonGroup
-                    aria-label="Who's connecting"
-                    options={people.people.map((p) => ({ value: p.id, label: p.name }))}
-                    value={personId}
-                    onValueChange={setPersonId}
-                  />
-                </div>
-              ) : null}
               <div className="flex flex-wrap gap-2">
-                <Button loading={allowing} disabled={!personId} onClick={() => allow()}>
+                <Button loading={allowing} onClick={() => allow()}>
                   Allow
                 </Button>
                 <Button

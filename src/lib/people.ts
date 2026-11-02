@@ -1,5 +1,5 @@
-// The people: who's holding each phone. Not accounts: a name and
-// which of the two they are.
+// The people: the two of you, each an account (logged in as, with your own
+// password), each with a name and which of the two you are.
 
 export type Role = "carrying" | "partner";
 
@@ -12,6 +12,17 @@ export const ROLES: Record<Role, string> = {
   partner: "I'm the partner",
 };
 
+/** A role's name before anyone holds it: "the pregnant parent", "the partner". */
+export const ROLE_NAMES: Record<Role, string> = {
+  carrying: "the pregnant parent",
+  partner: "the partner",
+};
+
+/** The other of the two. */
+export function otherRole(role: Role): Role {
+  return role === "carrying" ? "partner" : "carrying";
+}
+
 /**
  * Whose a task is, as the person holding this phone reads it: "Yours", "Sam's",
  * or "Together". With nobody yet in a role, the role names it.
@@ -21,7 +32,7 @@ export function whose(who: Who, me: Person | null, people: readonly Person[]): s
   if (me?.role === who) return "Yours";
   const them = people.find((p) => p.role === who);
   if (them) return `${them.name}'s`;
-  return who === "partner" ? "The partner's" : "The birth parent's";
+  return `${capitalise(ROLE_NAMES[who])}'s`;
 }
 
 /**
@@ -34,4 +45,8 @@ export function whoseBy(by: string | null, me: Person | null, people: readonly P
   if (me?.id === by) return "Yours";
   const them = people.find((p) => p.id === by);
   return them ? `${them.name}'s` : null;
+}
+
+function capitalise(text: string): string {
+  return text.charAt(0).toUpperCase() + text.slice(1);
 }

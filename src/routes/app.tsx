@@ -25,7 +25,7 @@ import { rootRoute } from "./root";
 export const app = createRoute({
   getParentRoute: () => rootRoute,
   id: "app",
-  loader: async ({ context: { queryClient } }) => {
+  loader: async ({ context: { queryClient }, location }) => {
     await restoreOutbox(queryClient);
     await Promise.all([
       queryClient.ensureQueryData(settingsQuery),
@@ -45,7 +45,9 @@ export const app = createRoute({
     const settings = queryClient.getQueryData(settingsQuery.queryKey)!;
     const answers = queryClient.getQueryData(answersQuery.queryKey)!;
     const people = queryClient.getQueryData(peopleQuery.queryKey)!;
-    if (onboardingLeft({ me: people.me, onboardedAt: settings.onboardedAt, answers }).length > 0) throw redirect({ to: "/onboarding" });
+    // Your own password first, if you're still on the shared one; then the first-run questions.
+    if (people.mustChoosePassword) throw redirect({ to: "/password", search: { next: location.href } });
+    if (onboardingLeft({ onboardedAt: settings.onboardedAt, answers }).length > 0) throw redirect({ to: "/onboarding" });
   },
   // The first start: no frame yet to draw a page's shape in, so the stork.
   pendingComponent: LoadingPage,

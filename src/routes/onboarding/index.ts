@@ -21,7 +21,8 @@ export const onboarding = createRoute({
       queryClient.ensureQueryData(peopleQuery),
       queryClient.ensureQueryData(extrasQuery),
     ]);
-    if (onboardingLeft({ me: people.me, onboardedAt: settings.onboardedAt, answers }).length === 0) throw redirect({ to: "/" });
+    if (people.mustChoosePassword) throw redirect({ to: "/password", search: { next: "/onboarding" } });
+    if (onboardingLeft({ onboardedAt: settings.onboardedAt, answers }).length === 0) throw redirect({ to: "/" });
   },
   pendingComponent: LoadingPage,
   component: lazyRouteComponent(() => import("../../features/onboarding/pages/Onboarding"), "OnboardingLayout"),

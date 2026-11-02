@@ -9,6 +9,7 @@ let dir: string;
 let gateModule: typeof import("../../src/server/auth/gate");
 let db: typeof import("../../src/server/core/db");
 let SessionRepo: typeof import("../../src/db/models/auth/repo").SessionRepo;
+let PeopleRepo: typeof import("../../src/db/models/people/repo").PeopleRepo;
 
 beforeAll(async () => {
   dir = mkdtempSync(join(tmpdir(), "expecting-gate-"));
@@ -17,6 +18,7 @@ beforeAll(async () => {
   gateModule = await import("../../src/server/auth/gate");
   db = await import("../../src/server/core/db");
   ({ SessionRepo } = await import("../../src/db/models/auth/repo"));
+  ({ PeopleRepo } = await import("../../src/db/models/people/repo"));
 });
 
 afterAll(() => {
@@ -49,8 +51,10 @@ describe("without a session", () => {
     expect(gateModule.gate(request(`/api/files/${id}/original?download`))?.status).toBe(401);
   });
 
-  test("the login page and the health check are open", () => {
+  test("the login page, joining, resetting and the health check are open", () => {
     expect(gateModule.gate(request("/login", { headers: { accept: "text/html" } }))).toBeNull();
+    expect(gateModule.gate(request("/join?code=ABC", { headers: { accept: "text/html" } }))).toBeNull();
+    expect(gateModule.gate(request("/reset", { headers: { accept: "text/html" } }))).toBeNull();
     expect(gateModule.gate(request("/api/health"))).toBeNull();
   });
 
@@ -62,9 +66,13 @@ describe("without a session", () => {
   });
 });
 
-test("with a session, every server function answers", () => {
-  const token = new SessionRepo(db.getDb()).create();
+test("with a session, every server function answers, and it says who", () => {
+  const sam = new PeopleRepo(db.getDb()).add("Sam", "carrying").id;
+  const token = new SessionRepo(db.getDb()).create(sam);
   const call = request("/api/rpc/abc", { method: "POST", headers: { cookie: `expecting_session=${token}` } });
   expect(gateModule.refuseFunction(call, PEOPLE)).toBeNull();
+  expect(gateModule.sessionOf(call)).toBe(sam);
+  // The cookie that once said who's holding the phone says nothing now.
+  expect(gateModule.sessionOf(request("/", { headers: { cookie: `expecting_person=${sam}` } }))).toBeNull();
   expect(gateModule.gate(request("/settings", { headers: { accept: "text/html", cookie: `expecting_session=${token}` } }))).toBeNull();
 });

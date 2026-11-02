@@ -10,7 +10,8 @@ const yes = () => true;
 
 function setUp() {
   const repo = new ConnectionsRepo(db());
-  const jason = new PeopleRepo(db()).add("Jason", "partner", now);
+  const people = new PeopleRepo(db());
+  const jason = people.list().find((p) => p.name === "Jason") ?? people.add("Jason", "partner", { now });
   const client = repo.register("Claude", ["https://claude.ai/api/mcp/auth_callback"], now);
   const code = repo.approve(client.id, jason.id, "challenge", client.redirectUris[0]!, now);
   return { repo, jason, client, code, redirect: client.redirectUris[0]! };

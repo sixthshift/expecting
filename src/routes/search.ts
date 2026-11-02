@@ -57,6 +57,8 @@ export const onboardingSearch = z.object({ after: z.string().optional().catch(un
 
 /** Login: where to go once in. */
 export const loginSearch = z.object({ next: z.string().optional() });
+/** /join and /reset: the code from the link, or none, to type it. */
+export const codeSearch = z.object({ code: z.string().max(40).optional() });
 
 /** Your people: which view (`visitors`, `hearing`, `help`, `gifts`); without, the first that's on. */
 export const peopleSearch = z.object({

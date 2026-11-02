@@ -1,8 +1,7 @@
-// The first-run questions, as steps. Pure: which steps a device sees follows
-// from what is already known, so a reload resumes where it left off and the
-// second parent's phone asks only who they are.
+// The first-run questions, as steps. Pure: which steps are asked follows
+// from what is already known, so a reload resumes where it left off. Who you
+// are isn't one: logging in (or setting up, or joining) has said it.
 //
-//   who        which person is holding this phone (every new device)
 //   due        the due date (once, for both of you)
 //   baby       boy, girl or don't know: the colours
 //   q:<key>    src/features/settings/model/facts.data.ts's `asked: onboarding` questions, once for
@@ -14,28 +13,25 @@
 import { ASKS, type Facts } from "../features/settings/model/facts";
 import { isAsked } from "./facts";
 
-export type Step = "who" | "due" | "baby" | "extras" | "ready" | `q:${string}`;
+export type Step = "due" | "baby" | "extras" | "ready" | `q:${string}`;
 
 export type OnboardingState = {
-  /** Whether this device has said who it is. */
-  known: boolean;
   /** Whether onboarding is finished. */
   onboarded: boolean;
   /** What has been said so far: a question depending on another is asked only when its answer fits. */
   facts?: Facts;
 };
 
-export function onboardingSteps({ known, onboarded, facts = {} }: OnboardingState): Step[] {
-  const steps: Step[] = known ? [] : ["who"];
-  if (onboarded) return steps;
-  steps.push("due", "baby");
+export function onboardingSteps({ onboarded, facts = {} }: OnboardingState): Step[] {
+  if (onboarded) return [];
+  const steps: Step[] = ["due", "baby"];
   for (const a of ASKS) if (a.question.asked === "onboarding" && isAsked(a, facts)) steps.push(`q:${a.key}`);
   steps.push("extras", "ready");
   return steps;
 }
 
 /** Every step there could be, in the order they're asked. */
-const ALL_STEPS = onboardingSteps({ known: false, onboarded: false });
+const ALL_STEPS = onboardingSteps({ onboarded: false });
 
 /**
  * The step to ask after `after`: the first of `steps` (what's left to ask,

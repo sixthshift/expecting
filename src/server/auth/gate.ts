@@ -1,6 +1,8 @@
-// Who may in: a request with a live session cookie, or any request when
-// EXPECTING_LOGIN=off. Everything else is sent to log in, or, before the
-// password is chosen, to choose one (the same page, /login).
+// Who may in: a request with a live session cookie, which says which of you
+// it is. Everything else is sent to log in, or, before anyone is here, to set
+// Expecting up (the same page, /login). EXPECTING_LOGIN=off stops asking for
+// passwords, not who you are: logging in is tapping your name, and the rule is
+// the same.
 //
 // Two checks share the rule. Pages and /api/* are judged by path, in request
 // middleware. A server function's path is a generated id, so it is judged by
@@ -32,9 +34,11 @@ export function loginOn(): boolean {
 
 export const limiter = new LoginLimiter();
 
-/** Paths anyone may reach: the login page, the health check, and how an MCP client gets a token (src/server/oauth/endpoints.ts). */
+/** Paths anyone may reach: the login page, joining and resetting by a code, the health check, and how an MCP client gets a token (src/server/oauth/endpoints.ts). */
 const OPEN = new Set([
   "/login",
+  "/join",
+  "/reset",
   "/api/health",
   "/.well-known/oauth-protected-resource",
   `/.well-known/oauth-protected-resource${MCP_PATH}`,
@@ -47,7 +51,7 @@ const OPEN = new Set([
 /** Where Start serves server functions. Those requests are judged by `refuseFunction`. */
 const SERVER_FN_BASE = process.env.TSS_SERVER_FN_BASE ?? "/api/rpc/";
 
-/** Files whose server functions anyone may call: choosing the password, logging in and out. Relative to the project root. */
+/** Files whose server functions anyone may call: setting up, logging in and out, joining and resetting by a code. Relative to the project root. */
 const OPEN_FUNCTIONS = new Set(["src/api/rpc/session.ts"]);
 
 export function isOpenPath(pathname: string): boolean {
@@ -58,10 +62,21 @@ export function isOpenFunction(filename: string): boolean {
   return OPEN_FUNCTIONS.has(filename);
 }
 
-export function hasSession(request: Request): boolean {
-  if (!loginOn()) return true;
+/** Each request's session, looked up once: the gate and the functions it lets through both ask. */
+const sessions = new WeakMap<Request, string | null>();
+
+/** Which of you `request` is logged in as, by its session cookie; null without a live session. */
+export function sessionOf(request: Request): string | null {
+  const known = sessions.get(request);
+  if (known !== undefined) return known;
   const token = readSessionCookie(request);
-  return token !== null && new SessionRepo(getDb()).check(token);
+  const person = token === null ? null : new SessionRepo(getDb()).check(token);
+  sessions.set(request, person);
+  return person;
+}
+
+export function hasSession(request: Request): boolean {
+  return sessionOf(request) !== null;
 }
 
 function unauthorised(): Response {
@@ -73,11 +88,9 @@ function unauthorised(): Response {
  * A page load is redirected to /login (remembering where it was going), and
  * an API call gets a bare 401. Server functions pass on to `refuseFunction`,
  * and /api/mcp to its handler, which asks `grantOf`.
- * With logins off, /login has nothing to ask, so it sends you on.
  */
 export function gate(request: Request): Response | null {
   const url = new URL(request.url);
-  if (!loginOn() && url.pathname === "/login") return Response.redirect(new URL(safeNext(url.searchParams.get("next")), url), 302);
   if (url.pathname.startsWith(SERVER_FN_BASE) || url.pathname === MCP_PATH || isOpenPath(url.pathname) || hasSession(request)) return null;
   const wantsPage = request.method === "GET" && (request.headers.get("accept") ?? "").includes("text/html");
   if (wantsPage) {
@@ -98,13 +111,7 @@ export function grantOf(request: Request): Grant | null {
   return token ? new ConnectionsRepo(getDb()).check(token) : null;
 }
 
-/** The client a failed login counts against: the proxy's view of it if there is one. */
+/** The client a failed login, or a wrong code, counts against: the proxy's view of it if there is one. */
 export function clientKey(request: Request): string {
   return request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "direct";
-}
-
-/** Where to go after logging in: a same-site path, never another origin. */
-export function safeNext(next: string | null | undefined): string {
-  if (!next?.startsWith("/") || next.startsWith("//") || next.startsWith("/\\")) return "/";
-  return next;
 }
