@@ -5,17 +5,17 @@
 // done in the Planner is its backbone, so a Journal nobody wrote in still
 // tells the story.
 
-import { type AppetiteEntry, describe as describeAppetite, sicknessWeeks, tally } from "./appetite";
+import { type AppetiteEntry, describe as describeAppetite } from "./appetite";
 import type { BingoMoment } from "./bingo";
-import { addDays, type ISODate, todayISO } from "./dates";
+import { type ISODate, todayISO } from "./dates";
 import type { Feeling } from "./feelings";
-import { feelingsOf, isOwn, STEP_LABEL } from "./feelings";
+import { isOwn, STEP_LABEL } from "./feelings";
 import { type FirstMark, firstOf, isMarked } from "./firsts";
 import { dayOf, type Night, nightLine, nightsOf, type Start } from "./itsTime";
-import { type JournalEntry, PATTERN_DAYS, type Place, placeOf, timeNow } from "./journal";
+import { type JournalEntry, type Place, placeOf, timeNow } from "./journal";
 import type { Paper } from "./papers";
 import { PAPER_KIND_LABEL } from "./papers";
-import { BUMP_SERIES, bumpWeeks, PHOTO_KIND_LABEL, type Photo } from "./photos";
+import { PHOTO_KIND_LABEL, type Photo } from "./photos";
 import type { Week } from "./timeline";
 import type { WeeklyPair } from "./weekly";
 
@@ -43,6 +43,10 @@ type StoryKind = StoryItem["kind"];
 /** The ways to look at the story: all of it, or one kind. */
 export const LENSES = ["all", "notes", "movements", "appetite", "photos", "feelings", "papers", "firsts"] as const;
 export type Lens = (typeof LENSES)[number];
+
+/** The lenses the story offers: ways to read it. The rest (movements, sickness and cravings, feelings, papers) are looked up in the records (`src/lib/records.ts`). */
+export const STORY_LENSES = ["all", "notes", "photos", "firsts"] as const satisfies readonly Lens[];
+export type StoryLens = (typeof STORY_LENSES)[number];
 
 export const LENS_LABEL: Record<Lens, string> = {
   all: "All",
@@ -253,9 +257,9 @@ export function keptIn(items: readonly StoryItem[]) {
 }
 
 /** The lenses there's something for, in their fixed order: All first, always. While something has happened, not the folded kinds. */
-export function lensesKept(items: readonly StoryItem[], quiet: boolean): Lens[] {
+export function lensesKept(items: readonly StoryItem[], quiet: boolean): StoryLens[] {
   const kept = new Set(items.filter((i) => !(quiet && foldedWhileQuiet(i))).map(lensOf));
-  return LENSES.filter((l) => l === "all" || kept.has(l));
+  return STORY_LENSES.filter((l) => l === "all" || kept.has(l));
 }
 
 /** Who a line names: `name` gives a person's name from their id. */
@@ -387,118 +391,6 @@ export function landmarks(firsts: readonly FirstMark[], dueDate: ISODate): { wee
       return typeof place === "number" ? [{ week: place, mark }] : [];
     })
     .sort((a, b) => a.week - b.week || a.mark.day.localeCompare(b.mark.day));
-}
-
-/**
- * How much a pattern needs before it's drawn: below it, the entries are
- * lines in the story. Movements on three days of the fortnight, sickness
- * in two weeks, a craving kept twice, three check-ins in four weeks, the
- * bump in two weeks. First guesses.
- */
-export const PATTERN_MIN = { movementDays: 3, sickWeeks: 2, cravingTimes: 2, checkIns: 3, bumpWeeks: BUMP_SERIES } as const;
-
-/** How far back the feelings' pattern looks, today among them. */
-const FEELING_DAYS = 28;
-
-export type Pattern = "movements" | "sickness" | "cravings" | "feelings" | "bump";
-
-/** The patterns there's enough for, in a fixed order. `me`: whose feelings (a pattern of your own); none without. */
-export function patternsKept({
-  items,
-  today,
-  dueDate,
-  me,
-  quiet,
-}: {
-  items: readonly StoryItem[];
-  today: ISODate;
-  dueDate: ISODate | null;
-  me: string | null;
-  quiet: boolean;
-}): Pattern[] {
-  const { journal, appetite, feelings, photos } = keptIn(items);
-  const from = addDays(today, 1 - PATTERN_DAYS);
-  const movedDays = new Set(journal.filter((e) => e.kind === "movement" && e.day >= from && e.day <= today).map((e) => e.day));
-  // Sickness is a pattern only while it's still going: some in the last fortnight, and in two weeks.
-  const sickLately = appetite.some((e) => e.kind === "sick" && e.day >= from && e.day <= today);
-  const sickWeeks = sickLately ? sicknessWeeks(appetite, today, dueDate).filter((w) => w.sickDays > 0).length : 0;
-  const craved = tally(appetite, "craving")[0]?.times ?? 0;
-  const checkIns = me ? feelingsOf(feelings, me).filter((f) => f.day >= addDays(today, 1 - FEELING_DAYS)).length : 0;
-  const all: [Pattern, boolean][] = [
-    ["movements", !quiet && movedDays.size >= PATTERN_MIN.movementDays],
-    ["sickness", !quiet && sickWeeks >= PATTERN_MIN.sickWeeks],
-    ["cravings", !quiet && craved >= PATTERN_MIN.cravingTimes],
-    ["feelings", checkIns >= PATTERN_MIN.checkIns],
-    ["bump", !quiet && bumpWeeks(photos, dueDate).length >= PATTERN_MIN.bumpWeeks],
-  ];
-  return all.filter(([, ok]) => ok).map(([p]) => p);
-}
-
-/** "a scan, 2 notes and movements": what a few lines hold, a phrase each kind. Movements are never counted. */
-export function summarise(items: readonly StoryItem[]): string {
-  const count = (pred: (i: StoryItem) => boolean) => items.filter(pred).length;
-  const phrase = (n: number, one: string, many: string) => (n === 0 ? null : n === 1 ? one : `${n} ${many}`);
-  const photos = items.flatMap((i) => (i.kind === "photo" ? [i.photo] : []));
-  const sick = count((i) => i.kind === "appetite" && i.entry.kind === "sick");
-  const parts = [
-    phrase(
-      count((i) => i.kind === "first"),
-      "a first",
-      "firsts"
-    ),
-    phrase(photos.filter((p) => p.kind === "scan").length, "a scan", "scans"),
-    phrase(photos.filter((p) => p.kind !== "scan").length, "a photo", "photos"),
-    phrase(
-      count((i) => i.kind === "letter"),
-      "a letter",
-      "letters"
-    ),
-    phrase(
-      count((i) => i.kind === "note"),
-      "a note",
-      "notes"
-    ),
-    phrase(
-      count((i) => i.kind === "paper"),
-      "a paper",
-      "papers"
-    ),
-    phrase(
-      count((i) => i.kind === "appetite" && i.entry.kind !== "sick"),
-      "a craving",
-      "cravings"
-    ),
-    sick > 0 ? "sickness" : null,
-    items.some((i) => i.kind === "movements") ? "movements" : null,
-    phrase(
-      count((i) => i.kind === "feeling"),
-      "a check-in",
-      "check-ins"
-    ),
-    phrase(
-      count((i) => i.kind === "done"),
-      "a thing done",
-      "things done"
-    ),
-    items.some((i) => i.kind === "night") ? "the night it started" : null,
-  ].filter((p): p is string => p !== null);
-  if (parts.length <= 1) return parts[0] ?? "";
-  return `${parts.slice(0, -1).join(", ")} and ${parts.at(-1)}`;
-}
-
-/** A craving's thread: how many times it's been kept, since when, and the last time before this one. */
-export function cravingThread(entries: readonly AppetiteEntry[], id: string): { what: string; times: number; first: ISODate; before: ISODate | null } | null {
-  const entry = entries.find((e) => e.id === id);
-  if (!entry || entry.kind === "sick" || !entry.what) return null;
-  const key = (what: string) => what.trim().toLocaleLowerCase("en-AU").replace(/\s+/g, " ");
-  const same = entries.filter((e) => e.kind === entry.kind && e.what && key(e.what) === key(entry.what!));
-  const days = same.map((e) => e.day).sort();
-  const before = same
-    .filter((e) => e.id !== id && (e.day < entry.day || (e.day === entry.day && e.createdAt < entry.createdAt)))
-    .map((e) => e.day)
-    .sort()
-    .at(-1);
-  return { what: entry.what, times: same.length, first: days[0] as ISODate, before: (before as ISODate | undefined) ?? null };
 }
 
 /** A week with nothing kept, on the story's spine: its number, and its note's title. */

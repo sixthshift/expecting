@@ -1,16 +1,16 @@
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
-import { useJournalQuery } from "../../../../../../api/rpc/journal";
-import { newestFirst } from "../../../../../../lib/journal";
-import { Movement } from "../../../entries/movements/Movement";
-import { MovementPattern } from "../../MovementPattern";
+import { useJournalQuery } from "../../../../../api/rpc/journal";
+import { newestFirst } from "../../../../../lib/journal";
+import { Movement } from "../../entries/movements/Movement";
+import { MovementPattern } from "../../story/MovementPattern";
 
 /** How many movements are listed before "Show all". */
 const LISTED = 8;
 
 /**
  * The Journal's Movements lens: the pattern, then each, newest first. New
- * ones come in through the "+" (and the Journal's Keep row); the lens is
+ * ones come in through the "+"; the lens is
  * there only once one is kept, and never while something has happened (the
  * Journal folds them away then).
  */
@@ -21,7 +21,7 @@ export function MovementsLens() {
   const listed = all ? movements : movements.slice(0, LISTED);
 
   return (
-    <section aria-labelledby="movements" className="flex max-w-2xl flex-col gap-4">
+    <section aria-labelledby="movements" className="flex flex-col gap-4">
       <h2 id="movements" className="text-lg font-display font-semibold text-fg-strong">
         Movements
       </h2>

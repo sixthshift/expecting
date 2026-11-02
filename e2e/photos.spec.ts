@@ -1,5 +1,5 @@
 // Photos and scans: a scan photographed from the "+", a bump photo from the
-// Journal's Keep row, each kept by whoever is holding the
+// "+" on the Journal, each kept by whoever is holding the
 // phone, sent up with its save and drawn back from the server behind the
 // gate. The Journal shows them by week and the bump week by week, the
 // timeline marks the week, and deleting asks first. Runs after the journey
@@ -59,9 +59,10 @@ test('a scan from the "+", kept by week in the Journal, drawn from the server, a
   await expect(page.locator('[data-week="28"]')).toContainText("scan");
 });
 
-test("a bump photo from the Keep row, then opened, and its original downloads only with a session", async ({ page, open, playwright }) => {
+test('a bump photo from the "+" on the Journal, then opened, and its original downloads only with a session', async ({ page, open, playwright }) => {
   await open("/journal");
-  await page.getByRole("list", { name: "Keep" }).getByRole("button", { name: "Photo" }).click();
+  await page.getByRole("button", { name: "Add", exact: true }).click();
+  await page.getByRole("dialog").getByRole("button", { name: "A photo or scan" }).click();
   const sheet = page.getByRole("dialog");
   await sheet.getByLabel("Take a photo").setInputFiles(await picture(page, "bump.jpg"));
   await sheet.getByRole("radio", { name: "Bump" }).click();

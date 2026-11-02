@@ -133,7 +133,7 @@ export function PhotosLens({ quiet }: { quiet: QuietKind | null }) {
   const open = (id: string) => setViewing({ ids: order, index: Math.max(0, order.indexOf(id)) });
 
   return (
-    <section aria-labelledby="photos" className="flex max-w-3xl flex-col gap-4">
+    <section aria-labelledby="photos" className="flex flex-col gap-4">
       <h2 id="photos" className="text-lg font-display font-semibold text-fg-strong">
         Photos and scans
       </h2>

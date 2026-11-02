@@ -47,7 +47,7 @@ vi.mock("../../../src/app/hooks/useSave", () => ({
 vi.mock("../../../src/app/components/layout/CallBirthSuite", () => ({ CallBirthSuite: () => <a href="tel:0390000000">Call the birth suite</a> }));
 vi.mock("../../../src/features/library/components/ItemLink", () => ({ ItemLink: ({ children }: { children: ReactNode }) => children }));
 vi.mock("@sixthshift/design-system/overlay", () => ({ toast: (t: { title: string }) => toasts.push(t) }));
-// Where the sheet was opened: kept from the Journal itself, there's no toast, the Journal shows it.
+// Where the sheet was opened: kept from the Journal itself, the toast has no way there.
 let pathname = "/";
 const navigated: unknown[] = [];
 vi.mock("../../../src/api/rpc/firsts", () => ({ firstsSaves: { markFirst: { key: "markFirst" } }, useFirstsQuery: () => ({ data: [] }) }));
@@ -224,7 +224,7 @@ describe("CaptureSheet", () => {
     expect(picker.accept).toBe("image/*,application/pdf");
   });
 
-  it("kept from the Journal itself: no toast, the Journal shows it as just kept", () => {
+  it("kept from the Journal itself: said, with no way there, and the page stays", () => {
     pathname = "/journal";
     const onClose = vi.fn();
     render(<CaptureSheet initial="note" onClose={onClose} />);
@@ -233,8 +233,8 @@ describe("CaptureSheet", () => {
     const { input } = saved[0] as { input: { id: string; kind: string } };
     expect(input.kind).toBe("note");
     expect(onClose).toHaveBeenCalled();
-    expect(toasts).toEqual([]);
-    expect(navigated).toEqual([{ to: "/journal", search: { kept: input.id } }]);
+    expect(toasts).toEqual([{ title: "Note kept", children: "In the Journal" }]);
+    expect(navigated).toEqual([]);
   });
 
   it("a first: which, when, then its question", () => {

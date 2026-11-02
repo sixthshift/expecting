@@ -1,13 +1,14 @@
 import { getRouteApi } from "@tanstack/react-router";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { usePeopleQuery } from "../../../../api/rpc/people";
 import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { foldedWhileQuiet, storyGroups, storyMatches, weekTiles } from "../../../../lib/story";
 import type { Week } from "../../../../lib/timeline";
-import { useJournalPage, useJournalSearch } from "../../contexts/JournalPageContext";
+import { useJournalPage } from "../../contexts/JournalPageContext";
+import { useLens } from "../../hooks/useLens";
 import { LensView } from "../story/LensView";
 import { StoryList } from "../story/Story";
-import { LensBar, ZoomAndSearch } from "../story/StoryTools";
+import { StoryControls } from "../story/StoryTools";
 import { PregnancyZoom, WeeksZoom } from "../story/Zoom";
 
 const route = getRouteApi("/app/journal");
@@ -20,8 +21,9 @@ const route = getRouteApi("/app/journal");
  * recaps and no book.
  */
 export function QuietStory() {
-  const { quiet, items, lens, lenses } = useJournalPage();
-  const { words, setWords } = useJournalSearch();
+  const { quiet, items } = useJournalPage();
+  const { lens, lenses } = useLens(items, true);
+  const [words, setWords] = useState("");
   const { zoom, at } = route.useSearch();
   const navigate = route.useNavigate();
   const { data: settings } = useSettingsQuery();
@@ -43,13 +45,12 @@ export function QuietStory() {
   return (
     <>
       <h2 className="font-display text-xl font-semibold text-fg-strong">The story so far</h2>
-      <LensBar lens={lens} lenses={lenses} />
+      <StoryControls lenses={lenses} zoomable={Boolean(dueDate)} searchable={shown.length > 1} words={words} onWords={setWords} />
 
       {lens !== "all" ? (
         <LensView lens={lens} items={shown} quiet={quiet} />
       ) : (
-        <section aria-label="The story" className="flex max-w-2xl flex-col gap-4">
-          <ZoomAndSearch zoomable={Boolean(dueDate)} searchable={shown.length > 1} words={words} onWords={setWords} />
+        <section aria-label="The story" className="flex flex-col gap-4">
           {zoom === "weeks" && dueDate ? (
             <WeeksZoom tiles={weekTiles(shown, dueDate, now)} now={now} onOpen={openWeek} />
           ) : zoom === "pregnancy" && dueDate ? (

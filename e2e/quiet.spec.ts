@@ -61,10 +61,12 @@ test("hard news quiets every pillar, and becomes a loss", async ({ page, open })
   await expect(page.getByRole("link", { name: /^Our pregnancy/ })).toBeHidden();
   await expect(page.getByRole("region", { name: "Your book" })).toBeHidden();
   await expect(page.getByRole("radio", { name: "Movements" })).toBeHidden();
-  await expect(page.getByRole("list", { name: "Keep" }).getByRole("button", { name: "Moved" })).toBeHidden();
-  await expect(page.getByRole("list", { name: "Keep" }).getByRole("button", { name: "Note" })).toBeVisible();
-  await expect(page.getByRole("region", { name: "Now" })).toBeHidden();
-  await expect(page.getByRole("region", { name: "Lately" })).toBeHidden();
+  // The "+" offers what can still be kept: a note, never a movement.
+  await page.getByRole("button", { name: "Add", exact: true }).click();
+  await expect(page.getByRole("dialog").getByRole("button", { name: "A note" })).toBeVisible();
+  await expect(page.getByRole("dialog").getByRole("button", { name: "The baby moved" })).toBeHidden();
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("dialog")).toBeHidden();
   await page.getByRole("button", { name: "What you kept before" }).click();
   const kept = page.getByRole("region", { name: "What you kept before" });
   await expect(kept.getByText("Felt moving").first()).toBeVisible();
@@ -73,6 +75,14 @@ test("hard news quiets every pillar, and becomes a loss", async ({ page, open })
   // Plain: no bump week by week, no frame for this week.
   await expect(page.getByRole("region", { name: "Your bump, week by week" })).toBeHidden();
   await expect(kept.getByRole("button", { name: "Add a photo" })).toBeVisible();
+
+  // The records keep to what stays: no movements, no sickness and cravings, even asked for by address.
+  await open("/journal/records");
+  await expect(page.getByRole("region", { name: "Movements" })).toBeHidden();
+  await expect(page.getByRole("region", { name: "Sickness" })).toBeHidden();
+  await expect(page.getByRole("region", { name: "Cravings" })).toBeHidden();
+  await open("/journal/records?show=movements");
+  await expect(page.getByRole("button", { name: "All records" })).toBeHidden();
 
   // The Drawer is put away; Emergency info stops counting the weeks.
   await open("/drawer");

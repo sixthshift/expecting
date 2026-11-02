@@ -40,7 +40,7 @@ export function FirstsLens() {
   const [marking, setMarking] = useState(false);
   const marked = firsts.filter(isMarked).sort((a, b) => a.day.localeCompare(b.day));
   return (
-    <section aria-labelledby="firsts" className="flex max-w-2xl flex-col gap-3">
+    <section aria-labelledby="firsts" className="flex flex-col gap-3">
       <div className="flex items-center justify-between gap-2">
         <h2 id="firsts" className="font-display text-lg font-semibold text-fg-strong">
           Firsts

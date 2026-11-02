@@ -20,7 +20,13 @@ in The pillars, and Uploads.
    plan at triage.
 5. **"What did they add?"** What the other one kept since you last looked.
 
-None of them is "choose a kind, then fill in its form".
+None of them is "choose a kind, then fill in its form". The first two are
+reading back, and the story answers them; the third and fourth are looking
+something up, often under pressure, and the records answer them. Two ways
+in, at the top of the Journal: Story (`/journal`) and Records
+(`/journal/records`). The fifth has no answer of its own since the
+highlights went (below); a quiet mark on the other's lines is the likely
+one.
 
 ## What it holds to
 
@@ -71,12 +77,17 @@ None of them is "choose a kind, then fill in its form".
 
 ## The page
 
-Made for the moment, in the order you need it: now first, then the story.
+One story, newest first, made for the moment: it opens on now.
 
-- **This week's page first:** the week, its note's title, the baby this
-  week, the firsts that usually come now (each with its question, to write
-  or put off for the week), the Keep row, and what's kept this week. "Did
-  it go in?" and "what's now?" are why most visits happen.
+- **This week is the story's first page,** not a part beside it: the week,
+  its note's title, the baby this week, the firsts that usually come now
+  (each with its question, to write or put off for the week), the Keep
+  row, and what's kept this week; then every week before it. "Did it go
+  in?" and "what's now?" are why most visits happen. Until 2026-11-02 the
+  week and the story were two parts, the story leaving this week out and
+  the week hiding its days while the story was in a lens or zoomed: one
+  story has no seam to keep in step. In a lens, zoomed or searched, that
+  is the story instead, this week's page with it.
 - **The book, already begun.** From the first visit there's a cover (Our
   pregnancy, your names, the due month and year) and contents: the
   pregnancy's chapters, each with the firsts that usually come in it.
@@ -110,34 +121,82 @@ Made for the moment, in the order you need it: now first, then the story.
 - **Catching up, as a courtesy:** "Some of this has already happened. You
   can still keep it, on the day it was." So opening the Journal for the
   first time at week 14 misses nothing for good.
-- **The Keep row:** the "+"'s Journal choices, opening the same forms,
-  each written once. Under each, what it becomes (a bump photo "lined up
-  week by week", a letter "for them to read one day"): facts, not a pitch.
-  Kept from here there's no toast, because the page shows it as just kept.
+- **No Keep row.** There was a row of the "+"'s Journal choices (Moved,
+  Sick, Craving, Note, …) on this week's page. Taken out (2026-11-02): it
+  was drawn as the same pills as the ways to look at the story, under
+  them, so adding read as filtering, and the "+" is on every page for it.
+  Kept from the "+" on the Journal, the toast says so with no way there:
+  it's on this week's page, in front of you.
 - **A call to make, always first,** outside the count: a movement felt as
   slower, weaker or stopped in the last two days, or can't keep fluids
   down today.
-- **Now: at most two cards, by fixed rules in a fixed order,** so nothing
-  jumps about between visits: just kept, with its thread ("Again: first
-  time since week 22"); since you looked, what the other kept (never a
-  feeling or a tick); a first to claim, suggested from what's kept; a
-  recap, a trimester's the week after it ends and the whole pregnancy's
-  from week 37; last week, in a week's first two days; this day, two or
-  more whole weeks ago.
-- **Lately:** the patterns there's enough for, each opening its lens.
+- **No column of highlights.** There were Now cards (just kept, since you
+  looked, a first suggested from what's kept, a recap, last week, this day
+  weeks ago) and Lately (the patterns, each opening its lens) beside the
+  story. Taken out (2026-11-02): they showed again what the week and the
+  story already show, and they steered the story from beside it. The page
+  is one story, in one column; the patterns are in the records; the recaps
+  are on the whole pregnancy's line.
 - **The story, like a diary, not rows.** A list of records reads like a
   database, so the day sits in the margin, the words run as writing,
   photos are large, a day's movements are one line of times, a day's same
   craving is one chip ("Pickles, twice"), and a line has no buttons: tap
   it to change or delete it. Every week back to the first is on the spine
-  with its note's title. Lenses (Notes, Movements, Sickness & cravings,
-  Photos, Feelings, Papers, Firsts) each appear once they have something,
-  as their pattern at full size, their tools, then their entries. Search
-  covers everything. Zoom goes from days to weeks (a tile a week) to the
-  pregnancy (weeks 1–42 as one line, the firsts as landmarks).
+  with its note's title. One row of ways to look at it, one
+  at a time: Days (all of it), Weeks (a tile a week), Whole pregnancy
+  (weeks 1–42 as one line, the firsts as landmarks), then a kind once
+  there's something of it (Notes, Photos, Firsts). They were two rows, the
+  lenses and the zoom, though only one could be open: one choice, one
+  row. The search under it covers everything, in days: typing leaves a
+  zoom or a kind.
 - **Recaps,** a part only when it has something: the firsts, the bump as a
   flipbook, the scans, the most craved, both voices, the letters, what got
   done. Stepped through card by card, or printed as the book.
+
+## The records
+
+What's kept, said short, to look up rather than read back: the answer to
+the midwife's "since when?", "how often?", "is it easing?", and the paper
+asked for at triage. The lines are counts, days and weeks from what's kept
+(`src/lib/records.ts`): never "normal", never a score, never advice; a
+kind with nothing kept has no record.
+
+- **An answer first.** Each record leads with one short answer, large
+  enough to read across a room ("10 of the last 14 days", "None since week
+  13", "Mostly good"), and the lines behind it under it, quietly. Four
+  blocks of sentences of the same weight read as a report; nobody finds
+  the answer in one at an appointment.
+- **Now first.** Lately (anything in the last fortnight), then Earlier. At
+  week 38, sickness from weeks 6 to 13 is history: it goes under Earlier.
+- **The papers to hand at the top,** the handy ones, to open at triage;
+  the latest three at the bottom, and every one from there.
+- **Copy as text,** the whole page as plain lines, to paste into a message
+  or the hospital's form: what's on the page, nothing more.
+- **Each opens at full size:** its pattern, its tools, then every one
+  (`?show=movements`, `appetite`, `feelings`, `papers`), with All records
+  to go back.
+
+The records:
+
+- **Movements:** how many of the last fortnight's days; any felt as
+  slower, weaker or stopped lately, first; the parts of the day they're
+  kept in; the last; since when. The fortnight's pattern under it.
+- **Sickness:** how many of the last fortnight's days, or none since when;
+  each spell (a gap of more than a fortnight starts another), the week or
+  weeks with the most, the days it threw up or couldn't keep fluids down.
+- **Cravings:** the most craved (all of them, when they tie); then
+  everything craved and gone off, most often first.
+- **Feelings:** over four weeks, mostly what (yours, if you checked in);
+  each of you who did, how many days and mostly what; your own words most
+  used, which only your phone has.
+
+While something has happened, the records keep to what stays, as the
+story does: feelings and papers. Movements and sickness and cravings are
+folded away, even asked for by address.
+
+These were lenses on the story until 2026-11-02: tabs beside Notes and
+Photos, under a diary, where the one thing wanted at an appointment was a
+scroll and a tab away.
 
 ## What's kept, kind by kind
 
@@ -288,10 +347,9 @@ packed, it started. Each has the weeks it usually comes in and a question
 ("Where were you?"), answered by each of you in your own words. A first
 has one day, the shared moment's, even when it came to each of you apart
 ("She told me that Sunday" is in the words); the ones that truly differ are
-already two firsts (the first kick, felt from the outside). Some are
-suggested from what's kept or done (the first scan photo, the first
-movement, the cot and bag ticks), only ever as a question to confirm, on a
-day you can move, or put aside; never marked on their own.
+already two firsts (the first kick, felt from the outside). A task that
+keeps a first (the cot, the bag) has a way to mark it beside its tick;
+nothing is marked on its own.
 
 ## While something has happened
 
@@ -299,7 +357,7 @@ Nothing about what the pregnancy would have become, and nothing lost.
 
 It's drawn as its own page, not the Journal with parts taken away: from the
 same data, written as what it is, so a change to how one looks can't reach
-into the other. They share only the story's parts, the Keep row and Lately.
+into the other. They share only the story's parts.
 
 - **Kept, as it was:** notes, letters, feelings, papers and what was done.
   Papers are admin, and after a loss there are more, not fewer: the section
@@ -311,8 +369,7 @@ into the other. They share only the story's parts, the Keep row and Lately.
   else, never Bump: some parents want to keep a scan or a photo of their
   baby afterwards.
 - **Gone:** no week counted, nothing about the baby, no book cover or
-  contents, no places, no catching up, no Now cards (but a call), no
-  Lately, no recaps, no "weeks ago", no suggested firsts, no bump frame, no
+  contents, no places, no catching up, no recaps, no "weeks ago", no suggested firsts, no bump frame, no
   scrubber.
 - **A Rough check-in** points to the loss support entries rather than PANDA
   alone. This week asks nothing.

@@ -1,5 +1,4 @@
-import { getRouteApi } from "@tanstack/react-router";
-import { createContext, type ReactNode, use, useMemo, useState } from "react";
+import { createContext, type ReactNode, use, useMemo } from "react";
 import { useAppetiteQuery } from "../../../api/rpc/appetite";
 import { useBingoQuery } from "../../../api/rpc/bingo";
 import { useChecklistQuery } from "../../../api/rpc/checklist";
@@ -17,50 +16,32 @@ import { moments } from "../../../lib/bingo";
 import { todayISO } from "../../../lib/dates";
 import { extrasOn } from "../../../lib/extras";
 import type { QuietKind } from "../../../lib/quiet";
-import { type Lens, lensesKept, type StoryItem, storyItems } from "../../../lib/story";
+import { type StoryItem, storyItems } from "../../../lib/story";
 import { pairs } from "../../../lib/weekly";
 import { useTasks } from "../../tasks/hooks/useTasks";
-import { type HighlightsData, useHighlights } from "../hooks/useHighlights";
-
-const route = getRouteApi("/app/journal");
 
 /**
- * The Journal's context: its state, what must be worked out once, and what
- * several parts must agree on. What only one part needs, that part works
- * out (the quiet story's lines, what's folded away, whether the week draws
- * its days).
+ * The Journal's context: what must be worked out once. What only one part
+ * needs, that part works out (the lens, the quiet story's lines, what's
+ * folded away).
  */
 export type JournalPage = {
   /** What has happened, or null: which page draws it (`Journal` or `QuietJournal`). */
   quiet: QuietKind | null;
   /** The story: everything kept, and what was done, newest first: `storyItems` over the queries, built once. */
   items: StoryItem[];
-  /** The lens open (`?show=`, or all when it has nothing), and the lenses there's something in (while quiet, not the folded kinds). */
-  lens: Lens;
-  lenses: Lens[];
-  /** What matters now and the patterns there's enough for: while quiet, no Now cards and only feelings' pattern. */
-  highlights: HighlightsData;
 };
 
-/** The words the story is searched with, and their setter. */
-export type JournalSearch = { words: string; setWords: (words: string) => void };
-
-// Two contexts, so typing in the search draws again only what reads the words (the story, the week so far), not the highlights or the layout.
 const PageContext = createContext<JournalPage | null>(null);
-const SearchContext = createContext<JournalSearch | null>(null);
 
 /**
  * The Journal's context: its data layer, what its pages draw, worked out
  * once. It holds no data of its own: the queries stay in the query cache,
- * read through their hooks. The story is built here once, for the parts
- * that read it; the lens is worked out here, as the story and the week so
- * far must agree on it; `useHighlights` is called here and nowhere else, as
- * it marks the Journal seen and keeps when you last looked. What's drawn
- * from it is the page's: `Journal`, or while something has happened
- * `QuietJournal`.
+ * read through their hooks. The story is built here once, and whether
+ * something has happened decides which page draws it: `Journal`, or
+ * `QuietJournal`. KeptBefore reads the story too, beside the quiet one.
  */
 export function JournalPageProvider({ children }: { children: ReactNode }) {
-  const { show } = route.useSearch();
   // The story: everything kept, and what was done, newest first, built once for the page.
   const { data: journal } = useJournalQuery();
   const { data: appetite } = useAppetiteQuery();
@@ -97,19 +78,10 @@ export function JournalPageProvider({ children }: { children: ReactNode }) {
   const items = useKeepSame(built);
   const { data: quietNow } = useQuietQuery();
   const quiet = quietNow?.kind ?? null;
-  const lenses = useMemo(() => lensesKept(items, quiet !== null), [items, quiet]);
-  const lens = show && lenses.includes(show) ? show : "all";
-  const highlights = useHighlights(items, quiet !== null);
-  const [words, setWords] = useState("");
 
-  const page = useMemo(() => ({ quiet, items, lens, lenses, highlights }), [quiet, items, lens, lenses, highlights]);
-  const search = useMemo(() => ({ words, setWords }), [words]);
+  const page = useMemo(() => ({ quiet, items }), [quiet, items]);
 
-  return (
-    <PageContext value={page}>
-      <SearchContext value={search}>{children}</SearchContext>
-    </PageContext>
-  );
+  return <PageContext value={page}>{children}</PageContext>;
 }
 
 /** What the Journal's pages draw, inside `JournalPageProvider`. */
@@ -117,11 +89,4 @@ export function useJournalPage(): JournalPage {
   const page = use(PageContext);
   if (!page) throw new Error("useJournalPage must be called inside JournalPageProvider");
   return page;
-}
-
-/** The story's search words, inside `JournalPageProvider`. */
-export function useJournalSearch(): JournalSearch {
-  const search = use(SearchContext);
-  if (!search) throw new Error("useJournalSearch must be called inside JournalPageProvider");
-  return search;
 }

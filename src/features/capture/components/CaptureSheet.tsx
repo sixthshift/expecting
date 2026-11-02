@@ -61,7 +61,7 @@ const CHOICE: Record<Capture, { label: string; icon: LucideIcon; becomes: string
 };
 
 /**
- * `initial`: open on that one's form (the Journal's Keep row, a task that keeps something). `letter`: a note
+ * `initial`: open on that one's form (a place made ready, a task that keeps something). `letter`: a note
  * starts as a letter to the baby; `first`: a first starts at that one. `shared`: what another app shared, to
  * keep. `onKept` once something is kept, before the sheet closes.
  */
@@ -97,21 +97,12 @@ export function CaptureSheet({
   const files = shared?.files.length ? shared.files : undefined;
   const text = shared?.text ?? undefined;
 
-  /** Kept: close, and say what was kept and where it went, with the way there; in the Journal, show it there as just kept. */
-  function filed(capture: Capture, id?: string) {
+  /** Kept: close, and say what was kept and where it went, with the way there unless you're there. */
+  function filed(capture: Capture) {
     const { pillar, to, kept } = FILED_IN[capture];
     onKept?.();
     onClose();
-    if (to === "/journal" && pathname === "/journal") {
-      navigate({ to: "/journal", search: { kept: id } });
-      return;
-    }
-    toast({
-      title: kept,
-      children: `In the ${pillar}`,
-      action: "See it",
-      onAction: () => (to === "/journal" ? navigate({ to: "/journal", search: { kept: id } }) : navigate({ to })),
-    });
+    toast({ title: kept, children: `In the ${pillar}`, ...(pathname === to ? {} : { action: "See it", onAction: () => navigate({ to }) }) });
   }
 
   return (
@@ -153,21 +144,21 @@ export function CaptureSheet({
             })}
           </ul>
         ) : chosen === "movement" ? (
-          <AddMovement onAdded={(id) => filed("movement", id)} />
+          <AddMovement onAdded={() => filed("movement")} />
         ) : chosen === "sick" ? (
-          <AddSickness onAdded={(id) => filed("sick", id)} />
+          <AddSickness onAdded={() => filed("sick")} />
         ) : chosen === "craving" ? (
-          <AddCraving onAdded={(id) => filed("craving", id)} />
+          <AddCraving onAdded={() => filed("craving")} />
         ) : chosen === "note" ? (
-          <AddNote text={text} letter={letter} onAdded={(id) => filed("note", id)} />
+          <AddNote text={text} letter={letter} onAdded={() => filed("note")} />
         ) : chosen === "photo" ? (
-          <AddPhoto files={files} onAdded={(id) => filed("photo", id)} />
+          <AddPhoto files={files} onAdded={() => filed("photo")} />
         ) : chosen === "paper" ? (
-          <AddPaper files={files} onAdded={(id) => filed("paper", id)} />
+          <AddPaper files={files} onAdded={() => filed("paper")} />
         ) : chosen === "feeling" && people.me ? (
-          <CheckInNow me={people.me} onDone={(id) => filed("feeling", id)} />
+          <CheckInNow me={people.me} onDone={() => filed("feeling")} />
         ) : chosen === "first" ? (
-          <MarkFirst first={first} onAdded={(key) => filed("first", key)} />
+          <MarkFirst first={first} onAdded={() => filed("first")} />
         ) : chosen === "question" ? (
           <AddQuestion text={text} onAdded={() => filed("question")} />
         ) : chosen === "task" ? (

@@ -48,11 +48,6 @@ export function captureChoices({ holding, quiet, movements }: { holding: boolean
   return all.filter(([, offered]) => offered).map(([c]) => c);
 }
 
-/** The ones the Journal keeps: its Keep row. */
-export function journalChoices(choices: readonly Capture[]): Capture[] {
-  return choices.filter((c) => FILED_IN[c].pillar === "Journal");
-}
-
 /**
  * What something shared into Expecting can become, of what's offered now, in
  * the same order. Pictures, a photo or a paper (a letter photographed is a

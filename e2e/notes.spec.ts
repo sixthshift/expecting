@@ -5,7 +5,8 @@ import { expect, test } from "./fixtures";
 
 test("a note is kept, changed, deleted and put back, and shows on its week", async ({ page, open }) => {
   await open("/journal");
-  await page.getByRole("list", { name: "Keep" }).getByRole("button", { name: "Note" }).click();
+  await page.getByRole("button", { name: "Add", exact: true }).click();
+  await page.getByRole("dialog").getByRole("button", { name: "A note" }).click();
   await page.getByRole("dialog").getByRole("textbox", { name: "New note" }).fill("Felt the first flutter on the bus");
   await page.getByRole("dialog").getByRole("button", { name: "Keep it" }).click();
   // On this week's page, on its day, written like a diary: no buttons on the line.

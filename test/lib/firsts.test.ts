@@ -1,25 +1,7 @@
 import { expect, test } from "vitest";
 import { builtInTasks } from "../../src/content";
-import type { Task } from "../../src/content/schema";
-import type { FirstMark } from "../../src/lib/firsts";
-import { alreadyHappened, aroundNow, FIRSTS, firstsOffered, suggestFirsts } from "../../src/lib/firsts";
-import type { StorySources } from "../../src/lib/story";
-import { appetite, entry, first, photo, story } from "./storyFixtures";
-
-const people = [
-  { id: "sam", name: "Sam", role: "carrying" as const },
-  { id: "alex", name: "Alex", role: "partner" as const },
-];
-/** The firsts suggested by a story of what's given, its ticks titled from `tasks`. */
-function suggest({
-  marks = [],
-  tasks = builtInTasks,
-  quiet = false,
-  ...kept
-}: Partial<StorySources> & { marks?: FirstMark[]; tasks?: readonly Pick<Task, "id" | "keeps">[]; quiet?: boolean }) {
-  const items = story({ ...kept, titles: new Map(tasks.map((t) => [t.id, t.id])) });
-  return suggestFirsts({ items, marks, tasks, people, quiet });
-}
+import { alreadyHappened, aroundNow, FIRSTS, firstsOffered } from "../../src/lib/firsts";
+import { first } from "./storyFixtures";
 
 test("the cot and the bag keep their firsts", () => {
   const keeps = (id: string) => builtInTasks.find((t) => t.id === id)?.keeps;
@@ -27,42 +9,9 @@ test("the cot and the bag keep their firsts", () => {
   expect(keeps("pack-hospital-bag")).toEqual({ first: "bag-packed" });
 });
 
-test("a task ticked suggests the first it keeps, and only that", () => {
-  const tasks = [
-    { id: "t", keeps: { first: "told-family" as const } },
-    { id: "u", keeps: "letter" as const },
-  ];
-  const ticks = { t: "2026-05-02T01:00:00.000Z", u: "2026-05-03T01:00:00.000Z" };
-  expect(suggest({ tasks, ticks }).map((s) => s.key)).toEqual(["told-family"]);
-});
-
 test("boy or girl only when you know", () => {
   expect(firstsOffered(false).some((f) => f.key === "boy-or-girl")).toBe(false);
   expect(firstsOffered(true)).toHaveLength(FIRSTS.length);
-});
-
-test("suggested from the earliest of what's kept and done, in order", () => {
-  const suggestions = suggest({
-    journal: [entry("movement", "2026-07-20", { by: "alex", time: "08:00" }), entry("movement", "2026-07-14", { by: "sam", time: "21:00" })],
-    photos: [photo("scan", "2026-05-01"), photo("scan", "2026-04-02"), photo("bump", "2026-06-01")],
-    appetite: [appetite("craving", "2026-05-10"), appetite("sick", "2026-04-01")],
-    ticks: { "pack-hospital-bag": "2026-12-01T22:00:00.000Z" },
-  });
-  expect(suggestions.map((s) => [s.key, s.day])).toEqual([
-    ["first-craving", "2026-05-10"],
-    ["first-scan", "2026-04-02"],
-    ["showing", "2026-06-01"],
-    ["first-kick", "2026-07-14"],
-    ["felt-outside", "2026-07-20"],
-    ["bag-packed", expect.stringMatching(/^2026-12-0[12]$/)],
-  ]);
-});
-
-test("never one marked or put aside, and none while something has happened", () => {
-  const photos = [photo("scan", "2026-04-02")];
-  expect(suggest({ photos, marks: [first("first-scan", null)] })).toEqual([]);
-  expect(suggest({ photos, marks: [first("first-scan", "2026-04-01")] })).toEqual([]);
-  expect(suggest({ photos, quiet: true })).toEqual([]);
 });
 
 test("around now: the firsts whose weeks take this one in, two at most; already happened: those whose weeks are past", () => {

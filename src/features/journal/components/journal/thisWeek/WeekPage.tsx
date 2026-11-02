@@ -1,7 +1,7 @@
 // This week's page: the top of the Journal, already partly written before
 // anything is kept. The week, its note's title and the baby this week (from
 // the week notes); around now, the firsts whose weeks take this one in, each
-// an invitation with its question, answered in your own words; the Keep row;
+// an invitation with its question, answered in your own words;
 // and what's kept this week, as the diary draws it. Then the places
 // Expecting has made ready, and what's already happened that can still be
 // kept. Nothing about the baby while something has happened.
@@ -11,7 +11,7 @@ import { Card } from "@sixthshift/design-system/card";
 import { Modal } from "@sixthshift/design-system/modal";
 import { Textarea } from "@sixthshift/design-system/textarea";
 import { Camera, FileText, Star } from "lucide-react";
-import { type ReactNode, useState } from "react";
+import { useState } from "react";
 import { firstsSaves } from "../../../../../api/rpc/firsts";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSave } from "../../../../../app/hooks/useSave";
@@ -110,15 +110,15 @@ function sizeLine(week: Week): string | null {
   return `${label.charAt(0).toUpperCase()}${label.slice(1)}.`;
 }
 
-/** This week's page. `keep` is the Keep row, drawn under the invitations. */
-export function WeekPage({ week, around, days, keep }: { week: Week; around: readonly FirstDef[]; days: readonly StoryDay[]; keep: ReactNode }) {
+/** This week's page: the week, the firsts around now, and what's kept this week. */
+export function WeekPage({ week, around, days }: { week: Week; around: readonly FirstDef[]; days: readonly StoryDay[] }) {
   const [notYet, putOff] = useOnThisPhone("expecting:first-not-yet");
   const note = noteFor(weekNotes, week);
   const shown = around.filter((f) => !notYet.includes(`${f.key}@${week}`));
   const size = sizeLine(week);
 
   return (
-    <section aria-label="This week" className="flex flex-col gap-5">
+    <section id={`week-${week}`} aria-label="This week" className="flex scroll-mt-4 flex-col gap-5">
       <header className="flex flex-col gap-2 rounded-xl bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) p-5">
         <p className="text-sm font-medium tracking-wide text-fg-subtle uppercase">This week</p>
         <h2 className="flex flex-wrap items-baseline gap-x-3">
@@ -141,8 +141,6 @@ export function WeekPage({ week, around, days, keep }: { week: Week; around: rea
           </ul>
         </section>
       ) : null}
-
-      {keep}
 
       {days.length > 0 ? <Days days={days} /> : null}
     </section>

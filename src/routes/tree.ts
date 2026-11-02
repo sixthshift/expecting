@@ -17,6 +17,7 @@ import { index } from "./index";
 import { itsTime } from "./itsTime";
 import { journal } from "./journal";
 import { journalBook } from "./journalBook";
+import { journalRecords } from "./journalRecords";
 import { library } from "./library";
 import { libraryItem } from "./libraryItem";
 import { notFound } from "./notFound";
@@ -54,6 +55,7 @@ export const routeTree = rootRoute.addChildren([
     plannerList,
     plannerWeeks,
     journal,
+    journalRecords,
     journalBook,
     drawer,
     drawerNames,
