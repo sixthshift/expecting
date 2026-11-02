@@ -7,5 +7,5 @@ export const onboardingNext = createRoute({
   getParentRoute: () => onboarding,
   path: "/",
   validateSearch: onboardingSearch,
-  component: lazyRouteComponent(() => import("../../features/onboarding/pages/Onboarding"), "OnboardingNext"),
+  component: lazyRouteComponent(() => import("../../features/onboarding/pages/OnboardingNext"), "OnboardingNext"),
 });

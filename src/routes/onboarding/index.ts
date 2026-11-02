@@ -25,5 +25,5 @@ export const onboarding = createRoute({
     if (onboardingLeft({ onboardedAt: settings.onboardedAt, answers }).length === 0) throw redirect({ to: "/" });
   },
   pendingComponent: LoadingPage,
-  component: lazyRouteComponent(() => import("../../features/onboarding/pages/Onboarding"), "OnboardingLayout"),
+  component: lazyRouteComponent(() => import("../../features/onboarding/pages/OnboardingLayout"), "OnboardingLayout"),
 });
