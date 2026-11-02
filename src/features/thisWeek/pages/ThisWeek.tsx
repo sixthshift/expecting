@@ -1,33 +1,21 @@
 import { useAppointmentsQuery } from "../../../api/rpc/appointments";
-import { useChecklistQuery } from "../../../api/rpc/checklist";
 import { useJournalQuery } from "../../../api/rpc/journal";
 import { useQuestionsQuery } from "../../../api/rpc/questions";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { PhoneCorner } from "../../../app/components/layout/PillarLayout";
-import { appointmentSoon, appointmentsIn, nextAppointment } from "../../../lib/appointments";
+import { appointmentsIn } from "../../../lib/appointments";
 import { entriesIn } from "../../../lib/journal";
 import { askedWeeks } from "../../../lib/timelineMap";
 import { AppointmentCard } from "../../appointments/components/AppointmentCard";
-import { NextAppointment } from "../../appointments/components/NextAppointment";
-import { CheckIn } from "../../feelings/components/checkIn/CheckIn";
-import { HardFortnight } from "../../feelings/components/fortnight/HardFortnight";
-import { LookThrough } from "../../itsTime/components/wayIn/LookThrough";
 import { Movement } from "../../journal/components/entries/movements/Movement";
 import { Note } from "../../journal/components/entries/notes/Note";
-import { ItemLink } from "../../library/components/itemLink/ItemLink";
 import { AskedQuestion } from "../../questions/components/AskedQuestion";
-import { QuestionsWaiting } from "../../questions/components/QuestionsWaiting";
-import { AskNow } from "../../settings/components/askNow/AskNow";
-import { OfferExtra } from "../../settings/components/offerExtra/OfferExtra";
-import { ComingUp } from "../../tasks/components/comingUp/ComingUp";
-import { TaskRow } from "../../tasks/components/TaskRow";
-import { ToDoNow } from "../../tasks/components/toDoNow/ToDoNow";
-import { useTasks } from "../../tasks/hooks/useTasks";
 import { DayByDay } from "../components/dayByDay/DayByDay";
+import { BestDoneThatWeek } from "../components/doing/BestDoneThatWeek";
+import { DoingNow } from "../components/doing/DoingNow";
 import { HeadsUp } from "../components/headsUp/HeadsUp";
 import { Hero } from "../components/now/Now";
 import { QuietWeek } from "../components/quiet/QuietWeek";
-import { WeeklyCard } from "../components/weeklyCard/WeeklyCard";
 import { Welcome } from "../components/welcome/Welcome";
 import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
 import { ThisWeekPageProvider, useThisWeekPage } from "../contexts/ThisWeekPageContext";
@@ -51,20 +39,14 @@ export function ThisWeek() {
 }
 
 function Week() {
-  const { week, peeking, dueDate, today } = useThisWeekPage();
-  const { data: checklist } = useChecklistQuery();
-  const tasks = useTasks();
+  const { week, peeking, dueDate } = useThisWeekPage();
   const { data: questions } = useQuestionsQuery();
   const { data: journal } = useJournalQuery();
   const { data: appointments } = useAppointmentsQuery();
-  const thatWeek = week === null ? [] : tasks.filter((t) => t.due === week || t.deadline === week);
-  const openQuestions = questions.filter((q) => !q.askedAt).length;
   const askedIn = askedWeeks(questions, dueDate);
   const asked = questions.filter((q) => week !== null && askedIn.get(q.id) === week);
-  // A peek shows that week's appointments; now, the next one is on the right once it's close, and with it the questions.
+  // A peek shows that week's appointments; now, the next one is with the doing.
   const thatWeeksAppointments = peeking && week !== null ? appointmentsIn(appointments, week, dueDate) : [];
-  const next = nextAppointment(appointments, today);
-  const nextSoon = next !== null && appointmentSoon(next, today) !== null;
   const kept = peeking && week !== null ? entriesIn(journal, week, dueDate) : [];
 
   return (
@@ -121,71 +103,9 @@ function Week() {
           </div>
         </div>
 
-        {peeking ? (
-          <div className="contents lg:sticky lg:top-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-10 lg:flex lg:flex-col lg:gap-8">
-            <section aria-labelledby="that-week" className="order-1 flex flex-col gap-2 lg:order-0">
-              <h2 id="that-week" className="text-lg font-display font-semibold text-fg-strong">
-                Best done that week
-              </h2>
-              {thatWeek.length === 0 ? (
-                <p className="text-fg-subtle">Nothing falls due that week.</p>
-              ) : (
-                <div className="flex flex-col">
-                  {thatWeek.map((task) => (
-                    <TaskRow
-                      key={task.id}
-                      task={task}
-                      ticked={Boolean(checklist.ticks[task.id])}
-                      meta={task.deadline === week ? "deadline" : undefined}
-                      action={
-                        task.itemId ? (
-                          <ItemLink itemId={task.itemId} aria-label={`Why: ${task.title}`} className="shrink-0 px-1 text-xs text-fg-subtle underline">
-                            Why
-                          </ItemLink>
-                        ) : null
-                      }
-                    />
-                  ))}
-                </div>
-              )}
-            </section>
-          </div>
-        ) : (
-          <div className="contents lg:sticky lg:top-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-10 lg:flex lg:flex-col lg:gap-8">
-            <div className="order-1 empty:hidden lg:order-0">
-              <LookThrough />
-            </div>
-            <div className="order-1 empty:hidden lg:order-0">
-              <NextAppointment />
-            </div>
-            <div className="order-1 lg:order-0">
-              <ToDoNow />
-            </div>
-            <div className="order-1 empty:hidden lg:order-0">
-              <HardFortnight />
-            </div>
-            <div className="order-1 empty:hidden lg:order-0">
-              <CheckIn />
-            </div>
-            <div className="order-3 empty:hidden lg:order-0">
-              <WeeklyCard />
-            </div>
-            <div className="order-3 empty:hidden lg:order-0">
-              <AskNow />
-            </div>
-            <div className="order-5 empty:hidden lg:order-0">
-              <OfferExtra />
-            </div>
-            <div className="order-5 empty:hidden lg:order-0">
-              <ComingUp />
-            </div>
-            {openQuestions > 0 && !nextSoon ? (
-              <div className="order-6 lg:order-0">
-                <QuestionsWaiting count={openQuestions} />
-              </div>
-            ) : null}
-          </div>
-        )}
+        <div className="contents lg:sticky lg:top-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-10 lg:flex lg:flex-col lg:gap-8">
+          {peeking ? <BestDoneThatWeek /> : <DoingNow />}
+        </div>
       </div>
     </main>
   );
