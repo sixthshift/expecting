@@ -6,7 +6,7 @@ import { QuietSwitch } from "../../../../app/features/quiet/components/quietSwit
 import { useSave } from "../../../../app/hooks/useSave";
 import { weekInSentence } from "../../../../lib/labels";
 import { QUIET_ITEM } from "../../../../lib/quiet";
-import { PapersAbout } from "../../../journal/features/papers/components/PaperList";
+import { PapersAbout } from "../../../journal/features/papers/components/PapersAbout";
 import { QuestionsAbout } from "../../../planner/features/questions/components/QuestionsAbout";
 import { useEntry } from "../../contexts/LibraryItemPageContext";
 import { AskAtAppointment } from "../askAtAppointment/AskAtAppointment";

@@ -6,7 +6,7 @@ import { useSettingsQuery } from "../../../../../api/rpc/settings";
 import { formatDate, isISODate, todayISO } from "../../../../../lib/dates";
 import { ALWAYS, type EmergencyInfo, telHref } from "../../../../../lib/emergency";
 import { factsOf } from "../../../../../lib/facts";
-import { PapersToHand } from "../../../../../pillars/journal/features/papers/components/PaperList";
+import { PapersToHand } from "../../../../../pillars/journal/features/papers/components/PapersToHand";
 import { handover } from "../../model/handover";
 import { WarningSigns } from "../warningSigns/WarningSigns";
 import { CallChip } from "./CallChip";

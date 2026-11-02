@@ -72,7 +72,8 @@ vi.mock("../../../../../src/app/model/uploads", () => {
 
 const { AddPaper } = await import("../../../../../src/pillars/journal/features/papers/components/AddPaper");
 const { PapersCollection } = await import("../../../../../src/pillars/journal/features/papers/components/collection/PapersCollection");
-const { PapersToHand, PapersAbout } = await import("../../../../../src/pillars/journal/features/papers/components/PaperList");
+const { PapersToHand } = await import("../../../../../src/pillars/journal/features/papers/components/PapersToHand");
+const { PapersAbout } = await import("../../../../../src/pillars/journal/features/papers/components/PapersAbout");
 const { FileProblemError } = await import("../../../../../src/app/model/uploads");
 
 const photographed = (name: string) => ({
