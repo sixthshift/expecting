@@ -1,9 +1,9 @@
 import { Badge } from "@sixthshift/design-system/badge";
 import { useState } from "react";
 import { useReadsQuery } from "../../../../api/rpc/reads";
-import type { Item } from "../../../../content/schema";
 import { rightNow, type Standing, standingLabel } from "../../../../lib/library/rightNow";
 import type { Week } from "../../../../lib/timeline";
+import { useItems } from "../../hooks/useItems";
 import { ItemLink } from "../itemLink/ItemLink";
 import { ReadMark } from "../ReadMark";
 
@@ -17,7 +17,8 @@ const FIRST = 4;
  * (src/lib/library/rightNow.ts), each with why it matters and where its window stands.
  * The first few, then the rest on asking.
  */
-export function RightNow({ items, now }: { items: readonly Item[]; now: Week }) {
+export function RightNow({ now }: { now: Week }) {
+  const items = useItems();
   const [all, setAll] = useState(false);
   const { data: reads } = useReadsQuery();
   const open = rightNow(items, now);

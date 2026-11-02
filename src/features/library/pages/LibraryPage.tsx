@@ -45,7 +45,7 @@ export function LibraryPage() {
   if (!results && (door || topic)) {
     return (
       <main className="mx-auto max-w-6xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-8">
-        <Shelf items={items} narrowing={narrowing} />
+        <Shelf narrowing={narrowing} />
       </main>
     );
   }
@@ -68,11 +68,11 @@ export function LibraryPage() {
         </section>
       ) : (
         <div className="flex flex-col gap-10 lg:gap-12">
-          {quiet ? <HardDoor items={items} /> : null}
-          <Doors items={items} />
-          {now !== null && !quiet ? <RightNow items={items} now={now} /> : null}
-          <Topics items={items} />
-          {quiet ? null : <HardDoor items={items} />}
+          {quiet ? <HardDoor /> : null}
+          <Doors />
+          {now !== null && !quiet ? <RightNow now={now} /> : null}
+          <Topics />
+          {quiet ? null : <HardDoor />}
         </div>
       )}
     </main>

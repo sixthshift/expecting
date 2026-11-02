@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import type { Item } from "../../../../content/schema";
 import { topicsIn } from "../../../../lib/library/doors";
+import { useItems } from "../../hooks/useItems";
 
 /** Every topic, in its usual order, with how many entries it has: each opens on its own. */
-export function Topics({ items }: { items: readonly Item[] }) {
+export function Topics() {
+  const items = useItems();
   return (
     <section aria-labelledby="by-topic" className="flex flex-col gap-3">
       <h2 id="by-topic" className="text-lg font-display font-semibold text-fg-strong">

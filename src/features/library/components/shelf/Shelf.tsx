@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
-import { type Item, TOPICS, VERDICTS } from "../../../../content/schema";
+import { TOPICS, VERDICTS } from "../../../../content/schema";
 import { behind, DOOR_INFO, forPartner, type Group, topicByDoor, topicsIn } from "../../../../lib/library/doors";
+import { useItems } from "../../hooks/useItems";
 import type { Narrowing } from "../../model/narrowing";
 import { VERDICT } from "../content/Verdict";
 import { Cards } from "./Cards";
@@ -17,7 +18,8 @@ import { Rows } from "./Rows";
  * their question — rows under headings, cards, or the glossary. A topic on its
  * own is grouped by door.
  */
-export function Shelf({ items, narrowing }: { items: readonly Item[]; narrowing: Narrowing }) {
+export function Shelf({ narrowing }: { narrowing: Narrowing }) {
+  const items = useItems();
   const { door, topic, verdict } = narrowing;
   const partner = narrowing.for === "partner";
   const info = door ? DOOR_INFO[door] : null;

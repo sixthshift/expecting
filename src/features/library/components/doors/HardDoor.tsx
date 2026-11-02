@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
-import type { Item } from "../../../../content/schema";
 import { behind, DOOR_INFO } from "../../../../lib/library/doors";
+import { useItems } from "../../hooks/useItems";
 import { DOOR_ICONS } from "./doorIcons";
 
 /** The quiet door, for when it's hard: a line at the foot of the page, not a tile among the others. */
-export function HardDoor({ items }: { items: readonly Item[] }) {
+export function HardDoor() {
+  const items = useItems();
   const { title, examples } = DOOR_INFO.hard;
   const Icon = DOOR_ICONS.hard;
   if (behind("hard", items).length === 0) return null;
