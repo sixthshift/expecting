@@ -11,7 +11,7 @@ const TRIES = 60;
  * the sidebar. Once the router has drawn the new page (`onRendered`), so it's
  * the new heading, not the old one on its way out. Not on the first page (the
  * browser starts at the top anyway), not when only the search changes (the
- * same page, another week or lens), and never away from something being typed
+ * same page, another week or view), and never away from something being typed
  * in or a dialog. Focused without scrolling, and with no ring after a tap or
  * a click (touch.css).
  */

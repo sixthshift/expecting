@@ -8,7 +8,7 @@ import { photosQuery } from "../api/rpc/photos";
 import { app } from "./app";
 import { journalSearch } from "./search";
 
-/** The Journal: the story, in a lens, zoomed, at a week. */
+/** The Journal: the story, in a view, zoomed, at a week. */
 export const journal = createRoute({
   getParentRoute: () => app,
   path: "/journal",

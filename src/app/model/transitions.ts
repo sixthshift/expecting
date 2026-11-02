@@ -7,7 +7,7 @@
  *   across  to another pillar, or a page beside this one: a short fade
  *
  * Only when the path changes: a change of the search alone (the timeline's
- * week, the Journal's lens) is the same page answering, and has no transition.
+ * week, the Journal's view) is the same page answering, and has no transition.
  * Nor onboarding and login: plain pages, reached through redirects one after
  * another, where a transition would only be cut short by the next.
  * A browser without view transitions just changes page, as before.

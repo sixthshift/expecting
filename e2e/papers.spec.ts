@@ -84,7 +84,7 @@ test('a PDF letter from the "+" on the Journal, opened behind the gate', async (
   await form.getByRole("button", { name: "Keep it" }).click();
   await expect(form).toBeHidden();
 
-  // On this week's page, and in its lens.
+  // On this week's page, and in its view.
   await expect(page.getByRole("region", { name: "This week" }).getByRole("button", { name: "Open: Referral to the hospital" })).toContainText(
     "Letter or referral"
   );

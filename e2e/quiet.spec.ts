@@ -49,7 +49,7 @@ test("hard news quiets every pillar, and becomes a loss", async ({ page, open })
   await expect(sheet).toBeHidden();
 
   // The movements, sickness and cravings and photos kept (plus.spec.ts, plus-sickness.spec.ts and
-  // photos.spec.ts kept some) are folded behind one quiet line, not shown on every visit, with no lens
+  // photos.spec.ts kept some) are folded behind one quiet line, not shown on every visit, with no view
   // of their own, nothing new offered, and nothing shown first.
   await open("/journal");
   await expect(page.getByText("Felt moving")).toHaveCount(0);

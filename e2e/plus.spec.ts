@@ -20,7 +20,7 @@ test("a movement is kept from any pillar, lands in the Journal, and marks its we
   await expect(page.getByText("In the Journal")).toBeVisible();
   await expect(page).toHaveURL(/\/planner$/);
 
-  // "See it" opens the Journal, with it on this week's page, and in its lens on the fortnight's pattern.
+  // "See it" opens the Journal, with it on this week's page, and in its view on the fortnight's pattern.
   await page.getByRole("button", { name: "See it" }).click();
   await expect(page).toHaveURL(/\/journal$/);
   await expect(page.getByRole("region", { name: "This week" }).getByText("Hiccups after dinner")).toBeVisible();

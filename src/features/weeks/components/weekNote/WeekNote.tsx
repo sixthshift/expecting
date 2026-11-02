@@ -9,7 +9,7 @@ import type { Role } from "../../../../lib/people";
 import { ItemBody } from "../../../library/components/content/ItemBody";
 
 /** What each of you reads: the baby for both, then your own part. */
-const LENS: Record<Role, Section[]> = { carrying: ["baby", "body"], partner: ["baby", "partner"] };
+const READS: Record<Role, Section[]> = { carrying: ["baby", "body"], partner: ["baby", "partner"] };
 
 /**
  * A week's note: the baby, then the part for whoever is reading, the pregnant
@@ -28,7 +28,7 @@ export function WeekNote({
   eyebrow?: string;
 }) {
   const { me, people } = usePeopleQuery().data;
-  const [lens, setLens] = useState<Role>(me?.role ?? "carrying");
+  const [reader, setReader] = useState<Role>(me?.role ?? "carrying");
   const size = showSize && note.size ? sizeLabel(note.size) : null;
   const named = (role: Role, fallback: string) => {
     const person = people.find((p) => p.role === role);
@@ -51,14 +51,14 @@ export function WeekNote({
           intent="brand"
           aria-label="Read the note as"
           className="self-start"
-          value={lens}
-          onValueChange={(value) => setLens(value as Role)}
+          value={reader}
+          onValueChange={(value) => setReader(value as Role)}
           options={[
             { value: "carrying", label: named("carrying", "For the pregnancy") },
             { value: "partner", label: named("partner", "For the partner") },
           ]}
         />
-        {LENS[lens].map((section) => (
+        {READS[reader].map((section) => (
           <section key={section} className="max-w-prose">
             <h4 className="text-sm font-display font-semibold text-fg-brand">{SECTIONS[section]}</h4>
             <ItemBody doc={note.sections[section]} />
