@@ -91,6 +91,7 @@ function unauthorised(): Response {
  */
 export function gate(request: Request): Response | null {
   const url = new URL(request.url);
+  if (isBuildShell(request)) return null;
   if (url.pathname.startsWith(SERVER_FN_BASE) || url.pathname === MCP_PATH || isOpenPath(url.pathname) || hasSession(request)) return null;
   const wantsPage = request.method === "GET" && (request.headers.get("accept") ?? "").includes("text/html");
   if (wantsPage) {
@@ -98,6 +99,15 @@ export function gate(request: Request): Response | null {
     return Response.redirect(new URL(`/login${next === "/" ? "" : `?next=${encodeURIComponent(next)}`}`, url), 302);
   }
   return unauthorised();
+}
+
+/**
+ * Whether `request` is the build asking for the shell. SPA mode always prerenders one (Start's schema forces it), and
+ * turned away it fails the build's log with a 401. TSS_PRERENDERING is set only inside `vite build`, never where the
+ * server runs, and the shell is the empty document /login already serves to anyone.
+ */
+function isBuildShell(request: Request): boolean {
+  return process.env.TSS_PRERENDERING === "true" && request.headers.get("X-TSS_SHELL") === "true";
 }
 
 /** Null to let a call to a server function defined in `filename` through; otherwise a 401. */
