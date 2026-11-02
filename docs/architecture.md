@@ -453,8 +453,10 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
   and a caesarean's date an appointment, even where a fact points at it.
   Without this line the facts grow into the whole store.
 - Settings shows every question by `group`, with who answered, when it's
-  next asked and what it decides; `/settings?ask=<key>` opens at one. The
-  code says **facts**; the screens say "About you" or ask the question.
+  next asked and what it decides; `/settings?ask=<key>` opens at one. A
+  **question** is what's asked and an **answer** what's kept, in the code
+  as on the screens (`QuestionRow`, `useAnswersQuery`); **facts** are only
+  the rules over them (`facts.ts`, `src/lib/facts.ts`).
 
 ## Extras
 

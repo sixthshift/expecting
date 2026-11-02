@@ -22,7 +22,7 @@ import { Appearance } from "../components/appearance/Appearance";
 import { ColourChoice } from "../components/colour/ColourChoice";
 import { DueDateForm } from "../components/dueDate/DueDateForm";
 import { ExtrasList } from "../components/extras/ExtrasList";
-import { FactRow } from "../components/facts/FactRow";
+import { QuestionRow } from "../components/questions/QuestionRow";
 import { SettingList } from "../components/settingRow/SettingList";
 import { SettingRow } from "../components/settingRow/SettingRow";
 import { Version } from "../components/version/Version";
@@ -87,7 +87,7 @@ export function SettingsPage() {
   const waiting = (group: string) => unsettled.filter((a) => a.question.group === group).length + (group === "pregnancy" && !dueDate ? 1 : 0);
   const rows = (list: readonly Ask[]) =>
     list.map((a) => (
-      <FactRow key={a.key} a={a} last={latest[a.key]} people={people} dueDate={dueDate} now={now} open={open === a.key} onToggle={() => toggle(a.key)} />
+      <QuestionRow key={a.key} a={a} last={latest[a.key]} people={people} dueDate={dueDate} now={now} open={open === a.key} onToggle={() => toggle(a.key)} />
     ));
 
   return (

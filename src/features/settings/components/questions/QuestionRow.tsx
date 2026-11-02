@@ -22,7 +22,7 @@ import { SettingRow } from "../settingRow/SettingRow";
  * what it decides. Nothing here names a question, so a new one in the file
  * appears by itself.
  */
-export function FactRow({
+export function QuestionRow({
   a,
   last,
   people,
