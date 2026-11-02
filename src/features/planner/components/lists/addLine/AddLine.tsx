@@ -2,9 +2,9 @@ import { Button } from "@sixthshift/design-system/button";
 import { Input } from "@sixthshift/design-system/input";
 import { Plus } from "lucide-react";
 import { type FormEvent, useState } from "react";
-import { listsSaves } from "../../../../api/rpc/lists";
-import { useSave } from "../../../../app/hooks/useSave";
-import { newId } from "../../../../lib/outbox";
+import { listsSaves } from "../../../../../api/rpc/lists";
+import { useSave } from "../../../../../app/hooks/useSave";
+import { newId } from "../../../../../lib/outbox";
 
 /** A line of your own on a list, for what Expecting couldn't know. */
 export function AddLine({ listId }: { listId: string }) {

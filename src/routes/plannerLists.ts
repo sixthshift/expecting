@@ -5,5 +5,5 @@ import { app } from "./app";
 export const plannerLists = createRoute({
   getParentRoute: () => app,
   path: "/planner/lists",
-  component: lazyRouteComponent(() => import("../features/lists/pages/ListsPage"), "ListsPage"),
+  component: lazyRouteComponent(() => import("../features/planner/pages/ListsPage"), "ListsPage"),
 });

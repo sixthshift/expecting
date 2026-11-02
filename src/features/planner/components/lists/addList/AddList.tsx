@@ -2,9 +2,9 @@ import { Button } from "@sixthshift/design-system/button";
 import { Input } from "@sixthshift/design-system/input";
 import { useNavigate } from "@tanstack/react-router";
 import { type FormEvent, useState } from "react";
-import { listsSaves } from "../../../../api/rpc/lists";
-import { useSave } from "../../../../app/hooks/useSave";
-import { newId } from "../../../../lib/outbox";
+import { listsSaves } from "../../../../../api/rpc/lists";
+import { useSave } from "../../../../../app/hooks/useSave";
+import { newId } from "../../../../../lib/outbox";
 
 /** A list of your own, named, then opened to fill in. */
 export function AddList() {

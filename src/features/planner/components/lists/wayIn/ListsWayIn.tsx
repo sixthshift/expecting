@@ -1,9 +1,9 @@
 import { Card } from "@sixthshift/design-system/card";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
-import { useListsQuery } from "../../../../api/rpc/lists";
-import { inPlanner, leftSaying, listsOf } from "../../../../lib/lists";
-import { useLines } from "../../hooks/useLines";
+import { useListsQuery } from "../../../../../api/rpc/lists";
+import { inPlanner, leftSaying, listsOf } from "../../../../../lib/lists";
+import { useLines } from "../../../hooks/useLines";
 import { listIcon } from "../icons";
 
 /** The Planner's way into the lists: each with what's left on it, and all of them. */

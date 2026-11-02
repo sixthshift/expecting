@@ -16,7 +16,7 @@ vi.mock("../../../src/features/library/components/ItemLink", () => ({
   ItemLink: ({ children }: { children: unknown }) => <a href="#entry">{children as string}</a>,
 }));
 
-const { LineRow } = await import("../../../src/features/lists/components/line/LineRow");
+const { LineRow } = await import("../../../src/features/planner/components/lists/line/LineRow");
 
 const builtIn: Line = {
   id: "get-car-seat",

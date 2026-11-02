@@ -18,9 +18,9 @@ import { nameBy } from "../../../lib/people";
 import { weekLabel } from "../../../lib/timeline";
 import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { useTasks } from "../../tasks/hooks/useTasks";
-import { AddLine } from "../components/addLine/AddLine";
-import { listIcon, sectionIcon } from "../components/icons";
-import { LineRow, type LineTask } from "../components/line/LineRow";
+import { AddLine } from "../components/lists/addLine/AddLine";
+import { listIcon, sectionIcon } from "../components/lists/icons";
+import { LineRow, type LineTask } from "../components/lists/line/LineRow";
 import { useLines } from "../hooks/useLines";
 
 const route = getRouteApi("/app/planner/lists/$listId");

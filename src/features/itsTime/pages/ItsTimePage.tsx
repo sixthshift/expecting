@@ -17,7 +17,7 @@ import { todayISO } from "../../../lib/dates";
 import { factsOf } from "../../../lib/facts";
 import { type Ending, openStart, patternOf } from "../../../lib/itsTime";
 import { LAST_THING } from "../../../lib/lists";
-import { useLines } from "../../lists/hooks/useLines";
+import { useLines } from "../../planner/hooks/useLines";
 import { BeforeYouGo } from "../components/beforeYouGo/BeforeYouGo";
 import { CallNow } from "../components/callNow/CallNow";
 import { GettingThere } from "../components/gettingThere/GettingThere";

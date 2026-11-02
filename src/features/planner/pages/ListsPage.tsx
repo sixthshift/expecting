@@ -4,8 +4,8 @@ import { useListsQuery } from "../../../api/rpc/lists";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { inPlanner, listsOf } from "../../../lib/lists";
 import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
-import { AddList } from "../components/addList/AddList";
-import { ListCard } from "../components/listCard/ListCard";
+import { AddList } from "../components/lists/addList/AddList";
+import { ListCard } from "../components/lists/listCard/ListCard";
 import { useLines } from "../hooks/useLines";
 
 /**
