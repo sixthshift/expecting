@@ -325,14 +325,16 @@ on, the rest named by the extra that brings them.
 - **The capture "+"** (`src/features/capture/`,
   [product](product/capture.md)): drawn by `PillarLayout` on the pillars
   only, a `Modal` listing `captureChoices` (`model/choices.ts`: the order,
-  what's offered when, and `FILED_IN`, where each goes). Each choice is its
-  pillar's own form (`AddMovement`, `AddNote`, `AddPhoto`, …) with an
-  `onAdded`.
+  what's offered when, `CHOICE`, what each is called, and `FILED_IN`, where
+  each goes). Each choice is its pillar's own form (`AddMovement`,
+  `AddNote`, `AddPhoto`, …) with an `onAdded`, picked in `CaptureForm`, a
+  switch over every kind, so a new one doesn't compile without its form.
 - **Emergency info** (`/emergency`, `src/features/emergency/`,
   [product](product/emergency.md)): the `emergency` table, the fields in
   `src/lib/emergency.ts`, the handover built by `handover`
   (`model/handover.ts`) from them and the answers; then `PapersToHand` and
-  `WarningSigns` (from `content/items/warning-signs.md`).
+  `WarningSigns` (from `content/items/warning-signs.md`). Read as
+  `components/view/`, filled in as `components/form/`.
 - **It's time** (`/its-time`, `src/features/itsTime/`, rules
   `src/lib/itsTime.ts`, [product](product/its-time.md), the map in its
   `README.md`). Shown by `itsTimeShown`; one context,
