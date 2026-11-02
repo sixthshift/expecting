@@ -1,6 +1,6 @@
 import { useReadsQuery } from "../../../../api/rpc/reads";
 import type { Item } from "../../../../content/schema";
-import { rangeLabel } from "../ItemCard";
+import { rangeLabel } from "../../model/labels";
 import { ItemLink } from "../itemLink/ItemLink";
 import { ReadMark } from "../ReadMark";
 

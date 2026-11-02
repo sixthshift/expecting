@@ -1,8 +1,8 @@
 import { ChevronRight } from "lucide-react";
 import { useReadsQuery } from "../../../../api/rpc/reads";
 import type { Item } from "../../../../content/schema";
+import { rangeLabel } from "../../model/labels";
 import { Verdict } from "../content/Verdict";
-import { rangeLabel } from "../ItemCard";
 import { ItemLink } from "../itemLink/ItemLink";
 import { ReadMark } from "../ReadMark";
 

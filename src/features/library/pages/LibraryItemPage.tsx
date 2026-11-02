@@ -12,10 +12,10 @@ import { builtInItems, isPrivateItem } from "../../../content";
 import type { Item } from "../../../content/schema";
 import { extrasOn } from "../../../lib/extras";
 import { factsOf } from "../../../lib/facts";
+import { weekInSentence } from "../../../lib/labels";
 import { cluesIn } from "../../../lib/library/clues";
 import { DOOR_INFO, type Door, doorOf } from "../../../lib/library/doors";
 import { QUIET_ITEM } from "../../../lib/quiet";
-import { weekLabel } from "../../../lib/timeline";
 import { PapersAbout } from "../../journal/components/entries/papers/PaperList";
 import { QuestionsAbout } from "../../questions/components/QuestionsAbout";
 import { QuietSwitch } from "../../quiet/components/quietSwitch/QuietSwitch";
@@ -116,7 +116,7 @@ function Page({ item, ticks }: { item: Item; ticks: Record<string, string> }) {
           className="flex min-h-11 items-center gap-2 self-start text-sm text-fg-subtle hover:text-fg-normal"
         >
           <CalendarRange aria-hidden size={16} className="text-fg-brand" />
-          See {weekLabel(item.from).toLowerCase()} in the whole pregnancy
+          See {weekInSentence(item.from)} in the whole pregnancy
         </Link>
       ) : null}
       <Related ids={page.related} />

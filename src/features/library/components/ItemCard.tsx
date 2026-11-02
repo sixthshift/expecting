@@ -4,18 +4,13 @@ import { CalendarClock, ExternalLink } from "lucide-react";
 import type { ReactNode } from "react";
 import { type Item, type ItemPage, SYMPTOM_LEVELS, TOPICS, TYPE_LABELS } from "../../../content/schema";
 import { type Section, sectionsOf } from "../../../content/sections";
-import { formatDate, type ISODate } from "../../../lib/dates";
-import { weekLabel } from "../../../lib/timeline";
+import type { ISODate } from "../../../lib/dates";
+import { fullDate } from "../../../lib/labels";
 import { TaskRow } from "../../tasks/components/TaskRow";
+import { rangeLabel } from "../model/labels";
 import { ItemBody } from "./content/ItemBody";
 import { Triage } from "./content/Triage";
 import { Verdict } from "./content/Verdict";
-
-/** "Week 28", "Weeks 28–36"; null for one without weeks. */
-export function rangeLabel(item: Item): string | null {
-  if (item.from === null) return null;
-  return item.from === item.to ? weekLabel(item.from) : `Weeks ${item.from}–${item.to}`;
-}
 
 /**
  * An item in full, on its own page (its title the page's h1), drawn by its type: the question it answers and the answer
@@ -129,7 +124,7 @@ function Sources({ page }: { page: ItemPage }) {
           </li>
         ))}
       </ul>
-      {page.checked ? <p>Checked against them {formatDate(page.checked as ISODate, { day: "numeric", month: "short", year: "numeric" })}</p> : null}
+      {page.checked ? <p>Checked against them {fullDate(page.checked as ISODate)}</p> : null}
     </div>
   );
 }
