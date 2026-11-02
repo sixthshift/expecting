@@ -5,7 +5,7 @@ import { DateForm } from "../../../../components/DateForm";
 import type { ISODate } from "../../../../lib/dates";
 import { latestByKey } from "../../../../lib/facts";
 import { AnswerInput } from "../../../settings/components/answer/AnswerInput";
-import { askedOfIn } from "../../../settings/components/facts/FactsForm";
+import { askedOfIn } from "../../../settings/components/facts/FactRow";
 import { type Ask, ask } from "../../../settings/model/facts";
 import type { Advance, Screen, StepContext } from "../../model/step";
 import { Choices, SkipButton } from "../parts";

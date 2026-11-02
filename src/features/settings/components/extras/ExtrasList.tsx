@@ -8,7 +8,7 @@ import { factsOf } from "../../../../lib/facts";
 import { didOn } from "../../../../lib/labels";
 import type { Person } from "../../../../lib/people";
 import { EXTRA_GROUPS, type ExtraGroup } from "../../model/extras";
-import { SettingList } from "../SettingRow";
+import { SettingList } from "../settingRow/SettingList";
 
 /**
  * Every extra in src/features/settings/model/extras.data.ts you're offered (its `when`

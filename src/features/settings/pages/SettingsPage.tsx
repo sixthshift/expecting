@@ -22,8 +22,9 @@ import { Appearance } from "../components/appearance/Appearance";
 import { ColourChoice } from "../components/colour/ColourChoice";
 import { DueDateForm } from "../components/dueDate/DueDateForm";
 import { ExtrasList } from "../components/extras/ExtrasList";
-import { FactRow } from "../components/facts/FactsForm";
-import { SettingList, SettingRow } from "../components/SettingRow";
+import { FactRow } from "../components/facts/FactRow";
+import { SettingList } from "../components/settingRow/SettingList";
+import { SettingRow } from "../components/settingRow/SettingRow";
 import { Version } from "../components/version/Version";
 import { type Ask, GROUPS, type Group } from "../model/facts";
 

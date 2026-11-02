@@ -13,7 +13,7 @@ import type { Week } from "../../../../lib/timeline";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 import { type Ask, askedOf, type FactQuestion, UNSURE } from "../../model/facts";
 import { AnswerInput } from "../answer/AnswerInput";
-import { SettingRow } from "../SettingRow";
+import { SettingRow } from "../settingRow/SettingRow";
 
 /**
  * One of the questions in src/features/settings/model/facts.data.ts, as a row: its answer, who gave

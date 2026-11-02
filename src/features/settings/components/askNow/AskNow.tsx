@@ -7,7 +7,7 @@ import { useSave } from "../../../../app/hooks/useSave";
 import { DateForm } from "../../../../components/DateForm";
 import { questionsDue } from "../../../../lib/facts";
 import { AnswerInput } from "../answer/AnswerInput";
-import { askedOfIn } from "../facts/FactsForm";
+import { askedOfIn } from "../facts/FactRow";
 
 /** How many questions This week asks at once; the rest wait their turn. */
 const SHOWN = 3;
