@@ -1,9 +1,9 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Textarea } from "@sixthshift/design-system/textarea";
 import { useState } from "react";
-import { weeklySaves } from "../../../api/rpc/weekly";
-import { useSave } from "../../../app/hooks/useSave";
-import { questionOf, type WeeklyWeek } from "../../../lib/weekly";
+import { weeklySaves } from "../../../../api/rpc/weekly";
+import { useSave } from "../../../../app/hooks/useSave";
+import { questionOf, type WeeklyWeek } from "../../../../lib/weekly";
 
 /**
  * A week's question as this phone has it: still to answer, answered and

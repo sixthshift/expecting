@@ -25,17 +25,17 @@ import { Note } from "../../journal/components/entries/notes/Note";
 import { ItemLink } from "../../library/components/ItemLink";
 import { useItems } from "../../library/hooks/useItems";
 import { AskedQuestion, QuestionsWaiting } from "../../questions/components/questions/questions";
-import { QuietWeek } from "../../quiet/components/quietWeek/QuietWeek";
 import { OfferExtra } from "../../settings/components/extras/OfferExtra";
 import { AskNow } from "../../settings/components/facts/AskNow";
 import { ComingUp } from "../../tasks/components/comingUp/ComingUp";
 import { TaskRow } from "../../tasks/components/TaskRow";
 import { ToDoNow } from "../../tasks/components/toDoNow/ToDoNow";
 import { useTasks } from "../../tasks/hooks/useTasks";
-import { WeeklyCard } from "../../weekly/components/WeeklyCard";
 import { DayByDay } from "../components/dayByDay/DayByDay";
 import { HeadsUp } from "../components/headsUp/HeadsUp";
 import { Hero, Welcome } from "../components/now/Now";
+import { QuietWeek } from "../components/quiet/QuietWeek";
+import { WeeklyCard } from "../components/weeklyCard/WeeklyCard";
 import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
 
 /**

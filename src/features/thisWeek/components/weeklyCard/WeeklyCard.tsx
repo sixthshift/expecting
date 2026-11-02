@@ -1,21 +1,21 @@
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { useState } from "react";
-import { useExtrasQuery } from "../../../api/rpc/extras";
-import { usePeopleQuery } from "../../../api/rpc/people";
-import { useNow } from "../../../api/rpc/settings";
-import { useWeeklyQuery } from "../../../api/rpc/weekly";
-import { extrasOn } from "../../../lib/extras";
-import { otherName } from "../../../lib/people";
-import { weekLabel } from "../../../lib/timeline";
-import { earlier, questionOf, weekOf } from "../../../lib/weekly";
+import { useExtrasQuery } from "../../../../api/rpc/extras";
+import { usePeopleQuery } from "../../../../api/rpc/people";
+import { useNow } from "../../../../api/rpc/settings";
+import { useWeeklyQuery } from "../../../../api/rpc/weekly";
+import { extrasOn } from "../../../../lib/extras";
+import { otherName } from "../../../../lib/people";
+import { weekLabel } from "../../../../lib/timeline";
+import { earlier, questionOf, weekOf } from "../../../../lib/weekly";
 import { WeekQuestion } from "./WeekQuestion";
 
 /**
  * This week's question, on This week, while A question a week is on: answered
  * on this phone, and the other's answer once both have given one. Below it,
  * folded, the earlier weeks' questions, still there to answer: never counted,
- * never chased. Nothing while something has happened, or before a phone has
- * said who's holding it.
+ * never chased. Drawn only on a week that isn't quiet; nothing before a phone
+ * has said who's holding it.
  */
 export function WeeklyCard() {
   const { data: on } = useExtrasQuery({ select: (e) => extrasOn(e).has("question-a-week") });

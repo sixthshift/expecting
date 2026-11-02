@@ -25,11 +25,11 @@ import { ItemLink } from "../../library/components/ItemLink";
 import { useItems } from "../../library/hooks/useItems";
 import { ListsWayIn } from "../../lists/components/wayIn/ListsWayIn";
 import { AddQuestion, AskedQuestion, OpenQuestion } from "../../questions/components/questions/questions";
-import { PutAside } from "../../quiet/components/putAside/PutAside";
 import { AddTask, DeleteOwnTask } from "../../tasks/components/addTask/AddTask";
 import { TaskRow } from "../../tasks/components/TaskRow";
 import { Whose } from "../../tasks/components/Whose";
 import { useTasks } from "../../tasks/hooks/useTasks";
+import { PutAside } from "../components/quiet/PutAside";
 import { StageSpan } from "../components/weeks/StageSpan";
 
 /** How many of a stage's tasks it names while folded, before "and N more". */

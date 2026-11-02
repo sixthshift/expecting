@@ -8,7 +8,7 @@ import type { WeekNote as Note } from "../../../../content/weeks";
 import { gestationLabel, type Week } from "../../../../lib/timeline";
 import { ItemBody } from "../../../library/components/content/ItemBody";
 import { ItemLink } from "../../../library/components/ItemLink";
-import { WeekNote } from "../../../weeks/components/weekNote/WeekNote";
+import { WeekNote } from "../weekNote/WeekNote";
 
 /** A day of the week: the note on its first (+0), a read on each after. */
 type Day = { day: number; note: Note; read?: never } | { day: number; read: DayRead; note?: never };

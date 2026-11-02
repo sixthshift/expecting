@@ -10,7 +10,7 @@ import { formatDate, type ISODate, todayISO } from "../../../../lib/dates";
 import { toGo, weekRange } from "../../../../lib/labels";
 import { dueDateBounds, gestationLabel, type Position, WEEKS, type Week, weekFromNow, weekLabel } from "../../../../lib/timeline";
 import { PregnancyStrip } from "../../../timeline/components/strip/PregnancyStrip";
-import { SizeIcon } from "../../../weeks/components/sizeIcon/SizeIcon";
+import { SizeIcon } from "../sizeIcon/SizeIcon";
 
 /** Where you are: "28+0 · 84 days to go · due Wed, 20 Jan 2027". */
 function NowLine({ position, dueDate, today, small }: { position: Position; dueDate: ISODate; today: ISODate; small?: boolean }): ReactNode {
