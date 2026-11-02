@@ -1,16 +1,15 @@
-import { Message } from "@sixthshift/design-system/message";
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, Phone } from "lucide-react";
-import type { ReactNode } from "react";
-import { type Item, TOPICS, type Topic, VERDICTS, type Verdict } from "../../../../content/schema";
-import { behind, DOOR_INFO, type Door, forPartner, type Group, topicByDoor, topicsIn } from "../../../../lib/library/doors";
+import { ArrowLeft } from "lucide-react";
+import { type Item, TOPICS, VERDICTS } from "../../../../content/schema";
+import { behind, DOOR_INFO, forPartner, type Group, topicByDoor, topicsIn } from "../../../../lib/library/doors";
+import type { Narrowing } from "../../model/narrowing";
 import { VERDICT } from "../content/Verdict";
 import { Cards } from "./Cards";
+import { Chip } from "./Chip";
+import { Chips } from "./Chips";
+import { GetHelp } from "./GetHelp";
 import { Glossary } from "./Glossary";
 import { Rows } from "./Rows";
-
-/** What a shelf is narrowed by, as the Library's search params hold it. */
-export type Narrowing = { door?: Door; topic?: Topic; verdict?: Verdict; for?: "partner" };
 
 /**
  * A door opened, or a topic on its own: its title, the chips that narrow it
@@ -97,66 +96,5 @@ export function Shelf({ items, narrowing }: { items: readonly Item[]; narrowing:
         </div>
       )}
     </div>
-  );
-}
-
-/**
- * Is this normal? opens with when not to wait: before any list, for someone
- * worried now. A note, though danger is an alert by default: it's there
- * whenever the shelf is, not news.
- */
-function GetHelp() {
-  return (
-    <aside aria-label="Worried now?">
-      <Message
-        intent="danger"
-        role="note"
-        className="rounded-xl"
-        title="Worried now? Don't wait to read."
-        actions={
-          <>
-            <a href="tel:000" className="flex min-h-11 items-center gap-1.5 font-medium underline">
-              <Phone aria-hidden size={14} /> Call 000
-            </a>
-            <Link to="/emergency" className="flex min-h-11 items-center font-medium underline">
-              Your numbers, in Emergency info
-            </Link>
-          </>
-        }
-      >
-        In an emergency call 000. Otherwise call your hospital's birth suite or your midwife: they would rather hear from you.
-      </Message>
-    </aside>
-  );
-}
-
-/** A row of chips that narrow a shelf: one line that scrolls sideways on a phone, wrapping on a desktop. */
-function Chips({ label, children }: { label: string; children: ReactNode }) {
-  return (
-    <nav aria-label={label} className="scrollbar-none -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:px-0">
-      {children}
-    </nav>
-  );
-}
-
-function Chip({ search, active, count, children }: { search: Narrowing; active: boolean; count?: number; children: ReactNode }) {
-  return (
-    <Link
-      to="/library"
-      search={search}
-      replace
-      resetScroll={false}
-      // The router marks a link to exactly this page as current; "For the partner" links to turning itself off, so say it's on here.
-      activeOptions={{ exact: true, includeSearch: true, explicitUndefined: true }}
-      inactiveProps={{ "aria-current": active ? "page" : undefined }}
-      className={`flex h-9 shrink-0 items-center gap-1.5 rounded-full border px-3 text-sm whitespace-nowrap ${
-        active
-          ? "border-border-brand bg-bg-brand-subtle font-medium text-fg-brand"
-          : "border-border-subtle bg-bg-normal text-fg-normal hover:border-border-normal"
-      }`}
-    >
-      {children}
-      {count !== undefined ? <span className={active ? "text-fg-brand" : "text-fg-subtle"}>{count}</span> : null}
-    </Link>
   );
 }

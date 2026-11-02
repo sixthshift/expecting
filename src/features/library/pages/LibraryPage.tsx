@@ -5,11 +5,12 @@ import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { search } from "../../../lib/library/search";
-import { Topics } from "../components/browse/Topics";
-import { Doors, HardDoor } from "../components/doors/Doors";
+import { Doors } from "../components/doors/Doors";
+import { HardDoor } from "../components/doors/HardDoor";
 import { ItemList } from "../components/itemList/ItemList";
 import { RightNow } from "../components/rightNow/RightNow";
 import { Shelf } from "../components/shelf/Shelf";
+import { Topics } from "../components/topics/Topics";
 import { useItems } from "../hooks/useItems";
 
 const route = getRouteApi("/app/library");
