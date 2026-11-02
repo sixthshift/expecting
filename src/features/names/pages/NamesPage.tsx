@@ -48,7 +48,9 @@ export function NamesPage() {
           other={other}
           seed={me?.id ?? ""}
           filter={filter}
-          onFilter={choosable ? (choice) => navigate({ search: { names: choice === "all" ? undefined : choice }, replace: true, resetScroll: false }) : undefined}
+          onFilter={
+            choosable ? (choice) => navigate({ search: { names: choice === "all" ? undefined : choice }, replace: true, resetScroll: false }) : undefined
+          }
         />
       )}
     </main>
