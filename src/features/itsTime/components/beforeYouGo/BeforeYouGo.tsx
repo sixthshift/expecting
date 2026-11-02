@@ -4,8 +4,8 @@ import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { itsTimeSaves } from "../../../../api/rpc/itsTime";
 import { useSave } from "../../../../app/hooks/useSave";
-import type { Line } from "../../../../content/schema";
 import { clock, type Start, type StartLine } from "../../../../lib/itsTime";
+import type { Bag } from "../../model/ready";
 import { CallButton } from "../CallButton";
 import { Part } from "../Part";
 import { AddOwn } from "./AddOwn";
@@ -25,7 +25,6 @@ const PAPERS = "papers";
  */
 export function BeforeYouGo({
   start,
-  lastThings,
   bag,
   carSeatFitted,
   ownLines,
@@ -35,10 +34,7 @@ export function BeforeYouGo({
 }: {
   /** Null while getting ready: shown greyed, nothing to tick. */
   start: Start | null;
-  /** The bag's "last thing" lines. */
-  lastThings: readonly Line[];
-  /** How much of the bag is packed, the last things aside. */
-  bag: { packed: number; total: number };
+  bag: Bag;
   carSeatFitted: boolean;
   ownLines: readonly StartLine[];
   values: Readonly<Record<string, string>>;
@@ -77,7 +73,7 @@ export function BeforeYouGo({
               {bag.total === 0 ? "Nothing on it yet." : bag.packed >= bag.total ? "Packed." : `${bag.packed} of ${bag.total} packed: take what's ready.`} Then
               the last things:
             </span>
-            <ul className="flex flex-col pl-2">{lastThings.map((l) => box(l.id, l.title))}</ul>
+            <ul className="flex flex-col pl-2">{bag.lastThings.map((l) => box(l.id, l.title))}</ul>
           </li>
         )}
         {home ? null : (

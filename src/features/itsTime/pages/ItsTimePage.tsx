@@ -16,7 +16,6 @@ import { useSave } from "../../../app/hooks/useSave";
 import { todayISO } from "../../../lib/dates";
 import { factsOf } from "../../../lib/facts";
 import { type Ending, openStart, patternOf } from "../../../lib/itsTime";
-import { LAST_THING } from "../../../lib/lists";
 import { useLines } from "../../planner/hooks/useLines";
 import { BeforeYouGo } from "../components/beforeYouGo/BeforeYouGo";
 import { CallNow } from "../components/callNow/CallNow";
@@ -28,7 +27,7 @@ import { Top } from "../components/top/Top";
 import { Waters } from "../components/waters/Waters";
 import { breechWaters } from "../model/callNow";
 import { markLooked } from "../model/looked";
-import { atHome, CAR_SEAT_TASK, stillToReady } from "../model/ready";
+import { atHome, bagOf, CAR_SEAT_TASK, stillToReady } from "../model/ready";
 import { theyllAsk } from "../model/theyllAsk";
 
 /** How long after a false alarm the page says so, kindly. */
@@ -65,10 +64,7 @@ function ItsTime() {
   const partner = people.people.find((p) => p.role === "partner") ?? null;
   const carrying = people.people.find((p) => p.role === "carrying") ?? null;
 
-  const bagLines = lines.filter((l) => l.listId === "bag");
-  const packing = bagLines.filter((l) => l.section !== LAST_THING && marks[l.id]?.state !== "not-needed");
-  const bag = { packed: packing.filter((l) => marks[l.id]?.state === "got").length, total: packing.length };
-  const lastThings = bagLines.filter((l) => l.section === LAST_THING && marks[l.id]?.state !== "not-needed");
+  const bag = bagOf(lines, marks);
 
   const rows = theyllAsk({
     values,
@@ -123,7 +119,6 @@ function ItsTime() {
           <TheyllAsk rows={rows} hospitalSaid={start ? undefined : values.hospitalSaid} home={home} />
           <BeforeYouGo
             start={start}
-            lastThings={lastThings}
             bag={bag}
             carSeatFitted={Boolean(ticks[CAR_SEAT_TASK])}
             ownLines={itsTime.lines}

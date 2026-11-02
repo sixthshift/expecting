@@ -3,6 +3,8 @@
 // admin, and directive is what the Planner is for. It adds nothing to the
 // Planner; the tasks are already there.
 
+import type { Line } from "../../../content/schema";
+import { LAST_THING, type Mark } from "../../../lib/lists";
 import type { Facts } from "../../settings/model/facts";
 
 /** The bag's task and the car seat's: ticked in the Planner. */
@@ -39,4 +41,17 @@ export function stillToReady({
     !home && !v.backupDriver && { key: "backupDriver", text: "Someone to drive you in if you can't", to: "emergency" },
   ];
   return things.filter((t): t is ReadyThing => t !== false);
+}
+
+/** The bag on the night: how much is packed, the last things aside, and the last things, the ones that only go in on the night. Set aside is neither. */
+export type Bag = { packed: number; total: number; lastThings: Line[] };
+
+export function bagOf(lines: readonly Line[], marks: Readonly<Record<string, Mark>>): Bag {
+  const bagLines = lines.filter((l) => l.listId === "bag" && marks[l.id]?.state !== "not-needed");
+  const packing = bagLines.filter((l) => l.section !== LAST_THING);
+  return {
+    packed: packing.filter((l) => marks[l.id]?.state === "got").length,
+    total: packing.length,
+    lastThings: bagLines.filter((l) => l.section === LAST_THING),
+  };
 }
