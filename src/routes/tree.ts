@@ -1,7 +1,7 @@
 // The route tree: its shape, and nothing else. Each route is defined in its own
 // file beside this one (a path, what it loads and validates, the component it
 // draws); here they are put together. Routing is still code: a file's name
-// decides nothing, this list does. Pages live in src/features/ and read their
+// decides nothing, this list does. Pages live in src/pillars/ and src/app/features/ and read their
 // route's data through getRouteApi, so nothing imports a route but the router.
 
 import { app } from "./app";

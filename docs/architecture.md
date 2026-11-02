@@ -112,7 +112,9 @@ in.
 ```
 src/
   app/          the app itself, not a domain: the document, the frame (App, PillarLayout, PILLARS), the error pages, the outbox, useSave, useAction
-  features/     a folder per domain: its pages and parts
+    features/   what's outside the pillars: capture (the +), emergency, itsTime, quiet, settings, onboarding, auth, connect
+  pillars/      the five pillars: thisWeek, library, planner, journal, drawer
+    <pillar>/features/  what lives in a pillar, each a feature: planner/features/{tasks,questions,appointments,lists,weeks}, …
   components/   generic parts with no domain: Page, DateForm, loading
   lib/          pure rules and types: no React, no router, no store
   content/      reading and checking the built-in content
@@ -125,13 +127,25 @@ src/
   pwa/          the service worker, the Vite plugin that emits it, its registration
 ```
 
-Every feature has one shape, each folder only where it has something:
-`pages/` (what a route draws), `components/` (a folder per aspect, the
-shared parts loose), `hooks/`, `contexts/` (a page's context, at most one a
-page) and `model/` (no React: rules, types, paths). Settings owns the
-questions and the extras wherever they're drawn (`AskNow` and
-`OfferExtra` on This week), and its `model/` is the only part of
-`features/` that `lib/` and `content/` may import.
+A pillar is its own page at its top, and what lives in it, with its own
+store or pages, a feature under it: the Drawer's tools
+(`drawer/features/{names,jobs,circle,bingo}`), the Planner's tasks,
+questions, appointments, lists and weeks, the Journal's kinds
+(`journal/features/{appetite,feelings,firsts,movements,notes,papers,photos}`),
+This week's timeline and week's question. What's outside the pillars is a
+feature of the app, `src/app/features/`. Another pillar may draw a
+feature's parts (This week draws the Planner's tasks and the Journal's
+feelings); the feature still lives in one pillar. Each pillar has a
+`README.md`, the map of its code.
+
+A pillar and every feature have one shape, each folder only where it has
+something: `pages/` (what a route draws), `components/` (a folder per
+aspect, the shared parts loose), `hooks/`, `contexts/` (a page's context, at
+most one a page), `model/` (no React: rules, types, paths) and, for a
+pillar, `features/`. Settings owns the questions and the extras wherever
+they're drawn (`AskNow` and `OfferExtra` on This week), and its `model/`
+(`src/app/features/settings/model/`) is the only part of them that `lib/`
+and `content/` may import.
 
 Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 `server/` and `api/` import the store or `server/`; nothing imports
@@ -169,8 +183,8 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
   What only one part needs, that part works out itself. Its parts read it
   rather than take props. A value that changes often goes in a second
   context from the same provider, so parts that don't read it aren't drawn
-  again. The Journal is the first (`JournalPageProvider`); other pages take
-  it up as they're next changed.
+  again. The Planner, its lists, Settings, onboarding, This week, It's time,
+  a Library entry and the Journal have one.
 
 ## The frame
 

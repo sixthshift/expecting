@@ -46,9 +46,11 @@ components/
   worthKnowing/   WorthKnowing, what starts this week
   week/           a peek's appointments, what was asked, what was kept
   doing/          the right column: DoingNow, or on a peek BestDoneThatWeek
-  weeklyCard/     the week's question, and the earlier weeks'
   welcome/        Welcome: no due date yet
   quiet/          QuietWeek and its Guide
+features/
+  timeline/       the whole pregnancy at /timeline: TimelinePage, its frame, the weeks, the strip
+  weekly/         the week's question, and the earlier weeks'
 ```
 
 What other pillars draw here (To do now, Coming up, the check-in, the next

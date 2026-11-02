@@ -37,13 +37,18 @@ components/
               and the put-away and extra-off states; the tools import it
   tools/      ToolTile (a tool that's on) and ToolOff (one that's off)
   ComesWith   "It comes with …. Turn it on in settings", for the frame and ToolOff
+features/     a feature per tool, each with its page, its parts and its summary line:
+  names/      the names game and the shortlist (/drawer/names)
+  jobs/       Who does what (/drawer/jobs)
+  circle/     Your people (/drawer/people)
+  bingo/      pregnancy bingo (/drawer/bingo)
 ```
 
 ## Adding a tool
 
 1. An extra that brings it, in `src/app/features/settings/model/extras.data.ts`,
    with its `tool` line.
-2. Its feature, `src/features/<tool>/`, and a route file in `src/routes/`
+2. Its feature, `src/pillars/drawer/features/<tool>/`, and a route file in `src/routes/`
    (`drawer<Tool>.ts`, at `/drawer/<tool>`), added to `tree.ts`.
 3. Its page inside `DrawerFrame`, with its extra in `extras`: the frame says
    when it's put away or off, and draws the tool only when it's on.
