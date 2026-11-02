@@ -47,7 +47,7 @@ How it's built is [`architecture.md`](../architecture.md), This week.
 - **The week, in the whole pregnancy:** under the heading, a strip of the
   42 weeks (the weeks behind tinted, this one solid, a dot under each week
   ahead with something best done by then, the landmarks above and the
-  trimesters below), the days to go, and "The whole pregnancy", the map.
+  trimesters below), the days to go, and "The whole pregnancy", the timeline.
   A week on the strip goes to that week, as the steps do. It's no taller
   than a progress bar, so home is no heavier for it.
 - **The week, day by day:** one thing, not two. The week's note (The

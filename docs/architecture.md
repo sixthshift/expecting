@@ -195,7 +195,13 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 ### This week
 
 `/`, `?at=29` to peek at another week ([product](product/this-week.md)).
-`src/features/thisWeek/`.
+`src/features/thisWeek/`. The map of its code, its words and how to add a
+section is [`src/features/thisWeek/README.md`](../src/features/thisWeek/README.md).
+
+- `ThisWeekPageProvider` works out the week shown, whether it's a peek and
+  the week's note once; `Week`, or while something has happened
+  `QuietWeek`, draws inside it. On the right, `DoingNow`, or on a peek
+  `BestDoneThatWeek`.
 
 - To do now is `toDoNow` (`src/lib/todo.ts`), Coming up `comingUp`; the
   heads-up and Worth knowing are `headsUps` and `worthKnowing`
@@ -214,7 +220,8 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 
 `/timeline`, `?at=28` ([product](product/timeline.md)): opened from This
 week, not a pillar, so no tab and no "+". `src/features/timeline/`, the
-rules in `src/lib/timelineMap.ts`. A week is a line (`WeekMap`) that links
+rules in `src/lib/timelineWeeks.ts`. `TimelineFrame` draws it, as it is and
+while paused. A week is a line (`TimelineWeeks`) that links
 to This week at it (`/?at=<week>`). The strip's weeks are left out of the
 tab order; the steps beside it are the keyboard's way.
 
@@ -628,7 +635,7 @@ Installing and the service worker need HTTPS, except on `localhost`.
 
 ### Adaptive
 
-- A layout designed for each: on a desktop the sidebar, the map's three
+- A layout designed for each: on a desktop the sidebar, the timeline's three
   columns, the Planner's two; on a phone the tab bar under the thumb and
   settings behind a gear.
 - One width for the pillars (`max-w-6xl`), so the header stays put between

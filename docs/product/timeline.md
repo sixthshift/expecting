@@ -1,6 +1,6 @@
 # The whole pregnancy
 
-The map: the whole pregnancy at once, weeks 1–42, a line a week. It's
+The timeline: the whole pregnancy at once, weeks 1–42, a line a week. It's
 opened from This week (a strip of the pregnancy under the week's heading,
 and "The whole pregnancy" beside it), at `/timeline`. What's to do across
 the weeks is the Planner's chart, [Across the weeks](planner.md#across-the-weeks).
@@ -15,7 +15,7 @@ job a timeline might do belongs to a pillar that already has the thing:
 
 - **"Where are we in all of it?"** This week, which already said where you
   are. The strip under its heading puts the week in the whole pregnancy,
-  and opens the map.
+  and opens the timeline.
 - **"When do we have to…?"** The Planner, which holds what's asked of you,
   with its chart, Across the weeks.
 - **"What happened in week 22?"** The Journal, which is already by week.
@@ -40,7 +40,7 @@ a phone better than six, and each answers a different question.
   so a new due date moves everything at once.
 - **Everything is always there.** You can read week 34 in week 8. The due
   date changes where you land, never what you can see.
-- **Everything with a date has a week.** Ahead of today, the map is the
+- **Everything with a date has a week.** Ahead of today, the timeline is the
   plan; behind today, the diary; by the birth, the story of the pregnancy,
   without anyone having sat down to write it.
 - **A thread, not a shelf.** A week's detail is This week's: every week's
@@ -74,7 +74,7 @@ and come back as they were.
 - **The phases before and after the pregnancy:** getting ready (private
   cover's 12-month wait, folate), the birth, and the weeks after it,
   counted from the birth date. The first version is the pregnancy alone.
-  With three phases the map may earn a tab again.
+  With three phases the timeline may earn a tab again.
 - **The named chapters** people think in (the early weeks, the middle, the
   home stretch, any day now), in place of the trimesters.
 - **A way from a week to the Journal at it.** The week's line already opens
