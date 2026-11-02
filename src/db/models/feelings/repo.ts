@@ -1,6 +1,6 @@
 import type { Database } from "bun:sqlite";
 import { and, eq } from "drizzle-orm";
-import type { Feeling, OwnFeeling, Step, Word } from "../../../lib/feelings";
+import type { Feeling, OwnFeeling, Step, Word } from "../../../lib/journal/feelings";
 import { orm } from "../../connection/client";
 import { feeling } from "./schema";
 

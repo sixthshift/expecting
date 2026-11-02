@@ -12,7 +12,6 @@ import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { useNow, useSettingsQuery } from "../../../../../api/rpc/settings";
 import { builtInItems } from "../../../../../content";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
-import { when } from "../../../../../lib/labels";
 import {
   handyByDefault,
   PAPER_KIND_HINT,
@@ -23,7 +22,8 @@ import {
   paperTopic,
   paperWeek,
   topicsFor,
-} from "../../../../../lib/papers";
+} from "../../../../../lib/journal/papers";
+import { when } from "../../../../../lib/labels";
 import type { QuietKind } from "../../../../../lib/quiet";
 import { weekLabel } from "../../../../../lib/timeline";
 

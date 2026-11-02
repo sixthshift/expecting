@@ -3,7 +3,7 @@ import { SearchInput } from "@sixthshift/design-system/search-input";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { useState } from "react";
 import { usePapersQuery } from "../../../../../../api/rpc/papers";
-import { kindsKept, ordered, PAPER_KIND_PLURAL, type PaperKind, paperMatches } from "../../../../../../lib/papers";
+import { kindsKept, ordered, PAPER_KIND_PLURAL, type PaperKind, paperMatches } from "../../../../../../lib/journal/papers";
 import type { QuietKind } from "../../../../../../lib/quiet";
 import { PaperList } from "../PaperList";
 

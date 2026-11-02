@@ -3,7 +3,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 import { builtInItems } from "../../src/content";
-import { SQUARES } from "../../src/lib/bingo";
+import { SQUARES } from "../../src/lib/drawer/bingo";
 
 // A private entry leaves no trace in the space both phones share: no write
 // path accepts its id, or the words the app would save for it. The rule is

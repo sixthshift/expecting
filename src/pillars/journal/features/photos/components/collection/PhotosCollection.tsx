@@ -10,8 +10,17 @@ import { useState } from "react";
 import { usePhotosQuery } from "../../../../../../api/rpc/photos";
 import { useNow, useSettingsQuery } from "../../../../../../api/rpc/settings";
 import type { ISODate } from "../../../../../../lib/dates";
+import {
+  BUMP_SERIES,
+  type BumpWeek,
+  bumpToTake,
+  bumpWeeks,
+  kindsOffered,
+  type PhotoGroup,
+  type PhotoKind,
+  photoGroups,
+} from "../../../../../../lib/journal/photos";
 import { placeHeading, weekRange } from "../../../../../../lib/labels";
-import { BUMP_SERIES, type BumpWeek, bumpToTake, bumpWeeks, kindsOffered, type PhotoGroup, type PhotoKind, photoGroups } from "../../../../../../lib/photos";
 import type { QuietKind } from "../../../../../../lib/quiet";
 import { type Week, weekLabel } from "../../../../../../lib/timeline";
 import { describePhoto } from "../../../../model/labels";

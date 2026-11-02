@@ -14,8 +14,8 @@ import { feelingsSaves, useFeelingsQuery } from "../../../../../../api/rpc/feeli
 import { usePeopleQuery } from "../../../../../../api/rpc/people";
 import { useSave } from "../../../../../../app/hooks/useSave";
 import { addDays, type ISODate, todayISO } from "../../../../../../lib/dates";
-import { type Feeling, feelingsOf, isOwn, type OwnFeeling, STEP_LABEL, type Step, stepsByDay, wordsUsed } from "../../../../../../lib/feelings";
-import { formatTime } from "../../../../../../lib/journal";
+import { type Feeling, feelingsOf, isOwn, type OwnFeeling, STEP_LABEL, type Step, stepsByDay, wordsUsed } from "../../../../../../lib/journal/feelings";
+import { formatTime } from "../../../../../../lib/journal/journal";
 import { weekdayDate } from "../../../../../../lib/labels";
 import { nameBy } from "../../../../../../lib/people";
 import { Face } from "../Face";

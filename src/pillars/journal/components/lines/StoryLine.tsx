@@ -2,7 +2,7 @@
 // beside this one.
 
 import type { ReactElement } from "react";
-import type { StoryItem } from "../../../../lib/story/items";
+import type { StoryItem } from "../../../../lib/journal/story/items";
 import { AppetiteLine } from "./AppetiteLine";
 import { BingoLine } from "./BingoLine";
 import { DoneLine } from "./DoneLine";

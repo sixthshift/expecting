@@ -1,4 +1,4 @@
-// The firsts (src/lib/firsts.ts): marked on their day by either of you, or a
+// The firsts (src/lib/journal/firsts.ts): marked on their day by either of you, or a
 // suggestion put aside, and each of you's own words for one. Shared: both of
 // you see both answers.
 
@@ -8,7 +8,7 @@ import { z } from "zod";
 import { FirstsRepo } from "../../db/models/firsts/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
 import { isISODate } from "../../lib/dates";
-import { FIRST_KEYS, type FirstKey, type FirstMark } from "../../lib/firsts";
+import { FIRST_KEYS, type FirstKey, type FirstMark } from "../../lib/journal/firsts";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";

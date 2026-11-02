@@ -2666,7 +2666,7 @@
           <tr>
             <td class="px-4 py-3 font-medium text-fg-strong"><a class="underline" href="#panel">Panel</a></td>
             <td class="px-4 py-3"><code class="sheet-code">card</code>: <code class="sheet-code">Card</code>, and <code class="sheet-code">cardVariants</code> for a link</td>
-            <td class="px-4 py-3">13 files (Journal, Now, Planner, ItemCard…), beside ~16 hand-written panels</td>
+            <td class="px-4 py-3">13 files (Journal, Hero, Planner, ItemCard…), beside ~16 hand-written panels</td>
             <td class="px-4 py-3">Card is <code class="sheet-code">border-normal</code> plus a shadow; the hand-written ones are <code class="sheet-code">border-subtle</code> with none. Pick one look and set it in the theme.</td>
             <td class="px-4 py-3 font-semibold text-fg-success">Use Card</td>
           </tr>
@@ -2694,7 +2694,7 @@
           <tr>
             <td class="px-4 py-3 font-medium text-fg-strong"><a class="underline" href="#accent-bar">AccentBar</a></td>
             <td class="px-4 py-3"><code class="sheet-code">progress-bar</code>: <code class="sheet-code">ProgressBar</code></td>
-            <td class="px-4 py-3">2 files (Planner, This week's Now), beside 2 hand-written gradient bars (Onboarding, Settings)</td>
+            <td class="px-4 py-3">2 files (Planner, This week's Hero), beside 2 hand-written gradient bars (Onboarding, Settings)</td>
             <td class="px-4 py-3">Its fill is a colour token (<code class="sheet-code">bg-(--progress-bar-fill-bg)</code>), so it can't take the gradient. Either flat brand fill everywhere or gradient everywhere.</td>
             <td class="px-4 py-3 font-semibold text-fg-warning">Use it, if flat is fine</td>
           </tr>
@@ -2864,7 +2864,7 @@ export function CardTitle({ as = "h2", size = "md", icon: Icon, id, children }: 
           <h2 class="font-display text-lg font-semibold text-fg-strong">Appearance</h2>
           <p class="text-sm">The design system's Card, for comparison.</p>
         </div>
-        <code class="sheet-code text-fg-subtle">design-system/card · already in 13 files (the Journal, Now, Planner…): border-normal and a shadow</code>
+        <code class="sheet-code text-fg-subtle">design-system/card · already in 13 files (the Journal, Hero, Planner…): border-normal and a shadow</code>
       </div>
     </div>
     <div class="grid gap-6 lg:grid-cols-2">
@@ -2919,7 +2919,7 @@ export function CardTitle({ as = "h2", size = "md", icon: Icon, id, children }: 
           </div>
           <div class="flex flex-col gap-1 p-4">
             <span class="text-xs font-semibold tracking-widest text-fg-subtle uppercase">Week 22</span>
-            <code class="sheet-code text-fg-subtle">text-xs font-semibold tracking-widest · ×4 (WeekNote, Now, WeekMap, WindowsChart)</code>
+            <code class="sheet-code text-fg-subtle">text-xs font-semibold tracking-widest · ×4 (WeekNote, Hero, TimelineWeeks, WeeksChart)</code>
           </div>
           <div class="flex flex-col gap-1 p-4">
             <h2 class="text-xs font-semibold tracking-wide text-fg-subtle uppercase">To do</h2>
@@ -3289,13 +3289,13 @@ export function Nudge({ as = "section", size = "md", icon: Icon, title, actions,
           <div class="h-1.5 overflow-hidden rounded-full bg-bg-subtle"><div class="h-full rounded-full bg-linear-to-r from-(--expecting-accent-from) to-(--expecting-accent-to)" style="width: 58%"></div></div>
           <p class="text-sm">&lt;AccentBar label="Questions answered" value={7} max={12} /&gt;</p>
         </div>
-        <pre class="sheet-code rounded-lg bg-bg-subtle p-4 text-fg-normal">// ProgressBar is already used on This week (Now) and in the Planner.
+        <pre class="sheet-code rounded-lg bg-bg-subtle p-4 text-fg-normal">// ProgressBar is already used on This week (Hero) and in the Planner.
 // Onboarding and Settings hand-roll a gradient one instead.
 //
 // Its fill is bg-(--progress-bar-fill-bg): a background-color, so the
 // theme can't hand it a gradient. Two ways:
 //   a. ProgressBar everywhere, flat brand fill. Nothing new.
-//   b. Gradient everywhere: AccentBar (ours), and Now and the
+//   b. Gradient everywhere: AccentBar (ours), and Hero and the
 //      Planner move to it too.
 &lt;ProgressBar completed={7} total={12} showFraction={false} label="Questions answered" /&gt;</pre>
       </div>

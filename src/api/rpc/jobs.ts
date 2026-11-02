@@ -6,7 +6,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { JobsRepo } from "../../db/models/jobs/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
-import { isJobId, type JobsView, PICKS, type Pick } from "../../lib/jobs";
+import { isJobId, type JobsView, PICKS, type Pick } from "../../lib/drawer/jobs";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
@@ -19,7 +19,7 @@ function player(): string {
   return id;
 }
 
-const jobId = z.string().refine(isJobId, "not a job in src/lib/jobs.ts");
+const jobId = z.string().refine(isJobId, "not a job in src/lib/drawer/jobs.ts");
 
 export const getJobs = createServerFn({ method: "GET" }).handler(() => new JobsRepo(getDb()).view(player()));
 

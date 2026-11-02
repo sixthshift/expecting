@@ -1,4 +1,4 @@
-import type { FirstKey } from "../../../../lib/firsts";
+import type { FirstKey } from "../../../../lib/journal/firsts";
 import type { Person } from "../../../../lib/people";
 import { WEEKS, type Week } from "../../../../lib/timeline";
 import { AddCraving } from "../../../../pillars/journal/features/appetite/components/AddCraving";

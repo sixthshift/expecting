@@ -2,7 +2,7 @@
 -- entry beside notes and movements, which needs its words as a note does.
 -- Rebuilt rather than altered: SQLite can't change a check.
 --
--- The firsts (src/lib/firsts.ts): one marked on its day, or put aside (a
+-- The firsts (src/lib/journal/firsts.ts): one marked on its day, or put aside (a
 -- suggestion said no to, `day` null), and each of you's own words for it.
 -- And when each of you last opened the Journal, for "since you looked".
 

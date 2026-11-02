@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import type { ReactNode } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { todayISO } from "../../../../../src/lib/dates";
-import type { JournalEntry } from "../../../../../src/lib/journal";
+import type { JournalEntry } from "../../../../../src/lib/journal/journal";
 
 // Movements in the Journal, with the query cache and the outbox stood in for:
 // a change to slower, weaker or stopped shows the call as a new one does, and

@@ -9,7 +9,7 @@ import { Star } from "lucide-react";
 import { firstsSaves } from "../../../../../api/rpc/firsts";
 import { useSave } from "../../../../../app/hooks/useSave";
 import type { ISODate } from "../../../../../lib/dates";
-import { type FirstMark, firstOf } from "../../../../../lib/firsts";
+import { type FirstMark, firstOf } from "../../../../../lib/journal/firsts";
 import { DayField } from "./DayField";
 import { FirstWords } from "./FirstWords";
 

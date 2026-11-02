@@ -3,7 +3,7 @@ import { FilesRepo } from "../../src/db/models/files/repo";
 import { PapersRepo } from "../../src/db/models/papers/repo";
 import { PeopleRepo } from "../../src/db/models/people/repo";
 import type { Upload } from "../../src/lib/files";
-import type { PaperInput } from "../../src/lib/papers";
+import type { PaperInput } from "../../src/lib/journal/papers";
 import { useTestDb } from "./helpers";
 
 const db = useTestDb();

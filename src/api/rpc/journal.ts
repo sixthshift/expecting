@@ -10,7 +10,7 @@ import { z } from "zod";
 import { JournalRepo } from "../../db/models/journal/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
 import { isISODate } from "../../lib/dates";
-import { type JournalEntry, TIME } from "../../lib/journal";
+import { type JournalEntry, TIME } from "../../lib/journal/journal";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";

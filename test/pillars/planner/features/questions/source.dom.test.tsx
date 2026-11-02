@@ -1,7 +1,7 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import type { ReactNode } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import type { Question } from "../../../../../src/lib/questions";
+import type { Question } from "../../../../../src/lib/planner/questions";
 
 // An open question in the Planner names the entry it was asked from, unless
 // that entry is discreet: its title would tell what the question's words don't.

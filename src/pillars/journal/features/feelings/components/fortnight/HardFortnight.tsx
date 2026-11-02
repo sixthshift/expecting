@@ -1,5 +1,5 @@
 // After a hard couple of weeks, a quiet suggestion to talk to someone, shown
-// only to the person it's about (hardFortnight in src/lib/feelings.ts). It
+// only to the person it's about (hardFortnight in src/lib/journal/feelings.ts). It
 // never names a condition. Dismissed, it stays away for a fortnight, on this
 // phone.
 
@@ -9,7 +9,7 @@ import { useState } from "react";
 import { useFeelingsQuery } from "../../../../../../api/rpc/feelings";
 import { usePeopleQuery } from "../../../../../../api/rpc/people";
 import { addDays, type ISODate, todayISO } from "../../../../../../lib/dates";
-import { FORTNIGHT, feelingsOf, hardFortnight, isOwn } from "../../../../../../lib/feelings";
+import { FORTNIGHT, feelingsOf, hardFortnight, isOwn } from "../../../../../../lib/journal/feelings";
 import { Support, supportItem } from "../Support";
 
 /** Where the phone remembers the day the card was last put away. */

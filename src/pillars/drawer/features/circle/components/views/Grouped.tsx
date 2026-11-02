@@ -1,4 +1,4 @@
-import type { CirclePerson, groupsOf, View } from "../../../../../../lib/circle";
+import type { CirclePerson, groupsOf, View } from "../../../../../../lib/drawer/circle";
 import { PersonRow } from "../person/PersonRow";
 
 /** Your people in the view's groups, a heading each; or, with nobody yet, how to start. */

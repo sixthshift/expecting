@@ -4,7 +4,7 @@
 import { Modal } from "@sixthshift/design-system/modal";
 import type { ReactNode } from "react";
 import { usePeopleQuery } from "../../../../api/rpc/people";
-import { formatTime } from "../../../../lib/journal";
+import { formatTime } from "../../../../lib/journal/journal";
 import { nameBy } from "../../../../lib/people";
 
 /** The name a line says when it isn't yours: "Sam". Yours says nothing, as a diary wouldn't. */

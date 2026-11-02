@@ -1,7 +1,7 @@
 import { useQuestionsQuery } from "../../../../api/rpc/questions";
-import { APPOINTMENT_WHEN } from "../../../../lib/appointments";
 import { todayISO } from "../../../../lib/dates";
 import { when } from "../../../../lib/labels";
+import { APPOINTMENT_WHEN } from "../../../../lib/planner/appointments";
 import { usePlannerPage } from "../../contexts/PlannerPageContext";
 import { AddQuestion } from "../../features/questions/components/AddQuestion";
 import { AskedQuestion } from "../../features/questions/components/AskedQuestion";

@@ -6,8 +6,8 @@ import { Modal } from "@sixthshift/design-system/modal";
 import { type FormEvent, useState } from "react";
 import { bingoSaves } from "../../../../../../api/rpc/bingo";
 import { useSave } from "../../../../../../app/hooks/useSave";
-import { type Card, squareOf } from "../../../../../../lib/bingo";
 import { type ISODate, todayISO } from "../../../../../../lib/dates";
+import { type Card, squareOf } from "../../../../../../lib/drawer/bingo";
 import { weekdayDate } from "../../../../../../lib/labels";
 
 /**

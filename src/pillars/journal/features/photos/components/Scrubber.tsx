@@ -5,7 +5,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Pause, Play } from "lucide-react";
 import { useEffect, useState } from "react";
-import type { BumpWeek } from "../../../../../lib/photos";
+import type { BumpWeek } from "../../../../../lib/journal/photos";
 import { weekLabel } from "../../../../../lib/timeline";
 import { Picture } from "./Picture";
 

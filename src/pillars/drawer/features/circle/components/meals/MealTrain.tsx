@@ -1,7 +1,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { toast } from "@sixthshift/design-system/overlay";
 import { Copy } from "lucide-react";
-import { type CirclePerson, mealTrain, rosterText } from "../../../../../../lib/circle";
+import { type CirclePerson, mealTrain, rosterText } from "../../../../../../lib/drawer/circle";
 import { weekdayDate } from "../../../../../../lib/labels";
 import { handOff } from "../../model/share";
 

@@ -15,7 +15,7 @@ map of the code. The whole pregnancy at once, `/timeline`, is
 | **"that week"** | How a peek's headings say the week ("Asked that week"); now, "this week". | `model/labels.ts` (`whichWeek`) |
 | **the note** | The week's note, `content/weeks/<week>.md`: The baby, Your body, For the partner. Now, the one in force carries on until the next; a peek shows only that week's own. | `src/content/weeks.ts` |
 | **day reads** | A read for each day after the note, +1 to +6, `content/days/<week>/<day>.md`, out a day at a time (`readsOut`). With the note, one carousel: the day by day. | `src/content/days.ts` |
-| **the week's question** | A question a week, while its extra is on: answered on each phone, shown side by side once both have. | `src/lib/weekly.ts` |
+| **the week's question** | A question a week, while its extra is on: answered on each phone, shown side by side once both have. | `src/lib/thisWeek/weekly.ts` |
 | **quiet** | Something has happened (a loss, hard news): no week, no size, no countdown, support and the next steps instead (`QuietWeek`). | `src/lib/quiet.ts` |
 
 ## From the store to the screen

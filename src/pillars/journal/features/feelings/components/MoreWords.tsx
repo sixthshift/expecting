@@ -3,7 +3,7 @@ import { Textarea } from "@sixthshift/design-system/textarea";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { useState } from "react";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
-import { type OwnFeeling, WORDS, type Word } from "../../../../../lib/feelings";
+import { type OwnFeeling, WORDS, type Word } from "../../../../../lib/journal/feelings";
 import { otherOf } from "../../../../../lib/people";
 
 const OPTIONS = WORDS.map((word) => ({ value: word, label: word }));

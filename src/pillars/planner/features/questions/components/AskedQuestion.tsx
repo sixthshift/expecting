@@ -4,7 +4,7 @@ import { questionsSaves } from "../../../../../api/rpc/questions";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { todayISO } from "../../../../../lib/dates";
 import { fullDate } from "../../../../../lib/labels";
-import type { Question } from "../../../../../lib/questions";
+import type { Question } from "../../../../../lib/planner/questions";
 import { DeleteButton, Source } from "./parts";
 
 /** A question asked, in the week it was asked: what you were told, and the way to ask it again. */

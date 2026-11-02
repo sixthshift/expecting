@@ -1,5 +1,5 @@
 import { useQuestionsQuery } from "../../../../api/rpc/questions";
-import { askedWeeks } from "../../../../lib/timelineWeeks";
+import { askedWeeks } from "../../../../lib/thisWeek/timelineWeeks";
 import { AskedQuestion } from "../../../planner/features/questions/components/AskedQuestion";
 import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
 import { whichWeek } from "../../model/labels";

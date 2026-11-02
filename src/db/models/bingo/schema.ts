@@ -2,7 +2,7 @@ import { sql } from "drizzle-orm";
 import { check, primaryKey, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { person } from "../people/schema";
 
-/** One of you's bingo card: its 24 squares in order (ids from SQUARES in src/lib/bingo.ts), as JSON. */
+/** One of you's bingo card: its 24 squares in order (ids from SQUARES in src/lib/drawer/bingo.ts), as JSON. */
 export const bingoCard = sqliteTable(
   "bingo_card",
   {

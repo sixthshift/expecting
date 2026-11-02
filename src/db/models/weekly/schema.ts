@@ -2,7 +2,7 @@ import { sql } from "drizzle-orm";
 import { check, integer, primaryKey, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { person } from "../people/schema";
 
-/** One of you's answer to a week's question (WEEKLY in src/lib/weekly.ts). */
+/** One of you's answer to a week's question (WEEKLY in src/lib/thisWeek/weekly.ts). */
 export const weeklyAnswer = sqliteTable(
   "weekly_answer",
   {

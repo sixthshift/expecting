@@ -3,7 +3,7 @@ import { Textarea } from "@sixthshift/design-system/textarea";
 import { useState } from "react";
 import { weeklySaves } from "../../../../../api/rpc/weekly";
 import { useSave } from "../../../../../app/hooks/useSave";
-import { questionOf, type WeeklyWeek } from "../../../../../lib/weekly";
+import { questionOf, type WeeklyWeek } from "../../../../../lib/thisWeek/weekly";
 import { Said } from "./Said";
 
 /**

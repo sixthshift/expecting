@@ -14,8 +14,8 @@ import { useQuietQuery } from "../../../../../api/rpc/quiet";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { FileProblemError, keepOnPhone, type Prepared, prepareFile, previewUrl } from "../../../../../app/model/uploads";
 import { type FileProblem, formatSize, isImage, MAX_ORIGINAL } from "../../../../../lib/files";
+import { MAX_PAGES, type PaperPage, paperProblem } from "../../../../../lib/journal/papers";
 import { newId } from "../../../../../lib/outbox";
-import { MAX_PAGES, type PaperPage, paperProblem } from "../../../../../lib/papers";
 import { complete, handyOf, newDraft, PaperFields } from "./PaperFields";
 
 /** A page made ready, with its preview while it's on screen here. */

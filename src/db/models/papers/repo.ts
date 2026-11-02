@@ -1,6 +1,6 @@
 import type { Database } from "bun:sqlite";
 import { asc, eq } from "drizzle-orm";
-import { type Paper, type PaperChange, type PaperInput, type PaperPage, tidyTitle, tidyWords } from "../../../lib/papers";
+import { type Paper, type PaperChange, type PaperInput, type PaperPage, tidyTitle, tidyWords } from "../../../lib/journal/papers";
 import { orm } from "../../connection/client";
 import { upload } from "../files/schema";
 import { paper, paperPage } from "./schema";

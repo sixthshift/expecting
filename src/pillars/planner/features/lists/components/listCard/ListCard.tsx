@@ -2,7 +2,7 @@ import { Card } from "@sixthshift/design-system/card";
 import { ProgressBar } from "@sixthshift/design-system/progress-bar";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
-import { type ListSummary, upToSaying } from "../../../../../../lib/lists/summaries";
+import { type ListSummary, upToSaying } from "../../../../../../lib/planner/lists/summaries";
 import { listIcon } from "../icons";
 
 /** A list at a glance: its icon, what it's for, where it's up to, and the first few still to get. The whole card opens it. */

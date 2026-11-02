@@ -1,4 +1,4 @@
-import { type Circle, type CirclePerson, groupsOf, HEARS, VISITS, type View } from "../../../../../../lib/circle";
+import { type Circle, type CirclePerson, groupsOf, HEARS, VISITS, type View } from "../../../../../../lib/drawer/circle";
 import { weekdayDate } from "../../../../../../lib/labels";
 import { Announcement } from "../announcement/Announcement";
 import { Gifts } from "../gifts/Gifts";

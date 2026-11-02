@@ -4,7 +4,7 @@ import { Textarea } from "@sixthshift/design-system/textarea";
 import { type FormEvent, useState } from "react";
 import { questionsSaves } from "../../../../../api/rpc/questions";
 import { useSave } from "../../../../../app/hooks/useSave";
-import type { Question } from "../../../../../lib/questions";
+import type { Question } from "../../../../../lib/planner/questions";
 import { DeleteButton, Source } from "./parts";
 
 /** A question still to ask, in the Planner: its words, where it came from and whose, and the way to say it was asked, with what you were told. */

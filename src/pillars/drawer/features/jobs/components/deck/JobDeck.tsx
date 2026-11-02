@@ -3,7 +3,7 @@ import { Undo2 } from "lucide-react";
 import { useState } from "react";
 import { jobsSaves } from "../../../../../../api/rpc/jobs";
 import { useSave } from "../../../../../../app/hooks/useSave";
-import { JOB_GROUPS, JOBS, type Job, type Pick } from "../../../../../../lib/jobs";
+import { JOB_GROUPS, JOBS, type Job, type Pick } from "../../../../../../lib/drawer/jobs";
 
 /**
  * The jobs you haven't answered, one at a time: who'll do it, you, the other

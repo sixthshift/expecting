@@ -2,7 +2,7 @@ import { sql } from "drizzle-orm";
 import { check, index, integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { person } from "../people/schema";
 
-/** One of your people (src/lib/circle.ts), with what each view sets. */
+/** One of your people (src/lib/drawer/circle.ts), with what each view sets. */
 export const circlePerson = sqliteTable(
   "circle_person",
   {

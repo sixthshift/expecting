@@ -4,7 +4,7 @@ import { Hourglass } from "lucide-react";
 import { useState } from "react";
 import { NightDetail } from "../../../../app/features/itsTime/components/night/NightDetail";
 import { nightLine } from "../../../../lib/itsTime";
-import type { StoryItem } from "../../../../lib/story/items";
+import type { StoryItem } from "../../../../lib/journal/story/items";
 
 import { EntrySheet, Opens } from "./parts";
 

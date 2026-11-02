@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 import { BingoRepo } from "../../src/db/models/bingo/repo";
 import { PeopleRepo } from "../../src/db/models/people/repo";
-import { SQUARES } from "../../src/lib/bingo";
+import { SQUARES } from "../../src/lib/drawer/bingo";
 import { useTestDb } from "./helpers";
 
 const db = useTestDb();

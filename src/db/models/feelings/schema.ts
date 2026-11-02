@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import { check, index, sqliteTable, text } from "drizzle-orm/sqlite-core";
-import { STEPS, type Word } from "../../../lib/feelings";
+import { STEPS, type Word } from "../../../lib/journal/feelings";
 import { person } from "../people/schema";
 
 /** How one of you is feeling, on its day. The step is shared; the words and note are only ever sent to `by`. */

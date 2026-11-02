@@ -1,5 +1,5 @@
 import { Diamond } from "lucide-react";
-import type { TimelineWeek } from "../../../../../../lib/timelineWeeks";
+import type { TimelineWeek } from "../../../../../../lib/thisWeek/timelineWeeks";
 
 /** A week's headline: today, a landmark, or its note's title. */
 export function WeekHeadline({ week: w }: { week: TimelineWeek }) {

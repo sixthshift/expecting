@@ -3,9 +3,9 @@ import { Link } from "@tanstack/react-router";
 import { CalendarClock, ChevronRight, MapPin } from "lucide-react";
 import { useAppointmentsQuery } from "../../../../../api/rpc/appointments";
 import { useQuestionsQuery } from "../../../../../api/rpc/questions";
-import { APPOINTMENT_WHEN, appointmentSoon, nextAppointment } from "../../../../../lib/appointments";
 import { todayISO } from "../../../../../lib/dates";
 import { when } from "../../../../../lib/labels";
+import { APPOINTMENT_WHEN, appointmentSoon, nextAppointment } from "../../../../../lib/planner/appointments";
 
 /**
  * On This week: the next appointment, once it's within a fortnight, with how

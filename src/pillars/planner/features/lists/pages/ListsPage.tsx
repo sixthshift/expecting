@@ -1,7 +1,7 @@
 import { ListTodo } from "lucide-react";
 import { useListsQuery } from "../../../../../api/rpc/lists";
 import { PillarLayout } from "../../../../../app/components/layout/PillarLayout";
-import { inPlanner, listsOf } from "../../../../../lib/lists/summaries";
+import { inPlanner, listsOf } from "../../../../../lib/planner/lists/summaries";
 import { AddList } from "../components/addList/AddList";
 import { ListCard } from "../components/listCard/ListCard";
 import { useLines } from "../hooks/useLines";
@@ -23,7 +23,7 @@ export function ListsPage() {
     <PillarLayout
       back={{ to: "/planner", label: "Planner" }}
       title="Lists"
-      lead="What to get, a list for each job, ticked off together wherever you are."
+      lead="What to get, a list for each part of getting ready, ticked off together wherever you are."
       putAway={{ subject: "The lists", are: true }}
       className="gap-8"
     >

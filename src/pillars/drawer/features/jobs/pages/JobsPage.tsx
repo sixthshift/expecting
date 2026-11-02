@@ -1,6 +1,6 @@
 import { useJobsQuery } from "../../../../../api/rpc/jobs";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
-import { JOBS, results, toAnswer, waiting } from "../../../../../lib/jobs";
+import { JOBS, results, toAnswer, waiting } from "../../../../../lib/drawer/jobs";
 import { otherName } from "../../../../../lib/people";
 import { DrawerTool } from "../../../components/tool/DrawerTool";
 import { JobDeck } from "../components/deck/JobDeck";

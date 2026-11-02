@@ -7,7 +7,7 @@ import { questionsSaves } from "../../../../../api/rpc/questions";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { builtInItems } from "../../../../../content";
 import { whoseBy } from "../../../../../lib/people";
-import type { Question } from "../../../../../lib/questions";
+import type { Question } from "../../../../../lib/planner/questions";
 import { ItemLink } from "../../../../library/components/itemLink/ItemLink";
 
 /**

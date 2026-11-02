@@ -4,10 +4,10 @@
 
 import type { Facts } from "../app/features/settings/model/facts";
 import { applies } from "../app/features/settings/model/facts";
-import { buildChecklist, type OwnTaskRow } from "../lib/checklist";
 import type { ISODate } from "../lib/dates";
 import { inExtras } from "../lib/extras";
 import { timeTask } from "../lib/facts";
+import { buildChecklist, type OwnTaskRow } from "../lib/planner/checklist";
 import { builtInItems, builtInTasks } from "./index";
 import type { Item, Task } from "./schema";
 

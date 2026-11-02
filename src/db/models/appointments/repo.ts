@@ -1,6 +1,6 @@
 import type { Database } from "bun:sqlite";
 import { asc, eq } from "drizzle-orm";
-import type { Appointment } from "../../../lib/appointments";
+import type { Appointment } from "../../../lib/planner/appointments";
 import { orm } from "../../connection/client";
 import { appointment } from "./schema";
 

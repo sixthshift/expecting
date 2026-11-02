@@ -2,8 +2,8 @@ import { useChecklistQuery } from "../../../../../../api/rpc/checklist";
 import { usePeopleQuery } from "../../../../../../api/rpc/people";
 import { useNow } from "../../../../../../api/rpc/settings";
 import { whose } from "../../../../../../lib/people";
+import { comingUp } from "../../../../../../lib/planner/todo";
 import { weekLabel } from "../../../../../../lib/timeline";
-import { comingUp } from "../../../../../../lib/todo";
 import { ItemLink } from "../../../../../library/components/itemLink/ItemLink";
 import { useTasks } from "../../hooks/useTasks";
 

@@ -1,4 +1,4 @@
-import type { Step } from "../../../../../lib/feelings";
+import type { Step } from "../../../../../lib/journal/feelings";
 
 /** How far each step's mouth bends: down for rough, flat for okay, up for great. */
 const BEND: Record<Step, number> = { rough: -4, low: -1.5, okay: 0, good: 1.5, great: 4 };

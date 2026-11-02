@@ -8,7 +8,7 @@ import { z } from "zod";
 import { PeopleRepo } from "../../db/models/people/repo";
 import { WeeklyRepo } from "../../db/models/weekly/repo";
 import { save, stamped } from "../../lib/outbox";
-import { questionOf, type WeeklyView } from "../../lib/weekly";
+import { questionOf, type WeeklyView } from "../../lib/thisWeek/weekly";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
@@ -28,7 +28,7 @@ export const answerWeekly = createServerFn({ method: "POST" })
         week: z
           .number()
           .int()
-          .refine((w) => questionOf(w) !== undefined, "a week with a question in src/lib/weekly.ts"),
+          .refine((w) => questionOf(w) !== undefined, "a week with a question in src/lib/thisWeek/weekly.ts"),
         body: z.string().max(4000),
       })
       .strict()

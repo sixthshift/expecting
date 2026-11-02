@@ -2,8 +2,8 @@ import { createContext, type ReactNode, use, useCallback, useMemo, useState } fr
 import { useAppointmentsQuery } from "../../../api/rpc/appointments";
 import { useQuietQuery } from "../../../api/rpc/quiet";
 import { useNow } from "../../../api/rpc/settings";
-import { type Appointment, splitAppointments } from "../../../lib/appointments";
 import { todayISO } from "../../../lib/dates";
+import { type Appointment, splitAppointments } from "../../../lib/planner/appointments";
 import type { Plan, Stage } from "../../../lib/planner/plan";
 import type { QuietKind } from "../../../lib/quiet";
 import type { Week } from "../../../lib/timeline";

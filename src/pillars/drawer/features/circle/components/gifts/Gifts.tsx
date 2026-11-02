@@ -6,7 +6,7 @@ import { X } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { circleSaves } from "../../../../../../api/rpc/circle";
 import { useSave } from "../../../../../../app/hooks/useSave";
-import { byName, type CirclePerson, type Gift } from "../../../../../../lib/circle";
+import { byName, type CirclePerson, type Gift } from "../../../../../../lib/drawer/circle";
 import { newId } from "../../../../../../lib/outbox";
 
 /**

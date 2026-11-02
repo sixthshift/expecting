@@ -1,7 +1,7 @@
 import { useAppetiteQuery } from "../../../../api/rpc/appetite";
 import { useJournalQuery } from "../../../../api/rpc/journal";
 import { todayISO } from "../../../../lib/dates";
-import { callsToMake } from "../../../../lib/journalNow";
+import { callsToMake } from "../../../../lib/journal/journalNow";
 import { TooSick } from "../../features/appetite/components/TooSick";
 import { MovementsChanged } from "../../features/movements/components/MovementsChanged";
 

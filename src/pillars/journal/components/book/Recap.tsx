@@ -1,6 +1,6 @@
 // A recap, given back: a trimester, or the whole pregnancy, built from what's
 // there, a part only when it has something. Stepped through a card at a
-// time, or (the whole pregnancy) as a book to print. See src/lib/recap.ts.
+// time, or (the whole pregnancy) as a book to print. See src/lib/journal/recap.ts.
 
 import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";
@@ -10,13 +10,13 @@ import { useState } from "react";
 import { usePeopleQuery } from "../../../../api/rpc/people";
 import { useSettingsQuery } from "../../../../api/rpc/settings";
 import { type ISODate, todayISO } from "../../../../lib/dates";
-import { firstOf } from "../../../../lib/firsts";
-import { placeOf } from "../../../../lib/journal";
-import type { RecapSpan } from "../../../../lib/journalNow";
+import { firstOf } from "../../../../lib/journal/firsts";
+import { placeOf } from "../../../../lib/journal/journal";
+import type { RecapSpan } from "../../../../lib/journal/journalNow";
+import { type Recap, type RecapPart, recapOf, recapParts } from "../../../../lib/journal/recap";
+import type { StoryItem } from "../../../../lib/journal/story/items";
 import { shortDate } from "../../../../lib/labels";
 import { nameBy } from "../../../../lib/people";
-import { type Recap, type RecapPart, recapOf, recapParts } from "../../../../lib/recap";
-import type { StoryItem } from "../../../../lib/story/items";
 import { weekLabel } from "../../../../lib/timeline";
 import { Picture } from "../../features/photos/components/Picture";
 import { Flipbook } from "../../features/photos/components/Scrubber";

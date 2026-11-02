@@ -116,7 +116,7 @@ src/
   pillars/      the five pillars: thisWeek, library, planner, journal, drawer
     <pillar>/features/  what lives in a pillar, each a feature: planner/features/{tasks,questions,appointments,lists,weeks}, …
   components/   generic parts with no domain: Page, DateForm, loading
-  lib/          pure rules and types: no React, no router, no store
+  lib/          pure rules and types: no React, no router, no store. A pillar's own rules in a folder of its name (journal/, drawer/, planner/, thisWeek/, library/); what several share (dates, labels, timeline, people, facts, extras, quiet, …) loose
   content/      reading and checking the built-in content
   routes/       route definitions only: root.tsx, a file per route, onboarding/, auth/, tree.ts, search.ts
   api/
@@ -225,7 +225,7 @@ section is [`src/pillars/thisWeek/README.md`](../src/pillars/thisWeek/README.md)
   `QuietWeek`, draws inside it. On the right, `DoingNow`, or on a peek
   `BestDoneThatWeek`.
 
-- To do now is `toDoNow` (`src/lib/todo.ts`), Coming up `comingUp`; the
+- To do now is `toDoNow` (`src/lib/planner/todo.ts`), Coming up `comingUp`; the
   heads-up and Worth knowing are `headsUps` and `worthKnowing`
   (`src/lib/library/thisWeek.ts`).
 - The strip is `PregnancyStrip` (`src/pillars/thisWeek/features/timeline/components/strip/`).
@@ -242,7 +242,7 @@ section is [`src/pillars/thisWeek/README.md`](../src/pillars/thisWeek/README.md)
 
 `/timeline`, `?at=28` ([product](product/timeline.md)): opened from This
 week, not a pillar, so no tab and no "+". `src/pillars/thisWeek/features/timeline/`, the
-rules in `src/lib/timelineWeeks.ts`. `PillarLayout` draws its top, as it is and
+rules in `src/lib/thisWeek/timelineWeeks.ts`. `PillarLayout` draws its top, as it is and
 while paused. A week is a line (`TimelineWeeks`) that links
 to This week at it (`/?at=<week>`). The strip's weeks are left out of the
 tab order; the steps beside it are the keyboard's way.
@@ -285,16 +285,16 @@ The map of the code is `src/pillars/planner/README.md`.
 - **The weeks** ("Across the weeks", `/planner/weeks`, `?stage=37`): `WeeksPage`, the
   bars from `weeksChart` (`src/lib/planner/weeks.ts`).
 - **Lists** (`/planner/lists`, `/planner/lists/<id>`): `src/pillars/planner/` (`ListsPage`, `ListPage` and `ListPageProvider`, `components/lists/`),
-  rules `src/lib/lists/` (`LISTS` in `builtIn.ts`; the lines that apply, `lines.ts`; what's left, `summaries.ts`; by section, `sections.ts`). A
+  rules `src/lib/planner/lists/` (`LISTS` in `builtIn.ts`; the lines that apply, `lines.ts`; what's left, `summaries.ts`; by section, `sections.ts`). A
   built-in line comes from an item's `lines`, tailored like the item. The
   store is `own_list`, `own_line` and `list_mark` (a line's id, no foreign
   key, like `task_tick`; no row is still to get).
 - **Appointments:** `src/pillars/planner/features/appointments/`, the `appointment` table
   (title, `day`, perhaps `time`, `place`, `notes`), rules
-  `src/lib/appointments.ts` (the next is the earliest still ahead, today's
+  `src/lib/planner/appointments.ts` (the next is the earliest still ahead, today's
   included; its week from the due date on read). Add to calendar is a plain
   link to `GET /api/appointments/<id>/calendar.ics` (`src/api/rest/calendar.ts`,
-  the file from `icsOf`, `src/lib/calendar.ts`): a server route, because a
+  the file from `icsOf`, `src/lib/planner/calendar.ts`): a server route, because a
   phone hands a file to its calendar only from a URL with its own type. The
   time floats (local, no zone), an hour long, or all day; the `UID` is the
   appointment's id.
@@ -340,22 +340,22 @@ tool's page is drawn inside `DrawerTool`, which says when it's put away or
 off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
 
 - **The names game** (`/drawer/names`, `src/pillars/drawer/features/names/`): dealt by
-  `upNext` (`src/lib/nameDeck.ts`) from [the names deck](#the-names-deck),
-  the sex from the colours (`dealing`, `src/lib/names.ts`). The store is
+  `upNext` (`src/lib/drawer/nameDeck.ts`) from [the names deck](#the-names-deck),
+  the sex from the colours (`dealing`, `src/lib/drawer/names.ts`). The store is
   `baby_name` (a deck name gets a row the first time either of you votes on
   it; `off_at` takes it off the shortlist) and `name_vote` (`super_on`, a
   superlike's day). `src/api/rpc/names.ts` answers only with your own votes,
   your superlike and the shortlist, never the other's votes.
 - **Who does what** (`/drawer/jobs`, `src/pillars/drawer/features/jobs/`): `JOBS` in
-  `src/lib/jobs.ts`, each answer a `job_pick`.
+  `src/lib/drawer/jobs.ts`, each answer a `job_pick`.
 - **Your people** (`/drawer/people`, `?view=`, `src/pillars/drawer/features/circle/`):
   `circle_person`, `circle_gift`, `announcement`, a view per extra
-  (`src/lib/circle.ts`).
+  (`src/lib/drawer/circle.ts`).
 - **Pregnancy bingo** (`/drawer/bingo`, `src/pillars/drawer/features/bingo/`): `SQUARES`
-  in `src/lib/bingo.ts`, a card each (`bingo_card`), its squares marked
+  in `src/lib/drawer/bingo.ts`, a card each (`bingo_card`), its squares marked
   (`bingo_mark`).
 - **A question a week** is drawn on This week (`src/pillars/thisWeek/features/weekly/components/`):
-  `WEEKLY` in `src/lib/weekly.ts`, answers in `weekly_answer`.
+  `WEEKLY` in `src/lib/thisWeek/weekly.ts`, answers in `weekly_answer`.
 - **Both answer, then reveal** is one rule in the repos' views
   (`JobsRepo.view`, `WeeklyRepo.view`): the other's answer is sent only
   once you've both given one.
@@ -522,7 +522,7 @@ what the choices mean is `src/lib/extras.ts` (`extrasOn`, `inExtras`,
 
 ## The names deck
 
-`src/lib/nameDeck.data.json`, generated by `bun run names`
+`src/lib/drawer/nameDeck.data.json`, generated by `bun run names`
 (`scripts/names.ts`) from registers that publish every name given each year
 with its count: England & Wales (ONS, OGL v3), Ireland (CSO, CC BY 4.0),
 Ontario (OGL-Ontario), New Zealand (DIA, CC BY 4.0), South Australia (CC BY

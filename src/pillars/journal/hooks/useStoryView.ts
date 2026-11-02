@@ -1,7 +1,7 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { useCallback } from "react";
 import { useSettingsQuery } from "../../../api/rpc/settings";
-import { type StoryView, viewsOffered } from "../../../lib/story/views";
+import { type StoryView, viewsOffered } from "../../../lib/journal/story/views";
 
 const route = getRouteApi("/app/journal");
 

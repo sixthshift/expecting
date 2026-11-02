@@ -1,7 +1,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
 import { useJournalQuery } from "../../../../../../api/rpc/journal";
-import { newestFirst } from "../../../../../../lib/journal";
+import { newestFirst } from "../../../../../../lib/journal/journal";
 import { Movement } from "../Movement";
 import { MovementPattern } from "./MovementPattern";
 

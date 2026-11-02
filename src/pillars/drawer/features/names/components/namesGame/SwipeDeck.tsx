@@ -1,7 +1,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Heart, Star, X } from "lucide-react";
 import { type PointerEvent, useRef, useState } from "react";
-import type { DeckCard } from "../../../../../../lib/nameDeck";
+import type { DeckCard } from "../../../../../../lib/drawer/nameDeck";
 import { CardFace } from "./CardFace";
 
 /** How far a card is dragged before letting go likes or passes it. */

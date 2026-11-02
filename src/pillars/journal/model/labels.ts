@@ -5,9 +5,9 @@
 import { weekNotes } from "../../../content";
 import { noteFor } from "../../../content/weeks";
 import type { ISODate } from "../../../lib/dates";
-import { placeOf } from "../../../lib/journal";
+import { placeOf } from "../../../lib/journal/journal";
+import type { Photo, PhotoKind } from "../../../lib/journal/photos";
 import { when } from "../../../lib/labels";
-import type { Photo, PhotoKind } from "../../../lib/photos";
 import type { Week } from "../../../lib/timeline";
 
 /** "Bump photo", "Scan", "Photo". */

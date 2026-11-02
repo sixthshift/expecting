@@ -2,12 +2,12 @@
 
 import { memo, useCallback, useRef, useState } from "react";
 import { useQuietQuery } from "../../../../api/rpc/quiet";
-import type { AppetiteEntry } from "../../../../lib/appetite";
 import type { ISODate } from "../../../../lib/dates";
+import type { AppetiteEntry } from "../../../../lib/journal/appetite";
+import { kindsOffered } from "../../../../lib/journal/photos";
+import type { StoryItem } from "../../../../lib/journal/story/items";
+import type { StoryDay, StoryPart } from "../../../../lib/journal/story/spine";
 import { marginDay } from "../../../../lib/labels";
-import { kindsOffered } from "../../../../lib/photos";
-import type { StoryItem } from "../../../../lib/story/items";
-import type { StoryDay, StoryPart } from "../../../../lib/story/spine";
 import { PhotoViewer } from "../../features/photos/components/PhotoViewer";
 
 import { AppetiteLine } from "./AppetiteLine";

@@ -5,7 +5,7 @@ import { isBuiltInItemId } from "../../content";
 import { PeopleRepo } from "../../db/models/people/repo";
 import { QuestionsRepo } from "../../db/models/questions/repo";
 import { save, stamped } from "../../lib/outbox";
-import type { Question } from "../../lib/questions";
+import type { Question } from "../../lib/planner/questions";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";

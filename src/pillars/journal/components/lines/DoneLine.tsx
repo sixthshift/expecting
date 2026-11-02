@@ -1,7 +1,7 @@
 // A task done in the Planner.
 
 import { Check } from "lucide-react";
-import type { StoryItem } from "../../../../lib/story/items";
+import type { StoryItem } from "../../../../lib/journal/story/items";
 
 export function DoneLine({ item }: { item: Extract<StoryItem, { kind: "done" }> }) {
   return (

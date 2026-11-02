@@ -8,8 +8,8 @@
 import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { useKeepSame } from "../../../../app/hooks/useKeepSame";
 import { todayISO } from "../../../../lib/dates";
+import type { StoryPart } from "../../../../lib/journal/story/spine";
 import { placeHeading, weekRange } from "../../../../lib/labels";
-import type { StoryPart } from "../../../../lib/story/spine";
 import { type Week, weekLabel } from "../../../../lib/timeline";
 import { weekTitle } from "../../model/labels";
 

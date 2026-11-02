@@ -1,7 +1,7 @@
 // A week's question, answered by both of you.
 
 import { MessagesSquare } from "lucide-react";
-import type { StoryItem } from "../../../../lib/story/items";
+import type { StoryItem } from "../../../../lib/journal/story/items";
 
 import { usePersonName } from "./parts";
 

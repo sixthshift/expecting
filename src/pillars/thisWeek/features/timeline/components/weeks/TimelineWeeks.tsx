@@ -1,11 +1,11 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { Link } from "@tanstack/react-router";
 import { Fragment } from "react";
-import { weekPaperWords } from "../../../../../../lib/papers";
-import { weekPhotoWords } from "../../../../../../lib/photos";
+import { weekPaperWords } from "../../../../../../lib/journal/papers";
+import { weekPhotoWords } from "../../../../../../lib/journal/photos";
+import type { TimelineWeek } from "../../../../../../lib/thisWeek/timelineWeeks";
 import type { Week } from "../../../../../../lib/timeline";
 import { TRIMESTERS, trimester } from "../../../../../../lib/timeline";
-import type { TimelineWeek } from "../../../../../../lib/timelineWeeks";
 import { Felt } from "./Felt";
 import { WeekHeadline } from "./WeekHeadline";
 

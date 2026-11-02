@@ -1,5 +1,5 @@
 import { cn } from "@sixthshift/design-system/utils";
-import { STEP_LABEL, type Step } from "../../../../../../lib/feelings";
+import { STEP_LABEL, type Step } from "../../../../../../lib/journal/feelings";
 
 /** A dot's strength, as in the Journal: faint to full, in the brand's colour, and fainter still here so the line stays quiet. */
 const STRENGTH: Record<Step, string> = { rough: "opacity-30", low: "opacity-40", okay: "opacity-55", good: "opacity-70", great: "opacity-85" };

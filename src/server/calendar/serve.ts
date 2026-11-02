@@ -4,7 +4,7 @@
 
 import type { Database } from "bun:sqlite";
 import { AppointmentsRepo } from "../../db/models/appointments/repo";
-import { icsName, icsOf } from "../../lib/calendar";
+import { icsName, icsOf } from "../../lib/planner/calendar";
 import { getDb } from "../core/db";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;

@@ -5,7 +5,7 @@ import { Shuffle } from "lucide-react";
 import { bingoSaves, useBingoQuery } from "../../../../../api/rpc/bingo";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSave } from "../../../../../app/hooks/useSave";
-import { deal, standing, standingLine } from "../../../../../lib/bingo";
+import { deal, standing, standingLine } from "../../../../../lib/drawer/bingo";
 import { OTHER_ONE, otherOf } from "../../../../../lib/people";
 import { DrawerTool } from "../../../components/tool/DrawerTool";
 import { BingoGrid } from "../components/card/BingoGrid";

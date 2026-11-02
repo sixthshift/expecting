@@ -3,7 +3,7 @@ import { useChecklistQuery } from "../../../../../api/rpc/checklist";
 import { useListsQuery } from "../../../../../api/rpc/lists";
 import { useNow } from "../../../../../api/rpc/settings";
 import type { Line } from "../../../../../content/schema";
-import { type ListSummary, listsOf } from "../../../../../lib/lists/summaries";
+import { type ListSummary, listsOf } from "../../../../../lib/planner/lists/summaries";
 import { lineTaskWhen } from "../../../model/labels";
 import { useTasks } from "../../tasks/hooks/useTasks";
 import type { LineTask } from "../components/line/LineRow";

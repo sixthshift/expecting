@@ -1,7 +1,7 @@
 import type { Database } from "bun:sqlite";
 import { asc, eq } from "drizzle-orm";
-import type { Circle, CirclePerson, Gift, PersonPatch } from "../../../lib/circle";
-import { patched } from "../../../lib/circle";
+import type { Circle, CirclePerson, Gift, PersonPatch } from "../../../lib/drawer/circle";
+import { patched } from "../../../lib/drawer/circle";
 import { orm } from "../../connection/client";
 import { announcement, circleGift, circlePerson } from "./schema";
 
@@ -52,7 +52,7 @@ export class CircleRepo {
       .run();
   }
 
-  /** Set what a view sets on someone (patched, src/lib/circle.ts); someone not here is left alone. */
+  /** Set what a view sets on someone (patched, src/lib/drawer/circle.ts); someone not here is left alone. */
   setPerson(id: string, patch: PersonPatch): void {
     const now = this.person(id);
     if (!now) return;

@@ -7,8 +7,8 @@ import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { type FormEvent, useState } from "react";
 import { circleSaves } from "../../../../../../api/rpc/circle";
 import { useSave } from "../../../../../../app/hooks/useSave";
-import { type CirclePerson, HEARS, type Hears, type PersonPatch, VISITS, type View, type Visit } from "../../../../../../lib/circle";
 import type { ISODate } from "../../../../../../lib/dates";
+import { type CirclePerson, HEARS, type Hears, type PersonPatch, VISITS, type View, type Visit } from "../../../../../../lib/drawer/circle";
 
 const NONE = "none";
 

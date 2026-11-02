@@ -1,5 +1,5 @@
 import { Card } from "@sixthshift/design-system/card";
-import type { Section } from "../../../../../../lib/lists/sections";
+import type { Section } from "../../../../../../lib/planner/lists/sections";
 import { useListPage } from "../../contexts/ListPageContext";
 import { sectionIcon } from "../icons";
 import { ListLine } from "../line/ListLine";

@@ -1,7 +1,7 @@
 // Your people's words: what each view is for, and a view's name as its
 // switch says it.
 
-import { type Circle, toThank, VIEWS, type View } from "../../../../../lib/circle";
+import { type Circle, toThank, VIEWS, type View } from "../../../../../lib/drawer/circle";
 
 /** What each view is for, under its name. */
 export const ABOUT: Record<View, string> = {

@@ -7,8 +7,8 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { BingoRepo } from "../../db/models/bingo/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
-import { CARD_SIZE, type Card, squareOf } from "../../lib/bingo";
 import { type ISODate, isISODate } from "../../lib/dates";
+import { CARD_SIZE, type Card, squareOf } from "../../lib/drawer/bingo";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
@@ -21,7 +21,7 @@ function player(): string {
   return id;
 }
 
-const square = z.string().refine((id) => squareOf(id) !== undefined, "a square in src/lib/bingo.ts");
+const square = z.string().refine((id) => squareOf(id) !== undefined, "a square in src/lib/drawer/bingo.ts");
 
 export type Bingo = { cards: Card[] };
 

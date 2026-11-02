@@ -6,10 +6,10 @@ import { CalendarPlus, MapPin, Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { appointmentsSaves } from "../../../../../api/rpc/appointments";
 import { useSave } from "../../../../../app/hooks/useSave";
-import { APPOINTMENT_WHEN, type Appointment, appointmentSoon } from "../../../../../lib/appointments";
-import { icsPath } from "../../../../../lib/calendar";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
 import { when } from "../../../../../lib/labels";
+import { APPOINTMENT_WHEN, type Appointment, appointmentSoon } from "../../../../../lib/planner/appointments";
+import { icsPath } from "../../../../../lib/planner/calendar";
 import { AppointmentForm } from "./AppointmentForm";
 
 /**

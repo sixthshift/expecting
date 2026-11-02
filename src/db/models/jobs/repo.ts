@@ -1,6 +1,6 @@
 import type { Database } from "bun:sqlite";
 import { and, eq } from "drizzle-orm";
-import { JOBS, type JobsView, type Pick } from "../../../lib/jobs";
+import { JOBS, type JobsView, type Pick } from "../../../lib/drawer/jobs";
 import { orm } from "../../connection/client";
 import { person } from "../people/schema";
 import { jobPick } from "./schema";

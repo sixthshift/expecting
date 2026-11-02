@@ -1,8 +1,8 @@
 import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 import type { ReactNode } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import type { AppetiteEntry } from "../../../../../src/lib/appetite";
 import { addDays, todayISO } from "../../../../../src/lib/dates";
+import type { AppetiteEntry } from "../../../../../src/lib/journal/appetite";
 
 // Sickness and cravings in the Journal, with the query cache and the outbox
 // stood in for: since when and the weeks, a quiet word when she's been sick

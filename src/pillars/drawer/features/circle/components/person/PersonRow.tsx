@@ -1,7 +1,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { PenLine } from "lucide-react";
 import { useState } from "react";
-import type { CirclePerson, View } from "../../../../../../lib/circle";
+import type { CirclePerson, View } from "../../../../../../lib/drawer/circle";
 import { PersonSheet } from "./PersonSheet";
 
 /** Someone in a view: their name, their few words, what the view says of them, and the way to change it. */

@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { usePapersQuery } from "../../../../../api/rpc/papers";
 import { useSettingsQuery } from "../../../../../api/rpc/settings";
-import { ordered, type Paper } from "../../../../../lib/papers";
+import { ordered, type Paper } from "../../../../../lib/journal/papers";
 import { PaperRow } from "./PaperRow";
 import { PaperViewer } from "./PaperViewer";
 

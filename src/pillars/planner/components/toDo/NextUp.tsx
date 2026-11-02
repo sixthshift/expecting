@@ -1,7 +1,7 @@
 import { Card } from "@sixthshift/design-system/card";
 import { ChevronRight } from "lucide-react";
 import { useChecklistQuery } from "../../../../api/rpc/checklist";
-import type { ToDo } from "../../../../lib/todo";
+import type { ToDo } from "../../../../lib/planner/todo";
 import { ItemLink } from "../../../library/components/itemLink/ItemLink";
 import { useItems } from "../../../library/hooks/useItems";
 import { DeleteOwnTask } from "../../features/tasks/components/addTask/DeleteOwnTask";

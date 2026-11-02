@@ -4,7 +4,7 @@ import { Star } from "lucide-react";
 import { useState } from "react";
 import { useFirstsQuery } from "../../../../../../api/rpc/firsts";
 import type { ISODate } from "../../../../../../lib/dates";
-import { type FirstMark, firstOf, isMarked } from "../../../../../../lib/firsts";
+import { type FirstMark, firstOf, isMarked } from "../../../../../../lib/journal/firsts";
 import { weekdayDate } from "../../../../../../lib/labels";
 import { FirstSheet } from "../FirstSheet";
 import { MarkFirst } from "../MarkFirst";

@@ -1,7 +1,7 @@
 // A bingo or a full house.
 
 import { PartyPopper } from "lucide-react";
-import type { StoryItem } from "../../../../lib/story/items";
+import type { StoryItem } from "../../../../lib/journal/story/items";
 
 import { usePersonName } from "./parts";
 

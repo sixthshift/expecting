@@ -4,9 +4,9 @@ import { FormField } from "@sixthshift/design-system/form-field";
 import { TimePicker } from "@sixthshift/design-system/time-picker";
 import { cn } from "@sixthshift/design-system/utils";
 import { useId } from "react";
-import { HOW_LABEL, HOWS, type How } from "../../../../../lib/appetite";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
-import { toTime } from "../../../../../lib/journal";
+import { HOW_LABEL, HOWS, type How } from "../../../../../lib/journal/appetite";
+import { toTime } from "../../../../../lib/journal/journal";
 
 /** What a sickness tap says under it, so the three are told apart at 3 am. */
 const HOW_HINT: Record<How, string> = { queasy: "Nausea", vomited: "Vomited", fluids: "Even water comes up" };

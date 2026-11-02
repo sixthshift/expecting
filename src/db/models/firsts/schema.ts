@@ -2,7 +2,7 @@ import { sql } from "drizzle-orm";
 import { check, primaryKey, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { person } from "../people/schema";
 
-/** A first (src/lib/firsts.ts), marked on its day, or put aside: a suggestion said no to, `day` null. */
+/** A first (src/lib/journal/firsts.ts), marked on its day, or put aside: a suggestion said no to, `day` null. */
 export const firstMark = sqliteTable("first_mark", {
   key: text("key").primaryKey(),
   /** The day it happened, YYYY-MM-DD; null when put aside. */

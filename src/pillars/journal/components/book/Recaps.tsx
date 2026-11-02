@@ -2,9 +2,9 @@ import { Button } from "@sixthshift/design-system/button";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { useNow } from "../../../../api/rpc/settings";
-import { type RecapSpan, recapsSoFar } from "../../../../lib/journalNow";
-import { hasRecap } from "../../../../lib/recap";
-import type { StoryItem } from "../../../../lib/story/items";
+import { type RecapSpan, recapsSoFar } from "../../../../lib/journal/journalNow";
+import { hasRecap } from "../../../../lib/journal/recap";
+import type { StoryItem } from "../../../../lib/journal/story/items";
 import { RecapViewer, useRecap } from "./Recap";
 
 /** A recap so far, opened from the whole pregnancy's line; none with nothing in it. */

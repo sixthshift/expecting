@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { checklistSaves, useChecklistQuery } from "../../../../../../api/rpc/checklist";
 import { useNow } from "../../../../../../api/rpc/settings";
 import { useSave } from "../../../../../../app/hooks/useSave";
-import { toDoNow, whenToDo } from "../../../../../../lib/todo";
+import { toDoNow, whenToDo } from "../../../../../../lib/planner/todo";
 import { ItemLink } from "../../../../../library/components/itemLink/ItemLink";
 import { useTasks } from "../../hooks/useTasks";
 import { TaskRow } from "../TaskRow";

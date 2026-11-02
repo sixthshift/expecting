@@ -2,7 +2,7 @@ import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { getRouteApi } from "@tanstack/react-router";
 import { useCircleQuery } from "../../../../../api/rpc/circle";
 import { useExtrasQuery } from "../../../../../api/rpc/extras";
-import { type View, viewsOn } from "../../../../../lib/circle";
+import { type View, viewsOn } from "../../../../../lib/drawer/circle";
 import { extrasOn } from "../../../../../lib/extras";
 import { DrawerTool } from "../../../components/tool/DrawerTool";
 import { AddPerson } from "../components/addPerson/AddPerson";
@@ -14,7 +14,7 @@ const route = getRouteApi("/app/drawer/people");
 
 /**
  * Your people: one list, kept by both of you, and a view of it for each extra
- * that brings one (src/lib/circle.ts). With none on, it says which do. While
+ * that brings one (src/lib/drawer/circle.ts). With none on, it says which do. While
  * something has happened it's put away; nothing is deleted.
  */
 export function CirclePage() {

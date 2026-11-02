@@ -1,4 +1,4 @@
-// Generates src/lib/nameDeck.data.json: the names game's deck, from the names
+// Generates src/lib/drawer/nameDeck.data.json: the names game's deck, from the names
 // given across the English-speaking West.
 //
 //   bun run names
@@ -42,13 +42,13 @@
 //   common      whether it's common in each source, 1 or 0: a decade at
 //               MIN_SHARE there since SINCE, or in its latest top 100. A name
 //               common in only one place is regional (Aroha, Seán): kept, but
-//               the game deals only those common in several (lib/nameDeck.ts)
+//               the game deals only those common in several (lib/drawer/nameDeck.ts)
 
 import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-const OUT = new URL("../src/lib/nameDeck.data.json", import.meta.url);
+const OUT = new URL("../src/lib/drawer/nameDeck.data.json", import.meta.url);
 const SINCE = 1950;
 const MIN_SHARE = 1 / 10_000;
 const RECENT = 10;

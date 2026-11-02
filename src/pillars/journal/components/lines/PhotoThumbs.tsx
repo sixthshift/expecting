@@ -2,7 +2,7 @@
 
 import { cn } from "@sixthshift/design-system/utils";
 import { useSettingsQuery } from "../../../../api/rpc/settings";
-import type { Photo } from "../../../../lib/photos";
+import type { Photo } from "../../../../lib/journal/photos";
 import { Picture } from "../../features/photos/components/Picture";
 import { describePhoto } from "../../model/labels";
 

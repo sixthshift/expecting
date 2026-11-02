@@ -6,7 +6,7 @@
 
 import type { Facts } from "../app/features/settings/model/facts";
 import { addDays, type ISODate, todayISO } from "./dates";
-import { formatTime, timeNow } from "./journal";
+import { formatTime, timeNow } from "./journal/journal";
 import type { Week } from "./timeline";
 
 /** The colour of the waters, as `card-waters-colour` sorts it; unsure is fine too. */

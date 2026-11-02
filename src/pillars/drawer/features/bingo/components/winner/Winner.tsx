@@ -1,6 +1,6 @@
 import { PartyPopper } from "lucide-react";
-import { type Card, type Standing, standing } from "../../../../../../lib/bingo";
 import type { ISODate } from "../../../../../../lib/dates";
+import { type Card, type Standing, standing } from "../../../../../../lib/drawer/bingo";
 import { dayMonth } from "../../../../../../lib/labels";
 
 /** A bingo said: yours, theirs, and who got there first (a day apiece; the same day is a tie). */

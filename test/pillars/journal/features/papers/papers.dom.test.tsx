@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import type { ReactNode } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import type { Paper } from "../../../../../src/lib/papers";
+import type { Paper } from "../../../../../src/lib/journal/papers";
 
 // Results and papers in the Journal, with the query cache, the outbox and the
 // phone's upload store stood in for: a paper's pages are made ready, said

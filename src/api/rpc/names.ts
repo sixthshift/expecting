@@ -7,7 +7,7 @@ import { z } from "zod";
 import { NamesRepo } from "../../db/models/names/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
 import type { ISODate } from "../../lib/dates";
-import { tidyName } from "../../lib/names";
+import { tidyName } from "../../lib/drawer/names";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
@@ -42,7 +42,7 @@ export const swipeName = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), name: z.string().max(60), liked: z.boolean() }).strict())
   .handler(async ({ data }) => {
     // Loaded here, on the server only: the deck isn't for the app's own bundle.
-    const { inDeck } = await import("../../lib/nameDeck");
+    const { inDeck } = await import("../../lib/drawer/nameDeck");
     const entry = inDeck(data.name);
     if (!entry) throw Response.json({ error: "That name isn't in the deck" }, { status: 400 });
     new NamesRepo(getDb()).swipe(entry.name, player(), data.liked, madeAt(), data.id);
@@ -64,7 +64,7 @@ export const superlikeName = createServerFn({ method: "POST" })
     const me = player();
     let name = data.name;
     if (!repo.has(name)) {
-      const { inDeck } = await import("../../lib/nameDeck");
+      const { inDeck } = await import("../../lib/drawer/nameDeck");
       const entry = inDeck(name);
       if (!entry) throw Response.json({ error: "That name isn't in the deck" }, { status: 400 });
       name = entry.name;

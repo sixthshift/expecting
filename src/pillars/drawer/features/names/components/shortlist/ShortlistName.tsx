@@ -1,7 +1,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Star, X } from "lucide-react";
 import { useState } from "react";
-import type { Shortlisted } from "../../../../../../lib/names";
+import type { Shortlisted } from "../../../../../../lib/drawer/names";
 
 /** A name on the shortlist: starred if a superlike put it there; taken off with a second tap to be sure, as it doesn't come back round. */
 export function ShortlistName({ name, onTakeOff }: { name: Shortlisted; onTakeOff: () => void }) {

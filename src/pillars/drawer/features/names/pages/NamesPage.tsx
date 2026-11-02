@@ -2,7 +2,7 @@ import { getRouteApi } from "@tanstack/react-router";
 import { useNamesQuery } from "../../../../../api/rpc/names";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSettingsQuery } from "../../../../../api/rpc/settings";
-import { dealing } from "../../../../../lib/names";
+import { dealing } from "../../../../../lib/drawer/names";
 import { otherOf } from "../../../../../lib/people";
 import { DrawerTool } from "../../../components/tool/DrawerTool";
 import { NamesGame } from "../components/namesGame/NamesGame";

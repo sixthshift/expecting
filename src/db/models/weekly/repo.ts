@@ -1,7 +1,7 @@
 import type { Database } from "bun:sqlite";
 import { and, eq } from "drizzle-orm";
+import type { WeeklyAnswer, WeeklyView } from "../../../lib/thisWeek/weekly";
 import type { Week } from "../../../lib/timeline";
-import type { WeeklyAnswer, WeeklyView } from "../../../lib/weekly";
 import { orm } from "../../connection/client";
 import { weeklyAnswer } from "./schema";
 

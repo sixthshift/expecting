@@ -4,7 +4,7 @@ import { useState } from "react";
 import { firstsSaves } from "../../../../../api/rpc/firsts";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSave } from "../../../../../app/hooks/useSave";
-import { type FirstMark, firstOf } from "../../../../../lib/firsts";
+import { type FirstMark, firstOf } from "../../../../../lib/journal/firsts";
 
 /** A first's question, and each of you's words: yours to write (with someone holding the phone), the other's to read. */
 export function FirstWords({ mark, onDone }: { mark: FirstMark & { day: string }; onDone?: () => void }) {

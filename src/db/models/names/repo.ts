@@ -1,7 +1,7 @@
 import type { Database } from "bun:sqlite";
 import { and, asc, eq, isNull, sql } from "drizzle-orm";
 import type { ISODate } from "../../../lib/dates";
-import type { NamesView } from "../../../lib/names";
+import type { NamesView } from "../../../lib/drawer/names";
 import { orm } from "../../connection/client";
 import { person } from "../people/schema";
 import { babyName, nameVote } from "./schema";

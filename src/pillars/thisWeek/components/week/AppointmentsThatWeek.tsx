@@ -1,5 +1,5 @@
 import { useAppointmentsQuery } from "../../../../api/rpc/appointments";
-import { appointmentsIn } from "../../../../lib/appointments";
+import { appointmentsIn } from "../../../../lib/planner/appointments";
 import { AppointmentCard } from "../../../planner/features/appointments/components/AppointmentCard";
 import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
 

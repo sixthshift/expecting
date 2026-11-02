@@ -11,16 +11,16 @@ and tick, To do now and Coming up on This week) and
 | Word | Means | Where |
 |---|---|---|
 | **task** | One thing to do: built in (from an item, tailored by the answers) or your own (a title and a week). `opens`, `due` (best by), perhaps a `deadline`, and `who`. | `Task`, `src/content/schema.ts`; `useTasks` |
-| **To do** | The Planner's list of tasks: next up, also now, ahead, missed earlier, done (a `Plan`). **To do now** is next up and also now, the same list This week opens with. | `src/lib/planner/plan.ts`, `src/lib/todo.ts` |
+| **To do** | The Planner's list of tasks: next up, also now, ahead, missed earlier, done (a `Plan`). **To do now** is next up and also now, the same list This week opens with. | `src/lib/planner/plan.ts`, `src/lib/planner/todo.ts` |
 | **stage** | A stretch of what's ahead, ending at a week people mark ("By halfway"): what's ahead reads as a few goals. Its address is the week it ends (`?stage=20`). | `STAGES`, `stagesAhead` |
 | **ahead** | Still to come, by the week it next asks of you (opens, else best by, else deadline). On screen "On the horizon". | `Ahead`, `components/toDo/Ahead.tsx` |
 | **weeks** | To do as a chart, a bar for each task, at `/planner/weeks`. On screen "Across the weeks". | `src/lib/planner/weeks.ts` (`weeksChart`), `components/weeks/` |
-| **list** | What to get, a list for each purpose: built in (`LISTS`: before the birth, freezer meals, the bag) or your own. The bag is It's time's (`isApart`). | `src/lib/lists/builtIn.ts` |
-| **line** | One thing on a list: built in (an item's `lines`, tailored like the item) or your own. | `Line`; `src/lib/lists/lines.ts`; `useLines` |
+| **list** | What to get, a list for each purpose: built in (`LISTS`: before the birth, freezer meals, the bag) or your own. The bag is It's time's (`isApart`). | `src/lib/planner/lists/builtIn.ts` |
+| **line** | One thing on a list: built in (an item's `lines`, tailored like the item) or your own. | `Line`; `src/lib/planner/lists/lines.ts`; `useLines` |
 | **mark** | A line's state, set by either of you: arranged, got or not needed, how it was got, a few words. No mark is still to get. | `Mark`, `list_mark` |
 | **got** | A line marked got. Each list says it its own way (`words`: "Packed", "Done"). | `wordsFor` |
 | **question** | Something to ask at the next appointment. Asked, it folds away. | `src/pillars/planner/features/questions/`; `components/questions/` |
-| **appointment** | One-off, with a day and perhaps a time and place. The next is the earliest still ahead, today's included. | `src/lib/appointments.ts` |
+| **appointment** | One-off, with a day and perhaps a time and place. The next is the earliest still ahead, today's included. | `src/lib/planner/appointments.ts` |
 
 `checklist` is only the store's name (`task_tick`, `own_task`,
 `useChecklistQuery`): what's ticked, and your own tasks. In the code and on
@@ -40,7 +40,7 @@ useTasks (items, answers, due date, own tasks)  + checklist's ticks
 usePlan → weeksChart (a bar for each task, grouped as To do is) → WeeksChart   components/weeks/
 
 useLines (items' lines that apply, and your own)  + lists (own lists, marks)
-  → listsOf              each list summed up      ListsPage, ListsWayIn        lib/lists/summaries.ts
+  → listsOf              each list summed up      ListsPage, ListsWayIn        lib/planner/lists/summaries.ts
   → ListPageProvider     one list: its summary, just what's left, its lines' tasks
   → Sections → sectionsOf → SectionCard → ListLine → LineRow                  components/lists/
 ```
@@ -78,7 +78,7 @@ features/
 
 ## Adding a built-in list
 
-1. Add it to `LISTS` (`src/lib/lists/builtIn.ts`): its title, what it's
+1. Add it to `LISTS` (`src/lib/planner/lists/builtIn.ts`): its title, what it's
    for, its sections, the heading over your own lines, and its words for
    each state (`apart` if it's kept somewhere else, as the bag is).
 2. Give it and its sections icons (`components/lists/icons.ts`).

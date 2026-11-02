@@ -4,8 +4,8 @@
 // Planner; the tasks are already there.
 
 import type { Line } from "../../../../content/schema";
-import { LAST_THING } from "../../../../lib/lists/builtIn";
-import type { Mark } from "../../../../lib/lists/lines";
+import { LAST_THING } from "../../../../lib/planner/lists/builtIn";
+import type { Mark } from "../../../../lib/planner/lists/lines";
 import type { Facts } from "../../settings/model/facts";
 
 /** The bag's task and the car seat's: ticked in the Planner. */

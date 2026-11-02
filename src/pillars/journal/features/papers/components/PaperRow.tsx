@@ -5,7 +5,7 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { FileText, Pin } from "lucide-react";
 import type { ISODate } from "../../../../../lib/dates";
-import { isPicturePage, PAPER_KIND_LABEL, type Paper, type PaperPage, paperWeek } from "../../../../../lib/papers";
+import { isPicturePage, PAPER_KIND_LABEL, type Paper, type PaperPage, paperWeek } from "../../../../../lib/journal/papers";
 import { weekLabel } from "../../../../../lib/timeline";
 import { Picture } from "../../photos/components/Picture";
 import { dated } from "./PaperFields";

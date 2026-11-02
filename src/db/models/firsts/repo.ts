@@ -1,6 +1,6 @@
 import type { Database } from "bun:sqlite";
 import { and, eq } from "drizzle-orm";
-import { type FirstMark, isFirstKey } from "../../../lib/firsts";
+import { type FirstMark, isFirstKey } from "../../../lib/journal/firsts";
 import { orm } from "../../connection/client";
 import { firstMark, firstWords } from "./schema";
 

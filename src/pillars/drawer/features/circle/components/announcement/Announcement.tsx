@@ -5,7 +5,7 @@ import { Share2 } from "lucide-react";
 import { useState } from "react";
 import { circleSaves } from "../../../../../../api/rpc/circle";
 import { useSave } from "../../../../../../app/hooks/useSave";
-import { type CirclePerson, HEARS, type Hears, round, type Announcement as Words } from "../../../../../../lib/circle";
+import { type CirclePerson, HEARS, type Hears, round, type Announcement as Words } from "../../../../../../lib/drawer/circle";
 import { handOff } from "../../model/share";
 
 /**

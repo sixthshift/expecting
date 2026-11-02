@@ -1,5 +1,5 @@
 import { useJournalQuery } from "../../../../api/rpc/journal";
-import { entriesIn } from "../../../../lib/journal";
+import { entriesIn } from "../../../../lib/journal/journal";
 import { Movement } from "../../../journal/features/movements/components/Movement";
 import { Note } from "../../../journal/features/notes/components/Note";
 import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";

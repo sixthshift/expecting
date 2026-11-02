@@ -1,6 +1,6 @@
 import type { Database } from "bun:sqlite";
 import { asc, eq } from "drizzle-orm";
-import type { OwnTaskRow } from "../../../lib/checklist";
+import type { OwnTaskRow } from "../../../lib/planner/checklist";
 import type { Week } from "../../../lib/timeline";
 import { orm } from "../../connection/client";
 import { ownTask, taskTick } from "./schema";

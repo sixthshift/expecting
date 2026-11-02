@@ -7,8 +7,8 @@ import { feelingsSaves, useFeelingsQuery } from "../../../../../../api/rpc/feeli
 import { useQuietQuery } from "../../../../../../api/rpc/quiet";
 import { useSave } from "../../../../../../app/hooks/useSave";
 import { todayISO } from "../../../../../../lib/dates";
-import { feelingsOf, isOwn, type Step } from "../../../../../../lib/feelings";
-import { timeNow } from "../../../../../../lib/journal";
+import { feelingsOf, isOwn, type Step } from "../../../../../../lib/journal/feelings";
+import { timeNow } from "../../../../../../lib/journal/journal";
 import { newId } from "../../../../../../lib/outbox";
 import type { Person } from "../../../../../../lib/people";
 import { MoreWords } from "../MoreWords";

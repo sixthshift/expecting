@@ -1,6 +1,6 @@
 import { useNow, useSettingsQuery } from "../../../api/rpc/settings";
-import { type ChapterLine, contents, young } from "../../../lib/chapters";
-import type { StoryItem } from "../../../lib/story/items";
+import { type ChapterLine, contents, young } from "../../../lib/journal/chapters";
+import type { StoryItem } from "../../../lib/journal/story/items";
 
 /**
  * The book, already begun: its chapters and how each stands, and whether

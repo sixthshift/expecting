@@ -2,7 +2,7 @@ import { Card } from "@sixthshift/design-system/card";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { useListsQuery } from "../../../../../../api/rpc/lists";
-import { inPlanner, leftSaying, listsOf } from "../../../../../../lib/lists/summaries";
+import { inPlanner, leftSaying, listsOf } from "../../../../../../lib/planner/lists/summaries";
 import { useLines } from "../../hooks/useLines";
 import { listIcon } from "../icons";
 

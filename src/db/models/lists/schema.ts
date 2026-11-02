@@ -2,7 +2,7 @@ import { sql } from "drizzle-orm";
 import { check, index, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { person } from "../people/schema";
 
-/** A list of your own, beside the built-in ones (LISTS in src/lib/lists/builtIn.ts). */
+/** A list of your own, beside the built-in ones (LISTS in src/lib/planner/lists/builtIn.ts). */
 export const ownList = sqliteTable(
   "own_list",
   {

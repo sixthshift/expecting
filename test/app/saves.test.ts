@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 import { SAVES } from "../../src/app/model/saves";
-import { SQUARES } from "../../src/lib/bingo";
+import { SQUARES } from "../../src/lib/drawer/bingo";
 import type { Made } from "../../src/lib/outbox";
 
 // Every save's `apply` gives the same answer run twice: a fetch that already

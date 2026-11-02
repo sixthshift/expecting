@@ -1,5 +1,5 @@
 import { useSettingsQuery } from "../../../../../../api/rpc/settings";
-import { storyGroups } from "../../../../../../lib/story/spine";
+import { storyGroups } from "../../../../../../lib/journal/story/spine";
 import { StoryList } from "../../../../components/lines/StoryList";
 import { useJournalPage } from "../../../../contexts/JournalPageContext";
 

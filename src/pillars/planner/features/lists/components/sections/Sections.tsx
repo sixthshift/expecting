@@ -1,6 +1,6 @@
 import { useListsQuery } from "../../../../../../api/rpc/lists";
-import { isLeft } from "../../../../../../lib/lists/lines";
-import { sectionsOf } from "../../../../../../lib/lists/sections";
+import { isLeft } from "../../../../../../lib/planner/lists/lines";
+import { sectionsOf } from "../../../../../../lib/planner/lists/sections";
 import { useListPage } from "../../contexts/ListPageContext";
 import { useLines } from "../../hooks/useLines";
 import { NotNeeded } from "./NotNeeded";

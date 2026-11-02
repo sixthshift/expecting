@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import type { Photo } from "../../../../../src/lib/photos";
+import type { Photo } from "../../../../../src/lib/journal/photos";
 
 // Photos and scans in the Journal, with the query cache, the outbox and the
 // phone's upload store stood in for: a photo is made ready, said what it is,

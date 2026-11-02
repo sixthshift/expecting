@@ -6,8 +6,8 @@ import { useNow } from "../../../../../api/rpc/settings";
 import { useWeeklyQuery } from "../../../../../api/rpc/weekly";
 import { extrasOn } from "../../../../../lib/extras";
 import { otherName } from "../../../../../lib/people";
+import { earlier, questionOf, weekOf } from "../../../../../lib/thisWeek/weekly";
 import { weekLabel } from "../../../../../lib/timeline";
-import { earlier, questionOf, weekOf } from "../../../../../lib/weekly";
 import { WeekQuestion } from "./WeekQuestion";
 
 /**

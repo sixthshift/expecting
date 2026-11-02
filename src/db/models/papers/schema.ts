@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import { check, index, integer, primaryKey, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
-import { PAPER_KINDS } from "../../../lib/papers";
+import { PAPER_KINDS } from "../../../lib/journal/papers";
 import { upload } from "../files/schema";
 import { person } from "../people/schema";
 
@@ -16,7 +16,7 @@ export const paper = sqliteTable(
     /** result, letter, plan, record or other. */
     kind: text("kind", { enum: PAPER_KINDS }).notNull(),
     title: text("title").notNull(),
-    /** The Library entry it's about (src/lib/papers.ts, PAPER_TOPICS), if any. */
+    /** The Library entry it's about (src/lib/journal/papers.ts, PAPER_TOPICS), if any. */
     itemId: text("item_id"),
     /** The date on it, YYYY-MM-DD. */
     day: text("day").notNull(),

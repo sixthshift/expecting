@@ -3,7 +3,7 @@ import { appetiteQuery } from "../api/rpc/appetite";
 import { feelingsQuery } from "../api/rpc/feelings";
 import { firstsQuery } from "../api/rpc/firsts";
 import { photosQuery } from "../api/rpc/photos";
-import { isCollection } from "../lib/story/collections";
+import { isCollection } from "../lib/journal/story/collections";
 import { app } from "./app";
 
 /** One of the Journal's collections, all of it: `/journal/collections/photos`; any other name is the collections. */

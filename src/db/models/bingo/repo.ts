@@ -1,7 +1,7 @@
 import type { Database } from "bun:sqlite";
 import { and, asc, eq } from "drizzle-orm";
-import type { Card, Mark } from "../../../lib/bingo";
 import type { ISODate } from "../../../lib/dates";
+import type { Card, Mark } from "../../../lib/drawer/bingo";
 import { orm } from "../../connection/client";
 import { bingoCard, bingoMark } from "./schema";
 

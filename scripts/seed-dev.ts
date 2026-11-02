@@ -25,10 +25,10 @@ import { mkdir, rm } from "node:fs/promises";
 import { join } from "node:path";
 import { chromium } from "playwright";
 import { parse } from "yaml";
-import { deal } from "../src/lib/bingo";
-import { JOBS } from "../src/lib/jobs";
-import { DECK, widespread } from "../src/lib/nameDeck";
-import { WEEKLY } from "../src/lib/weekly";
+import { deal } from "../src/lib/drawer/bingo";
+import { JOBS } from "../src/lib/drawer/jobs";
+import { DECK, widespread } from "../src/lib/drawer/nameDeck";
+import { WEEKLY } from "../src/lib/thisWeek/weekly";
 
 const DATA_DIR = process.env.DATA_DIR ?? "./data";
 const db = new Database(join(DATA_DIR, "expecting.db"));

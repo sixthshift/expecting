@@ -1,4 +1,4 @@
-// Your people (src/lib/circle.ts): who they are, what each view sets on them,
+// Your people (src/lib/drawer/circle.ts): who they are, what each view sets on them,
 // what they gave, and the words for the birth. Shared by both of you, each
 // change saying who made it.
 
@@ -7,8 +7,8 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { CircleRepo } from "../../db/models/circle/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
-import { type Circle, HEARS, type Hears, type PersonPatch, patched, VISITS, type Visit } from "../../lib/circle";
 import { isISODate } from "../../lib/dates";
+import { type Circle, HEARS, type Hears, type PersonPatch, patched, VISITS, type Visit } from "../../lib/drawer/circle";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";

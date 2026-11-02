@@ -1,7 +1,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { jobsSaves } from "../../../../../../api/rpc/jobs";
 import { useSave } from "../../../../../../app/hooks/useSave";
-import { type Outcome, type Pick, type results, said } from "../../../../../../lib/jobs";
+import { type Outcome, type Pick, type results, said } from "../../../../../../lib/drawer/jobs";
 
 /** An answer mid-sentence: "you", their name, or "together". */
 function inLine(pick: Pick, other: string): string {

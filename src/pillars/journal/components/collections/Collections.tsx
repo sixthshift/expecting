@@ -1,5 +1,5 @@
 // The collections, all at once: everything kept, grouped by what it is, each
-// said as a short answer and the lines behind it (`src/lib/summaries.ts`),
+// said as a short answer and the lines behind it (`src/lib/journal/summaries.ts`),
 // and opened in full. What's going on now first, what's over under Earlier;
 // the papers kept handy at the top, to open at triage; and what an
 // appointment asks about as text, to paste into a message or a form. Only
@@ -20,8 +20,8 @@ import { usePeopleQuery } from "../../../../api/rpc/people";
 import { usePhotosQuery } from "../../../../api/rpc/photos";
 import { useNow, useSettingsQuery } from "../../../../api/rpc/settings";
 import { formatDate, todayISO } from "../../../../lib/dates";
-import { ordered } from "../../../../lib/papers";
-import { type Collection, FOLDED_WHILE_QUIET } from "../../../../lib/story/collections";
+import { ordered } from "../../../../lib/journal/papers";
+import { type Collection, FOLDED_WHILE_QUIET } from "../../../../lib/journal/story/collections";
 import {
   cravingsSummary,
   feelingsSummary,
@@ -33,7 +33,7 @@ import {
   type Summary,
   sicknessSummary,
   summariesText,
-} from "../../../../lib/summaries";
+} from "../../../../lib/journal/summaries";
 import { weekLabel } from "../../../../lib/timeline";
 import { useJournalPage } from "../../contexts/JournalPageContext";
 import { MovementPattern } from "../../features/movements/components/collection/MovementPattern";

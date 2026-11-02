@@ -1,7 +1,7 @@
 import { Modal } from "@sixthshift/design-system/modal";
 import { Select } from "@sixthshift/design-system/select";
 import { useState } from "react";
-import { type BumpWeek, sideBySide } from "../../../../../../lib/photos";
+import { type BumpWeek, sideBySide } from "../../../../../../lib/journal/photos";
 import { weekLabel } from "../../../../../../lib/timeline";
 import { Picture } from "../Picture";
 

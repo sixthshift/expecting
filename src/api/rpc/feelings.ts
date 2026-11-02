@@ -1,6 +1,6 @@
 // How you're feeling. The step is shared, so either of you sees the other's;
 // the words and the note are only ever sent to the phone of the person they're
-// about, and only they can change or delete one (src/lib/feelings.ts).
+// about, and only they can change or delete one (src/lib/journal/feelings.ts).
 
 import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
@@ -8,8 +8,8 @@ import { z } from "zod";
 import { FeelingsRepo, type NewFeeling } from "../../db/models/feelings/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
 import { isISODate } from "../../lib/dates";
-import { type Feeling, isOwn, type OwnFeeling, STEPS, WORDS } from "../../lib/feelings";
-import { TIME } from "../../lib/journal";
+import { type Feeling, isOwn, type OwnFeeling, STEPS, WORDS } from "../../lib/journal/feelings";
+import { TIME } from "../../lib/journal/journal";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";

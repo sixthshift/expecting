@@ -1,5 +1,5 @@
 -- Pregnancy bingo (docs/plan-extras.md, part 3): a card each, its 24 squares
--- in order (a JSON array of ids from SQUARES in src/lib/bingo.ts, the free
+-- in order (a JSON array of ids from SQUARES in src/lib/drawer/bingo.ts, the free
 -- centre left out), and the squares marked, each with its day and a few
 -- words. Both go with their person.
 

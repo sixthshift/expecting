@@ -4,7 +4,7 @@ import { questionsQuery } from "../../src/api/rpc/questions";
 import { markKept } from "../../src/app/model/kept";
 import { outboxCaches, queueSaves, type Waiting } from "../../src/app/model/outbox";
 import { sendAgain } from "../../src/lib/errors";
-import type { Question } from "../../src/lib/questions";
+import type { Question } from "../../src/lib/planner/questions";
 
 const toast = vi.hoisted(() => vi.fn());
 vi.mock("@sixthshift/design-system/overlay", () => ({ toast }));

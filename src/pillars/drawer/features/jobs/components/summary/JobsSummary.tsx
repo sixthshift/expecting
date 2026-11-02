@@ -1,5 +1,5 @@
 import { useJobsQuery } from "../../../../../../api/rpc/jobs";
-import { results } from "../../../../../../lib/jobs";
+import { results } from "../../../../../../lib/drawer/jobs";
 
 /** Who does what in a line, for its tile in the Drawer: how many are settled, and how many to talk about. */
 export function JobsSummary() {

@@ -13,7 +13,7 @@ import { journalSaves } from "../../../../../api/rpc/journal";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSave } from "../../../../../app/hooks/useSave";
 import type { ISODate } from "../../../../../lib/dates";
-import type { JournalEntry } from "../../../../../lib/journal";
+import type { JournalEntry } from "../../../../../lib/journal/journal";
 import { when } from "../../../../../lib/labels";
 import { nameBy } from "../../../../../lib/people";
 import { keptBy } from "../../../model/labels";

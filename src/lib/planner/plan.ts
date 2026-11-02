@@ -1,7 +1,7 @@
 // The Planner's to-do list, shaped so there's always somewhere to start. Pure,
 // so the shape is tested apart from the screen.
 //
-//   next     the one thing to do first: the top of To do now (src/lib/todo.ts)
+//   next     the one thing to do first: the top of To do now (src/lib/planner/todo.ts)
 //   now      the rest of To do now, in its order: the same list This week opens with
 //   ahead    everything else still to come, by the week it next asks of you:
 //            when it opens, else when it's best done by, else its deadline;
@@ -16,7 +16,7 @@
 
 import type { Task } from "../../content/schema";
 import type { Week } from "../timeline";
-import { type ToDo, toDoNow } from "../todo";
+import { type ToDo, toDoNow } from "./todo";
 
 /** What a week ahead stands for: when the task opens, is best done by, or its deadline. */
 type AheadAt = "opens" | "due" | "deadline";

@@ -1,6 +1,6 @@
 import type { Database } from "bun:sqlite";
 import { asc, eq } from "drizzle-orm";
-import type { Question } from "../../../lib/questions";
+import type { Question } from "../../../lib/planner/questions";
 import { orm } from "../../connection/client";
 import { question } from "./schema";
 

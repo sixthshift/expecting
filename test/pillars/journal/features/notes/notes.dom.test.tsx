@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import type { JournalEntry } from "../../../../../src/lib/journal";
+import type { JournalEntry } from "../../../../../src/lib/journal/journal";
 
 // Notes and letters, with the query cache and the outbox stood in for: a
 // letter can be from both of you once there are two, and is signed so.

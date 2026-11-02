@@ -1,15 +1,15 @@
 // Sickness and cravings: being sick, a craving, or something gone off. Shared,
 // as notes are: either of you keeps one, sees all, and can change any; each
-// says who kept it and who changed it last (src/lib/appetite.ts).
+// says who kept it and who changed it last (src/lib/journal/appetite.ts).
 
 import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { AppetiteRepo } from "../../db/models/appetite/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
-import { APPETITE_KINDS, type AppetiteEntry, type AppetiteInput, HOWS, isWhole, tidy } from "../../lib/appetite";
 import { isISODate } from "../../lib/dates";
-import { TIME } from "../../lib/journal";
+import { APPETITE_KINDS, type AppetiteEntry, type AppetiteInput, HOWS, isWhole, tidy } from "../../lib/journal/appetite";
+import { TIME } from "../../lib/journal/journal";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";

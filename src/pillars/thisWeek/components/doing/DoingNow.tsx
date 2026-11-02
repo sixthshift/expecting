@@ -3,7 +3,7 @@ import { useQuestionsQuery } from "../../../../api/rpc/questions";
 import { LookThrough } from "../../../../app/features/itsTime/components/wayIn/LookThrough";
 import { AskNow } from "../../../../app/features/settings/components/askNow/AskNow";
 import { OfferExtra } from "../../../../app/features/settings/components/offerExtra/OfferExtra";
-import { appointmentSoon, nextAppointment } from "../../../../lib/appointments";
+import { appointmentSoon, nextAppointment } from "../../../../lib/planner/appointments";
 import { CheckIn } from "../../../journal/features/feelings/components/checkIn/CheckIn";
 import { HardFortnight } from "../../../journal/features/feelings/components/fortnight/HardFortnight";
 import { NextAppointment } from "../../../planner/features/appointments/components/NextAppointment";

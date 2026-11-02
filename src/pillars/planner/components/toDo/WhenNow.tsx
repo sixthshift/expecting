@@ -1,5 +1,5 @@
 import { Badge } from "@sixthshift/design-system/badge";
-import { type ToDo, whenToDo } from "../../../../lib/todo";
+import { type ToDo, whenToDo } from "../../../../lib/planner/todo";
 import { usePlannerPage } from "../../contexts/PlannerPageContext";
 
 /** When a task to do now is due, in a few words: a deadline as a warning. Only where there's a now. */

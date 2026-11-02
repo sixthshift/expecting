@@ -4,7 +4,7 @@
 // `…InSentence` forms are for the middle of a sentence ("last kept today").
 
 import { daysBetween, formatDate, type ISODate, todayISO } from "./dates";
-import { formatTime, type Place, placeOf } from "./journal";
+import { formatTime, type Place, placeOf } from "./journal/journal";
 import { type Week, weekDates, weekLabel } from "./timeline";
 
 /** "Today", or "Thu 29": a day in the story's margin, its month being the week's. */

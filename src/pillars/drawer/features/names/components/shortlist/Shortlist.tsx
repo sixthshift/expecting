@@ -1,6 +1,6 @@
 import { namesSaves } from "../../../../../../api/rpc/names";
 import { useSave } from "../../../../../../app/hooks/useSave";
-import type { NamesView } from "../../../../../../lib/names";
+import type { NamesView } from "../../../../../../lib/drawer/names";
 import type { Person } from "../../../../../../lib/people";
 import { ShortlistName } from "./ShortlistName";
 

@@ -3,6 +3,7 @@ import { cn } from "@sixthshift/design-system/utils";
 import { useState } from "react";
 import { useAppetiteQuery } from "../../../../../../api/rpc/appetite";
 import { useSettingsQuery } from "../../../../../../api/rpc/settings";
+import { formatDate, type ISODate, todayISO } from "../../../../../../lib/dates";
 import {
   HOW_LABEL,
   type How,
@@ -15,9 +16,8 @@ import {
   sickOften,
   type Tally,
   tally,
-} from "../../../../../../lib/appetite";
-import { formatDate, type ISODate, todayISO } from "../../../../../../lib/dates";
-import { placeOf } from "../../../../../../lib/journal";
+} from "../../../../../../lib/journal/appetite";
+import { placeOf } from "../../../../../../lib/journal/journal";
 import { dayAndWeek, shortDate, when } from "../../../../../../lib/labels";
 import { weekLabel } from "../../../../../../lib/timeline";
 import { ItemLink } from "../../../../../library/components/itemLink/ItemLink";

@@ -1,6 +1,6 @@
 import type { Database } from "bun:sqlite";
 import { eq } from "drizzle-orm";
-import { type AppetiteEntry, type AppetiteInput, tidy } from "../../../lib/appetite";
+import { type AppetiteEntry, type AppetiteInput, tidy } from "../../../lib/journal/appetite";
 import { orm } from "../../connection/client";
 import { appetiteEntry } from "./schema";
 

@@ -1,7 +1,7 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { Check, Heart } from "lucide-react";
 import { useState } from "react";
-import { type Card, cells, squareOf, standing } from "../../../../../../lib/bingo";
+import { type Card, cells, squareOf, standing } from "../../../../../../lib/drawer/bingo";
 import { SquareSheet } from "./SquareSheet";
 
 const LETTERS = ["B", "I", "N", "G", "O"];

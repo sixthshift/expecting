@@ -1,5 +1,5 @@
 import { useCircleQuery } from "../../../../../../api/rpc/circle";
-import { toThank } from "../../../../../../lib/circle";
+import { toThank } from "../../../../../../lib/drawer/circle";
 
 /** Your people in a line, for its tile in the Drawer: how many, and the gifts still to thank for. */
 export function CircleSummary() {

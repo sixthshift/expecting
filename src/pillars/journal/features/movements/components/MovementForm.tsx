@@ -7,7 +7,7 @@ import { Input } from "@sixthshift/design-system/input";
 import { TimePicker } from "@sixthshift/design-system/time-picker";
 import { type FormEvent, useState } from "react";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
-import { timeNow, toTime } from "../../../../../lib/journal";
+import { timeNow, toTime } from "../../../../../lib/journal/journal";
 
 type Draft = { day: ISODate; time: string; body: string; different: boolean };
 

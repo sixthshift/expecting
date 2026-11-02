@@ -1,6 +1,6 @@
 import { useBingoQuery } from "../../../../../../api/rpc/bingo";
 import { usePeopleQuery } from "../../../../../../api/rpc/people";
-import { standing, standingLine } from "../../../../../../lib/bingo";
+import { standing, standingLine } from "../../../../../../lib/drawer/bingo";
 import { otherOf } from "../../../../../../lib/people";
 
 /** Bingo in a line, for its tile in the Drawer: where each card is up to, or what the game is. */

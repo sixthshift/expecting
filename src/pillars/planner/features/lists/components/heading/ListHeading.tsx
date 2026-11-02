@@ -1,8 +1,8 @@
 import { ProgressBar } from "@sixthshift/design-system/progress-bar";
 import { Switch } from "@sixthshift/design-system/switch";
-import { listOf } from "../../../../../../lib/lists/builtIn";
-import type { ListSummary } from "../../../../../../lib/lists/summaries";
-import { upToSaying } from "../../../../../../lib/lists/summaries";
+import { listOf } from "../../../../../../lib/planner/lists/builtIn";
+import type { ListSummary } from "../../../../../../lib/planner/lists/summaries";
+import { upToSaying } from "../../../../../../lib/planner/lists/summaries";
 import { useListPage } from "../../contexts/ListPageContext";
 import { listIcon } from "../icons";
 import { OwnName } from "./OwnName";

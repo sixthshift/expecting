@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import { check, index, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
-import { PHOTO_KINDS } from "../../../lib/photos";
+import { PHOTO_KINDS } from "../../../lib/journal/photos";
 import { upload } from "../files/schema";
 import { person } from "../people/schema";
 

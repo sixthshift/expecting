@@ -6,11 +6,11 @@ import type { Node } from "@markdoc/markdoc";
 import { z } from "zod";
 import { extra } from "../app/features/settings/model/extras";
 import { checkWhen, question, type When, whenSchema } from "../app/features/settings/model/facts";
-import { VIEW_KEYS, type View } from "../lib/circle";
 import { isISODate } from "../lib/dates";
-import { FIRST_KEYS, type FirstKey } from "../lib/firsts";
-import { LISTS, listOf } from "../lib/lists/builtIn";
+import { VIEW_KEYS, type View } from "../lib/drawer/circle";
+import { FIRST_KEYS, type FirstKey } from "../lib/journal/firsts";
 import type { Who } from "../lib/people";
+import { LISTS, listOf } from "../lib/planner/lists/builtIn";
 import { WEEKS, type Week } from "../lib/timeline";
 
 /** What kind of entry an item is: each has its own page, and its own body shape (src/content/parse.ts). */
@@ -161,7 +161,7 @@ export const indexSchema = z
           .strict()
       )
       .default([]),
-    /** What to get, a line each on one of the lists (src/lib/lists/builtIn.ts), restating what the body says. */
+    /** What to get, a line each on one of the lists (src/lib/planner/lists/builtIn.ts), restating what the body says. */
     lines: z
       .array(
         z

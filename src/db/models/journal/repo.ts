@@ -1,6 +1,6 @@
 import type { Database } from "bun:sqlite";
 import { and, eq, inArray } from "drizzle-orm";
-import type { JournalEntry } from "../../../lib/journal";
+import type { JournalEntry } from "../../../lib/journal/journal";
 import { orm } from "../../connection/client";
 import { journalEntry, journalSeen } from "./schema";
 

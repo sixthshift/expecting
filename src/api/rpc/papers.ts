@@ -2,7 +2,7 @@
 // on the date it bears, its pages photographed or a PDF. Shared, as notes
 // are: either of you keeps one, sees all, and can change or delete any; each
 // says who kept it and who changed it last. The pages are uploads
-// (./files.ts), sent first by the same save (src/lib/papers.ts).
+// (./files.ts), sent first by the same save (src/lib/journal/papers.ts).
 
 import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
@@ -12,8 +12,8 @@ import { PapersRepo } from "../../db/models/papers/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
 import { isISODate } from "../../lib/dates";
 import { FILE_TYPES } from "../../lib/files";
+import { MAX_PAGES, offlineFiles, PAPER_KINDS, type Paper, type PaperChange, type PaperInput, tidyTitle, tidyWords } from "../../lib/journal/papers";
 import { save, stamped } from "../../lib/outbox";
-import { MAX_PAGES, offlineFiles, PAPER_KINDS, type Paper, type PaperChange, type PaperInput, tidyTitle, tidyWords } from "../../lib/papers";
 import { keepHandyOffline } from "../../pwa/register";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";

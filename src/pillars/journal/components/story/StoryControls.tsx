@@ -1,6 +1,6 @@
 import { SearchInput } from "@sixthshift/design-system/search-input";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
-import { type StoryView, VIEW_LABEL } from "../../../../lib/story/views";
+import { type StoryView, VIEW_LABEL } from "../../../../lib/journal/story/views";
 
 /**
  * Above the story, one row: the ways to look at it, one at a time (`views`,

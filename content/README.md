@@ -32,7 +32,7 @@ sources:                         # every page a claim in the body comes from
   - title: Publisher — Page title
     url: https://...
 related: [deli-meats, listeria-foods]
-lines:                           # optional: what to get, a line each on a list (src/lib/lists/builtIn.ts), restating the body
+lines:                           # optional: what to get, a line each on a list (src/lib/planner/lists/builtIn.ts), restating the body
   - id: get-bottles              # stable, unique across items, tasks and lines: marks point at it
     title: Bottles
     list: baby                   # one of LISTS
@@ -64,7 +64,7 @@ its own urgency wording: never softer, never stronger, never merged.
   optionally `opens`, `due`, `deadline`, `who` and `keeps`; see CLAUDE.md,
   Content). `keeps` is what doing it keeps, and the task offers the way
   there: `letter` (a letter to the baby), `photo`, or a first
-  (`{ first: told-family }`, from `src/lib/firsts.ts`); kept, it's ticked.
+  (`{ first: told-family }`, from `src/lib/journal/firsts.ts`); kept, it's ticked.
 - `card`: no headings; a paragraph or two.
 - `term`: no headings; one or two short paragraphs.
 

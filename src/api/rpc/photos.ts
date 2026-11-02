@@ -1,7 +1,7 @@
 // Photos and scans: a bump photo, a scan, or something else, on its day.
 // Shared, as notes are: either of you keeps one, sees all, and can change or
 // delete any; each says who kept it and who changed it last. The picture is
-// an upload (./files.ts), sent first by the same save (src/lib/photos.ts).
+// an upload (./files.ts), sent first by the same save (src/lib/journal/photos.ts).
 
 import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
@@ -10,9 +10,9 @@ import { FilesRepo } from "../../db/models/files/repo";
 import { PeopleRepo } from "../../db/models/people/repo";
 import { PhotosRepo } from "../../db/models/photos/repo";
 import { isISODate } from "../../lib/dates";
-import { TIME } from "../../lib/journal";
+import { TIME } from "../../lib/journal/journal";
+import { PHOTO_KINDS, type Photo, type PhotoChange, type PhotoInput, tidyCaption } from "../../lib/journal/photos";
 import { save, stamped } from "../../lib/outbox";
-import { PHOTO_KINDS, type Photo, type PhotoChange, type PhotoInput, tidyCaption } from "../../lib/photos";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";

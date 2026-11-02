@@ -1,6 +1,6 @@
 import { useSettingsQuery } from "../../../../api/rpc/settings";
-import type { StoryItem } from "../../../../lib/story/items";
-import { storyGroups } from "../../../../lib/story/spine";
+import type { StoryItem } from "../../../../lib/journal/story/items";
+import { storyGroups } from "../../../../lib/journal/story/spine";
 import { StoryList } from "../lines/StoryList";
 
 /** What a search found, under its weeks, or that nothing has those words. `titled` false leaves out the weeks' titles (the quiet Journal). */

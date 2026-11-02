@@ -2,7 +2,7 @@ import { sql } from "drizzle-orm";
 import { check, primaryKey, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { person } from "../people/schema";
 
-/** One of you's answer to a job (JOBS in src/lib/jobs.ts), from where they stand. */
+/** One of you's answer to a job (JOBS in src/lib/drawer/jobs.ts), from where they stand. */
 export const jobPick = sqliteTable(
   "job_pick",
   {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { usePeopleQuery } from "../../../api/rpc/people";
-import type { StoryItem } from "../../../lib/story/items";
-import { storyMatches } from "../../../lib/story/search";
+import type { StoryItem } from "../../../lib/journal/story/items";
+import { storyMatches } from "../../../lib/journal/story/search";
 
 /**
  * Looking through the story: the words (held on the page, not in the

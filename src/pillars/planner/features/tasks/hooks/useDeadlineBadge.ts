@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useChecklistQuery } from "../../../../../api/rpc/checklist";
 import { useNow } from "../../../../../api/rpc/settings";
-import { toDoNow } from "../../../../../lib/todo";
+import { toDoNow } from "../../../../../lib/planner/todo";
 import { useTasks } from "./useTasks";
 
 /**

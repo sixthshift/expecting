@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import { check, index, sqliteTable, text } from "drizzle-orm/sqlite-core";
-import { APPETITE_KINDS, HOWS } from "../../../lib/appetite";
+import { APPETITE_KINDS, HOWS } from "../../../lib/journal/appetite";
 import { person } from "../people/schema";
 
 /** Being sick, a craving, or something gone off, on its day. Shared: either of you can change any. Its week is worked out on read. */

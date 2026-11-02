@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from "react";
-import { aboutName, type DeckCard, SEX_LABEL } from "../../../../../../lib/nameDeck";
+import { aboutName, type DeckCard, SEX_LABEL } from "../../../../../../lib/drawer/nameDeck";
 
 /** A card's face: the name, whose it mostly is, and how given it is. The one under the top is only seen. */
 export function CardFace({

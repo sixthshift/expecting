@@ -7,7 +7,7 @@ import { Textarea } from "@sixthshift/design-system/textarea";
 import { TimePicker } from "@sixthshift/design-system/time-picker";
 import { type FormEvent, useState } from "react";
 import type { ISODate } from "../../../../../lib/dates";
-import { toTime } from "../../../../../lib/journal";
+import { toTime } from "../../../../../lib/journal/journal";
 
 /** An appointment as the form holds it: what, the day, and perhaps the time, the place and notes. */
 export type AppointmentDraft = { title: string; day: ISODate | null; time: string | null; place: string; notes: string };

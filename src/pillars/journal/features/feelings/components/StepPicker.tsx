@@ -1,6 +1,6 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { useId } from "react";
-import { STEP_LABEL, STEPS, type Step } from "../../../../../lib/feelings";
+import { STEP_LABEL, STEPS, type Step } from "../../../../../lib/journal/feelings";
 import { Face } from "./Face";
 
 /** The five steps as faces with their words, lowest first; one tap chooses. No numbers and no red or green: a low day is not an alarm. */

@@ -1,7 +1,7 @@
 import { Star } from "lucide-react";
 import { useState } from "react";
-import { firstOf } from "../../../../lib/firsts";
-import type { StoryItem } from "../../../../lib/story/items";
+import { firstOf } from "../../../../lib/journal/firsts";
+import type { StoryItem } from "../../../../lib/journal/story/items";
 import { FirstSheet } from "../../features/firsts/components/FirstSheet";
 
 import { Opens, usePersonName } from "./parts";

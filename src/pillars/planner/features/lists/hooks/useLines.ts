@@ -3,7 +3,7 @@ import { useAnswersQuery } from "../../../../../api/rpc/facts";
 import { useListsQuery } from "../../../../../api/rpc/lists";
 import type { Line } from "../../../../../content/schema";
 import { factsOf } from "../../../../../lib/facts";
-import { tailorLines } from "../../../../../lib/lists/lines";
+import { tailorLines } from "../../../../../lib/planner/lists/lines";
 import { useItems } from "../../../../library/hooks/useItems";
 
 /** The lines for you: those of the items shown whose own when fits, then your own, as your answers, extras and lines change. */

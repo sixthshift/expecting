@@ -1,6 +1,6 @@
 import type { Database } from "bun:sqlite";
 import { eq } from "drizzle-orm";
-import { type Photo, type PhotoChange, type PhotoInput, tidyCaption } from "../../../lib/photos";
+import { type Photo, type PhotoChange, type PhotoInput, tidyCaption } from "../../../lib/journal/photos";
 import { orm } from "../../connection/client";
 import { photo } from "./schema";
 

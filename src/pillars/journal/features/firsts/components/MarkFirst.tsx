@@ -5,7 +5,7 @@ import { firstsSaves, useFirstsQuery } from "../../../../../api/rpc/firsts";
 import { settingsSaves, useSettingsQuery } from "../../../../../api/rpc/settings";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
-import { type FirstKey, firstOf, firstsOffered, isMarked } from "../../../../../lib/firsts";
+import { type FirstKey, firstOf, firstsOffered, isMarked } from "../../../../../lib/journal/firsts";
 import { BABY, type Baby } from "../../../../../lib/theme";
 import { DayField } from "./DayField";
 import { FirstWords } from "./FirstWords";

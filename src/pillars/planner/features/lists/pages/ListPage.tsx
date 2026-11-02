@@ -1,6 +1,6 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { PillarLayout } from "../../../../../app/components/layout/PillarLayout";
-import { isApart } from "../../../../../lib/lists/builtIn";
+import { isApart } from "../../../../../lib/planner/lists/builtIn";
 import { AddLine } from "../components/addLine/AddLine";
 import { ListHeading } from "../components/heading/ListHeading";
 import { Sections } from "../components/sections/Sections";
