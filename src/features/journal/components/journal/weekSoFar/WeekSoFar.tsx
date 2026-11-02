@@ -9,7 +9,6 @@ import { alreadyHappened, aroundNow } from "../../../../../lib/firsts";
 import { placesReady } from "../../../../../lib/places";
 import { inWeek, storyGroups } from "../../../../../lib/story";
 import { useJournalPage } from "../../../contexts/JournalPageContext";
-import { useStory } from "../../../hooks/useStory";
 import { BookCover, BookLine } from "./BookCover";
 import { Calls } from "./Calls";
 import { KeepRow } from "./KeepRow";
@@ -25,10 +24,10 @@ import { AlreadyHappened, Places, WeekPage } from "./WeekPage";
  */
 export const WeekSoFar = memo(function WeekSoFar() {
   const {
+    items,
     highlights: { suggested },
     withDays,
   } = useJournalPage();
-  const items = useStory();
   const { data: quiet } = useQuiet();
   const { data: settings } = useSettings();
   const { data: firsts } = useFirsts();

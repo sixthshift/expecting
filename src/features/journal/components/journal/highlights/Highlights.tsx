@@ -1,6 +1,5 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { useJournalPage } from "../../../contexts/JournalPageContext";
-import { useStory } from "../../../hooks/useStory";
 import { Lately } from "./Lately";
 import { NowCards } from "./NowCards";
 
@@ -8,8 +7,7 @@ const route = getRouteApi("/app/journal");
 
 /** The highlights beside the story: what matters now, then Lately, each pattern opening its lens. */
 export function Highlights() {
-  const { highlights } = useJournalPage();
-  const items = useStory();
+  const { items, highlights } = useJournalPage();
   const navigate = route.useNavigate();
   return (
     <>

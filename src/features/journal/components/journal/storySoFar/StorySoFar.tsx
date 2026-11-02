@@ -13,9 +13,7 @@ import { kindsOffered } from "../../../../../lib/photos";
 import { hasRecap } from "../../../../../lib/recap";
 import { foldedWhileQuiet, LENS_LABEL, type Lens, landmarks, type StoryItem, storyGroups, storyMatches, storySpine, weekTiles } from "../../../../../lib/story";
 import type { Week } from "../../../../../lib/timeline";
-import { useJournalSearch } from "../../../contexts/JournalPageContext";
-import { useLens } from "../../../hooks/useLens";
-import { useStory } from "../../../hooks/useStory";
+import { useJournalPage, useJournalSearch } from "../../../contexts/JournalPageContext";
 import { AddPhoto } from "../../entries/photos/AddPhoto";
 import { RecapViewer, useRecap } from "../../Recap";
 import { StoryList } from "../Story";
@@ -81,10 +79,9 @@ function KeptBefore({ items }: { items: readonly StoryItem[] }) {
  */
 export function StorySoFar() {
   const { words, setWords } = useJournalSearch();
-  const items = useStory();
+  const { items, lens, lenses } = useJournalPage();
   const { zoom, at } = route.useSearch();
   const navigate = route.useNavigate();
-  const { lens, lenses } = useLens();
   const { data: quiet } = useQuiet();
   const { data: settings } = useSettings();
   const { data: people } = usePeople();

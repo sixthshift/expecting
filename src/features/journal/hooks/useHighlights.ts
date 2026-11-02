@@ -19,7 +19,6 @@ import { hasRecap, recapOf } from "../../../lib/recap";
 import { type Pattern, patternsKept, type StoryItem } from "../../../lib/story";
 import { useTasks } from "../../tasks/hooks/useTasks";
 import { useOnThisPhone } from "./useOnThisPhone";
-import { useStory } from "./useStory";
 
 const route = getRouteApi("/app/journal");
 
@@ -40,9 +39,8 @@ function keptLine(items: readonly StoryItem[], id: string | undefined): StoryIte
   return items.find((i) => i.key === id || i.key === `first-${id}` || (i.kind === "movements" && i.entries.some((e) => e.id === id))) ?? null;
 }
 
-/** The highlights, worked out from everything kept. Opening the Journal marks it seen, for whoever's holding the phone. */
-export function useHighlights(): HighlightsData {
-  const items = useStory();
+/** The highlights, worked out from the story (`items`). Opening the Journal marks it seen, for whoever's holding the phone. */
+export function useHighlights(items: StoryItem[]): HighlightsData {
   const { kept } = route.useSearch();
   const { data: quiet } = useQuiet();
   const { data: settings } = useSettings();
