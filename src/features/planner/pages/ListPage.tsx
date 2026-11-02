@@ -1,11 +1,9 @@
-import { getRouteApi, Link } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
-import { useQuietQuery } from "../../../api/rpc/quiet";
+import { getRouteApi } from "@tanstack/react-router";
 import { isApart } from "../../../lib/lists/builtIn";
-import { PutAwayNotice } from "../../quiet/components/PutAwayNotice";
 import { AddLine } from "../components/lists/addLine/AddLine";
 import { ListHeading } from "../components/lists/heading/ListHeading";
 import { Sections } from "../components/lists/sections/Sections";
+import { PlannerFrame } from "../components/PlannerFrame";
 import { ListPageProvider, useListPage } from "../contexts/ListPageContext";
 
 const route = getRouteApi("/app/planner/lists/$listId");
@@ -30,32 +28,24 @@ export function ListPage() {
 
 function List() {
   const { listId, summary } = useListPage();
-  const { data: quiet } = useQuietQuery();
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-8">
-      <div className="flex flex-col gap-6">
-        {/* The bag is It's time's: back is there. */}
-        <Link
-          to={isApart(listId) ? "/its-time" : "/planner/lists"}
-          className="-ml-2 -mb-2 flex min-h-11 w-fit items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal"
-        >
-          <ArrowLeft aria-hidden size={16} /> {isApart(listId) ? "It's time" : "Lists"}
-        </Link>
-        {quiet ? (
-          <PutAwayNotice subject="The lists" are className="max-w-prose" />
-        ) : !summary ? (
-          <div className="flex flex-col gap-2">
-            <h1 className="text-2xl font-display font-semibold text-fg-strong">Not here</h1>
-            <p className="text-fg-subtle">This list isn't here any more. It may have been deleted on the other phone.</p>
-          </div>
-        ) : (
-          <>
-            <ListHeading summary={summary} />
-            <Sections />
-            <AddLine listId={listId} />
-          </>
-        )}
-      </div>
-    </main>
+    // The bag is It's time's: back is there.
+    <PlannerFrame
+      back={isApart(listId) ? { to: "/its-time", label: "It's time" } : { to: "/planner/lists", label: "Lists" }}
+      putAway={{ subject: "The lists", are: true }}
+    >
+      {!summary ? (
+        <div className="flex flex-col gap-2">
+          <h1 className="text-2xl font-display font-semibold text-fg-strong">Not here</h1>
+          <p className="text-fg-subtle">This list isn't here any more. It may have been deleted on the other phone.</p>
+        </div>
+      ) : (
+        <>
+          <ListHeading summary={summary} />
+          <Sections />
+          <AddLine listId={listId} />
+        </>
+      )}
+    </PlannerFrame>
   );
 }
