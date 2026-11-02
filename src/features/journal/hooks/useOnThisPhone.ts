@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 /** Read what this phone keeps under `key`; nothing if it can't (a private window, storage blocked). */
 function read(key: string): string[] {
@@ -17,14 +17,19 @@ function read(key: string): string[] {
  */
 export function useOnThisPhone(key: string): [readonly string[], (value: string) => void] {
   const [values, setValues] = useState(() => read(key));
-  function add(value: string) {
-    const next = values.includes(value) ? values : [...values, value];
-    setValues(next);
-    try {
-      localStorage.setItem(key, JSON.stringify(next));
-    } catch {
-      // Kept for this visit only.
-    }
-  }
+  // The same function every render, so a part given it can skip drawing again.
+  const add = useCallback(
+    (value: string) =>
+      setValues((values) => {
+        const next = values.includes(value) ? values : [...values, value];
+        try {
+          localStorage.setItem(key, JSON.stringify(next));
+        } catch {
+          // Kept for this visit only.
+        }
+        return next;
+      }),
+    [key]
+  );
   return [values, add];
 }

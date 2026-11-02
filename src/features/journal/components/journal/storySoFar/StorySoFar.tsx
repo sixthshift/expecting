@@ -13,6 +13,7 @@ import { kindsOffered } from "../../../../../lib/photos";
 import { hasRecap } from "../../../../../lib/recap";
 import { foldedWhileQuiet, LENS_LABEL, type Lens, landmarks, type StoryItem, storyGroups, storyMatches, storySpine, weekTiles } from "../../../../../lib/story";
 import type { Week } from "../../../../../lib/timeline";
+import { useJournalSearch } from "../../../hooks/useJournalPage";
 import { useLens } from "../../../hooks/useLens";
 import { useStory } from "../../../hooks/useStory";
 import { AddPhoto } from "../../entries/photos/AddPhoto";
@@ -74,11 +75,12 @@ function KeptBefore({ items }: { items: readonly StoryItem[] }) {
 /**
  * The story so far: everything kept and done, newest first under its week
  * and day, in a lens (`?show=`), zoomed out (`?zoom=`), or searched with
- * `words` (held by the page, which hides this week's days while they're
- * looked through). `?at=28` opens it at a week. While something has
+ * words (the page's context holds them, as the week so far hides its days
+ * while they're looked through). `?at=28` opens it at a week. While something has
  * happened, what's folded away waits behind one quiet line.
  */
-export function StorySoFar({ words, onWords }: { words: string; onWords: (words: string) => void }) {
+export function StorySoFar() {
+  const { words, setWords } = useJournalSearch();
   const items = useStory();
   const { zoom, at } = route.useSearch();
   const navigate = route.useNavigate();
@@ -144,7 +146,7 @@ export function StorySoFar({ words, onWords }: { words: string; onWords: (words:
             {!zoom && shown.length > 1 ? (
               <div className="min-w-48 flex-1">
                 {/* Words held on the page, not in the address: what you look for is yours. */}
-                <SearchInput value={words} onValueChange={onWords} placeholder="Look through what's kept" aria-label="Search the Journal" />
+                <SearchInput value={words} onValueChange={setWords} placeholder="Look through what's kept" aria-label="Search the Journal" />
               </div>
             ) : null}
           </div>

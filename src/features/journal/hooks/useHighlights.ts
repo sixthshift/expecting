@@ -1,5 +1,5 @@
 import { getRouteApi } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useAppetite } from "../../../api/rpc/appetite";
 import { useChecklist } from "../../../api/rpc/checklist";
 import { useFeelings } from "../../../api/rpc/feelings";
@@ -97,7 +97,8 @@ export function useHighlights(): HighlightsData {
     recapHas: (span) => (dueDate ? hasRecap(recapOf({ span, dueDate, firsts, photos, appetite, journal, items })) : false),
   });
   const patterns = patternsKept({ journal, appetite, feelings, photos, today, dueDate, me: people.me?.id ?? null, quiet: isQuiet });
-  const suggested = useKeepSame(cards.flatMap((c) => (c.kind === "first" ? [c.suggestion.key] : [])));
+  // Kept the same while nothing in them changed, so the page's context (and the memo week so far) doesn't change with every save.
+  const same = useKeepSame({ cards, patterns, suggested: cards.flatMap((c) => (c.kind === "first" ? [c.suggestion.key] : [])) });
 
-  return { cards, patterns, suggested, shown: cards.length > 0 || patterns.length > 0, onRecapOpened: setOpened };
+  return useMemo(() => ({ ...same, shown: same.cards.length > 0 || same.patterns.length > 0, onRecapOpened: setOpened }), [same, setOpened]);
 }

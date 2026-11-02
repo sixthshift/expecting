@@ -1,14 +1,9 @@
 import { cn } from "@sixthshift/design-system/utils";
-import { getRouteApi } from "@tanstack/react-router";
-import { useState } from "react";
 import { PillarHeader } from "../../../app/components/layout/PillarLayout";
 import { Highlights } from "../components/journal/highlights/Highlights";
 import { StorySoFar } from "../components/journal/storySoFar/StorySoFar";
 import { WeekSoFar } from "../components/journal/weekSoFar/WeekSoFar";
-import { useHighlights } from "../hooks/useHighlights";
-import { useLens } from "../hooks/useLens";
-
-const route = getRouteApi("/app/journal");
+import { JournalPageProvider, useJournalPage } from "../hooks/useJournalPage";
 
 /**
  * The Journal: the pregnancy, kept and given back. What matters now first
@@ -22,18 +17,23 @@ const route = getRouteApi("/app/journal");
  * quiet line. See docs/product/journal.md.
  *
  * The page is three parts: the week so far (`WeekSoFar`), the highlights
- * beside it (`Highlights`, from `useHighlights`) and the story so far
- * (`StorySoFar`). What
- * passes between them: the firsts a Now card already asks about, which the
- * week leaves out; and whether the story is in a lens, zoomed or searched,
- * when the week leaves out its days.
+ * beside it (`Highlights`) and the story so far (`StorySoFar`). What passes
+ * between them is the page's context (`JournalPageProvider`): the
+ * highlights, worked out once; the firsts a Now card already asks about,
+ * which the week leaves out; the search words; and whether the story is in a
+ * lens, zoomed or searched, when the week leaves out its days.
  */
 export function JournalPage() {
-  const { zoom } = route.useSearch();
-  const highlights = useHighlights();
-  const { lens } = useLens();
-  const [words, setWords] = useState("");
-  const withDays = lens === "all" && !zoom && words.trim().length === 0;
+  return (
+    <JournalPageProvider>
+      <Journal />
+    </JournalPageProvider>
+  );
+}
+
+/** The page's layout: two columns on desktop while there are highlights, one at a reading width without. */
+function Journal() {
+  const { highlights } = useJournalPage();
 
   return (
     <main className="mx-auto max-w-6xl px-4 pb-16 md:px-8">
@@ -47,17 +47,17 @@ export function JournalPage() {
         )}
       >
         <div className="flex min-w-0 flex-col gap-6 lg:col-start-1 lg:row-start-1">
-          <WeekSoFar suggested={highlights.suggested} withDays={withDays} />
+          <WeekSoFar />
         </div>
 
         {highlights.shown ? (
           <aside aria-label="Now and lately" className="flex flex-col gap-4 lg:sticky lg:top-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start">
-            <Highlights highlights={highlights} />
+            <Highlights />
           </aside>
         ) : null}
 
         <div className="flex min-w-0 flex-col gap-4 lg:col-start-1 lg:row-start-2">
-          <StorySoFar words={words} onWords={setWords} />
+          <StorySoFar />
         </div>
       </div>
     </main>

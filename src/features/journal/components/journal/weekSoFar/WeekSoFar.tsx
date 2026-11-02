@@ -8,6 +8,7 @@ import { contents, young } from "../../../../../lib/chapters";
 import { alreadyHappened, aroundNow } from "../../../../../lib/firsts";
 import { placesReady } from "../../../../../lib/places";
 import { inWeek, storyGroups } from "../../../../../lib/story";
+import { useJournalPage } from "../../../hooks/useJournalPage";
 import { useStory } from "../../../hooks/useStory";
 import { BookCover, BookLine } from "./BookCover";
 import { Calls } from "./Calls";
@@ -18,11 +19,15 @@ import { AlreadyHappened, Places, WeekPage } from "./WeekPage";
  * The week so far, at the top of the Journal: a call to make, first; this
  * week's page (with the Keep row); the places Expecting has made ready; the
  * firsts that have already happened; and the book, already begun.
- * `suggested` are the firsts a Now card already asks about; `withDays` is
- * false while the story is in a lens, zoomed or searched, when this week's
- * days aren't drawn here.
+ * From the page's context: the firsts a Now card already asks about, left
+ * out here, and whether this week's days are drawn (not while the story is in
+ * a lens, zoomed or searched).
  */
-export const WeekSoFar = memo(function WeekSoFar({ suggested, withDays }: { suggested: readonly string[]; withDays: boolean }) {
+export const WeekSoFar = memo(function WeekSoFar() {
+  const {
+    highlights: { suggested },
+    withDays,
+  } = useJournalPage();
   const items = useStory();
   const { data: quiet } = useQuiet();
   const { data: settings } = useSettings();
