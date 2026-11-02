@@ -253,13 +253,16 @@ from a Library list (`HistoryState.from`). Content is [below](#content).
 
 [Product](product/planner.md).
 
+The map of the code is `src/features/planner/README.md`.
+
 - **To do** (`/planner`): `src/features/planner/` and `src/features/tasks/`
   (`TaskRow`, `AddTask`, `KeepButton`), its shape `src/lib/planner/plan.ts`
-  (`next`, `now`, `ahead` in `STAGES`, `earlier`, `done`) over `toDoNow`.
+  (`next`, `now`, `ahead` in `STAGES`, `earlier`, `done`) over `toDoNow`,
+  worked out once for the page in `PlannerPageProvider` (`usePlan`).
   Ticks are `task_tick`, own tasks `own_task` (a title and a week).
 - **The weeks** ("Across the weeks", `/planner/weeks`, `?stage=37`): `WeeksPage`, the
   bars from `weeksChart` (`src/lib/planner/weeks.ts`).
-- **Lists** (`/planner/lists`, `/planner/lists/<id>`): `src/features/planner/` (`ListsPage`, `ListPage`, `components/lists/`),
+- **Lists** (`/planner/lists`, `/planner/lists/<id>`): `src/features/planner/` (`ListsPage`, `ListPage` and `ListPageProvider`, `components/lists/`),
   rules `src/lib/lists/` (`LISTS` in `builtIn.ts`; the lines that apply, `lines.ts`; what's left, `summaries.ts`; by section, `sections.ts`). A
   built-in line comes from an item's `lines`, tailored like the item. The
   store is `own_list`, `own_line` and `list_mark` (a line's id, no foreign
