@@ -1,8 +1,8 @@
 import { Button } from "@sixthshift/design-system/button";
 import { cn } from "@sixthshift/design-system/utils";
 import { useState } from "react";
-import { useAppetite } from "../../../../../../../api/rpc/appetite";
-import { useSettings } from "../../../../../../../api/rpc/settings";
+import { useAppetite } from "../../../../../../api/rpc/appetite";
+import { useSettings } from "../../../../../../api/rpc/settings";
 import {
   HOW_LABEL,
   type How,
@@ -15,15 +15,15 @@ import {
   sickOften,
   type Tally,
   tally,
-} from "../../../../../../../lib/appetite";
-import { formatDate, type ISODate, todayISO } from "../../../../../../../lib/dates";
-import { placeOf } from "../../../../../../../lib/journal";
-import { weekLabel } from "../../../../../../../lib/timeline";
-import { ItemLink } from "../../../../../../library/components/ItemLink";
-import { when } from "../../../../../model/dates";
-import { AppetiteItem } from "../../../../entries/appetite/AppetiteItem";
-import { AskAtAppointment } from "../../../../entries/appetite/AskAtAppointment";
-import { SEVERE } from "../../../../entries/appetite/TooSick";
+} from "../../../../../../lib/appetite";
+import { formatDate, type ISODate, todayISO } from "../../../../../../lib/dates";
+import { placeOf } from "../../../../../../lib/journal";
+import { weekLabel } from "../../../../../../lib/timeline";
+import { ItemLink } from "../../../../../library/components/ItemLink";
+import { when } from "../../../../model/dates";
+import { AppetiteItem } from "../../../entries/appetite/AppetiteItem";
+import { AskAtAppointment } from "../../../entries/appetite/AskAtAppointment";
+import { SEVERE } from "../../../entries/appetite/TooSick";
 
 /** A day's strength, worst fullest, in the brand's colour: never red. Can't keep fluids down is also ringed. */
 const STRENGTH: Record<How, string> = {

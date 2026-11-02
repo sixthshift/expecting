@@ -1,9 +1,9 @@
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
-import { useJournal } from "../../../../../../../api/rpc/journal";
-import { newestFirst } from "../../../../../../../lib/journal";
-import { Movement } from "../../../../entries/movements/Movement";
-import { MovementPattern } from "../../../MovementPattern";
+import { useJournal } from "../../../../../../api/rpc/journal";
+import { newestFirst } from "../../../../../../lib/journal";
+import { Movement } from "../../../entries/movements/Movement";
+import { MovementPattern } from "../../MovementPattern";
 
 /** How many movements are listed before "Show all". */
 const LISTED = 8;

@@ -52,7 +52,7 @@ vi.mock("@tanstack/react-router", () => ({ Link: ({ children }: { children: Reac
 
 const { AddCraving } = await import("../../../src/features/journal/components/entries/appetite/AddCraving");
 const { AppetiteItem } = await import("../../../src/features/journal/components/entries/appetite/AppetiteItem");
-const { AppetiteLens } = await import("../../../src/features/journal/components/journal/storySoFar/lenses/appetite/AppetiteLens");
+const { AppetiteLens } = await import("../../../src/features/journal/components/story/lenses/appetite/AppetiteLens");
 
 beforeEach(() => {
   appetite = [];

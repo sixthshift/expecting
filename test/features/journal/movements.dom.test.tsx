@@ -45,7 +45,7 @@ vi.mock("@sixthshift/design-system/overlay", () => ({ toast: () => undefined }))
 vi.mock("@tanstack/react-router", () => ({ Link: ({ children }: { children: ReactNode }) => <a href="/emergency">{children}</a> }));
 
 const { Movement } = await import("../../../src/features/journal/components/entries/movements/Movement");
-const { MovementsLens } = await import("../../../src/features/journal/components/journal/storySoFar/lenses/movements/MovementsLens");
+const { MovementsLens } = await import("../../../src/features/journal/components/story/lenses/movements/MovementsLens");
 
 beforeEach(() => {
   journal = [];

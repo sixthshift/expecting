@@ -7,17 +7,17 @@ import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";
 import { Camera, Columns2 } from "lucide-react";
 import { useState } from "react";
-import { usePhotos } from "../../../../../../../api/rpc/photos";
-import { useNow, useSettings } from "../../../../../../../api/rpc/settings";
-import { formatDate, type ISODate } from "../../../../../../../lib/dates";
-import { BUMP_SERIES, type BumpWeek, bumpToTake, bumpWeeks, kindsOffered, type PhotoGroup, type PhotoKind, photoGroups } from "../../../../../../../lib/photos";
-import type { QuietKind } from "../../../../../../../lib/quiet";
-import { type Week, weekDates, weekLabel } from "../../../../../../../lib/timeline";
-import { describePhoto } from "../../../../../model/describePhoto";
-import { AddPhoto } from "../../../../entries/photos/AddPhoto";
-import { PhotoViewer } from "../../../../entries/photos/PhotoViewer";
-import { Picture } from "../../../../entries/photos/Picture";
-import { Scrubber } from "../../../../entries/photos/Scrubber";
+import { usePhotos } from "../../../../../../api/rpc/photos";
+import { useNow, useSettings } from "../../../../../../api/rpc/settings";
+import { formatDate, type ISODate } from "../../../../../../lib/dates";
+import { BUMP_SERIES, type BumpWeek, bumpToTake, bumpWeeks, kindsOffered, type PhotoGroup, type PhotoKind, photoGroups } from "../../../../../../lib/photos";
+import type { QuietKind } from "../../../../../../lib/quiet";
+import { type Week, weekDates, weekLabel } from "../../../../../../lib/timeline";
+import { describePhoto } from "../../../../model/describePhoto";
+import { AddPhoto } from "../../../entries/photos/AddPhoto";
+import { PhotoViewer } from "../../../entries/photos/PhotoViewer";
+import { Picture } from "../../../entries/photos/Picture";
+import { Scrubber } from "../../../entries/photos/Scrubber";
 import { SideBySide } from "./SideBySide";
 
 /** How many weeks are shown before "Show every week". */

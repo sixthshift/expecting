@@ -1,17 +1,16 @@
-import { useQuiet } from "../../../../../api/rpc/quiet";
-import { useSettings } from "../../../../../api/rpc/settings";
-import { type Lens, type StoryItem, storyGroups } from "../../../../../lib/story";
-import { FeelingsLens } from "../../../../feelings/components/history/Feelings";
-import { StoryList } from "../Story";
+import { useSettings } from "../../../../api/rpc/settings";
+import type { QuietKind } from "../../../../lib/quiet";
+import { type Lens, type StoryItem, storyGroups } from "../../../../lib/story";
+import { FeelingsLens } from "../../../feelings/components/history/Feelings";
 import { AppetiteLens } from "./lenses/appetite/AppetiteLens";
 import { FirstsLens } from "./lenses/firsts/FirstsLens";
 import { MovementsLens } from "./lenses/movements/MovementsLens";
 import { PapersLens } from "./lenses/papers/PapersLens";
 import { PhotosLens } from "./lenses/photos/PhotosLens";
+import { StoryList } from "./Story";
 
-/** One kind, at full size: its pattern, its tools, then each. */
-export function LensView({ lens, items }: { lens: Exclude<Lens, "all">; items: readonly StoryItem[] }) {
-  const { data: quiet } = useQuiet();
+/** One kind, at full size: its pattern, its tools, then each. `quiet`: what has happened, on the quiet Journal (null on the Journal). */
+export function LensView({ lens, items, quiet }: { lens: Exclude<Lens, "all">; items: readonly StoryItem[]; quiet: QuietKind | null }) {
   const { data: settings } = useSettings();
   switch (lens) {
     case "notes":
@@ -26,6 +25,7 @@ export function LensView({ lens, items }: { lens: Exclude<Lens, "all">; items: r
               settings.dueDate
             )}
             label="Your notes"
+            titled={!quiet}
           />
         </section>
       );
@@ -38,7 +38,7 @@ export function LensView({ lens, items }: { lens: Exclude<Lens, "all">; items: r
     case "feelings":
       return <FeelingsLens />;
     case "papers":
-      return <PapersLens quiet={quiet?.kind ?? null} />;
+      return <PapersLens quiet={quiet} />;
     case "firsts":
       return <FirstsLens />;
   }

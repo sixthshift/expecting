@@ -1,12 +1,9 @@
 import { getRouteApi } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useFirsts } from "../../../api/rpc/firsts";
-import { journalSeenSaves, useJournalSeen } from "../../../api/rpc/journal";
 import { usePeople } from "../../../api/rpc/people";
-import { useQuiet } from "../../../api/rpc/quiet";
 import { usePosition, useSettings } from "../../../api/rpc/settings";
 import { useKeepSame } from "../../../app/hooks/useKeepSame";
-import { useSave } from "../../../app/hooks/useSave";
 import { todayISO } from "../../../lib/dates";
 import { suggestFirsts } from "../../../lib/firsts";
 import { type NowCard, nowCards } from "../../../lib/journalNow";
@@ -14,6 +11,7 @@ import { hasRecap, recapOf } from "../../../lib/recap";
 import { type Pattern, patternsKept, type StoryItem } from "../../../lib/story";
 import { useTasks } from "../../tasks/hooks/useTasks";
 import { useOnThisPhone } from "./useOnThisPhone";
+import { useSeenThisVisit } from "./useSeenThisVisit";
 
 const route = getRouteApi("/app/journal");
 
@@ -34,30 +32,22 @@ function keptLine(items: readonly StoryItem[], id: string | undefined): StoryIte
   return items.find((i) => i.key === id || i.key === `first-${id}` || (i.kind === "movements" && i.entries.some((e) => e.id === id))) ?? null;
 }
 
-/** The highlights, worked out from the story (`items`). Opening the Journal marks it seen, for whoever's holding the phone. */
-export function useHighlights(items: StoryItem[]): HighlightsData {
+/**
+ * The highlights, worked out from the story (`items`). While something has
+ * happened (`quiet`), no Now cards and only feelings' pattern. Opening the
+ * Journal marks it seen, for whoever's holding the phone, quiet or not.
+ */
+export function useHighlights(items: StoryItem[], quiet: boolean): HighlightsData {
   const { kept } = route.useSearch();
-  const { data: quiet } = useQuiet();
   const { data: settings } = useSettings();
   const { data: people } = usePeople();
   const { data: firsts } = useFirsts();
   const tasks = useTasks();
-  const { data: seen } = useJournalSeen();
   const position = usePosition();
-  const markSeen = useSave(journalSeenSaves.markJournalSeen);
-  // When you last looked, as it was when you came in: this visit marks it, and the card stays for this visit.
-  const [lastSeen] = useState(seen);
+  const lastSeen = useSeenThisVisit();
   const [opened, setOpened] = useOnThisPhone("expecting:recaps-opened");
   const today = todayISO();
-  const isQuiet = Boolean(quiet);
   const { dueDate } = settings;
-
-  // Once a visit, for whoever's holding the phone: `markSeen` is a new function each render.
-  const me = people.me?.id;
-  // biome-ignore lint/correctness/useExhaustiveDependencies: marked once as the page opens (and as who's holding it changes), not on every render.
-  useEffect(() => {
-    if (me) markSeen(undefined);
-  }, [me]);
 
   const cards = nowCards({
     items,
@@ -65,15 +55,15 @@ export function useHighlights(items: StoryItem[]): HighlightsData {
     seen: lastSeen,
     me: people.me,
     people: people.people,
-    suggestions: suggestFirsts({ items, marks: firsts, tasks, people: people.people, quiet: isQuiet }),
+    suggestions: suggestFirsts({ items, marks: firsts, tasks, people: people.people, quiet }),
     today,
     position,
     dueDate,
-    quiet: isQuiet,
+    quiet,
     recapsOpened: opened,
     recapHas: (span) => (dueDate ? hasRecap(recapOf({ span, dueDate, items })) : false),
   });
-  const patterns = patternsKept({ items, today, dueDate, me: people.me?.id ?? null, quiet: isQuiet });
+  const patterns = patternsKept({ items, today, dueDate, me: people.me?.id ?? null, quiet });
   // Kept the same while nothing in them changed, so the page's context (and the memo week so far) doesn't change with every save.
   const same = useKeepSame({ cards, patterns, suggested: cards.flatMap((c) => (c.kind === "first" ? [c.suggestion.key] : [])) });
 

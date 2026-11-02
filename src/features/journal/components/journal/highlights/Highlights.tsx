@@ -1,6 +1,6 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { useJournalPage } from "../../../contexts/JournalPageContext";
-import { Lately } from "./Lately";
+import { Lately } from "../../Lately";
 import { NowCards } from "./NowCards";
 
 const route = getRouteApi("/app/journal");

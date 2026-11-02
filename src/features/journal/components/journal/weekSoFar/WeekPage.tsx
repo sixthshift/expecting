@@ -26,7 +26,7 @@ import { CaptureSheet } from "../../../../capture/components/CaptureSheet";
 import { useOnThisPhone } from "../../../hooks/useOnThisPhone";
 import { DayField } from "../../entries/firsts/DayField";
 import { AddPhoto } from "../../entries/photos/AddPhoto";
-import { Days } from "../Story";
+import { Days } from "../../story/Story";
 
 /** A first that's around now: what, its question, and your words for it; kept, it's marked today (or the day you say). */
 function AroundNowFirst({ first, week, onNotYet, past = false }: { first: FirstDef; week: Week; onNotYet?: () => void; past?: boolean }) {
@@ -111,19 +111,7 @@ function sizeLine(week: Week): string | null {
 }
 
 /** This week's page. `keep` is the Keep row, drawn under the invitations. */
-export function WeekPage({
-  week,
-  quiet,
-  around,
-  days,
-  keep,
-}: {
-  week: Week;
-  quiet: boolean;
-  around: readonly FirstDef[];
-  days: readonly StoryDay[];
-  keep: ReactNode;
-}) {
+export function WeekPage({ week, around, days, keep }: { week: Week; around: readonly FirstDef[]; days: readonly StoryDay[]; keep: ReactNode }) {
   const [notYet, putOff] = useOnThisPhone("expecting:first-not-yet");
   const note = noteFor(weekNotes, week);
   const shown = around.filter((f) => !notYet.includes(`${f.key}@${week}`));
@@ -135,10 +123,10 @@ export function WeekPage({
         <p className="text-sm font-medium tracking-wide text-fg-subtle uppercase">This week</p>
         <h2 className="flex flex-wrap items-baseline gap-x-3">
           <span className="font-display text-4xl font-semibold text-fg-strong">{weekLabel(week)}</span>
-          {note && !quiet ? <span className="font-display text-xl text-fg-normal">{note.title}</span> : null}
+          {note ? <span className="font-display text-xl text-fg-normal">{note.title}</span> : null}
         </h2>
-        {note && !quiet ? <p className="max-w-prose text-fg-normal">{babyLead(note)}</p> : null}
-        {size && !quiet ? <p className="text-sm text-fg-subtle">{size}</p> : null}
+        {note ? <p className="max-w-prose text-fg-normal">{babyLead(note)}</p> : null}
+        {size ? <p className="text-sm text-fg-subtle">{size}</p> : null}
       </header>
 
       {shown.length > 0 ? (

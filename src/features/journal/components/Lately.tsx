@@ -4,20 +4,20 @@
 
 import { cn } from "@sixthshift/design-system/utils";
 import type { ReactNode } from "react";
-import { useAppetite } from "../../../../../api/rpc/appetite";
-import { useFeelings } from "../../../../../api/rpc/feelings";
-import { useJournal } from "../../../../../api/rpc/journal";
-import { usePeople } from "../../../../../api/rpc/people";
-import { usePhotos } from "../../../../../api/rpc/photos";
-import { useSettings } from "../../../../../api/rpc/settings";
-import { sicknessWeeks, tally } from "../../../../../lib/appetite";
-import { todayISO } from "../../../../../lib/dates";
-import { type Step, stepsByDay } from "../../../../../lib/feelings";
-import { dayFraction, movementPattern } from "../../../../../lib/journal";
-import { bumpWeeks } from "../../../../../lib/photos";
-import type { Lens, Pattern } from "../../../../../lib/story";
-import { weekLabel } from "../../../../../lib/timeline";
-import { Picture } from "../../entries/photos/Picture";
+import { useAppetite } from "../../../api/rpc/appetite";
+import { useFeelings } from "../../../api/rpc/feelings";
+import { useJournal } from "../../../api/rpc/journal";
+import { usePeople } from "../../../api/rpc/people";
+import { usePhotos } from "../../../api/rpc/photos";
+import { useSettings } from "../../../api/rpc/settings";
+import { sicknessWeeks, tally } from "../../../lib/appetite";
+import { todayISO } from "../../../lib/dates";
+import { type Step, stepsByDay } from "../../../lib/feelings";
+import { dayFraction, movementPattern } from "../../../lib/journal";
+import { bumpWeeks } from "../../../lib/photos";
+import type { Lens, Pattern } from "../../../lib/story";
+import { weekLabel } from "../../../lib/timeline";
+import { Picture } from "./entries/photos/Picture";
 
 const LENS: Record<Pattern, Lens> = { movements: "movements", sickness: "appetite", cravings: "appetite", feelings: "feelings", bump: "photos" };
 

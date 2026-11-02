@@ -453,18 +453,25 @@ export function Days({ days: given }: { days: readonly StoryDay[] }) {
 /**
  * The story: its weeks newest first, each with its note's title and its
  * days; a quiet week one faint line; a run of them (in a search) one line.
- * Each week is `#week-28`, for a week to open at.
+ * Each week is `#week-28`, for a week to open at. `titled` false leaves out
+ * the weeks' titles, which are about the baby (the quiet Journal).
  */
-export function StoryList({ groups: given, label = "The story" }: { groups: readonly (StoryGroup | StoryGap | QuietWeek)[]; label?: string }) {
+export function StoryList({
+  groups: given,
+  label = "The story",
+  titled = true,
+}: {
+  groups: readonly (StoryGroup | StoryGap | QuietWeek)[];
+  label?: string;
+  titled?: boolean;
+}) {
   // Worked out afresh each render: the weeks and days that didn't change are kept as they were.
   const groups = useKeepSame(given);
   const { data: settings } = useSettings();
-  const { data: quiet } = useQuiet();
   const now = useNow();
   const today = todayISO();
   const { open, viewer } = usePhotoViewer(groups);
-  // A week's title is about the baby: none while something has happened.
-  const titleOf = (week: Week) => (quiet ? null : weekTitle(week));
+  const titleOf = (week: Week) => (titled ? weekTitle(week) : null);
 
   return (
     <>

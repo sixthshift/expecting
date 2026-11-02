@@ -56,7 +56,7 @@ vi.mock("../../../src/app/model/uploads", () => {
 });
 
 const { AddPhoto } = await import("../../../src/features/journal/components/entries/photos/AddPhoto");
-const { PhotosLens } = await import("../../../src/features/journal/components/journal/storySoFar/lenses/photos/PhotosLens");
+const { PhotosLens } = await import("../../../src/features/journal/components/story/lenses/photos/PhotosLens");
 const { FileProblemError } = await import("../../../src/app/model/uploads");
 
 const prepared = (takenAt: { day: string; time: string } | null) => ({

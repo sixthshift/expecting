@@ -16,8 +16,8 @@ import { hasRecap } from "../../../../../lib/recap";
 import { cravingThread, lensOf, type StoryItem, summarise } from "../../../../../lib/story";
 import { weekLabel } from "../../../../../lib/timeline";
 import { RecapViewer, useRecap } from "../../Recap";
-import { MovementPattern } from "../MovementPattern";
-import { PhotoThumbs, StoryLine } from "../Story";
+import { MovementPattern } from "../../story/MovementPattern";
+import { PhotoThumbs, StoryLine } from "../../story/Story";
 import { SuggestedFirst } from "./SuggestedFirst";
 
 const route = getRouteApi("/app/journal");

@@ -5,10 +5,10 @@
 
 import { cn } from "@sixthshift/design-system/utils";
 import { Camera, FileText, Footprints, IceCreamCone, type LucideIcon, NotebookPen, Smile, Star } from "lucide-react";
-import { type FirstMark, firstOf } from "../../../../../lib/firsts";
-import { LENS_LABEL, type Lens, TRIMESTERS, type WeekTile } from "../../../../../lib/story";
-import { WEEKS, type Week, weekLabel } from "../../../../../lib/timeline";
-import { Picture } from "../../entries/photos/Picture";
+import { type FirstMark, firstOf } from "../../../../lib/firsts";
+import { LENS_LABEL, type Lens, TRIMESTERS, type WeekTile } from "../../../../lib/story";
+import { WEEKS, type Week, weekLabel } from "../../../../lib/timeline";
+import { Picture } from "../entries/photos/Picture";
 
 /** Each lens's mark. */
 const LENS_ICON: Record<Exclude<Lens, "all">, LucideIcon> = {

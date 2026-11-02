@@ -297,6 +297,10 @@ day you can move, or put aside; never marked on their own.
 
 Nothing about what the pregnancy would have become, and nothing lost.
 
+It's drawn as its own page, not the Journal with parts taken away: from the
+same data, written as what it is, so a change to how one looks can't reach
+into the other. They share only the story's parts, the Keep row and Lately.
+
 - **Kept, as it was:** notes, letters, feelings, papers and what was done.
   Papers are admin, and after a loss there are more, not fewer: the section
   stays open and the "+" still offers one, but nothing is suggested as what

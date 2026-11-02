@@ -71,7 +71,7 @@ vi.mock("../../../src/app/model/uploads", () => {
 });
 
 const { AddPaper } = await import("../../../src/features/journal/components/entries/papers/AddPaper");
-const { PapersLens } = await import("../../../src/features/journal/components/journal/storySoFar/lenses/papers/PapersLens");
+const { PapersLens } = await import("../../../src/features/journal/components/story/lenses/papers/PapersLens");
 const { PapersToHand, PapersAbout } = await import("../../../src/features/journal/components/entries/papers/PaperList");
 const { FileProblemError } = await import("../../../src/app/model/uploads");
 

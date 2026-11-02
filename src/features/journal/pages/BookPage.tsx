@@ -1,17 +1,33 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft, Printer } from "lucide-react";
+import { useMemo } from "react";
+import { useAppetite } from "../../../api/rpc/appetite";
+import { useBingo } from "../../../api/rpc/bingo";
+import { useChecklist } from "../../../api/rpc/checklist";
+import { useExtras } from "../../../api/rpc/extras";
+import { useFeelings } from "../../../api/rpc/feelings";
+import { useFirsts } from "../../../api/rpc/firsts";
+import { useItsTime } from "../../../api/rpc/itsTime";
+import { useJournal } from "../../../api/rpc/journal";
+import { usePapers } from "../../../api/rpc/papers";
 import { usePeople } from "../../../api/rpc/people";
+import { usePhotos } from "../../../api/rpc/photos";
 import { useQuiet } from "../../../api/rpc/quiet";
 import { useNow, useSettings } from "../../../api/rpc/settings";
+import { useWeekly } from "../../../api/rpc/weekly";
+import { useKeepSame } from "../../../app/hooks/useKeepSame";
+import { moments } from "../../../lib/bingo";
 import { CHAPTERS, type Chapter, contents } from "../../../lib/chapters";
-import { formatDate } from "../../../lib/dates";
+import { formatDate, todayISO } from "../../../lib/dates";
+import { extrasOn } from "../../../lib/extras";
 import { hasRecap, recapParts } from "../../../lib/recap";
-import type { StoryItem } from "../../../lib/story";
+import { type StoryItem, storyItems } from "../../../lib/story";
 import { type Week, weekLabel } from "../../../lib/timeline";
+import { pairs } from "../../../lib/weekly";
+import { useTasks } from "../../tasks/hooks/useTasks";
 import { Contents } from "../components/Contents";
 import { RecapPartView, useRecap } from "../components/Recap";
-import { useStory } from "../hooks/useStory";
 import { weekTitle } from "../model/weekTitle";
 
 const PART_TITLE = {
@@ -80,7 +96,40 @@ function ChapterPage({ chapter, items, now }: { chapter: Chapter; items: readonl
  * Journal, as it was.
  */
 export function BookPage() {
-  const items = useStory();
+  // The story, built as the Journal builds it (`JournalPageProvider`).
+  const { data: journal } = useJournal();
+  const { data: appetite } = useAppetite();
+  const { data: photos } = usePhotos();
+  const { data: papers } = usePapers();
+  const { data: feelings } = useFeelings();
+  const { data: firsts } = useFirsts();
+  const { data: checklist } = useChecklist();
+  const { data: itsTime } = useItsTime();
+  const { data: weekly } = useWeekly();
+  // A question a week's answers, while its extra is on: turned off, they're hidden, not deleted.
+  const { data: asking } = useExtras({ select: (e) => extrasOn(e).has("question-a-week") });
+  const { data: bingo } = useBingo();
+  const { data: playing } = useExtras({ select: (e) => extrasOn(e).has("pregnancy-bingo") });
+  const tasks = useTasks();
+  const built = useMemo(
+    () =>
+      storyItems({
+        journal,
+        appetite,
+        photos,
+        papers,
+        feelings,
+        firsts,
+        ticks: checklist.ticks,
+        titles: new Map(tasks.map((t) => [t.id, t.title])),
+        starts: itsTime.starts,
+        weekly: asking ? pairs(weekly, (at) => todayISO(new Date(at))) : [],
+        bingo: playing ? moments(bingo.cards) : [],
+      }),
+    [journal, appetite, photos, papers, feelings, firsts, checklist.ticks, tasks, itsTime.starts, weekly, asking, bingo, playing]
+  );
+  // Rebuilt in full on any change: the lines that didn't change are kept as they were, so their days aren't drawn again.
+  const items = useKeepSame(built);
   const { data: quiet } = useQuiet();
   const { data: settings } = useSettings();
   const { data: people } = usePeople();

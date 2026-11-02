@@ -2,11 +2,11 @@ import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";
 import { Star } from "lucide-react";
 import { useState } from "react";
-import { useFirsts } from "../../../../../../../api/rpc/firsts";
-import { type FirstMark, firstOf, isMarked } from "../../../../../../../lib/firsts";
-import { dayOf } from "../../../../../model/dates";
-import { FirstSheet } from "../../../../entries/firsts/FirstSheet";
-import { MarkFirst } from "../../../../entries/firsts/MarkFirst";
+import { useFirsts } from "../../../../../../api/rpc/firsts";
+import { type FirstMark, firstOf, isMarked } from "../../../../../../lib/firsts";
+import { dayOf } from "../../../../model/dates";
+import { FirstSheet } from "../../../entries/firsts/FirstSheet";
+import { MarkFirst } from "../../../entries/firsts/MarkFirst";
 
 /** A first in the story: a star, what, when, and the first words kept for it. Opened to change. */
 function FirstLine({ mark }: { mark: FirstMark & { day: string } }) {

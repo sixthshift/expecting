@@ -4,13 +4,13 @@
 
 import { Camera, FileText, Footprints, IceCreamCone, type LucideIcon, NotebookPen, Smile, Star, Waves } from "lucide-react";
 import { useState } from "react";
-import { useJournal } from "../../../../../api/rpc/journal";
-import { usePeople } from "../../../../../api/rpc/people";
-import { useQuiet } from "../../../../../api/rpc/quiet";
-import { useNow } from "../../../../../api/rpc/settings";
-import { movementsOffered } from "../../../../../lib/journal";
-import { CaptureSheet } from "../../../../capture/components/CaptureSheet";
-import { type Capture, captureChoices, journalChoices } from "../../../../capture/model/choices";
+import { useJournal } from "../../../api/rpc/journal";
+import { usePeople } from "../../../api/rpc/people";
+import { useQuiet } from "../../../api/rpc/quiet";
+import { useNow } from "../../../api/rpc/settings";
+import { movementsOffered } from "../../../lib/journal";
+import { CaptureSheet } from "../../capture/components/CaptureSheet";
+import { type Capture, captureChoices, journalChoices } from "../../capture/model/choices";
 
 const CHIP: Partial<Record<Capture, { label: string; icon: LucideIcon }>> = {
   movement: { label: "Moved", icon: Footprints },
