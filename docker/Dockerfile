@@ -36,10 +36,13 @@ COPY --from=build /app/.output ./.output
 # Boot (src/server.ts) creates DATA_DIR and migrates before the first request,
 # so migrations run on every start; no separate step is needed.
 # HOST=0.0.0.0 so the Nitro bun preset listens beyond the container loopback.
+# TZ is the house's day for what Claude keeps (a phone says its own); set it
+# to where you are.
 ENV DATA_DIR=/data \
     NODE_ENV=production \
     PORT=9966 \
-    HOST=0.0.0.0
+    HOST=0.0.0.0 \
+    TZ=Australia/Sydney
 
 # expecting.db lives here. Runs as root so a bind-mounted host directory works
 # without ownership setup.

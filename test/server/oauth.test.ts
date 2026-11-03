@@ -124,3 +124,12 @@ test("the OAuth endpoints are open; the rest of /api still isn't", () => {
   }
   expect(gate.gate(new Request(`${ORIGIN}/api/oauth/other`, { method: "POST" }))?.status).toBe(401);
 });
+
+test("a Basic header that isn't base64 is an unknown client, not a crash", async () => {
+  const request = new Request(`${ORIGIN}/api/oauth/token`, {
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded", authorization: "Basic %%%not-base64" },
+    body: new URLSearchParams({ grant_type: "refresh_token", refresh_token: "x" }).toString(),
+  });
+  expect((await oauth.token(request)).status).toBe(401);
+});

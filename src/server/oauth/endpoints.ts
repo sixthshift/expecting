@@ -92,12 +92,21 @@ export function pkceMatches(verifier: string, challenge: string): boolean {
   return new Bun.CryptoHasher("sha256").update(verifier).digest("base64url") === challenge;
 }
 
+/** The client id in a Basic header's credentials; null when they aren't base64 or its words aren't encoded right. */
+function clientIdOf(basic: string): string | null {
+  try {
+    return decodeURIComponent(atob(basic).split(":")[0] ?? "") || null;
+  } catch {
+    return null;
+  }
+}
+
 /** The form a token or revocation request sends, with a client id from Basic auth if it came that way. */
 async function form(request: Request): Promise<URLSearchParams> {
   const params = new URLSearchParams(await request.text().catch(() => ""));
   const basic = request.headers.get("authorization")?.match(/^Basic\s+(.+)$/i)?.[1];
   if (basic && !params.has("client_id")) {
-    const id = decodeURIComponent(atob(basic).split(":")[0] ?? "");
+    const id = clientIdOf(basic);
     if (id) params.set("client_id", id);
   }
   return params;

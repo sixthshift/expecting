@@ -685,11 +685,20 @@ Installing and the service worker need HTTPS, except on `localhost`.
 
 - **One endpoint, `/api/mcp`** (`src/api/rest/mcp.ts`): MCP over Streamable
   HTTP, stateless, a fresh `McpServer` per request. The tools are
-  `src/api/mcp/` (`read.ts`, `write.ts`, `files.ts`, and `server.ts` with the
-  instructions Claude is given). They call the repositories directly and
-  keep the app's rules: tailoring through `src/content/tailor.ts`, which the
-  app's hooks use too; every write's arguments through `refusePrivate`. Each
-  tool reads the server's clock, so set `TZ`.
+  `src/api/mcp/tools/`, a file for each pillar or part (`thisWeek`,
+  `library`, `planner`, `journal`, `drawer`, `itsTime`, `emergency`, and
+  `remove`), put together by `server.ts`; `instructions.ts` is what Claude
+  is told, `context.ts` what a tool knows (`Known`: the answers, the
+  tailored items and tasks, each worked out only when asked for),
+  `shapes.ts` the answers several pillars share, and `answer.ts` how a tool
+  is registered (`read`, or `keep`, whose arguments pass `refusePrivate`
+  first) and answers. They call the repositories directly and keep the
+  app's rules: tailoring through `src/content/tailor.ts`, which the app's
+  hooks use too, and the pages' own rules (It's time's `flagsFor`,
+  `theyllAsk`, `stillToReady`). The Library's search for a sentence is
+  `rank` (`src/lib/library/search.ts`) beside the app's `search`. Each tool
+  reads the server's clock, so `TZ` is where you are (the image's is
+  Sydney's; compose takes `EXPECTING_TZ`).
 - **OAuth 2.1, with your login as the consent.** Clients register
   themselves (`/api/oauth/register`), are public (PKCE S256, no secret), and
   find everything from the `/.well-known/` metadata

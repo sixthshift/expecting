@@ -70,8 +70,8 @@ describe("compose file", () => {
     expect(envValue(expecting.environment, "DATA_DIR")).toBe("/data");
   });
 
-  test("logins are on unless the host turns them off; the password itself is chosen in the app", () => {
-    expect(expecting.environment).toEqual({ DATA_DIR: "/data", EXPECTING_LOGIN: "${EXPECTING_LOGIN:-on}" });
+  test("logins are on unless the host turns them off; the password itself is chosen in the app; the day is Sydney's unless EXPECTING_TZ says", () => {
+    expect(expecting.environment).toEqual({ DATA_DIR: "/data", EXPECTING_LOGIN: "${EXPECTING_LOGIN:-on}", TZ: "${EXPECTING_TZ:-Australia/Sydney}" });
   });
 
   test("restarts unless stopped", () => {
