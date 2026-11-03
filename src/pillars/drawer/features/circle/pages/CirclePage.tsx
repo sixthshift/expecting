@@ -26,12 +26,7 @@ export function CirclePage() {
   const view = asked && views.includes(asked) ? asked : views[0];
 
   return (
-    <DrawerTool
-      title="Your people"
-      lead="The people around you two, and what each of them is doing. Only you two see it."
-      putAway={{ subject: "Your people", are: true }}
-      extras={CIRCLE_EXTRAS}
-    >
+    <DrawerTool title="Your people" lead="The people around you two, and what each of them is doing. Only you two see it." extras={CIRCLE_EXTRAS}>
       {view ? (
         <div className="flex flex-col gap-5">
           {views.length > 1 ? (

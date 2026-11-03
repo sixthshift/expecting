@@ -5,6 +5,7 @@ import { firstsQuery } from "../api/rpc/firsts";
 import { listsQuery } from "../api/rpc/lists";
 import { namesQuery } from "../api/rpc/names";
 import { photosQuery } from "../api/rpc/photos";
+import { worlds } from "../app/features/quiet/worlds";
 import { app } from "./app";
 import { journalSearch } from "./search";
 
@@ -23,5 +24,8 @@ export const journal = createRoute({
       queryClient.ensureQueryData(listsQuery),
       queryClient.ensureQueryData(namesQuery),
     ]),
-  component: lazyRouteComponent(() => import("../pillars/journal/pages/JournalPage"), "JournalPage"),
+  component: worlds(
+    lazyRouteComponent(() => import("../pillars/journal/pages/JournalPage"), "JournalPage"),
+    lazyRouteComponent(() => import("../pillars/journal/quiet/pages/QuietJournalPage"), "QuietJournalPage")
+  ),
 });

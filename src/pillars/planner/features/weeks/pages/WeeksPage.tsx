@@ -17,7 +17,7 @@ const route = getRouteApi("/app/planner/weeks");
  * The weeks ("Across the weeks" on screen): To do drawn as a chart, for when you want the whole run of
  * it at once. The same plan as To do, in the same groups; opened from Ahead's
  * heading, or from a stage's card at that stage. While something has
- * happened, put away like To do.
+ * happened, put aside like To do: the route draws its quiet world (`putAway`).
  */
 export function WeeksPage() {
   const { stage } = route.useSearch();
@@ -43,7 +43,6 @@ export function WeeksPage() {
       className="gap-6"
       title="Across the weeks"
       lead="When each thing opens, when it's best done by, and when it closes."
-      putAway={{ subject: "The to-do list", aside: true }}
     >
       <WeeksChart chart={chart} now={now} focus={focus} />
     </PillarLayout>

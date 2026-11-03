@@ -80,6 +80,11 @@ export function isApart(listId: string): boolean {
   return def?.apart === true;
 }
 
+/** Where a list's page goes back to: the bag is It's time's, every other list the lists'. */
+export function listBack(listId: string): { to: "/its-time" | "/planner/lists"; label: string } {
+  return isApart(listId) ? { to: "/its-time", label: "It's time" } : { to: "/planner/lists", label: "Lists" };
+}
+
 /** What a list calls its states: a built-in list its own words, yours the usual. */
 export function wordsFor(listId: string): Words {
   return listOf(listId)?.words ?? GET;

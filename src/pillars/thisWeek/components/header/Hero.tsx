@@ -31,7 +31,7 @@ export function Hero() {
   const line = size ? sizeLine(size) : null;
   const range = weekRange(week, dueDate);
   return (
-    // Its parts sit in the header's grid (ThisWeek): the heading beside the phone's corner, the size line under it with
+    // Its parts sit in the header's grid (WeekColumns): the heading beside the phone's corner, the size line under it with
     // the size's drawing at its right, under the corner; on a desktop, with no corner, the drawing is opposite the week.
     <div className="contents">
       <h1 className="col-start-1 row-start-1 flex flex-col text-fg-strong">

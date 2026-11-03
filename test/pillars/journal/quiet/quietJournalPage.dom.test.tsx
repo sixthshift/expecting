@@ -4,9 +4,11 @@ import type { StoryItem } from "../../../../src/lib/journal/story/items";
 import type { QuietJournalPage } from "../../../../src/pillars/journal/quiet/contexts/QuietJournalPageContext";
 import { appetite, entry, paper, photo, story } from "../../../lib/journal/storyFixtures";
 
-// The quiet Journal's context: what has happened, and the story split once into what stays and what's folded away.
+// The quiet Journal's context: what has happened (the quiet query's), and the story split once into what stays and what's folded away.
 let items: StoryItem[] = [];
 vi.mock("../../../../src/pillars/journal/hooks/useStoryItems", () => ({ useStoryItems: () => items }));
+let kind: "loss" | "news" = "loss";
+vi.mock("../../../../src/app/features/quiet/hooks/useQuietKind", () => ({ useQuietKind: () => kind }));
 
 const { QuietJournalPageProvider, useQuietJournalPage } = await import("../../../../src/pillars/journal/quiet/contexts/QuietJournalPageContext");
 
@@ -15,12 +17,14 @@ function Probe() {
   seen = useQuietJournalPage();
   return null;
 }
-const page = (kind: "loss" | "news" = "loss") =>
-  render(
-    <QuietJournalPageProvider kind={kind}>
+const page = (k: "loss" | "news" = "loss") => {
+  kind = k;
+  return render(
+    <QuietJournalPageProvider>
       <Probe />
     </QuietJournalPageProvider>
   );
+};
 
 beforeEach(() => {
   items = [];

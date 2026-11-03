@@ -1,6 +1,6 @@
 import { PillarLayout } from "../../../../app/components/layout/PillarLayout";
 
-/** The book while something has happened: only a line. Everything kept is in the Journal, as it was. */
+/** The book while something has happened, the route's quiet world (`worlds`): only a line. Everything kept is in the Journal, as it was. */
 export function QuietBookPage() {
   return (
     <PillarLayout back={{ to: "/journal", label: "The Journal" }}>

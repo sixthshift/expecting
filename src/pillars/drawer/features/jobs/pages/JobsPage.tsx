@@ -4,6 +4,7 @@ import { JOBS, results, toAnswer, waiting } from "../../../../../lib/drawer/jobs
 import { otherName } from "../../../../../lib/people";
 import { DrawerTool } from "../../../components/tool/DrawerTool";
 import { JobDeck } from "../components/deck/JobDeck";
+import { JobsLead } from "../components/lead/JobsLead";
 import { Results } from "../components/results/Results";
 
 /**
@@ -21,12 +22,7 @@ export function JobsPage() {
   const waits = waiting(view.answers);
 
   return (
-    <DrawerTool
-      title="Who does what"
-      lead={`Say who'll do each newborn job, on your own phone. You'll see ${other}'s answer to a job once you've both given one.`}
-      putAway={{ subject: "Who does what" }}
-      extras={["who-does-what"]}
-    >
+    <DrawerTool title="Who does what" lead={<JobsLead />} extras={["who-does-what"]}>
       <div className="flex flex-col gap-6">
         <JobDeck deck={deck} other={other} />
         <p className="text-sm text-fg-normal">

@@ -1,4 +1,5 @@
 import { createRoute, lazyRouteComponent } from "@tanstack/react-router";
+import { worlds } from "../app/features/quiet/worlds";
 import { app } from "./app";
 import { thisWeekSearch } from "./search";
 
@@ -7,5 +8,8 @@ export const index = createRoute({
   getParentRoute: () => app,
   path: "/",
   validateSearch: thisWeekSearch,
-  component: lazyRouteComponent(() => import("../pillars/thisWeek/pages/ThisWeek"), "ThisWeek"),
+  component: worlds(
+    lazyRouteComponent(() => import("../pillars/thisWeek/pages/ThisWeekPage"), "ThisWeekPage"),
+    lazyRouteComponent(() => import("../pillars/thisWeek/quiet/pages/QuietThisWeekPage"), "QuietThisWeekPage")
+  ),
 });

@@ -1,18 +1,21 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
+import { useQuietQuery } from "../../../../../../api/rpc/quiet";
 import { useSettingsQuery } from "../../../../../../api/rpc/settings";
 import { PillarLayout } from "../../../../../../app/components/layout/PillarLayout";
 import { weekInSentence } from "../../../../../../lib/labels";
-import type { Quiet } from "../../../../../../lib/quiet";
 import { pausedAt } from "../../../../../../lib/thisWeek/quiet";
 
 /**
  * The timeline while something has happened: paused at its week, the weeks
  * and windows put away. Nothing in it moves on until you choose; what it held
- * is still in the Library.
+ * is still in the Library. The route's quiet world (`worlds`).
  */
-export function QuietTimelinePage({ quiet }: { quiet: Quiet }) {
+export function QuietTimelinePage() {
+  const { data: quiet } = useQuietQuery();
   const { data: settings } = useSettingsQuery();
+  // Only once it's lifted, before the route draws the other world.
+  if (!quiet) return null;
   const week = pausedAt(quiet, settings.dueDate);
   return (
     <PillarLayout back={{ to: "/", label: "This week" }} title="The whole pregnancy">

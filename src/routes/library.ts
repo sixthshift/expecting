@@ -1,4 +1,5 @@
 import { createRoute, lazyRouteComponent } from "@tanstack/react-router";
+import { worlds } from "../app/features/quiet/worlds";
 import { app } from "./app";
 import { librarySearch } from "./search";
 
@@ -7,5 +8,8 @@ export const library = createRoute({
   getParentRoute: () => app,
   path: "/library",
   validateSearch: librarySearch,
-  component: lazyRouteComponent(() => import("../pillars/library/pages/LibraryPage"), "LibraryPage"),
+  component: worlds(
+    lazyRouteComponent(() => import("../pillars/library/pages/LibraryPage"), "LibraryPage"),
+    lazyRouteComponent(() => import("../pillars/library/quiet/pages/QuietLibraryPage"), "QuietLibraryPage")
+  ),
 });

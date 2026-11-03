@@ -3,8 +3,6 @@ import { Link } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
 import { useEffect } from "react";
 import { useItsTimeQuery } from "../../../../api/rpc/itsTime";
-import { useQuietQuery } from "../../../../api/rpc/quiet";
-import { Redirect } from "../../../components/Redirect";
 import { BeforeYouGo } from "../components/beforeYouGo/BeforeYouGo";
 import { CallNow } from "../components/callNow/CallNow";
 import { End } from "../components/end/End";
@@ -26,14 +24,13 @@ const SENT_HOME_MS = 12 * 3_600_000;
  * everything Expecting already knows filled in. Before a start it's the
  * practice run: the two ways in, what the night still needs, and the rest of
  * the page greyed, as the night will show it. One column, the phone's, even
- * on a desktop. Never while something has happened: Emergency info instead.
+ * on a desktop. Never while something has happened: the route's quiet world
+ * (`worlds`) is Emergency info instead, `QuietItsTimePage`.
  *
  * One context, `ItsTimePageProvider`: the start, whether it's a home birth,
  * and who's who. Each part reads the rest itself.
  */
 export function ItsTimePage() {
-  const { data: quiet } = useQuietQuery();
-  if (quiet) return <Redirect href="/emergency" />;
   return (
     <ItsTimePageProvider>
       <ItsTime />

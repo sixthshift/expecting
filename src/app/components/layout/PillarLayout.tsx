@@ -2,8 +2,6 @@ import { cn } from "@sixthshift/design-system/utils";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
-import { useQuietQuery } from "../../../api/rpc/quiet";
-import { PutAwayNotice } from "../../features/quiet/components/PutAwayNotice";
 import type { AppPath } from "../../model/paths";
 import { PhoneCorner } from "./AppLayout";
 
@@ -23,9 +21,9 @@ export type Back = { to: AppPath; label: string };
  *   it doesn't draw its own;
  * - neither: the page draws its own top (This week's hero, a Library entry).
  *
- * `head` goes under the lead (the timeline's search). While something has
- * happened, `putAway` says what's put away in place of the page, as
- * `PutAwayNotice` takes it. `className` spaces the page's column.
+ * `head` goes under the lead (the timeline's search). `className` spaces the
+ * page's column. It never asks whether something has happened: a page that's
+ * put away then is its route's quiet world (`putAway`, src/app/features/quiet/).
  */
 export function PillarLayout({
   title,
@@ -33,7 +31,6 @@ export function PillarLayout({
   back,
   head,
   width = "6xl",
-  putAway,
   className,
   children,
 }: {
@@ -42,11 +39,9 @@ export function PillarLayout({
   back?: Back;
   head?: ReactNode;
   width?: keyof typeof WIDTH;
-  putAway?: { subject: string; are?: boolean; aside?: boolean };
   className?: string;
   children: ReactNode;
 }) {
-  const { data: quiet } = useQuietQuery();
   return (
     <main className={cn("mx-auto w-full px-4 pb-16 md:px-8", WIDTH[width])}>
       {back ? (
@@ -72,7 +67,7 @@ export function PillarLayout({
           {head}
         </header>
       ) : null}
-      <div className={cn("flex min-w-0 flex-col", className)}>{putAway && quiet ? <PutAwayNotice {...putAway} className="max-w-prose" /> : children}</div>
+      <div className={cn("flex min-w-0 flex-col", className)}>{children}</div>
     </main>
   );
 }

@@ -22,7 +22,7 @@ export function NamesPage() {
   const other = otherOf(people, me);
 
   return (
-    <DrawerTool title="Baby names" putAway={{ subject: "The names", are: true }} extras={["choosing-names"]}>
+    <DrawerTool title="Baby names" extras={["choosing-names"]}>
       <NamesGame
         view={names}
         other={other}

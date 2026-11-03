@@ -1,49 +1,32 @@
-import { useQuietQuery } from "../../../api/rpc/quiet";
 import { PillarLayout } from "../../../app/components/layout/PillarLayout";
 import { Appointments } from "../components/appointments/Appointments";
 import { ForNextAppointment } from "../components/questions/ForNextAppointment";
 import { ToDo } from "../components/toDo/ToDo";
 import { PlannerPageProvider } from "../contexts/PlannerPageContext";
 import { ListsWayIn } from "../features/lists/components/wayIn/ListsWayIn";
-import { QuietPlannerPageProvider } from "../quiet/contexts/QuietPlannerPageContext";
-import { QuietPlannerPage } from "../quiet/pages/QuietPlannerPage";
 
 /**
- * The Planner, at `/planner`: the one place that chooses between its two
- * worlds, each with its own context. While something has happened, the quiet
- * Planner (`quiet/`); otherwise `Planner`.
+ * The Planner, at `/planner`: what to do and what to ask. To do starts
+ * somewhere: the one thing to do next, then the rest of what to do now, with
+ * what's ahead, missed and done folded away (src/lib/planner/plan.ts). Beside
+ * it, the lists (what to get), the appointments, and the questions for the
+ * next one. The plan is worked out once, in `PlannerPageProvider`; each part
+ * reads it. While something has happened, the route draws `QuietPlannerPage`
+ * instead (`worlds`), in its own context.
  */
 export function PlannerPage() {
-  const { data: quiet } = useQuietQuery();
-  return quiet ? (
-    <QuietPlannerPageProvider>
-      <QuietPlannerPage />
-    </QuietPlannerPageProvider>
-  ) : (
-    <PlannerPageProvider>
-      <Planner />
-    </PlannerPageProvider>
-  );
-}
-
-/**
- * What to do and what to ask. To do starts somewhere: the one thing to do
- * next, then the rest of what to do now, with what's ahead, missed and done
- * folded away (src/lib/planner/plan.ts). Beside it, the lists (what to get),
- * the appointments, and the questions for the next one. The plan is worked
- * out once, in `PlannerPageProvider`; each part reads it.
- */
-function Planner() {
   return (
-    <PillarLayout title="Planner" lead="What to do and what to ask, so nothing sneaks up on you.">
-      <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start lg:gap-10">
-        <ToDo />
-        <div className="flex flex-col gap-10 lg:sticky lg:top-6">
-          <ListsWayIn />
-          <Appointments />
-          <ForNextAppointment />
+    <PlannerPageProvider>
+      <PillarLayout title="Planner" lead="What to do and what to ask, so nothing sneaks up on you.">
+        <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start lg:gap-10">
+          <ToDo />
+          <div className="flex flex-col gap-10 lg:sticky lg:top-6">
+            <ListsWayIn />
+            <Appointments />
+            <ForNextAppointment />
+          </div>
         </div>
-      </div>
-    </PillarLayout>
+      </PillarLayout>
+    </PlannerPageProvider>
   );
 }

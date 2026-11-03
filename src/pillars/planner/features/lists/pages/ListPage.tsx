@@ -1,6 +1,6 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { PillarLayout } from "../../../../../app/components/layout/PillarLayout";
-import { isApart } from "../../../../../lib/planner/lists/builtIn";
+import { listBack } from "../../../../../lib/planner/lists/builtIn";
 import { AddLine } from "../components/addLine/AddLine";
 import { ListHeading } from "../components/heading/ListHeading";
 import { Sections } from "../components/sections/Sections";
@@ -15,7 +15,8 @@ const route = getRouteApi("/app/planner/lists/$listId");
  * not-needed folded under them. A list of your own can be renamed or
  * deleted. A list that isn't here (deleted on the other phone, or a built-in
  * one with nothing on it for you) says so. What the page works out once is
- * `ListPageProvider`; each part reads it.
+ * `ListPageProvider`; each part reads it. While something has happened, the
+ * lists are put away: the route draws its quiet world (`putAway`).
  */
 export function ListPage() {
   const { listId } = route.useParams();
@@ -29,12 +30,7 @@ export function ListPage() {
 function List() {
   const { listId, summary } = useListPage();
   return (
-    // The bag is It's time's: back is there.
-    <PillarLayout
-      className="gap-6"
-      back={isApart(listId) ? { to: "/its-time", label: "It's time" } : { to: "/planner/lists", label: "Lists" }}
-      putAway={{ subject: "The lists", are: true }}
-    >
+    <PillarLayout className="gap-6" back={listBack(listId)}>
       {!summary ? (
         <div className="flex flex-col gap-2">
           <h1 className="text-2xl font-display font-semibold text-fg-strong">Not here</h1>

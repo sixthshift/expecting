@@ -3,13 +3,11 @@ import type { ReactNode } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 // A tool's page in the Drawer: drawn only while one of its extras is on,
-// saying what it comes with while none is, and put away while quiet.
+// saying what it comes with while none is. Put away while quiet is its route's (putAway).
 let choices: { id: string; on: boolean }[] = [];
-let quiet: object | null = null;
 vi.mock("../../../src/api/rpc/extras", () => ({
   useExtrasQuery: ({ select }: { select: (c: typeof choices) => unknown }) => ({ data: select(choices) }),
 }));
-vi.mock("../../../src/api/rpc/quiet", () => ({ useQuietQuery: () => ({ data: quiet }) }));
 vi.mock("../../../src/app/components/layout/AppLayout", () => ({ PhoneCorner: () => null }));
 vi.mock("@tanstack/react-router", () => ({
   Link: ({ to, search, children }: { to: string; search?: { ask?: string }; children: ReactNode }) => (
@@ -21,13 +19,12 @@ const { DrawerTool } = await import("../../../src/pillars/drawer/components/tool
 
 beforeEach(() => {
   choices = [];
-  quiet = null;
 });
 afterEach(cleanup);
 
 function tool(extras: ("babymoon" | "baby-budget")[]) {
   return render(
-    <DrawerTool title="A tool" putAway={{ subject: "The tool" }} extras={extras}>
+    <DrawerTool title="A tool" extras={extras}>
       <p>The tool itself</p>
     </DrawerTool>
   );
@@ -62,13 +59,5 @@ describe("DrawerTool", () => {
     tool(["babymoon", "baby-budget"]);
     expect(screen.getByText(/It comes with Babymoon or Baby budget\./)).toBeTruthy();
     expect(screen.getByRole("link", { name: "Turn one on in settings" }).getAttribute("href")).toBe("/settings?ask=extra:babymoon");
-  });
-
-  it("put away while quiet, on or off", () => {
-    quiet = { kind: "loss", setBy: null, setAt: "2026-10-30T00:00:00.000Z" };
-    choices = [{ id: "babymoon", on: true }];
-    tool(["babymoon"]);
-    expect(screen.getByText("The tool is put away while Expecting is quiet. Nothing is deleted.")).toBeTruthy();
-    expect(screen.queryByText("The tool itself")).toBeNull();
   });
 });

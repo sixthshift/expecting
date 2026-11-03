@@ -12,7 +12,7 @@ import { useTasks } from "../../features/tasks/hooks/useTasks";
  * has happened. No plan, no stages, no ticks kept in place: To do is put aside.
  */
 export type QuietPlannerPage = {
-  /** What has happened: null only once it's lifted, before the page chooses again. */
+  /** What has happened: null only once it's lifted, before the route draws the other world. */
   kind: QuietKind | null;
   /** What was already set in motion: claims that may still matter, and bookings you might cancel. */
   inMotion: { claims: Task[]; bookings: Task[] };

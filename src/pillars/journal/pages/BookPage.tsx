@@ -4,27 +4,21 @@ import { Printer } from "lucide-react";
 import { usePeopleQuery } from "../../../api/rpc/people";
 import { useNow, useSettingsQuery } from "../../../api/rpc/settings";
 import { PillarLayout } from "../../../app/components/layout/PillarLayout";
-import { useQuietKind } from "../../../app/features/quiet/hooks/useQuietKind";
 import { formatDate } from "../../../lib/dates";
 import { CHAPTERS, contents } from "../../../lib/journal/chapters";
 import { ChapterPage } from "../components/book/ChapterPage";
 import { Contents } from "../components/book/Contents";
 import { useStoryItems } from "../hooks/useStoryItems";
-import { QuietBookPage } from "../quiet/pages/QuietBookPage";
 
 /**
  * The book: the pregnancy, a chapter a part of it, begun by Expecting from
  * the first visit (each week's title, as written) and filled by what you
  * keep; to print or save as a PDF from the phone's or computer's own print.
- * While something has happened, `QuietBookPage`: only a line, everything
- * kept is in the Journal, as it was.
+ * Its story is built as the Journal builds it (`useStoryItems`). While
+ * something has happened, the route draws `QuietBookPage` instead (`worlds`):
+ * only a line, everything kept is in the Journal, as it was.
  */
 export function BookPage() {
-  return useQuietKind() ? <QuietBookPage /> : <Book />;
-}
-
-/** The book itself, its story built as the Journal builds it (`useStoryItems`). */
-function Book() {
   const items = useStoryItems();
   const { data: settings } = useSettingsQuery();
   const { data: people } = usePeopleQuery();

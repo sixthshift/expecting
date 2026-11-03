@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { Suspense } from "react";
+import { useQuietQuery } from "../../../../api/rpc/quiet";
 import { useSettingsQuery } from "../../../../api/rpc/settings";
 import { PillarLayout } from "../../../../app/components/layout/PillarLayout";
 import { SkeletonText } from "../../../../components/loading/Skeleton";
 import { builtInItems } from "../../../../content";
-import { QUIET_ITEM, type Quiet } from "../../../../lib/quiet";
+import { QUIET_ITEM } from "../../../../lib/quiet";
 import { nextSteps, pausedAt } from "../../../../lib/thisWeek/quiet";
 import { ItemList } from "../../../library/components/itemList/ItemList";
 import { useItems } from "../../../library/hooks/useItems";
@@ -18,10 +19,14 @@ const guide = builtInItems.find((i) => i.id === QUIET_ITEM);
  * to do. The guide's opening words and its parts for what happened (someone
  * to talk to; for a loss, your body and how you might feel), then the next
  * steps, one at a time, for when you want them, and where it can be changed.
+ * The route's quiet world (`worlds`).
  */
-export function QuietThisWeekPage({ quiet }: { quiet: Quiet }) {
+export function QuietThisWeekPage() {
+  const { data: quiet } = useQuietQuery();
   const { data: settings } = useSettingsQuery();
   const items = useItems();
+  // Only once it's lifted, before the route draws the other world.
+  if (!quiet) return null;
   const steps = nextSteps(items, quiet.kind, pausedAt(quiet, settings.dueDate));
 
   return (

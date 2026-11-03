@@ -1,19 +1,12 @@
-import { Doors } from "../../components/doors/Doors";
-import { HardDoor } from "../../components/doors/HardDoor";
-import { HomeColumn } from "../../components/home/HomeColumn";
-import { Topics } from "../../components/topics/Topics";
+import { LibraryFrame } from "../../components/LibraryFrame";
+import { QuietLibraryHome } from "../components/QuietLibraryHome";
 
 /**
- * The Library's home while something has happened: the quiet door first,
- * then the doors and the topics, and nothing open right now. The search, a
- * door and a shelf are the same in both worlds (`LibraryPage`).
+ * The Library while something has happened, the route's quiet world
+ * (`worlds`): the search, a door and a shelf as in the other world
+ * (`LibraryFrame`), around the quiet home: the quiet door first, and nothing
+ * open right now.
  */
 export function QuietLibraryPage() {
-  return (
-    <HomeColumn>
-      <HardDoor />
-      <Doors />
-      <Topics />
-    </HomeColumn>
-  );
+  return <LibraryFrame home={<QuietLibraryHome />} />;
 }

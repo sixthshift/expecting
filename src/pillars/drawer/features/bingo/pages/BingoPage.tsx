@@ -36,7 +36,6 @@ export function BingoPage() {
       title="Pregnancy bingo"
       lead="Mark a square when it happens. Five in a row, a column or a diagonal is bingo; the centre's free."
       width="2xl"
-      putAway={{ subject: "Bingo" }}
       extras={["pregnancy-bingo"]}
     >
       {!me ? (

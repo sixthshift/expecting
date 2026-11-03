@@ -1,44 +1,23 @@
-import { useQuietQuery } from "../../../api/rpc/quiet";
 import { PhoneCorner } from "../../../app/components/layout/AppLayout";
 import { PillarLayout } from "../../../app/components/layout/PillarLayout";
-import { DayByDay } from "../components/dayByDay/DayByDay";
-import { BestDoneThatWeek } from "../components/doing/BestDoneThatWeek";
-import { DoingNow } from "../components/doing/DoingNow";
-import { Hero } from "../components/header/Hero";
-import { HeadsUp } from "../components/headsUp/HeadsUp";
-import { AppointmentsThatWeek } from "../components/week/AppointmentsThatWeek";
-import { AskedThatWeek } from "../components/week/AskedThatWeek";
-import { KeptThatWeek } from "../components/week/KeptThatWeek";
-import { Welcome } from "../components/welcome/Welcome";
-import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
-import { ThisWeekPageProvider, useThisWeekPage } from "../contexts/ThisWeekPageContext";
-import { QuietThisWeekPage } from "../quiet/pages/QuietThisWeekPage";
+import { useThisWeekPage } from "../contexts/ThisWeekPageContext";
+import { DayByDay } from "./dayByDay/DayByDay";
+import { BestDoneThatWeek } from "./doing/BestDoneThatWeek";
+import { DoingNow } from "./doing/DoingNow";
+import { Hero } from "./header/Hero";
+import { HeadsUp } from "./headsUp/HeadsUp";
+import { AppointmentsThatWeek } from "./week/AppointmentsThatWeek";
+import { AskedThatWeek } from "./week/AskedThatWeek";
+import { KeptThatWeek } from "./week/KeptThatWeek";
+import { Welcome } from "./welcome/Welcome";
+import { WorthKnowing } from "./worthKnowing/WorthKnowing";
 
 /**
- * This week, home: what you open the app for. Where you are first, then what
- * to do now (after the next appointment, once it's within a fortnight), how you are today, the week day by day (its note, read as you, then a read a day), the week's heads-up, what
- * Expecting needs to know, what's worth knowing this week, and what's coming. On a desktop the
- * week sits on the left and the doing on the right; on a phone it's one
- * column, the doing first.
- *
- * A peek at another week (?at=29) shows that week instead: its note, its
- * heads-up, what's worth knowing, what's best done then, its appointments,
- * and the notes kept then. What to do now stays with now; this week's notes stay in the Journal.
- *
- * While something has happened, none of it: QuietThisWeekPage, support and the next steps instead.
+ * This week's page, inside `ThisWeekPageProvider` (`ThisWeekPage`): on a phone
+ * one column in `order`, the week's header first; on a desktop the header and
+ * the week on the left, the doing on the right.
  */
-export function ThisWeek() {
-  const { data: quiet } = useQuietQuery();
-  return quiet ? (
-    <QuietThisWeekPage quiet={quiet} />
-  ) : (
-    <ThisWeekPageProvider>
-      <Week />
-    </ThisWeekPageProvider>
-  );
-}
-
-function Week() {
+export function WeekColumns() {
   const { week, peeking, dueDate } = useThisWeekPage();
 
   return (

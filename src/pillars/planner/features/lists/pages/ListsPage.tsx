@@ -10,7 +10,7 @@ import { useLines } from "../hooks/useLines";
  * The lists: what to get, a list for each purpose. The built-in ones that have
  * something on them for you, each a card with where it's up to and what's
  * next; then your own, and a new one. While something has happened, they're
- * put away, not deleted.
+ * put away, not deleted: the route draws its quiet world (`putAway`).
  */
 export function ListsPage() {
   const lines = useLines();
@@ -24,7 +24,6 @@ export function ListsPage() {
       back={{ to: "/planner", label: "Planner" }}
       title="Lists"
       lead="What to get, a list for each part of getting ready, ticked off together wherever you are."
-      putAway={{ subject: "The lists", are: true }}
       className="gap-8"
     >
       {builtIn.length > 0 ? (

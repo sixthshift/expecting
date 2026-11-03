@@ -13,18 +13,13 @@ import { NamesSummary } from "../features/names/components/summary/NamesSummary"
 /**
  * The handy things, each for its moment: the names (with the Choosing a name extra), your people (with any extra
  * that brings one of its views), who does what and bingo (each with its extra). While something has happened, they're put away,
- * not deleted.
+ * not deleted: the route draws its quiet world (`putAway`).
  */
 export function DrawerPage() {
   const { data: extras } = useExtrasQuery({ select: extrasOn });
 
   return (
-    <PillarLayout
-      title="Drawer"
-      lead="The handy things, kept where you can find them when their moment comes."
-      putAway={{ subject: "The names and everything else here", are: true }}
-      className="gap-6"
-    >
+    <PillarLayout title="Drawer" lead="The handy things, kept where you can find them when their moment comes." className="gap-6">
       {extras.has("choosing-names") ? (
         <ToolTile to="/drawer/names" icon={Baby} title="Baby names" featured>
           <NamesSummary />
