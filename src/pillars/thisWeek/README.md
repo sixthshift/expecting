@@ -11,7 +11,7 @@ map of the code. The whole pregnancy at once, `/timeline`, is
 |---|---|---|
 | **week** | A pregnancy week, 1–42: the week shown, this one or a peek's. | `src/lib/timeline.ts` |
 | **now** | This week, worked out from the due date on read (`useNow`, `usePosition`); none until there's a due date. | `src/api/rpc/settings.ts` |
-| **peek** | Looking at another week: `/?at=29`. This week is plain `/`, so it's the URL you'd share. | `src/routes/search.ts` |
+| **peek** | Looking at another week: `/?at=29`. This week is plain `/`, so it's the URL you'd share. | `timelineSearch`, `features/timeline/routes/timeline.ts` |
 | **"that week"** | How a peek's headings say the week ("Asked that week"); now, "this week". | `model/labels.ts` (`whichWeek`) |
 | **the note** | The week's note, `content/weeks/<week>.md`: The baby, Your body, For the partner. Now, the one in force carries on until the next; a peek shows only that week's own. | `src/content/weeks.ts` |
 | **day reads** | A read for each day after the note, +1 to +6, `content/days/<week>/<day>.md`, out a day at a time (`readsOut`). With the note, one carousel: the day by day. | `src/content/days.ts` |
@@ -36,6 +36,8 @@ settings, ?at=          the due date, the week peeked at
 
 ```
 pages/            ThisWeekPage: ThisWeekPageProvider around WeekColumns
+routes/           thisWeek (/, ?at=); index.ts, thisWeekRoutes, with the timeline's beside it
+                  (features/timeline/routes/, not under /)
 contexts/         ThisWeekPageContext: the week shown and where you are
 model/            labels.ts ("this week" / "that week"), sizeIcons.ts (the size's drawings)
 components/
@@ -63,13 +65,13 @@ and reads its own queries. How days and weeks are said ("Week 28", "27 Oct –
 ## While something has happened
 
 Quiet is a world of its own: `quiet/` mirrors the pillar's shape
-(`quiet/pages/`, `quiet/components/`). The route (`src/routes/index.ts`) is
+(`quiet/pages/`, `quiet/components/`). The route (`routes/thisWeek.ts`) is
 the one place that chooses, `worlds(ThisWeekPage, QuietThisWeekPage)`
 (`src/app/features/quiet/worlds.tsx`), with `ThisWeekPageProvider` inside
 `ThisWeekPage` only; nothing in the normal world checks quiet. `QuietThisWeekPage` shows the guide's opening words and its parts for
 what happened (`Guide`), then the next steps. The timeline's page,
 `features/timeline/pages/TimelinePage.tsx`, is chosen the same way, by
-`src/routes/timeline.ts`: `QuietTimelinePage`, the weeks paused at the week it happened
+`features/timeline/routes/timeline.ts`: `QuietTimelinePage`, the weeks paused at the week it happened
 (`features/timeline/quiet/`). The rules (the guide's parts shown,
 `QUIET_PARTS`; the week paused at, `pausedAt`; the next steps,
 `NEXT_STEPS` and `nextSteps`) are `src/lib/thisWeek/quiet.ts`; what quiet is,

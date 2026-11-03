@@ -49,6 +49,8 @@ useLines (items' lines that apply, and your own)  + lists (own lists, marks)
 
 ```
 pages/          PlannerPage: To do, the lists, appointments, questions, in PlannerPageProvider
+routes/         planner (/planner, a path only) and plannerIndex; index.ts, plannerRoutes,
+                adds the lists' (features/lists/routes/) and the chart's (features/weeks/routes/)
 contexts/       PlannerPageContext: the plan, its stages, what's ticked this visit
 hooks/          usePlan (the plan, To do's and the weeks'); useAppointmentsAhead (the next and
                 the rest, for both worlds)
@@ -72,7 +74,7 @@ features/
 ## While something has happened
 
 The quiet Planner is a world of its own, in `quiet/`, in the same shape as
-the pillar. The route (`src/routes/planner.ts`) is the one place that
+the pillar. The route (`routes/plannerIndex.ts`) is the one place that
 chooses, `worlds(PlannerPage, QuietPlannerPage)`
 (`src/app/features/quiet/worlds.tsx`); each page takes its provider inside
 itself (`PlannerPageProvider`, `QuietPlannerPageProvider`). Nothing in the
@@ -99,7 +101,7 @@ by both worlds, so they read neither context: `useAppointmentsAhead`.
 1. Add `{ end, title }` to `STAGES` (`src/lib/planner/plan.ts`), in order;
    the last ends at week 42, so every week has one.
 2. That's all: `stagesAhead` puts tasks in it, the chart draws its dashed
-   line, and `?stage=<end>` opens it (`stageEnding`, `src/routes/search.ts`).
+   line, and `?stage=<end>` opens it (`stageEnding`, `features/weeks/routes/weeks.ts`).
    Check the groups in `test/lib/planner/`.
 
 ## Adding a built-in list

@@ -37,6 +37,8 @@ stays as it was, though it may already look answered.
 
 ```
 pages/          OnboardingLayout (the baby's colours), OnboardingNext (on to the next), OnboardingStep
+routes/         onboarding (the layout route), next (/onboarding, ?after=), a file per step
+                (step.ts makes each); index.ts, onboardingRoutes
 contexts/       OnboardingPageContext: where the step is, and the ways on
 model/paths.ts  a step's URL, and the step a URL is
 components/
@@ -54,7 +56,7 @@ A question needs none: `asked: "onboarding"` in `facts.data.ts` makes it a
 `q:` step. Otherwise:
 
 1. Add it to `Step` and to `onboardingSteps`, in its place
-   (`src/lib/onboarding.ts`), and its route (`src/routes/onboarding/`, added
-   to `tree.ts`).
+   (`src/lib/onboarding.ts`), and its route (`routes/`, added
+   to `onboardingRoutes` in `routes/index.ts`).
 2. Draw it: `components/steps/<Kind>Step.tsx`, in `OnboardingLayout`, going
    on with `advance` from `useOnboardingPage()`; and a case in `CurrentStep`.

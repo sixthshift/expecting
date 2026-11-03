@@ -23,8 +23,8 @@ this is the map of the code.
 | `/drawer/people` (`?view=`) | `CirclePage`, Your people (`circle` in code) | `src/pillars/drawer/features/circle/` |
 | `/drawer/bingo` (`?card=`) | `BingoPage`, Pregnancy bingo | `src/pillars/drawer/features/bingo/` |
 
-Each route is a file in `src/routes/` (`drawerNames.ts`, …), named for its
-path. The rules of each tool are `src/lib/<tool>.ts` (`names`, `nameDeck`,
+Each route is a file in its feature's `routes/` (`features/names/routes/names.ts`,
+…), named for its path, and added by `drawerRoutes` (`routes/index.ts`). The rules of each tool are `src/lib/<tool>.ts` (`names`, `nameDeck`,
 `jobs`, `circle`, `bingo`); each tool's own line on its tile is its
 `components/summary/` (`NamesSummary`, …).
 
@@ -32,6 +32,8 @@ path. The rules of each tool are `src/lib/<tool>.ts` (`names`, `nameDeck`,
 
 ```
 pages/        DrawerPage
+routes/       drawer (/drawer, a path only) and drawerIndex; index.ts, drawerRoutes, adds
+              each tool's (features/<tool>/routes/)
 components/
   tool/       DrawerTool: every tool's page, a PillarLayout back to the Drawer with
               the tool's name, and the extra-off state; the tools import it
@@ -48,8 +50,8 @@ features/     a feature per tool, each with its page, its parts and its summary 
 
 1. An extra that brings it, in `src/app/features/settings/model/extras.data.ts`,
    with its `tool` line.
-2. Its feature, `src/pillars/drawer/features/<tool>/`, and a route file in `src/routes/`
-   (`drawer<Tool>.ts`, at `/drawer/<tool>`), added to `tree.ts`.
+2. Its feature, `src/pillars/drawer/features/<tool>/`, and a route file in its `routes/`
+   (`<tool>.ts`, `path: "<tool>"` under `drawer`), added to `drawerRoutes` in `routes/index.ts`.
 3. Its page inside `DrawerTool`, with its extra in `extras`: it says
    when it's put away or off, and draws the tool only when it's on.
 4. Its tile on `DrawerPage`: a `ToolTile` with the tool's own summary while

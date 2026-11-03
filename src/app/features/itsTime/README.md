@@ -41,6 +41,7 @@ what it needs through their hooks.
 
 ```
 pages/          ItsTimePage: the redirect while quiet, the provider, the parts in order
+routes/         itsTime (/its-time), choosing each world's page
 contexts/       ItsTimePageContext: the start, home, me, partner, carrying
 hooks/          useItsTimeShown (the way in), useClock, useWakeLock
 model/          ready (stillToReady, bagOf, atHome), callNow, theyllAsk, looked (the look-through, per phone)

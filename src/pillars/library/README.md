@@ -41,6 +41,8 @@ not props.
 
 ```
 pages/          LibraryPage (LibraryPageBody around LibraryHome), LibraryItemPage (an entry)
+routes/         library (/library, a path only), libraryIndex (its search), item ($itemId);
+                index.ts, libraryRoutes
 quiet/          while something has happened: pages/QuietLibraryPage (LibraryPageBody
                 around components/QuietLibraryHome)
 contexts/       LibraryItemPageContext: the entry, why it's hidden, its words
@@ -75,7 +77,7 @@ that leads nowhere). How weeks and dates are said is `src/lib/labels.ts`.
 ## While something has happened
 
 Quiet is a world of its own: `quiet/` mirrors the pillar's shape. The route
-(`src/routes/library.ts`) is the one place that chooses,
+(`routes/libraryIndex.ts`) is the one place that chooses,
 `worlds(LibraryPage, QuietLibraryPage)` (`src/app/features/quiet/worlds.tsx`).
 Only the home differs, so both pages are `LibraryPageBody` (the search and its
 results, a door or a topic's shelf) around their home: `LibraryHome`, or
@@ -92,12 +94,12 @@ is the same in both worlds, and what both homes draw is shared
 2. Give it an icon in `components/doors/doorIcons.ts`.
 
 `DOOR_INFO` and `DOOR_ICONS` are records over `Door`, so TypeScript stops until each has it;
-`?door=` takes it from `DOORS` (`src/routes/search.ts`).
+`?door=` takes it from `DOORS` (`librarySearch`, `routes/libraryIndex.ts`).
 
 ## Adding a shelf view
 
 A shelf's layout is a door's `layout` (`rows`, `cards`, `glossary`). A new
 one is a `DoorLayout`, a component in `components/shelf/` and its branch in
 `Shelf`. A new way to narrow is a search param (`librarySearch`,
-`src/routes/search.ts`), a field of `Narrowing` (`model/narrowing.ts`) and
+`routes/libraryIndex.ts`), a field of `Narrowing` (`model/narrowing.ts`) and
 its `Chips` in `Shelf`.

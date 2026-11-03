@@ -39,6 +39,9 @@ kind's feature draws its own in full (`features/<kind>/components/collection/`).
 ```
 pages/          JournalPage (the story, in JournalPageProvider), CollectionsPage,
                 CollectionPage, BookPage (the book); the route draws the quiet twin instead
+routes/         journal (/journal, a path only), story (its index, ?view= ?at=),
+                collections (a path, and the loader its pages share) over collectionsIndex
+                and collection ($name), book; index.ts, journalRoutes
 contexts/       JournalPageContext: the story's lines
 hooks/          useStoryItems (the story, over the queries), useStoryView, useStorySearch,
                 useScrollToWeek, useOpenWeek, useBook, useOnThisPhone,
@@ -80,7 +83,7 @@ quiet/components/   QuietStory (the lines that stay), KeptBefore (what's folded,
 features/photos/quiet/components/  QuietPhotosCollection (the album's one way to add, while quiet)
 ```
 
-- **The route chooses.** `src/routes/journal.ts` and `journalBook.ts` name
+- **The route chooses.** `routes/story.ts` and `routes/book.ts` name
   each world's page through `worlds()` (`src/app/features/quiet/worlds.tsx`);
   no page asks. Each page takes its own provider inside itself
   (`QuietJournalPage` its `QuietJournalPageProvider`, which reads the kind

@@ -37,6 +37,7 @@ decides, who turned an extra on); the context holds what several agree on.
 
 ```
 pages/          SettingsPage: the sections, in order
+routes/         settings (/settings, ?ask=)
 contexts/       SettingsPageContext: the row open, goTo, the ?ask= scroll, the questions as things stand
 model/          facts.data.ts and extras.data.ts (the lists), facts.ts and extras.ts (their rules):
                 pure, so lib/ and content/ may import them

@@ -118,7 +118,7 @@ src/
   components/   generic parts with no domain: Page, DateForm, loading
   lib/          pure rules and types: no React, no router, no store. A pillar's own rules in a folder of its name (journal/, drawer/, planner/, thisWeek/, library/); what several share (dates, labels, timeline, people, facts, extras, quiet, …) loose
   content/      reading and checking the built-in content
-  routes/       route definitions only: root.tsx, a file per route, onboarding/, auth/, tree.ts, search.ts
+  routes/       root.tsx, app.tsx (the app's layout route), notFound.ts, and tree.ts, which puts the pillars' and features' routes/ together
   api/
     rest/       server routes: /api/health, /api/mcp and OAuth, an upload's bytes, an appointment's calendar file
     rpc/        server functions, what the app calls (/api/rpc/<id>)
@@ -141,15 +141,31 @@ feelings); the feature still lives in one pillar. Each pillar has a
 A pillar and every feature have one shape, each folder only where it has
 something: `pages/` (what a route draws), `components/` (a folder per
 aspect, the shared parts loose), `hooks/`, `contexts/` (a page's context, at
-most one a page), `model/` (no React: rules, types, paths) and, for a
-pillar, `features/`. Settings owns the questions and the extras wherever
+most one a page), `model/` (no React: rules, types, paths), `routes/` (its
+addresses) and, for a pillar, `features/`. Settings owns the questions and the extras wherever
 they're drawn (`AskNow` and `OfferExtra` on This week), and its `model/`
 (`src/app/features/settings/model/`) is the only part of them that `lib/`
 and `content/` may import.
 
+The routes nest as their folders do. A pillar's `routes/` holds its own
+route, a path only (`path: "journal"`, no component, so nothing wraps its
+pages: each draws its own `PillarLayout`), its pages as its children (its
+index at `/`), and an `index.ts` that puts the subtree together, its
+features' subtrees included (`plannerRoutes` adds the lists' and the
+chart's, from `planner/features/{lists,weeks}/routes/`). The app's features
+keep theirs the same way (onboarding's steps under its layout; the logins
+and `/connect` off the root). A loader goes on a path-only route only when
+every child reads it (the collections'); a search schema is in the route
+that owns it. `src/routes/` is what's left: the root, the app's layout
+(`app.tsx`), the address nothing else answers (`notFound.ts`), and
+`tree.ts`, the subtrees in navigation order. A route's id is its path under
+`/app` (`/app/journal/collections/$name`), an index's ending in `/`
+(`/app/journal/`), and a page reads its route by it with `getRouteApi`.
+
 Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 `server/` and `api/` import the store or `server/`; nothing imports
-`api/rest/` or `routes/` (a page reads its route through `getRouteApi`);
+`api/rest/`, and nothing imports a `routes/` folder but other routes and
+`src/routes/tree.ts` (a page reads its route through `getRouteApi`);
 `lib/` and `content/` import no React, router or server.
 
 ## Data in the app
