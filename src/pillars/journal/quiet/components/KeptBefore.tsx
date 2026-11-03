@@ -2,16 +2,15 @@ import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";
 import { useState } from "react";
 import { useSettingsQuery } from "../../../../api/rpc/settings";
-import { foldedWhileQuiet, kindsOffered } from "../../../../lib/journal/quiet";
+import { kindsOffered } from "../../../../lib/journal/quiet";
 import { storyGroups } from "../../../../lib/journal/story/spine";
-import { useJournalPage } from "../../contexts/JournalPageContext";
+import { StoryList } from "../../components/lines/StoryList";
 import { AddPhoto } from "../../features/photos/components/AddPhoto";
-import { StoryList } from "../lines/StoryList";
+import { useQuietJournalPage } from "../contexts/QuietJournalPageContext";
 
 /** What's folded away, behind one quiet line, with one quiet way to add a photo. */
 export function KeptBefore() {
-  const { quiet, items } = useJournalPage();
-  const folded = items.filter(foldedWhileQuiet);
+  const { kind, folded } = useQuietJournalPage();
   const { data: settings } = useSettingsQuery();
   const [open, setOpen] = useState(false);
   const [adding, setAdding] = useState(false);
@@ -35,7 +34,7 @@ export function KeptBefore() {
             <h2 className="font-display text-lg font-semibold text-fg-strong">Add a photo</h2>
           </Modal.Header>
           <Modal.Body className="px-6 pb-6">
-            <AddPhoto kinds={kindsOffered(quiet)} onAdded={() => setAdding(false)} />
+            <AddPhoto kinds={kindsOffered(kind)} onAdded={() => setAdding(false)} />
           </Modal.Body>
         </Modal>
       ) : null}

@@ -1,16 +1,14 @@
-import { useMemo } from "react";
 import { useSettingsQuery } from "../../../../api/rpc/settings";
-import { foldedWhileQuiet } from "../../../../lib/journal/quiet";
 import { storyGroups } from "../../../../lib/journal/story/spine";
-import { useJournalPage } from "../../contexts/JournalPageContext";
+import { StoryList } from "../../components/lines/StoryList";
+import { SearchResults } from "../../components/story/SearchResults";
+import { StoryControls } from "../../components/story/StoryControls";
+import { PregnancyView } from "../../components/story/views/pregnancy/PregnancyView";
+import { WeeksView } from "../../components/story/views/weeks/WeeksView";
 import { useScrollToWeek } from "../../hooks/useScrollToWeek";
 import { useStorySearch } from "../../hooks/useStorySearch";
 import { useStoryView } from "../../hooks/useStoryView";
-import { StoryList } from "../lines/StoryList";
-import { SearchResults } from "../story/SearchResults";
-import { StoryControls } from "../story/StoryControls";
-import { PregnancyView } from "../story/views/pregnancy/PregnancyView";
-import { WeeksView } from "../story/views/weeks/WeeksView";
+import { useQuietJournalPage } from "../contexts/QuietJournalPageContext";
 
 /**
  * The quiet Journal's story: what stays (the notes, letters, feelings,
@@ -20,8 +18,7 @@ import { WeeksView } from "../story/views/weeks/WeeksView";
  * pregnancy's line, no recaps and no book.
  */
 export function QuietStory() {
-  const { items } = useJournalPage();
-  const shown = useMemo(() => items.filter((i) => !foldedWhileQuiet(i)), [items]);
+  const { shown } = useQuietJournalPage();
   const { view, views, open } = useStoryView();
   const search = useStorySearch(shown, () => open("days"));
   const { data: dueDate } = useSettingsQuery({ select: (s) => s.dueDate });

@@ -16,6 +16,7 @@ import { placeHeading, weekRange } from "../../../../../../lib/labels";
 import type { QuietKind } from "../../../../../../lib/quiet";
 import { type Week, weekLabel } from "../../../../../../lib/timeline";
 import { describePhoto } from "../../../../model/labels";
+import { QuietPhotosCollection } from "../../quiet/components/QuietPhotosCollection";
 import { AddPhoto } from "../AddPhoto";
 import { PhotoViewer } from "../PhotoViewer";
 import { Picture } from "../Picture";
@@ -103,10 +104,8 @@ function BumpRow({
 /**
  * The story as its photos: the bump week by week (once there's a series:
  * the row, the scrubber, side by side), and every one under its week. New
- * ones come in through the "+". While something has happened it's only
- * drawn inside the Journal's fold, and then plain: the album by week, no
- * bump row, no empty frame, no scrubber, no side by side, and one way to add
- * a photo (never a bump after a loss). Never deleted.
+ * ones come in through the "+". While something has happened, the album
+ * under `QuietPhotosCollection` (never a bump after a loss). Never deleted.
  */
 export function PhotosCollection({ quiet }: { quiet: QuietKind | null }) {
   const { data: photos } = usePhotosQuery();
@@ -131,9 +130,7 @@ export function PhotosCollection({ quiet }: { quiet: QuietKind | null }) {
         Photos and scans
       </h2>
       {quiet ? (
-        <Button variant="ghost" size="sm" className="self-start" onClick={() => setAdding({})}>
-          Add a photo
-        </Button>
+        <QuietPhotosCollection onAdd={() => setAdding({})} />
       ) : (
         <>
           <p className="text-sm text-fg-subtle">
