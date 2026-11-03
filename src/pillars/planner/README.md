@@ -33,7 +33,7 @@ useTasks (items, answers, due date, own tasks)  + checklist's ticks
   → planTasks            every task placed: next, now, ahead, earlier, done   lib/planner/plan.ts
   → stagesAhead          what's ahead, by stage                               lib/planner/plan.ts
   → usePlan              the two, as tasks and ticks change                   hooks/usePlan.ts
-  → PlannerPageProvider  with what's ticked this visit, and the appointments  contexts/
+  → PlannerPageProvider  with what's ticked this visit                        contexts/
   → ToDo                 Next up, Also now, Ahead, Missed earlier, Done       components/toDo/
   → TaskLine             one task: its tick, when, whose, why
 
@@ -48,16 +48,17 @@ useLines (items' lines that apply, and your own)  + lists (own lists, marks)
 ## Where things are
 
 ```
-pages/          PlannerPage (To do, or put aside; the lists, appointments, questions)
-contexts/       PlannerPageContext: the plan, its stages, what's ticked this visit, the appointments
-hooks/          usePlan (the plan, To do's and the weeks')
+pages/          PlannerPage (chooses quiet or not) and Planner (To do, the lists, appointments, questions)
+contexts/       PlannerPageContext: the plan, its stages, what's ticked this visit
+hooks/          usePlan (the plan, To do's and the weeks'); useAppointmentsAhead (the next and
+                the rest, for both worlds)
 model/labels.ts the Planner's words: when a task ahead or missed is due, how To do is going, a bar read out
 components/
   Fold          a titled run of rows, open or folded (Also now, Missed earlier, Done, Been, Asked)
   toDo/         To do: its progress, Next up, Ahead and a stage's card, a task's line
   appointments/ the appointments, next first
   questions/    for the next appointment
-  quiet/        To do put aside while something has happened, and what was set in motion
+quiet/          the Planner while something has happened (below)
 features/
   tasks/        a task's row, whose it is, keeping one, adding your own; useTasks (This week,
                 the Library and the "+" draw these too)
@@ -67,6 +68,27 @@ features/
                 its heading, sections, a line and its sheet, adding
   weeks/        WeeksPage and the weeks chart: its scale, a stage's group, the bars, the key
 ```
+
+## While something has happened
+
+The quiet Planner is a world of its own, in `quiet/`, in the same shape as
+the pillar: `PlannerPage` is the one place that asks `useQuietQuery`, and
+draws either `QuietPlannerPage` in `QuietPlannerPageProvider` or `Planner`
+in `PlannerPageProvider`. Nothing in the normal world checks quiet. What it
+is and why is [`docs/product/quiet.md`](../../../docs/product/quiet.md).
+
+```
+quiet/
+  pages/QuietPlannerPage   the quiet lead, To do put aside, the appointments, the questions; no lists
+  contexts/                QuietPlannerPageContext: what has happened, and what was set in motion
+  components/
+    PutAside               To do put aside: claims you've started, what's already booked or done
+    InMotion               one of those: a heading, a line, each task to its item
+```
+
+Its rule is `setInMotion` (`src/lib/planner/quiet.ts`): the ticked tasks,
+claims apart from bookings. `Appointments` and `ForNextAppointment` are drawn
+by both worlds, so they read neither context: `useAppointmentsAhead`.
 
 ## Adding a stage
 
