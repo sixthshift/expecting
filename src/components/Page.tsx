@@ -8,8 +8,8 @@ import type { ReactNode } from "react";
  */
 export function Page({ title, subtitle, aside, children }: { title: string; subtitle?: ReactNode; aside?: ReactNode; children: ReactNode }) {
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-10">
-      <header className="mb-5 flex items-start justify-between gap-3 lg:mb-8">
+    <main className="mx-auto w-full max-w-6xl px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-16 desktop:px-8 desktop:pt-10">
+      <header className="mb-5 flex items-start justify-between gap-3 desktop:mb-8">
         <div>
           <Heading as="h1" className="font-display">
             {title}

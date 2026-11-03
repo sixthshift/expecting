@@ -31,9 +31,9 @@ export function RightNow({ now }: { now: Week }) {
         Right now, at week {now}
       </h2>
       {/* One column on a phone, two on a desktop: the gaps are the lines between. */}
-      <ul className="grid gap-px overflow-hidden rounded-xl border border-border-subtle bg-border-subtle lg:grid-cols-2">
+      <ul className="grid gap-px overflow-hidden rounded-xl border border-border-subtle bg-border-subtle desktop:grid-cols-2">
         {shown.map(({ item, standing }) => (
-          <li key={item.id} className="bg-bg-normal lg:last:odd:col-span-2">
+          <li key={item.id} className="bg-bg-normal desktop:last:odd:col-span-2">
             <ItemLink
               itemId={item.id}
               list={open.map((o) => o.item.id)}

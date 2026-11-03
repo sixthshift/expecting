@@ -9,7 +9,10 @@ export function StageGroup({ group, focused, now }: { group: BarGroup; focused: 
   const left = group.key === "now" || now === null ? null : group.end - now;
   return (
     <section aria-labelledby={`stage-${group.key}`} data-stage={group.key} className="flex scroll-mt-24 flex-col gap-1">
-      <h2 id={`stage-${group.key}`} className={cn("flex items-baseline gap-2 text-sm font-semibold lg:w-64", focused ? "text-fg-brand" : "text-fg-strong")}>
+      <h2
+        id={`stage-${group.key}`}
+        className={cn("flex items-baseline gap-2 text-sm font-semibold desktop:w-64", focused ? "text-fg-brand" : "text-fg-strong")}
+      >
         <span>{group.title}</span>
         {group.key === "now" ? null : (
           <span className="text-xs font-normal text-fg-subtle">

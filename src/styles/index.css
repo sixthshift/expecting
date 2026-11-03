@@ -5,3 +5,28 @@
 @import "./motion.css";
 @import "../components/loading/loading.css";
 @source "../../node_modules/@sixthshift/design-system";
+
+/*
+ * The two experiences (src/app/model/layout.ts): `phone:` and `desktop:`
+ * follow <html data-layout>, which a boot script sets before the first paint
+ * on the same line `useLayout()` follows. Use them for a small change of the
+ * same structure (a gap, a size); where the structure differs, choose with
+ * `useLayout()`. There are no `desktop:` breakpoints: within each layout the page
+ * still flows with `sm:`. The gutter is the layout's: px-4, desktop:px-8.
+ */
+@custom-variant phone {
+  &:where([data-layout="phone"] *) {
+    @slot;
+  }
+  /* A printed page is a phone's width, whatever it's printed from. */
+  @media print {
+    @slot;
+  }
+}
+@custom-variant desktop {
+  @media not print {
+    &:where([data-layout="desktop"] *) {
+      @slot;
+    }
+  }
+}

@@ -19,7 +19,7 @@ export function BingoGrid({ card, owner, own, other }: { card: Card; owner: stri
 
   return (
     <div className="flex flex-col gap-1">
-      <div aria-hidden className="grid grid-cols-5 gap-1 text-center font-display text-xl font-bold text-fg-brand lg:text-2xl">
+      <div aria-hidden className="grid grid-cols-5 gap-1 text-center font-display text-xl font-bold text-fg-brand desktop:text-2xl">
         {LETTERS.map((l) => (
           <span key={l}>{l}</span>
         ))}
@@ -32,7 +32,7 @@ export function BingoGrid({ card, owner, own, other }: { card: Card; owner: stri
               className="flex aspect-square flex-col items-center justify-center gap-0.5 rounded-md bg-bg-brand-strong p-1 text-center text-fg-on-brand-strong"
             >
               <Heart aria-hidden size={18} className="fill-current" />
-              <span className="text-[10px] font-semibold uppercase lg:text-xs">Free</span>
+              <span className="text-[10px] font-semibold uppercase desktop:text-xs">Free</span>
             </li>
           ) : (
             <li key={id}>
@@ -42,7 +42,7 @@ export function BingoGrid({ card, owner, own, other }: { card: Card; owner: stri
                 aria-label={`${squareOf(id)?.text ?? id}${marked.has(id) ? ", marked" : ""}`}
                 aria-pressed={marked.has(id)}
                 className={cn(
-                  "relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-md border p-1 text-center text-[10px] leading-tight hyphens-auto sm:text-xs lg:p-2 lg:text-sm",
+                  "relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-md border p-1 text-center text-[10px] leading-tight hyphens-auto sm:text-xs desktop:p-2 desktop:text-sm",
                   marked.has(id)
                     ? "border-border-brand bg-bg-brand-subtle text-fg-on-brand-subtle"
                     : "border-border-subtle bg-bg-normal text-fg-normal hover:bg-bg-normal-hovered",
@@ -52,7 +52,7 @@ export function BingoGrid({ card, owner, own, other }: { card: Card; owner: stri
                 <span className={cn(marked.has(id) && "opacity-60")}>{squareOf(id)?.text}</span>
                 {marked.has(id) ? (
                   <span aria-hidden className="absolute inset-0 flex items-center justify-center">
-                    <span className="flex size-8 -rotate-12 items-center justify-center rounded-full border-2 border-fg-brand text-fg-brand lg:size-11">
+                    <span className="flex size-8 -rotate-12 items-center justify-center rounded-full border-2 border-fg-brand text-fg-brand desktop:size-11">
                       <Check size={18} strokeWidth={3} />
                     </span>
                   </span>

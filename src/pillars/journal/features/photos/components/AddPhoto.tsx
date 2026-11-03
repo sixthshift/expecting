@@ -17,6 +17,7 @@ import { Camera, Images } from "lucide-react";
 import { type ChangeEvent, type FormEvent, useEffect, useState } from "react";
 import { photosSaves } from "../../../../../api/rpc/photos";
 import { useSettingsQuery } from "../../../../../api/rpc/settings";
+import { useLayout } from "../../../../../app/hooks/useLayout";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { FileProblemError, keepOnPhone, type Prepared, prepareFile, previewUrl } from "../../../../../app/model/uploads";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
@@ -62,6 +63,7 @@ export function AddPhoto({
   onAdded?: (id: string) => void;
 }) {
   const add = useSave(photosSaves.addPhoto);
+  const layout = useLayout();
   const { data: settings } = useSettingsQuery();
   const [shots, setShots] = useState<Shot[]>([]);
   const [readying, setReadying] = useState(false);
@@ -157,35 +159,37 @@ export function AddPhoto({
           </p>
         ) : (
           <>
-            {/* A phone: the camera, one tap, and the phone's own picker beside it. */}
-            <div className="grid grid-cols-2 gap-2 lg:hidden">
-              <Button asChild intent="brand" size="lg">
-                <label className="cursor-pointer focus-within:ring-2 focus-within:ring-border-focus">
-                  <Camera aria-hidden size={20} />
-                  Take a photo
-                  <input type="file" accept="image/*" capture="environment" className="sr-only" onChange={picked} />
-                </label>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <label className="cursor-pointer focus-within:ring-2 focus-within:ring-border-focus">
-                  <Images aria-hidden size={20} />
-                  Choose photos
-                  <input type="file" accept="image/*" multiple className="sr-only" onChange={picked} />
-                </label>
-              </Button>
-            </div>
-            {/* A desktop: drop them in, or choose. */}
-            <FileDropzone
-              className="hidden lg:flex"
-              size="sm"
-              accept="image/*"
-              multiple
-              maxSize={MAX_ORIGINAL}
-              label="Drop photos here, or choose them"
-              hint="Bump photos, scans, anything worth keeping. JPEG, PNG or HEIC, up to 30 MB."
-              onFilesChange={(files) => void ready(files)}
-              onFilesRejected={(rejected) => setProblem(FILE_PROBLEM[rejected[0]?.reason === "size" ? "big" : "type"])}
-            />
+            {layout === "phone" ? (
+              // A phone: the camera, one tap, and the phone's own picker beside it.
+              <div className="grid grid-cols-2 gap-2">
+                <Button asChild intent="brand" size="lg">
+                  <label className="cursor-pointer focus-within:ring-2 focus-within:ring-border-focus">
+                    <Camera aria-hidden size={20} />
+                    Take a photo
+                    <input type="file" accept="image/*" capture="environment" className="sr-only" onChange={picked} />
+                  </label>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <label className="cursor-pointer focus-within:ring-2 focus-within:ring-border-focus">
+                    <Images aria-hidden size={20} />
+                    Choose photos
+                    <input type="file" accept="image/*" multiple className="sr-only" onChange={picked} />
+                  </label>
+                </Button>
+              </div>
+            ) : (
+              // A desktop: drop them in, or choose.
+              <FileDropzone
+                size="sm"
+                accept="image/*"
+                multiple
+                maxSize={MAX_ORIGINAL}
+                label="Drop photos here, or choose them"
+                hint="Bump photos, scans, anything worth keeping. JPEG, PNG or HEIC, up to 30 MB."
+                onFilesChange={(files) => void ready(files)}
+                onFilesRejected={(rejected) => setProblem(FILE_PROBLEM[rejected[0]?.reason === "size" ? "big" : "type"])}
+              />
+            )}
           </>
         )}
         {problem ? (

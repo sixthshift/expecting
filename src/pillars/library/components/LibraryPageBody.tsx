@@ -35,7 +35,7 @@ export function LibraryPageBody({ home }: { home: ReactNode }) {
 
   if (!results && (door || topic)) {
     return (
-      <PillarLayout className="pt-[max(1rem,env(safe-area-inset-top))] lg:pt-8">
+      <PillarLayout className="pt-[max(1rem,env(safe-area-inset-top))] desktop:pt-8">
         <Shelf narrowing={narrowing} />
       </PillarLayout>
     );

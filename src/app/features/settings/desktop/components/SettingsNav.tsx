@@ -12,11 +12,11 @@ const SECTIONS = [
   { id: "account", title: "Account" },
 ];
 
-/** On a large screen, the sections down the side, each with how many it has still to answer. */
+/** On a desktop, the sections down the side, each with how many it has still to answer. */
 export function SettingsNav() {
   const { waiting } = useSettingsPage();
   return (
-    <nav aria-label="Settings" className="hidden lg:sticky lg:top-10 lg:flex lg:flex-col lg:gap-1">
+    <nav aria-label="Settings" className="sticky top-10 flex flex-col gap-1 print:hidden">
       {SECTIONS.map((s) => (
         <a
           key={s.id}

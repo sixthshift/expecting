@@ -33,7 +33,7 @@ export function StoryControls({
           variant="outline"
           size="sm"
           aria-label="Show"
-          className="scrollbar-none -mx-4 overflow-x-auto px-4 lg:mx-0 lg:flex-wrap lg:px-0"
+          className="scrollbar-none -mx-4 overflow-x-auto px-4 desktop:mx-0 desktop:flex-wrap desktop:px-0"
           value={view}
           onValueChange={(value) => onView((value || "days") as StoryView)}
           options={views.map((v) => ({ value: v, label: VIEW_LABEL[v] }))}

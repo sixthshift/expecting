@@ -22,7 +22,7 @@ export function ListHeading({ summary }: { summary: ListSummary }) {
             <OwnName id={own.id} title={own.title} />
           ) : (
             <>
-              <h1 className="text-2xl font-display font-semibold text-fg-strong lg:text-3xl">{summary.title}</h1>
+              <h1 className="text-2xl font-display font-semibold text-fg-strong desktop:text-3xl">{summary.title}</h1>
               <p className="max-w-prose text-fg-subtle">{listOf(summary.id)?.about}</p>
             </>
           )}

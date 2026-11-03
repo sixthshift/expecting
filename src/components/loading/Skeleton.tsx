@@ -29,12 +29,12 @@ export function SkeletonText({ lines = 3, className }: { lines?: number; classNa
  */
 export function PageSkeleton() {
   return (
-    <div role="status" aria-label="Loading" className="mx-auto w-full max-w-6xl px-4 md:px-8">
-      <div className="flex flex-col gap-3 pt-[max(1.5rem,env(safe-area-inset-top))] pb-6 lg:pt-10 lg:pb-8">
+    <div role="status" aria-label="Loading" className="mx-auto w-full max-w-6xl px-4 desktop:px-8">
+      <div className="flex flex-col gap-3 pt-[max(1.5rem,env(safe-area-inset-top))] pb-6 desktop:pt-10 desktop:pb-8">
         <Skeleton className="h-8 w-40" />
         <Skeleton className="h-4 w-72 max-w-full" />
       </div>
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-10">
+      <div className="grid gap-6 desktop:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] desktop:gap-10">
         <div className="flex flex-col gap-4">
           <Skeleton className="h-5 w-32" />
           <div className="flex flex-col gap-4 rounded-xl border border-border-subtle p-4">
@@ -46,7 +46,7 @@ export function PageSkeleton() {
             <SkeletonText lines={2} />
           </div>
         </div>
-        <div className="hidden flex-col gap-3 lg:flex">
+        <div className="hidden flex-col gap-3 desktop:flex">
           <Skeleton className="h-5 w-28" />
           {[0, 1, 2, 3].map((i) => (
             <div key={i} className="flex items-center gap-3">

@@ -21,7 +21,7 @@ export function LibraryItemPage() {
   const { itemId } = route.useParams();
   return (
     <LibraryItemPageProvider itemId={itemId}>
-      <PillarLayout className="pt-[max(1rem,env(safe-area-inset-top))] lg:pt-8">
+      <PillarLayout className="pt-[max(1rem,env(safe-area-inset-top))] desktop:pt-8">
         <div className="max-w-3xl">
           <Rendering />
         </div>

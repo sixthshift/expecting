@@ -18,9 +18,9 @@ export function PlannerPage() {
   return (
     <PlannerPageProvider>
       <PillarLayout title="Planner" lead="What to do and what to ask, so nothing sneaks up on you.">
-        <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start lg:gap-10">
+        <div className="flex flex-col gap-10 desktop:grid desktop:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] desktop:items-start desktop:gap-10">
           <ToDo />
-          <div className="flex flex-col gap-10 lg:sticky lg:top-6">
+          <div className="flex flex-col gap-10 desktop:sticky desktop:top-6">
             <ListsWayIn />
             <Appointments />
             <ForNextAppointment />

@@ -13,7 +13,7 @@ const GRID = DOORS.filter((d) => d !== "hard");
 export function Doors() {
   const items = useItems();
   return (
-    <nav aria-label="Ways in" className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
+    <nav aria-label="Ways in" className="grid grid-cols-2 gap-2 sm:gap-3 desktop:grid-cols-4">
       {GRID.map((door) => {
         const Icon = DOOR_ICONS[door];
         const { title, examples } = DOOR_INFO[door];

@@ -15,7 +15,7 @@ export function BarRow({ bar }: { bar: Bar }) {
     <>
       <span
         className={cn(
-          "line-clamp-2 text-sm [text-shadow:0_0_2px_var(--expecting-page),0_0_4px_var(--expecting-page),0_0_6px_var(--expecting-page)] lg:line-clamp-none lg:w-64 lg:shrink-0 lg:truncate lg:pr-4 lg:pl-0 lg:text-left lg:[text-shadow:none]",
+          "line-clamp-2 text-sm [text-shadow:0_0_2px_var(--expecting-page),0_0_4px_var(--expecting-page),0_0_6px_var(--expecting-page)] desktop:line-clamp-none desktop:w-64 desktop:shrink-0 desktop:truncate desktop:pr-4 desktop:pl-0 desktop:text-left desktop:[text-shadow:none]",
           task.itemId && "group-hover:underline",
           late ? "pr-(--end) text-right" : "pl-(--start)",
           state === "open" || state === "late" ? "font-medium text-fg-strong" : "text-fg-subtle",
@@ -24,7 +24,7 @@ export function BarRow({ bar }: { bar: Bar }) {
       >
         {task.title}
       </span>
-      <span aria-hidden className="relative h-3 lg:flex-1">
+      <span aria-hidden className="relative h-3 desktop:flex-1">
         <span className={cn("absolute inset-y-0 rounded-full group-hover:opacity-80", TONE[state])} style={{ left: x(from), width: width(from, to) }} />
         {state === "done" ? null : (
           <span
@@ -35,7 +35,7 @@ export function BarRow({ bar }: { bar: Bar }) {
       </span>
     </>
   );
-  const row = "group flex flex-col gap-1 rounded-sm py-0.5 lg:h-8 lg:flex-row lg:items-center lg:gap-0 lg:py-0";
+  const row = "group flex flex-col gap-1 rounded-sm py-0.5 desktop:h-8 desktop:flex-row desktop:items-center desktop:gap-0 desktop:py-0";
   return task.itemId ? (
     <ItemLink itemId={task.itemId} aria-label={label} className={row} style={place}>
       {inner}

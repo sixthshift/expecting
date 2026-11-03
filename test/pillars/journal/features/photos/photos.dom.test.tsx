@@ -119,6 +119,23 @@ describe("AddPhoto", () => {
     expect(saved).toEqual([]);
   });
 
+  it("a phone takes a photo or chooses some; a desktop drops them in", () => {
+    // happy-dom's own handle on the window, which a resize goes through so matchMedia follows.
+    const happyDOM = (window as unknown as { happyDOM: { setWindowSize(size: { width: number; height: number }): void } }).happyDOM;
+    const { unmount } = render(<AddPhoto />);
+    expect(screen.getByText("Take a photo")).toBeTruthy();
+    expect(screen.queryByText("Drop photos here, or choose them")).toBeNull();
+    unmount();
+    happyDOM.setWindowSize({ width: 1280, height: 800 });
+    try {
+      render(<AddPhoto />);
+      expect(screen.queryByText("Take a photo")).toBeNull();
+      expect(screen.getByText("Drop photos here, or choose them")).toBeTruthy();
+    } finally {
+      happyDOM.setWindowSize({ width: 390, height: 844 });
+    }
+  });
+
   it("after a loss, never a bump", async () => {
     render(<AddPhoto kinds={["scan", "other"]} />);
     choose();

@@ -3,7 +3,7 @@ import type { LucideIcon } from "lucide-react";
 /** Something a pillar will hold, not built yet: said plainly rather than faked. */
 export function Coming({ things }: { things: { icon: LucideIcon; title: string; about: string }[] }) {
   return (
-    <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="grid gap-3 sm:grid-cols-2 desktop:grid-cols-3">
       {things.map(({ icon: Icon, title, about }) => (
         <li key={title} className="flex flex-col gap-2 rounded-xl border border-border-subtle bg-bg-normal p-4">
           <span className="flex items-center gap-2">

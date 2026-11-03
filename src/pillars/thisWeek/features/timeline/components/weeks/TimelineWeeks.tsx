@@ -35,7 +35,7 @@ export function TimelineWeeks({ weeks, at }: { weeks: TimelineWeek[]; at: Week |
   const chapters = TRIMESTERS.map((t) => ({ t, weeks: weeks.filter((w) => trimester(w.week) === t) }));
 
   return (
-    <div className="flex flex-col gap-6 lg:grid lg:grid-cols-3 lg:gap-8">
+    <div className="flex flex-col gap-6 desktop:grid desktop:grid-cols-3 desktop:gap-8">
       {chapters.map(({ t, weeks }) => (
         <section key={t.n} aria-labelledby={`trimester-${t.n}`}>
           <h2 id={`trimester-${t.n}`} className="mb-1 text-xs font-semibold tracking-widest text-fg-subtle uppercase">

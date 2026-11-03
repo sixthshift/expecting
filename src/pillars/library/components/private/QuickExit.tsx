@@ -2,6 +2,7 @@ import { Button } from "@sixthshift/design-system/button";
 import { useNavigate } from "@tanstack/react-router";
 import { LogOut } from "lucide-react";
 import { useCallback, useEffect } from "react";
+import { useLayout } from "../../../../app/hooks/useLayout";
 
 /**
  * On a private entry's page, held at the top as it scrolls: one tap (or Esc)
@@ -11,6 +12,7 @@ import { useCallback, useEffect } from "react";
  */
 export function QuickExit() {
   const navigate = useNavigate();
+  const layout = useLayout();
   const exit = useCallback(() => navigate({ to: "/", replace: true }), [navigate]);
 
   useEffect(() => {
@@ -24,7 +26,7 @@ export function QuickExit() {
   return (
     <div className="sticky top-[max(0.5rem,env(safe-area-inset-top))] z-10 mb-4 flex items-center gap-3 rounded-xl border border-border-subtle bg-bg-normal p-3 shadow-sm">
       <p className="flex-1 text-sm text-fg-subtle">
-        Nothing on this page is saved or shown on the other phone.<span className="hidden lg:inline"> Esc leaves it.</span>
+        Nothing on this page is saved or shown on the other phone.{layout === "desktop" ? " Esc leaves it." : null}
       </p>
       <Button intent="brand" variant="solid" size="lg" className="shrink-0 rounded-full" onClick={exit}>
         <LogOut aria-hidden size={16} /> Quick exit

@@ -14,7 +14,7 @@ export function WeekGrid({ tiles, now, onOpen }: { tiles: readonly WeekTile[]; n
         return (
           <section key={t.key} aria-label={t.title} className="flex flex-col gap-2">
             <h3 className="font-display text-base font-semibold text-fg-strong">{t.title}</h3>
-            <ol className="grid grid-cols-4 gap-2 sm:grid-cols-6 lg:grid-cols-7">
+            <ol className="grid grid-cols-4 gap-2 sm:grid-cols-6 desktop:grid-cols-7">
               {these.map((tile) => (
                 <Tile key={tile.week} tile={tile} now={now} onOpen={onOpen} />
               ))}

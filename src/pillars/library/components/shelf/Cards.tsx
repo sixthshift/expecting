@@ -9,7 +9,7 @@ export function Cards({ items }: { items: readonly Item[] }) {
   const { data: reads } = useReadsQuery();
   const list = items.map((i) => i.id);
   return (
-    <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="grid gap-3 sm:grid-cols-2 desktop:grid-cols-3">
       {items.map((item) => (
         <li key={item.id}>
           <ItemLink

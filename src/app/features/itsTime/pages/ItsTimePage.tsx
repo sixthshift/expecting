@@ -46,13 +46,13 @@ function ItsTime() {
   const left = Boolean(start?.leftAt);
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-10">
+    <main className="mx-auto w-full max-w-6xl px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-16 desktop:px-8 desktop:pt-10">
       <div className="flex max-w-xl flex-col gap-6">
         <header className="flex flex-col gap-1">
           <Link to="/emergency" className="-ml-2 flex min-h-11 w-fit items-center gap-1 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal">
             <ChevronLeft aria-hidden size={16} /> Emergency info
           </Link>
-          <h1 className="font-display text-2xl font-semibold text-fg-strong lg:text-3xl">It's time</h1>
+          <h1 className="font-display text-2xl font-semibold text-fg-strong desktop:text-3xl">It's time</h1>
         </header>
 
         {sentHome ? (

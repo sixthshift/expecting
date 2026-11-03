@@ -22,7 +22,7 @@ map of the code. The whole pregnancy at once, `/timeline`, is
 
 ```
 settings, ?at=          the due date, the week peeked at
-  → ThisWeekPage          the provider and WeekColumns (the route draws  pages/
+  → ThisWeekPage          the provider and the layout (the route draws  pages/
                           QuietThisWeekPage while quiet)
   → ThisWeekPageProvider  the week shown, now, peeking, where you are,  contexts/
                           today, the week's note, worked out once
@@ -35,21 +35,23 @@ settings, ?at=          the due date, the week peeked at
 ## Where things are
 
 ```
-pages/            ThisWeekPage: ThisWeekPageProvider around WeekColumns
+pages/            ThisWeekPage: ThisWeekPageProvider around ThisWeekPhone or ThisWeekDesktop (useLayout)
+phone/            components/ThisWeekPhone: one column, the doing first, the week's reads between its runs
+desktop/          components/ThisWeekDesktop: the week on the left, the doing on the right, staying in view
 routes/           thisWeek (/, ?at=); index.ts, thisWeekRoutes, with the timeline's beside it
                   (features/timeline/routes/, not under /)
 contexts/         ThisWeekPageContext: the week shown and where you are
 model/            labels.ts ("this week" / "that week"), sizeIcons.ts (the size's drawings)
 components/
-  WeekColumns     the page's layout (phone `order`, desktop columns), inside the provider
-  header/         Hero (the week's heading, the size, the strip), NowLine, WeekStepper
+  Part            one part in its column, dropped when it draws nothing
+  header/         WeekHeader (Hero, or "This week" and the welcome), Hero (the week's heading, the size, the strip), NowLine, WeekStepper
   dayByDay/       DayByDay, the note and the day reads in one carousel, and a day's Read
   weekNote/       WeekNote, read as whoever holds the phone
   sizeIcon/       SizeIcon, the drawing of what the baby's size is like
   headsUp/        HeadsUp, the week's "Nobody tells you"
   worthKnowing/   WorthKnowing, what starts this week
-  week/           a peek's appointments, what was asked, what was kept
-  doing/          the right column: DoingNow, or on a peek BestDoneThatWeek
+  week/           TheWeek (WeekReads, WeekKept: each layout places them); a peek's appointments, what was asked, what was kept
+  doing/          DoingNow (DoingFirst, DoingAsked, DoingAhead: the phone puts the week between them), or on a peek BestDoneThatWeek
   welcome/        Welcome: no due date yet
 quiet/            while something has happened: pages/QuietThisWeekPage, components/Guide
 features/
@@ -82,9 +84,11 @@ what happened (`Guide`), then the next steps. The timeline's page,
 1. Make it a component in a folder for its part, `components/<part>/`. It
    reads the week from `useThisWeekPage()` and its data through its query's
    hook, works out what it shows, and returns null when there's nothing.
-2. Put it in `WeekColumns` (`components/WeekColumns.tsx`), in the left column with the week
-   or in `DoingNow` / `BestDoneThatWeek` on the right, wrapped in a
-   `<div className="order-N empty:hidden lg:order-0">`: `order` places it in
-   the phone's one column, and `empty:hidden` drops the wrapper when it
-   draws nothing.
+2. Put it in a run, wrapped in `<Part>` (which drops it when it draws
+   nothing): with the week (`WeekReads`, `WeekKept`, `components/week/TheWeek.tsx`)
+   or with the doing (`DoingFirst`, `DoingAsked`, `DoingAhead`,
+   `components/doing/DoingNow.tsx`; on a peek `BestDoneThatWeek`). Each
+   layout places the runs: `ThisWeekDesktop` the week left and the doing
+   right, `ThisWeekPhone` one column, the doing's runs with the week between
+   them. A part that needs a run of its own goes in both layouts.
 3. A heading that names the week says it through `whichWeek(peeking)`.

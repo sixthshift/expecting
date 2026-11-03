@@ -12,7 +12,9 @@ import { usePhotosQuery } from "../../../../../../api/rpc/photos";
 import { useQuestionsQuery } from "../../../../../../api/rpc/questions";
 import { useNow, useSettingsQuery } from "../../../../../../api/rpc/settings";
 import { PillarLayout } from "../../../../../../app/components/layout/PillarLayout";
+import { useLayout } from "../../../../../../app/hooks/useLayout";
 import { useOutOfTheWay } from "../../../../../../app/hooks/useOutOfTheWay";
+import { layoutNow } from "../../../../../../app/model/layout";
 import { weekNotes } from "../../../../../../content";
 import { timelineWeeks, timelineWindows } from "../../../../../../lib/thisWeek/timelineWeeks";
 import type { Week } from "../../../../../../lib/timeline";
@@ -50,6 +52,7 @@ export function Timeline({ at }: { at: Week | undefined }) {
   const { dueDate } = settings;
   const due = useMemo(() => new Set(tasks.filter((t) => !checklist.ticks[t.id]).map((t) => t.due)), [tasks, checklist.ticks]);
   const away = useOutOfTheWay();
+  const layout = useLayout();
   const windows = useMemo(() => timelineWindows(items, checklist.ticks, now), [items, checklist.ticks, now]);
   const weeks = timelineWeeks({
     notes: weekNotes,
@@ -69,7 +72,7 @@ export function Timeline({ at }: { at: Week | undefined }) {
 
   // Open at the week asked for, on a phone; else at the top, where the strip has today on it.
   useEffect(() => {
-    if (at === undefined || window.matchMedia("(min-width: 64rem)").matches) return;
+    if (at === undefined || layoutNow() === "desktop") return;
     // After the router has put the page at its top.
     const frame = requestAnimationFrame(() => scrollToWeek(at, false));
     return () => cancelAnimationFrame(frame);
@@ -89,14 +92,15 @@ export function Timeline({ at }: { at: Week | undefined }) {
       }
     >
       {!dueDate ? <Welcome /> : null}
-      {now !== null ? (
+      {/* On a phone, a way back to today from wherever the scroll has got to; a desktop has the strip's columns in view. */}
+      {now !== null && layout === "phone" ? (
         <Button
           variant="outline"
           size="sm"
           onClick={() => scrollToWeek(now, true)}
           // Out of the way while the page scrolls down, as the "+" is; back on the way up.
           className={cn(
-            "fixed bottom-[calc(var(--tab-bar)+1rem)] left-1/2 z-10 -translate-x-1/2 shadow-sm transition-[translate,opacity] duration-(--motion-base) lg:hidden",
+            "fixed bottom-[calc(var(--tab-bar)+1rem)] left-1/2 z-10 -translate-x-1/2 shadow-sm transition-[translate,opacity] duration-(--motion-base)",
             away ? "pointer-events-none translate-y-[calc(100%+1.5rem)] opacity-0 ease-(--ease-exit)" : "ease-(--ease-enter)"
           )}
         >

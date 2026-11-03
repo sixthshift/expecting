@@ -1,6 +1,7 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { useLayout } from "../../../../../app/hooks/useLayout";
 import { STAGES } from "../../../../../lib/planner/plan";
 import type { Chart } from "../../../../../lib/planner/weeks";
 import { LANDMARKS } from "../../../../../lib/thisWeek/timelineWeeks";
@@ -26,22 +27,22 @@ const SHORT = { 1: "First", 2: "Second", 3: "Third" } as const;
  */
 export function WeeksChart({ chart, now, focus }: { chart: Chart; now: Week | null; focus: { start: Week; end: Week } | null }) {
   const [earlierOpen, setEarlierOpen] = useState(false);
+  const layout = useLayout();
 
   return (
     <div className="flex flex-col gap-3">
       <Key />
       <div className="relative">
         {/* Behind everything, across the chart (beside the labels on a desktop). */}
-        <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 left-0 lg:left-64">
+        <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 left-0 desktop:left-64">
           {TRIMESTERS.map(({ n: t, from, to, title }) => (
             <div
               key={t}
               className={cn("absolute inset-y-0 border-l border-border-subtle", t === 2 && "bg-bg-subtle/60")}
               style={{ left: x(from), width: width(from, to) }}
             >
-              <span className="block truncate px-1.5 pt-0.5 text-xs font-semibold tracking-widest text-fg-subtle uppercase lg:px-2">
-                <span className="lg:hidden">{SHORT[t]}</span>
-                <span className="hidden lg:inline">{title}</span>
+              <span className="block truncate px-1.5 pt-0.5 text-xs font-semibold tracking-widest text-fg-subtle uppercase desktop:px-2">
+                {layout === "desktop" ? title : SHORT[t]}
               </span>
             </div>
           ))}
@@ -61,7 +62,7 @@ export function WeeksChart({ chart, now, focus }: { chart: Chart; now: Week | nu
         </div>
 
         {/* The landmarks, and a number every four weeks. */}
-        <div aria-hidden className="relative h-20 lg:ml-64">
+        <div aria-hidden className="relative h-20 desktop:ml-64">
           {Object.entries(LANDMARKS).map(([w, label]) => {
             // A label reads to the right of its mark, unless the next landmark is close: then to the left.
             const crowded = Object.keys(LANDMARKS).some((o) => Number(o) > Number(w) && Number(o) - Number(w) <= 4);
@@ -76,7 +77,7 @@ export function WeeksChart({ chart, now, focus }: { chart: Chart; now: Week | nu
               >
                 <span className="text-[0.625rem]">◆</span>
                 {/* A phone has room for the marks only. */}
-                <span className="hidden lg:inline">{label}</span>
+                {layout === "desktop" ? label : null}
               </span>
             );
           })}

@@ -5,7 +5,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 // A page put away while something has happened: its top as it is, and in
 // place of the page, what's put away, never deleted.
 let params: Record<string, string> = {};
-vi.mock("../../../../src/app/components/layout/AppLayout", () => ({ PhoneCorner: () => <div data-testid="corner" /> }));
+vi.mock("../../../../src/app/phone/components/PhoneCorner", () => ({ PhoneCorner: () => <div data-testid="corner" /> }));
 vi.mock("@tanstack/react-router", () => ({
   useParams: () => params,
   Link: ({ to, children }: { to: string; children: ReactNode }) => <a href={to}>{children}</a>,

@@ -11,6 +11,7 @@ import { Camera, FilePlus, FileText, X } from "lucide-react";
 import { type ChangeEvent, type FormEvent, useEffect, useRef, useState } from "react";
 import { papersSaves } from "../../../../../api/rpc/papers";
 import { useQuietKind } from "../../../../../app/features/quiet/hooks/useQuietKind";
+import { useLayout } from "../../../../../app/hooks/useLayout";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { FileProblemError, keepOnPhone, type Prepared, prepareFile, previewUrl } from "../../../../../app/model/uploads";
 import { type FileProblem, formatSize, isImage, MAX_ORIGINAL } from "../../../../../lib/files";
@@ -72,6 +73,7 @@ function Pick({
 export function AddPaper({ files: given, onAdded }: { files?: File[]; onAdded?: (id: string) => void }) {
   const add = useSave(papersSaves.addPaper);
   const quiet = useQuietKind();
+  const layout = useLayout();
   const [pages, setPages] = useState<Sheet[]>([]);
   const [readying, setReadying] = useState(false);
   const [problem, setProblem] = useState<string | null>(null);
@@ -174,23 +176,25 @@ export function AddPaper({ files: given, onAdded }: { files?: File[]; onAdded?: 
       <div className="flex flex-col gap-3">
         {status ?? (
           <>
-            {/* A phone: the camera, one tap, and the phone's own picker beside it (Files, for a PDF from an email). */}
-            <div className="grid grid-cols-2 gap-2 lg:hidden">
-              <Pick label="Photograph it" icon={Camera} camera primary onFiles={(files) => void ready(files)} />
-              <Pick label="Choose a file" icon={FileText} onFiles={(files) => void ready(files)} />
-            </div>
-            {/* A desktop: drop them in, or choose. */}
-            <FileDropzone
-              className="hidden lg:flex"
-              size="sm"
-              accept={ACCEPT}
-              multiple
-              maxSize={MAX_ORIGINAL}
-              label="Drop a PDF or photos of the pages here, or choose them"
-              hint="Several photos make one paper, a page each. PDF, JPEG, PNG or HEIC, up to 30 MB each."
-              onFilesChange={(files) => void ready(files)}
-              onFilesRejected={(rejected) => setProblem(paperProblem(rejected[0]?.reason === "size" ? "big" : "type"))}
-            />
+            {layout === "phone" ? (
+              // A phone: the camera, one tap, and the phone's own picker beside it (Files, for a PDF from an email).
+              <div className="grid grid-cols-2 gap-2">
+                <Pick label="Photograph it" icon={Camera} camera primary onFiles={(files) => void ready(files)} />
+                <Pick label="Choose a file" icon={FileText} onFiles={(files) => void ready(files)} />
+              </div>
+            ) : (
+              // A desktop: drop them in, or choose.
+              <FileDropzone
+                size="sm"
+                accept={ACCEPT}
+                multiple
+                maxSize={MAX_ORIGINAL}
+                label="Drop a PDF or photos of the pages here, or choose them"
+                hint="Several photos make one paper, a page each. PDF, JPEG, PNG or HEIC, up to 30 MB each."
+                onFilesChange={(files) => void ready(files)}
+                onFilesRejected={(rejected) => setProblem(paperProblem(rejected[0]?.reason === "size" ? "big" : "type"))}
+              />
+            )}
           </>
         )}
         {alert}
@@ -239,9 +243,7 @@ export function AddPaper({ files: given, onAdded }: { files?: File[]; onAdded?: 
       {alert}
       {pages.length < MAX_PAGES && !readying ? (
         <div className="flex flex-wrap items-center gap-2">
-          <span className="lg:hidden">
-            <Pick label="Another page" icon={Camera} camera size="sm" onFiles={(files) => void ready(files)} />
-          </span>
+          {layout === "phone" ? <Pick label="Another page" icon={Camera} camera size="sm" onFiles={(files) => void ready(files)} /> : null}
           <Pick label="Add a file" icon={FilePlus} size="sm" onFiles={(files) => void ready(files)} />
         </div>
       ) : null}

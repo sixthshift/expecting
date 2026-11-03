@@ -166,7 +166,7 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 `server/` and `api/` import the store or `server/`; nothing imports
 `api/rest/`, and nothing imports a `routes/` folder but other routes and
 `src/routes/tree.ts` (a page reads its route through `getRouteApi`);
-`lib/` and `content/` import no React, router or server.
+`lib/` and `content/` import no React, router or server. A phone's layout never imports a desktop's, nor the other way (`phone/`, `desktop/`; Adaptive).
 
 ## Data in the app
 
@@ -238,8 +238,9 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 section is [`src/pillars/thisWeek/README.md`](../src/pillars/thisWeek/README.md).
 
 - `ThisWeekPage` is `ThisWeekPageProvider`, which works out the week shown,
-  whether it's a peek and the week's note once, around `WeekColumns`. On the right, `DoingNow`, or
-  on a peek `BestDoneThatWeek`.
+  whether it's a peek and the week's note once, around `ThisWeekPhone` (one
+  column, the doing first) or `ThisWeekDesktop` (the week on the left, the
+  doing on the right: `DoingNow`, or on a peek `BestDoneThatWeek`).
 
 - To do now is `toDoNow` (`src/lib/planner/todo.ts`), Coming up `comingUp`; the
   heads-up and Worth knowing are `headsUps` and `worthKnowing`
@@ -721,9 +722,60 @@ Installing and the service worker need HTTPS, except on `localhost`.
 
 ### Adaptive
 
-- A layout designed for each: on a desktop the sidebar, the timeline's three
-  columns, the Planner's two; on a phone the tab bar under the thumb and
-  settings behind a gear.
+- **Two experiences, each responsive.** A phone and a desktop each get a
+  layout designed for them, not one layout rearranged: on a phone the tab
+  bar under the thumb, one thing at a time, the corner (`PhoneCorner`) for
+  It's time, the call button, Emergency info and settings; on a desktop the
+  sidebar, and things side by side. Within each, a part still flows with
+  the width (`sm:`: cards two across, a row's answer beside its question),
+  but the page's gutter is the layout's: 16px on a phone (`px-4`), 32px on a
+  desktop (`desktop:px-8`), so a scroller that runs to the screen's edges
+  (`-mx-4 px-4`, the Library's chips, the Journal's story controls) always
+  meets it.
+- **Two, not three.** Under 1024px is a phone's layout: every phone, and an
+  iPad held upright. 1024px and over is a desktop's: laptops, monitors, and
+  an iPad turned sideways. There's no tablet view: a third would mean
+  building everything three times, and a tablet fits one of the two. The
+  desktop's sidebar and columns are too tight under 1024px, which is why
+  the line is there. A phone's layout on a wider screen (640–1023px) is
+  stretched, not redesigned: `sm:` lets a part use the room (cards two
+  across, an answer beside its question), and nothing else changes there.
+- **One line, two ways to follow it.** The line is `DESKTOP_MEDIA`
+  (64rem, `src/app/model/layout.ts`): `phone` under it, `desktop` on and
+  over it. `useLayout()` (`src/app/hooks/useLayout.ts`) follows it in React,
+  as the window is resized across it (`layoutNow()` for an effect that asks
+  once). A boot script (`LAYOUT_BOOT_SCRIPT`, in `Document`) puts the same
+  answer on `<html data-layout>` before the first paint, and the `phone:`
+  and `desktop:` variants (`src/styles/index.css`) follow that. There's no
+  `lg:` breakpoint any more, and a test keeps it out (`test/app/layout.test.ts`).
+- **Structure with `useLayout()`, adjustments with the variants.** Where the
+  two differ in what's there or its order (a part only one has, a column
+  beside the page, a camera or a drop zone), a part chooses with
+  `useLayout()`, never by drawing both and hiding one, which mounts the other
+  and runs its effects for nothing. Where it's the same parts in the same
+  order, only spaced or sized differently (side by side rather than stacked,
+  a bigger heading), `desktop:` and `phone:` say so. The one exception is the
+  loading skeleton (`PageSkeleton`, `src/components/`), a placeholder with
+  nothing to run, which stays out of the app's code.
+- **A layout of each is a mirror, like quiet.** What's only a phone's or only
+  a desktop's goes in `phone/` or `desktop/` beside what it splits, in the
+  one shape (`pages/`, `components/`): the app's own are
+  `src/app/phone/components/` (`PhoneLayout`, `PhoneCorner`) and
+  `src/app/desktop/components/` (`DesktopLayout`), and `AppLayout` chooses
+  between them. What both draw stays outside both (`PillarNav`). This
+  week's is two pages (`ThisWeekPhone`, one column, the doing first, the
+  week's reads between its runs; `ThisWeekDesktop`, the week on the left
+  and the doing on the right); Settings' nav is the desktop's only
+  (`settings/desktop/components/SettingsNav`). A page
+  chooses under its own provider (`layout === "desktop" ? <X /> : <Y />`), so
+  what it holds (search words, what's open) carries across the line, and the
+  address is the same in both. Quiet is chosen by the route and the layout by
+  the page, so they never multiply: a quiet page has `quiet/phone/` and
+  `quiet/desktop/` only where it differs too. Biome keeps them apart: nothing
+  in `phone/` imports `desktop/`, or the other way.
+- **Tests:** the DOM tests' window is a phone's (390 wide, `vite.config.ts`),
+  so a part drawn per layout draws the phone's; a test of the desktop's
+  resizes it (`happyDOM.setWindowSize`).
 - One width for the pillars (`max-w-6xl`), so the header stays put between
   them; what's read rather than scanned (a Library entry, Emergency info,
   the book) keeps a `max-w-3xl` column at the left.

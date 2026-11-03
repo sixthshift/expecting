@@ -30,7 +30,7 @@ export function QuietThisWeekPage() {
   const steps = nextSteps(items, quiet.kind, pausedAt(quiet, settings.dueDate));
 
   return (
-    <PillarLayout className="pt-[max(1.5rem,env(safe-area-inset-top))] lg:pt-10">
+    <PillarLayout className="pt-[max(1.5rem,env(safe-area-inset-top))] desktop:pt-10">
       <div className="max-w-3xl">
         <div className="flex flex-col gap-8">
           {guide ? (

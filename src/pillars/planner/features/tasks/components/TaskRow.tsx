@@ -57,7 +57,7 @@ export function TaskRow({
     );
 
   const row = (
-    <div className={stack ? "flex min-h-11 flex-wrap items-center gap-x-3 pb-2 lg:flex-nowrap lg:pb-0" : "flex min-h-11 items-center gap-3"}>
+    <div className={stack ? "flex min-h-11 flex-wrap items-center gap-x-3 pb-2 desktop:flex-nowrap desktop:pb-0" : "flex min-h-11 items-center gap-3"}>
       <Checkbox
         checked={ticked}
         onCheckedChange={change}
@@ -68,7 +68,7 @@ export function TaskRow({
         className="shrink-0"
       />
       {stack ? (
-        <span className="flex basis-full items-center gap-3 pl-9 text-xs text-fg-subtle lg:ml-auto lg:basis-auto lg:shrink-0 lg:pl-0">
+        <span className="flex basis-full items-center gap-3 pl-9 text-xs text-fg-subtle desktop:ml-auto desktop:basis-auto desktop:shrink-0 desktop:pl-0">
           {meta}
           {actions}
         </span>

@@ -24,7 +24,7 @@ tailor is `docs/architecture.md`, Tailoring.
 ```
 queries (settings, answers, extras, people)
   → SettingsPageProvider    the row open; asks, latest, answered, next   contexts/
-  → SettingsNav, AnswersProgress                                         components/nav, progress
+  → SettingsSections (on a desktop SettingsNav beside them)             components/sections, desktop/
   → QuestionGroup           a group's questions, once and of each        components/questions/
   → QuestionRow             one ask: its answer, who, when it's asked    components/questions/
   → AnswerField             a date picker, or the answers                components/answer/
@@ -36,13 +36,14 @@ decides, who turned an extra on); the context holds what several agree on.
 ## Where things are
 
 ```
-pages/          SettingsPage: the sections, in order
+pages/          SettingsPage: the sections, in order; on a desktop the nav beside them (useLayout)
+desktop/        components/SettingsNav, the sections down the side, each with how many to answer
 routes/         settings (/settings, ?ask=)
 contexts/       SettingsPageContext: the row open, goTo, the ?ask= scroll, the questions as things stand
 model/          facts.data.ts and extras.data.ts (the lists), facts.ts and extras.ts (their rules):
                 pure, so lib/ and content/ may import them
 components/
-  nav/          SettingsNav, the sections down the side on a large screen
+  sections/     SettingsSections, every section in one column, which both layouts draw
   progress/     AnswersProgress, how many are answered and the next
   questions/    QuestionGroup, QuestionRow
   dueDate/      DueDateRow, and DueDateForm (onboarding's too)

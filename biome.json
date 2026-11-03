@@ -310,6 +310,78 @@
           }
         }
       }
+    },
+    {
+      "includes": ["src/**/phone/**", "!src/**/routes/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
+                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/server/**"],
+                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
+                  },
+                  {
+                    "group": ["**/api/rest", "**/api/rest/**"],
+                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
+                  },
+                  {
+                    "group": ["**/routes", "**/routes/**"],
+                    "message": "Routes are definitions only: nothing imports them but other routes, and src/router.tsx the tree. Read a route's data with getRouteApi."
+                  },
+                  {
+                    "group": ["**/desktop", "**/desktop/**"],
+                    "message": "The phone's layout never draws the desktop's: share a part by keeping it outside both (components/), and choose between them with useLayout()."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/**/desktop/**", "!src/**/routes/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/db/**", "bun:sqlite", "drizzle-orm", "drizzle-orm/**"],
+                    "message": "The store is server only: import types and rules from src/lib/, and data through a server function."
+                  },
+                  {
+                    "group": ["**/server/**"],
+                    "message": "Server only: the browser reaches the server through a server function in src/api/rpc/."
+                  },
+                  {
+                    "group": ["**/api/rest", "**/api/rest/**"],
+                    "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
+                  },
+                  {
+                    "group": ["**/routes", "**/routes/**"],
+                    "message": "Routes are definitions only: nothing imports them but other routes, and src/router.tsx the tree. Read a route's data with getRouteApi."
+                  },
+                  {
+                    "group": ["**/phone", "**/phone/**"],
+                    "message": "The desktop's layout never draws the phone's: share a part by keeping it outside both (components/), and choose between them with useLayout()."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
     }
   ]
 }

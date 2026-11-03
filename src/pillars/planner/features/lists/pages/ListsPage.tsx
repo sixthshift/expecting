@@ -27,7 +27,7 @@ export function ListsPage() {
       className="gap-8"
     >
       {builtIn.length > 0 ? (
-        <ul className="grid gap-4 lg:grid-cols-2">
+        <ul className="grid gap-4 desktop:grid-cols-2">
           {builtIn.map((list) => (
             <li key={list.id}>
               <ListCard list={list} />
@@ -40,7 +40,7 @@ export function ListsPage() {
           Your lists
         </h2>
         {own.length > 0 ? (
-          <ul className="grid gap-4 lg:grid-cols-2">
+          <ul className="grid gap-4 desktop:grid-cols-2">
             {own.map((list) => (
               <li key={list.id}>
                 <ListCard list={list} />

@@ -11,9 +11,8 @@ import { CaptureSheet } from "./CaptureSheet";
 
 export function CaptureButton({ layout }: { layout: "float" | "row" }) {
   const [open, setOpen] = useState(false);
-  // `n` opens it from the keyboard, wherever the "+" is offered: the sidebar's, which is there on every pillar (hidden on a phone).
+  // `n` opens it from the keyboard, wherever the "+" is offered: the sidebar's or the floating one, whichever the layout draws (one at a time).
   useEffect(() => {
-    if (layout !== "row") return;
     function onKey(event: KeyboardEvent) {
       if (event.key !== "n" || typingOrInDialog(event)) return;
       event.preventDefault();
@@ -21,7 +20,7 @@ export function CaptureButton({ layout }: { layout: "float" | "row" }) {
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [layout]);
+  }, []);
   return layout === "float" ? (
     <CaptureFloat onClick={() => setOpen(true)} open={open} onClose={() => setOpen(false)} />
   ) : (

@@ -25,7 +25,7 @@ export function OnboardingLayout({ title, lead, children }: { title: string; lea
   }, []);
 
   return (
-    <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] lg:max-w-lg lg:justify-center">
+    <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] desktop:max-w-lg desktop:justify-center">
       <header className="flex items-center gap-3">
         {previous ? (
           <button
@@ -45,13 +45,13 @@ export function OnboardingLayout({ title, lead, children }: { title: string; lea
         ) : null}
       </header>
 
-      <section aria-labelledby="step-heading" className="mt-10 flex flex-1 flex-col gap-6 lg:mt-14 lg:flex-none">
+      <section aria-labelledby="step-heading" className="mt-10 flex flex-1 flex-col gap-6 desktop:mt-14 desktop:flex-none">
         <div className="flex flex-col gap-2">
           <h1
             id="step-heading"
             ref={heading}
             tabIndex={-1}
-            className="text-2xl leading-tight font-display font-semibold text-fg-strong outline-none focus-visible:ring-0 focus-visible:outline-none lg:text-3xl"
+            className="text-2xl leading-tight font-display font-semibold text-fg-strong outline-none focus-visible:ring-0 focus-visible:outline-none desktop:text-3xl"
           >
             {title}
           </h1>

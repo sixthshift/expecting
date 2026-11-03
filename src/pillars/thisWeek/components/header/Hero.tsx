@@ -31,19 +31,19 @@ export function Hero() {
   const line = size ? sizeLine(size) : null;
   const range = weekRange(week, dueDate);
   return (
-    // Its parts sit in the header's grid (WeekColumns): the heading beside the phone's corner, the size line under it with
+    // Its parts sit in the header's grid (WeekHeader): the heading beside the phone's corner, the size line under it with
     // the size's drawing at its right, under the corner; on a desktop, with no corner, the drawing is opposite the week.
     <div className="contents">
       <h1 className="col-start-1 row-start-1 flex flex-col text-fg-strong">
         <span className="text-xs font-semibold tracking-widest text-fg-subtle uppercase">{weekFromNow(week, position.week)}</span>
-        <span className="text-4xl font-display font-semibold lg:text-5xl">{weekLabel(week)}</span>
+        <span className="text-4xl font-display font-semibold desktop:text-5xl">{weekLabel(week)}</span>
       </h1>
       {/* One line, kept on every week, so going week to week moves nothing under it; a narrow phone cuts it short (read out whole), and the sentence is its title. On a phone it leaves room at its end for the drawing. */}
-      <p className="col-span-full row-start-2 self-center truncate pr-13 text-fg-normal lg:pr-0" title={size ? sizeLabel(size) : undefined}>
+      <p className="col-span-full row-start-2 self-center truncate pr-13 text-fg-normal desktop:pr-0" title={size ? sizeLabel(size) : undefined}>
         {line ?? "\u00a0"}
       </p>
       {/* Its place is kept on a week without one, so the header is the same height every week. */}
-      <div className="col-start-2 row-start-2 size-10 justify-self-end lg:row-start-1 lg:size-14 lg:self-end">
+      <div className="col-start-2 row-start-2 size-10 justify-self-end desktop:row-start-1 desktop:size-14 desktop:self-end">
         {size?.like ? <SizeIcon like={size.like} className="size-full" /> : null}
       </div>
       <div className="col-span-full flex flex-col gap-2 pt-1">

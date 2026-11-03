@@ -12,53 +12,79 @@ import { ComingUp } from "../../../planner/features/tasks/components/comingUp/Co
 import { ToDoNow } from "../../../planner/features/tasks/components/toDoNow/ToDoNow";
 import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
 import { WeeklyCard } from "../../features/weekly/components/WeeklyCard";
+import { Part } from "../Part";
 
 /**
- * The doing, this week: the next appointment once it's close, what to do now,
- * how you are, the week's question, what Expecting needs to know, an extra to
- * offer, what's coming, and the questions waiting while no appointment is near.
- * Each in its phone `order` among the week's parts.
+ * The doing, this week, in three runs that each layout places: what's now
+ * (`DoingFirst`), what's asked of you this week (`DoingAsked`) and what's
+ * ahead (`DoingAhead`). On a desktop they're one column on the right
+ * (`DoingNow`); on a phone the week's reads come between them.
  */
 export function DoingNow() {
+  return (
+    <>
+      <DoingFirst />
+      <DoingAsked />
+      <DoingAhead />
+    </>
+  );
+}
+
+/** Now: It's time's look through once it's near, the next appointment once it's close, what to do now, and how you are. */
+export function DoingFirst() {
+  return (
+    <>
+      <Part>
+        <LookThrough />
+      </Part>
+      <Part>
+        <NextAppointment />
+      </Part>
+      <div>
+        <ToDoNow />
+      </div>
+      <Part>
+        <HardFortnight />
+      </Part>
+      <Part>
+        <CheckIn />
+      </Part>
+    </>
+  );
+}
+
+/** Asked of you this week: the week's question, and what Expecting needs to know. */
+export function DoingAsked() {
+  return (
+    <>
+      <Part>
+        <WeeklyCard />
+      </Part>
+      <Part>
+        <AskNow />
+      </Part>
+    </>
+  );
+}
+
+/** Ahead: an extra to offer, what's coming, and the questions waiting while no appointment is near (it brings them itself once one is). */
+export function DoingAhead() {
   const { today } = useThisWeekPage();
   const { data: questions } = useQuestionsQuery();
   const { data: appointments } = useAppointmentsQuery();
   const openQuestions = questions.filter((q) => !q.askedAt).length;
-  // The next appointment is here once it's close, and with it the questions.
   const next = nextAppointment(appointments, today);
   const nextSoon = next !== null && appointmentSoon(next, today) !== null;
-
   return (
     <>
-      <div className="order-1 empty:hidden lg:order-0">
-        <LookThrough />
-      </div>
-      <div className="order-1 empty:hidden lg:order-0">
-        <NextAppointment />
-      </div>
-      <div className="order-1 lg:order-0">
-        <ToDoNow />
-      </div>
-      <div className="order-1 empty:hidden lg:order-0">
-        <HardFortnight />
-      </div>
-      <div className="order-1 empty:hidden lg:order-0">
-        <CheckIn />
-      </div>
-      <div className="order-3 empty:hidden lg:order-0">
-        <WeeklyCard />
-      </div>
-      <div className="order-3 empty:hidden lg:order-0">
-        <AskNow />
-      </div>
-      <div className="order-5 empty:hidden lg:order-0">
+      <Part>
         <OfferExtra />
-      </div>
-      <div className="order-5 empty:hidden lg:order-0">
+      </Part>
+      <Part>
         <ComingUp />
-      </div>
+      </Part>
       {openQuestions > 0 && !nextSoon ? (
-        <div className="order-6 lg:order-0">
+        <div>
           <QuestionsWaiting count={openQuestions} />
         </div>
       ) : null}

@@ -12,7 +12,7 @@ export function BestDoneThatWeek() {
   const thatWeek = week === null ? [] : tasks.filter((t) => t.due === week || t.deadline === week);
 
   return (
-    <section aria-labelledby="that-week" className="order-1 flex flex-col gap-2 lg:order-0">
+    <section aria-labelledby="that-week" className="flex flex-col gap-2">
       <h2 id="that-week" className="text-lg font-display font-semibold text-fg-strong">
         Best done that week
       </h2>

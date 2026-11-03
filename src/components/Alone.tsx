@@ -9,7 +9,7 @@ import { Page } from "./Page";
  */
 export function Alone({ title, subtitle, className, children }: { title: string; subtitle?: ReactNode; className?: string; children: ReactNode }) {
   return (
-    <div className="lg:mx-auto lg:flex lg:min-h-dvh lg:max-w-lg lg:items-center">
+    <div className="desktop:mx-auto desktop:flex desktop:min-h-dvh desktop:max-w-lg desktop:items-center">
       <Page title={title} subtitle={subtitle}>
         <Card size="lg" className={cn("w-full max-w-md", className)}>
           {children}

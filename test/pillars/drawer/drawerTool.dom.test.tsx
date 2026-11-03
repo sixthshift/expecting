@@ -8,7 +8,7 @@ let choices: { id: string; on: boolean }[] = [];
 vi.mock("../../../src/api/rpc/extras", () => ({
   useExtrasQuery: ({ select }: { select: (c: typeof choices) => unknown }) => ({ data: select(choices) }),
 }));
-vi.mock("../../../src/app/components/layout/AppLayout", () => ({ PhoneCorner: () => null }));
+vi.mock("../../../src/app/phone/components/PhoneCorner", () => ({ PhoneCorner: () => null }));
 vi.mock("@tanstack/react-router", () => ({
   Link: ({ to, search, children }: { to: string; search?: { ask?: string }; children: ReactNode }) => (
     <a href={search?.ask ? `${to}?ask=${search.ask}` : to}>{children}</a>

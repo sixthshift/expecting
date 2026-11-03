@@ -154,7 +154,7 @@ export function PhotosCollection({ quiet }: { quiet: QuietKind | null }) {
             {placeHeading(group.place, group.month)}
             <span className="font-normal text-fg-subtle">{aside(group, dueDate, now)}</span>
           </h3>
-          <ul className="grid grid-cols-3 gap-2 sm:grid-cols-4 lg:grid-cols-6">
+          <ul className="grid grid-cols-3 gap-2 sm:grid-cols-4 desktop:grid-cols-6">
             {group.photos.map((photo) => (
               <li key={photo.id}>
                 <button

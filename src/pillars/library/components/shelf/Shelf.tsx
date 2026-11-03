@@ -37,7 +37,7 @@ export function Shelf({ narrowing }: { narrowing: Narrowing }) {
         <Link to="/library" className="-ml-2 mb-2 flex min-h-11 w-fit items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal">
           <ArrowLeft aria-hidden size={16} /> Library
         </Link>
-        <h1 className="text-2xl font-display font-semibold text-fg-strong lg:text-3xl">
+        <h1 className="text-2xl font-display font-semibold text-fg-strong desktop:text-3xl">
           {title}
           {door && topic ? <span className="text-fg-subtle"> · {TOPICS[topic]}</span> : null}
         </h1>

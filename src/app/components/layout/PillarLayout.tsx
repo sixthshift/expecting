@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
 import type { AppPath } from "../../model/paths";
-import { PhoneCorner } from "./AppLayout";
+import { PhoneCorner } from "../../phone/components/PhoneCorner";
 
 const WIDTH = { "2xl": "max-w-2xl", "3xl": "max-w-3xl", "6xl": "max-w-6xl" } as const;
 
@@ -43,9 +43,9 @@ export function PillarLayout({
   children: ReactNode;
 }) {
   return (
-    <main className={cn("mx-auto w-full px-4 pb-16 md:px-8", WIDTH[width])}>
+    <main className={cn("mx-auto w-full px-4 pb-16 desktop:px-8", WIDTH[width])}>
       {back ? (
-        <header className={cn("flex flex-col gap-1 pt-[max(1rem,env(safe-area-inset-top))] lg:pt-8", title ? "pb-5 lg:pb-8" : "pb-3")}>
+        <header className={cn("flex flex-col gap-1 pt-[max(1rem,env(safe-area-inset-top))] desktop:pt-8", title ? "pb-5 desktop:pb-8" : "pb-3")}>
           <Link
             to={back.to}
             className={cn(
@@ -59,7 +59,7 @@ export function PillarLayout({
           {head}
         </header>
       ) : title ? (
-        <header className="flex flex-col gap-1 pt-[max(1.5rem,env(safe-area-inset-top))] pb-5 lg:pt-10 lg:pb-8">
+        <header className="flex flex-col gap-1 pt-[max(1.5rem,env(safe-area-inset-top))] pb-5 desktop:pt-10 desktop:pb-8">
           <div className="flex items-start justify-between gap-3">
             <Heading title={title} lead={lead} />
             <PhoneCorner />
@@ -75,7 +75,7 @@ export function PillarLayout({
 function Heading({ title, lead }: { title: string; lead?: ReactNode }) {
   return (
     <div className="flex flex-col gap-1">
-      <h1 className="text-2xl font-display font-semibold text-fg-strong lg:text-3xl">{title}</h1>
+      <h1 className="text-2xl font-display font-semibold text-fg-strong desktop:text-3xl">{title}</h1>
       {lead ? <p className="max-w-prose text-fg-subtle">{lead}</p> : null}
     </div>
   );

@@ -19,7 +19,7 @@ export function Sections() {
     <div className="flex flex-col gap-4">
       {leftOnly && shown.length === 0 ? <p className="text-fg-normal">All sorted: nothing left to get on this list.</p> : null}
       {shown.length > 0 ? (
-        <div className="gap-4 lg:columns-2">
+        <div className="gap-4 desktop:columns-2">
           {shown.map((section) => (
             <SectionCard
               key={section.key ?? "yours"}

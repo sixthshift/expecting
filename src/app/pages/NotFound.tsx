@@ -12,7 +12,7 @@ import { LookFor } from "../../pillars/library/components/lookFor/LookFor";
 export function NotFound() {
   const { pathname } = useLocation();
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 pt-[max(2.5rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-16">
+    <main className="mx-auto w-full max-w-6xl px-4 pt-[max(2.5rem,env(safe-area-inset-top))] pb-16 desktop:px-8 desktop:pt-16">
       <div className="flex max-w-2xl flex-col gap-6">
         <NothingHere />
         {/* Keyed by the address, so following a suggestion's link to another dead end starts afresh. */}
@@ -28,7 +28,7 @@ export function NotFound() {
 /** Outside the frame (an address under onboarding): no pillars to keep, so a way back in. */
 export function NotFoundPlain() {
   return (
-    <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-4 pt-[max(2.5rem,env(safe-area-inset-top))] pb-16 md:px-8 lg:pt-16">
+    <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-4 pt-[max(2.5rem,env(safe-area-inset-top))] pb-16 desktop:px-8 desktop:pt-16">
       <NothingHere />
       <Button asChild intent="brand" variant="outline" className="self-start">
         <Link to="/">Back to Expecting</Link>

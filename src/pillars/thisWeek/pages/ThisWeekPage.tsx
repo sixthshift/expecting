@@ -1,12 +1,14 @@
-import { WeekColumns } from "../components/WeekColumns";
+import { useLayout } from "../../../app/hooks/useLayout";
 import { ThisWeekPageProvider } from "../contexts/ThisWeekPageContext";
+import { ThisWeekDesktop } from "../desktop/components/ThisWeekDesktop";
+import { ThisWeekPhone } from "../phone/components/ThisWeekPhone";
 
 /**
  * This week, home: what you open the app for. Where you are first, then what
  * to do now (after the next appointment, once it's within a fortnight), how you are today, the week day by day (its note, read as you, then a read a day), the week's heads-up, what
  * Expecting needs to know, what's worth knowing this week, and what's coming. On a desktop the
- * week sits on the left and the doing on the right; on a phone it's one
- * column, the doing first.
+ * week sits on the left and the doing on the right (`ThisWeekDesktop`); on a
+ * phone it's one column, the doing first (`ThisWeekPhone`).
  *
  * A peek at another week (?at=29) shows that week instead: its note, its
  * heads-up, what's worth knowing, what's best done then, its appointments,
@@ -16,9 +18,5 @@ import { ThisWeekPageProvider } from "../contexts/ThisWeekPageContext";
  * (`worlds`): support and the next steps.
  */
 export function ThisWeekPage() {
-  return (
-    <ThisWeekPageProvider>
-      <WeekColumns />
-    </ThisWeekPageProvider>
-  );
+  return <ThisWeekPageProvider>{useLayout() === "desktop" ? <ThisWeekDesktop /> : <ThisWeekPhone />}</ThisWeekPageProvider>;
 }

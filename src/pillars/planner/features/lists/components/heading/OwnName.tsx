@@ -35,7 +35,7 @@ export function OwnName({ id, title }: { id: string; title: string }) {
           </Button>
         </form>
       ) : (
-        <h1 className="text-2xl font-display font-semibold text-fg-strong lg:text-3xl">{title}</h1>
+        <h1 className="text-2xl font-display font-semibold text-fg-strong desktop:text-3xl">{title}</h1>
       )}
       {confirming ? (
         <div className="flex flex-wrap items-center gap-2">
