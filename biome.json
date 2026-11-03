@@ -96,7 +96,7 @@
       }
     },
     {
-      "includes": ["src/**", "!src/db/**", "!src/server/**", "!src/api/**", "!src/routes/**", "!src/router.tsx", "!src/server.ts", "!src/start.ts"],
+      "includes": ["src/**", "!src/db/**", "!src/server/**", "!src/api/**", "!src/**/routes/**", "!src/router.tsx", "!src/server.ts", "!src/start.ts"],
       "linter": {
         "rules": {
           "style": {
@@ -117,8 +117,8 @@
                     "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
-                    "group": ["**/routes/**"],
-                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
+                    "group": ["**/routes", "**/routes/**"],
+                    "message": "Routes are definitions only: nothing imports them but other routes, and src/router.tsx the tree. Read a route's data with getRouteApi."
                   }
                 ]
               }
@@ -128,7 +128,7 @@
       }
     },
     {
-      "includes": ["src/routes/**", "src/router.tsx"],
+      "includes": ["src/**/routes/**", "src/router.tsx"],
       "linter": {
         "rules": {
           "style": {
@@ -152,7 +152,7 @@
       }
     },
     {
-      "includes": ["src/pillars/**", "src/app/features/**"],
+      "includes": ["src/pillars/**", "src/app/features/**", "!src/**/routes/**"],
       "linter": {
         "rules": {
           "style": {
@@ -173,8 +173,8 @@
                     "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
-                    "group": ["**/routes/**"],
-                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
+                    "group": ["**/routes", "**/routes/**"],
+                    "message": "Routes are definitions only: nothing imports them but other routes, and src/router.tsx the tree. Read a route's data with getRouteApi."
                   }
                 ]
               }
@@ -205,8 +205,8 @@
                     "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
-                    "group": ["**/routes/**"],
-                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
+                    "group": ["**/routes", "**/routes/**"],
+                    "message": "Routes are definitions only: nothing imports them but other routes, and src/router.tsx the tree. Read a route's data with getRouteApi."
                   }
                 ]
               }
@@ -237,8 +237,8 @@
                     "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
-                    "group": ["**/routes/**"],
-                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
+                    "group": ["**/routes", "**/routes/**"],
+                    "message": "Routes are definitions only: nothing imports them but other routes, and src/router.tsx the tree. Read a route's data with getRouteApi."
                   }
                 ]
               }
@@ -269,8 +269,8 @@
                     "message": "The /api/* server routes are server only: the app calls the server through src/api/rpc/."
                   },
                   {
-                    "group": ["**/routes/**"],
-                    "message": "Routes are definitions only and nothing imports them: read a route's data with getRouteApi."
+                    "group": ["**/routes", "**/routes/**"],
+                    "message": "Routes are definitions only: nothing imports them but other routes, and src/router.tsx the tree. Read a route's data with getRouteApi."
                   }
                 ]
               }
