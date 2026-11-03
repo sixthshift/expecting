@@ -2,9 +2,9 @@ import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
 import { Plus } from "lucide-react";
 import { useState } from "react";
-import { usePlannerPage } from "../../contexts/PlannerPageContext";
 import { AddAppointment } from "../../features/appointments/components/AddAppointment";
 import { AppointmentCard } from "../../features/appointments/components/AppointmentCard";
+import { useAppointmentsAhead } from "../../hooks/useAppointmentsAhead";
 import { Fold } from "../Fold";
 
 /**
@@ -13,8 +13,7 @@ import { Fold } from "../Fold";
  * there are more appointments then, not fewer.
  */
 export function Appointments() {
-  const { appointments } = usePlannerPage();
-  const { next, later, past } = appointments;
+  const { next, later, past } = useAppointmentsAhead();
   const [adding, setAdding] = useState(false);
   return (
     <section id="appointments" aria-labelledby="appointments-heading" className="flex scroll-mt-6 flex-col gap-3">

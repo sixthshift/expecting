@@ -2,15 +2,15 @@ import { useQuestionsQuery } from "../../../../api/rpc/questions";
 import { todayISO } from "../../../../lib/dates";
 import { when } from "../../../../lib/labels";
 import { APPOINTMENT_WHEN } from "../../../../lib/planner/appointments";
-import { usePlannerPage } from "../../contexts/PlannerPageContext";
 import { AddQuestion } from "../../features/questions/components/AddQuestion";
 import { AskedQuestion } from "../../features/questions/components/AskedQuestion";
 import { OpenQuestion } from "../../features/questions/components/OpenQuestion";
+import { useAppointmentsAhead } from "../../hooks/useAppointmentsAhead";
 import { Fold } from "../Fold";
 
 /** The questions, for the next appointment (named, when there is one): a way to add one, those still to ask, and those asked folded away. */
 export function ForNextAppointment() {
-  const { next } = usePlannerPage().appointments;
+  const { next } = useAppointmentsAhead();
   const { data: questions } = useQuestionsQuery();
   const open = questions.filter((q) => !q.askedAt);
   const asked = questions.filter((q) => q.askedAt);

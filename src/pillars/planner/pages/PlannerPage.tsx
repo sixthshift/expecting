@@ -1,39 +1,45 @@
+import { useQuietQuery } from "../../../api/rpc/quiet";
 import { PillarLayout } from "../../../app/components/layout/PillarLayout";
 import { Appointments } from "../components/appointments/Appointments";
 import { ForNextAppointment } from "../components/questions/ForNextAppointment";
-import { PutAside } from "../components/quiet/PutAside";
 import { ToDo } from "../components/toDo/ToDo";
-import { PlannerPageProvider, usePlannerPage } from "../contexts/PlannerPageContext";
+import { PlannerPageProvider } from "../contexts/PlannerPageContext";
 import { ListsWayIn } from "../features/lists/components/wayIn/ListsWayIn";
+import { QuietPlannerPageProvider } from "../quiet/contexts/QuietPlannerPageContext";
+import { QuietPlannerPage } from "../quiet/pages/QuietPlannerPage";
 
 /**
- * What to do and what to ask. To do starts somewhere: the one thing to do
- * next, then the rest of what to do now, with what's ahead, missed and done
- * folded away (src/lib/planner/plan.ts). Beside it, the lists (what to get),
- * the appointments, and the questions for the next one. While something has
- * happened, nothing to do: the list is put aside, with what was already set
- * in motion. The plan and the appointments are worked out once, in
- * `PlannerPageProvider`; each part reads it.
+ * The Planner, at `/planner`: the one place that chooses between its two
+ * worlds, each with its own context. While something has happened, the quiet
+ * Planner (`quiet/`); otherwise `Planner`.
  */
 export function PlannerPage() {
-  return (
+  const { data: quiet } = useQuietQuery();
+  return quiet ? (
+    <QuietPlannerPageProvider>
+      <QuietPlannerPage />
+    </QuietPlannerPageProvider>
+  ) : (
     <PlannerPageProvider>
       <Planner />
     </PlannerPageProvider>
   );
 }
 
+/**
+ * What to do and what to ask. To do starts somewhere: the one thing to do
+ * next, then the rest of what to do now, with what's ahead, missed and done
+ * folded away (src/lib/planner/plan.ts). Beside it, the lists (what to get),
+ * the appointments, and the questions for the next one. The plan is worked
+ * out once, in `PlannerPageProvider`; each part reads it.
+ */
 function Planner() {
-  const { quiet } = usePlannerPage();
   return (
-    <PillarLayout
-      title="Planner"
-      lead={quiet ? "Nothing needs doing. What's here is for when you want it." : "What to do and what to ask, so nothing sneaks up on you."}
-    >
+    <PillarLayout title="Planner" lead="What to do and what to ask, so nothing sneaks up on you.">
       <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start lg:gap-10">
-        {quiet ? <PutAside /> : <ToDo />}
+        <ToDo />
         <div className="flex flex-col gap-10 lg:sticky lg:top-6">
-          {quiet ? null : <ListsWayIn />}
+          <ListsWayIn />
           <Appointments />
           <ForNextAppointment />
         </div>

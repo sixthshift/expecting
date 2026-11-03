@@ -1,8 +1,4 @@
-import { useChecklistQuery } from "../../../../api/rpc/checklist";
-import { setInMotion } from "../../../../lib/quiet";
-import { useItems } from "../../../library/hooks/useItems";
-import { usePlannerPage } from "../../contexts/PlannerPageContext";
-import { useTasks } from "../../features/tasks/hooks/useTasks";
+import { useQuietPlannerPage } from "../contexts/QuietPlannerPageContext";
 import { InMotion } from "./InMotion";
 
 /**
@@ -11,11 +7,8 @@ import { InMotion } from "./InMotion";
  * you're ready: claims that may still matter, and bookings you might cancel.
  */
 export function PutAside() {
-  const { quiet } = usePlannerPage();
-  const tasks = useTasks();
-  const { data: ticks } = useChecklistQuery({ select: (c) => c.ticks });
-  const items = useItems();
-  const { claims, bookings } = setInMotion(tasks, ticks, items);
+  const { kind, inMotion } = useQuietPlannerPage();
+  const { claims, bookings } = inMotion;
   return (
     <section aria-labelledby="todo" className="flex flex-col gap-6">
       <div className="flex flex-col gap-2">
@@ -30,7 +23,7 @@ export function PutAside() {
           title="Claims you've started"
           lead="Some may still apply, and some may need stopping."
           tasks={claims}
-          more={quiet === "loss" ? { id: "leave-after-loss", label: "Leave and pay after a loss" } : undefined}
+          more={kind === "loss" ? { id: "leave-after-loss", label: "Leave and pay after a loss" } : undefined}
         />
       ) : null}
       {bookings.length > 0 ? (
