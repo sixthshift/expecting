@@ -1,10 +1,11 @@
 import { getRouteApi, Link, Navigate } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
 import { PillarLayout } from "../../../app/components/layout/PillarLayout";
+import { useQuietKind } from "../../../app/features/quiet/hooks/useQuietKind";
 import { FOLDED_WHILE_QUIET } from "../../../lib/journal/quiet";
 import type { Collection } from "../../../lib/journal/story/collections";
 import { JournalTabs } from "../components/JournalTabs";
-import { JournalPageProvider, useJournalPage } from "../contexts/JournalPageContext";
+import { JournalPageProvider } from "../contexts/JournalPageContext";
 import { AppetiteCollection } from "../features/appetite/components/collection/AppetiteCollection";
 import { FeelingsCollection } from "../features/feelings/components/collection/FeelingsCollection";
 import { FirstsCollection } from "../features/firsts/components/collection/FirstsCollection";
@@ -30,7 +31,7 @@ export function CollectionPage() {
 function OneCollection() {
   // The route lets through only a collection's name.
   const name = route.useParams().name as Collection;
-  const { quiet } = useJournalPage();
+  const quiet = useQuietKind();
   // Folded away while something has happened, as in the story: not a collection then, even asked for by address.
   if (quiet && FOLDED_WHILE_QUIET.includes(name)) return <Navigate to="/journal/collections" replace />;
   return (

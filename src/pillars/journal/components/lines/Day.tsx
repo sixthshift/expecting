@@ -1,7 +1,7 @@
 // A day of the story: the day in the margin, its photos, then its lines.
 
 import { memo, useCallback, useRef, useState } from "react";
-import { useQuietQuery } from "../../../../api/rpc/quiet";
+import { useQuietKind } from "../../../../app/features/quiet/hooks/useQuietKind";
 import type { ISODate } from "../../../../lib/dates";
 import type { AppetiteEntry } from "../../../../lib/journal/appetite";
 import { kindsOffered } from "../../../../lib/journal/quiet";
@@ -55,13 +55,11 @@ export const Day = memo(function Day({ day, today, onOpenPhoto }: { day: StoryDa
 
 /** Photos, opened from any day of `groups`, one after another. `open` is the same each render, so a day isn't drawn again for it. */
 export function usePhotoViewer(groups: readonly StoryPart[]) {
-  const { data: quiet } = useQuietQuery();
+  const quiet = useQuietKind();
   const [viewing, setViewing] = useState<{ ids: string[]; index: number } | null>(null);
   const order = useRef<string[]>([]);
   order.current = groups.flatMap((g) => (g.kind === "group" ? g.days.flatMap((d) => d.items.flatMap((i) => (i.kind === "photo" ? [i.photo.id] : []))) : []));
   const open = useCallback((id: string) => setViewing({ ids: order.current, index: Math.max(0, order.current.indexOf(id)) }), []);
-  const viewer = viewing ? (
-    <PhotoViewer ids={viewing.ids} index={viewing.index} kinds={kindsOffered(quiet?.kind ?? null)} onClose={() => setViewing(null)} />
-  ) : null;
+  const viewer = viewing ? <PhotoViewer ids={viewing.ids} index={viewing.index} kinds={kindsOffered(quiet)} onClose={() => setViewing(null)} /> : null;
   return { open, viewer };
 }

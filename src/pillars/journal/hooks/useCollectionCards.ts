@@ -6,6 +6,7 @@ import { usePapersQuery } from "../../../api/rpc/papers";
 import { usePeopleQuery } from "../../../api/rpc/people";
 import { usePhotosQuery } from "../../../api/rpc/photos";
 import { useSettingsQuery } from "../../../api/rpc/settings";
+import { useQuietKind } from "../../../app/features/quiet/hooks/useQuietKind";
 import { todayISO } from "../../../lib/dates";
 import { FOLDED_WHILE_QUIET } from "../../../lib/journal/quiet";
 import type { Collection } from "../../../lib/journal/story/collections";
@@ -18,14 +19,13 @@ import { papersSummary } from "../../../lib/journal/summaries/papers";
 import { photosSummary } from "../../../lib/journal/summaries/photos";
 import { sicknessSummary } from "../../../lib/journal/summaries/sickness";
 import type { Summary } from "../../../lib/journal/summaries/summary";
-import { useJournalPage } from "../contexts/JournalPageContext";
 
 /** A card on the page: what it's called, the collection it opens, the way to all of it, and whether it goes in the text for an appointment. */
 export type Shown = { key: string; title: string; collection: Collection; more: string; summary: Summary; forAppointments: boolean };
 
 /** What each card is, in the order they're shown: the ones an appointment asks about first. */
 export function useCollectionCards(): Shown[] {
-  const { quiet } = useJournalPage();
+  const quiet = useQuietKind();
   const { data: journal } = useJournalQuery();
   const { data: appetite } = useAppetiteQuery();
   const { data: feelings } = useFeelingsQuery();

@@ -1,11 +1,13 @@
 import { useSettingsQuery } from "../../../../../../api/rpc/settings";
+import { useQuietKind } from "../../../../../../app/features/quiet/hooks/useQuietKind";
 import { storyGroups } from "../../../../../../lib/journal/story/spine";
 import { StoryList } from "../../../../components/lines/StoryList";
 import { useJournalPage } from "../../../../contexts/JournalPageContext";
 
 /** The notes and letters, all of them, under their weeks: without the weeks' titles while something has happened (they're about the baby). */
 export function NotesCollection() {
-  const { items, quiet } = useJournalPage();
+  const { items } = useJournalPage();
+  const quiet = useQuietKind();
   const { data: dueDate } = useSettingsQuery({ select: (s) => s.dueDate });
   return (
     <section aria-labelledby="notes" className="flex flex-col gap-4">

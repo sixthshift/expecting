@@ -4,7 +4,7 @@
 
 import { useState } from "react";
 import { feelingsSaves, useFeelingsQuery } from "../../../../../../api/rpc/feelings";
-import { useQuietQuery } from "../../../../../../api/rpc/quiet";
+import { useQuietKind } from "../../../../../../app/features/quiet/hooks/useQuietKind";
 import { useSave } from "../../../../../../app/hooks/useSave";
 import { todayISO } from "../../../../../../lib/dates";
 import { feelingsOf, isOwn, type Step } from "../../../../../../lib/journal/feelings";
@@ -18,7 +18,7 @@ import { Support, supportItem } from "../Support";
 /** `onKept` as a new feeling is kept; `onDone`, with its id, once its words are. */
 export function CheckInNow({ me, onKept, onDone }: { me: Person; onKept?: () => void; onDone?: (id: string) => void }) {
   const { data: feelings } = useFeelingsQuery();
-  const { data: quiet } = useQuietQuery();
+  const quiet = useQuietKind();
   const add = useSave(feelingsSaves.addFeeling);
   const change = useSave(feelingsSaves.changeFeeling);
   // The check-in just made here, open for its words until done.

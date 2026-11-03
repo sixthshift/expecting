@@ -3,7 +3,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { type FormEvent, useState } from "react";
 import { papersSaves } from "../../../../../../api/rpc/papers";
-import { useQuietQuery } from "../../../../../../api/rpc/quiet";
+import { useQuietKind } from "../../../../../../app/features/quiet/hooks/useQuietKind";
 import { useSave } from "../../../../../../app/hooks/useSave";
 import type { ISODate } from "../../../../../../lib/dates";
 import type { Paper } from "../../../../../../lib/journal/papers";
@@ -13,7 +13,7 @@ import { complete, type PaperDraft, PaperFields } from "../PaperFields";
 /** Change what it is, its name, what it's about, its date, its words: never its pages. */
 export function ChangePaper({ paper, onDone }: { paper: Paper; onDone: () => void }) {
   const edit = useSave(papersSaves.editPaper);
-  const { data: quiet } = useQuietQuery();
+  const quiet = useQuietKind();
   const [draft, setDraft] = useState<PaperDraft>({
     kind: paper.kind,
     itemId: paper.itemId,
@@ -43,7 +43,7 @@ export function ChangePaper({ paper, onDone }: { paper: Paper; onDone: () => voi
 
   return (
     <form onSubmit={submit} className="flex flex-col gap-3">
-      <PaperFields draft={draft} onChange={setDraft} quiet={quiet?.kind ?? null} />
+      <PaperFields draft={draft} onChange={setDraft} quiet={quiet} />
       <div className="flex gap-2">
         <Button type="submit" intent="brand" size="sm" disabled={!complete(draft)}>
           Save

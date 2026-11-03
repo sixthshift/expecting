@@ -11,17 +11,17 @@ import { toast } from "@sixthshift/design-system/overlay";
 import { Copy } from "lucide-react";
 import { usePapersQuery } from "../../../../api/rpc/papers";
 import { useNow } from "../../../../api/rpc/settings";
+import { useQuietKind } from "../../../../app/features/quiet/hooks/useQuietKind";
 import { formatDate, todayISO } from "../../../../lib/dates";
 import { ordered } from "../../../../lib/journal/papers";
 import { summariesText } from "../../../../lib/journal/summaries/text";
 import { weekLabel } from "../../../../lib/timeline";
-import { useJournalPage } from "../../contexts/JournalPageContext";
 import { PaperList } from "../../features/papers/components/PaperList";
 import { useCollectionCards } from "../../hooks/useCollectionCards";
 import { Group } from "./Group";
 
 export function Collections() {
-  const { quiet } = useJournalPage();
+  const quiet = useQuietKind();
   const { data: papers } = usePapersQuery();
   const now = useNow();
   const shown = useCollectionCards();
