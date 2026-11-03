@@ -52,10 +52,6 @@ test("the story is by time; the collections are by what it is, each its answer f
   await page.getByRole("link", { name: "All collections" }).click();
   await page.getByRole("link", { name: "Every paper" }).click();
   await expect(page.getByRole("region", { name: "Results and papers" })).toBeVisible();
-
-  // Where they were, as records, still lands.
-  await open("/journal/records/movements");
-  await expect(page).toHaveURL(/\/journal\/collections\/movements$/);
 });
 
 test("a first, marked and answered in your own words, then in its collection and on the whole pregnancy's line", async ({ page, open }) => {

@@ -8,14 +8,14 @@ import { describe, expect, it } from "vitest";
 // `worlds(`, every quiet page is some route's, and no normal page reaches for
 // its twin itself.
 const root = join(import.meta.dirname, "..", "..");
-const routes = join(root, "src", "routes");
 const src = join(root, "src");
 
 function filesUnder(dir: string): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? filesUnder(join(dir, e.name)) : [join(dir, e.name)]));
 }
 
-const routeFiles = filesUnder(routes).filter((f) => /\.tsx?$/.test(f));
+// Every route is in a routes/ folder: src/routes/, or a pillar's or a feature's.
+const routeFiles = filesUnder(src).filter((f) => /\/routes\/[^/]+\.tsx?$/.test(f));
 const lazyPages = routeFiles.flatMap((file) => {
   const text = readFileSync(file, "utf8");
   return [...text.matchAll(/import\("([^"]+)"\)/g)].map((m) => ({ file, text, page: join(dirname(file), m[1] as string) }));
@@ -35,9 +35,10 @@ describe("worlds", () => {
     );
   });
 
-  it.each(twinned.map((t) => [relative(src, t.file), t] as const))("%s draws both worlds through worlds()", (_, { text, page }) => {
+  it.each(twinned.map((t) => [relative(src, t.file), t] as const))("%s draws both worlds through worlds()", (_, { file, text, page }) => {
+    const twin = relative(dirname(file), twinOf(page));
     expect(text).toContain("worlds(");
-    expect(text).toContain(`import("./${relative(routes, twinOf(page))}")`.replace("./../", "../"));
+    expect(text).toContain(`import("${twin.startsWith("..") ? twin : `./${twin}`}")`);
   });
 
   it("every quiet page is a route's", () => {

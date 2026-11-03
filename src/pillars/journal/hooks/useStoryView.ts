@@ -3,7 +3,7 @@ import { useCallback } from "react";
 import { useSettingsQuery } from "../../../api/rpc/settings";
 import { type StoryView, viewsOffered } from "../../../lib/journal/story/views";
 
-const route = getRouteApi("/app/journal");
+const route = getRouteApi("/app/journal/");
 
 /** The way the story is looked at: `?view=` when it's offered, else days; the views offered; and opening one (days has no `?view=`). */
 export function useStoryView() {

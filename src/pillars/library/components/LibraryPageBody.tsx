@@ -7,7 +7,7 @@ import { useItems } from "../hooks/useItems";
 import { ItemList } from "./itemList/ItemList";
 import { Shelf } from "./shelf/Shelf";
 
-const route = getRouteApi("/app/library");
+const route = getRouteApi("/app/library/");
 
 /**
  * The Library's page in both worlds, all but its home: the search and its

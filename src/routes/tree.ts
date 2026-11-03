@@ -1,46 +1,27 @@
 // The route tree: its shape, and nothing else. Each route is defined in its own
-// file beside this one (a path, what it loads and validates, the component it
-// draws); here they are put together. Routing is still code: a file's name
-// decides nothing, this list does. Pages live in src/pillars/ and src/app/features/ and read their
-// route's data through getRouteApi, so nothing imports a route but the router.
+// file (a path, what it loads and validates, the component it draws), in the
+// routes/ folder of the pillar or feature it answers for, whose index.ts puts
+// its subtree together; here the subtrees are put together. Routing is still
+// code: a file's name decides nothing, these lists do. Pages read their route's
+// data through getRouteApi, so nothing imports a route but other routes and this.
 
+import { join } from "../app/features/auth/routes/join";
+import { login } from "../app/features/auth/routes/login";
+import { password } from "../app/features/auth/routes/password";
+import { reset } from "../app/features/auth/routes/reset";
+import { connect } from "../app/features/connect/routes/connect";
+import { emergency } from "../app/features/emergency/routes/emergency";
+import { itsTime } from "../app/features/itsTime/routes/itsTime";
+import { onboardingRoutes } from "../app/features/onboarding/routes";
+import { settings } from "../app/features/settings/routes/settings";
+import { drawerRoutes } from "../pillars/drawer/routes";
+import { journalRoutes } from "../pillars/journal/routes";
+import { libraryRoutes } from "../pillars/library/routes";
+import { plannerRoutes } from "../pillars/planner/routes";
+import { thisWeekRoutes } from "../pillars/thisWeek/routes";
 import { app } from "./app";
-import { join } from "./auth/join";
-import { login } from "./auth/login";
-import { password } from "./auth/password";
-import { reset } from "./auth/reset";
-import { connect } from "./connect";
-import { drawer } from "./drawer";
-import { drawerBingo } from "./drawerBingo";
-import { drawerJobs } from "./drawerJobs";
-import { drawerNames } from "./drawerNames";
-import { drawerPeople } from "./drawerPeople";
-import { emergency } from "./emergency";
-import { index } from "./index";
-import { itsTime } from "./itsTime";
-import { journal } from "./journal";
-import { journalBook } from "./journalBook";
-import { journalCollection } from "./journalCollection";
-import { journalCollections } from "./journalCollections";
-import { journalRecord } from "./journalRecord";
-import { journalRecords } from "./journalRecords";
-import { library } from "./library";
-import { libraryItem } from "./libraryItem";
 import { notFound } from "./notFound";
-import { onboarding } from "./onboarding";
-import { baby } from "./onboarding/baby";
-import { due } from "./onboarding/due";
-import { extras } from "./onboarding/extras";
-import { onboardingNext } from "./onboarding/next";
-import { question } from "./onboarding/question";
-import { ready } from "./onboarding/ready";
-import { planner } from "./planner";
-import { plannerList } from "./plannerList";
-import { plannerLists } from "./plannerLists";
-import { plannerWeeks } from "./plannerWeeks";
 import { rootRoute } from "./root";
-import { settings } from "./settings";
-import { timeline } from "./timeline";
 
 // /api/* is served by the server alone: its handlers may import the store, and
 // the browser never routes there, it fetches. Vite fixes import.meta.env.SSR
@@ -49,35 +30,10 @@ import { timeline } from "./timeline";
 const api = import.meta.env.SSR ? (await import("../api/rest")).restRoutes : ([] as unknown as typeof import("../api/rest").restRoutes);
 
 export const routeTree = rootRoute.addChildren([
-  // The frame: the pillars, in navigation order, then Emergency info and It's time, settings, then any other address.
-  app.addChildren([
-    index,
-    timeline,
-    library,
-    libraryItem,
-    planner,
-    plannerLists,
-    plannerList,
-    plannerWeeks,
-    journal,
-    journalCollections,
-    journalCollection,
-    // The collections' old addresses, redirected.
-    journalRecords,
-    journalRecord,
-    journalBook,
-    drawer,
-    drawerNames,
-    drawerPeople,
-    drawerJobs,
-    drawerBingo,
-    emergency,
-    itsTime,
-    settings,
-    notFound,
-  ]),
+  // The app's layout: the pillars, in navigation order, then Emergency info and It's time, settings, then any other address.
+  app.addChildren([...thisWeekRoutes, libraryRoutes, plannerRoutes, journalRoutes, drawerRoutes, emergency, itsTime, settings, notFound]),
   // Outside the frame: the first-run questions, a step to a URL, logging in, joining, a new password, and letting Claude in.
-  onboarding.addChildren([onboardingNext, due, baby, question, extras, ready]),
+  onboardingRoutes,
   login,
   join,
   reset,

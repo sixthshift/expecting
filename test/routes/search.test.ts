@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { timelineSearch } from "../../src/routes/search";
+import { timelineSearch } from "../../src/pillars/thisWeek/features/timeline/routes/timeline";
 
 test("?at= keeps a week, and a key that names no week is dropped", () => {
   expect(timelineSearch.parse({ at: "28" })).toEqual({ at: 28 });
