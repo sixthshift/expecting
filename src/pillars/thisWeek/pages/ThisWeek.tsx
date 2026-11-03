@@ -6,13 +6,13 @@ import { BestDoneThatWeek } from "../components/doing/BestDoneThatWeek";
 import { DoingNow } from "../components/doing/DoingNow";
 import { Hero } from "../components/header/Hero";
 import { HeadsUp } from "../components/headsUp/HeadsUp";
-import { QuietWeek } from "../components/quiet/QuietWeek";
 import { AppointmentsThatWeek } from "../components/week/AppointmentsThatWeek";
 import { AskedThatWeek } from "../components/week/AskedThatWeek";
 import { KeptThatWeek } from "../components/week/KeptThatWeek";
 import { Welcome } from "../components/welcome/Welcome";
 import { WorthKnowing } from "../components/worthKnowing/WorthKnowing";
 import { ThisWeekPageProvider, useThisWeekPage } from "../contexts/ThisWeekPageContext";
+import { QuietThisWeekPage } from "../quiet/pages/QuietThisWeekPage";
 
 /**
  * This week, home: what you open the app for. Where you are first, then what
@@ -25,11 +25,17 @@ import { ThisWeekPageProvider, useThisWeekPage } from "../contexts/ThisWeekPageC
  * heads-up, what's worth knowing, what's best done then, its appointments,
  * and the notes kept then. What to do now stays with now; this week's notes stay in the Journal.
  *
- * While something has happened, none of it: support and the next steps instead.
+ * While something has happened, none of it: QuietThisWeekPage, support and the next steps instead.
  */
 export function ThisWeek() {
   const { data: quiet } = useQuietQuery();
-  return <ThisWeekPageProvider>{quiet ? <QuietWeek quiet={quiet} /> : <Week />}</ThisWeekPageProvider>;
+  return quiet ? (
+    <QuietThisWeekPage quiet={quiet} />
+  ) : (
+    <ThisWeekPageProvider>
+      <Week />
+    </ThisWeekPageProvider>
+  );
 }
 
 function Week() {

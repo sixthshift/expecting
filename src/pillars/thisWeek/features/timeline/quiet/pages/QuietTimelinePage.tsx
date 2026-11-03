@@ -1,15 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
+import { useSettingsQuery } from "../../../../../../api/rpc/settings";
 import { PillarLayout } from "../../../../../../app/components/layout/PillarLayout";
 import { weekInSentence } from "../../../../../../lib/labels";
-import type { Week } from "../../../../../../lib/timeline";
+import type { Quiet } from "../../../../../../lib/quiet";
+import { pausedAt } from "../../../../../../lib/thisWeek/quiet";
 
 /**
  * The timeline while something has happened: paused at its week, the weeks
  * and windows put away. Nothing in it moves on until you choose; what it held
  * is still in the Library.
  */
-export function Paused({ week }: { week: Week | null }) {
+export function QuietTimelinePage({ quiet }: { quiet: Quiet }) {
+  const { data: settings } = useSettingsQuery();
+  const week = pausedAt(quiet, settings.dueDate);
   return (
     <PillarLayout back={{ to: "/", label: "This week" }} title="The whole pregnancy">
       <div className="flex max-w-3xl flex-col gap-3">

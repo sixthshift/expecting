@@ -1,9 +1,7 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { useQuietQuery } from "../../../../../api/rpc/quiet";
-import { useSettingsQuery } from "../../../../../api/rpc/settings";
-import { pausedAt } from "../../../../../lib/quiet";
-import { Paused } from "../components/paused/Paused";
 import { Timeline } from "../components/timeline/Timeline";
+import { QuietTimelinePage } from "../quiet/pages/QuietTimelinePage";
 
 const route = getRouteApi("/app/timeline");
 
@@ -11,7 +9,5 @@ const route = getRouteApi("/app/timeline");
 export function TimelinePage() {
   const { at } = route.useSearch();
   const { data: quiet } = useQuietQuery();
-  const { data: settings } = useSettingsQuery();
-  if (quiet) return <Paused week={pausedAt(quiet, settings.dueDate)} />;
-  return <Timeline at={at} />;
+  return quiet ? <QuietTimelinePage quiet={quiet} /> : <Timeline at={at} />;
 }

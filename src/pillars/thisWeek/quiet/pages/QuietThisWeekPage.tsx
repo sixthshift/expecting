@@ -5,10 +5,11 @@ import { useSettingsQuery } from "../../../../api/rpc/settings";
 import { PillarLayout } from "../../../../app/components/layout/PillarLayout";
 import { SkeletonText } from "../../../../components/loading/Skeleton";
 import { builtInItems } from "../../../../content";
-import { nextSteps, pausedAt, QUIET_ITEM, type Quiet } from "../../../../lib/quiet";
+import { QUIET_ITEM, type Quiet } from "../../../../lib/quiet";
+import { nextSteps, pausedAt } from "../../../../lib/thisWeek/quiet";
 import { ItemList } from "../../../library/components/itemList/ItemList";
 import { useItems } from "../../../library/hooks/useItems";
-import { Guide } from "./Guide";
+import { Guide } from "../components/Guide";
 
 const guide = builtInItems.find((i) => i.id === QUIET_ITEM);
 
@@ -18,7 +19,7 @@ const guide = builtInItems.find((i) => i.id === QUIET_ITEM);
  * to talk to; for a loss, your body and how you might feel), then the next
  * steps, one at a time, for when you want them, and where it can be changed.
  */
-export function QuietWeek({ quiet }: { quiet: Quiet }) {
+export function QuietThisWeekPage({ quiet }: { quiet: Quiet }) {
   const { data: settings } = useSettingsQuery();
   const items = useItems();
   const steps = nextSteps(items, quiet.kind, pausedAt(quiet, settings.dueDate));

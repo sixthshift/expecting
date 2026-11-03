@@ -221,9 +221,8 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 section is [`src/pillars/thisWeek/README.md`](../src/pillars/thisWeek/README.md).
 
 - `ThisWeekPageProvider` works out the week shown, whether it's a peek and
-  the week's note once; `Week`, or while something has happened
-  `QuietWeek`, draws inside it. On the right, `DoingNow`, or on a peek
-  `BestDoneThatWeek`.
+  the week's note once; `Week` draws inside it. On the right, `DoingNow`, or
+  on a peek `BestDoneThatWeek`.
 
 - To do now is `toDoNow` (`src/lib/planner/todo.ts`), Coming up `comingUp`; the
   heads-up and Worth knowing are `headsUps` and `worthKnowing`
@@ -236,7 +235,8 @@ section is [`src/pillars/thisWeek/README.md`](../src/pillars/thisWeek/README.md)
   `extraToOffer`, the check-in `CheckIn` and `HardFortnight`
   (`src/pillars/journal/features/feelings/`), the next appointment `NextAppointment`, and
   the week's question `WeeklyCard` while A question a week is on.
-- While something has happened it's `QuietWeek`.
+- While something has happened it's `QuietThisWeekPage`
+  (`src/pillars/thisWeek/quiet/`), and the timeline `QuietTimelinePage`.
 
 ### The whole pregnancy
 
@@ -395,7 +395,7 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
   else is touched. Rules `src/lib/quiet.ts`, state `useQuietQuery`, read by
   every pillar. The way in is `QuietSwitch` (`src/app/features/quiet/`), on the
   guide's page and in Settings (`/settings?ask=quiet`); the way back is
-  `canBecome`. Per pillar: `QuietWeek` and `nextSteps`, `pausedAt`,
+  `canBecome`. Per pillar: `QuietThisWeekPage` and `nextSteps`, `pausedAt`,
   `PutAside` and `setInMotion`, `foldedWhileQuiet`, `captureChoices`,
   `itsTimeShown`.
 

@@ -16,15 +16,15 @@ map of the code. The whole pregnancy at once, `/timeline`, is
 | **the note** | The week's note, `content/weeks/<week>.md`: The baby, Your body, For the partner. Now, the one in force carries on until the next; a peek shows only that week's own. | `src/content/weeks.ts` |
 | **day reads** | A read for each day after the note, +1 to +6, `content/days/<week>/<day>.md`, out a day at a time (`readsOut`). With the note, one carousel: the day by day. | `src/content/days.ts` |
 | **the week's question** | A question a week, while its extra is on: answered on each phone, shown side by side once both have. | `src/lib/thisWeek/weekly.ts` |
-| **quiet** | Something has happened (a loss, hard news): no week, no size, no countdown, support and the next steps instead (`QuietWeek`). | `src/lib/quiet.ts` |
+| **quiet** | Something has happened (a loss, hard news): no week, no size, no countdown, support and the next steps instead (`QuietThisWeekPage`). | `src/lib/quiet.ts`, `src/lib/thisWeek/quiet.ts` |
 
 ## From the store to the screen
 
 ```
 settings, ?at=          the due date, the week peeked at
+  → ThisWeek              QuietThisWeekPage, or the provider and Week    pages/
   → ThisWeekPageProvider  the week shown, now, peeking, where you are,  contexts/
                           today, the week's note, worked out once
-  → ThisWeek              QuietWeek, or Week                            pages/
   → each part             reads the context, and its own queries         components/
                           through their hooks (tasks, items, questions,
                           appointments, journal, …), working out what
@@ -34,7 +34,7 @@ settings, ?at=          the due date, the week peeked at
 ## Where things are
 
 ```
-pages/            ThisWeek: the provider, then QuietWeek or Week, and Week's layout (phone `order`, desktop columns)
+pages/            ThisWeek: QuietThisWeekPage, or the provider and Week, and Week's layout (phone `order`, desktop columns)
 contexts/         ThisWeekPageContext: the week shown and where you are
 model/            labels.ts ("this week" / "that week"), sizeIcons.ts (the size's drawings)
 components/
@@ -47,9 +47,9 @@ components/
   week/           a peek's appointments, what was asked, what was kept
   doing/          the right column: DoingNow, or on a peek BestDoneThatWeek
   welcome/        Welcome: no due date yet
-  quiet/          QuietWeek and its Guide
+quiet/            while something has happened: pages/QuietThisWeekPage, components/Guide
 features/
-  timeline/       the whole pregnancy at /timeline: TimelinePage, the weeks, the strip
+  timeline/       the whole pregnancy at /timeline: TimelinePage, the weeks, the strip; quiet/pages/QuietTimelinePage
   weekly/         the week's question, and the earlier weeks'
 ```
 
@@ -57,6 +57,21 @@ What other pillars draw here (To do now, Coming up, the check-in, the next
 appointment, AskNow, OfferExtra, It's time's way in) stays in its own feature
 and reads its own queries. How days and weeks are said ("Week 28", "27 Oct –
 2 Nov", "84 days to go") is `src/lib/labels.ts`.
+
+## While something has happened
+
+Quiet is a world of its own: `quiet/` mirrors the pillar's shape
+(`quiet/pages/`, `quiet/components/`). `ThisWeek` (`pages/ThisWeek.tsx`) is
+the one place that chooses, `quiet ? <QuietThisWeekPage /> : <Week />`, with
+`ThisWeekPageProvider` around `Week` only; nothing in the normal world checks
+quiet. `QuietThisWeekPage` shows the guide's opening words and its parts for
+what happened (`Guide`), then the next steps. The timeline's page,
+`features/timeline/pages/TimelinePage.tsx`, chooses the same way:
+`QuietTimelinePage`, the weeks paused at the week it happened
+(`features/timeline/quiet/`). The rules (the guide's parts shown,
+`QUIET_PARTS`; the week paused at, `pausedAt`; the next steps,
+`NEXT_STEPS` and `nextSteps`) are `src/lib/thisWeek/quiet.ts`; what quiet is,
+`src/lib/quiet.ts`.
 
 ## Adding a section
 

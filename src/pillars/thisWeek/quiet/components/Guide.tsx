@@ -2,7 +2,8 @@ import { use } from "react";
 import { PhoneCorner } from "../../../../app/components/layout/AppLayout";
 import type { Item } from "../../../../content/schema";
 import { sectionsOf } from "../../../../content/sections";
-import { QUIET_PARTS, type Quiet } from "../../../../lib/quiet";
+import type { Quiet } from "../../../../lib/quiet";
+import { QUIET_PARTS } from "../../../../lib/thisWeek/quiet";
 import { ItemBody } from "../../../library/components/content/ItemBody";
 import { pageOf } from "../../../library/model/pageOf";
 
