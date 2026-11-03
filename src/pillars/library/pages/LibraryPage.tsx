@@ -2,16 +2,11 @@ import { SearchInput } from "@sixthshift/design-system/search-input";
 import { getRouteApi, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useQuietQuery } from "../../../api/rpc/quiet";
-import { useNow } from "../../../api/rpc/settings";
 import { PillarLayout } from "../../../app/components/layout/PillarLayout";
 import { search } from "../../../lib/library/search";
-import { Doors } from "../components/doors/Doors";
-import { HardDoor } from "../components/doors/HardDoor";
-import { HomeColumn } from "../components/home/HomeColumn";
+import { LibraryHome } from "../components/home/LibraryHome";
 import { ItemList } from "../components/itemList/ItemList";
-import { RightNow } from "../components/rightNow/RightNow";
 import { Shelf } from "../components/shelf/Shelf";
-import { Topics } from "../components/topics/Topics";
 import { useItems } from "../hooks/useItems";
 import { QuietLibraryPage } from "../quiet/pages/QuietLibraryPage";
 
@@ -69,21 +64,8 @@ export function LibraryPage() {
       ) : quiet ? (
         <QuietLibraryPage />
       ) : (
-        <Home />
+        <LibraryHome />
       )}
     </PillarLayout>
-  );
-}
-
-/** The home below the search: the doors, what's open right now, the topics, and the quiet door last. */
-function Home() {
-  const now = useNow();
-  return (
-    <HomeColumn>
-      <Doors />
-      {now !== null ? <RightNow now={now} /> : null}
-      <Topics />
-      <HardDoor />
-    </HomeColumn>
   );
 }

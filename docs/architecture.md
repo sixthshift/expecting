@@ -393,12 +393,23 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
   once a phone, in browser storage.
 - **Something has happened** ([product](product/quiet.md)): one row
   (`quiet`: `loss` or `news`, who, when), deleted to come back, so nothing
-  else is touched. Rules `src/lib/quiet.ts`, state `useQuietQuery`, read by
-  every pillar. The way in is `QuietSwitch` (`src/app/features/quiet/`), on the
-  guide's page and in Settings (`/settings?ask=quiet`); the way back is
-  `canBecome`. Per pillar: `QuietThisWeekPage` and `nextSteps`, `pausedAt`,
-  `PutAside` and `setInMotion`, `foldedWhileQuiet`, `captureChoices`,
-  `itsTimeShown`.
+  else is touched. The core is `src/lib/quiet.ts` (the kinds, `canBecome`),
+  the state `useQuietQuery`, and `useQuietKind` for a part both worlds draw.
+  The way in is `QuietSwitch` (`src/app/features/quiet/`), on the guide's page
+  and in Settings (`/settings?ask=quiet`); the way back is `canBecome`.
+- **Quiet is a mirror world of each pillar.** A pillar, or a feature in one,
+  that's different while quiet has `quiet/` in the one shape: `quiet/pages/`
+  (`QuietThisWeekPage`, `QuietTimelinePage`, `QuietLibraryPage`,
+  `QuietPlannerPage`, `QuietJournalPage`, `QuietBookPage`), `quiet/contexts/`
+  where a quiet page needs its own (the Journal's, the Planner's, each built
+  from the same rules as the normal one, only less), and `quiet/components/`.
+  Its small rules (what's folded, offered, said) are `src/lib/<pillar>/quiet.ts`.
+  The route's page is the one place that chooses, `quiet ? <QuietXPage/> : <X/>`,
+  each world in its own provider; the normal world's contexts and parts never
+  check quiet, and a part both draw reads neither context. The address is the
+  same in both worlds. The Drawer has no `quiet/`: its pages are put away by
+  `PillarLayout`'s `putAway`. Outside the pillars, a feature's quiet rule is in
+  its own `model/` (`captureChoices`, `itsTimeShown`).
 
 ## Content
 
