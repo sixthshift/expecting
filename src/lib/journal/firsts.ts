@@ -87,11 +87,11 @@ function open(marks: readonly FirstMark[], knowing: boolean): FirstDef[] {
 
 /**
  * The firsts whose weeks take in this one, not yet marked or put aside:
- * the Journal's invitation, each with its question. Never while something
- * has happened, and none without a week.
+ * the Journal's invitation, each with its question (never the quiet
+ * Journal's), and none without a week.
  */
-export function aroundNow({ now, marks, knowing, quiet }: { now: Week | null; marks: readonly FirstMark[]; knowing: boolean; quiet: boolean }): FirstDef[] {
-  if (quiet || now === null) return [];
+export function aroundNow({ now, marks, knowing }: { now: Week | null; marks: readonly FirstMark[]; knowing: boolean }): FirstDef[] {
+  if (now === null) return [];
   return open(marks, knowing)
     .filter((f) => f.weeks[0] <= now && now <= f.weeks[1])
     .slice(0, AROUND_NOW);
@@ -100,19 +100,9 @@ export function aroundNow({ now, marks, knowing, quiet }: { now: Week | null; ma
 /**
  * The firsts whose weeks are past, not yet marked or put aside, in the order
  * they come: some of this has already happened, and can still be kept, on
- * the day it was. Never while something has happened.
+ * the day it was. On the Journal only, never the quiet one.
  */
-export function alreadyHappened({
-  now,
-  marks,
-  knowing,
-  quiet,
-}: {
-  now: Week | null;
-  marks: readonly FirstMark[];
-  knowing: boolean;
-  quiet: boolean;
-}): FirstDef[] {
-  if (quiet || now === null) return [];
+export function alreadyHappened({ now, marks, knowing }: { now: Week | null; marks: readonly FirstMark[]; knowing: boolean }): FirstDef[] {
+  if (now === null) return [];
   return open(marks, knowing).filter((f) => f.weeks[1] < now);
 }

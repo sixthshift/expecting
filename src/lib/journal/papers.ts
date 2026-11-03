@@ -11,6 +11,7 @@ import { FILE_PROBLEM, type FileProblem, type FileType, fileUrl, isImage, MAX_OR
 import type { QuietKind } from "../quiet";
 import type { Week } from "../timeline";
 import { placeOf } from "./journal";
+import { QUIET_PAPERS } from "./quiet";
 
 /** What a paper is: a result, a letter or referral, a plan, a record or summary, or something else. */
 export const PAPER_KINDS = ["result", "letter", "plan", "record", "other"] as const;
@@ -161,11 +162,11 @@ type Span = { from: Week; to: Week } | null;
 /**
  * What a paper of `kind` can be about, as things stand: the topics of that
  * kind, those whose weeks hold `week` first, then by how near they are.
- * None after a loss (the list is the birth plan and the morphology scan),
- * and none for something else.
+ * None while something has happened that says so (`QUIET_PAPERS`: after a
+ * loss), and none for something else.
  */
 export function topicsFor(kind: PaperKind, { week, quiet, span }: { week: Week | null; quiet: QuietKind | null; span: (id: string) => Span }): PaperTopic[] {
-  if (quiet === "loss") return [];
+  if (quiet && !QUIET_PAPERS[quiet].topics) return [];
   const of = PAPER_TOPICS.filter((t) => t.kind === kind);
   if (week === null) return of;
   const distance = (t: PaperTopic) => {
@@ -179,9 +180,9 @@ export function topicsFor(kind: PaperKind, { week, quiet, span }: { week: Week |
     .map(({ t }) => t);
 }
 
-/** Whether a new paper is handy unless you say otherwise: a plan, or one about an entry that's asked for at the desk. Never after a loss. */
+/** Whether a new paper is handy unless you say otherwise: a plan, or one about an entry that's asked for at the desk. Never while something has happened that says so (`QUIET_PAPERS`: after a loss). */
 export function handyByDefault(kind: PaperKind | null, itemId: string | null, quiet: QuietKind | null): boolean {
-  if (quiet === "loss") return false;
+  if (quiet && !QUIET_PAPERS[quiet].handy) return false;
   return kind === "plan" || Boolean(paperTopic(itemId)?.handy);
 }
 

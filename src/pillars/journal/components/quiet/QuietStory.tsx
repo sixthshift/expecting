@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useSettingsQuery } from "../../../../api/rpc/settings";
-import { foldedWhileQuiet } from "../../../../lib/journal/story/items";
+import { foldedWhileQuiet } from "../../../../lib/journal/quiet";
 import { storyGroups } from "../../../../lib/journal/story/spine";
 import { useJournalPage } from "../../contexts/JournalPageContext";
 import { useScrollToWeek } from "../../hooks/useScrollToWeek";

@@ -35,17 +35,6 @@ export type StoryItem = { key: string; day: ISODate; time: string | null; by: st
 /** The kinds of line. */
 export type StoryKind = StoryItem["kind"];
 
-/**
- * Folded away while something has happened, behind one quiet line: the
- * baby's movements, the sickness and cravings, the photos and the firsts.
- * The night it started too, and bingo. The notes, letters, feelings, papers and what was done stay.
- */
-export function foldedWhileQuiet(item: StoryItem): boolean {
-  return (
-    item.kind === "movements" || item.kind === "appetite" || item.kind === "photo" || item.kind === "first" || item.kind === "night" || item.kind === "bingo"
-  );
-}
-
 /** Everything that goes into the story. */
 export type StorySources = {
   journal: readonly JournalEntry[];

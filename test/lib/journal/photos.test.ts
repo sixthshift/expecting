@@ -3,7 +3,6 @@ import type { ISODate } from "../../../src/lib/dates";
 import {
   bumpToTake,
   bumpWeeks,
-  kindsOffered,
   newestFirst,
   type Photo,
   photoGroups,
@@ -74,11 +73,10 @@ describe("the bump, week by week", () => {
     expect(bumpWeeks(photos, null)).toEqual([]);
   });
 
-  test("this week's is still to take until one is kept in it; never while something has happened", () => {
-    expect(bumpToTake(photos, { now: 28, dueDate: DUE, quiet: false })).toBe(28);
-    expect(bumpToTake([...photos, shot("now", "2026-10-30", "bump")], { now: 28, dueDate: DUE, quiet: false })).toBeNull();
-    expect(bumpToTake(photos, { now: 28, dueDate: DUE, quiet: true })).toBeNull();
-    expect(bumpToTake(photos, { now: null, dueDate: null, quiet: false })).toBeNull();
+  test("this week's is still to take until one is kept in it", () => {
+    expect(bumpToTake(photos, { now: 28, dueDate: DUE })).toBe(28);
+    expect(bumpToTake([...photos, shot("now", "2026-10-30", "bump")], { now: 28, dueDate: DUE })).toBeNull();
+    expect(bumpToTake(photos, { now: null, dueDate: null })).toBeNull();
   });
 
   test("side by side opens on the first and the latest", () => {
@@ -86,12 +84,6 @@ describe("the bump, week by week", () => {
     expect(sideBySide(weeks)?.map((b) => b.week)).toEqual([12, 20]);
     expect(sideBySide(weeks.slice(0, 1))).toBeNull();
   });
-});
-
-test("never a bump after a loss; with hard news, anything", () => {
-  expect(kindsOffered("loss")).toEqual(["scan", "other"]);
-  expect(kindsOffered("news")).toEqual(["bump", "scan", "other"]);
-  expect(kindsOffered(null)).toEqual(["bump", "scan", "other"]);
 });
 
 test("a week's pictures in words, for the timeline", () => {

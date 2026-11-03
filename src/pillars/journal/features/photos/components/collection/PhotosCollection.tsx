@@ -10,16 +10,8 @@ import { useState } from "react";
 import { usePhotosQuery } from "../../../../../../api/rpc/photos";
 import { useNow, useSettingsQuery } from "../../../../../../api/rpc/settings";
 import type { ISODate } from "../../../../../../lib/dates";
-import {
-  BUMP_SERIES,
-  type BumpWeek,
-  bumpToTake,
-  bumpWeeks,
-  kindsOffered,
-  type PhotoGroup,
-  type PhotoKind,
-  photoGroups,
-} from "../../../../../../lib/journal/photos";
+import { BUMP_SERIES, type BumpWeek, bumpToTake, bumpWeeks, type PhotoGroup, type PhotoKind, photoGroups } from "../../../../../../lib/journal/photos";
+import { kindsOffered } from "../../../../../../lib/journal/quiet";
 import { placeHeading, weekRange } from "../../../../../../lib/labels";
 import type { QuietKind } from "../../../../../../lib/quiet";
 import { type Week, weekLabel } from "../../../../../../lib/timeline";
@@ -150,7 +142,7 @@ export function PhotosCollection({ quiet }: { quiet: QuietKind | null }) {
           {dueDate && bumps.length > 0 ? (
             <BumpRow
               weeks={bumps}
-              toTake={bumpToTake(photos, { now, dueDate, quiet: false })}
+              toTake={bumpToTake(photos, { now, dueDate })}
               onOpen={(b) => open(b.photo.id)}
               onTake={() => setAdding({ kind: "bump" })}
               onCompare={() => setComparing(true)}

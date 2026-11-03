@@ -31,9 +31,9 @@ export function JournalDays({ items, cover }: { items: readonly StoryItem[]; cov
     <>
       {now !== null && dueDate ? (
         <>
-          <AroundNow week={now} around={aroundNow({ now, marks: firsts, knowing, quiet: false })} />
-          <Places places={placesReady({ now, photos, papers, dueDate, quiet: false })} />
-          <AlreadyHappened firsts={alreadyHappened({ now, marks: firsts, knowing, quiet: false })} week={now} />
+          <AroundNow week={now} around={aroundNow({ now, marks: firsts, knowing })} />
+          <Places places={placesReady({ now, photos, papers, dueDate })} />
+          <AlreadyHappened firsts={alreadyHappened({ now, marks: firsts, knowing })} week={now} />
         </>
       ) : null}
       {cover ? <BookCover lines={cover} /> : null}

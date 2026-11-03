@@ -5,7 +5,8 @@
 // started, a week's question and bingo are lines of the story, but in no
 // collection.
 
-import { foldedWhileQuiet, type StoryItem, type StoryKind } from "./items";
+import { foldedWhileQuiet } from "../quiet";
+import type { StoryItem, StoryKind } from "./items";
 
 /** In the order they're shown. */
 export const COLLECTIONS = ["movements", "appetite", "feelings", "papers", "notes", "photos", "firsts"] as const;
@@ -44,9 +45,6 @@ const COLLECTION_OF: Record<StoryKind, Collection | null> = {
 export function collectionOf(item: StoryItem): Collection | null {
   return COLLECTION_OF[item.kind];
 }
-
-/** Folded away while something has happened, as their lines are in the story: not a collection then, even asked for by address. */
-export const FOLDED_WHILE_QUIET: readonly Collection[] = ["movements", "appetite", "photos", "firsts"];
 
 /** The collections there's something in, in their order; while something has happened (`quiet`), not the folded ones. */
 export function collectionsKept(items: readonly StoryItem[], quiet: boolean): Collection[] {

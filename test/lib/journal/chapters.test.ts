@@ -44,8 +44,8 @@ test("each place is for a Library entry, inside its weeks", () => {
   }
 });
 
-test("a place is ready in its weeks until it's used, and never while something has happened", () => {
-  const base = { photos: [], papers: [], dueDate: DUE, quiet: false } as const;
+test("a place is ready in its weeks until it's used", () => {
+  const base = { photos: [], papers: [], dueDate: DUE } as const;
   expect(placesReady({ ...base, now: 10 }).map((p) => p.key)).toEqual(["dating-scan"]);
   // A scan kept in its weeks uses it (28 Jun is week 10 with this due date).
   expect(placesReady({ ...base, now: 10, photos: [photo("scan", "2026-06-28")] }).map((p) => p.key)).toEqual([]);
@@ -53,6 +53,5 @@ test("a place is ready in its weeks until it's used, and never while something h
   expect(placesReady({ ...base, now: 25, papers: [paper("2026-10-01", { itemId: "glucose-tolerance-test" })], photos: [photo("bump", "2026-10-01")] })).toEqual(
     []
   );
-  expect(placesReady({ ...base, now: 10, quiet: true })).toEqual([]);
   expect(placesReady({ ...base, now: null })).toEqual([]);
 });

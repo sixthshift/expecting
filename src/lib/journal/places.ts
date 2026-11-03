@@ -1,7 +1,7 @@
 // Places ready: at the moments that matter, Expecting has made a place, and
 // says so once, in a sentence; the place itself is the way in. Each from a
 // Library entry's weeks. A place goes once it's used, or its weeks pass.
-// Never one while something has happened.
+// Only on the Journal: the quiet one makes none ready.
 
 import type { ISODate } from "../dates";
 import type { Week } from "../timeline";
@@ -52,23 +52,21 @@ export const PLACES: readonly Place[] = [
 
 /**
  * The places ready now: in their weeks, and not yet used (a scan photo kept
- * in its weeks, a paper about its entry, any bump photo). Never while
- * something has happened, and none without a week.
+ * in its weeks, a paper about its entry, any bump photo). None without a
+ * week.
  */
 export function placesReady({
   now,
   photos,
   papers,
   dueDate,
-  quiet,
 }: {
   now: Week | null;
   photos: readonly Photo[];
   papers: readonly Paper[];
   dueDate: ISODate | null;
-  quiet: boolean;
 }): Place[] {
-  if (quiet || now === null || !dueDate) return [];
+  if (now === null || !dueDate) return [];
   const weekOf = (day: string) => placeOf(day as ISODate, dueDate);
   return PLACES.filter((p) => {
     if (now < p.weeks[0] || now > p.weeks[1]) return false;

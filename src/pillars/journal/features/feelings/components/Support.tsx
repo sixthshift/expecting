@@ -1,4 +1,5 @@
 import { Phone } from "lucide-react";
+import { QUIET_SUPPORT } from "../../../../../lib/journal/quiet";
 import type { Role } from "../../../../../lib/people";
 import { ItemLink } from "../../../../library/components/itemLink/ItemLink";
 
@@ -8,7 +9,7 @@ const LIFELINE = { name: "Lifeline", phone: "13 11 14" };
 
 /** Where to read more: after a loss or hard news, the loss services; for a partner, the entry written for partners, with PANDA's support for dads. */
 export function supportItem(role: Role | undefined, quiet = false): string {
-  if (quiet) return "loss-support-services";
+  if (quiet) return QUIET_SUPPORT;
   return role === "partner" ? "partner-perinatal-depression" : "perinatal-mental-health-help";
 }
 

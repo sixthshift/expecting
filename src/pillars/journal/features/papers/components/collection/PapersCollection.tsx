@@ -4,6 +4,7 @@ import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { useState } from "react";
 import { usePapersQuery } from "../../../../../../api/rpc/papers";
 import { kindsKept, ordered, PAPER_KIND_PLURAL, type PaperKind, paperMatches } from "../../../../../../lib/journal/papers";
+import { QUIET_PAPERS } from "../../../../../../lib/journal/quiet";
 import type { QuietKind } from "../../../../../../lib/quiet";
 import { PaperList } from "../PaperList";
 
@@ -36,9 +37,8 @@ export function PapersCollection({ quiet }: { quiet: QuietKind | null }) {
         Results and papers
       </h2>
       <p className="text-sm text-fg-subtle">
-        {quiet === "loss"
-          ? "Results, letters, the papers from the hospital: photographed or saved as a PDF, kept for you both."
-          : "Results, letters, the birth plan, the discharge summary: photographed or saved as a PDF, kept for you both and found in a moment. Expecting keeps them; it doesn't read them."}
+        {(quiet && QUIET_PAPERS[quiet].lead) ??
+          "Results, letters, the birth plan, the discharge summary: photographed or saved as a PDF, kept for you both and found in a moment. Expecting keeps them; it doesn't read them."}
       </p>
       {papers.length >= SEARCH_FROM ? (
         // Words held on the page, not in the address.

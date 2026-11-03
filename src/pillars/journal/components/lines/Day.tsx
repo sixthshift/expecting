@@ -4,7 +4,7 @@ import { memo, useCallback, useRef, useState } from "react";
 import { useQuietQuery } from "../../../../api/rpc/quiet";
 import type { ISODate } from "../../../../lib/dates";
 import type { AppetiteEntry } from "../../../../lib/journal/appetite";
-import { kindsOffered } from "../../../../lib/journal/photos";
+import { kindsOffered } from "../../../../lib/journal/quiet";
 import type { StoryItem } from "../../../../lib/journal/story/items";
 import type { StoryDay, StoryPart } from "../../../../lib/journal/story/spine";
 import { marginDay } from "../../../../lib/labels";

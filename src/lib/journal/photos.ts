@@ -5,7 +5,6 @@
 // See docs/product/journal.md.
 
 import { type ISODate, todayISO } from "../dates";
-import type { QuietKind } from "../quiet";
 import type { Week } from "../timeline";
 import { type Place, placeOf } from "./journal";
 
@@ -88,11 +87,11 @@ export const BUMP_SERIES = 2;
 /**
  * The week whose bump photo is still to take: this week, until one is kept
  * in it, once you've started a series (bump photos in two weeks): nothing
- * asks you to start a habit you never began. None while something has
- * happened (the row offers nothing then), and none without a due date.
+ * asks you to start a habit you never began. None without a due date. Only
+ * on the Journal: the quiet one has no bump row.
  */
-export function bumpToTake(photos: readonly Photo[], { now, dueDate, quiet }: { now: Week | null; dueDate: ISODate | null; quiet: boolean }): Week | null {
-  if (quiet || now === null || !dueDate) return null;
+export function bumpToTake(photos: readonly Photo[], { now, dueDate }: { now: Week | null; dueDate: ISODate | null }): Week | null {
+  if (now === null || !dueDate) return null;
   const weeks = bumpWeeks(photos, dueDate);
   if (weeks.some((b) => b.week === now) || weeks.length < BUMP_SERIES) return null;
   return now;
@@ -101,11 +100,6 @@ export function bumpToTake(photos: readonly Photo[], { now, dueDate, quiet }: { 
 /** The two weeks side by side opens on: the first bump week and the latest. Null with fewer than two. */
 export function sideBySide(weeks: readonly BumpWeek[]): [BumpWeek, BumpWeek] | null {
   return weeks.length >= 2 ? [weeks[0]!, weeks.at(-1)!] : null;
-}
-
-/** What a photo can be, as things stand: after a loss never a bump; with hard news, whose pregnancy goes on, anything. */
-export function kindsOffered(quiet: QuietKind | null): readonly PhotoKind[] {
-  return quiet === "loss" ? ["scan", "other"] : PHOTO_KINDS;
 }
 
 /** What a week kept in pictures, for its line on the timeline. */

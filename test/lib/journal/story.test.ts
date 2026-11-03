@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { collectionsKept } from "../../../src/lib/journal/story/collections";
-import { foldedWhileQuiet, storyItems } from "../../../src/lib/journal/story/items";
+import { storyItems } from "../../../src/lib/journal/story/items";
 import { storyMatches } from "../../../src/lib/journal/story/search";
 import { storyGroups, storySpine } from "../../../src/lib/journal/story/spine";
 import { landmarks, weekTiles } from "../../../src/lib/journal/story/zoom";
@@ -42,7 +42,6 @@ describe("the story", () => {
     const items = storyItems(sources({ journal: [entry("note", "2026-10-27")], photos: [photo("scan", "2026-10-27")] }));
     expect(collectionsKept(items, false)).toEqual(["notes", "photos"]);
     expect(collectionsKept(items, true)).toEqual(["notes"]);
-    expect(items.filter(foldedWhileQuiet).map((i) => i.kind)).toEqual(["photo"]);
   });
 
   test("found by its words, any kind, any case", () => {
