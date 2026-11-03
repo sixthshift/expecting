@@ -37,8 +37,8 @@ kind's feature draws its own in full (`features/<kind>/components/collection/`).
 ## Where things are
 
 ```
-pages/          JournalPage (chooses: Journal or QuietJournalPage, each in its context),
-                CollectionsPage, CollectionPage, BookPage (chooses: the book or QuietBookPage)
+pages/          JournalPage (the story, in JournalPageProvider), CollectionsPage,
+                CollectionPage, BookPage (the book); the route draws the quiet twin instead
 contexts/       JournalPageContext: the story's lines
 hooks/          useStoryItems (the story, over the queries), useStoryView, useStorySearch,
                 useScrollToWeek, useOpenWeek, useBook, useOnThisPhone,
@@ -46,7 +46,7 @@ hooks/          useStoryItems (the story, over the queries), useStoryView, useSt
 model/labels.ts the Journal's words: a photo's title, who kept it, a week's title
 components/
   JournalTabs   Story and Collections, at the top of every page (each page is a PillarLayout)
-  story/        the story: Journal (the page), JournalStory, its controls and search, JournalDays;
+  story/        the story: JournalStory, its controls and search, JournalDays;
                 views/weeks/ (WeeksView, WeekGrid, Tile) and views/pregnancy/ (PregnancyView,
                 PregnancyLine), the story zoomed out
   thisWeek/     what's to keep now: firsts/ (AroundNow, AlreadyHappened, AroundNowFirst),
@@ -80,9 +80,12 @@ quiet/components/   QuietStory (the lines that stay), KeptBefore (what's folded,
 features/photos/quiet/components/  QuietPhotosCollection (the album's one way to add, while quiet)
 ```
 
-- **The page chooses.** `JournalPage` and `BookPage` are the only places that
-  ask; each world's provider goes around its own page. `JournalPageContext`
-  doesn't carry quiet. No URL changes.
+- **The route chooses.** `src/routes/journal.ts` and `journalBook.ts` name
+  each world's page through `worlds()` (`src/app/features/quiet/worlds.tsx`);
+  no page asks. Each page takes its own provider inside itself
+  (`QuietJournalPage` its `QuietJournalPageProvider`, which reads the kind
+  through `useQuietKind`). `JournalPageContext` doesn't carry quiet. No URL
+  changes.
 - **The rules are one file**, `src/lib/journal/quiet.ts`: what folds away
   (`foldedWhileQuiet`, `FOLDED_WHILE_QUIET`), what a photo can be
   (`kindsOffered`), who to talk to (`QUIET_SUPPORT`), and the papers after a

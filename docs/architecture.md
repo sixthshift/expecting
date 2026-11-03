@@ -207,8 +207,9 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
   one column at the page's width, and its top. A pillar's own page has its
   title and lead, with `PhoneCorner` on a phone; a page under it (`back`) has
   the way back, then its title; a page that draws its own top (This week's
-  hero, a Library entry) has neither. While something has happened,
-  `putAway` says what's put away in place of the page. A pillar adds what's
+  hero, a Library entry) has neither. It never asks whether something has
+  happened: a page put away then is its route's quiet world, `putAway`
+  (`PutAwayPage`). A pillar adds what's
   its own around it: `JournalTabs`, `DrawerTool`. So `AppLayout` is the app's
   layout (the sidebar, the tab bar, the "+") and `PillarLayout` a page's.
 
@@ -220,8 +221,8 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 `src/pillars/thisWeek/`. The map of its code, its words and how to add a
 section is [`src/pillars/thisWeek/README.md`](../src/pillars/thisWeek/README.md).
 
-- `ThisWeekPageProvider` works out the week shown, whether it's a peek and
-  the week's note once; `Week` draws inside it. On the right, `DoingNow`, or
+- `ThisWeekPage` is `ThisWeekPageProvider`, which works out the week shown,
+  whether it's a peek and the week's note once, around `WeekColumns`. On the right, `DoingNow`, or
   on a peek `BestDoneThatWeek`.
 
 - To do now is `toDoNow` (`src/lib/planner/todo.ts`), Coming up `comingUp`; the
@@ -312,9 +313,10 @@ The map of the code is `src/pillars/planner/README.md`.
 add a kind of line is
 [`src/pillars/journal/README.md`](../src/pillars/journal/README.md).
 
-- `JournalPage` chooses: `Journal` in `JournalPageProvider`, which builds the
-  story's lines once, or while something has happened `QuietJournalPage` in
-  `QuietJournalPageProvider` (`quiet/`); each draws inside `PillarLayout`, under `JournalTabs`.
+- The route chooses (`worlds`): `JournalPage` in `JournalPageProvider`, which
+  builds the story's lines once, or while something has happened
+  `QuietJournalPage` in `QuietJournalPageProvider` (`quiet/`); each draws
+  inside `PillarLayout`, under `JournalTabs`.
 - `components/` has a folder per part (`story/`, `thisWeek/`, `lines/`,
   `collections/`, `book/`); the quiet Journal is `quiet/`; each kind kept is a feature,
   `features/<kind>/`, its forms and rows (which the "+" and other pillars
@@ -404,12 +406,23 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
   where a quiet page needs its own (the Journal's, the Planner's, each built
   from the same rules as the normal one, only less), and `quiet/components/`.
   Its small rules (what's folded, offered, said) are `src/lib/<pillar>/quiet.ts`.
-  The route's page is the one place that chooses, `quiet ? <QuietXPage/> : <X/>`,
-  each world in its own provider; the normal world's contexts and parts never
-  check quiet, and a part both draw reads neither context. The address is the
-  same in both worlds. The Drawer has no `quiet/`: its pages are put away by
-  `PillarLayout`'s `putAway`. Outside the pillars, a feature's quiet rule is in
-  its own `model/` (`captureChoices`, `itsTimeShown`).
+  The route's file is the one place that chooses: its component is
+  `worlds(normal, quiet)` (`src/app/features/quiet/worlds.tsx`), two
+  `lazyRouteComponent`s, so it names each world's page and no page chooses.
+  Quiet is read from the cache the app's loader filled, so the choice never
+  waits; both pages are preloaded, and a change swaps one for the other in
+  place. Each page takes its own provider inside itself; the normal world's
+  pages, contexts and parts never check quiet, and a part both draw reads
+  neither context (`useQuietKind`). Where the two share all but one part, the
+  rest is one component both pages draw (the Library's `LibraryFrame`, around
+  `LibraryHome` or `QuietLibraryHome`). The address is the same in both
+  worlds. A page put away while quiet (the Drawer and its tools, the Planner's
+  weeks and lists) has no `quiet/`: its quiet world is `putAway({ subject,
+  back, title, lead, … })`, `PutAwayPage`, its top as it is and
+  `PutAwayNotice` in place of the page; `PillarLayout` never reads quiet. It's
+  time's quiet world is `QuietItsTimePage`, Emergency info's address. Outside
+  the pillars, a feature's quiet rule is in its own `model/`
+  (`captureChoices`, `itsTimeShown`).
 
 ## Content
 

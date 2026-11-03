@@ -48,7 +48,7 @@ useLines (items' lines that apply, and your own)  + lists (own lists, marks)
 ## Where things are
 
 ```
-pages/          PlannerPage (chooses quiet or not) and Planner (To do, the lists, appointments, questions)
+pages/          PlannerPage: To do, the lists, appointments, questions, in PlannerPageProvider
 contexts/       PlannerPageContext: the plan, its stages, what's ticked this visit
 hooks/          usePlan (the plan, To do's and the weeks'); useAppointmentsAhead (the next and
                 the rest, for both worlds)
@@ -72,9 +72,13 @@ features/
 ## While something has happened
 
 The quiet Planner is a world of its own, in `quiet/`, in the same shape as
-the pillar: `PlannerPage` is the one place that asks `useQuietQuery`, and
-draws either `QuietPlannerPage` in `QuietPlannerPageProvider` or `Planner`
-in `PlannerPageProvider`. Nothing in the normal world checks quiet. What it
+the pillar. The route (`src/routes/planner.ts`) is the one place that
+chooses, `worlds(PlannerPage, QuietPlannerPage)`
+(`src/app/features/quiet/worlds.tsx`); each page takes its provider inside
+itself (`PlannerPageProvider`, `QuietPlannerPageProvider`). Nothing in the
+normal world checks quiet. The weeks and the lists are put away: their
+routes' quiet world is `putAway({ … })`, their top as it is and
+`PutAwayNotice` in place of the page. What it
 is and why is [`docs/product/quiet.md`](../../../docs/product/quiet.md).
 
 ```

@@ -10,7 +10,7 @@ this is the map of the code.
 |---|---|---|
 | **tool** | Something the two of you do together and come back to: the names game, Who does what, Your people, bingo. A page of its own under `/drawer`. | a feature each (below) |
 | **extra** | An optional part of Expecting you turn on in settings. A tool is on while its extra is (Your people: while any of its four is). | `src/app/features/settings/model/extras.data.ts` |
-| **put away** | While something has happened (quiet), every tool is put away, not deleted: the Drawer and each tool's page say so in place of it. | `PutAwayNotice`, `src/app/features/quiet/` |
+| **put away** | While something has happened (quiet), every tool is put away, not deleted: the Drawer and each tool's page say so in place of it. Each route's quiet world is `putAway({ … })`, the page's top as it is (`worlds`, `putAway`). | `PutAwayPage`, `src/app/features/quiet/` |
 | **the other one** | The other of you two, as this phone's person sees them (`otherOf`, `otherName`); "The other one" (`OTHER_ONE`) before they've joined. | `src/lib/people.ts` |
 
 ## The routes, and who owns each
@@ -34,7 +34,7 @@ path. The rules of each tool are `src/lib/<tool>.ts` (`names`, `nameDeck`,
 pages/        DrawerPage
 components/
   tool/       DrawerTool: every tool's page, a PillarLayout back to the Drawer with
-              the tool's name, and the put-away and extra-off states; the tools import it
+              the tool's name, and the extra-off state; the tools import it
   tools/      ToolTile (a tool that's on) and ToolOff (one that's off)
   ComesWith   "It comes with …. Turn it on in settings", for DrawerTool and ToolOff
 features/     a feature per tool, each with its page, its parts and its summary line:

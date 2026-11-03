@@ -22,7 +22,8 @@ map of the code. The whole pregnancy at once, `/timeline`, is
 
 ```
 settings, ?at=          the due date, the week peeked at
-  → ThisWeek              QuietThisWeekPage, or the provider and Week    pages/
+  → ThisWeekPage          the provider and WeekColumns (the route draws  pages/
+                          QuietThisWeekPage while quiet)
   → ThisWeekPageProvider  the week shown, now, peeking, where you are,  contexts/
                           today, the week's note, worked out once
   → each part             reads the context, and its own queries         components/
@@ -34,10 +35,11 @@ settings, ?at=          the due date, the week peeked at
 ## Where things are
 
 ```
-pages/            ThisWeek: QuietThisWeekPage, or the provider and Week, and Week's layout (phone `order`, desktop columns)
+pages/            ThisWeekPage: ThisWeekPageProvider around WeekColumns
 contexts/         ThisWeekPageContext: the week shown and where you are
 model/            labels.ts ("this week" / "that week"), sizeIcons.ts (the size's drawings)
 components/
+  WeekColumns     the page's layout (phone `order`, desktop columns), inside the provider
   header/         Hero (the week's heading, the size, the strip), NowLine, WeekStepper
   dayByDay/       DayByDay, the note and the day reads in one carousel, and a day's Read
   weekNote/       WeekNote, read as whoever holds the phone
@@ -61,13 +63,13 @@ and reads its own queries. How days and weeks are said ("Week 28", "27 Oct –
 ## While something has happened
 
 Quiet is a world of its own: `quiet/` mirrors the pillar's shape
-(`quiet/pages/`, `quiet/components/`). `ThisWeek` (`pages/ThisWeek.tsx`) is
-the one place that chooses, `quiet ? <QuietThisWeekPage /> : <Week />`, with
-`ThisWeekPageProvider` around `Week` only; nothing in the normal world checks
-quiet. `QuietThisWeekPage` shows the guide's opening words and its parts for
+(`quiet/pages/`, `quiet/components/`). The route (`src/routes/index.ts`) is
+the one place that chooses, `worlds(ThisWeekPage, QuietThisWeekPage)`
+(`src/app/features/quiet/worlds.tsx`), with `ThisWeekPageProvider` inside
+`ThisWeekPage` only; nothing in the normal world checks quiet. `QuietThisWeekPage` shows the guide's opening words and its parts for
 what happened (`Guide`), then the next steps. The timeline's page,
-`features/timeline/pages/TimelinePage.tsx`, chooses the same way:
-`QuietTimelinePage`, the weeks paused at the week it happened
+`features/timeline/pages/TimelinePage.tsx`, is chosen the same way, by
+`src/routes/timeline.ts`: `QuietTimelinePage`, the weeks paused at the week it happened
 (`features/timeline/quiet/`). The rules (the guide's parts shown,
 `QUIET_PARTS`; the week paused at, `pausedAt`; the next steps,
 `NEXT_STEPS` and `nextSteps`) are `src/lib/thisWeek/quiet.ts`; what quiet is,
@@ -78,7 +80,7 @@ what happened (`Guide`), then the next steps. The timeline's page,
 1. Make it a component in a folder for its part, `components/<part>/`. It
    reads the week from `useThisWeekPage()` and its data through its query's
    hook, works out what it shows, and returns null when there's nothing.
-2. Put it in `Week` (`pages/ThisWeek.tsx`), in the left column with the week
+2. Put it in `WeekColumns` (`components/WeekColumns.tsx`), in the left column with the week
    or in `DoingNow` / `BestDoneThatWeek` on the right, wrapped in a
    `<div className="order-N empty:hidden lg:order-0">`: `order` places it in
    the phone's one column, and `empty:hidden` drops the wrapper when it
