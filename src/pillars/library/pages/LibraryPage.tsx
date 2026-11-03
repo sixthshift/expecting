@@ -7,11 +7,13 @@ import { PillarLayout } from "../../../app/components/layout/PillarLayout";
 import { search } from "../../../lib/library/search";
 import { Doors } from "../components/doors/Doors";
 import { HardDoor } from "../components/doors/HardDoor";
+import { HomeColumn } from "../components/home/HomeColumn";
 import { ItemList } from "../components/itemList/ItemList";
 import { RightNow } from "../components/rightNow/RightNow";
 import { Shelf } from "../components/shelf/Shelf";
 import { Topics } from "../components/topics/Topics";
 import { useItems } from "../hooks/useItems";
+import { QuietLibraryPage } from "../quiet/pages/QuietLibraryPage";
 
 const route = getRouteApi("/app/library");
 
@@ -21,12 +23,11 @@ const route = getRouteApi("/app/library");
  * right now, the topics, and the quiet door for when it's hard. A door or a
  * topic opens in place (`?door=can-i`, `?topic=food`), narrowed by chips. Each
  * item also turns up on its week; here it can be found without knowing when.
- * While something has happened, the quiet door comes first, and nothing is
- * open right now.
+ * While something has happened, the home is QuietLibraryPage: the quiet door
+ * first, and nothing open right now.
  */
 export function LibraryPage() {
   const items = useItems();
-  const now = useNow();
   const { data: quiet } = useQuietQuery();
   const narrowing = route.useSearch();
   const { q: inAddress = "", door, topic } = narrowing;
@@ -65,15 +66,24 @@ export function LibraryPage() {
           <p className="text-sm text-fg-subtle">{results.length === 0 ? `Nothing about "${q}" yet.` : `${results.length} found`}</p>
           <ItemList items={results} />
         </section>
+      ) : quiet ? (
+        <QuietLibraryPage />
       ) : (
-        <div className="flex flex-col gap-10 lg:gap-12">
-          {quiet ? <HardDoor /> : null}
-          <Doors />
-          {now !== null && !quiet ? <RightNow now={now} /> : null}
-          <Topics />
-          {quiet ? null : <HardDoor />}
-        </div>
+        <Home />
       )}
     </PillarLayout>
+  );
+}
+
+/** The home below the search: the doors, what's open right now, the topics, and the quiet door last. */
+function Home() {
+  const now = useNow();
+  return (
+    <HomeColumn>
+      <Doors />
+      {now !== null ? <RightNow now={now} /> : null}
+      <Topics />
+      <HardDoor />
+    </HomeColumn>
   );
 }

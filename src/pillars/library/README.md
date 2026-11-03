@@ -23,6 +23,7 @@ content/items/*.md
   → builtInItems              bundled, checked               src/content/
   → useItems()                tailored by your answers, extras   hooks/
   → the home                  doors, right now, topics, search   pages/LibraryPage
+                              (QuietLibraryPage while quiet)    quiet/pages/
   → Shelf                     a door or topic: DOOR_INFO[door].group, chips   components/shelf/
   → ItemList / Rows / Cards   rows linking to each entry (ItemLink)
   → the entry's page          LibraryItemPageProvider: the entry, or why it isn't there
@@ -39,6 +40,7 @@ not props.
 
 ```
 pages/          LibraryPage (home, search, a shelf), LibraryItemPage (an entry)
+quiet/          while something has happened: pages/QuietLibraryPage, the home
 contexts/       LibraryItemPageContext: the entry, why it's hidden, its words
 hooks/          useItems (your entries), useSwipe
 model/          labels (an entry's weeks), narrowing (a shelf's search params),
@@ -48,6 +50,7 @@ components/
   itemLink/     every link to an entry (masks a private one); other pillars use it
   itemList/     a list of entries; other pillars use it
   content/      an entry's body: ItemBody, the can-i's Verdict, a symptom's Triage
+  home/         HomeColumn, the home's one column, in both worlds
   doors/        the doors on the home, and the quiet door
   rightNow/     right now, at week N
   topics/       browse by topic
@@ -66,6 +69,16 @@ The rules, pure and tested apart, are `src/lib/library/`: `doors.ts`,
 `search.ts`, `rightNow.ts`, `thisWeek.ts` (what This week takes: worth
 knowing, the heads-up) and `clues.ts` (a private entry named, an address
 that leads nowhere). How weeks and dates are said is `src/lib/labels.ts`.
+
+## While something has happened
+
+Quiet is a world of its own: `quiet/` mirrors the pillar's shape. Only the
+home differs: `LibraryPage` is the one place that chooses, `quiet ?
+<QuietLibraryPage /> : <Home />`, the quiet door first and nothing open right
+now. The search, a door, a shelf and an entry are the same in both worlds,
+and what both homes draw is shared (`HomeColumn`, `Doors`, `Topics`,
+`HardDoor`). Quiet's own rules for the Library would go in
+`src/lib/library/quiet.ts`; what quiet is, `src/lib/quiet.ts`.
 
 ## Adding a door
 
