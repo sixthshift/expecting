@@ -1,5 +1,5 @@
 import { LibraryHome } from "../components/home/LibraryHome";
-import { LibraryFrame } from "../components/LibraryFrame";
+import { LibraryPageBody } from "../components/LibraryPageBody";
 
 /**
  * Everything Expecting knows, by the question you came with (src/lib/library/doors.ts).
@@ -11,5 +11,5 @@ import { LibraryFrame } from "../components/LibraryFrame";
  * (`worlds`): the same search, doors and shelves, around the quiet home.
  */
 export function LibraryPage() {
-  return <LibraryFrame home={<LibraryHome />} />;
+  return <LibraryPageBody home={<LibraryHome />} />;
 }

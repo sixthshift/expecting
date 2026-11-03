@@ -414,7 +414,7 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
   place. Each page takes its own provider inside itself; the normal world's
   pages, contexts and parts never check quiet, and a part both draw reads
   neither context (`useQuietKind`). Where the two share all but one part, the
-  rest is one component both pages draw (the Library's `LibraryFrame`, around
+  rest is one component both pages draw (the Library's `LibraryPageBody`, around
   `LibraryHome` or `QuietLibraryHome`). The address is the same in both
   worlds. A page put away while quiet (the Drawer and its tools, the Planner's
   weeks and lists) has no `quiet/`: its quiet world is `putAway({ subject,

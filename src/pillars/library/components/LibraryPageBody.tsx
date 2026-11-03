@@ -17,7 +17,7 @@ const route = getRouteApi("/app/library");
  * (`QuietLibraryPage`). Words that find a private entry are held here, not in
  * the address.
  */
-export function LibraryFrame({ home }: { home: ReactNode }) {
+export function LibraryPageBody({ home }: { home: ReactNode }) {
   const items = useItems();
   const narrowing = route.useSearch();
   const { q: inAddress = "", door, topic } = narrowing;

@@ -22,7 +22,7 @@ this is the map of the code.
 content/items/*.md
   → builtInItems              bundled, checked               src/content/
   → useItems()                tailored by your answers, extras   hooks/
-  → LibraryFrame              search, a shelf, or the home it's given   components/
+  → LibraryPageBody              search, a shelf, or the home it's given   components/
   → the home                  doors, right now, topics           pages/LibraryPage
                               (QuietLibraryPage while quiet)    quiet/pages/
   → Shelf                     a door or topic: DOOR_INFO[door].group, chips   components/shelf/
@@ -40,8 +40,8 @@ not props.
 ## Where things are
 
 ```
-pages/          LibraryPage (LibraryFrame around LibraryHome), LibraryItemPage (an entry)
-quiet/          while something has happened: pages/QuietLibraryPage (LibraryFrame
+pages/          LibraryPage (LibraryPageBody around LibraryHome), LibraryItemPage (an entry)
+quiet/          while something has happened: pages/QuietLibraryPage (LibraryPageBody
                 around components/QuietLibraryHome)
 contexts/       LibraryItemPageContext: the entry, why it's hidden, its words
 hooks/          useItems (your entries), useSwipe
@@ -77,7 +77,7 @@ that leads nowhere). How weeks and dates are said is `src/lib/labels.ts`.
 Quiet is a world of its own: `quiet/` mirrors the pillar's shape. The route
 (`src/routes/library.ts`) is the one place that chooses,
 `worlds(LibraryPage, QuietLibraryPage)` (`src/app/features/quiet/worlds.tsx`).
-Only the home differs, so both pages are `LibraryFrame` (the search and its
+Only the home differs, so both pages are `LibraryPageBody` (the search and its
 results, a door or a topic's shelf) around their home: `LibraryHome`, or
 `QuietLibraryHome`, the quiet door first and nothing open right now. An entry
 is the same in both worlds, and what both homes draw is shared
