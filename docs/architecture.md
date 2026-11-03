@@ -312,10 +312,11 @@ The map of the code is `src/pillars/planner/README.md`.
 add a kind of line is
 [`src/pillars/journal/README.md`](../src/pillars/journal/README.md).
 
-- `JournalPageProvider` builds the story's lines once; `Journal`, or while
-  something has happened `QuietJournal`, draws them inside `PillarLayout`, under `JournalTabs`.
+- `JournalPage` chooses: `Journal` in `JournalPageProvider`, which builds the
+  story's lines once, or while something has happened `QuietJournalPage` in
+  `QuietJournalPageProvider` (`quiet/`); each draws inside `PillarLayout`, under `JournalTabs`.
 - `components/` has a folder per part (`story/`, `thisWeek/`, `lines/`,
-  `collections/`, `book/`, `quiet/`); each kind kept is a feature,
+  `collections/`, `book/`); the quiet Journal is `quiet/`; each kind kept is a feature,
   `features/<kind>/`, its forms and rows (which the "+" and other pillars
   import) and its collection in full.
 - The rules are `src/lib/journal/`: `story/` (the lines, collections, views,
