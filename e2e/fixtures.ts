@@ -89,8 +89,9 @@ export const test = base.extend<Fixtures>({
   },
 });
 
-/** How many saves this page's outbox holds, not yet sent (src/app/model/outboxStore.ts). */
+/** How many saves this page's outbox holds, not yet sent (src/app/model/outboxStore.ts). None on a page never opened (a test that skipped first), which has no storage to read. */
 export function waitingSaves(page: Page): Promise<number> {
+  if (!page.url().startsWith("http")) return Promise.resolve(0);
   return page.evaluate(() => (JSON.parse(localStorage.getItem("expecting-outbox") ?? "[]") as unknown[]).length);
 }
 

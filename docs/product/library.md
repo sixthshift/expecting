@@ -59,10 +59,11 @@ It lists no entries, because nobody comes to browse 893:
   Nobody tells you, What does that mean?, What happens at…?, What do we
   decide?, What can we claim?, How do we…? Each is laid out for its
   question: rows by topic or trimester, symptoms with "Know these first"
-  under a call-now box, cards, an A–Z glossary. The rows' groups sit in
-  as many columns as the width holds (one on a phone, two or three on a
-  desktop, fewer while the side panel is open), so a title stays near its
-  answer.
+  under a call-now box, cards, an A–Z glossary. The rows sit in as many
+  columns as the width holds (one on a phone, two or three on a desktop,
+  fewer while the side panel is open), so a title stays near its answer,
+  read down each and on into the next like a newspaper's: a long group runs
+  on into the next column, so one group alone still fills the width.
 - **When it's hard,** a quiet ninth door at the foot: loss, mental health,
   special circumstances. There for whoever looks, never put in front of
   anyone.
@@ -70,11 +71,25 @@ It lists no entries, because nobody comes to browse 893:
   soonest-closing first.
 - **The topics,** with their counts, for whoever does want to browse.
 
-On a desktop an entry opens in the side panel, beside the page whose link
-opened it: a task's Why beside To do, a day's read beside the week, an entry
-beside the Library's list. The reading sits beside what it's for, and the
-page stays where it was. "Open in full" goes to its page. Never a private
-entry, which opens on its own page with its quick exit, as on a phone.
+On a desktop an entry doesn't leave the page it was opened from, two ways
+for two reasons:
+
+- **In the Library** (a door, search, Right now) you came to read, so it
+  opens in the reader over the list, at a reading width
+  (`/library?door=can-i&entry=sprouts`). It goes on through the list as a
+  phone does: the arrows at its top, ← and →, or Previous and Next at its
+  foot, with where you are ("2 of 43"), each in its place in the history,
+  so Back closes it. Esc, its close or a click outside close it too, and the
+  list is as you left it. "Open full page" goes to its page, which goes on
+  through the same list.
+- **Anywhere else** it's the reason for something on that page, so it opens
+  in the side panel beside it: a task's Why beside To do, a day's read beside
+  the week. The page stays where it was and live. "Open in full" goes to its
+  page.
+
+Never a private entry, which opens on its own page with its quick exit, as
+on a phone. On a phone an entry is always its page; an address for the
+reader opened there goes on to it.
 
 An entry's page leads back to the door it came from. Opened from a list
 (a door's whole shelf, search results, Right now, Related, This week's worth

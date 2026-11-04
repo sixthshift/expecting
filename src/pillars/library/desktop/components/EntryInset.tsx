@@ -6,15 +6,16 @@ import { NoEntry } from "../../components/notInLibrary/NoEntry";
 import { LibraryItemPageProvider, useLibraryItemPage } from "../../contexts/LibraryItemPageContext";
 
 /**
- * An entry in the desktop's side panel, beside the page it was opened from
- * (`?panel=item:<id>`, `AddressedPanel`): the same entry its page draws, in
- * the same provider, without what belongs to a page of its own (the way
- * back, going through a list, a private one's quick exit: a private entry
+ * An entry set into another page on a desktop: the side panel beside the page
+ * it was opened from (`?panel=item:<id>`, `AddressedPanel`), or the Library's
+ * reader over its list (`?entry=<id>`, `EntryReader`). The same entry its page
+ * draws, in the same provider, without what belongs to a page of its own (the
+ * way back, going through a list, a private one's quick exit: a private entry
  * never opens here).
  */
-export function EntryPanel({ itemId }: { itemId: string }) {
+export function EntryInset({ itemId }: { itemId: string }) {
   return (
-    <LibraryItemPageProvider itemId={itemId} inPanel>
+    <LibraryItemPageProvider itemId={itemId} inset>
       <Rendering />
     </LibraryItemPageProvider>
   );

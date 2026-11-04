@@ -18,7 +18,7 @@ import { Sources } from "./Sources";
 export function ItemCard() {
   const { item } = useEntry();
   // Its page's heading on its own page; beside another page, in the side panel, under that page's.
-  const Title = useLibraryItemPage().inPanel ? "h2" : "h1";
+  const Title = useLibraryItemPage().inset ? "h2" : "h1";
   const { data: ticks } = useChecklistQuery({ select: (c) => c.ticks });
   const short = item.type === "card" || item.type === "term";
   return (

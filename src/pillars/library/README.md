@@ -44,7 +44,9 @@ pages/          LibraryPage (LibraryPageBody around LibraryHome), LibraryItemPag
 routes/         library (/library, a path only), libraryIndex (its search), item ($itemId);
                 index.ts, libraryRoutes
 desktop/        LibraryRail: everything, each door with its count, the door for when it's hard
-                apart (first while something has happened), down the left of each page on a desktop
+                apart (first while something has happened), down the left of each page on a desktop;
+                EntryReader, an entry opened in the Library read over its list (?entry=), on through
+                it; EntryInset, an entry set into the reader or the side panel
 quiet/          while something has happened: pages/QuietLibraryPage (LibraryPageBody
                 around components/QuietLibraryHome)
 contexts/       LibraryItemPageContext: the entry, why it's hidden, its words

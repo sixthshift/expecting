@@ -229,15 +229,22 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
   `src/app/desktop/components/panel/`) and stays live, so you scroll it, tick
   on it, and open the next thing, which takes the panel's place (one at a
   time, `claim`). Esc and its close shut it. Two ways in:
-  - **An entry, by its address:** every link to one (`ItemLink`) opens it in
-    the panel on a desktop, `?panel=item:<id>` on the page you're on (the
-    `app` route's search, `src/app/model/panel.ts`), so Back closes it and a
-    link to it opens it; the page doesn't move (`resetScroll: false`). Drawn
-    by `AddressedPanel`, the Library's `EntryPanel` inside (the entry's own
-    provider, `inPanel`, its title an `h2` under the page's `h1`), with "Open
+  - **An entry, by its address:** every link to one (`ItemLink`) outside the
+    Library opens it in the panel on a desktop, `?panel=item:<id>` on the
+    page you're on (the `app` route's search, `src/app/model/panel.ts`), so
+    Back closes it and a link to it opens it; the page doesn't move (`resetScroll: false`). Drawn
+    by `AddressedPanel`, the Library's `EntryInset` inside (the entry's own
+    provider, `inset`, its title an `h2` under the page's `h1`), with "Open
     in full". Not a private entry (its link goes to its page, masked, as on
     a phone), and not from an entry's own page, where reading on is reading
     in full.
+    In the Library itself (`/library`: a door, search, Right now) a link
+    opens the entry in its reader instead, a `Modal` over the list
+    (`?entry=<id>`, the Library's own search; `EntryReader`), since there
+    you came to read, not to keep a page beside it: on through the list by
+    its arrows, ← →, or its foot (`neighbours`, the same as the phone's
+    swipe), each replacing the last in the history, so Back closes it. A
+    phone given that address goes on to the entry's page.
   - **Something opened to look at and change** (someone in Your people, a
     line on a list, a first, a bingo square, a line of the story):
     `DetailSheet` (`src/app/components/`), a sheet on a phone, the panel on a

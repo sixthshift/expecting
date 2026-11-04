@@ -6,6 +6,7 @@ import type { Item } from "../../../../content/schema";
 import { useLibraryItemPage } from "../../contexts/LibraryItemPageContext";
 import { useItems } from "../../hooks/useItems";
 import { useSwipe } from "../../hooks/useSwipe";
+import { neighbours } from "../../model/through";
 import { ItemLink } from "../itemLink/ItemLink";
 
 /**
@@ -21,9 +22,7 @@ export function Through({ children }: { children: ReactNode }) {
   const from = useRouterState({ select: (s) => s.location.state.from });
   const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
-  const ids = list?.filter((id) => items.some((i) => i.id === id)) ?? [];
-  const at = item ? ids.indexOf(item.id) : -1;
-  const [before, after] = at < 0 ? [] : [items.find((i) => i.id === ids[at - 1]), items.find((i) => i.id === ids[at + 1])];
+  const { before, after } = item ? neighbours(list, items, item.id) : { before: undefined, after: undefined };
   const go = (to: Item | undefined) =>
     to &&
     list &&
@@ -39,35 +38,45 @@ export function Through({ children }: { children: ReactNode }) {
   return (
     <div ref={ref} className="flex flex-col gap-4">
       {children}
-      {before || after ? (
-        <nav aria-label="Through the list" className="mt-2 grid grid-cols-2 gap-3 border-t border-border-subtle pt-4">
-          {before ? (
-            <ItemLink itemId={before.id} list={list} replace className="flex min-h-11 items-start gap-1 rounded-md text-sm text-fg-subtle hover:text-fg-normal">
-              <ChevronLeft aria-hidden size={16} className="mt-0.5 shrink-0" />
-              <span className="flex flex-col">
-                <span className="text-xs">Previous</span>
-                <span className="text-fg-normal">{before.title}</span>
-              </span>
-            </ItemLink>
-          ) : (
-            <span />
-          )}
-          {after ? (
-            <ItemLink
-              itemId={after.id}
-              list={list}
-              replace
-              className="flex min-h-11 items-start justify-end gap-1 rounded-md text-right text-sm text-fg-subtle hover:text-fg-normal"
-            >
-              <span className="flex flex-col">
-                <span className="text-xs">Next</span>
-                <span className="text-fg-normal">{after.title}</span>
-              </span>
-              <ChevronRight aria-hidden size={16} className="mt-0.5 shrink-0" />
-            </ItemLink>
-          ) : null}
-        </nav>
-      ) : null}
+      <ThroughLinks before={before} after={after} list={list} />
     </div>
+  );
+}
+
+/**
+ * The previous and next in the list at an entry's foot, each by its title.
+ * Going on takes the entry's place in the history (`replace`), so Back is to
+ * the list: on its page (`Through`) and in the Library's reader on a desktop.
+ */
+export function ThroughLinks({ before, after, list }: { before: Item | undefined; after: Item | undefined; list: readonly string[] | undefined }) {
+  if (!before && !after) return null;
+  return (
+    <nav aria-label="Through the list" className="mt-2 grid grid-cols-2 gap-3 border-t border-border-subtle pt-4">
+      {before ? (
+        <ItemLink itemId={before.id} list={list} replace className="flex min-h-11 items-start gap-1 rounded-md text-sm text-fg-subtle hover:text-fg-normal">
+          <ChevronLeft aria-hidden size={16} className="mt-0.5 shrink-0" />
+          <span className="flex flex-col">
+            <span className="text-xs">Previous</span>
+            <span className="text-fg-normal">{before.title}</span>
+          </span>
+        </ItemLink>
+      ) : (
+        <span />
+      )}
+      {after ? (
+        <ItemLink
+          itemId={after.id}
+          list={list}
+          replace
+          className="flex min-h-11 items-start justify-end gap-1 rounded-md text-right text-sm text-fg-subtle hover:text-fg-normal"
+        >
+          <span className="flex flex-col">
+            <span className="text-xs">Next</span>
+            <span className="text-fg-normal">{after.title}</span>
+          </span>
+          <ChevronRight aria-hidden size={16} className="mt-0.5 shrink-0" />
+        </ItemLink>
+      ) : null}
+    </nav>
   );
 }

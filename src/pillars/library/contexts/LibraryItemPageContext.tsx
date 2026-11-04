@@ -27,8 +27,8 @@ export type LibraryItemPage = {
   offExtra: Extra | undefined;
   /** Its words, loaded once and kept (`pageOf`): read through `useEntry`, under a Suspense. */
   page: Promise<ItemPage> | undefined;
-  /** Drawn in the desktop's side panel beside another page, not on its own: its title isn't the page's heading. */
-  inPanel: boolean;
+  /** Set into another page (the desktop's side panel, the Library's reader), not on its own: its title isn't the page's heading. */
+  inset: boolean;
 };
 
 const PageContext = createContext<LibraryItemPage | null>(null);
@@ -39,7 +39,7 @@ const PageContext = createContext<LibraryItemPage | null>(null);
  * by that id), and its words on the way. It holds no data of its own: your
  * answers and extras stay in the query cache, read through their hooks.
  */
-export function LibraryItemPageProvider({ itemId, inPanel = false, children }: { itemId: string; inPanel?: boolean; children: ReactNode }) {
+export function LibraryItemPageProvider({ itemId, inset = false, children }: { itemId: string; inset?: boolean; children: ReactNode }) {
   const items = useItems();
   const { data: facts } = useAnswersQuery({ select: factsOf });
   const { data: extras } = useExtrasQuery({ select: extrasOn });
@@ -50,7 +50,7 @@ export function LibraryItemPageProvider({ itemId, inPanel = false, children }: {
   const hiddenBy = hidden ? Object.entries(hidden.when).find(([key, answers]) => facts[key] !== undefined && !answers.includes(facts[key]))?.[0] : undefined;
   const page = item ? pageOf(item) : undefined;
 
-  const value = useMemo(() => ({ itemId, item, hidden, hiddenBy, offExtra, page, inPanel }), [itemId, item, hidden, hiddenBy, offExtra, page, inPanel]);
+  const value = useMemo(() => ({ itemId, item, hidden, hiddenBy, offExtra, page, inset }), [itemId, item, hidden, hiddenBy, offExtra, page, inset]);
 
   return <PageContext value={value}>{children}</PageContext>;
 }

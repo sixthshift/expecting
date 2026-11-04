@@ -3,8 +3,8 @@ import { useLibraryItemPage } from "../../contexts/LibraryItemPageContext";
 
 /** An entry your answers or an extra that's off hide: said so, with the way in settings to bring it back. */
 export function HiddenEntry() {
-  const { hiddenBy, offExtra, inPanel } = useLibraryItemPage();
-  const Title = inPanel ? "h2" : "h1";
+  const { hiddenBy, offExtra, inset } = useLibraryItemPage();
+  const Title = inset ? "h2" : "h1";
   return (
     <div className="flex flex-col gap-2">
       <Title className="text-2xl font-display font-semibold text-fg-strong">Not in your library</Title>

@@ -1,8 +1,11 @@
 import { SearchInput } from "@sixthshift/design-system/search-input";
-import { getRouteApi, useNavigate } from "@tanstack/react-router";
+import { getRouteApi, Navigate, useNavigate } from "@tanstack/react-router";
 import { type ReactNode, useState } from "react";
 import { PillarLayout } from "../../../app/components/layout/PillarLayout";
+import { useLayout } from "../../../app/hooks/useLayout";
+import { isPrivateItem } from "../../../content";
 import { search } from "../../../lib/library/search";
+import { EntryReader } from "../desktop/components/EntryReader";
 import { LibraryRail } from "../desktop/components/LibraryRail";
 import { useItems } from "../hooks/useItems";
 import { ItemList } from "./itemList/ItemList";
@@ -16,13 +19,16 @@ const route = getRouteApi("/app/library/");
  * the `Shelf`), and otherwise the `home` it's given: `LibraryHome`
  * (`LibraryPage`), or while something has happened `QuietLibraryHome`
  * (`QuietLibraryPage`). Words that find a private entry are held here, not in
- * the address.
+ * the address. An entry opened from it (`?entry=<id>`) is read over it on a
+ * desktop (`EntryReader`); a phone has no reader, so it goes on to the
+ * entry's page.
  */
 export function LibraryPageBody({ home }: { home: ReactNode }) {
   const items = useItems();
   const narrowing = route.useSearch();
-  const { q: inAddress = "", door, topic } = narrowing;
+  const { q: inAddress = "", door, topic, entry } = narrowing;
   const navigate = useNavigate();
+  const desktop = useLayout() === "desktop";
   // Words that find a private entry are held here, not in the address, which the browser's history keeps.
   const [held, setHeld] = useState<string | null>(null);
   const q = held ?? inAddress;
@@ -34,10 +40,18 @@ export function LibraryPageBody({ home }: { home: ReactNode }) {
     navigate({ to: ".", search: { q: findsPrivate ? undefined : value || undefined }, replace: true, resetScroll: false });
   }
 
+  const reader =
+    entry === undefined || isPrivateItem(entry) ? null : desktop ? (
+      <EntryReader itemId={entry} />
+    ) : (
+      <Navigate to="/library/$itemId" params={{ itemId: entry }} replace />
+    );
+
   if (!results && (door || topic)) {
     return (
       <PillarLayout rail={<LibraryRail />} className="pt-[max(1rem,env(safe-area-inset-top))] desktop:pt-8">
         <Shelf narrowing={narrowing} />
+        {reader}
       </PillarLayout>
     );
   }
@@ -60,6 +74,7 @@ export function LibraryPageBody({ home }: { home: ReactNode }) {
       ) : (
         home
       )}
+      {reader}
     </PillarLayout>
   );
 }

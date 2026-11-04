@@ -5,7 +5,7 @@ import { builtInItems, isPrivateItem } from "../../../../content";
 import { panelItem } from "../../../model/panel";
 import { SidePanel } from "./SidePanel";
 
-const EntryPanel = lazy(() => import("../../../../pillars/library/desktop/components/EntryPanel").then((m) => ({ default: m.EntryPanel })));
+const EntryInset = lazy(() => import("../../../../pillars/library/desktop/components/EntryInset").then((m) => ({ default: m.EntryInset })));
 
 /**
  * What the address puts in the side panel (`?panel=item:<id>`): a Library
@@ -46,7 +46,7 @@ export function AddressedPanel() {
       onClose={close}
     >
       <Suspense fallback={null}>
-        <EntryPanel itemId={itemId} />
+        <EntryInset itemId={itemId} />
       </Suspense>
     </SidePanel>
   );
