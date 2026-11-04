@@ -4,6 +4,7 @@ import { type ReactNode, useRef } from "react";
 import { isPrivateItem } from "../../../../content";
 import type { Item } from "../../../../content/schema";
 import { useLibraryItemPage } from "../../contexts/LibraryItemPageContext";
+import { useArrowKeys } from "../../hooks/useArrowKeys";
 import { useItems } from "../../hooks/useItems";
 import { useSwipe } from "../../hooks/useSwipe";
 import { neighbours } from "../../model/through";
@@ -11,9 +12,10 @@ import { ItemLink } from "../itemLink/ItemLink";
 
 /**
  * An entry opened from a list (its ids kept in the history entry, by ItemLink):
- * swipe left for the next in it, right for the one before, or the links at the
- * foot. Each takes this page's place in the history, so Back is to the list.
- * Only those still in your Library: one an answer hides is passed over.
+ * swipe left for the next in it, right for the one before, ← and → on a
+ * keyboard, or the links at the foot. Each takes this page's place in the
+ * history, so Back is to the list. Only those still in your Library: one an
+ * answer hides is passed over.
  */
 export function Through({ children }: { children: ReactNode }) {
   const { item } = useLibraryItemPage();
@@ -34,6 +36,7 @@ export function Through({ children }: { children: ReactNode }) {
       replace: true,
     });
   useSwipe(ref, { onLeft: after && (() => go(after)), onRight: before && (() => go(before)) });
+  useArrowKeys({ onLeft: before && (() => go(before)), onRight: after && (() => go(after)) });
 
   return (
     <div ref={ref} className="flex flex-col gap-4">

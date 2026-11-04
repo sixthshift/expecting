@@ -5,17 +5,13 @@ import { useEffect, useRef } from "react";
 import { builtInItems, isPrivateItem } from "../../../../content";
 import type { Item } from "../../../../content/schema";
 import { ThroughLinks } from "../../components/through/Through";
+import { useArrowKeys } from "../../hooks/useArrowKeys";
 import { useItems } from "../../hooks/useItems";
 import { neighbours } from "../../model/through";
 import { EntryInset } from "./EntryInset";
 
 const BUTTON =
   "flex size-9 items-center justify-center rounded-md text-fg-subtle hover:bg-bg-subtle-hovered hover:text-fg-normal disabled:pointer-events-none disabled:opacity-35";
-
-/** Whether a key press belongs to what has focus: typing, or a control that moves with the arrows itself. */
-function ownsKey(target: EventTarget | null): boolean {
-  return target instanceof Element && target.closest("input, textarea, select, [contenteditable], [role=slider], [role=tablist]") !== null;
-}
 
 /**
  * The Library's reader on a desktop: an entry opened from its list (a door,
@@ -53,20 +49,7 @@ export function EntryReader({ itemId }: { itemId: string }) {
     body.current?.scrollTo({ top: 0 });
   }, [itemId]);
 
-  useEffect(() => {
-    function onKey(event: KeyboardEvent) {
-      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || ownsKey(event.target)) return;
-      if (event.key === "ArrowLeft" && before) {
-        event.preventDefault();
-        go(before);
-      } else if (event.key === "ArrowRight" && after) {
-        event.preventDefault();
-        go(after);
-      }
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  });
+  useArrowKeys({ onLeft: before && (() => go(before)), onRight: after && (() => go(after)) });
 
   return (
     <Modal aria-label={title} onOpenChange={(open) => (open ? null : close())} className="sm:h-[90%] sm:w-[min(46rem,94vw)]">

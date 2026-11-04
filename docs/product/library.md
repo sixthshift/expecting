@@ -59,11 +59,7 @@ It lists no entries, because nobody comes to browse 893:
   Nobody tells you, What does that mean?, What happens at…?, What do we
   decide?, What can we claim?, How do we…? Each is laid out for its
   question: rows by topic or trimester, symptoms with "Know these first"
-  under a call-now box, cards, an A–Z glossary. The rows sit in as many
-  columns as the width holds (one on a phone, two or three on a desktop,
-  fewer while the side panel is open), so a title stays near its answer,
-  read down each and on into the next like a newspaper's: a long group runs
-  on into the next column, so one group alone still fills the width.
+  under a call-now box, cards, an A–Z glossary.
 - **When it's hard,** a quiet ninth door at the foot: loss, mental health,
   special circumstances. There for whoever looks, never put in front of
   anyone.
@@ -94,7 +90,8 @@ reader opened there goes on to it.
 An entry's page leads back to the door it came from. Opened from a list
 (a door's whole shelf, search results, Right now, Related, This week's worth
 knowing), it goes on through that list: swipe left for the next, right for
-the one before, or the Previous and Next links at its foot. Each takes the
+the one before, ← and → on a keyboard, or the Previous and Next links at
+its foot. Each takes the
 page's place in the history, so Back is still to the list. One an answer
 hides is passed over.
 
