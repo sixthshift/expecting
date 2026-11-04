@@ -3,6 +3,7 @@ import { Appointments } from "../components/appointments/Appointments";
 import { ForNextAppointment } from "../components/questions/ForNextAppointment";
 import { ToDo } from "../components/toDo/ToDo";
 import { PlannerPageProvider } from "../contexts/PlannerPageContext";
+import { PlannerRail } from "../desktop/components/PlannerRail";
 import { ListsWayIn } from "../features/lists/components/wayIn/ListsWayIn";
 
 /**
@@ -17,10 +18,10 @@ import { ListsWayIn } from "../features/lists/components/wayIn/ListsWayIn";
 export function PlannerPage() {
   return (
     <PlannerPageProvider>
-      <PillarLayout title="Planner" lead="What to do and what to ask, so nothing sneaks up on you.">
+      <PillarLayout rail={<PlannerRail />} title="Planner" lead="What to do and what to ask, so nothing sneaks up on you.">
         <div className="flex flex-col gap-10 desktop:grid desktop:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] desktop:items-start desktop:gap-10">
           <ToDo />
-          <div className="flex flex-col gap-10 desktop:sticky desktop:top-6">
+          <div className="flex flex-col gap-10 desktop:sticky desktop:top-[calc(var(--top-bar)+1.5rem)]">
             <ListsWayIn />
             <Appointments />
             <ForNextAppointment />

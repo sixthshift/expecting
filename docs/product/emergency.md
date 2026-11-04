@@ -21,7 +21,7 @@ call button) and Outside the pillars.
 ## What it holds to
 
 - **The call button is on every pillar,** beside settings on a phone and
-  in the sidebar on a desktop, once the birth suite's number is filled in.
+  in the top bar on a desktop, once the birth suite's number is filled in.
   Until then the way to Emergency info is where the number goes. "Is this
   normal?" ends at the same number whenever the answer is "call".
 - **The calls first, in one row:** 000, the birth suite, the midwife or

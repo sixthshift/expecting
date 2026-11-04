@@ -48,7 +48,7 @@ hooks/          useStoryItems (the story, over the queries), useStoryView, useSt
                 useCollectionCards (the collections' cards, each with its summary)
 model/labels.ts the Journal's words: a photo's title, who kept it, a week's title
 components/
-  JournalTabs   Story and Collections, at the top of every page (each page is a PillarLayout)
+  JournalTabs   Story and Collections, at the top of every page on a phone (each page is a PillarLayout)
   story/        the story: JournalStory, its controls and search, JournalDays;
                 views/weeks/ (WeeksView, WeekGrid, Tile) and views/pregnancy/ (PregnancyView,
                 PregnancyLine), the story zoomed out
@@ -58,6 +58,8 @@ components/
   collections/  the overview: Collections, Group, CollectionCard
   book/         the cover and contents, the recaps, a chapter (ChapterPage, WeeksWritten)
 quiet/          the quiet Journal, while something has happened (below)
+desktop/        JournalRail: the story, the collections and the book, down the left of each page
+                on a desktop, in both worlds (JournalTabs is a phone's)
 features/       a feature per kind kept: appetite, feelings, firsts, movements, notes,
                 papers, photos. Each has its forms and rows loose in components/ (the "+"
                 and other pillars use these) and its collection in full, components/collection/

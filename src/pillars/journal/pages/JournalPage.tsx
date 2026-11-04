@@ -2,6 +2,7 @@ import { PillarLayout } from "../../../app/components/layout/PillarLayout";
 import { JournalTabs } from "../components/JournalTabs";
 import { JournalStory } from "../components/story/JournalStory";
 import { JournalPageProvider } from "../contexts/JournalPageContext";
+import { JournalRail } from "../desktop/components/JournalRail";
 
 /**
  * The Journal: the pregnancy, kept and given back, as one story: everything
@@ -23,7 +24,7 @@ import { JournalPageProvider } from "../contexts/JournalPageContext";
 export function JournalPage() {
   return (
     <JournalPageProvider>
-      <PillarLayout title="Journal" className="gap-6">
+      <PillarLayout rail={<JournalRail />} title="Journal" className="gap-6">
         <JournalTabs current="story" />
         <JournalStory />
       </PillarLayout>

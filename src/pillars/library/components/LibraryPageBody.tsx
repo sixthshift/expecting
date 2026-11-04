@@ -3,6 +3,7 @@ import { getRouteApi, useNavigate } from "@tanstack/react-router";
 import { type ReactNode, useState } from "react";
 import { PillarLayout } from "../../../app/components/layout/PillarLayout";
 import { search } from "../../../lib/library/search";
+import { LibraryRail } from "../desktop/components/LibraryRail";
 import { useItems } from "../hooks/useItems";
 import { ItemList } from "./itemList/ItemList";
 import { Shelf } from "./shelf/Shelf";
@@ -35,14 +36,14 @@ export function LibraryPageBody({ home }: { home: ReactNode }) {
 
   if (!results && (door || topic)) {
     return (
-      <PillarLayout className="pt-[max(1rem,env(safe-area-inset-top))] desktop:pt-8">
+      <PillarLayout rail={<LibraryRail />} className="pt-[max(1rem,env(safe-area-inset-top))] desktop:pt-8">
         <Shelf narrowing={narrowing} />
       </PillarLayout>
     );
   }
 
   return (
-    <PillarLayout title="Library" lead="Everything Expecting knows, to read any time. Each piece also turns up on its week.">
+    <PillarLayout rail={<LibraryRail />} title="Library" lead="Everything Expecting knows, to read any time. Each piece also turns up on its week.">
       <SearchInput
         value={q}
         onValueChange={onSearch}

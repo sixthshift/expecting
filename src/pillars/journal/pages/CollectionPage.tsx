@@ -6,6 +6,7 @@ import { FOLDED_WHILE_QUIET } from "../../../lib/journal/quiet";
 import type { Collection } from "../../../lib/journal/story/collections";
 import { JournalTabs } from "../components/JournalTabs";
 import { JournalPageProvider } from "../contexts/JournalPageContext";
+import { JournalRail } from "../desktop/components/JournalRail";
 import { AppetiteCollection } from "../features/appetite/components/collection/AppetiteCollection";
 import { FeelingsCollection } from "../features/feelings/components/collection/FeelingsCollection";
 import { FirstsCollection } from "../features/firsts/components/collection/FirstsCollection";
@@ -20,7 +21,7 @@ const route = getRouteApi("/app/journal/collections/$name");
 export function CollectionPage() {
   return (
     <JournalPageProvider>
-      <PillarLayout title="Journal" className="gap-6">
+      <PillarLayout rail={<JournalRail />} title="Journal" className="gap-6">
         <JournalTabs current="collections" />
         <OneCollection />
       </PillarLayout>

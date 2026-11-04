@@ -1,14 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { PILLARS, TABS } from "../../src/app/components/layout/pillars";
+import { PILLARS } from "../../src/app/components/layout/pillars";
 
 describe("the pillars", () => {
-  it("are the same in the tab bar as in the sidebar, only reordered", () => {
-    expect(TABS).toHaveLength(PILLARS.length);
-    expect(new Set(TABS)).toEqual(new Set(PILLARS));
+  it("are five, each once", () => {
+    expect(new Set(PILLARS.map((p) => p.to)).size).toBe(5);
   });
 
-  it("put home first in the sidebar and in the middle of the tab bar", () => {
-    expect(PILLARS[0]?.to).toBe("/");
-    expect(TABS[Math.floor(TABS.length / 2)]?.to).toBe("/");
+  it("put home in the middle of the row, the Journal behind it and the Planner ahead", () => {
+    const middle = Math.floor(PILLARS.length / 2);
+    expect(PILLARS.map((p) => p.to).slice(middle - 1, middle + 2)).toEqual(["/journal", "/", "/planner"]);
   });
 });

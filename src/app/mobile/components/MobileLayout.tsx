@@ -13,9 +13,9 @@ import { SharedIn } from "../../features/capture/components/SharedIn";
  * button, Emergency info and settings are in each pillar's top corner
  * (`MobileCorner`).
  */
-export function MobileLayout({ tabs, onPillar }: { tabs: readonly Pillar[]; onPillar: boolean }) {
+export function MobileLayout({ pillars, onPillar }: { pillars: readonly Pillar[]; onPillar: boolean }) {
   return (
-    <div className="[--tab-bar:calc(3.75rem+env(safe-area-inset-bottom))]">
+    <div className="[--tab-bar:calc(3.75rem+env(safe-area-inset-bottom))] [--top-bar:0px]">
       <div className={cn("min-w-0 pb-(--tab-bar)", onPillar && "pb-[calc(var(--tab-bar)+4.5rem)]")}>
         <Outlet />
       </div>
@@ -29,7 +29,7 @@ export function MobileLayout({ tabs, onPillar }: { tabs: readonly Pillar[]; onPi
       <SharedIn />
 
       <div className="frame-tab-bar fixed inset-x-0 bottom-0 z-30 print:hidden border-t border-border-subtle bg-bg-normal/95 pb-[env(safe-area-inset-bottom)] backdrop-blur">
-        <PillarNav pillars={tabs} layout="tabs" />
+        <PillarNav pillars={pillars} layout="tabs" />
       </div>
     </div>
   );

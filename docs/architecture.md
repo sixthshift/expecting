@@ -105,7 +105,7 @@ in.
 - **Naming.** "Shell" means only what TanStack Start means: the HTML
   document (`Document`) and SPA shell mode. The component around the
   pillars is `App` (`src/app/pages/App.tsx`); what it draws around them is
-  `AppLayout`, the sidebar and tab bar.
+  `AppLayout`, the top bar and the tab bar.
 
 ## Code layout
 
@@ -204,14 +204,28 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 
 ## The app's layout
 
-- **Five pillars:** a sidebar on a desktop, a tab bar on a phone, in two
-  orders (`PILLARS` and `TABS`). The sidebar reads top to bottom: This week,
-  the Planner, the Journal (now, ahead, behind), the Library, the Drawer.
-  The tab bar goes from the middle out, where a thumb reaches best: This
-  week in the middle, the Journal and the Planner either side (past to
-  future, as on the strip), the Library and the Drawer at the edges.
+- **Five pillars, in one row:** the tab bar on a phone, the top bar on a
+  desktop, in one order (`PILLARS`), from the middle out: This week in the
+  middle, the Journal and the Planner either side (past to future, as on the
+  strip; the Planner on the right, the easier side for most thumbs), the
+  Library and the Drawer at the edges. The same five in the same places on
+  every phone and computer.
+- **Three levels on a desktop, each on its own axis.** The top bar
+  (`TopBar`, `src/app/desktop/components/`) is the app's, the same on every
+  page: Expecting and the week you're in (`30+2`, opening the whole
+  pregnancy; not while something has happened), the pillars, then the
+  Library's search (`/`), the "+", what the phone keeps in its corner, and
+  whose session it is (`You`: your name, settings, logging out on this
+  computer, which is more often shared than a phone). A pillar's rail is the
+  pillar's: its own places, down the left of each of its pages
+  (`PillarLayout`'s `rail`; `PlannerRail`, `LibraryRail`, `JournalRail`, each
+  in its pillar's `desktop/components/`, built from `Rail` and `RailLink`),
+  each place an address. This week and the Drawer have none: each is one
+  page. The thing itself (an entry beside its list) is the third level, still
+  to come. Why a bar rather than a sidebar: five places sit in a row, and
+  the width a sidebar takes from every page is what side-by-side pages want.
 - **Beside settings, not pillars:** Emergency info and It's time, in the
-  phone's top corner (`MobileCorner`) and the sidebar, and the call button
+  phone's top corner (`MobileCorner`) and the top bar, and the call button
   (`CallBirthSuite`): the birth suite's number from Emergency info, drawn
   once it's filled in, and read without suspense so the app's layout never waits
   for it. A symptom's `Triage` calls the same number.
@@ -226,8 +240,10 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
   hero, a Library entry) has neither. It never asks whether something has
   happened: a page put away then is its route's quiet world, `putAway`
   (`PutAwayPage`). A pillar adds what's
-  its own around it: `JournalTabs`, `DrawerTool`. So `AppLayout` is the app's
-  layout (the sidebar, the tab bar, the "+") and `PillarLayout` a page's.
+  its own around it: `JournalTabs` (a phone's; a desktop has the rail),
+  `DrawerTool`, and on a desktop its `rail`, beside which a page's way back
+  isn't drawn, as the rail says where you are. So `AppLayout` is the app's
+  layout (the top bar, the tab bar, the "+") and `PillarLayout` a page's.
 
 ## The pillars
 
@@ -333,7 +349,8 @@ add a kind of line is
 - The route chooses (`worlds`): `JournalPage` in `JournalPageProvider`, which
   builds the story's lines once, or while something has happened
   `QuietJournalPage` in `QuietJournalPageProvider` (`quiet/`); each draws
-  inside `PillarLayout`, under `JournalTabs`.
+  inside `PillarLayout`, under `JournalTabs` on a phone, beside `JournalRail`
+  on a desktop.
 - `components/` has a folder per part (`story/`, `thisWeek/`, `lines/`,
   `collections/`, `book/`); the quiet Journal is `quiet/`; each kind kept is a feature,
   `features/<kind>/`, its forms and rows (which the "+" and other pillars
@@ -726,7 +743,7 @@ Installing and the service worker need HTTPS, except on `localhost`.
   layout designed for them, not one layout rearranged: on a phone the tab
   bar under the thumb, one thing at a time, the corner (`MobileCorner`) for
   It's time, the call button, Emergency info and settings; on a desktop the
-  sidebar, and things side by side. Within each, a part still flows with
+  top bar, a pillar's rail, and things side by side. Within each, a part still flows with
   the width (`sm:`: cards two across, a row's answer beside its question),
   but the page's gutter is the layout's: 16px on a phone (`px-4`), 32px on a
   desktop (`desktop:px-8`), so a scroller that runs to the screen's edges
@@ -736,7 +753,7 @@ Installing and the service worker need HTTPS, except on `localhost`.
   iPad held upright. 1024px and over is a desktop's: laptops, monitors, and
   an iPad turned sideways. There's no tablet view: a third would mean
   building everything three times, and a tablet fits one of the two. The
-  desktop's sidebar and columns are too tight under 1024px, which is why
+  desktop's rail and columns are too tight under 1024px, which is why
   the line is there. A phone's layout on a wider screen (640–1023px) is
   stretched, not redesigned: `sm:` lets a part use the room (cards two
   across, an answer beside its question), and nothing else changes there.
@@ -748,6 +765,8 @@ Installing and the service worker need HTTPS, except on `localhost`.
   answer on `<html data-layout>` before the first paint, and the `mobile:`
   and `desktop:` variants (`src/styles/index.css`) follow that. There's no
   `lg:` breakpoint any more, and a test keeps it out (`test/app/layout.test.ts`).
+  A desktop stretches the way a phone does with `sm:`, by `xl:` (1280px) and
+  `2xl:` (1536px) within a part: the top bar's words beside its icons.
 - **Structure with `useLayout()`, adjustments with the variants.** Where the
   two differ in what's there or its order (a part only one has, a column
   beside the page, a camera or a drop zone), a part chooses with
@@ -776,6 +795,10 @@ Installing and the service worker need HTTPS, except on `localhost`.
 - **Tests:** the DOM tests' window is a phone's (390 wide, `vite.config.ts`),
   so a part drawn per layout draws the phone's; a test of the desktop's
   resizes it (`happyDOM.setWindowSize`).
+- **Under the top bar.** Its height is `--top-bar` (nothing on a phone), so
+  what sticks while a page scrolls (the doing beside This week's week, the
+  Planner's side, Settings' nav, a private entry's quick exit) sticks under
+  it.
 - One width for the pillars (`max-w-6xl`), so the header stays put between
   them; what's read rather than scanned (a Library entry, Emergency info,
   the book) keeps a `max-w-3xl` column at the left.

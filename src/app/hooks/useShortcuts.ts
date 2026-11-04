@@ -1,5 +1,5 @@
 import { useNavigate } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 /** Whether a key press belongs to something being typed in, or to a dialog that's open: then it isn't a shortcut. */
 export function typingOrInDialog(event: KeyboardEvent): boolean {
@@ -16,21 +16,29 @@ function focusSearch(tries = 30) {
   else if (tries > 0) requestAnimationFrame(() => focusSearch(tries - 1));
 }
 
+/** Goes to the Library's search, from anywhere, ready to type in: `/`, and the desktop's search in its top bar. */
+export function useSearchLibrary(): () => void {
+  const navigate = useNavigate();
+  return useCallback(() => {
+    if (window.location.pathname === "/library") focusSearch();
+    else void navigate({ to: "/library" }).then(() => focusSearch());
+  }, [navigate]);
+}
+
 /**
  * The keyboard's ways round, on a desktop (or a tablet with a keyboard):
  * `/` searches the Library, from anywhere. The "+" has its own, `n`
  * (CaptureButton). Never while typing, and never under a dialog.
  */
 export function useShortcuts(): void {
-  const navigate = useNavigate();
+  const search = useSearchLibrary();
   useEffect(() => {
     function onKey(event: KeyboardEvent) {
       if (event.key !== "/" || typingOrInDialog(event)) return;
       event.preventDefault();
-      if (window.location.pathname === "/library") focusSearch();
-      else void navigate({ to: "/library" }).then(() => focusSearch());
+      search();
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [navigate]);
+  }, [search]);
 }

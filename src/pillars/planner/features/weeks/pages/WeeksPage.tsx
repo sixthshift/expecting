@@ -8,6 +8,7 @@ import { stageEnding } from "../../../../../lib/planner/plan";
 import { weeksChart } from "../../../../../lib/planner/weeks";
 import type { Week } from "../../../../../lib/timeline";
 import { useItems } from "../../../../library/hooks/useItems";
+import { PlannerRail } from "../../../desktop/components/PlannerRail";
 import { usePlan } from "../../../hooks/usePlan";
 import { WeeksChart } from "../components/WeeksChart";
 
@@ -39,6 +40,7 @@ export function WeeksPage() {
 
   return (
     <PillarLayout
+      rail={<PlannerRail />}
       back={{ to: "/planner", label: "Planner" }}
       className="gap-6"
       title="Across the weeks"

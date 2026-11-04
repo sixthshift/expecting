@@ -46,8 +46,8 @@ pillars.
 
 ## Where it shows
 
-- **A labelled pill** beside the call button on a phone, a row in the
-  sidebar on a desktop: on the night you shouldn't have to work out what an
+- **A labelled pill** beside the call button, in a phone's corner and in
+  the desktop's top bar: on the night you shouldn't have to work out what an
   icon means.
 - **From week 36,** where the Library starts on it and the bag is packed
   by; from week 28 it would turn into wallpaper. **From 32 for twins or

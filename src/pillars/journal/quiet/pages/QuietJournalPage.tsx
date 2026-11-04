@@ -1,5 +1,6 @@
 import { PillarLayout } from "../../../../app/components/layout/PillarLayout";
 import { JournalTabs } from "../../components/JournalTabs";
+import { JournalRail } from "../../desktop/components/JournalRail";
 import { KeptBefore } from "../components/KeptBefore";
 import { QuietStory } from "../components/QuietStory";
 import { QuietJournalPageProvider } from "../contexts/QuietJournalPageContext";
@@ -16,7 +17,7 @@ import { QuietJournalPageProvider } from "../contexts/QuietJournalPageContext";
 export function QuietJournalPage() {
   return (
     <QuietJournalPageProvider>
-      <PillarLayout title="Journal" className="gap-6">
+      <PillarLayout rail={<JournalRail />} title="Journal" className="gap-6">
         <JournalTabs current="story" />
         <QuietStory />
         <KeptBefore />

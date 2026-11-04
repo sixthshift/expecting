@@ -70,22 +70,28 @@
 .frame-tab-bar {
   view-transition-name: frame-tab-bar;
 }
-.frame-sidebar {
-  view-transition-name: frame-sidebar;
+.frame-top-bar {
+  view-transition-name: frame-top-bar;
+}
+.frame-rail {
+  view-transition-name: frame-rail;
 }
 .frame-add {
   view-transition-name: frame-add;
 }
 ::view-transition-group(frame-tab-bar),
-::view-transition-group(frame-sidebar),
+::view-transition-group(frame-top-bar),
+::view-transition-group(frame-rail),
 ::view-transition-group(frame-add),
 ::view-transition-new(frame-tab-bar),
-::view-transition-new(frame-sidebar),
+::view-transition-new(frame-top-bar),
+::view-transition-new(frame-rail),
 ::view-transition-new(frame-add) {
   animation: none;
 }
 ::view-transition-old(frame-tab-bar),
-::view-transition-old(frame-sidebar),
+::view-transition-old(frame-top-bar),
+::view-transition-old(frame-rail),
 ::view-transition-old(frame-add) {
   display: none;
 }

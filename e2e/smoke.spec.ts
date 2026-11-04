@@ -43,7 +43,7 @@ test("every pillar and settings is reachable", async ({ page, open }) => {
   await expect(page.getByRole("heading", { level: 1, name: "Settings" })).toBeVisible();
 });
 
-test("the + opens what to add, on a phone above the tab bar and on a desktop in the sidebar", async ({ page, open }) => {
+test("the + opens what to add, on a phone above the tab bar and on a desktop in the top bar", async ({ page, open }) => {
   await open("/library");
   await page.getByRole("button", { name: "Add", exact: true }).click();
   const sheet = page.getByRole("dialog");

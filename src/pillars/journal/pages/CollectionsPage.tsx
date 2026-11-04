@@ -2,6 +2,7 @@ import { PillarLayout } from "../../../app/components/layout/PillarLayout";
 import { Collections } from "../components/collections/Collections";
 import { JournalTabs } from "../components/JournalTabs";
 import { JournalPageProvider } from "../contexts/JournalPageContext";
+import { JournalRail } from "../desktop/components/JournalRail";
 
 /**
  * The Journal's collections: everything kept, grouped by what it is, each
@@ -13,7 +14,7 @@ import { JournalPageProvider } from "../contexts/JournalPageContext";
 export function CollectionsPage() {
   return (
     <JournalPageProvider>
-      <PillarLayout title="Journal" className="gap-6">
+      <PillarLayout rail={<JournalRail />} title="Journal" className="gap-6">
         <JournalTabs current="collections" />
         <Collections />
       </PillarLayout>

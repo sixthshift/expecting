@@ -1,6 +1,6 @@
 /**
  * Which of the two experiences this screen gets: `mobile` (the tab bar under
- * the thumb, one thing at a time) or `desktop` (the sidebar, things side by
+ * the thumb, one thing at a time) or `desktop` (the top bar, a pillar's rail, things side by
  * side). Each is designed on its own, and within each the page still flows
  * with the width (Tailwind's `sm:`).
  */

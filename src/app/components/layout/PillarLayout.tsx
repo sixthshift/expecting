@@ -2,6 +2,7 @@ import { cn } from "@sixthshift/design-system/utils";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
+import { useLayout } from "../../hooks/useLayout";
 import { MobileCorner } from "../../mobile/components/MobileCorner";
 import type { AppPath } from "../../model/paths";
 
@@ -12,7 +13,10 @@ export type Back = { to: AppPath; label: string };
 
 /**
  * Every page inside a pillar, drawn inside the app's layout: one column at
- * the page's `width`, its top, then the page.
+ * the page's `width`, its top, then the page; and on a desktop, the pillar's
+ * `rail` down its left, its own places (`src/app/desktop/components/Rail.tsx`),
+ * where a pillar has more than one. The rail says where you are within it,
+ * so beside a rail a page's way back isn't drawn.
  *
  * The top is one of three:
  * - a pillar's own page: its `title` and `lead`, and on a phone the corner
@@ -31,6 +35,7 @@ export function PillarLayout({
   back,
   head,
   width = "6xl",
+  rail,
   className,
   children,
 }: {
@@ -39,21 +44,25 @@ export function PillarLayout({
   back?: Back;
   head?: ReactNode;
   width?: keyof typeof WIDTH;
+  /** The pillar's rail (`PlannerRail`, …), drawn on a desktop only. */
+  rail?: ReactNode;
   className?: string;
   children: ReactNode;
 }) {
-  return (
+  const railed = useLayout() === "desktop" && rail != null;
+  const way = railed ? undefined : back;
+  const page = (
     <main className={cn("mx-auto w-full px-4 pb-16 desktop:px-8", WIDTH[width])}>
-      {back ? (
+      {way ? (
         <header className={cn("flex flex-col gap-1 pt-[max(1rem,env(safe-area-inset-top))] desktop:pt-8", title ? "pb-5 desktop:pb-8" : "pb-3")}>
           <Link
-            to={back.to}
+            to={way.to}
             className={cn(
               "-ml-2 flex min-h-11 w-fit items-center gap-2 rounded-md px-2 text-sm text-fg-subtle hover:text-fg-normal print:hidden",
               title && "mb-3"
             )}
           >
-            <ArrowLeft aria-hidden size={16} /> {back.label}
+            <ArrowLeft aria-hidden size={16} /> {way.label}
           </Link>
           {title ? <Heading title={title} lead={lead} /> : null}
           {head}
@@ -69,6 +78,15 @@ export function PillarLayout({
       ) : null}
       <div className={cn("flex min-w-0 flex-col", className)}>{children}</div>
     </main>
+  );
+  if (!railed) return page;
+  return (
+    <div className="flex">
+      <div className="frame-rail sticky top-(--top-bar) h-[calc(100dvh-var(--top-bar))] w-64 shrink-0 overflow-y-auto border-r border-border-subtle px-3 pt-8 pb-6 print:hidden">
+        {rail}
+      </div>
+      <div className="min-w-0 flex-1">{page}</div>
+    </div>
   );
 }
 

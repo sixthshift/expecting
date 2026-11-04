@@ -2,6 +2,7 @@ import { ListTodo } from "lucide-react";
 import { useListsQuery } from "../../../../../api/rpc/lists";
 import { PillarLayout } from "../../../../../app/components/layout/PillarLayout";
 import { inPlanner, listsOf } from "../../../../../lib/planner/lists/summaries";
+import { PlannerRail } from "../../../desktop/components/PlannerRail";
 import { AddList } from "../components/addList/AddList";
 import { ListCard } from "../components/listCard/ListCard";
 import { useLines } from "../hooks/useLines";
@@ -21,6 +22,7 @@ export function ListsPage() {
 
   return (
     <PillarLayout
+      rail={<PlannerRail />}
       back={{ to: "/planner", label: "Planner" }}
       title="Lists"
       lead="What to get, a list for each part of getting ready, ticked off together wherever you are."

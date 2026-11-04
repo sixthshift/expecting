@@ -16,7 +16,7 @@ const SECTIONS = [
 export function SettingsNav() {
   const { waiting } = useSettingsPage();
   return (
-    <nav aria-label="Settings" className="sticky top-10 flex flex-col gap-1 print:hidden">
+    <nav aria-label="Settings" className="sticky top-[calc(var(--top-bar)+2.5rem)] flex flex-col gap-1 print:hidden">
       {SECTIONS.map((s) => (
         <a
           key={s.id}

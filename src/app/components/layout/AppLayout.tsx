@@ -10,14 +10,14 @@ import type { AppPath } from "../../model/paths";
 export type Pillar = { to: AppPath; label: string; icon: LucideIcon };
 
 /**
- * The app's layout, what every pillar is drawn in: `DesktopLayout` (the
- * sidebar, `pillars` in its order) or `MobileLayout` (the tab bar, `tabs` in
- * its order, `PILLARS` and `TABS`), whichever this screen gets (`useLayout`).
+ * The app's layout, what every pillar is drawn in: `DesktopLayout` (the top
+ * bar) or `MobileLayout` (the tab bar), whichever this screen gets
+ * (`useLayout`), each with the pillars as a row in their one order (`PILLARS`).
  * The capture "+" is on the pillars only, not on settings or Emergency info.
  */
-export function AppLayout({ pillars, tabs }: { pillars: readonly Pillar[]; tabs: readonly Pillar[] }) {
+export function AppLayout({ pillars }: { pillars: readonly Pillar[] }) {
   const { pathname } = useLocation();
   useShortcuts();
   const onPillar = pillars.some(({ to }) => pathname === to || (to !== "/" && pathname.startsWith(`${to}/`)));
-  return useLayout() === "desktop" ? <DesktopLayout pillars={pillars} onPillar={onPillar} /> : <MobileLayout tabs={tabs} onPillar={onPillar} />;
+  return useLayout() === "desktop" ? <DesktopLayout pillars={pillars} onPillar={onPillar} /> : <MobileLayout pillars={pillars} onPillar={onPillar} />;
 }

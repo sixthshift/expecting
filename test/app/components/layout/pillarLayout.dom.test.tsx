@@ -6,6 +6,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 // phone, the corner), a page under one (the way back, then perhaps its
 // title), or neither (the page draws its own top). It never asks whether
 // something has happened: a page put away then is its route's quiet world.
+// On a desktop, a pillar with places of its own has its rail down the left.
 vi.mock("../../../../src/app/mobile/components/MobileCorner", () => ({ MobileCorner: () => <div data-testid="corner" /> }));
 vi.mock("@tanstack/react-router", () => ({
   Link: ({ to, children, className }: { to: string; children: ReactNode; className?: string }) => (
@@ -83,5 +84,52 @@ describe("PillarLayout", () => {
     const main = container.querySelector("main")!;
     expect(main.classList.contains("max-w-2xl")).toBe(true);
     expect(main.classList.contains("max-w-6xl")).toBe(false);
+  });
+
+  describe("the rail", () => {
+    // happy-dom's own handle on the window, which a resize goes through so matchMedia follows.
+    const happyDOM = (window as unknown as { happyDOM: { setWindowSize(size: { width: number; height: number }): void } }).happyDOM;
+    const rail = <nav aria-label="Planner">The Planner's places</nav>;
+
+    it("on a phone, never: the way back is how you go", () => {
+      render(
+        <PillarLayout rail={rail} back={{ to: "/planner", label: "Planner" }} title="Lists">
+          <p>The page</p>
+        </PillarLayout>
+      );
+      expect(screen.queryByRole("navigation", { name: "Planner" })).toBeNull();
+      expect(screen.getByRole("link", { name: "Planner" }).getAttribute("href")).toBe("/planner");
+    });
+
+    it("on a desktop, beside the page and outside its main; the rail says where you are, so no way back", () => {
+      happyDOM.setWindowSize({ width: 1280, height: 800 });
+      try {
+        const { container } = render(
+          <PillarLayout rail={rail} back={{ to: "/planner", label: "Planner" }} title="Lists">
+            <p>The page</p>
+          </PillarLayout>
+        );
+        const nav = screen.getByRole("navigation", { name: "Planner" });
+        expect(container.querySelector("main")?.contains(nav)).toBe(false);
+        expect(screen.queryByRole("link", { name: "Planner" })).toBeNull();
+        expect(screen.getByRole("heading", { level: 1, name: "Lists" })).toBeTruthy();
+      } finally {
+        happyDOM.setWindowSize({ width: 390, height: 844 });
+      }
+    });
+
+    it("on a desktop, a page with no rail keeps its way back", () => {
+      happyDOM.setWindowSize({ width: 1280, height: 800 });
+      try {
+        render(
+          <PillarLayout back={{ to: "/drawer", label: "The Drawer" }} title="Baby names">
+            <p>The page</p>
+          </PillarLayout>
+        );
+        expect(screen.getByRole("link", { name: "The Drawer" })).toBeTruthy();
+      } finally {
+        happyDOM.setWindowSize({ width: 390, height: 844 });
+      }
+    });
   });
 });

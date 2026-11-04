@@ -14,7 +14,7 @@ pillar's: [journal.md](journal.md), [planner.md](planner.md).
 
 - **Within thumb reach.** On a phone a round "+" floating bottom-right,
   just above the tab bar, which already holds five pillars and doesn't take
-  a sixth slot. On a desktop, Add at the top of the sidebar, and `n`. It
+  a sixth slot. On a desktop, Add in the top bar, and `n`. It
   steps aside while the page scrolls down, so it never covers a row.
 - **Kept where you are.** It opens a sheet over the page; once kept, the
   sheet closes and a toast says what was kept and where ("Note kept", In

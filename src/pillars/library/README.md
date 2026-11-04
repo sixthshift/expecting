@@ -43,6 +43,8 @@ not props.
 pages/          LibraryPage (LibraryPageBody around LibraryHome), LibraryItemPage (an entry)
 routes/         library (/library, a path only), libraryIndex (its search), item ($itemId);
                 index.ts, libraryRoutes
+desktop/        LibraryRail: everything, each door with its count, the door for when it's hard
+                apart (first while something has happened), down the left of each page on a desktop
 quiet/          while something has happened: pages/QuietLibraryPage (LibraryPageBody
                 around components/QuietLibraryHome)
 contexts/       LibraryItemPageContext: the entry, why it's hidden, its words

@@ -1,6 +1,7 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { PillarLayout } from "../../../../../app/components/layout/PillarLayout";
 import { listBack } from "../../../../../lib/planner/lists/builtIn";
+import { PlannerRail } from "../../../desktop/components/PlannerRail";
 import { AddLine } from "../components/addLine/AddLine";
 import { ListHeading } from "../components/heading/ListHeading";
 import { Sections } from "../components/sections/Sections";
@@ -30,7 +31,7 @@ export function ListPage() {
 function List() {
   const { listId, summary } = useListPage();
   return (
-    <PillarLayout className="gap-6" back={listBack(listId)}>
+    <PillarLayout rail={<PlannerRail />} className="gap-6" back={listBack(listId)}>
       {!summary ? (
         <div className="flex flex-col gap-2">
           <h1 className="text-2xl font-display font-semibold text-fg-strong">Not here</h1>

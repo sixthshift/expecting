@@ -61,6 +61,8 @@ components/
   appointments/ the appointments, next first
   questions/    for the next appointment
 quiet/          the Planner while something has happened (below)
+desktop/        PlannerRail: To do, Across the weeks, the lists, down the left of each page on a
+                desktop (not the quiet one: its chart and lists are put away)
 features/
   tasks/        a task's row, whose it is, keeping one, adding your own; useTasks (This week,
                 the Library and the "+" draw these too)

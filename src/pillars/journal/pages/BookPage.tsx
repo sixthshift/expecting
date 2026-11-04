@@ -8,6 +8,7 @@ import { formatDate } from "../../../lib/dates";
 import { CHAPTERS, contents } from "../../../lib/journal/chapters";
 import { ChapterPage } from "../components/book/ChapterPage";
 import { Contents } from "../components/book/Contents";
+import { JournalRail } from "../desktop/components/JournalRail";
 import { useStoryItems } from "../hooks/useStoryItems";
 
 /**
@@ -27,7 +28,7 @@ export function BookPage() {
   const lines = contents({ items, dueDate: settings.dueDate, now });
 
   return (
-    <PillarLayout back={{ to: "/journal", label: "The Journal" }}>
+    <PillarLayout rail={<JournalRail />} back={{ to: "/journal", label: "The Journal" }}>
       <div className="max-w-3xl">
         <header className="my-8 flex flex-col gap-2 rounded-xl bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to) px-6 py-12 text-center">
           <h1 className="font-display text-4xl font-semibold text-fg-strong">Our pregnancy</h1>

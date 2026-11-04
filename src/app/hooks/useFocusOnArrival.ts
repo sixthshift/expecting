@@ -8,7 +8,7 @@ const TRIES = 60;
  * After moving to another page, put the keyboard's place on its heading, as
  * a new page in a browser would: a screen reader says where you've arrived,
  * and the next Tab starts at the top of the page, not back in the tab bar or
- * the sidebar. Once the router has drawn the new page (`onRendered`), so it's
+ * the top bar. Once the router has drawn the new page (`onRendered`), so it's
  * the new heading, not the old one on its way out. Not on the first page (the
  * browser starts at the top anyway), not when only the search changes (the
  * same page, another week or view), and never away from something being typed

@@ -22,7 +22,7 @@ export function ThisWeekDesktop() {
             <WeekKept />
           </div>
         </div>
-        <div className="sticky top-6 mt-10 flex flex-col gap-8">{peeking ? <BestDoneThatWeek /> : <DoingNow />}</div>
+        <div className="sticky top-[calc(var(--top-bar)+1.5rem)] mt-10 flex flex-col gap-8">{peeking ? <BestDoneThatWeek /> : <DoingNow />}</div>
       </div>
     </PillarLayout>
   );
