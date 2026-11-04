@@ -13,6 +13,7 @@ import { readsQuery } from "../api/rpc/reads";
 import { settingsQuery } from "../api/rpc/settings";
 import { weeklyQuery } from "../api/rpc/weekly";
 import { restoreOutbox } from "../app/model/outbox";
+import { panelSearch } from "../app/model/panel";
 import { App } from "../app/pages/App";
 import { LoadingPage } from "../components/loading/Loading";
 import { onboardingLeft } from "../lib/onboarding";
@@ -27,6 +28,8 @@ import { rootRoute } from "./root";
 export const app = createRoute({
   getParentRoute: () => rootRoute,
   id: "app",
+  // The desktop's side panel, on any page (src/app/model/panel.ts).
+  validateSearch: panelSearch,
   loader: async ({ context: { queryClient }, location }) => {
     await restoreOutbox(queryClient);
     await Promise.all([

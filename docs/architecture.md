@@ -221,9 +221,30 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
   (`PillarLayout`'s `rail`; `PlannerRail`, `LibraryRail`, `JournalRail`, each
   in its pillar's `desktop/components/`, built from `Rail` and `RailLink`),
   each place an address. This week and the Drawer have none: each is one
-  page. The thing itself (an entry beside its list) is the third level, still
-  to come. Why a bar rather than a sidebar: five places sit in a row, and
-  the width a sidebar takes from every page is what side-by-side pages want.
+  page. The side panel is the thing's, on the right (below). Why a bar
+  rather than a sidebar: five places sit in a row, and the width a sidebar
+  takes from every page is what side-by-side pages want.
+- **The side panel, a desktop's.** What you're looking at, beside what
+  you're working through: the page gives it room (`DesktopLayout`'s slot,
+  `src/app/desktop/components/panel/`) and stays live, so you scroll it, tick
+  on it, and open the next thing, which takes the panel's place (one at a
+  time, `claim`). Esc and its close shut it. Two ways in:
+  - **An entry, by its address:** every link to one (`ItemLink`) opens it in
+    the panel on a desktop, `?panel=item:<id>` on the page you're on (the
+    `app` route's search, `src/app/model/panel.ts`), so Back closes it and a
+    link to it opens it; the page doesn't move (`resetScroll: false`). Drawn
+    by `AddressedPanel`, the Library's `EntryPanel` inside (the entry's own
+    provider, `inPanel`, its title an `h2` under the page's `h1`), with "Open
+    in full". Not a private entry (its link goes to its page, masked, as on
+    a phone), and not from an entry's own page, where reading on is reading
+    in full.
+  - **Something opened to look at and change** (someone in Your people, a
+    line on a list, a first, a bingo square, a line of the story):
+    `DetailSheet` (`src/app/components/`), a sheet on a phone, the panel on a
+    desktop. Its opener's state still says whether it's open.
+  What isn't looked at stays as it is: something to do and be done with (the
+  "+", a question to ask, a confirmation) is a sheet on both, and a photo or
+  a scan takes the whole screen.
 - **Beside settings, not pillars:** Emergency info and It's time, in the
   phone's top corner (`MobileCorner`) and the top bar, and the call button
   (`CallBirthSuite`): the birth suite's number from Emergency info, drawn

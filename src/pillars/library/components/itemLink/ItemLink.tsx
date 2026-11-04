@@ -1,5 +1,7 @@
 import { Link, useParams, useRouterState } from "@tanstack/react-router";
 import type { CSSProperties, ReactNode } from "react";
+import { useLayout } from "../../../../app/hooks/useLayout";
+import { itemPanel } from "../../../../app/model/panel";
 import { isPrivateItem } from "../../../../content";
 
 /**
@@ -12,6 +14,11 @@ import { isPrivateItem } from "../../../../content";
  * in that state too, so the entry's page can swipe on to the next and back,
  * and where it was opened from, so its way back can be Back. Going on in
  * place (`replace`) keeps where the first was opened from.
+ *
+ * On a desktop it opens the entry in the side panel, beside the page you're
+ * on (`?panel=item:<id>`), which stays where it was: the reading beside what
+ * it's for. Not a private entry, whose address stays out of the address bar,
+ * and not from an entry's own page, where reading on is reading in full.
  */
 export function ItemLink({
   itemId,
@@ -36,6 +43,21 @@ export function ItemLink({
   const onPrivate = here !== undefined && isPrivateItem(here);
   const href = useRouterState({ select: (s) => s.location.href });
   const kept = useRouterState({ select: (s) => s.location.state.from });
+  const desktop = useLayout() === "desktop";
+  if (desktop && here === undefined && !isPrivateItem(itemId)) {
+    return (
+      <Link
+        to="."
+        search={(prev: Record<string, unknown>) => ({ ...prev, panel: itemPanel(itemId) })}
+        resetScroll={false}
+        className={className}
+        style={style}
+        aria-label={label}
+      >
+        {children}
+      </Link>
+    );
+  }
   return (
     <Link
       to="/library/$itemId"

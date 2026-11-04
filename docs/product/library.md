@@ -67,6 +67,12 @@ It lists no entries, because nobody comes to browse 893:
   soonest-closing first.
 - **The topics,** with their counts, for whoever does want to browse.
 
+On a desktop an entry opens in the side panel, beside the page whose link
+opened it: a task's Why beside To do, a day's read beside the week, an entry
+beside the Library's list. The reading sits beside what it's for, and the
+page stays where it was. "Open in full" goes to its page. Never a private
+entry, which opens on its own page with its quick exit, as on a phone.
+
 An entry's page leads back to the door it came from. Opened from a list
 (a door's whole shelf, search results, Right now, Related, This week's worth
 knowing), it goes on through that list: swipe left for the next, right for

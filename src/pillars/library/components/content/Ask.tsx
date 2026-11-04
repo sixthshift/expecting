@@ -1,16 +1,16 @@
 import { cn } from "@sixthshift/design-system/utils";
-import { useParams } from "@tanstack/react-router";
 import { Check, MessageCircleQuestion, Plus } from "lucide-react";
 import { questionsSaves } from "../../../../api/rpc/questions";
 import { useSave } from "../../../../app/hooks/useSave";
 import { isBuiltInItemId, isPrivateItem } from "../../../../content";
 import { newId } from "../../../../lib/outbox";
+import { useEntryHere } from "../../contexts/LibraryItemPageContext";
 import { useContentContext } from "./context";
 
 /** `{% ask "…" /%}`: a question worth asking at an appointment, added to your list in one tap, remembering the entry it's on. */
 export function Ask({ primary: text, className }: { primary: string; className?: string }) {
   const { openQuestions } = useContentContext();
-  const here = useParams({ strict: false }).itemId;
+  const here = useEntryHere();
   // Never a private one's: the server refuses it, and it would be a trace.
   const itemId = here !== undefined && isBuiltInItemId(here) && !isPrivateItem(here) ? here : undefined;
   const add = useSave(questionsSaves.addQuestion);

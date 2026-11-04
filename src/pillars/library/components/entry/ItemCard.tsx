@@ -4,7 +4,7 @@ import { CalendarClock } from "lucide-react";
 import { useChecklistQuery } from "../../../../api/rpc/checklist";
 import { TOPICS, TYPE_LABELS } from "../../../../content/schema";
 import { TaskRow } from "../../../planner/features/tasks/components/TaskRow";
-import { useEntry } from "../../contexts/LibraryItemPageContext";
+import { useEntry, useLibraryItemPage } from "../../contexts/LibraryItemPageContext";
 import { rangeLabel } from "../../model/labels";
 import { Verdict } from "../content/Verdict";
 import { Body } from "./Body";
@@ -17,6 +17,8 @@ import { Sources } from "./Sources";
  */
 export function ItemCard() {
   const { item } = useEntry();
+  // Its page's heading on its own page; beside another page, in the side panel, under that page's.
+  const Title = useLibraryItemPage().inPanel ? "h2" : "h1";
   const { data: ticks } = useChecklistQuery({ select: (c) => c.ticks });
   const short = item.type === "card" || item.type === "term";
   return (
@@ -44,7 +46,7 @@ export function ItemCard() {
         </div>
         <div className="flex flex-col gap-1">
           {item.ask ? <p className="text-sm text-fg-subtle italic">“{item.ask}”</p> : null}
-          <h1 className={`leading-snug font-display font-semibold text-fg-strong ${short ? "text-2xl" : "text-xl"}`}>{item.title}</h1>
+          <Title className={`leading-snug font-display font-semibold text-fg-strong ${short ? "text-2xl" : "text-xl"}`}>{item.title}</Title>
           {item.type === "term" && item.aliases.length > 0 ? <p className="text-sm text-fg-subtle">Also called {item.aliases.join(", ")}</p> : null}
         </div>
         {item.verdict ? <Verdict verdict={item.verdict} /> : null}

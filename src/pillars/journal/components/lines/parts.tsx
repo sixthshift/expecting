@@ -1,9 +1,9 @@
 // What every line of the story is made of: a line you open as a whole (no
 // buttons on it), the sheet it opens, and how it names who and when.
 
-import { Modal } from "@sixthshift/design-system/modal";
 import type { ReactNode } from "react";
 import { usePeopleQuery } from "../../../../api/rpc/people";
+import { DetailSheet } from "../../../../app/components/DetailSheet";
 import { formatTime } from "../../../../lib/journal/journal";
 import { nameBy } from "../../../../lib/people";
 
@@ -13,15 +13,12 @@ export function useOther(): (id: string | null) => string | null {
   return (id) => (id === null || id === people.me?.id ? null : (people.people.find((p) => p.id === id)?.name ?? null));
 }
 
-/** A sheet to change or delete what a line holds. */
+/** A sheet to change or delete what a line holds: the side panel on a desktop (`DetailSheet`). */
 export function EntrySheet({ title, onClose, children }: { title: string; onClose: () => void; children: ReactNode }) {
   return (
-    <Modal size="sm" align="top" closable onOpenChange={(open) => (open ? null : onClose())} aria-label={title}>
-      <Modal.Header>
-        <h2 className="font-display text-lg font-semibold text-fg-strong">{title}</h2>
-      </Modal.Header>
-      <Modal.Body className="flex flex-col gap-3 px-6 pb-6">{children}</Modal.Body>
-    </Modal>
+    <DetailSheet title={title} label={title} onClose={onClose} className="flex flex-col gap-3">
+      {children}
+    </DetailSheet>
   );
 }
 

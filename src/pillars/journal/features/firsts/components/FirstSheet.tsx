@@ -4,9 +4,9 @@
 // is yours to claim. See docs/product/journal.md.
 
 import { Button } from "@sixthshift/design-system/button";
-import { Modal } from "@sixthshift/design-system/modal";
 import { Star } from "lucide-react";
 import { firstsSaves } from "../../../../../api/rpc/firsts";
+import { DetailSheet } from "../../../../../app/components/DetailSheet";
 import { useSave } from "../../../../../app/hooks/useSave";
 import type { ISODate } from "../../../../../lib/dates";
 import { type FirstMark, firstOf } from "../../../../../lib/journal/firsts";
@@ -18,28 +18,30 @@ export function FirstSheet({ mark, onClose }: { mark: FirstMark & { day: string 
   const move = useSave(firstsSaves.markFirst);
   const unmark = useSave(firstsSaves.unmarkFirst);
   return (
-    <Modal size="sm" align="top" closable onOpenChange={(open) => (open ? null : onClose())} aria-label={firstOf(mark.key).title}>
-      <Modal.Header>
-        <h2 className="flex items-center gap-2 font-display text-lg font-semibold text-fg-strong">
+    <DetailSheet
+      title={
+        <span className="flex items-center gap-2">
           <Star aria-hidden size={18} className="text-fg-brand" />
           {firstOf(mark.key).title}
-        </h2>
-      </Modal.Header>
-      <Modal.Body className="flex flex-col gap-4 px-6 pb-6">
-        <DayField value={mark.day as ISODate} onChange={(day) => move({ key: mark.key, day })} />
-        <FirstWords mark={mark} />
-        <Button
-          variant="ghost"
-          size="sm"
-          className="self-start text-fg-subtle"
-          onClick={() => {
-            unmark({ key: mark.key });
-            onClose();
-          }}
-        >
-          Take it off
-        </Button>
-      </Modal.Body>
-    </Modal>
+        </span>
+      }
+      label={firstOf(mark.key).title}
+      onClose={onClose}
+      className="flex flex-col gap-4"
+    >
+      <DayField value={mark.day as ISODate} onChange={(day) => move({ key: mark.key, day })} />
+      <FirstWords mark={mark} />
+      <Button
+        variant="ghost"
+        size="sm"
+        className="self-start text-fg-subtle"
+        onClick={() => {
+          unmark({ key: mark.key });
+          onClose();
+        }}
+      >
+        Take it off
+      </Button>
+    </DetailSheet>
   );
 }

@@ -1,10 +1,10 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Input } from "@sixthshift/design-system/input";
-import { Modal } from "@sixthshift/design-system/modal";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { ChevronRight } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { listsSaves } from "../../../../../../api/rpc/lists";
+import { DetailSheet } from "../../../../../../app/components/DetailSheet";
 import { useSave } from "../../../../../../app/hooks/useSave";
 import type { Line } from "../../../../../../content/schema";
 import { wordsFor } from "../../../../../../lib/planner/lists/builtIn";
@@ -43,65 +43,60 @@ export function LineSheet({ line, mark, onClose }: { line: Line; mark: Mark | un
   }
 
   return (
-    <Modal size="sm" align="top" closable onOpenChange={(open) => (open ? null : onClose())} aria-label={line.title}>
-      <Modal.Header>
-        <h2 className="font-display text-lg font-semibold text-fg-strong">{line.title}</h2>
-      </Modal.Header>
-      <Modal.Body className="px-6 pb-6">
-        <form onSubmit={submit} className="flex flex-col gap-4">
-          {own ? <Input value={title} onChange={(e) => setTitle(e.target.value)} aria-label="What it is" maxLength={200} /> : null}
+    <DetailSheet title={line.title} label={line.title} onClose={onClose}>
+      <form onSubmit={submit} className="flex flex-col gap-4">
+        {own ? <Input value={title} onChange={(e) => setTitle(e.target.value)} aria-label="What it is" maxLength={200} /> : null}
+        <ToggleGroup
+          type="single"
+          appearance="separate"
+          variant="outline"
+          intent="brand"
+          aria-label="Where it's up to"
+          className="flex-wrap"
+          value={state ?? NONE}
+          onValueChange={(value) => setState(value === "" || value === NONE ? null : (value as LineState))}
+          options={[{ value: NONE, label: words.none }, ...LINE_STATES.map((s) => ({ value: s, label: words[s] }))]}
+        />
+        {state === "got" ? (
           <ToggleGroup
             type="single"
             appearance="separate"
             variant="outline"
-            intent="brand"
-            aria-label="Where it's up to"
+            size="sm"
+            aria-label="How"
             className="flex-wrap"
-            value={state ?? NONE}
-            onValueChange={(value) => setState(value === "" || value === NONE ? null : (value as LineState))}
-            options={[{ value: NONE, label: words.none }, ...LINE_STATES.map((s) => ({ value: s, label: words[s] }))]}
+            value={how ?? ""}
+            onValueChange={(value) => setHow(value === "" ? null : (value as How))}
+            options={Object.entries(HOWS).map(([value, label]) => ({ value, label }))}
           />
-          {state === "got" ? (
-            <ToggleGroup
-              type="single"
-              appearance="separate"
-              variant="outline"
-              size="sm"
-              aria-label="How"
-              className="flex-wrap"
-              value={how ?? ""}
-              onValueChange={(value) => setHow(value === "" ? null : (value as How))}
-              options={Object.entries(HOWS).map(([value, label]) => ({ value, label }))}
-            />
-          ) : null}
-          <Input
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
-            placeholder="A few words, if you want: newborn size, Mum's lending hers"
-            aria-label="A few words"
-            maxLength={500}
-          />
-          {line.itemId ? (
-            <ItemLink itemId={line.itemId} className="flex min-h-11 w-fit items-center gap-1 text-sm text-fg-subtle hover:text-fg-normal">
-              Why, and what to look for
-              <ChevronRight aria-hidden size={16} />
-            </ItemLink>
-          ) : null}
-          <div className="flex flex-wrap gap-2">
-            <Button type="submit" intent="brand" size="sm">
-              Save
+        ) : null}
+        <Input
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+          placeholder="A few words, if you want: newborn size, Mum's lending hers"
+          aria-label="A few words"
+          maxLength={500}
+        />
+        {line.itemId ? (
+          <ItemLink itemId={line.itemId} className="flex min-h-11 w-fit items-center gap-1 text-sm text-fg-subtle hover:text-fg-normal">
+            Why, and what to look for
+            <ChevronRight aria-hidden size={16} />
+          </ItemLink>
+        ) : null}
+        <div className="flex flex-wrap gap-2">
+          <Button type="submit" intent="brand" size="sm">
+            Save
+          </Button>
+          <Button type="button" variant="ghost" size="sm" onClick={onClose}>
+            Cancel
+          </Button>
+          {own ? (
+            <Button type="button" variant="ghost" intent="danger" size="sm" className="ml-auto" onClick={remove}>
+              Delete
             </Button>
-            <Button type="button" variant="ghost" size="sm" onClick={onClose}>
-              Cancel
-            </Button>
-            {own ? (
-              <Button type="button" variant="ghost" intent="danger" size="sm" className="ml-auto" onClick={remove}>
-                Delete
-              </Button>
-            ) : null}
-          </div>
-        </form>
-      </Modal.Body>
-    </Modal>
+          ) : null}
+        </div>
+      </form>
+    </DetailSheet>
   );
 }

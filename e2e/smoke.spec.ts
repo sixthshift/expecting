@@ -63,12 +63,14 @@ test("Emergency info is one tap from every pillar, once", async ({ page, open })
   }
 });
 
-test("Emergency info says when to call, as well as who", async ({ page, open }) => {
+test("Emergency info says when to call, as well as who", async ({ page, open }, testInfo) => {
   await open("/emergency");
   await expect(page.getByRole("heading", { name: "When to call" })).toBeVisible();
   await expect(page.getByText("Your baby is moving less than usual, or has stopped moving.")).toBeVisible();
   await page.getByRole("link", { name: "All the warning signs, and each in full" }).click();
-  await expect(page.getByRole("heading", { level: 1, name: "Warning signs" })).toBeVisible();
+  // A phone goes to the entry's page; a desktop opens it beside Emergency info, in the side panel.
+  const where = testInfo.project.name === "desktop" ? page.getByRole("complementary", { name: "Warning signs" }) : page;
+  await expect(where.getByRole("heading", { level: testInfo.project.name === "desktop" ? 2 : 1, name: "Warning signs" })).toBeVisible();
 });
 
 test("a week shows its note, read as the partner holding this phone, or as the other", async ({ page, open }) => {
@@ -187,4 +189,22 @@ test("logging out ends the session", async ({ page, open }) => {
   await expect(page).toHaveURL(/\/login$/);
   await open("/settings");
   await expect(page).toHaveURL(/\/login\?next=%2Fsettings$/);
+});
+
+test("on a desktop, a Why opens beside the list, in the side panel, and Back and Esc close it", async ({ page, open }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "a phone opens the entry's page");
+  await open("/planner");
+  await page.getByRole("link", { name: "Why: Book the RSV vaccine" }).click();
+  await expect(page).toHaveURL(/\/planner\?panel=item(:|%3A)rsv-vaccine$/);
+  const panel = page.getByRole("complementary", { name: "The RSV vaccine" });
+  await expect(panel.getByRole("heading", { level: 2, name: "The RSV vaccine" })).toBeVisible();
+  // The list is still there, and still the page's.
+  await expect(page.getByRole("heading", { level: 1, name: "Planner" })).toBeVisible();
+  await page.goBack();
+  await expect(panel).toBeHidden();
+  await page.goForward();
+  await expect(panel).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(panel).toBeHidden();
+  await expect(page).toHaveURL(/\/planner$/);
 });
