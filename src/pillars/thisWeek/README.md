@@ -37,7 +37,10 @@ settings, ?at=          the due date, the week peeked at
 ```
 pages/            ThisWeekPage: ThisWeekPageProvider around ThisWeekMobile or ThisWeekDesktop (useLayout)
 mobile/           components/ThisWeekMobile: one column, the doing first, the week's reads between its runs
-desktop/          components/ThisWeekDesktop: the week on the left, the doing on the right, staying in view
+desktop/          components/ThisWeekDesktop: a board, where you are across the top (the next
+                  appointment beside it), then the doing, the week to read and its other things in
+                  three columns (two on a smaller screen); DayTabs: the day by day as tabs
+hooks/            useWeekDays: the week's days (its note, a read a day), for DayByDay and DayTabs
 routes/           thisWeek (/, ?at=); index.ts, thisWeekRoutes, with the timeline's beside it
                   (features/timeline/routes/, not under /)
 contexts/         ThisWeekPageContext: the week shown and where you are
@@ -88,7 +91,8 @@ what happened (`Guide`), then the next steps. The timeline's page,
    nothing): with the week (`WeekReads`, `WeekKept`, `components/week/TheWeek.tsx`)
    or with the doing (`DoingFirst`, `DoingAsked`, `DoingAhead`,
    `components/doing/DoingNow.tsx`; on a peek `BestDoneThatWeek`). Each
-   layout places the runs: `ThisWeekDesktop` the week left and the doing
-   right, `ThisWeekMobile` one column, the doing's runs with the week between
-   them. A part that needs a run of its own goes in both layouts.
+   layout places them: `ThisWeekMobile` the runs in one column, the doing's
+   runs with the week between them; `ThisWeekDesktop` takes their parts apart
+   into the board's columns (the doing, the reading, the other things), so a
+   new part goes in both.
 3. A heading that names the week says it through `whichWeek(peeking)`.

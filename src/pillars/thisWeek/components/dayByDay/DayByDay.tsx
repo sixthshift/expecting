@@ -1,17 +1,9 @@
 import { Button } from "@sixthshift/design-system/button";
 import { BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLayoutEffect, useRef, useState } from "react";
-import { dayReads } from "../../../../content";
-import { type DayRead, readsOut } from "../../../../content/days";
-import type { WeekNote as Note } from "../../../../content/weeks";
-import { gestationLabel } from "../../../../lib/timeline";
-import { useItems } from "../../../library/hooks/useItems";
-import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
+import { useWeekDays } from "../../hooks/useWeekDays";
 import { WeekNote } from "../weekNote/WeekNote";
 import { Read } from "./Read";
-
-/** A day of the week: the note on its first (+0), a read on each after. */
-type Day = { day: number; note: Note; read?: never } | { day: number; read: DayRead; note?: never };
 
 /**
  * The week, day by day: the week's note is its first day (+0), and a read
@@ -20,23 +12,14 @@ type Day = { day: number; note: Note; read?: never } | { day: number; read: DayR
  * the newest, today's, the days missed a swipe (or an arrow) back; a week
  * peeked at opens on its first day, the note, and reads forward. Each
  * read ends in the entries it opens onto, as you'd find them in the Library.
+ * The days are `useWeekDays`'; a desktop draws them as tabs (`DayTabs`).
  */
 export function DayByDay() {
-  const { week, note, peeking, position } = useThisWeekPage();
-  // The Library as tailored for you: a link to an entry you'd not see is left off.
-  const items = useItems();
-  // The week's reads out so far, oldest first: up to today in this one, all of a week gone, none of one to come.
-  const reads = week === null || !position ? [] : readsOut(dayReads, week, position.gestationDays);
-  // Today's day of the week, 0–6, or null when it isn't this week.
-  const today = peeking || !position ? null : position.gestationDays - position.week * 7;
-  // The note says the baby's size: off where the heading already does.
-  const showSize = note?.week !== week;
-  const days: Day[] = [...(note ? [{ day: 0, note }] : []), ...reads.map((read) => ({ day: read.day, read }))];
+  const { week, days, opening: first, showSize, titles, when } = useWeekDays();
   const track = useRef<HTMLDivElement>(null);
   // This week opens on today's; another week on its first day.
-  const [at, setAt] = useState(today === null ? 0 : days.length - 1);
+  const [at, setAt] = useState(first);
   const [height, setHeight] = useState<number | undefined>(undefined);
-  const titles = new Map(items.map((i) => [i.id, i.title]));
 
   // Open there without the smooth scroll a reader would see.
   const opening = useRef(at);
@@ -68,14 +51,6 @@ export function DayByDay() {
   };
 
   if (week === null || days.length === 0) return null;
-  const when = (day: number) => {
-    // A note carried on from an earlier week (none of this week's own) is named for its week.
-    const label = day === 0 && note && note.week !== week ? `Week ${note.week}` : gestationLabel(week * 7 + day);
-    if (today === null) return label;
-    if (day === today) return `${label} · Today`;
-    if (day === today - 1) return `${label} · Yesterday`;
-    return label;
-  };
 
   return (
     <section aria-labelledby="day-by-day" aria-roledescription="carousel" className="flex flex-col gap-2">

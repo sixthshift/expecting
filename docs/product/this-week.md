@@ -85,7 +85,15 @@ How it's built is [`architecture.md`](../architecture.md), This week.
   what's worth knowing and what's best done then, that week's appointments,
   and that week's notes and movements, with a way back to this week.
 
-On a desktop, the week on the left and the doing on the right.
+On a desktop it's a board, its parts side by side rather than down the page,
+so most of the week is on one screen. Where you are runs across the top
+(the whole pregnancy in a line is better wide), the next appointment beside
+it once it's close. Below, three columns where the screen is wide enough:
+the doing (to do, how you are, what's coming), the week to read (its note
+and a read a day as tabs, each shown whole, then its heads-up), and the
+week's other things (what's worth knowing, by title; the week's question;
+what was asked and kept; an extra). Two below that, the other things under
+the reading. The page grows to 1760px; the reading never gets wider lines.
 
 ## While something has happened
 

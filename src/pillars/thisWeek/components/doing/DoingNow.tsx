@@ -14,21 +14,12 @@ import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
 import { WeeklyCard } from "../../features/weekly/components/WeeklyCard";
 import { Part } from "../Part";
 
-/**
- * The doing, this week, in three runs that each layout places: what's now
- * (`DoingFirst`), what's asked of you this week (`DoingAsked`) and what's
- * ahead (`DoingAhead`). On a desktop they're one column on the right
- * (`DoingNow`); on a phone the week's reads come between them.
+/*
+ * The doing, this week, in three runs that a phone places (`ThisWeekMobile`):
+ * what's now (`DoingFirst`), what's asked of you this week (`DoingAsked`) and
+ * what's ahead (`DoingAhead`), the week's reads between them. A desktop's
+ * board takes their parts apart (`ThisWeekDesktop`).
  */
-export function DoingNow() {
-  return (
-    <>
-      <DoingFirst />
-      <DoingAsked />
-      <DoingAhead />
-    </>
-  );
-}
 
 /** Now: It's time's look through once it's near, the next appointment once it's close, what to do now, and how you are. */
 export function DoingFirst() {
@@ -67,14 +58,8 @@ export function DoingAsked() {
   );
 }
 
-/** Ahead: an extra to offer, what's coming, and the questions waiting while no appointment is near (it brings them itself once one is). */
+/** Ahead: an extra to offer, what's coming, and the questions waiting. */
 export function DoingAhead() {
-  const { today } = useThisWeekPage();
-  const { data: questions } = useQuestionsQuery();
-  const { data: appointments } = useAppointmentsQuery();
-  const openQuestions = questions.filter((q) => !q.askedAt).length;
-  const next = nextAppointment(appointments, today);
-  const nextSoon = next !== null && appointmentSoon(next, today) !== null;
   return (
     <>
       <Part>
@@ -83,11 +68,22 @@ export function DoingAhead() {
       <Part>
         <ComingUp />
       </Part>
-      {openQuestions > 0 && !nextSoon ? (
-        <div>
-          <QuestionsWaiting count={openQuestions} />
-        </div>
-      ) : null}
+      <QuestionsWaitingNow />
     </>
   );
+}
+
+/** The questions waiting, while no appointment is near (it brings them itself once one is). */
+export function QuestionsWaitingNow() {
+  const { today } = useThisWeekPage();
+  const { data: questions } = useQuestionsQuery();
+  const { data: appointments } = useAppointmentsQuery();
+  const openQuestions = questions.filter((q) => !q.askedAt).length;
+  const next = nextAppointment(appointments, today);
+  const nextSoon = next !== null && appointmentSoon(next, today) !== null;
+  return openQuestions > 0 && !nextSoon ? (
+    <div>
+      <QuestionsWaiting count={openQuestions} />
+    </div>
+  ) : null;
 }

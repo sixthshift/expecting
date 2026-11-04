@@ -8,8 +8,8 @@ import { whichWeek } from "../../model/labels";
 /** How many are shown before "Show all": the highest stakes, enough to read without the list taking the page. */
 const FIRST = 5;
 
-/** What's worth knowing as a week starts (`worthKnowing` in src/lib/library/thisWeek.ts): the first few, then the rest on asking. */
-export function WorthKnowing() {
+/** What's worth knowing as a week starts (`worthKnowing` in src/lib/library/thisWeek.ts): the first few, then the rest on asking. `brief`, by their titles (`ItemList`). */
+export function WorthKnowing({ brief = false }: { brief?: boolean }) {
   const { week, peeking } = useThisWeekPage();
   const [all, setAll] = useState(false);
   // What starts this week and belongs to it; what's any time is in the Library.
@@ -23,7 +23,7 @@ export function WorthKnowing() {
       <h2 id="worth-knowing" className="text-lg font-display font-semibold text-fg-strong">
         {`Worth knowing ${whichWeek(peeking)}`}
       </h2>
-      <ItemList items={shown} />
+      <ItemList items={shown} brief={brief} />
       {items.length > shown.length ? (
         <button type="button" onClick={() => setAll(true)} className="flex min-h-11 w-fit items-center text-sm font-medium text-fg-brand hover:underline">
           Show all {items.length}
