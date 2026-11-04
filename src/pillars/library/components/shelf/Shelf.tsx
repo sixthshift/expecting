@@ -15,8 +15,8 @@ import { Rows } from "./Rows";
 /**
  * A door opened, or a topic on its own: its title, the chips that narrow it
  * (topic, a can-i's verdict, for the partner), then its entries laid out for
- * their question — rows under headings, cards, or the glossary. A topic on its
- * own is grouped by door.
+ * their question — rows under headings (in as many columns as fit), cards, or
+ * the glossary. A topic on its own is grouped by door.
  */
 export function Shelf({ narrowing }: { narrowing: Narrowing }) {
   const items = useItems();
@@ -88,9 +88,12 @@ export function Shelf({ narrowing }: { narrowing: Narrowing }) {
       ) : info?.layout === "cards" ? (
         <Cards items={groups.flatMap((g) => g.items)} />
       ) : (
-        <div className="flex flex-col gap-8">
+        // The groups flow into as many columns as the width holds, each at least
+        // 20rem so a title stays near its answer: one on a phone, more as the
+        // page widens, fewer again when the side panel opens beside it.
+        <div className="columns-[20rem] gap-x-6">
           {groups.map((g) => (
-            <section key={g.key} aria-label={g.title} className="flex flex-col gap-3">
+            <section key={g.key} aria-label={g.title} className="mb-8 flex break-inside-avoid flex-col gap-3">
               <h2 className="text-sm font-semibold tracking-wide text-fg-subtle uppercase">{g.title}</h2>
               <Rows items={g.items} list={list} />
             </section>

@@ -59,7 +59,10 @@ It lists no entries, because nobody comes to browse 893:
   Nobody tells you, What does that mean?, What happens at…?, What do we
   decide?, What can we claim?, How do we…? Each is laid out for its
   question: rows by topic or trimester, symptoms with "Know these first"
-  under a call-now box, cards, an A–Z glossary.
+  under a call-now box, cards, an A–Z glossary. The rows' groups sit in
+  as many columns as the width holds (one on a phone, two or three on a
+  desktop, fewer while the side panel is open), so a title stays near its
+  answer.
 - **When it's hard,** a quiet ninth door at the foot: loss, mental health,
   special circumstances. There for whoever looks, never put in front of
   anyone.
