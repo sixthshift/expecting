@@ -37,9 +37,9 @@ settings, ?at=          the due date, the week peeked at
 ```
 pages/            ThisWeekPage: ThisWeekPageProvider around ThisWeekMobile or ThisWeekDesktop (useLayout)
 mobile/           components/ThisWeekMobile: one column, the doing first, the week's reads between its runs
-desktop/          components/ThisWeekDesktop: a board, where you are across the top (the next
-                  appointment beside it), then the doing, the week to read and its other things in
-                  three columns (two on a smaller screen); DayTabs: the day by day as tabs
+desktop/          components/ThisWeekDesktop: Now | The week, Now the larger share and labelled
+                  by pillar (To do, from the Planner; To keep, for the Journal), the week with
+                  where you are and To read, from the Library; DayTabs: the day by day as tabs
 hooks/            useWeekDays: the week's days (its note, a read a day), for DayByDay and DayTabs
 routes/           thisWeek (/, ?at=); index.ts, thisWeekRoutes, with the timeline's beside it
                   (features/timeline/routes/, not under /)

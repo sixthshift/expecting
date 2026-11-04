@@ -52,8 +52,9 @@ components/
   story/        the story: JournalStory, its controls and search, JournalDays;
                 views/weeks/ (WeeksView, WeekGrid, Tile) and views/pregnancy/ (PregnancyView,
                 PregnancyLine), the story zoomed out
-  thisWeek/     what's to keep now: firsts/ (AroundNow, AlreadyHappened, AroundNowFirst),
-                places/ (Places, PlaceReady), and the calls
+  thisWeek/     what's to keep now: KeepNow (the firsts around now and the places ready, drawn
+                here and on This week), firsts/ (AroundNow, AlreadyHappened, AroundNowFirst),
+                places/ (Places, PlaceReady), and Calls (here and on This week)
   lines/        a file per kind of line, Day, StoryList; parts.tsx is what lines are made of
   collections/  the overview: Collections, Group, CollectionCard
   book/         the cover and contents, the recaps, a chapter (ChapterPage, WeeksWritten)

@@ -14,6 +14,21 @@ How it's built is [`architecture.md`](../architecture.md), This week.
 - **Because something's due:** a question Expecting needs answered, an
   extra in its week, a check-in.
 
+It's the dashboard over every pillar, but only for what's now: from the
+Planner what's due (the next appointment and its questions, to do now, what's
+coming), from the Journal what's worth keeping now and anything kept that
+needs acting on, from the Library what's worth reading this week. Looking
+back (the story, the collections, the book) stays in the Journal.
+
+- **A call to make, first:** a movement kept as slower, weaker or stopped in
+  the last two days, or can't keep fluids down today, above everything, as
+  on the Journal (`Calls`). It's what was kept, said back; never a judgement.
+- **Keeping, asked, not offered:** the Journal's part is prompted keeping,
+  never a row of keep buttons (the "+" is that, on every page): how you are
+  today, the firsts that usually come now ("Has it happened yet?"), the
+  places made ready (a scan's picture, this week's bump photo), the week's
+  question. Each goes once it's kept or put off, wherever it was kept from.
+
 ## What it holds to
 
 - **It stays about the week.** The handy things have the Drawer rather
@@ -85,15 +100,16 @@ How it's built is [`architecture.md`](../architecture.md), This week.
   what's worth knowing and what's best done then, that week's appointments,
   and that week's notes and movements, with a way back to this week.
 
-On a desktop it's a board, its parts side by side rather than down the page,
-so most of the week is on one screen. Where you are runs across the top
-(the whole pregnancy in a line is better wide), the next appointment beside
-it once it's close. Below, three columns where the screen is wide enough:
-the doing (to do, how you are, what's coming), the week to read (its note
-and a read a day as tabs, each shown whole, then its heads-up), and the
-week's other things (what's worth knowing, by title; the week's question;
-what was asked and kept; an extra). Two below that, the other things under
-the reading. The page grows to 1760px; the reading never gets wider lines.
+On a desktop it's Now and The week side by side, Now the larger share,
+since it changes every day and the week once a week. Now is labelled by
+where it comes from: To do, from the Planner (the next appointment, to do
+now, what Expecting needs to know), and To keep, for the Journal (how you
+are, has it happened yet, the places ready, the week's question), what's
+coming after them; on a wide screen the two sit side by side. The week has
+where you are (the whole pregnancy in a line), then To read, from the
+Library: the day by day as tabs, each shown whole, the heads-up, what's
+worth knowing by title. The page grows to 1760px; the reading never gets
+wider lines. A phone has the same parts in one column, the doing first.
 
 ## While something has happened
 

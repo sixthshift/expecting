@@ -283,10 +283,12 @@ section is [`src/pillars/thisWeek/README.md`](../src/pillars/thisWeek/README.md)
 
 - `ThisWeekPage` is `ThisWeekPageProvider`, which works out the week shown,
   whether it's a peek and the week's note once, around `ThisWeekMobile` (one
-  column, the doing first) or `ThisWeekDesktop` (a board: where you are
-  across the top, then the doing, the week to read with its days as tabs,
-  `DayTabs`, and its other things in three columns, two on a smaller screen;
-  `PillarLayout`'s `width="full"`).
+  column, the doing first) or `ThisWeekDesktop` (Now | The week: Now, the
+  larger share, as To do from the Planner and To keep for the Journal, side
+  by side once wide enough; the week with where you are and To read from the
+  Library, its days as tabs, `DayTabs`; `PillarLayout`'s `width="full"`).
+  Both draw the Journal's `Calls` first and its `KeepNow` (the firsts around
+  now, the places ready) with the check-in.
 
 - To do now is `toDoNow` (`src/lib/planner/todo.ts`), Coming up `comingUp`; the
   heads-up and Worth knowing are `headsUps` and `worthKnowing`

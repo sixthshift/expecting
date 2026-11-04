@@ -1,7 +1,13 @@
+import { Link } from "@tanstack/react-router";
+import { ChevronRight } from "lucide-react";
+import type { ReactNode } from "react";
 import { PillarLayout } from "../../../../app/components/layout/PillarLayout";
 import { LookThrough } from "../../../../app/features/itsTime/components/wayIn/LookThrough";
 import { AskNow } from "../../../../app/features/settings/components/askNow/AskNow";
 import { OfferExtra } from "../../../../app/features/settings/components/offerExtra/OfferExtra";
+import { formatDate } from "../../../../lib/dates";
+import { Calls } from "../../../journal/components/thisWeek/Calls";
+import { KeepNow } from "../../../journal/components/thisWeek/KeepNow";
 import { CheckIn } from "../../../journal/features/feelings/components/checkIn/CheckIn";
 import { HardFortnight } from "../../../journal/features/feelings/components/fortnight/HardFortnight";
 import { NextAppointment } from "../../../planner/features/appointments/components/NextAppointment";
@@ -21,90 +27,49 @@ import { WeeklyCard } from "../../features/weekly/components/WeeklyCard";
 import { DayTabs } from "./DayTabs";
 
 /**
- * This week on a desktop, a board: its parts side by side rather than down
- * the page, so most of the week is on one screen.
+ * This week on a desktop: the dashboard over every pillar, as Now and The
+ * week side by side, Now the larger share.
  *
- * - Across the top, where you are (the week, its size, the whole pregnancy in
- *   a line, which is better wide), with the next appointment beside it once
- *   it's close.
- * - The week to read: its note and a read a day as tabs (`DayTabs`), at a
- *   reading width, then its heads-up.
- * - What to do now: It's time's look through once it's near, to do, how you
- *   are, what's coming, the questions waiting; or on a peek, what was best
- *   done that week.
- * - The week's other things: what's worth knowing (by title), the week's
- *   question, what Expecting needs to know, a peek's appointments, what was
- *   asked and kept, an extra to offer.
+ * - A call to make, when there is one, above everything (the Journal's
+ *   `Calls`: a movement kept as different lately, or can't keep fluids down).
+ * - Now, on the left: what's due, by where it comes from. To do, from the
+ *   Planner (It's time's look through once near, the next appointment once
+ *   close, to do now, what Expecting needs to know), and To keep, for the
+ *   Journal: what's asked rather than looked for (how you are today, the
+ *   firsts around now, the places ready, the week's question). What's coming
+ *   follows. A peek has what was best done that week instead.
+ * - The week, on the right: where you are (the week, its size, the whole
+ *   pregnancy in a line), then To read, from the Library: the day by day as
+ *   tabs, the heads-up, what's worth knowing (by title); and a peek's
+ *   appointments and what was asked and kept.
  *
- * Three columns where the page is wide enough (the doing, the reading, the
- * rest); two below that, the rest under the reading and the doing beside
- * them. The page itself grows to 1760px (`width="full"`).
+ * Now's groups sit side by side once it's wide enough (do · keep, with the
+ * week beside: three columns), one under the other below that. The week is
+ * first in the page's order, so its heading is the page's; it's drawn on the
+ * right. The page grows to 1760px (`width="full"`).
  */
 export function ThisWeekDesktop() {
-  const { peeking, week } = useThisWeekPage();
+  const { peeking, week, today } = useThisWeekPage();
   return (
     <PillarLayout width="full">
-      <div className="@container">
-        <div className="mb-8 flex items-end gap-8">
-          <div className="min-w-0 flex-1">
-            <WeekHeader />
-          </div>
-          {peeking ? null : (
-            <div className="w-[23.75rem] shrink-0 empty:hidden @min-[94rem]:w-[26.25rem]">
-              <NextAppointment />
-            </div>
-          )}
+      <div className="flex flex-col gap-6">
+        <div className="pt-8 empty:hidden">
+          <Calls />
         </div>
-
-        <div className="grid grid-cols-[minmax(0,1fr)_23.75rem] items-start gap-8 [grid-template-areas:'read_do'_'know_do'] @min-[94rem]:grid-cols-[24rem_minmax(0,45rem)_minmax(0,1fr)] @min-[94rem]:[grid-template-areas:'do_read_know']">
-          <div className="flex flex-col gap-8 [grid-area:read]">
-            <Part>
-              <DayTabs key={week} />
-            </Part>
-            <Part>
-              <HeadsUp />
-            </Part>
-          </div>
-
-          <div className="flex flex-col gap-8 [grid-area:do]">
-            {peeking ? (
-              <BestDoneThatWeek />
-            ) : (
-              <>
-                <Part>
-                  <LookThrough />
-                </Part>
-                <div>
-                  <ToDoNow />
-                </div>
-                <Part>
-                  <HardFortnight />
-                </Part>
-                <Part>
-                  <CheckIn />
-                </Part>
-                <Part>
-                  <ComingUp />
-                </Part>
-                <QuestionsWaitingNow />
-              </>
-            )}
-          </div>
-
-          <div className="flex flex-col gap-8 [grid-area:know]">
-            <Part>
-              <WorthKnowing key={week} brief />
-            </Part>
-            {peeking ? null : (
-              <>
-                <Part>
-                  <WeeklyCard />
-                </Part>
-                <Part>
-                  <AskNow />
-                </Part>
-              </>
-            )}
+        <div className="grid grid-cols-[minmax(0,3fr)_minmax(0,2fr)] items-start gap-10">
+          <div className="col-start-2 row-start-1 flex flex-col gap-8 border-l border-border-subtle pl-10">
+            <WeekHeader />
+            <Group label="To read" from="from the Library" to="/library">
+              <Part>
+                <DayTabs key={week} />
+              </Part>
+              <Part>
+                <HeadsUp />
+              </Part>
+              <Part>
+                <WorthKnowing key={week} brief />
+              </Part>
+            </Group>
             <Part>
               <AppointmentsThatWeek />
             </Part>
@@ -114,14 +79,83 @@ export function ThisWeekDesktop() {
             <Part>
               <KeptThatWeek />
             </Part>
-            {peeking ? null : (
-              <Part>
-                <OfferExtra />
-              </Part>
+          </div>
+
+          <div className="@container col-start-1 row-start-1 flex flex-col gap-6 pt-10">
+            {peeking ? (
+              <BestDoneThatWeek />
+            ) : (
+              <>
+                <p className="flex flex-col">
+                  <span className="text-xs font-semibold tracking-widest text-fg-subtle uppercase">Now</span>
+                  <span className="text-3xl font-display font-semibold text-fg-strong">
+                    {formatDate(today, { weekday: "long", day: "numeric", month: "long" })}
+                  </span>
+                </p>
+                <div className="grid items-start gap-x-8 gap-y-8 [grid-template-areas:'do'_'keep'_'ahead'] @min-[56rem]:grid-cols-2 @min-[56rem]:[grid-template-areas:'do_keep'_'ahead_keep']">
+                  <div className="[grid-area:do]">
+                    <Group label="To do" from="from the Planner" to="/planner">
+                      <Part>
+                        <LookThrough />
+                      </Part>
+                      <Part>
+                        <NextAppointment />
+                      </Part>
+                      <div>
+                        <ToDoNow />
+                      </div>
+                      <Part>
+                        <AskNow />
+                      </Part>
+                    </Group>
+                  </div>
+                  <div className="[grid-area:keep]">
+                    <Group label="To keep" from="for the Journal" to="/journal">
+                      <Part>
+                        <CheckIn />
+                      </Part>
+                      <Part>
+                        <HardFortnight />
+                      </Part>
+                      <KeepNow />
+                      <Part>
+                        <WeeklyCard />
+                      </Part>
+                    </Group>
+                  </div>
+                  <div className="flex flex-col gap-8 [grid-area:ahead]">
+                    <Part>
+                      <ComingUp />
+                    </Part>
+                    <QuestionsWaitingNow />
+                    <Part>
+                      <OfferExtra />
+                    </Part>
+                  </div>
+                </div>
+              </>
             )}
           </div>
         </div>
       </div>
     </PillarLayout>
+  );
+}
+
+/** One pillar's share of the board: its label, where it comes from, and the way to the pillar; then its parts. */
+function Group({ label, from, to, children }: { label: string; from: string; to: "/planner" | "/journal" | "/library"; children: ReactNode }) {
+  return (
+    <section aria-label={`${label}, ${from}`} className="flex flex-col gap-6">
+      <div className="flex items-baseline justify-between gap-4 border-b-2 border-border-brand pb-1.5">
+        <p className="text-xs font-semibold tracking-widest text-fg-strong uppercase">
+          {label} <span className="text-fg-subtle">· {from}</span>
+        </p>
+        <Link to={to} className="flex items-center gap-0.5 text-xs font-medium text-fg-brand hover:underline">
+          {to === "/planner" ? "Planner" : to === "/journal" ? "Journal" : "Library"}
+          <ChevronRight aria-hidden size={14} />
+        </Link>
+      </div>
+      {children}
+    </section>
   );
 }
