@@ -43,6 +43,16 @@ How it's built is [`architecture.md`](../architecture.md), Planner. Tasks themse
   slipped long ago and what's done.
 - **With no due date there's no now:** everything open, by its best-by
   week.
+- **On a desktop, Up next:** the same plan as one running order, a week
+  at a time from this one: each week's appointments, then its tasks (this
+  week's are To do now, next up first; a later week's are what next asks
+  of you then). The next appointment carries the questions for it, there
+  to tick off in the waiting room. A later week with nothing in it is left
+  out; four weeks, then Across the weeks. The lists have no dates, so
+  they're beside it, not on it: To get, each list with what's left and
+  got as a bar, and On the horizon under it. Missed, done, the
+  appointments been and a task of your own close it. A phone keeps To do
+  with the rest under it.
 - **Whose:** each phone knows who's holding it, so a task says "Yours" or
   "Sam's". Own tasks have no owner yet.
 

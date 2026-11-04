@@ -11,9 +11,6 @@ import { Fold } from "../Fold";
 /** The questions, for the next appointment (named, when there is one): a way to add one, those still to ask, and those asked folded away. */
 export function ForNextAppointment() {
   const { next } = useAppointmentsAhead();
-  const { data: questions } = useQuestionsQuery();
-  const open = questions.filter((q) => !q.askedAt);
-  const asked = questions.filter((q) => q.askedAt);
   return (
     <section id="questions" aria-labelledby="questions-heading" className="flex scroll-mt-6 flex-col gap-4">
       <div className="flex flex-col gap-0.5">
@@ -26,6 +23,18 @@ export function ForNextAppointment() {
           </p>
         ) : null}
       </div>
+      <Questions />
+    </section>
+  );
+}
+
+/** The questions themselves: a way to add one, those still to ask, and those asked folded away. Under its heading here; under the next appointment in a desktop's Up next. */
+export function Questions() {
+  const { data: questions } = useQuestionsQuery();
+  const open = questions.filter((q) => !q.askedAt);
+  const asked = questions.filter((q) => q.askedAt);
+  return (
+    <>
       <AddQuestion />
       {open.length === 0 ? <p className="text-sm text-fg-subtle">Nothing to ask yet. Add a question as it comes to you.</p> : null}
       {open.map((q) => (
@@ -40,6 +49,6 @@ export function ForNextAppointment() {
           </div>
         </Fold>
       ) : null}
-    </section>
+    </>
   );
 }

@@ -59,10 +59,13 @@ components/
   Fold          a titled run of rows, open or folded (Also now, Missed earlier, Done, Been, Asked)
   toDo/         To do: its progress, Next up, Ahead and a stage's card, a task's line
   appointments/ the appointments, next first
-  questions/    for the next appointment
+  questions/    for the next appointment: ForNextAppointment, its heading around Questions
 quiet/          the Planner while something has happened (below)
 desktop/        PlannerRail: To do, Across the weeks, the lists, down the left of each page on a
-                desktop (not the quiet one: its chart and lists are put away)
+                desktop (not the quiet one: its chart and lists are put away); PlannerDesktop,
+                the page there: UpNext (appointments and tasks a week at a time, `upNext`
+                in lib/planner/upNext.ts, the next appointment with its questions) beside
+                ToGet (the lists) and Ahead
 features/
   tasks/        a task's row, whose it is, keeping one, adding your own; useTasks (This week,
                 the Library and the "+" draw these too)
