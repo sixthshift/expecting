@@ -166,7 +166,7 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 `server/` and `api/` import the store or `server/`; nothing imports
 `api/rest/`, and nothing imports a `routes/` folder but other routes and
 `src/routes/tree.ts` (a page reads its route through `getRouteApi`);
-`lib/` and `content/` import no React, router or server. A phone's layout never imports a desktop's, nor the other way (`phone/`, `desktop/`; Adaptive).
+`lib/` and `content/` import no React, router or server. A phone's layout never imports a desktop's, nor the other way (`mobile/`, `desktop/`; Adaptive).
 
 ## Data in the app
 
@@ -211,7 +211,7 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
   week in the middle, the Journal and the Planner either side (past to
   future, as on the strip), the Library and the Drawer at the edges.
 - **Beside settings, not pillars:** Emergency info and It's time, in the
-  phone's top corner (`PhoneCorner`) and the sidebar, and the call button
+  phone's top corner (`MobileCorner`) and the sidebar, and the call button
   (`CallBirthSuite`): the birth suite's number from Emergency info, drawn
   once it's filled in, and read without suspense so the app's layout never waits
   for it. A symptom's `Triage` calls the same number.
@@ -221,7 +221,7 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 - Settings sits in the app's layout; onboarding and login don't.
 - **Every page inside a pillar draws `PillarLayout`** (`src/app/components/layout/PillarLayout.tsx`):
   one column at the page's width, and its top. A pillar's own page has its
-  title and lead, with `PhoneCorner` on a phone; a page under it (`back`) has
+  title and lead, with `MobileCorner` on a phone; a page under it (`back`) has
   the way back, then its title; a page that draws its own top (This week's
   hero, a Library entry) has neither. It never asks whether something has
   happened: a page put away then is its route's quiet world, `putAway`
@@ -238,7 +238,7 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 section is [`src/pillars/thisWeek/README.md`](../src/pillars/thisWeek/README.md).
 
 - `ThisWeekPage` is `ThisWeekPageProvider`, which works out the week shown,
-  whether it's a peek and the week's note once, around `ThisWeekPhone` (one
+  whether it's a peek and the week's note once, around `ThisWeekMobile` (one
   column, the doing first) or `ThisWeekDesktop` (the week on the left, the
   doing on the right: `DoingNow`, or on a peek `BestDoneThatWeek`).
 
@@ -724,7 +724,7 @@ Installing and the service worker need HTTPS, except on `localhost`.
 
 - **Two experiences, each responsive.** A phone and a desktop each get a
   layout designed for them, not one layout rearranged: on a phone the tab
-  bar under the thumb, one thing at a time, the corner (`PhoneCorner`) for
+  bar under the thumb, one thing at a time, the corner (`MobileCorner`) for
   It's time, the call button, Emergency info and settings; on a desktop the
   sidebar, and things side by side. Within each, a part still flows with
   the width (`sm:`: cards two across, a row's answer beside its question),
@@ -741,11 +741,11 @@ Installing and the service worker need HTTPS, except on `localhost`.
   stretched, not redesigned: `sm:` lets a part use the room (cards two
   across, an answer beside its question), and nothing else changes there.
 - **One line, two ways to follow it.** The line is `DESKTOP_MEDIA`
-  (64rem, `src/app/model/layout.ts`): `phone` under it, `desktop` on and
+  (64rem, `src/app/model/layout.ts`): `mobile` under it, `desktop` on and
   over it. `useLayout()` (`src/app/hooks/useLayout.ts`) follows it in React,
   as the window is resized across it (`layoutNow()` for an effect that asks
   once). A boot script (`LAYOUT_BOOT_SCRIPT`, in `Document`) puts the same
-  answer on `<html data-layout>` before the first paint, and the `phone:`
+  answer on `<html data-layout>` before the first paint, and the `mobile:`
   and `desktop:` variants (`src/styles/index.css`) follow that. There's no
   `lg:` breakpoint any more, and a test keeps it out (`test/app/layout.test.ts`).
 - **Structure with `useLayout()`, adjustments with the variants.** Where the
@@ -754,25 +754,25 @@ Installing and the service worker need HTTPS, except on `localhost`.
   `useLayout()`, never by drawing both and hiding one, which mounts the other
   and runs its effects for nothing. Where it's the same parts in the same
   order, only spaced or sized differently (side by side rather than stacked,
-  a bigger heading), `desktop:` and `phone:` say so. The one exception is the
+  a bigger heading), `desktop:` and `mobile:` say so. The one exception is the
   loading skeleton (`PageSkeleton`, `src/components/`), a placeholder with
   nothing to run, which stays out of the app's code.
 - **A layout of each is a mirror, like quiet.** What's only a phone's or only
-  a desktop's goes in `phone/` or `desktop/` beside what it splits, in the
+  a desktop's goes in `mobile/` or `desktop/` beside what it splits, in the
   one shape (`pages/`, `components/`): the app's own are
-  `src/app/phone/components/` (`PhoneLayout`, `PhoneCorner`) and
+  `src/app/mobile/components/` (`MobileLayout`, `MobileCorner`) and
   `src/app/desktop/components/` (`DesktopLayout`), and `AppLayout` chooses
   between them. What both draw stays outside both (`PillarNav`). This
-  week's is two pages (`ThisWeekPhone`, one column, the doing first, the
+  week's is two pages (`ThisWeekMobile`, one column, the doing first, the
   week's reads between its runs; `ThisWeekDesktop`, the week on the left
   and the doing on the right); Settings' nav is the desktop's only
   (`settings/desktop/components/SettingsNav`). A page
   chooses under its own provider (`layout === "desktop" ? <X /> : <Y />`), so
   what it holds (search words, what's open) carries across the line, and the
   address is the same in both. Quiet is chosen by the route and the layout by
-  the page, so they never multiply: a quiet page has `quiet/phone/` and
+  the page, so they never multiply: a quiet page has `quiet/mobile/` and
   `quiet/desktop/` only where it differs too. Biome keeps them apart: nothing
-  in `phone/` imports `desktop/`, or the other way.
+  in `mobile/` imports `desktop/`, or the other way.
 - **Tests:** the DOM tests' window is a phone's (390 wide, `vite.config.ts`),
   so a part drawn per layout draws the phone's; a test of the desktop's
   resizes it (`happyDOM.setWindowSize`).

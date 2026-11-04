@@ -176,7 +176,7 @@ export function AddPaper({ files: given, onAdded }: { files?: File[]; onAdded?: 
       <div className="flex flex-col gap-3">
         {status ?? (
           <>
-            {layout === "phone" ? (
+            {layout === "mobile" ? (
               // A phone: the camera, one tap, and the phone's own picker beside it (Files, for a PDF from an email).
               <div className="grid grid-cols-2 gap-2">
                 <Pick label="Photograph it" icon={Camera} camera primary onFiles={(files) => void ready(files)} />
@@ -243,7 +243,7 @@ export function AddPaper({ files: given, onAdded }: { files?: File[]; onAdded?: 
       {alert}
       {pages.length < MAX_PAGES && !readying ? (
         <div className="flex flex-wrap items-center gap-2">
-          {layout === "phone" ? <Pick label="Another page" icon={Camera} camera size="sm" onFiles={(files) => void ready(files)} /> : null}
+          {layout === "mobile" ? <Pick label="Another page" icon={Camera} camera size="sm" onFiles={(files) => void ready(files)} /> : null}
           <Pick label="Add a file" icon={FilePlus} size="sm" onFiles={(files) => void ready(files)} />
         </div>
       ) : null}

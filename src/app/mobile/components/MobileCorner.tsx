@@ -9,8 +9,8 @@ import { useLayout } from "../../hooks/useLayout";
  * button, Emergency info, then settings. Nothing on a desktop, which has them
  * in the sidebar.
  */
-export function PhoneCorner() {
-  if (useLayout() !== "phone") return null;
+export function MobileCorner() {
+  if (useLayout() !== "mobile") return null;
   return (
     <div className="-mr-2 flex shrink-0 items-center print:hidden">
       <ItsTimeWayIn layout="pill" />

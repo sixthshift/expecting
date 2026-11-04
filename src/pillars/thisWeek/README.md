@@ -35,8 +35,8 @@ settings, ?at=          the due date, the week peeked at
 ## Where things are
 
 ```
-pages/            ThisWeekPage: ThisWeekPageProvider around ThisWeekPhone or ThisWeekDesktop (useLayout)
-phone/            components/ThisWeekPhone: one column, the doing first, the week's reads between its runs
+pages/            ThisWeekPage: ThisWeekPageProvider around ThisWeekMobile or ThisWeekDesktop (useLayout)
+mobile/           components/ThisWeekMobile: one column, the doing first, the week's reads between its runs
 desktop/          components/ThisWeekDesktop: the week on the left, the doing on the right, staying in view
 routes/           thisWeek (/, ?at=); index.ts, thisWeekRoutes, with the timeline's beside it
                   (features/timeline/routes/, not under /)
@@ -89,6 +89,6 @@ what happened (`Guide`), then the next steps. The timeline's page,
    or with the doing (`DoingFirst`, `DoingAsked`, `DoingAhead`,
    `components/doing/DoingNow.tsx`; on a peek `BestDoneThatWeek`). Each
    layout places the runs: `ThisWeekDesktop` the week left and the doing
-   right, `ThisWeekPhone` one column, the doing's runs with the week between
+   right, `ThisWeekMobile` one column, the doing's runs with the week between
    them. A part that needs a run of its own goes in both layouts.
 3. A heading that names the week says it through `whichWeek(peeking)`.

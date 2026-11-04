@@ -1,5 +1,5 @@
 import { use } from "react";
-import { PhoneCorner } from "../../../../app/phone/components/PhoneCorner";
+import { MobileCorner } from "../../../../app/mobile/components/MobileCorner";
 import type { Item } from "../../../../content/schema";
 import { sectionsOf } from "../../../../content/sections";
 import type { Quiet } from "../../../../lib/quiet";
@@ -17,7 +17,7 @@ export function Guide({ item, quiet }: { item: Item; quiet: Quiet }) {
       <header className="flex flex-col gap-2">
         <div className="flex items-start justify-between gap-3">
           <h1 className="text-2xl font-display font-semibold text-fg-strong desktop:text-3xl">Take the time you need</h1>
-          <PhoneCorner />
+          <MobileCorner />
         </div>
         {opening ? <ItemBody doc={opening.doc} className="max-w-prose" /> : null}
       </header>

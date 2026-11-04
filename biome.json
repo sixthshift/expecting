@@ -312,7 +312,7 @@
       }
     },
     {
-      "includes": ["src/**/phone/**", "!src/**/routes/**"],
+      "includes": ["src/**/mobile/**", "!src/**/routes/**"],
       "linter": {
         "rules": {
           "style": {
@@ -338,7 +338,7 @@
                   },
                   {
                     "group": ["**/desktop", "**/desktop/**"],
-                    "message": "The phone's layout never draws the desktop's: share a part by keeping it outside both (components/), and choose between them with useLayout()."
+                    "message": "The mobile layout never draws the desktop's: share a part by keeping it outside both (components/), and choose between them with useLayout()."
                   }
                 ]
               }
@@ -373,8 +373,8 @@
                     "message": "Routes are definitions only: nothing imports them but other routes, and src/router.tsx the tree. Read a route's data with getRouteApi."
                   },
                   {
-                    "group": ["**/phone", "**/phone/**"],
-                    "message": "The desktop's layout never draws the phone's: share a part by keeping it outside both (components/), and choose between them with useLayout()."
+                    "group": ["**/mobile", "**/mobile/**"],
+                    "message": "The desktop's layout never draws the mobile one: share a part by keeping it outside both (components/), and choose between them with useLayout()."
                   }
                 ]
               }

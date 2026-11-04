@@ -93,7 +93,7 @@ export function Timeline({ at }: { at: Week | undefined }) {
     >
       {!dueDate ? <Welcome /> : null}
       {/* On a phone, a way back to today from wherever the scroll has got to; a desktop has the strip's columns in view. */}
-      {now !== null && layout === "phone" ? (
+      {now !== null && layout === "mobile" ? (
         <Button
           variant="outline"
           size="sm"

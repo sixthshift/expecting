@@ -29,7 +29,7 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 
-function resize(to: "phone" | "desktop") {
+function resize(to: "mobile" | "desktop") {
   wide = to === "desktop";
   act(() => {
     for (const fn of listeners) fn();
@@ -42,18 +42,18 @@ function Shows() {
 
 describe("useLayout", () => {
   it("is the phone's under the line, the desktop's on it", () => {
-    expect(layoutNow()).toBe("phone");
+    expect(layoutNow()).toBe("mobile");
     wide = true;
     expect(layoutNow()).toBe("desktop");
   });
 
   it("follows the window across the line, both ways", () => {
     render(<Shows />);
-    expect(screen.getByText("phone")).toBeTruthy();
+    expect(screen.getByText("mobile")).toBeTruthy();
     resize("desktop");
     expect(screen.getByText("desktop")).toBeTruthy();
-    resize("phone");
-    expect(screen.getByText("phone")).toBeTruthy();
+    resize("mobile");
+    expect(screen.getByText("mobile")).toBeTruthy();
   });
 
   it("stops listening once nothing draws it", () => {

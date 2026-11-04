@@ -2,8 +2,8 @@ import { cn } from "@sixthshift/design-system/utils";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
+import { MobileCorner } from "../../mobile/components/MobileCorner";
 import type { AppPath } from "../../model/paths";
-import { PhoneCorner } from "../../phone/components/PhoneCorner";
 
 const WIDTH = { "2xl": "max-w-2xl", "3xl": "max-w-3xl", "6xl": "max-w-6xl" } as const;
 
@@ -62,7 +62,7 @@ export function PillarLayout({
         <header className="flex flex-col gap-1 pt-[max(1.5rem,env(safe-area-inset-top))] pb-5 desktop:pt-10 desktop:pb-8">
           <div className="flex items-start justify-between gap-3">
             <Heading title={title} lead={lead} />
-            <PhoneCorner />
+            <MobileCorner />
           </div>
           {head}
         </header>

@@ -20,7 +20,7 @@ export function Document({ children }: { children: ReactNode }) {
       <body className="bg-(--expecting-page) text-fg-normal">
         {children}
         {/* On a phone, above the tab bar and left of the "+", as wide as the room between them, so a toast reads in a line or two. */}
-        <ToastStack className="bottom-[calc(4.5rem+env(safe-area-inset-bottom))] phone:right-20 phone:left-4 phone:translate-x-0 phone:items-stretch desktop:bottom-6" />
+        <ToastStack className="bottom-[calc(4.5rem+env(safe-area-inset-bottom))] mobile:right-20 mobile:left-4 mobile:translate-x-0 mobile:items-stretch desktop:bottom-6" />
         <Scripts />
       </body>
     </html>

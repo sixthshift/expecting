@@ -11,9 +11,9 @@ import { SharedIn } from "../../features/capture/components/SharedIn";
  * "+") can. The "+" floats above the tab bar on the pillars only, with room
  * left under each page so it never covers the last row. It's time, the call
  * button, Emergency info and settings are in each pillar's top corner
- * (`PhoneCorner`).
+ * (`MobileCorner`).
  */
-export function PhoneLayout({ tabs, onPillar }: { tabs: readonly Pillar[]; onPillar: boolean }) {
+export function MobileLayout({ tabs, onPillar }: { tabs: readonly Pillar[]; onPillar: boolean }) {
   return (
     <div className="[--tab-bar:calc(3.75rem+env(safe-area-inset-bottom))]">
       <div className={cn("min-w-0 pb-(--tab-bar)", onPillar && "pb-[calc(var(--tab-bar)+4.5rem)]")}>

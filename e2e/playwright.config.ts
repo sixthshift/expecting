@@ -48,8 +48,8 @@ export default defineConfig({
   // layouts, so every page loads in both. The journey runs once, on the phone,
   // because it starts from the empty database and leaves it filled.
   projects: [
-    { name: "phone", use: { ...devices["Pixel 7"] } },
-    { name: "desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } }, testMatch: "smoke.spec.ts", dependencies: ["phone"] },
+    { name: "mobile", use: { ...devices["Pixel 7"] } },
+    { name: "desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } }, testMatch: "smoke.spec.ts", dependencies: ["mobile"] },
   ],
   webServer: {
     // --no-env-file: Bun would otherwise load the developer's .env into the server under test.

@@ -11,7 +11,7 @@ import { useThisWeekPage } from "../../contexts/ThisWeekPageContext";
  * in the week; and what's ahead. A peek has what was best done that week in
  * place of the doing.
  */
-export function ThisWeekPhone() {
+export function ThisWeekMobile() {
   const { peeking } = useThisWeekPage();
   return (
     <PillarLayout>

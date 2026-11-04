@@ -6,7 +6,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 // phone, the corner), a page under one (the way back, then perhaps its
 // title), or neither (the page draws its own top). It never asks whether
 // something has happened: a page put away then is its route's quiet world.
-vi.mock("../../../../src/app/phone/components/PhoneCorner", () => ({ PhoneCorner: () => <div data-testid="corner" /> }));
+vi.mock("../../../../src/app/mobile/components/MobileCorner", () => ({ MobileCorner: () => <div data-testid="corner" /> }));
 vi.mock("@tanstack/react-router", () => ({
   Link: ({ to, children, className }: { to: string; children: ReactNode; className?: string }) => (
     <a href={to} className={className}>

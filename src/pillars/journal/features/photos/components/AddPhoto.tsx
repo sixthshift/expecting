@@ -159,7 +159,7 @@ export function AddPhoto({
           </p>
         ) : (
           <>
-            {layout === "phone" ? (
+            {layout === "mobile" ? (
               // A phone: the camera, one tap, and the phone's own picker beside it.
               <div className="grid grid-cols-2 gap-2">
                 <Button asChild intent="brand" size="lg">
