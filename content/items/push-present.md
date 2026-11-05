@@ -36,7 +36,7 @@ If you'd like to, do it before the last weeks. Once the baby comes, there won't 
 **Practicalities.**
 
 - If it's personalised, find a maker who can turn it around quickly after the birth, or give a picture of it and have it made later.
-- Vouchers last a while, but check the expiry date. In Australia most gift cards bought since 1 November 2019 must be valid for at least 3 years (ACCC).
+- Vouchers last a while, but check the expiry date. The Australian Competition and Consumer Commission (ACCC) says most gift cards in Australia bought since 1 November 2019 must be valid for at least 3 years.
 - Keep it somewhere you'll remember, and pack it in the hospital bag if you want to give it there.
 
 Ask quietly beforehand whether they'd want one at all. Some people would rather the money went on the baby, or on sleep.

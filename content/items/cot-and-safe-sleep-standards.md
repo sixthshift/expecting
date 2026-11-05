@@ -35,7 +35,7 @@ Your baby will spend more time in the cot than anywhere else, so it's worth gett
 
 ## The standard
 
-Since 19 January 2026, every cot sold new in Australia must meet the mandatory safety standard for infant sleep products. A household cot meets it by meeting one of three standards: the Australian AS/NZS 2172:2013, or its US or European equivalent. The cot must also carry warnings and come with safety information (ACCC Product Safety).
+Since 19 January 2026, every cot sold new in Australia must meet the mandatory safety standard for infant sleep products. A household cot meets it by meeting one of three standards: the Australian/New Zealand Standard (AS/NZS) 2172:2013, or its US or European equivalent. The cot must also carry warnings and come with safety information (Australian Competition and Consumer Commission (ACCC) Product Safety).
 
 Second-hand cots aren't covered by the mandatory standard, unless they're imported. Red Nose's advice is to check that a second-hand cot meets the standard anyway: it's noted in the instructions, and often on a label. If you're in any doubt about a cot's safety, don't use it.
 

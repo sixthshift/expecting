@@ -7,7 +7,7 @@ ask: Can I go camping while pregnant?
 aliases: [camping, bush, bushwalking overnight, tent, caravan, river camping, Japanese encephalitis, Ross River, mozzies, sleeping on the ground]
 who: carrying
 stakes: medium
-summary: "Yes, with care about mosquitoes: they carry viruses in Australia that can harm you or your baby, including Japanese encephalitis, so use repellent and cover up, and ask about the JE vaccine if you'll be at high risk."
+summary: "Yes, with care about mosquitoes: they carry viruses in Australia that can harm you or your baby, including Japanese encephalitis (JE), so use repellent and cover up, and ask about the JE vaccine if you'll be at high risk."
 verdict: yes
 sources:
   - title: MotherSafe (Royal Hospital for Women) — Travel in pregnancy

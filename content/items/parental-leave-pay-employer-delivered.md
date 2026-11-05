@@ -40,7 +40,7 @@ Services Australia pays you if you don't have a job, your employer isn't paying 
 
 Parental Leave Pay is taxable: declare it in your tax return.
 
-- **From your employer:** PAYG tax at your usual rate. They don't have to add superannuation, but can.
+- **From your employer:** pay as you go (PAYG) tax at your usual rate. They don't have to add superannuation, but can.
 - **From Services Australia:** 15% PAYG tax, unless you ask for a different rate. Depending on your total income, 15% might not be enough, and you'd pay the rest at tax time. You can raise the rate online.
 
 If your baby is stillborn or dies, you can ask Services Australia to pay you instead of your employer.

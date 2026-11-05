@@ -19,7 +19,7 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-18
   - title: Pregnancy, Birth and Baby — Pregnancy at week 25
     url: https://www.pregnancybirthbaby.org.au/pregnancy/pregnancy-stages/pregnancy-at-week-25
-related: [term-ctg, term-doppler, term-pinard, baby-movements, card-home-dopplers]
+related: [term-ctg, term-doppler, term-pinard, baby-movements, card-home-dopplers, term-fhr]
 checked: 2026-10-29
 ---
 Your baby's heart is beating by about week 7 of pregnancy. By 25 weeks it beats at about 140 beats a minute, much faster than it will after birth.

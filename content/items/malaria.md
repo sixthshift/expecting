@@ -25,7 +25,7 @@ Avoid travelling to areas with malaria if you can. Malaria is spread by infected
 
 Pregnant people are among those most at risk of severe malaria. In pregnancy it can lead to miscarriage, stillbirth, premature birth or a small baby, and to anaemia or even death for the pregnant parent. Pregnant people are also more likely to be bitten by mosquitoes (MotherSafe).
 
-Where malaria resists treatment, you may need tablets to prevent it (RANZCOG), and even then they don't always work (healthdirect). Which tablets suit you, your pregnancy and your itinerary is your doctor's call.
+Where malaria resists treatment, you may need tablets to prevent it (Royal Australian and New Zealand College of Obstetricians and Gynaecologists, RANZCOG), and even then they don't always work (healthdirect). Which tablets suit you, your pregnancy and your itinerary is your doctor's call.
 
 ## What to do
 

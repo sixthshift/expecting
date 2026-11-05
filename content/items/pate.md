@@ -23,7 +23,7 @@ sources:
 related: [liver, deli-meats, vitamin-a-supplements]
 checked: 2026-10-29
 ---
-Best avoided. Pregnancy, Birth and Baby says to avoid all types of pâté, and Food Standards Australia New Zealand lists refrigerated pâté and meat spreads among the foods to avoid in pregnancy.
+Best avoided. Pregnancy, Birth and Baby says to avoid all types of pâté, and Food Standards Australia New Zealand (FSANZ) lists refrigerated pâté and meat spreads among the foods to avoid in pregnancy.
 
 ## Why
 

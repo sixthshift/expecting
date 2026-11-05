@@ -25,7 +25,7 @@ appointment:
   - What does my result mean, and what comes next?
 checked: 2026-10-29
 ---
-Second-trimester serum screening (also called maternal serum screening) is one of three ways to screen for Down syndrome, alongside combined first trimester screening and NIPT. It's a blood test between 15 and 20 weeks.
+Second-trimester serum screening (also called maternal serum screening) is one of three ways to screen for Down syndrome, alongside combined first trimester screening and non-invasive prenatal testing (NIPT). It's a blood test between 15 and 20 weeks.
 
 **What it looks for.** It estimates the chance of your baby having Down syndrome or a neural tube defect such as spina bifida; the Royal Women's Hospital says it also estimates the chance of trisomy 18. Like every screening test, it can't diagnose any of them: it tells you whether the chance is higher, and it can miss some babies who have the condition.
 

@@ -7,7 +7,7 @@ ask: We did IVF. Is this pregnancy different, and why don't I feel happy?
 aliases: [IVF, assisted reproduction, fertility treatment, embryo transfer, after infertility, rainbow pregnancy]
 weeks: [4, 42]
 stakes: medium
-summary: "IVF pregnancies are more likely to have some complications, and after a long road it's common to worry despite reassurance and not enjoy the pregnancy the way you hoped; that's understandable, and support is there."
+summary: "In vitro fertilisation (IVF) pregnancies are more likely to have some complications, and after a long road it's common to worry despite reassurance and not enjoy the pregnancy the way you hoped; that's understandable, and support is there."
 sources:
   - title: PANDA — Mental health after IVF for new and expecting parents
     url: https://www.panda.org.au/articles/mental-health-after-ivf
@@ -22,7 +22,7 @@ appointment:
   - Given my IVF, are any complications more likely for me, and would that change my care?
 checked: 2026-10-29
 ---
-If you've been through IVF to get here, you've often been on a long road, and you can start the pregnancy feeling emotionally running on empty. Up to 75% of people having IVF report anxiety or depression during treatment, and it can put a great deal of stress on relationships.
+If you've been through in vitro fertilisation (IVF) to get here, you've often been on a long road, and you can start the pregnancy feeling emotionally running on empty. Up to 75% of people having IVF report anxiety or depression during treatment, and it can put a great deal of stress on relationships.
 
 ## Why you might not feel how you expected
 
@@ -40,7 +40,7 @@ Relationships go through a lot during treatment, and you may each cope different
 
 ## Where to get support
 
-- Talk to someone you trust. PANDA's National Helpline is 1300 726 306.
+- Talk to someone you trust. The National Helpline of Perinatal Anxiety & Depression Australia (PANDA) is 1300 726 306.
 - Ask your clinic about IVF support groups, or look for one online.
 - If your relationship is struggling, Gidget Foundation suggests seeing someone who specialises in couple's therapy.
 - If your mood has dropped, your anxiety is too high or you're not coping, speak to your GP, who can refer you, including to the Gidget Foundation's bulk-billed sessions.

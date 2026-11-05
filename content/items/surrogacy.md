@@ -38,7 +38,7 @@ The surrogate has the right to choose how they manage the pregnancy and birth, e
 
 ## Cost
 
-Surrogacy Australia estimated (in 2024) around $55,000 to $75,000 over 2 years, covering legal fees, IVF, counselling, the surrogate's costs, insurance and travel, and the parentage order. Medicare doesn't subsidise surrogacy; check what your private health insurance covers.
+Surrogacy Australia estimated (in 2024) around $55,000 to $75,000 over 2 years, covering legal fees, in vitro fertilisation (IVF), counselling, the surrogate's costs, insurance and travel, and the parentage order. Medicare doesn't subsidise surrogacy; check what your private health insurance covers.
 
 ## Getting started
 

@@ -27,9 +27,9 @@ Most people having twins have a healthy pregnancy and healthy babies. But there 
 
 ## Sharing a placenta or a sac
 
-- **DCDA (dichorionic diamniotic):** each baby has its own placenta and its own sac. This is the most common type of twin pregnancy.
-- **MCDA (monochorionic diamniotic):** the babies share a placenta but each has its own sac.
-- **MCMA (monochorionic monoamniotic):** the babies share a placenta and a sac. This is rarer.
+- **Dichorionic diamniotic (DCDA):** each baby has its own placenta and its own sac. This is the most common type of twin pregnancy.
+- **Monochorionic diamniotic (MCDA):** the babies share a placenta but each has its own sac.
+- **Monochorionic monoamniotic (MCMA):** the babies share a placenta and a sac. This is rarer.
 
 Triplets or more can share in the same ways. An ultrasound can show whether your babies are fraternal or identical, and whether they share a placenta. It's very important to find out, because shared-placenta pregnancies need careful monitoring. Some complications only happen in twins who share a placenta, such as twin-to-twin transfusion syndrome (TTTS), where blood flows from one twin to the other. TTTS is rare, and most identical twins won't get it. With MCMA twins, the umbilical cords can become tangled, which can put both babies' lives at risk.
 

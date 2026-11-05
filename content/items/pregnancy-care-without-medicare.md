@@ -44,4 +44,4 @@ A baby born in Australia is an Australian citizen if at least one parent is a ci
 
 ## Interpreters
 
-TIS National, on 131 450, provides interpreters for health appointments, usually free of charge.
+The Translating and Interpreting Service (TIS National), on 131 450, provides interpreters for health appointments, usually free of charge.

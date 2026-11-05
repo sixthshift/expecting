@@ -13,4 +13,4 @@ sources:
 related: [term-mcda, term-mcma]
 checked: 2026-10-29
 ---
-DCDA stands for dichorionic diamniotic: each twin has its own placenta and its own amniotic sac. It's the most common type of twin pregnancy. The other two types, MCDA (a shared placenta, separate sacs) and MCMA (a shared placenta and sac, rarer), are for identical twins.
+DCDA stands for dichorionic diamniotic: each twin has its own placenta and its own amniotic sac. It's the most common type of twin pregnancy. The other two types, monochorionic diamniotic (MCDA: a shared placenta, separate sacs) and monochorionic monoamniotic (MCMA: a shared placenta and sac, rarer), are for identical twins.

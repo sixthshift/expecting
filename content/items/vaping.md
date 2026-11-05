@@ -32,7 +32,7 @@ Vaping is sometimes thought of as less harmful than smoking, but it isn't risk-f
 
 ## What to do
 
-- **Don't switch to vaping to quit.** Vapes aren't a first-line treatment for quitting: the TGA hasn't assessed their safety. There are medicines the TGA has assessed and approved that are safer than vapes.
+- **Don't switch to vaping to quit.** Vapes aren't a first-line treatment for quitting: the Therapeutic Goods Administration (TGA) hasn't assessed their safety. There are medicines the TGA has assessed and approved that are safer than vapes.
 - **Talk to your doctor or pharmacist first,** especially as you're pregnant. They can help you make a plan, which may include nicotine replacement therapy.
 - **Call Quitline** on 13 7848 for support with quitting smoking or vaping.
 - **Know the law.** Since 1 July 2024, vapes can only be sold in pharmacies, to help people quit smoking or manage nicotine dependence. From 1 October 2024, people 18 and older can buy vapes of 20 mg/mL nicotine or less from participating pharmacies without a prescription, after talking with the pharmacist, where state and territory laws allow. Stronger vapes need a prescription.

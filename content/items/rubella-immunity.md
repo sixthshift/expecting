@@ -18,4 +18,4 @@ checked: 2026-10-29
 ---
 Rubella (German measles) is mild for adults but very dangerous for an unborn baby, causing miscarriage, stillbirth or serious problems such as deafness. It's uncommon in Australia thanks to childhood vaccination, and every pregnant person is recommended a blood test for rubella antibodies.
 
-If you're not immune, the vaccine (MMR) is live and not given in pregnancy; have it as soon as possible after the birth, even if breastfeeding. If you've been in contact with rubella, speak to your doctor or midwife.
+If you're not immune, the measles, mumps and rubella (MMR) vaccine is live and not given in pregnancy; have it as soon as possible after the birth, even if breastfeeding. If you've been in contact with rubella, speak to your doctor or midwife.

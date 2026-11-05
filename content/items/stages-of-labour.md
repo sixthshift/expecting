@@ -24,7 +24,7 @@ Labour is described in three stages. They're common to every labour, but everyon
 
 ## First stage: the cervix opens
 
-The cervix (the neck of the uterus) thins, softens and opens until it's fully open at about 10 cm. It's the longest stage. RANZCOG says it usually takes about 12 hours in a first labour and 8 hours in later ones.
+The cervix (the neck of the uterus) thins, softens and opens until it's fully open at about 10 cm. It's the longest stage. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says it usually takes about 12 hours in a first labour and 8 hours in later ones.
 
 - **Latent phase (early labour).** The cervix shortens, thins and begins to open. It can last hours or even days. Contractions may be regular or irregular, or you might not notice them. You can usually stay home.
 - **Active phase.** The cervix opens from about 4 cm to 10 cm. Contractions are stronger and more regular, around 3 to 4 minutes apart. You may be advised to go to hospital or the birth centre during this phase.

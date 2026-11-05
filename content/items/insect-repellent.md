@@ -7,7 +7,7 @@ ask: Can I use DEET or picaridin while pregnant?
 aliases: [insect repellent, DEET, picaridin, Aerogard, Bushman, mosquito repellent, mozzie spray, Ross River virus, Japanese encephalitis, dengue, mosquito coils, citronella]
 who: carrying
 stakes: medium
-summary: "Yes: repellents approved by the APVMA are safe in pregnancy and breastfeeding, and avoiding mosquito bites matters more than the small risk of using them."
+summary: "Yes: repellents approved by the Australian Pesticides and Veterinary Medicines Authority (APVMA) are safe in pregnancy and breastfeeding, and avoiding mosquito bites matters more than the small risk of using them."
 verdict: yes
 sources:
   - title: healthdirect — Mosquito bites
@@ -25,7 +25,7 @@ Yes. Mosquito repellents approved by the Australian Pesticides and Veterinary Me
 
 Mosquitoes can carry diseases that can harm you or your baby, including Ross River virus, Barmah Forest virus, Murray Valley encephalitis and Japanese encephalitis. The benefits of avoiding bites outweigh the risk of using a personal repellent.
 
-DEET poorly crosses the placenta and hasn't been shown to cause harm at any stage of pregnancy. Picaridin can also be used.
+Diethyltoluamide (DEET) poorly crosses the placenta and hasn't been shown to cause harm at any stage of pregnancy. Picaridin can also be used.
 
 ## What to do
 

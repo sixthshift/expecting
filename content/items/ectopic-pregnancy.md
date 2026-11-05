@@ -35,7 +35,7 @@ If you have any of these while pregnant, go to the nearest emergency department 
 
 ## How it's found and treated
 
-A blood test for the pregnancy hormone (hCG) and an ultrasound, which may be vaginal, show where the pregnancy is. Your doctor recommends treatment for your situation:
+A blood test for the pregnancy hormone, human chorionic gonadotropin (hCG), and an ultrasound, which may be vaginal, show where the pregnancy is. Your doctor recommends treatment for your situation:
 
 - **Watch and wait:** only if you're well or have little pain, the ectopic is small and hasn't ruptured, and your hCG is low and falling. While waiting, go to emergency or call 000 for tummy pain, shoulder-tip pain, heavy bleeding, dizziness or fainting.
 - **Medicine:** an injection of methotrexate, if the ectopic is very small and there's no sign of internal bleeding. It takes time to work, and some people need another injection or surgery.

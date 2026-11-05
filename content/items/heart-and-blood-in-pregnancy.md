@@ -54,6 +54,6 @@ You need more iron when you're pregnant, and iron deficiency is the main cause o
 
 **Go straight to your nearest emergency department, or call 000** for an ambulance, if you're in early pregnancy and you faint or feel dizzy, or have bleeding or abdominal pain. It could be a sign of an ectopic pregnancy.
 
-**If you feel dizzy or faint**, call your midwife, or Pregnancy, Birth and Baby on 1800 882 436 to speak to a maternal child health nurse (7 am to midnight AET, 7 days a week).
+**If you feel dizzy or faint**, call your midwife, or Pregnancy, Birth and Baby on 1800 882 436 to speak to a maternal child health nurse (7 am to midnight Australian Eastern Time, 7 days a week).
 
 **Mention it at your next check** if you notice symptoms of low blood pressure.

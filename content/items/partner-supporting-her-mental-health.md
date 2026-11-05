@@ -44,7 +44,7 @@ If they're not ready to talk, go at their pace, let them know you're there, and 
 - **Keep them company.** Sit with them for a while. Put what they need ahead of your own jobs.
 - **Practical help, agreed first.** Cooking, cleaning, a meal or a drink: offer, but talk it through first. Help that isn't agreed on doesn't always go down well. It can be very hard for someone who is anxious or depressed to know what they need.
 - **Talk about getting help.** Talk together about whether to reach out to others. If you're worried, encourage them to see a health professional: their GP, midwife or a mental health clinician.
-- **Look after yourself too.** Take time out. The PANDA helpline (1300 726 306) is there for support people as well.
+- **Look after yourself too.** Take time out. The Perinatal Anxiety & Depression Australia (PANDA) helpline (1300 726 306) is there for support people as well.
 
 ## When to get help
 

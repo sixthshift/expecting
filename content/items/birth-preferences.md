@@ -35,7 +35,7 @@ Things people often think about:
 - **Moving and positions:** staying active, the positions you'd like for labour and birth, labouring in a bath or shower, or giving birth in water.
 - **Pain relief:** whether you'd like it offered early, or readily available, and any type you prefer.
 - **If things change:** whether you'd prefer medical help if labour is taking too long, and what you'd want if you need an induction or a caesarean.
-- **The birth itself:** RANZCOG says a birth plan may include wishes about the birth of your baby and the placenta.
+- **The birth itself:** The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says a birth plan may include wishes about the birth of your baby and the placenta.
 - **Afterwards:** skin-to-skin, feeding, and who'll support you at home.
 - **Culture:** any cultural practices you'd like followed.
 

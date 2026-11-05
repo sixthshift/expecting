@@ -30,7 +30,7 @@ Usually on the full blood count, a routine blood test done early in pregnancy an
 
 **Immune thrombocytopenia (ITP)** is an autoimmune condition that can get worse in pregnancy and cause very low platelets. You'll be referred to a haematologist, may need treatment before the birth, and may be advised to give birth in hospital. There's a higher chance of heavy bleeding for you or the baby, and the baby has a blood test at birth.
 
-**HELLP syndrome**, a severe form of pre-eclampsia, can cause very low platelets and liver problems. Other causes include some viruses, low vitamin B12 or folate, some medicines, liver disease and an overactive spleen.
+**Haemolysis, elevated liver enzymes and low platelets (HELLP) syndrome**, a severe form of pre-eclampsia, can cause very low platelets and liver problems. Other causes include some viruses, low vitamin B12 or folate, some medicines, liver disease and an overactive spleen.
 
 ## What happens next
 

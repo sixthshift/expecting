@@ -27,7 +27,7 @@ The surprise: the baby won't sleep in the nursery for a while. Red Nose's safe s
 
 **The cot**
 
-- Every cot sold new in Australia must meet the mandatory standard for infant sleep products, which for a cot means **AS/NZS 2172** or its US or European equivalent. Check the label or the instructions.
+- Every cot sold new in Australia must meet the mandatory standard for infant sleep products, which for a cot means the Australian/New Zealand Standard (AS/NZS) **2172** or its US or European equivalent. Check the label or the instructions.
 - Second-hand cots aren't covered by the mandatory standard, so make sure an old cot is known to meet the current standard. If you can't tell, don't use it, however lovely it is.
 - Check for recalls on the Product Safety Australia site before buying.
 

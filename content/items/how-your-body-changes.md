@@ -29,4 +29,4 @@ Pregnancy, Birth and Baby groups the changes into two kinds: physical changes fr
 
 **Hormonal symptoms.** Nausea and vomiting usually starts around week 6 and improves by around week 14; if it's severe you may need to go to hospital. Hormonal changes can also cause food cravings and constipation, and pregnancy can affect brain function and memory ("brain fog"), especially in the third trimester.
 
-**Mood.** A range of emotions, positive and negative, is normal. You may also have strong emotions and mood swings, such as anxiety or depression. If you're having suicidal thoughts and are in immediate danger, call 000; for support, call Lifeline on 13 11 14 or PANDA on 1300 726 306.
+**Mood.** A range of emotions, positive and negative, is normal. You may also have strong emotions and mood swings, such as anxiety or depression. If you're having suicidal thoughts and are in immediate danger, call 000; for support, call Lifeline on 13 11 14 or Perinatal Anxiety & Depression Australia (PANDA) on 1300 726 306.

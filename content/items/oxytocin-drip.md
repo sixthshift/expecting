@@ -7,7 +7,7 @@ ask: What is the drip they use to start or speed up labour?
 aliases: [Syntocinon drip, oxytocin infusion, the drip, Pitocin]
 weeks: [37, 42]
 stakes: medium
-summary: "The drip is synthetic oxytocin (Syntocinon) through a drip in your arm, turned up until contractions are strong and regular, with the baby's heart rate monitored on a CTG throughout."
+summary: "The drip is synthetic oxytocin (Syntocinon) through a drip in your arm, turned up until contractions are strong and regular, with the baby's heart rate monitored on a cardiotocograph (CTG) throughout."
 sources:
   - title: The Royal Women's Hospital — Induction of labour
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/induction-of-labour
@@ -26,9 +26,9 @@ You're only given oxytocin once your cervix is ripened and your waters have brok
 
 ## What happens
 
-The drip is slowly increased until you're having strong, regular contractions. Then the rate is adjusted so they keep coming regularly until the baby is born, which can take several hours. RANZCOG says the infusion continues until after the baby is born.
+The drip is slowly increased until you're having strong, regular contractions. Then the rate is adjusted so they keep coming regularly until the baby is born, which can take several hours. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says the infusion continues until after the baby is born.
 
-Once it's started, the baby's heart rate is monitored throughout labour with a CTG machine. Being attached to the drip and the monitor makes it hard to move around: the Royal Women's Hospital says you can stand up or sit down, but you can't have a bath or move from room to room.
+Once it's started, the baby's heart rate is monitored throughout labour with a cardiotocograph (CTG) machine. Being attached to the drip and the monitor makes it hard to move around: the Royal Women's Hospital says you can stand up or sit down, but you can't have a bath or move from room to room.
 
 ## What it can feel like
 

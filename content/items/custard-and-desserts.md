@@ -29,4 +29,4 @@ Egg-based desserts can carry salmonella. If you get it while pregnant, it can ca
 
 - **Shop-bought custard:** eat with caution. It can be eaten cold if freshly opened. Once open, keep it in the fridge, reheat it to at least 60 °C and use it within a day. Check the use-by or best-before date.
 - **Home-made custard:** cook it thoroughly, to at least 71 °C, and eat it hot. Keep leftovers in the fridge, always reheat them to at least 60 °C, and use them within a day.
-- **Mousse and other desserts made with raw or undercooked egg:** don't eat them (NSW: "do not eat (high risk)"). FSANZ lists commercial custard and pasteurised eggs as the safer choices.
+- **Mousse and other desserts made with raw or undercooked egg:** don't eat them (NSW: "do not eat (high risk)"). Food Standards Australia New Zealand (FSANZ) lists commercial custard and pasteurised eggs as the safer choices.

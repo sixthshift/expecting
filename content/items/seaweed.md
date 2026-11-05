@@ -19,7 +19,7 @@ sources:
 related: [iodine, sushi]
 checked: 2026-10-29
 ---
-In moderation. FSANZ says pregnant and breastfeeding people should eat no more than one serve a week of brown seaweed, such as kelp.
+In moderation. Food Standards Australia New Zealand (FSANZ) says pregnant and breastfeeding people should eat no more than one serve a week of brown seaweed, such as kelp.
 
 ## Why
 
@@ -31,5 +31,5 @@ In moderation. FSANZ says pregnant and breastfeeding people should eat no more t
 
 - **One serve a week** of brown seaweed, at most.
 - **Kombu** is the one FSANZ singles out for very high iodine.
-- **Don't rely on seaweed for iodine.** Kelp and seaweed supplements aren't recommended, because the amount of iodine in them varies. The NHMRC recommends a 150 microgram iodine supplement each day in pregnancy instead.
+- **Don't rely on seaweed for iodine.** Kelp and seaweed supplements aren't recommended, because the amount of iodine in them varies. The National Health and Medical Research Council (NHMRC) recommends a 150 microgram iodine supplement each day in pregnancy instead.
 - **Have a thyroid condition?** Ask your doctor before taking an iodine supplement.

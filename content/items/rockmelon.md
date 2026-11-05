@@ -21,7 +21,7 @@ sources:
 related: [pre-cut-fruit-and-salads, fruit-and-vegetables]
 checked: 2026-10-29
 ---
-No. Rockmelon (cantaloupe) is on the avoid list from FSANZ, Pregnancy, Birth and Baby and the NSW Food Authority alike. The NSW Food Authority calls it "do not eat (high risk)".
+No. Rockmelon (cantaloupe) is on the avoid list from Food Standards Australia New Zealand (FSANZ), Pregnancy, Birth and Baby and the NSW Food Authority alike. The NSW Food Authority calls it "do not eat (high risk)".
 
 ## Why
 

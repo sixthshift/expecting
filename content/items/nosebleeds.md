@@ -26,7 +26,7 @@ Nosebleeds are more common in pregnancy, even if you haven't had many before, pa
 - keep pinching for 10 minutes, then let go and see if it has stopped
 - spit out any blood that enters your mouth
 
-Don't tilt your head back, lie down, or put tissues or cotton wool up your nose. For the next 24 hours, avoid blowing or picking your nose, bending down, vigorous exercise, hot drinks, hot showers or baths, alcohol and NSAIDs. A humidifier, saline spray or saline gel may help prevent them.
+Don't tilt your head back, lie down, or put tissues or cotton wool up your nose. For the next 24 hours, avoid blowing or picking your nose, bending down, vigorous exercise, hot drinks, hot showers or baths, alcohol and non-steroidal anti-inflammatory drugs (NSAIDs). A humidifier, saline spray or saline gel may help prevent them.
 
 ## Call 000 or go to emergency
 

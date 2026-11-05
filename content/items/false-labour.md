@@ -42,7 +42,7 @@ Unlike labour contractions, they don't open or change the shape of your cervix.
 - lying down doesn't make them go away
 - get stronger and closer together
 
-RANZCOG puts it simply: Braxton Hicks disappear with a change of position or activity, such as a warm bath or shower.
+The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) puts it simply: Braxton Hicks disappear with a change of position or activity, such as a warm bath or shower.
 
 ## Easing them
 

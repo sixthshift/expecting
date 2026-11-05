@@ -38,7 +38,7 @@ It's your right to have care that fits your cultural needs, and those caring for
 
 ## Language
 
-If you don't speak English well, ask for an interpreter. Hospitals in Australia provide free interpreters, in person or by phone, and where possible a trained health interpreter is better than a family member. You can also ask for a bilingual health professional, or bring a trusted support person to appointments. PANDA has resources translated into 40 languages.
+If you don't speak English well, ask for an interpreter. Hospitals in Australia provide free interpreters, in person or by phone, and where possible a trained health interpreter is better than a family member. You can also ask for a bilingual health professional, or bring a trusted support person to appointments. Perinatal Anxiety & Depression Australia (PANDA) has resources translated into 40 languages.
 
 ## Building a local network
 

@@ -55,6 +55,6 @@ If the baby is well, you can have skin-to-skin contact while you're still on the
 
 You may feel a range of emotions, especially because it was unexpected. Emergency caesareans can happen very quickly and may be traumatic for some parents and support people, partners included. Talk to a midwife about what happened soon after the birth, and to your doctor, midwife or child health nurse about how you feel. Ask friends and family for practical and emotional support.
 
-If you have negative feelings about the birth, seek help as early as possible: a traumatic birth can lead to post-traumatic stress or postnatal depression, and your doctor can guide you to support. If you, your partner or your support person need to talk, you can call PANDA on 1300 726 306, Beyond Blue on 1300 22 4636 or Lifeline on 13 11 14.
+If you have negative feelings about the birth, seek help as early as possible: a traumatic birth can lead to post-traumatic stress or postnatal depression, and your doctor can guide you to support. If you, your partner or your support person need to talk, you can call Perinatal Anxiety & Depression Australia (PANDA) on 1300 726 306, Beyond Blue on 1300 22 4636 or Lifeline on 13 11 14.
 
 After one caesarean, you may still be able to have a vaginal birth next time; talk through the options with your doctor.

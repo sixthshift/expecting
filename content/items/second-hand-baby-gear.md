@@ -33,7 +33,7 @@ You don't need to buy everything new: buying second-hand or borrowing can save m
 
 **Check for recalls.** Before you buy or use an item, look it up by product and model on the Product Safety Australia recalls list.
 
-**Cots and portable cots.** New ones must meet the mandatory standard for infant sleep products; second-hand ones aren't covered by it, unless they're imported (ACCC Product Safety). So check it yourself: Red Nose says it's noted in the instructions and often on a label. For a portable cot, check the mesh has no rips or tears and the locks work. Before using a second-hand cot, go through the cot safety checklist, and use it only with all parts in good working order and full instructions to set it up. Repair any broken or loose bars before the baby sleeps in it, and check old cots, cradles and bassinets for chipped paint, which may contain lead.
+**Cots and portable cots.** New ones must meet the mandatory standard for infant sleep products; second-hand ones aren't covered by it, unless they're imported, according to the Australian Competition and Consumer Commission (ACCC) Product Safety site. So check it yourself: Red Nose says it's noted in the instructions and often on a label. For a portable cot, check the mesh has no rips or tears and the locks work. Before using a second-hand cot, go through the cot safety checklist, and use it only with all parts in good working order and full instructions to set it up. Repair any broken or loose bars before the baby sleeps in it, and check old cots, cradles and bassinets for chipped paint, which may contain lead.
 
 **A used mattress** is fine if it's firm, flat, clean, in good condition and the right size for the cot, fitting within 2 cm of the sides and ends.
 

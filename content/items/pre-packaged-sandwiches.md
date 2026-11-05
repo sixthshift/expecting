@@ -29,6 +29,6 @@ The fillings add to it. Cold meats from deli counters and sandwich bars, cold co
 
 ## What to do
 
-- **Choose something freshly made and hot**, like a hot meal. FSANZ says it's safest to eat only freshly prepared food.
+- **Choose something freshly made and hot**, like a hot meal. Food Standards Australia New Zealand (FSANZ) says it's safest to eat only freshly prepared food.
 - **Make your own** when you can, with safer fillings: hard cheese, egg cooked until firm, canned tuna or salmon, or freshly cooked meat, and washed salad.
 - **Already eaten one?** Listeria symptoms can be mild, like the flu: fever, headache, tiredness, aches. FSANZ says to seek medical attention immediately if you have them while pregnant.

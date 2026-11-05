@@ -40,7 +40,7 @@ There's no treatment to stop placental insufficiency, but it can be managed. Dia
 
 Your midwife and doctor will explain any tests and treatment, and it's your choice to consent.
 
-It can be upsetting to hear. PANDA and COPE offer support, and you can call PANDA on 1300 726 306.
+It can be upsetting to hear. Perinatal Anxiety & Depression Australia (PANDA) and the Centre of Perinatal Excellence (COPE) offer support, and you can call PANDA on 1300 726 306.
 
 ## When to get help
 

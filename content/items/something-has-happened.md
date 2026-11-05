@@ -37,7 +37,7 @@ The same quiet mode is there for news that isn't a loss but turns everything ove
 ## Someone to talk to
 
 - **Red Nose Grief and Loss, 1300 308 307**, pregnancy and infant grief and loss support.
-- **PANDA, 1300 726 306**, for expecting and new parents and the people around them.
+- **Perinatal Anxiety & Depression Australia (PANDA), 1300 726 306**, for expecting and new parents and the people around them.
 - **Lifeline, 13 11 14**, to talk to someone now. If you or someone close to you is in crisis, or at immediate risk of harm, call 000.
 
 ## Your body

@@ -24,6 +24,6 @@ checked: 2026-10-29
 
 **What grows.** The embryo becomes your baby, the placenta (which feeds the baby with nutrients and oxygen from your blood), the cord that links them, and the amniotic sac that protects the baby.
 
-**The test.** Once the embryo implants, the placenta starts making hCG. A home pregnancy test usually detects it about 2 weeks after conception, and a missed period is the first sign for many people.
+**The test.** Once the embryo implants, the placenta starts making human chorionic gonadotropin (hCG). A home pregnancy test usually detects it about 2 weeks after conception, and a missed period is the first sign for many people.
 
 **Weeks 5 to 8.** The second month is when you're most likely to become aware that you're pregnant. At week 5 the embryo is the size of a poppy seed, about 2 mm, and the brain and spinal cord are starting to form. At week 6 there are small buds where the arms and legs will form, and the structures that will become ears, eyes and mouth. By 8 weeks the baby is around 13 to 16 mm long, the heart has started beating, and major organs such as the brain, stomach and intestines are developing.

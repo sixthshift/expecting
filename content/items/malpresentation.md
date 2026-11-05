@@ -43,7 +43,7 @@ It's more likely with a low-lying placenta, too much or too little fluid, an unu
 
 ## What can be done
 
-If the baby is still breech at 36 weeks they're less likely to turn by themselves, and your obstetrician may recommend an ECV to gently turn the baby head-first. There's no good evidence that different postures, acupuncture or moxibustion work. Talk to your maternity carer before trying them.
+If the baby is still breech at 36 weeks they're less likely to turn by themselves, and your obstetrician may recommend an external cephalic version (ECV) to gently turn the baby head-first. There's no good evidence that different postures, acupuncture or moxibustion work. Talk to your maternity carer before trying them.
 
 If your baby is lying sideways or keeps changing position, your midwife or doctor may recommend staying in hospital from 37 weeks, so help is at hand when your waters break or labour starts.
 

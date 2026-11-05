@@ -8,7 +8,7 @@ aliases: [live vaccines, MMR pregnancy, chickenpox vaccine pregnancy, varicella 
 weeks: [1, 42]
 who: carrying
 stakes: high
-summary: "Live vaccines such as MMR and chickenpox (varicella) aren't given in pregnancy, so have them at least 28 days before you conceive; if one is given by accident, the risk is only theoretical."
+summary: "Live vaccines such as measles, mumps and rubella (MMR) and chickenpox (varicella) aren't given in pregnancy, so have them at least 28 days before you conceive; if one is given by accident, the risk is only theoretical."
 sources:
   - title: Australian Immunisation Handbook — Vaccination for women who are planning pregnancy, pregnant or breastfeeding
     url: https://immunisationhandbook.health.gov.au/contents/vaccination-for-special-risk-groups/vaccination-for-women-who-are-planning-pregnancy-pregnant-or-breastfeeding
@@ -26,10 +26,10 @@ Some vaccines contain a tiny amount of live, weakened virus or bacteria. Because
 
 The Australian Immunisation Handbook lists these as **contraindicated** in pregnancy:
 
-- MMR (measles, mumps, rubella) and MMRV (with chickenpox)
+- measles, mumps and rubella (MMR) and measles, mumps, rubella and varicella (MMRV, with chickenpox)
 - varicella (chickenpox)
 - rotavirus (not registered or recommended for adults anyway)
-- BCG (tuberculosis)
+- Bacillus Calmette-Guérin (BCG), for tuberculosis
 - oral typhoid (Vivotif oral): the injected typhoid vaccine is used instead
 - live oral cholera (Vaxchora): the inactivated oral cholera vaccine is used instead
 - Japanese encephalitis (Imojev): the inactivated vaccine (JEspect) is used instead
@@ -39,7 +39,7 @@ Two more are **not recommended**:
 - **the nasal spray flu vaccine.** The injected flu vaccine is the one to have in pregnancy, though there's no evidence the spray causes harm.
 - **yellow fever.** Pregnant people are advised not to go to rural areas where yellow fever is common. If travel to a country with a risk of yellow fever is unavoidable, the Handbook's table says pregnant people should receive the vaccine, and its guidance says to weigh the risks and benefits of vaccination.
 
-Pregnancy, Birth and Baby also says the HPV vaccine isn't recommended in pregnancy: if you started the course, finish it after the birth.
+Pregnancy, Birth and Baby also says the human papillomavirus (HPV) vaccine isn't recommended in pregnancy: if you started the course, finish it after the birth.
 
 ## Before you conceive
 

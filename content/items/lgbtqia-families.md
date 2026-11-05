@@ -42,7 +42,7 @@ Pregnancy, Birth and Baby says same-sex parents are assessed for entitlements in
 
 ## Support
 
-Research suggests LGBTQIA+ parents may have higher rates of perinatal depression and anxiety, from discrimination, a lack of support, the cost and disappointments of conceiving, and isolation. If worry, low mood or overwhelm lasts more than two weeks or makes daily life harder, talk to your GP, midwife or child health nurse.
+Research suggests lesbian, gay, bisexual, trans, queer, intersex and asexual (LGBTQIA+) parents may have higher rates of perinatal depression and anxiety, from discrimination, a lack of support, the cost and disappointments of conceiving, and isolation. If worry, low mood or overwhelm lasts more than two weeks or makes daily life harder, talk to your GP, midwife or child health nurse.
 
 - Rainbow Families runs peer support, community groups and inclusive antenatal education.
 - QLife offers free, anonymous LGBTIQ+ peer support and referral: 1800 184 527, 3pm to midnight, every day.

@@ -23,7 +23,7 @@ Best to wait. It's generally recommended to avoid getting a tattoo while you're 
 
 There isn't much research, and there's no clear evidence that tattoos are either safe or unsafe in pregnancy or breastfeeding. There's a risk of infection if the tattoo is done somewhere that isn't hygienic.
 
-Tattoos and piercings can bring a higher chance of blood-borne infections, such as hepatitis B, hepatitis C and HIV. This can happen if the work is done with contaminated equipment.
+Tattoos and piercings can bring a higher chance of blood-borne infections, such as hepatitis B, hepatitis C and human immunodeficiency virus (HIV). This can happen if the work is done with contaminated equipment.
 
 There's also a very low risk that tattoo ink could pass into breast milk; it isn't known how the smaller ink particles might affect it.
 

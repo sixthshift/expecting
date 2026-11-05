@@ -23,7 +23,7 @@ Yes, as long as it's pasteurised. The NSW Food Authority says pasteurised milk, 
 
 ## Why
 
-Dairy foods are a good source of calcium and iodine, as well as protein and several vitamins, and FSANZ recommends moderate amounts of low-fat dairy. Unpasteurised (raw) milk is on the NSW Food Authority's "do not drink or use" list (high risk), because raw milk can carry several germs and cause severe illness.
+Dairy foods are a good source of calcium and iodine, as well as protein and several vitamins, and Food Standards Australia New Zealand (FSANZ) recommends moderate amounts of low-fat dairy. Unpasteurised (raw) milk is on the NSW Food Authority's "do not drink or use" list (high risk), because raw milk can carry several germs and cause severe illness.
 
 ## What to do
 

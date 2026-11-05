@@ -32,7 +32,7 @@ Your doctor will talk through your options:
 
 - **Let it happen naturally.** Once it starts, the bleeding can take days or weeks to finish. See your doctor if the bleeding gets heavier, you're in pain or you feel unwell.
 - **Take medicines** to end the pregnancy.
-- **Have a D&C** (dilatation and curettage), a surgical procedure that gently empties the uterus.
+- **Have a dilatation and curettage (D&C)**, a surgical procedure that gently empties the uterus.
 
 Use pads, not tampons, for the bleeding. Paracetamol can help with the pain.
 

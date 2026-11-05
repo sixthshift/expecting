@@ -1,6 +1,6 @@
 ---
 id: working-while-pregnant
-title: Is my job safe to keep doing?
+title: Working while pregnant
 type: can-i
 topic: work
 ask: Is it safe to keep working, and what has to change?

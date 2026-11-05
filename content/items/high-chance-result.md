@@ -8,7 +8,7 @@ aliases: [increased risk result, high risk screening, positive screening, abnorm
 weeks: [10, 22]
 who: together
 stakes: high
-summary: "A screening test only estimates the chance of a condition, it can't diagnose one; after a high-chance result you'll be offered genetic counselling and a diagnostic test (CVS or amniocentesis), and every step is your choice."
+summary: "A screening test only estimates the chance of a condition, it can't diagnose one; after a high-chance result you'll be offered genetic counselling and a diagnostic test (chorionic villus sampling, CVS, or amniocentesis), and every step is your choice."
 sources:
   - title: Pregnancy, Birth and Baby — Screening for Down syndrome
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/screening-for-down-syndrome
@@ -27,7 +27,7 @@ appointment:
   - How long do we have to decide about a diagnostic test?
 checked: 2026-10-29
 ---
-A screening test, whether combined first-trimester screening, NIPT or second-trimester serum screening, estimates the chance that your baby has a condition such as Down syndrome. It can't diagnose it. A high-chance result means it's more likely a difference is there, not that it is. Your doctor or midwife will talk with you about what happens next.
+A screening test, whether combined first-trimester screening, non-invasive prenatal testing (NIPT) or second-trimester serum screening, estimates the chance that your baby has a condition such as Down syndrome. It can't diagnose it. A high-chance result means it's more likely a difference is there, not that it is. Your doctor or midwife will talk with you about what happens next.
 
 ## What you'll be offered
 
@@ -53,5 +53,5 @@ Being offered a diagnostic test after a high-chance result can bring on worry an
 - **Through the Unexpected** has information and support for parents who get unexpected news about their baby during pregnancy.
 - **Down Syndrome Australia** can connect you with families who are happy to share what day-to-day life looks like: call 1300 881 935 and ask for your local organisation.
 - **YourChoice** is a free online decision aid for thinking through screening and diagnostic tests.
-- **PANDA** offers mental health support for parents during pregnancy.
-- **Pregnancy, Birth and Baby** maternal child health nurses are on 1800 882 436, 7am to midnight (AET), 7 days a week.
+- **Perinatal Anxiety & Depression Australia (PANDA)** offers mental health support for parents during pregnancy.
+- **Pregnancy, Birth and Baby** maternal child health nurses are on 1800 882 436, 7am to midnight Australian Eastern Time, 7 days a week.

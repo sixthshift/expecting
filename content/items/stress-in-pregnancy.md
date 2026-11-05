@@ -37,4 +37,4 @@ If you're having thoughts of self-harm or suicide and are in danger, call triple
 
 ## See your doctor or midwife
 
-If you've tried relaxation and talking to someone you trust but still feel overwhelmed, check in with your doctor, midwife or a mental health professional. Stress isn't a diagnosis but a sign that something else is going on; chronic stress could point to depression, anxiety or another condition, and your GP can refer you to a psychologist or counsellor. PANDA is on 1300 726 306 and Beyond Blue on 1300 22 4636.
+If you've tried relaxation and talking to someone you trust but still feel overwhelmed, check in with your doctor, midwife or a mental health professional. Stress isn't a diagnosis but a sign that something else is going on; chronic stress could point to depression, anxiety or another condition, and your GP can refer you to a psychologist or counsellor. Perinatal Anxiety & Depression Australia (PANDA) is on 1300 726 306 and Beyond Blue on 1300 22 4636.

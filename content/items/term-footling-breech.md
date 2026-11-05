@@ -17,4 +17,4 @@ checked: 2026-10-29
 ---
 A footling breech is a breech baby with one or both feet hanging below their bottom, so the foot or feet would come first. It is one of the three most common types of breech, with frank and complete breech.
 
-RANZCOG lists a footling breech among the reasons a planned vaginal breech birth may not be advised.
+The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) lists a footling breech among the reasons a planned vaginal breech birth may not be advised.

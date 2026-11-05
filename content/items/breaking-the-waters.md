@@ -36,7 +36,7 @@ The vaginal examination may cause you some discomfort, and pain and discomfort a
 
 Sometimes breaking the waters is enough, and labour starts. If contractions don't start, an oxytocin drip is begun, and most people need one.
 
-RANZCOG says that if contractions don't start after the waters are broken and labour doesn't become established, your doctor will recommend a caesarean.
+The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says that if contractions don't start after the waters are broken and labour doesn't become established, your doctor will recommend a caesarean.
 
 ## The risks
 

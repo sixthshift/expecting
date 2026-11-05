@@ -22,7 +22,7 @@ checked: 2026-11-01
 ---
 Vasa praevia is when blood vessels belonging to the baby, from the umbilical cord or the placenta, run unprotected through the membranes, across or near the cervix. As the cervix opens in labour, or when the waters break, these vessels can tear. If they do, it's the baby who loses blood, not the parent, and that is an emergency.
 
-It's rare. An Australian study found about 1 in every 4,700 pregnancies; worldwide reviews put it nearer 1 in 1,300. Found before labour, with a plan for the birth, most babies are born healthy: RANZCOG's guideline gives a survival rate of about 99%.
+It's rare. An Australian study found about 1 in every 4,700 pregnancies; worldwide reviews put it nearer 1 in 1,300. Found before labour, with a plan for the birth, most babies are born healthy: the Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) guideline gives a survival rate of about 99%.
 
 ## What raises the chance
 
@@ -31,7 +31,7 @@ It isn't clear why it happens, and nothing prevents it. It's more likely if:
 - the placenta is low-lying, or was low and has since moved up
 - the umbilical cord joins the membranes instead of the placenta (velamentous cord insertion)
 - the placenta has two or more lobes (bilobed, multilobed or succenturiate)
-- the pregnancy came from IVF or other assisted conception
+- the pregnancy came from in vitro fertilisation (IVF) or other assisted conception
 - you're having twins or more
 
 Having it in an earlier pregnancy doesn't seem to raise your chance of having it again.

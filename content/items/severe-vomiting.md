@@ -4,7 +4,7 @@ title: Can't keep anything down (hyperemesis)
 type: symptom
 topic: body
 ask: I'm vomiting everything, even water. When is it hyperemesis?
-aliases: [hyperemesis gravidarum, HG, "can't keep fluids down", vomiting all day, dehydrated, severe morning sickness, losing weight]
+aliases: [hyperemesis gravidarum, HG, "can't keep fluids down", vomiting all day, dehydrated, severe morning sickness, losing weight, excess saliva, too much saliva, ptyalism, spitting, drooling]
 weeks: [4, 20]
 who: carrying
 stakes: high
@@ -23,7 +23,7 @@ checked: 2026-10-29
 
 Most people have some nausea and vomiting in pregnancy. It usually starts between 4 and 10 weeks and improves by about 20 weeks, though for some it lasts the whole pregnancy. With ordinary morning sickness you can usually still eat and drink enough.
 
-Hyperemesis gravidarum (HG) is more severe and doesn't let up. It makes it hard to eat and drink enough, and it can lead to dehydration, weight loss, low levels of vitamins and minerals, depression and anxiety. Some people with HG need fluids through a drip (IV) in hospital, sometimes 2 to 3 times a week. It's a serious medical condition, and there is treatment, including medicines: you deserve to be heard and to get it.
+Hyperemesis gravidarum (HG) is more severe and doesn't let up. It makes it hard to eat and drink enough, and it can lead to dehydration, weight loss, low levels of vitamins and minerals, depression and anxiety. Some people with HG also make too much saliva, and medicines to reduce it are among the treatments. Some people with HG need fluids through an intravenous (IV) drip in hospital, sometimes 2 to 3 times a week. It's a serious medical condition, and there is treatment, including medicines: you deserve to be heard and to get it.
 
 ## Call 000 or go to emergency
 

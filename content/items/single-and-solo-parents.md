@@ -20,7 +20,7 @@ sources:
 related: [building-your-village, birth-support-person, relationship-breakdown]
 checked: 2026-10-29
 ---
-People become single parents for many reasons, including separation, the death of a partner, or choosing to have a child on their own with help such as IVF. Children raised by single parents can be just as happy and emotionally healthy as children with two parents. What matters is consistent, sensitive, nurturing care, and some compassion for yourself.
+People become single parents for many reasons, including separation, the death of a partner, or choosing to have a child on their own with help such as in vitro fertilisation (IVF). Children raised by single parents can be just as happy and emotionally healthy as children with two parents. What matters is consistent, sensitive, nurturing care, and some compassion for yourself.
 
 ## In pregnancy
 
@@ -40,7 +40,7 @@ Gidget names the challenges and some answers:
 - **Isolation.** You may not talk to another adult for days. Other single parents, in person or online, can ease the loneliness.
 - **Expectations.** Babies don't need a lot at first. "Good enough" is absolutely fine.
 
-PBB says the best source of support may be other single parents. Local groups and your council can connect you; a trusted relative or friend may be glad to babysit regularly.
+Pregnancy, Birth and Baby (PBB) says the best source of support may be other single parents. Local groups and your council can connect you; a trusted relative or friend may be glad to babysit regularly.
 
 ## The upside
 
@@ -48,4 +48,4 @@ You make all the decisions, and you can choose the kind of parent you want to be
 
 ## Plan ahead, and where to get help
 
-Think about how you'll manage after the birth and who'll be around. If there's nobody, talk it over with someone, and don't be afraid to ask friends and family. If you're struggling, call PANDA on 1300 726 306, Medicare Mental Health on 1800 595 212, or Beyond Blue on 1300 22 4636. Gidget Foundation can help too.
+Think about how you'll manage after the birth and who'll be around. If there's nobody, talk it over with someone, and don't be afraid to ask friends and family. If you're struggling, call Perinatal Anxiety & Depression Australia (PANDA) on 1300 726 306, Medicare Mental Health on 1800 595 212, or Beyond Blue on 1300 22 4636. Gidget Foundation can help too.

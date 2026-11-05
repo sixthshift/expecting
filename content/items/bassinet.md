@@ -29,7 +29,7 @@ The safest place for your baby to sleep for the first 6 to 12 months is in their
 
 ## The standard
 
-Since 19 January 2026, bassinets sold new in Australia must meet the mandatory safety standard for infant sleep products, as cots must (NSW Department of Education, ACCC Product Safety). Among other things, a bassinet's sides must be at least 250 mm high, measured from the mattress, and it must carry a warning to stop using it once your baby starts pushing up on their hands and knees or reaches the maker's weight limit. Second-hand bassinets aren't covered by the standard, unless they're imported, so check an older one yourself.
+Since 19 January 2026, bassinets sold new in Australia must meet the mandatory safety standard for infant sleep products, as cots must (NSW Department of Education, Australian Competition and Consumer Commission (ACCC) Product Safety). Among other things, a bassinet's sides must be at least 250 mm high, measured from the mattress, and it must carry a warning to stop using it once your baby starts pushing up on their hands and knees or reaches the maker's weight limit. Second-hand bassinets aren't covered by the standard, unless they're imported, so check an older one yourself.
 
 ## Setting it up
 

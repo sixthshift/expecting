@@ -24,7 +24,7 @@ Genetic counsellors are health professionals qualified in both genetics and coun
 
 **Before pregnancy**, if you have a genetic condition, one runs in your family, or you want to understand the chance of your baby having one. Carrier screening, which finds out your chance of passing on a genetic condition, can be done before you try to get pregnant.
 
-**During pregnancy**, if a screening test shows your baby has a higher chance of a genetic or chromosomal condition. Your doctor may suggest seeing a genetic counsellor to talk through your options, alongside further tests (CVS or amniocentesis) that can diagnose or help rule out a condition. A genetic counsellor can also support you if a condition is diagnosed during pregnancy.
+**During pregnancy**, if a screening test shows your baby has a higher chance of a genetic or chromosomal condition. Your doctor may suggest seeing a genetic counsellor to talk through your options, alongside further tests (chorionic villus sampling (CVS) or amniocentesis) that can diagnose or help rule out a condition. A genetic counsellor can also support you if a condition is diagnosed during pregnancy.
 
 **After the birth**, if your child has signs of a genetic condition, and to understand the chance for any future children.
 

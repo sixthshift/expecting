@@ -26,7 +26,7 @@ A midwife or nurse pricks your baby's heel with a very thin needle and puts a fe
 
 ## What it looks for
 
-The conditions include congenital hypothyroidism, cystic fibrosis, phenylketonuria (PKU), MCAD deficiency, congenital adrenal hyperplasia, spinal muscular atrophy (SMA) and severe combined immunodeficiency (SCID).
+The conditions include congenital hypothyroidism, cystic fibrosis, phenylketonuria (PKU), medium-chain acyl-CoA dehydrogenase (MCAD) deficiency, congenital adrenal hyperplasia, spinal muscular atrophy (SMA) and severe combined immunodeficiency (SCID).
 
 ## The results
 

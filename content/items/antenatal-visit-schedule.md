@@ -48,6 +48,6 @@ The timing of some visits and tests can shift slightly with your type of care, w
 - **10 to 13 weeks:** screening options such as a nuchal translucency scan (11 to 14 weeks).
 - **18 to 22 weeks:** an ultrasound scan of your baby's body and organs.
 - **24 to 28 weeks:** a glucose tolerance test for diabetes.
-- **28 weeks:** a blood test for anaemia and platelets, and RSV vaccination offered from 28 weeks.
+- **28 weeks:** a blood test for anaemia and platelets, and respiratory syncytial virus (RSV) vaccination offered from 28 weeks.
 - **35 to 37 weeks:** a possible group B strep swab, and a check of your baby's presentation.
 - **41 weeks:** if you haven't had your baby, a heartbeat check and extra ultrasounds offered.

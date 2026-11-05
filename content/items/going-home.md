@@ -31,7 +31,7 @@ If you and your baby are well, you may go home from about 4 hours after an uncom
 
 ## The discharge list
 
-KEMH lists what's done before you're ready to go. For you:
+King Edward Memorial Hospital (KEMH) lists what's done before you're ready to go. For you:
 
 - a health check
 - eating and drinking, and passing urine
@@ -59,4 +59,4 @@ Two pieces of paperwork follow: add your baby to Medicare as soon as possible, a
 
 ## When to get help
 
-If you're feeling down or inadequate, very anxious, having trouble sleeping or worrying excessively about your baby, these can be signs of postnatal anxiety or depression: speak to a health professional. PANDA is on 1300 726 306, Beyond Blue on 1300 22 4636, and Pregnancy, Birth and Baby on 1800 882 436.
+If you're feeling down or inadequate, very anxious, having trouble sleeping or worrying excessively about your baby, these can be signs of postnatal anxiety or depression: speak to a health professional. Perinatal Anxiety & Depression Australia (PANDA) is on 1300 726 306, Beyond Blue on 1300 22 4636, and Pregnancy, Birth and Baby on 1800 882 436.

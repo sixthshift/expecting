@@ -1,6 +1,6 @@
 ---
 id: safe-fish
-title: Fish that is good to eat
+title: Salmon, barramundi and other fish
 type: can-i
 topic: food
 ask: Which fish can I eat, and how much?
@@ -19,7 +19,7 @@ sources:
 related: [high-mercury-fish, canned-fish, fish-oil]
 checked: 2026-10-29
 ---
-Yes, and it's good for you. FSANZ says it's safe to eat two to three serves of fish a week in pregnancy. A serve is 150 g.
+Yes, and it's good for you. Food Standards Australia New Zealand (FSANZ) says it's safe to eat two to three serves of fish a week in pregnancy. A serve is 150 g.
 
 ## Why
 

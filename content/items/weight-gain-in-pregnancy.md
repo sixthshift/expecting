@@ -8,7 +8,7 @@ aliases: [pregnancy weight, how much weight, BMI pregnancy, weight chart]
 weeks: [1, 42]
 who: carrying
 stakes: medium
-summary: "The recommended gain depends on your weight before pregnancy: 11.5 to 16 kg for a pre-pregnancy BMI of 18.5 to 24.9, more below that and less above, and the ranges are a guide only."
+summary: "The recommended gain depends on your weight before pregnancy: 11.5 to 16 kg for a pre-pregnancy body mass index (BMI) of 18.5 to 24.9, more below that and less above, and the ranges are a guide only."
 sources:
   - title: Pregnancy, Birth and Baby — Weight gain in pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/nutrition-and-lifestyle/weight-gain-in-pregnancy
@@ -27,7 +27,7 @@ Some of it is your baby. Your body also builds extra tissue and holds more fluid
 
 ## The ranges
 
-Both sources give the same ranges, based on your BMI before pregnancy. The Royal Women's Hospital gives lower BMI cut-offs if you're of Asian background (in brackets).
+Both sources give the same ranges, based on your body mass index (BMI) before pregnancy. The Royal Women's Hospital gives lower BMI cut-offs if you're of Asian background (in brackets).
 
 | Pre-pregnancy BMI | Total gain | Per month, 2nd and 3rd trimesters |
 | --- | --- | --- |

@@ -1,7 +1,7 @@
 ---
 id: finding-out-the-sex
 title: Finding out the sex
-summary: "NIPT can tell from 10 weeks and the morphology scan usually can at about 20; for a reveal, ask for it in a sealed envelope."
+summary: "Non-invasive prenatal testing (NIPT) can tell from 10 weeks and the morphology scan usually can at about 20; for a reveal, ask for it in a sealed envelope."
 weeks: [10, 20]
 type: moment
 topic: celebrations
@@ -20,7 +20,7 @@ checked: 2026-11-02
 ---
 There are two usual ways to find out:
 
-- **NIPT,** a blood test from 10 weeks that screens for chromosomal conditions, can also tell the sex. It isn't covered by Medicare. Decide together beforehand whether you want to know, and tell the clinic.
+- **Non-invasive prenatal testing (NIPT),** a blood test from 10 weeks that screens for chromosomal conditions, can also tell the sex. It isn't covered by Medicare. Decide together beforehand whether you want to know, and tell the clinic.
 - **The morphology scan,** at about 18 to 20 weeks, can usually show it, if the baby is lying the right way. It isn't always certain, and sonographers don't always say unless you ask.
 
 If you want to find out together, a phone that summarises messages and notifications can show a result in a preview before either of you opens it. On an iPhone with Apple Intelligence, you can turn these off in Settings: Apps, Mail, then Summarize Message Previews; Apps, Messages, then Summarize Messages; and Notifications, Summarize Notifications. Or ask the clinic to call you instead.

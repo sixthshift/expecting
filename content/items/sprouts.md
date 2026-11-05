@@ -29,6 +29,6 @@ The way sprouts are grown means they can be contaminated with E. coli, listeria 
 
 ## What to do
 
-- **Cook them thoroughly.** FSANZ lists thoroughly cooked sprouts as the safer alternative. Eat them straight away, or cool and refrigerate leftovers, use them within a day, and reheat them thoroughly.
+- **Cook them thoroughly.** Food Standards Australia New Zealand (FSANZ) lists thoroughly cooked sprouts as the safer alternative. Eat them straight away, or cool and refrigerate leftovers, use them within a day, and reheat them thoroughly.
 - **Watch for raw sprouts in a dish.** Leave them off, or ask for them to be left out.
 - **Already eaten some?** If you're worried about something you've eaten, call your maternity care provider or doctor.

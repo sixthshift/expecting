@@ -4,7 +4,7 @@ title: The umbilical cord
 type: guide
 topic: baby
 ask: What does the cord do, and what happens to it after birth?
-aliases: [umbilical cord, cord, cord around the neck, nuchal cord, cord blood, cord clamping, belly button, two vessel cord, single umbilical artery]
+aliases: [umbilical cord, cord, cord blood, cord clamping, belly button, two vessel cord, single umbilical artery]
 weeks: [6, 42]
 stakes: low
 summary: "The cord connects your baby to the placenta, carrying nutrients and oxygen in and waste out; after the birth it's clamped and cut, and the stump falls off to form the belly button."

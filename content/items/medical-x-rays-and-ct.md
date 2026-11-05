@@ -25,7 +25,7 @@ Ask first. Most radiation exposure during medical testing is unlikely to harm yo
 
 ## Why
 
-Any harm depends on the dose (smaller is safer), the stage of pregnancy (the further along, the better) and where on your body it's aimed: tests of your abdomen or pelvis carry a higher risk than others. For scale, Australians get about 2 mSv of background radiation a year; a chest x-ray is up to 0.1 mSv and a CT scan up to 8 mSv. It's best to avoid exposing your tummy to radiation, and CT scans are best avoided in pregnancy because of a small chance the radiation could harm the baby. MRI uses no radiation and is generally safe in pregnancy, but not in early pregnancy.
+Any harm depends on the dose (smaller is safer), the stage of pregnancy (the further along, the better) and where on your body it's aimed: tests of your abdomen or pelvis carry a higher risk than others. For scale, Australians get about 2 mSv of background radiation a year; a chest x-ray is up to 0.1 mSv and a computed tomography (CT) scan up to 8 mSv. It's best to avoid exposing your tummy to radiation, and CT scans are best avoided in pregnancy because of a small chance the radiation could harm the baby. Magnetic resonance imaging (MRI) uses no radiation and is generally safe in pregnancy, but not in early pregnancy.
 
 ## What to do
 

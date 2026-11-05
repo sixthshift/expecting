@@ -35,7 +35,7 @@ Combined first-trimester screening is one of the optional screening tests for Do
 
 The two results are combined with your age to estimate the chance the baby has Down syndrome. It picks up about 85 to 90% of babies with Down syndrome, and may detect an increased chance of other, less common chromosomal conditions, such as Edwards syndrome (trisomy 18) and Patau syndrome (trisomy 13). The scan can also detect major structural conditions in the baby.
 
-**The result is a chance, not a diagnosis.** It's reported as low or high risk. A high-risk result means a difference is more likely, and you'll be offered genetic counselling and a diagnostic test, CVS or amniocentesis, which can tell for certain. Screening can also miss some babies who have a condition.
+**The result is a chance, not a diagnosis.** It's reported as low or high risk. A high-risk result means a difference is more likely, and you'll be offered genetic counselling and a diagnostic test, chorionic villus sampling (CVS) or amniocentesis, which can tell for certain. Screening can also miss some babies who have a condition.
 
 **Cost.** Medicare covers the blood test, but there may be costs for the ultrasound.
 

@@ -7,7 +7,7 @@ ask: What is an ECV, and does it work?
 aliases: [external cephalic version, turning the baby, version, ECV procedure]
 weeks: [36, 38]
 stakes: high
-summary: "An ECV is when an obstetrician presses on your belly to turn a breech baby head-down, usually from 37 weeks (36 for a first baby); it works about half the time, and about 1 in 200 lead to an emergency caesarean."
+summary: "An external cephalic version (ECV) is when an obstetrician presses on your belly to turn a breech baby head-down, usually from 37 weeks (36 for a first baby); it works about half the time, and about 1 in 200 lead to an emergency caesarean."
 sources:
   - title: Pregnancy, Birth and Baby — Breech pregnancy
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
@@ -26,11 +26,11 @@ External cephalic version (ECV) is a procedure in which a specially trained obst
 
 ## When
 
-Usually after 37 weeks, when the baby is unlikely to turn on their own. For a first baby you might be offered one after 36 weeks. RANZCOG's clinical guidance says to offer it from 37+0 weeks, or from 36+0 for a first baby, and that there's no clear benefit before 36 weeks.
+Usually after 37 weeks, when the baby is unlikely to turn on their own. For a first baby you might be offered one after 36 weeks. The clinical guidance of the Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says to offer it from 37+0 weeks, or from 36+0 for a first baby, and that there's no clear benefit before 36 weeks.
 
 ## Who can't have one
 
-It may not be suitable if you need a caesarean anyway (for example placenta praevia), have had vaginal bleeding in the past 7 days, are having twins or more, your waters have broken, you have high blood pressure or pre-eclampsia, or your uterus is an unusual shape. It may also not suit a baby who is unwell or not growing well, has low fluid, has the cord around their neck, or has an abnormal heart trace (CTG). After one previous caesarean you can usually still have one, but your doctor should talk through the special considerations.
+It may not be suitable if you need a caesarean anyway (for example placenta praevia), have had vaginal bleeding in the past 7 days, are having twins or more, your waters have broken, you have high blood pressure or pre-eclampsia, or your uterus is an unusual shape. It may also not suit a baby who is unwell or not growing well, has low fluid, has the cord around their neck, or has an abnormal heart trace on a cardiotocograph (CTG). After one previous caesarean you can usually still have one, but your doctor should talk through the special considerations.
 
 ## The day
 
@@ -38,7 +38,7 @@ It can take up to 3 hours from start to finish.
 
 - **Before:** an ultrasound to check the baby is still breech, then a CTG for 20 to 40 minutes. A small needle goes into a vein in your hand to give you medicine to relax the uterus (RANZCOG says it's sometimes given, and won't harm the baby).
 - **During:** the obstetrician puts one hand over the baby's bottom and one behind the head and presses to encourage a roll. The pressure lasts a few minutes. It may feel uncomfortable; RANZCOG says it shouldn't be painful. They can try up to 4 times, for no more than 10 minutes in all.
-- **After:** the baby's heart rate and your blood pressure are monitored, and another ultrasound checks the position. If your blood type is RhD negative, you'll have an anti-D injection, whether or not it worked.
+- **After:** the baby's heart rate and your blood pressure are monitored, and another ultrasound checks the position. If your blood type is Rhesus D (RhD) negative, you'll have an anti-D injection, whether or not it worked.
 
 ## Does it work?
 

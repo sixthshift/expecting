@@ -19,4 +19,4 @@ checked: 2026-10-29
 ---
 Up to 1 in 3 people who give birth view the experience as traumatic in some way. It can come from pain, medical treatment or injury, or from how you felt about what happened. If your birth felt traumatic to you, then it was traumatic, and your feelings deserve acknowledgement, treatment and recovery. It can affect partners too.
 
-If your feelings about the birth are affecting you, talk to your doctor, midwife or maternal and child health nurse, who can refer you on. It's never too late: some people seek help months or years later. PANDA (1300 726 306) and Gidget Foundation (1300 851 758) both support parents after a traumatic birth.
+If your feelings about the birth are affecting you, talk to your doctor, midwife or maternal and child health nurse, who can refer you on. It's never too late: some people seek help months or years later. Perinatal Anxiety & Depression Australia (PANDA, 1300 726 306) and Gidget Foundation (1300 851 758) both support parents after a traumatic birth.

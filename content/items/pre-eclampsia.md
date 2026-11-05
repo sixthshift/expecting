@@ -28,7 +28,7 @@ Pre-eclampsia is a serious condition that causes high blood pressure and can aff
 
 ## How they watch for it
 
-Most people with pre-eclampsia don't notice any symptoms; it's usually picked up at a routine visit. That's why your blood pressure is checked at every antenatal visit, and compared with your first reading. If it's high, your doctor will suggest tests: a urine test for protein, blood tests and an examination. The baby is checked too, with ultrasound scans of growth and wellbeing, and heart rate monitoring (CTG).
+Most people with pre-eclampsia don't notice any symptoms; it's usually picked up at a routine visit. That's why your blood pressure is checked at every antenatal visit, and compared with your first reading. If it's high, your doctor will suggest tests: a urine test for protein, blood tests and an examination. The baby is checked too, with ultrasound scans of growth and wellbeing, and heart rate monitoring with a cardiotocograph (CTG).
 
 ## Who is at higher risk
 
@@ -57,4 +57,4 @@ See your midwife, doctor or pregnancy care provider straight away if you have an
 - heartburn that doesn't go away with antacids
 - feeling very unwell
 
-HELLP syndrome, the severe form, needs urgent medical attention.
+Haemolysis, elevated liver enzymes and low platelets (HELLP) syndrome, the severe form, needs urgent medical attention.

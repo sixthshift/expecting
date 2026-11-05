@@ -35,7 +35,7 @@ A planned (elective) caesarean is a birth through a cut in your tummy and uterus
 - placenta praevia, where the placenta covers the opening of the uterus
 - other medical problems for you or the baby
 
-**A caesarean you ask for.** You may prefer a caesarean for non-medical reasons. Your doctor or midwife will explain the benefits and risks of every option so you can make an informed choice. RANZCOG notes that some risks may not show until later pregnancies.
+**A caesarean you ask for.** You may prefer a caesarean for non-medical reasons. Your doctor or midwife will explain the benefits and risks of every option so you can make an informed choice. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) notes that some risks may not show until later pregnancies.
 
 **A planned vaginal birth**, where there's no medical reason for a caesarean.
 

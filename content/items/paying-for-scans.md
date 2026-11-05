@@ -42,7 +42,7 @@ Extra scans are usually only done if they're needed, such as for a complication 
 
 ## Tests that aren't covered
 
-Not every antenatal test is on Medicare. NIPT, the blood test that screens for Down syndrome and other conditions from 10 weeks, isn't covered and can be expensive.
+Not every antenatal test is on Medicare. Non-invasive prenatal testing (NIPT), the blood test that screens for Down syndrome and other conditions from 10 weeks, isn't covered and can be expensive.
 
 ## 3D, 4D and keepsake scans
 

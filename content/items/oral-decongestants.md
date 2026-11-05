@@ -7,7 +7,7 @@ ask: Can I take Sudafed?
 aliases: [Sudafed, pseudoephedrine, phenylephrine, Sudafed PE, Demazin, decongestant tablets, sinus tablets, Codral, Nurofen Cold and Flu, Lemsip]
 who: carrying
 stakes: medium
-summary: "Avoid: Pregnancy, Birth and Baby, KEMH and healthdirect say not to use oral decongestants such as pseudoephedrine and phenylephrine in pregnancy; use a nasal spray, saline or steam for a blocked nose instead."
+summary: "Avoid: Pregnancy, Birth and Baby, King Edward Memorial Hospital (KEMH) and healthdirect say not to use oral decongestants such as pseudoephedrine and phenylephrine in pregnancy; use a nasal spray, saline or steam for a blocked nose instead."
 verdict: avoid
 sources:
   - title: Pregnancy, Birth and Baby — Cold and flu during pregnancy
@@ -21,7 +21,7 @@ sources:
 related: [nasal-sprays, cold-and-flu-tablets, antihistamines]
 checked: 2026-10-29
 ---
-Avoid them. Pregnancy, Birth and Baby says oral decongestants such as pseudoephedrine are not safe to use in pregnancy. KEMH says oral medicines such as pseudoephedrine or phenylephrine are not recommended in pregnancy, and healthdirect says you should not use oral decongestants such as phenylephrine.
+Avoid them. Pregnancy, Birth and Baby says oral decongestants such as pseudoephedrine are not safe to use in pregnancy. King Edward Memorial Hospital (KEMH) says oral medicines such as pseudoephedrine or phenylephrine are not recommended in pregnancy, and healthdirect says you should not use oral decongestants such as phenylephrine.
 
 ## Why
 

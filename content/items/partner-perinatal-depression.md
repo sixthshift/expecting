@@ -8,7 +8,7 @@ aliases: [paternal depression, dads depression, partner anxiety, perinatal depre
 weeks: [1, 42]
 who: partner
 stakes: high
-summary: "Yes: about 1 in 10 dads have depression from the first trimester through the baby's first year, and anxiety is common too; it can look like anger, withdrawal or drinking more, and PANDA is there for you."
+summary: "Yes: about 1 in 10 dads have depression from the first trimester through the baby's first year, and anxiety is common too; it can look like anger, withdrawal or drinking more, and Perinatal Anxiety & Depression Australia (PANDA) is there for you."
 sources:
   - title: Pregnancy, Birth and Baby — Fathers and depression
     url: https://www.pregnancybirthbaby.org.au/parenting-and-family/partners/fathers-and-depression
@@ -37,7 +37,7 @@ Mixed, complicated feelings about becoming a parent are completely normal. Depre
 
 These signs are often missed, or dismissed as a normal part of life with a new baby. Noticing them, in yourself or in your partner, is how your family gets help.
 
-PANDA says men can find it harder to reach out, because of shame, cultural stigma and other barriers. It's nothing to be ashamed of.
+Perinatal Anxiety & Depression Australia (PANDA) says men can find it harder to reach out, because of shame, cultural stigma and other barriers. It's nothing to be ashamed of.
 
 ## Call 000 or go to emergency
 

@@ -17,6 +17,6 @@ tasks:
 ---
 Parental Leave Pay is the government's paid leave, through Services Australia — and you can claim it **up to 3 months before the due date**. Claiming early lets you choose your start date and gives an employer who'll pay it time to opt in.
 
-For a child born **from 1 July 2026**, a family can get up to **130 days** (26 weeks of weekdays), paid at the national minimum wage — $200.94 a day in 2026–27. The rate usually changes each 1 July. The ATO also adds a super contribution on top, paid automatically after the financial year ends.
+For a child born **from 1 July 2026**, a family can get up to **130 days** (26 weeks of weekdays), paid at the national minimum wage — $200.94 a day in 2026–27. The rate usually changes each 1 July. The Australian Taxation Office (ATO) also adds a super contribution on top, paid automatically after the financial year ends.
 
 The same myGov claim ("Apply for Family Assistance") covers Family Tax Benefit too. After the birth, you'll need to add the baby's details and proof of birth within 56 days.

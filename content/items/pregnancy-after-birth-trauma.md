@@ -52,6 +52,6 @@ Whether and when to have another baby is yours and your partner's decision, and 
 ## Support
 
 - Birth Trauma Australia runs Peer2Peer support with trained volunteers who've been through birth trauma themselves: a private Facebook group and a six-week group program.
-- PANDA: 1300 726 306.
+- Perinatal Anxiety & Depression Australia (PANDA): 1300 726 306.
 - Gidget Foundation Australia: 1300 851 758.
 - Medicare Mental Health, for advice and local services: 1800 595 212.

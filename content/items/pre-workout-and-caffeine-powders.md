@@ -32,5 +32,5 @@ Some slimming medicines also contain caffeine.
 ## What to do
 
 - **Read the label.** Products with added caffeine must say so, and anything containing guarana must be labelled as containing caffeine.
-- **Pure caffeine powder** is banned from retail sale in Australia and New Zealand, and FSANZ says it can have serious health effects, including death.
+- **Pure caffeine powder** is banned from retail sale in Australia and New Zealand, and Food Standards Australia New Zealand (FSANZ) says it can have serious health effects, including death.
 - **Ask before anything else:** speak to your doctor or pharmacist before taking any supplement. Only take a high-dose vitamin supplement if your doctor recommends it.

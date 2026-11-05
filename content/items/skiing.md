@@ -23,7 +23,7 @@ sources:
 related: [altitude, horse-riding, contact-sports, falls-and-knocks]
 checked: 2026-10-31
 ---
-Not the downhill kind. Pregnancy, Birth and Baby and RANZCOG both list downhill skiing among activities with a risk of falling to avoid. The Royal Women's Hospital includes snow and water skiing in its list of activities to avoid.
+Not the downhill kind. Pregnancy, Birth and Baby and the Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) both list downhill skiing among activities with a risk of falling to avoid. The Royal Women's Hospital includes snow and water skiing in its list of activities to avoid.
 
 ## Why
 

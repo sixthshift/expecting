@@ -12,7 +12,7 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
   - title: Pregnancy, Birth and Baby — About the placenta
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta
-related: [term-anterior-placenta, the-placenta]
+related: [term-anterior-placenta, the-placenta, term-fundal-placenta]
 checked: 2026-10-29
 ---
 A posterior placenta grows on the back side of your uterus. The back is one of the places the placenta is expected to attach, and its exact location varies from person to person. With a posterior placenta, movements are often felt earlier in the pregnancy and may feel stronger.

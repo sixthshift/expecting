@@ -7,7 +7,7 @@ ask: "I'm terrified of the birth. Is that normal, and what can I do?"
 aliases: [tokophobia, fear of childbirth, scared of labour, birth anxiety, afraid of pain]
 weeks: [12, 42]
 stakes: medium
-summary: "Fear of giving birth is normal, and knowing what to expect, a flexible birth plan and knowing your pain relief options all help; for a very small number it becomes overwhelming (tokophobia), and your doctor, midwife or PANDA can help."
+summary: "Fear of giving birth is normal, and knowing what to expect, a flexible birth plan and knowing your pain relief options all help; for a very small number it becomes overwhelming (tokophobia), and your doctor, midwife or Perinatal Anxiety & Depression Australia (PANDA) can help."
 sources:
   - title: Pregnancy, Birth and Baby — Fear of childbirth
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/preparing-for-birth/fear-of-childbirth
@@ -40,8 +40,8 @@ Exercise, learning about birth, antenatal classes, visiting the maternity ward, 
 
 ## When it's more than fear
 
-For a very small number of people, fear of childbirth becomes overwhelming. This is **tokophobia**. Primary tokophobia usually starts in childhood, without any experience of birth; secondary tokophobia follows a traumatic pregnancy or birth. Some people also have anxiety, depression or PTSD during or after pregnancy. You're not alone, and help is available.
+For a very small number of people, fear of childbirth becomes overwhelming. This is **tokophobia**. Primary tokophobia usually starts in childhood, without any experience of birth; secondary tokophobia follows a traumatic pregnancy or birth. Some people also have anxiety, depression or post-traumatic stress disorder (PTSD) during or after pregnancy. You're not alone, and help is available.
 
 ## When to get help
 
-If you feel fearful and overwhelmed, or your fears are affecting your life, contact your doctor, PANDA on 1300 726 306 or Beyond Blue on 1300 22 4636. If you need to talk to someone about your mental health, you can also call Lifeline on 13 11 14.
+If you feel fearful and overwhelmed, or your fears are affecting your life, contact your doctor, Perinatal Anxiety & Depression Australia (PANDA) on 1300 726 306 or Beyond Blue on 1300 22 4636. If you need to talk to someone about your mental health, you can also call Lifeline on 13 11 14.

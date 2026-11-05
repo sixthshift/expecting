@@ -7,7 +7,7 @@ ask: Is a TENS machine worth hiring?
 aliases: [TENS, TENS hire, obstetric TENS, electrodes for labour]
 weeks: [34, 42]
 stakes: low
-summary: "TENS uses small electrical pulses through pads on your lower back to distract from labour pain; there's no harm in it and many find it helpful, but it doesn't work for everyone and can't be used in water."
+summary: "Transcutaneous electrical nerve stimulation (TENS) uses small electrical pulses through pads on your lower back to distract from labour pain; there's no harm in it and many find it helpful, but it doesn't work for everyone and can't be used in water."
 sources:
   - title: Pregnancy, Birth and Baby — TENS
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/tens
@@ -39,4 +39,4 @@ The pads usually go on your lower back, and the pulses feel like a tingling that
 
 ## Getting one
 
-Ask your doctor or midwife whether it's safe for you, where you can get one and what it costs to hire or buy. Not all hospitals and birthing centres have them. You can buy from manufacturers, medical equipment suppliers and some pharmacies: check the supplier is registered with the TGA. Private health insurance may help with the cost.
+Ask your doctor or midwife whether it's safe for you, where you can get one and what it costs to hire or buy. Not all hospitals and birthing centres have them. You can buy from manufacturers, medical equipment suppliers and some pharmacies: check the supplier is registered with the Therapeutic Goods Administration (TGA). Private health insurance may help with the cost.

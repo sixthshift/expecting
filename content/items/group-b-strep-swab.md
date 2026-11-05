@@ -19,6 +19,6 @@ Group B streptococcus (GBS) is a common bacterium. About 1 in 5 people carry it 
 
 Many care providers offer a swab of the vagina and rectum at about **35 to 37 weeks**; you can usually collect it yourself, or your doctor or midwife can. That timing is the most accurate and avoids overtreatment with antibiotics in labour. The national pregnancy care guidelines strongly recommend offering this swab to everyone, with antibiotics planned for the birth if it's positive, even for a planned caesarean. Not every provider does yet: some don't test routinely, and recommend antibiotics in labour if there are risk factors instead.
 
-If the swab is positive, or risk factors come up, your health team will probably recommend antibiotics through a drip (IV) once your waters break or labour starts, and the choice is yours.
+If the swab is positive, or risk factors come up, your health team will probably recommend antibiotics through an intravenous (IV) drip once your waters break or labour starts, and the choice is yours.
 
 **After the birth,** if your baby (under 3 months) is unwell, with a high fever, vomiting or breathing problems, call triple zero (000).

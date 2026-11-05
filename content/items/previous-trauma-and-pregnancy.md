@@ -52,7 +52,7 @@ If you notice symptoms of complex trauma, such as those above, it's a good time 
 - In an emergency: 000
 - Lifeline: 13 11 14
 - 1800RESPECT: 1800 737 732
-- PANDA: 1300 726 306
+- Perinatal Anxiety & Depression Australia (PANDA): 1300 726 306
 - Beyond Blue: 1300 22 4636
 - Medicare Mental Health: 1800 595 212
 - Bravehearts: 1800 272 831

@@ -7,7 +7,7 @@ ask: Do I need an iodine supplement?
 aliases: [iodine, 150mcg iodine, iodine supplement, thyroid, kelp tablets, iodised salt]
 who: carrying
 stakes: high
-summary: "Yes: the NHMRC recommends a 150 microgram iodine supplement every day while you're trying, pregnant and breastfeeding; check with your doctor first if you have a thyroid condition."
+summary: "Yes: the National Health and Medical Research Council (NHMRC) recommends a 150 microgram iodine supplement every day while you're trying, pregnant and breastfeeding; check with your doctor first if you have a thyroid condition."
 verdict: yes
 sources:
   - title: NHMRC — Iodine supplementation for pregnant and breastfeeding women

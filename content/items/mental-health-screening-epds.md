@@ -7,7 +7,7 @@ ask: "Why is the midwife asking me how I'm feeling with a questionnaire?"
 aliases: [EPDS, Edinburgh Postnatal Depression Scale, Edinburgh scale, mental health screening, psychosocial assessment, mood questionnaire]
 weeks: [8, 42]
 stakes: medium
-summary: "Most pregnant parents in Australia are screened for depression in pregnancy and again after the birth, usually with a short set questionnaire, the EPDS; it's there because depression often goes unrecognised and early treatment works best."
+summary: "Most pregnant parents in Australia are screened for depression in pregnancy and again after the birth, usually with a short set questionnaire, the Edinburgh Postnatal Depression Scale (EPDS); it's there because depression often goes unrecognised and early treatment works best."
 sources:
   - title: The Royal Women's Hospital — Mental health & pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy

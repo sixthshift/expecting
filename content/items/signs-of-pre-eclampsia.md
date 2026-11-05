@@ -29,7 +29,7 @@ checked: 2026-10-29
 ---
 ## What's usual
 
-Pre-eclampsia is a serious condition of pregnancy. It usually comes on suddenly, after at least 20 weeks, and can also happen in the first few days after the birth. It raises your blood pressure and can affect your kidneys, liver and brain, and the placenta, which can slow the baby's growth. It can get worse very quickly. HELLP syndrome is its severe form and needs urgent medical attention.
+Pre-eclampsia is a serious condition of pregnancy. It usually comes on suddenly, after at least 20 weeks, and can also happen in the first few days after the birth. It raises your blood pressure and can affect your kidneys, liver and brain, and the placenta, which can slow the baby's growth. It can get worse very quickly. HELLP syndrome (haemolysis, elevated liver enzymes and low platelets) is its severe form and needs urgent medical attention.
 
 Most people with pre-eclampsia notice no symptoms at all; some just feel unwell. It's usually found at a routine antenatal visit, which is why your blood pressure is checked at every one: in pregnancy it's high at 140 over 90 or more, and about 1 in 8 pregnancies has higher blood pressure than normal. If yours is high, you may have a urine test for protein and blood tests.
 

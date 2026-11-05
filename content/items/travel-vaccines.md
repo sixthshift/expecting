@@ -30,7 +30,7 @@ The Australian Immunisation Handbook recommends non-live vaccines in pregnancy w
 - **Japanese encephalitis:** the inactivated vaccine (JEspect) if you're at high risk; the live one (Imojev) is not for pregnancy.
 - **Rabies:** if needed.
 
-Live vaccines, such as MMR and chickenpox, are not given in pregnancy.
+Live vaccines, such as measles, mumps and rubella (MMR) and chickenpox, are not given in pregnancy.
 
 **Yellow fever** is a live vaccine and isn't recommended in pregnancy. Avoid rural areas where yellow fever is common. If travel to one is truly unavoidable, the vaccine may be given after weighing the risks and benefits with your doctor, along with ways to avoid mosquito bites.
 

@@ -27,7 +27,7 @@ Yes, most everyday cheeses are fine. Hard cheeses such as cheddar, tasty, parmes
 
 The worry with cheese in pregnancy is listeria, bacteria that can grow even in the fridge and, if your baby is infected, can lead to miscarriage, stillbirth or premature labour. Soft and semi-soft cheeses such as brie, camembert, ricotta, feta and blue are the higher-risk ones. Hard cheeses are a safer alternative.
 
-**Mozzarella.** Food Standards Australia New Zealand lists mozzarella, pre-packaged or from the deli, among the higher-risk soft and semi-soft cheeses. Eat it only when it's cooked to at least 75 °C and eaten straight away, as on a hot pizza.
+**Mozzarella.** Food Standards Australia New Zealand (FSANZ) lists mozzarella, pre-packaged or from the deli, among the higher-risk soft and semi-soft cheeses. Eat it only when it's cooked to at least 75 °C and eaten straight away, as on a hot pizza.
 
 **Haloumi and paneer.** Made from pasteurised milk and cooked until hot, the way they're usually eaten, they're fine.
 

@@ -22,7 +22,7 @@ From 28 weeks until the birth, doctors recommend you sleep on your side. That me
 
 ## Why
 
-Later in pregnancy, lying on your back puts the weight of the baby and uterus on major blood vessels. That can reduce blood flow to the uterus, restrict the baby's oxygen supply and affect their heart rate, and research suggests it brings a higher risk of stillbirth. RANZCOG says recent scientific studies have shown that people who go to sleep on their back have up to an 8 times higher chance of having a stillborn baby than those who go to sleep in another position. Research shows that sleeping on your side can reduce the risk.
+Later in pregnancy, lying on your back puts the weight of the baby and uterus on major blood vessels. That can reduce blood flow to the uterus, restrict the baby's oxygen supply and affect their heart rate, and research suggests it brings a higher risk of stillbirth. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says recent scientific studies have shown that people who go to sleep on their back have up to an 8 times higher chance of having a stillborn baby than those who go to sleep in another position. Research shows that sleeping on your side can reduce the risk.
 
 Stillbirth has many different causes, and most are not in your control. Side sleeping is one simple thing that is.
 

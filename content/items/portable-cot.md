@@ -25,7 +25,7 @@ Portable cots are designed to be used temporarily, and they're handy when you're
 
 ## The standard
 
-Only use a portable cot if it meets the Australian safety standard. Since 19 January 2026, a folding cot sold new must meet the mandatory standard for infant sleep products, which for a folding cot means AS/NZS 2195:2010 or its US or European equivalent (ACCC Product Safety). Second-hand ones aren't covered by it, so check an older one's instructions or label.
+Only use a portable cot if it meets the Australian safety standard. Since 19 January 2026, a folding cot sold new must meet the mandatory standard for infant sleep products, which for a folding cot means the Australian/New Zealand Standard (AS/NZS) 2195:2010 or its US or European equivalent (Australian Competition and Consumer Commission (ACCC) Product Safety). Second-hand ones aren't covered by it, so check an older one's instructions or label.
 
 ## Setting it up
 

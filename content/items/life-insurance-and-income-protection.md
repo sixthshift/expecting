@@ -44,4 +44,4 @@ Insurers ask about your age, job, medical and family history, smoking and lifest
 
 ## Name who gets it
 
-Nominate your beneficiaries. If you haven't, your estate or the super trustee decides where the money goes. ASIC found almost 60% of super members hadn't nominated a beneficiary at all. See [wills and guardianship](wills-and-guardianship).
+Nominate your beneficiaries. If you haven't, your estate or the super trustee decides where the money goes. The Australian Securities and Investments Commission (ASIC) found almost 60% of super members hadn't nominated a beneficiary at all. See [wills and guardianship](wills-and-guardianship).

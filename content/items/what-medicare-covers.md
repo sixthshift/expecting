@@ -7,7 +7,7 @@ ask: What do we actually have to pay for?
 aliases: [Medicare, bulk billing, gap fee, out of pocket, free pregnancy care, Medicare rebate]
 weeks: [1, 42]
 stakes: high
-summary: "As a public patient in a public hospital or birth centre, your treatment and stay are free; private care, NIPT and private hospital accommodation are where the bills come from."
+summary: "As a public patient in a public hospital or birth centre, your treatment and stay are free; private care, non-invasive prenatal testing (NIPT) and private hospital accommodation are where the bills come from."
 sources:
   - title: Australian Immunisation Handbook — RSV vaccine in pregnancy
     url: https://immunisationhandbook.health.gov.au/recommendations/pregnant-women-are-recommended-to-receive-an-rsv-vaccine-during-each-pregnancy-to-protect-their-infant
@@ -26,7 +26,7 @@ Medicare covers many of the costs of having a baby. How much depends on who look
 
 **Free or subsidised.** Visits to doctors, obstetricians and eligible midwives; routine ultrasounds and blood tests; telehealth and phone consults. If your doctor bulk bills, you pay no gap.
 
-**Free vaccines.** Whooping cough, flu and RSV vaccines in pregnancy are free under the National Immunisation Program, if you hold or are eligible for a Medicare card.
+**Free vaccines.** Whooping cough, flu and respiratory syncytial virus (RSV) vaccines in pregnancy are free under the National Immunisation Program, if you hold or are eligible for a Medicare card.
 
 **Counselling.** Medicare helps pay for 3 pregnancy support counselling sessions. Ask your doctor for a referral.
 
@@ -38,6 +38,6 @@ Medicare covers many of the costs of having a baby. How much depends on who look
 - gap fees for private obstetricians or private midwives
 - private midwifery fees for labour or a birth at home
 - out-of-pocket private hospital costs, including medicines
-- some antenatal tests, such as NIPT
+- some antenatal tests, such as non-invasive prenatal testing (NIPT)
 
 **What to do:** ask your doctor or the hospital about costs before you make the appointment, and if you're going private, ask what to expect out of pocket when you book.

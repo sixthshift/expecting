@@ -36,7 +36,7 @@ If a pregnancy goes overdue, there's a risk the placenta won't supply the baby w
 
 Your midwife or doctor should explain each option, with its risks and benefits, and you work out together what's best. It's your choice whether to have any of it.
 
-- **Monitoring.** If you've gone a week past your due date with no signs of labour, your doctor will want to monitor you closely. Checks may include an ultrasound and a CTG of the baby's heartbeat, perhaps twice a week. They tell you how the baby is at that moment; they can't predict whether that might change. If the baby is well and so are you, you might choose to wait and see whether labour starts.
+- **Monitoring.** If you've gone a week past your due date with no signs of labour, your doctor will want to monitor you closely. Checks may include an ultrasound and a cardiotocograph (CTG) of the baby's heartbeat, perhaps twice a week. They tell you how the baby is at that moment; they can't predict whether that might change. If the baby is well and so are you, you might choose to wait and see whether labour starts.
 - **A membrane sweep** (a "stretch and sweep"): during a vaginal examination, your midwife or doctor sweeps a finger around the inside of your cervix, which can trigger hormones that start labour.
 - **An induction**, if labour doesn't start on its own, or if the checks show the baby's health is at risk. It's usually offered somewhere between 41 and 42 weeks; ask your own hospital what it does.
 

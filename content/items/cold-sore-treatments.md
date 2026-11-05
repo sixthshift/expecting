@@ -17,7 +17,7 @@ sources:
 related: [medicines-in-pregnancy]
 checked: 2026-10-29
 ---
-Yes. Aciclovir cream can be used safely at all stages of pregnancy (KEMH). If the cold sores are severe, your doctor can prescribe a course of aciclovir or valaciclovir tablets, which Pregnancy, Birth and Baby says are safe.
+Yes. King Edward Memorial Hospital (KEMH) says aciclovir cream can be used safely at all stages of pregnancy. If the cold sores are severe, your doctor can prescribe a course of aciclovir or valaciclovir tablets, which Pregnancy, Birth and Baby says are safe.
 
 Famciclovir is the exception: Pregnancy, Birth and Baby says it is not recommended in pregnancy or breastfeeding, because there isn't enough research to know whether it is safe.
 

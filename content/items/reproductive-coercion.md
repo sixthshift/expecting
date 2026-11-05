@@ -31,7 +31,7 @@ Reproductive abuse can include someone:
 - doing things to stop your birth control (the pill, condoms, a diaphragm and others) from working
 - hiding your birth control or stopping you from buying it
 - stopping you from having emergency contraception, such as the morning after pill, when you need it
-- knowingly passing on a sexually transmitted infection to you
+- knowingly passing on a sexually transmitted infection (STI) to you
 - stopping you from getting reproductive healthcare, such as STI screening or cervical screening
 
 None of these people has the right to make you do things you're not comfortable with. What happens to your body should always be your choice.

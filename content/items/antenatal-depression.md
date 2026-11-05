@@ -43,7 +43,7 @@ Many people stay quiet out of shame or guilt, because this is meant to be a joyf
 
 ## Call 000 or go to emergency
 
-If you're having thoughts of suicide or harming yourself, seek help immediately or call triple zero (000). For help and support, call Lifeline on 13 11 14 or PANDA on 1300 726 306.
+If you're having thoughts of suicide or harming yourself, seek help immediately or call triple zero (000). For help and support, call Lifeline on 13 11 14 or Perinatal Anxiety & Depression Australia (PANDA) on 1300 726 306.
 
 ## See your doctor or midwife
 

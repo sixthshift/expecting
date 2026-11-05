@@ -8,7 +8,7 @@ aliases: [CMV, cytomegalovirus, congenital CMV, CMV test, CMV blood test, toddle
 weeks: [1, 42]
 who: carrying
 stakes: high
-summary: "CMV is a common virus that young children pass on in their saliva and urine; catching it for the first time in pregnancy can harm the baby, so wash your hands after nappies and noses, don't share food or kiss toddlers on the lips, and ask about an early test if you're around young children a lot."
+summary: "Cytomegalovirus (CMV) is a common virus that young children pass on in their saliva and urine; catching it for the first time in pregnancy can harm the baby, so wash your hands after nappies and noses, don't share food or kiss toddlers on the lips, and ask about an early test if you're around young children a lot."
 sources:
   - title: Pregnancy, Birth and Baby — Cytomegalovirus (CMV) during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/cytomegalovirus-cmv-during-pregnancy

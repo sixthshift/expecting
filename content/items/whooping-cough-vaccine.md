@@ -21,4 +21,4 @@ Whooping cough (pertussis) can be very serious, even deadly, for young babies â€
 
 The whooping cough vaccine is recommended between **20 and 32 weeks of every pregnancy**, though it can be given up until the birth. The pregnant parent's antibodies cross the placenta, so the baby has some protection from birth until their own vaccines start.
 
-It's free under the National Immunisation Program (NIP), though some providers charge a consultation fee. It can be given at the same visit as the flu and RSV vaccines.
+It's free under the National Immunisation Program (NIP), though some providers charge a consultation fee. It can be given at the same visit as the flu and respiratory syncytial virus (RSV) vaccines.

@@ -7,7 +7,7 @@ ask: What are all the blood tests at the start for?
 aliases: [booking bloods, antenatal bloods, first trimester blood tests, routine bloods, pathology pregnancy]
 weeks: [5, 12]
 stakes: medium
-summary: "One set of tests, usually at your first visit: your blood group, a full blood count, rubella immunity and infections such as hepatitis B and C, HIV and syphilis, with a urine test alongside. Each is offered, and each is your choice."
+summary: "One set of tests, usually at your first visit: your blood group, a full blood count, rubella immunity and infections such as hepatitis B and C, human immunodeficiency virus (HIV) and syphilis, with a urine test alongside. Each is offered, and each is your choice."
 sources:
   - title: Pregnancy, Birth and Baby — Blood tests during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/blood-tests-during-pregnancy
@@ -36,15 +36,15 @@ Early in pregnancy, usually at your first antenatal visit, your GP or midwife wi
 
 **Offered to everyone at the first visit:**
 
-- **Blood group and antibodies**, including whether you're RhD negative
+- **Blood group and antibodies**, including whether you're Rhesus D (RhD) negative
 - **A full blood count**, for anaemia
-- **An infectious diseases screen**: immunity to rubella, and syphilis, hepatitis B and C, and HIV. The HIV test is offered with counselling before and after.
+- **An infectious diseases screen**: immunity to rubella, and syphilis, hepatitis B and C, and human immunodeficiency virus (HIV). The HIV test is offered with counselling before and after.
 - **Vitamin D**, if you're likely to be low.
 
 **Sometimes added:**
 
-- **Other STIs**, such as chlamydia and gonorrhoea, depending on your age and circumstances
-- **An early diabetes test**, an HbA1c in the first trimester if you have a higher risk of high blood sugar
+- **Other sexually transmitted infections (STIs)**, such as chlamydia and gonorrhoea, depending on your age and circumstances
+- **An early diabetes test**, a haemoglobin A1c (HbA1c) test in the first trimester if you have a higher risk of high blood sugar
 - **Thalassaemia**, an inherited condition affecting haemoglobin
 
 **A urine test and culture** goes with them, to look for infection.

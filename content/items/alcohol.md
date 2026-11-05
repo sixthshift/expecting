@@ -19,7 +19,7 @@ checked: 2026-10-29
 ---
 ## Why
 
-You'll hear that one glass is fine. Australia's guidelines don't say that. Guideline 3 of the NHMRC's alcohol guidelines is: to prevent harm from alcohol to their unborn child, women who are pregnant or planning a pregnancy should not drink alcohol.
+You'll hear that one glass is fine. Australia's guidelines don't say that. Guideline 3 of the National Health and Medical Research Council's (NHMRC) alcohol guidelines is: to prevent harm from alcohol to their unborn child, women who are pregnant or planning a pregnancy should not drink alcohol.
 
 When you drink, alcohol passes from your blood through the placenta, and the placenta can't stop it reaching your baby. In pregnancy there's no safe time to drink, no safe amount and no safe type of alcohol, and the more you drink, the more unsafe it is. Drinking while pregnant increases the chance of miscarriage, stillbirth, premature birth, and fetal alcohol spectrum disorder (FASD), whose effects are life-long.
 

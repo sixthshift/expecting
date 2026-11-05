@@ -25,4 +25,4 @@ Try sticking to a regular sleep schedule, different sleep positions, or a pregna
 
 ## See your doctor or midwife
 
-If dreams are disturbing you, it can help to talk to your partner or a friend, or to consider seeing a counsellor. If you feel low, worried or on edge most of the time, see your doctor or midwife. For support, you can call PANDA on 1300 726 306 or Lifeline on 13 11 14.
+If dreams are disturbing you, it can help to talk to your partner or a friend, or to consider seeing a counsellor. If you feel low, worried or on edge most of the time, see your doctor or midwife. For support, you can call Perinatal Anxiety & Depression Australia (PANDA) on 1300 726 306 or Lifeline on 13 11 14.

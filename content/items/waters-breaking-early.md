@@ -41,7 +41,7 @@ The sac can't be closed once it's broken, so you'll be asked to stay in hospital
 - antibiotics to prevent infection
 - under 36 weeks, 2 steroid injections to help protect the baby's lungs
 - under 30 weeks, with the birth expected in the next 24 hours, a magnesium sulphate drip to help protect the baby's brain
-- blood and urine tests and vaginal and anal swabs for infection, plus a CTG and ultrasound to check the baby
+- blood and urine tests and vaginal and anal swabs for infection, plus a cardiotocograph (CTG) and ultrasound to check the baby
 
 The risks include infection in the uterus, cord prolapse, premature labour, the placenta coming away early, and the baby's lungs not developing fully.
 

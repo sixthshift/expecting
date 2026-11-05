@@ -3,25 +3,24 @@
 How a Library entry (`content/items/<id>.md`) is written: its frontmatter and
 the shape of its body by type. `src/content/schema.ts` and
 `src/content/parse.ts` check both, so a file that breaks them fails the gate.
-Most entries were drafted from the map (`content/map/*.yaml`); `REVIEW.md`,
-beside this file, is the bar an entry is reviewed against and the calls
+`REVIEW.md`, beside this file, is the bar an entry is reviewed against and the calls
 already made. Week notes are
 `content/weeks/<week>.md` (`src/content/weeks.ts`).
 
-One file per entry, named for its id (the map's id, where it came from the map). Ids are stable: never rename one.
+One file per entry, named for its id. Ids are stable: never rename one.
 
 ## Frontmatter
 
 ```yaml
 ---
-id: soft-cheese                  # the map id
-title: Soft cheese               # the map title, or better
-type: can-i                      # the map type
-topic: food                      # the map topic
+id: soft-cheese                  # stable slug, the file's name
+title: Soft cheese               # for a can-i, the thing asked about, not the answer
+type: can-i                      # one of the eight types
+topic: food                      # one of TOPICS
 ask: Can I eat brie or camembert?
 aliases: [brie, camembert, feta]
-weeks: [1, 42]                   # optional, from the map
-who: carrying                    # optional, from the map
+weeks: [1, 42]                   # optional
+who: carrying                    # optional
 stakes: high
 summary: "One sentence: the answer, or why it matters."
 verdict: avoid                   # can-i only: yes | limit | avoid | ask
@@ -117,8 +116,6 @@ next. Most entries have none; the reader can always write their own
 - **Have someone else review** each batch against its entry and these
   rules: the writer doesn't catch their own blind spots.
 
-Check records live in `content/map/checks/`. A path in them under
-`content/drafts/` means the same entry in `content/items/`.
 
 # Writing a day's read
 

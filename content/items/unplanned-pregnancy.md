@@ -50,4 +50,4 @@ Counselling should give you unbiased information and support whatever you decide
 - Children by Choice (Queensland): 1800 177 725
 - MSI Australia: 1300 003 707, to make an appointment
 - 1800RESPECT: 1800 737 732, if you've experienced sexual assault or domestic and family violence
-- PANDA: 1300 726 306; Lifeline: 13 11 14 for crisis support; Beyond Blue: 1300 22 4636
+- Perinatal Anxiety & Depression Australia (PANDA): 1300 726 306; Lifeline: 13 11 14 for crisis support; Beyond Blue: 1300 22 4636

@@ -19,7 +19,7 @@ sources:
 related: [hot-takeaway-chicken, salad-bars-and-buffets, sushi, raw-eggs]
 checked: 2026-10-29
 ---
-Yes. Generally the safest foods are those freshly cooked or prepared, and FSANZ says that if you're vulnerable, as you are in pregnancy, it's safest to only eat freshly prepared food.
+Yes. Generally the safest foods are those freshly cooked or prepared, and Food Standards Australia New Zealand (FSANZ) says that if you're vulnerable, as you are in pregnancy, it's safest to only eat freshly prepared food.
 
 ## Why
 

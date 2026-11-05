@@ -7,7 +7,7 @@ ask: Do I have to go through the airport scanner?
 aliases: [airport scanner, body scanner, millimetre wave, security screening, metal detector, x-ray at airport, opt out of scanner]
 who: carrying
 stakes: low
-summary: "Yes: ARPANSA says body scanners at Australian airports are safe and pose no known health risk to passengers; it doesn't mention pregnancy."
+summary: "Yes: the Australian Radiation Protection and Nuclear Safety Agency (ARPANSA) says body scanners at Australian airports are safe and pose no known health risk to passengers; it doesn't mention pregnancy."
 verdict: yes
 sources:
   - title: ARPANSA — Airport passenger screening and health
@@ -15,7 +15,7 @@ sources:
 related: [flying, microwaves-and-devices, medical-x-rays-and-ct]
 checked: 2026-10-29
 ---
-Yes. ARPANSA, Australia's radiation protection agency, says body scanners used at Australian airports are safe and don't pose a health risk. Its page doesn't mention pregnancy, so this is its general advice to passengers.
+Yes. The Australian Radiation Protection and Nuclear Safety Agency (ARPANSA), Australia's radiation protection agency, says body scanners used at Australian airports are safe and don't pose a health risk. Its page doesn't mention pregnancy, so this is its general advice to passengers.
 
 ## Why
 

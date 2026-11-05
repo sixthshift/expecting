@@ -23,7 +23,7 @@ Yes, for most. Throat lozenges with antibacterial and anaesthetic (numbing) ingr
 
 ## Why
 
-- **Benzydamine** is an anti-inflammatory. KEMH says it shouldn't be used in pregnancy unless your doctor directs it; MotherSafe says lozenges containing it are best avoided.
+- **Benzydamine** is an anti-inflammatory. King Edward Memorial Hospital (KEMH) says it shouldn't be used in pregnancy unless your doctor directs it; MotherSafe says lozenges containing it are best avoided.
 - **Povidone-iodine**, in some gargles, may affect the developing baby's thyroid. KEMH and healthdirect say to avoid it. MotherSafe says iodine gargles can affect the baby's thyroid if used long-term, and a few days at the recommended dose isn't expected to, but they're still generally not recommended.
 
 ## What to do

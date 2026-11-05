@@ -32,7 +32,7 @@ A break-up during pregnancy can be very hard. If you'd hoped to raise your child
 
 ## Later: co-parenting
 
-Co-parenting is when separated parents share raising a child. You'll need to decide things like living arrangements, health and education, how you'll stay in contact, and special occasions. PBB's advice is to put the child first, even when you feel very emotional, and to keep negative feelings about your ex-partner to yourself.
+Co-parenting is when separated parents share raising a child. You'll need to decide things like living arrangements, health and education, how you'll stay in contact, and special occasions. Pregnancy, Birth and Baby's (PBB) advice is to put the child first, even when you feel very emotional, and to keep negative feelings about your ex-partner to yourself.
 
 Australia's Family Law Act says both parents are responsible for their children's care and welfare. The law changed in May 2024; the Attorney-General's Department website or a lawyer can tell you more.
 
@@ -49,7 +49,7 @@ Services Australia can tell you what help is available to you as a single parent
 - Relationships Australia: 1300 364 277
 - Family Relationship Advice Line: 1800 050 321
 - MensLine Australia: 1300 78 99 78
-- PANDA: 1300 726 306
+- Perinatal Anxiety & Depression Australia (PANDA): 1300 726 306
 - Medicare Mental Health: 1800 595 212
 - Beyond Blue: 1300 22 4636
 

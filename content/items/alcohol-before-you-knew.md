@@ -30,6 +30,6 @@ There's no safe level of alcohol established in pregnancy, and alcohol crosses t
 ## What to do
 
 - **Stop now.** Once you know you're pregnant, it's safest to stop drinking. Stopping at any time in the pregnancy reduces the risk to the baby.
-- **If you're worried, say so.** Speak to your doctor or midwife. NOFASD Australia gives confidential information and support on 1800 860 613.
+- **If you're worried, say so.** Speak to your doctor or midwife. The National Organisation for Fetal Alcohol Spectrum Disorders (NOFASD) Australia gives confidential information and support on 1800 860 613.
 - **For advice about your own situation,** call MotherSafe: Sydney metro (02) 9382 6539, NSW non-metro 1800 647 848.
 - **If it's hard to stop,** or you're concerned about how much you drink, talk to your doctor or midwife, or call the Alcohol and Drug Information Service (ADIS), a 24-hour confidential line, on 1800 250 015.

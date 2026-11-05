@@ -45,4 +45,4 @@ Sleep problems and constant worrying can be signs of perinatal anxiety and depre
 - negative thoughts and feelings that affect your ability to function normally
 - problems with insomnia (Pregnancy, Birth and Baby says to seek medical advice and treatment)
 
-PANDA's helpline is 1300 726 306.
+The Perinatal Anxiety & Depression Australia (PANDA) helpline is 1300 726 306.

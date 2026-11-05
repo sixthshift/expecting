@@ -19,9 +19,11 @@ sources:
     url: https://miscarriageaustralia.com.au/understanding-miscarriage/types-of-miscarriage/
   - title: Pregnancy, Birth and Baby — Experiencing a pregnancy loss
     url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/experiencing-a-pregnancy-loss
+  - title: Pink Elephants — Types of pregnancy loss and miscarriage
+    url: https://www.pinkelephants.org.au/types-of-miscarriage
   - title: Gidget Foundation — Miscarriage and pregnancy loss
     url: https://www.gidgetfoundation.org.au/fact-sheets/miscarriage-pregnancy-loss
-related: [miscarriage-signs-what-to-do, miscarriage-management-options, after-a-miscarriage, blighted-ovum, something-has-happened, card-miscarriage-not-your-fault]
+related: [miscarriage-signs-what-to-do, miscarriage-management-options, after-a-miscarriage, blighted-ovum, something-has-happened, card-miscarriage-not-your-fault, chemical-pregnancy]
 checked: 2026-10-29
 ---
 A miscarriage is when a pregnancy ends before 20 weeks. It is common: up to 1 in 4 pregnancies end in miscarriage before 14 weeks. Most happen in the first trimester; a late miscarriage is one in the second trimester, up to 20 weeks.
@@ -37,6 +39,7 @@ In most cases no one knows why. Around 50 to 80 per cent of miscarriages come fr
 - **Incomplete:** some pregnancy tissue has passed and some is still in the uterus.
 - **Complete:** all the pregnancy tissue has passed. If it happened at home, see a doctor or midwife to check.
 - **Missed (silent):** the pregnancy has ended but stays in the uterus, often with no symptoms. You may find out at a routine visit or scan.
+- **Chemical pregnancy:** a very early miscarriage, normally before 5 weeks, often a positive home test and then bleeding within a few days. More in [A chemical pregnancy](chemical-pregnancy).
 - **Blighted ovum (anembryonic pregnancy):** a fertilised egg implants but an embryo doesn't develop.
 
 ## What it can look like

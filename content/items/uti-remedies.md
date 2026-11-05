@@ -7,7 +7,7 @@ ask: Can I take Ural for a UTI?
 aliases: [Ural, Citravescent, urinary alkaliniser, cranberry, cranberry juice, cranberry tablets, Hiprex, UTI, burning wee, cystitis]
 who: carrying
 stakes: high
-summary: "See your midwife or doctor: a UTI in pregnancy is treated with antibiotics, and Ural or cranberry won't treat the infection."
+summary: "See your midwife or doctor: a urinary tract infection (UTI) in pregnancy is treated with antibiotics, and Ural or cranberry won't treat the infection."
 verdict: ask
 sources:
   - title: MotherSafe (Royal Hospital for Women) — Urinary tract infection in pregnancy and breastfeeding
@@ -17,7 +17,7 @@ sources:
 related: [antibiotics, water]
 checked: 2026-10-29
 ---
-See your midwife or doctor if you have any symptoms of a UTI. Don't delay getting antibiotics: an infection can develop quickly and cause problems for you and your baby.
+See your midwife or doctor if you have any symptoms of a urinary tract infection (UTI). Don't delay getting antibiotics: an infection can develop quickly and cause problems for you and your baby.
 
 ## Why
 

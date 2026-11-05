@@ -26,13 +26,13 @@ Yes, if you don't eat enough omega-3 from food. If your diet already has enough,
 
 ## Why
 
-Omega-3 fats (DHA and EPA) support your baby's brain, nerve and eye development. Your body can't make them, and fatty fish such as sardines, salmon, mackerel, herring and trout are the best source. Flaxseed and canola oil contain some omega-3, but not DHA or EPA.
+Omega-3 fats, docosahexaenoic acid (DHA) and eicosapentaenoic acid (EPA), support your baby's brain, nerve and eye development. Your body can't make them, and fatty fish such as sardines, salmon, mackerel, herring and trout are the best source. Flaxseed and canola oil contain some omega-3, but not DHA or EPA.
 
 Enough omega-3 in pregnancy is linked with fewer premature births when you're carrying one baby, so a supplement is likely to lower that risk if your diet is short. A recent review found no benefit for the baby's IQ or development.
 
 Some data suggest too much omega-3 may increase the risk of a premature birth.
 
-The national pregnancy care guidelines take the same line: a draft recommendation (August 2026, not yet approved by the NHMRC) is not to recommend omega-3 supplements to everyone, because people with low omega-3 levels may benefit and people with higher levels may not, or may even have a higher chance of a premature birth.
+The national pregnancy care guidelines take the same line: a draft recommendation (August 2026, not yet approved by the National Health and Medical Research Council) is not to recommend omega-3 supplements to everyone, because people with low omega-3 levels may benefit and people with higher levels may not, or may even have a higher chance of a premature birth.
 
 ## What to do
 

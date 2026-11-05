@@ -27,7 +27,7 @@ Appetite changes are very common. You might lose your appetite, or find your pre
 
 - **Cravings.** Up to 9 in 10 pregnant people get food cravings at least once, mostly in the second trimester. Common ones include biscuits, bananas, nuts, pickles, ice cream and potatoes. Eating regular healthy meals, drinking water, staying active and keeping balanced snacks in the pantry can help.
 - **Aversions.** A sudden strong dislike of certain foods, particularly strong-tasting or strong-smelling ones, and most often in the first trimester. Common ones include alcohol, coffee and tea, meat, fatty or spicy food, eggs and strong smells. If you go off something important to your diet, try it again later.
-- **Why.** Hormones, including hCG, can change how food tastes and smells, and cause nausea.
+- **Why.** Hormones, including human chorionic gonadotropin (hCG), can change how food tastes and smells, and cause nausea.
 
 ## When to talk to someone
 

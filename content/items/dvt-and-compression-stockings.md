@@ -27,7 +27,7 @@ Yes. Wear knee-high fitted compression stockings on long flights, and see your d
 
 ## Why
 
-Sitting still for hours on a plane, train, bus or in a car raises the chance of a blood clot in a deep vein of the leg (a DVT), and pregnancy already raises it because of changes in your blood flow. Part of a clot can break off and travel to the lungs. The risk stays higher for up to two weeks after a long flight. RANZCOG puts it at fewer than 1 in 100 pregnant air travellers. MotherSafe counts a past blood clot, or carrying more than one baby, as raising the risks of travel, so tell your doctor if either is you.
+Sitting still for hours on a plane, train, bus or in a car raises the chance of a blood clot in a deep vein of the leg, a deep vein thrombosis (DVT), and pregnancy already raises it because of changes in your blood flow. Part of a clot can break off and travel to the lungs. The risk stays higher for up to two weeks after a long flight. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) puts it at fewer than 1 in 100 pregnant air travellers. MotherSafe counts a past blood clot, or carrying more than one baby, as raising the risks of travel, so tell your doctor if either is you.
 
 ## What to do
 

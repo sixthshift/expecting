@@ -39,12 +39,12 @@ It can affect anyone who gives birth, even with no history of mental illness. Th
 
 ## What to do
 
-It's a psychiatric emergency that needs treatment straight away, for the safety of the parent and the baby. If you're worried your partner may have it, **get a doctor or mental health professional to see them urgently**: their GP, the hospital where the baby was born, or your local emergency department. Delaying treatment can make recovery longer. Your local hospital or community health centre can also put you in touch with a crisis team (sometimes called a CAT team).
+It's a psychiatric emergency that needs treatment straight away, for the safety of the parent and the baby. If you're worried your partner may have it, **get a doctor or mental health professional to see them urgently**: their GP, the hospital where the baby was born, or your local emergency department. Delaying treatment can make recovery longer. Your local hospital or community health centre can also put you in touch with a crisis team (sometimes called a crisis assessment and treatment, or CAT, team).
 
 **If they're having thoughts of self-harm, or you're worried about the baby's safety, go to the nearest hospital emergency department or call 000** and ask for an ambulance. For help and support, call Lifeline on 13 11 14.
 
 ## Treatment and recovery
 
-It's diagnosed by a psychiatrist and treated in hospital, sometimes in a mother and baby unit where the baby stays too; otherwise you or family will care for the baby until they're well enough to come home. Treatment is usually medicine, sometimes ECT for severe symptoms, and talking therapy. The first phase can take weeks or months. With the right treatment, a full recovery is likely.
+It's diagnosed by a psychiatrist and treated in hospital, sometimes in a mother and baby unit where the baby stays too; otherwise you or family will care for the baby until they're well enough to come home. Treatment is usually medicine, sometimes electroconvulsive therapy (ECT) for severe symptoms, and talking therapy. The first phase can take weeks or months. With the right treatment, a full recovery is likely.
 
-Supporting someone through this is frightening. Counselling and support for you matter too: Beyond Blue (1300 22 4636), PANDA (1300 726 306), your GP or the hospital can help.
+Supporting someone through this is frightening. Counselling and support for you matter too: Beyond Blue (1300 22 4636), Perinatal Anxiety & Depression Australia (PANDA) on 1300 726 306, your GP or the hospital can help.

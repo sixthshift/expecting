@@ -36,7 +36,7 @@ It may be more than everyday worry if:
 - you have panic attacks
 - it takes you a long time to fall asleep
 
-Anxiety can start for the first time in pregnancy, or an existing condition such as generalised anxiety, OCD, panic disorder, social anxiety or PTSD can get worse.
+Anxiety can start for the first time in pregnancy, or an existing condition such as generalised anxiety, obsessive-compulsive disorder (OCD), panic disorder, social anxiety or post-traumatic stress disorder (PTSD) can get worse.
 
 It's treated well with talking therapies such as cognitive behavioural therapy, relaxation training and mindfulness, and sometimes medicine, decided with your doctor. Things that may help day to day: deep breathing and relaxation, staying active, a calming bedtime routine, accepting practical help, and limiting time on unhelpful social media.
 
@@ -46,4 +46,4 @@ If you're having thoughts of suicide or harming yourself, seek help immediately 
 
 ## See your doctor or midwife
 
-See your GP or midwife if you, or the people around you, are worried about your anxiety, or if treatment isn't helping. Your midwife or doctor checks your mental health at your appointments; try to answer honestly. You can also call the PANDA helpline on 1300 726 306.
+See your GP or midwife if you, or the people around you, are worried about your anxiety, or if treatment isn't helping. Your midwife or doctor checks your mental health at your appointments; try to answer honestly. You can also call the Perinatal Anxiety & Depression Australia (PANDA) helpline on 1300 726 306.

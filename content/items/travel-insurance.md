@@ -29,7 +29,7 @@ Different policies give different levels of pregnancy cover. You may only be cov
 Before you pay for the trip, ask the insurer whether the policy covers:
 
 - pregnancy, and until what stage
-- twins or more, a high risk of complications, and an IVF pregnancy or fertility treatment
+- twins or more, a high risk of complications, and an in vitro fertilisation (IVF) pregnancy or fertility treatment
 - complications or a premature birth while you're away, and the baby if you go into labour
 - medical evacuation, if you're going somewhere remote
 - cancelling the trip because of the pregnancy or the birth

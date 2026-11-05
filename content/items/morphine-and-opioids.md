@@ -24,7 +24,7 @@ Opioids, such as morphine, are strong pain relief medicines, usually given as an
 
 Opioids reduce how severe the pain is, but they don't take it away completely. People respond differently: some find the injection helps, others say it made little difference. It can take up to 30 minutes to work, and lasts three hours or more.
 
-Unlike an epidural, morphine doesn't need a drip, a catheter or CTG monitoring. The Royal Women's Hospital prefers morphine to pethidine, because it lasts longer and has fewer side effects.
+Unlike an epidural, morphine doesn't need a drip, a catheter or cardiotocograph (CTG) monitoring. The Royal Women's Hospital prefers morphine to pethidine, because it lasts longer and has fewer side effects.
 
 ## Side effects for you
 
@@ -37,6 +37,6 @@ You can't use a bath or birth pool for pain relief for 4 hours after an opioid, 
 
 ## The baby, and why timing matters
 
-These medicines cross the placenta, so the baby may be sleepy for a short time, which RANZCOG says is usually not a problem. The Royal Women's Hospital says morphine may contribute to breathing problems in the baby if it's given within two hours of the birth: this is uncommon, and can be reversed with an injection for the baby, who is then watched more closely for a few hours.
+These medicines cross the placenta, so the baby may be sleepy for a short time, which the Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says is usually not a problem. The Royal Women's Hospital says morphine may contribute to breathing problems in the baby if it's given within two hours of the birth: this is uncommon, and can be reversed with an injection for the baby, who is then watched more closely for a few hours.
 
 That's why, once labour is well advanced, an opioid may not be recommended, as it can affect the baby's breathing and alertness after birth if it's given too close to the birth.

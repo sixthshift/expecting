@@ -41,4 +41,4 @@ A lack of B12, like a lack of folate, can also cause anaemia in pregnancy.
 - **Watch your iron.** Legumes, nuts, wholegrains and leafy greens contain it; eat vitamin C-rich foods such as fruit, tomatoes or capsicum at the same meal to help you absorb it.
 - **Calcium:** if you drink soy or other plant milks, choose one with as much calcium as cow's milk.
 - **Iodine and folic acid** are recommended for everyone in pregnancy.
-- **Omega-3:** oil from algae is a plant source of DHA and EPA.
+- **Omega-3:** oil from algae is a plant source of docosahexaenoic acid (DHA) and eicosapentaenoic acid (EPA).

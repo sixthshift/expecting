@@ -8,7 +8,7 @@ aliases: [breech presentation, bottom first, frank breech, footling breech, bree
 weeks: [34, 40]
 who: together
 stakes: high
-summary: "About 3 in 100 babies are still bottom or feet first at the end of pregnancy; the options are an ECV to try to turn the baby, then a planned caesarean (how most breech babies at term are born) or, in some cases and some hospitals, a planned vaginal breech birth."
+summary: "About 3 in 100 babies are still bottom or feet first at the end of pregnancy; the options are an external cephalic version (ECV) to try to turn the baby, then a planned caesarean (how most breech babies at term are born) or, in some cases and some hospitals, a planned vaginal breech birth."
 sources:
   - title: Pregnancy, Birth and Baby — Breech pregnancy
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
@@ -31,11 +31,11 @@ There are three main kinds: **frank** (bottom down, legs straight up, feet by th
 
 ## The options
 
-**Try to turn the baby (ECV).** An obstetrician presses on your belly to turn the baby head-down. It works about half the time: around 4 in 10 in a first pregnancy and 6 in 10 after that. It's offered from 37 weeks, or from 36 weeks for a first baby, and your obstetrician or midwife should talk it through with you at 36 weeks.
+**Try to turn the baby (external cephalic version, ECV).** An obstetrician presses on your belly to turn the baby head-down. It works about half the time: around 4 in 10 in a first pregnancy and 6 in 10 after that. It's offered from 37 weeks, or from 36 weeks for a first baby, and your obstetrician or midwife should talk it through with you at 36 weeks.
 
 **If the baby stays breech, there are two choices:**
 
-- **A planned caesarean.** Most breech babies at term are now born this way; RANZCOG's clinical guidance says almost 90 in 100, and recommends the caesarean at 39 weeks. It's safer for the baby in the short term; in the longer term their health is similar either way. A caesarean has its own risks for you and for later pregnancies.
+- **A planned caesarean.** Most breech babies at term are now born this way; the Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) clinical guidance says almost 90 in 100, and recommends the caesarean at 39 weeks. It's safer for the baby in the short term; in the longer term their health is similar either way. A caesarean has its own risks for you and for later pregnancies.
 - **A planned vaginal breech birth.** With careful selection, in a hospital with experienced staff, it's possible in some cases. You'd have continuous monitoring, a skilled midwife or obstetrician present, theatre on hand and a paediatrician available.
 
 ## Things to weigh

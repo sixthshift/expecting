@@ -27,12 +27,12 @@ Buying or borrowing second-hand can save a lot, as long as each thing is safe. C
 - has never been in a crash, and you trust whoever tells you so
 - is undamaged, with the shell and straps in good condition
 - is less than 10 years old
-- has the sticker showing it meets AS/NZS 1754, and its instructions
+- has the sticker showing it meets the Australian/New Zealand Standard (AS/NZS) 1754, and its instructions
 
 If you can't be sure, buy new.
 
-**Cots and portacots.** A cot sold new must meet the mandatory standard for infant sleep products, but a second-hand one isn't covered by it (ACCC Product Safety). So check the instructions, the label or the maker. If you can't confirm it meets the standard, don't use it. Look for rough repairs, missing parts and chipped old paint, which may contain lead.
+**Cots and portacots.** A cot sold new must meet the mandatory standard for infant sleep products, but a second-hand one isn't covered by it, according to the Australian Competition and Consumer Commission (ACCC) Product Safety site. So check the instructions, the label or the maker. If you can't confirm it meets the standard, don't use it. Look for rough repairs, missing parts and chipped old paint, which may contain lead.
 
-**Mattresses.** Red Nose says there's no evidence a second-hand mattress raises the risk of SIDS, as long as it is firm, flat, clean, in good condition, and fits the cot within 20 mm at the sides and ends (no more than two fingers' width).
+**Mattresses.** Red Nose says there's no evidence a second-hand mattress raises the risk of sudden infant death syndrome (SIDS), as long as it is firm, flat, clean, in good condition, and fits the cot within 20 mm at the sides and ends (no more than two fingers' width).
 
 **For anything else:** the full instructions and all the parts, sturdy and stable, no damage. Check the make and model on Product Safety Australia's recalls list before you buy, not after.

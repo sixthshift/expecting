@@ -30,4 +30,4 @@ Sunlight is also one of the causes of melasma, the brown patches that often appe
 ## What to do
 
 - **Want a tan?** Fake tan creams and lotions are fine in pregnancy. It's best to avoid spray tans. Test a small patch of skin first.
-- **Protect your skin outdoors** with SPF50 or SPF50+ water-resistant sunscreen and a broad-rimmed hat.
+- **Protect your skin outdoors** with sun protection factor (SPF) 50 or SPF50+ water-resistant sunscreen and a broad-rimmed hat.

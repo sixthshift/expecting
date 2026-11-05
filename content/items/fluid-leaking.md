@@ -27,7 +27,7 @@ checked: 2026-10-29
 
 When the waters break, the fluid may gush or trickle, or your underwear may just feel damp; it can feel as if you've wet yourself, and you can't hold it in. It's usually clear, but can be yellow, straw-coloured or pink, and it smells different to wee. It can be hard to tell from urine or discharge; your midwife can test it.
 
-At term (from 37 weeks), waters breaking before labour is normal: check your temperature every 4 hours while you wait, and most people go into labour on their own within 24 to 96 hours. Before 37 weeks (about 4 in 100 pregnancies, called PPROM) it brings a risk of infection, cord prolapse and an early birth, and you'll be offered antibiotics and monitoring in hospital.
+At term (from 37 weeks), waters breaking before labour is normal: check your temperature every 4 hours while you wait, and most people go into labour on their own within 24 to 96 hours. Before 37 weeks (about 4 in 100 pregnancies, called preterm prelabour rupture of membranes, PPROM) it brings a risk of infection, cord prolapse and an early birth, and you'll be offered antibiotics and monitoring in hospital.
 
 ## Call 000 or go to emergency
 

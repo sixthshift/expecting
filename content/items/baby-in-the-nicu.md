@@ -7,7 +7,7 @@ ask: Our baby is in intensive care. How do we survive this?
 aliases: [NICU, special care nursery, SCN, neonatal intensive care, kangaroo care, expressing, parking]
 weeks: [20, 42]
 stakes: high
-summary: "A baby in the NICU or special care nursery is a path no one expects; you don't have to do it alone, and Miracle Babies' Nurture Line, 1300 622 243, is there 24 hours."
+summary: "A baby in the neonatal intensive care unit (NICU) or special care nursery is a path no one expects; you don't have to do it alone, and Miracle Babies' Nurture Line, 1300 622 243, is there 24 hours."
 sources:
   - title: Miracle Babies — My baby is in the hospital
     url: https://www.miraclebabies.org.au/content/my-baby-is-in-the-hospital/gnsbaw
@@ -51,4 +51,4 @@ SMS4dads sends free text messages for dads, including a set for dads in the NICU
 
 ## When to get help
 
-Miracle Babies' Nurture Line is free and open 24 hours, for families with a premature or sick newborn: 1300 622 243 (1300 MBABIES). For mental health support, PANDA is on 1300 726 306, Beyond Blue on 1300 22 4636 and MensLine Australia on 1300 78 99 78.
+Miracle Babies' Nurture Line is free and open 24 hours, for families with a premature or sick newborn: 1300 622 243 (1300 MBABIES). For mental health support, Perinatal Anxiety & Depression Australia (PANDA) is on 1300 726 306, Beyond Blue on 1300 22 4636 and MensLine Australia on 1300 78 99 78.

@@ -7,7 +7,7 @@ ask: The test is positive, what now?
 aliases: [positive pregnancy test, hCG blood test, home pregnancy test, am I pregnant, confirm pregnancy GP]
 weeks: [4, 6]
 stakes: medium
-summary: "Home tests pick up hCG from about the day your period is due; see your GP or midwife after a positive one, to confirm it with a blood or urine test and start your care, ideally at 6 to 8 weeks and before 10."
+summary: "Home tests pick up human chorionic gonadotropin (hCG) from about the day your period is due; see your GP or midwife after a positive one, to confirm it with a blood or urine test and start your care, ideally at 6 to 8 weeks and before 10."
 sources:
   - title: Pregnancy, Birth and Baby — Pregnancy tests
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/pregnancy-tests
@@ -21,7 +21,7 @@ appointment:
   - Which vitamins should I be taking?
 checked: 2026-10-29
 ---
-Pregnancy tests look for a hormone called hCG in your urine or blood. Most home tests can pick it up on the day your period is due. For a more reliable result, test first thing in the morning, when there's more hCG in your urine, and check the expiry date. If it's negative but your period still hasn't come, test again in a few days.
+Pregnancy tests look for a hormone called human chorionic gonadotropin (hCG) in your urine or blood. Most home tests can pick it up on the day your period is due. For a more reliable result, test first thing in the morning, when there's more hCG in your urine, and check the expiry date. If it's negative but your period still hasn't come, test again in a few days.
 
 **A positive result.** A positive blood test almost always means you're pregnant, but home tests aren't always correct, so always see your doctor or midwife after a positive one. They'll confirm the pregnancy with a blood or urine test; a blood test is more sensitive than a home test.
 

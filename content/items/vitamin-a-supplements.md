@@ -7,7 +7,7 @@ ask: Is vitamin A dangerous in pregnancy?
 aliases: [vitamin A, retinol, retinyl palmitate, beta-carotene, 10000 IU, high dose vitamin A, cod liver oil, vitamin A birth defects]
 who: carrying
 stakes: high
-summary: "Avoid vitamin A supplements: too much retinol may increase the chance of birth defects, so never take more than 10,000 IU a day, and get your vitamin A from food instead."
+summary: "Avoid vitamin A supplements: too much retinol may increase the chance of birth defects, so never take more than 10,000 international units (IU) a day, and get your vitamin A from food instead."
 verdict: avoid
 sources:
   - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy

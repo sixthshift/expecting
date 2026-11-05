@@ -32,7 +32,7 @@ checked: 2026-10-29
 
 ## Things to weigh
 
-**What it can do.** Warm water can be relaxing and ease pain. In RANZCOG's review of the research, water in the first stage slightly lowered the use of epidurals and similar pain relief (from 43% to 39%) and raised satisfaction, without changing the rate of vaginal births.
+**What it can do.** Warm water can be relaxing and ease pain. In the Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) review of the research, water in the first stage slightly lowered the use of epidurals and similar pain relief (from 43% to 39%) and raised satisfaction, without changing the rate of vaginal births.
 
 **Is a water birth safe?** Pregnancy, Birth and Baby and RANZCOG both say there's no evidence of extra risk to you or the baby compared with giving birth on land, though the studies are small and more research is needed. A baby born in water won't breathe until brought up, when the labour and birth are uncomplicated and you have the right support. Pregnancy, Birth and Baby says water birth may increase the chance of you getting an infection, or of you or your baby getting too hot.
 

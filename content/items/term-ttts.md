@@ -13,6 +13,6 @@ sources:
 related: [term-mcda, term-mcma, twins-and-multiples]
 checked: 2026-10-29
 ---
-In TTTS, identical twins who share a placenta get uneven blood flow: one gets too much, the other not enough. It can sometimes be very severe, but it's rare, affecting only a very small number of these pregnancies. If it happens, specialists take over your care.
+In twin-to-twin transfusion syndrome (TTTS), identical twins who share a placenta get uneven blood flow: one gets too much, the other not enough. It can sometimes be very severe, but it's rare, affecting only a very small number of these pregnancies. If it happens, specialists take over your care.
 
 Contact your doctor immediately if your tummy feels tight, hurts or suddenly gets bigger, or if you put on weight very quickly or are short of breath.

@@ -7,7 +7,7 @@ ask: Which countries have Zika, and can we go?
 aliases: [Zika, Zika virus, microcephaly, Zika countries, Fiji Zika, Bali Zika, Pacific Zika, Zika and trying to conceive, Zika and partner, six months]
 who: together
 stakes: high
-summary: "Zika can pass to the baby and cause microcephaly; RANZCOG says to avoid Zika-affected countries while pregnant."
+summary: "Zika can pass to the baby and cause microcephaly; the Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says to avoid Zika-affected countries while pregnant."
 verdict: avoid
 sources:
   - title: healthdirect — Zika virus
@@ -23,7 +23,7 @@ checked: 2026-10-29
 
 Zika is a virus spread mainly by mosquito bites, and also through sex. Most people who catch it don't notice any symptoms. In pregnancy it can pass to the baby, with potentially serious consequences, in particular microcephaly: a small head and intellectual disability. It is associated with a range of severe abnormalities in babies.
 
-RANZCOG says pregnant people should avoid travelling to Zika-affected countries. The Department of Health advises anyone who is pregnant or planning a pregnancy to consider delaying travel to countries where an outbreak has been detected.
+The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says pregnant people should avoid travelling to Zika-affected countries. The Department of Health advises anyone who is pregnant or planning a pregnancy to consider delaying travel to countries where an outbreak has been detected.
 
 ## What to do
 

@@ -22,7 +22,7 @@ Slow progress (sometimes called prolonged labour) is when labour takes longer th
 
 ## What counts as slow
 
-**First stage.** Pregnancy, Birth and Baby says the active phase may take up to 8 to 18 hours with a first baby and 5 to 12 hours after that, and counts it as slow when the cervix opens less than 2 cm in 4 hours. It also counts a latent (early) phase as slow if it lasts longer than 20 hours in a first labour, or 14 hours after that. RANZCOG's guideline defines slow labour as less than 2 cm in four hours from 5 cm.
+**First stage.** Pregnancy, Birth and Baby says the active phase may take up to 8 to 18 hours with a first baby and 5 to 12 hours after that, and counts it as slow when the cervix opens less than 2 cm in 4 hours. It also counts a latent (early) phase as slow if it lasts longer than 20 hours in a first labour, or 14 hours after that. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) guideline defines slow labour as less than 2 cm in four hours from 5 cm.
 
 **Second stage.** Pregnancy, Birth and Baby counts it as slow if the baby isn't born after 2 hours of full dilation or 1 hour of pushing with the urge in a first birth, or after 90 minutes of full dilation or 30 minutes of pushing if you've had a baby before. RANZCOG's guideline says decisions to speed up the birth shouldn't be based on time limits alone, and that another hour of pushing can be reasonable if you and the baby are well.
 

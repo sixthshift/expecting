@@ -50,7 +50,7 @@ The planner shows whether you'll have money left over or spend more than you ear
 
 ## Super while you're off
 
-For a child born from 1 July 2025, the ATO pays a super contribution on Parental Leave Pay, at the superannuation guarantee rate, as a lump sum after the financial year ends.
+For a child born from 1 July 2025, the Australian Taxation Office (ATO) pays a super contribution on Parental Leave Pay, at the superannuation guarantee rate, as a lump sum after the financial year ends.
 
 ## Keep it going
 

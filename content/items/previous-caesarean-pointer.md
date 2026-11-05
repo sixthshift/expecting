@@ -18,7 +18,7 @@ appointment:
   - What are the risks and benefits of each choice for me and my baby?
 checked: 2026-10-29
 ---
-Not necessarily. Many people who've had a caesarean plan a vaginal birth next time (a VBAC); others plan another caesarean. For most, both are safe ways to give birth. The choice is personal, and it's made with your partner and your healthcare team.
+Not necessarily. Many people who've had a caesarean plan a vaginal birth next time (a vaginal birth after caesarean, or VBAC); others plan another caesarean. For most, both are safe ways to give birth. The choice is personal, and it's made with your partner and your healthcare team.
 
 ## What goes into the decision
 

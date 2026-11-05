@@ -37,7 +37,7 @@ Keep it somewhere safe, such as a fireproof safe, or with your solicitor, the Co
 
 Your will doesn't automatically cover your super, or life insurance held through it. You nominate beneficiaries with each fund: your dependants, or your legal personal representative (such as your executor) if you want it paid through your will. Without a valid binding nomination, the fund's trustee decides who gets it. Binding nominations generally expire every 3 years, so keep yours up to date.
 
-ASIC found almost 60% of super members hadn't nominated a beneficiary at all, and only 10% had a binding nomination.
+The Australian Securities and Investments Commission (ASIC) found almost 60% of super members hadn't nominated a beneficiary at all, and only 10% had a binding nomination.
 
 ## If you can't decide for yourself
 

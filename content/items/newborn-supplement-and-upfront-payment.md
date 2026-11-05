@@ -7,7 +7,7 @@ ask: Is there still a baby bonus?
 aliases: [baby bonus, newborn payment, Newborn Supplement, lump sum for a baby]
 weeks: [27, 42]
 stakes: medium
-summary: "A $708 lump sum and up to 13 weeks of extra Family Tax Benefit Part A, for families eligible for FTB Part A who don't get Parental Leave Pay for the same child."
+summary: "A $708 lump sum and up to 13 weeks of extra Family Tax Benefit (FTB) Part A, for families eligible for FTB Part A who don't get Parental Leave Pay for the same child."
 sources:
   - title: Services Australia — Newborn Upfront Payment and Newborn Supplement
     url: https://www.servicesaustralia.gov.au/newborn-upfront-payment-and-newborn-supplement

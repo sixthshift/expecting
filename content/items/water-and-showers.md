@@ -7,7 +7,7 @@ ask: Does a bath or shower help with the pain?
 aliases: [shower in labour, bath in labour, warm water, birth pool for pain]
 weeks: [36, 42]
 stakes: low
-summary: "Heat and water, a shower or a bath, can ease tension and backache in labour, and many hospitals let you labour in a bath; a TENS machine can't be used in water."
+summary: "Heat and water, a shower or a bath, can ease tension and backache in labour, and many hospitals let you labour in a bath; a transcutaneous electrical nerve stimulation (TENS) machine can't be used in water."
 sources:
   - title: The Royal Women's Hospital — Managing pain in labour
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/labour-birth/managing-pain-in-labour
@@ -33,7 +33,7 @@ The Royal Women's suggests relaxing in a bath or shower while you're at home in 
 
 ## In the birth suite
 
-Many hospitals are set up to allow you to labour in a bath, and many people find it helps with relaxation and pain management. RANZCOG says that if you're healthy and your pregnancy is uncomplicated, a warm bath may help with relaxation and pain relief: it increases relaxation and endorphins, and reduces the pain of contractions and pressure on your pelvis and muscles.
+Many hospitals are set up to allow you to labour in a bath, and many people find it helps with relaxation and pain management. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says that if you're healthy and your pregnancy is uncomplicated, a warm bath may help with relaxation and pain relief: it increases relaxation and endorphins, and reduces the pain of contractions and pressure on your pelvis and muscles.
 
 Pregnancy, Birth and Baby says most hospitals and birthing centres have facilities for a warm bath or shower during the first stage of labour, though warm baths and showers may not be possible for some people, and your midwife will still need to monitor you if you're in the bath.
 
@@ -43,4 +43,4 @@ Some hospitals also let you stay in the bath for the birth. According to the Roy
 
 ## TENS and water
 
-A TENS machine should not be used in or around water, including the bath or shower.
+A transcutaneous electrical nerve stimulation (TENS) machine should not be used in or around water, including the bath or shower.

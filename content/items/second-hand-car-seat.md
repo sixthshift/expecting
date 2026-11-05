@@ -7,7 +7,7 @@ ask: Can we use a hand-me-down car seat?
 aliases: [used car seat, borrowed capsule, old car seat, car seat expiry]
 weeks: [28, 37]
 stakes: high
-summary: "Where possible, buy a new car seat; a second-hand one only if it has never been in a crash, is undamaged, under 10 years old and shows the AS/NZS 1754 sticker."
+summary: "Where possible, buy a new car seat; a second-hand one only if it has never been in a crash, is undamaged, under 10 years old and shows the Australian/New Zealand Standard (AS/NZS) 1754 sticker."
 verdict: limit
 sources:
   - title: Pregnancy, Birth and Baby — Car and road safety for babies and children
@@ -31,7 +31,7 @@ If you choose a second-hand car seat, make sure it:
 
 - is undamaged, with all parts, including the shell and straps, in good condition
 - is less than 10 years old: check the date of manufacture
-- has a sticker showing it meets the 2004, 2010 or 2013 AS/NZS 1754 standard
+- has a sticker showing it meets the 2004, 2010 or 2013 Australian/New Zealand Standard (AS/NZS) 1754
 
 Install it to the manufacturer's instructions for that seat. If you're unsure, an authorised restraint fitting station in your state or territory can help.
 

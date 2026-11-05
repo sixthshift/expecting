@@ -39,7 +39,7 @@ Yes. Exercise is healthy in pregnancy: it can ease back and pelvic pain, help pr
 - scuba diving and skydiving
 - getting too hot: hot yoga or Pilates, spas, or hard exercise on hot or humid days
 - exercising lying flat on your back after 16 weeks: see [exercising on your back](exercise-lying-on-your-back)
-- extra load on the pelvic floor, such as jumping, bouncing, heavy weightlifting and kickboxing; walking lunges are best avoided too (RANZCOG)
+- extra load on the pelvic floor, such as jumping, bouncing, heavy weightlifting and kickboxing; walking lunges are best avoided too (Royal Australian and New Zealand College of Obstetricians and Gynaecologists, RANZCOG)
 
 ## What to do
 

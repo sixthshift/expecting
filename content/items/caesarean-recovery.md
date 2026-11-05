@@ -49,7 +49,7 @@ See your doctor around 6 weeks after the birth for your postnatal check.
 
 ## Feelings
 
-An unexpected or emergency caesarean can be traumatic. Talk to a midwife about it straight after, and to your doctor, midwife or child health nurse about how you feel. Guilt, anxiety, nightmares, trouble sleeping or always feeling on high alert can be signs you're not coping: get support early. PANDA is on 1300 726 306 and Lifeline on 13 11 14.
+An unexpected or emergency caesarean can be traumatic. Talk to a midwife about it straight after, and to your doctor, midwife or child health nurse about how you feel. Guilt, anxiety, nightmares, trouble sleeping or always feeling on high alert can be signs you're not coping: get support early. Perinatal Anxiety & Depression Australia (PANDA) is on 1300 726 306 and Lifeline on 13 11 14.
 
 ## When to get help
 

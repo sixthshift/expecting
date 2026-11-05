@@ -8,7 +8,7 @@ aliases: [pain management in labour, drug-free labour, natural birth, vaginal bi
 weeks: [30, 38]
 who: carrying
 stakes: high
-summary: "There are many ways to manage labour pain, from moving, water and massage through TENS and water injections to gas, opioids and an epidural; talk your preferences through with your midwife or doctor before labour, with a plan B, and know it's normal to change your mind."
+summary: "There are many ways to manage labour pain, from moving, water and massage through transcutaneous electrical nerve stimulation (TENS) and water injections to gas, opioids and an epidural; talk your preferences through with your midwife or doctor before labour, with a plan B, and know it's normal to change your mind."
 sources:
   - title: Pregnancy, Birth and Baby — Pain relief during labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/pain-relief/pain-relief-during-labour
@@ -34,8 +34,8 @@ How labour feels, and what helps, is very individual. Some people prefer medicin
 - **Heat and water.** Warm or cold packs, a shower or a bath. Some hospitals also offer birth in the water.
 - **Touch and massage**, to ease muscle tension and distract you.
 - **Continuous support** from a partner, family member or midwife can help you feel safe, calm and better able to manage contractions.
-- **TENS**, a small battery device with pads on your back that sends small electrical pulses. You can't use it with a pacemaker or spinal rods.
-- **Sterile water injections** for lower back pain: four small injections just under the skin that cause a short bee-sting feeling and may help lower back pain, without any side effects for you or your baby (RANZCOG).
+- **TENS** (transcutaneous electrical nerve stimulation), a small battery device with pads on your back that sends small electrical pulses. You can't use it with a pacemaker or spinal rods.
+- **Sterile water injections** for lower back pain: four small injections just under the skin that cause a short bee-sting feeling and may help lower back pain, without any side effects for you or your baby (Royal Australian and New Zealand College of Obstetricians and Gynaecologists, RANZCOG).
 
 **With medicines**
 

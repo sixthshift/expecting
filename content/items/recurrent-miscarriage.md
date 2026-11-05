@@ -31,7 +31,7 @@ Some hospitals have specialist recurrent miscarriage clinics that help find reas
 
 ## What might be found
 
-The cause of most recurrent miscarriage can't be found. When something is, it may be chromosomal; a condition such as diabetes, thyroid problems, PCOS or a clotting disorder; the shape of the uterus, fibroids or scarring; an immune condition; an infection; or older maternal age.
+The cause of most recurrent miscarriage can't be found. When something is, it may be chromosomal; a condition such as diabetes, thyroid problems, polycystic ovary syndrome (PCOS) or a clotting disorder; the shape of the uterus, fibroids or scarring; an immune condition; an infection; or older maternal age.
 
 ## Treatment
 

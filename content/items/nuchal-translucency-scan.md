@@ -27,6 +27,6 @@ The nuchal translucency (NT) scan is an ultrasound, usually done between 11 week
 
 **The result.** It's a screen, not a diagnosis, reported as low or high risk. If the space is larger than expected, your doctor or midwife may suggest more tests or scans. Sometimes the picture isn't clear and you'll need to come back.
 
-**With other tests.** It's part of combined first-trimester screening, alongside a blood test. If you choose NIPT instead, note that NIPT doesn't include the 11 to 13 week ultrasound: it has to be arranged separately if you decide to have one.
+**With other tests.** It's part of combined first-trimester screening, alongside a blood test. If you choose non-invasive prenatal testing (NIPT) instead, note that NIPT doesn't include the 11 to 13 week ultrasound: it has to be arranged separately if you decide to have one.
 
 **Cost.** Medicare covers the combined screening blood test, but there may be costs for the ultrasound. Ask before you book.

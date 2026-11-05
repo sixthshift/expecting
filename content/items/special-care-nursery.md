@@ -53,4 +53,4 @@ Every baby is different. Your baby may go home when they've grown enough not to 
 
 ## Looking after yourself
 
-Grief, anxiety, disbelief or guilt are all natural, and you may feel overwhelmed by the equipment. Don't blame yourself. Talk to the nursery staff; they can arrange a social worker. Miracle Babies Foundation's 24-hour NurtureLine is 1300 622 243, and PANDA's helpline is 1300 726 306.
+Grief, anxiety, disbelief or guilt are all natural, and you may feel overwhelmed by the equipment. Don't blame yourself. Talk to the nursery staff; they can arrange a social worker. Miracle Babies Foundation's 24-hour NurtureLine is 1300 622 243, and the helpline of Perinatal Anxiety & Depression Australia (PANDA) is 1300 726 306.

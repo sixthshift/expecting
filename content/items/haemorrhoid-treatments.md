@@ -18,7 +18,7 @@ sources:
 related: [laxatives]
 checked: 2026-10-29
 ---
-Yes. KEMH says suppositories and ointments containing an anaesthetic and/or steroid (for example Proctosedyl and Rectinol) are considered safe in pregnancy. MotherSafe says widely used over-the-counter products are not considered to increase risks to your baby at any stage of pregnancy, and that ointments and suppositories are both safe. They ease the symptoms but won't cure the haemorrhoids themselves.
+Yes. King Edward Memorial Hospital (KEMH) says suppositories and ointments containing an anaesthetic and/or steroid (for example Proctosedyl and Rectinol) are considered safe in pregnancy. MotherSafe says widely used over-the-counter products are not considered to increase risks to your baby at any stage of pregnancy, and that ointments and suppositories are both safe. They ease the symptoms but won't cure the haemorrhoids themselves.
 
 ## Why
 

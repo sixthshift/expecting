@@ -8,7 +8,7 @@ aliases: [UTI, bladder infection, cystitis, kidney infection, pyelonephritis, bu
 weeks: [1, 42]
 who: carrying
 stakes: high
-summary: "UTIs are the most common bacterial infection in pregnancy and are more likely to spread to the kidneys, so see your midwife or doctor for any symptoms and don't put off antibiotics."
+summary: "Urinary tract infections (UTIs) are the most common bacterial infection in pregnancy and are more likely to spread to the kidneys, so see your midwife or doctor for any symptoms and don't put off antibiotics."
 sources:
   - title: Pregnancy, Birth and Baby — Urinary tract infections (UTIs) during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/urinary-tract-infections-utis-during-pregnancy
@@ -19,7 +19,7 @@ checked: 2026-10-29
 ---
 ## What's usual
 
-A urinary tract infection is the most common bacterial infection in pregnancy: about 1 in 10 pregnant people get one. You can have one with no symptoms at all, which is why you're offered a urine test at your first antenatal visit or soon after.
+A urinary tract infection (UTI) is the most common bacterial infection in pregnancy: about 1 in 10 pregnant people get one. You can have one with no symptoms at all, which is why you're offered a urine test at your first antenatal visit or soon after.
 
 The signs:
 

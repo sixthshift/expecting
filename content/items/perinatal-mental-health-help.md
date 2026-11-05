@@ -7,7 +7,7 @@ ask: Who do I actually call if I'm not coping?
 aliases: [PANDA, Gidget Foundation, Beyond Blue, Lifeline, helpline, counsellor, psychologist, mental health care plan]
 weeks: [1, 42]
 stakes: high
-summary: "Start with your GP or midwife, or call the PANDA helpline on 1300 726 306; in a crisis call Lifeline on 13 11 14, and if anyone is in immediate danger, call 000."
+summary: "Start with your GP or midwife, or call the Perinatal Anxiety & Depression Australia (PANDA) helpline on 1300 726 306; in a crisis call Lifeline on 13 11 14, and if anyone is in immediate danger, call 000."
 sources:
   - title: PANDA — home (National Helpline)
     url: https://www.panda.org.au/
@@ -51,7 +51,7 @@ Mental health emergencies are serious. You're not wasting anyone's time.
 
 ## To talk it through
 
-- **PANDA National Helpline, 1300 726 306**. PANDA supports expecting and new parents and their support people, so the partner can call too, about you or about themselves. It isn't a crisis service: if you're having thoughts of suicide, call Lifeline.
+- **Perinatal Anxiety & Depression Australia (PANDA) National Helpline, 1300 726 306**. PANDA supports expecting and new parents and their support people, so the partner can call too, about you or about themselves. It isn't a crisis service: if you're having thoughts of suicide, call Lifeline.
 - **Beyond Blue, 1300 22 4636**, 24/7 mental health support from a trained professional.
 
 ## Not sure what you're feeling?

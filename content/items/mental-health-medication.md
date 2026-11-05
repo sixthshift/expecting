@@ -23,7 +23,7 @@ If you take a medicine every day for your mental health, the first rule is simpl
 
 ## What to know
 
-- **Some medicines are safe in pregnancy and breastfeeding,** including most SSRIs, which are used for depression and anxiety.
+- **Some medicines are safe in pregnancy and breastfeeding,** including most selective serotonin reuptake inhibitors (SSRIs), which are used for depression and anxiety.
 - **Others may need changing.** For some, such as some medicines for bipolar disorder, there isn't enough evidence to say whether they should be stopped. Valproic acid is not recommended in pregnancy.
 - **Treatment matters.** The Royal Women's Hospital says an untreated mental illness can have long-term effects on your health and wellbeing and your baby's, and that there are safe and effective treatment options for depression during pregnancy and while breastfeeding.
 

@@ -7,7 +7,7 @@ ask: I'm 31 weeks and in labour. What happens to the baby?
 aliases: [premature, preterm, early labour, born early, 32 weeks, 37 weeks, special care nursery]
 weeks: [20, 37]
 stakes: high
-summary: "A baby born before 37 weeks is premature; most born from 32 weeks have no serious long-term problems, and babies born before 32 weeks are usually cared for in a NICU at first."
+summary: "A baby born before 37 weeks is premature; most born from 32 weeks have no serious long-term problems, and babies born before 32 weeks are usually cared for in a neonatal intensive care unit (NICU) at first."
 sources:
   - title: Pregnancy, Birth and Baby — Premature baby
     url: https://www.pregnancybirthbaby.org.au/babies/premature-baby/premature-baby

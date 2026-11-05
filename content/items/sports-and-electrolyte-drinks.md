@@ -7,7 +7,7 @@ ask: Can I drink Hydralyte or Powerade?
 aliases: [Hydralyte, Gastrolyte, Powerade, Gatorade, electrolytes, rehydration, icy poles, oral rehydration]
 who: carrying
 stakes: low
-summary: "Yes: KEMH suggests rehydration drinks, sports drinks and icy poles for nausea, and MotherSafe suggests oral rehydration drinks for vomiting and diarrhoea."
+summary: "Yes: King Edward Memorial Hospital (KEMH) suggests rehydration drinks, sports drinks and icy poles for nausea, and MotherSafe suggests oral rehydration drinks for vomiting and diarrhoea."
 verdict: yes
 sources:
   - title: KEMH — Nausea and vomiting in pregnancy (patient information)
@@ -17,7 +17,7 @@ sources:
 related: [water, morning-sickness, anti-diarrhoea-medicines]
 checked: 2026-10-29
 ---
-Yes, when you need to replace fluids. For nausea and vomiting, KEMH suggests drinking small amounts regularly (at least one to two litres of fluid a day, unless advised otherwise) and trying icy poles or cold fluids such as rehydration drinks (for example Hydralyte), sports drinks (for example Powerade), diluted cordials or fruit juices, and clear soups.
+Yes, when you need to replace fluids. For nausea and vomiting, King Edward Memorial Hospital (KEMH) suggests drinking small amounts regularly (at least one to two litres of fluid a day, unless advised otherwise) and trying icy poles or cold fluids such as rehydration drinks (for example Hydralyte), sports drinks (for example Powerade), diluted cordials or fruit juices, and clear soups.
 
 ## Why
 

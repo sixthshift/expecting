@@ -35,7 +35,7 @@ Pregnancy changes how your lungs, heart and immune system work, which can make y
 - **Cut down on indoor sources** where you can: frying and grilling, especially without a range hood, cleaning products and wood heating. Have gas appliances serviced so they don't leak.
 - **Walk, cycle or drive on quieter streets.** One or two streets back from a main road cuts your exposure a lot, especially in rush hour.
 - **On poor air quality days,** stay inside with the doors and windows shut, and use the air conditioner on recycle. Open up again once the air clears: the rest of the time, plenty of fresh air is good. Air-conditioned public buildings like libraries and cinemas are another option. Your state's environment or health department publishes air quality readings, and the AirRater app shows them where you live.
-- **For smoky weeks,** such as bushfire smoke or winter wood smoke, a HEPA air cleaner sized for the room can make one clean-air room in your home.
+- **For smoky weeks,** such as bushfire smoke or winter wood smoke, a high-efficiency particulate air (HEPA) cleaner sized for the room can make one clean-air room in your home.
 - **Masks:** paper and cloth masks don't protect against air pollution. A properly fitted P2 or N95 mask does, but every mask makes breathing harder, so check with your doctor or midwife before using one in pregnancy.
 - **Keep exercising.** If you're otherwise healthy, the benefits of exercise outweigh the harms except when pollution is extreme.
 - **If you have asthma or another lung or heart condition,** watch your symptoms on poor air days and follow your plan. **If you have diabetes,** watch your blood glucose more closely.

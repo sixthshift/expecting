@@ -23,7 +23,7 @@ A baby will change your relationship in some way; that's guaranteed. Gidget says
 
 ## Where it often starts
 
-PBB suggests talking early about the things that tend to cause friction: how you each feel about the pregnancy and what's coming, your parenting styles, money worries, your sexual needs, how you'll make time for yourselves and each other, and how you'll share the household tasks now and after the birth. Unwanted advice from family can be another: you can explain gently that some decisions are only yours to make.
+Pregnancy, Birth and Baby (PBB) suggests talking early about the things that tend to cause friction: how you each feel about the pregnancy and what's coming, your parenting styles, money worries, your sexual needs, how you'll make time for yourselves and each other, and how you'll share the household tasks now and after the birth. Unwanted advice from family can be another: you can explain gently that some decisions are only yours to make.
 
 ## Talking it through
 

@@ -37,7 +37,7 @@ There are three thresholds:
 
 - **Original Medicare Safety Net**, for everyone in Medicare: once your gap amounts reach it, you get back 100% of the schedule fee for out-of-hospital services.
 - **Extended Medicare Safety Net (general)**, for everyone in Medicare: once your out-of-pocket amounts reach it, you get back 80% of out-of-pocket costs, or up to the benefit caps.
-- **Extended Medicare Safety Net (concessional and Family Tax Benefit Part A)**: a lower threshold for concession cardholders and families eligible for FTB Part A.
+- **Extended Medicare Safety Net (concessional and Family Tax Benefit (FTB) Part A)**: a lower threshold for concession cardholders and families eligible for FTB Part A.
 
 **Only verified payments count**: ones you've paid in full before you claim from Medicare. Unpaid accounts count only once you've paid them.
 

@@ -30,7 +30,7 @@ Pregnancy itself can change how your body processes medicines, which can change 
 
 ## What to do
 
-- **Talk before you change anything.** KEMH's advice is that starting, continuing, changing or stopping a medicine in pregnancy should be discussed with a doctor, pharmacist or midwife, and the decision made with them.
+- **Talk before you change anything.** King Edward Memorial Hospital's (KEMH) advice is that starting, continuing, changing or stopping a medicine in pregnancy should be discussed with a doctor, pharmacist or midwife, and the decision made with them.
 - **If you're planning a pregnancy,** it's a good idea to talk to your doctor then, if you take regular medicines.
 - **Already pregnant?** Your doctor, pharmacist or midwife can advise on what you take.
 - **For questions in between,** healthdirect's nurses are on 1800 022 222, 24 hours a day.

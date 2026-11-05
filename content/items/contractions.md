@@ -46,7 +46,7 @@ Braxton Hicks ("practice contractions") can happen through pregnancy but don't o
 
 ## When they start
 
-If you've had a normal pregnancy and you're comfortable, you can usually stay home and rest in early labour. A warm bath or shower, heat, a TENS machine, slow breathing, changing position and gentle movement can help. Contact your midwife or doctor any time you're unsure.
+If you've had a normal pregnancy and you're comfortable, you can usually stay home and rest in early labour. A warm bath or shower, heat, a transcutaneous electrical nerve stimulation (TENS) machine, slow breathing, changing position and gentle movement can help. Contact your midwife or doctor any time you're unsure.
 
 **Contact your birth unit or midwife** if your waters break, your contractions become painful and regular (2 or more in 10 minutes), you need extra support with the pain, you've planned a caesarean and you're in labour, your baby's movements change, or you have any concerns. If the baby is moving less, call straight away; don't wait ([The baby is moving less](baby-moving-less)).
 

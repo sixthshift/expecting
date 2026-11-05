@@ -42,7 +42,7 @@ Your doctor or midwife brings the evidence about each option; you bring your val
 
 ## A second opinion, or a complaint
 
-You have a right to a second opinion if you disagree with your doctor or midwife: ask hospital staff how. If you're not satisfied, you can speak to your doctor or midwife, your state's health complaints agency or health department, AHPRA (about a registered practitioner's unsafe behaviour or practice) or the National Health Practitioner Ombudsman. Giving feedback or complaining must not affect your care. After labour, birth or an emergency, you can ask for a debrief.
+You have a right to a second opinion if you disagree with your doctor or midwife: ask hospital staff how. If you're not satisfied, you can speak to your doctor or midwife, your state's health complaints agency or health department, the Australian Health Practitioner Regulation Agency (AHPRA), about a registered practitioner's unsafe behaviour or practice, or the National Health Practitioner Ombudsman. Giving feedback or complaining must not affect your care. After labour, birth or an emergency, you can ask for a debrief.
 
 ## Interpreters
 

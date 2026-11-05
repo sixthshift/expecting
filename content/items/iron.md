@@ -26,7 +26,7 @@ checked: 2026-11-01
 ---
 Ask your doctor or midwife whether an iron supplement suits you. The advice is changing.
 
-**The national pregnancy care guidelines** have a draft recommendation (approved by their steering committee in December 2025, not yet by the NHMRC) to offer and recommend oral iron, 60 to 200 mg of elemental iron a day, to everyone who is pregnant, not only those who are low. They note that most pregnant people in Australia get about half the iron they need from food. Taking it 1 to 4 times a week at a higher dose may work as well as daily, with fewer side effects. Iron isn't right for everyone: for example, people with haemochromatosis.
+**The national pregnancy care guidelines** have a draft recommendation, approved by their steering committee in December 2025 but not yet by the National Health and Medical Research Council (NHMRC), to offer and recommend oral iron, 60 to 200 mg of elemental iron a day, to everyone who is pregnant, not only those who are low. They note that most pregnant people in Australia get about half the iron they need from food. Taking it 1 to 4 times a week at a higher dose may work as well as daily, with fewer side effects. Iron isn't right for everyone: for example, people with haemochromatosis.
 
 ## Why
 

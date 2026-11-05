@@ -31,7 +31,7 @@ Your midwife or doctor may ask to do a vaginal examination to check you're fully
 
 ## Pushing
 
-Push with your contractions when you feel ready and your midwife says you're fully dilated; your body usually tells you when. Pushing is more effective upright: squatting, kneeling, sitting, standing, or in a pool or bath. RANZCOG recommends an upright position in the second stage, as it lowers the chance of an assisted birth; with an epidural, lying on your left side may be recommended.
+Push with your contractions when you feel ready and your midwife says you're fully dilated; your body usually tells you when. Pushing is more effective upright: squatting, kneeling, sitting, standing, or in a pool or bath. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) recommends an upright position in the second stage, as it lowers the chance of an assisted birth; with an epidural, lying on your left side may be recommended.
 
 **With an epidural,** you may not feel an urge to push, or it may be weaker, so your midwife will guide you on when and how long to push. An epidural limits some movement and can make this stage longer.
 

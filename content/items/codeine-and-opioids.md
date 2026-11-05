@@ -7,7 +7,7 @@ ask: Can I take codeine?
 aliases: [codeine, Panadeine Forte, Panadeine, Nurofen Plus, Mersyndol, oxycodone, Endone, tramadol, tapentadol, morphine, opioids, strong painkillers]
 who: carrying
 stakes: high
-summary: "Only with your doctor: if paracetamol isn't enough or suitable, KEMH says short-term use of some opioids is considered safe in pregnancy and MotherSafe says short-term or infrequent use may be considered, but regular use late in pregnancy can cause withdrawal in the newborn."
+summary: "Only with your doctor: if paracetamol isn't enough or suitable, King Edward Memorial Hospital (KEMH) says short-term use of some opioids is considered safe in pregnancy and MotherSafe says short-term or infrequent use may be considered, but regular use late in pregnancy can cause withdrawal in the newborn."
 verdict: ask
 sources:
   - title: MotherSafe (Royal Hospital for Women) — Pain in pregnancy
@@ -21,7 +21,7 @@ sources:
 related: [paracetamol, migraine-medicines, ibuprofen-and-nsaids]
 checked: 2026-10-29
 ---
-Talk to your doctor. Opioids such as codeine, oxycodone and morphine are stronger painkillers for moderate to severe pain. If paracetamol isn't enough or isn't suitable, KEMH says short-term use of some opioids is considered safe in pregnancy, and MotherSafe says short-term or infrequent use may be considered. KEMH says you need to consult your doctor if you need one. Pregnancy, Birth and Baby says codeine is not found in over-the-counter medicines.
+Talk to your doctor. Opioids such as codeine, oxycodone and morphine are stronger painkillers for moderate to severe pain. If paracetamol isn't enough or isn't suitable, King Edward Memorial Hospital (KEMH) says short-term use of some opioids is considered safe in pregnancy, and MotherSafe says short-term or infrequent use may be considered. KEMH says you need to consult your doctor if you need one. Pregnancy, Birth and Baby says codeine is not found in over-the-counter medicines.
 
 ## Why
 

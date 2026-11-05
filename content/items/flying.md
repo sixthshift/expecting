@@ -33,7 +33,7 @@ Yes. Flying is generally safe for you and your baby. Talk over any health concer
 
 ## Why
 
-**Week limits.** Airlines set their own, and some won't take you beyond 28 weeks; limits are often earlier for international flights than domestic ones. Flying beyond 36 weeks isn't recommended (RANZCOG). Diabetes, twins or more, high blood pressure and a history of premature labour all make complications while travelling more likely (MotherSafe), so talk to your doctor before you book.
+**Week limits.** Airlines set their own, and some won't take you beyond 28 weeks; limits are often earlier for international flights than domestic ones. Flying beyond 36 weeks isn't recommended (Royal Australian and New Zealand College of Obstetricians and Gynaecologists, RANZCOG). Diabetes, twins or more, high blood pressure and a history of premature labour all make complications while travelling more likely (MotherSafe), so talk to your doctor before you book.
 
 **Radiation.** Less than 1 mSv above background won't significantly raise the risk to an unborn baby. A Melbourne–Singapore–London flight is about 0.065 mSv.
 

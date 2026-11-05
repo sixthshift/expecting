@@ -18,4 +18,4 @@ checked: 2026-10-29
 ---
 Everyone pregnant is offered a urine test at or soon after the first antenatal visit. The lab checks it for bacteria, which can find an infection even when you have no symptoms.
 
-If bacteria are found, your doctor decides whether you need antibiotics. Treating an infection matters: in pregnancy a bladder infection is more likely to reach the kidneys, and a UTI or kidney infection raises the chance of an early birth or a small baby. That risk goes away once it's treated.
+If bacteria are found, your doctor decides whether you need antibiotics. Treating an infection matters: in pregnancy a bladder infection is more likely to reach the kidneys, and a urinary tract infection (UTI) or kidney infection raises the chance of an early birth or a small baby. That risk goes away once it's treated.

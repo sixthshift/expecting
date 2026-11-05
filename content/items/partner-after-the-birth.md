@@ -46,4 +46,4 @@ The baby blues are common in the first few weeks. Encourage your partner to see 
 
 ## Watch your own
 
-Partners get postnatal anxiety and depression too; Gidget says around 1 in 10 new dads experience perinatal anxiety or depression. Eat well, keep moving, rest when you can, and share rest with your partner. Talk to your doctor if you're feeling very tired, irritable, angry, overwhelmed or like you can't cope. Gidget says if you've felt low, anxious, irritable or disconnected for two weeks or more, or things are getting harder, extra support may help: Gidget, PANDA, Beyond Blue, Dad Space, SMS4dads or Lifeline.
+Partners get postnatal anxiety and depression too; Gidget says around 1 in 10 new dads experience perinatal anxiety or depression. Eat well, keep moving, rest when you can, and share rest with your partner. Talk to your doctor if you're feeling very tired, irritable, angry, overwhelmed or like you can't cope. Gidget says if you've felt low, anxious, irritable or disconnected for two weeks or more, or things are getting harder, extra support may help: Gidget, Perinatal Anxiety & Depression Australia (PANDA), Beyond Blue, Dad Space, SMS4dads or Lifeline.

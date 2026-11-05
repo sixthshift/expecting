@@ -28,7 +28,7 @@ Yes, with limits on the decongestant kind. Check with your doctor or pharmacist 
 Very small amounts of nasal spray medicines are expected to absorb into the body, so they're considered safe in pregnancy.
 
 - **Saline (salt water) sprays** can help remove allergens from the nasal passages.
-- **Corticosteroid sprays** (budesonide, mometasone) act at the nose and enter your bloodstream in very small amounts only, so MotherSafe and KEMH consider them safe.
+- **Corticosteroid sprays** (budesonide, mometasone) act at the nose and enter your bloodstream in very small amounts only, so MotherSafe and King Edward Memorial Hospital (KEMH) consider them safe.
 - **Antihistamine sprays** (azelastine) are safe to use when needed.
 - **Decongestant sprays** (oxymetazoline, xylometazoline) are considered safe, but only short term. Use them for no more than 3 days at a time: longer, and the congestion can come back worse.
 

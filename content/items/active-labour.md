@@ -45,7 +45,7 @@ A folder with your important medical information helps, and so does sharing your
 
 ## How long it takes
 
-Your midwife or doctor checks progress by how far the cervix has opened and thinned, how far the baby's head has moved down into your pelvis, and the strength, frequency and length of your contractions. RANZCOG says the active first stage (from 5 cm) usually lasts no more than 18 hours in a first labour and 12 hours in later ones. Its guideline says vaginal examinations shouldn't routinely be planned more often than every four hours in the first stage.
+Your midwife or doctor checks progress by how far the cervix has opened and thinned, how far the baby's head has moved down into your pelvis, and the strength, frequency and length of your contractions. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says the active first stage (from 5 cm) usually lasts no more than 18 hours in a first labour and 12 hours in later ones. Its guideline says vaginal examinations shouldn't routinely be planned more often than every four hours in the first stage.
 
 ## Coping
 

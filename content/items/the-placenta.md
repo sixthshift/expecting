@@ -15,7 +15,7 @@ sources:
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/pregnancy-problems/pregnancy-problems-in-later-pregnancy/placenta-problems
   - title: Pregnancy, Birth and Baby — Baby movements during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
-related: [the-umbilical-cord, amniotic-fluid, term-anterior-placenta, term-posterior-placenta, term-placenta-praevia, twins-and-multiples]
+related: [the-umbilical-cord, amniotic-fluid, term-anterior-placenta, term-posterior-placenta, term-fundal-placenta, term-placenta-praevia, twins-and-multiples]
 appointment:
   - Where is my placenta?
 checked: 2026-10-29

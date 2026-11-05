@@ -64,7 +64,7 @@ A safety plan is thinking ahead about how to stay as safe as possible. You can m
 ## Other help
 
 - Pregnancy, Birth and Baby: 1800 882 436
-- PANDA: 1300 726 306
+- Perinatal Anxiety & Depression Australia (PANDA): 1300 726 306
 - Lifeline: 13 11 14, for crisis support
 - 13YARN: 13 92 76, for Aboriginal and Torres Strait Islander people
 

@@ -46,4 +46,4 @@ The type and timing of birth depend on your needs. You may need to give birth in
 
 ## What to do
 
-Have your first antenatal visit before 10 weeks if you can: early care may be linked to better health for you and your baby. Bring your questions to each appointment; Pregnancy, Birth and Baby's maternal child health nurses are on 1800 882 436, 7am to midnight (AET), every day.
+Have your first antenatal visit before 10 weeks if you can: early care may be linked to better health for you and your baby. Bring your questions to each appointment; Pregnancy, Birth and Baby's maternal child health nurses are on 1800 882 436, 7am to midnight Australian Eastern Time, every day.

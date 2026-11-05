@@ -29,7 +29,7 @@ The single-dose oral tablet (fluconazole) is different. MotherSafe says it isn't
 
 ## What to do
 
-- **See your doctor first,** even though these are sold without a prescription. Other infections, such as genital herpes or a UTI, can cause similar symptoms, and a swab may be needed.
+- **See your doctor first,** even though these are sold without a prescription. Other infections, such as genital herpes or a urinary tract infection (UTI), can cause similar symptoms, and a swab may be needed.
 - **Choose the longer course.** A 6-day course of clotrimazole, or 14 days of nystatin, works better than the shorter ones.
 - **Pessaries are best inserted without the applicator.**
 - **For itch,** a low-strength hydrocortisone cream applied sparingly to the vulva for a short time is considered safe.

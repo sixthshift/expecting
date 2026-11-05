@@ -14,7 +14,7 @@ sources:
 related: [epidural, monitoring-in-labour]
 checked: 2026-10-29
 ---
-An epidural is more than the needle in your back. Before it goes in, you'll usually have a cannula (drip) put into your arm. After that, you and your baby are monitored continuously: your blood pressure, because an epidural can lower it (you might also need fluids through the drip), and your baby on a CTG.
+An epidural is more than the needle in your back. Before it goes in, you'll usually have a cannula (drip) put into your arm. After that, you and your baby are monitored continuously: your blood pressure, because an epidural can lower it (you might also need fluids through the drip), and your baby on a cardiotocograph (CTG).
 
 You won't feel when you need to wee, so a urine catheter goes into your bladder to keep it empty. You can move your legs but may not be able to stand, so you stay in bed.
 

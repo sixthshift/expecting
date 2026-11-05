@@ -39,7 +39,7 @@ During pregnancy some of the baby's DNA passes into your blood. Non-invasive pre
 ## Things to weigh
 
 - **Cost.** NIPT costs around $450 to $800 (as at 2026), depending on the provider and the tests you choose. Neither Medicare nor private health insurance covers it, and you may also pay for the doctor's appointment to get the referral.
-- **It's still a screen.** It gives a chance, not a yes or no. A higher-chance result needs a diagnostic test, CVS or amniocentesis, to confirm it, and you may be offered genetic counselling.
+- **It's still a screen.** It gives a chance, not a yes or no. A higher-chance result needs a diagnostic test, chorionic villus sampling (CVS) or amniocentesis, to confirm it, and you may be offered genetic counselling.
 - **It doesn't cover everything.** NIPT doesn't screen for all genetic conditions; ask what's included.
 - **It doesn't replace the scan.** NIPT doesn't include the 11 to 13 week ultrasound, which has to be arranged separately if you want one.
 - **The sex.** NIPT can tell you the baby's sex, if you want to know.

@@ -8,7 +8,7 @@ aliases: [maternal request caesarean, elective caesarean by choice, caesarean fo
 weeks: [20, 36]
 who: carrying
 stakes: high
-summary: "You can ask: RANZCOG's guideline says that if, after a full discussion over time, you still want a caesarean, your obstetrician may agree to do it or refer you to a second obstetrician; the risks differ for you, the baby and future pregnancies either way."
+summary: "You can ask: the Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) guideline says that if, after a full discussion over time, you still want a caesarean, your obstetrician may agree to do it or refer you to a second obstetrician; the risks differ for you, the baby and future pregnancies either way."
 sources:
   - title: RANZCOG — Caesarean Birth on Maternal Request (C-Obs 39)
     url: https://ranzcog.edu.au/wp-content/uploads/Caesarean-Birth-Maternal-Request.pdf
@@ -27,7 +27,7 @@ Some people would rather have a caesarean than a vaginal birth, for reasons that
 ## The options
 
 - **A planned vaginal birth**, with the chance of needing forceps, a vacuum or an emergency caesarean along the way.
-- **A planned caesarean**, booked ahead. RANZCOG says one without other risks shouldn't be done before 39 weeks.
+- **A planned caesarean**, booked ahead. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says one without other risks shouldn't be done before 39 weeks.
 
 RANZCOG's guideline for obstetricians (2023) says that if, after a full discussion over time of the benefits and harms of both, you still ask for a caesarean, the obstetrician may agree to do it, or refer you to a second obstetrician to talk it through and reach a decision. They should respect your request as valid and explore the reasons for it; a thorough talk about fears of pain, labour or birth may ease them. An obstetrician can also decline if they think the risks outweigh the benefits for you, and then either of you can seek a second opinion.
 

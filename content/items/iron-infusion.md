@@ -21,7 +21,7 @@ appointment:
   - What side effects should I expect from the infusion?
 checked: 2026-10-29
 ---
-Yes, if your doctor recommends it, but not in the first trimester: healthdirect says IV iron should be avoided then.
+Yes, if your doctor recommends it, but not in the first trimester: healthdirect says intravenous (IV) iron should be avoided then.
 
 ## Why
 

@@ -35,7 +35,7 @@ Living with a mental illness can bring a higher risk of some complications, such
 
 ## Your medicines
 
-If you take medicines every day, **do not stop or change your dose without first discussing it with your doctor.** Some are safe in pregnancy and breastfeeding, including most SSRIs for depression and anxiety. Others need to be changed: valproic acid, used for bipolar disorder, is not recommended in pregnancy. Your doctor will go through the risks and benefits of each option, including how stopping might affect your mental health, so you can decide together.
+If you take medicines every day, **do not stop or change your dose without first discussing it with your doctor.** Some are safe in pregnancy and breastfeeding, including most selective serotonin reuptake inhibitors (SSRIs) for depression and anxiety. Others need to be changed: valproic acid, used for bipolar disorder, is not recommended in pregnancy. Your doctor will go through the risks and benefits of each option, including how stopping might affect your mental health, so you can decide together.
 
 ## Particular conditions
 
@@ -43,7 +43,7 @@ If you take medicines every day, **do not stop or change your dose without first
 
 **Eating disorders.** Pregnancy can be tricky because you have less control over your eating and weight gain, and some people find that very distressing. You're likely to need extra monitoring, ideally from a team that may include a dietitian, a physician and a psychiatrist as well as your midwife and obstetrician. Relapse is a risk after the birth: if you find yourself dieting, purging or exercising excessively again, go back to your health professionals.
 
-**ADHD.** Pregnancy adds appointments, planning and memory load, hormones and medication changes can shift symptoms, and ADHD raises the risk of depression and anxiety after the birth. Gidget suggests apps and reminders for appointments, and taking notes or a support person to appointments.
+**Attention deficit hyperactivity disorder (ADHD).** Pregnancy adds appointments, planning and memory load, hormones and medication changes can shift symptoms, and ADHD raises the risk of depression and anxiety after the birth. Gidget suggests apps and reminders for appointments, and taking notes or a support person to appointments.
 
 ## For the partner
 

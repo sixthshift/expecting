@@ -12,7 +12,7 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/health-conditions-and-complications/baby-movements-during-pregnancy
   - title: Pregnancy, Birth and Baby — About the placenta
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/about-the-placenta
-related: [term-posterior-placenta, the-placenta, baby-movements]
+related: [term-posterior-placenta, the-placenta, baby-movements, term-fundal-placenta]
 checked: 2026-10-29
 ---
 An anterior placenta grows on the front side of your uterus. The front is one of the places the placenta is expected to attach, and its exact location varies from person to person. With an anterior placenta, movement tends to be felt at around 20 weeks and may not feel as strong.

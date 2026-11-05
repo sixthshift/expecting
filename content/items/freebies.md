@@ -29,7 +29,7 @@ Some of the most useful things for a new family cost nothing. Most of the help i
 **Government help (each has its own item):**
 
 - Medicare covers most pregnancy and birth care as a public patient.
-- The flu, whooping cough and RSV vaccines in pregnancy are free under the National Immunisation Program.
+- The flu, whooping cough and respiratory syncytial virus (RSV) vaccines in pregnancy are free under the National Immunisation Program.
 - Parental Leave Pay, or the Newborn Upfront Payment and Newborn Supplement.
 
 **Free services after the birth:**

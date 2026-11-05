@@ -8,7 +8,7 @@ aliases: [COVID vaccine pregnancy, COVID booster pregnant, mRNA vaccine pregnanc
 weeks: [20, 40]
 who: carrying
 stakes: medium
-summary: "Not routinely recommended, but the Immunisation Handbook says anyone pregnant can consider a dose from 20 weeks in each pregnancy, to protect the baby; mRNA COVID-19 vaccines are safe in pregnancy."
+summary: "Not routinely recommended, but the Immunisation Handbook says anyone pregnant can consider a dose from 20 weeks in each pregnancy, to protect the baby; messenger RNA (mRNA) COVID-19 vaccines are safe in pregnancy."
 sources:
   - title: Australian Immunisation Handbook — COVID-19
     url: https://immunisationhandbook.health.gov.au/contents/vaccine-preventable-diseases/covid-19
@@ -21,7 +21,7 @@ appointment:
   - Should I have a COVID-19 dose this pregnancy, given my vaccine history?
 checked: 2026-10-29
 ---
-Unlike the flu, whooping cough and RSV vaccines, a COVID-19 vaccine isn't routinely recommended in pregnancy. It's a choice you can make. The Australian Immunisation Handbook (COVID-19 chapter updated 1 October 2026) says "not routinely recommended, but" all pregnant people can consider a dose of COVID-19 vaccine from 20 weeks in each pregnancy, to protect the baby.
+Unlike the flu, whooping cough and respiratory syncytial virus (RSV) vaccines, a COVID-19 vaccine isn't routinely recommended in pregnancy. It's a choice you can make. The Australian Immunisation Handbook (COVID-19 chapter updated 1 October 2026) says "not routinely recommended, but" all pregnant people can consider a dose of COVID-19 vaccine from 20 weeks in each pregnancy, to protect the baby.
 
 ## The options
 
@@ -34,7 +34,7 @@ Unlike the flu, whooping cough and RSV vaccines, a COVID-19 vaccine isn't routin
 
 **How serious COVID-19 is now.** Unvaccinated pregnant people with COVID-19 have a higher risk of severe disease than people who aren't pregnant, and that risk appears substantially reduced in those who have been vaccinated (in the Omicron period). The Handbook says the risks of severe outcomes from Omicron infection are substantially lower than with earlier variants, and Omicron is the only variant now circulating globally. In some countries babies under 6 months were hospitalised more than any other age group of children, though overall their illness severity stayed low.
 
-**Safety.** mRNA COVID-19 vaccines are safe in pregnancy. Side effects after an original mRNA vaccine were similar to those in people who aren't pregnant; pregnant people were slightly more likely to report a sore arm, and less likely to report fever or tiredness.
+**Safety.** Messenger RNA (mRNA) COVID-19 vaccines are safe in pregnancy. Side effects after an original mRNA vaccine were similar to those in people who aren't pregnant; pregnant people were slightly more likely to report a sore arm, and less likely to report fever or tiredness.
 
 **With other vaccines.** COVID-19 vaccines can be given at the same time as other vaccines, including the flu vaccine.
 

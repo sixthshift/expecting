@@ -23,7 +23,7 @@ Yes, with a shorter clock. You can safely eat leftovers if you put them straight
 
 ## Why
 
-Leftover food can become contaminated with bacteria. Listeria can grow even in the fridge, so time matters. For most people FSANZ says refrigerated leftovers should be eaten within 3 to 4 days; for pregnant people, within 1 day.
+Leftover food can become contaminated with bacteria. Listeria can grow even in the fridge, so time matters. For most people Food Standards Australia New Zealand (FSANZ) says refrigerated leftovers should be eaten within 3 to 4 days; for pregnant people, within 1 day.
 
 Some bacteria make toxins that heat doesn't destroy if food is left too long at room temperature or reheated over and over. Rice and pasta can carry bacteria like this.
 

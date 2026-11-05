@@ -25,7 +25,7 @@ This one is for you, the partner.
 
 Whooping cough (pertussis) is serious in babies under 6 months, and when a young baby catches it, the source is often someone in their own household. Vaccinating the people around a baby is called cocooning: vaccinating both parents is estimated to reduce the baby's risk of whooping cough by 51%.
 
-**Who.** The Australian Immunisation Handbook recommends a whooping cough booster (dTpa) for adult household contacts and carers of babies under 6 months, if their last dose was more than 10 years ago. Protection from the vaccine wanes over that time. That's you, and anyone else living with the baby or caring for them.
+**Who.** The Australian Immunisation Handbook recommends a whooping cough booster, the diphtheria, tetanus and acellular pertussis vaccine (dTpa), for adult household contacts and carers of babies under 6 months, if their last dose was more than 10 years ago. Protection from the vaccine wanes over that time. That's you, and anyone else living with the baby or caring for them.
 
 **When.** At least 2 weeks before you have close contact with the baby.
 

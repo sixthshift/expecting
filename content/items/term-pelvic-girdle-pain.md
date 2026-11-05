@@ -6,7 +6,7 @@ topic: body
 ask: What is PGP or SPD?
 aliases: [pelvic girdle pain, PGP, SPD, symphysis pubis dysfunction, pubic bone pain]
 stakes: medium
-summary: "Pelvic girdle pain is pain in the joints of the pelvis in pregnancy, at the front or the back; it used to be called SPD."
+summary: "Pelvic girdle pain is pain in the joints of the pelvis in pregnancy, at the front or the back; it used to be called symphysis pubis dysfunction (SPD)."
 sources:
   - title: Pregnancy, Birth and Baby — Pelvic pain during pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/body-changes-and-anatomy/pelvic-pain-during-pregnancy

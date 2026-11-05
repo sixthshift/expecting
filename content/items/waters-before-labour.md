@@ -7,7 +7,7 @@ ask: My waters have broken but nothing's happening. Do we wait?
 aliases: [term PROM, prelabour rupture of membranes, waiting after waters break, induction after waters break]
 weeks: [37, 42]
 stakes: high
-summary: "From 37 weeks, most people go into labour on their own within a day or two, but the infection risk grows with time: RANZCOG recommends induction within 24 hours where practical, straight away if you carry GBS, and waiting is a choice you can make with extra checks."
+summary: "From 37 weeks, most people go into labour on their own within a day or two, but the infection risk grows with time: the Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) recommends induction within 24 hours where practical, straight away if you carry group B strep (GBS), and waiting is a choice you can make with extra checks."
 sources:
   - title: Pregnancy, Birth and Baby — Breech pregnancy
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
@@ -25,13 +25,13 @@ In about 1 in 12 pregnancies after 37 weeks, the waters break before labour star
 
 ## The options
 
-- **Induction (active management).** Starting labour, usually with an oxytocin drip in Australia; prostaglandins may be used if your cervix isn't ready. RANZCOG recommends induction within 24 hours where practical. RANZCOG concludes that planned early birth leads to fewer infections for you and the baby and greater satisfaction, without an increase in caesareans.
+- **Induction (active management).** Starting labour, usually with an oxytocin drip in Australia; prostaglandins may be used if your cervix isn't ready. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) recommends induction within 24 hours where practical. RANZCOG concludes that planned early birth leads to fewer infections for you and the baby and greater satisfaction, without an increase in caesareans.
 - **Waiting (expectant management).** Letting labour start on its own. RANZCOG says some people may choose this after being told about the increased risks.
 
 ## Things to weigh
 
 - **How soon labour usually comes.** RANZCOG: about 70% start labour within 24 hours, 85% within 48 hours and 95% within 96 hours. Pregnancy, Birth and Baby says most go into labour within 24 to 96 hours, and most give birth within 24 to 48 hours of their waters breaking.
-- **Group B strep.** If you carry GBS, RANZCOG recommends antibiotics and an early planned birth (its plain-language summary says labour induced straight away); Pregnancy, Birth and Baby says your team may recommend induction as soon as possible.
+- **Group B strep.** If you carry group B strep (GBS), RANZCOG recommends antibiotics and an early planned birth (its plain-language summary says labour induced straight away); Pregnancy, Birth and Baby says your team may recommend induction as soon as possible.
 - **Other things that complicate it:** a previous baby with GBS disease, an infection, meconium in the fluid, or a previous caesarean.
 - **If you'd rather wait.** RANZCOG says that ideally the baby is head down and settled, you're GBS negative, there are no signs of infection, the baby's heart trace and movements are normal, the fluid is clear, you can get to hospital reliably, and there's a clear plan for review. You'd check your temperature every 4 hours while awake, and watch your fluid loss and the baby's movements.
 - **After 18 hours.** If your waters break 18 hours or more before the birth, your baby will need their vital signs checked for their first 24 hours.

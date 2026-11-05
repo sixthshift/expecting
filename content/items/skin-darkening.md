@@ -23,7 +23,7 @@ Pigmented areas of skin, such as moles, freckles, the areola, vulva, inner thigh
 
 Melasma (chloasma, the mask of pregnancy) is very common, usually developing in the second or third trimester. It shows as symmetrical brown patches, most often on the forehead, cheeks, nose and upper lip. Hormones and sunlight both play a part. It won't cause any health problems for you or your baby, but it can be hard to cope with emotionally. If you developed it in pregnancy there's a good chance it will fade after the birth. It could come back if your skin is exposed to the sun, or in a future pregnancy.
 
-Sun protection helps: SPF50 or SPF50+ water-resistant sunscreen applied twice daily, 20 minutes before sun exposure, and a broad-rimmed hat. Creams containing hydroquinone or tretinoin may be harmful to your baby in pregnancy, so check with your doctor or pharmacist before starting any treatment.
+Sun protection helps: sun protection factor (SPF) 50 or SPF50+ water-resistant sunscreen applied twice daily, 20 minutes before sun exposure, and a broad-rimmed hat. Creams containing hydroquinone or tretinoin may be harmful to your baby in pregnancy, so check with your doctor or pharmacist before starting any treatment.
 
 ## See your doctor or midwife
 

@@ -15,4 +15,4 @@ sources:
 related: [term-amniocentesis, term-nipt]
 checked: 2026-10-29
 ---
-CVS (chorionic villus sampling) is a diagnostic test that uses a needle to take a few cells from the placenta, to confirm whether your baby has a genetic or chromosomal condition. It's done between 11 and 13 weeks, earlier than an amniocentesis (after 15 weeks). Like amniocentesis, it can diagnose, where screening tests can only tell you your baby is at a higher chance. Your doctor can explain its risks and benefits compared with amniocentesis.
+Chorionic villus sampling (CVS) is a diagnostic test that uses a needle to take a few cells from the placenta, to confirm whether your baby has a genetic or chromosomal condition. It's done between 11 and 13 weeks, earlier than an amniocentesis (after 15 weeks). Like amniocentesis, it can diagnose, where screening tests can only tell you your baby is at a higher chance. Your doctor can explain its risks and benefits compared with amniocentesis.

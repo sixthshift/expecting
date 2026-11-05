@@ -34,7 +34,7 @@ Airlines set their own cut-offs. As at October 2026, Qantas and Virgin Australia
 | One baby | to the end of week 36 | to the end of week 40 |
 | Twins or more | to the end of week 32 | to the end of week 36 |
 
-These are the airline's minimum requirements, not a promise that flying is safe at that point; Qantas says so itself. RANZCOG says travel beyond 36 weeks is not recommended.
+These are the airline's minimum requirements, not a promise that flying is safe at that point; Qantas says so itself. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says travel beyond 36 weeks is not recommended.
 
 Other airlines can be stricter: Smartraveller warns that most restrict travel after 28 weeks. Check with yours before you book.
 

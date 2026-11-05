@@ -26,7 +26,7 @@ Your abdominal muscles support your spine and organs and give you core stability
 
 ## Abdominal separation
 
-The two long muscles down the middle of your tummy (the rectus abdominis, the "six-pack" muscles) can separate. It's called abdominal separation, diastasis recti or DRAM. Pregnancy, Birth and Baby says it's common, may happen in the later stages of pregnancy, and is a natural adaptation to your growing baby. It may be more likely if you've had more than one pregnancy or are overweight.
+The two long muscles down the middle of your tummy (the rectus abdominis, the "six-pack" muscles) can separate. It's called abdominal separation, diastasis recti or diastasis of the rectus abdominis muscles (DRAM). Pregnancy, Birth and Baby says it's common, may happen in the later stages of pregnancy, and is a natural adaptation to your growing baby. It may be more likely if you've had more than one pregnancy or are overweight.
 
 You may see a gap, and you may feel your core is weak, for example lifting a laundry basket. It isn't painful, but you may get lower back pain. To check: lie on your back with knees bent, put flat fingertips across your tummy at belly button level, lift your head and shoulders and feel for the muscle edges coming together; a gap wider than one finger may be a separation. If you think you have it, see your doctor, midwife or maternal health nurse. They can measure it with fingers, a tape measure or an ultrasound, and may refer you to a women's health physiotherapist for an exercise program. Occasionally surgery is recommended.
 

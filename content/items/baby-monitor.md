@@ -8,7 +8,7 @@ aliases: [baby camera, wifi baby monitor, video monitor, breathing monitor, move
 weeks: [28, 38]
 who: together
 stakes: medium
-summary: "No monitor prevents SIDS, and room-sharing does more; if you get a wifi or camera monitor, choose one that meets Australia's smart device rules, set your own password and keep it updated."
+summary: "No monitor prevents sudden infant death syndrome (SIDS), and room-sharing does more; if you get a wifi or camera monitor, choose one that meets Australia's smart device rules, set your own password and keep it updated."
 sources:
   - title: Red Nose — Monitors are not needed for healthy babies and toddlers
     url: https://rednose.org.au/safe-sleep-and-safer-pregnancy/newborn-to-1-year/home-monitors/
@@ -23,7 +23,7 @@ A monitor is a convenience, not a safety device. If you get one, a camera or wif
 
 Red Nose says there is no scientific evidence that any type of baby monitor prevents Sudden Unexpected Death in Infancy (SUDI). Monitors are only alarms: they do not save lives. Red Nose says room-sharing (not bed-sharing) for the first 6 months remains the most effective way to reduce the risk of SUDI; other safe sleep guidance says 6 to 12 months (see [Bassinet](bassinet)).
 
-Mat and movement monitors can't detect obstructed breathing, so they don't prevent SUDI. Home monitors are only recommended under medical advice, for example after a serious event that needed resuscitation, or for babies with a diagnosed sleep-related breathing disorder. If a monitor is used, Red Nose says parents and carers should be trained in infant CPR (see [A baby first aid course](baby-first-aid-course)) and have a care plan. Commercial baby monitors sold in stores don't have to meet safety standards, and some may present strangulation or entrapment risks if they have leads.
+Mat and movement monitors can't detect obstructed breathing, so they don't prevent SUDI. Home monitors are only recommended under medical advice, for example after a serious event that needed resuscitation, or for babies with a diagnosed sleep-related breathing disorder. If a monitor is used, Red Nose says parents and carers should be trained in infant cardiopulmonary resuscitation (CPR) (see [A baby first aid course](baby-first-aid-course)) and have a care plan. Commercial baby monitors sold in stores don't have to meet safety standards, and some may present strangulation or entrapment risks if they have leads.
 
 ## Choosing a wifi or camera monitor
 

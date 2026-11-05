@@ -13,7 +13,7 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/checkups-and-scans-during-your-pregnancy
   - title: Pregnancy, Birth and Baby — Fetal heart rate monitoring
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/fetal-monitoring
-related: [what-happens-at-each-visit, ctg-monitoring, baby-movements]
+related: [what-happens-at-each-visit, ctg-monitoring, baby-movements, term-fhr]
 checked: 2026-10-29
 ---
 At your routine visits your doctor or midwife may listen to your baby's heartbeat through your tummy, with a handheld fetal Doppler or an ear trumpet called a Pinard horn. It's possible from week 12 onwards.

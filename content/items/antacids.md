@@ -22,7 +22,7 @@ sources:
 related: [reflux-medicines, iron, spicy-food]
 checked: 2026-10-29
 ---
-Yes. Antacids can relieve heartburn quickly, and they are safe in pregnancy if you don't take more than the recommended dose. There are many types, so ask your pharmacist which suits you. KEMH names liquid antacids such as Gaviscon and Gastrogel as the ones to try at the recommended dose when eating differently hasn't been enough.
+Yes. Antacids can relieve heartburn quickly, and they are safe in pregnancy if you don't take more than the recommended dose. There are many types, so ask your pharmacist which suits you. King Edward Memorial Hospital (KEMH) names liquid antacids such as Gaviscon and Gastrogel as the ones to try at the recommended dose when eating differently hasn't been enough.
 
 ## Why
 

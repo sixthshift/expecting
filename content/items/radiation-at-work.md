@@ -7,7 +7,7 @@ ask: I work with x-rays, can I keep doing my job?
 aliases: [radiographer, radiation at work, dental nurse, vet x-rays, theatre nurse, nuclear medicine, dosimeter, 1 mSv, industrial radiography, airline crew cosmic radiation]
 who: carrying
 stakes: high
-summary: "Yes, with controls: tell your employer as soon as possible, and your work must be arranged so the dose to your baby stays under 1 mSv for the rest of the pregnancy."
+summary: "Yes, with controls: tell your employer as soon as possible, and your work must be arranged so the dose to your baby stays under 1 millisievert (mSv) for the rest of the pregnancy."
 verdict: yes
 sources:
   - title: ARPANSA — Occupational exposure, management of pregnant workers
@@ -19,11 +19,11 @@ sources:
 related: [medical-x-rays-and-ct, dental-x-rays, flying, working-while-pregnant]
 checked: 2026-10-29
 ---
-Yes, you can. ARPANSA says that if proper guidelines are followed, the risk to your unborn child is negligible.
+Yes, you can. The Australian Radiation Protection and Nuclear Safety Agency (ARPANSA) says that if proper guidelines are followed, the risk to your unborn child is negligible.
 
 ## Why
 
-Once you declare a pregnancy, your working conditions must make it unlikely that the extra dose to your baby goes over 1 mSv for the rest of the pregnancy. Below that limit, the risk of health effects is insignificant.
+Once you declare a pregnancy, your working conditions must make it unlikely that the extra dose to your baby goes over 1 millisievert (mSv) for the rest of the pregnancy. Below that limit, the risk of health effects is insignificant.
 
 Your personal dosimeter (badge) may overestimate your baby's dose: from external exposure, the dose to the baby is unlikely to be more than 25 per cent of what the badge records.
 

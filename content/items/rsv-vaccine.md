@@ -1,7 +1,7 @@
 ---
 id: rsv-vaccine
 title: The RSV vaccine
-summary: "A free vaccine from 28 weeks protects the baby from birth against RSV, which often puts young babies in hospital."
+summary: "A free vaccine from 28 weeks protects the baby from birth against respiratory syncytial virus (RSV), which often puts young babies in hospital."
 weeks: [28, 36]
 type: moment
 topic: appointments
@@ -20,7 +20,7 @@ tasks:
     due: 30
     who: carrying
 ---
-RSV (respiratory syncytial virus) is a common virus that can cause bronchiolitis and pneumonia in babies. It's most likely to be severe in the first 6 months, often needing a hospital stay. Many people have never heard of the vaccine that helps.
+Respiratory syncytial virus (RSV) is a common virus that can cause bronchiolitis and pneumonia in babies. It's most likely to be severe in the first 6 months, often needing a hospital stay. Many people have never heard of the vaccine that helps.
 
 {% window from=28 to=36 /%}
 

@@ -31,7 +31,7 @@ Managed well, it lowers the risks for you and the baby. Unmanaged high blood sug
 - **Food.** Three main meals and 2 to 3 snacks spread through the day. A dietitian will give you personal advice.
 - **Moving.** Moderate activity, such as walking, swimming or cycling, helps manage blood glucose. Check with your doctor or midwife first.
 - **Medicine, sometimes.** If your levels stay high despite diet and activity, insulin is considered safe in pregnancy and metformin also appears to be safe. The risks of not treating gestational diabetes could be much higher than the risks of the medicine.
-- **The NDSS.** If you're eligible for Medicare, register with the National Diabetes Services Scheme for subsidised blood glucose strips, insulin devices and needles, usually from community pharmacies.
+- **The National Diabetes Services Scheme (NDSS).** If you're eligible for Medicare, register for subsidised blood glucose strips, insulin devices and needles, usually from community pharmacies.
 
 ## The birth
 

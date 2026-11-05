@@ -18,4 +18,4 @@ checked: 2026-10-29
 ---
 A ventouse (vacuum) is an instrument attached to the baby's head by suction. When the uterus contracts and you push, the doctor gently pulls on the soft cup to help the baby through the birth canal. More than one pull may be needed.
 
-RANZCOG says it may be needed to avoid a caesarean, for example if the baby isn't progressing. In Australia and New Zealand almost one baby in ten is born with instruments, most often in a first birth.
+The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says it may be needed to avoid a caesarean, for example if the baby isn't progressing. In Australia and New Zealand almost one baby in ten is born with instruments, most often in a first birth.

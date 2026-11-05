@@ -33,6 +33,6 @@ If you need urgent medical help, call triple zero (000).
 
 If the movements slow down, weaken, change or stop, contact your midwife, doctor or hospital birth unit straight away. Don't wait until the next day. If you can't reach them, go to your nearest hospital birthing or emergency unit.
 
-They'll usually ask you to come in, and check the baby's heart rate with a CTG machine; sometimes you'll have an ultrasound as well.
+They'll usually ask you to come in, and check the baby's heart rate with a cardiotocograph (CTG) machine; sometimes you'll have an ultrasound as well.
 
 Call again every time it happens, even if you've already been checked. You are not wasting their time.

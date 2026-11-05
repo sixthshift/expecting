@@ -31,6 +31,6 @@ Not wearing your seatbelt correctly is one of the things that raises the risk of
 - **Shoulder sash:** above the bump and between your breasts.
 - **Seat:** as a passenger, move the seat well back from the dashboard; driving, as far back from the wheel as is safe. Both reduce airbag impact in a crash.
 
-**After any accident, however minor**, see a doctor or midwife as soon as possible, even if you feel fine. If you're RhD negative, tell them: you may need an anti-D injection.
+**After any accident, however minor**, see a doctor or midwife as soon as possible, even if you feel fine. If you're Rhesus D (RhD) negative, tell them: you may need an anti-D injection.
 
 After any injury to your abdomen, go to the nearest hospital and tell them you're pregnant. Even after a minor injury, go straight away if the baby is moving less than normal, or you have vaginal bleeding or pain in your abdomen. If you have abdominal pain, a firm or tightening uterus or vaginal bleeding after an injury to your abdomen, call triple zero (000), ask for an ambulance and tell them you're pregnant.

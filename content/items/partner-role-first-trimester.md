@@ -44,7 +44,7 @@ Gidget lists what's common for dads and non-birthing partners: feeling helpless 
 
 It can go further than worry. Anxiety affects 1 in 6 fathers during their partner's pregnancy, and depression affects 1 in 10 fathers from the first trimester through the baby's first year. You're more at risk if you've had anxiety or depression before, your partner has, money or work is a worry, or you feel unsupported.
 
-Talk openly with your partner, family or friends, and speak up before feelings build. If you notice signs of depression or anxiety, see your GP, or call PANDA on 1300 726 306 or MensLine Australia on 1300 78 99 78. If you feel you're getting angry, jealous or violent, speak to your doctor or call one of those lines.
+Talk openly with your partner, family or friends, and speak up before feelings build. If you notice signs of depression or anxiety, see your GP, or call Perinatal Anxiety & Depression Australia (PANDA) on 1300 726 306 or MensLine Australia on 1300 78 99 78. If you feel you're getting angry, jealous or violent, speak to your doctor or call one of those lines.
 
 ## When to get help
 

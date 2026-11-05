@@ -19,7 +19,7 @@ sources:
 related: [pre-cut-fruit-and-salads, listeria-foods]
 checked: 2026-10-29
 ---
-Best avoided. All three Australian sources agree: the NSW Food Authority calls hummus, tahini and other sesame pastes "do not eat (high risk)", whether store-bought or home-made; FSANZ lists hummus and tahini, including dips containing tahini, as higher-risk foods; and Pregnancy, Birth and Baby says it's best to avoid all sesame products, including hummus, tahini and halva.
+Best avoided. All three Australian sources agree: the NSW Food Authority calls hummus, tahini and other sesame pastes "do not eat (high risk)", whether store-bought or home-made; Food Standards Australia New Zealand (FSANZ) lists hummus and tahini, including dips containing tahini, as higher-risk foods; and Pregnancy, Birth and Baby says it's best to avoid all sesame products, including hummus, tahini and halva.
 
 ## Why
 

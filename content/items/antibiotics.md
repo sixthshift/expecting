@@ -7,7 +7,7 @@ ask: Can I take antibiotics?
 aliases: [antibiotics, amoxicillin, Amoxil, Augmentin, cephalexin, Keflex, penicillin, nitrofurantoin, Macrobid, trimethoprim, doxycycline, UTI antibiotics, infection]
 who: carrying
 stakes: high
-summary: "Yes, when your doctor prescribes them: infections like UTIs are treated with antibiotics that are safe in pregnancy, and it's important not to delay."
+summary: "Yes, when your doctor prescribes them: infections like urinary tract infections (UTIs) are treated with antibiotics that are safe in pregnancy, and it's important not to delay."
 verdict: yes
 sources:
   - title: Pregnancy, Birth and Baby — Urinary tract infections (UTIs) during pregnancy

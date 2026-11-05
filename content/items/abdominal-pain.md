@@ -25,7 +25,7 @@ checked: 2026-10-29
 
 Pain in the belly is common in pregnancy, and often it's nothing serious. Round ligament pain, constipation and Braxton Hicks contractions are all pregnancy causes of everyday aches. Because your body and baby are changing so fast, it can be hard to tell what's behind a pain: some pains are normal and some need checking.
 
-Some pregnancy causes are serious: an ectopic pregnancy, a miscarriage, pre-eclampsia (and its severe form, HELLP syndrome), or placental abruption. Pain can also come from things that have nothing to do with pregnancy, such as appendicitis, a kidney infection or gallbladder trouble.
+Some pregnancy causes are serious: an ectopic pregnancy, a miscarriage, pre-eclampsia (and its severe form, haemolysis, elevated liver enzymes and low platelets (HELLP) syndrome), or placental abruption. Pain can also come from things that have nothing to do with pregnancy, such as appendicitis, a kidney infection or gallbladder trouble.
 
 If the pain is mild and not a sign of something serious, rest, drink enough fluids and avoid lifting heavy things.
 

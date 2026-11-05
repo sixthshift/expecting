@@ -7,7 +7,7 @@ ask: What's the questionnaire about how I feel?
 aliases: [EPDS, Edinburgh Postnatal Depression Scale, mood questions, depression screening]
 weeks: [8, 20]
 stakes: medium
-summary: "Most pregnant people in Australia are screened for depression during pregnancy and again after the birth, usually with a short questionnaire called the EPDS."
+summary: "Most pregnant people in Australia are screened for depression during pregnancy and again after the birth, usually with a short questionnaire called the Edinburgh Postnatal Depression Scale (EPDS)."
 sources:
   - title: The Royal Women's Hospital — Mental health & pregnancy
     url: https://www.thewomens.org.au/health-information/pregnancy-and-birth/mental-health-pregnancy

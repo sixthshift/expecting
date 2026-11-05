@@ -25,7 +25,7 @@ Not raw. Raw oysters are on the avoid list in pregnancy. Shellfish that's been c
 
 ## Why
 
-**Listeria.** FSANZ names raw oysters among the chilled seafood to avoid when pregnant. Listeria can grow even in the fridge, and in pregnancy it can cause miscarriage, premature birth or stillbirth.
+**Listeria.** Food Standards Australia New Zealand (FSANZ) names raw oysters among the chilled seafood to avoid when pregnant. Listeria can grow even in the fridge, and in pregnancy it can cause miscarriage, premature birth or stillbirth.
 
 **Other bacteria and viruses.** The NSW Food Authority puts all raw seafood under "do not eat (high risk)": raw or undercooked seafood can contain harmful viruses and bacteria, such as vibrio.
 

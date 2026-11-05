@@ -23,7 +23,7 @@ Talk to your doctor before you book. High places are on the list of travel risks
 
 ## Why
 
-MotherSafe counts high places, above 2,500 metres, among the destination risks that make complications while travelling much more likely, and RANZCOG says that as pregnancy goes on you may not tolerate high altitude.
+MotherSafe counts high places, above 2,500 metres, among the destination risks that make complications while travelling much more likely, and The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says that as pregnancy goes on you may not tolerate high altitude.
 
 Above 2,000 metres, don't exercise until you've acclimatised (Pregnancy, Birth and Baby).
 

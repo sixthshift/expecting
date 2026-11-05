@@ -7,7 +7,7 @@ ask: Should I stop using plastic containers and non-stick pans?
 aliases: [BPA, plastics, plastic containers, microwaving plastic, non-stick, Teflon, PFAS, flame retardants, water bottle, receipts]
 who: carrying
 stakes: low
-summary: "Ask if you're worried: exposure to BPA has been suggested to affect a baby's development, but Food Standards Australia New Zealand says BPA in food packaging is unlikely to be a health risk."
+summary: "Ask if you're worried: exposure to bisphenol A (BPA) has been suggested to affect a baby's development, but Food Standards Australia New Zealand says BPA in food packaging is unlikely to be a health risk."
 verdict: ask
 sources:
   - title: "ARPANSA — Microwave ovens and health"
@@ -27,5 +27,5 @@ Most chemicals you come across in daily life won't harm your baby, usually becau
 
 - **Keep your home well ventilated** and wash your hands regularly, to reduce chemical exposure in general.
 - **Look for alternatives** if you want to: products with low levels of chemicals that may be harmful in pregnancy.
-- **Don't microwave food in plastic** unless the container is made for microwave use: ARPANSA says high temperatures may break the plastic down and contaminate the food.
-- **Non-stick pans and PFAS:** there's no specific Australian pregnancy advice on these.
+- **Don't microwave food in plastic** unless the container is made for microwave use: the Australian Radiation Protection and Nuclear Safety Agency (ARPANSA) says high temperatures may break the plastic down and contaminate the food.
+- **Non-stick pans and PFAS (per- and polyfluoroalkyl substances):** there's no specific Australian pregnancy advice on these.

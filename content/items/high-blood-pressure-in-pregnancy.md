@@ -29,7 +29,7 @@ Your blood pressure is checked at every antenatal visit. In pregnancy it counts 
 - **Gestational (pregnancy-induced) hypertension**: high blood pressure found after 20 weeks.
 - **Pre-eclampsia**: a serious complication that causes high blood pressure and can affect your liver, kidneys, blood and brain. It can get worse very quickly, and you can have it with no symptoms at all.
 
-You're at higher risk if you've had pre-eclampsia before or a close relative has, have kidney disease, diabetes or chronic hypertension, are over 40, are living with overweight or obesity, are carrying more than one baby, or conceived with IVF.
+You're at higher risk if you've had pre-eclampsia before or a close relative has, have kidney disease, diabetes or chronic hypertension, are over 40, are living with overweight or obesity, are carrying more than one baby, or conceived with in vitro fertilisation (IVF).
 
 ## Why it matters
 
@@ -42,7 +42,7 @@ If your blood pressure is high, your doctor will make a plan for treatment and m
 - more frequent blood pressure readings
 - blood and urine tests
 - ultrasounds of the baby, the placenta and the fluid around the baby
-- a CTG to check the baby's heart rate
+- a cardiotocograph (CTG) to check the baby's heart rate
 
 If you took blood pressure medicine before pregnancy, ask your doctor which medicines are safe now. Your doctor can also prescribe medicines that lower your chance of pre-eclampsia. Quitting smoking and vaping, eating well, exercising and keeping a healthy weight help too.
 

@@ -7,7 +7,7 @@ ask: Will the baby be monitored the whole time?
 aliases: [CTG, intermittent auscultation, continuous monitoring, doppler in labour, fetal heart rate monitoring, wireless CTG]
 weeks: [34, 42]
 stakes: medium
-summary: "In an uncomplicated labour the baby's heart is usually listened to at intervals with a doppler, which leaves you free to move; continuous CTG is for when there are concerns, an epidural or an oxytocin drip, and either way it's decided with you."
+summary: "In an uncomplicated labour the baby's heart is usually listened to at intervals with a doppler, which leaves you free to move; continuous cardiotocograph (CTG) is for when there are concerns, an epidural or an oxytocin drip, and either way it's decided with you."
 sources:
   - title: RANZCOG — Monitoring the Baby's Heart Rate in Labour (patient information)
     url: https://ranzcog.edu.au/wp-content/uploads/Monitoring-Babys-Heart-Rate-Labour.pdf
@@ -33,7 +33,7 @@ Your baby's heart rate is checked through labour to see how they're coping. Most
 
 **Intermittent auscultation (listening at intervals).** A hand-held doppler or a Pinard (a small trumpet-shaped stethoscope) is held on your tummy for about a minute, every 15 to 30 minutes in early labour, and every 5 minutes or after every contraction once you're pushing. It's the usual approach when you're well and labour is uncomplicated.
 
-**Continuous CTG.** Two discs on your tummy, held by belts, record the baby's heart rate and your contractions the whole time. It's recommended when something has been found in the pregnancy or labour that might affect how the baby copes. You'll need it with an epidural, and with an oxytocin drip during an induction.
+**Continuous cardiotocograph (CTG).** Two discs on your tummy, held by belts, record the baby's heart rate and your contractions the whole time. It's recommended when something has been found in the pregnancy or labour that might affect how the baby copes. You'll need it with an epidural, and with an oxytocin drip during an induction.
 
 **Admission CTG.** Some hospitals offer a CTG when you first arrive in labour, stopped if the pattern is normal. Studies haven't shown that doing this for everyone without problems reduces risks to the baby, and it may increase the chance of further interventions.
 

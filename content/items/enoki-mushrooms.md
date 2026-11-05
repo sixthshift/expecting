@@ -7,7 +7,7 @@ ask: Can I eat enoki mushrooms?
 aliases: [enoki, enokitake, golden needle mushroom, hot pot mushrooms, raw mushrooms]
 who: carrying
 stakes: high
-summary: "Never raw or lightly cooked: listeria has been found in imported enoki. Cook them until steaming hot; FSANZ recommends boiling them for at least 2 minutes."
+summary: "Never raw or lightly cooked: listeria has been found in imported enoki. Cook them until steaming hot; Food Standards Australia New Zealand (FSANZ) recommends boiling them for at least 2 minutes."
 verdict: avoid
 sources:
   - title: Food Standards Australia New Zealand — Food safety for vulnerable people
@@ -19,7 +19,7 @@ sources:
 related: [sprouts, fruit-and-vegetables]
 checked: 2026-10-29
 ---
-Only thoroughly cooked. FSANZ advises everyone not to eat enoki mushrooms raw, and the NSW Food Authority calls raw or lightly cooked enoki "do not eat (high risk)" in pregnancy.
+Only thoroughly cooked. Food Standards Australia New Zealand (FSANZ) advises everyone not to eat enoki mushrooms raw, and the NSW Food Authority calls raw or lightly cooked enoki "do not eat (high risk)" in pregnancy.
 
 ## Why
 

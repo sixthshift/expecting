@@ -29,9 +29,9 @@ Most people having twins have a healthy pregnancy and healthy babies. There are 
 
 This is the question that shapes the plan. Fraternal (non-identical) twins each have their own placenta and sac. Identical twins can be:
 
-- **DCDA:** each with their own placenta and sac. This is the most common type of twin pregnancy.
-- **MCDA:** sharing a placenta, each in their own sac.
-- **MCMA:** sharing a placenta and a sac. This is rarer.
+- **Dichorionic diamniotic (DCDA):** each with their own placenta and sac. This is the most common type of twin pregnancy.
+- **Monochorionic diamniotic (MCDA):** sharing a placenta, each in their own sac.
+- **Monochorionic monoamniotic (MCMA):** sharing a placenta and a sac. This is rarer.
 
 Finding out whether your twins share a placenta is very important, because that kind of pregnancy needs careful monitoring.
 
@@ -39,7 +39,7 @@ Finding out whether your twins share a placenta is very important, because that 
 
 You'll need more health checks and ultrasounds, so problems show up early. You're also more likely to have backache, heartburn, morning sickness, swollen ankles, tiredness and varicose veins, and a twin pregnancy can be more tiring, physically and emotionally.
 
-Your midwife or doctor may recommend against a home birth or birth centre, because of the higher risk of complications at the birth. They may recommend a hospital with services to care for twins, because twins are more likely to be born before 37 weeks and may need time in a neonatal intensive care unit or special care nursery.
+Your midwife or doctor may recommend against a home birth or birth centre, because of the higher risk of complications at the birth. They may recommend a hospital with services to care for twins, because twins are more likely to be born before 37 weeks and may need time in a neonatal intensive care unit (NICU) or special care nursery.
 
 ## The higher chances
 

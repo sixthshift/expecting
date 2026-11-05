@@ -25,7 +25,7 @@ No. Pregnancy, Birth and Baby says illicit drugs, including amphetamines, heroin
 
 Most drugs, and whatever they're mixed with, travel straight into your baby's bloodstream. The Royal Women's Hospital lists what drug use in pregnancy may do, including miscarriage, premature birth and stillbirth; birth defects; the placenta coming away from the uterus; cutting the baby's oxygen and blood supply; poor growth; damage to the baby's brain; and a higher risk of sudden unexpected death in infancy.
 
-Amphetamines such as ice, speed and ecstasy are considered dangerous in pregnancy. Sharing injecting equipment can pass on hepatitis or HIV, which can also affect your baby.
+Amphetamines such as ice, speed and ecstasy are considered dangerous in pregnancy. Sharing injecting equipment can pass on hepatitis or human immunodeficiency virus (HIV), which can also affect your baby.
 
 ## What to do
 

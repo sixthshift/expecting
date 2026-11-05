@@ -31,7 +31,7 @@ Many health services don't automatically accommodate parents with disability, so
 - information in Easy English, Braille, audio or large print
 - adaptive parenting equipment; a specialised occupational therapist can help
 
-The NDIS doesn't always cover adaptive equipment for parenting.
+The National Disability Insurance Scheme (NDIS) doesn't always cover adaptive equipment for parenting.
 
 ## Build your network
 

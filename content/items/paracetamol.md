@@ -27,7 +27,7 @@ Yes. Paracetamol is the recommended treatment for pain or fever in pregnancy whe
 
 Untreated pain and fever can themselves pose risks to the baby. A sustained fever above 38.9 °C for at least 24 hours has been linked with miscarriage and malformations such as spina bifida early in pregnancy, and stillbirth later.
 
-**About the autism and ADHD claim.** In September 2025 the US Administration said paracetamol in pregnancy may be linked to autism and ADHD. Australia's Chief Medical Officer and the TGA, with other medicines regulators worldwide, rejected the claim: robust evidence shows no causal link, and several large studies directly contradict it. If you're worried, talk it over with your doctor or midwife.
+**About the autism and attention deficit hyperactivity disorder (ADHD) claim.** In September 2025 the US Administration said paracetamol in pregnancy may be linked to autism and ADHD. Australia's Chief Medical Officer and the Therapeutic Goods Administration (TGA), with other medicines regulators worldwide, rejected the claim: robust evidence shows no causal link, and several large studies directly contradict it. If you're worried, talk it over with your doctor or midwife.
 
 ## What to do
 

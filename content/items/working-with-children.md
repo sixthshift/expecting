@@ -7,7 +7,7 @@ ask: I work in childcare, what infections should I worry about?
 aliases: [childcare worker, early childhood, teacher, nurse, paediatric nurse, CMV, cytomegalovirus, slapped cheek, parvovirus, chickenpox exposure, hand foot and mouth, nappies, kissing kids]
 who: carrying
 stakes: high
-summary: "Keep working, with good hygiene: CMV, spread through young children's saliva and urine, can harm your baby, and if you're exposed to chickenpox, contact your doctor or midwife."
+summary: "Keep working, with good hygiene: cytomegalovirus (CMV), spread through young children's saliva and urine, can harm your baby, and if you're exposed to chickenpox, contact your doctor or midwife."
 verdict: yes
 sources:
   - title: Pregnancy, Birth and Baby — Cytomegalovirus (CMV) during pregnancy

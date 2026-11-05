@@ -34,7 +34,7 @@ If you miscarried at home, see your doctor to check the miscarriage is complete 
 
 ## Trying again
 
-It's safe to get pregnant again soon after a miscarriage; there's no medical need to wait, though your health team may suggest waiting for one normal period, and until you feel ready, emotionally and physically. You can get pregnant before your first period. After a surgical miscarriage (D&C), the advice is to wait a few months for your cycle to settle before trying. Most people who have a miscarriage can have a healthy pregnancy later; after 2 or more, your doctor may suggest a fertility specialist.
+It's safe to get pregnant again soon after a miscarriage; there's no medical need to wait, though your health team may suggest waiting for one normal period, and until you feel ready, emotionally and physically. You can get pregnant before your first period. After a surgical miscarriage (dilation and curettage, or D&C), the advice is to wait a few months for your cycle to settle before trying. Most people who have a miscarriage can have a healthy pregnancy later; after 2 or more, your doctor may suggest a fertility specialist.
 
 ## The practical things
 

@@ -25,7 +25,7 @@ If your baby was stillborn, there are payments to support you. For these payment
 
 Your family can get **either** the Stillborn Baby Payment **or** Parental Leave Pay, not both.
 
-- **Stillborn Baby Payment** is a single payment of $4,482.12 for a baby born on or after 1 July 2026. It isn't taxable and there's no work test. Your family's adjusted taxable income must be no more than $77,177 in the 6 months after the delivery. If it's more, you may still be eligible if you get, or become eligible for, FTB Part A for another child within 52 weeks.
+- **Stillborn Baby Payment** is a single payment of $4,482.12 for a baby born on or after 1 July 2026. It isn't taxable and there's no work test. Your family's adjusted taxable income must be no more than $77,177 in the 6 months after the delivery. If it's more, you may still be eligible if you get, or become eligible for, Family Tax Benefit (FTB) Part A for another child within 52 weeks.
 - **Parental Leave Pay** is taxable, and you need to meet its work test and income test. For a baby born on or after 1 July 2026 it's weekly payments for up to 26 weeks, to a total of up to $26,122.20.
 
 You can claim either online through your Centrelink online account. If you made a pre-birth claim for Parental Leave Pay, sign in and select **Add Newborn**: you'll be asked whether your child died or was stillborn, and for proof of birth.

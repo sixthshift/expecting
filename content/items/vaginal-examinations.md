@@ -7,7 +7,7 @@ ask: How often will I be examined, and can I say no?
 aliases: [VE, internal examination, how dilated am I, cervical check, centimetres dilated]
 weeks: [37, 42]
 stakes: medium
-summary: "A vaginal examination checks how open and thin your cervix is and how far down the baby is; it's offered and needs your consent, and RANZCOG says not to plan them more often than every four hours in the first stage."
+summary: "A vaginal examination checks how open and thin your cervix is and how far down the baby is; it's offered and needs your consent, and the Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says not to plan them more often than every four hours in the first stage."
 sources:
   - title: RANZCOG — Care in Labour in the Absence of Pregnancy Complications (C-Obs 31)
     url: https://ranzcog.edu.au/wp-content/uploads/Care-Labour-Absence-Pregnancy-Complications.pdf
@@ -30,7 +30,7 @@ In a vaginal examination (VE), the midwife or doctor feels inside your vagina to
 
 - **Before labour is clear:** your midwife can tell whether you're having Braxton Hicks or are in labour by doing a VE.
 - **When you arrive:** with your consent, a VE to measure how open your cervix is.
-- **In the first stage:** Safer Care Victoria's guideline has staff offer one about every 4 hours to check progress. RANZCOG's guideline says they shouldn't plan to offer VEs more often than every four hours in the first stage; more may be recommended if there are concerns about you or the baby, or if you ask.
+- **In the first stage:** Safer Care Victoria's guideline has staff offer one about every 4 hours to check progress. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) guideline says they shouldn't plan to offer VEs more often than every four hours in the first stage; more may be recommended if there are concerns about you or the baby, or if you ask.
 - **At other times:** before an opioid (narcotic) pain reliever or an epidural, or to confirm you're fully dilated if in doubt.
 
 Safer Care Victoria notes that VEs more often than every four hours could increase the risk of infection for you and the baby.

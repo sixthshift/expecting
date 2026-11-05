@@ -8,7 +8,7 @@ aliases: [third stage management, Syntocinon injection after birth, natural thir
 weeks: [30, 38]
 who: carrying
 stakes: medium
-summary: "After the baby, the placenta comes either with an oxytocin injection and help from your midwife (active, usually up to 30 minutes, less bleeding) or on its own with your contractions (physiological, up to an hour); RANZCOG recommends active for everyone, and you can choose physiological if you're well informed."
+summary: "After the baby, the placenta comes either with an oxytocin injection and help from your midwife (active, usually up to 30 minutes, less bleeding) or on its own with your contractions (physiological, up to an hour); the Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) recommends active for everyone, and you can choose physiological if you're well informed."
 sources:
   - title: Pregnancy, Birth and Baby — Third stage of labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-third-stage-of-labour
@@ -31,7 +31,7 @@ Longer than these times counts as prolonged, and your midwife or doctor will tal
 
 ## Things to weigh
 
-- **Bleeding.** Active management usually speeds things up and reduces the chance of heavy bleeding after the birth (postpartum haemorrhage). Preventive oxytocic medicines cut that risk by about half, and RANZCOG recommends active management for everyone because it lowers the risk of haemorrhage and of needing a blood transfusion.
+- **Bleeding.** Active management usually speeds things up and reduces the chance of heavy bleeding after the birth (postpartum haemorrhage). Preventive oxytocic medicines cut that risk by about half, and the Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) recommends active management for everyone because it lowers the risk of haemorrhage and of needing a blood transfusion.
 - **If your risk of bleeding is low,** the benefit of active management is less certain, and physiological management is an option to discuss.
 - **When active is more likely to be advised:** a long labour, an induction, a previous haemorrhage, or anaemia.
 - **Side effects.** In the studies RANZCOG reviewed, active management came with more vomiting and raised blood pressure, though those studies used a different drug mix from the oxytocin usually used in Australia.

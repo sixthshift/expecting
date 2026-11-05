@@ -29,11 +29,11 @@ Each medicine is different, and its effect can depend on the stage of pregnancy,
 
 Every pregnancy starts with a 3 to 5% chance of a birth difference, called the background risk. Medicines account for only a small part of it.
 
-The TGA's "category A" means a medicine taken by a large number of pregnant women without any proven increase in malformations or other harm to the baby.
+The Therapeutic Goods Administration's (TGA) "category A" means a medicine taken by a large number of pregnant women without any proven increase in malformations or other harm to the baby.
 
 ## What to do
 
 - **Ask first, every time.** That includes over-the-counter medicines and complementary ones (vitamins, herbal medicines, homeopathy). "Natural" doesn't mean safe.
 - **Lowest effective dose, shortest time.**
 - **Don't stop a prescribed medicine on your own.** Talk to your doctor first; stopping some treatments causes its own problems.
-- **Ring someone.** healthdirect (1800 022 222) puts you through to a registered nurse 24 hours a day, 7 days a week (NURSE-ON-CALL in Victoria). KEMH's Medicine Information line in WA is (08) 6458 2723, 8:30am to 4:30pm, Monday to Friday.
+- **Ring someone.** healthdirect (1800 022 222) puts you through to a registered nurse 24 hours a day, 7 days a week (NURSE-ON-CALL in Victoria). King Edward Memorial Hospital's (KEMH) Medicine Information line in WA is (08) 6458 2723, 8:30am to 4:30pm, Monday to Friday.

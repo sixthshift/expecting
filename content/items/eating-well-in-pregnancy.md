@@ -42,7 +42,7 @@ A serve is, for example, 1 slice of bread, ½ cup of cooked rice or pasta, 1 cup
 - **Vitamin D**, for your baby's bones and teeth: mostly from sunlight, a little from oily fish and eggs.
 - **Omega-3**, for your baby's brain, nerves and eyes: fish 2 to 3 times a week, plus walnuts, chia, linseed and soybeans.
 
-The Women's says everyone should take a pregnancy supplement with at least 500 micrograms of folic acid, 150 micrograms of iodine and 400 IU of vitamin D, because food and sunshine alone are unlikely to be enough. Supplements have their own entry.
+The Women's says everyone should take a pregnancy supplement with at least 500 micrograms of folic acid, 150 micrograms of iodine and 400 international units (IU) of vitamin D, because food and sunshine alone are unlikely to be enough. Supplements have their own entry.
 
 ## Vegetarian or vegan
 

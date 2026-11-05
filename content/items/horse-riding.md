@@ -29,7 +29,7 @@ No. Put riding on hold until after the birth.
 
 ## Why
 
-RANZCOG, Pregnancy, Birth and Baby and MotherSafe all list horse riding among activities with a risk of falling that should be avoided in pregnancy.
+The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG), Pregnancy, Birth and Baby and MotherSafe all list horse riding among activities with a risk of falling that should be avoided in pregnancy.
 
 A fall from a horse, or a kick from one, is a blow to the abdomen, and the most serious common complication of that is placental abruption, where the placenta separates from the uterus.
 

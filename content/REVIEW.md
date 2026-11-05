@@ -2,9 +2,10 @@
 
 What an entry has to be before it ships, the calls that hold for every
 entry, and what is still open. Every entry and week note meets this bar; a
-new or changed one must too. The records behind each entry are
-`map/checks/review-*.yaml`, with the rules for urgency, bleeding before and
-after the birth, when to go in, retinol, vitamin D and trimesters. How an
+new or changed one must too. The records behind each entry's review, with the rules for urgency,
+bleeding before and after the birth, when to go in, retinol, vitamin D and
+trimesters, were `content/map/checks/`: removed with the Library's map on
+2026-11-05, and kept in git history. How an
 entry is written is [`README.md`](README.md).
 
 ## The bar
@@ -97,11 +98,24 @@ and statistics use legitimately.
   bottom`, `to: heel`), so the jump from 13 to 14 is the measure, not the
   baby.
 
-## Not written, for want of a source
+## Settled without an entry of their own
 
-`card-one-in-ten-assisted`, `term-nad`, `card-extra-saliva`,
-`term-nuchal-cord`, `term-fifths`, `term-fhr`, `term-fundal-placenta`,
-`chemical-pregnancy`: no official page we could read covers them.
+Eight planned entries once lacked a source; searched again 2026-11-05 and
+closed:
+
+- Written: `chemical-pregnancy` (Pink Elephants for the definition, an
+  Australian charity a step below the usual bar, the only Australian page
+  that defines it), `term-fundal-placenta`, and from the glossary of
+  Queensland Health's Pregnancy Health Record, `term-fhr`, `term-fifths`
+  and `term-nad`.
+- Merged: `card-one-in-ten-assisted` into `assisted-birth` (it already gives
+  the figure); `card-extra-saliva` into `severe-vomiting`, the only official
+  word on excess saliva being PBB's on hyperemesis.
+- Dropped: `term-nuchal-cord`. No Australian page for parents says what a
+  cord around the neck means or what happens; write it only if one appears.
+  Unsourced too, and left out: a threshold for engaged ("2/5 or less"),
+  the IVF side of a chemical pregnancy, and that extra saliva is common or
+  eases after the first trimester.
 
 ## Worth reading together
 

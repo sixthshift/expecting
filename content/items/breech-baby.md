@@ -7,7 +7,7 @@ ask: The baby is breech at 36 weeks, what are our options?
 aliases: [breech, bottom first, breech at 36 weeks, turn the baby, vaginal breech birth, breech caesarean, moxibustion]
 weeks: [34, 40]
 stakes: high
-summary: "Most babies turn head down before the last month, and about 3 in 100 babies are still breech at the end; the options are trying to turn the baby (ECV) from about 37 weeks, a planned caesarean, or a vaginal breech birth where the hospital can support one."
+summary: "Most babies turn head down before the last month, and about 3 in 100 babies are still breech at the end; the options are trying to turn the baby (external cephalic version, ECV) from about 37 weeks, a planned caesarean, or a vaginal breech birth where the hospital can support one."
 sources:
   - title: Pregnancy, Birth and Baby — Breech pregnancy
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour-complications/breech-pregnancy
@@ -43,7 +43,7 @@ Exercises, chiropractic and moxibustion are sometimes tried, but there's no scie
 
 You'll make the decision together with your doctor or midwife, based on your values, preferences and medical situation.
 
-**After the birth**, a baby who was breech has a higher risk of hip dysplasia (DDH) and will usually be referred for a hip ultrasound after 6 weeks of age.
+**After the birth**, a baby who was breech has a higher risk of developmental dysplasia of the hip (DDH) and will usually be referred for a hip ultrasound after 6 weeks of age.
 
 ## When to get help
 

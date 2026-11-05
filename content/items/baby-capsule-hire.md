@@ -39,7 +39,7 @@ A convertible seat can be used rear-facing from birth and later turned forward-f
 
 ## Whichever you choose
 
-- It must meet the Australian standard, AS/NZS 1754, and be installed properly.
+- It must meet the Australian/New Zealand Standard (AS/NZS) 1754, and be installed properly.
 - Buy from an outlet that only stocks restraints meeting Australian Standards, and buy new where possible.
 - Follow the manufacturer's instructions for your seat. If you're unsure, contact an authorised restraint fitting station in your state or territory.
 - Never swaddle your baby in their car seat.

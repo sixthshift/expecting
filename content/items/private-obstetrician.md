@@ -29,7 +29,7 @@ The Royal Women's lists the advantages: the doctor of your choosing throughout, 
 ## Getting started
 
 - **Get a GP referral.** You need one to see a private obstetrician and to claim a Medicare rebate. It lasts up to 12 months.
-- **Find one.** Ask your GP, call local private maternity hospitals for a list of the doctors who practise there, or use the RANZCOG or Pregnancy, Birth and Baby service finder.
+- **Find one.** Ask your GP, call local private maternity hospitals for a list of the doctors who practise there, or use the Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) or Pregnancy, Birth and Baby service finder.
 - **Ask about fees before the first appointment.** It can be expensive, and costs vary a lot depending on the care you get. Ask too about out-of-pocket fees for the hospital admission, anaesthetist and paediatrician, and ultrasounds and blood tests.
 
 If their approach doesn't suit you, you can choose a different obstetrician or midwife.

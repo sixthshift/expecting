@@ -7,7 +7,7 @@ ask: What should we check when buying a pram?
 aliases: [pram, stroller, AS/NZS 2088, five-point harness, tether strap, pram cover]
 weeks: [24, 36]
 stakes: medium
-summary: "Prams and strollers should meet the Australian Product Safety Standard, based on AS/NZS 2088: a 5-point harness, a tether strap, red parking brakes and clear warning labels; and never cover one with a dry cloth in the heat."
+summary: "Prams and strollers should meet the Australian Product Safety Standard, based on the Australian/New Zealand Standard (AS/NZS) 2088: a 5-point harness, a tether strap, red parking brakes and clear warning labels; and never cover one with a dry cloth in the heat."
 sources:
   - title: ACCC Product Safety — Prams and strollers mandatory standard
     url: https://www.productsafety.gov.au/business/search-mandatory-standards/prams-and-strollers-mandatory-standard
@@ -25,7 +25,7 @@ A pram is for a baby too young to sit up: it usually keeps them lying flat. A st
 
 ## The safety standard
 
-Prams and strollers should meet the Australian Product Safety Standard, which is based on AS/NZS 2088:2000. Look for:
+Prams and strollers should meet the Australian Product Safety Standard, which is based on the Australian/New Zealand Standard (AS/NZS) 2088:2000. Look for:
 
 - a 5-point harness that goes around your baby's waist and through their legs
 - simple, clearly visible safety warnings and information labels
@@ -35,7 +35,7 @@ Prams and strollers should meet the Australian Product Safety Standard, which is
 - a basket that doesn't affect the pram's balance
 - one or more parking brakes that are red, clearly visible and out of your child's reach
 
-Beyond safety, think about comfort, how easily it pushes and steers, how it folds (some fit in the car better than others), and sun protection: a mesh canopy with a UPF of 50+ is ideal.
+Beyond safety, think about comfort, how easily it pushes and steers, how it folds (some fit in the car better than others), and sun protection: a mesh canopy with an ultraviolet protection factor (UPF) of 50+ is ideal.
 
 ## Buying second-hand
 

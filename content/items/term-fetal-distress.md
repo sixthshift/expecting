@@ -13,7 +13,7 @@ sources:
 related: [term-ctg, term-meconium, monitoring-in-labour, assisted-birth, emergency-caesarean, baby-movements]
 checked: 2026-10-29
 ---
-Fetal distress is when changes in your baby's heart rate suggest they're unwell, usually because they aren't getting enough oxygen through the placenta. A slow rate or unusual pattern on a Doppler or CTG may signal it; green or brown waters (meconium) are another possible sign.
+Fetal distress is when changes in your baby's heart rate suggest they're unwell, usually because they aren't getting enough oxygen through the placenta. A slow rate or unusual pattern on a Doppler or cardiotocograph (CTG) may signal it; green or brown waters (meconium) are another possible sign.
 
 Your team may give you fluids, have you change position, or slow your contractions. Sometimes the baby needs to be born quickly, by assisted birth or emergency caesarean.
 

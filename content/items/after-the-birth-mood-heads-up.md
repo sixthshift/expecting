@@ -43,7 +43,7 @@ Both are common and treatable, and there's no need to feel ashamed. Your doctor 
 
 ## For the partner
 
-If the person who gave birth doesn't seem like themselves, check in gently. You don't need perfect words: "It's totally normal to feel overwhelmed. How are you coping day to day?" Listen without rushing to fix things. If they seem very withdrawn, anxious or overwhelmed, or are struggling to cope day to day, encourage them to speak with their GP, midwife or a mental health clinician. The PANDA helpline is for support people too, so you can call it yourself.
+If the person who gave birth doesn't seem like themselves, check in gently. You don't need perfect words: "It's totally normal to feel overwhelmed. How are you coping day to day?" Listen without rushing to fix things. If they seem very withdrawn, anxious or overwhelmed, or are struggling to cope day to day, encourage them to speak with their GP, midwife or a mental health clinician. The Perinatal Anxiety & Depression Australia (PANDA) helpline is for support people too, so you can call it yourself.
 
 ## When to get help
 

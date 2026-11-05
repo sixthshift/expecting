@@ -7,7 +7,7 @@ ask: My baby is breech. What happens now?
 aliases: [breech, bottom first, feet first, frank breech, complete breech, footling, ECV, turning the baby, moxibustion, breech birth]
 weeks: [32, 42]
 stakes: high
-summary: "Breech is common until late pregnancy and only about 3 in 100 babies are still breech at the end; if yours is, an obstetrician can try to turn them (ECV), which works about half the time, and if not, you choose between a planned caesarean and a vaginal breech birth where the hospital can support one."
+summary: "Breech is common until late pregnancy and only about 3 in 100 babies are still breech at the end; if yours is, an obstetrician can try to turn them (external cephalic version, ECV), which works about half the time, and if not, you choose between a planned caesarean and a vaginal breech birth where the hospital can support one."
 sources:
   - title: RANZCOG — Breech presentation at the end of your pregnancy
     url: https://ranzcog.edu.au/wp-content/uploads/2022/06/Breech-presentation-at-the-end-of-your-pregnancy.pdf
@@ -36,12 +36,12 @@ Breech is more likely with a low-lying placenta, lax or weak uterine muscles (of
 
 ## Turning the baby (ECV)
 
-In an external cephalic version, an obstetrician presses gently on your belly to help your baby turn a somersault to head first. It's usually offered from 37 weeks, or from 36 weeks for a first baby, and your obstetrician or midwife should talk it through with you at 36 weeks.
+In an external cephalic version (ECV), an obstetrician presses gently on your belly to help your baby turn a somersault to head first. It's usually offered from 37 weeks, or from 36 weeks for a first baby, and your obstetrician or midwife should talk it through with you at 36 weeks.
 
 - It succeeds about half the time, more often if you've given birth before. A second attempt on another day may be possible.
 - You may be given medicine to relax your uterus; it won't harm the baby. It can be uncomfortable but shouldn't be painful. Your baby's heart rate is monitored before and after.
 - About 1 in 200 need an emergency caesarean straight after, because of bleeding from the placenta or changes in the baby's heartbeat, so it's done where that's possible.
-- If your blood type is rhesus (RhD) negative, you'll get an anti-D injection afterwards.
+- If your blood type is rhesus D (RhD) negative, you'll get an anti-D injection afterwards.
 - It isn't suitable for everyone: for example, if you need a caesarean anyway, have bled in the past 7 days, your waters have broken, or you're carrying twins.
 
 Exercises, acupuncture, moxibustion and chiropractic have no evidence that they work.

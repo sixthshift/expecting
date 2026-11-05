@@ -36,10 +36,10 @@ You're more likely to be low if you:
 
 But many people are low without any of these.
 
-**The national position.** The national pregnancy care guidelines (approved by the NHMRC in August 2026) recommend against routine vitamin D testing and routine supplements in pregnancy. Low levels may be common, but the evidence that testing or supplements improve outcomes is low to very low certainty. Some services still test people who are likely to be low, and suggest a supplement depending on the result. Ask your midwife what applies to you.
+**The national position.** The national pregnancy care guidelines (approved by the National Health and Medical Research Council (NHMRC) in August 2026) recommend against routine vitamin D testing and routine supplements in pregnancy. Low levels may be common, but the evidence that testing or supplements improve outcomes is low to very low certainty. Some services still test people who are likely to be low, and suggest a supplement depending on the result. Ask your midwife what applies to you.
 
 ## What to do
 
-- **Check your multivitamin.** Most pregnancy multivitamins contain some vitamin D, though the amount varies. MotherSafe says 1000 IU a day can be taken on its own if you aren't on one, or yours has 200 IU or less.
+- **Check your multivitamin.** Most pregnancy multivitamins contain some vitamin D, though the amount varies. MotherSafe says 1000 international units (IU) a day can be taken on its own if you aren't on one, or yours has 200 IU or less.
 - **Higher doses** are often recommended if you're at high risk or a test shows you're low. Check the dose with your doctor or midwife.
 - **Supplements at recommended doses** haven't been shown to harm you or your baby.

@@ -7,7 +7,7 @@ ask: Is there extra help for triplets or more?
 aliases: [triplets payment, multiple birth allowance]
 weeks: [27, 42]
 stakes: medium
-summary: "Families who get Family Tax Benefit Part A and care for triplets or more get an extra fortnightly payment, assessed with the FTB claim; twins don't qualify."
+summary: "Families who get Family Tax Benefit (FTB) Part A and care for triplets or more get an extra fortnightly payment, assessed with the FTB claim; twins don't qualify."
 sources:
   - title: Services Australia — FTB Part A Multiple Birth Allowance
     url: https://www.servicesaustralia.gov.au/ftb-part-multiple-birth-allowance

@@ -24,4 +24,4 @@ It sounds absurd to think about childcare before the baby has arrived, but many 
 
 - StartingBlocks.gov.au, the Australian Government's search for child care services, lists approved services with their fees, vacancies and quality ratings.
 
-Later, the Child Care Subsidy is claimed through Services Australia. A claim can be backdated to the first Monday of a CCS fortnight, no more than 28 days before it was submitted.
+Later, the Child Care Subsidy (CCS) is claimed through Services Australia. A claim can be backdated to the first Monday of a CCS fortnight, no more than 28 days before it was submitted.

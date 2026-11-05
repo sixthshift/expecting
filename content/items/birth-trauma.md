@@ -39,7 +39,7 @@ Birth trauma can affect partners too. You may have found the birth distressing, 
 
 ## When it's PTSD
 
-Feeling dazed, reliving the birth or feeling low is common soon after. Postpartum PTSD, which can affect up to 1 in 10 people 4 to 6 weeks after giving birth, is when it gets worse and keeps affecting your life for 4 weeks or more: flashbacks or nightmares, intrusive memories, hypervigilance, feeling numb and empty, or difficulty bonding with your baby. Untreated birth trauma can turn into PTSD. A doctor or psychologist can diagnose it.
+Feeling dazed, reliving the birth or feeling low is common soon after. Postpartum post-traumatic stress disorder (PTSD), which can affect up to 1 in 10 people 4 to 6 weeks after giving birth, is when it gets worse and keeps affecting your life for 4 weeks or more: flashbacks or nightmares, intrusive memories, hypervigilance, feeling numb and empty, or difficulty bonding with your baby. Untreated birth trauma can turn into PTSD. A doctor or psychologist can diagnose it.
 
 ## What helps
 
@@ -52,10 +52,10 @@ It is never too late to ask for help; some people seek it months or years after.
 
 ## Obstetric violence and your rights
 
-Treatment without your consent, being shouted at, ignored, threatened or refused a support person are forms of obstetric violence. You have the right to give or withdraw consent for any care. If you're unhappy with your care, you can contact the hospital, your state or territory's health complaints body, or AHPRA on 1300 419 495.
+Treatment without your consent, being shouted at, ignored, threatened or refused a support person are forms of obstetric violence. You have the right to give or withdraw consent for any care. If you're unhappy with your care, you can contact the hospital, your state or territory's health complaints body, or the Australian Health Practitioner Regulation Agency (AHPRA) on 1300 419 495.
 
 ## When to get help
 
-If your feelings about the birth are affecting you, see your doctor, midwife or maternal child health nurse. PANDA's helpline is 1300 726 306 and Gidget Foundation is on 1300 851 758.
+If your feelings about the birth are affecting you, see your doctor, midwife or maternal child health nurse. The helpline of Perinatal Anxiety & Depression Australia (PANDA) is 1300 726 306 and Gidget Foundation is on 1300 851 758.
 
 If you're having thoughts of self-harm or suicide, or are worried about your baby's safety, go to the nearest emergency department or call 000. To talk to someone now, call Lifeline on 13 11 14.

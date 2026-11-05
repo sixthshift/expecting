@@ -7,7 +7,7 @@ ask: Which hormones are doing all this to me?
 aliases: [hormones, hCG, progesterone, oestrogen, relaxin, oxytocin, prolactin, hormonal]
 weeks: [1, 42]
 stakes: low
-summary: "hCG, progesterone and oestrogen run the pregnancy itself; relaxin, prostaglandin, oxytocin and others get you through labour, and prolactin and oxytocin work your milk."
+summary: "Human chorionic gonadotropin (hCG), progesterone and oestrogen run the pregnancy itself; relaxin, prostaglandin, oxytocin and others get you through labour, and prolactin and oxytocin work your milk."
 sources:
   - title: Pregnancy, Birth and Baby — hCG levels
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/hcg-levels
@@ -30,7 +30,7 @@ checked: 2026-10-29
 ---
 Hormonal changes in pregnancy lead to physical symptoms and can affect your mood, according to Pregnancy, Birth and Baby. Here are the main ones, in the order you meet them.
 
-**hCG (human chorionic gonadotropin).** Made by the placenta once the embryo has implanted. It's what a pregnancy test detects, usually about 2 weeks after conception. It helps your body produce progesterone. hCG is highest towards the end of the first trimester, then gradually decreases.
+**Human chorionic gonadotropin (hCG).** Made by the placenta once the embryo has implanted. It's what a pregnancy test detects, usually about 2 weeks after conception. It helps your body produce progesterone. hCG is highest towards the end of the first trimester, then gradually decreases.
 
 **Progesterone.** Rises as soon as you conceive and prevents you having a period.
 

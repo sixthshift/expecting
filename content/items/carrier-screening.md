@@ -32,7 +32,7 @@ Carrier screening tells you whether you carry a gene for an inherited condition 
 ## Things to weigh
 
 - **Cost.** Carrier screening costs from $100 to more than $1,500, depending on the provider and how many conditions are tested. You may get some back from Medicare, depending on your family history and the tests ordered.
-- **What a result means.** If you're both carriers of the same condition, a genetic counsellor can talk you through your options, which may include NIPT, CVS or amniocentesis. A negative result doesn't guarantee a healthy baby: it doesn't check for everything.
+- **What a result means.** If you're both carriers of the same condition, a genetic counsellor can talk you through your options, which may include non-invasive prenatal testing (NIPT), chorionic villus sampling (CVS) or amniocentesis. A negative result doesn't guarantee a healthy baby: it doesn't check for everything.
 - **It doesn't replace** NIPT or combined first-trimester screening.
 - **Family.** If you're a carrier, your siblings may be too.
 

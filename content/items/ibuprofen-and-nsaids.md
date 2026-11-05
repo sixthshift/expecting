@@ -25,7 +25,7 @@ Avoid them unless your doctor tells you otherwise. Non-steroidal anti-inflammato
 
 ## Why
 
-There are different reasons to avoid NSAIDs at different stages of pregnancy. KEMH says they're not recommended in pregnancy, especially in the third trimester, and that includes creams and gels. Topical anti-inflammatories shouldn't be used in the last 3 months of pregnancy unless your doctor specifically directs you to.
+There are different reasons to avoid NSAIDs at different stages of pregnancy. King Edward Memorial Hospital (KEMH) says they're not recommended in pregnancy, especially in the third trimester, and that includes creams and gels. Topical anti-inflammatories shouldn't be used in the last 3 months of pregnancy unless your doctor specifically directs you to.
 
 If you're still trying to conceive: taking NSAIDs regularly or over a long time may stop an egg being released in some people. It reverses once regular use stops.
 

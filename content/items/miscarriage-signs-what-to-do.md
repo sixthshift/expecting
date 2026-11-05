@@ -15,7 +15,7 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/miscarriage/what-really-happens-during-a-miscarriage
   - title: Miscarriage Australia — Am I having a miscarriage?
     url: https://miscarriageaustralia.com.au/having-a-miscarriage/signs-of-miscarriage/
-related: [miscarriage, ectopic-pregnancy, miscarriage-management-options]
+related: [miscarriage, ectopic-pregnancy, miscarriage-management-options, chemical-pregnancy]
 checked: 2026-10-29
 ---
 Bleeding from the vagina, from light spotting to heavy with clots, often with cramping or pain low in the tummy, are the usual signs of a miscarriage. But about 1 in 4 people bleed in the first trimester, and pain and bleeding in early pregnancy don't always mean a miscarriage. It is normal to feel very worried.
@@ -43,7 +43,7 @@ Shoulder-tip pain can be a sign of an [ectopic pregnancy](ectopic-pregnancy), wh
 
 Contact your doctor or midwife straight away. If you've started pregnancy care, that's your doctor, obstetrician or midwife; if it's very early and you haven't, your GP. They can tell you what to do next. They might refer you to hospital or, in major cities, to an early pregnancy assessment service (EPAS), a clinic for non-urgent bleeding or pain in early pregnancy. In rural or regional areas an EPAS may not be close; ask your doctor or midwife where to go.
 
-If you can't reach your doctor, you may need to go to your local emergency department; if you're not bleeding heavily, in strong pain or very unwell, the wait there can be long. You can also call healthdirect on 1800 022 222 (24/7) or Pregnancy, Birth and Baby on 1800 882 436 (7am to midnight AEST).
+If you can't reach your doctor, you may need to go to your local emergency department; if you're not bleeding heavily, in strong pain or very unwell, the wait there can be long. You can also call healthdirect on 1800 022 222 (24/7) or Pregnancy, Birth and Baby on 1800 882 436 (7am to midnight Australian Eastern Standard Time).
 
 A blood test and an ultrasound show what is happening. If it's too early to tell, you'll have them again in a few days.
 

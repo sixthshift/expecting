@@ -31,5 +31,5 @@ Australian bread flour (except organic) has folic acid added, about 120 mcg in t
 - **When:** start at least one month before you start trying. Keep taking it through the first 3 months of pregnancy. You don't need folic acid supplements after that.
 - **Didn't take it before?** Start as soon as you can once you know you're pregnant.
 - **Choose one with at least 400 mcg.** General multivitamins usually contain less, and it's important not to double up on some vitamins, so check with your doctor that you're getting the recommended dose.
-- **Some people need a higher dose** (5 mg until 12 weeks), for example with a family history of neural tube defects, diabetes or a BMI over 30. Ask your doctor.
+- **Some people need a higher dose** (5 mg until 12 weeks), for example with a family history of neural tube defects, diabetes or a body mass index (BMI) over 30. Ask your doctor.
 - **Took an extra one by accident?** With a standard dose, there's usually no cause for concern. If you think you've taken too much, speak to your doctor or call the Poisons Information Centre on 13 11 26.

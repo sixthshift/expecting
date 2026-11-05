@@ -52,7 +52,7 @@ People often want to help but don't know how. Gidget's list for supporters gives
 
 ## If you're on your own
 
-PBB says other single parents may be your best source of support. Local groups, your council and swap arrangements with other parents (taking turns minding the children) can all help.
+Pregnancy, Birth and Baby (PBB) says other single parents may be your best source of support. Local groups, your council and swap arrangements with other parents (taking turns minding the children) can all help.
 
 ## When it's more than tired
 

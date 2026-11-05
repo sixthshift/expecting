@@ -7,7 +7,7 @@ ask: "They said it's a molar pregnancy. What is that and why the follow-up?"
 aliases: [molar pregnancy, hydatidiform mole, gestational trophoblastic disease, GTD, hCG follow-up, choriocarcinoma]
 weeks: [4, 16]
 stakes: high
-summary: "A rare pregnancy loss where abnormal cells grow instead of a baby; the tissue must be removed, then weekly hCG blood tests until normal and monthly for another 6 months, and you wait for your doctor's all-clear before trying again."
+summary: "A rare pregnancy loss where abnormal cells grow instead of a baby; the tissue must be removed, then weekly human chorionic gonadotropin (hCG) blood tests until normal and monthly for another 6 months, and you wait for your doctor's all-clear before trying again."
 sources:
   - title: Pregnancy, Birth and Baby — Molar pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy-and-infant-loss/pregnancy-loss/molar-pregnancy
@@ -23,11 +23,11 @@ A molar pregnancy is a rare type of pregnancy loss. An egg is fertilised but a b
 
 ## How it's found
 
-The pregnancy hormone hCG is still made, often at higher-than-normal levels, so you can feel pregnant, with sore breasts and morning sickness that can be severe. Other signs can include vaginal bleeding, a dark discharge, or a uterus that's larger than expected. Some people have no symptoms and find out at a routine ultrasound, or after a miscarriage or termination when the tissue is examined. Your doctor may order an ultrasound and a blood test for your hCG level.
+The pregnancy hormone human chorionic gonadotropin (hCG) is still made, often at higher-than-normal levels, so you can feel pregnant, with sore breasts and morning sickness that can be severe. Other signs can include vaginal bleeding, a dark discharge, or a uterus that's larger than expected. Some people have no symptoms and find out at a routine ultrasound, or after a miscarriage or termination when the tissue is examined. Your doctor may order an ultrasound and a blood test for your hCG level.
 
 ## Treatment
 
-A molar pregnancy needs to be removed to avoid complications. A specialist removes the tissue with a D&C (dilatation and curettage), usually under general anaesthetic, and you can usually go home the same day. The tissue is tested in a laboratory. For most people, that's enough treatment.
+A molar pregnancy needs to be removed to avoid complications. A specialist removes the tissue with a dilatation and curettage (D&C), usually under general anaesthetic, and you can usually go home the same day. The tissue is tested in a laboratory. For most people, that's enough treatment.
 
 Sometimes some molar tissue stays and grows deeper into the uterus and spreads (an invasive mole), which needs more treatment. Rarely, it turns into a cancer called choriocarcinoma, which also needs more treatment.
 

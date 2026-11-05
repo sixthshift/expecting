@@ -7,7 +7,7 @@ ask: Is my phone, the wifi or the microwave bad for the baby?
 aliases: [mobile phone, phone on belly, wifi, 5G, EMF, radiation from phone, microwave oven, laptop on belly, headphones on bump, Bluetooth, induction cooktop, power lines, electric blanket EMF]
 who: carrying
 stakes: low
-summary: "Yes, they're fine: ARPANSA's review found no or little association between radiofrequency exposure and pregnancy outcomes, and microwave ovens used according to the manufacturer's instructions and in good working order have no established health effect."
+summary: "Yes, they're fine: a review by the Australian Radiation Protection and Nuclear Safety Agency (ARPANSA) found no or little association between radiofrequency exposure and pregnancy outcomes, and microwave ovens used according to the manufacturer's instructions and in good working order have no established health effect."
 verdict: yes
 sources:
   - title: ARPANSA — Effects of radiofrequency electromagnetic field exposure on adverse pregnancy outcomes
@@ -17,7 +17,7 @@ sources:
 related: [computer-screens, airport-scanners, medical-x-rays-and-ct, electric-blankets]
 checked: 2026-10-29
 ---
-Yes. ARPANSA's review found no or little association between radiofrequency exposure, such as from mobile phones, and pregnancy outcomes, and microwave ovens have no established health effect when used and kept as they should be. There's no specific Australian advice on wifi or laptops in pregnancy.
+Yes. A review by the Australian Radiation Protection and Nuclear Safety Agency (ARPANSA) found no or little association between radiofrequency exposure, such as from mobile phones, and pregnancy outcomes, and microwave ovens have no established health effect when used and kept as they should be. There's no specific Australian advice on wifi or laptops in pregnancy.
 
 ## Why
 

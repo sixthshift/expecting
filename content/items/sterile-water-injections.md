@@ -20,7 +20,7 @@ Many people have lower back pain that persists throughout labour. Midwives can u
 
 ## What it feels like
 
-The Royal Women's Hospital says the injections cause a strong stinging sensation, like a bee sting, that lasts for up to 30 seconds before disappearing along with the back pain. They can bring up to two hours of pain relief to your lower back, but you'll still feel the contractions. RANZCOG describes it as a short bee sting sensation that may help your lower back pain.
+The Royal Women's Hospital says the injections cause a strong stinging sensation, like a bee sting, that lasts for up to 30 seconds before disappearing along with the back pain. They can bring up to two hours of pain relief to your lower back, but you'll still feel the contractions. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) describes it as a short bee sting sensation that may help your lower back pain.
 
 ## What the evidence says
 
@@ -28,7 +28,7 @@ The Royal Women's says there is still not enough research evidence to show that 
 
 ## Who gives them
 
-Midwives can use the technique. The Royal Women's Hospital lists it under assisted non-medical pain relief, alongside TENS.
+Midwives can use the technique. The Royal Women's Hospital lists it under assisted non-medical pain relief, alongside transcutaneous electrical nerve stimulation (TENS).
 
 ## Your choice
 

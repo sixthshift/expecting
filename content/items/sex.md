@@ -27,7 +27,7 @@ Sex doesn't harm the baby. The uterus sits deep in the pelvis behind strong musc
 
 - **When to hold off.** Talk to your care provider, but as a guide avoid sex if you're at risk of premature labour or have signs of a possible miscarriage, have a weak cervix or a cervical stitch, have placenta praevia or a low-lying placenta, have discharge that looks or smells different, or your waters may have broken. You may be told to stop after bleeding, even once it's stopped.
 - **Positions.** Avoid lying flat on your back, especially from 28 weeks. Try side-lying with pillows, hands and knees, or you on top.
-- **New or casual partner?** Use a condom or dental dam because of the risk of STIs.
+- **New or casual partner?** Use a condom or dental dam because of the risk of sexually transmitted infections (STIs).
 - **Desire changes** from trimester to trimester, and it's OK if either of you doesn't want sex. Kissing, cuddling and massage count too.
 - **See your doctor** after sex if there's severe cramping, unusual discharge, sharp pain or fever.
 - **Bleeding after sex:** contact your doctor or midwife; after 20 weeks contact your birth unit straight away, and call 000 for heavy bleeding. See [Bleeding after sex](bleeding-after-sex).

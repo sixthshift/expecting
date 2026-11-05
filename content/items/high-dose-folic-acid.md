@@ -8,7 +8,7 @@ aliases: [5mg folic acid, high dose folate, Megafol, folic acid diabetes, folic 
 weeks: [1, 13]
 who: carrying
 stakes: high
-summary: "Ask your doctor: a 5 mg daily dose is used instead of the usual 0.5 mg when the chance of a neural tube defect is higher, such as with diabetes, a BMI over 30, some epilepsy or antipsychotic medicines, or a family history."
+summary: "Ask your doctor: a 5 mg daily dose is used instead of the usual 0.5 mg when the chance of a neural tube defect is higher, such as with diabetes, a body mass index (BMI) over 30, some epilepsy or antipsychotic medicines, or a family history."
 verdict: ask
 sources:
   - title: Pregnancy, Birth and Baby — Vitamins and supplements during pregnancy
@@ -34,7 +34,7 @@ Pregnancy, Birth and Baby says your doctor may recommend 5 mg if you:
 
 MotherSafe adds a neural tube defect of your own, a family history on either the mother's or father's side, some antipsychotic medicines, and diabetes from before pregnancy.
 
-For some, MotherSafe says 5 mg should be considered **throughout the pregnancy**: a multiple pregnancy, haemolytic anaemia, a BMI over 30, malabsorption or inflammatory bowel disease.
+For some, MotherSafe says 5 mg should be considered **throughout the pregnancy**: a multiple pregnancy, haemolytic anaemia, a body mass index (BMI) over 30, malabsorption or inflammatory bowel disease.
 
 ## What to do
 

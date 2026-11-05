@@ -41,8 +41,8 @@ An induction is when your midwife or doctor starts labour for you, with your con
 
 - **Time.** From starting to the birth can take a few hours or more than 24 hours, usually in hospital.
 - **How it feels.** Induced contractions can build up quickly and be more intense than in a labour that starts by itself. You're more likely to have continuous monitoring and more vaginal examinations, and to want pain relief sooner. There's usually no restriction on what pain relief you can have.
-- **Moving around.** With a drip and a CTG monitor it's hard to move about, and a bath isn't possible.
-- **Assisted birth and caesarean.** Pregnancy, Birth and Baby says there's no difference in how often forceps or vacuum are used. RANZCOG says that, done appropriately, induction doesn't increase the chance of interventions. The Royal Women's says an induction for reasons other than a prolonged pregnancy may increase the chance of an emergency caesarean.
+- **Moving around.** With a drip and a cardiotocograph (CTG) monitor it's hard to move about, and a bath isn't possible.
+- **Assisted birth and caesarean.** Pregnancy, Birth and Baby says there's no difference in how often forceps or vacuum are used. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says that, done appropriately, induction doesn't increase the chance of interventions. The Royal Women's says an induction for reasons other than a prolonged pregnancy may increase the chance of an emergency caesarean.
 - **It may not work.** If it doesn't, your midwife or doctor may suggest another method or recommend a caesarean.
 - **How you feel afterwards.** Some people feel less satisfied with an induced birth, especially if they wanted a more natural one. Those feelings are valid.
 

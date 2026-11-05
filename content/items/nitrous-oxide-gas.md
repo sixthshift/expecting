@@ -26,7 +26,7 @@ Only you should hold the mouthpiece or mask, so you can stop straight away when 
 
 ## What it does
 
-It can reduce pain intensity and anxiety, and help you relax. RANZCOG says it helps take the edge off the pain. It's only partly effective for some people and may only dull the pain, and it doesn't work for everyone. It's fine to stop and try something else.
+It can reduce pain intensity and anxiety, and help you relax. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says it helps take the edge off the pain. It's only partly effective for some people and may only dull the pain, and it doesn't work for everyone. It's fine to stop and try something else.
 
 - You control the amount, and it can be used at any stage of labour.
 - It can be used with some other forms of pain relief, and you can move and change position between contractions.

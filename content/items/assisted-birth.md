@@ -4,7 +4,7 @@ title: "Assisted birth: vacuum and forceps"
 type: guide
 topic: birth
 ask: What happens if the baby needs help coming out?
-aliases: [instrumental birth, ventouse, vacuum birth, kiwi cup, forceps delivery, assisted delivery]
+aliases: [instrumental birth, ventouse, vacuum birth, kiwi cup, forceps delivery, assisted delivery, forceps rate, vacuum rate, how common is assisted birth, instrumental birth common]
 weeks: [37, 42]
 stakes: high
 summary: "About 1 in 10 babies is born with help from a vacuum cup or forceps, most often in a first birth; it's offered when it's the safest way, it's done only with your consent, and most happen without complications."

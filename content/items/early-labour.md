@@ -8,7 +8,7 @@ aliases: [latent phase, latent labour, pre-labour, early labour at home, how lon
 weeks: [36, 42]
 who: together
 stakes: medium
-summary: "Early labour can last hours or even days; if your pregnancy has been normal you can usually stay home, rest, snack, drink water and use a bath, shower or TENS, and call your birth unit any time you're unsure."
+summary: "Early labour can last hours or even days; if your pregnancy has been normal you can usually stay home, rest, snack, drink water and use a bath, shower or a transcutaneous electrical nerve stimulation (TENS) machine, and call your birth unit any time you're unsure."
 sources:
   - title: Pregnancy, Birth and Baby — First stage of labour
     url: https://www.pregnancybirthbaby.org.au/labour-and-birth/labour/giving-birth-first-stage-of-labour
@@ -32,7 +32,7 @@ If you're comfortable and have had a normal pregnancy, you can usually stay at h
 
 - **Rest.** If it's night time, try to sleep. Gentle stretches, mindfulness or other calming techniques can help.
 - **Eat and drink.** Light snacks such as fruit or toast, regularly, and water to stay hydrated.
-- **Comfort.** A warm bath or shower, heat packs, a TENS machine, slow breathing, changing position and gentle movement.
+- **Comfort.** A warm bath or shower, heat packs, a transcutaneous electrical nerve stimulation (TENS) machine, slow breathing, changing position and gentle movement.
 - **The toilet.** Empty your bladder regularly, and your bowels if you can.
 
 ## For the support person

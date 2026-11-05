@@ -13,7 +13,7 @@ sources:
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/checkups-and-scans-during-your-pregnancy
   - title: Pregnancy, Birth and Baby — Antenatal care during your pregnancy
     url: https://www.pregnancybirthbaby.org.au/pregnancy/antenatal-care-and-tests/antenatal-care-during-your-pregnancy
-related: [fundal-height, fetal-heartbeat-check, antenatal-visit-schedule, pre-eclampsia, baby-movements]
+related: [fundal-height, fetal-heartbeat-check, antenatal-visit-schedule, pre-eclampsia, baby-movements, term-nad]
 checked: 2026-10-29
 ---
 Your doctor or midwife does the same routine health check at every visit, and adds tests and scans at set points in the pregnancy.

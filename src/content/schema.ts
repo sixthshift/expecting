@@ -30,7 +30,7 @@ export const TYPE_LABELS: Record<ItemType, string | null> = {
   term: "Glossary",
 };
 
-/** The Library's shelves, in their usual order: the map's topics (content/map/README.md), and the extras'. */
+/** The Library's shelves, in their usual order: the built-in topics, and the extras'. */
 export const TOPICS = {
   food: "Food",
   drink: "Drink",

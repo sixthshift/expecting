@@ -7,7 +7,7 @@ ask: Are artificial sweeteners safe?
 aliases: [sweeteners, aspartame, sucralose, stevia, Equal, Splenda, diet drinks, sugar-free, saccharin]
 who: carrying
 stakes: low
-summary: "Ask if unsure: FSANZ safety-assesses every permitted sweetener, but its page doesn't mention pregnancy, so there's no pregnancy-specific clearance or limit."
+summary: "Ask if unsure: Food Standards Australia New Zealand (FSANZ) safety-assesses every permitted sweetener, but its page doesn't mention pregnancy, so there's no pregnancy-specific clearance or limit."
 verdict: ask
 sources:
   - title: Food Standards Australia New Zealand — Intense sweeteners

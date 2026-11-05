@@ -27,5 +27,5 @@ Pregnancy hormones relax the bowel muscles and slow things down. Multivitamins, 
 
 - **Start without medicine.** Eat a variety of high-fibre foods, drink 1.5 to 2 litres of fluid a day, stay active, and go as soon as you feel the urge.
 - **Then, in this order (MotherSafe):** bulk-forming fibre (psyllium, ispaghula, sterculia) with plenty of water; osmotic laxatives (macrogol, lactulose, sorbitol); stimulant laxatives; a stool softener (docusate), which works better combined with another type.
-- **Stimulant laxatives (senna, bisacodyl).** KEMH says they are not recommended for regular use. MotherSafe says they are fine for one-off or occasional use but not on a regular basis.
+- **Stimulant laxatives (senna, bisacodyl).** King Edward Memorial Hospital (KEMH) says they are not recommended for regular use. MotherSafe says they are fine for one-off or occasional use but not on a regular basis.
 - **Speak to your doctor** if your bowel habits change, especially if you notice blood in your stools.

@@ -14,4 +14,4 @@ sources:
 related: [breech, ecv]
 checked: 2026-10-29
 ---
-A breech position is common earlier in pregnancy. Pregnancy, Birth and Baby says most babies turn head-down before the last month, and with an uncomplicated pregnancy no extra care is needed for a breech baby until you reach about 37 weeks. Your doctor or midwife will feel your abdomen at around 36 weeks to check your baby's position. About 3 in every 100 babies are still breech at the end of pregnancy, and that's when your options, such as ECV, are discussed.
+A breech position is common earlier in pregnancy. Pregnancy, Birth and Baby says most babies turn head-down before the last month, and with an uncomplicated pregnancy no extra care is needed for a breech baby until you reach about 37 weeks. Your doctor or midwife will feel your abdomen at around 36 weeks to check your baby's position. About 3 in every 100 babies are still breech at the end of pregnancy, and that's when your options, such as external cephalic version (ECV), are discussed.

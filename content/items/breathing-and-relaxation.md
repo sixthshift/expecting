@@ -22,7 +22,7 @@ Pregnancy, Birth and Baby says relaxation methods can help ease pain in labour: 
 
 ## Why relaxing matters
 
-RANZCOG says being relaxed has many benefits: your body works better, and your natural labour hormone (oxytocin) and natural pain-relief hormones (endorphins) are released more readily. Anxiety, fear, tension and resistance are a normal response when you feel overwhelmed or unsure what to expect, and relaxing and trusting that your body knows what to do will help you manage your pain. RANZCOG's advice is to learn how to relax, stay calm and breathe deeply.
+The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says being relaxed has many benefits: your body works better, and your natural labour hormone (oxytocin) and natural pain-relief hormones (endorphins) are released more readily. Anxiety, fear, tension and resistance are a normal response when you feel overwhelmed or unsure what to expect, and relaxing and trusting that your body knows what to do will help you manage your pain. RANZCOG's advice is to learn how to relax, stay calm and breathe deeply.
 
 ## Touch and warmth
 

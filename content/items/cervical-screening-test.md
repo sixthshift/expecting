@@ -25,7 +25,7 @@ tasks:
     title: Check whether your cervical screening test is due, and ask for it if so
     who: carrying
 ---
-The cervical screening test checks for HPV, the virus that can cause changes in the cervix that sometimes lead to cancer. It replaced the Pap smear and is usually every 5 years, for anyone aged 25 to 74 with a cervix who has ever had sex.
+The cervical screening test checks for human papillomavirus (HPV), the virus that can cause changes in the cervix that sometimes lead to cancer. It replaced the Pap smear and is usually every 5 years, for anyone aged 25 to 74 with a cervix who has ever had sex.
 
 **In pregnancy.** Cervical screening is safe in pregnancy and should not be delayed. If you're due, or have never been screened, you should have one while you're pregnant. Your doctor should offer it at your first visit if you're due, and your GP can do it.
 

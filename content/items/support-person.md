@@ -27,7 +27,7 @@ Having the right support people can shorten labour, lower how much pain relief y
 
 ## The options
 
-- **Your partner.** It's common, but you don't have to. If your partner might find it hard to see you in pain, you might choose someone else as well. RANZCOG suggests it may be better for an anxious partner to step outside for some of the labour, with someone else there to support them and you.
+- **Your partner.** It's common, but you don't have to. If your partner might find it hard to see you in pain, you might choose someone else as well. The Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) suggests it may be better for an anxious partner to step outside for some of the labour, with someone else there to support them and you.
 - **A friend or relative:** a parent, sibling or close friend. Someone who's had a baby or seen a birth before can help.
 - **A doula:** a paid birth support professional. Doulas aren't medical professionals; they give emotional and practical support, and may meet you before the birth and help afterwards.
 - **More than one.** Some people have more than one support person, or want someone for only part of the labour.

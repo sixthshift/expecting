@@ -49,7 +49,7 @@ Reach out if your distress feels overwhelming, you're struggling with daily life
 
 - your GP, obstetrician or midwife, who can refer you on
 - Gidget Foundation, with psychological therapy for pregnancy loss, including termination
-- Miscarriage Australia, PANDA, Pink Elephants, Red Nose Grief and Loss Support, and the Royal Women's Hospital
+- Miscarriage Australia, Perinatal Anxiety & Depression Australia (PANDA), Pink Elephants, Red Nose Grief and Loss Support, and the Royal Women's Hospital
 
 ## When to get help
 

@@ -25,7 +25,7 @@ Mostly no. Pre-prepared fruit and vegetable salads, including those from buffets
 
 Pre-prepared salads have a higher risk of listeria, and listeria can grow even in the fridge. In pregnancy it can cause miscarriage, premature birth or stillbirth.
 
-At warm temperatures most food-poisoning bacteria grow very quickly, and some make toxins. FSANZ's advice is to keep food either cold or hot, not lukewarm, and to limit time in the "danger zone" of 5 °C to 60 °C.
+At warm temperatures most food-poisoning bacteria grow very quickly, and some make toxins. Food Standards Australia New Zealand's (FSANZ) advice is to keep food either cold or hot, not lukewarm, and to limit time in the "danger zone" of 5 °C to 60 °C.
 
 ## What to do
 

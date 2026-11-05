@@ -7,7 +7,7 @@ ask: Can I take something for a cough?
 aliases: [cough medicine, cough syrup, Duro-Tuss, Benadryl, Bisolvon, bromhexine, Robitussin, guaifenesin, dextromethorphan, pholcodine, dry cough, chesty cough, cough lozenges]
 who: carrying
 stakes: medium
-summary: "Yes, some: dextromethorphan for a dry cough, and bromhexine or guaifenesin for a chesty cough, are considered safe in pregnancy at the recommended dose. Pholcodine cough medicines are no longer sold in Australia: the TGA cancelled them in 2023."
+summary: "Yes, some: dextromethorphan for a dry cough, and bromhexine or guaifenesin for a chesty cough, are considered safe in pregnancy at the recommended dose. Pholcodine cough medicines are no longer sold in Australia: the Therapeutic Goods Administration (TGA) cancelled them in 2023."
 verdict: yes
 sources:
   - title: KEMH — Commonly used medicines and safety in pregnancy
@@ -23,7 +23,7 @@ sources:
 related: [cold-and-flu-tablets, throat-lozenges-and-gargles, honey]
 checked: 2026-10-29
 ---
-**Pholcodine is no longer sold in Australia.** In February 2023 the TGA cancelled 55 pholcodine cough medicines, and the ones still on pharmacy shelves were recalled. Some older pages still list it.
+**Pholcodine is no longer sold in Australia.** In February 2023 the Therapeutic Goods Administration (TGA) cancelled 55 pholcodine cough medicines, and the ones still on pharmacy shelves were recalled. Some older pages still list it.
 
 Other cough medicines are considered safe in pregnancy. Which one depends on the kind of cough, and it's best to check with your doctor or pharmacist first.
 

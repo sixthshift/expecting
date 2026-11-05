@@ -34,4 +34,4 @@ For an uncomplicated, low-risk pregnancy there is very little risk, but it can b
 
 ## When it isn't offered
 
-You won't be offered one if you have a low-lying placenta (placenta praevia), your baby isn't head down (unless you're planning a vaginal breech birth), you have a vaginal infection, or your waters have broken. It's safe with a positive group B strep result, but may not be safe if you have HIV or active genital herpes.
+You won't be offered one if you have a low-lying placenta (placenta praevia), your baby isn't head down (unless you're planning a vaginal breech birth), you have a vaginal infection, or your waters have broken. It's safe with a positive group B strep result, but may not be safe if you have human immunodeficiency virus (HIV) or active genital herpes.

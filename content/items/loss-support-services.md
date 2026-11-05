@@ -27,14 +27,14 @@ Whatever the loss, and however early, there are people whose work is to sit with
 ## To talk now
 
 - **Red Nose Grief and Loss: 1300 308 307, 24 hours a day, 7 days a week.** Free support by phone for people affected by pregnancy loss, stillbirth, or the death of a baby or child.
-- **Pink Elephants Pregnancy Loss Helpline, delivered by PANDA: 1300 726 306.** Counselling and support, Monday to Friday 9am to 7:30pm, and Saturdays, Sundays and public holidays 9am to 4pm (AEST).
+- **Pink Elephants Pregnancy Loss Helpline, delivered by Perinatal Anxiety & Depression Australia (PANDA): 1300 726 306.** Counselling and support, Monday to Friday 9am to 7:30pm, and Saturdays, Sundays and public holidays 9am to 4pm (Australian Eastern Standard Time).
 - **ForWhen: 1300 24 23 22**, 9am to 4:30pm weekdays, to connect you with local services.
 
 ## People who have been there
 
 - **Pink Elephants** runs private online groups, moderated by peer support companions who have had their own losses: for miscarriage, termination for medical reasons, trying again and pregnancy after loss.
 - **Bears of Hope** has grief counsellors, free of charge, and walk and talk support groups. It also has a guide for family, friends and colleagues.
-- **Miscarriage Australia** has plain information on miscarriage, with pages for women, men, LGBTIQA+ families, partners, and family and friends.
+- **Miscarriage Australia** has plain information on miscarriage, with pages for women, men, lesbian, gay, bisexual, trans, intersex, queer and asexual (LGBTIQA+) families, partners, and family and friends.
 
 ## For your mental health
 
@@ -48,7 +48,7 @@ After a stillbirth, the hospital's social worker or bereavement midwife can help
 
 ## For partners
 
-PBB says Red Nose offers support groups for non-birthing parents, and Miscarriage Australia has a page of support for men.
+Pregnancy, Birth and Baby (PBB) says Red Nose offers support groups for non-birthing parents, and Miscarriage Australia has a page of support for men.
 
 ## In a crisis
 

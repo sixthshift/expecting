@@ -23,7 +23,7 @@ appointment:
   - Does my hospital support a planned vaginal birth after a caesarean?
 checked: 2026-10-29
 ---
-If you've had a caesarean, your next birth could be a planned vaginal birth (VBAC, sometimes called NBAC, next birth after caesarean) or a planned repeat caesarean. Both are safe ways to give birth for most people. Unless there's a health reason to advise another caesarean, the Royal Women's Hospital says the decision is yours.
+If you've had a caesarean, your next birth could be a planned vaginal birth (vaginal birth after caesarean, or VBAC, sometimes called next birth after caesarean, or NBAC) or a planned repeat caesarean. Both are safe ways to give birth for most people. Unless there's a health reason to advise another caesarean, the Royal Women's Hospital says the decision is yours.
 
 ## The options
 
@@ -33,7 +33,7 @@ If you've had a caesarean, your next birth could be a planned vaginal birth (VBA
 - The scar on the uterus can tear open during labour (uterine rupture). It's uncommon, around 1 in 200 (estimates range from about 1 in 120 to 1 in 500), but it can cause serious problems for you and the baby, and very rarely means a hysterectomy.
 - There's a chance of an assisted birth, and of injury to the perineum or pelvic floor.
 
-Because of the risk of rupture, a planned VBAC is usually recommended in a hospital, with the baby monitored closely, and RANZCOG says somewhere with an operating theatre and care for the baby if needed. Some remote and regional hospitals don't offer it; you can ask to go to one that does.
+Because of the risk of rupture, a planned VBAC is usually recommended in a hospital, with the baby monitored closely, and the Royal Australian and New Zealand College of Obstetricians and Gynaecologists (RANZCOG) says somewhere with an operating theatre and care for the baby if needed. Some remote and regional hospitals don't offer it; you can ask to go to one that does.
 
 **A planned repeat caesarean.** Possible after one or more caesareans. It carries the usual surgical risks (bleeding, injury, infection, blood clots), a longer recovery, and more chance of complications in later pregnancies, such as placenta accreta, which rise with each caesarean. It lowers the chance of the scar tearing, of a blood transfusion and of pelvic floor injury.
 
@@ -41,7 +41,7 @@ Because of the risk of rupture, a planned VBAC is usually recommended in a hospi
 
 **A VBAC is more likely to work** if you've had a vaginal birth before (especially a VBAC), labour starts by itself, or the last caesarean was because the baby was breech or in another position.
 
-**Less likely** if you need induction or a drip to speed labour, your BMI was over 40 at the start of pregnancy, the baby looks big, you have gestational diabetes, or you're over 35 (RANZCOG).
+**Less likely** if you need induction or a drip to speed labour, your body mass index (BMI) was over 40 at the start of pregnancy, the baby looks big, you have gestational diabetes, or you're over 35 (RANZCOG).
 
 **Induction is different after a caesarean.** RANZCOG says the chance of rupture is 1 in 370 with an induction, and 1 in 56 if it's from 40+6 weeks.
 

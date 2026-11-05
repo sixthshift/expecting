@@ -52,4 +52,4 @@ Try not to hand the baby back every time they cry. The more you practise caring 
 
 ## When it's more than that
 
-Feeling resentful, distant or disconnected can come with the changes. Talk with your partner, and speak up before feelings build. If you're feeling very tired, irritable, angry, overwhelmed or can't cope, talk to a healthcare professional. You can call MensLine on 1300 78 99 78 or Lifeline on 13 11 14 any time, or PANDA on 1300 726 306 (7 days: until 7:30pm Monday to Friday, 9am to 4pm on weekends, AEST/AEDT).
+Feeling resentful, distant or disconnected can come with the changes. Talk with your partner, and speak up before feelings build. If you're feeling very tired, irritable, angry, overwhelmed or can't cope, talk to a healthcare professional. You can call MensLine on 1300 78 99 78 or Lifeline on 13 11 14 any time, or Perinatal Anxiety & Depression Australia (PANDA) on 1300 726 306 (7 days: until 7:30pm Monday to Friday, 9am to 4pm on weekends, Australian Eastern Time).

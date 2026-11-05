@@ -22,7 +22,7 @@ appointment:
   - Does anything about this pregnancy rule some out?
 checked: 2026-10-29
 ---
-A model of care is who looks after you in pregnancy, where, and who is there for the birth. Hospitals call their versions different names (the Royal Women's in Melbourne has Team Maternity, MIST and Caseload, for example), so ask what yours calls them.
+A model of care is who looks after you in pregnancy, where, and who is there for the birth. Hospitals call their versions different names (the Royal Women's in Melbourne has Team Maternity, Midwives in Small Teams (MIST) and Caseload, for example), so ask what yours calls them.
 
 ## The options
 
