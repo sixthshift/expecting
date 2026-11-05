@@ -31,7 +31,7 @@ export function ListPage() {
 function List() {
   const { listId, summary } = useListPage();
   return (
-    <PillarLayout rail={<PlannerRail />} className="gap-6" back={listBack(listId)}>
+    <PillarLayout rail={<PlannerRail />} width="full" className="gap-6" back={listBack(listId)}>
       {!summary ? (
         <div className="flex flex-col gap-2">
           <h1 className="text-2xl font-display font-semibold text-fg-strong">Not here</h1>

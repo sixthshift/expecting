@@ -14,7 +14,7 @@ import { JournalRail } from "../desktop/components/JournalRail";
 export function CollectionsPage() {
   return (
     <JournalPageProvider>
-      <PillarLayout rail={<JournalRail />} title="Journal" className="gap-6">
+      <PillarLayout rail={<JournalRail />} width="full" title="Journal" className="gap-6">
         <JournalTabs current="collections" />
         <Collections />
       </PillarLayout>

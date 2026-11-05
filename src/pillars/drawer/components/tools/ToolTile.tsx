@@ -25,7 +25,7 @@ export function ToolTile({
     <Link
       to={to}
       className={cn(
-        "flex max-w-3xl items-center gap-4 rounded-xl border border-border-subtle p-5 hover:border-border-brand",
+        "flex max-w-3xl items-center gap-4 rounded-xl desktop:h-full desktop:max-w-none border border-border-subtle p-5 hover:border-border-brand",
         featured ? "bg-linear-to-br from-(--expecting-accent-soft-from) to-(--expecting-accent-soft-to)" : "bg-bg-normal"
       )}
     >

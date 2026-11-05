@@ -798,7 +798,15 @@ Installing and the service worker need HTTPS, except on `localhost`.
   and `desktop:` variants (`src/styles/index.css`) follow that. There's no
   `lg:` breakpoint any more, and a test keeps it out (`test/app/layout.test.ts`).
   A desktop stretches the way a phone does with `sm:`, by `xl:` (1280px) and
-  `2xl:` (1536px) within a part: the top bar's words beside its icons.
+  `2xl:` (1536px) within a part: the top bar's words beside its icons. Beside
+  a `desktop:` class on the same property, stack them (`desktop:grid-cols-2
+  desktop:2xl:grid-cols-3`): `desktop:` is an attribute selector, so a bare
+  `2xl:` loses to it. A page's width is `PillarLayout`'s `width`: the reading
+  and form pages keep the 6xl column, and a page whose content is grids or a
+  chart takes `full` (to 1760px) and puts more side by side, never longer
+  lines (This week, the Planner and its weeks and lists, the whole
+  pregnancy, the Library's home with its results kept narrower, the
+  collections, the Drawer).
 - **Structure with `useLayout()`, adjustments with the variants.** Where the
   two differ in what's there or its order (a part only one has, a column
   beside the page, a camera or a drop zone), a part chooses with

@@ -9,7 +9,10 @@ import { ComesWith } from "../ComesWith";
  */
 export function ToolOff({ icon: Icon, title, extras, children }: { icon: LucideIcon; title: string; extras: readonly ExtraId[]; children: ReactNode }) {
   return (
-    <section aria-label={title} className="flex max-w-3xl items-start gap-3 rounded-xl border border-border-subtle bg-bg-normal p-4">
+    <section
+      aria-label={title}
+      className="flex max-w-3xl items-start gap-3 rounded-xl desktop:h-full desktop:max-w-none border border-border-subtle bg-bg-normal p-4"
+    >
       <Icon aria-hidden size={18} className="mt-0.5 shrink-0 text-fg-brand" />
       <p className="text-sm text-fg-normal">
         <span className="font-medium text-fg-strong">{title}:</span> {children} <ComesWith extras={extras} />

@@ -6,7 +6,7 @@ import { useLines } from "../../hooks/useLines";
 import { NotNeeded } from "./NotNeeded";
 import { SectionCard } from "./SectionCard";
 
-/** A list's sections as cards, flowing down two columns on a desktop, what's left first; with "just what's left", only that. The not-needed under them. */
+/** A list's sections as cards, flowing down two columns on a desktop (three on a wide one), what's left first; with "just what's left", only that. The not-needed under them. */
 export function Sections() {
   const { listId, leftOnly, tickedHere } = useListPage();
   const lines = useLines();
@@ -19,7 +19,7 @@ export function Sections() {
     <div className="flex flex-col gap-4">
       {leftOnly && shown.length === 0 ? <p className="text-fg-normal">All sorted: nothing left to get on this list.</p> : null}
       {shown.length > 0 ? (
-        <div className="gap-4 desktop:columns-2">
+        <div className="gap-4 desktop:columns-2 desktop:2xl:columns-3">
           {shown.map((section) => (
             <SectionCard
               key={section.key ?? "yours"}

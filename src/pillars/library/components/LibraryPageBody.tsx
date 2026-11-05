@@ -57,7 +57,14 @@ export function LibraryPageBody({ home }: { home: ReactNode }) {
   }
 
   return (
-    <PillarLayout rail={<LibraryRail />} title="Library" lead="Everything Expecting knows, to read any time. Each piece also turns up on its week.">
+    // The page takes the width for its grids (the ways in, Right now, the topics); what's searched
+    // for stays a list at a reading width. A door's shelf (above) keeps the narrower page.
+    <PillarLayout
+      rail={<LibraryRail />}
+      width="full"
+      title="Library"
+      lead="Everything Expecting knows, to read any time. Each piece also turns up on its week."
+    >
       <SearchInput
         value={q}
         onValueChange={onSearch}
@@ -67,7 +74,7 @@ export function LibraryPageBody({ home }: { home: ReactNode }) {
       />
 
       {results ? (
-        <section aria-label="Results" className="flex flex-col gap-3">
+        <section aria-label="Results" className="flex max-w-5xl flex-col gap-3">
           <p className="text-sm text-fg-subtle">{results.length === 0 ? `Nothing about "${q}" yet.` : `${results.length} found`}</p>
           <ItemList items={results} />
         </section>

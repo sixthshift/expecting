@@ -80,6 +80,7 @@ export function Timeline({ at }: { at: Week | undefined }) {
 
   return (
     <PillarLayout
+      width="full"
       back={{ to: "/", label: "This week" }}
       title="The whole pregnancy"
       lead="Every week at once. Tap one to see it."

@@ -17,7 +17,9 @@ const route = getRouteApi("/app/planner/weeks");
 /**
  * The weeks ("Across the weeks" on screen): To do drawn as a chart, for when you want the whole run of
  * it at once. The same plan as To do, in the same groups; opened from Ahead's
- * heading, or from a stage's card at that stage. While something has
+ * heading, or from a stage's card at that stage. The page takes the width
+ * (`width="full"`): a week's column is wider, and bars easier to tell apart.
+ * While something has
  * happened, put aside like To do: the route draws its quiet world (`putAway`).
  */
 export function WeeksPage() {
@@ -41,6 +43,7 @@ export function WeeksPage() {
   return (
     <PillarLayout
       rail={<PlannerRail />}
+      width="full"
       back={{ to: "/planner", label: "Planner" }}
       className="gap-6"
       title="Across the weeks"

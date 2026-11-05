@@ -23,13 +23,14 @@ export function ListsPage() {
   return (
     <PillarLayout
       rail={<PlannerRail />}
+      width="full"
       back={{ to: "/planner", label: "Planner" }}
       title="Lists"
       lead="What to get, a list for each part of getting ready, ticked off together wherever you are."
       className="gap-8"
     >
       {builtIn.length > 0 ? (
-        <ul className="grid gap-4 desktop:grid-cols-2">
+        <ul className="grid gap-4 desktop:grid-cols-2 desktop:2xl:grid-cols-3">
           {builtIn.map((list) => (
             <li key={list.id}>
               <ListCard list={list} />
@@ -42,7 +43,7 @@ export function ListsPage() {
           Your lists
         </h2>
         {own.length > 0 ? (
-          <ul className="grid gap-4 desktop:grid-cols-2">
+          <ul className="grid gap-4 desktop:grid-cols-2 desktop:2xl:grid-cols-3">
             {own.map((list) => (
               <li key={list.id}>
                 <ListCard list={list} />
