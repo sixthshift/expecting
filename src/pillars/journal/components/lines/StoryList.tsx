@@ -19,9 +19,20 @@ import { Day, usePhotoViewer } from "./Day";
  * The story: its weeks newest first, each with its note's title and its
  * days; a week with nothing kept one faint line, a run of them one line.
  * Each week is `#week-28`, for a week to open at. `titled` false leaves out
- * the weeks' titles, which are about the baby (the quiet Journal).
+ * the weeks' titles, which are about the baby (the quiet Journal). `margin`
+ * gives each day a margin for its marks (the diary on a desktop, `Day`).
  */
-export function StoryList({ groups: given, label = "The story", titled = true }: { groups: readonly StoryPart[]; label?: string; titled?: boolean }) {
+export function StoryList({
+  groups: given,
+  label = "The story",
+  titled = true,
+  margin = false,
+}: {
+  groups: readonly StoryPart[];
+  label?: string;
+  titled?: boolean;
+  margin?: boolean;
+}) {
   // Worked out afresh each render: the weeks and days that didn't change are kept as they were.
   const groups = useKeepSame(given);
   const { data: settings } = useSettingsQuery();
@@ -65,7 +76,7 @@ export function StoryList({ groups: given, label = "The story", titled = true }:
                 </h3>
                 <ol className="flex flex-col gap-4">
                   {g.days.map((d) => (
-                    <Day key={d.day} day={d} today={today} onOpenPhoto={open} />
+                    <Day key={d.day} day={d} today={today} onOpenPhoto={open} margin={margin} />
                   ))}
                 </ol>
               </section>

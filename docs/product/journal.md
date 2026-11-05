@@ -144,7 +144,12 @@ One story, newest first, made for the moment: it opens on now.
   Days (all of it), Weeks (a tile a week), Whole pregnancy (weeks 1–42 as
   one line, the firsts as landmarks), at one address, `?view=`. One sort
   of thing (the notes, the photos, the firsts) is a collection, not a view
-  of the story. The search under it covers everything, in days: typing
+  of the story. On a desktop the days in Days have a margin on the right
+  for their marks: movements (with their few words), feelings, what was
+  done, sickness and cravings, bingo, beside the day's words, which keep
+  the middle (notes and letters, photos, firsts, papers, answers, the night
+  it started). Nothing is beside the story but its own days' marks, so the
+  rule above holds. Weeks, Whole pregnancy and a search stay one column. The search under it covers everything, in days: typing
   leaves a zoom.
 - **Recaps,** a part only when it has something: the firsts, the bump as a
   flipbook, the scans, the most craved, both voices, the letters, what got

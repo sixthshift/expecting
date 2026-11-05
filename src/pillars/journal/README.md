@@ -55,7 +55,8 @@ components/
   thisWeek/     what's to keep now: KeepNow (the firsts around now and the places ready, drawn
                 here and on This week), firsts/ (AroundNow, AlreadyHappened, AroundNowFirst),
                 places/ (Places, PlaceReady), and Calls (here and on This week)
-  lines/        a file per kind of line, Day, StoryList; parts.tsx is what lines are made of
+  lines/        a file per kind of line, Day (with `margin`, the diary's on a desktop: its marks
+                on the right), StoryList; parts.tsx is what lines are made of
   collections/  the overview: Collections, Group, CollectionCard
   book/         the cover and contents, the recaps, a chapter (ChapterPage, WeeksWritten)
 quiet/          the quiet Journal, while something has happened (below)
