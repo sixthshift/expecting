@@ -1,4 +1,4 @@
-// How are you today? Asked on This week of whoever is holding the phone, once
+// How are you today? Asked on Home of whoever is holding the phone, once
 // a day: one tap keeps it, words if you want them, then it folds away. No
 // streaks and no reminders. The Journal keeps them all (FeelingsSection).
 

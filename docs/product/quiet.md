@@ -17,7 +17,7 @@ pillars.
   week is known, and a name is yours to give or not.
 - **The way in is where you'd look,** not where you'd see it every day:
   the guide's own page in the Library (where "we lost the baby" lands in a
-  search) and Settings. Not on This week or in the nav. Choosing a kind and
+  search) and Settings. Not on Home or in the nav. Choosing a kind and
   confirming it is all.
 - **For both of you at once.** One of you says so; neither phone shows the
   weeks after that.
@@ -36,8 +36,8 @@ pillars.
 
 ## Pillar by pillar
 
-- **This week** is support: someone to talk to, and the next steps that
-  fit the week it happened ([this-week.md](this-week.md#while-something-has-happened)).
+- **Home** is support: someone to talk to, and the next steps that
+  fit the week it happened ([home.md](home.md#while-something-has-happened)).
   No question of the week.
 - **The timeline** is paused at the week it happened.
 - **The Library** opens with its quiet door first, and nothing open now.

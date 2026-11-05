@@ -2,7 +2,7 @@
 // so the shape is tested apart from the screen.
 //
 //   next     the one thing to do first: the top of To do now (src/lib/planner/todo.ts)
-//   now      the rest of To do now, in its order: the same list This week opens with
+//   now      the rest of To do now, in its order: the same list Home opens with
 //   ahead    everything else still to come, by the week it next asks of you:
 //            when it opens, else when it's best done by, else its deadline;
 //            then put into stages, each ending at a week people mark, so

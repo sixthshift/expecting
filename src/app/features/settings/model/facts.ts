@@ -44,7 +44,7 @@ const questionSchema = z
     group: z.enum(Object.keys(GROUPS) as [Group, ...Group[]]),
     /** Also asked in the first-run questions, not only in settings. */
     asked: z.literal("onboarding").optional(),
-    /** The pregnancy week This week asks it: again, if still unanswered or `unsure`. */
+    /** The pregnancy week Home asks it: again, if still unanswered or `unsure`. */
     week: z.number().int().min(WEEKS.first).max(WEEKS.last).optional(),
     /** A choice of `answers`, or a date. */
     type: z.enum(["choice", "date"]).default("choice"),

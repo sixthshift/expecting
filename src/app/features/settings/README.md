@@ -2,7 +2,7 @@
 
 Everything Expecting has been told, readable at a glance and changeable in
 place, at `/settings`. Settings also owns the questions and the extras
-wherever they're asked: This week's `AskNow` and `OfferExtra`, and
+wherever they're asked: Home's `AskNow` and `OfferExtra`, and
 onboarding's steps, draw them with its parts. What the extras do and why is
 [`docs/product/extras.md`](../../../../docs/product/extras.md); how answers
 tailor is `docs/architecture.md`, Tailoring.
@@ -11,7 +11,7 @@ tailor is `docs/architecture.md`, Tailoring.
 
 | Word | Means | Where |
 |---|---|---|
-| **question** | What Expecting asks: "Does Sam work?" One a row in Settings (`QuestionRow`), a card on This week (`AskNow`), a screen in onboarding. `FactQuestion` is its type. | `model/facts.data.ts` |
+| **question** | What Expecting asks: "Does Sam work?" One a row in Settings (`QuestionRow`), a card on Home (`AskNow`), a screen in onboarding. `FactQuestion` is its type. | `model/facts.data.ts` |
 | **ask** | One question as asked of one of you: `work` of the partner is `work.partner`, its **key** (`Ask`). A question asked once has its id as its key. `?ask=<key>` opens Settings at it. | `model/facts.ts` |
 | **answer** | What's kept: a row with the value, who and when; the latest counts. A skip or a clear is an answer with no value. `useAnswersQuery`. | `src/lib/facts.ts` |
 | **fact** | Only the rules over the answers: `facts.ts` (checking a question, a `when`) and `src/lib/facts.ts` (`factsOf`, what the answers come to; `questionsDue`). Not a name for a question or an answer. | `model/facts.ts` |
@@ -56,7 +56,7 @@ components/
   answer/       AnswerField and AnswerInput: the way to answer, wherever it's asked
   extraPitch/   ExtraPitch: an extra's pitch and tool, wherever it's offered
   askNow/       AskNow, This week's questions
-  offerExtra/   OfferExtra, This week's offer
+  offerExtra/   OfferExtra, Home's offer
 ```
 
 ## Adding a question
@@ -64,12 +64,12 @@ components/
 1. Add it to `QUESTION_LIST` in `model/facts.data.ts`: an `id` (one camelCase
    word), the `ask`, its `group`, and its `answers` (or `type: "date"`);
    `each: true` to ask it of each of you (`{name}` in the `ask`), `asked:
-   "onboarding"` to ask it in onboarding too, a `week` for This week to ask
+   "onboarding"` to ask it in onboarding too, a `week` for Home to ask
    it, a `when` to wait on another answer. The comment above it says which
    task it changes.
 2. Write against it in content (`when: { cover: "no" }`, `$cover`).
 
-Nothing else names a question: Settings, This week and onboarding draw it by
+Nothing else names a question: Settings, Home and onboarding draw it by
 itself, and `bun run test` checks every reference to it.
 
 ## Adding an extra
@@ -79,5 +79,5 @@ itself, and `bun run test` checks every reference to it.
    and a `tool` as it needs.
 2. Give its items `extra: <id>` in their frontmatter.
 
-Settings lists it in its group, This week offers it in its week, and
+Settings lists it in its group, Home offers it in its week, and
 onboarding offers it if it says so.

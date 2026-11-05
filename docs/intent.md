@@ -99,7 +99,7 @@ into weeks loses them.
 
 | Mode | The moment | Its shape |
 |---|---|---|
-| **Where are we?** | The weekly ritual: the baby, my body, this week | Time: [This week](product/this-week.md), [the whole pregnancy](product/timeline.md) |
+| **Where are we?** | The weekly ritual: the baby, my body, this week | Time: [Home](product/home.md), [the whole pregnancy](product/timeline.md) |
 | **What do we need to do?** | Book the scan, claim the leave pay | Time with deadlines: [To do](#to-do) |
 | **Is this normal?** | 2 am, a cramp, spotting, itchy palms | Triage: fine, mention it, call today, call now |
 | **Can I…?** | Brie, coffee, hair dye, flying, paracetamol | Lookup: a verdict and why |
@@ -118,7 +118,7 @@ it:
 
 | Pillar | Whose | You… | What's in it |
 |---|---|---|---|
-| [**This week**](product/this-week.md) | both, now | open it | Where you are, what to do now, the week's note, what's worth knowing |
+| [**Home**](product/home.md) | both, now | open it | Where you are, what to do now, the week's note, what's worth knowing |
 | [**Library**](product/library.md) | Expecting's | read it | Everything it knows, by the question you came with |
 | [**Planner**](product/planner.md) | yours, ahead | do it | To do (and across the weeks), what to get, appointments and the questions for them; later decisions, contacts |
 | [**Journal**](product/journal.md) | yours, behind | keep it | Movements, sickness and cravings, feelings, notes and letters, photos and scans, papers, the firsts |
@@ -200,7 +200,7 @@ written, never taken from memory, and re-checked when they change
 - **Asked up front, and asked again.** Onboarding asks what you might
   already know (are you pregnant yet, when are you due, private cover,
   public or private care, is this your first), each with "not sure yet". A
-  question still unanswered comes back on This week in the week it starts
+  question still unanswered comes back on Home in the week it starts
   to matter, as close as possible to the task it changes.
 - **Some questions only make sense later,** when the answer exists ("your
   first bloods are usually back: are you RhD negative?"), and are asked
@@ -216,7 +216,7 @@ written, never taken from memory, and re-checked when they change
 
 ## To do
 
-To do is how Expecting runs the admin. This week opens with it: the few
+To do is how Expecting runs the admin. Home opens with it: the few
 things to do now, in the order they matter, each with why
 ([Planner](product/planner.md)).
 

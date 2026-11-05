@@ -15,10 +15,10 @@ import { itsTime } from "../app/features/itsTime/routes/itsTime";
 import { onboardingRoutes } from "../app/features/onboarding/routes";
 import { settings } from "../app/features/settings/routes/settings";
 import { drawerRoutes } from "../pillars/drawer/routes";
+import { homeRoutes } from "../pillars/home/routes";
 import { journalRoutes } from "../pillars/journal/routes";
 import { libraryRoutes } from "../pillars/library/routes";
 import { plannerRoutes } from "../pillars/planner/routes";
-import { thisWeekRoutes } from "../pillars/thisWeek/routes";
 import { app } from "./app";
 import { notFound } from "./notFound";
 import { rootRoute } from "./root";
@@ -31,7 +31,7 @@ const api = import.meta.env.SSR ? (await import("../api/rest")).restRoutes : ([]
 
 export const routeTree = rootRoute.addChildren([
   // The app's layout: the pillars, in navigation order, then Emergency info and It's time, settings, then any other address.
-  app.addChildren([...thisWeekRoutes, libraryRoutes, plannerRoutes, journalRoutes, drawerRoutes, emergency, itsTime, settings, notFound]),
+  app.addChildren([...homeRoutes, libraryRoutes, plannerRoutes, journalRoutes, drawerRoutes, emergency, itsTime, settings, notFound]),
   // Outside the frame: the first-run questions, a step to a URL, logging in, joining, a new password, and letting Claude in.
   onboardingRoutes,
   login,

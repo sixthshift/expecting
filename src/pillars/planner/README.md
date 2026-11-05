@@ -3,7 +3,7 @@
 What to do, what to get and what to ask, so nothing sneaks up on you. What
 it does and why is [`docs/product/planner.md`](../../../docs/product/planner.md);
 this is the map of the code. Beside it, `src/pillars/planner/features/tasks/` (a task's row
-and tick, To do now and Coming up on This week) and
+and tick, To do now and Coming up on Home) and
 `src/pillars/planner/features/appointments/` (an appointment's card and form).
 
 ## Words
@@ -11,7 +11,7 @@ and tick, To do now and Coming up on This week) and
 | Word | Means | Where |
 |---|---|---|
 | **task** | One thing to do: built in (from an item, tailored by the answers) or your own (a title and a week). `opens`, `due` (best by), perhaps a `deadline`, and `who`. | `Task`, `src/content/schema.ts`; `useTasks` |
-| **To do** | The Planner's list of tasks: next up, also now, ahead, missed earlier, done (a `Plan`). **To do now** is next up and also now, the same list This week opens with. | `src/lib/planner/plan.ts`, `src/lib/planner/todo.ts` |
+| **To do** | The Planner's list of tasks: next up, also now, ahead, missed earlier, done (a `Plan`). **To do now** is next up and also now, the same list Home opens with. | `src/lib/planner/plan.ts`, `src/lib/planner/todo.ts` |
 | **stage** | A stretch of what's ahead, ending at a week people mark ("By halfway"): what's ahead reads as a few goals. Its address is the week it ends (`?stage=20`). | `STAGES`, `stagesAhead` |
 | **ahead** | Still to come, by the week it next asks of you (opens, else best by, else deadline). On screen "On the horizon". | `Ahead`, `components/toDo/Ahead.tsx` |
 | **weeks** | To do as a chart, a bar for each task, at `/planner/weeks`. On screen "Across the weeks". | `src/lib/planner/weeks.ts` (`weeksChart`), `components/weeks/` |
@@ -67,7 +67,7 @@ desktop/        PlannerRail: To do, Across the weeks, the lists, down the left o
                 in lib/planner/upNext.ts, the next appointment with its questions) beside
                 ToGet (the lists) and Ahead
 features/
-  tasks/        a task's row, whose it is, keeping one, adding your own; useTasks (This week,
+  tasks/        a task's row, whose it is, keeping one, adding your own; useTasks (Home,
                 the Library and the "+" draw these too)
   questions/    a question to ask: adding, open, asked, about an entry, waiting
   appointments/ an appointment's card and form, the next one

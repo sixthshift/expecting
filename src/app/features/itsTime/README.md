@@ -20,7 +20,7 @@ map of the code. Its rules are `src/lib/itsTime.ts`; its store, the
 | **call now** | The red flags, in the Library's words: call the birth suite, or 000. | `flagsFor`, `model/callNow.ts` |
 | **they'll ask** | The phone call, already answered, in the order a midwife asks. | `theyllAsk`, `model/theyllAsk.ts` |
 | **before you go** | The last things, ticked for this start only, and your **own lines**, kept between starts (`StartLine`). | `components/beforeYouGo/` |
-| **the way in** | The pill or sidebar row that opens the page, from week 36 (32 for twins), and This week's **look-through** card, once a phone. | `useItsTimeShown`, `components/wayIn/` |
+| **the way in** | The pill or sidebar row that opens the page, from week 36 (32 for twins), and Home's **look-through** card, once a phone. | `useItsTimeShown`, `components/wayIn/` |
 
 ## From the store to the screen
 
@@ -58,7 +58,7 @@ components/
   gettingThere/ the hospital, getting in, a backup driver
   end/          we're there, or a false alarm, asked twice
   night/        a night in full, opened from its Journal line
-  wayIn/        the pill or row in the frame, and This week's look-through card
+  wayIn/        the pill or row in the frame, and Home's look-through card
 ```
 
 ## Adding a part

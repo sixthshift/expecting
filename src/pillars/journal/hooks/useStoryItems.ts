@@ -14,8 +14,8 @@ import { useKeepSame } from "../../../app/hooks/useKeepSame";
 import { todayISO } from "../../../lib/dates";
 import { moments } from "../../../lib/drawer/bingo";
 import { extrasOn } from "../../../lib/extras";
+import { pairs } from "../../../lib/home/weekly";
 import { type StoryItem, storyItems } from "../../../lib/journal/story/items";
-import { pairs } from "../../../lib/thisWeek/weekly";
 import { useTasks } from "../../planner/features/tasks/hooks/useTasks";
 
 /**

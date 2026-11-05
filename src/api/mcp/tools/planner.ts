@@ -20,7 +20,7 @@ import { comingUp, toDoNow, whenToDo } from "../../../lib/planner/todo";
 import { answer, refuse, type Tools } from "../answer";
 import { known } from "../context";
 import { taskOf } from "../shapes";
-import { week } from "./thisWeek";
+import { week } from "./home";
 
 const day = z.string().refine(isISODate, "A date, YYYY-MM-DD");
 

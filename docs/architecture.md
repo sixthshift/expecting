@@ -113,10 +113,10 @@ in.
 src/
   app/          the app itself, not a domain: the document, the app's layout (App, AppLayout, PillarLayout, PILLARS), the error pages, the outbox, useSave, useAction
     features/   what's outside the pillars: capture (the +), emergency, itsTime, quiet, settings, onboarding, auth, connect
-  pillars/      the five pillars: thisWeek, library, planner, journal, drawer
+  pillars/      the five pillars: home, library, planner, journal, drawer
     <pillar>/features/  what lives in a pillar, each a feature: planner/features/{tasks,questions,appointments,lists,weeks}, …
   components/   generic parts with no domain: Page, DateForm, loading
-  lib/          pure rules and types: no React, no router, no store. A pillar's own rules in a folder of its name (journal/, drawer/, planner/, thisWeek/, library/); what several share (dates, labels, timeline, people, facts, extras, quiet, …) loose
+  lib/          pure rules and types: no React, no router, no store. A pillar's own rules in a folder of its name (journal/, drawer/, planner/, home/, library/); what several share (dates, labels, timeline, people, facts, extras, quiet, …) loose
   content/      reading and checking the built-in content
   routes/       root.tsx, app.tsx (the app's layout route), notFound.ts, and tree.ts, which puts the pillars' and features' routes/ together
   api/
@@ -132,9 +132,9 @@ store or pages, a feature under it: the Drawer's tools
 (`drawer/features/{names,jobs,circle,bingo}`), the Planner's tasks,
 questions, appointments, lists and weeks, the Journal's kinds
 (`journal/features/{appetite,feelings,firsts,movements,notes,papers,photos}`),
-This week's timeline and week's question. What's outside the pillars is a
+Home's timeline and week's question. What's outside the pillars is a
 feature of the app, `src/app/features/`. Another pillar may draw a
-feature's parts (This week draws the Planner's tasks and the Journal's
+feature's parts (Home draws the Planner's tasks and the Journal's
 feelings); the feature still lives in one pillar. Each pillar has a
 `README.md`, the map of its code.
 
@@ -143,7 +143,7 @@ something: `pages/` (what a route draws), `components/` (a folder per
 aspect, the shared parts loose), `hooks/`, `contexts/` (a page's context, at
 most one a page), `model/` (no React: rules, types, paths), `routes/` (its
 addresses) and, for a pillar, `features/`. Settings owns the questions and the extras wherever
-they're drawn (`AskNow` and `OfferExtra` on This week), and its `model/`
+they're drawn (`AskNow` and `OfferExtra` on Home), and its `model/`
 (`src/app/features/settings/model/`) is the only part of them that `lib/`
 and `content/` may import.
 
@@ -199,13 +199,13 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
   What only one part needs, that part works out itself. Its parts read it
   rather than take props. A value that changes often goes in a second
   context from the same provider, so parts that don't read it aren't drawn
-  again. The Planner, its lists, Settings, onboarding, This week, It's time,
+  again. The Planner, its lists, Settings, onboarding, Home, It's time,
   a Library entry and the Journal have one.
 
 ## The app's layout
 
 - **Five pillars, in one row:** the tab bar on a phone, the top bar on a
-  desktop, in one order (`PILLARS`), from the middle out: This week in the
+  desktop, in one order (`PILLARS`), from the middle out: Home in the
   middle, the Journal and the Planner either side (past to future, as on the
   strip; the Planner on the right, the easier side for most thumbs), the
   Library and the Drawer at the edges. The same five in the same places on
@@ -220,7 +220,7 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
   pillar's: its own places, down the left of each of its pages
   (`PillarLayout`'s `rail`; `PlannerRail`, `LibraryRail`, `JournalRail`, each
   in its pillar's `desktop/components/`, built from `Rail` and `RailLink`),
-  each place an address. This week and the Drawer have none: each is one
+  each place an address. Home and the Drawer have none: each is one
   page. The side panel is the thing's, on the right (below). Why a bar
   rather than a sidebar: five places sit in a row, and the width a sidebar
   takes from every page is what side-by-side pages want.
@@ -267,7 +267,7 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 - **Every page inside a pillar draws `PillarLayout`** (`src/app/components/layout/PillarLayout.tsx`):
   one column at the page's width, and its top. A pillar's own page has its
   title and lead, with `MobileCorner` on a phone; a page under it (`back`) has
-  the way back, then its title; a page that draws its own top (This week's
+  the way back, then its title; a page that draws its own top (Home's
   hero, a Library entry) has neither. It never asks whether something has
   happened: a page put away then is its route's quiet world, `putAway`
   (`PutAwayPage`). A pillar adds what's
@@ -278,15 +278,17 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 
 ## The pillars
 
-### This week
+### Home
 
-`/`, `?at=29` to peek at another week ([product](product/this-week.md)).
-`src/pillars/thisWeek/`. The map of its code, its words and how to add a
-section is [`src/pillars/thisWeek/README.md`](../src/pillars/thisWeek/README.md).
+`/`, `?at=29` to peek at another week ([product](product/home.md)).
+`src/pillars/home/`. The map of its code, its words and how to add a
+section is [`src/pillars/home/README.md`](../src/pillars/home/README.md).
 
-- `ThisWeekPage` is `ThisWeekPageProvider`, which works out the week shown,
-  whether it's a peek and the week's note once, around `ThisWeekMobile` (one
-  column, the doing first) or `ThisWeekDesktop` (Now | The week: Now, the
+- `HomePage` is `HomePageProvider`, which works out the week shown,
+  whether it's a peek and the week's note once, around `HomeMobile` (a
+  dashboard: the one thing, `oneThings` in `src/lib/home/oneThing.ts`; the
+  other of you in a line, `otherNews`; To do, To keep and To read as numbers
+  over the folds that hold them) or `HomeDesktop` (Now | The week: Now, the
   larger share, as To do from the Planner and To keep for the Journal, side
   by side once wide enough; the week with where you are and To read from the
   Library, its days as tabs, `DayTabs`; `PillarLayout`'s `width="full"`).
@@ -295,25 +297,25 @@ section is [`src/pillars/thisWeek/README.md`](../src/pillars/thisWeek/README.md)
 
 - To do now is `toDoNow` (`src/lib/planner/todo.ts`), Coming up `comingUp`; the
   heads-up and Worth knowing are `headsUps` and `worthKnowing`
-  (`src/lib/library/thisWeek.ts`).
-- The strip is `PregnancyStrip` (`src/pillars/thisWeek/features/timeline/components/strip/`).
+  (`src/lib/library/home.ts`).
+- The strip is `PregnancyStrip` (`src/pillars/home/features/timeline/components/strip/`).
 - The week's note and the day reads are one carousel, `DayByDay`; the note
   reads as whoever holds the phone, with a toggle for the other's part
-  (`WeekNote`, `src/pillars/thisWeek/components/weekNote/`).
+  (`WeekNote`, `src/pillars/home/components/weekNote/`).
 - What Expecting needs to know is `AskNow`, the extra on offer
   `extraToOffer`, the check-in `CheckIn` and `HardFortnight`
   (`src/pillars/journal/features/feelings/`), the next appointment `NextAppointment`, and
   the week's question `WeeklyCard` while A question a week is on.
-- While something has happened it's `QuietThisWeekPage`
-  (`src/pillars/thisWeek/quiet/`), and the timeline `QuietTimelinePage`.
+- While something has happened it's `QuietHomePage`
+  (`src/pillars/home/quiet/`), and the timeline `QuietTimelinePage`.
 
 ### The whole pregnancy
 
 `/timeline`, `?at=28` ([product](product/timeline.md)): opened from This
-week, not a pillar, so no tab and no "+". `src/pillars/thisWeek/features/timeline/`, the
-rules in `src/lib/thisWeek/timelineWeeks.ts`. `PillarLayout` draws its top, as it is and
+week, not a pillar, so no tab and no "+". `src/pillars/home/features/timeline/`, the
+rules in `src/lib/home/timelineWeeks.ts`. `PillarLayout` draws its top, as it is and
 while paused. A week is a line (`TimelineWeeks`) that links
-to This week at it (`/?at=<week>`). The strip's weeks are left out of the
+to Home at it (`/?at=<week>`). The strip's weeks are left out of the
 tab order; the steps beside it are the keyboard's way.
 
 ### Library
@@ -322,7 +324,7 @@ tab order; the steps beside it are the keyboard's way.
 `/library/<id>` ([product](product/library.md)). `src/pillars/library/`,
 mapped in its [README](../src/pillars/library/README.md); the rules are
 `src/lib/library/`, a file each: the doors and their shelves, search and
-its ranking, Right now, what This week takes, and the clues
+its ranking, Right now, what Home takes, and the clues
 (`namesPrivate`, `cluesIn`). An entry's page is `LibraryItemPageProvider`
 (`useLibraryItemPage`, `useEntry`), worked out once from its id;
 `ItemCard` draws an entry by its type. Every link to an entry is
@@ -427,8 +429,8 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
 - **Pregnancy bingo** (`/drawer/bingo`, `src/pillars/drawer/features/bingo/`): `SQUARES`
   in `src/lib/drawer/bingo.ts`, a card each (`bingo_card`), its squares marked
   (`bingo_mark`).
-- **A question a week** is drawn on This week (`src/pillars/thisWeek/features/weekly/components/`):
-  `WEEKLY` in `src/lib/thisWeek/weekly.ts`, answers in `weekly_answer`.
+- **A question a week** is drawn on Home (`src/pillars/home/features/weekly/components/`):
+  `WEEKLY` in `src/lib/home/weekly.ts`, answers in `weekly_answer`.
 - **Both answer, then reveal** is one rule in the repos' views
   (`JobsRepo.view`, `WeeklyRepo.view`): the other's answer is sent only
   once you've both given one.
@@ -460,7 +462,7 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
   the backup driver). Every save names its start and a contraction's end
   carries its beginning, so saves arriving out of order make the same night.
   The bag is `bag` in `LISTS` (`isApart`, kept out of the Planner's lists).
-  The night's Journal line is `nightLine`. This week's look-through card is
+  The night's Journal line is `nightLine`. Home's look-through card is
   once a phone, in browser storage.
 - **Something has happened** ([product](product/quiet.md)): one row
   (`quiet`: `loss` or `news`, who, when), deleted to come back, so nothing
@@ -470,7 +472,7 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
   and in Settings (`/settings?ask=quiet`); the way back is `canBecome`.
 - **Quiet is a mirror world of each pillar.** A pillar, or a feature in one,
   that's different while quiet has `quiet/` in the one shape: `quiet/pages/`
-  (`QuietThisWeekPage`, `QuietTimelinePage`, `QuietLibraryPage`,
+  (`QuietHomePage`, `QuietTimelinePage`, `QuietLibraryPage`,
   `QuietPlannerPage`, `QuietJournalPage`, `QuietBookPage`), `quiet/contexts/`
   where a quiet page needs its own (the Journal's, the Planner's, each built
   from the same rules as the normal one, only less), and `quiet/components/`.
@@ -548,7 +550,7 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
     being kept says nothing. The document's title is always "Expecting".
 - **A discreet entry** (`discreet: true`: mental health, drugs, smoking) is
   shared, but a question asked from it isn't labelled "from *title*" on the
-  Planner or This week.
+  Planner or Home.
 
 ## Tailoring
 
@@ -610,7 +612,7 @@ what the choices mean is `src/lib/extras.ts` (`extrasOn`, `inExtras`,
   open. `/onboarding?after=due` works out the next afresh (`stepAfter`),
   since the other phone may have answered meanwhile.
 - Each answer is saved as it's given, so a reload resumes. With the due
-  date skipped, This week asks for it.
+  date skipped, Home asks for it.
 - Each step is a component reading its own queries, drawn in
   `OnboardingLayout`; `OnboardingPageProvider` holds only where it is and
   the ways on. The map is `src/app/features/onboarding/README.md`.
@@ -738,7 +740,7 @@ Installing and the service worker need HTTPS, except on `localhost`.
 
 - **One endpoint, `/api/mcp`** (`src/api/rest/mcp.ts`): MCP over Streamable
   HTTP, stateless, a fresh `McpServer` per request. The tools are
-  `src/api/mcp/tools/`, a file for each pillar or part (`thisWeek`,
+  `src/api/mcp/tools/`, a file for each pillar or part (`home`,
   `library`, `planner`, `journal`, `drawer`, `itsTime`, `emergency`, and
   `remove`), put together by `server.ts`; `instructions.ts` is what Claude
   is told, `context.ts` what a tool knows (`Known`: the answers, the
@@ -807,7 +809,7 @@ Installing and the service worker need HTTPS, except on `localhost`.
   `2xl:` loses to it. A page's width is `PillarLayout`'s `width`: the reading
   and form pages keep the 6xl column, and a page whose content is grids or a
   chart takes `full` (to 1760px) and puts more side by side, never longer
-  lines (This week, the Planner and its weeks and lists, the whole
+  lines (Home, the Planner and its weeks and lists, the whole
   pregnancy, the Library's home with its results kept narrower, the
   collections, the Drawer).
 - **Structure with `useLayout()`, adjustments with the variants.** Where the
@@ -824,10 +826,9 @@ Installing and the service worker need HTTPS, except on `localhost`.
   one shape (`pages/`, `components/`): the app's own are
   `src/app/mobile/components/` (`MobileLayout`, `MobileCorner`) and
   `src/app/desktop/components/` (`DesktopLayout`), and `AppLayout` chooses
-  between them. What both draw stays outside both (`PillarNav`). This
-  week's is two pages (`ThisWeekMobile`, one column, the doing first, the
-  week's reads between its runs; `ThisWeekDesktop`, the week on the left
-  and the doing on the right); Settings' nav is the desktop's only
+  between them. What both draw stays outside both (`PillarNav`). Home's
+  is two pages (`HomeMobile`, a dashboard of folds; `HomeDesktop`, Now |
+  The week); Settings' nav is the desktop's only
   (`settings/desktop/components/SettingsNav`). A page
   chooses under its own provider (`layout === "desktop" ? <X /> : <Y />`), so
   what it holds (search words, what's open) carries across the line, and the
@@ -839,7 +840,7 @@ Installing and the service worker need HTTPS, except on `localhost`.
   so a part drawn per layout draws the phone's; a test of the desktop's
   resizes it (`happyDOM.setWindowSize`).
 - **Under the top bar.** Its height is `--top-bar` (nothing on a phone), so
-  what sticks while a page scrolls (the doing beside This week's week, the
+  what sticks while a page scrolls (the doing beside Home's week, the
   Planner's side, Settings' nav, a private entry's quick exit) sticks under
   it.
 - One width for the pillars (`max-w-6xl`), so the header stays put between

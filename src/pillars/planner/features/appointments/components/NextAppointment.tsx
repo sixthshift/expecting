@@ -8,9 +8,9 @@ import { when } from "../../../../../lib/labels";
 import { APPOINTMENT_WHEN, appointmentSoon, nextAppointment } from "../../../../../lib/planner/appointments";
 
 /**
- * On This week: the next appointment, once it's within a fortnight, with how
+ * On Home: the next appointment, once it's within a fortnight, with how
  * many questions are waiting for it; the way to them in the Planner. Nothing
- * further off: it's in the Planner until it's close. `null` lets This week
+ * further off: it's in the Planner until it's close. `null` lets Home
  * show the questions waiting on their own instead.
  */
 export function NextAppointment() {

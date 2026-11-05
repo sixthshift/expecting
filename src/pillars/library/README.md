@@ -76,7 +76,7 @@ components/
 ```
 
 The rules, pure and tested apart, are `src/lib/library/`: `doors.ts`,
-`search.ts`, `rightNow.ts`, `thisWeek.ts` (what This week takes: worth
+`search.ts`, `rightNow.ts`, `home.ts` (what Home takes: worth
 knowing, the heads-up) and `clues.ts` (a private entry named, an address
 that leads nowhere). How weeks and dates are said is `src/lib/labels.ts`.
 

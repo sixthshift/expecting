@@ -1,7 +1,7 @@
 // A question a week: one question for the two of you each week, answered on
 // your own phones. Neither sees the other's answer until both have given one;
 // then both are in the Journal, under the week.
-import { expect, logIn, test } from "./fixtures";
+import { expect, logIn, test, unfold } from "./fixtures";
 
 test("a question a week: answered on two phones, shown once both have, and kept in the Journal", async ({ page, open, browser }) => {
   await open("/settings");
@@ -9,8 +9,10 @@ test("a question a week: answered on two phones, shown once both have, and kept 
   if (!(await toggle.isChecked())) await toggle.click();
   await expect(toggle).toBeChecked();
 
-  // Week 28's question, on This week.
+  // Week 28's question, on Home.
   await open("/");
+  // On a phone, the week's question is what's to keep, folded.
+  await unfold(page, "To keep");
   const card = page.getByRole("region", { name: "This week's question" });
   await expect(card.getByText("What's one thing you'd like to do together before they arrive?")).toBeVisible();
   await card.getByRole("textbox", { name: /^Your answer/ }).fill("A long lunch by the water");
@@ -25,6 +27,7 @@ test("a question a week: answered on two phones, shown once both have, and kept 
   const phone = await browser.newContext();
   const sam = await phone.newPage();
   await logIn(sam, "Sam");
+  await unfold(sam, "To keep");
   await sam.goto("/", { waitUntil: "networkidle" });
   const samCard = sam.getByRole("region", { name: "This week's question" });
   await expect(samCard.getByText("A long lunch by the water")).toHaveCount(0);

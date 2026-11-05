@@ -124,7 +124,7 @@ export const indexSchema = z
     private: z.boolean().default(false),
     /**
      * Shared, but not named where both of you look: a question asked from it
-     * doesn't say "from <title>" in the Planner or on This week, as the title
+     * doesn't say "from <title>" in the Planner or on Home, as the title
      * would tell what its words don't (mental health, drugs, smoking).
      */
     discreet: z.boolean().default(false),

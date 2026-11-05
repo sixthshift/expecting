@@ -35,12 +35,12 @@ links to it.
   button sits: the code shows that, and it changes every polish pass.
 - **Few code names.** A route or a term people search for, not functions.
 - **A kind that shows in several pillars lives in the one that keeps it,**
-  and the others link to it. Feelings are asked on This week but kept in
+  and the others link to it. Feelings are asked on Home but kept in
   the Journal, so they're in `journal.md`.
 
 ## The docs
 
-- [This week](this-week.md)
+- [Home](home.md)
 - [The whole pregnancy](timeline.md)
 - [The Journal](journal.md)
 - [The Planner](planner.md)

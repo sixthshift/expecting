@@ -14,7 +14,7 @@ export function AnswerInput({
   label: string;
   value: string | undefined;
   onChange: (answer: string) => void;
-  /** The options in a row, where room is short (This week). */
+  /** The options in a row, where room is short (Home). */
   inline?: boolean;
 }) {
   const options = Object.entries(question.answers).map(([answer, label]) => ({ value: answer, label }));

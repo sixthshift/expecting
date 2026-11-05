@@ -5,7 +5,7 @@ import { useItsTimeShown } from "../../hooks/useItsTimeShown";
 import { hasLooked } from "../../model/looked";
 
 /**
- * On This week once It's time is near, until this phone has opened it: the
+ * On Home once It's time is near, until this phone has opened it: the
  * run-through matters more than the button, so look through it together once,
  * so it's familiar on the night.
  */

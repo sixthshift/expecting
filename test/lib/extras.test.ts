@@ -16,7 +16,7 @@ test("something in no extra is always shown; in one, only while it's on", () => 
   expect(inExtras("babymoon", on)).toBe(false);
 });
 
-test("This week offers the first undecided extra whose week has come, and not before", () => {
+test("Home offers the first undecided extra whose week has come, and not before", () => {
   const first = [...EXTRAS].sort((a, b) => a.offer - b.offer)[0]!;
   expect(extraToOffer([], first.offer - 1)).toBeUndefined();
   expect(extraToOffer([], first.offer)?.id).toBe(first.id);

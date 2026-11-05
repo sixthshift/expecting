@@ -28,7 +28,7 @@ import { parse } from "yaml";
 import { deal } from "../src/lib/drawer/bingo";
 import { JOBS } from "../src/lib/drawer/jobs";
 import { DECK, widespread } from "../src/lib/drawer/nameDeck";
-import { WEEKLY } from "../src/lib/thisWeek/weekly";
+import { WEEKLY } from "../src/lib/home/weekly";
 
 const DATA_DIR = process.env.DATA_DIR ?? "./data";
 const db = new Database(join(DATA_DIR, "expecting.db"));

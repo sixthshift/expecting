@@ -19,7 +19,7 @@ import { SettingRow } from "../settingRow/SettingRow";
 
 /**
  * One of the questions in src/app/features/settings/model/facts.data.ts, as a row: its answer, who gave
- * it, and when This week asks again if it isn't settled. Open, it can be
+ * it, and when Home asks again if it isn't settled. Open, it can be
  * answered, changed or cleared (which puts back everything it hid), and says
  * what it decides. Nothing here names a question, so a new one in the file
  * appears by itself.
@@ -103,9 +103,9 @@ function shown(q: FactQuestion, value: string): string {
   return q.type === "date" ? fullDate(value as ISODate) : (q.answers[value] ?? value);
 }
 
-/** "This week asks in week 16", or that it's asking now. */
+/** "Home asks in week 16", or that it's asking now. */
 function askedAgain(week: Week, now: Week): string {
-  return week <= now ? "This week is asking" : `This week asks in week ${week}`;
+  return week <= now ? "Home is asking" : `Home asks in week ${week}`;
 }
 
 /** "Jason answered, 3 Oct". */

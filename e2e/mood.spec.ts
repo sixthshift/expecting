@@ -1,11 +1,13 @@
-// How you're feeling: asked on This week, kept in the Journal and shown on its
+// How you're feeling: asked on Home, kept in the Journal and shown on its
 // week. The step is shared; the words are only ever sent to the phone of the
 // person they're about.
 
-import { expect, logIn, test } from "./fixtures";
+import { expect, logIn, test, unfold } from "./fixtures";
 
 test("a check-in is kept with its words, and the other phone sees the step but never the words", async ({ page, open, browser }) => {
   await open("/");
+  // On a phone, the check-in is what's to keep, folded under the one thing.
+  await unfold(page, "To keep");
   const checkIn = page.getByRole("region", { name: "How are you today, Jason?" });
   await checkIn.getByText("Low", { exact: true }).click();
   await checkIn.getByRole("button", { name: "tired" }).click();
@@ -30,6 +32,7 @@ test("a check-in is kept with its words, and the other phone sees the step but n
     if (response.url().includes("/api/rpc/")) bodies.push(await response.text().catch(() => ""));
   });
   await logIn(sam, "Sam");
+  await unfold(sam, "To keep");
   await expect(sam.getByRole("heading", { name: "How are you today, Sam?" })).toBeVisible();
   await sam.goto("/journal/collections/feelings", { waitUntil: "networkidle" });
   const samFeelings = sam.getByRole("region", { name: "How you're feeling" });

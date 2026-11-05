@@ -10,7 +10,7 @@ It was built for one couple and is public so others can run it too. There's
 no hosted version, no account to sign up for, and no support line: you run
 your own ([licence](#licence)).
 
-![This week on a desktop: week 26, the week's note for Sam, and what to do now](docs/screenshots/desktop.png)
+![Home on a desktop: week 26, the week's note for Sam, and what to do now](docs/screenshots/desktop.png)
 
 **Why you might be here:**
 
@@ -23,7 +23,7 @@ your own ([licence](#licence)).
 ## What it does
 
 <p>
-  <img src="docs/screenshots/this-week.png" width="200" alt="This week: where you are, and what to do now">
+  <img src="docs/screenshots/this-week.png" width="200" alt="Home: where you are, and what to do now">
   <img src="docs/screenshots/planner.png" width="200" alt="The Planner: what's next, with why it matters">
   <img src="docs/screenshots/library.png" width="200" alt="A Library entry: can I eat soft cheese?">
   <img src="docs/screenshots/journal.png" width="200" alt="The Journal: this week's page of what was kept">
@@ -34,7 +34,7 @@ place:
 
 | When you're asking… | Expecting has… |
 |---|---|
-| Where are we? | **This week:** the baby, your body, a part for the partner, and a short read each day after it |
+| Where are we? | **Home:** the baby, your body, a part for the partner, and a short read each day after it |
 | What do we need to do? | **To do:** every booking, claim and purchase your answers make yours, with when it opens, when it's best done by, any hard deadline, and whose job it is |
 | Can I eat brie? Is this normal? | **The Library:** some 900 entries from Australian sources, each from its source, by the question you came with |
 | What do we need to get? | **Lists:** what to have ready before the birth (sleep, feeding, out and about, …), each line on its week, and the hospital bag |

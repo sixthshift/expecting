@@ -26,9 +26,9 @@ const extraSchema = z
     pitch: z.string().min(1),
     /** Where settings shows it. */
     group: z.enum(Object.keys(EXTRA_GROUPS) as [ExtraGroup, ...ExtraGroup[]]),
-    /** Also offered in onboarding, not only on This week in its week. */
+    /** Also offered in onboarding, not only on Home in its week. */
     onboarding: z.boolean().default(false),
-    /** The week This week suggests it, if nobody has decided. */
+    /** The week Home suggests it, if nobody has decided. */
     offer: z.number().int().min(WEEKS.first).max(WEEKS.last),
     /** Only when your answers fit, as an item's `when`: siblings, `{ firstBaby: "no" }`. */
     when: whenSchema.default({}),

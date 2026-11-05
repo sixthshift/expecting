@@ -19,7 +19,7 @@ const SHOWN = 5;
 const LEAVING_MS = 750;
 
 /**
- * What This week opens with: the few things to do now, most urgent first,
+ * What Home opens with: the few things to do now, most urgent first,
  * each with when, whose (when it's one of you), and a way to why. The rest
  * is in the Planner. A ticked task leaves the list, after a beat to see it
  * ticked, and a toast offers it back.

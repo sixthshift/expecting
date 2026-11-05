@@ -55,7 +55,7 @@ pillars.
 - **At any week from Emergency info** ("Labour started early?"). Before 37
   weeks it opens with one line: contractions or waters this early means
   calling the birth suite and going in.
-- **On This week at 36** (32 for twins), once on each phone until it's
+- **On Home at 36** (32 for twins), once on each phone until it's
   opened: look through it together, so it's familiar on the night.
 - **Never while something has happened.** It isn't drawn, and its address
   goes to Emergency info.

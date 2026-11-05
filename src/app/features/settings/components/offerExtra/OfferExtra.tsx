@@ -10,7 +10,7 @@ import { useSave } from "../../../../hooks/useSave";
 import { ExtraPitch } from "../extraPitch/ExtraPitch";
 
 /**
- * This week offers an extra once, in its week (`offer` in
+ * Home offers an extra once, in its week (`offer` in
  * src/app/features/settings/model/extras.data.ts), if nobody has decided on it: one at a time. Either
  * answer decides it, so it isn't offered again; settings can change it.
  */

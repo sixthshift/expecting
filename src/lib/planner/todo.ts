@@ -1,4 +1,4 @@
-// To do now: what This week opens with. Pure, so the order is tested apart
+// To do now: what Home opens with. Pure, so the order is tested apart
 // from the screen.
 //
 //   a task shows once it opens, and until it's ticked

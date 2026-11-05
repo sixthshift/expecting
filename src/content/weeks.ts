@@ -1,4 +1,4 @@
-// This week: one note per week, as written in content/weeks/<week>.md, where
+// Home: one note per week, as written in content/weeks/<week>.md, where
 // the file's name is the week (`28`). A note has three
 // parts, each a `##` heading in the body, in this order: the baby, the
 // pregnant parent's body, and the partner. Each part is Markdoc like an item's

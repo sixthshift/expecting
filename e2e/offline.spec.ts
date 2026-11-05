@@ -29,7 +29,7 @@ test("the app opens, reads and saves with no connection", async ({ page, context
   await context.setOffline(true);
   await page.reload();
   await expect(page.getByRole("heading", { level: 1, name: "Planner" })).toBeVisible();
-  await page.getByRole("navigation", { name: "Expecting" }).getByRole("link", { name: "This week" }).click();
+  await page.getByRole("navigation", { name: "Expecting" }).getByRole("link", { name: "Home" }).click();
   await expect(page.getByRole("heading", { level: 1, name: "This week" })).toBeVisible();
   // An item never opened before: its page came with the app.
   await page.goto("/library/rsv-vaccine");

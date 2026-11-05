@@ -2,16 +2,16 @@
 // it suits them. Off until someone turns one on: unlike a question in
 // facts.data.ts, an extra nobody has chosen shows nothing. Turned on, its items
 // (`extra: <id>` in their frontmatter) appear everywhere items do: the
-// Library, the Timeline, the Planner and This week. Turned off, they're gone.
+// Library, the Timeline, the Planner and Home. Turned off, they're gone.
 //
 // Each can be switched in settings; a few are offered in onboarding; and, if
-// nobody has decided by its `offer` week, This week suggests it once.
+// nobody has decided by its `offer` week, Home suggests it once.
 //
 //   id          a stable slug: items name it, and your choice is kept under it
 //   name        what it's called, on its switch
 //   pitch       one line: what turning it on gets you
 //   group       where settings shows it: EXTRA_GROUPS in extras.ts
-//   offer       the week This week suggests it, if nobody has decided
+//   offer       the week Home suggests it, if nobody has decided
 //   onboarding  also offered in onboarding (a few, so it stays short)
 //   when        only when your answers fit, as an item's `when`
 //   tool        what it brings beyond its items, if anything: a tool, and where,
@@ -159,7 +159,7 @@ export const EXTRA_LIST = [
     pitch: "One question for the two of you each week, answered on your own phones and kept in the Journal once you both have.",
     group: "you-two",
     offer: 6,
-    tool: "this week's question, on This week",
+    tool: "this week's question, on Home",
   },
   {
     id: "sleep-setup",

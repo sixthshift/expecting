@@ -3,7 +3,7 @@
 // were. A movement felt as slower, weaker or stopped keeps the call on
 // screen. Runs after the journey, as specs run by name: at week 28.
 import type { Page } from "@playwright/test";
-import { expect, test } from "./fixtures";
+import { expect, test, unfold } from "./fixtures";
 
 /** Open the sheet and pick `choice`. */
 async function add(page: Page, choice: string) {
@@ -80,7 +80,7 @@ test("a note, a feeling, a question and a task each go to their pillar", async (
   await expect(page.getByText("Pack the hospital bag")).toBeVisible();
 });
 
-test("an appointment is kept from the +, heads the Planner's questions, and is on This week once close", async ({ page, open }) => {
+test("an appointment is kept from the +, heads the Planner's questions, and is on Home once close", async ({ page, open }) => {
   await open("/library");
   await add(page, "An appointment");
   const sheet = page.getByRole("dialog");
@@ -107,6 +107,8 @@ test("an appointment is kept from the +, heads the Planner's questions, and is o
   expect(await ics.text()).toContain("SUMMARY:Midwife");
 
   await open("/");
+  // On a phone, it's coming up, folded under the one thing.
+  await unfold(page, "Coming up");
   const next = page.getByRole("region", { name: "Next appointment" });
   await expect(next.getByText("Midwife")).toBeVisible();
   await expect(next.getByText("Antenatal clinic")).toBeVisible();

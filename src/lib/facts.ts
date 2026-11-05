@@ -1,4 +1,4 @@
-// What your answers become: the facts, the questions This week
+// What your answers become: the facts, the questions Home
 // asks again, and a task's deadline counted back from a date it gave. Pure,
 // tested apart from the screen.
 
@@ -48,7 +48,7 @@ export function isSettled(a: Ask, last: Answer | undefined): boolean {
 }
 
 /**
- * The week This week asks a question, or null if it won't: a question with a
+ * The week Home asks a question, or null if it won't: a question with a
  * week, still unknown or `unsure` (or one of its `askAgain` answers). Never answered, or answered (or skipped)
  * before its week, it comes at its week; answered `unsure`, or skipped, since
  * then, ASK_AGAIN_AFTER weeks later, not every week.
@@ -62,7 +62,7 @@ export function nextAsked(a: Ask, last: Answer | undefined, dueDate: ISODate): W
   return answeredIn < week ? week : answeredIn + ASK_AGAIN_AFTER;
 }
 
-/** The questions This week asks: those whose week (nextAsked) has come. */
+/** The questions Home asks: those whose week (nextAsked) has come. */
 export function questionsDue({ answers, now, dueDate }: { answers: readonly Answer[]; now: Week; dueDate: ISODate }): Ask[] {
   const latest = latestByKey(answers);
   return asksFor(factsOf(answers)).filter((a) => {

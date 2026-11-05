@@ -31,7 +31,7 @@ export function AnswerField({
   wide?: boolean;
   /** Whether the date must change before it can be saved. */
   requireChange?: boolean;
-  /** The answers in a row, where room is short (This week). */
+  /** The answers in a row, where room is short (Home). */
   inline?: boolean;
   /** A choice answered this way, not with `AnswerInput`. */
   choice?: ReactNode;

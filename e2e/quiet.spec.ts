@@ -1,5 +1,5 @@
 // Something has happened: from the guide's own page, Expecting goes quiet
-// for both of you. This week becomes support, the timeline pauses, the
+// for both of you. Home becomes support, the timeline pauses, the
 // Planner puts its list aside. Hard news can become a loss, and a loss
 // set by mistake brings everything back, as this spec leaves it for the next.
 import { expect, test } from "./fixtures";

@@ -8,11 +8,11 @@ import { useSave } from "../../../../hooks/useSave";
 import { askedOf } from "../../model/facts";
 import { AnswerField } from "../answer/AnswerField";
 
-/** How many questions This week asks at once; the rest wait their turn. */
+/** How many questions Home asks at once; the rest wait their turn. */
 const SHOWN = 3;
 
 /**
- * The questions This week asks: each one's week has come and its answer is
+ * The questions Home asks: each one's week has come and its answer is
  * still unknown or unsure. An answer changes the plan; "Not now" puts it off
  * a few weeks. Every answer can be changed in settings.
  */

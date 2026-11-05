@@ -8,7 +8,7 @@ import { namesQuery } from "../../../api/rpc/names";
 import { photosQuery } from "../../../api/rpc/photos";
 import { worlds } from "../../../app/features/quiet/worlds";
 import { STORY_VIEWS } from "../../../lib/journal/story/views";
-import { timelineSearch } from "../../thisWeek/features/timeline/routes/timeline";
+import { timelineSearch } from "../../home/features/timeline/routes/timeline";
 import { journal } from "./journal";
 
 /**

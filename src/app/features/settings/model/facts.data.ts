@@ -14,7 +14,7 @@
 //
 // `asked: "onboarding"` puts a question in the first-run questions, in this
 // order; every question is also in settings. Ask there what you may
-// already know. `week` is when This week asks it: again, if onboarding asked it
+// already know. `week` is when Home asks it: again, if onboarding asked it
 // and it was skipped or answered `unsure`; for the first time, if it only makes
 // sense once the answer exists. A question's own `when` asks it only if the
 // answers so far fit; in a question about each of you, a bare `work` is the

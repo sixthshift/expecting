@@ -1,5 +1,5 @@
 // How you're feeling, kept: the Journal's feelings collection. Check in through the
-// "+" (and This week) at any time; here, the last four weeks as rows of dots, a row each, the dot's strength
+// "+" (and Home) at any time; here, the last four weeks as rows of dots, a row each, the dot's strength
 // the step (no line chart: a line going down reads as a grade); under your own
 // row the words you used most; and a day's check-ins, your own with their
 // words, which only you can change or delete.

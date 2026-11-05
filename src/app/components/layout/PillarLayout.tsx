@@ -6,7 +6,7 @@ import { useLayout } from "../../hooks/useLayout";
 import { MobileCorner } from "../../mobile/components/MobileCorner";
 import type { AppPath } from "../../model/paths";
 
-// `full` is a desktop board's (This week): wide enough for three columns side by side, centred past 1760px.
+// `full` is a desktop board's (Home): wide enough for three columns side by side, centred past 1760px.
 const WIDTH = { "2xl": "max-w-2xl", "3xl": "max-w-3xl", "6xl": "max-w-6xl", full: "max-w-[110rem]" } as const;
 
 /** Where a page goes back to, and what that's called: `{ to: "/drawer", label: "The Drawer" }`. */

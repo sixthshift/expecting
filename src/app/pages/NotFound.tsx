@@ -18,7 +18,7 @@ export function NotFound() {
         {/* Keyed by the address, so following a suggestion's link to another dead end starts afresh. */}
         <LookFor key={pathname} clues={cluesIn(pathname)} />
         <Button asChild intent="brand" variant="outline" className="self-start">
-          <Link to="/">Back to This week</Link>
+          <Link to="/">Back home</Link>
         </Button>
       </div>
     </main>

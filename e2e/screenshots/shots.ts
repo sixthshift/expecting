@@ -111,7 +111,7 @@ test("set up: Sam at 26 weeks, Jason by invite, a few days kept", async ({ brows
   await context.close();
 });
 
-test("the phone: This week, the Planner, a Library entry, the Journal", async ({ browser }) => {
+test("the phone: Home, the Planner, a Library entry, the Journal", async ({ browser }) => {
   const { context, page } = await newPhone(browser);
   await logIn(page, "Sam");
   await shoot(page, "/", "this-week");
@@ -121,7 +121,7 @@ test("the phone: This week, the Planner, a Library entry, the Journal", async ({
   await context.close();
 });
 
-test("the desktop: This week", async ({ browser }) => {
+test("the desktop: Home", async ({ browser }) => {
   const { context, page } = await newPhone(browser, DESKTOP);
   await logIn(page, "Sam");
   await shoot(page, "/", "desktop");

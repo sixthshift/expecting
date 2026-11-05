@@ -1,7 +1,7 @@
 # The whole pregnancy
 
 The timeline: the whole pregnancy at once, weeks 1–42, a line a week. It's
-opened from This week (a strip of the pregnancy under the week's heading,
+opened from Home (a strip of the pregnancy under the week's heading,
 and "The whole pregnancy" beside it), at `/timeline`. What's to do across
 the weeks is the Planner's chart, [Across the weeks](planner.md#across-the-weeks).
 
@@ -13,7 +13,7 @@ pregnancy; the week itself is `src/lib/timeline.ts`.
 A pillar is where things live, and nothing lives only on the weeks. Each
 job a timeline might do belongs to a pillar that already has the thing:
 
-- **"Where are we in all of it?"** This week, which already said where you
+- **"Where are we in all of it?"** Home, which already said where you
   are. The strip under its heading puts the week in the whole pregnancy,
   and opens the timeline.
 - **"When do we have to…?"** The Planner, which holds what's asked of you,
@@ -43,8 +43,8 @@ a phone better than six, and each answers a different question.
 - **Everything with a date has a week.** Ahead of today, the timeline is the
   plan; behind today, the diary; by the birth, the story of the pregnancy,
   without anyone having sat down to write it.
-- **A thread, not a shelf.** A week's detail is This week's: every week's
-  line opens This week at that week.
+- **A thread, not a shelf.** A week's detail is Home's: every week's
+  line opens Home at that week.
 - **Expecting knows what to do; you don't fill it in.** The weeks carry no
   add box. An own task for the odd thing Expecting couldn't know is added
   in the Planner, and shows on its week like any other.
@@ -54,14 +54,14 @@ a phone better than six, and each answers a different question.
 
 ## What's on it
 
-- **The strip,** as on This week, with the landmarks named: a bar a week,
+- **The strip,** as on Home, with the landmarks named: a bar a week,
   the weeks behind tinted, this one solid, a dot under each week ahead
-  with something best done by then. A week goes to This week at it.
+  with something best done by then. A week goes to Home at it.
 - **The weeks:** each its note's title or a landmark (Halfway, Full term,
   Due date), with what opens, what's to do or has slipped, what's done, the
   questions asked there, and the Journal's marks. Today is marked, with a
   Today button on a phone. Grouped by trimester (three columns on a
-  desktop). `?at=28` opens at a week: This week's peek and a Library
+  desktop). `?at=28` opens at a week: Home's peek and a Library
   entry's "See week 28 in the whole pregnancy" link this way.
 
 ## While something has happened
@@ -78,5 +78,5 @@ and come back as they were.
 - **The named chapters** people think in (the early weeks, the middle, the
   home stretch, any day now), in place of the trimesters.
 - **A way from a week to the Journal at it.** The week's line already opens
-  This week, and a second link inside it isn't possible, so it wants its
+  Home, and a second link inside it isn't possible, so it wants its
   own design.

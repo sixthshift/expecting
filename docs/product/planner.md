@@ -28,7 +28,7 @@ How it's built is [`architecture.md`](../architecture.md), Planner. Tasks themse
   To do now, with when, whose and why. A list of forty open tasks is where
   admin goes to die.
 - **The same order everywhere.** Next up and Also now are To do now, in the
-  order This week opens with: a deadline coming up or just missed, then
+  order Home opens with: a deadline coming up or just missed, then
   what slipped in the last four weeks, then what's best done in the next
   two. A tick anywhere is a tick everywhere.
 - **Nothing jumps.** A task ticked during a visit stays where it was,
@@ -148,7 +148,7 @@ change one or delete it (a delete can be undone).
   until the day is over, so its questions are there in the waiting room.
   The questions below are for it, and say so ("Midwife, Fri 6 Nov");
   without one booked they're for whichever comes next.
-- **On its week.** This week shows the next one once it's within a
+- **On its week.** Home shows the next one once it's within a
   fortnight, with the questions waiting; a peek at another week shows that
   week's; the map counts them. Its week is worked out from the due date, so
   a moved due date moves its week, never its day.

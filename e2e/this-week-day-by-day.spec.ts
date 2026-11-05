@@ -2,10 +2,12 @@
 // The journey's due date makes today 28+0, the note's day, the note alone;
 // four days on it's 28+4, the note and four reads, today's showing, the days
 // before a step back, each read opening onto its entries in the Library.
-import { expect, test } from "./fixtures";
+import { expect, test, unfold } from "./fixtures";
 
 test("the note on the first day, a read a day after it, today's first, the days before a step back", async ({ page, open }) => {
   await open("/");
+  // On a phone, today's read is folded under the one thing (and stays open once opened).
+  await unfold(page, "Today's read");
   const week = page.getByRole("region", { name: "Week 28", exact: true });
   await expect(week.getByRole("region", { name: "28+0 · Today, 1 of 1" })).toBeVisible();
   await expect(week.getByRole("button", { name: "The day before" })).toHaveCount(0);

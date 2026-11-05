@@ -96,3 +96,11 @@ export function waitingSaves(page: Page): Promise<number> {
 }
 
 export { expect };
+
+/** On a phone, opens one of Home's folds by its title ("To keep", "Today's read") once it's drawn, if it's shut; a desktop draws none (`lg` and up), so it does nothing there. */
+export async function unfold(page: Page, title: string): Promise<void> {
+  if ((page.viewportSize()?.width ?? 0) >= 1024) return;
+  const fold = page.getByRole("button", { name: new RegExp(`^${title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`) }).and(page.locator("[aria-expanded]"));
+  await expect(fold.first()).toBeVisible();
+  if ((await fold.first().getAttribute("aria-expanded")) === "false") await fold.first().click();
+}

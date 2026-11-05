@@ -2,7 +2,7 @@
 
 The optional parts of Expecting, some thirty of them, from choosing a name
 to a babymoon, the baby shower and freezer meals. Off until one of you turns one
-on, in onboarding (a few), in settings (all), or when This week offers one
+on, in onboarding (a few), in settings (all), or when Home offers one
 in its week.
 
 How it's built is [`architecture.md`](../architecture.md), Extras. The list
@@ -14,7 +14,7 @@ is `src/app/features/settings/model/extras.data.ts`.
   answered, an extra adds nothing until someone says yes. Most pregnancies
   have no baby shower or babymoon, and a Planner full of them would bury
   the admin that matters.
-- **Fewer offers, not more.** This week offers one undecided extra at a
+- **Fewer offers, not more.** Home offers one undecided extra at a
   time, once, in its week; onboarding offers only a few, so it stays short.
 - **Turning one off hides, never deletes.** Turned on again, everything is
   where it was: one rule for every extra.

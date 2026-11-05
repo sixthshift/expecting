@@ -6,8 +6,8 @@ import { useLayout } from "../../../../app/hooks/useLayout";
 
 /**
  * On a private entry's page, held at the top as it scrolls: one tap (or Esc)
- * goes to This week, replacing the page in the history so Back doesn't return
- * to it. This week, not another site: it's always there, offline too, it opens
+ * goes to Home, replacing the page in the history so Back doesn't return
+ * to it. Home, not another site: it's always there, offline too, it opens
  * at once, and on a phone with the app it looks like nothing at all.
  */
 export function QuickExit() {

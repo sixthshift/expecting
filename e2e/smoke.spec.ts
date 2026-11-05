@@ -32,11 +32,11 @@ for (const { path, heading } of pages) {
 test("every pillar and settings is reachable", async ({ page, open }) => {
   await open("/");
   const nav = page.getByRole("navigation", { name: "Expecting" });
-  for (const name of ["Library", "Planner", "Journal", "Drawer", "This week"]) {
+  for (const name of ["Library", "Planner", "Journal", "Drawer", "Home"]) {
     await nav.getByRole("link", { name }).click();
     await expect(nav.getByRole("link", { name })).toHaveAttribute("aria-current", "page");
     // Home is `/`, which every page sits under: it is current only on itself.
-    if (name !== "This week") await expect(nav.getByRole("link", { name: "This week" })).not.toHaveAttribute("aria-current");
+    if (name !== "Home") await expect(nav.getByRole("link", { name: "Home" })).not.toHaveAttribute("aria-current");
   }
   await expect(page.getByRole("heading", { level: 1, name: "This week" })).toBeVisible();
   await page.getByRole("link", { name: "Settings" }).click();
@@ -96,7 +96,7 @@ test.describe("a page that doesn't exist", () => {
     await open("/weeks");
     await expect(page.getByRole("heading", { level: 1, name: "Nothing at this address" })).toBeVisible();
     await expect(page.getByRole("link", { name: "Library" }).first()).toBeVisible();
-    await page.getByRole("link", { name: "Back to This week" }).click();
+    await page.getByRole("link", { name: "Back home" }).click();
     await expect(page).toHaveURL(/\/$/);
   });
 });

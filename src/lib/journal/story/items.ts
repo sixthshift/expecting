@@ -4,8 +4,8 @@
 
 import { type ISODate, todayISO } from "../../dates";
 import type { BingoMoment } from "../../drawer/bingo";
+import type { WeeklyPair } from "../../home/weekly";
 import { dayOf, type Night, nightsOf, type Start } from "../../itsTime";
-import type { WeeklyPair } from "../../thisWeek/weekly";
 import type { AppetiteEntry } from "../appetite";
 import type { Feeling } from "../feelings";
 import { type FirstMark, isMarked } from "../firsts";

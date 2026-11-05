@@ -11,18 +11,18 @@ import type { Context } from "./context";
 import { INSTRUCTIONS } from "./instructions";
 import { drawerTools } from "./tools/drawer";
 import { emergencyTools } from "./tools/emergency";
+import { homeTools } from "./tools/home";
 import { itsTimeTools } from "./tools/itsTime";
 import { journalTools } from "./tools/journal";
 import { libraryTools } from "./tools/library";
 import { plannerTools } from "./tools/planner";
 import { removeTools } from "./tools/remove";
-import { thisWeekTools } from "./tools/thisWeek";
 
 export function mcpServer(grant: Grant): McpServer {
   const server = new McpServer({ name: "expecting", title: "Expecting", version: VERSION }, { instructions: INSTRUCTIONS });
   // Read fresh by each tool call: the moment is the call's, not the request's start.
   const tools = toolsOf(server, (): Context => ({ db: getDb(), personId: grant.personId, now: new Date() }));
-  thisWeekTools(tools);
+  homeTools(tools);
   libraryTools(tools);
   plannerTools(tools);
   journalTools(tools);

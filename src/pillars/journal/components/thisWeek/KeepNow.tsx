@@ -11,7 +11,7 @@ import { Places } from "./places/Places";
  * What's worth keeping now, asked rather than looked for: the firsts that
  * usually come around now ("Has it happened yet?") and the places made ready
  * (a scan's picture, this week's bump photo). The Journal draws it above its
- * story; This week draws it with the check-in, as what to keep for the Journal.
+ * story; Home draws it with the check-in, as what to keep for the Journal.
  * Nothing until there's a due date.
  */
 export function KeepNow() {

@@ -31,7 +31,7 @@ const twinned = lazyPages.filter(({ page }) => !page.includes("/quiet/") && exis
 describe("worlds", () => {
   it("finds the mirrored pages", () => {
     expect(twinned.map(({ page }) => basename(page)).sort()).toEqual(
-      ["BookPage", "ItsTimePage", "JournalPage", "LibraryPage", "PlannerPage", "ThisWeekPage", "TimelinePage"].sort()
+      ["BookPage", "ItsTimePage", "JournalPage", "LibraryPage", "PlannerPage", "HomePage", "TimelinePage"].sort()
     );
   });
 

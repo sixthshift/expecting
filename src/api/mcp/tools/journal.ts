@@ -23,7 +23,7 @@ import { TIME } from "../../../lib/journal/journal";
 import { FileStore } from "../../../server/files/store";
 import { answer, refuse, type Tools } from "../answer";
 import { type Context, type Known, known, startOf } from "../context";
-import { week } from "./thisWeek";
+import { week } from "./home";
 
 const KINDS = ["note", "letter", "movement", "sick", "craving", "off", "feeling", "first", "photo", "paper"] as const;
 

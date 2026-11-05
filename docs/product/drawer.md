@@ -2,7 +2,7 @@
 
 The handy things: tools you use together, each brought by an extra. The
 names game, Who does what, Your people and Pregnancy bingo; and A question
-a week, which lives on This week but plays by the same rule. Emergency info
+a week, which lives on Home but plays by the same rule. Emergency info
 and It's time sit beside settings, not here ([emergency.md](emergency.md),
 [its-time.md](its-time.md)).
 
@@ -127,7 +127,7 @@ someone tells you to sleep while you can, a birth story you didn't ask for.
 ## A question a week
 
 One question each week, from week 4 ("What's one thing you're quietly
-nervous about?"), on This week while its extra is on. Each of you answers
+nervous about?"), on Home while its extra is on. Each of you answers
 on your own phone, and the answers show once both are in. The firsts ask a
 question each; this is that, weekly.
 

@@ -93,7 +93,7 @@ on a phone. On a phone an entry is always its page; an address for one
 beside a list opened there goes on to it.
 
 An entry's page leads back to the door it came from. Opened from a list
-(a door's whole shelf, search results, Right now, Related, This week's worth
+(a door's whole shelf, search results, Right now, Related, Home's worth
 knowing), it goes on through that list: swipe left for the next, right for
 the one before, ← and → on a keyboard, or the Previous and Next links at
 its foot. Each takes the
@@ -109,7 +109,7 @@ started again from the top.
 Opening an entry marks it read, for whoever opened it: each of you has your
 own, so a tick on your phone means you've read it, not that one of you has.
 Wherever entries are listed (the doors' shelves, search, Right now, Related,
-This week's worth knowing) a read one wears a quiet tick, so you can see
+Home's worth knowing) a read one wears a quiet tick, so you can see
 what's new to you. The first time you opened it is kept; there's nothing to
 undo, as opening it is all it takes. A private entry is never marked: it
 leaves no trace.
@@ -117,7 +117,7 @@ leaves no trace.
 ## The types
 
 One item with a type, so there's one search, one page and one list for
-the timeline, Planner and This week to work from.
+the timeline, Planner and Home to work from.
 
 | Type | What it is | Its page |
 |---|---|---|
@@ -141,7 +141,7 @@ the timeline, Planner and This week to work from.
 ## The week's note
 
 One per week, in three parts: The baby, Your body, For the partner. It's
-This week's page, and its title is the week's line on the timeline. A week
+Home's page, and its title is the week's line on the timeline. A week
 without its own note shows the latest before it.
 
 ## Private entries
@@ -156,12 +156,12 @@ would see it:
   that names one. Words someone types themselves are theirs: blocking
   "family violence" in your own question would be the app deciding what you
   may ask.
-- **Never offered unasked:** not on This week, Right now or the timeline,
+- **Never offered unasked:** not on Home, Right now or the timeline,
   and not in what an answer changes. It waits to be looked for.
 - **Not in the address bar or the history,** and search words that find
   one aren't kept in the address.
-- **A quick exit,** at the top of its page and on Esc, to This week,
-  replacing the page in the history. This week rather than another site:
+- **A quick exit,** at the top of its page and on Esc, to Home,
+  replacing the page in the history. Home rather than another site:
   instant, offline, works in the installed app, and looks like nothing.
 - **Not a trace, so unchanged:** every entry's page is fetched for offline
   as the app installs, so a private one being there says nothing, and the

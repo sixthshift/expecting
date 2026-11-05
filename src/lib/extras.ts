@@ -1,5 +1,5 @@
 // What you've chosen of the extras (src/app/features/settings/model/extras.data.ts): which are
-// on, and which This week should offer. Pure, tested apart from the screen.
+// on, and which Home should offer. Pure, tested apart from the screen.
 
 import { EXTRAS, type Extra } from "../app/features/settings/model/extras";
 import { applies, type Facts } from "../app/features/settings/model/facts";
@@ -23,7 +23,7 @@ export function extrasFor(facts: Facts, on: ReadonlySet<string> = new Set()): Ex
   return EXTRAS.filter((e) => on.has(e.id) || applies(e.when, facts));
 }
 
-/** The extra This week offers: the first it's offered that nobody has decided on, whose week has come. */
+/** The extra Home offers: the first it's offered that nobody has decided on, whose week has come. */
 export function extraToOffer(choices: readonly Choice[], now: Week, facts: Facts = {}): Extra | undefined {
   const decided = new Set(choices.map((c) => c.id));
   return extrasFor(facts).find((e) => !decided.has(e.id) && now >= e.offer);

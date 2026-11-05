@@ -2,7 +2,7 @@
 // the ruler, a task of their own that stays ticked, a jump from a task to why
 // it matters, and a question for the midwife. Runs first, on the phone, against
 // the empty database the config makes.
-import { expect, logIn, test, waitingSaves } from "./fixtures";
+import { expect, logIn, test, unfold, waitingSaves } from "./fixtures";
 import { PASSWORDS } from "./playwright.config";
 
 /** dd, mm, yyyy of today plus `days`, in this machine's local time, as the app sees it. */
@@ -81,9 +81,10 @@ test("Sam joins by Jason's invite, as the other of them, and goes straight in", 
   await sam.getByLabel("The same again").fill(PASSWORDS.Sam);
   await sam.getByRole("button", { name: "Join" }).click();
 
-  // It's already set up: straight to This week.
+  // It's already set up: straight to Home.
   await expect(sam.getByRole("heading", { level: 1, name: "This week Week 28" })).toBeVisible();
-  // The week's note reads as the one holding the phone, and flips to the other.
+  // The week's note reads as the one holding the phone, and flips to the other. On a phone it's today's read, folded.
+  await unfold(sam, "Today's read");
   const note = sam.getByRole("article", { name: "The home stretch begins" });
   await expect(note.getByRole("heading", { name: "Your body" })).toBeVisible();
   await expect(note.getByRole("heading", { name: "For the partner" })).toHaveCount(0);
@@ -101,7 +102,7 @@ test("Sam joins by Jason's invite, as the other of them, and goes straight in", 
   await expect(page.getByRole("button", { name: /^Invite/ })).toHaveCount(0);
 });
 
-test("the whole pregnancy is the map, from This week: the landmarks, and a week goes to This week", async ({ page, open }) => {
+test("the whole pregnancy is the map, from Home: the landmarks, and a week goes to Home", async ({ page, open }) => {
   await open("/");
   await page.getByRole("link", { name: "The whole pregnancy" }).click();
   await expect(page.getByRole("heading", { level: 1, name: "The whole pregnancy" })).toBeVisible();
@@ -225,7 +226,7 @@ test("a private entry is read, and leaves no trace: not in the address, not in t
   await expect(page.getByRole("heading", { level: 1, name: "Reproductive coercion" })).toBeVisible();
   await expect(page).toHaveURL(/\/library$/);
 
-  // Out to This week, and Back doesn't return to it.
+  // Out to Home, and Back doesn't return to it.
   await page.getByRole("button", { name: "Quick exit" }).click();
   await expect(page).toHaveURL(/\/$/);
   await page.goBack();
@@ -319,7 +320,9 @@ test("a question is added in the Planner, asked, and lands in this week", async 
   await expect(page.getByRole("button", { name: "Asked it" })).toBeHidden();
 
   await open("/");
-  await expect(page.getByRole("region", { name: "Asked this week" }).getByText("Emergency, then the lift to level 3.")).toBeVisible();
+  // On a phone, what was asked this week is folded under the one thing.
+  await unfold(page, "Asked this week");
+  await expect(page.getByRole("region", { name: "Asked this week", exact: true }).getByText("Emergency, then the lift to level 3.")).toBeVisible();
   await open("/timeline");
   await expect(week(page, "28")).toContainText("1 question asked");
 });
@@ -440,7 +443,7 @@ test("an answer in settings tailors an item, and clearing it puts it back", asyn
   await expect(rsv.getByText("Ask at your next appointment where yours is done.")).toBeVisible();
 });
 
-test("This week asks what Expecting needs to know, and an answer changes the plan", async ({ page, open }) => {
+test("Home asks what Expecting needs to know, and an answer changes the plan", async ({ page, open }) => {
   const childcareTask = page.getByRole("checkbox", { name: "Shortlist childcare centres and join their waiting lists" });
   await open("/planner");
   await expect(childcareTask).toBeVisible();
@@ -478,8 +481,15 @@ test("This week asks what Expecting needs to know, and an answer changes the pla
   await expect(childcareTask).toBeVisible();
 });
 
-test("This week opens with what to do now: a deadline coming up first, and why", async ({ page, open }) => {
+test("Home opens with what to do now: a deadline coming up first, and why", async ({ page, open }, testInfo) => {
   await open("/");
+  if (testInfo.project.name === "mobile") {
+    // A phone shows the first of them whole, as the one thing, with Done; the list is folded under it.
+    const first = page.getByRole("region", { name: "Book the glucose tolerance test" });
+    await expect(first.getByRole("button", { name: "Done" })).toBeVisible();
+    await expect(page.getByText("Then: how you are today")).toBeVisible();
+    await unfold(page, "To do");
+  }
   const toDo = page.getByRole("region", { name: "To do now" });
   // At 28+0, the deadlines lead, soonest first: the glucose test (by week 28), then written notice to the employer (week 30).
   const tasks = toDo.getByRole("checkbox");
@@ -493,7 +503,7 @@ test("This week opens with what to do now: a deadline coming up first, and why",
 test("the Planner starts with one thing to do next, and ticking it brings up the next", async ({ page, open }) => {
   await open("/planner");
   const next = page.getByRole("region", { name: "Next up" });
-  // The same order as This week: at 28+0, the glucose test's deadline leads.
+  // The same order as Home: at 28+0, the glucose test's deadline leads.
   await expect(next.getByRole("checkbox")).toHaveAccessibleName("Book the glucose tolerance test");
   await expect(page.getByText(/^\d+ of \d+ done · 2 deadlines close$/)).toBeVisible();
   // What's ahead is in stages, each folded away until asked for.
@@ -512,7 +522,7 @@ test("the Planner starts with one thing to do next, and ticking it brings up the
   await expect(next.getByRole("checkbox")).toHaveAccessibleName("Book the glucose tolerance test");
 });
 
-test("This week peeks ahead at the next week, and comes back", async ({ page, open }) => {
+test("Home peeks ahead at the next week, and comes back", async ({ page, open }) => {
   await open("/");
   const weeks = page.getByRole("navigation", { name: "Weeks" });
   await weeks.getByRole("link", { name: "Week 29" }).click();
@@ -527,6 +537,7 @@ test("This week peeks ahead at the next week, and comes back", async ({ page, op
   await weeks.getByRole("link", { name: "Back to this week" }).click();
   await expect(page).toHaveURL((url) => url.pathname === "/" && url.search === "");
   await expect(page.getByRole("heading", { level: 1, name: "This week Week 28" })).toBeVisible();
+  await unfold(page, "To do");
   await expect(page.getByRole("region", { name: "To do now" })).toBeVisible();
 });
 
@@ -574,7 +585,7 @@ test("an extra is off until one of you turns it on, then it's everywhere it belo
   await expect(hostTask).toHaveCount(0);
 });
 
-test("This week offers an extra nobody has decided on, once", async ({ page, open }) => {
+test("Home offers an extra nobody has decided on, once", async ({ page, open }) => {
   // At 28+0, onboarding's extras were skipped: the first whose week has come is offered.
   await open("/");
   const offer = page.getByRole("region", { name: "Add food and drink?" });

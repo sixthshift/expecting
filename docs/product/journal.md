@@ -88,7 +88,7 @@ One story, newest first, made for the moment: it opens on now.
   happened yet?", the firsts that usually come now (each with its question,
   to write or put off for the week), the places made ready, what's already
   happened. "Did it go in?" and "what's now?" are why most visits happen.
-  No card for the week, the baby or its size: that's This week's, and
+  No card for the week, the baby or its size: that's Home's, and
   saying it twice adds nothing. Zoomed or searched, the story is what's
   shown, this week included: one story has no seam to keep in step.
 - **The book, already begun.** From the first visit there's a cover (Our
@@ -265,7 +265,7 @@ holding the phone; and for the midwife's "since when?" weeks later.
 
 ### How you're feeling
 
-- **It asks you; you don't go looking.** Once a day This week asks
+- **It asks you; you don't go looking.** Once a day Home asks
   whoever is holding the phone "How are you today?"; one tap keeps it. It's
   also always in the Journal.
 - **Five steps, as words with a face:** Rough, Low, Okay, Good, Great. No
@@ -285,7 +285,7 @@ holding the phone; and for the midwife's "since when?" weeks later.
 - **Rough is never met with alarm:** one quiet line, someone to talk to
   (PANDA, and Lifeline if it's a crisis).
 - **A hard fortnight** (at least four days checked in over fourteen, most
-  Low or Rough, or "anxious" on most): This week shows the person it's
+  Low or Rough, or "anxious" on most): Home shows the person it's
   about, and only them, a card suggesting their GP or midwife. Put away, it
   stays away for a fortnight. It never names a condition and never asks a
   screening questionnaire's questions.
@@ -372,7 +372,7 @@ into the other. They share only the story's parts.
   contents, no places, no catching up, no recaps, no "weeks ago", no suggested firsts, no bump frame, no
   scrubber.
 - **A Rough check-in** points to the loss support entries rather than PANDA
-  alone. This week asks nothing.
+  alone. Home asks nothing.
 - **With hard news,** whose pregnancy goes on, photos and papers are as
   usual.
 
