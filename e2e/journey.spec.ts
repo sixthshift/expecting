@@ -295,7 +295,7 @@ test("the glossary opens a word in place", async ({ page, open }) => {
   const link = page.getByRole("link", { name: "Read more about CTG monitoring" });
   await expect(link).toBeHidden();
   await page.getByText("CTG monitoring", { exact: true }).click();
-  await expect(page.getByText(/^A CTG \(cardiotocograph\) uses two sensors/)).toBeVisible();
+  await expect(page.getByText(/^A cardiotocograph \(CTG\) uses two sensors/)).toBeVisible();
   await expect(link).toBeVisible();
 });
 
