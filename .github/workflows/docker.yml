@@ -36,9 +36,8 @@ concurrency:
   group: docker-${{ github.ref }}
   cancel-in-progress: false
 
-# Each job has a limit a few times its usual length, so a hang (the arm64
-# build under emulation has stopped mid-build once) fails the run within the
-# hour instead of holding main's queue for Actions' default six.
+# Each job has a limit a few times its usual length, so a hang fails the run
+# within the hour instead of holding main's queue for Actions' default six.
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -75,14 +74,24 @@ jobs:
             test-results
           retention-days: 7
 
-  image:
+  # The image, a half per platform, each built on a runner of its own kind:
+  # amd64 on ubuntu-latest, arm64 natively on GitHub's arm runner rather than
+  # under emulation, which hung mid-build more than once. Each half is pushed
+  # by its digest, untagged; the image job joins them under the tags.
+  build:
     needs: [test, e2e]
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    permissions:
-      # The bump commit and its tag go back to main.
-      contents: write
-      packages: write
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - platform: linux/amd64
+            arch: amd64
+            runner: ubuntu-latest
+          - platform: linux/arm64
+            arch: arm64
+            runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
         with:
@@ -92,18 +101,91 @@ jobs:
         with:
           bun-version: 1.4.2
       # Writes the new version into package.json so the build inlines it, and
-      # outputs it, with the path of the release notes it wrote. Only on a push to main: a pull request and a hand-made tag
-      # build the version already committed.
+      # outputs it, with the path of the release notes it wrote. Only on a push
+      # to main: a pull request and a hand-made tag build the version already
+      # committed. It's worked out from the commits, so both halves and the
+      # image job get the same one.
       - id: bump
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: bun run version:next
-      # arm64 is built under emulation so one image runs on an x86 box and an
-      # Apple-silicon Mac alike. If the build proves too slow, a matrix on
-      # native ubuntu-24.04-arm runners is the next step.
-      - uses: docker/setup-qemu-action@v4
       - uses: docker/setup-buildx-action@v4
       - uses: docker/login-action@v4
         if: github.event_name != 'pull_request'
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      # For the labels: the image's version among them.
+      - id: meta
+        uses: docker/metadata-action@v6
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            # priority beats latest's, so the image's own version label and
+            # the summary read 1.2.3 rather than "latest".
+            type=raw,value=${{ steps.bump.outputs.version }},priority=1000,enable=${{ steps.bump.outputs.version != '' }}
+            type=semver,pattern={{version}}
+            type=sha
+      - id: build
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: docker/Dockerfile
+          platforms: ${{ matrix.platform }}
+          labels: ${{ steps.meta.outputs.labels }}
+          # By digest, untagged: the image job puts both halves under the tags.
+          outputs: type=image,name=ghcr.io/${{ github.repository }},push-by-digest=true,name-canonical=true,push=${{ github.event_name != 'pull_request' }}
+          # Inlined beside the version, so Settings and every error say which commit is running.
+          build-args: EXPECTING_COMMIT=${{ github.sha }}
+          # A cache each, so the two halves don't write over each other's.
+          cache-from: type=gha,scope=${{ matrix.arch }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.arch }}
+      - name: keep the digest
+        if: github.event_name != 'pull_request'
+        env:
+          DIGEST: ${{ steps.build.outputs.digest }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/digests"
+          touch "$RUNNER_TEMP/digests/${DIGEST#sha256:}"
+      - uses: actions/upload-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          name: digests-${{ matrix.arch }}
+          path: ${{ runner.temp }}/digests/*
+          if-no-files-found: error
+          retention-days: 1
+
+  # The two halves joined into one image under its tags (nothing is rebuilt:
+  # it writes the index), then the version committed and released. Not for a
+  # pull request, which builds without publishing.
+  image:
+    needs: [build]
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      # The bump commit and its tag go back to main.
+      contents: write
+      packages: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
+      # The same version the halves were built with, and its notes, to commit and release.
+      - id: bump
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: bun run version:next
+      - uses: actions/download-artifact@v4
+        with:
+          path: ${{ runner.temp }}/digests
+          pattern: digests-*
+          merge-multiple: true
+      - uses: docker/setup-buildx-action@v4
+      - uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -119,18 +201,15 @@ jobs:
             type=raw,value=${{ steps.bump.outputs.version }},priority=1000,enable=${{ steps.bump.outputs.version != '' }}
             type=semver,pattern={{version}}
             type=sha
-      - uses: docker/build-push-action@v7
-        with:
-          context: .
-          file: docker/Dockerfile
-          platforms: linux/amd64,linux/arm64
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          # Inlined beside the version, so Settings and every error say which commit is running.
-          build-args: EXPECTING_COMMIT=${{ github.sha }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+      - id: join
+        name: join the halves under the tags
+        working-directory: ${{ runner.temp }}/digests
+        env:
+          IMAGE: ghcr.io/${{ github.repository }}
+        run: |
+          docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
+            $(printf "$IMAGE@sha256:%s " *)
+          docker buildx imagetools inspect "$IMAGE:${{ steps.meta.outputs.version }}"
       # Last, so a version is only spent on an image that published.
       - name: commit the version and tag it
         if: steps.bump.outputs.version != ''
