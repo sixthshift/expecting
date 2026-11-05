@@ -1,4 +1,4 @@
-import { Link, useMatch, useParams, useRouterState } from "@tanstack/react-router";
+import { Link, useMatch, useParams, useRouterState, useSearch } from "@tanstack/react-router";
 import type { CSSProperties, ReactNode } from "react";
 import { useLayout } from "../../../../app/hooks/useLayout";
 import { itemPanel } from "../../../../app/model/panel";
@@ -15,15 +15,14 @@ import { isPrivateItem } from "../../../../content";
  * and where it was opened from, so its way back can be Back. Going on in
  * place (`replace`) keeps where the first was opened from.
  *
- * On a desktop it doesn't leave the page. In the Library (its doors, search
- * and Right now, `/library`) it opens the entry in the reader over the list
- * (`?entry=<id>`, `EntryReader`), where you came to read: going on through the
- * list, it takes the reader's place in the history, as on a phone. Anywhere
- * else it opens it in the side panel, beside the page you're on
- * (`?panel=item:<id>`), which stays where it was: the reading beside what
- * it's for. Neither for a private entry, whose address stays out of the
- * address bar, nor from an entry's own page, where reading on is reading in
- * full.
+ * On a desktop it doesn't leave the page. In the Library (`/library`: a door,
+ * search, Right now) it opens the entry beside the list (`?entry=<id>`,
+ * `EntryBeside`), where you came to read: browse and read in one place, the
+ * next in the last one's place in the history. Anywhere else it opens it in
+ * the side panel, beside the page you're on (`?panel=item:<id>`): the
+ * reading beside what it's for. Neither for a private entry, whose address
+ * stays out of the address bar, nor from an entry's own page, where reading
+ * on is reading in full.
  */
 export function ItemLink({
   itemId,
@@ -32,6 +31,7 @@ export function ItemLink({
   className,
   style,
   "aria-label": label,
+  "aria-current": current,
   children,
 }: {
   itemId: string;
@@ -42,6 +42,8 @@ export function ItemLink({
   className?: string;
   style?: CSSProperties;
   "aria-label"?: string;
+  /** The entry shown, in a list beside it. */
+  "aria-current"?: "page";
   children: ReactNode;
 }) {
   const here = useParams({ strict: false }).itemId;
@@ -50,23 +52,26 @@ export function ItemLink({
   const kept = useRouterState({ select: (s) => s.location.state.from });
   const desktop = useLayout() === "desktop";
   const inLibrary = useMatch({ from: "/app/library/", shouldThrow: false }) !== undefined;
-  if (desktop && here === undefined && !isPrivateItem(itemId) && inLibrary) {
+  const open = useSearch({ strict: false, select: (s: { entry?: string }) => s.entry });
+  if (desktop && inLibrary && !isPrivateItem(itemId)) {
     return (
       <Link
         to="."
         search={(prev: Record<string, unknown>) => ({ ...prev, entry: itemId })}
         state={{ list }}
-        replace={replace}
+        // Another beside the list takes the last one's place, so Back is to the list.
+        replace={replace || open !== undefined}
         resetScroll={false}
         className={className}
         style={style}
         aria-label={label}
+        aria-current={current ?? (open === itemId ? "page" : undefined)}
       >
         {children}
       </Link>
     );
   }
-  if (desktop && here === undefined && !isPrivateItem(itemId)) {
+  if (desktop && here === undefined && !inLibrary && !isPrivateItem(itemId)) {
     return (
       <Link
         to="."
@@ -75,6 +80,7 @@ export function ItemLink({
         className={className}
         style={style}
         aria-label={label}
+        aria-current={current}
       >
         {children}
       </Link>
@@ -90,6 +96,7 @@ export function ItemLink({
       className={className}
       style={style}
       aria-label={label}
+      aria-current={current}
     >
       {children}
     </Link>

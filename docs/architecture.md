@@ -239,12 +239,15 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
     a phone), and not from an entry's own page, where reading on is reading
     in full.
     In the Library itself (`/library`: a door, search, Right now) a link
-    opens the entry in its reader instead, a `Modal` over the list
-    (`?entry=<id>`, the Library's own search; `EntryReader`), since there
-    you came to read, not to keep a page beside it: on through the list by
-    its arrows, ← →, or its foot (`neighbours`, the same as the phone's
-    swipe), each replacing the last in the history, so Back closes it. A
-    phone given that address goes on to the entry's page.
+    opens the entry beside the list instead, since there you came to read:
+    `?entry=<id>`, the Library's own search, and the page splits, the list
+    narrower on the left, the entry on the right (`EntryBeside`, with
+    `EntryInset` in it). A page's own columns, not the panel, which stays
+    free for what's opened from the entry. From Right now the list is the
+    one it came from (`EntryList`). A door's page and a search keep the two
+    columns with nothing open: a door's overview in the entry's place
+    (`DoorOverview`), a search with what it found first already open. "Open full page" is `/library/<id>`, the
+    article alone. A phone given that address goes on to the entry's page.
   - **Something opened to look at and change** (someone in Your people, a
     line on a list, a first, a bingo square, a line of the story):
     `DetailSheet` (`src/app/components/`), a sheet on a phone, the panel on a

@@ -22,7 +22,7 @@ export function ItemList({ items, brief = false }: { items: readonly Item[]; bri
           <ItemLink
             itemId={item.id}
             list={list}
-            className={`flex items-center gap-3 px-4 hover:bg-bg-normal-hovered ${brief ? "min-h-12 py-2.5" : "min-h-14 py-3"}`}
+            className={`flex items-center gap-3 px-4 hover:bg-bg-normal-hovered aria-[current=page]:bg-bg-brand-subtle ${brief ? "min-h-12 py-2.5" : "min-h-14 py-3"}`}
           >
             <span className="flex min-w-0 flex-1 flex-col gap-0.5">
               <span className="text-fg-strong">{item.title}</span>

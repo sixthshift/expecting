@@ -71,21 +71,26 @@ On a desktop an entry doesn't leave the page it was opened from, two ways
 for two reasons:
 
 - **In the Library** (a door, search, Right now) you came to read, so it
-  opens in the reader over the list, at a reading width
-  (`/library?door=can-i&entry=sprouts`). It goes on through the list as a
-  phone does: the arrows at its top, ← and →, or Previous and Next at its
-  foot, with where you are ("2 of 43"), each in its place in the history,
-  so Back closes it. Esc, its close or a click outside close it too, and the
-  list is as you left it. "Open full page" goes to its page, which goes on
-  through the same list.
+  opens beside the list, on the same page
+  (`/library?door=can-i&entry=sprouts`): the list stays as it was (its
+  chips, its groups, the search), narrower, on the left, the one open
+  marked, and the entry reads on the right, scrolling on its own. Browse
+  and read in one place: the next is a click in the list, taking the last
+  one's place in the history, so Back is to the list alone. Its close and
+  Esc put it away. "Open full page" goes to the entry's own page, the
+  article alone. From Right now, the list beside it is the one it came
+  from. The page keeps its shape with nothing open: beside a door's shelf
+  (or a topic's), its overview, what the door is for, what a "Can I…?"
+  answer's words mean, and what from it is around now, each opening in its
+  place; a search opens what it found first, so it has no close.
 - **Anywhere else** it's the reason for something on that page, so it opens
   in the side panel beside it: a task's Why beside To do, a day's read beside
   the week. The page stays where it was and live. "Open in full" goes to its
   page.
 
 Never a private entry, which opens on its own page with its quick exit, as
-on a phone. On a phone an entry is always its page; an address for the
-reader opened there goes on to it.
+on a phone. On a phone an entry is always its page; an address for one
+beside a list opened there goes on to it.
 
 An entry's page leads back to the door it came from. Opened from a list
 (a door's whole shelf, search results, Right now, Related, This week's worth

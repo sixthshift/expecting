@@ -21,7 +21,11 @@ export function Rows({ items, list = items.map((i) => i.id) }: { items: readonly
     <ul className="flex flex-col divide-y divide-border-subtle overflow-hidden rounded-xl border border-border-subtle bg-bg-normal">
       {items.map((item) => (
         <li key={item.id}>
-          <ItemLink itemId={item.id} list={list} className="flex min-h-12 items-center gap-3 px-4 py-2.5 hover:bg-bg-normal-hovered">
+          <ItemLink
+            itemId={item.id}
+            list={list}
+            className="flex min-h-12 items-center gap-3 px-4 py-2.5 hover:bg-bg-normal-hovered aria-[current=page]:bg-bg-brand-subtle"
+          >
             <span className="min-w-0 flex-1 text-fg-strong">{item.title}</span>
             <span className="flex shrink-0 items-center">
               <Meta item={item} />

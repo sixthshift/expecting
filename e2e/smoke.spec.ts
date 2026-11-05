@@ -209,26 +209,25 @@ test("on a desktop, a Why opens beside the list, in the side panel, and Back and
   await expect(page).toHaveURL(/\/planner$/);
 });
 
-test("on a desktop, an entry opened in the Library is read over its list, on through it, and Back closes it", async ({ page, open }, testInfo) => {
+test("on a desktop, an entry opened in the Library reads beside the list, on through it, and Back is to the list alone", async ({ page, open }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop", "a phone opens the entry's page, and swipes");
   await open("/library?door=can-i&topic=food");
   const rows = page.getByRole("region", { name: "Food" }).getByRole("link");
-  const [first, second] = [await rows.nth(0).innerText(), await rows.nth(1).innerText()].map((t) => t.split("\n")[0]);
+  const [first = "", second = ""] = [await rows.nth(0).innerText(), await rows.nth(1).innerText()].map((t) => t.split("\n")[0] ?? "");
   await rows.nth(0).click();
   await expect(page).toHaveURL(/\/library\?door=can-i&topic=food&entry=[a-z0-9-]+$/);
-  const reader = page.getByRole("dialog");
-  await expect(reader.getByRole("heading", { level: 2, name: first })).toBeVisible();
-  // On through the list, by the key and by the button, each in the reader's place.
-  await page.keyboard.press("ArrowRight");
-  await expect(reader.getByRole("heading", { level: 2, name: second })).toBeVisible();
-  await reader.getByRole("button", { name: `Previous: ${first}` }).click();
-  await expect(reader.getByRole("heading", { level: 2, name: first })).toBeVisible();
-  await page.goBack();
-  await expect(reader).toBeHidden();
-  await expect(page).toHaveURL(/\/library\?door=can-i&topic=food$/);
-  // And on to its own page.
+  const entry = page.getByRole("region", { name: "The entry" });
+  await expect(entry.getByRole("heading", { level: 2, name: first })).toBeVisible();
+  // The list is still there, the one open marked; the next from it takes its place.
+  await expect(rows.nth(0)).toHaveAttribute("aria-current", "page");
   await rows.nth(1).click();
-  await page.getByRole("dialog").getByRole("link", { name: "Open full page" }).click();
+  await expect(entry.getByRole("heading", { level: 2, name: second })).toBeVisible();
+  await page.goBack();
+  await expect(entry).toBeHidden();
+  await expect(page).toHaveURL(/\/library\?door=can-i&topic=food$/);
+  // And on to the entry's own page, the article alone.
+  await rows.nth(1).click();
+  await entry.getByRole("link", { name: "Open full page" }).click();
   await expect(page.getByRole("heading", { level: 1, name: second })).toBeVisible();
-  await expect(page.getByRole("dialog")).toBeHidden();
+  await expect(page.getByRole("region", { name: "The entry" })).toBeHidden();
 });

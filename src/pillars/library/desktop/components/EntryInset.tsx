@@ -7,9 +7,8 @@ import { LibraryItemPageProvider, useLibraryItemPage } from "../../contexts/Libr
 
 /**
  * An entry set into another page on a desktop: the side panel beside the page
- * it was opened from (`?panel=item:<id>`, `AddressedPanel`), or the Library's
- * reader over its list (`?entry=<id>`, `EntryReader`). The same entry its page
- * draws, in the same provider, without what belongs to a page of its own (the
+ * it was opened from (`?panel=item:<id>`, `AddressedPanel`), or beside the
+ * Library's list (`?entry=<id>`, `EntryBeside`). The same entry its page draws, in the same provider, without what belongs to a page of its own (the
  * way back, going through a list, a private one's quick exit: a private entry
  * never opens here).
  */
