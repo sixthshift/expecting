@@ -49,7 +49,7 @@ export function ExtrasList() {
                   <div
                     key={e.id}
                     id={`setting-extra:${e.id}`}
-                    className={cn("flex scroll-mt-24 items-center gap-4 px-4 py-3", highlight === e.id && "bg-bg-brand-subtle")}
+                    className={cn("flex scroll-mt-40 items-center gap-4 px-4 py-3", highlight === e.id && "bg-bg-brand-subtle")}
                   >
                     <div className="flex min-w-0 flex-1 flex-col gap-0.5">
                       <ExtraPitch extra={e} pitchClassName={quiet}>

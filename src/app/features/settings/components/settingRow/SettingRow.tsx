@@ -26,7 +26,7 @@ export function SettingRow({
 }) {
   const panel = `setting-${id}-panel`;
   return (
-    <div id={`setting-${id}`} className={cn("scroll-mt-24", open && "bg-bg-subtle")}>
+    <div id={`setting-${id}`} className={cn("scroll-mt-40", open && "bg-bg-subtle")}>
       <button
         type="button"
         aria-expanded={open}

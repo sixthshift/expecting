@@ -4,7 +4,7 @@
 import { expect, logIn, test, unfold } from "./fixtures";
 
 test("a question a week: answered on two phones, shown once both have, and kept in the Journal", async ({ page, open, browser }) => {
-  await open("/settings");
+  await open("/settings/extras");
   const toggle = page.getByRole("switch", { name: "A question a week" });
   if (!(await toggle.isChecked())) await toggle.click();
   await expect(toggle).toBeChecked();

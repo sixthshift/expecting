@@ -4,7 +4,7 @@
 import { expect, logIn, test, waitingSaves } from "./fixtures";
 
 test("pregnancy bingo: dealt, the middle row marked to bingo, seen on the other phone and in the Journal", async ({ page, open, browser }) => {
-  await open("/settings");
+  await open("/settings/extras");
   const toggle = page.getByRole("switch", { name: "Pregnancy bingo" });
   if (!(await toggle.isChecked())) await toggle.click();
   await expect(toggle).toBeChecked();

@@ -1,11 +1,12 @@
-import { getRouteApi } from "@tanstack/react-router";
+import { getRouteApi, useNavigate } from "@tanstack/react-router";
 import { createContext, type ReactNode, use, useEffect, useMemo, useState } from "react";
 import { useAnswersQuery } from "../../../../api/rpc/facts";
 import { useSettingsQuery } from "../../../../api/rpc/settings";
 import { type Answer, asksFor, factsOf, isSettled, latestByKey } from "../../../../lib/facts";
 import type { Ask } from "../model/facts";
+import { type SettingsSection, sectionOf } from "../model/sections";
 
-const route = getRouteApi("/app/settings");
+const route = getRouteApi("/app/settings/$section");
 
 /** The due date's row: a setting, not a question, but answered and counted as one. */
 export const DUE_DATE = "dueDate";
@@ -16,13 +17,15 @@ export const DUE_DATE = "dueDate";
  * when it's asked again, what it decides).
  */
 export type SettingsPage = {
+  /** The section shown, a page of its own (`/settings/<section>`). */
+  section: SettingsSection;
   /** The row open, by its key (a question's, `dueDate`), or null: one at a time. */
   open: string | null;
   /** Open a row, or close it if it's the one open. */
   toggle: (key: string) => void;
   /** Close whichever row is open. */
   close: () => void;
-  /** Open a row and scroll to it. */
+  /** Open a row and scroll to it, on its section's page. */
   goTo: (key: string) => void;
   /** The extra a link opened Settings at (`?ask=extra:babymoon`), to mark. */
   highlight: string | undefined;
@@ -44,11 +47,13 @@ const PageContext = createContext<SettingsPage | null>(null);
 /**
  * Settings' context: the row open, and the questions as things stand. It
  * holds no data of its own: the queries stay in the query cache, read
- * through their hooks. `?ask=cover` opens at a question, wherever it sits
- * on the page.
+ * through their hooks. `?ask=cover` opens at a question on its section's
+ * page; going to one in another section goes to that page.
  */
 export function SettingsPageProvider({ children }: { children: ReactNode }) {
   const { ask } = route.useSearch();
+  const section = route.useParams().section as SettingsSection;
+  const navigate = useNavigate();
   const { data: dueDate } = useSettingsQuery({ select: (s) => s.dueDate });
   const { data: answers } = useAnswersQuery();
 
@@ -66,10 +71,15 @@ export function SettingsPageProvider({ children }: { children: ReactNode }) {
     const unsettled = asks.filter((a) => !isSettled(a, latest[a.key]));
     const total = asks.length + 1;
     return {
+      section,
       open,
       toggle: (key) => setOpen((o) => (o === key ? null : key)),
       close: () => setOpen(null),
       goTo: (key) => {
+        if (sectionOf(key) !== section) {
+          void navigate({ to: "/settings/$section", params: { section: sectionOf(key) }, search: { ask: key } });
+          return;
+        }
         setOpen(key);
         requestAnimationFrame(() => document.getElementById(`setting-${key}`)?.scrollIntoView({ behavior: "smooth", block: "start" }));
       },
@@ -81,7 +91,7 @@ export function SettingsPageProvider({ children }: { children: ReactNode }) {
       next: dueDate ? unsettled[0]?.key : DUE_DATE,
       waiting: (group) => unsettled.filter((a) => a.question.group === group).length + (group === "pregnancy" && !dueDate ? 1 : 0),
     };
-  }, [answers, dueDate, open, ask]);
+  }, [answers, dueDate, open, ask, section, navigate]);
 
   return <PageContext value={page}>{children}</PageContext>;
 }

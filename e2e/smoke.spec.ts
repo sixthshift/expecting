@@ -18,7 +18,8 @@ const pages = [
   { path: "/drawer/jobs", heading: "Who does what" },
   { path: "/drawer/bingo", heading: "Pregnancy bingo" },
   { path: "/emergency", heading: "Emergency info" },
-  { path: "/settings", heading: "Settings" },
+  // Settings opens on its first section: a desktop's heading is the section's, a phone's the bar's.
+  { path: "/settings", heading: /^(Settings|The pregnancy)$/ },
 ];
 
 for (const { path, heading } of pages) {
@@ -40,7 +41,7 @@ test("every pillar and settings is reachable", async ({ page, open }) => {
   }
   await expect(page.getByRole("heading", { level: 1, name: "This week" })).toBeVisible();
   await page.getByRole("link", { name: "Settings" }).click();
-  await expect(page.getByRole("heading", { level: 1, name: "Settings" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: /^(Settings|The pregnancy)$/ })).toBeVisible();
 });
 
 test("the + opens what to add, on a phone above the tab bar and on a desktop in the top bar", async ({ page, open }) => {
@@ -111,8 +112,8 @@ test.describe("logged out", () => {
   test.use({ loggedIn: false });
 
   test("a page sends you to log in, as which of you, then on to where it was going", async ({ page, open }) => {
-    await open("/settings");
-    await expect(page).toHaveURL(/\/login\?next=%2Fsettings$/);
+    await open("/settings/account");
+    await expect(page).toHaveURL(/\/login\?next=%2Fsettings%2Faccount$/);
 
     // Each of you by name, and only the two of you: no place to claim.
     await expect(page.getByRole("button", { name: /^I'm / })).toHaveCount(2);
@@ -128,7 +129,7 @@ test.describe("logged out", () => {
 
     await page.getByLabel("Password").fill(PASSWORDS.Jason);
     await page.getByRole("button", { name: "Log in" }).click();
-    await expect(page).toHaveURL(/\/settings$/);
+    await expect(page).toHaveURL(/\/settings\/account$/);
     await expect(page.getByText("Logged in as Jason.")).toBeVisible();
   });
 
@@ -180,7 +181,7 @@ test("server functions refuse a caller without a session", async ({ page, open, 
 });
 
 test("logging out ends the session", async ({ page, open }) => {
-  await open("/settings");
+  await open("/settings/account");
   await page.getByRole("button", { name: "Log out", exact: true }).click();
   // It asks first, and Cancel keeps you in.
   await page.getByRole("button", { name: "Cancel" }).click();

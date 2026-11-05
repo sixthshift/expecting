@@ -4,7 +4,7 @@
 import { expect, logIn, test } from "./fixtures";
 
 test("who does what: answered on two phones, settled where you agree, and to talk about where you don't", async ({ page, open, browser }) => {
-  await open("/settings");
+  await open("/settings/extras");
   const toggle = page.getByRole("switch", { name: "Who does what" });
   if (!(await toggle.isChecked())) await toggle.click();
   await expect(toggle).toBeChecked();

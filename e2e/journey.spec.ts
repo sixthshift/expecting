@@ -66,7 +66,7 @@ test("the first evening: set up as Jason, onboarding asks the due date, and open
 });
 
 test("Sam joins by Jason's invite, as the other of them, and goes straight in", async ({ page, open, browser }) => {
-  await open("/settings");
+  await open("/settings/account");
   const account = page.getByRole("region", { name: "Account" });
   await expect(account.getByText("Logged in as Jason.")).toBeVisible();
   // Only by invite: the login page offers no place to claim.
@@ -95,14 +95,14 @@ test("Sam joins by Jason's invite, as the other of them, and goes straight in", 
   await note.getByRole("radio", { name: "For Jason" }).click();
   await expect(note.getByRole("heading", { name: "For the partner" })).toBeVisible();
   await expect(note.getByRole("heading", { name: "Your body" })).toHaveCount(0);
-  await sam.goto("/settings", { waitUntil: "networkidle" });
+  await sam.goto("/settings/account", { waitUntil: "networkidle" });
   await expect(sam.getByText("Logged in as Sam. Expecting is shared with Jason.")).toBeVisible();
 
   // The invite worked once, and there's no place left to invite to.
   await sam.goto(link!, { waitUntil: "networkidle" });
   await expect(sam.getByText(/That code isn't live/)).toBeVisible();
   await phone.close();
-  await open("/settings");
+  await open("/settings/account");
   await expect(page.getByRole("button", { name: /^Invite/ })).toHaveCount(0);
 });
 
@@ -390,7 +390,7 @@ test("a phone in dark mode opens dark, and the switch on this phone keeps its ch
   await page.emulateMedia({ colorScheme: "dark" });
 
   // Dark before anything is drawn: the shell's boot script paints it, not the app.
-  await page.goto("/settings", { waitUntil: "domcontentloaded" });
+  await page.goto("/settings/appearance", { waitUntil: "domcontentloaded" });
   expect(await mode()).toBe("dark");
   await page.waitForLoadState("networkidle");
   expect(await page_()).toBe("rgb(21, 19, 24)");
@@ -403,14 +403,16 @@ test("a phone in dark mode opens dark, and the switch on this phone keeps its ch
   expect(await mode()).toBe("light");
   await page.waitForLoadState("networkidle");
 
-  // The palette still follows the baby in the dark.
+  // The palette still follows the baby in the dark: the colours are the pregnancy's, a page of its own.
   await page.getByRole("radio", { name: "Dark" }).click();
   await expect.poll(mode).toBe("dark");
+  await page.goto("/settings/pregnancy", { waitUntil: "networkidle" });
   await page.getByRole("radio", { name: "Boy" }).click();
   await expect.poll(page_).toBe("rgb(15, 20, 25)");
   await page.getByRole("radio", { name: "Don't know / surprise" }).click();
   await expect.poll(page_).toBe("rgb(21, 19, 24)");
 
+  await page.goto("/settings/appearance", { waitUntil: "networkidle" });
   await page.getByRole("radio", { name: "System" }).click();
   await page.emulateMedia({ colorScheme: "light" });
   await expect.poll(mode).toBe("light");
@@ -425,7 +427,7 @@ test("an answer in settings tailors an item, and clearing it puts it back", asyn
 
   const coverQuestion = "Do you have private hospital cover that includes pregnancy and birth?";
   const coverRow = page.getByRole("button", { name: new RegExp(`^${coverQuestion.replace("?", "\\?")}`) });
-  await open("/settings");
+  await open("/settings/care");
   await expect(coverRow).toContainText("Not answered");
   await coverRow.click();
   await page.getByRole("radiogroup", { name: coverQuestion }).getByRole("radio", { name: "Yes" }).click();
@@ -472,7 +474,7 @@ test("Home asks what Expecting needs to know, and an answer changes the plan", a
   await expect(rhd).toHaveCount(0);
 
   // Settings says who answered, and clearing it puts the plan back.
-  await open("/settings");
+  await open("/settings/after");
   const childcareRow = page.getByRole("button", { name: /^Will you want childcare in the baby's first two years\?/ });
   await expect(childcareRow).toContainText(/Jason answered,/);
   await childcareRow.click();
@@ -581,7 +583,7 @@ test("an extra is off until one of you turns it on, then it's everywhere it belo
   await expect(page.getByRole("heading", { level: 1, name: "The baby shower" })).toBeAttached();
 
   // Off means gone.
-  await open("/settings");
+  await open("/settings/extras");
   await page.getByRole("switch", { name: "Baby shower" }).click();
   await expect(page.getByRole("switch", { name: "Baby shower" })).not.toBeChecked();
   await open("/planner");
@@ -603,7 +605,7 @@ test("Home offers an extra nobody has decided on, once", async ({ page, open }) 
 
   await open("/library/listeria");
   await expect(page.getByRole("heading", { level: 1, name: "The listeria rule" })).toBeAttached();
-  await open("/settings");
+  await open("/settings/extras");
   await expect(page.getByRole("switch", { name: "Food and drink" })).toBeChecked();
   await expect(page.getByRole("switch", { name: "Telling people" })).not.toBeChecked();
 });
@@ -676,7 +678,7 @@ test("the names game: a name is shortlisted only when you both like it, or one o
   await expect(shortlist.getByText(loved!)).toHaveCount(0);
 
   // Off means gone.
-  await open("/settings");
+  await open("/settings/extras");
   await page.getByRole("switch", { name: "Choosing a name" }).click();
   await open("/drawer");
   await expect(page.getByRole("link", { name: /^Baby names/ })).toHaveCount(0);
@@ -715,12 +717,14 @@ test("Emergency info: filled in once, it's the call button and the handover in a
 test("opening a choice further down the page keeps your place", async ({ page, open }) => {
   // The design system's Select focused its list before placing it, which scrolled the page to the top
   // (fixed in the design system 0.12.1: focus with preventScroll).
-  await open("/settings");
+  await open("/settings/care");
+  // A section is a short page: a short window puts the row further down it.
+  await page.setViewportSize({ width: page.viewportSize()?.width ?? 390, height: 360 });
   const row = page.getByRole("button", { name: /^Who's looking after the pregnancy/ });
   await row.click();
   await row.scrollIntoViewIfNeeded();
   const before = await page.evaluate(() => window.scrollY);
-  expect(before).toBeGreaterThan(200);
+  expect(before).toBeGreaterThan(0);
   await page.getByRole("combobox", { name: "Who's looking after the pregnancy?" }).click();
   await expect(page.getByRole("listbox")).toBeVisible();
   expect(await page.evaluate(() => window.scrollY)).toBe(before);
@@ -730,15 +734,21 @@ test("opening a choice further down the page keeps your place", async ({ page, o
 test("a save further down the page keeps your place, and what you had open", async ({ page, open }) => {
   // A save refetches what's on screen with the page still drawn: it isn't swapped for the loading page,
   // which had scrolled it to the top and closed the open row.
-  await open("/settings");
+  // Each section is a page; a short window puts what's changed further down it.
+  await page.setViewportSize({ width: page.viewportSize()?.width ?? 390, height: 360 });
+  await open("/settings/extras");
   const shower = page.getByRole("switch", { name: "Baby shower" });
   await shower.scrollIntoViewIfNeeded();
   const before = await page.evaluate(() => window.scrollY);
-  expect(before).toBeGreaterThan(200);
+  expect(before).toBeGreaterThan(0);
   await shower.click();
   await expect(page.locator('[id="setting-extra:baby-shower"]').getByText(/^Jason turned it on,/)).toBeVisible();
   expect(await page.evaluate(() => window.scrollY)).toBe(before);
+  // As it was, for the specs after.
+  await shower.click();
+  await expect(shower).not.toBeChecked();
 
+  await open("/settings/care");
   const row = page.getByRole("button", { name: /^Who's looking after the pregnancy/ });
   await row.click();
   await row.scrollIntoViewIfNeeded();
@@ -747,18 +757,17 @@ test("a save further down the page keeps your place, and what you had open", asy
   await page.getByRole("option").first().click();
   await expect(row).toHaveAttribute("aria-expanded", "true");
   await expect(page.getByText(/^Jason answered,/).first()).toBeVisible();
-  expect(await page.evaluate(() => window.scrollY)).toBe(at);
-
-  // As it was, for the specs after.
-  await shower.click();
-  await expect(shower).not.toBeChecked();
+  // Not back at the top: the row stays in view (a short page may settle a few pixels as the answer's line comes in).
+  expect(at).toBeGreaterThan(0);
+  expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+  await expect(row).toBeInViewport();
 });
 
 test.describe("a save the server turns away", () => {
   test.use({ allowedErrors: [/Failed to load resource/] });
 
   test("says so, and leaves things as they were", async ({ page, open }) => {
-    await open("/settings");
+    await open("/settings/extras");
     // As the server refuses one (a private entry's: src/server/privacy/): a Response thrown, sent back as is.
     await page.route("**/api/rpc/**", (route) =>
       route.request().method() === "POST"
@@ -776,7 +785,7 @@ test.describe("a save with a connection that goes nowhere", () => {
   test.use({ allowedErrors: [/Failed to load resource|Failed to fetch/] });
 
   test("shows at once, waits, and gets there", async ({ page, open }) => {
-    await open("/settings");
+    await open("/settings/extras");
     await page.route("**/api/rpc/**", (route) => (route.request().method() === "POST" ? route.abort() : route.continue()));
     const shower = page.getByRole("switch", { name: "Baby shower" });
     await shower.click();
@@ -796,7 +805,7 @@ test.describe("a save after the session ends", () => {
   test.use({ allowedErrors: [/401/] });
 
   test("goes to log in", async ({ page, open, context }) => {
-    await open("/settings");
+    await open("/settings/extras");
     await context.clearCookies();
     await page.getByRole("switch", { name: "Baby shower" }).click();
     await page.waitForURL((url) => url.pathname === "/login");
@@ -806,7 +815,7 @@ test.describe("a save after the session ends", () => {
     await page.getByLabel("Password").fill(PASSWORDS.Jason);
     await page.getByRole("button", { name: "Log in" }).click();
     await expect.poll(() => waitingSaves(page)).toBe(0);
-    await open("/settings");
+    await open("/settings/extras");
     const shower = page.getByRole("switch", { name: "Baby shower" });
     await expect(shower).toBeChecked();
 

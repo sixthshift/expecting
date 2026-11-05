@@ -11,7 +11,7 @@ test("Sam forgot her password: Jason makes her a link, and choosing a new one lo
   const old = await before.newPage();
   await logIn(old, "Sam");
 
-  await open("/settings");
+  await open("/settings/account");
   const account = page.getByRole("region", { name: "Account" });
   await account.getByRole("button", { name: "Sam forgot their password" }).click();
   const code = await account.locator(".font-mono").last().textContent();
@@ -37,7 +37,7 @@ test("Sam forgot her password: Jason makes her a link, and choosing a new one lo
 });
 
 test("changing your own password asks the one you have now", async ({ page, open }) => {
-  await open("/settings");
+  await open("/settings/account");
   const account = page.getByRole("region", { name: "Account" });
   const change = async (from: string, to: string) => {
     await account.getByRole("button", { name: "Change your password" }).click();

@@ -24,7 +24,7 @@ tailor is `docs/architecture.md`, Tailoring.
 ```
 queries (settings, answers, extras, people)
   → SettingsPageProvider    the row open; asks, latest, answered, next   contexts/
-  → SettingsSections (on a desktop SettingsNav beside them)             components/sections, desktop/
+  → SettingsPage            the section shown (/settings/<section>), its rail or its tabs   pages/
   → QuestionGroup           a group's questions, once and of each        components/questions/
   → QuestionRow             one ask: its answer, who, when it's asked    components/questions/
   → AnswerField             a date picker, or the answers                components/answer/
@@ -36,14 +36,17 @@ decides, who turned an extra on); the context holds what several agree on.
 ## Where things are
 
 ```
-pages/          SettingsPage: the sections, in order; on a desktop the nav beside them (useLayout)
-desktop/        components/SettingsNav, the sections down the side, each with how many to answer
-routes/         settings (/settings, ?ask=)
-contexts/       SettingsPageContext: the row open, goTo, the ?ask= scroll, the questions as things stand
+pages/          SettingsPage: one section a page, in PillarLayout with the rail and the tabs
+desktop/        components/SettingsRail, the sections down the rail, each group with how many to answer
+routes/         settings (a path only), settingsIndex (/settings, ?ask=: to the section that has
+                it, sectionOf), section (/settings/$section, ?ask=); index.ts, settingsRoutes
+contexts/       SettingsPageContext: the section, the row open, goTo (across sections, by
+                address), the ?ask= scroll, the questions as things stand
 model/          facts.data.ts and extras.data.ts (the lists), facts.ts and extras.ts (their rules):
-                pure, so lib/ and content/ may import them
+                pure, so lib/ and content/ may import them; sections.ts, the sections in
+                order and which has an ?ask= (sectionOf)
 components/
-  sections/     SettingsSections, every section in one column, which both layouts draw
+  SettingsTabs  the sections as tabs in the bar on a phone (BarTabs)
   progress/     AnswersProgress, how many are answered and the next
   questions/    QuestionGroup, QuestionRow
   dueDate/      DueDateRow, and DueDateForm (onboarding's too)

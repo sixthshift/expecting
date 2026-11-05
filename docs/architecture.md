@@ -835,8 +835,10 @@ Installing and the service worker need HTTPS, except on `localhost`.
   `src/app/desktop/components/` (`DesktopLayout`), and `AppLayout` chooses
   between them. What both draw stays outside both (`PillarNav`). Home's
   is two pages (`HomeMobile`, a dashboard of folds; `HomeDesktop`, Now |
-  The week); Settings' nav is the desktop's only
-  (`settings/desktop/components/SettingsNav`). A page
+  The week). Settings is a page a section (`/settings/<section>`), down a
+  rail on a desktop (`SettingsRail`) and as tabs on a phone (`SettingsTabs`),
+  as a pillar's places are; `/settings?ask=…` goes to the section that has
+  it (`sectionOf`). A page
   chooses under its own provider (`layout === "desktop" ? <X /> : <Y />`), so
   what it holds (search words, what's open) carries across the line, and the
   address is the same in both. Quiet is chosen by the route and the layout by

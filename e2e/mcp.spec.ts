@@ -53,7 +53,7 @@ test("connect Claude, call a tool as Jason, then disconnect it", async ({ page, 
   const answered = await (await call()).json();
   expect(JSON.parse(answered.result.content[0].text)).toMatchObject({ you: "Jason" });
 
-  await open("/settings");
+  await open("/settings/claude");
   const claude = page.getByRole("region", { name: "Claude" });
   await expect(claude.getByText("Claude, as Jason")).toBeVisible();
   await claude.getByRole("button", { name: "Disconnect" }).click();

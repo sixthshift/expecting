@@ -7,7 +7,7 @@ test("your people: someone added, welcome in hospital, and their gift thanked, k
   // Off until an extra that brings it is on: the Drawer says which.
   await open("/drawer");
   await expect(page.getByText(/It comes with Visitors, Birth announcement, Lining up help or Thank-you notes/)).toBeVisible();
-  await open("/settings");
+  await open("/settings/extras");
   for (const name of ["Visitors", "Thank-you notes"]) {
     const toggle = page.getByRole("switch", { name });
     await expect(toggle).toBeVisible();

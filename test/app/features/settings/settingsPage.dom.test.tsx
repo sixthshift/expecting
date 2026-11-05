@@ -3,16 +3,21 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { SettingsPage } from "../../../../src/app/features/settings/contexts/SettingsPageContext";
 import { asksFor } from "../../../../src/lib/facts";
 
-// Settings' context: the one row open (`?ask=` opens at it), the extra a link
-// marks, and how many questions are answered and which is next.
-const where = vi.hoisted(() => ({ ask: undefined as string | undefined, dueDate: null as string | null }));
-vi.mock("@tanstack/react-router", () => ({ getRouteApi: () => ({ useSearch: () => ({ ask: where.ask }) }) }));
+// Settings' context: the section shown, the one row open (`?ask=` opens at
+// it, and going to one in another section goes to that section's page), the
+// extra a link marks, and how many questions are answered and which is next.
+const where = vi.hoisted(() => ({ ask: undefined as string | undefined, section: "pregnancy", dueDate: null as string | null, navigate: vi.fn() }));
+vi.mock("@tanstack/react-router", () => ({
+  getRouteApi: () => ({ useSearch: () => ({ ask: where.ask }), useParams: () => ({ section: where.section }) }),
+  useNavigate: () => where.navigate,
+}));
 vi.mock("../../../../src/api/rpc/settings", () => ({
   useSettingsQuery: ({ select }: { select: (s: { dueDate: string | null }) => unknown }) => ({ data: select({ dueDate: where.dueDate }) }),
 }));
 vi.mock("../../../../src/api/rpc/facts", () => ({ useAnswersQuery: () => ({ data: [] }) }));
 
 const { SettingsPageProvider, useSettingsPage, DUE_DATE } = await import("../../../../src/app/features/settings/contexts/SettingsPageContext");
+const { sectionOf } = await import("../../../../src/app/features/settings/model/sections");
 
 let seen: SettingsPage;
 function Probe() {
@@ -29,7 +34,9 @@ const ASKS = asksFor({});
 
 beforeEach(() => {
   where.ask = undefined;
+  where.section = "pregnancy";
   where.dueDate = null;
+  where.navigate = vi.fn();
   vi.stubGlobal("requestAnimationFrame", (f: () => void) => {
     f();
     return 0;
@@ -76,11 +83,21 @@ describe("SettingsPageProvider", () => {
     row.id = "setting-cover";
     row.scrollIntoView = vi.fn();
     document.body.append(row);
+    where.section = sectionOf("cover");
     page();
     act(() => seen.goTo("cover"));
     expect(seen.open).toBe("cover");
     expect(row.scrollIntoView).toHaveBeenCalled();
+    expect(where.navigate).not.toHaveBeenCalled();
     row.remove();
+  });
+
+  it("goTo a row in another section goes to that section's page, opened at it", () => {
+    where.section = "account";
+    page();
+    act(() => seen.goTo("cover"));
+    expect(where.navigate).toHaveBeenCalledWith({ to: "/settings/$section", params: { section: sectionOf("cover") }, search: { ask: "cover" } });
+    expect(seen.open).toBeNull();
   });
 
   it("?ask= opens at that row, and an extra's is marked", () => {
