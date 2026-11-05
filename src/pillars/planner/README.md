@@ -48,24 +48,29 @@ useLines (items' lines that apply, and your own)  + lists (own lists, marks)
 ## Where things are
 
 ```
-pages/          PlannerPage: To do, the lists, appointments, questions, in PlannerPageProvider
-routes/         planner (/planner, a path only) and plannerIndex; index.ts, plannerRoutes,
-                adds the lists' (features/lists/routes/) and the chart's (features/weeks/routes/)
+pages/          PlannerPage (/planner: Up next, in PlannerPageProvider; PlannerMobile or
+                PlannerDesktop), AppointmentsPage, QuestionsPage
+routes/         planner (/planner, a path only), plannerIndex, appointments, questions; index.ts,
+                plannerRoutes, adds the lists' (features/lists/routes/) and the chart's
+                (features/weeks/routes/)
 contexts/       PlannerPageContext: the plan, its stages, what's ticked this visit
 hooks/          usePlan (the plan, To do's and the weeks'); useAppointmentsAhead (the next and
                 the rest, for both worlds)
 model/labels.ts the Planner's words: when a task ahead or missed is due, how To do is going, a bar read out
 components/
   Fold          a titled run of rows, open or folded (Also now, Missed earlier, Done, Been, Asked)
+  PlannerTabs   the four places as tabs in the bar on a phone: Up next, Lists, Appointments, Questions
+  upNext/       UpNext: appointments and tasks a week at a time (`upNext` in lib/planner/upNext.ts),
+                the next appointment with its questions (on a phone, how many, to their tab)
   toDo/         To do: its progress, Next up, Ahead and a stage's card, a task's line
   appointments/ the appointments, next first
   questions/    for the next appointment: ForNextAppointment, its heading around Questions
 quiet/          the Planner while something has happened (below)
-desktop/        PlannerRail: To do, Across the weeks, the lists, down the left of each page on a
-                desktop (not the quiet one: its chart and lists are put away); PlannerDesktop,
-                the page there: UpNext (appointments and tasks a week at a time, `upNext`
-                in lib/planner/upNext.ts, the next appointment with its questions) beside
-                ToGet (the lists) and Ahead
+mobile/         PlannerMobile: Up next and the horizon under it, the first of the tabs
+desktop/        PlannerRail: Up next, Appointments, Questions, Across the weeks, the lists, down
+                the left of each page on a desktop (not the quiet one: its chart and lists are
+                put away); PlannerDesktop, the page there: UpNext beside ToGet (the lists) and
+                Ahead
 features/
   tasks/        a task's row, whose it is, keeping one, adding your own; useTasks (Home,
                 the Library and the "+" draw these too)
@@ -80,7 +85,8 @@ features/
 
 The quiet Planner is a world of its own, in `quiet/`, in the same shape as
 the pillar. The route (`routes/plannerIndex.ts`) is the one place that
-chooses, `worlds(PlannerPage, QuietPlannerPage)`
+chooses, `worlds(PlannerPage, QuietPlannerPage)` (and `appointments.ts` and
+`questions.ts` likewise: the quiet Planner keeps both on its one page)
 (`src/app/features/quiet/worlds.tsx`); each page takes its provider inside
 itself (`PlannerPageProvider`, `QuietPlannerPageProvider`). Nothing in the
 normal world checks quiet. The weeks and the lists are put away: their

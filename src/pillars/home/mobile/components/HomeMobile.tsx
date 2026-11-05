@@ -5,7 +5,6 @@ import { OfferExtra } from "../../../../app/features/settings/components/offerEx
 import { Calls } from "../../../journal/components/thisWeek/Calls";
 import { HardFortnight } from "../../../journal/features/feelings/components/fortnight/HardFortnight";
 import { BestDoneThatWeek } from "../../components/doing/BestDoneThatWeek";
-import { WeekHeader } from "../../components/header/WeekHeader";
 import { Part } from "../../components/Part";
 import { WeekKept, WeekReads } from "../../components/week/TheWeek";
 import { useHomePage } from "../../contexts/HomePageContext";
@@ -13,9 +12,10 @@ import { useTheOneThing } from "../hooks/useTheOneThing";
 import { AtAGlance } from "./AtAGlance";
 import { OtherNews } from "./OtherNews";
 import { TheOneThing } from "./TheOneThing";
+import { WeekTop } from "./WeekTop";
 
 /**
- * Home on a phone: a dashboard of what's now. Where you are in a line; a call
+ * Home on a phone: a dashboard of what's now. Where you are (`WeekTop`); a call
  * to make above everything, if there is one; then the one thing that matters
  * most, shown whole with its action, and what's then; the other of you, in a
  * line; what Expecting needs to ask; then To do, To keep and To read as
@@ -30,7 +30,7 @@ export function HomeMobile() {
   return (
     <PillarLayout>
       <div className="flex flex-col gap-5">
-        <WeekHeader />
+        <WeekTop />
         <Part>
           <Calls />
         </Part>
@@ -62,7 +62,7 @@ function AWeek() {
   return (
     <PillarLayout>
       <div className="flex flex-col gap-8">
-        <WeekHeader />
+        <WeekTop />
         {peeking ? <BestDoneThatWeek /> : null}
         <WeekReads />
         <WeekKept />

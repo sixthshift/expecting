@@ -1,8 +1,10 @@
 # The Planner
 
-What to do, what to get, and what to ask: the admin, run for you. To do,
-the lists of what to get (`/planner/lists`), the appointments, and the
-questions for the next one. This is where Expecting is directive: about bookings,
+What to do, what to get, and what to ask: the admin, run for you. Up next
+(`/planner`), the lists of what to get (`/planner/lists`), the appointments
+(`/planner/appointments`), and the questions for the next one
+(`/planner/questions`): four places, a phone's tabs under the Planner's
+name and a desktop's rail, each its own address. This is where Expecting is directive: about bookings,
 claims and purchases, never about her body.
 
 How it's built is [`architecture.md`](../architecture.md), Planner. Tasks themselves (windows, whose, urgency) are in
@@ -42,8 +44,8 @@ How it's built is [`architecture.md`](../architecture.md), Planner. Tasks themse
   by 32 weeks, by full term, before the birth. Folded away, with what
   slipped long ago and what's done.
 - **With no due date there's no now:** everything open, by its best-by
-  week.
-- **On a desktop, Up next:** the same plan as one running order, a week
+  week, To do as it was.
+- **Up next:** the same plan as one running order, a week
   at a time from this one: each week's appointments, then its tasks (this
   week's are To do now, next up first; a later week's are what next asks
   of you then). The next appointment carries the questions for it, there
@@ -51,8 +53,10 @@ How it's built is [`architecture.md`](../architecture.md), Planner. Tasks themse
   out; four weeks, then Across the weeks. The lists have no dates, so
   they're beside it, not on it: To get, each list with what's left and
   got as a bar, and On the horizon under it. Missed, done, the
-  appointments been and a task of your own close it. A phone keeps To do
-  with the rest under it.
+  appointments been and a task of your own close it. That's a desktop's;
+  a phone has Up next alone in its first tab, the horizon under it, and the
+  next appointment says how many questions wait for it, the way to them
+  in the Questions tab.
 - **Whose:** each phone knows who's holding it, so a task says "Yours" or
   "Sam's". Own tasks have no owner yet.
 

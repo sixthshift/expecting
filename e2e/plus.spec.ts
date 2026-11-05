@@ -75,8 +75,9 @@ test("a note, a feeling, a question and a task each go to their pillar", async (
 
   await open("/journal");
   await expect(page.getByRole("region", { name: "This week" }).getByText("Bought the cot")).toBeVisible();
-  await open("/planner");
+  await open("/planner/questions");
   await expect(page.getByText("Do we need a car seat fitted?")).toBeVisible();
+  await open("/planner");
   await expect(page.getByText("Pack the hospital bag")).toBeVisible();
 });
 
@@ -94,11 +95,13 @@ test("an appointment is kept from the +, heads the Planner's questions, and is o
   await expect(page.getByRole("dialog")).toBeHidden();
   await expect(page.getByText("In the Planner")).toBeVisible();
 
-  await open("/planner");
+  // The appointments and the questions are pages of their own in the Planner.
+  await open("/planner/questions");
+  await expect(page.getByRole("region", { name: "For the next appointment" }).getByText(/^Midwife, /)).toBeVisible();
+  await open("/planner/appointments");
   const appointments = page.getByRole("region", { name: "Appointments" });
   await expect(appointments.getByText("Midwife")).toBeVisible();
   await expect(appointments.getByText("In 3 days")).toBeVisible();
-  await expect(page.getByRole("region", { name: "For the next appointment" }).getByText(/^Midwife, /)).toBeVisible();
 
   // Its calendar file, for the phone's own calendar.
   const href = await appointments.getByRole("link", { name: 'Add "Midwife" to your calendar' }).getAttribute("href");

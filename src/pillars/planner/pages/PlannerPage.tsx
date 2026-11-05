@@ -1,36 +1,19 @@
-import { PillarLayout } from "../../../app/components/layout/PillarLayout";
 import { useLayout } from "../../../app/hooks/useLayout";
-import { Appointments } from "../components/appointments/Appointments";
-import { ForNextAppointment } from "../components/questions/ForNextAppointment";
-import { ToDo } from "../components/toDo/ToDo";
 import { PlannerPageProvider } from "../contexts/PlannerPageContext";
 import { PlannerDesktop } from "../desktop/components/PlannerDesktop";
-import { PlannerRail } from "../desktop/components/PlannerRail";
-import { ListsWayIn } from "../features/lists/components/wayIn/ListsWayIn";
+import { PlannerMobile } from "../mobile/components/PlannerMobile";
 
 /**
- * The Planner, at `/planner`: what to do and what to ask. To do starts
- * somewhere: the one thing to do next, then the rest of what to do now, with
- * what's ahead, missed and done folded away (src/lib/planner/plan.ts). Beside
- * it, the lists (what to get), the appointments, and the questions for the
- * next one. The plan is worked out once, in `PlannerPageProvider`; each part
- * reads it. On a desktop it's Up next instead (`PlannerDesktop`): the same
- * plan as one running order with the appointments, the lists beside it.
- * While something has happened, the route draws `QuietPlannerPage`
- * instead (`worlds`), in its own context.
+ * The Planner, at `/planner`: what to do and what to ask. Up next,
+ * appointments and tasks in one running order a week at a time, the next
+ * appointment with its questions (src/lib/planner/upNext.ts). On a desktop
+ * the lists and the stages on the horizon beside it (`PlannerDesktop`); on a
+ * phone the horizon under it, and the lists, the appointments and the
+ * questions in tabs of their own (`PlannerMobile`, `PlannerTabs`). The plan is
+ * worked out once, in `PlannerPageProvider`; each part reads it. While
+ * something has happened, the route draws `QuietPlannerPage` instead
+ * (`worlds`), in its own context.
  */
 export function PlannerPage() {
-  const page = (
-    <PillarLayout rail={<PlannerRail />} title="Planner" lead="What to do and what to ask, so nothing sneaks up on you.">
-      <div className="flex flex-col gap-10 desktop:grid desktop:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] desktop:items-start desktop:gap-10">
-        <ToDo />
-        <div className="flex flex-col gap-10 desktop:sticky desktop:top-[calc(var(--top-bar)+1.5rem)]">
-          <ListsWayIn />
-          <Appointments />
-          <ForNextAppointment />
-        </div>
-      </div>
-    </PillarLayout>
-  );
-  return <PlannerPageProvider>{useLayout() === "desktop" ? <PlannerDesktop phone={page} /> : page}</PlannerPageProvider>;
+  return <PlannerPageProvider>{useLayout() === "desktop" ? <PlannerDesktop /> : <PlannerMobile />}</PlannerPageProvider>;
 }

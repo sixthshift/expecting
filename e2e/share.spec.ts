@@ -47,7 +47,7 @@ test("words shared from another app become a question, and a PDF goes straight t
   await expect(sheet.getByRole("textbox", { name: "New question" })).toHaveValue(`${question}\nhttps://example.com/gtt`);
   await sheet.getByRole("button", { name: "Add question" }).click();
   await expect(sheet).toBeHidden();
-  await open("/planner");
+  await open("/planner/questions");
   await expect(page.getByText(question)).toBeVisible();
 
   // Taken once: opening the app again doesn't offer it again.

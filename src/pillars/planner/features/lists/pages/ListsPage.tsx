@@ -2,6 +2,7 @@ import { ListTodo } from "lucide-react";
 import { useListsQuery } from "../../../../../api/rpc/lists";
 import { PillarLayout } from "../../../../../app/components/layout/PillarLayout";
 import { inPlanner, listsOf } from "../../../../../lib/planner/lists/summaries";
+import { PlannerTabs } from "../../../components/PlannerTabs";
 import { PlannerRail } from "../../../desktop/components/PlannerRail";
 import { AddList } from "../components/addList/AddList";
 import { ListCard } from "../components/listCard/ListCard";
@@ -23,6 +24,7 @@ export function ListsPage() {
   return (
     <PillarLayout
       rail={<PlannerRail />}
+      tabs={{ title: "Planner", nav: <PlannerTabs /> }}
       width="full"
       back={{ to: "/planner", label: "Planner" }}
       title="Lists"

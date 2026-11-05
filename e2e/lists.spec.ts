@@ -4,9 +4,8 @@
 import { expect, test } from "./fixtures";
 
 test("Before the birth: a line ticked got, another arranged with a few words, kept across a reload", async ({ page, open }) => {
-  await open("/planner");
-  const wayIn = page.getByRole("region", { name: "Lists" });
-  await wayIn.getByRole("link", { name: /Before the birth/ }).click();
+  await open("/planner/lists");
+  await page.getByRole("link", { name: /Before the birth/ }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Before the birth" })).toBeVisible();
 
   // Its sections, in order, and the car seat's task beside it.
@@ -54,6 +53,6 @@ test("a list of your own: made, a line added and ticked, then deleted", async ({
 
   await page.getByRole("button", { name: "Delete list" }).click();
   await page.getByRole("button", { name: "Delete", exact: true }).click();
-  await expect(page.getByRole("heading", { level: 1, name: "Lists" })).toBeVisible();
+  await expect(page).toHaveURL(/\/planner\/lists$/);
   await expect(page.getByRole("link", { name: new RegExp(name) })).toBeHidden();
 });

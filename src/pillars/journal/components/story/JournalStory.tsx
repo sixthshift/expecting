@@ -1,3 +1,4 @@
+import { useLayout } from "../../../../app/hooks/useLayout";
 import { useJournalPage } from "../../contexts/JournalPageContext";
 import { useBook } from "../../hooks/useBook";
 import { useScrollToWeek } from "../../hooks/useScrollToWeek";
@@ -26,11 +27,13 @@ export function JournalStory() {
   const search = useStorySearch(items, () => open("days"));
   const book = useBook(items);
   useScrollToWeek();
+  // On a phone the book is a tab of its own; on a desktop its line is above the story's tools.
+  const phone = useLayout() === "mobile";
 
   return (
     <>
       <Calls />
-      {book.cover ? null : <BookLine lines={book.chapters} />}
+      {book.cover || phone ? null : <BookLine lines={book.chapters} />}
       <StoryControls views={views} view={view} onView={open} searchable={items.length > 1} words={search.words} onWords={search.look} />
       <section aria-label="The story" className="flex flex-col gap-6">
         {search.searching ? (

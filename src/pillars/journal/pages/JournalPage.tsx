@@ -24,8 +24,7 @@ import { JournalRail } from "../desktop/components/JournalRail";
 export function JournalPage() {
   return (
     <JournalPageProvider>
-      <PillarLayout rail={<JournalRail />} title="Journal" className="gap-6">
-        <JournalTabs current="story" />
+      <PillarLayout rail={<JournalRail />} tabs={{ title: "Journal", nav: <JournalTabs current="story" /> }} title="Journal" className="gap-6">
         <JournalStory />
       </PillarLayout>
     </JournalPageProvider>

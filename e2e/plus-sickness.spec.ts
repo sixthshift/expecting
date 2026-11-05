@@ -80,6 +80,6 @@ test("a craving for something that isn't food says so quietly, with a question t
   await sheet.getByRole("button", { name: "Done" }).click();
   await expect(sheet).toBeHidden();
 
-  await open("/planner");
+  await open("/planner/questions");
   await expect(page.getByText("I've been craving ice. Should my iron be checked?")).toBeVisible();
 });

@@ -10,15 +10,16 @@ import { Fold } from "../Fold";
 /**
  * The appointments: the next given room, then the rest still ahead, a way to
  * add one, and those gone folded away. Kept while something has happened:
- * there are more appointments then, not fewer.
+ * there are more appointments then, not fewer. `quietHeading` keeps its
+ * heading for a screen reader only, on a page that's already called it.
  */
-export function Appointments() {
+export function Appointments({ quietHeading = false }: { quietHeading?: boolean }) {
   const { next, later, past } = useAppointmentsAhead();
   const [adding, setAdding] = useState(false);
   return (
     <section id="appointments" aria-labelledby="appointments-heading" className="flex scroll-mt-6 flex-col gap-3">
       <div className="flex items-center justify-between gap-3">
-        <h2 id="appointments-heading" className="text-lg font-display font-semibold text-fg-strong">
+        <h2 id="appointments-heading" className={quietHeading ? "sr-only" : "text-lg font-display font-semibold text-fg-strong"}>
           Appointments
         </h2>
         {adding ? null : (

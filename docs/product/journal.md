@@ -81,7 +81,12 @@ whole pregnancy's map, past and ahead.
 
 ## The page
 
-One story, newest first, made for the moment: it opens on now.
+One story, newest first, made for the moment: it opens on now. On a phone
+the Journal's three ways in, the story, the collections and the book, are
+tabs under its name at the top, as the Planner's are, and the story's tools
+are one row above it: Days, Weeks or the whole pregnancy, and a search that
+opens when asked. What's to keep now is folded to a line ("To keep · The
+cot is up"), so the story starts near the top.
 
 - **This week is the story's first week,** headed like any other ("Week
   38 · Any time now · This week"), under what's to keep now: "Has it

@@ -5,13 +5,13 @@ import { RightNow } from "../rightNow/RightNow";
 import { Topics } from "../topics/Topics";
 import { HomeColumn } from "./HomeColumn";
 
-/** The home below the search: the doors, what's open right now, the topics, and the quiet door last. */
+/** The home below the search, on a phone and a desktop: what's open right now first, then the doors, the topics, and the quiet door last. */
 export function LibraryHome() {
   const now = useNow();
   return (
     <HomeColumn>
-      <Doors />
       {now !== null ? <RightNow now={now} /> : null}
+      <Doors />
       <Topics />
       <HardDoor />
     </HomeColumn>

@@ -40,6 +40,8 @@ test("the app opens, reads and saves with no connection", async ({ page, context
   const name = (await page.getByRole("checkbox").first().ariaSnapshot()).match(/checkbox "(.+)"/)![1]!;
   const tick = page.getByRole("checkbox", { name });
   await tick.click();
+  // The questions are a page of their own.
+  await open("/planner/questions");
   const question = "Can we bring our own pillows?";
   await page.getByRole("textbox", { name: "New question" }).fill(question);
   await page.getByRole("button", { name: "Add question" }).click();
@@ -47,6 +49,7 @@ test("the app opens, reads and saves with no connection", async ({ page, context
   await page.reload();
   await expect(page.getByText(question)).toBeVisible();
   // Ticked, it has gone to what's done.
+  await open("/planner");
   await page.getByRole("button", { name: /^Done/ }).click();
   await expect(tick).toBeChecked();
   expect(await waitingSaves(page)).toBe(2);
@@ -56,14 +59,15 @@ test("the app opens, reads and saves with no connection", async ({ page, context
   await context.setOffline(false);
   await expect.poll(() => waitingSaves(page)).toBe(0);
   const other = await context.newPage();
-  await other.goto("/planner", { waitUntil: "networkidle" });
+  await other.goto("/planner/questions", { waitUntil: "networkidle" });
   await expect(other.getByText(question)).toBeVisible();
+  await other.goto("/planner", { waitUntil: "networkidle" });
   await other.getByRole("button", { name: /^Done/ }).click();
   await expect(other.getByRole("checkbox", { name })).toBeChecked();
 });
 
 test("a save that landed stays on screen when the worker answers from what it kept before it", async ({ page, context, open }) => {
-  await open("/planner");
+  await open("/planner/questions");
   await page.waitForFunction(async () => (await navigator.serviceWorker.ready).active !== null && navigator.serviceWorker.controller !== null, undefined, {
     timeout: 60_000,
     polling: 250,

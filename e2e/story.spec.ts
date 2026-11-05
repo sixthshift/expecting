@@ -5,7 +5,7 @@
 // search; and the book. Runs last, as specs run by name: after the others
 // have kept notes, movements, sickness and cravings, a bump, papers and a
 // feeling, at week 28.
-import { expect, test } from "./fixtures";
+import { expect, test, unfold } from "./fixtures";
 
 test("kept from the \"+\" on the Journal, it's on this week's page, and the page stays the Journal", async ({ page, open }) => {
   await open("/journal");
@@ -75,8 +75,10 @@ test("a first, marked and answered in your own words, then in its collection and
   await expect(page.getByRole("list", { name: "Your firsts" }).getByText("Bought the first outfit")).toBeVisible();
 });
 
-test("this week's page, before anything else: the week, around now's firsts to write, and what's still to come", async ({ page, open }) => {
+test("this week's page, before anything else: the week, around now's firsts to write, and what's still to come", async ({ page, open }, testInfo) => {
   await open("/journal");
+  // On a phone, what's to keep now is folded to a line above the story.
+  await unfold(page, "To keep");
   const week = page.getByRole("region", { name: "This week" });
   await expect(week.getByRole("heading", { name: /^Week 28/ })).toBeVisible();
   const around = page.getByRole("region", { name: "Has it happened yet?" });
@@ -86,8 +88,10 @@ test("this week's page, before anything else: the week, around now's firsts to w
   const already = page.getByRole("region", { name: "Already happened" });
   await expect(already.getByText("Some of this has already happened. You can still keep it, on the day it was.")).toBeVisible();
   await expect(already.getByRole("button", { name: "Found out" })).toBeVisible();
-  // Under way, the book is one line at the top.
-  await expect(page.getByRole("link", { name: /^Our pregnancy · \d+ chapters? begun/ })).toHaveAttribute("href", "/journal/book");
+  // Under way, the book is one line at the top; on a phone, a tab of the Journal's.
+  if (testInfo.project.name === "mobile")
+    await expect(page.getByRole("navigation", { name: "Journal" }).getByRole("link", { name: "Book" })).toHaveAttribute("href", "/journal/book");
+  else await expect(page.getByRole("link", { name: /^Our pregnancy · \d+ chapters? begun/ })).toHaveAttribute("href", "/journal/book");
 
   const cot = around.getByRole("listitem").filter({ hasText: "The cot is up" });
   await cot.getByRole("button", { name: "Write it" }).click();
@@ -121,6 +125,9 @@ test("zoomed out to the weeks, a week opens the story at it; the search finds an
   await expect(page).toHaveURL(/at=28/);
   await expect(page.getByRole("region", { name: "This week" })).toBeVisible();
 
+  // On a phone the search opens from its button.
+  const search = page.getByRole("button", { name: "Search the Journal" });
+  if ((await search.count()) > 0) await search.click();
   await page.getByRole("textbox", { name: "Search the Journal" }).fill("pickles");
   const story = page.getByRole("list", { name: "The story" });
   await expect(story.getByText("Pickles", { exact: true }).first()).toBeVisible();
@@ -129,7 +136,8 @@ test("zoomed out to the weeks, a week opens the story at it; the search finds an
 
 test("the book: your names on its cover, its contents, and a chapter for each part, written in and filled, to print", async ({ page, open }) => {
   await open("/journal/book");
-  await expect(page.getByRole("heading", { name: "Our pregnancy", level: 1 })).toBeVisible();
+  // The page's own heading on a desktop; on a phone the bar's is the Journal's, and the cover's title under it.
+  await expect(page.getByRole("heading", { name: "Our pregnancy" })).toBeVisible();
   await expect(page.getByText("Sam & Jason")).toBeVisible();
   const contents = page.getByRole("list", { name: "Contents" });
   await expect(contents.getByRole("listitem").filter({ hasText: "Getting ready" })).toContainText("Begun");

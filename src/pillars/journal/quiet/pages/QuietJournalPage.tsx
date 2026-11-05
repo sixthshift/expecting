@@ -17,8 +17,7 @@ import { QuietJournalPageProvider } from "../contexts/QuietJournalPageContext";
 export function QuietJournalPage() {
   return (
     <QuietJournalPageProvider>
-      <PillarLayout rail={<JournalRail />} title="Journal" className="gap-6">
-        <JournalTabs current="story" />
+      <PillarLayout rail={<JournalRail />} tabs={{ title: "Journal", nav: <JournalTabs current="story" /> }} title="Journal" className="gap-6">
         <QuietStory />
         <KeptBefore />
       </PillarLayout>

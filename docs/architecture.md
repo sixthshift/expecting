@@ -221,7 +221,11 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
   (`PillarLayout`'s `rail`; `PlannerRail`, `LibraryRail`, `JournalRail`, each
   in its pillar's `desktop/components/`, built from `Rail` and `RailLink`),
   each place an address. Home and the Drawer have none: each is one
-  page. The side panel is the thing's, on the right (below). Why a bar
+  page. On a phone the same places are tabs in the bar at the top
+  (`PillarLayout`'s `tabs`, `BarTabs` in `src/app/mobile/components/`):
+  `JournalTabs` (story, collections, book) and `PlannerTabs` (up next, lists,
+  appointments, questions), under the pillar's name; a page that's one of
+  them has no way back on a phone. The side panel is the thing's, on the right (below). Why a bar
   rather than a sidebar: five places sit in a row, and the width a sidebar
   takes from every page is what side-by-side pages want.
 - **The side panel, a desktop's.** What you're looking at, beside what
@@ -266,12 +270,15 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 - Settings sits in the app's layout; onboarding and login don't.
 - **Every page inside a pillar draws `PillarLayout`** (`src/app/components/layout/PillarLayout.tsx`):
   one column at the page's width, and its top. A pillar's own page has its
-  title and lead, with `MobileCorner` on a phone; a page under it (`back`) has
+  title and lead; on a phone, its title in a one-line bar that stays at the
+  top as the page scrolls, `MobileBar` (`src/app/mobile/components/`), with
+  `MobileCorner` beside it (call, Emergency info, you for Settings) and no
+  lead (Home's bar is the week, `WeekTop`); a page under it (`back`) has
   the way back, then its title; a page that draws its own top (Home's
   hero, a Library entry) has neither. It never asks whether something has
   happened: a page put away then is its route's quiet world, `putAway`
   (`PutAwayPage`). A pillar adds what's
-  its own around it: `JournalTabs` (a phone's; a desktop has the rail),
+  its own around it: its `tabs` on a phone (a desktop has the rail),
   `DrawerTool`, and on a desktop its `rail`, beside which a page's way back
   isn't drawn, as the rail says where you are. So `AppLayout` is the app's
   layout (the top bar, the tab bar, the "+") and `PillarLayout` a page's.

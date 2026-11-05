@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
 import { useLayout } from "../../hooks/useLayout";
+import { MobileBar } from "../../mobile/components/MobileBar";
 import { MobileCorner } from "../../mobile/components/MobileCorner";
 import type { AppPath } from "../../model/paths";
 
@@ -20,8 +21,12 @@ export type Back = { to: AppPath; label: string };
  * so beside a rail a page's way back isn't drawn.
  *
  * The top is one of three:
- * - a pillar's own page: its `title` and `lead`, and on a phone the corner
- *   (It's time, the call button, Emergency info, settings);
+ * - a pillar's own page: its `title` and `lead`; on a phone a slim bar that
+ *   stays at the top as the page scrolls, the title on one line and the
+ *   corner beside it (It's time, the call button, Emergency info, you for
+ *   settings), with no lead (`MobileBar`); with `tabs` (a pillar's places,
+ *   `BarTabs`) under it, its heading is the pillar's (`tabs.title`), and a
+ *   page under the pillar that's one of them has no way back: it's a tab;
  * - a page under it (`back`): the way back, then its `title` and `lead`, if
  *   it doesn't draw its own;
  * - neither: the page draws its own top (This week's hero, a Library entry).
@@ -37,6 +42,7 @@ export function PillarLayout({
   head,
   width = "6xl",
   rail,
+  tabs,
   className,
   children,
 }: {
@@ -47,11 +53,15 @@ export function PillarLayout({
   width?: keyof typeof WIDTH;
   /** The pillar's rail (`PlannerRail`, …), drawn on a desktop only. */
   rail?: ReactNode;
+  /** The pillar's places as tabs in the bar, on a phone only (`JournalTabs`, `PlannerTabs`), and the bar's heading with them: the pillar's name. */
+  tabs?: { title: string; nav: ReactNode };
   className?: string;
   children: ReactNode;
 }) {
-  const railed = useLayout() === "desktop" && rail != null;
-  const way = railed ? undefined : back;
+  const layout = useLayout();
+  const railed = layout === "desktop" && rail != null;
+  const tabbed = layout === "mobile" && tabs != null;
+  const way = railed || tabbed ? undefined : back;
   const page = (
     <main className={cn("mx-auto w-full px-4 pb-16 desktop:px-8", WIDTH[width])}>
       {way ? (
@@ -68,6 +78,13 @@ export function PillarLayout({
           {title ? <Heading title={title} lead={lead} /> : null}
           {head}
         </header>
+      ) : (title || tabbed) && layout === "mobile" ? (
+        <>
+          <MobileBar tabs={tabs?.nav}>
+            <h1 className="min-w-0 flex-1 truncate font-display text-xl font-semibold text-fg-strong">{tabs?.title ?? title}</h1>
+          </MobileBar>
+          {head ? <div className="pb-5">{head}</div> : null}
+        </>
       ) : title ? (
         <header className="flex flex-col gap-1 pt-[max(1.5rem,env(safe-area-inset-top))] pb-5 desktop:pt-10 desktop:pb-8">
           <div className="flex items-start justify-between gap-3">

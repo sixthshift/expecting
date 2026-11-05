@@ -63,8 +63,6 @@ It lists no entries, because nobody comes to browse 893:
 - **When it's hard,** a quiet ninth door at the foot: loss, mental health,
   special circumstances. There for whoever looks, never put in front of
   anyone.
-- **Right now:** what's open this week and asks something of you,
-  soonest-closing first.
 - **The topics,** with their counts, for whoever does want to browse.
 
 On a desktop an entry doesn't leave the page it was opened from, two ways

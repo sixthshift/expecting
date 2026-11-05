@@ -3,6 +3,7 @@ import { Card } from "@sixthshift/design-system/card";
 import { Link } from "@tanstack/react-router";
 import { CalendarDays, ChevronRight, Plus } from "lucide-react";
 import { useState } from "react";
+import { useQuestionsQuery } from "../../../../api/rpc/questions";
 import type { ISODate } from "../../../../lib/dates";
 import { weekRange } from "../../../../lib/labels";
 import type { Appointment } from "../../../../lib/planner/appointments";
@@ -27,9 +28,11 @@ import { aheadWhen, missedWhen } from "../../model/labels";
  * what to do next rather than as separate lists. The next appointment carries
  * the questions for it, there to tick off in the waiting room. Under the
  * weeks, what's missed and done, a task of your own, and the appointments
- * been. Further off is Across the weeks.
+ * been. Further off is Across the weeks. On a `phone`, where it's the first
+ * of the Planner's tabs, its heading is the tab's, and the next appointment
+ * says how many questions are waiting, the way to them in their own tab.
  */
-export function UpNext({ now, dueDate }: { now: Week; dueDate: ISODate }) {
+export function UpNext({ now, dueDate, phone = false }: { now: Week; dueDate: ISODate; phone?: boolean }) {
   const { plan } = usePlannerPage();
   const { next, later, past } = useAppointmentsAhead();
   const [adding, setAdding] = useState(false);
@@ -41,7 +44,7 @@ export function UpNext({ now, dueDate }: { now: Week; dueDate: ISODate }) {
     <section aria-labelledby="up-next" className="flex flex-col gap-6">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div className="flex flex-col gap-2">
-          <h2 id="up-next" className="text-lg font-display font-semibold text-fg-strong">
+          <h2 id="up-next" className={phone ? "sr-only" : "text-lg font-display font-semibold text-fg-strong"}>
             Up next
           </h2>
           <ToDoProgress />
@@ -60,7 +63,7 @@ export function UpNext({ now, dueDate }: { now: Week; dueDate: ISODate }) {
       ) : null}
 
       {weeks.map((w, i) => (
-        <WeekOf key={w.week} entry={w} now={now} dueDate={dueDate} next={next} last={i === 0 && !questionsShown} />
+        <WeekOf key={w.week} entry={w} now={now} dueDate={dueDate} next={next} last={i === 0 && !questionsShown && !phone} phone={phone} />
       ))}
 
       <Link to="/planner/weeks" className="flex min-h-11 w-fit items-center gap-1 text-sm font-medium text-fg-brand hover:underline">
@@ -98,7 +101,21 @@ export function UpNext({ now, dueDate }: { now: Week; dueDate: ISODate }) {
 }
 
 /** One week of Up next: its heading and dates, its appointments (the next with its questions), then its tasks; `last` closes this week with the questions when they've nowhere else to go. */
-function WeekOf({ entry, now, dueDate, next, last }: { entry: UpNextWeek; now: Week; dueDate: ISODate; next: Appointment | null; last: boolean }) {
+function WeekOf({
+  entry,
+  now,
+  dueDate,
+  next,
+  last,
+  phone,
+}: {
+  entry: UpNextWeek;
+  now: Week;
+  dueDate: ISODate;
+  next: Appointment | null;
+  last: boolean;
+  phone: boolean;
+}) {
   const { plan } = usePlannerPage();
   const dates = weekRange(entry.week, dueDate);
   return (
@@ -113,11 +130,13 @@ function WeekOf({ entry, now, dueDate, next, last }: { entry: UpNextWeek; now: W
       {entry.appointments.map((a) => (
         <div key={a.id} className="flex flex-col gap-3">
           <AppointmentCard appointment={a} size={a.id === next?.id ? "md" : "sm"} />
-          {a.id === next?.id ? (
+          {a.id !== next?.id ? null : phone ? (
+            <QuestionsWaitingLink />
+          ) : (
             <section aria-label="Questions to ask at it" className="ml-4 flex flex-col gap-3 border-l-2 border-border-brand pl-4">
               <Questions />
             </section>
-          ) : null}
+          )}
         </div>
       ))}
       {entry.now.map((e) =>
@@ -134,5 +153,16 @@ function WeekOf({ entry, now, dueDate, next, last }: { entry: UpNextWeek; now: W
       ) : null}
       {last ? <ForNextAppointment /> : null}
     </section>
+  );
+}
+
+/** On a phone, under the next appointment: how many questions are waiting for it, to the Questions tab. */
+function QuestionsWaitingLink() {
+  const { data: waiting } = useQuestionsQuery({ select: (questions) => questions.filter((q) => !q.askedAt).length });
+  return (
+    <Link to="/planner/questions" className="-mt-1 ml-4 flex min-h-11 w-fit items-center gap-1 text-sm font-medium text-fg-brand hover:underline">
+      {waiting === 0 ? "Questions for it" : waiting === 1 ? "1 question to ask" : `${waiting} questions to ask`}
+      <ChevronRight aria-hidden size={16} />
+    </Link>
   );
 }

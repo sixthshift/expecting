@@ -14,8 +14,13 @@ import { JournalRail } from "../desktop/components/JournalRail";
 export function CollectionsPage() {
   return (
     <JournalPageProvider>
-      <PillarLayout rail={<JournalRail />} width="full" title="Journal" className="gap-6">
-        <JournalTabs current="collections" />
+      <PillarLayout
+        rail={<JournalRail />}
+        tabs={{ title: "Journal", nav: <JournalTabs current="collections" /> }}
+        width="full"
+        title="Journal"
+        className="gap-6"
+      >
         <Collections />
       </PillarLayout>
     </JournalPageProvider>

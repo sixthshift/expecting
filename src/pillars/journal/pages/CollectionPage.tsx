@@ -21,8 +21,7 @@ const route = getRouteApi("/app/journal/collections/$name");
 export function CollectionPage() {
   return (
     <JournalPageProvider>
-      <PillarLayout rail={<JournalRail />} title="Journal" className="gap-6">
-        <JournalTabs current="collections" />
+      <PillarLayout rail={<JournalRail />} tabs={{ title: "Journal", nav: <JournalTabs current="collections" /> }} title="Journal" className="gap-6">
         <OneCollection />
       </PillarLayout>
     </JournalPageProvider>

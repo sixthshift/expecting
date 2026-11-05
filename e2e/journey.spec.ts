@@ -16,7 +16,7 @@ test.describe.configure({ mode: "serial" });
 
 const week = (page: import("@playwright/test").Page, key: string) => page.locator(`[data-week="${key}"]`);
 
-test("the first evening: set up as Jason, onboarding asks the due date, and opens at this week", async ({ page, open }) => {
+test("the first evening: set up as Jason, onboarding asks the due date, and opens at this week", async ({ page, open }, testInfo) => {
   // global-setup.ts set Expecting up as Jason; nothing more is asked of who he is.
   await open("/");
   await expect(page).toHaveURL(/\/onboarding\/due$/);
@@ -55,7 +55,11 @@ test("the first evening: set up as Jason, onboarding asks the due date, and open
 
   await expect(page.getByRole("heading", { level: 1, name: "This week Week 28" })).toBeVisible();
   await expect(page).toHaveURL((url) => url.pathname === "/");
-  await expect(page.getByText("28+0 · 84 days to go")).toBeVisible();
+  // A desktop says where you are in a line; a phone has 28+0 in the bar at the top, and how long to go under it.
+  if (testInfo.project.name === "mobile") {
+    await expect(page.getByText("· 28+0", { exact: true })).toBeVisible();
+    await expect(page.getByText(/84 days to go$/)).toBeVisible();
+  } else await expect(page.getByText("28+0 · 84 days to go")).toBeVisible();
   // The whole pregnancy opens at this week too.
   await page.getByRole("link", { name: "The whole pregnancy" }).click();
   await expect(week(page, "28").getByRole("link")).toHaveAttribute("aria-current", "date");
@@ -121,7 +125,7 @@ test("the whole pregnancy is the map, from Home: the landmarks, and a week goes 
 
 test("the Planner draws what's to do across the weeks, in its stages, opened at one from its card", async ({ page, open }) => {
   await open("/planner");
-  await page.getByRole("link", { name: "Across the weeks" }).click();
+  await page.getByRole("link", { name: "Across the weeks", exact: true }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Across the weeks" })).toBeVisible();
   const now = page.getByRole("region", { name: "To do now" });
   await expect(now.getByRole("link", { name: /^Book the RSV vaccine: opens week 28, best by week \d+, closes week 36, open now/ })).toBeVisible();
@@ -307,7 +311,7 @@ test("a topic on its own, by door, and for the partner", async ({ page, open }) 
 });
 
 test("a question is added in the Planner, asked, and lands in this week", async ({ page, open }) => {
-  await open("/planner");
+  await open("/planner/questions");
   await page.getByRole("textbox", { name: "New question" }).fill("Which hospital entrance after hours?");
   await page.getByRole("button", { name: "Add question" }).click();
   await expect(page.getByText("Which hospital entrance after hours?")).toBeVisible();
@@ -334,7 +338,7 @@ test("a question asked from an entry lands in the Planner, saying where it came 
   await page.getByRole("textbox", { name: "Your question" }).fill("Can I do the Inca Trail at 20 weeks?");
   await page.getByRole("button", { name: "Add to my questions" }).click();
 
-  await open("/planner");
+  await open("/planner/questions");
   const card = page.getByText("Can I do the Inca Trail at 20 weeks?").locator("xpath=../..");
   await expect(card).toContainText("from Altitude · Yours");
   await card.getByRole("link", { name: "Altitude" }).click();
@@ -344,7 +348,7 @@ test("a question asked from an entry lands in the Planner, saying where it came 
   await expect(yours).toContainText("On your list for the next appointment");
 
   // Asked, with what they said: the entry shows the answer.
-  await open("/planner");
+  await open("/planner/questions");
   await card.getByRole("button", { name: "Asked it" }).click();
   await page.getByRole("textbox", { name: "Answer" }).fill("Not above 2500 m; the trail is too high.");
   await page.getByRole("button", { name: "Save as asked" }).click();
@@ -551,7 +555,7 @@ test("an item draws its window against today, and offers its questions", async (
   await rsv.getByRole("button", { name: `Add to your questions: ${text}` }).click();
   await expect(rsv.getByText("On your list").first()).toBeVisible();
 
-  await open("/planner");
+  await open("/planner/questions");
   await expect(page.getByText(text)).toBeVisible();
 });
 

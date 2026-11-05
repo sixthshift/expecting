@@ -2,8 +2,8 @@ import { cleanup, render, screen } from "@testing-library/react";
 import type { ReactNode } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-// Every page inside a pillar: a pillar's own (its title, lead and, on a
-// phone, the corner), a page under one (the way back, then perhaps its
+// Every page inside a pillar: a pillar's own (its title and lead; on a
+// phone, the title in a bar that stays at the top, with the corner), a page under one (the way back, then perhaps its
 // title), or neither (the page draws its own top). It never asks whether
 // something has happened: a page put away then is its route's quiet world.
 // On a desktop, a pillar with places of its own has its rail down the left.
@@ -21,17 +21,47 @@ const { PillarLayout } = await import("../../../../src/app/components/layout/Pil
 afterEach(cleanup);
 
 describe("PillarLayout", () => {
-  it("a pillar's own page: its title and lead, and the phone's corner, with no way back", () => {
+  // happy-dom's own handle on the window, which a resize goes through so matchMedia follows.
+  const happyDOM = (window as unknown as { happyDOM: { setWindowSize(size: { width: number; height: number }): void } }).happyDOM;
+
+  it("a pillar's own page on a phone: its title in the bar that stays at the top, the corner beside it, no lead and no way back", () => {
     render(
       <PillarLayout title="The Planner" lead="What to do, and when.">
         <p>The page</p>
       </PillarLayout>
     );
-    expect(screen.getByRole("heading", { level: 1, name: "The Planner" })).toBeTruthy();
-    expect(screen.getByText("What to do, and when.")).toBeTruthy();
-    expect(screen.getByTestId("corner")).toBeTruthy();
+    const heading = screen.getByRole("heading", { level: 1, name: "The Planner" });
+    expect(heading.closest("header")?.className).toContain("sticky");
+    expect(heading.closest("header")?.contains(screen.getByTestId("corner"))).toBe(true);
+    expect(screen.queryByText("What to do, and when.")).toBeNull();
     expect(screen.queryByRole("link")).toBeNull();
     expect(screen.getByText("The page")).toBeTruthy();
+  });
+
+  it("a pillar's place as a tab on a phone: the pillar's name in the bar, its tabs under it, and no way back", () => {
+    render(
+      <PillarLayout back={{ to: "/planner", label: "Planner" }} tabs={{ title: "Planner", nav: <nav aria-label="Planner">Up next, Lists</nav> }} title="Lists">
+        <p>The page</p>
+      </PillarLayout>
+    );
+    const heading = screen.getByRole("heading", { level: 1, name: "Planner" });
+    expect(heading.closest("header")?.contains(screen.getByRole("navigation", { name: "Planner" }))).toBe(true);
+    expect(screen.queryByRole("link", { name: "Planner" })).toBeNull();
+  });
+
+  it("a pillar's own page on a desktop: its title and lead", () => {
+    happyDOM.setWindowSize({ width: 1280, height: 800 });
+    try {
+      render(
+        <PillarLayout title="The Planner" lead="What to do, and when.">
+          <p>The page</p>
+        </PillarLayout>
+      );
+      expect(screen.getByRole("heading", { level: 1, name: "The Planner" })).toBeTruthy();
+      expect(screen.getByText("What to do, and when.")).toBeTruthy();
+    } finally {
+      happyDOM.setWindowSize({ width: 390, height: 844 });
+    }
   });
 
   it("a page under one: the way back to where it goes, then its title; no corner", () => {
@@ -87,8 +117,6 @@ describe("PillarLayout", () => {
   });
 
   describe("the rail", () => {
-    // happy-dom's own handle on the window, which a resize goes through so matchMedia follows.
-    const happyDOM = (window as unknown as { happyDOM: { setWindowSize(size: { width: number; height: number }): void } }).happyDOM;
     const rail = <nav aria-label="Planner">The Planner's places</nav>;
 
     it("on a phone, never: the way back is how you go", () => {
