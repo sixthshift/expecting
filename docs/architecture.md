@@ -295,7 +295,7 @@ section is [`src/pillars/home/README.md`](../src/pillars/home/README.md).
   whether it's a peek and the week's note once, around `HomeMobile` (a
   dashboard: the one thing, `oneThings` in `src/lib/home/oneThing.ts`; the
   other of you in a line, `otherNews`; To do, To keep and To read as numbers
-  over the folds that hold them) or `HomeDesktop` (Now | The week: Now, the
+  over the folds that hold them) or `HomeDesktop` (The week | Now: Now, the
   larger share, as To do from the Planner and To keep for the Journal, side
   by side once wide enough; the week with where you are and To read from the
   Library, its days as tabs, `DayTabs`; `PillarLayout`'s `width="full"`).

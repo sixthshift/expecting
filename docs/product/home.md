@@ -103,7 +103,7 @@ Week 30"), so a peek at another week says which.
   what's worth knowing and what's best done then, that week's appointments,
   and that week's notes and movements, with a way back to this week.
 
-On a desktop it's Now and The week side by side, Now the larger share,
+On a desktop it's The week on the left and Now on the right, Now the larger share,
 since it changes every day and the week once a week. Now is labelled by
 where it comes from: To do, from the Planner (the next appointment, to do
 now, what Expecting needs to know), and To keep, for the Journal (how you

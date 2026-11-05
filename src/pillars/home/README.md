@@ -41,7 +41,7 @@ mobile/           components/HomeMobile: a dashboard (a peek is the week's page)
                   AtAGlance, To do, To keep, To read as numbers over the folds that hold them
                   (each a CollapsibleCard, src/components/);
                   hooks/useTheOneThing (oneThings in src/lib/home/oneThing.ts, kept while shown)
-desktop/          components/HomeDesktop: Now | The week, Now the larger share and labelled
+desktop/          components/HomeDesktop: The week | Now, Now the larger share and labelled
                   by pillar (To do, from the Planner; To keep, for the Journal), the week with
                   where you are and To read, from the Library; DayTabs: the day by day as tabs
 hooks/            useWeekDays: the week's days (its note, a read a day), for DayByDay and DayTabs

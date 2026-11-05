@@ -27,26 +27,26 @@ import { WeeklyCard } from "../../features/weekly/components/WeeklyCard";
 import { DayTabs } from "./DayTabs";
 
 /**
- * Home on a desktop: the dashboard over every pillar, as Now and The
- * week side by side, Now the larger share.
+ * Home on a desktop: the dashboard over every pillar, as The week and Now
+ * side by side, Now the larger share.
  *
  * - A call to make, when there is one, above everything (the Journal's
  *   `Calls`: a movement kept as different lately, or can't keep fluids down).
- * - Now, on the left: what's due, by where it comes from. To do, from the
+ * - Now, on the right: what's due, by where it comes from. To do, from the
  *   Planner (It's time's look through once near, the next appointment once
  *   close, to do now, what Expecting needs to know), and To keep, for the
  *   Journal: what's asked rather than looked for (how you are today, the
  *   firsts around now, the places ready, the week's question). What's coming
  *   follows. A peek has what was best done that week instead.
- * - The week, on the right: where you are (the week, its size, the whole
+ * - The week, on the left: where you are (the week, its size, the whole
  *   pregnancy in a line), then To read, from the Library: the day by day as
  *   tabs, the heads-up, what's worth knowing (by title); and a peek's
  *   appointments and what was asked and kept.
  *
  * Now's groups sit side by side once it's wide enough (do · keep, with the
  * week beside: three columns), one under the other below that. The week is
- * first in the page's order, so its heading is the page's; it's drawn on the
- * right. The page grows to 1760px (`width="full"`).
+ * first, in the page's order as on the screen, so its heading is the page's.
+ * The page grows to 1760px (`width="full"`).
  */
 export function HomeDesktop() {
   const { peeking, week, today } = useHomePage();
@@ -56,8 +56,8 @@ export function HomeDesktop() {
         <div className="pt-8 empty:hidden">
           <Calls />
         </div>
-        <div className="grid grid-cols-[minmax(0,3fr)_minmax(0,2fr)] items-start gap-10">
-          <div className="col-start-2 row-start-1 flex flex-col gap-8 border-l border-border-subtle pl-10">
+        <div className="grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] items-start gap-10">
+          <div className="flex flex-col gap-8 border-r border-border-subtle pr-10">
             <WeekHeader />
             <Group label="To read" from="from the Library" to="/library">
               <Part>
@@ -81,7 +81,7 @@ export function HomeDesktop() {
             </Part>
           </div>
 
-          <div className="@container col-start-1 row-start-1 flex flex-col gap-6 pt-10">
+          <div className="@container flex flex-col gap-6 pt-10">
             {peeking ? (
               <BestDoneThatWeek />
             ) : (
