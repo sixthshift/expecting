@@ -10,6 +10,20 @@ const saved: { key: string; input: unknown }[] = [];
 
 vi.mock("../../../src/api/rpc/questions", () => ({ questionsSaves: { addQuestion: { key: "addQuestion" } } }));
 vi.mock("../../../src/app/hooks/useSave", () => ({ useSave: (save: { key: string }) => (input: unknown) => saved.push({ key: save.key, input }) }));
+let next: unknown = null;
+vi.mock("../../../src/pillars/planner/hooks/useAppointmentsAhead", () => ({ useAppointmentsAhead: () => ({ next, later: [], past: [] }) }));
+const MIDWIFE = {
+  id: "a1",
+  title: "Midwife",
+  day: "2999-01-06",
+  time: null,
+  place: null,
+  notes: null,
+  by: null,
+  createdAt: "x",
+  editedBy: null,
+  editedAt: null,
+};
 vi.mock("@sixthshift/design-system/overlay", () => ({ toast: () => undefined }));
 // The entry's page stood in for: the entry in your Library, its words already loaded.
 let shown: { entry: Item; appointment: string[] };
@@ -66,6 +80,7 @@ function draw(entry: Item, openQuestions: string[] = [], appointment: string[] =
 
 beforeEach(() => {
   saved.length = 0;
+  next = MIDWIFE;
 });
 afterEach(cleanup);
 
@@ -76,7 +91,19 @@ describe("AskAtAppointment", () => {
     expect(screen.queryByText("Suggested")).toBeNull();
     fireEvent.change(screen.getByRole("textbox", { name: "Your question" }), { target: { value: "Should I keep my dose the same?" } });
     fireEvent.click(screen.getByRole("button", { name: "Add to my questions" }));
-    expect(saved).toEqual([{ key: "addQuestion", input: expect.objectContaining({ text: "Should I keep my dose the same?", itemId: "antidepressants" }) }]);
+    expect(saved).toEqual([
+      { key: "addQuestion", input: expect.objectContaining({ text: "Should I keep my dose the same?", itemId: "antidepressants", appointmentId: "a1" }) },
+    ]);
+  });
+
+  it("with nothing booked, asks for the appointment first, and adds nothing yet", () => {
+    next = null;
+    draw(item());
+    fireEvent.click(screen.getByRole("button", { name: "Ask at my next appointment" }));
+    expect(screen.getByText(/none is booked/)).toBeTruthy();
+    expect(screen.queryByRole("button", { name: "Add to my questions" })).toBeNull();
+    expect(screen.getByRole("button", { name: "Add appointment" })).toBeTruthy();
+    expect(saved).toEqual([]);
   });
 
   it("on an ask-first can-i, offers its own question, to change before it's added", () => {

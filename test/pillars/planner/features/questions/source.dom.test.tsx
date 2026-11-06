@@ -9,6 +9,7 @@ vi.mock("../../../../../src/api/rpc/people", () => ({
   usePeopleQuery: () => ({ data: { me: { id: "p1", name: "Alex" }, people: [{ id: "p1", name: "Alex" }] } }),
 }));
 vi.mock("../../../../../src/api/rpc/questions", () => ({ questionsSaves: {}, useQuestionsQuery: () => ({ data: [] }) }));
+vi.mock("../../../../../src/pillars/planner/hooks/useAppointmentsAhead", () => ({ useAppointmentsAhead: () => ({ next: null, later: [], past: [] }) }));
 vi.mock("../../../../../src/app/hooks/useSave", () => ({ useSave: () => () => undefined }));
 vi.mock("../../../../../src/content", () => ({
   builtInItems: [
@@ -31,6 +32,7 @@ function question(itemId: string): Question {
     itemId,
     by: "p1",
     createdAt: "2026-10-31T00:00:00Z",
+    appointmentId: null,
   };
 }
 

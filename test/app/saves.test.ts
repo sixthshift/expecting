@@ -10,7 +10,7 @@ const made: Made = { at: "2026-10-30T07:30:00.000Z", by: "00000000-0000-4000-800
 const ID = "11111111-1111-4111-8111-111111111111";
 
 const checklist = { ticks: { "book-rsv-vaccine": "2026-10-01T00:00:00.000Z" }, ownTasks: [{ id: ID, title: "Cot", week: 30, createdAt: made.at }] };
-const questions = [{ id: ID, text: "Free?", answer: null, askedAt: null, itemId: null, by: null, createdAt: made.at }];
+const questions = [{ id: ID, text: "Free?", answer: null, askedAt: null, itemId: null, by: null, createdAt: made.at, appointmentId: null }];
 const appointments = [
   {
     id: ID,
@@ -199,7 +199,8 @@ const CASES: Record<string, [unknown, unknown[]]> = {
   ],
   addOwnTask: [checklist, [{ id: "22222222-2222-4222-8222-222222222222", title: " Pram ", week: 32 }]],
   deleteOwnTask: [checklist, [{ id: ID }]],
-  addQuestion: [questions, [{ id: "22222222-2222-4222-8222-222222222222", text: "Scan?" }]],
+  addQuestion: [questions, [{ id: "22222222-2222-4222-8222-222222222222", text: "Scan?", appointmentId: "33333333-3333-4333-8333-333333333333" }]],
+  moveQuestion: [questions, [{ id: ID, appointmentId: "33333333-3333-4333-8333-333333333333" }]],
   markAsked: [
     questions,
     [

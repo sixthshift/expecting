@@ -708,6 +708,13 @@ db.transaction(() => {
     );
     more.questions++;
   }
+  // Each question is for an appointment: an open one the next still ahead, an asked one the latest on or before its day.
+  db.exec(`UPDATE question SET appointment_id = (
+    SELECT a.id FROM appointment a WHERE a.day >= date('now', 'localtime') ORDER BY a.day, coalesce(a.time, ''), a.created_at LIMIT 1
+  ) WHERE asked_at IS NULL AND appointment_id IS NULL`);
+  db.exec(`UPDATE question SET appointment_id = (
+    SELECT a.id FROM appointment a WHERE a.day <= date(question.asked_at, 'localtime') ORDER BY a.day DESC, coalesce(a.time, '') DESC LIMIT 1
+  ) WHERE asked_at IS NOT NULL AND appointment_id IS NULL`);
 
   for (const [title, w, done] of ownTasks) {
     const taskId = id();

@@ -1,4 +1,5 @@
 import { expect, test } from "vitest";
+import { AppointmentsRepo } from "../../src/db/models/appointments/repo";
 import { PeopleRepo } from "../../src/db/models/people/repo";
 import { QuestionsRepo } from "../../src/db/models/questions/repo";
 import { useTestDb } from "./helpers";
@@ -29,7 +30,7 @@ test("a question keeps the id its phone gave it, and the same save sent twice ad
   repo.add("Is the RSV vaccine free?", {}, new Date("2026-10-01T00:00:00Z"), id);
   repo.add("Is the RSV vaccine free?", {}, new Date("2026-10-02T00:00:00Z"), id);
   expect(repo.list()).toEqual([
-    { id, text: "Is the RSV vaccine free?", answer: null, askedAt: null, itemId: null, by: null, createdAt: "2026-10-01T00:00:00.000Z" },
+    { id, text: "Is the RSV vaccine free?", answer: null, askedAt: null, itemId: null, by: null, createdAt: "2026-10-01T00:00:00.000Z", appointmentId: null },
   ]);
 });
 
@@ -38,4 +39,36 @@ test("a question remembers the entry it was asked from and who added it", () => 
   const repo = new QuestionsRepo(db());
   const q = repo.add("Can you check my iron?", { itemId: "anaemia", by: sam.id });
   expect(repo.list()[0]).toMatchObject({ id: q.id, itemId: "anaemia", by: sam.id });
+});
+
+function booked(title: string, day: string): string {
+  return new AppointmentsRepo(db()).add({ id: crypto.randomUUID(), title, day, time: null, place: null, notes: null }, null).id;
+}
+
+test("a question is for an appointment, and moves to another", () => {
+  const midwife = booked("Midwife", "2026-11-06");
+  const scan = booked("20-week scan", "2026-11-20");
+  const repo = new QuestionsRepo(db());
+  const q = repo.add("Can we see the face?", { appointmentId: midwife });
+  repo.move(q.id, scan);
+  expect(repo.list()[0]!.appointmentId).toBe(scan);
+});
+
+test("one for an appointment no longer kept is for none; a move to one stays where it was", () => {
+  const midwife = booked("Midwife", "2026-11-06");
+  const repo = new QuestionsRepo(db());
+  const gone = repo.add("Is my iron OK?", { appointmentId: crypto.randomUUID() });
+  expect(gone.appointmentId).toBeNull();
+  const q = repo.add("Can I fly?", { appointmentId: midwife });
+  repo.move(q.id, crypto.randomUUID());
+  expect(repo.list().find((x) => x.id === q.id)!.appointmentId).toBe(midwife);
+});
+
+test("deleting an appointment leaves its questions, for none", () => {
+  const midwife = booked("Midwife", "2026-11-06");
+  const repo = new QuestionsRepo(db());
+  const q = repo.add("Is my iron OK?", { appointmentId: midwife });
+  repo.markAsked(q.id, "Fine");
+  new AppointmentsRepo(db()).delete(midwife);
+  expect(repo.list()[0]).toMatchObject({ id: q.id, answer: "Fine", appointmentId: null });
 });

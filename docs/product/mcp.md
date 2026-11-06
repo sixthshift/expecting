@@ -24,7 +24,8 @@ stays in the app.
   from your situation, and keeps the appointment or ticks the task.
 - **Questions for the midwife, as they come up.** Talking anything through,
   when it's one for the midwife or doctor, Claude offers to keep it as a
-  question for the next appointment, from the entry it came from; after,
+  question for the next appointment (or the one it's for), from the entry
+  it came from; after,
   "she said iron's fine" marks it asked with what you were told.
 - **Planning around your life.** "We're away at 30 weeks: what clashes?"
   Tasks come with their windows as days as well as weeks, so a trip in the
@@ -68,8 +69,10 @@ stays in the app.
   something gone off, how you're feeling, a first, an appointment, a
   question for an appointment, a task of your own, a line on a list. It
   can also tick a task off, change an appointment (only what's changed),
-  mark a question asked, and mark a line got, arranged or not needed. A
-  question already open in the same words isn't kept twice.
+  move a question to another appointment, mark one asked, and mark a line
+  got, arranged or not needed. A question already open in the same words
+  isn't kept twice, and with nothing booked one isn't kept until the
+  appointment is.
 - **Take back:** anything either of you kept in the Journal or the
   Planner, to put right what was kept wrong or cancel an appointment;
   never the other's feeling, and never a photo or a paper. It says what it

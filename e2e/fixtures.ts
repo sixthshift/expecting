@@ -97,6 +97,29 @@ export function waitingSaves(page: Page): Promise<number> {
 
 export { expect };
 
+/** What `bookAhead` books: a question is for an appointment, so the specs that add one need one ahead. */
+export const AHEAD = "Antenatal check";
+
+/**
+ * An appointment some weeks ahead, booked once in a run (the database is
+ * shared by every spec): far enough off that one a spec books nearer is the
+ * next. Leaves the page on the Planner's appointments.
+ */
+export async function bookAhead(page: Page): Promise<void> {
+  await page.goto("/planner/appointments");
+  const appointments = page.getByRole("region", { name: "Appointments" });
+  await expect(appointments).toBeVisible();
+  if ((await appointments.getByText(AHEAD).count()) > 0) return;
+  await appointments.getByRole("button", { name: "Add appointment" }).click();
+  await appointments.getByRole("textbox", { name: "What it is" }).fill(AHEAD);
+  await appointments.getByRole("spinbutton", { name: /day/i }).click();
+  const d = new Date();
+  d.setDate(d.getDate() + 40);
+  await page.keyboard.type(`${String(d.getDate()).padStart(2, "0")}${String(d.getMonth() + 1).padStart(2, "0")}${d.getFullYear()}`);
+  await appointments.getByRole("button", { name: "Add appointment" }).click();
+  await expect(appointments.getByText(AHEAD)).toBeVisible();
+}
+
 /** On a phone, opens one of Home's folds by its title ("To keep", "Today's read") once it's drawn, if it's shut; a desktop draws none (`lg` and up), so it does nothing there. */
 export async function unfold(page: Page, title: string): Promise<void> {
   if ((page.viewportSize()?.width ?? 0) >= 1024) return;

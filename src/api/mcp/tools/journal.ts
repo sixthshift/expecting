@@ -183,7 +183,7 @@ export function journalTools({ ctx, read, keep }: Tools) {
         questions: new QuestionsRepo(c.db)
           .list()
           .filter((q) => q.createdAt >= at || (q.askedAt !== null && q.askedAt >= at))
-          .map((q) => ({ id: q.id, text: q.text, by: k.nameOf(q.by), asked: q.askedAt, answer: q.answer })),
+          .map((q) => ({ id: q.id, text: q.text, by: k.nameOf(q.by), appointment: q.appointmentId, asked: q.askedAt, answer: q.answer })),
         ticked: Object.entries(k.ticks)
           .filter(([, when]) => when >= at)
           .map(([id, when]) => ({ id, title: tasks.get(id) ?? id, done: when })),

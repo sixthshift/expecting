@@ -91,6 +91,7 @@ test("initialises with Expecting's instructions, and lists its tools", async () 
       "mark_first",
       "mark_line",
       "mark_question_asked",
+      "move_question",
       "questions",
       "read_library",
       "remove",

@@ -46,6 +46,13 @@ vi.mock("../../../../src/app/hooks/useSave", () => ({
 }));
 vi.mock("../../../../src/app/components/layout/CallBirthSuite", () => ({ CallBirthSuite: () => <a href="tel:0390000000">Call the birth suite</a> }));
 vi.mock("../../../../src/pillars/library/components/itemLink/ItemLink", () => ({ ItemLink: ({ children }: { children: ReactNode }) => children }));
+vi.mock("../../../../src/pillars/planner/hooks/useAppointmentsAhead", () => ({
+  useAppointmentsAhead: () => ({
+    next: { id: "a1", title: "Midwife", day: "2999-01-06", time: null, place: null, notes: null, by: null, createdAt: "x", editedBy: null, editedAt: null },
+    later: [],
+    past: [],
+  }),
+}));
 vi.mock("@sixthshift/design-system/overlay", () => ({ toast: (t: { title: string }) => toasts.push(t) }));
 // Where the sheet was opened: kept from the Journal itself, the toast has no way there.
 let pathname = "/";
@@ -193,7 +200,7 @@ describe("CaptureSheet", () => {
     fireEvent.click(screen.getByRole("button", { name: "A question to ask" }));
     fireEvent.change(screen.getByRole("textbox"), { target: { value: "Is the glucose test fasting?" } });
     fireEvent.submit(screen.getByRole("textbox").closest("form")!);
-    expect(saved).toEqual([{ key: "addQuestion", input: expect.objectContaining({ text: "Is the glucose test fasting?" }) }]);
+    expect(saved).toEqual([{ key: "addQuestion", input: expect.objectContaining({ text: "Is the glucose test fasting?", appointmentId: "a1" }) }]);
     expect(toasts.map((t) => t.title)).toEqual(["Question added"]);
     expect(onClose).toHaveBeenCalled();
   });

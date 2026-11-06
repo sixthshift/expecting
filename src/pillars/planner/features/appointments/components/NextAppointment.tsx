@@ -6,6 +6,7 @@ import { useQuestionsQuery } from "../../../../../api/rpc/questions";
 import { todayISO } from "../../../../../lib/dates";
 import { when } from "../../../../../lib/labels";
 import { APPOINTMENT_WHEN, appointmentSoon, nextAppointment } from "../../../../../lib/planner/appointments";
+import { openFor } from "../../../../../lib/planner/questions";
 
 /**
  * On Home: the next appointment, once it's within a fortnight, with how
@@ -15,9 +16,9 @@ import { APPOINTMENT_WHEN, appointmentSoon, nextAppointment } from "../../../../
  */
 export function NextAppointment() {
   const { data: appointments } = useAppointmentsQuery();
-  const { data: waiting } = useQuestionsQuery({ select: (questions) => questions.filter((q) => !q.askedAt).length });
   const today = todayISO();
   const next = nextAppointment(appointments, today);
+  const { data: waiting } = useQuestionsQuery({ select: (questions) => (next ? openFor(questions, next.id).length : 0) });
   const soon = next ? appointmentSoon(next, today) : null;
   if (!next || !soon) return null;
   return (
@@ -40,7 +41,7 @@ export function NextAppointment() {
             {next.place}
           </p>
         ) : null}
-        <Link to="/planner" hash="questions" className="-mb-2 flex min-h-11 items-center gap-1 pl-6.5 text-sm text-fg-subtle hover:text-fg-normal">
+        <Link to="/planner/questions" className="-mb-2 flex min-h-11 items-center gap-1 pl-6.5 text-sm text-fg-subtle hover:text-fg-normal">
           {waiting === 0 ? "No questions for it yet" : waiting === 1 ? "1 question to ask" : `${waiting} questions to ask`}
           <ChevronRight aria-hidden size={16} />
         </Link>

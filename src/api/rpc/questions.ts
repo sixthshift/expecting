@@ -27,10 +27,18 @@ export const addQuestion = createServerFn({ method: "POST" })
         text: z.string().trim().min(1).max(1000),
         /** The Library entry it was asked from; a private one is refused before this (src/server/privacy/). */
         itemId: z.string().refine(isBuiltInItemId, "Not an entry").optional(),
+        /** The appointment it is for: every question is for one. */
+        appointmentId: z.uuid(),
       })
       .strict()
   )
-  .handler(({ data }) => new QuestionsRepo(getDb()).add(data.text, { itemId: data.itemId, by: known(personId()) }, madeAt(), data.id));
+  .handler(({ data }) =>
+    new QuestionsRepo(getDb()).add(data.text, { itemId: data.itemId, by: known(personId()), appointmentId: data.appointmentId }, madeAt(), data.id)
+  );
+
+export const moveQuestion = createServerFn({ method: "POST" })
+  .validator(z.object({ id: z.uuid(), appointmentId: z.uuid() }).strict())
+  .handler(({ data }) => new QuestionsRepo(getDb()).move(data.id, data.appointmentId));
 
 export const markAsked = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), answer: z.string().max(5000) }).strict())
@@ -44,7 +52,7 @@ export const deleteQuestion = createServerFn({ method: "POST" })
   .validator(id)
   .handler(({ data }) => new QuestionsRepo(getDb()).delete(data.id));
 
-/** The questions for the next appointment. */
+/** The questions, each for an appointment. */
 export type Questions = Awaited<ReturnType<typeof listQuestions>>;
 export const questionsQuery = queryOptions({ queryKey: ["questions"], queryFn: () => listQuestions() });
 
@@ -58,11 +66,17 @@ export const questionsSaves = {
   addQuestion: save({
     key: "addQuestion",
     query: questionsQuery.queryKey,
-    send: (data: { id: string; text: string; itemId?: string }, made) => addQuestion({ data, headers: stamped(made) }),
-    apply: (questions: Questions, { id, text, itemId }, made) =>
+    send: (data: { id: string; text: string; itemId?: string; appointmentId: string }, made) => addQuestion({ data, headers: stamped(made) }),
+    apply: (questions: Questions, { id, text, itemId, appointmentId }, made) =>
       questions.some((q) => q.id === id)
         ? questions
-        : [...questions, { id, text: text.trim(), answer: null, askedAt: null, itemId: itemId ?? null, by: made.by, createdAt: made.at }],
+        : [...questions, { id, text: text.trim(), answer: null, askedAt: null, itemId: itemId ?? null, by: made.by, createdAt: made.at, appointmentId }],
+  }),
+  moveQuestion: save({
+    key: "moveQuestion",
+    query: questionsQuery.queryKey,
+    send: (data: { id: string; appointmentId: string }, made) => moveQuestion({ data, headers: stamped(made) }),
+    apply: (questions: Questions, { id, appointmentId }) => change(questions, id, { appointmentId }),
   }),
   markAsked: save({
     key: "markAsked",

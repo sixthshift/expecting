@@ -6,6 +6,7 @@
 
 import { daysBetween, type ISODate } from "../dates";
 import { placeOf } from "../journal/journal";
+import { when } from "../labels";
 import type { Week } from "../timeline";
 
 export type Appointment = {
@@ -42,6 +43,11 @@ export function nextAppointment(appointments: readonly Appointment[], today: ISO
 
 /** How an appointment's when is said, through labels' `when`: "Thu 6 Nov, 10:30 am", its date even today, without en-AU's comma. */
 export const APPOINTMENT_WHEN = { sayToday: false, weekdayComma: false } as const;
+
+/** An appointment by name, as a question says which it's for: "Midwife, Fri 6 Nov". */
+export function appointmentName(appointment: Pick<Appointment, "title" | "day">, today: ISODate): string {
+  return `${appointment.title}, ${when(appointment.day, null, today, APPOINTMENT_WHEN)}`;
+}
 
 /** How soon, in words: "Today", "Tomorrow", "In 5 days"; null once it's gone or more than a fortnight off. */
 export function appointmentSoon(appointment: Pick<Appointment, "day">, today: ISODate): string | null {

@@ -7,10 +7,11 @@ import { useQuestionsQuery } from "../../../../api/rpc/questions";
 import type { ISODate } from "../../../../lib/dates";
 import { weekRange } from "../../../../lib/labels";
 import type { Appointment } from "../../../../lib/planner/appointments";
+import { openFor } from "../../../../lib/planner/questions";
 import { type UpNextWeek, upNext } from "../../../../lib/planner/upNext";
 import { type Week, weekFromNow } from "../../../../lib/timeline";
 import { Fold } from "../../components/Fold";
-import { ForNextAppointment, Questions } from "../../components/questions/ForNextAppointment";
+import { NextQuestions, QuestionsSection } from "../../components/questions/Questions";
 import { NextUp } from "../../components/toDo/NextUp";
 import { TaskLine } from "../../components/toDo/TaskLine";
 import { ToDoProgress } from "../../components/toDo/ToDoProgress";
@@ -131,10 +132,10 @@ function WeekOf({
         <div key={a.id} className="flex flex-col gap-3">
           <AppointmentCard appointment={a} size={a.id === next?.id ? "md" : "sm"} />
           {a.id !== next?.id ? null : phone ? (
-            <QuestionsWaitingLink />
+            <QuestionsWaitingLink appointmentId={a.id} />
           ) : (
             <section aria-label="Questions to ask at it" className="ml-4 flex flex-col gap-3 border-l-2 border-border-brand pl-4">
-              <Questions />
+              <NextQuestions appointmentId={a.id} />
             </section>
           )}
         </div>
@@ -151,14 +152,14 @@ function WeekOf({
           Nothing booked or due this week.
         </p>
       ) : null}
-      {last ? <ForNextAppointment /> : null}
+      {last ? <QuestionsSection /> : null}
     </section>
   );
 }
 
 /** On a phone, under the next appointment: how many questions are waiting for it, to the Questions tab. */
-function QuestionsWaitingLink() {
-  const { data: waiting } = useQuestionsQuery({ select: (questions) => questions.filter((q) => !q.askedAt).length });
+function QuestionsWaitingLink({ appointmentId }: { appointmentId: string }) {
+  const { data: waiting } = useQuestionsQuery({ select: (questions) => openFor(questions, appointmentId).length });
   return (
     <Link to="/planner/questions" className="-mt-1 ml-4 flex min-h-11 w-fit items-center gap-1 text-sm font-medium text-fg-brand hover:underline">
       {waiting === 0 ? "Questions for it" : waiting === 1 ? "1 question to ask" : `${waiting} questions to ask`}

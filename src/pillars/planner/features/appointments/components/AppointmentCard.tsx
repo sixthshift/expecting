@@ -5,17 +5,21 @@ import { toast } from "@sixthshift/design-system/overlay";
 import { CalendarPlus, MapPin, Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { appointmentsSaves } from "../../../../../api/rpc/appointments";
+import { questionsSaves, useQuestionsQuery } from "../../../../../api/rpc/questions";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
 import { when } from "../../../../../lib/labels";
 import { APPOINTMENT_WHEN, type Appointment, appointmentSoon } from "../../../../../lib/planner/appointments";
 import { icsPath } from "../../../../../lib/planner/calendar";
 import { AppointmentForm } from "./AppointmentForm";
+import { AppointmentRecord } from "./AppointmentRecord";
 
 /**
  * One appointment: what, when (and how soon, within a fortnight), where, and
  * its notes. Either of you can change it or delete it; a delete can be undone.
- * One still ahead can go in the phone's own calendar, for its reminders.
+ * One still ahead can go in the phone's own calendar, for its reminders; one
+ * gone by keeps what was asked there. Deleted, its questions are for none
+ * until moved; undone, they're its again.
  * `size`: the next one is given room.
  */
 export function AppointmentCard({ appointment, size = "sm" }: { appointment: Appointment; size?: "sm" | "md" }) {
@@ -23,13 +27,23 @@ export function AppointmentCard({ appointment, size = "sm" }: { appointment: App
   const edit = useSave(appointmentsSaves.editAppointment);
   const remove = useSave(appointmentsSaves.deleteAppointment);
   const add = useSave(appointmentsSaves.addAppointment);
+  const move = useSave(questionsSaves.moveQuestion);
+  const { data: itsQuestions } = useQuestionsQuery({ select: (questions) => questions.filter((q) => q.appointmentId === appointment.id).map((q) => q.id) });
   const today = todayISO();
   const soon = appointmentSoon(appointment, today);
 
   function deleted() {
     const { id, title, day, time, place, notes } = appointment;
+    const questions = itsQuestions;
     remove({ id });
-    toast({ title: "Appointment deleted", action: "Undo", onAction: () => add({ id, title, day: day as ISODate, time, place, notes }) });
+    toast({
+      title: "Appointment deleted",
+      action: "Undo",
+      onAction: () => {
+        add({ id, title, day: day as ISODate, time, place, notes });
+        for (const q of questions) move({ id: q, appointmentId: id });
+      },
+    });
   }
 
   if (editing) {
@@ -82,6 +96,7 @@ export function AppointmentCard({ appointment, size = "sm" }: { appointment: App
         </Button>
       </div>
       {appointment.notes ? <p className="mt-2 whitespace-pre-wrap text-sm text-fg-normal">{appointment.notes}</p> : null}
+      {appointment.day < today ? <AppointmentRecord appointmentId={appointment.id} /> : null}
       {appointment.day >= today ? (
         <a
           href={icsPath(appointment.id)}

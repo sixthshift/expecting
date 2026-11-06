@@ -6,7 +6,7 @@
 // marks the week. Runs after the journey (at week 28) and before quiet.spec.ts,
 // which checks they're folded away after a loss, as specs run by name.
 import type { Page } from "@playwright/test";
-import { expect, test } from "./fixtures";
+import { bookAhead, expect, test } from "./fixtures";
 
 /** Open the sheet and pick `choice`. */
 async function add(page: Page, choice: string) {
@@ -68,6 +68,7 @@ test("a craving, then the same again in one tap, tallied in the Journal and mark
 });
 
 test("a craving for something that isn't food says so quietly, with a question to take along", async ({ page, open }) => {
+  await bookAhead(page);
   await open("/");
   await add(page, "A craving");
   const sheet = page.getByRole("dialog");

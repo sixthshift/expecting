@@ -2,7 +2,7 @@
 // the ruler, a task of their own that stays ticked, a jump from a task to why
 // it matters, and a question for the midwife. Runs first, on the phone, against
 // the empty database the config makes.
-import { expect, logIn, test, unfold, waitingSaves } from "./fixtures";
+import { AHEAD, bookAhead, expect, logIn, test, unfold, waitingSaves } from "./fixtures";
 import { PASSWORDS } from "./playwright.config";
 
 /** dd, mm, yyyy of today plus `days`, in this machine's local time, as the app sees it. */
@@ -311,6 +311,7 @@ test("a topic on its own, by door, and for the partner", async ({ page, open }) 
 });
 
 test("a question is added in the Planner, asked, and lands in this week", async ({ page, open }) => {
+  await bookAhead(page);
   await open("/planner/questions");
   await page.getByRole("textbox", { name: "New question" }).fill("Which hospital entrance after hours?");
   await page.getByRole("button", { name: "Add question" }).click();
@@ -332,6 +333,7 @@ test("a question is added in the Planner, asked, and lands in this week", async 
 });
 
 test("a question asked from an entry lands in the Planner, saying where it came from", async ({ page, open }) => {
+  await bookAhead(page);
   await open("/library/altitude");
   await page.getByRole("button", { name: "Ask at my next appointment" }).click();
   await page.getByRole("button", { name: "Can I go to high altitude, like Cusco or a Himalayan trek?" }).click();
@@ -345,7 +347,7 @@ test("a question asked from an entry lands in the Planner, saying where it came 
   await expect(page).toHaveURL(/\/library\/altitude$/);
   const yours = page.getByRole("region", { name: "Your questions" });
   await expect(yours).toContainText("Can I do the Inca Trail at 20 weeks?");
-  await expect(yours).toContainText("On your list for the next appointment");
+  await expect(yours).toContainText(`To ask at ${AHEAD}, `);
 
   // Asked, with what they said: the entry shows the answer.
   await open("/planner/questions");
@@ -353,8 +355,8 @@ test("a question asked from an entry lands in the Planner, saying where it came 
   await page.getByRole("textbox", { name: "Answer" }).fill("Not above 2500 m; the trail is too high.");
   await page.getByRole("button", { name: "Save as asked" }).click();
   await open("/library/altitude");
-  await expect(yours).toContainText(/You asked on \d+ \w+: Not above 2500 m; the trail is too high\./);
-  await expect(yours).not.toContainText("On your list");
+  await expect(yours).toContainText(new RegExp(`You asked at ${AHEAD}, [^:]+: Not above 2500 m; the trail is too high\\.`));
+  await expect(yours).not.toContainText("To ask at");
 });
 
 test("the answer to boy or girl sets the colours and the tab's icon, and they survive a reload", async ({ page, open }) => {

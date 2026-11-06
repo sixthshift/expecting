@@ -1,7 +1,7 @@
 import { useSettingsQuery } from "../../../../api/rpc/settings";
 import { PillarLayout } from "../../../../app/components/layout/PillarLayout";
 import { Appointments } from "../../components/appointments/Appointments";
-import { ForNextAppointment } from "../../components/questions/ForNextAppointment";
+import { QuestionsSection } from "../../components/questions/Questions";
 import { Ahead } from "../../components/toDo/Ahead";
 import { ToDo } from "../../components/toDo/ToDo";
 import { UpNext } from "../../components/upNext/UpNext";
@@ -50,7 +50,7 @@ function NoDueDate() {
         <div className="sticky top-[calc(var(--top-bar)+1.5rem)] flex flex-col gap-10">
           <ListsWayIn />
           <Appointments />
-          <ForNextAppointment />
+          <QuestionsSection />
         </div>
       </div>
     </PillarLayout>

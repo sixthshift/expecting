@@ -7,12 +7,17 @@ import { Check } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { questionsSaves } from "../../../../api/rpc/questions";
 import { useSave } from "../../../../app/hooks/useSave";
+import { todayISO } from "../../../../lib/dates";
 import { newId } from "../../../../lib/outbox";
+import { appointmentName } from "../../../../lib/planner/appointments";
+import { AppointmentChoice } from "../../../planner/features/questions/components/AppointmentChoice";
+import { NoneBooked } from "../../../planner/features/questions/components/NoneBooked";
+import { useAppointmentsAhead } from "../../../planner/hooks/useAppointmentsAhead";
 import { useEntry } from "../../contexts/LibraryItemPageContext";
 import { suggestionsFor } from "../../model/suggestions";
 import { useContentContext } from "../content/context";
 
-/** The sheet: the questions the entry suggests, and a box for your own words. */
+/** The sheet: the questions the entry suggests, a box for your own words, and the appointment it's for (the next, unless another is chosen; with none booked, it's added first). */
 export function AskSheet({ onClose }: { onClose: () => void }) {
   const { item, page } = useEntry();
   const suggestions = suggestionsFor(item, page);
@@ -20,12 +25,16 @@ export function AskSheet({ onClose }: { onClose: () => void }) {
   const [text, setText] = useState("");
   const add = useSave(questionsSaves.addQuestion);
   const onList = text.trim().length > 0 && openQuestions.includes(text.trim());
+  const { next, later } = useAppointmentsAhead();
+  const ahead = next ? [next, ...later] : [];
+  const [chosen, setChosen] = useState<string | undefined>(undefined);
+  const forIt = ahead.find((a) => a.id === chosen) ?? next;
 
   function submit(event: FormEvent) {
     event.preventDefault();
-    if (text.trim().length === 0 || onList) return;
-    add({ id: newId(), text, itemId: item.id });
-    toast({ title: "Added to your questions" });
+    if (text.trim().length === 0 || onList || !forIt) return;
+    add({ id: newId(), text, itemId: item.id, appointmentId: forIt.id });
+    toast({ title: `Added for ${appointmentName(forIt, todayISO())}` });
     onClose();
   }
 
@@ -34,7 +43,7 @@ export function AskSheet({ onClose }: { onClose: () => void }) {
       <Modal.Header>
         <h2 className="font-display text-lg font-semibold text-fg-strong">Ask at your next appointment</h2>
       </Modal.Header>
-      <Modal.Body className="px-6 pb-6">
+      <Modal.Body className="flex flex-col gap-4 px-6 pb-6">
         <form onSubmit={submit} className="flex flex-col gap-4">
           {suggestions.length > 0 ? (
             <div className="flex flex-col gap-2">
@@ -75,10 +84,20 @@ export function AskSheet({ onClose }: { onClose: () => void }) {
             maxLength={1000}
           />
           {onList ? <p className="text-xs text-fg-subtle">That one's already on your list.</p> : null}
-          <Button type="submit" intent="brand" disabled={text.trim().length === 0 || onList} className="self-end">
-            Add to my questions
-          </Button>
+          {forIt === null ? null : (
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              {ahead.length > 1 ? (
+                <AppointmentChoice ahead={ahead} value={forIt.id} onChange={setChosen} />
+              ) : (
+                <span className="text-sm text-fg-subtle">For {appointmentName(forIt, todayISO())}</span>
+              )}
+              <Button type="submit" intent="brand" disabled={text.trim().length === 0 || onList} className="ml-auto">
+                Add to my questions
+              </Button>
+            </div>
+          )}
         </form>
+        {forIt === null ? <NoneBooked /> : null}
       </Modal.Body>
     </Modal>
   );

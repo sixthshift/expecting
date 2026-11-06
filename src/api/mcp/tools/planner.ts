@@ -1,6 +1,6 @@
 // The Planner's tools: the to do, the appointments and the questions for
 // them, and the lists of what to get. Read, and kept: a task ticked or added,
-// an appointment kept or changed, a question kept or marked asked, a line
+// an appointment kept or changed, a question kept, moved or marked asked, a line
 // added or marked. Each kept as the person the connection speaks for.
 
 import { z } from "zod";
@@ -16,6 +16,7 @@ import { listOf } from "../../../lib/planner/lists/builtIn";
 import { HOWS, type How, type LineState, tailorLines } from "../../../lib/planner/lists/lines";
 import { sectionsOf } from "../../../lib/planner/lists/sections";
 import { listsOf } from "../../../lib/planner/lists/summaries";
+import { sameWords } from "../../../lib/planner/questions";
 import { comingUp, toDoNow, whenToDo } from "../../../lib/planner/todo";
 import { answer, refuse, type Tools } from "../answer";
 import { known } from "../context";
@@ -23,14 +24,6 @@ import { taskOf } from "../shapes";
 import { week } from "./home";
 
 const day = z.string().refine(isISODate, "A date, YYYY-MM-DD");
-
-/** A question's words as compared for the same one twice: case, spacing and punctuation aside. */
-function sameWords(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
-}
 
 /** A line's state as Claude says it, and as it's kept: still to get is no state. */
 const STATES = { "to-get": null, arranged: "arranged", got: "got", "not-needed": "not-needed" } as const satisfies Record<string, LineState | null>;
@@ -89,7 +82,7 @@ export function plannerTools({ ctx, read, keep }: Tools) {
     {
       title: "Appointments",
       description:
-        "The appointments kept: what each is, its day (YYYY-MM-DD) and its pregnancy week, its time (HH:MM, if known), where and any notes. `ahead` (today's included, earliest first) or `past` (latest first). The next one is the first ahead; the questions kept are for it.",
+        "The appointments kept: what each is, its day (YYYY-MM-DD) and its pregnancy week, its time (HH:MM, if known), where and any notes. `ahead` (today's included, earliest first) or `past` (latest first). The next one is the first ahead. Each question is for one of them (questions).",
       inputSchema: { show: z.enum(["ahead", "past", "all"]).default("ahead") },
     },
     ({ show }) => {
@@ -147,12 +140,13 @@ export function plannerTools({ ctx, read, keep }: Tools) {
     {
       title: "Questions for appointments",
       description:
-        "The questions kept for the next appointment (`open`), and those already asked with what you were told (`asked`). `query` finds those with all its words. Check here before keeping one, so it isn't kept twice.",
+        "The questions kept, each for an appointment (its id, title and day; null once that appointment was deleted): those still to ask (`open`), and those asked, with what you were told there (`asked`). An open one at an appointment gone by wasn't asked there, and waits until it's moved. `query` finds those with all its words. Check here before keeping one, so it isn't kept twice.",
       inputSchema: { show: z.enum(["open", "asked", "all"]).default("all"), query: z.string().max(200).optional() },
     },
     ({ show, query }) => {
       const c = ctx();
       const k = known(c);
+      const appointments = new Map(new AppointmentsRepo(c.db).list().map((a) => [a.id, a]));
       const words = sameWords(query ?? "")
         .split(" ")
         .filter(Boolean);
@@ -161,27 +155,69 @@ export function plannerTools({ ctx, read, keep }: Tools) {
           .list()
           .filter((q) => show === "all" || (show === "asked") === (q.askedAt !== null))
           .filter((q) => words.every((w) => sameWords(`${q.text} ${q.answer ?? ""}`).includes(w)))
-          .map((q) => ({ id: q.id, text: q.text, entry: q.itemId, by: k.nameOf(q.by), asked: q.askedAt, answer: q.answer }))
+          .map((q) => {
+            const a = q.appointmentId ? appointments.get(q.appointmentId) : undefined;
+            return {
+              id: q.id,
+              text: q.text,
+              entry: q.itemId,
+              by: k.nameOf(q.by),
+              appointment: a ? { id: a.id, title: a.title, day: a.day } : null,
+              asked: q.askedAt,
+              answer: q.answer,
+            };
+          })
       );
     }
   );
+
+  /** The appointment a question goes to: the one named, still ahead; else the next. */
+  function aheadOf(appointment: string | undefined): { id: string } | string {
+    const c = ctx();
+    const { ahead } = splitAppointments(new AppointmentsRepo(c.db).list(), known(c).today);
+    if (appointment === undefined)
+      return ahead[0] ?? "Nothing's booked: a question is for an appointment, so add it first (add_appointment), then the question to it.";
+    return ahead.find((a) => a.id === appointment) ?? `No appointment ${appointment} still ahead: the appointments tool lists them.`;
+  }
 
   keep(
     "add_question",
     {
       title: "Keep a question for an appointment",
       description:
-        "Keep a question to ask at the next appointment, optionally about a Library entry (its id). Offer this whenever you'd say to ask the midwife or doctor, and keep it once they say yes. One already open in the same words isn't kept twice.",
-      inputSchema: { text: z.string().trim().min(1).max(1000), entry: z.string().max(200).optional() },
+        "Keep a question to ask at an appointment still ahead (its id from appointments; the next one if none is given), optionally about a Library entry (its id). Offer this whenever you'd say to ask the midwife or doctor, and keep it once they say yes. One already open in the same words isn't kept twice.",
+      inputSchema: { text: z.string().trim().min(1).max(1000), entry: z.string().max(200).optional(), appointment: z.uuid().optional() },
     },
-    ({ text, entry }) => {
+    ({ text, entry, appointment }) => {
       const { db, personId, now } = ctx();
       if (entry && !isBuiltInItemId(entry)) return refuse(`No entry ${entry}.`);
       const repo = new QuestionsRepo(db);
       const same = repo.list().find((q) => q.askedAt === null && sameWords(q.text) === sameWords(text));
       if (same) return answer({ alreadyKept: "question", id: same.id });
-      const question = repo.add(text, { itemId: entry ?? null, by: personId }, now);
-      return answer({ kept: "question", id: question.id });
+      const to = aheadOf(appointment);
+      if (typeof to === "string") return refuse(to);
+      const question = repo.add(text, { itemId: entry ?? null, by: personId, appointmentId: to.id }, now);
+      return answer({ kept: "question", id: question.id, appointment: to.id });
+    }
+  );
+
+  keep(
+    "move_question",
+    {
+      title: "Move a question to another appointment",
+      description: "Move a question still to ask, by its id from questions, to another appointment still ahead (its id from appointments).",
+      inputSchema: { id: z.uuid(), appointment: z.uuid() },
+    },
+    ({ id, appointment }) => {
+      const { db } = ctx();
+      const repo = new QuestionsRepo(db);
+      const question = repo.list().find((q) => q.id === id);
+      if (!question) return refuse(`No question ${id}: the questions tool lists them.`);
+      if (question.askedAt !== null) return refuse("That one was asked: keep it again (add_question) to ask it again.");
+      const to = aheadOf(appointment);
+      if (typeof to === "string") return refuse(to);
+      repo.move(id, to.id);
+      return answer({ moved: "question", appointment: to.id });
     }
   );
 
@@ -189,7 +225,7 @@ export function plannerTools({ ctx, read, keep }: Tools) {
     "mark_question_asked",
     {
       title: "Mark a question asked",
-      description: "Mark a kept question asked at the appointment, by its id from questions, with what you were told.",
+      description: "Mark a kept question asked at the appointment it's for, by its id from questions, with what you were told.",
       inputSchema: { id: z.uuid(), answer: z.string().max(5000).default("") },
     },
     ({ id, answer: told }) => {

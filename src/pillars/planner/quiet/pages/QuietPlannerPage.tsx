@@ -1,6 +1,6 @@
 import { PillarLayout } from "../../../../app/components/layout/PillarLayout";
 import { Appointments } from "../../components/appointments/Appointments";
-import { ForNextAppointment } from "../../components/questions/ForNextAppointment";
+import { QuestionsSection } from "../../components/questions/Questions";
 import { PutAside } from "../components/PutAside";
 import { QuietPlannerPageProvider } from "../contexts/QuietPlannerPageContext";
 
@@ -19,7 +19,7 @@ export function QuietPlannerPage() {
           <PutAside />
           <div className="flex flex-col gap-10 desktop:sticky desktop:top-[calc(var(--top-bar)+1.5rem)]">
             <Appointments />
-            <ForNextAppointment />
+            <QuestionsSection />
           </div>
         </div>
       </PillarLayout>

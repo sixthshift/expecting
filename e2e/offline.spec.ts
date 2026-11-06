@@ -3,12 +3,13 @@
 // last fetched is on screen. A save made offline waits on the phone, through
 // a reload, and goes once there's a connection (src/app/model/outbox.ts).
 // Hospital Wi-Fi is the case.
-import { expect, test, waitingSaves } from "./fixtures";
+import { bookAhead, expect, test, waitingSaves } from "./fixtures";
 
 // Offline, a save's request fails, and the browser says so in the console; the save waits.
 test.use({ allowedErrors: [/ERR_INTERNET_DISCONNECTED|Failed to fetch/] });
 
 test("the app opens, reads and saves with no connection", async ({ page, context, open }) => {
+  await bookAhead(page);
   await open("/");
   // The worker controls the page, and has fetched the items' pages after the app.
   await page.waitForFunction(
@@ -67,6 +68,7 @@ test("the app opens, reads and saves with no connection", async ({ page, context
 });
 
 test("a save that landed stays on screen when the worker answers from what it kept before it", async ({ page, context, open }) => {
+  await bookAhead(page);
   await open("/planner/questions");
   await page.waitForFunction(async () => (await navigator.serviceWorker.ready).active !== null && navigator.serviceWorker.controller !== null, undefined, {
     timeout: 60_000,

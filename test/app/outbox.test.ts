@@ -21,7 +21,7 @@ let send: ReturnType<typeof vi.fn<(w: Waiting<Sent>) => Promise<unknown>>>;
 beforeEach(() => {
   server = [];
   send = vi.fn(async (w: Waiting<Sent>) => {
-    server.push({ id: w.input.id, text: w.input.text, answer: null, askedAt: null, itemId: null, by: null, createdAt: w.made.at });
+    server.push({ id: w.input.id, text: w.input.text, answer: null, askedAt: null, itemId: null, by: null, createdAt: w.made.at, appointmentId: null });
   });
   client = new QueryClient({ ...outboxCaches(() => client), defaultOptions: { queries: { retry: false, networkMode: "offlineFirst" } } });
   queueSaves(client);

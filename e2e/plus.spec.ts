@@ -97,7 +97,7 @@ test("an appointment is kept from the +, heads the Planner's questions, and is o
 
   // The appointments and the questions are pages of their own in the Planner.
   await open("/planner/questions");
-  await expect(page.getByRole("region", { name: "For the next appointment" }).getByText(/^Midwife, /)).toBeVisible();
+  await expect(page.getByRole("region", { name: "Questions" }).getByRole("region", { name: /^Midwife, / })).toBeVisible();
   await open("/planner/appointments");
   const appointments = page.getByRole("region", { name: "Appointments" });
   await expect(appointments.getByText("Midwife")).toBeVisible();

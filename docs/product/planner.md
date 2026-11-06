@@ -2,7 +2,7 @@
 
 What to do, what to get, and what to ask: the admin, run for you. Up next
 (`/planner`), the lists of what to get (`/planner/lists`), the appointments
-(`/planner/appointments`), and the questions for the next one
+(`/planner/appointments`), and the questions, each for one of them
 (`/planner/questions`): four places, a phone's tabs under the Planner's
 name and a desktop's rail, each its own address. This is where Expecting is directive: about bookings,
 claims and purchases, never about her body.
@@ -150,8 +150,12 @@ change one or delete it (a delete can be undone).
   gone fold away under Been, latest first.
 - **"The next appointment" is the earliest still ahead,** today's included
   until the day is over, so its questions are there in the waiting room.
-  The questions below are for it, and say so ("Midwife, Fri 6 Nov");
-  without one booked they're for whichever comes next.
+  A question goes to it unless you choose another.
+- **One gone by keeps what was asked there:** under Been, each appointment
+  holds the questions asked at it with what you were told, and says how
+  many weren't asked.
+- **Deleted, its questions stay,** for no appointment, until each is moved
+  to another; undoing the delete gives them back to it.
 - **On its week.** Home shows the next one once it's within a
   fortnight, with the questions waiting; a peek at another week shows that
   week's; the map counts them. Its week is worked out from the due date, so
@@ -167,25 +171,44 @@ change one or delete it (a delete can be undone).
 - **Kept while something has happened,** like the questions: there are
   often more appointments, not fewer.
 
-## Questions for the next appointment
+## Questions for each appointment
 
 The midwife has ten minutes, and the question you had on Tuesday is gone
-by Thursday. The list is a running one: add a question, mark it asked with
-what they said, ask it again.
+by Thursday. Every question is for one appointment: the next, unless you
+choose another still ahead ("Ask the sonographer at the 20-week scan").
+Add it, mark it asked with what they said, ask it again.
 
+- **Every question is for an appointment, so one is booked first.** With
+  nothing booked, adding a question asks for the appointment first, and
+  the question goes to it.
+- **The list is by appointment:** the next one always, with what's to ask
+  there; each later one that has a question; then what's left over.
+- **Not asked stays where it was.** A question still open once its
+  appointment has gone stays with it, under "Not asked at Midwife, Thu 30
+  Oct", until you mark it asked after all or move it to another. Nothing
+  moves on its own.
+- **Move to another,** on any open question: to any appointment still
+  ahead.
+- **Asked, it's that appointment's record:** what you asked there and what
+  you were told, under it in Been, and in Asked, by appointment, latest
+  first. Marking one asked can be undone. **Ask again** keeps that record
+  and adds the question afresh for an appointment still ahead.
 - **The Library answers Expecting's questions; the list is for yours.** It
   holds what only your midwife or doctor can answer: your case, your
   results, your medication. A general question the Library answers doesn't
   belong on it, so the Planner never suggests anything.
 - **Every Library entry can send one,** "Ask at my next appointment", in
-  your own words, while you're reading it: you read about low iron and
-  wonder whether yours is. Some entries suggest a question or two where
-  your own case matters ("Can you check my iron on my next bloods?"), and
-  an entry that says "ask first" offers its own question. Never on a
-  private entry: a saved question would be a trace.
+  your own words, while you're reading it, for the next appointment or
+  another you choose: you read about low iron and wonder whether yours
+  is. Some entries suggest a question or two where your own case matters
+  ("Can you check my iron on my next bloods?"), and an entry that says
+  "ask first" offers its own question. One tap on a question in an
+  entry's words, or the Journal's, sends it to the next appointment. Never
+  on a private entry: a saved question would be a trace.
 - **It remembers where it came from and whose it is:** "from *Anaemia and
-  low iron* · Sam's", linking back. Once asked, the entry shows what you
-  were told: "You asked on 3 Nov: ferritin 18, start tablets."
+  low iron* · Sam's", linking back. The entry shows which appointment it
+  waits for, and once asked, where and what you were told: "You asked at
+  Midwife, Mon 3 Nov: ferritin 18, start tablets."
 - **Discreet entries** (mental health, drugs, smoking) don't name
   themselves on the shared list: "from *Antidepressants*" would tell the
   partner what the question's wording was careful not to.
@@ -213,7 +236,7 @@ Everything comes back as it was.
 
 ## Not yet
 
-- **More to an appointment:** a question aimed at a particular one, the
+- **More to an appointment:** the
   Journal's summary since the last one ("sickness on 5 days, easing"), a
   waiting-room mode on the day (your questions, then a few cards while you
   wait), and repeating ones.

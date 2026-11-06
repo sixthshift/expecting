@@ -98,7 +98,7 @@ Week 30"), so a peek at another week says which.
   ("Tomorrow · Fri 6 Nov, 10:30 am"), where, and how many questions are
   waiting for it, the way to them. Further off it stays in the Planner, and
   without one close, just **the questions waiting** for the next
-  appointment.
+  appointment (or, with none booked, for one to be).
 - **A peek at another week** (a step back or ahead): its days, heads-up,
   what's worth knowing and what's best done then, that week's appointments,
   and that week's notes and movements, with a way back to this week.

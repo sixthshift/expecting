@@ -1,13 +1,12 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Check, MessageCircleQuestion, Plus } from "lucide-react";
-import { questionsSaves, useQuestionsQuery } from "../../../../../api/rpc/questions";
-import { useSave } from "../../../../../app/hooks/useSave";
-import { newId } from "../../../../../lib/outbox";
+import { useQuestionsQuery } from "../../../../../api/rpc/questions";
+import { useAsk } from "../../../../planner/features/questions/hooks/useAsk";
 
-/** A question for the next appointment, added to the Planner's list in one tap; once there, it says so. */
+/** A question for the next appointment, added to the Planner's list in one tap (with none booked, it's added first); once there, it says so. */
 export function AskAtAppointment({ text }: { text: string }) {
   const { data: questions } = useQuestionsQuery();
-  const add = useSave(questionsSaves.addQuestion);
+  const { ask, sheet } = useAsk();
   const onList = questions.some((q) => q.askedAt === null && q.text === text);
 
   return (
@@ -19,10 +18,11 @@ export function AskAtAppointment({ text }: { text: string }) {
           <Check aria-hidden size={14} /> On your list
         </span>
       ) : (
-        <Button variant="outline" size="sm" onClick={() => add({ id: newId(), text })} aria-label={`Add to your questions: ${text}`}>
+        <Button variant="outline" size="sm" onClick={() => ask(text)} aria-label={`Add to your questions: ${text}`}>
           <Plus aria-hidden size={14} /> Ask
         </Button>
       )}
+      {sheet}
     </div>
   );
 }

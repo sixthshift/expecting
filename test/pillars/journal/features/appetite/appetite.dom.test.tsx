@@ -47,6 +47,13 @@ vi.mock("../../../../../src/api/rpc/settings", () => ({ useSettingsQuery: () => 
 vi.mock("../../../../../src/app/hooks/useSave", () => ({ useSave: (save: { key: string }) => (input: unknown) => saved.push({ key: save.key, input }) }));
 vi.mock("../../../../../src/app/components/layout/CallBirthSuite", () => ({ CallBirthSuite: () => <a href="tel:0390000000">Call the birth suite</a> }));
 vi.mock("../../../../../src/pillars/library/components/itemLink/ItemLink", () => ({ ItemLink: ({ children }: { children: ReactNode }) => children }));
+vi.mock("../../../../../src/pillars/planner/hooks/useAppointmentsAhead", () => ({
+  useAppointmentsAhead: () => ({
+    next: { id: "a1", title: "Midwife", day: "2999-01-06", time: null, place: null, notes: null, by: null, createdAt: "x", editedBy: null, editedAt: null },
+    later: [],
+    past: [],
+  }),
+}));
 vi.mock("@sixthshift/design-system/overlay", () => ({ toast: () => undefined }));
 vi.mock("@tanstack/react-router", () => ({ Link: ({ children }: { children: ReactNode }) => <a href="/emergency">{children}</a> }));
 

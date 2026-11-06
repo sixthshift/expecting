@@ -4,7 +4,7 @@
 // can become (src/app/features/capture/components/SharedIn.tsx). The share sheet
 // itself is the phone's; here the page posts the same form the phone would.
 import type { Page } from "@playwright/test";
-import { expect, test } from "./fixtures";
+import { bookAhead, expect, test } from "./fixtures";
 
 /** Once the worker has the page: before then a share would reach the server, which has no /share. */
 async function workerReady(page: Page) {
@@ -32,6 +32,7 @@ const PDF =
   "%PDF-1.4\n1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj\n2 0 obj << /Type /Pages /Kids [] /Count 0 >> endobj\ntrailer << /Root 1 0 R >>\n%%EOF\n";
 
 test("words shared from another app become a question, and a PDF goes straight to a paper", async ({ page, open }) => {
+  await bookAhead(page);
   await open("/");
   await workerReady(page);
 
