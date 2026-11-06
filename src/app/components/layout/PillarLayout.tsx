@@ -98,12 +98,17 @@ export function PillarLayout({
     </main>
   );
   if (!railed) return page;
+  return <Railed rail={rail}>{page}</Railed>;
+}
+
+/** A pillar's rail down the left, on a desktop, and what's beside it: a page's, or a frame's kept over several (the Library's). */
+export function Railed({ rail, children }: { rail: ReactNode; children: ReactNode }) {
   return (
     <div className="flex">
       <div className="frame-rail sticky top-(--top-bar) h-[calc(100dvh-var(--top-bar))] w-64 shrink-0 overflow-y-auto border-r border-border-subtle px-3 pt-8 pb-6 print:hidden">
         {rail}
       </div>
-      <div className="min-w-0 flex-1">{page}</div>
+      <div className="min-w-0 flex-1">{children}</div>
     </div>
   );
 }

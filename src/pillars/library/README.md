@@ -22,7 +22,8 @@ this is the map of the code.
 content/items/*.md
   → builtInItems              bundled, checked               src/content/
   → useItems()                tailored by your answers, extras   hooks/
-  → LibraryPageBody              search, a shelf, or the home it's given   components/
+  → LibraryFrame              the search at the top of every page, and on a desktop the rail beside them   components/search/
+  → LibraryPageBody              results, a shelf, or the home it's given   components/
   → the home                  doors, right now, topics           pages/LibraryPage
                               (QuietLibraryPage while quiet)    quiet/pages/
   → Shelf                     a door or topic: DOOR_INFO[door].group, chips   components/shelf/
@@ -41,7 +42,7 @@ not props.
 
 ```
 pages/          LibraryPage (LibraryPageBody around LibraryHome), LibraryItemPage (an entry)
-routes/         library (/library, a path only), libraryIndex (its search), item ($itemId);
+routes/         library (/library, in LibraryFrame), libraryIndex (its search), item ($itemId);
                 index.ts, libraryRoutes
 desktop/        LibraryRail: everything, each door with its count, the door for when it's hard
                 apart (first while something has happened), down the left of each page on a desktop;
@@ -51,7 +52,9 @@ desktop/        LibraryRail: everything, each door with its count, the door for 
                 beside a list
 quiet/          while something has happened: pages/QuietLibraryPage (LibraryPageBody
                 around components/QuietLibraryHome)
-contexts/       LibraryItemPageContext: the entry, why it's hidden, its words
+contexts/       LibraryItemPageContext: the entry, why it's hidden, its words; LibrarySearchContext:
+                what's searched, and searching, for every page under the frame (words that find a
+                private entry held there, not in the address)
 hooks/          useItems (your entries), useSwipe
 model/          labels (an entry's weeks), narrowing (a shelf's search params),
                 pageOf (an entry's words, loaded once), suggestions (what to ask)
@@ -85,7 +88,7 @@ that leads nowhere). How weeks and dates are said is `src/lib/labels.ts`.
 Quiet is a world of its own: `quiet/` mirrors the pillar's shape. The route
 (`routes/libraryIndex.ts`) is the one place that chooses,
 `worlds(LibraryPage, QuietLibraryPage)` (`src/app/features/quiet/worlds.tsx`).
-Only the home differs, so both pages are `LibraryPageBody` (the search and its
+Only the home differs, so both pages are `LibraryPageBody` (the search's
 results, a door or a topic's shelf) around their home: `LibraryHome`, or
 `QuietLibraryHome`, the quiet door first and nothing open right now. An entry
 is the same in both worlds, and what both homes draw is shared

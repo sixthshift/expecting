@@ -53,7 +53,11 @@ calls are [`content/REVIEW.md`](../../content/REVIEW.md).
 It lists no entries, because nobody comes to browse 893:
 
 - **Search** first, over titles, the questions as people ask them, aliases
-  and summaries, with title and alias matches first. Bodies aren't
+  and summaries, with title and alias matches first. The box is at the top
+  of every page in the Library (the home, a door, an entry), and stays as
+  you go between them: typed on an entry's page, it goes on to the results
+  without losing a letter, and Back returns to the entry. On a phone it is
+  the Library's top bar. Bodies aren't
   searched, so the index stays small enough to search offline at once.
 - **A door per type, named by its question:** Can I…?, Is this normal?,
   Nobody tells you, What does that mean?, What happens at…?, What do we

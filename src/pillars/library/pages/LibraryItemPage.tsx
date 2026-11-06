@@ -9,7 +9,6 @@ import { Private } from "../components/private/Private";
 import { Through } from "../components/through/Through";
 import { WayBack } from "../components/wayBack/WayBack";
 import { LibraryItemPageProvider, useLibraryItemPage } from "../contexts/LibraryItemPageContext";
-import { LibraryRail } from "../desktop/components/LibraryRail";
 
 const route = getRouteApi("/app/library/$itemId");
 
@@ -22,7 +21,7 @@ export function LibraryItemPage() {
   const { itemId } = route.useParams();
   return (
     <LibraryItemPageProvider itemId={itemId}>
-      <PillarLayout rail={<LibraryRail />} className="pt-[max(1rem,env(safe-area-inset-top))] desktop:pt-8">
+      <PillarLayout width="full" className="pt-4 desktop:pt-6">
         <div className="max-w-3xl">
           <Rendering />
         </div>

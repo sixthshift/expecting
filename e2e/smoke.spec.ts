@@ -88,7 +88,7 @@ test.describe("a page that doesn't exist", () => {
   test("is not found, in the frame, looking for what was meant", async ({ page, open }) => {
     await open("/library/iron-tablets");
     await expect(page.getByRole("heading", { level: 1, name: "Not in the Library" })).toBeVisible();
-    await expect(page.getByRole("textbox", { name: "Search the library" })).toHaveValue("iron tablets");
+    await expect(page.getByRole("textbox", { name: "What you were looking for" })).toHaveValue("iron tablets");
     await page.getByRole("link", { name: /^Iron tablets/ }).click();
     await expect(page).toHaveURL(/\/library\/iron$/);
   });
@@ -231,4 +231,34 @@ test("on a desktop, an entry opened in the Library reads beside the list, on thr
   await entry.getByRole("link", { name: "Open full page" }).click();
   await expect(page.getByRole("heading", { level: 1, name: second })).toBeVisible();
   await expect(page.getByRole("region", { name: "The entry" })).toBeHidden();
+});
+
+test("the Library's search is at the top of every page in it, and typing in it keeps its focus", async ({ page, open }) => {
+  const box = page.getByRole("textbox", { name: "Search the library" });
+  for (const from of ["/library", "/library?door=can-i", "/library/iron"]) {
+    await open(from);
+    await box.click();
+    // A key at a time, as a person types: the first letter mustn't move the box and lose the rest.
+    await page.keyboard.type("fish", { delay: 80 });
+    await expect(box).toHaveValue("fish");
+    await expect(box).toBeFocused();
+    await expect(page).toHaveURL(/[?&]q=fish/);
+    await expect(page.getByRole("region", { name: "Results" }).getByRole("link", { name: /^Fish and mercury/ })).toBeVisible();
+  }
+  // From an entry's page, the search is a step: Back is to the entry.
+  await page.goBack();
+  await expect(page).toHaveURL(/\/library\/iron$/);
+
+  // A search is one step, whatever is read from it: Back from it is to the door it began from.
+  await open("/library?door=can-i");
+  await box.click();
+  await page.keyboard.type("fish", { delay: 80 });
+  await page
+    .getByRole("region", { name: "Results" })
+    .getByRole("link", { name: /^Fish and mercury/ })
+    .click();
+  await expect(page).toHaveURL(/fish-and-mercury|fish/);
+  const back = (await page.viewportSize())!.width >= 1024 ? 1 : 2;
+  for (let i = 0; i < back; i++) await page.goBack();
+  await expect(page).toHaveURL(/\/library\?door=can-i$/);
 });

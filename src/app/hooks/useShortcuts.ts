@@ -20,7 +20,8 @@ function focusSearch(tries = 30) {
 export function useSearchLibrary(): () => void {
   const navigate = useNavigate();
   return useCallback(() => {
-    if (window.location.pathname === "/library") focusSearch();
+    // Every page in the Library has the search at its top (LibraryFrame).
+    if (window.location.pathname === "/library" || window.location.pathname.startsWith("/library/")) focusSearch();
     else void navigate({ to: "/library" }).then(() => focusSearch());
   }, [navigate]);
 }

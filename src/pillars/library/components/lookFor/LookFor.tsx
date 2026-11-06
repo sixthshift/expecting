@@ -21,7 +21,13 @@ export function LookFor({ clues }: { clues: string }) {
 
   return (
     <section aria-label="Looking for" className="flex flex-col gap-3">
-      <SearchInput value={words} onValueChange={setWords} placeholder="What were you looking for?" aria-label="Search the library" className="h-12 text-base" />
+      <SearchInput
+        value={words}
+        onValueChange={setWords}
+        placeholder="What were you looking for?"
+        aria-label="What you were looking for"
+        className="h-12 text-base"
+      />
       {found.length > 0 ? (
         <>
           <p className="text-sm text-fg-subtle">{words === clues ? "Maybe one of these:" : "Closest in the Library:"}</p>
