@@ -24,8 +24,7 @@ export function OpenQuestion({ question, asked = true }: { question: Question; a
   const markAsked = useSave(questionsSaves.markAsked);
   const reopen = useSave(questionsSaves.reopenQuestion);
   const move = useSave(questionsSaves.moveQuestion);
-  const { next, later } = useAppointmentsAhead();
-  const elsewhere = (next ? [next, ...later] : []).filter((a) => a.id !== question.appointmentId);
+  const elsewhere = useAppointmentsAhead().ahead.filter((a) => a.id !== question.appointmentId);
 
   function save(event: FormEvent) {
     event.preventDefault();

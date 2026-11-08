@@ -1,11 +1,10 @@
 import { cn } from "@sixthshift/design-system/utils";
-import { ChevronDown } from "lucide-react";
-import { useState } from "react";
 import { useLayout } from "../../../../../app/hooks/useLayout";
 import { LANDMARKS } from "../../../../../lib/home/timelineWeeks";
 import { STAGES } from "../../../../../lib/planner/plan";
 import type { Chart } from "../../../../../lib/planner/weeks";
 import { TRIMESTERS, type Week, weekLabel } from "../../../../../lib/timeline";
+import { Fold } from "../../../components/Fold";
 import { Bars } from "./Bars";
 import { Key } from "./Key";
 import { StageGroup } from "./StageGroup";
@@ -26,7 +25,6 @@ const SHORT = { 1: "First", 2: "Second", 3: "Third" } as const;
  * haloed in the page's colour so the lines behind it don't run through the words.
  */
 export function WeeksChart({ chart, now, focus }: { chart: Chart; now: Week | null; focus: { start: Week; end: Week } | null }) {
-  const [earlierOpen, setEarlierOpen] = useState(false);
   const layout = useLayout();
 
   return (
@@ -93,18 +91,9 @@ export function WeeksChart({ chart, now, focus }: { chart: Chart; now: Week | nu
             <StageGroup key={group.key} group={group} focused={focus !== null && group.key === focus.end} now={now} />
           ))}
           {chart.earlier.length > 0 ? (
-            <section className="flex flex-col gap-1">
-              <button
-                type="button"
-                aria-expanded={earlierOpen}
-                onClick={() => setEarlierOpen((o) => !o)}
-                className="flex min-h-11 items-center gap-2 self-start text-sm font-semibold text-fg-normal"
-              >
-                Earlier and done <span className="font-normal text-fg-subtle">{chart.earlier.length}</span>
-                <ChevronDown aria-hidden size={16} className={earlierOpen ? "rotate-180 transition-transform" : "transition-transform"} />
-              </button>
-              {earlierOpen ? <Bars bars={chart.earlier} /> : null}
-            </section>
+            <Fold title="Earlier and done" count={chart.earlier.length} folded>
+              <Bars bars={chart.earlier} />
+            </Fold>
           ) : null}
         </div>
       </div>

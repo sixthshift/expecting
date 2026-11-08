@@ -14,7 +14,10 @@ const tasks = [
   { id: "fit-car-seat", due: 30 },
   { id: "buy-mirror", due: 36 },
 ] as Task[];
-vi.mock("../../../../../src/pillars/planner/features/lists/hooks/useLines", () => ({ useLines: () => lines }));
+vi.mock("../../../../../src/pillars/planner/features/lists/hooks/useLines", async () => {
+  const { listsOf } = await import("../../../../../src/lib/planner/lists/summaries");
+  return { useListSummaries: () => listsOf(lines, [OWN], {}) };
+});
 vi.mock("../../../../../src/pillars/planner/features/tasks/hooks/useTasks", () => ({ useTasks: () => tasks }));
 vi.mock("../../../../../src/api/rpc/lists", () => ({ useListsQuery: () => ({ data: { ownLists: [OWN], ownLines: [], marks: {} } }) }));
 vi.mock("../../../../../src/api/rpc/checklist", () => ({ useChecklistQuery: () => ({ data: ticks }) }));

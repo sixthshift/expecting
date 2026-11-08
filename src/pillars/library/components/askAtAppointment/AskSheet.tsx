@@ -10,7 +10,7 @@ import { useSave } from "../../../../app/hooks/useSave";
 import { todayISO } from "../../../../lib/dates";
 import { newId } from "../../../../lib/outbox";
 import { appointmentName } from "../../../../lib/planner/appointments";
-import { AppointmentChoice } from "../../../planner/features/questions/components/AppointmentChoice";
+import { ForAppointment } from "../../../planner/features/questions/components/AppointmentChoice";
 import { NoneBooked } from "../../../planner/features/questions/components/NoneBooked";
 import { useAppointmentsAhead } from "../../../planner/hooks/useAppointmentsAhead";
 import { useEntry } from "../../contexts/LibraryItemPageContext";
@@ -25,8 +25,7 @@ export function AskSheet({ onClose }: { onClose: () => void }) {
   const [text, setText] = useState("");
   const add = useSave(questionsSaves.addQuestion);
   const onList = text.trim().length > 0 && openQuestions.includes(text.trim());
-  const { next, later } = useAppointmentsAhead();
-  const ahead = next ? [next, ...later] : [];
+  const { ahead, next } = useAppointmentsAhead();
   const [chosen, setChosen] = useState<string | undefined>(undefined);
   const forIt = ahead.find((a) => a.id === chosen) ?? next;
 
@@ -86,11 +85,7 @@ export function AskSheet({ onClose }: { onClose: () => void }) {
           {onList ? <p className="text-xs text-fg-subtle">That one's already on your list.</p> : null}
           {forIt === null ? null : (
             <div className="flex flex-wrap items-center justify-between gap-2">
-              {ahead.length > 1 ? (
-                <AppointmentChoice ahead={ahead} value={forIt.id} onChange={setChosen} />
-              ) : (
-                <span className="text-sm text-fg-subtle">For {appointmentName(forIt, todayISO())}</span>
-              )}
+              <ForAppointment ahead={ahead} value={forIt.id} onChange={setChosen} />
               <Button type="submit" intent="brand" disabled={text.trim().length === 0 || onList} className="ml-auto">
                 Add to my questions
               </Button>

@@ -53,52 +53,32 @@ export function ItemLink({
   const desktop = useLayout() === "desktop";
   const inLibrary = useMatch({ from: "/app/library/", shouldThrow: false }) !== undefined;
   const open = useSearch({ strict: false, select: (s: { entry?: string }) => s.entry });
+  const look = { className, style, "aria-label": label, "aria-current": current, children };
   if (desktop && inLibrary && !isPrivateItem(itemId)) {
     return (
       <Link
+        {...look}
         to="."
         search={(prev: Record<string, unknown>) => ({ ...prev, entry: itemId })}
         state={{ list }}
         // Another beside the list takes the last one's place, so Back is to the list.
         replace={replace || open !== undefined}
         resetScroll={false}
-        className={className}
-        style={style}
-        aria-label={label}
         aria-current={current ?? (open === itemId ? "page" : undefined)}
-      >
-        {children}
-      </Link>
+      />
     );
   }
   if (desktop && here === undefined && !inLibrary && !isPrivateItem(itemId)) {
-    return (
-      <Link
-        to="."
-        search={(prev: Record<string, unknown>) => ({ ...prev, panel: itemPanel(itemId) })}
-        resetScroll={false}
-        className={className}
-        style={style}
-        aria-label={label}
-        aria-current={current}
-      >
-        {children}
-      </Link>
-    );
+    return <Link {...look} to="." search={(prev: Record<string, unknown>) => ({ ...prev, panel: itemPanel(itemId) })} resetScroll={false} />;
   }
   return (
     <Link
+      {...look}
       to="/library/$itemId"
       params={{ itemId }}
       mask={isPrivateItem(itemId) ? { to: "/library" } : undefined}
       replace={replace || onPrivate}
       state={{ list, from: replace || onPrivate ? kept : href }}
-      className={className}
-      style={style}
-      aria-label={label}
-      aria-current={current}
-    >
-      {children}
-    </Link>
+    />
   );
 }

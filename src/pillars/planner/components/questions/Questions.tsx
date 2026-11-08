@@ -3,7 +3,7 @@ import { useAppointmentsQuery } from "../../../../api/rpc/appointments";
 import { useQuestionsQuery } from "../../../../api/rpc/questions";
 import { todayISO } from "../../../../lib/dates";
 import { appointmentName } from "../../../../lib/planner/appointments";
-import { openFor, questionsByAppointment } from "../../../../lib/planner/questions";
+import { openFor, type Question, questionsByAppointment } from "../../../../lib/planner/questions";
 import { AddQuestion } from "../../features/questions/components/AddQuestion";
 import { AskedQuestion } from "../../features/questions/components/AskedQuestion";
 import { NoneBooked } from "../../features/questions/components/NoneBooked";
@@ -30,10 +30,7 @@ export function QuestionsSection() {
       <AddQuestion />
       {ahead.map(({ appointment, questions: open }, i) => (
         <Group key={appointment.id} title={appointmentName(appointment, today)} note={i === 0 ? "Next" : undefined}>
-          {open.length === 0 ? <p className="text-sm text-fg-subtle">Nothing to ask yet. Add a question as it comes to you.</p> : null}
-          {open.map((q) => (
-            <OpenQuestion key={q.id} question={q} />
-          ))}
+          <ToAsk questions={open} />
         </Group>
       ))}
       {missed.map(({ appointment, questions: open }) => (
@@ -81,12 +78,15 @@ export function NextQuestions({ appointmentId }: { appointmentId: string }) {
   return (
     <>
       <AddQuestion at={appointmentId} />
-      {open.length === 0 ? <p className="text-sm text-fg-subtle">Nothing to ask yet. Add a question as it comes to you.</p> : null}
-      {open.map((q) => (
-        <OpenQuestion key={q.id} question={q} />
-      ))}
+      <ToAsk questions={open} />
     </>
   );
+}
+
+/** What's still to ask at an appointment ahead, or that there's nothing yet. */
+function ToAsk({ questions }: { questions: readonly Question[] }) {
+  if (questions.length === 0) return <p className="text-sm text-fg-subtle">Nothing to ask yet. Add a question as it comes to you.</p>;
+  return questions.map((q) => <OpenQuestion key={q.id} question={q} />);
 }
 
 function Group({ title, note, children }: { title: string; note?: string; children: ReactNode }) {

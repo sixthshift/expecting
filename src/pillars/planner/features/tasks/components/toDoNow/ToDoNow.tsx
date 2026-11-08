@@ -1,4 +1,3 @@
-import { Badge } from "@sixthshift/design-system/badge";
 import { toast } from "@sixthshift/design-system/overlay";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
@@ -6,10 +5,11 @@ import { useEffect, useRef, useState } from "react";
 import { checklistSaves, useChecklistQuery } from "../../../../../../api/rpc/checklist";
 import { useNow } from "../../../../../../api/rpc/settings";
 import { useSave } from "../../../../../../app/hooks/useSave";
-import { toDoNow, whenToDo } from "../../../../../../lib/planner/todo";
+import { toDoNow } from "../../../../../../lib/planner/todo";
 import { ItemLink } from "../../../../../library/components/itemLink/ItemLink";
 import { useTasks } from "../../hooks/useTasks";
 import { TaskRow } from "../TaskRow";
+import { WhenToDo } from "../WhenToDo";
 import { Whose } from "../Whose";
 
 /** How many To do now shows before handing over to the Planner. */
@@ -64,13 +64,7 @@ export function ToDoNow() {
               stack
               meta={
                 <span className="flex flex-wrap items-center gap-x-2">
-                  {entry.why === "deadline" ? (
-                    <Badge size="sm" variant="soft" intent="warning">
-                      {whenToDo(entry, now)}
-                    </Badge>
-                  ) : (
-                    <span>{whenToDo(entry, now)}</span>
-                  )}
+                  <WhenToDo entry={entry} now={now} />
                   {/* Both of yours is the usual; only one person's job says whose. */}
                   <Whose who={entry.task.who} />
                 </span>

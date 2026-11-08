@@ -1,12 +1,11 @@
 import { ListTodo } from "lucide-react";
-import { useListsQuery } from "../../../../../api/rpc/lists";
 import { PillarLayout } from "../../../../../app/components/layout/PillarLayout";
-import { inPlanner, listsOf } from "../../../../../lib/planner/lists/summaries";
+import { inPlanner } from "../../../../../lib/planner/lists/summaries";
 import { PlannerTabs } from "../../../components/PlannerTabs";
 import { PlannerRail } from "../../../desktop/components/PlannerRail";
 import { AddList } from "../components/addList/AddList";
 import { ListCard } from "../components/listCard/ListCard";
-import { useLines } from "../hooks/useLines";
+import { useListSummaries } from "../hooks/useLines";
 
 /**
  * The lists: what to get, a list for each purpose. The built-in ones that have
@@ -15,9 +14,7 @@ import { useLines } from "../hooks/useLines";
  * put away, not deleted: the route draws its quiet world (`putAway`).
  */
 export function ListsPage() {
-  const lines = useLines();
-  const { data: lists } = useListsQuery();
-  const all = listsOf(lines, lists.ownLists, lists.marks).filter(inPlanner);
+  const all = useListSummaries().filter(inPlanner);
   const builtIn = all.filter((l) => l.origin === "built-in");
   const own = all.filter((l) => l.origin === "own");
 

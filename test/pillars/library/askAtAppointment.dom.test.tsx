@@ -11,7 +11,9 @@ const saved: { key: string; input: unknown }[] = [];
 vi.mock("../../../src/api/rpc/questions", () => ({ questionsSaves: { addQuestion: { key: "addQuestion" } } }));
 vi.mock("../../../src/app/hooks/useSave", () => ({ useSave: (save: { key: string }) => (input: unknown) => saved.push({ key: save.key, input }) }));
 let next: unknown = null;
-vi.mock("../../../src/pillars/planner/hooks/useAppointmentsAhead", () => ({ useAppointmentsAhead: () => ({ next, later: [], past: [] }) }));
+vi.mock("../../../src/pillars/planner/hooks/useAppointmentsAhead", () => ({
+  useAppointmentsAhead: () => ({ ahead: next ? [next] : [], next, later: [], past: [] }),
+}));
 const MIDWIFE = {
   id: "a1",
   title: "Midwife",

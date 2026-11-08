@@ -1,8 +1,5 @@
-import { Button } from "@sixthshift/design-system/button";
-import { Card } from "@sixthshift/design-system/card";
 import { Link } from "@tanstack/react-router";
-import { CalendarDays, ChevronRight, Plus } from "lucide-react";
-import { useState } from "react";
+import { CalendarDays, ChevronRight } from "lucide-react";
 import { useQuestionsQuery } from "../../../../api/rpc/questions";
 import type { ISODate } from "../../../../lib/dates";
 import { weekRange } from "../../../../lib/labels";
@@ -10,18 +7,19 @@ import type { Appointment } from "../../../../lib/planner/appointments";
 import { openFor } from "../../../../lib/planner/questions";
 import { type UpNextWeek, upNext } from "../../../../lib/planner/upNext";
 import { type Week, weekFromNow } from "../../../../lib/timeline";
-import { Fold } from "../../components/Fold";
-import { NextQuestions, QuestionsSection } from "../../components/questions/Questions";
-import { NextUp } from "../../components/toDo/NextUp";
-import { TaskLine } from "../../components/toDo/TaskLine";
-import { ToDoProgress } from "../../components/toDo/ToDoProgress";
-import { WhenNow } from "../../components/toDo/WhenNow";
 import { usePlannerPage } from "../../contexts/PlannerPageContext";
-import { AddAppointment } from "../../features/appointments/components/AddAppointment";
 import { AppointmentCard } from "../../features/appointments/components/AppointmentCard";
+import { useAdding } from "../../features/appointments/hooks/useAdding";
 import { AddTask } from "../../features/tasks/components/addTask/AddTask";
 import { useAppointmentsAhead } from "../../hooks/useAppointmentsAhead";
-import { aheadWhen, missedWhen } from "../../model/labels";
+import { aheadWhen } from "../../model/labels";
+import { Been } from "../appointments/Appointments";
+import { NextQuestions, QuestionsSection } from "../questions/Questions";
+import { MissedAndDone } from "../toDo/MissedAndDone";
+import { NextUp } from "../toDo/NextUp";
+import { TaskLine } from "../toDo/TaskLine";
+import { ToDoProgress } from "../toDo/ToDoProgress";
+import { WhenNow } from "../toDo/WhenNow";
 
 /**
  * The Planner on a desktop, what's next: appointments and tasks in one
@@ -35,9 +33,9 @@ import { aheadWhen, missedWhen } from "../../model/labels";
  */
 export function UpNext({ now, dueDate, phone = false }: { now: Week; dueDate: ISODate; phone?: boolean }) {
   const { plan } = usePlannerPage();
-  const { next, later, past } = useAppointmentsAhead();
-  const [adding, setAdding] = useState(false);
-  const weeks = upNext(plan, next ? [next, ...later] : later, now, dueDate);
+  const { ahead, next } = useAppointmentsAhead();
+  const { button, form } = useAdding();
+  const weeks = upNext(plan, ahead, now, dueDate);
   // The questions go under the next appointment; when it's further off than Up next shows (or there's none), they close this week.
   const questionsShown = next !== null && weeks.some((w) => w.appointments.some((a) => a.id === next.id));
 
@@ -50,18 +48,9 @@ export function UpNext({ now, dueDate, phone = false }: { now: Week; dueDate: IS
           </h2>
           <ToDoProgress />
         </div>
-        {adding ? null : (
-          <Button variant="outline" size="sm" onClick={() => setAdding(true)}>
-            <Plus aria-hidden size={16} />
-            Add appointment
-          </Button>
-        )}
+        {button}
       </div>
-      {adding ? (
-        <Card size="sm">
-          <AddAppointment onAdded={() => setAdding(false)} onCancel={() => setAdding(false)} />
-        </Card>
-      ) : null}
+      {form}
 
       {weeks.map((w, i) => (
         <WeekOf key={w.week} entry={w} now={now} dueDate={dueDate} next={next} last={i === 0 && !questionsShown && !phone} phone={phone} />
@@ -72,29 +61,8 @@ export function UpNext({ now, dueDate, phone = false }: { now: Week; dueDate: IS
         <ChevronRight aria-hidden size={16} />
       </Link>
 
-      {plan.earlier.length > 0 ? (
-        <Fold title="Missed earlier" count={plan.earlier.length} folded>
-          {plan.earlier.map((task) => (
-            <TaskLine key={task.id} task={task} when={<span>{missedWhen(task)}</span>} />
-          ))}
-        </Fold>
-      ) : null}
-      {plan.done.length > 0 ? (
-        <Fold title="Done" count={plan.done.length} folded>
-          {plan.done.map((task) => (
-            <TaskLine key={task.id} task={task} />
-          ))}
-        </Fold>
-      ) : null}
-      {past.length > 0 ? (
-        <Fold title="Appointments been" count={past.length} folded>
-          <div className="flex flex-col gap-3">
-            {past.map((a) => (
-              <AppointmentCard key={a.id} appointment={a} />
-            ))}
-          </div>
-        </Fold>
-      ) : null}
+      <MissedAndDone />
+      <Been title="Appointments been" />
       {/* Expecting knows what needs doing; this is for the odd thing it couldn't. */}
       <AddTask week={now} />
     </section>

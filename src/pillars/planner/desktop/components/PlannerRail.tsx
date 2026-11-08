@@ -1,9 +1,8 @@
 import { useLocation } from "@tanstack/react-router";
 import { CalendarDays, ChartGantt, ListChecks, MessageCircleQuestion, ShoppingBasket } from "lucide-react";
-import { useListsQuery } from "../../../../api/rpc/lists";
 import { Rail, RailLink } from "../../../../app/desktop/components/Rail";
-import { inPlanner, listsOf } from "../../../../lib/planner/lists/summaries";
-import { useLines } from "../../features/lists/hooks/useLines";
+import { inPlanner } from "../../../../lib/planner/lists/summaries";
+import { useListSummaries } from "../../features/lists/hooks/useLines";
 
 /**
  * The Planner's places on a desktop, down the left of each of its pages: what
@@ -14,9 +13,7 @@ import { useLines } from "../../features/lists/hooks/useLines";
  */
 export function PlannerRail() {
   const { pathname } = useLocation();
-  const lines = useLines();
-  const { data: lists } = useListsQuery();
-  const shown = listsOf(lines, lists.ownLists, lists.marks).filter(inPlanner);
+  const shown = useListSummaries().filter(inPlanner);
   return (
     <Rail label="Planner">
       <RailLink to="/planner" icon={ListChecks} current={pathname === "/planner"}>

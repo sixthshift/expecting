@@ -1,10 +1,9 @@
 import { Card } from "@sixthshift/design-system/card";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
-import { useListsQuery } from "../../../../api/rpc/lists";
-import { inPlanner, leftSaying, listsOf } from "../../../../lib/planner/lists/summaries";
+import { inPlanner, leftSaying } from "../../../../lib/planner/lists/summaries";
 import { listIcon } from "../../features/lists/components/icons";
-import { useLines } from "../../features/lists/hooks/useLines";
+import { useListSummaries } from "../../features/lists/hooks/useLines";
 
 /**
  * What's still to get, beside Up next on a desktop: the lists have no dates,
@@ -13,9 +12,7 @@ import { useLines } from "../../features/lists/hooks/useLines";
  * a shop: Just what's left), and to a list of your own.
  */
 export function ToGet() {
-  const lines = useLines();
-  const { data: lists } = useListsQuery();
-  const all = listsOf(lines, lists.ownLists, lists.marks).filter(inPlanner);
+  const all = useListSummaries().filter(inPlanner);
 
   return (
     <section aria-labelledby="to-get" className="flex flex-col gap-3">

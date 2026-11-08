@@ -22,7 +22,7 @@ export function reset() {
 }
 
 /** A day `n` from today, as appointments keep it. */
-export const inDays = (n: number): string => addDays(todayISO(), n) as ISODate;
+const inDays = (n: number): string => addDays(todayISO(), n) as ISODate;
 
 export function appointment(id: string, title: string, days: number): Appointment {
   return { id, title, day: inDays(days), time: null, place: null, notes: null, by: null, createdAt: "x", editedBy: null, editedAt: null };

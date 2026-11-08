@@ -92,8 +92,7 @@ Only the home differs, so both pages are `LibraryPageBody` (the search's
 results, a door or a topic's shelf) around their home: `LibraryHome`, or
 `QuietLibraryHome`, the quiet door first and nothing open right now. An entry
 is the same in both worlds, and what both homes draw is shared
-(`HomeColumn`, `Doors`, `Topics`, `HardDoor`). Quiet's own rules for the Library would go in
-`src/lib/library/quiet.ts`; what quiet is, `src/lib/quiet.ts`.
+(`HomeColumn`, `Doors`, `Topics`, `HardDoor`). What quiet is: `src/lib/quiet.ts`.
 
 ## Adding a door
 

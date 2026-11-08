@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useAppointmentsQuery } from "../../../../../api/rpc/appointments";
 import { questionsSaves, useQuestionsQuery } from "../../../../../api/rpc/questions";
 import { useSave } from "../../../../../app/hooks/useSave";
-import { todayISO } from "../../../../../lib/dates";
+import { dayOf, todayISO } from "../../../../../lib/dates";
 import { fullDate } from "../../../../../lib/labels";
 import { newId } from "../../../../../lib/outbox";
 import { appointmentName } from "../../../../../lib/planner/appointments";
@@ -24,11 +24,10 @@ export function AskedQuestion({ question, where = false }: { question: Question;
   const add = useSave(questionsSaves.addQuestion);
   const { data: questions } = useQuestionsQuery();
   const { data: appointments } = useAppointmentsQuery();
-  const { next, later } = useAppointmentsAhead();
+  const { ahead } = useAppointmentsAhead();
   const [choosing, setChoosing] = useState(false);
   const [booking, setBooking] = useState(false);
   const today = todayISO();
-  const ahead = next ? [next, ...later] : [];
   const at = where ? appointments.find((a) => a.id === question.appointmentId) : undefined;
   const again = ahead.find((a) => waitingAt(questions, a.id, question.text));
 
@@ -54,7 +53,7 @@ export function AskedQuestion({ question, where = false }: { question: Question;
       <Source question={question} />
       {question.answer ? <p className="mt-1 whitespace-pre-wrap text-fg-normal">{question.answer}</p> : null}
       <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-xs text-fg-subtle">
-        <span>Asked {at ? `at ${appointmentName(at, today)}` : fullDate(todayISO(new Date(question.askedAt!)))}</span>
+        <span>Asked {at ? `at ${appointmentName(at, today)}` : fullDate(dayOf(question.askedAt!))}</span>
         {again ? (
           <span>Asking again, {appointmentName(again, today)}</span>
         ) : choosing ? (

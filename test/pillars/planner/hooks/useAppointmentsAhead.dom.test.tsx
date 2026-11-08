@@ -31,6 +31,7 @@ describe("useAppointmentsAhead", () => {
     appointments = [appointment("scan", 7), appointment("gone", -10), appointment("midwife", 0, "10:30"), appointment("yesterday", -1), appointment("gp", 3)];
     const { result } = renderHook(() => useAppointmentsAhead());
     expect(result.current.next?.id).toBe("midwife");
+    expect(result.current.ahead.map((a) => a.id)).toEqual(["midwife", "gp", "scan"]);
     expect(result.current.later.map((a) => a.id)).toEqual(["gp", "scan"]);
     expect(result.current.past.map((a) => a.id)).toEqual(["yesterday", "gone"]);
   });
@@ -38,6 +39,6 @@ describe("useAppointmentsAhead", () => {
   it("no next with none ahead", () => {
     appointments = [appointment("gone", -2)];
     const { result } = renderHook(() => useAppointmentsAhead());
-    expect(result.current).toMatchObject({ next: null, later: [] });
+    expect(result.current).toMatchObject({ ahead: [], next: null, later: [] });
   });
 });

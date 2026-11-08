@@ -27,8 +27,8 @@ export type LibraryItemPage = {
   offExtra: Extra | undefined;
   /** Its words, loaded once and kept (`pageOf`): read through `useEntry`, under a Suspense. */
   page: Promise<ItemPage> | undefined;
-  /** Set into another page (the desktop's side panel, the Library's reader), not on its own: its title isn't the page's heading. */
-  inset: boolean;
+  /** The heading its title takes: the page's own (`h1`), or under another page's (`h2`), set into it (the desktop's side panel, beside the Library's list). */
+  Title: "h1" | "h2";
 };
 
 const PageContext = createContext<LibraryItemPage | null>(null);
@@ -50,7 +50,8 @@ export function LibraryItemPageProvider({ itemId, inset = false, children }: { i
   const hiddenBy = hidden ? Object.entries(hidden.when).find(([key, answers]) => facts[key] !== undefined && !answers.includes(facts[key]))?.[0] : undefined;
   const page = item ? pageOf(item) : undefined;
 
-  const value = useMemo(() => ({ itemId, item, hidden, hiddenBy, offExtra, page, inset }), [itemId, item, hidden, hiddenBy, offExtra, page, inset]);
+  const Title: LibraryItemPage["Title"] = inset ? "h2" : "h1";
+  const value = useMemo(() => ({ itemId, item, hidden, hiddenBy, offExtra, page, Title }), [itemId, item, hidden, hiddenBy, offExtra, page, Title]);
 
   return <PageContext value={value}>{children}</PageContext>;
 }

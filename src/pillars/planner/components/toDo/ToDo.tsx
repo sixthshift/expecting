@@ -1,9 +1,9 @@
 import { WEEKS } from "../../../../lib/timeline";
 import { usePlannerPage } from "../../contexts/PlannerPageContext";
 import { AddTask } from "../../features/tasks/components/addTask/AddTask";
-import { missedWhen } from "../../model/labels";
 import { Fold } from "../Fold";
 import { Ahead } from "./Ahead";
+import { MissedAndDone } from "./MissedAndDone";
 import { NextUp } from "./NextUp";
 import { TaskLine } from "./TaskLine";
 import { ToDoProgress } from "./ToDoProgress";
@@ -38,21 +38,7 @@ export function ToDo() {
 
       <Ahead />
 
-      {plan.earlier.length > 0 ? (
-        <Fold title="Missed earlier" count={plan.earlier.length} folded>
-          {plan.earlier.map((task) => (
-            <TaskLine key={task.id} task={task} when={<span>{missedWhen(task)}</span>} />
-          ))}
-        </Fold>
-      ) : null}
-
-      {plan.done.length > 0 ? (
-        <Fold title="Done" count={plan.done.length} folded>
-          {plan.done.map((task) => (
-            <TaskLine key={task.id} task={task} />
-          ))}
-        </Fold>
-      ) : null}
+      <MissedAndDone />
 
       {/* Expecting knows what needs doing; this is for the odd thing it couldn't. */}
       <AddTask week={now ?? WEEKS.first} />

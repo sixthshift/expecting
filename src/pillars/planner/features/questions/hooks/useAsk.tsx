@@ -7,10 +7,10 @@ import { BookFirst } from "../components/BookFirst";
 
 /**
  * A question added in one tap, from the Library or the Journal: it goes to
- * the next appointment (`next`, to say so); with none booked, `sheet` asks
+ * the next appointment; with none booked, `sheet` asks
  * for it first, and the question goes to it once it's added. Draw `sheet`.
  */
-export function useAsk(): { ask: (text: string, itemId?: string) => void; next: ReturnType<typeof useAppointmentsAhead>["next"]; sheet: ReactNode } {
+export function useAsk(): { ask: (text: string, itemId?: string) => void; sheet: ReactNode } {
   const { next } = useAppointmentsAhead();
   const add = useSave(questionsSaves.addQuestion);
   const [waiting, setWaiting] = useState<{ text: string; itemId?: string } | null>(null);
@@ -27,5 +27,5 @@ export function useAsk(): { ask: (text: string, itemId?: string) => void; next: 
       onClose={() => setWaiting(null)}
     />
   ) : null;
-  return { ask, next, sheet };
+  return { ask, sheet };
 }

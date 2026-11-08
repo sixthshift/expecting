@@ -3,11 +3,11 @@ import { useChecklistQuery } from "../../../../../api/rpc/checklist";
 import { useListsQuery } from "../../../../../api/rpc/lists";
 import { useNow } from "../../../../../api/rpc/settings";
 import type { Line } from "../../../../../content/schema";
-import { type ListSummary, listsOf } from "../../../../../lib/planner/lists/summaries";
+import type { ListSummary } from "../../../../../lib/planner/lists/summaries";
 import { lineTaskWhen } from "../../../model/labels";
 import { useTasks } from "../../tasks/hooks/useTasks";
 import type { LineTask } from "../components/line/LineRow";
-import { useLines } from "../hooks/useLines";
+import { useListSummaries } from "../hooks/useLines";
 
 /** How close a task's best-by week is before its badge turns to a warning. */
 const SOON = 2;
@@ -43,7 +43,7 @@ const PageContext = createContext<ListPage | null>(null);
  * It holds no data of its own: the queries stay in the query cache.
  */
 export function ListPageProvider({ listId, children }: { listId: string; children: ReactNode }) {
-  const lines = useLines();
+  const summary = useListSummaries().find((l) => l.id === listId);
   const { data: lists } = useListsQuery();
   const { data: ticks } = useChecklistQuery({ select: (c) => c.ticks });
   const tasks = useTasks();
@@ -51,7 +51,6 @@ export function ListPageProvider({ listId, children }: { listId: string; childre
   const [tickedHere, setTickedHere] = useState<ReadonlySet<string>>(new Set());
   const [leftOnly, setLeftOnly] = useState(false);
   const stay = useCallback((lineId: string) => setTickedHere((ids) => new Set(ids).add(lineId)), []);
-  const summary = useMemo(() => listsOf(lines, lists.ownLists, lists.marks).find((l) => l.id === listId), [lines, lists, listId]);
   const ownList = lists.ownLists.find((l) => l.id === listId);
   const ownId = ownList?.id;
   const ownTitle = ownList?.title;

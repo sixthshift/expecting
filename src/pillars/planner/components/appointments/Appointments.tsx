@@ -1,9 +1,5 @@
-import { Button } from "@sixthshift/design-system/button";
-import { Card } from "@sixthshift/design-system/card";
-import { Plus } from "lucide-react";
-import { useState } from "react";
-import { AddAppointment } from "../../features/appointments/components/AddAppointment";
 import { AppointmentCard } from "../../features/appointments/components/AppointmentCard";
+import { useAdding } from "../../features/appointments/hooks/useAdding";
 import { useAppointmentsAhead } from "../../hooks/useAppointmentsAhead";
 import { Fold } from "../Fold";
 
@@ -14,26 +10,17 @@ import { Fold } from "../Fold";
  * heading for a screen reader only, on a page that's already called it.
  */
 export function Appointments({ quietHeading = false }: { quietHeading?: boolean }) {
-  const { next, later, past } = useAppointmentsAhead();
-  const [adding, setAdding] = useState(false);
+  const { next, later } = useAppointmentsAhead();
+  const { adding, button, form } = useAdding();
   return (
     <section id="appointments" aria-labelledby="appointments-heading" className="flex scroll-mt-6 flex-col gap-3">
       <div className="flex items-center justify-between gap-3">
         <h2 id="appointments-heading" className={quietHeading ? "sr-only" : "text-lg font-display font-semibold text-fg-strong"}>
           Appointments
         </h2>
-        {adding ? null : (
-          <Button variant="outline" size="sm" onClick={() => setAdding(true)}>
-            <Plus aria-hidden size={16} />
-            Add appointment
-          </Button>
-        )}
+        {button}
       </div>
-      {adding ? (
-        <Card size="sm">
-          <AddAppointment onAdded={() => setAdding(false)} onCancel={() => setAdding(false)} />
-        </Card>
-      ) : null}
+      {form}
       {next ? (
         <AppointmentCard appointment={next} size="md" />
       ) : adding ? null : (
@@ -42,15 +29,22 @@ export function Appointments({ quietHeading = false }: { quietHeading?: boolean 
       {later.map((a) => (
         <AppointmentCard key={a.id} appointment={a} />
       ))}
-      {past.length > 0 ? (
-        <Fold title="Been" count={past.length} folded>
-          <div className="flex flex-col gap-3">
-            {past.map((a) => (
-              <AppointmentCard key={a.id} appointment={a} />
-            ))}
-          </div>
-        </Fold>
-      ) : null}
+      <Been title="Been" />
     </section>
+  );
+}
+
+/** The appointments gone by, latest first, folded away under `title`; nothing while there are none. */
+export function Been({ title }: { title: string }) {
+  const { past } = useAppointmentsAhead();
+  if (past.length === 0) return null;
+  return (
+    <Fold title={title} count={past.length} folded>
+      <div className="flex flex-col gap-3">
+        {past.map((a) => (
+          <AppointmentCard key={a.id} appointment={a} />
+        ))}
+      </div>
+    </Fold>
   );
 }

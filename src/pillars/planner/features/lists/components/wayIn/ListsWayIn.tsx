@@ -1,16 +1,13 @@
 import { Card } from "@sixthshift/design-system/card";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
-import { useListsQuery } from "../../../../../../api/rpc/lists";
-import { inPlanner, leftSaying, listsOf } from "../../../../../../lib/planner/lists/summaries";
-import { useLines } from "../../hooks/useLines";
+import { inPlanner, leftSaying } from "../../../../../../lib/planner/lists/summaries";
+import { useListSummaries } from "../../hooks/useLines";
 import { listIcon } from "../icons";
 
 /** The Planner's way into the lists: each with what's left on it, and all of them. */
 export function ListsWayIn() {
-  const lines = useLines();
-  const { data: lists } = useListsQuery();
-  const all = listsOf(lines, lists.ownLists, lists.marks).filter(inPlanner);
+  const all = useListSummaries().filter(inPlanner);
 
   return (
     <section aria-labelledby="lists-heading" className="flex flex-col gap-3">

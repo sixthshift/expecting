@@ -46,12 +46,8 @@ export function Through({ children }: { children: ReactNode }) {
   );
 }
 
-/**
- * The previous and next in the list at an entry's foot, each by its title.
- * Going on takes the entry's place in the history (`replace`), so Back is to
- * the list: on its page (`Through`) and in the Library's reader on a desktop.
- */
-export function ThroughLinks({ before, after, list }: { before: Item | undefined; after: Item | undefined; list: readonly string[] | undefined }) {
+/** The previous and next in the list at an entry's foot, each by its title, each taking its place in the history (`replace`). */
+function ThroughLinks({ before, after, list }: { before: Item | undefined; after: Item | undefined; list: readonly string[] | undefined }) {
   if (!before && !after) return null;
   return (
     <nav aria-label="Through the list" className="mt-2 grid grid-cols-2 gap-3 border-t border-border-subtle pt-4">

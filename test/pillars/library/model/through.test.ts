@@ -19,12 +19,6 @@ describe("neighbours", () => {
     expect(neighbours(["a", "gone", "c"], items, "a").after).toBe(items[2]);
   });
 
-  it("passes over what `keep` leaves out, but not the entry itself", () => {
-    const notC = (i: Item) => i.id !== "c";
-    expect(neighbours(["b", "c", "d"], items, "b", notC).after).toBe(items[3]);
-    expect(neighbours(["b", "c", "d"], items, "c", notC)).toEqual({ before: items[1], after: items[3] });
-  });
-
   it("gives none without a list, or when it isn't in it", () => {
     expect(neighbours(undefined, items, "a")).toEqual({ before: undefined, after: undefined });
     expect(neighbours(["b", "c"], items, "a")).toEqual({ before: undefined, after: undefined });

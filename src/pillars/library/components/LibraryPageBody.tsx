@@ -56,48 +56,27 @@ export function LibraryPageBody({ home }: { home: ReactNode }) {
 
   // A phone has nothing beside a list: the entry is its own page.
   if (!desktop && entry !== undefined) return <Navigate to="/library/$itemId" params={{ itemId: entry }} replace />;
-  // The list, narrower, and beside it the entry open, or what stands in its place while none is: the
-  // page keeps its shape either way. A search's has no close: closed, it would open its first again.
-  const split = (list: ReactNode, waiting: ReactNode) => (
-    <div className={SPLIT}>
-      <div className="flex min-w-0 flex-col">{list}</div>
-      {beside ? <EntryBeside itemId={beside} closable={!results} /> : waiting}
-    </div>
-  );
-
-  if (!results && (door || topic)) {
-    return (
-      <PillarLayout width={desktop ? "full" : undefined} className="pt-4 desktop:pt-6">
-        {desktop ? split(<Shelf narrowing={narrowing} />, <DoorOverview narrowing={narrowing} />) : <Shelf narrowing={narrowing} />}
-      </PillarLayout>
-    );
-  }
-
-  const found = results ? <Found q={q} results={results} /> : null;
-
-  // Beside the list on a desktop: a search's entry (no close: closed, it would open its first again), or
-  // its place kept while none is; else Right now's entry, open beside its list.
-  const aside = !desktop ? null : results ? (
-    beside ? (
-      <EntryBeside itemId={beside} closable={false} />
-    ) : (
-      <Waiting />
-    )
-  ) : beside ? (
-    <EntryBeside itemId={beside} closable />
+  const shelf = !results && Boolean(door || topic);
+  // The list, and on a desktop beside it the entry open from it, or what stands in its place while none is,
+  // so the page keeps its shape: a door's overview, a search's place kept. A search's entry has no close:
+  // closed, it would open its first again. On the home, only Right now's entry, open beside its list.
+  const aside = !desktop ? null : beside ? (
+    <EntryBeside itemId={beside} closable={!results} />
+  ) : shelf ? (
+    <DoorOverview narrowing={narrowing} />
+  ) : results ? (
+    <Waiting />
   ) : null;
+  const list = shelf ? <Shelf narrowing={narrowing} /> : results ? <Found q={q} results={results} /> : beside ? <EntryList itemId={beside} /> : home;
 
   return (
     // The page takes the width for its grids (the ways in, Right now, the topics); what's searched
-    // for stays a list at a reading width. A door's shelf (above) keeps the narrower page.
-    <PillarLayout
-      width="full"
-      // The frame's search heads the page, so it has no title of its own to show.
-      className="pt-4 desktop:pt-6"
-    >
-      <h1 className="sr-only">Library</h1>
+    // for stays a list at a reading width. A door's shelf on a phone keeps the narrower page.
+    <PillarLayout width={shelf && !desktop ? undefined : "full"} className="pt-4 desktop:pt-6">
+      {/* The frame's search heads the page, so it has no title of its own to show; a shelf has its own. */}
+      {shelf ? null : <h1 className="sr-only">Library</h1>}
       <div className={aside ? SPLIT : undefined}>
-        <div className="flex min-w-0 flex-col">{found ?? (desktop && beside ? <EntryList itemId={beside} /> : home)}</div>
+        <div className="flex min-w-0 flex-col">{list}</div>
         {aside}
       </div>
     </PillarLayout>

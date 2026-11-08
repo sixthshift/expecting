@@ -20,3 +20,9 @@ export function AppointmentChoice({
   const options = ahead.map((a) => ({ value: a.id, label: appointmentName(a, today) }));
   return <Select aria-label={label} options={options} value={value} placeholder={placeholder} onValueChange={onChange} className="w-full max-w-xs" />;
 }
+
+/** Which appointment a new question is for, `ahead` holding at least one: a choice while there's more than one, else that one by name. */
+export function ForAppointment({ ahead, value, onChange }: { ahead: readonly Appointment[]; value: string; onChange: (id: string) => void }) {
+  if (ahead.length > 1) return <AppointmentChoice ahead={ahead} value={value} onChange={onChange} />;
+  return <span className="text-sm text-fg-subtle">For {appointmentName(ahead[0]!, todayISO())}</span>;
+}
