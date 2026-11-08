@@ -63,8 +63,8 @@ content/ (in the repo, bundled at build) ──▶ built-in items
   only as a SHA-256 (`session.person_id` says whose), so a copy of the
   database is not a login. A session lives 400 days from its last use.
   `personId()` (`src/server/core/person.ts`) reads who you are from it
-  (`sessionOf`, looked up once a request); there is no other cookie saying
-  who.
+  (`sessionOf`, looked up once a request), and throws without one, which
+  behind the gate can't happen; there is no other cookie saying who.
 - **Rate limits.** Ten failed logins in fifteen minutes lock that client out
   of that person, in memory, so guessing at one of you doesn't lock out the
   other; a wrong code counts against the client alone.
@@ -172,7 +172,8 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
 
 - **A query per thing, beside its server function.** Each
   `src/api/rpc/<thing>.ts` holds its server functions, its query and the
-  query's hook, `use<Thing>Query`: `useSuspenseQuery` over the query,
+  query's hook, `use<Thing>Query` (made by `queryHook`, `src/api/queryHook.ts`):
+  `useSuspenseQuery` over the query,
   returned as is, with any options overriding the defaults. What's worked
   out from one query is a `select`:
   `const { data: facts } = useAnswersQuery({ select: factsOf })`.
@@ -362,7 +363,7 @@ The map of the code is `src/pillars/planner/README.md`.
   Ticks are `task_tick`, own tasks `own_task` (a title and a week).
 - **The weeks** ("Across the weeks", `/planner/weeks`, `?stage=37`): `WeeksPage`, the
   bars from `weeksChart` (`src/lib/planner/weeks.ts`).
-- **Lists** (`/planner/lists`, `/planner/lists/<id>`): `src/pillars/planner/` (`ListsPage`, `ListPage` and `ListPageProvider`, `components/lists/`),
+- **Lists** (`/planner/lists`, `/planner/lists/<id>`): `src/pillars/planner/` (`ListsPage`, `ListPage` and `ListPageProvider`, `features/lists/`),
   rules `src/lib/planner/lists/` (`LISTS` in `builtIn.ts`; the lines that apply, `lines.ts`; what's left, `summaries.ts`; by section, `sections.ts`). A
   built-in line comes from an item's `lines`, tailored like the item. The
   store is `own_list`, `own_line` and `list_mark` (a line's id, no foreign
@@ -447,7 +448,7 @@ off, and each has a tile on the Drawer (`ToolTile`, `ToolOff`).
 - **The capture "+"** (`src/app/features/capture/`,
   [product](product/capture.md)): drawn by `AppLayout` on the pillars
   only, a `Modal` listing `captureChoices` (`model/choices.ts`: the order,
-  what's offered when, `CHOICE`, what each is called, and `FILED_IN`, where
+  what's offered when, and `CHOICE`, what each is called and where
   each goes). Each choice is its pillar's own form (`AddMovement`,
   `AddNote`, `AddPhoto`, …) with an `onAdded`, picked in `CaptureForm`, a
   switch over every kind, so a new one doesn't compile without its form.

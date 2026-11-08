@@ -90,7 +90,8 @@ const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 
 const familyRows = families
   .map((f) => {
-    const roles = SHARED_ROLE[f.name] ? [SHARED_ROLE[f.name]] : (used.get(f.name) ?? []).map((n) => n);
+    const shared = SHARED_ROLE[f.name];
+    const roles = shared ? [shared] : (used.get(f.name) ?? []);
     const note = f.note.replace(/^[^:]+:\s*/, "");
     const kind = f.note.split(":")[0];
     const cells = f.steps

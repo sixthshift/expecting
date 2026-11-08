@@ -2,11 +2,10 @@
 
 What an entry has to be before it ships, the calls that hold for every
 entry, and what is still open. Every entry and week note meets this bar; a
-new or changed one must too. The records behind each entry's review, with the rules for urgency,
-bleeding before and after the birth, when to go in, retinol, vitamin D and
-trimesters, were `content/map/checks/`: removed with the Library's map on
-2026-11-05, and kept in git history. How an
-entry is written is [`README.md`](README.md).
+new or changed one must too. The per-entry review records (urgency, bleeding before and after the birth,
+when to go in, retinol, vitamin D, trimesters) are in git history, under
+`content/map/checks/` before 2026-11-05. How an entry is written is
+[`README.md`](README.md).
 
 ## The bar
 
