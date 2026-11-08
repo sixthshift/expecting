@@ -3,7 +3,7 @@ import { useAnswersQuery } from "../../../../../api/rpc/facts";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useQuietQuery } from "../../../../../api/rpc/quiet";
 import { useSettingsQuery } from "../../../../../api/rpc/settings";
-import { formatDate, isISODate, todayISO } from "../../../../../lib/dates";
+import { dayOf, formatDate, isISODate, todayISO } from "../../../../../lib/dates";
 import { ALWAYS, type EmergencyInfo, telHref } from "../../../../../lib/emergency";
 import { factsOf } from "../../../../../lib/facts";
 import { PapersToHand } from "../../../../../pillars/journal/features/papers/components/PapersToHand";
@@ -30,7 +30,7 @@ export function EmergencyView({ emergency }: { emergency: EmergencyInfo }) {
     dueDate: settings.dueDate,
     today,
     // After a loss the pregnancy stops counting: a doctor needs the weeks it ended at, and when.
-    lostOn: quiet?.kind === "loss" ? todayISO(new Date(quiet.setAt)) : null,
+    lostOn: quiet?.kind === "loss" ? dayOf(quiet.setAt) : null,
   });
   const changedBy = emergency.changed?.by ? people.find((p) => p.id === emergency.changed?.by)?.name : undefined;
   const changedOn = emergency.changed ? emergency.changed.at.slice(0, 10) : undefined;

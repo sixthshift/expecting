@@ -14,7 +14,7 @@ export function BabyRow() {
           Sets Expecting's colours. Anyone who sees the screen sees them, so keeping it a surprise is an answer too.
         </span>
       </div>
-      <ColourChoice value={baby} onChoose={async (next) => save({ baby: next })} />
+      <ColourChoice value={baby} onChoose={(next) => save({ baby: next })} />
     </div>
   );
 }

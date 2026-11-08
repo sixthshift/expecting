@@ -1,6 +1,5 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { Outlet } from "@tanstack/react-router";
-import type { Pillar } from "../../components/layout/AppLayout";
 import { PillarNav } from "../../components/layout/PillarNav";
 import { CaptureButton } from "../../features/capture/components/CaptureButton";
 import { SharedIn } from "../../features/capture/components/SharedIn";
@@ -13,7 +12,7 @@ import { SharedIn } from "../../features/capture/components/SharedIn";
  * button, Emergency info and settings are in each pillar's top corner
  * (`MobileCorner`).
  */
-export function MobileLayout({ pillars, onPillar }: { pillars: readonly Pillar[]; onPillar: boolean }) {
+export function MobileLayout({ onPillar }: { onPillar: boolean }) {
   return (
     <div className="[--tab-bar:calc(3.75rem+env(safe-area-inset-bottom))] [--top-bar:0px]">
       <div className={cn("min-w-0 pb-(--tab-bar)", onPillar && "pb-[calc(var(--tab-bar)+4.5rem)]")}>
@@ -29,7 +28,7 @@ export function MobileLayout({ pillars, onPillar }: { pillars: readonly Pillar[]
       <SharedIn />
 
       <div className="frame-tab-bar fixed inset-x-0 bottom-0 z-30 print:hidden border-t border-border-subtle bg-bg-normal/95 pb-[env(safe-area-inset-bottom)] backdrop-blur">
-        <PillarNav pillars={pillars} layout="tabs" />
+        <PillarNav layout="tabs" />
       </div>
     </div>
   );

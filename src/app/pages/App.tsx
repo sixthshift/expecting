@@ -14,6 +14,9 @@ import { WhatsNew } from "../components/WhatsNew";
 import { useAppTheme } from "../hooks/useAppTheme";
 import { useFocusOnArrival } from "../hooks/useFocusOnArrival";
 
+/** What's warmed once the app has drawn: every pillar, and the two pages for a night it can't wait. */
+const WARMED = [...PILLARS.map((p) => p.to), "/emergency", "/its-time"] as const;
+
 /**
  * Around every pillar: the baby's colours and the
  * context content renders against, then the pillars in their layout, and
@@ -25,9 +28,6 @@ import { useFocusOnArrival } from "../hooks/useFocusOnArrival";
  * info and It's time with them, the pages wanted in a hurry, perhaps with no
  * signal.
  */
-/** What's warmed once the app has drawn: every pillar, and the two pages for a night it can't wait. */
-const WARMED = [...PILLARS.map((p) => p.to), "/emergency", "/its-time"] as const;
-
 export function App() {
   const { data: settings } = useSettingsQuery();
   const now = useNow();
@@ -65,7 +65,7 @@ export function App() {
 
   return (
     <ContentContext.Provider value={content}>
-      <AppLayout pillars={PILLARS} />
+      <AppLayout />
       {quiet ? null : <WhatsNew />}
     </ContentContext.Provider>
   );

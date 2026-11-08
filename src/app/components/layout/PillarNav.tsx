@@ -1,21 +1,21 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { Link } from "@tanstack/react-router";
-import type { Pillar } from "./AppLayout";
+import { PILLARS } from "./pillars";
 
 const TAB_COLUMNS: Record<number, string> = { 3: "grid-cols-3", 4: "grid-cols-4", 5: "grid-cols-5", 6: "grid-cols-6" };
 
 /**
- * The pillars as a row: the phone's tab bar (`tabs`, icons over their names,
+ * The pillars (`PILLARS`) as a row: the phone's tab bar (`tabs`, icons over their names,
  * under the thumb) or the desktop's top bar (`bar`, names beside their icons,
  * in the middle of it). The pillar is current on its own page and on every
  * page under it.
  */
-export function PillarNav({ pillars, layout }: { pillars: readonly Pillar[]; layout: "tabs" | "bar" }) {
+export function PillarNav({ layout }: { layout: "tabs" | "bar" }) {
   const tabs = layout === "tabs";
   return (
     <nav aria-label="Expecting">
-      <ul className={tabs ? cn("grid h-15", TAB_COLUMNS[pillars.length]) : "flex items-center gap-1"}>
-        {pillars.map(({ to, label, icon: Icon }) => (
+      <ul className={tabs ? cn("grid h-15", TAB_COLUMNS[PILLARS.length]) : "flex items-center gap-1"}>
+        {PILLARS.map(({ to, label, icon: Icon }) => (
           <li key={to}>
             <Link
               to={to}

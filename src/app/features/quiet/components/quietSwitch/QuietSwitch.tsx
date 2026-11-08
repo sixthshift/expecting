@@ -3,7 +3,7 @@ import { cn } from "@sixthshift/design-system/utils";
 import { useState } from "react";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { quietSaves, useQuietQuery } from "../../../../../api/rpc/quiet";
-import { formatDate, todayISO } from "../../../../../lib/dates";
+import { dayOf, formatDate } from "../../../../../lib/dates";
 import { QUIET_KINDS, QUIET_LABELS, type QuietKind, WAY_BACK } from "../../../../../lib/quiet";
 import { useSave } from "../../../../hooks/useSave";
 
@@ -25,7 +25,7 @@ export function QuietSwitch() {
 
   if (quiet) {
     const by = people.find((p) => p.id === quiet.setBy)?.name;
-    const since = formatDate(todayISO(new Date(quiet.setAt)), { day: "numeric", month: "long" });
+    const since = formatDate(dayOf(quiet.setAt), { day: "numeric", month: "long" });
     return (
       <div className="flex flex-col gap-4 rounded-xl border border-border-subtle bg-bg-normal p-4">
         <p className="text-sm text-fg-normal">

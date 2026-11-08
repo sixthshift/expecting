@@ -4,7 +4,7 @@ import { Link } from "@tanstack/react-router";
 import { Suspense, useState } from "react";
 import { usePeopleQuery } from "../../../api/rpc/people";
 import { logout, useAccessQuery } from "../../../api/rpc/session";
-import { forgetData } from "../../../pwa/register";
+import { logOut } from "../../model/loggedOut";
 
 /**
  * Whose session this is, last in the top bar: your initial, opening your name,
@@ -55,13 +55,6 @@ export function You() {
 /** Logging out here, once it's been asked: with logins on coming back takes your password; off, it's handing the computer over. */
 function Leave({ onCancel }: { onCancel: () => void }) {
   const { data: login } = useAccessQuery({ select: (access) => access.login });
-  async function leave() {
-    await logout();
-    // Nor in what the service worker keeps for offline.
-    await forgetData();
-    // A full load, not a navigation: nothing of yours stays in this tab's memory.
-    window.location.assign("/login");
-  }
   return (
     <div className="flex flex-col gap-3">
       <p className="text-sm text-fg-normal">
@@ -70,7 +63,7 @@ function Leave({ onCancel }: { onCancel: () => void }) {
           : "Log out on this computer, to hand it to the other of you? Nothing is lost."}
       </p>
       <div className="flex flex-wrap gap-2">
-        <Button intent="danger" onClick={leave}>
+        <Button intent="danger" onClick={() => logOut(logout)}>
           Yes, log out
         </Button>
         <Button variant="outline" onClick={onCancel}>

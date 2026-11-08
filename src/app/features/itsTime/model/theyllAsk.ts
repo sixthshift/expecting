@@ -4,6 +4,7 @@
 
 import { formatDate, type ISODate } from "../../../../lib/dates";
 import { clock, type Pattern, type Start, sayPattern, WATERS_LABEL } from "../../../../lib/itsTime";
+import { capitalise } from "../../../../lib/labels";
 import type { Role } from "../../../../lib/people";
 import { gestationLabel, positionOn } from "../../../../lib/timeline";
 import type { Facts } from "../../settings/model/facts";
@@ -50,7 +51,7 @@ export function theyllAsk({
   row("presentation", "Head down?", facts.presentation === "breech" ? "We've been told not" : null);
   if (start?.watersAt) row("waters", "Waters", `Broke ${clock(start.watersAt)}${start.waters ? `, ${WATERS_LABEL[start.waters].toLowerCase()}` : ""}`);
   const said = pattern ? sayPattern(pattern) : null;
-  if (said && pattern) row("contractions", "Contractions", `${said.charAt(0).toUpperCase()}${said.slice(1)} · ${pattern.inTen} in the last 10 min`);
+  if (said && pattern) row("contractions", "Contractions", `${capitalise(said)} · ${pattern.inTen} in the last 10 min`);
   row("moving", "Baby moving?", holding === "carrying" ? "Say what you've felt" : "Ask her");
   row("else", "Anything else", v.pregnancy);
   return rows;

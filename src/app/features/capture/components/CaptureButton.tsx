@@ -21,21 +21,23 @@ export function CaptureButton({ layout }: { layout: "float" | "bar" }) {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
-  return layout === "float" ? (
-    <CaptureFloat onClick={() => setOpen(true)} open={open} onClose={() => setOpen(false)} />
-  ) : (
+  return (
     <>
-      <button
-        type="button"
-        aria-label="Add"
-        aria-haspopup="dialog"
-        onClick={() => setOpen(true)}
-        className="flex min-h-9 shrink-0 items-center gap-2 rounded-md bg-bg-brand pr-2 pl-3 text-sm font-medium text-fg-on-brand hover:bg-bg-brand-hovered"
-      >
-        <Plus aria-hidden size={17} />
-        Add
-        <kbd className="rounded-sm border border-fg-on-brand/40 px-1.5 font-sans text-xs opacity-80">N</kbd>
-      </button>
+      {layout === "float" ? (
+        <CaptureFloat onClick={() => setOpen(true)} open={open} />
+      ) : (
+        <button
+          type="button"
+          aria-label="Add"
+          aria-haspopup="dialog"
+          onClick={() => setOpen(true)}
+          className="flex min-h-9 shrink-0 items-center gap-2 rounded-md bg-bg-brand pr-2 pl-3 text-sm font-medium text-fg-on-brand hover:bg-bg-brand-hovered"
+        >
+          <Plus aria-hidden size={17} />
+          Add
+          <kbd className="rounded-sm border border-fg-on-brand/40 px-1.5 font-sans text-xs opacity-80">N</kbd>
+        </button>
+      )}
       {open ? <CaptureSheet onClose={() => setOpen(false)} /> : null}
     </>
   );

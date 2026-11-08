@@ -6,17 +6,14 @@ import type { ReactNode } from "react";
  * A screen away from the timeline (settings, login, not found): its heading,
  * an optional line under it, and its content.
  */
-export function Page({ title, subtitle, aside, children }: { title: string; subtitle?: ReactNode; aside?: ReactNode; children: ReactNode }) {
+export function Page({ title, subtitle, children }: { title: string; subtitle?: ReactNode; children: ReactNode }) {
   return (
     <main className="mx-auto w-full max-w-6xl px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-16 desktop:px-8 desktop:pt-10">
-      <header className="mb-5 flex items-start justify-between gap-3 desktop:mb-8">
-        <div>
-          <Heading as="h1" className="font-display">
-            {title}
-          </Heading>
-          {subtitle ? <div className="mt-1 text-fg-subtle">{subtitle}</div> : null}
-        </div>
-        {aside}
+      <header className="mb-5 desktop:mb-8">
+        <Heading as="h1" className="font-display">
+          {title}
+        </Heading>
+        {subtitle ? <div className="mt-1 text-fg-subtle">{subtitle}</div> : null}
       </header>
       <div className="flex flex-col gap-6">{children}</div>
     </main>

@@ -7,7 +7,7 @@ import { applyTheme, BABY, type Baby, THEMES } from "../../../../../lib/theme";
  * drawn in its own colours (`data-expecting-theme` on the swatch), so you see
  * what you're choosing. Shown at once; the save follows.
  */
-export function ColourChoice({ value, onChoose }: { value: Baby; onChoose: (baby: Baby) => Promise<unknown> }) {
+export function ColourChoice({ value, onChoose }: { value: Baby; onChoose: (baby: Baby) => void }) {
   return (
     <div role="radiogroup" aria-label="Boy or girl?" className="grid grid-cols-3 gap-2 sm:gap-3">
       {(Object.keys(BABY) as Baby[]).map((baby) => {
@@ -28,7 +28,7 @@ export function ColourChoice({ value, onChoose }: { value: Baby; onChoose: (baby
               checked={chosen}
               onChange={() => {
                 applyTheme(THEMES[baby]);
-                void onChoose(baby);
+                onChoose(baby);
               }}
               // Over the whole card, unseen: the card is what's tapped.
               className="absolute inset-0 z-10 cursor-pointer appearance-none opacity-0"

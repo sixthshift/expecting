@@ -2,19 +2,13 @@ import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
 import { logOutEverywhere } from "../../../../../api/rpc/people";
 import { logout } from "../../../../../api/rpc/session";
-import { forgetData } from "../../../../../pwa/register";
+import { logOut } from "../../../../model/loggedOut";
 
 /** Logging out: on this phone, or (with logins on) on every one of yours, each asked first. */
 export function LogOut({ login }: { login: boolean }) {
   const [leaving, setLeaving] = useState<"here" | "everywhere" | null>(null);
 
-  async function leave() {
-    await (leaving === "everywhere" ? logOutEverywhere() : logout());
-    // Nor in what the service worker keeps for offline.
-    await forgetData();
-    // A full load, not a navigation: nothing of yours stays in this tab's memory.
-    window.location.assign("/login");
-  }
+  const leave = () => logOut(leaving === "everywhere" ? logOutEverywhere : logout);
 
   if (leaving)
     return (

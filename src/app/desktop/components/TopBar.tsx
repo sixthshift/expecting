@@ -3,7 +3,6 @@ import { Link } from "@tanstack/react-router";
 import { Baby, Search, Settings, Siren } from "lucide-react";
 import { usePosition } from "../../../api/rpc/settings";
 import { gestationLabel } from "../../../lib/timeline";
-import type { Pillar } from "../../components/layout/AppLayout";
 import { CallBirthSuite } from "../../components/layout/CallBirthSuite";
 import { PillarNav } from "../../components/layout/PillarNav";
 import { CaptureButton } from "../../features/capture/components/CaptureButton";
@@ -26,7 +25,7 @@ const quiet = "text-fg-subtle hover:bg-bg-subtle-hovered hover:text-fg-normal";
  * from 1280px (`xl`); the search box and Emergency info's words from 1536px
  * (`2xl`), a magnifier and a siren under that. So it fits from 1024px.
  */
-export function TopBar({ pillars, onPillar }: { pillars: readonly Pillar[]; onPillar: boolean }) {
+export function TopBar({ onPillar }: { onPillar: boolean }) {
   return (
     <header className="frame-top-bar sticky top-0 z-30 flex h-(--top-bar) items-center gap-3 border-b border-border-subtle bg-bg-normal/95 px-4 backdrop-blur print:hidden">
       <div className="flex flex-1 basis-0 items-center gap-2">
@@ -37,7 +36,7 @@ export function TopBar({ pillars, onPillar }: { pillars: readonly Pillar[]; onPi
         <WeekChip />
       </div>
 
-      <PillarNav pillars={pillars} layout="bar" />
+      <PillarNav layout="bar" />
 
       <div className="flex flex-1 basis-0 items-center justify-end gap-1">
         <SearchButton />

@@ -1,5 +1,5 @@
 import { type RouteComponent, useParams } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import type { ComponentProps } from "react";
 import type { Back } from "../../components/layout/PillarLayout";
 import { PutAwayPage } from "./pages/PutAwayPage";
 
@@ -19,15 +19,7 @@ type BackTo = { to: string; label: string };
 export function putAway({
   back,
   ...page
-}: {
-  subject: string;
-  are?: boolean;
-  aside?: boolean;
-  back?: BackTo | ((params: Record<string, string>) => BackTo);
-  title?: string;
-  lead?: ReactNode;
-  width?: "2xl" | "3xl" | "6xl";
-}): RouteComponent {
+}: Omit<ComponentProps<typeof PutAwayPage>, "back"> & { back?: BackTo | ((params: Record<string, string>) => BackTo) }): RouteComponent {
   return function PutAway() {
     const params = useParams({ strict: false }) as Record<string, string>;
     const to = typeof back === "function" ? back(params) : back;

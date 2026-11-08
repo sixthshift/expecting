@@ -16,6 +16,7 @@
 
 import { exifTakenAt, type TakenAt } from "../../lib/exif";
 import { type FileProblem, type FileType, fitWithin, isImage, MADE_AT, MADE_TYPE, MAX_ORIGINAL, sniff, type Variant } from "../../lib/files";
+import { readList, writeList } from "./storedList";
 
 /** A file that can't be kept, and why, in words for the person who chose it (`FILE_PROBLEM`). */
 export class FileProblemError extends Error {
@@ -107,32 +108,17 @@ export function previewUrl(prepared: Prepared): string | null {
 // Kept on the phone until sent.
 
 /** The phone's IndexedDB for uploads waiting to go. */
-export const UPLOADS_DB = "expecting-uploads";
+const UPLOADS_DB = "expecting-uploads";
 const STORE = "waiting";
 /** The ids waiting, in localStorage: read at once, as a page draws. */
-export const WAITING_KEY = "expecting-uploads-waiting";
+const WAITING_KEY = "expecting-uploads-waiting";
 
 /** This page's own copy: what was kept here, and the URLs it's drawn from, so a picture shows the moment it's kept. */
 const held = new Map<string, Held>();
 const urls = new Map<string, string>();
 
-function waitingIds(): string[] {
-  try {
-    const kept = JSON.parse(localStorage.getItem(WAITING_KEY) ?? "[]");
-    return Array.isArray(kept) ? kept : [];
-  } catch {
-    return [];
-  }
-}
-
-function writeWaiting(ids: string[]): void {
-  try {
-    if (ids.length === 0) localStorage.removeItem(WAITING_KEY);
-    else localStorage.setItem(WAITING_KEY, JSON.stringify(ids));
-  } catch {
-    // No storage: kept in the page only.
-  }
-}
+const waitingIds = () => readList<string>(WAITING_KEY);
+const writeWaiting = (ids: string[]) => writeList(WAITING_KEY, ids);
 
 function open(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {

@@ -21,7 +21,7 @@ import { useNow } from "../../../../api/rpc/settings";
 import type { FirstKey } from "../../../../lib/journal/firsts";
 import { movementsOffered } from "../../../../lib/journal/journal";
 import type { Shared } from "../../../../pwa/share";
-import { type Capture, CHOICE, captureChoices, FILED_IN, sharedChoices } from "../model/choices";
+import { type Capture, CHOICE, captureChoices, sharedChoices } from "../model/choices";
 import { CaptureForm } from "./CaptureForm";
 import { ChoiceList } from "./ChoiceList";
 
@@ -64,7 +64,8 @@ export function CaptureSheet({
 
   /** Kept: close, and say what was kept and where it went, with the way there unless you're there. */
   function filed(capture: Capture) {
-    const { pillar, to, kept } = FILED_IN[capture];
+    const { pillar, kept } = CHOICE[capture];
+    const to = pillar === "Journal" ? "/journal" : "/planner";
     onKept?.();
     onClose();
     toast({ title: kept, children: `In the ${pillar}`, ...(pathname === to ? {} : { action: "See it", onAction: () => navigate({ to }) }) });

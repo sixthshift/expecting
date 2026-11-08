@@ -7,9 +7,6 @@ import { Redirect } from "../../../components/Redirect";
 import { useAction } from "../../../hooks/useAction";
 import { stepAt } from "../model/paths";
 
-/** Save this step's answer (or nothing, to skip), reload what's known, and go on to the next. */
-export type Advance = (save?: () => Promise<unknown>) => Promise<void>;
-
 /**
  * A step's context: where it is among the steps, and the ways on. What a
  * step asks, and what's known of it, the step reads itself.
@@ -21,11 +18,10 @@ export type OnboardingPage = {
   current: Step;
   /** The one before it, for the back button; undefined on the first. */
   previous: Step | undefined;
-  advance: Advance;
+  /** Save this step's answer (or nothing, to skip), reload what's known, and go on to the next. */
+  advance: (save?: () => Promise<unknown>) => Promise<void>;
   /** Onboarding done: on into the app. */
   finish: () => Promise<void>;
-  /** A save is in, and its fresh data not yet. */
-  saving: boolean;
 };
 
 const PageContext = createContext<OnboardingPage | null>(null);
@@ -64,7 +60,6 @@ export function OnboardingPageProvider({ children }: { children: ReactNode }) {
       finish: async () => {
         if (await save(() => finishOnboarding())) await navigate({ to: "/" });
       },
-      saving,
     };
   } else if (!saving || !kept.current) return <Redirect href="/onboarding" />;
 

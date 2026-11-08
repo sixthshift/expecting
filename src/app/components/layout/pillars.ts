@@ -1,5 +1,8 @@
-import { Archive, BookOpen, House, ListChecks, NotebookPen } from "lucide-react";
-import type { Pillar } from "./AppLayout";
+import { Archive, BookOpen, House, ListChecks, type LucideIcon, NotebookPen } from "lucide-react";
+import type { AppPath } from "../../model/paths";
+
+/** One pillar in the navigation: where it lives (`/planner`) and what it's called. */
+export type Pillar = { to: AppPath; label: string; icon: LucideIcon };
 
 /**
  * Expecting's pillars, in their one order, a row on both layouts: the phone's

@@ -261,11 +261,10 @@ const CASES: Record<string, [unknown, unknown[]]> = {
   saveEmergency: [emergency, [{ carerPhone: "", notes: "Allergic to penicillin  " }, { carerPhone: "0400 000 000" }]],
   setQuiet: [null, [{ kind: "news" }, { kind: "loss" }]],
   clearQuiet: [{ kind: "news", setBy: null, setAt: made.at }, [null]],
-  addNote: [journal, [{ id: "22222222-2222-4222-8222-222222222222", day: "2026-10-29", time: null, body: " Told Mum " }]],
-  editNote: [journal, [{ id: ID, day: "2026-10-29", time: null, body: "First kick, I think " }]],
+  addNote: [journal, [{ id: "22222222-2222-4222-8222-222222222222", day: "2026-10-29", time: null, body: " Told Mum ", kind: "note", fromBoth: false }]],
+  editNote: [journal, [{ id: ID, day: "2026-10-29", time: null, body: "First kick, I think ", kind: "note", fromBoth: false }]],
   restoreNote: [[], [note]],
   deleteNote: [journal, [{ id: ID }]],
-  markJournalSeen: [null, [undefined]],
   markFirst: [
     firsts,
     [
@@ -273,7 +272,6 @@ const CASES: Record<string, [unknown, unknown[]]> = {
       { key: "first-scan", day: "2026-05-01" },
     ],
   ],
-  setFirstAside: [firsts, [{ key: "first-scan" }, { key: "first-kick" }]],
   unmarkFirst: [firsts, [{ key: "first-kick" }]],
   setFirstWords: [
     firsts,
@@ -527,7 +525,7 @@ test("a save changes what it says, and nothing it doesn't", () => {
   expect(byKey.unvoteName!.apply({ ...names, names: [{ ...names.names[0]!, mine: true }] }, { name: "ada" }, made).names).toEqual(names.names);
   expect(byKey.saveSettings!.apply(settings, { baby: "boy" }, made)).toEqual({ ...settings, baby: "boy" });
   expect(byKey.saveEmergency!.apply(emergency, { carerPhone: "" }, made)).toEqual({ values: {}, changed: { by: made.by, at: made.at } });
-  expect(byKey.addNote!.apply([], { id: ID, day: "2026-10-29", time: null, body: " Told Mum " }, made)).toEqual([
+  expect(byKey.addNote!.apply([], { id: ID, day: "2026-10-29", time: null, body: " Told Mum ", kind: "note", fromBoth: false }, made)).toEqual([
     {
       id: ID,
       kind: "note",
@@ -559,8 +557,8 @@ test("a save changes what it says, and nothing it doesn't", () => {
   ]);
   // A note and a movement are each changed only as what they are.
   expect(byKey.editMovement!.apply(journal, { id: ID, day: "2026-10-30", time: "21:10", body: "", different: true }, made)).toEqual(journal);
-  expect(byKey.editNote!.apply(journal, { id: MOVED, day: "2026-10-29", time: null, body: "Kick" }, made)).toEqual(journal);
-  expect(byKey.editNote!.apply(journal, { id: ID, day: "2026-10-29", time: null, body: "Kick " }, made)[0]).toEqual({
+  expect(byKey.editNote!.apply(journal, { id: MOVED, day: "2026-10-29", time: null, body: "Kick", kind: "note", fromBoth: false }, made)).toEqual(journal);
+  expect(byKey.editNote!.apply(journal, { id: ID, day: "2026-10-29", time: null, body: "Kick ", kind: "note", fromBoth: false }, made)[0]).toEqual({
     ...note,
     day: "2026-10-29",
     time: null,

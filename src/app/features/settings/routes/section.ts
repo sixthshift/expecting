@@ -5,14 +5,14 @@ import { accessQuery } from "../../../../api/rpc/session";
 import { isSection } from "../model/sections";
 import { settings } from "./settings";
 
-/** A section's search: a row to open at (`cover`, `work.partner`, `extra:babymoon`). */
-const sectionSearch = z.object({ ask: z.string().optional().catch(undefined) });
+/** Settings' search: a row to open at (`cover`, `work.partner`, `extra:babymoon`, `quiet`). */
+export const askSearch = z.object({ ask: z.string().optional().catch(undefined) });
 
 /** One of Settings' sections: `/settings/work`, `/settings/account`; any other name is the first. */
 export const section = createRoute({
   getParentRoute: () => settings,
   path: "$section",
-  validateSearch: sectionSearch,
+  validateSearch: askSearch,
   beforeLoad: ({ params }) => {
     if (!isSection(params.section)) throw redirect({ to: "/settings", replace: true });
   },

@@ -7,6 +7,7 @@ import { ItemLink } from "../../../../../pillars/library/components/itemLink/Ite
 import { useSave } from "../../../../hooks/useSave";
 import { useClock } from "../../hooks/useClock";
 import { useWakeLock } from "../../hooks/useWakeLock";
+import { Part } from "../Part";
 import { ContractionRow } from "./ContractionRow";
 
 /** How many of the last contractions are listed. */
@@ -31,10 +32,7 @@ export function Timer({ start }: { start: Start }) {
   const last = [...start.contractions].reverse().slice(0, SHOWN);
 
   return (
-    <section aria-labelledby="contractions" className="flex flex-col gap-3">
-      <h2 id="contractions" className="text-sm font-semibold tracking-wide text-fg-subtle uppercase">
-        Contractions
-      </h2>
+    <Part id="contractions" title="Contractions">
       <button
         type="button"
         onClick={() => (running ? end({ id: running.id, startId: start.id, startedAt: running.startedAt }) : begin({ id: newId(), startId: start.id }))}
@@ -73,7 +71,7 @@ export function Timer({ start }: { start: Start }) {
         Timing contractions
         <ChevronRight aria-hidden size={16} />
       </ItemLink>
-    </section>
+    </Part>
   );
 }
 

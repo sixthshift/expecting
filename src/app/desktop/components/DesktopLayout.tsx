@@ -1,6 +1,5 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { Outlet } from "@tanstack/react-router";
-import type { Pillar } from "../../components/layout/AppLayout";
 import { SharedIn } from "../../features/capture/components/SharedIn";
 import { AddressedPanel } from "./panel/AddressedPanel";
 import { PanelProvider, usePanel } from "./panel/panel";
@@ -15,11 +14,11 @@ import { TopBar } from "./TopBar";
  * `--top-bar`, so what sticks while the page scrolls sticks under it;
  * nothing sits under the page, so `--tab-bar` is nothing.
  */
-export function DesktopLayout({ pillars, onPillar }: { pillars: readonly Pillar[]; onPillar: boolean }) {
+export function DesktopLayout({ onPillar }: { onPillar: boolean }) {
   return (
     <PanelProvider>
       <div className="[--tab-bar:0px] [--top-bar:3.5rem] print:[--top-bar:0px]">
-        <TopBar pillars={pillars} onPillar={onPillar} />
+        <TopBar onPillar={onPillar} />
         <div className="flex items-start">
           <div className="min-w-0 flex-1">
             <Outlet />
