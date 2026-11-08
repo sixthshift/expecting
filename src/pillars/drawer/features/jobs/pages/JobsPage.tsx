@@ -3,6 +3,7 @@ import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { JOBS, results, toAnswer, waiting } from "../../../../../lib/drawer/jobs";
 import { otherName } from "../../../../../lib/people";
 import { DrawerTool } from "../../../components/tool/DrawerTool";
+import { TOOLS } from "../../../model/tools";
 import { JobDeck } from "../components/deck/JobDeck";
 import { JobsLead } from "../components/lead/JobsLead";
 import { Results } from "../components/results/Results";
@@ -22,7 +23,7 @@ export function JobsPage() {
   const waits = waiting(view.answers);
 
   return (
-    <DrawerTool title="Who does what" lead={<JobsLead />} extras={["who-does-what"]}>
+    <DrawerTool tool={TOOLS.jobs} lead={<JobsLead />}>
       <div className="flex flex-col gap-6">
         <JobDeck deck={deck} other={other} />
         <p className="text-sm text-fg-normal">

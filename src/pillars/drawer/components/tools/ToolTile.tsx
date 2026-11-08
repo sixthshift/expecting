@@ -2,6 +2,7 @@ import { cn } from "@sixthshift/design-system/utils";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, type LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
+import type { Tool } from "../../model/tools";
 
 /**
  * A tool that's on, in the Drawer: its icon, its name and a line of where
@@ -15,7 +16,7 @@ export function ToolTile({
   featured = false,
   children,
 }: {
-  to: "/drawer/names" | "/drawer/people" | "/drawer/jobs" | "/drawer/bingo";
+  to: Tool["to"];
   icon: LucideIcon;
   title: string;
   featured?: boolean;

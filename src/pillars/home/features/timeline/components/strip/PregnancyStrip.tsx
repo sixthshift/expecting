@@ -1,7 +1,10 @@
 import { cn } from "@sixthshift/design-system/utils";
 import { Link } from "@tanstack/react-router";
+import { useMemo } from "react";
+import { useChecklistQuery } from "../../../../../../api/rpc/checklist";
 import { LANDMARKS } from "../../../../../../lib/home/timelineWeeks";
 import { TRIMESTERS, type Trimester, type Week, weekLabel } from "../../../../../../lib/timeline";
+import { useTasks } from "../../../../../planner/features/tasks/hooks/useTasks";
 
 /** A trimester's weeks, in order. */
 const weeksOf = (t: Trimester): Week[] => Array.from({ length: t.to - t.from + 1 }, (_, i) => t.from + i);
@@ -22,7 +25,11 @@ const SHORT = { 1: "First", 2: "Second", 3: "Third" } as const;
  *
  * `named` gives the landmarks their names, where there's room (the timeline's head).
  */
-export function PregnancyStrip({ now, at, due, named = false }: { now: Week; at: Week; due: ReadonlySet<Week>; named?: boolean }) {
+export function PregnancyStrip({ now, at, named = false }: { now: Week; at: Week; named?: boolean }) {
+  const { data: checklist } = useChecklistQuery();
+  const tasks = useTasks();
+  // The weeks with something still to do best done by then.
+  const due = useMemo(() => new Set(tasks.filter((t) => !checklist.ticks[t.id]).map((t) => t.due)), [tasks, checklist.ticks]);
   return (
     <div aria-hidden className="flex w-full flex-col gap-1.5">
       <div className="grid h-4 gap-1 text-[0.625rem] font-medium text-fg-brand" style={COLUMNS}>

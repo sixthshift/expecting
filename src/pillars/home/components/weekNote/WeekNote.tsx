@@ -5,6 +5,7 @@ import { useState } from "react";
 import { usePeopleQuery } from "../../../../api/rpc/people";
 import { LIKE_SOURCE, type WeekNote as Note, SECTIONS, type Section, sizeLabel } from "../../../../content/weeks";
 import { formatDate, type ISODate } from "../../../../lib/dates";
+import { capitalise } from "../../../../lib/labels";
 import type { Role } from "../../../../lib/people";
 import { ItemBody } from "../../../library/components/content/ItemBody";
 
@@ -42,7 +43,7 @@ export function WeekNote({
         <h3 id={`note-${note.week}`} className="text-lg leading-snug font-display font-semibold text-fg-strong">
           {note.title}
         </h3>
-        {size ? <p className="text-sm text-fg-subtle">{size.charAt(0).toUpperCase() + size.slice(1)}.</p> : null}
+        {size ? <p className="text-sm text-fg-subtle">{capitalise(size)}.</p> : null}
         <ToggleGroup
           type="single"
           appearance="segmented"

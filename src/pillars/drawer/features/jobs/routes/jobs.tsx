@@ -2,6 +2,7 @@ import { createRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { jobsQuery } from "../../../../../api/rpc/jobs";
 import { putAway } from "../../../../../app/features/quiet/putAway";
 import { worlds } from "../../../../../app/features/quiet/worlds";
+import { TOOLS, toolPutAway } from "../../../model/tools";
 import { drawer } from "../../../routes/drawer";
 import { JobsLead } from "../components/lead/JobsLead";
 
@@ -12,6 +13,6 @@ export const jobs = createRoute({
   loader: ({ context: { queryClient } }) => queryClient.ensureQueryData(jobsQuery),
   component: worlds(
     lazyRouteComponent(() => import("../pages/JobsPage"), "JobsPage"),
-    putAway({ subject: "Who does what", back: { to: "/drawer", label: "The Drawer" }, title: "Who does what", lead: <JobsLead />, width: "3xl" })
+    putAway({ ...toolPutAway(TOOLS.jobs), lead: <JobsLead /> })
   ),
 });

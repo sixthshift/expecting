@@ -79,7 +79,14 @@ export function AtAGlance({ shown }: { shown: OneThing["kind"] }) {
   const asked = questions.filter((q) => askedIn.get(q.id) === now);
   const appointment = next && shown !== "appointment" && appointmentSoon(next, today) !== null ? next : null;
 
-  const toggle = (id: FoldId) => setOpen((o) => ({ ...o, [id]: !o[id] }));
+  // A fold: where it is, to go to, and open or not, kept.
+  const fold = (id: FoldId) => ({
+    ref: (el: HTMLElement | null) => {
+      folds.current[id] = el;
+    },
+    open: !!open[id],
+    onToggle: () => setOpen((o) => ({ ...o, [id]: !o[id] })),
+  });
   // A number opens its fold and goes to it.
   const go = (id: FoldId) => {
     setOpen((o) => ({ ...o, [id]: true }));
@@ -95,22 +102,11 @@ export function AtAGlance({ shown }: { shown: OneThing["kind"] }) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <CollapsibleCard
-          ref={(el) => {
-            folds.current.do = el;
-          }}
-          title="To do"
-          summary={toDo[0] ? (toDo.length > 1 ? `${toDo[0].task.title}, and ${toDo.length - 1} more` : toDo[0].task.title) : "Nothing right now"}
-          open={!!open.do}
-          onToggle={() => toggle("do")}
-          quietHeading
-        >
+        <CollapsibleCard {...fold("do")} title="To do" summary={andMore(toDo.map((t) => t.task.title)) || "Nothing right now"} quietHeading>
           <ToDoNow />
         </CollapsibleCard>
         <CollapsibleCard
-          ref={(el) => {
-            folds.current.keep = el;
-          }}
+          {...fold("keep")}
           title="To keep"
           summary={
             [checkIn ? "How are you today?" : null, ...firstsNow.map((f) => f.title), ...places.map(() => "a place ready")]
@@ -118,44 +114,23 @@ export function AtAGlance({ shown }: { shown: OneThing["kind"] }) {
               .slice(0, 2)
               .join(" · ") || "The week's question, and anything around now"
           }
-          open={!!open.keep}
-          onToggle={() => toggle("keep")}
         >
           {shown === "checkIn" ? null : <CheckIn />}
           <KeepNow />
           <WeeklyCard />
         </CollapsibleCard>
-        <CollapsibleCard
-          ref={(el) => {
-            folds.current.read = el;
-          }}
-          title="To read"
-          summary={toRead[0] ? (toRead.length > 1 ? `${toRead[0].title}, and ${toRead.length - 1} more` : toRead[0].title) : "The week's heads-up"}
-          open={!!open.read}
-          onToggle={() => toggle("read")}
-          quietHeading
-        >
+        <CollapsibleCard {...fold("read")} title="To read" summary={andMore(toRead.map((i) => i.title)) || "The week's heads-up"} quietHeading>
           <WorthKnowing brief />
           <HeadsUp />
         </CollapsibleCard>
         {shown === "read" || days.length === 0 ? null : (
-          <CollapsibleCard
-            ref={(el) => {
-              folds.current.today = el;
-            }}
-            title="Today's read"
-            summary={days[opening]?.read?.title ?? days[opening]?.note?.title ?? ""}
-            open={!!open.today}
-            onToggle={() => toggle("today")}
-          >
+          <CollapsibleCard {...fold("today")} title="Today's read" summary={days[opening]?.read?.title ?? days[opening]?.note?.title ?? ""}>
             <DayByDay />
           </CollapsibleCard>
         )}
         {coming.length > 0 || appointment ? (
           <CollapsibleCard
-            ref={(el) => {
-              folds.current.coming = el;
-            }}
+            {...fold("coming")}
             title="Coming up"
             summary={[
               appointment ? `${appointment.title}, ${appointmentSoon(appointment, today)?.toLowerCase()}` : null,
@@ -164,8 +139,6 @@ export function AtAGlance({ shown }: { shown: OneThing["kind"] }) {
             ]
               .filter(Boolean)
               .join(" · ")}
-            open={!!open.coming}
-            onToggle={() => toggle("coming")}
             quietHeading
           >
             {appointment ? <NextAppointment /> : null}
@@ -174,22 +147,18 @@ export function AtAGlance({ shown }: { shown: OneThing["kind"] }) {
           </CollapsibleCard>
         ) : null}
         {asked.length > 0 ? (
-          <CollapsibleCard
-            ref={(el) => {
-              folds.current.asked = el;
-            }}
-            title="Asked this week"
-            summary={asked.length > 1 ? `${asked[0]?.text}, and ${asked.length - 1} more` : asked[0]?.text}
-            open={!!open.asked}
-            onToggle={() => toggle("asked")}
-            quietHeading
-          >
+          <CollapsibleCard {...fold("asked")} title="Asked this week" summary={andMore(asked.map((q) => q.text))} quietHeading>
             <AskedThatWeek />
           </CollapsibleCard>
         ) : null}
       </div>
     </div>
   );
+}
+
+/** The first of a fold's things, and how many more: "Book the scan, and 2 more"; "" for none. */
+function andMore(titles: readonly string[]): string {
+  return titles.length > 1 ? `${titles[0]}, and ${titles.length - 1} more` : (titles[0] ?? "");
 }
 
 /** One kind of what's now as a number, opening its fold. */

@@ -36,14 +36,16 @@ settings, ?at=          the due date, the week peeked at
 
 ```
 pages/            HomePage: HomePageProvider around HomeMobile or HomeDesktop (useLayout)
-mobile/           components/HomeMobile: a dashboard (a peek is the week's page): TheOneThing, the
+mobile/           components/HomeMobile: a dashboard (a peek is the week's page, AWeek): WeekTop,
+                  where you are in the bar; TheOneThing, the
                   one thing big with its action; OtherNews, the other of you in a line;
                   AtAGlance, To do, To keep, To read as numbers over the folds that hold them
                   (each a CollapsibleCard, src/components/);
                   hooks/useTheOneThing (oneThings in src/lib/home/oneThing.ts, kept while shown)
 desktop/          components/HomeDesktop: The week | Now, Now the larger share and labelled
                   by pillar (To do, from the Planner; To keep, for the Journal), the week with
-                  where you are and To read, from the Library; DayTabs: the day by day as tabs
+                  where you are (WeekHeader: the heading, the size, the strip) and To read,
+                  from the Library; DayTabs: the day by day as tabs
 hooks/            useWeekDays: the week's days (its note, a read a day), for DayByDay and DayTabs
 routes/           home (/, ?at=); index.ts, homeRoutes, with the timeline's beside it
                   (features/timeline/routes/, not under /)
@@ -51,18 +53,19 @@ contexts/         HomePageContext: the week shown and where you are
 model/            labels.ts ("this week" / "that week"), sizeIcons.ts (the size's drawings)
 components/
   Part            one part in its column, dropped when it draws nothing
-  header/         WeekHeader (Hero, or "Home" and the welcome), Hero (the week's heading, the size, the strip), NowLine, WeekStepper
+  header/         what both tops draw: WeekStepper, WholePregnancyLink (to the timeline)
   dayByDay/       DayByDay, the note and the day reads in one carousel, and a day's Read
   weekNote/       WeekNote, read as whoever holds the phone
   sizeIcon/       SizeIcon, the drawing of what the baby's size is like
   headsUp/        HeadsUp, the week's "Nobody tells you"
   worthKnowing/   WorthKnowing, what starts this week
-  week/           TheWeek (WeekReads, WeekKept: each layout places them); a peek's appointments, what was asked, what was kept
+  week/           a peek's appointments, what was asked, what was kept
   doing/          QuestionsWaitingNow, while no appointment is near; on a peek BestDoneThatWeek
   welcome/        Welcome: no due date yet
 quiet/            while something has happened: pages/QuietHomePage, components/Guide
 features/
-  timeline/       the whole pregnancy at /timeline: TimelinePage, the weeks, the strip; quiet/pages/QuietTimelinePage
+  timeline/       the whole pregnancy at /timeline: TimelinePage, the weeks, the strip (which dots the weeks
+                  with something still to do itself); quiet/pages/QuietTimelinePage
   weekly/         the week's question, and the earlier weeks'
 ```
 
@@ -95,7 +98,7 @@ what happened (`Guide`), then the next steps. The timeline's page,
    nothing). Each layout places it: `HomeDesktop` in Now or The week;
    `HomeMobile` in a fold of `AtAGlance` (and its count and line, if it's
    one of To do, To keep or To read), or among what stays in sight only if
-   it's asked of you now. A peek at another week has the week's runs
-   (`WeekReads`, `WeekKept`, `components/week/TheWeek.tsx`) and
-   `BestDoneThatWeek`. A new part goes in both layouts.
+   it's asked of you now. A peek at another week is `AWeek` on a phone, the
+   same columns on a desktop with `BestDoneThatWeek` in Now. A new part goes
+   in both layouts.
 3. A heading that names the week says it through `whichWeek(peeking)`.

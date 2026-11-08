@@ -15,7 +15,6 @@ import { ComingUp } from "../../../planner/features/tasks/components/comingUp/Co
 import { ToDoNow } from "../../../planner/features/tasks/components/toDoNow/ToDoNow";
 import { BestDoneThatWeek } from "../../components/doing/BestDoneThatWeek";
 import { QuestionsWaitingNow } from "../../components/doing/QuestionsWaitingNow";
-import { WeekHeader } from "../../components/header/WeekHeader";
 import { HeadsUp } from "../../components/headsUp/HeadsUp";
 import { Part } from "../../components/Part";
 import { AppointmentsThatWeek } from "../../components/week/AppointmentsThatWeek";
@@ -25,6 +24,7 @@ import { WorthKnowing } from "../../components/worthKnowing/WorthKnowing";
 import { useHomePage } from "../../contexts/HomePageContext";
 import { WeeklyCard } from "../../features/weekly/components/WeeklyCard";
 import { DayTabs } from "./DayTabs";
+import { WeekHeader } from "./WeekHeader";
 
 /**
  * Home on a desktop: the dashboard over every pillar, as The week and Now

@@ -31,7 +31,9 @@ Each route is a file in its feature's `routes/` (`features/names/routes/names.ts
 ## Where things are
 
 ```
-pages/        DrawerPage
+pages/        DrawerPage: a tile per tool, from TOOLS
+model/        tools.ts: TOOLS, each tool said once (where, name, lead, width, extras, what's put
+              away, what it says while off), and toolPutAway, its route's quiet world
 routes/       drawer (/drawer, a path only) and drawerIndex; index.ts, drawerRoutes, adds
               each tool's (features/<tool>/routes/)
 components/
@@ -50,9 +52,11 @@ features/     a feature per tool, each with its page, its parts and its summary 
 
 1. An extra that brings it, in `src/app/features/settings/model/extras.data.ts`,
    with its `tool` line.
-2. Its feature, `src/pillars/drawer/features/<tool>/`, and a route file in its `routes/`
-   (`<tool>.ts`, `path: "<tool>"` under `drawer`), added to `drawerRoutes` in `routes/index.ts`.
-3. Its page inside `DrawerTool`, with its extra in `extras`: it says
-   when it's put away or off, and draws the tool only when it's on.
-4. Its tile on `DrawerPage`: a `ToolTile` with the tool's own summary while
-   its extra is on, a `ToolOff` while it isn't.
+2. Its entry in `TOOLS` (`model/tools.ts`).
+3. Its feature, `src/pillars/drawer/features/<tool>/`, and a route file in its `routes/`
+   (`<tool>.ts`, `path: "<tool>"` under `drawer`, its quiet world
+   `putAway(toolPutAway(TOOLS.<tool>))`), added to `drawerRoutes` in `routes/index.ts`.
+4. Its page inside `<DrawerTool tool={TOOLS.<tool>}>`: it says when it's off,
+   and draws the tool only when it's on.
+5. Its icon and summary in `TILES` on `DrawerPage`: a `ToolTile` with the
+   summary while its extra is on, a `ToolOff` while it isn't.

@@ -3,6 +3,7 @@ import { z } from "zod";
 import { bingoQuery } from "../../../../../api/rpc/bingo";
 import { putAway } from "../../../../../app/features/quiet/putAway";
 import { worlds } from "../../../../../app/features/quiet/worlds";
+import { TOOLS, toolPutAway } from "../../../model/tools";
 import { drawer } from "../../../routes/drawer";
 
 /** Bingo's search: your card, or the other's. */
@@ -16,12 +17,6 @@ export const bingo = createRoute({
   loader: ({ context: { queryClient } }) => queryClient.ensureQueryData(bingoQuery),
   component: worlds(
     lazyRouteComponent(() => import("../pages/BingoPage"), "BingoPage"),
-    putAway({
-      subject: "Bingo",
-      back: { to: "/drawer", label: "The Drawer" },
-      title: "Pregnancy bingo",
-      lead: "Mark a square when it happens. Five in a row, a column or a diagonal is bingo; the centre's free.",
-      width: "2xl",
-    })
+    putAway(toolPutAway(TOOLS.bingo))
   ),
 });

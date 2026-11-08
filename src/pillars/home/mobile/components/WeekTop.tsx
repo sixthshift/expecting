@@ -1,13 +1,9 @@
-import { Link } from "@tanstack/react-router";
-import { ChevronRight } from "lucide-react";
-import { useMemo } from "react";
-import { useChecklistQuery } from "../../../../api/rpc/checklist";
 import { MobileBar } from "../../../../app/mobile/components/MobileBar";
 import { sizeLabel, sizeLine } from "../../../../content/weeks";
 import { toGo, weekRange } from "../../../../lib/labels";
 import { gestationLabel, weekFromNow, weekLabel } from "../../../../lib/timeline";
-import { useTasks } from "../../../planner/features/tasks/hooks/useTasks";
 import { WeekStepper } from "../../components/header/WeekStepper";
+import { WholePregnancyLink } from "../../components/header/WholePregnancyLink";
 import { SizeIcon } from "../../components/sizeIcon/SizeIcon";
 import { Welcome } from "../../components/welcome/Welcome";
 import { useHomePage } from "../../contexts/HomePageContext";
@@ -23,11 +19,6 @@ import { PregnancyStrip } from "../../features/timeline/components/strip/Pregnan
  */
 export function WeekTop() {
   const { week, position, dueDate, note, peeking, today } = useHomePage();
-  const { data: checklist } = useChecklistQuery();
-  const tasks = useTasks();
-  // The weeks with something still to do best done by then, dotted on the strip.
-  const due = useMemo(() => new Set(tasks.filter((t) => !checklist.ticks[t.id]).map((t) => t.due)), [tasks, checklist.ticks]);
-
   if (week === null || !position || !dueDate) {
     return (
       <div className="flex flex-col gap-6">
@@ -58,17 +49,10 @@ export function WeekTop() {
         </p>
         <div className="size-8 shrink-0">{size?.like ? <SizeIcon like={size.like} className="size-full" /> : null}</div>
       </div>
-      <PregnancyStrip now={position.week} at={week} due={due} />
+      <PregnancyStrip now={position.week} at={week} />
       <div className="flex flex-wrap items-center justify-between gap-x-4">
         <WeekStepper />
-        <Link
-          to="/timeline"
-          search={peeking ? { at: week } : {}}
-          className="flex min-h-11 items-center gap-1 text-sm font-medium text-fg-brand hover:underline"
-        >
-          The whole pregnancy
-          <ChevronRight aria-hidden size={16} />
-        </Link>
+        <WholePregnancyLink />
       </div>
     </div>
   );

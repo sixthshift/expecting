@@ -8,6 +8,7 @@ import { useSave } from "../../../../../app/hooks/useSave";
 import { deal, standing, standingLine } from "../../../../../lib/drawer/bingo";
 import { OTHER_ONE, otherOf } from "../../../../../lib/people";
 import { DrawerTool } from "../../../components/tool/DrawerTool";
+import { TOOLS } from "../../../model/tools";
 import { BingoGrid } from "../components/card/BingoGrid";
 import { Winner } from "../components/winner/Winner";
 
@@ -32,12 +33,7 @@ export function BingoPage() {
   const card = showing === "theirs" ? theirs : mine;
 
   return (
-    <DrawerTool
-      title="Pregnancy bingo"
-      lead="Mark a square when it happens. Five in a row, a column or a diagonal is bingo; the centre's free."
-      width="2xl"
-      extras={["pregnancy-bingo"]}
-    >
+    <DrawerTool tool={TOOLS.bingo}>
       {!me ? (
         <p className="text-sm text-fg-normal">Say who's holding this phone, and you'll be dealt a card.</p>
       ) : (

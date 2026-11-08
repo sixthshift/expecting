@@ -4,9 +4,14 @@ import { AskNow } from "../../../../app/features/settings/components/askNow/AskN
 import { OfferExtra } from "../../../../app/features/settings/components/offerExtra/OfferExtra";
 import { Calls } from "../../../journal/components/thisWeek/Calls";
 import { HardFortnight } from "../../../journal/features/feelings/components/fortnight/HardFortnight";
+import { DayByDay } from "../../components/dayByDay/DayByDay";
 import { BestDoneThatWeek } from "../../components/doing/BestDoneThatWeek";
+import { HeadsUp } from "../../components/headsUp/HeadsUp";
 import { Part } from "../../components/Part";
-import { WeekKept, WeekReads } from "../../components/week/TheWeek";
+import { AppointmentsThatWeek } from "../../components/week/AppointmentsThatWeek";
+import { AskedThatWeek } from "../../components/week/AskedThatWeek";
+import { KeptThatWeek } from "../../components/week/KeptThatWeek";
+import { WorthKnowing } from "../../components/worthKnowing/WorthKnowing";
 import { useHomePage } from "../../contexts/HomePageContext";
 import { useTheOneThing } from "../hooks/useTheOneThing";
 import { AtAGlance } from "./AtAGlance";
@@ -56,16 +61,37 @@ export function HomeMobile() {
   );
 }
 
-/** A week other than this one (or before there's a due date): the week as it was, or will be. */
+/**
+ * A week other than this one (or before there's a due date): the week as it
+ * was, or will be. What was best done then; the day by day and its heads-up;
+ * its appointments, what was asked and kept then, and what's worth knowing as
+ * it starts.
+ */
 function AWeek() {
-  const { peeking } = useHomePage();
+  const { peeking, week } = useHomePage();
   return (
     <PillarLayout>
       <div className="flex flex-col gap-8">
         <WeekTop />
         {peeking ? <BestDoneThatWeek /> : null}
-        <WeekReads />
-        <WeekKept />
+        <Part>
+          <DayByDay key={week} />
+        </Part>
+        <Part>
+          <HeadsUp />
+        </Part>
+        <Part>
+          <AppointmentsThatWeek />
+        </Part>
+        <Part>
+          <AskedThatWeek />
+        </Part>
+        <Part>
+          <KeptThatWeek />
+        </Part>
+        <Part>
+          <WorthKnowing key={week} />
+        </Part>
       </div>
     </PillarLayout>
   );

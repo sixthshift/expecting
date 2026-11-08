@@ -6,15 +6,15 @@ import { useItems } from "../../library/hooks/useItems";
 import { useHomePage } from "../contexts/HomePageContext";
 
 /** A day of the week: the note on its first (+0), a read on each after. */
-export type Day = { day: number; note: Note; read?: never } | { day: number; read: DayRead; note?: never };
+type Day = { day: number; note: Note; read?: never } | { day: number; read: DayRead; note?: never };
 
 /**
  * The week, day by day, as a phone's carousel (`DayByDay`) and a desktop's
  * tabs (`DayTabs`) both draw it: the week's note is its first day (+0), and a
  * read follows each day after, out a day at a time (`readsOut`). `opening` is
  * the one to open on: today's, the newest, in this week; the note in a week
- * peeked at. `when` names a day ("30+1 · Yesterday"); `short` is just its
- * gestation, or the note's week. `titles` are the Library's entries as
+ * peeked at. `when` names a day ("30+1 · Yesterday"; a note carried on from
+ * an earlier week, by its week). `titles` are the Library's entries as
  * tailored for you, so a read's link to one you'd not see is left off.
  */
 export function useWeekDays() {
@@ -29,16 +29,13 @@ export function useWeekDays() {
   const showSize = note?.week !== week;
   const titles = new Map(items.map((i) => [i.id, i.title]));
 
-  const short = (day: number) =>
-    // A note carried on from an earlier week (none of this week's own) is named for its week.
-    week === null ? "" : day === 0 && note && note.week !== week ? `Week ${note.week}` : gestationLabel(week * 7 + day);
   const when = (day: number) => {
-    const label = short(day);
-    if (today === null) return label;
+    // A note carried on from an earlier week (none of this week's own) is named for its week.
+    const label = week === null ? "" : day === 0 && note && note.week !== week ? `Week ${note.week}` : gestationLabel(week * 7 + day);
     if (day === today) return `${label} · Today`;
-    if (day === today - 1) return `${label} · Yesterday`;
+    if (today !== null && day === today - 1) return `${label} · Yesterday`;
     return label;
   };
 
-  return { week, days, today, opening: today === null ? 0 : days.length - 1, showSize, titles, short, when };
+  return { week, days, opening: today === null ? 0 : days.length - 1, showSize, titles, when };
 }

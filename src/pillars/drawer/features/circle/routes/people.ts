@@ -4,6 +4,7 @@ import { circleQuery } from "../../../../../api/rpc/circle";
 import { putAway } from "../../../../../app/features/quiet/putAway";
 import { worlds } from "../../../../../app/features/quiet/worlds";
 import { VIEW_KEYS, type View } from "../../../../../lib/drawer/circle";
+import { TOOLS, toolPutAway } from "../../../model/tools";
 import { drawer } from "../../../routes/drawer";
 
 /** Your people's search: which view (`visitors`, `hearing`, `help`, `gifts`); without, the first that's on. */
@@ -22,13 +23,6 @@ export const people = createRoute({
   loader: ({ context: { queryClient } }) => queryClient.ensureQueryData(circleQuery),
   component: worlds(
     lazyRouteComponent(() => import("../pages/CirclePage"), "CirclePage"),
-    putAway({
-      subject: "Your people",
-      are: true,
-      back: { to: "/drawer", label: "The Drawer" },
-      title: "Your people",
-      lead: "The people around you two, and what each of them is doing. Only you two see it.",
-      width: "3xl",
-    })
+    putAway(toolPutAway(TOOLS.people))
   ),
 });

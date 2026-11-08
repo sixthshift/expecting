@@ -5,9 +5,9 @@ import { useExtrasQuery } from "../../../../../api/rpc/extras";
 import { type View, viewsOn } from "../../../../../lib/drawer/circle";
 import { extrasOn } from "../../../../../lib/extras";
 import { DrawerTool } from "../../../components/tool/DrawerTool";
+import { TOOLS } from "../../../model/tools";
 import { AddPerson } from "../components/addPerson/AddPerson";
 import { ViewBody } from "../components/views/ViewBody";
-import { CIRCLE_EXTRAS } from "../model/extras";
 import { ABOUT, viewLabel } from "../model/labels";
 
 const route = getRouteApi("/app/drawer/people");
@@ -26,7 +26,7 @@ export function CirclePage() {
   const view = asked && views.includes(asked) ? asked : views[0];
 
   return (
-    <DrawerTool title="Your people" lead="The people around you two, and what each of them is doing. Only you two see it." extras={CIRCLE_EXTRAS}>
+    <DrawerTool tool={TOOLS.people}>
       {view ? (
         <div className="flex flex-col gap-5">
           {views.length > 1 ? (

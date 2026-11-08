@@ -5,6 +5,7 @@ import { useSettingsQuery } from "../../../../../api/rpc/settings";
 import { dealing } from "../../../../../lib/drawer/names";
 import { otherOf } from "../../../../../lib/people";
 import { DrawerTool } from "../../../components/tool/DrawerTool";
+import { TOOLS } from "../../../model/tools";
 import { NamesGame } from "../components/namesGame/NamesGame";
 
 const route = getRouteApi("/app/drawer/names");
@@ -22,7 +23,7 @@ export function NamesPage() {
   const other = otherOf(people, me);
 
   return (
-    <DrawerTool title="Baby names" extras={["choosing-names"]}>
+    <DrawerTool tool={TOOLS.names}>
       <NamesGame
         view={names}
         other={other}

@@ -24,7 +24,7 @@ afterEach(cleanup);
 
 function tool(extras: ("babymoon" | "baby-budget")[]) {
   return render(
-    <DrawerTool title="A tool" extras={extras}>
+    <DrawerTool tool={{ title: "A tool", width: "3xl", extras }}>
       <p>The tool itself</p>
     </DrawerTool>
   );
