@@ -111,7 +111,7 @@ in.
 
 ```
 src/
-  app/          the app itself, not a domain: the document, the app's layout (App, AppLayout, PillarLayout, PILLARS), the error pages, the outbox, useSave, useAction
+  app/          the app itself, not a domain: the document, the app's layout (App, AppLayout, PillarLayout, PILLARS), the error pages, the outbox, useSave, useAction, usePending
     features/   what's outside the pillars: capture (the +), emergency, itsTime, quiet, settings, onboarding, auth, connect
   pillars/      the five pillars: home, library, planner, journal, drawer
     <pillar>/features/  what lives in a pillar, each a feature: planner/features/{tasks,questions,appointments,lists,weeks}, …
@@ -186,12 +186,15 @@ Biome holds the layers (`noRestrictedImports` in `biome.json`): only `db/`,
   pure function in a `useMemo`, cheap enough for every caller to do its own.
   The `app` route's loader loads what nearly every page reads before any
   pillar draws, so moving between pillars is instant.
-- **Every change goes through one of two hooks.** A save is `useSave`
-  (`src/app/hooks/useSave.ts`) through the outbox ([PWA](#pwa)): it shows at
-  once, by its `apply` on the query it changes, and is sent behind it. What
-  can't wait for a connection (logging in, your account, onboarding) is
-  `useAction`: it saves, refetches the queries on screen with the page still
-  drawn, then resolves. Either way a failed save says so in a toast, and an
+- **Every call to the server goes through one of three hooks.** A save is
+  `useSave` (`src/app/hooks/useSave.ts`) through the outbox ([PWA](#pwa)):
+  it shows at once, by its `apply` on the query it changes, and is sent
+  behind it. A save that can't wait for a connection (your answers,
+  onboarding) is `useAction`: it saves, refetches the queries on screen with
+  the page still drawn, then resolves. A call that isn't a save (logging in,
+  joining, a reset, making an invite) is `usePending`
+  (`src/app/hooks/usePending.ts`): it holds the button's spinner and ignores
+  a second tap. Whichever, a failure says so in a toast (`sayFailed`), and an
   ended session goes to log in.
 - **A page may have one context,** its organising layer: `<Page>Provider`
   and `use<Page>Page()` in its feature's `contexts/<Page>PageContext.tsx`.

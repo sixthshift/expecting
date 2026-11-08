@@ -1,8 +1,9 @@
 import { Button } from "@sixthshift/design-system/button";
 import { getRouteApi } from "@tanstack/react-router";
-import { type FormEvent, useState } from "react";
+import type { FormEvent } from "react";
 import { choosePassword, usePeopleQuery } from "../../../../api/rpc/people";
 import { Alone } from "../../../../components/Alone";
+import { usePending } from "../../../hooks/usePending";
 import { useEnter } from "../hooks/useEnter";
 import { useNewPassword } from "../hooks/useNewPassword";
 
@@ -18,18 +19,15 @@ export function PasswordPage() {
   const { data: me } = usePeopleQuery({ select: (people) => people.me });
   const enter = useEnter();
   const { password, check, fields } = useNewPassword();
-  const [pending, setPending] = useState(false);
+  const [pending, run] = usePending();
 
   async function submit(event: FormEvent) {
     event.preventDefault();
     if (!check()) return;
-    setPending(true);
-    try {
+    await run(async () => {
       const result = await choosePassword({ data: { password } });
       if (result.ok) enter(next ?? "/");
-    } finally {
-      setPending(false);
-    }
+    });
   }
 
   return (

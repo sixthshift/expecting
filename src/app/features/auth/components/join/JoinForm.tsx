@@ -4,6 +4,7 @@ import { Input } from "@sixthshift/design-system/input";
 import { type FormEvent, useState } from "react";
 import { join, useAccessQuery } from "../../../../../api/rpc/session";
 import { ROLE_NAMES, type Role } from "../../../../../lib/people";
+import { usePending } from "../../../../hooks/usePending";
 import { useEnter } from "../../hooks/useEnter";
 import { useNewPassword } from "../../hooks/useNewPassword";
 import { JOIN_PROBLEMS } from "../../model/labels";
@@ -15,19 +16,16 @@ export function JoinForm({ code, role, by }: { code: string; role: Role; by: str
   const [name, setName] = useState("");
   const { password, check, fields } = useNewPassword();
   const [problem, setProblem] = useState<keyof typeof JOIN_PROBLEMS | null>(null);
-  const [pending, setPending] = useState(false);
+  const [pending, run] = usePending();
 
   async function submit(event: FormEvent) {
     event.preventDefault();
     if (login && !check()) return;
-    setPending(true);
-    try {
+    await run(async () => {
       const result = await join({ data: { code, name, password: login ? password : undefined } });
       if (result.ok) enter(result.next);
       else setProblem(result.error);
-    } finally {
-      setPending(false);
-    }
+    });
   }
 
   return (

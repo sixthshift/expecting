@@ -1,7 +1,5 @@
-import { toast } from "@sixthshift/design-system/overlay";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { isLoggedOut } from "../../lib/errors";
-import { loggedOut } from "../model/loggedOut";
+import { sayFailed } from "./usePending";
 
 /**
  * A change to what's stored: run `save`, then refetch whatever the app has on
@@ -26,8 +24,7 @@ export function useAction<Args extends unknown[]>(
       await mutateAsync(args);
       return true;
     } catch (cause) {
-      if (isLoggedOut(cause)) loggedOut();
-      else toast({ intent: "danger", title: "That didn't save", children: "Check your connection and try again." });
+      sayFailed(cause, "That didn't save");
       return false;
     }
   }

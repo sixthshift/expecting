@@ -5,6 +5,7 @@ import { getRouteApi } from "@tanstack/react-router";
 import { type FormEvent, useState } from "react";
 import { login, useAccessQuery } from "../../../../../api/rpc/session";
 import { Choice } from "../../../../../components/Choice";
+import { usePending } from "../../../../hooks/usePending";
 import { useEnter } from "../../hooks/useEnter";
 import { useNewPassword } from "../../hooks/useNewPassword";
 import { LOCKED } from "../../model/labels";
@@ -30,12 +31,11 @@ export function LoginForm() {
   const [password, setPassword] = useState("");
   const choose = useNewPassword();
   const [error, setError] = useState<keyof typeof errors | null>(null);
-  const [pending, setPending] = useState(false);
+  const [pending, run] = usePending();
   const person = access.people.find((p) => p.id === personId);
 
   async function logIn(id: string, typed?: string) {
-    setPending(true);
-    try {
+    await run(async () => {
       const result = await login({ data: { personId: id, password: typed, next } });
       if (result.ok) {
         enter(result.next);
@@ -43,9 +43,7 @@ export function LoginForm() {
       }
       setError(result.error);
       setPassword("");
-    } finally {
-      setPending(false);
-    }
+    });
   }
 
   function submit(event: FormEvent) {

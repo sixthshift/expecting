@@ -1,12 +1,13 @@
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
 import { makeReset } from "../../../../../api/rpc/people";
+import { usePending } from "../../../../hooks/usePending";
 import { CodeLink } from "./CodeLink";
 
 /** A link for the other of you to choose a new password, made on a tap. */
 export function Reset({ name }: { name: string }) {
   const [reset, setReset] = useState<{ code: string; expiresAt: string } | null>(null);
-  const [pending, setPending] = useState(false);
+  const [pending, run] = usePending();
   if (reset)
     return (
       <CodeLink path="/reset" code={reset.code} expiresAt={reset.expiresAt}>
@@ -19,12 +20,9 @@ export function Reset({ name }: { name: string }) {
       className="self-start"
       loading={pending}
       onClick={async () => {
-        setPending(true);
-        try {
+        await run(async () => {
           setReset(await makeReset());
-        } finally {
-          setPending(false);
-        }
+        });
       }}
     >
       {name} forgot their password

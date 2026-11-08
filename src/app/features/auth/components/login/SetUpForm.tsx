@@ -7,6 +7,7 @@ import { type FormEvent, useState } from "react";
 import { accessQuery, setUp, useAccessQuery } from "../../../../../api/rpc/session";
 import { Choice } from "../../../../../components/Choice";
 import { ROLES, type Role } from "../../../../../lib/people";
+import { usePending } from "../../../../hooks/usePending";
 import { useEnter } from "../../hooks/useEnter";
 import { useNewPassword } from "../../hooks/useNewPassword";
 
@@ -25,20 +26,17 @@ export function SetUpForm() {
   const [role, setRole] = useState<Role | undefined>();
   const [name, setName] = useState("");
   const { password, check, fields } = useNewPassword();
-  const [pending, setPending] = useState(false);
+  const [pending, run] = usePending();
 
   async function submit(event: FormEvent) {
     event.preventDefault();
     if (!role || (login && !check())) return;
-    setPending(true);
-    try {
+    await run(async () => {
       const result = await setUp({ data: { role, name, password: login ? password : undefined, next } });
       if (result.ok) enter(result.next);
       // Someone set it up first: the page turns into the login.
       else await queryClient.invalidateQueries({ queryKey: accessQuery.queryKey });
-    } finally {
-      setPending(false);
-    }
+    });
   }
 
   return (

@@ -1,12 +1,13 @@
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
 import { makeInvite } from "../../../../../api/rpc/people";
+import { usePending } from "../../../../hooks/usePending";
 import { CodeLink } from "./CodeLink";
 
 /** An invite for the other of you, while there's a place: made on a tap, a new one ending the last. */
 export function Invite({ who }: { who: string }) {
   const [invite, setInvite] = useState<{ code: string; expiresAt: string } | null>(null);
-  const [pending, setPending] = useState(false);
+  const [pending, run] = usePending();
   return (
     <div className="flex flex-col gap-2">
       <p className="text-sm text-fg-normal">There's a place for {who}. Send them an invite: they choose their own name and password.</p>
@@ -20,12 +21,9 @@ export function Invite({ who }: { who: string }) {
         className="self-start"
         loading={pending}
         onClick={async () => {
-          setPending(true);
-          try {
+          await run(async () => {
             setInvite(await makeInvite());
-          } finally {
-            setPending(false);
-          }
+          });
         }}
       >
         {invite ? "A new invite" : `Invite ${who}`}

@@ -1,6 +1,7 @@
 import { Button } from "@sixthshift/design-system/button";
 import { type FormEvent, useState } from "react";
 import { resetPassword } from "../../../../../api/rpc/session";
+import { usePending } from "../../../../hooks/usePending";
 import { useEnter } from "../../hooks/useEnter";
 import { useNewPassword } from "../../hooks/useNewPassword";
 import { RESET_PROBLEMS } from "../../model/labels";
@@ -10,19 +11,16 @@ export function ResetForm({ code, name }: { code: string; name: string }) {
   const enter = useEnter();
   const { password, check, fields } = useNewPassword();
   const [problem, setProblem] = useState<keyof typeof RESET_PROBLEMS | null>(null);
-  const [pending, setPending] = useState(false);
+  const [pending, run] = usePending();
 
   async function submit(event: FormEvent) {
     event.preventDefault();
     if (!check()) return;
-    setPending(true);
-    try {
+    await run(async () => {
       const result = await resetPassword({ data: { code, password } });
       if (result.ok) enter(result.next);
       else setProblem(result.error === "locked" ? "locked" : "code");
-    } finally {
-      setPending(false);
-    }
+    });
   }
 
   return (
