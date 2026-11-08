@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { TOPICS, VERDICTS } from "../../../../content/schema";
-import { behind, DOOR_INFO, forPartner, type Group, topicByDoor, topicsIn } from "../../../../lib/library/doors";
+import { DOOR_INFO, type Group, topicByDoor, topicsIn } from "../../../../lib/library/doors";
 import { useItems } from "../../hooks/useItems";
-import type { Narrowing } from "../../model/narrowing";
+import { type Narrowing, onShelf } from "../../model/narrowing";
 import { VERDICT } from "../content/Verdict";
 import { Cards } from "./Cards";
 import { Chip } from "./Chip";
@@ -23,9 +23,10 @@ export function Shelf({ narrowing }: { narrowing: Narrowing }) {
   const { door, topic, verdict } = narrowing;
   const partner = narrowing.for === "partner";
   const info = door ? DOOR_INFO[door] : null;
-  const scoped = (door ? behind(door, items) : items.filter((i) => i.topic === topic)).filter((i) => !partner || forPartner(i));
-  const inTopic = door && topic ? scoped.filter((i) => i.topic === topic) : scoped;
-  const shown = verdict ? inTopic.filter((i) => i.verdict === verdict) : inTopic;
+  // Each chip counts the shelf without its own narrowing: the topics without a topic chosen (a door's), the verdicts without a verdict.
+  const scoped = onShelf({ ...narrowing, topic: door ? undefined : topic, verdict: undefined }, items);
+  const inTopic = onShelf({ ...narrowing, verdict: undefined }, items);
+  const shown = onShelf(narrowing, items);
   const groups: Group[] = info ? info.group(shown) : topicByDoor(shown);
   // An entry opened from the shelf swipes through the whole shelf, group after group.
   const list = groups.flatMap((g) => g.items.map((i) => i.id));

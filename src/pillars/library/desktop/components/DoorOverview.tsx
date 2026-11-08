@@ -1,11 +1,11 @@
 import { useNow } from "../../../../api/rpc/settings";
 import { TOPICS, VERDICTS } from "../../../../content/schema";
-import { behind, DOOR_INFO } from "../../../../lib/library/doors";
+import { DOOR_INFO } from "../../../../lib/library/doors";
 import { Verdict } from "../../components/content/Verdict";
 import { ItemLink } from "../../components/itemLink/ItemLink";
 import { useItems } from "../../hooks/useItems";
 import { rangeLabel } from "../../model/labels";
-import type { Narrowing } from "../../model/narrowing";
+import { type Narrowing, onShelf } from "../../model/narrowing";
 
 /** What each of a "Can I…?" answer's words mean, said once beside the list so the badges in it read. */
 const VERDICT_MEANS = {
@@ -27,9 +27,9 @@ const AROUND = 6;
 export function DoorOverview({ narrowing }: { narrowing: Narrowing }) {
   const items = useItems();
   const now = useNow();
-  const { door, topic, verdict } = narrowing;
+  const { door, topic } = narrowing;
   const info = door ? DOOR_INFO[door] : null;
-  const scoped = (door ? behind(door, items) : items).filter((i) => !topic || i.topic === topic).filter((i) => !verdict || i.verdict === verdict);
+  const scoped = onShelf(narrowing, items);
   const around =
     now === null
       ? []
