@@ -1,27 +1,21 @@
 // A question a week. Every call is as the person holding this phone: the
 // server returns their own answers, and the other's only for a week both have
-// answered. A phone that hasn't said who's holding it sees only those weeks.
+// answered.
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { PeopleRepo } from "../../db/models/people/repo";
 import { WeeklyRepo } from "../../db/models/weekly/repo";
 import { questionOf, type WeeklyView } from "../../lib/home/weekly";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
+import { queryHook } from "../queryHook";
 
-/** The person this phone says it is, if they're still here. */
-function holder(): string | null {
-  const id = personId();
-  return id && new PeopleRepo(getDb()).get(id) ? id : null;
-}
+const getWeekly = createServerFn({ method: "GET" }).handler(() => new WeeklyRepo(getDb()).view(personId()));
 
-export const getWeekly = createServerFn({ method: "GET" }).handler(() => new WeeklyRepo(getDb()).view(holder()));
-
-export const answerWeekly = createServerFn({ method: "POST" })
+const answerWeekly = createServerFn({ method: "POST" })
   .validator(
     z
       .object({
@@ -34,9 +28,7 @@ export const answerWeekly = createServerFn({ method: "POST" })
       .strict()
   )
   .handler(({ data }) => {
-    const me = holder();
-    if (!me) throw new Error("Say who's holding this phone first");
-    new WeeklyRepo(getDb()).answer(data.week, me, data.body, madeAt());
+    new WeeklyRepo(getDb()).answer(data.week, personId(), data.body, madeAt());
   });
 
 export type { WeeklyView };
@@ -59,7 +51,4 @@ export const weeklySaves = {
   }),
 };
 
-/** weeklyQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useWeeklyQuery<TData = WeeklyView>(options?: Omit<UseSuspenseQueryOptions<WeeklyView, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...weeklyQuery, ...options } as UseSuspenseQueryOptions<WeeklyView, Error, TData, string[]>);
-}
+export const useWeeklyQuery = queryHook(weeklyQuery);

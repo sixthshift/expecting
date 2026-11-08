@@ -3,7 +3,7 @@
 // apart from the screen.
 
 import type { Item } from "../../content/schema";
-import { type ISODate, todayISO } from "../dates";
+import { dayOf, type ISODate } from "../dates";
 import type { Quiet, QuietKind } from "../quiet";
 import { positionOn, type Week } from "../timeline";
 
@@ -18,7 +18,7 @@ export const QUIET_PARTS: Record<QuietKind, readonly string[]> = {
 
 /** The week the timeline paused at: the week it was when something happened. Null without a due date. */
 export function pausedAt(quiet: Quiet, dueDate: ISODate | null): Week | null {
-  return dueDate ? positionOn(todayISO(new Date(quiet.setAt)), dueDate).week : null;
+  return dueDate ? positionOn(dayOf(quiet.setAt), dueDate).week : null;
 }
 
 /**

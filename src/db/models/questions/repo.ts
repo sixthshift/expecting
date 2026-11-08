@@ -1,17 +1,10 @@
-import type { Database } from "bun:sqlite";
 import { asc, eq } from "drizzle-orm";
 import type { Question } from "../../../lib/planner/questions";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { appointment } from "../appointments/schema";
 import { question } from "./schema";
 
-export class QuestionsRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class QuestionsRepo extends Repo {
   /** All questions, oldest first. */
   list(): Question[] {
     return this.db.select().from(question).orderBy(asc(question.createdAt)).all();

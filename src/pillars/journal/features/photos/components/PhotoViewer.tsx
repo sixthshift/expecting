@@ -4,30 +4,27 @@
 // one a week.
 
 import { Button } from "@sixthshift/design-system/button";
-import { DatePicker } from "@sixthshift/design-system/date-picker";
-import type { ISOTime } from "@sixthshift/design-system/date-time";
-import { FormField } from "@sixthshift/design-system/form-field";
 import { Input } from "@sixthshift/design-system/input";
 import { Modal } from "@sixthshift/design-system/modal";
 import { toast } from "@sixthshift/design-system/overlay";
-import { TimePicker } from "@sixthshift/design-system/time-picker";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
-import { ChevronLeft, ChevronRight, Download, Pencil, Trash2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download } from "lucide-react";
 import { type FormEvent, useEffect, useState } from "react";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { photosSaves, usePhotosQuery } from "../../../../../api/rpc/photos";
 import { useSettingsQuery } from "../../../../../api/rpc/settings";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { isOnPhone } from "../../../../../app/model/uploads";
-import { type ISODate, todayISO } from "../../../../../lib/dates";
+import type { ISODate } from "../../../../../lib/dates";
 import { fileUrl } from "../../../../../lib/files";
-import { placeOf, toTime } from "../../../../../lib/journal/journal";
 import { PHOTO_KIND_LABEL, type Photo, type PhotoKind } from "../../../../../lib/journal/photos";
 import { when } from "../../../../../lib/labels";
 import { nameBy } from "../../../../../lib/people";
-import { weekLabel } from "../../../../../lib/timeline";
+import { placeOf, weekLabel } from "../../../../../lib/timeline";
 import { forgetFile } from "../../../../../pwa/register";
-import { describePhoto, keptBy, photoTitle } from "../../../model/labels";
+import { ChangeOrDelete } from "../../../components/ChangeOrDelete";
+import { WhenFields } from "../../../components/WhenFields";
+import { changedBy, describePhoto, keptBy, photoTitle } from "../../../model/labels";
 import { Picture } from "./Picture";
 
 /** Change what it is, when, and its words; never the picture. */
@@ -37,7 +34,6 @@ function ChangePhoto({ photo, kinds, onDone }: { photo: Photo; kinds: readonly P
   const [day, setDay] = useState<ISODate>(photo.day as ISODate);
   const [time, setTime] = useState<string | null>(photo.time);
   const [caption, setCaption] = useState(photo.caption ?? "");
-  const today = todayISO();
   // A bump kept before a loss stays a bump; it just isn't offered for new ones.
   const offered = kinds.includes(photo.kind) ? kinds : [photo.kind, ...kinds];
 
@@ -60,21 +56,7 @@ function ChangePhoto({ photo, kinds, onDone }: { photo: Photo; kinds: readonly P
         onValueChange={(value) => setKind(value as PhotoKind)}
         options={offered.map((k) => ({ value: k, label: PHOTO_KIND_LABEL[k] }))}
       />
-      <div className="flex flex-wrap gap-3">
-        <FormField label="Day">
-          <DatePicker
-            value={day}
-            onChange={(d) => setDay((d as ISODate | undefined) ?? day)}
-            segmentOrder="dmy"
-            weekStartsOn={1}
-            clearable={false}
-            maxDate={today}
-          />
-        </FormField>
-        <FormField label="Time (if it matters)">
-          <TimePicker value={(time ?? undefined) as ISOTime | undefined} onChange={(t) => setTime(toTime(t))} clockFormat="12h" />
-        </FormField>
-      </div>
+      <WhenFields day={day} time={time} onDay={setDay} onTime={setTime} timeLabel="Time (if it matters)" />
       <Input value={caption} onChange={(e) => setCaption(e.target.value)} placeholder="A few words, if you want" aria-label="Its words" maxLength={2_000} />
       <div className="flex gap-2">
         <Button type="submit" intent="brand" size="sm">
@@ -100,7 +82,6 @@ export function PhotoViewer({ ids, index: start, kinds, onClose }: { ids: string
   const remove = useSave(photosSaves.deletePhoto);
   const [index, setIndex] = useState(start);
   const [changing, setChanging] = useState(false);
-  const [confirming, setConfirming] = useState(false);
   const here = ids.filter((id) => photos.some((p) => p.id === id));
   const at = Math.min(index, here.length - 1);
   const photo = photos.find((p) => p.id === here[at]);
@@ -114,12 +95,10 @@ export function PhotoViewer({ ids, index: start, kinds, onClose }: { ids: string
 
   const place = settings.dueDate ? placeOf(photo.day as ISODate, settings.dueDate) : null;
   const title = [photoTitle(photo.kind), typeof place === "number" ? weekLabel(place) : null].filter(Boolean).join(" · ");
-  const changer = photo.editedAt && photo.editedBy !== photo.by ? nameBy(photo.editedBy, people.me, people.people, "you") : null;
 
   function go(step: number) {
     setIndex((i) => (i + step + here.length) % here.length);
     setChanging(false);
-    setConfirming(false);
   }
 
   function deleteIt(target: Photo) {
@@ -160,40 +139,23 @@ export function PhotoViewer({ ids, index: start, kinds, onClose }: { ids: string
           <>
             {photo.caption ? <p className="whitespace-pre-wrap text-fg-normal">{photo.caption}</p> : null}
             <p className="text-xs text-fg-subtle">
-              {[keptBy(name(photo.by)), when(photo.day, photo.time), changer ? `changed by ${changer}` : photo.editedAt ? "changed" : null]
-                .filter(Boolean)
-                .join(" · ")}
+              {[keptBy(name(photo.by)), when(photo.day, photo.time), changedBy(photo, people.me, people.people)].filter(Boolean).join(" · ")}
             </p>
             {isOnPhone(photo.fileId) ? <p className="text-xs text-fg-subtle">Still on this phone: it goes up as soon as it can.</p> : null}
-            {confirming ? (
-              <div role="alert" className="flex flex-col gap-2 rounded-lg border border-border-normal p-3">
-                <p className="text-sm text-fg-strong">Delete this photo? It goes from both phones, and can't be put back.</p>
-                <div className="flex gap-2">
-                  <Button intent="danger" size="sm" onClick={() => deleteIt(photo)}>
-                    Delete it
-                  </Button>
-                  <Button variant="ghost" size="sm" onClick={() => setConfirming(false)}>
-                    Keep it
-                  </Button>
-                </div>
-              </div>
-            ) : (
-              <div className="flex flex-wrap gap-1">
-                <Button variant="ghost" size="sm" onClick={() => setChanging(true)}>
-                  <Pencil aria-hidden size={16} /> Change
+            <ChangeOrDelete
+              key={photo.id}
+              asks="Delete this photo? It goes from both phones, and can't be put back."
+              onChange={() => setChanging(true)}
+              onDelete={() => deleteIt(photo)}
+            >
+              {isOnPhone(photo.fileId) ? null : (
+                <Button asChild variant="ghost" size="sm">
+                  <a href={fileUrl(photo.fileId, "original", { download: true })} download>
+                    <Download aria-hidden size={16} /> Download the original
+                  </a>
                 </Button>
-                {isOnPhone(photo.fileId) ? null : (
-                  <Button asChild variant="ghost" size="sm">
-                    <a href={fileUrl(photo.fileId, "original", { download: true })} download>
-                      <Download aria-hidden size={16} /> Download the original
-                    </a>
-                  </Button>
-                )}
-                <Button variant="ghost" size="sm" onClick={() => setConfirming(true)}>
-                  <Trash2 aria-hidden size={16} /> Delete
-                </Button>
-              </div>
-            )}
+              )}
+            </ChangeOrDelete>
           </>
         )}
       </Modal.Body>

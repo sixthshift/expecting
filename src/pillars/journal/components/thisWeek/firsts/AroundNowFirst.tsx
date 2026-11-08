@@ -11,7 +11,7 @@ import { useSave } from "../../../../../app/hooks/useSave";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
 import type { FirstDef } from "../../../../../lib/journal/firsts";
 import { type Week, weekLabel } from "../../../../../lib/timeline";
-import { DayField } from "../../../features/firsts/components/DayField";
+import { DayField } from "../../WhenFields";
 
 /** A first that's around now: what, its question, and your words for it; kept, it's marked today (or the day you say). */
 export function AroundNowFirst({ first, week, onNotYet, past = false }: { first: FirstDef; week: Week; onNotYet?: () => void; past?: boolean }) {
@@ -56,7 +56,7 @@ export function AroundNowFirst({ first, week, onNotYet, past = false }: { first:
               autoFocus={!past}
             />
           ) : null}
-          {choosingDay ? <DayField value={day} onChange={setDay} /> : null}
+          {choosingDay ? <DayField label="When" value={day} onChange={setDay} /> : null}
           <div className="flex flex-wrap gap-2">
             <Button type="submit" intent="brand" size="sm">
               Keep it

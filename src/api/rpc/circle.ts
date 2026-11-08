@@ -2,22 +2,17 @@
 // what they gave, and the words for the birth. Shared by both of you, each
 // change saying who made it.
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { CircleRepo } from "../../db/models/circle/repo";
-import { PeopleRepo } from "../../db/models/people/repo";
 import { isISODate } from "../../lib/dates";
 import { type Circle, HEARS, type Hears, type PersonPatch, patched, VISITS, type Visit } from "../../lib/drawer/circle";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
-
-/** Someone still here, by id; else nobody (a phone that hasn't said, or a person since forgotten). */
-function known(id: string | null | undefined): string | null {
-  return id && new PeopleRepo(getDb()).get(id) ? id : null;
-}
+import { queryHook } from "../queryHook";
 
 /** Words of up to `max` characters, trimmed; empty is none. */
 const words = (max: number) =>
@@ -39,13 +34,13 @@ const what = z
 
 const id = z.object({ id: z.uuid() }).strict();
 
-export const getCircle = createServerFn({ method: "GET" }).handler(() => new CircleRepo(getDb()).all());
+const getCircle = createServerFn({ method: "GET" }).handler(() => new CircleRepo(getDb()).all());
 
-export const addCirclePerson = createServerFn({ method: "POST" })
+const addCirclePerson = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), name, note: words(200) }).strict())
-  .handler(({ data }) => new CircleRepo(getDb()).addPerson(data, known(personId()), madeAt()));
+  .handler(({ data }) => new CircleRepo(getDb()).addPerson(data, personId(), madeAt()));
 
-export const renameCirclePerson = createServerFn({ method: "POST" })
+const renameCirclePerson = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), name, note: words(200) }).strict())
   .handler(({ data }) => new CircleRepo(getDb()).renamePerson(data.id, data));
 
@@ -59,34 +54,34 @@ const patch = z
   .partial()
   .strict();
 
-export const setCirclePerson = createServerFn({ method: "POST" })
+const setCirclePerson = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), patch }).strict())
   .handler(({ data }) => new CircleRepo(getDb()).setPerson(data.id, data.patch as PersonPatch));
 
-export const deleteCirclePerson = createServerFn({ method: "POST" })
+const deleteCirclePerson = createServerFn({ method: "POST" })
   .validator(id)
   .handler(({ data }) => new CircleRepo(getDb()).deletePerson(data.id));
 
-export const addGift = createServerFn({ method: "POST" })
+const addGift = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), personId: z.uuid(), what }).strict())
   .handler(({ data }) => {
     const repo = new CircleRepo(getDb());
     // Someone deleted on the other phone: the gift goes with them.
     if (!repo.person(data.personId)) return;
-    repo.addGift(data, known(personId()), madeAt());
+    repo.addGift(data, personId(), madeAt());
   });
 
-export const thankGift = createServerFn({ method: "POST" })
+const thankGift = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), thanked: z.boolean() }).strict())
   .handler(({ data }) => new CircleRepo(getDb()).thankGift(data.id, data.thanked, madeAt()));
 
-export const deleteGift = createServerFn({ method: "POST" })
+const deleteGift = createServerFn({ method: "POST" })
   .validator(id)
   .handler(({ data }) => new CircleRepo(getDb()).deleteGift(data.id));
 
-export const setAnnouncement = createServerFn({ method: "POST" })
+const setAnnouncement = createServerFn({ method: "POST" })
   .validator(z.object({ body: z.string().max(2000) }).strict())
-  .handler(({ data }) => new CircleRepo(getDb()).setAnnouncement(data.body, known(personId()), madeAt()));
+  .handler(({ data }) => new CircleRepo(getDb()).setAnnouncement(data.body, personId(), madeAt()));
 
 export type { Circle };
 export const circleQuery = queryOptions({ queryKey: ["circle"], queryFn: () => getCircle() });
@@ -164,7 +159,4 @@ export const circleSaves = {
   }),
 };
 
-/** circleQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useCircleQuery<TData = Circle>(options?: Omit<UseSuspenseQueryOptions<Circle, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...circleQuery, ...options } as UseSuspenseQueryOptions<Circle, Error, TData, string[]>);
-}
+export const useCircleQuery = queryHook(circleQuery);

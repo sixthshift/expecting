@@ -5,9 +5,8 @@
 // never filled: it comes with the birth, after the first version.
 
 import type { ISODate } from "../dates";
-import type { Week } from "../timeline";
+import { placeOf, type Week } from "../timeline";
 import type { FirstKey } from "./firsts";
-import { placeOf } from "./journal";
 import type { StoryItem } from "./story/items";
 
 export type Chapter = { key: string; title: string; weeks: [Week, Week] | null; firsts: readonly FirstKey[] };
@@ -22,11 +21,6 @@ export const CHAPTERS: readonly Chapter[] = [
   { key: "last-weeks", title: "The last weeks", weeks: [37, 42], firsts: ["bag-packed", "it-started"] },
   { key: "birth", title: "The birth", weeks: null, firsts: [] },
 ];
-
-/** The chapter a week is in. */
-export function chapterOf(week: Week): Chapter {
-  return CHAPTERS.find((c) => c.weeks && week >= c.weeks[0] && week <= c.weeks[1]) ?? CHAPTERS[0]!;
-}
 
 type ChapterState = "begun" | "now" | "to-come" | "passed";
 

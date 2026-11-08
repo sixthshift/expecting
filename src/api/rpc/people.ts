@@ -3,7 +3,7 @@
 // and a link for the other to choose a new password. Getting in in the first
 // place is src/api/rpc/session.ts, the one file open without a session.
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { deleteCookie, getRequest } from "@tanstack/react-start/server";
 import { z } from "zod";
@@ -14,14 +14,8 @@ import { loginOn } from "../../server/auth/gate";
 import { hashPassword, verifyPassword } from "../../server/auth/password";
 import { getDb } from "../../server/core/db";
 import { personId } from "../../server/core/person";
+import { queryHook } from "../queryHook";
 import { MIN_PASSWORD } from "./session";
-
-/** Who's logged in on this phone; every function here needs it, and the gate saw to it. */
-function me(): string {
-  const id = personId();
-  if (!id) throw new Error("Log in first");
-  return id;
-}
 
 /**
  * The two of you, who's holding this phone, and what's left to sort out:
@@ -29,12 +23,12 @@ function me(): string {
  * the shared one from before accounts, or none), and the place left for the
  * other to join, if any.
  */
-export const getPeople = createServerFn({ method: "GET" }).handler(() => {
+const getPeople = createServerFn({ method: "GET" }).handler(() => {
   const people = new PeopleRepo(getDb());
   const id = personId();
-  const password = id ? people.password(id) : null;
+  const password = people.password(id);
   return {
-    me: id ? people.get(id) : null,
+    me: people.get(id),
     people: people.list(),
     mustChoosePassword: loginOn() && password !== null && !password.chosen,
     openRole: people.openRole(),
@@ -53,7 +47,7 @@ export type ChangeResult = { ok: true } | { ok: false; error: "wrong" };
 export const choosePassword = createServerFn({ method: "POST" })
   .validator(z.object({ current: z.string().max(1024).optional(), password: z.string().min(MIN_PASSWORD).max(1024) }).strict())
   .handler(async ({ data }): Promise<ChangeResult> => {
-    const id = me();
+    const id = personId();
     const people = new PeopleRepo(getDb());
     const password = people.password(id);
     if (loginOn() && password?.chosen && !(password.hash && data.current && (await verifyPassword(data.current, password.hash))))
@@ -65,13 +59,13 @@ export const choosePassword = createServerFn({ method: "POST" })
 
 /** Every phone and computer logged in as you logs out, this one too. */
 export const logOutEverywhere = createServerFn({ method: "POST" }).handler(() => {
-  new SessionRepo(getDb()).endAllFor(me());
+  new SessionRepo(getDb()).endAllFor(personId());
   deleteCookie(SESSION_COOKIE, { path: "/" });
 });
 
 /** An invite for the other to join, while there's a place: a code to send, in a link, alive a week. A new one ends the last. */
 export const makeInvite = createServerFn({ method: "POST" }).handler(() => {
-  const by = me();
+  const by = personId();
   const role = new PeopleRepo(getDb()).openRole();
   if (!role) throw new Error("There are two of you already");
   return { ...new InviteRepo(getDb()).create("join", by), role };
@@ -80,7 +74,7 @@ export const makeInvite = createServerFn({ method: "POST" }).handler(() => {
 /** A link for the other of you to choose a new password, alive a day. Using it logs out every phone of theirs. */
 export const makeReset = createServerFn({ method: "POST" }).handler(() => {
   if (!loginOn()) throw new Error("Logins are off");
-  const by = me();
+  const by = personId();
   const other = new PeopleRepo(getDb()).list().find((p) => p.id !== by);
   if (!other) throw new Error("There's nobody else");
   return { ...new InviteRepo(getDb()).create("reset", by, other.id), name: other.name };
@@ -89,7 +83,4 @@ export const makeReset = createServerFn({ method: "POST" }).handler(() => {
 export type People = Awaited<ReturnType<typeof getPeople>>;
 export const peopleQuery = queryOptions({ queryKey: ["people"], queryFn: () => getPeople() });
 
-/** peopleQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function usePeopleQuery<TData = People>(options?: Omit<UseSuspenseQueryOptions<People, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...peopleQuery, ...options } as UseSuspenseQueryOptions<People, Error, TData, string[]>);
-}
+export const usePeopleQuery = queryHook(peopleQuery);

@@ -7,7 +7,7 @@ import { useSave } from "../../../../../app/hooks/useSave";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
 import { type FirstKey, firstOf, firstsOffered, isMarked } from "../../../../../lib/journal/firsts";
 import { BABY, type Baby } from "../../../../../lib/theme";
-import { DayField } from "./DayField";
+import { DayField } from "../../../components/WhenFields";
 import { FirstWords } from "./FirstWords";
 
 /**
@@ -66,7 +66,7 @@ export function MarkFirst({ first, onAdded }: { first?: FirstKey; onAdded?: (key
         }}
       >
         <p className="font-medium text-fg-strong">{firstOf(chosen).title}</p>
-        <DayField value={day} onChange={setDay} />
+        <DayField label="When" value={day} onChange={setDay} />
         <div className="flex gap-2">
           <Button type="submit" intent="brand">
             Mark it

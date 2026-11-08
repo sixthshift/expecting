@@ -1,13 +1,8 @@
 import { useSettingsQuery } from "../../../../api/rpc/settings";
 import { storyGroups } from "../../../../lib/journal/story/spine";
 import { StoryList } from "../../components/lines/StoryList";
-import { SearchResults } from "../../components/story/SearchResults";
-import { StoryControls } from "../../components/story/StoryControls";
+import { StoryViews } from "../../components/story/StoryViews";
 import { PregnancyView } from "../../components/story/views/pregnancy/PregnancyView";
-import { WeeksView } from "../../components/story/views/weeks/WeeksView";
-import { useScrollToWeek } from "../../hooks/useScrollToWeek";
-import { useStorySearch } from "../../hooks/useStorySearch";
-import { useStoryView } from "../../hooks/useStoryView";
 import { useQuietJournalPage } from "../contexts/QuietJournalPageContext";
 
 /**
@@ -19,26 +14,18 @@ import { useQuietJournalPage } from "../contexts/QuietJournalPageContext";
  */
 export function QuietStory() {
   const { shown } = useQuietJournalPage();
-  const { view, views, open } = useStoryView();
-  const search = useStorySearch(shown, () => open("days"));
   const { data: dueDate } = useSettingsQuery({ select: (s) => s.dueDate });
-  useScrollToWeek();
 
   return (
     <>
       <h2 className="font-display text-xl font-semibold text-fg-strong">The story so far</h2>
-      <StoryControls views={views} view={view} onView={open} searchable={shown.length > 1} words={search.words} onWords={search.look} />
-      <section aria-label="The story" className="flex flex-col gap-4">
-        {search.searching ? (
-          <SearchResults found={search.found} titled={false} />
-        ) : view === "weeks" ? (
-          <WeeksView items={shown} />
-        ) : view === "pregnancy" ? (
-          <PregnancyView items={shown} withFirsts={false} />
-        ) : (
-          <StoryList groups={storyGroups(shown, dueDate)} titled={false} />
-        )}
-      </section>
+      <StoryViews
+        items={shown}
+        titled={false}
+        className="flex flex-col gap-4"
+        pregnancy={<PregnancyView items={shown} withFirsts={false} />}
+        days={<StoryList groups={storyGroups(shown, dueDate)} titled={false} />}
+      />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import type { Summary } from "./summary";
 
 /** A record as it's read out or pasted: its name, its answer, then each line. */
-export type Titled = { title: string; summary: Summary };
+type Titled = { title: string; summary: Summary };
 
 /**
  * The records as plain text, to paste into a message or a form: a heading

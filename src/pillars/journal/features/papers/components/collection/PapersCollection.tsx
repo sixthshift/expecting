@@ -1,4 +1,3 @@
-import { Button } from "@sixthshift/design-system/button";
 import { SearchInput } from "@sixthshift/design-system/search-input";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { useState } from "react";
@@ -6,6 +5,7 @@ import { usePapersQuery } from "../../../../../../api/rpc/papers";
 import { kindsKept, ordered, PAPER_KIND_PLURAL, type PaperKind, paperMatches } from "../../../../../../lib/journal/papers";
 import { QUIET_PAPERS } from "../../../../../../lib/journal/quiet";
 import type { QuietKind } from "../../../../../../lib/quiet";
+import { useShowAll } from "../../../../hooks/useShowAll";
 import { PaperList } from "../PaperList";
 
 /** How many are shown before "Show all". */
@@ -15,7 +15,7 @@ const SHOWN = 8;
 const SEARCH_FROM = 5;
 
 /**
- * The Journal's Papers record at full size: every one, handy first and then newest by the
+ * The papers collection in full: every one, handy first and then newest by the
  * date on it, with the kinds there are to filter by and a search from five.
  * New ones come in through the "+". Stays as it is while something has
  * happened: papers are admin, and there are more after a loss, not fewer (the
@@ -25,11 +25,10 @@ export function PapersCollection({ quiet }: { quiet: QuietKind | null }) {
   const { data: papers } = usePapersQuery();
   const [words, setWords] = useState("");
   const [kind, setKind] = useState<PaperKind | "all">("all");
-  const [all, setAll] = useState(false);
   const kinds = kindsKept(papers);
   const showing = kind !== "all" && kinds.includes(kind) ? kind : "all";
   const found = ordered(papers).filter((p) => (showing === "all" || p.kind === showing) && paperMatches(p, words));
-  const shown = all ? found : found.slice(0, SHOWN);
+  const { shown, more } = useShowAll(found, SHOWN);
 
   return (
     <section aria-labelledby="papers" className="flex flex-col gap-4">
@@ -59,11 +58,7 @@ export function PapersCollection({ quiet }: { quiet: QuietKind | null }) {
       ) : null}
       {papers.length > 0 && found.length === 0 ? <p className="text-fg-subtle">No paper has those words.</p> : null}
       {shown.length > 0 ? <PaperList papers={shown} label="Your papers" /> : null}
-      {found.length > shown.length ? (
-        <Button variant="ghost" size="sm" className="self-start" onClick={() => setAll(true)}>
-          Show all {found.length}
-        </Button>
-      ) : null}
+      {more}
     </section>
   );
 }

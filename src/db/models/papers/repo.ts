@@ -1,20 +1,13 @@
-import type { Database } from "bun:sqlite";
 import { asc, eq } from "drizzle-orm";
 import { type Paper, type PaperChange, type PaperInput, type PaperPage, tidyTitle, tidyWords } from "../../../lib/journal/papers";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { upload } from "../files/schema";
 import { paper, paperPage } from "./schema";
 
 /** A paper's row, without its pages. */
 type PaperRow = Omit<Paper, "pages">;
 
-export class PapersRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class PapersRepo extends Repo {
   /** Each paper's pages, in order, with what each file is (as the upload says). */
   private pages(): Map<string, PaperPage[]> {
     const rows = this.db

@@ -5,10 +5,10 @@
 import { weekNotes } from "../../../content";
 import { noteFor } from "../../../content/weeks";
 import type { ISODate } from "../../../lib/dates";
-import { placeOf } from "../../../lib/journal/journal";
 import type { Photo, PhotoKind } from "../../../lib/journal/photos";
 import { when } from "../../../lib/labels";
-import type { Week } from "../../../lib/timeline";
+import { nameBy, type Person } from "../../../lib/people";
+import { placeOf, type Week } from "../../../lib/timeline";
 
 /** "Bump photo", "Scan", "Photo". */
 export function photoTitle(kind: PhotoKind): string {
@@ -29,6 +29,20 @@ export function describePhoto(photo: Photo, dueDate: ISODate | null): string {
 export function keptBy(name: string | null): string | null {
   if (name === null) return null;
   return `Kept by ${name === "You" ? "you" : name}`;
+}
+
+/**
+ * "changed by Sam", "changed by you", or only "changed" when the one who kept
+ * it changed it (or someone forgotten since); nothing if it never was.
+ */
+export function changedBy(
+  kept: { by: string | null; editedBy: string | null; editedAt: string | null },
+  me: Person | null,
+  people: readonly Person[]
+): string | null {
+  if (!kept.editedAt) return null;
+  const changer = kept.editedBy !== kept.by ? nameBy(kept.editedBy, me, people, "you") : null;
+  return changer ? `changed by ${changer}` : "changed";
 }
 
 /** A week's own note's title: "Halfway". */

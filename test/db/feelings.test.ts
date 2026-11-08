@@ -29,7 +29,6 @@ test("its person sees a feeling whole; the other sees only the step", () => {
 
   expect(repo.list(sam)).toEqual([own]);
   expect(repo.list(alex)).toEqual([{ id: ID, by: sam, day: "2026-10-30", time: "21:10", step: "low", createdAt: NOW.toISOString() }]);
-  expect(repo.list(null)[0]).not.toHaveProperty("words");
 });
 
 test("only its person can change or delete a feeling", () => {
@@ -62,7 +61,7 @@ test("a feeling goes with its person", () => {
   const repo = new FeelingsRepo(db());
   repo.add({ id: ID, day: "2026-10-30", time: null, step: "okay", words: [], note: null }, sam, NOW);
   db().run("DELETE FROM person WHERE id = ?", [sam]);
-  expect(repo.list(null)).toEqual([]);
+  expect(repo.list(sam)).toEqual([]);
 });
 
 test("the store refuses a step that isn't one", () => {

@@ -1,12 +1,12 @@
 import { addDays, type ISODate } from "../../dates";
 import { type Feeling, feelingsOf, isOwn, type OwnFeeling, STEP_LABEL, weekStep, wordsUsed } from "../feelings";
-import { LATELY_DAYS, list, type Summary } from "./summary";
+import { count, LATELY_DAYS, list, type Summary } from "./summary";
 
 /** How far back feelings look, today among them. */
 const FEELING_DAYS = 28;
 
 /** A person, as a feeling's record names them. */
-export type Named = { id: string; name: string };
+type Named = { id: string; name: string };
 
 /**
  * Feelings over the last four weeks: for each of you who checked in, how
@@ -30,7 +30,7 @@ export function feelingsSummary(feelings: readonly (Feeling | OwnFeeling)[], peo
     const who = person.id === me ? "You" : person.name;
     // The answer is the first of you who checked in: you, if you did.
     headline ??= person.id === me ? `Mostly ${STEP_LABEL[step].toLowerCase()}` : `${person.name}: mostly ${STEP_LABEL[step].toLowerCase()}`;
-    lines.push(`${who}: checked in on ${days === 1 ? "1 day" : `${days} days`} of the last four weeks, mostly ${STEP_LABEL[step].toLowerCase()}.`);
+    lines.push(`${who}: checked in on ${count(days, "day", "days")} of the last four weeks, mostly ${STEP_LABEL[step].toLowerCase()}.`);
     if (person.id === me) {
       const own = feelingsOf(feelings, person.id).filter(isOwn);
       const words = wordsUsed(own, from)

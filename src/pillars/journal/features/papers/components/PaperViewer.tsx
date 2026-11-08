@@ -3,11 +3,9 @@
 // PDF as a tile that opens in the phone's own viewer. Kept handy or not in one
 // tap; changed, downloaded, or deleted (asked first). Never what it says.
 
-import { Button } from "@sixthshift/design-system/button";
 import { Modal } from "@sixthshift/design-system/modal";
 import { toast } from "@sixthshift/design-system/overlay";
 import { Switch } from "@sixthshift/design-system/switch";
-import { Pencil, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { papersSaves, usePapersQuery } from "../../../../../api/rpc/papers";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
@@ -20,6 +18,8 @@ import { when } from "../../../../../lib/labels";
 import { nameBy } from "../../../../../lib/people";
 import { forgetFile } from "../../../../../pwa/register";
 import { ItemLink } from "../../../../library/components/itemLink/ItemLink";
+import { ChangeOrDelete } from "../../../components/ChangeOrDelete";
+import { changedBy } from "../../../model/labels";
 import { changeOf } from "../model/change";
 import { paperLine } from "./PaperRow";
 import { ChangePaper } from "./viewer/ChangePaper";
@@ -38,7 +38,6 @@ export function PaperViewer({ id, onClose }: { id: string; onClose: () => void }
   const edit = useSave(papersSaves.editPaper);
   const remove = useSave(papersSaves.deletePaper);
   const [changing, setChanging] = useState(false);
-  const [confirming, setConfirming] = useState(false);
   const paper = papers.find((p) => p.id === id);
   const name = (who: string | null) => nameBy(who, people.me, people.people);
 
@@ -49,7 +48,6 @@ export function PaperViewer({ id, onClose }: { id: string; onClose: () => void }
   if (!paper) return null;
 
   const item = paper.itemId ? builtInItems.find((i) => i.id === paper.itemId && !i.private) : undefined;
-  const changer = paper.editedAt && paper.editedBy !== paper.by ? nameBy(paper.editedBy, people.me, people.people, "you") : null;
   const total = paper.pages.length;
   const pageLabel = (i: number) => (total > 1 ? `Page ${i + 1} of ${total}` : "The page");
 
@@ -93,37 +91,16 @@ export function PaperViewer({ id, onClose }: { id: string; onClose: () => void }
               ))}
             </ol>
             <p className="text-xs text-fg-subtle">
-              {[
-                name(paper.by),
-                `kept ${when(paper.createdAt.slice(0, 10), null).replace(/^Today/, "today")}`,
-                changer ? `changed by ${changer}` : paper.editedAt ? "changed" : null,
-              ]
+              {[name(paper.by), `kept ${when(paper.createdAt.slice(0, 10), null).replace(/^Today/, "today")}`, changedBy(paper, people.me, people.people)]
                 .filter(Boolean)
                 .join(" · ")}
             </p>
             {paper.pages.some((p) => isOnPhone(p.fileId)) ? <p className="text-xs text-fg-subtle">Still on this phone: it goes up as soon as it can.</p> : null}
-            {confirming ? (
-              <div role="alert" className="flex flex-col gap-2 rounded-lg border border-border-normal p-3">
-                <p className="text-sm text-fg-strong">Delete this paper? Every page goes from both phones, and can't be put back.</p>
-                <div className="flex gap-2">
-                  <Button intent="danger" size="sm" onClick={() => deleteIt(paper)}>
-                    Delete it
-                  </Button>
-                  <Button variant="ghost" size="sm" onClick={() => setConfirming(false)}>
-                    Keep it
-                  </Button>
-                </div>
-              </div>
-            ) : (
-              <div className="flex flex-wrap gap-1">
-                <Button variant="ghost" size="sm" onClick={() => setChanging(true)}>
-                  <Pencil aria-hidden size={16} /> Change
-                </Button>
-                <Button variant="ghost" size="sm" onClick={() => setConfirming(true)}>
-                  <Trash2 aria-hidden size={16} /> Delete
-                </Button>
-              </div>
-            )}
+            <ChangeOrDelete
+              asks="Delete this paper? Every page goes from both phones, and can't be put back."
+              onChange={() => setChanging(true)}
+              onDelete={() => deleteIt(paper)}
+            />
           </>
         )}
       </Modal.Body>

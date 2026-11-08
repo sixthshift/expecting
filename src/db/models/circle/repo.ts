@@ -1,17 +1,10 @@
-import type { Database } from "bun:sqlite";
 import { asc, eq } from "drizzle-orm";
 import type { Circle, CirclePerson, Gift, PersonPatch } from "../../../lib/drawer/circle";
 import { patched } from "../../../lib/drawer/circle";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { announcement, circleGift, circlePerson } from "./schema";
 
-export class CircleRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class CircleRepo extends Repo {
   /** Your people, the oldest first, their gifts, and the announcement. */
   all(): Circle {
     const words = this.db.select().from(announcement).where(eq(announcement.id, 1)).get();

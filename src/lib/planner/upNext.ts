@@ -18,7 +18,7 @@ import type { Ahead, Plan } from "./plan";
 import type { ToDo } from "./todo";
 
 /** How many weeks Up next looks ahead, this one included. */
-export const UP_NEXT_WEEKS = 4;
+const UP_NEXT_WEEKS = 4;
 
 export type UpNextWeek = {
   week: Week;

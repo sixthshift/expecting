@@ -1,16 +1,9 @@
-import type { Database } from "bun:sqlite";
 import { desc, eq } from "drizzle-orm";
 import type { EmergencyInfo } from "../../../lib/emergency";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { emergencyField } from "./schema";
 
-export class EmergencyRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class EmergencyRepo extends Repo {
   /** Every filled-in field, and who changed the page last. */
   get(): EmergencyInfo {
     const rows = this.db.select().from(emergencyField).orderBy(desc(emergencyField.changedAt)).all();

@@ -16,11 +16,11 @@
 import type { Node } from "@markdoc/markdoc";
 import { z } from "zod";
 import { parseWeekKey, type Week } from "../lib/timeline";
-import { ContentError, readFrontmatter } from "./file";
+import { ContentError, check, readFrontmatter } from "./file";
 import { parseBody } from "./markdoc";
 
 /** The days after the note, +1 to +6. */
-export const DAYS = { first: 1, last: 6 } as const;
+const DAYS = { first: 1, last: 6 } as const;
 
 const frontmatterSchema = z
   .object({
@@ -51,17 +51,13 @@ export function parseDay(file: string, source: string): DayRead {
   }
 
   const { raw, body } = readFrontmatter(file, source);
-  const parsed = frontmatterSchema.safeParse(raw);
-  if (!parsed.success) {
-    const problems = parsed.error.issues.map((i) => `${i.path.join(".") || "(root)"}: ${i.message}`).join("; ");
-    throw new ContentError(file, problems);
-  }
+  const fm = check(file, frontmatterSchema, raw);
   const { ast, problems } = parseBody(body);
   if (problems.length > 0) throw new ContentError(file, `in the body, ${problems.join("; ")}`);
   if ([...ast.walk()].some((n) => n.type === "link")) throw new ContentError(file, "no links in the body: name the entries in `read`");
   if (!ast.children.some((n) => n.type === "paragraph")) throw new ContentError(file, "the body is empty");
 
-  return { week, day, title: parsed.data.title, read: parsed.data.read, body: ast };
+  return { week, day, title: fm.title, read: fm.read, body: ast };
 }
 
 /** Every file into reads, by week then day. */

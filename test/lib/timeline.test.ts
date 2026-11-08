@@ -5,6 +5,7 @@ import {
   dueDateBounds,
   gestationLabel,
   parseWeekKey,
+  placeOf,
   positionOn,
   TRIMESTERS,
   trimester,
@@ -80,4 +81,26 @@ test("the trimesters: 1–13, 14–27, 28–42", () => {
   expect([1, 13, 14, 27, 28, 42].map((w) => trimester(w).n)).toEqual([1, 1, 2, 2, 3, 3]);
   expect(TRIMESTERS.map((t) => t.title)).toEqual(["First trimester", "Second trimester", "Third trimester"]);
   expect(allWeeks().every((w) => trimester(w).from <= w && w <= trimester(w).to)).toBe(true);
+});
+
+// Due 19 Jan 2027: week 28 is 27 Oct to 2 Nov 2026; the pregnancy began 14 Apr 2026.
+const jan19 = "2027-01-19" as ISODate;
+
+describe("where a day falls", () => {
+  test("its week, counted as the timeline counts", () => {
+    expect(placeOf("2026-10-27" as ISODate, jan19)).toBe(28);
+    expect(placeOf("2026-11-02" as ISODate, jan19)).toBe(28);
+    expect(placeOf("2026-11-03" as ISODate, jan19)).toBe(29);
+  });
+
+  test("the first days are week 1; before them is before the pregnancy, and past 42 weeks is after", () => {
+    expect(placeOf("2026-04-14" as ISODate, jan19)).toBe(1);
+    expect(placeOf("2026-04-13" as ISODate, jan19)).toBe("before");
+    expect(placeOf("2027-02-08" as ISODate, jan19)).toBe(42);
+    expect(placeOf("2027-02-09" as ISODate, jan19)).toBe("after");
+  });
+
+  test("a moved due date moves the week, never the day", () => {
+    expect(placeOf("2026-10-30" as ISODate, "2027-01-26" as ISODate)).toBe(27);
+  });
 });

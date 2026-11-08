@@ -1,6 +1,6 @@
 // How are you today? Asked on Home of whoever is holding the phone, once
 // a day: one tap keeps it, words if you want them, then it folds away. No
-// streaks and no reminders. The Journal keeps them all (FeelingsSection).
+// streaks and no reminders. The Journal keeps them all (FeelingsCollection).
 
 import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
@@ -8,27 +8,12 @@ import { feelingsSaves, useFeelingsQuery } from "../../../../../../api/rpc/feeli
 import { usePeopleQuery } from "../../../../../../api/rpc/people";
 import { useSave } from "../../../../../../app/hooks/useSave";
 import { todayISO } from "../../../../../../lib/dates";
-import { isOwn, latestOn, type OwnFeeling, STEP_LABEL, type Step } from "../../../../../../lib/journal/feelings";
-import { timeNow } from "../../../../../../lib/journal/journal";
-import { newId } from "../../../../../../lib/outbox";
+import { isOwn, latestOn, STEP_LABEL, type Step } from "../../../../../../lib/journal/feelings";
+import { useKeepStep } from "../../hooks/useKeepStep";
+import { changeOf } from "../../model/change";
 import { MoreWords } from "../MoreWords";
 import { StepPicker } from "../StepPicker";
 import { Support, supportItem } from "../Support";
-
-/** Keep a step: a new feeling, or today's one changed, its words kept. */
-function useKeepStep() {
-  const add = useSave(feelingsSaves.addFeeling);
-  const change = useSave(feelingsSaves.changeFeeling);
-  return (step: Step, feeling: OwnFeeling | undefined): string => {
-    if (feeling) {
-      change({ id: feeling.id, day: feeling.day, time: feeling.time, step, words: feeling.words, note: feeling.note });
-      return feeling.id;
-    }
-    const id = newId();
-    add({ id, day: todayISO(), time: timeNow(), step, words: [], note: null });
-    return id;
-  };
-}
 
 /** This week's check-in: the question, or today's answer folded, with a way to change it. */
 export function CheckIn() {
@@ -69,7 +54,7 @@ export function CheckIn() {
                 key={today.id}
                 feeling={today}
                 onDone={(more) => {
-                  change({ id: today.id, day: today.day, time: today.time, step: today.step, ...more });
+                  change(changeOf(today, more));
                   setOpen(false);
                 }}
               />

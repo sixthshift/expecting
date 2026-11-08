@@ -4,20 +4,20 @@
 // or delete one. See docs/product/journal.md.
 
 import { Button } from "@sixthshift/design-system/button";
-import { Modal } from "@sixthshift/design-system/modal";
 import { Camera, Columns2 } from "lucide-react";
 import { useState } from "react";
 import { usePhotosQuery } from "../../../../../../api/rpc/photos";
 import { useNow, useSettingsQuery } from "../../../../../../api/rpc/settings";
 import type { ISODate } from "../../../../../../lib/dates";
-import { BUMP_SERIES, type BumpWeek, bumpToTake, bumpWeeks, type PhotoGroup, type PhotoKind, photoGroups } from "../../../../../../lib/journal/photos";
+import { BUMP_SERIES, type BumpWeek, bumpToTake, bumpWeeks, type PhotoGroup, photoGroups } from "../../../../../../lib/journal/photos";
 import { kindsOffered } from "../../../../../../lib/journal/quiet";
 import { placeHeading, weekRange } from "../../../../../../lib/labels";
 import type { QuietKind } from "../../../../../../lib/quiet";
 import { type Week, weekLabel } from "../../../../../../lib/timeline";
+import { useShowAll } from "../../../../hooks/useShowAll";
 import { describePhoto } from "../../../../model/labels";
-import { QuietPhotosCollection } from "../../quiet/components/QuietPhotosCollection";
-import { AddPhoto } from "../AddPhoto";
+import { QuietAddPhoto } from "../../quiet/components/QuietAddPhoto";
+import { AddPhotoModal } from "../AddPhoto";
 import { PhotoViewer } from "../PhotoViewer";
 import { Picture } from "../Picture";
 import { Scrubber } from "../Scrubber";
@@ -105,21 +105,20 @@ function BumpRow({
  * The story as its photos: the bump week by week (once there's a series:
  * the row, the scrubber, side by side), and every one under its week. New
  * ones come in through the "+". While something has happened, the album
- * under `QuietPhotosCollection` (never a bump after a loss). Never deleted.
+ * under `QuietAddPhoto` (never a bump after a loss). Never deleted.
  */
 export function PhotosCollection({ quiet }: { quiet: QuietKind | null }) {
   const { data: photos } = usePhotosQuery();
   const { data: settings } = useSettingsQuery();
   const now = useNow();
-  const [all, setAll] = useState(false);
   const [viewing, setViewing] = useState<{ ids: string[]; index: number } | null>(null);
-  const [adding, setAdding] = useState<{ kind?: PhotoKind } | null>(null);
+  const [takingBump, setTakingBump] = useState(false);
   const [comparing, setComparing] = useState(false);
   const { dueDate } = settings;
   const kinds = kindsOffered(quiet);
 
   const groups = photoGroups(photos, dueDate);
-  const shown = all ? groups : groups.slice(0, WEEKS_SHOWN);
+  const { shown, more } = useShowAll(groups, WEEKS_SHOWN, "Show every week");
   const order = groups.flatMap((g) => g.photos.map((p) => p.id));
   const bumps = bumpWeeks(photos, dueDate);
   const open = (id: string) => setViewing({ ids: order, index: Math.max(0, order.indexOf(id)) });
@@ -130,7 +129,7 @@ export function PhotosCollection({ quiet }: { quiet: QuietKind | null }) {
         Photos and scans
       </h2>
       {quiet ? (
-        <QuietPhotosCollection onAdd={() => setAdding({})} />
+        <QuietAddPhoto quiet={quiet} />
       ) : (
         <>
           <p className="text-sm text-fg-subtle">
@@ -141,7 +140,7 @@ export function PhotosCollection({ quiet }: { quiet: QuietKind | null }) {
               weeks={bumps}
               toTake={bumpToTake(photos, { now, dueDate })}
               onOpen={(b) => open(b.photo.id)}
-              onTake={() => setAdding({ kind: "bump" })}
+              onTake={() => setTakingBump(true)}
               onCompare={() => setComparing(true)}
             />
           ) : null}
@@ -174,30 +173,11 @@ export function PhotosCollection({ quiet }: { quiet: QuietKind | null }) {
           </ul>
         </section>
       ))}
-      {groups.length > shown.length ? (
-        <Button variant="ghost" size="sm" className="self-start" onClick={() => setAll(true)}>
-          Show every week
-        </Button>
-      ) : null}
+      {more}
 
       {viewing ? <PhotoViewer ids={viewing.ids} index={viewing.index} kinds={kinds} onClose={() => setViewing(null)} /> : null}
       {comparing ? <SideBySide weeks={bumps} onClose={() => setComparing(false)} /> : null}
-      {adding ? (
-        <Modal
-          size="sm"
-          align="top"
-          closable
-          onOpenChange={(o) => (o ? null : setAdding(null))}
-          aria-label={adding.kind === "bump" ? "This week's bump photo" : "Add a photo"}
-        >
-          <Modal.Header>
-            <h2 className="font-display text-lg font-semibold text-fg-strong">{adding.kind === "bump" ? "This week's bump photo" : "Add a photo"}</h2>
-          </Modal.Header>
-          <Modal.Body className="px-6 pb-6">
-            <AddPhoto kind={adding.kind} kinds={kinds} onAdded={() => setAdding(null)} />
-          </Modal.Body>
-        </Modal>
-      ) : null}
+      {takingBump ? <AddPhotoModal title="This week's bump photo" kind="bump" kinds={kinds} onClose={() => setTakingBump(false)} /> : null}
     </section>
   );
 }

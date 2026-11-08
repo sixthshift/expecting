@@ -3,26 +3,20 @@
 // delete any; each says who kept it and who changed it last. The picture is
 // an upload (./files.ts), sent first by the same save (src/lib/journal/photos.ts).
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { FilesRepo } from "../../db/models/files/repo";
-import { PeopleRepo } from "../../db/models/people/repo";
 import { PhotosRepo } from "../../db/models/photos/repo";
-import { isISODate } from "../../lib/dates";
-import { TIME } from "../../lib/journal/journal";
+import { isISODate, TIME } from "../../lib/dates";
 import { PHOTO_KINDS, type Photo, type PhotoChange, type PhotoInput, tidyCaption } from "../../lib/journal/photos";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
 import { dropUpload } from "../../server/files/store";
+import { queryHook } from "../queryHook";
 import { withUpload } from "./files";
-
-/** Someone still here, by id; else nobody (a phone that hasn't said, or a person since forgotten). */
-function known(id: string | null | undefined): string | null {
-  return id && new PeopleRepo(getDb()).get(id) ? id : null;
-}
 
 const change = {
   id: z.uuid(),
@@ -32,23 +26,23 @@ const change = {
   caption: z.string().max(2_000).nullable(),
 };
 
-export const listPhotos = createServerFn({ method: "GET" }).handler(() => new PhotosRepo(getDb()).list());
+const listPhotos = createServerFn({ method: "GET" }).handler(() => new PhotosRepo(getDb()).list());
 
-export const addPhoto = createServerFn({ method: "POST" })
+const addPhoto = createServerFn({ method: "POST" })
   .validator(z.object({ ...change, fileId: z.uuid() }).strict())
   .handler(({ data }) => {
     const db = getDb();
     // Its upload goes first, in the same save: without it, the picture never arrived.
     if (!new FilesRepo(db).get(data.fileId)) throw Response.json({ error: "The photo didn't arrive" }, { status: 400 });
-    return new PhotosRepo(db).add(data, known(personId()), madeAt());
+    return new PhotosRepo(db).add(data, personId(), madeAt());
   });
 
-export const editPhoto = createServerFn({ method: "POST" })
+const editPhoto = createServerFn({ method: "POST" })
   .validator(z.object(change).strict())
-  .handler(({ data }) => new PhotosRepo(getDb()).edit(data, known(personId()), madeAt()));
+  .handler(({ data }) => new PhotosRepo(getDb()).edit(data, personId(), madeAt()));
 
 /** Gone from both phones, picture and all: nothing to put back, so the page asks first. */
-export const deletePhoto = createServerFn({ method: "POST" })
+const deletePhoto = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid() }).strict())
   .handler(async ({ data }) => {
     const db = getDb();
@@ -86,7 +80,4 @@ export const photosSaves = {
   }),
 };
 
-/** photosQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function usePhotosQuery<TData = Photos>(options?: Omit<UseSuspenseQueryOptions<Photos, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...photosQuery, ...options } as UseSuspenseQueryOptions<Photos, Error, TData, string[]>);
-}
+export const usePhotosQuery = queryHook(photosQuery);

@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { addDays, daysBetween, formatDate, isISODate, todayISO } from "../../src/lib/dates";
+import { addDays, daysBetween, formatDate, formatTime, isISODate, todayISO, toTime } from "../../src/lib/dates";
 
 test("isISODate accepts real dates only", () => {
   expect(isISODate("2026-10-27")).toBe(true);
@@ -20,4 +20,12 @@ test("today is the local calendar date", () => {
 
 test("dates read the Australian way", () => {
   expect(formatDate("2026-10-27")).toBe("Tue, 27 Oct 2026");
+});
+
+test("times: kept as HH:MM, shown as on a clock", () => {
+  expect(toTime("09:30:00")).toBe("09:30");
+  expect(toTime("25:00")).toBeNull();
+  expect(toTime(undefined)).toBeNull();
+  expect(formatTime("00:05")).toBe("12:05 am");
+  expect(formatTime("14:15")).toBe("2:15 pm");
 });

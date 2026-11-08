@@ -38,7 +38,7 @@ export function waitingAt(questions: readonly Question[], appointmentId: string 
 }
 
 /** An appointment and its questions, open or asked. */
-export type ForAppointment = { appointment: Appointment; questions: Question[] };
+type ForAppointment = { appointment: Appointment; questions: Question[] };
 
 /**
  * The questions by the appointment they're for: those still ahead with what's

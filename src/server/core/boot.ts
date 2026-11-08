@@ -14,8 +14,3 @@ export function ensureDataDir(dir: string = dataDir()): string {
   mkdirSync(dir, { recursive: true });
   return dir;
 }
-
-/** Everything that must happen before the first request. */
-export function boot(): { dataDir: string } {
-  return { dataDir: ensureDataDir() };
-}

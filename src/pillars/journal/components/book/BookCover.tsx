@@ -6,29 +6,13 @@
 
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
-import { usePeopleQuery } from "../../../../api/rpc/people";
-import { useSettingsQuery } from "../../../../api/rpc/settings";
-import { formatDate } from "../../../../lib/dates";
 import type { ChapterLine } from "../../../../lib/journal/chapters";
+import { useCover } from "../../hooks/useBook";
 import { Contents } from "./Contents";
-
-/** "Sam & Jason": whoever's carrying first. */
-function useNamesQuery(): string | null {
-  const { data: people } = usePeopleQuery();
-  const names = [...people.people].sort((a, b) => Number(b.role === "carrying") - Number(a.role === "carrying")).map((p) => p.name);
-  return names.length > 0 ? names.join(" & ") : null;
-}
-
-/** "Due July 2027". */
-function useDue(): string | null {
-  const { data: settings } = useSettingsQuery();
-  return settings.dueDate ? `Due ${formatDate(settings.dueDate, { month: "long", year: "numeric" })}` : null;
-}
 
 /** The cover and the contents, for while the Journal is young, or while there's no due date to write its weeks in. */
 export function BookCover({ lines }: { lines: readonly ChapterLine[] }) {
-  const names = useNamesQuery();
-  const due = useDue();
+  const { names, due } = useCover();
   return (
     <section
       aria-label="Your book"

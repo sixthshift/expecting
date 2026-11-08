@@ -1,14 +1,10 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Checkbox } from "@sixthshift/design-system/checkbox";
-import { DatePicker } from "@sixthshift/design-system/date-picker";
-import type { ISOTime } from "@sixthshift/design-system/date-time";
-import { FormField } from "@sixthshift/design-system/form-field";
 import { Textarea } from "@sixthshift/design-system/textarea";
-import { TimePicker } from "@sixthshift/design-system/time-picker";
 import { type FormEvent, useState } from "react";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
-import { type ISODate, todayISO } from "../../../../../lib/dates";
-import { timeNow, toTime } from "../../../../../lib/journal/journal";
+import { type ISODate, timeNow, todayISO } from "../../../../../lib/dates";
+import { WhenFields } from "../../../components/WhenFields";
 
 type Draft = { day: ISODate; time: string | null; body: string; letter: boolean; fromBoth: boolean };
 
@@ -67,23 +63,7 @@ export function NoteForm({
       />
       <Checkbox checked={letter} onCheckedChange={setLetter} label="A letter to the baby" />
       {letter && (two || fromBoth) ? <Checkbox checked={fromBoth} onCheckedChange={setFromBoth} label="From both of us" /> : null}
-      {choosing ? (
-        <div className="flex flex-wrap gap-3">
-          <FormField label="Day">
-            <DatePicker
-              value={day ?? today}
-              onChange={(d) => setDay((d as ISODate | undefined) ?? null)}
-              segmentOrder="dmy"
-              weekStartsOn={1}
-              clearable={false}
-              maxDate={today}
-            />
-          </FormField>
-          <FormField label="Time (if it matters)">
-            <TimePicker value={(time ?? undefined) as ISOTime | undefined} onChange={(t) => setTime(toTime(t))} clockFormat="12h" />
-          </FormField>
-        </div>
-      ) : null}
+      {choosing ? <WhenFields day={day ?? today} time={time} onDay={setDay} onTime={setTime} timeLabel="Time (if it matters)" /> : null}
       <div className="flex flex-wrap items-center gap-2">
         <Button type="submit" intent="brand" size={initial ? "sm" : "md"} disabled={body.trim().length === 0}>
           {submitLabel}

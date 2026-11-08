@@ -5,7 +5,7 @@
 /** 000; 13 11 14; 1300 726 306; 1300 78 99 78; 1800 882 436. Not the 000 in "10,000". */
 const PHONE = /(?<![\d,.])(?:000|1[38]00(?: ?\d){6}|13(?: ?\d){4})(?!\d|,\d)/g;
 
-export type TextPart = string | { phone: string };
+type TextPart = string | { phone: string };
 
 /** Text cut into plain runs and the numbers in it, in order. */
 export function splitPhones(text: string): TextPart[] {

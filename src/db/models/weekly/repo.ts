@@ -1,23 +1,15 @@
-import type { Database } from "bun:sqlite";
 import { and, eq } from "drizzle-orm";
 import type { WeeklyAnswer, WeeklyView } from "../../../lib/home/weekly";
 import type { Week } from "../../../lib/timeline";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { weeklyAnswer } from "./schema";
 
-export class WeeklyRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class WeeklyRepo extends Repo {
   /**
    * The weeks as `personId` sees them: their own answers, and the other's
-   * only for a week they've both answered. A phone that hasn't said who's
-   * holding it (null) sees only the weeks both have answered.
+   * only for a week they've both answered.
    */
-  view(personId: string | null): WeeklyView {
+  view(personId: string): WeeklyView {
     const rows = this.db.select().from(weeklyAnswer).all();
     const byWeek = new Map<number, typeof rows>();
     for (const r of rows) byWeek.set(r.week, [...(byWeek.get(r.week) ?? []), r]);
@@ -26,11 +18,6 @@ export class WeeklyRepo {
       weeks: [...byWeek.entries()]
         .sort(([a], [b]) => a - b)
         .flatMap(([week, answers]) => {
-          if (personId === null) {
-            if (answers.length < 2) return [];
-            const [a, b] = answers.sort((x, y) => x.answeredAt.localeCompare(y.answeredAt));
-            return [{ week: week as Week, mine: answer(a!), theirs: answer(b!) }];
-          }
           const mine = answers.find((r) => r.personId === personId);
           const theirs = answers.find((r) => r.personId !== personId);
           if (!mine) return [];

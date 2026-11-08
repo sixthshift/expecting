@@ -4,8 +4,7 @@
 // Only on the Journal: the quiet one makes none ready.
 
 import type { ISODate } from "../dates";
-import type { Week } from "../timeline";
-import { placeOf } from "./journal";
+import { placeOf, type Week } from "../timeline";
 import type { Paper } from "./papers";
 import type { Photo } from "./photos";
 

@@ -5,7 +5,7 @@ import { PaperRow } from "./PaperRow";
 import { PaperViewer } from "./PaperViewer";
 
 /** Papers as rows, each opened in place. */
-export function PaperList({ papers, label }: { papers: Paper[]; label: string }) {
+export function PaperList({ papers, label }: { papers: readonly Paper[]; label: string }) {
   const { data: settings } = useSettingsQuery();
   const [open, setOpen] = useState<string | null>(null);
   return (

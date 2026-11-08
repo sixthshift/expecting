@@ -2,23 +2,17 @@
 // Shared, and either of you can change one; each says who added it and who
 // changed it last. One-off: nothing repeats.
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { AppointmentsRepo } from "../../db/models/appointments/repo";
-import { PeopleRepo } from "../../db/models/people/repo";
-import { isISODate } from "../../lib/dates";
-import { TIME } from "../../lib/journal/journal";
+import { isISODate, TIME } from "../../lib/dates";
 import { save, stamped } from "../../lib/outbox";
 import type { Appointment } from "../../lib/planner/appointments";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
-
-/** Someone still here, by id; else nobody (a phone that hasn't said, or a person since forgotten). */
-function known(id: string | null | undefined): string | null {
-  return id && new PeopleRepo(getDb()).get(id) ? id : null;
-}
+import { queryHook } from "../queryHook";
 
 const appointment = z
   .object({
@@ -34,17 +28,17 @@ const appointment = z
 /** What a phone sends for an appointment, new or changed. */
 export type AppointmentInput = z.infer<typeof appointment>;
 
-export const listAppointments = createServerFn({ method: "GET" }).handler(() => new AppointmentsRepo(getDb()).list());
+const listAppointments = createServerFn({ method: "GET" }).handler(() => new AppointmentsRepo(getDb()).list());
 
-export const addAppointment = createServerFn({ method: "POST" })
+const addAppointment = createServerFn({ method: "POST" })
   .validator(appointment)
-  .handler(({ data }) => new AppointmentsRepo(getDb()).add(data, known(personId()), madeAt()));
+  .handler(({ data }) => new AppointmentsRepo(getDb()).add(data, personId(), madeAt()));
 
-export const editAppointment = createServerFn({ method: "POST" })
+const editAppointment = createServerFn({ method: "POST" })
   .validator(appointment)
-  .handler(({ data }) => new AppointmentsRepo(getDb()).edit(data, known(personId()), madeAt()));
+  .handler(({ data }) => new AppointmentsRepo(getDb()).edit(data, personId(), madeAt()));
 
-export const deleteAppointment = createServerFn({ method: "POST" })
+const deleteAppointment = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid() }).strict())
   .handler(({ data }) => new AppointmentsRepo(getDb()).delete(data.id));
 
@@ -96,9 +90,4 @@ export const appointmentsSaves = {
   }),
 };
 
-/** appointmentsQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. */
-export function useAppointmentsQuery<TData = Appointments>(
-  options?: Omit<UseSuspenseQueryOptions<Appointments, Error, TData, string[]>, "queryKey" | "queryFn">
-) {
-  return useSuspenseQuery({ ...appointmentsQuery, ...options } as UseSuspenseQueryOptions<Appointments, Error, TData, string[]>);
-}
+export const useAppointmentsQuery = queryHook(appointmentsQuery);

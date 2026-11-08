@@ -1,19 +1,12 @@
-import type { Database } from "bun:sqlite";
 import { eq } from "drizzle-orm";
 import type { Quiet, QuietKind } from "../../../lib/quiet";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { quiet } from "./schema";
 
 const ID = 1;
 
 /** Whether Expecting is quiet, and why. Which kinds may follow which is `lib/quiet`'s rule, not this repo's. */
-export class QuietRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class QuietRepo extends Repo {
   /** What has happened, or null while nothing has. */
   get(): Quiet | null {
     const row = this.db.select().from(quiet).where(eq(quiet.id, ID)).get();

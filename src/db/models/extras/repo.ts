@@ -1,16 +1,9 @@
-import type { Database } from "bun:sqlite";
 import type { Choice } from "../../../lib/extras";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { extra } from "./schema";
 
 /** Which extras exist is content's business, not this repo's. */
-export class ExtrasRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class ExtrasRepo extends Repo {
   /** Every extra someone has decided on. */
   list(): Choice[] {
     return this.db.select().from(extra).all();

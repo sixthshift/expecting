@@ -6,13 +6,12 @@ import { Input } from "@sixthshift/design-system/input";
 import { Textarea } from "@sixthshift/design-system/textarea";
 import { TimePicker } from "@sixthshift/design-system/time-picker";
 import { type FormEvent, useState } from "react";
-import type { ISODate } from "../../../../../lib/dates";
-import { toTime } from "../../../../../lib/journal/journal";
+import { type ISODate, toTime } from "../../../../../lib/dates";
 
 /** An appointment as the form holds it: what, the day, and perhaps the time, the place and notes. */
-export type AppointmentDraft = { title: string; day: ISODate | null; time: string | null; place: string; notes: string };
+type AppointmentDraft = { title: string; day: ISODate | null; time: string | null; place: string; notes: string };
 
-export const EMPTY_DRAFT: AppointmentDraft = { title: "", day: null, time: null, place: "", notes: "" };
+const EMPTY_DRAFT: AppointmentDraft = { title: "", day: null, time: null, place: "", notes: "" };
 
 /** What it is and its day are needed; the time, the place and notes if you have them. */
 export function AppointmentForm({

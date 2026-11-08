@@ -1,15 +1,8 @@
-import type { Database } from "bun:sqlite";
 import { eq } from "drizzle-orm";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { itemRead } from "./schema";
 
-export class ReadsRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class ReadsRepo extends Repo {
   /** What `person` has read, item id to when they first opened it. */
   reads(person: string): Record<string, string> {
     const rows = this.db.select().from(itemRead).where(eq(itemRead.personId, person)).all();

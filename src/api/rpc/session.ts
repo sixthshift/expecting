@@ -3,7 +3,7 @@
 // they are how you get one and how you end it. The gate opens this file by
 // name (OPEN_FUNCTIONS in src/server/auth/gate.ts), so nothing else belongs here.
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { deleteCookie, getRequest, setCookie } from "@tanstack/react-start/server";
 import { z } from "zod";
@@ -15,6 +15,7 @@ import { readSessionCookie, SESSION_COOKIE, sessionCookieOptions } from "../../s
 import { clientKey, limiter, loginOn, sessionOf } from "../../server/auth/gate";
 import { hashPassword, verifyPassword } from "../../server/auth/password";
 import { getDb } from "../../server/core/db";
+import { queryHook } from "../queryHook";
 
 /** The shortest password allowed. */
 export const MIN_PASSWORD = 8;
@@ -200,7 +201,4 @@ export function codeQuery(kind: "join" | "reset", code: string) {
 
 export const accessQuery = queryOptions({ queryKey: ["access"], queryFn: () => getAccess() });
 
-/** accessQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useAccessQuery<TData = Access>(options?: Omit<UseSuspenseQueryOptions<Access, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...accessQuery, ...options } as UseSuspenseQueryOptions<Access, Error, TData, string[]>);
-}
+export const useAccessQuery = queryHook(accessQuery);

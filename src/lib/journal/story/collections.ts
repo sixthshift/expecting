@@ -5,7 +5,6 @@
 // started, a week's question and bingo are lines of the story, but in no
 // collection.
 
-import { foldedWhileQuiet } from "../quiet";
 import type { StoryItem, StoryKind } from "./items";
 
 /** In the order they're shown. */
@@ -44,10 +43,4 @@ const COLLECTION_OF: Record<StoryKind, Collection | null> = {
 /** The collection a line is in, or null for one in none (what was done, the night, a question, bingo). */
 export function collectionOf(item: StoryItem): Collection | null {
   return COLLECTION_OF[item.kind];
-}
-
-/** The collections there's something in, in their order; while something has happened (`quiet`), not the folded ones. */
-export function collectionsKept(items: readonly StoryItem[], quiet: boolean): Collection[] {
-  const kept = new Set(items.filter((i) => !(quiet && foldedWhileQuiet(i))).map(collectionOf));
-  return COLLECTIONS.filter((c) => kept.has(c));
 }

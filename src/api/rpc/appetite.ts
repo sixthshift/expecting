@@ -2,23 +2,17 @@
 // as notes are: either of you keeps one, sees all, and can change any; each
 // says who kept it and who changed it last (src/lib/journal/appetite.ts).
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { AppetiteRepo } from "../../db/models/appetite/repo";
-import { PeopleRepo } from "../../db/models/people/repo";
-import { isISODate } from "../../lib/dates";
+import { isISODate, TIME } from "../../lib/dates";
 import { APPETITE_KINDS, type AppetiteEntry, type AppetiteInput, HOWS, isWhole, tidy } from "../../lib/journal/appetite";
-import { TIME } from "../../lib/journal/journal";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
-import { personId } from "../../server/core/person";
-
-/** Someone still here, by id; else nobody (a phone that hasn't said, or a person since forgotten). */
-function known(id: string | null | undefined): string | null {
-  return id && new PeopleRepo(getDb()).get(id) ? id : null;
-}
+import { known, personId } from "../../server/core/person";
+import { queryHook } from "../queryHook";
 
 const fields = {
   id: z.uuid(),
@@ -36,17 +30,17 @@ const WHOLE = "Sickness needs how bad, and a craving what";
 
 const entry = z.object(fields).strict().refine(whole, WHOLE);
 
-export const listAppetite = createServerFn({ method: "GET" }).handler(() => new AppetiteRepo(getDb()).list());
+const listAppetite = createServerFn({ method: "GET" }).handler(() => new AppetiteRepo(getDb()).list());
 
-export const addAppetite = createServerFn({ method: "POST" })
+const addAppetite = createServerFn({ method: "POST" })
   .validator(entry)
-  .handler(({ data }) => new AppetiteRepo(getDb()).add(data, known(personId()), madeAt()));
+  .handler(({ data }) => new AppetiteRepo(getDb()).add(data, personId(), madeAt()));
 
-export const editAppetite = createServerFn({ method: "POST" })
+const editAppetite = createServerFn({ method: "POST" })
   .validator(entry)
-  .handler(({ data }) => new AppetiteRepo(getDb()).edit(data, known(personId()), madeAt()));
+  .handler(({ data }) => new AppetiteRepo(getDb()).edit(data, personId(), madeAt()));
 
-export const restoreAppetite = createServerFn({ method: "POST" })
+const restoreAppetite = createServerFn({ method: "POST" })
   .validator(
     z
       .object({ ...fields, by: z.uuid().nullable(), createdAt: z.iso.datetime(), editedBy: z.uuid().nullable(), editedAt: z.iso.datetime().nullable() })
@@ -55,7 +49,7 @@ export const restoreAppetite = createServerFn({ method: "POST" })
   )
   .handler(({ data }) => new AppetiteRepo(getDb()).restore({ ...data, by: known(data.by), editedBy: known(data.editedBy) }));
 
-export const deleteAppetite = createServerFn({ method: "POST" })
+const deleteAppetite = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid() }).strict())
   .handler(({ data }) => new AppetiteRepo(getDb()).delete(data.id));
 
@@ -92,7 +86,4 @@ export const appetiteSaves = {
   }),
 };
 
-/** appetiteQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useAppetiteQuery<TData = Appetite>(options?: Omit<UseSuspenseQueryOptions<Appetite, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...appetiteQuery, ...options } as UseSuspenseQueryOptions<Appetite, Error, TData, string[]>);
-}
+export const useAppetiteQuery = queryHook(appetiteQuery);

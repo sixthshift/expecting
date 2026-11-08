@@ -5,8 +5,8 @@
 // judges the numbers: the birth suite does that.
 
 import type { Facts } from "../app/features/settings/model/facts";
-import { addDays, type ISODate, todayISO } from "./dates";
-import { formatTime, timeNow } from "./journal/journal";
+import { addDays, dayOf, formatTime, type ISODate, timeNow } from "./dates";
+import { capitalise } from "./labels";
 import type { Week } from "./timeline";
 
 /** The colour of the waters, as `card-waters-colour` sorts it; unsure is fine too. */
@@ -131,11 +131,6 @@ export function clock(iso: string): string {
   return formatTime(timeNow(new Date(iso)));
 }
 
-/** The day a time falls on, on this phone. */
-export function dayOf(iso: string): ISODate {
-  return todayISO(new Date(iso));
-}
-
 /** The ways a start is read back: the false starts before it are folded into a real one's line. */
 export type Night = { start: Start; falseStarts: Start[] };
 
@@ -176,7 +171,7 @@ export function nightLine({ start, falseStarts }: Night): string {
   ].filter((p): p is string => p !== null);
   if (!start.watersAt && !first) parts.unshift(`Started ${clock(start.startedAt)}`);
   const line = parts.join(" · ");
-  const sentence = line.charAt(0).toUpperCase() + line.slice(1);
+  const sentence = capitalise(line);
   if (falseStarts.length === 0) return sentence;
   const day = dayOf(start.startedAt);
   const falses = falseStarts.map((f) => shortDay(dayOf(f.startedAt), day));

@@ -1,7 +1,6 @@
 import { PillarLayout } from "../../../app/components/layout/PillarLayout";
 import { Collections } from "../components/collections/Collections";
 import { JournalTabs } from "../components/JournalTabs";
-import { JournalPageProvider } from "../contexts/JournalPageContext";
 import { JournalRail } from "../desktop/components/JournalRail";
 
 /**
@@ -13,16 +12,8 @@ import { JournalRail } from "../desktop/components/JournalRail";
  */
 export function CollectionsPage() {
   return (
-    <JournalPageProvider>
-      <PillarLayout
-        rail={<JournalRail />}
-        tabs={{ title: "Journal", nav: <JournalTabs current="collections" /> }}
-        width="full"
-        title="Journal"
-        className="gap-6"
-      >
-        <Collections />
-      </PillarLayout>
-    </JournalPageProvider>
+    <PillarLayout rail={<JournalRail />} tabs={{ title: "Journal", nav: <JournalTabs current="collections" /> }} width="full" title="Journal" className="gap-6">
+      <Collections />
+    </PillarLayout>
   );
 }

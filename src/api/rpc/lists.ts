@@ -1,20 +1,15 @@
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { isBuiltInLineId } from "../../content";
 import { type Lists, ListsRepo } from "../../db/models/lists/repo";
-import { PeopleRepo } from "../../db/models/people/repo";
 import { save, stamped } from "../../lib/outbox";
 import { listOf } from "../../lib/planner/lists/builtIn";
 import { HOWS, type How, LINE_STATES, type LineState, type Mark } from "../../lib/planner/lists/lines";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
-
-/** Someone still here, by id; else nobody (a phone that hasn't said, or a person since forgotten). */
-function known(id: string | null | undefined): string | null {
-  return id && new PeopleRepo(getDb()).get(id) ? id : null;
-}
+import { queryHook } from "../queryHook";
 
 const title = z
   .string()
@@ -33,29 +28,29 @@ function fitsSection(listId: string, section: string | null): boolean {
   return section === null || section in (listOf(listId)?.sections ?? {});
 }
 
-export const getLists = createServerFn({ method: "GET" }).handler(() => new ListsRepo(getDb()).all());
+const getLists = createServerFn({ method: "GET" }).handler(() => new ListsRepo(getDb()).all());
 
-export const addList = createServerFn({ method: "POST" })
+const addList = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), title }).strict())
-  .handler(({ data }) => new ListsRepo(getDb()).addList(data, known(personId()), madeAt()));
+  .handler(({ data }) => new ListsRepo(getDb()).addList(data, personId(), madeAt()));
 
-export const renameList = createServerFn({ method: "POST" })
+const renameList = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), title }).strict())
   .handler(({ data }) => new ListsRepo(getDb()).renameList(data.id, data.title));
 
-export const deleteList = createServerFn({ method: "POST" })
+const deleteList = createServerFn({ method: "POST" })
   .validator(id)
   .handler(({ data }) => new ListsRepo(getDb()).deleteList(data.id));
 
-export const addLine = createServerFn({ method: "POST" })
+const addLine = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), listId: z.string().min(1).max(100), title, section: z.string().max(100).nullable() }).strict())
   .handler(({ data }) => {
     if (!hasList(data.listId)) throw new Error(`No list ${data.listId}`);
     if (!fitsSection(data.listId, data.section)) throw new Error(`No section ${data.section} on ${data.listId}`);
-    return new ListsRepo(getDb()).addLine(data, known(personId()), madeAt());
+    return new ListsRepo(getDb()).addLine(data, personId(), madeAt());
   });
 
-export const changeLine = createServerFn({ method: "POST" })
+const changeLine = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), title, section: z.string().max(100).nullable() }).strict())
   .handler(({ data }) => {
     const repo = new ListsRepo(getDb());
@@ -65,7 +60,7 @@ export const changeLine = createServerFn({ method: "POST" })
     repo.changeLine(data.id, data);
   });
 
-export const deleteLine = createServerFn({ method: "POST" })
+const deleteLine = createServerFn({ method: "POST" })
   .validator(id)
   .handler(({ data }) => new ListsRepo(getDb()).deleteLine(data.id));
 
@@ -78,12 +73,12 @@ const markInput = z
   })
   .strict();
 
-export const markLine = createServerFn({ method: "POST" })
+const markLine = createServerFn({ method: "POST" })
   .validator(markInput)
   .handler(({ data }) => {
     const repo = new ListsRepo(getDb());
     if (!isBuiltInLineId(data.lineId) && !repo.hasLine(data.lineId)) throw new Error(`No line ${data.lineId}`);
-    repo.mark(data.lineId, data, known(personId()), madeAt());
+    repo.mark(data.lineId, data, personId(), madeAt());
   });
 
 export type { Lists };
@@ -169,7 +164,4 @@ export const listsSaves = {
   }),
 };
 
-/** listsQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useListsQuery<TData = Lists>(options?: Omit<UseSuspenseQueryOptions<Lists, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...listsQuery, ...options } as UseSuspenseQueryOptions<Lists, Error, TData, string[]>);
-}
+export const useListsQuery = queryHook(listsQuery);

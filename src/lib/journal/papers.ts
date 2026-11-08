@@ -9,8 +9,7 @@
 import type { ISODate } from "../dates";
 import { FILE_PROBLEM, type FileProblem, type FileType, fileUrl, isImage, MAX_ORIGINAL } from "../files";
 import type { QuietKind } from "../quiet";
-import type { Week } from "../timeline";
-import { placeOf } from "./journal";
+import { placeOf, type Week } from "../timeline";
 import { QUIET_PAPERS } from "./quiet";
 
 /** What a paper is: a result, a letter or referral, a plan, a record or summary, or something else. */
@@ -52,7 +51,7 @@ export const PAPER_TITLE_PLACEHOLDER: Record<PaperKind, string> = {
  * whether a paper about it is handy by default (asked for at the desk, or
  * at triage). Never a private entry (test/lib/journal/papers.test.ts).
  */
-export type PaperTopic = { id: string; kind: Exclude<PaperKind, "other">; title: string; handy?: true };
+type PaperTopic = { id: string; kind: Exclude<PaperKind, "other">; title: string; handy?: true };
 
 export const PAPER_TOPICS: readonly PaperTopic[] = [
   { id: "first-blood-tests", kind: "result", title: "First blood tests" },

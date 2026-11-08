@@ -3,8 +3,6 @@ import { z } from "zod";
 import { appetiteQuery } from "../../../api/rpc/appetite";
 import { feelingsQuery } from "../../../api/rpc/feelings";
 import { firstsQuery } from "../../../api/rpc/firsts";
-import { listsQuery } from "../../../api/rpc/lists";
-import { namesQuery } from "../../../api/rpc/names";
 import { photosQuery } from "../../../api/rpc/photos";
 import { worlds } from "../../../app/features/quiet/worlds";
 import { STORY_VIEWS } from "../../../lib/journal/story/views";
@@ -12,7 +10,7 @@ import { timelineSearch } from "../../home/features/timeline/routes/timeline";
 import { journal } from "./journal";
 
 /**
- * The Journal's search: the way the story is looked at (`weeks`, `photos`; days has
+ * The Journal's search: the way the story is looked at (`weeks`, `pregnancy`; days has
  * none), and a week to open at (`22`, as the timeline's). Anything unknown
  * is dropped.
  */
@@ -33,8 +31,6 @@ export const story = createRoute({
       queryClient.ensureQueryData(feelingsQuery),
       queryClient.ensureQueryData(appetiteQuery),
       queryClient.ensureQueryData(firstsQuery),
-      queryClient.ensureQueryData(listsQuery),
-      queryClient.ensureQueryData(namesQuery),
     ]),
   component: worlds(
     lazyRouteComponent(() => import("../pages/JournalPage"), "JournalPage"),

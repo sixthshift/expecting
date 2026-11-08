@@ -3,7 +3,7 @@
 // whoever is logged in, and approving it sends the client back with a code.
 // Settings lists what's connected, and disconnects one.
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { ConnectionsRepo } from "../../db/models/connections/repo";
@@ -12,6 +12,7 @@ import { save } from "../../lib/outbox";
 import { loginOn } from "../../server/auth/gate";
 import { getDb } from "../../server/core/db";
 import { personId } from "../../server/core/person";
+import { queryHook } from "../queryHook";
 
 /** What /connect can say about a request: who's asking, or why it can't go ahead (and so no sending back). */
 export type ConnectRequest = { ok: true; clientName: string } | { ok: false; why: "login-off" | "unknown-client" | "bad-redirect" };
@@ -25,7 +26,7 @@ function judge(clientId: string, redirectUri: string): ConnectRequest {
 }
 
 /** Who is asking to connect, if the request can go ahead. */
-export const getConnectRequest = createServerFn({ method: "GET" })
+const getConnectRequest = createServerFn({ method: "GET" })
   .validator(z.object({ clientId: z.string().max(100), redirectUri: z.string().max(2000) }).strict())
   .handler(({ data }) => judge(data.clientId, data.redirectUri));
 
@@ -35,15 +36,13 @@ export const approveConnection = createServerFn({ method: "POST" })
   .handler(({ data: { request } }) => {
     const judged = judge(request.client_id, request.redirect_uri);
     if (!judged.ok) throw new Error(`Can't connect: ${judged.why}`);
-    const by = personId();
-    if (!by) throw new Error("Log in first");
-    const code = new ConnectionsRepo(getDb()).approve(request.client_id, by, request.code_challenge, request.redirect_uri);
+    const code = new ConnectionsRepo(getDb()).approve(request.client_id, personId(), request.code_challenge, request.redirect_uri);
     return { to: sendBack(request.redirect_uri, { code }, request.state) };
   });
 
-export const listConnections = createServerFn({ method: "GET" }).handler(() => new ConnectionsRepo(getDb()).list());
+const listConnections = createServerFn({ method: "GET" }).handler(() => new ConnectionsRepo(getDb()).list());
 
-export const disconnect = createServerFn({ method: "POST" })
+const disconnect = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid() }).strict())
   .handler(({ data }) => new ConnectionsRepo(getDb()).disconnect(data.id));
 
@@ -64,7 +63,4 @@ export const connectionsSaves = {
   }),
 };
 
-/** connectionsQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. */
-export function useConnectionsQuery<TData = Connections>(options?: Omit<UseSuspenseQueryOptions<Connections, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...connectionsQuery, ...options } as UseSuspenseQueryOptions<Connections, Error, TData, string[]>);
-}
+export const useConnectionsQuery = queryHook(connectionsQuery);

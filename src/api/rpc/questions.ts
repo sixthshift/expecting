@@ -1,25 +1,20 @@
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { isBuiltInItemId } from "../../content";
-import { PeopleRepo } from "../../db/models/people/repo";
 import { QuestionsRepo } from "../../db/models/questions/repo";
 import { save, stamped } from "../../lib/outbox";
 import type { Question } from "../../lib/planner/questions";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
+import { queryHook } from "../queryHook";
 
 const id = z.object({ id: z.uuid() }).strict();
 
-/** Someone still here, by id; else nobody (a phone that hasn't said, or a person since forgotten). */
-function known(id: string | null | undefined): string | null {
-  return id && new PeopleRepo(getDb()).get(id) ? id : null;
-}
+const listQuestions = createServerFn({ method: "GET" }).handler(() => new QuestionsRepo(getDb()).list());
 
-export const listQuestions = createServerFn({ method: "GET" }).handler(() => new QuestionsRepo(getDb()).list());
-
-export const addQuestion = createServerFn({ method: "POST" })
+const addQuestion = createServerFn({ method: "POST" })
   .validator(
     z
       .object({
@@ -33,22 +28,22 @@ export const addQuestion = createServerFn({ method: "POST" })
       .strict()
   )
   .handler(({ data }) =>
-    new QuestionsRepo(getDb()).add(data.text, { itemId: data.itemId, by: known(personId()), appointmentId: data.appointmentId }, madeAt(), data.id)
+    new QuestionsRepo(getDb()).add(data.text, { itemId: data.itemId, by: personId(), appointmentId: data.appointmentId }, madeAt(), data.id)
   );
 
-export const moveQuestion = createServerFn({ method: "POST" })
+const moveQuestion = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), appointmentId: z.uuid() }).strict())
   .handler(({ data }) => new QuestionsRepo(getDb()).move(data.id, data.appointmentId));
 
-export const markAsked = createServerFn({ method: "POST" })
+const markAsked = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), answer: z.string().max(5000) }).strict())
   .handler(({ data }) => new QuestionsRepo(getDb()).markAsked(data.id, data.answer, madeAt()));
 
-export const reopenQuestion = createServerFn({ method: "POST" })
+const reopenQuestion = createServerFn({ method: "POST" })
   .validator(id)
   .handler(({ data }) => new QuestionsRepo(getDb()).reopen(data.id));
 
-export const deleteQuestion = createServerFn({ method: "POST" })
+const deleteQuestion = createServerFn({ method: "POST" })
   .validator(id)
   .handler(({ data }) => new QuestionsRepo(getDb()).delete(data.id));
 
@@ -98,7 +93,4 @@ export const questionsSaves = {
   }),
 };
 
-/** questionsQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useQuestionsQuery<TData = Questions>(options?: Omit<UseSuspenseQueryOptions<Questions, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...questionsQuery, ...options } as UseSuspenseQueryOptions<Questions, Error, TData, string[]>);
-}
+export const useQuestionsQuery = queryHook(questionsQuery);

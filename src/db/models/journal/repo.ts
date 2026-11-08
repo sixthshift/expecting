@@ -1,20 +1,13 @@
-import type { Database } from "bun:sqlite";
 import { and, eq, inArray } from "drizzle-orm";
 import type { JournalEntry } from "../../../lib/journal/journal";
-import { orm } from "../../connection/client";
-import { journalEntry, journalSeen } from "./schema";
+import { Repo } from "../../connection/client";
+import { journalEntry } from "./schema";
 
-/** A note, or with `kind: "letter"` a letter to the baby (a note by default, as a phone before letters sends it), `fromBoth` if it's from both of you. */
-export type NewNote = { id: string; day: string; time: string | null; body: string; kind?: "note" | "letter"; fromBoth?: boolean };
+/** A note, or a letter to the baby, `fromBoth` if it's from both of you (a note never is). */
+export type NewNote = { id: string; day: string; time: string | null; body: string; kind: "note" | "letter"; fromBoth: boolean };
 export type NewMovement = { id: string; day: string; time: string; body: string; different: boolean };
 
-export class JournalRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class JournalRepo extends Repo {
   /** Every entry; the page orders them. */
   list(): JournalEntry[] {
     return this.db.select().from(journalEntry).all();
@@ -22,13 +15,11 @@ export class JournalRepo {
 
   /** Add a note, by the id the phone gave it; one already here (the same save, sent twice) is left as it is. */
   add(note: NewNote, by: string | null, now: Date = new Date()): JournalEntry {
-    const { kind = "note", fromBoth = false, ...rest } = note;
     const row: JournalEntry = {
-      ...rest,
-      kind,
+      ...note,
       body: note.body.trim(),
       different: false,
-      fromBoth: kind === "letter" && fromBoth,
+      fromBoth: note.kind === "letter" && note.fromBoth,
       by,
       createdAt: now.toISOString(),
       editedBy: null,
@@ -38,18 +29,16 @@ export class JournalRepo {
     return row;
   }
 
-  /** Change a note's words, day or time (or whether it's a letter, and from both of you, when said), saying who and when. A note is never from both. */
+  /** Change a note's words, day or time, whether it's a letter, and from both of you, saying who and when. A note is never from both. */
   edit(note: NewNote, by: string | null, now: Date = new Date()): void {
-    // Whether it's from both is said only with its kind (a phone before letters from both says neither): a note never is.
-    const fromBoth = note.kind === "note" ? { fromBoth: false } : note.kind === "letter" && note.fromBoth !== undefined ? { fromBoth: note.fromBoth } : {};
     this.db
       .update(journalEntry)
       .set({
         day: note.day,
         time: note.time,
         body: note.body.trim(),
-        ...(note.kind ? { kind: note.kind } : {}),
-        ...fromBoth,
+        kind: note.kind,
+        fromBoth: note.kind === "letter" && note.fromBoth,
         editedBy: by,
         editedAt: now.toISOString(),
       })
@@ -96,21 +85,5 @@ export class JournalRepo {
 
   delete(id: string): void {
     this.db.delete(journalEntry).where(eq(journalEntry.id, id)).run();
-  }
-
-  /** When `person` last opened the Journal; null if never. */
-  seen(person: string): string | null {
-    return this.db.select().from(journalSeen).where(eq(journalSeen.personId, person)).get()?.seenAt ?? null;
-  }
-
-  /** `person` opened the Journal at `at`; an older time than the one kept (a save sent late) changes nothing. */
-  markSeen(person: string, at: string): void {
-    const kept = this.seen(person);
-    if (kept && kept >= at) return;
-    this.db
-      .insert(journalSeen)
-      .values({ personId: person, seenAt: at })
-      .onConflictDoUpdate({ target: journalSeen.personId, set: { seenAt: at } })
-      .run();
   }
 }

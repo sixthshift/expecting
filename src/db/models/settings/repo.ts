@@ -1,8 +1,7 @@
-import type { Database } from "bun:sqlite";
 import { eq } from "drizzle-orm";
 import type { ISODate } from "../../../lib/dates";
 import type { Baby } from "../../../lib/theme";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { settings } from "./schema";
 
 /** The settings: the due date, the baby's colours, when onboarding finished. The answers are facts, in their own table (`../facts`). */
@@ -10,13 +9,7 @@ export type Settings = { dueDate: ISODate | null; baby: Baby; onboardedAt: strin
 
 const ID = 1;
 
-export class SettingsRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class SettingsRepo extends Repo {
   /** The settings; no due date and the baby unknown before anything is entered. */
   get(): Settings {
     const row = this.db.select().from(settings).where(eq(settings.id, ID)).get();

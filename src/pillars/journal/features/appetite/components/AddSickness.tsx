@@ -3,12 +3,12 @@ import { Input } from "@sixthshift/design-system/input";
 import { useState } from "react";
 import { appetiteSaves, useAppetiteQuery } from "../../../../../api/rpc/appetite";
 import { useSave } from "../../../../../app/hooks/useSave";
-import { type ISODate, todayISO } from "../../../../../lib/dates";
+import { type ISODate, timeNow, todayISO } from "../../../../../lib/dates";
 import { type AppetiteEntry, type How, inputOf } from "../../../../../lib/journal/appetite";
-import { timeNow } from "../../../../../lib/journal/journal";
 import { when } from "../../../../../lib/labels";
 import { newId } from "../../../../../lib/outbox";
-import { HowPicker, WhenFields } from "./AppetiteFields";
+import { WhenFields } from "../../../components/WhenFields";
+import { HowPicker } from "./AppetiteFields";
 import { TooSick } from "./TooSick";
 
 /** After the tap, if you want: a few words, and when, for one kept after the fact. Done keeps them. */
@@ -27,7 +27,7 @@ function MoreAboutIt({ entry, onDone }: { entry: AppetiteEntry; onDone: (more: {
       }}
     >
       <Input value={note} onChange={(e) => setNote(e.target.value)} placeholder="A few words, if you want" aria-label="About it" maxLength={10_000} />
-      {choosing ? <WhenFields day={day} time={time} onDay={setDay} onTime={setTime} /> : null}
+      {choosing ? <WhenFields day={day} time={time} onDay={setDay} onTime={(t) => setTime(t ?? time)} /> : null}
       <div className="flex flex-wrap items-center gap-2">
         <Button type="submit" intent="brand" size="sm">
           Done

@@ -5,7 +5,7 @@
 
 type EmergencyKind = "phone" | "line" | "lines" | "date" | "tick";
 
-export type EmergencyField = {
+type EmergencyField = {
   id: string;
   label: string;
   kind: EmergencyKind;
@@ -13,7 +13,7 @@ export type EmergencyField = {
   hint?: string;
 };
 
-export type EmergencyGroup = { id: string; title: string; fields: readonly EmergencyField[] };
+type EmergencyGroup = { id: string; title: string; fields: readonly EmergencyField[] };
 
 /** A tick's value when it's ticked; unticked, it has none. */
 export const TICKED = "yes";

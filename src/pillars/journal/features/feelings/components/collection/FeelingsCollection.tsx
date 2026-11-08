@@ -13,11 +13,11 @@ import { useState } from "react";
 import { feelingsSaves, useFeelingsQuery } from "../../../../../../api/rpc/feelings";
 import { usePeopleQuery } from "../../../../../../api/rpc/people";
 import { useSave } from "../../../../../../app/hooks/useSave";
-import { addDays, type ISODate, todayISO } from "../../../../../../lib/dates";
+import { addDays, formatTime, type ISODate, todayISO } from "../../../../../../lib/dates";
 import { type Feeling, feelingsOf, isOwn, type OwnFeeling, STEP_LABEL, type Step, stepsByDay, wordsUsed } from "../../../../../../lib/journal/feelings";
-import { formatTime } from "../../../../../../lib/journal/journal";
 import { weekdayDate } from "../../../../../../lib/labels";
 import { nameBy } from "../../../../../../lib/people";
+import { changeOf } from "../../model/change";
 import { Face } from "../Face";
 import { MoreWords } from "../MoreWords";
 import { StepPicker } from "../StepPicker";
@@ -125,7 +125,7 @@ function CheckedIn({ feeling }: { feeling: Feeling | OwnFeeling }) {
     toast({
       title: "Check-in deleted",
       action: "Undo",
-      onAction: () => add({ id: f.id, day: f.day, time: f.time, step: f.step, words: f.words, note: f.note }),
+      onAction: () => add(changeOf(f)),
     });
   }
 
@@ -133,15 +133,11 @@ function CheckedIn({ feeling }: { feeling: Feeling | OwnFeeling }) {
     return (
       <Card size="sm">
         <div className="flex flex-col gap-3">
-          <StepPicker
-            label="How were you?"
-            value={feeling.step}
-            onChoose={(step) => change({ id: feeling.id, day: feeling.day, time: feeling.time, step, words: feeling.words, note: feeling.note })}
-          />
+          <StepPicker label="How were you?" value={feeling.step} onChoose={(step) => change(changeOf(feeling, { step }))} />
           <MoreWords
             feeling={feeling}
             onDone={(more) => {
-              change({ id: feeling.id, day: feeling.day, time: feeling.time, step: feeling.step, ...more });
+              change(changeOf(feeling, more));
               setEditing(false);
             }}
           />

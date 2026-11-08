@@ -2,32 +2,25 @@
 // deal and mark, as the person holding this phone. A card is dealt on the
 // phone, so the save is the same each time it's sent.
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { BingoRepo } from "../../db/models/bingo/repo";
-import { PeopleRepo } from "../../db/models/people/repo";
 import { type ISODate, isISODate } from "../../lib/dates";
 import { CARD_SIZE, type Card, squareOf } from "../../lib/drawer/bingo";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
-
-/** Who's playing: the person this phone says it is. A phone that hasn't said can't play. */
-function player(): string {
-  const id = personId();
-  if (!id || !new PeopleRepo(getDb()).get(id)) throw new Error("Say who's holding this phone first");
-  return id;
-}
+import { queryHook } from "../queryHook";
 
 const square = z.string().refine((id) => squareOf(id) !== undefined, "a square in src/lib/drawer/bingo.ts");
 
 export type Bingo = { cards: Card[] };
 
-export const getBingo = createServerFn({ method: "GET" }).handler((): Bingo => ({ cards: new BingoRepo(getDb()).cards() }));
+const getBingo = createServerFn({ method: "GET" }).handler((): Bingo => ({ cards: new BingoRepo(getDb()).cards() }));
 
-export const dealCard = createServerFn({ method: "POST" })
+const dealCard = createServerFn({ method: "POST" })
   .validator(
     z
       .object({
@@ -39,10 +32,10 @@ export const dealCard = createServerFn({ method: "POST" })
       .strict()
   )
   .handler(({ data }) => {
-    new BingoRepo(getDb()).deal(player(), data.squares, madeAt());
+    new BingoRepo(getDb()).deal(personId(), data.squares, madeAt());
   });
 
-export const markSquare = createServerFn({ method: "POST" })
+const markSquare = createServerFn({ method: "POST" })
   .validator(
     z
       .object({
@@ -52,11 +45,11 @@ export const markSquare = createServerFn({ method: "POST" })
       })
       .strict()
   )
-  .handler(({ data }) => new BingoRepo(getDb()).mark(player(), data.squareId, { day: data.day as ISODate, note: data.note }, madeAt()));
+  .handler(({ data }) => new BingoRepo(getDb()).mark(personId(), data.squareId, { day: data.day as ISODate, note: data.note }, madeAt()));
 
-export const unmarkSquare = createServerFn({ method: "POST" })
+const unmarkSquare = createServerFn({ method: "POST" })
   .validator(z.object({ squareId: square }).strict())
-  .handler(({ data }) => new BingoRepo(getDb()).unmark(player(), data.squareId));
+  .handler(({ data }) => new BingoRepo(getDb()).unmark(personId(), data.squareId));
 
 export const bingoQuery = queryOptions({ queryKey: ["bingo"], queryFn: () => getBingo() });
 
@@ -98,7 +91,4 @@ export const bingoSaves = {
   }),
 };
 
-/** bingoQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useBingoQuery<TData = Bingo>(options?: Omit<UseSuspenseQueryOptions<Bingo, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...bingoQuery, ...options } as UseSuspenseQueryOptions<Bingo, Error, TData, string[]>);
-}
+export const useBingoQuery = queryHook(bingoQuery);

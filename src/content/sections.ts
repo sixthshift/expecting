@@ -7,8 +7,8 @@ import { Ast, type Node } from "@markdoc/markdoc";
 /** A part of a body: its `##` heading's words (null for what comes before the first), and its nodes as a document to render. */
 export type Section = { title: string | null; doc: Node };
 
-/** A heading's words, as plain text. */
-function textOf(node: Node): string {
+/** A node's words, as plain text. */
+export function textOf(node: Node): string {
   return [...node.walk()]
     .filter((n) => n.type === "text")
     .map((n) => String(n.attributes.content ?? ""))

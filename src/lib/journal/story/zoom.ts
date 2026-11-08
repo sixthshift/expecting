@@ -2,15 +2,14 @@
 // with the firsts on it.
 
 import type { ISODate } from "../../dates";
-import type { Week } from "../../timeline";
+import { placeOf, type Week } from "../../timeline";
 import { type FirstMark, isMarked } from "../firsts";
-import { placeOf } from "../journal";
 import type { Photo } from "../photos";
 import { COLLECTIONS, type Collection, collectionOf } from "./collections";
 import type { StoryItem } from "./items";
 
-/** A week zoomed out: its picture (the bump, else any photo), the collections it has something in, and its firsts. */
-export type WeekTile = { week: Week; photo: Photo | null; collections: Collection[]; firsts: FirstMark[]; done: number; empty: boolean };
+/** A week zoomed out: its picture (the bump, else any photo) and the collections it has something in. */
+export type WeekTile = { week: Week; photo: Photo | null; collections: Collection[]; empty: boolean };
 
 /** Every week from the first to the last that has anything (at least to `now`), newest first, each a tile; one with nothing is empty. */
 export function weekTiles(items: readonly StoryItem[], dueDate: ISODate, now: Week | null): WeekTile[] {
@@ -28,8 +27,6 @@ export function weekTiles(items: readonly StoryItem[], dueDate: ISODate, now: We
       week,
       photo: photos.find((p) => p.kind === "bump") ?? photos[0] ?? null,
       collections: COLLECTIONS.filter((c) => these.some((i) => collectionOf(i) === c)),
-      firsts: these.flatMap((i) => (i.kind === "first" ? [i.mark] : [])),
-      done: these.filter((i) => i.kind === "done").length,
       empty: these.length === 0,
     });
   }

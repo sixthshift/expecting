@@ -1,6 +1,5 @@
-import type { Database } from "bun:sqlite";
 import { and, eq, gt, lt, ne } from "drizzle-orm";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { invite, session } from "./schema";
 
 /** How long a session lives without being used. Matches the cookie's lifetime. */
@@ -13,13 +12,7 @@ function sha256(text: string): string {
   return new Bun.CryptoHasher("sha256").update(text).digest("hex");
 }
 
-export class SessionRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class SessionRepo extends Repo {
   /** Start a session as `personId`; returns the token for the cookie. */
   create(personId: string, now: Date = new Date()): string {
     const token = Buffer.from(crypto.getRandomValues(new Uint8Array(32))).toString("base64url");
@@ -97,13 +90,7 @@ export function normaliseCode(typed: string): string {
   return plain.replace(/(.{3})(?!$)/g, "$1-");
 }
 
-export class InviteRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class InviteRepo extends Repo {
   /**
    * A new invite of `kind` (for `personId`, a reset), made by `by`; returns
    * its code. Any other of the same kind (and person) ends: one at a time.

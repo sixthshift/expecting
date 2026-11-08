@@ -1,13 +1,9 @@
 import { Button } from "@sixthshift/design-system/button";
 import { Checkbox } from "@sixthshift/design-system/checkbox";
-import { DatePicker } from "@sixthshift/design-system/date-picker";
-import type { ISOTime } from "@sixthshift/design-system/date-time";
-import { FormField } from "@sixthshift/design-system/form-field";
 import { Input } from "@sixthshift/design-system/input";
-import { TimePicker } from "@sixthshift/design-system/time-picker";
 import { type FormEvent, useState } from "react";
-import { type ISODate, todayISO } from "../../../../../lib/dates";
-import { timeNow, toTime } from "../../../../../lib/journal/journal";
+import { type ISODate, timeNow, todayISO } from "../../../../../lib/dates";
+import { WhenFields } from "../../../components/WhenFields";
 
 type Draft = { day: ISODate; time: string; body: string; different: boolean };
 
@@ -46,23 +42,7 @@ export function MovementForm({
   return (
     <form onSubmit={submit} className="flex flex-col gap-3">
       <Input value={body} onChange={(e) => setBody(e.target.value)} placeholder="A few words, if you want" aria-label="About the movement" maxLength={10_000} />
-      {choosing ? (
-        <div className="flex flex-wrap gap-3">
-          <FormField label="Day">
-            <DatePicker
-              value={day ?? today}
-              onChange={(d) => setDay((d as ISODate | undefined) ?? null)}
-              segmentOrder="dmy"
-              weekStartsOn={1}
-              clearable={false}
-              maxDate={today}
-            />
-          </FormField>
-          <FormField label="Time">
-            <TimePicker value={(time ?? undefined) as ISOTime | undefined} onChange={(t) => setTime(toTime(t))} clockFormat="12h" />
-          </FormField>
-        </div>
-      ) : null}
+      {choosing ? <WhenFields day={day ?? today} time={time} onDay={setDay} onTime={setTime} /> : null}
       <Checkbox checked={different} onCheckedChange={setDifferent} label="Slower, weaker or stopped?" />
       <div className="flex flex-wrap items-center gap-2">
         <Button type="submit" intent="brand" size={initial ? "sm" : "md"}>

@@ -21,3 +21,12 @@ export function orm(db: Database): Db {
   wrappers.set(db, created);
   return created;
 }
+
+/** A domain's repository (src/db/models/<domain>/repo.ts), over the one Drizzle handle for the connection it's given. */
+export abstract class Repo {
+  protected readonly db: Db;
+
+  constructor(db: Database) {
+    this.db = orm(db);
+  }
+}

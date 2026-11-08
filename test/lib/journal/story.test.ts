@@ -1,5 +1,4 @@
 import { describe, expect, test } from "vitest";
-import { collectionsKept } from "../../../src/lib/journal/story/collections";
 import { storyItems } from "../../../src/lib/journal/story/items";
 import { storyMatches } from "../../../src/lib/journal/story/search";
 import { storyGroups, storySpine } from "../../../src/lib/journal/story/spine";
@@ -35,13 +34,6 @@ describe("the story", () => {
       sources({ journal: [entry("movement", "2026-10-30", { time: "09:00", by: "sam" }), entry("movement", "2026-10-30", { time: "10:00", by: "alex" })] })
     );
     expect(line!.by).toBeNull();
-  });
-
-  test("a collection only once it has something; the folded ones not while something has happened", () => {
-    expect(collectionsKept([], false)).toEqual([]);
-    const items = storyItems(sources({ journal: [entry("note", "2026-10-27")], photos: [photo("scan", "2026-10-27")] }));
-    expect(collectionsKept(items, false)).toEqual(["notes", "photos"]);
-    expect(collectionsKept(items, true)).toEqual(["notes"]);
   });
 
   test("found by its words, any kind, any case", () => {

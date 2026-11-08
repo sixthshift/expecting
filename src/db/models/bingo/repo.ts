@@ -1,17 +1,10 @@
-import type { Database } from "bun:sqlite";
 import { and, asc, eq } from "drizzle-orm";
 import type { ISODate } from "../../../lib/dates";
 import type { Card, Mark } from "../../../lib/drawer/bingo";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { bingoCard, bingoMark } from "./schema";
 
-export class BingoRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class BingoRepo extends Repo {
   /** Every card dealt, each with its marks: both of you see both. */
   cards(): Card[] {
     const marks = this.db.select().from(bingoMark).orderBy(asc(bingoMark.markedAt)).all();

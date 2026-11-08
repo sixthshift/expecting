@@ -1,19 +1,19 @@
 // The extras you've turned on or off (src/app/features/settings/model/extras.data.ts), each
 // with who changed it and when.
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { EXTRAS, extra } from "../../app/features/settings/model/extras";
 import { ExtrasRepo } from "../../db/models/extras/repo";
-import { PeopleRepo } from "../../db/models/people/repo";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
+import { queryHook } from "../queryHook";
 
 /** The extras someone has decided on, for extras still offered. */
-export const getExtras = createServerFn({ method: "GET" }).handler(() => new ExtrasRepo(getDb()).list().filter((c) => extra(c.id) !== undefined));
+const getExtras = createServerFn({ method: "GET" }).handler(() => new ExtrasRepo(getDb()).list().filter((c) => extra(c.id) !== undefined));
 
 /** Turn extras on or off, several at once (onboarding's choice). The person holding this phone changed them. */
 export const setExtras = createServerFn({ method: "POST" })
@@ -22,8 +22,7 @@ export const setExtras = createServerFn({ method: "POST" })
   )
   .handler(({ data }) => {
     const db = getDb();
-    const id = personId();
-    const changedBy = id && new PeopleRepo(db).get(id) ? id : null;
+    const changedBy = personId();
     const repo = new ExtrasRepo(db);
     const at = madeAt();
     return data.map((c) => repo.set({ ...c, changedBy }, at));
@@ -45,7 +44,4 @@ export const extrasSaves = {
   }),
 };
 
-/** extrasQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useExtrasQuery<TData = Choices>(options?: Omit<UseSuspenseQueryOptions<Choices, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...extrasQuery, ...options } as UseSuspenseQueryOptions<Choices, Error, TData, string[]>);
-}
+export const useExtrasQuery = queryHook(extrasQuery);

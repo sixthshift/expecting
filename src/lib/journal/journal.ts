@@ -3,8 +3,8 @@
 // as it's read, so a due date moved by the dating scan moves the entry's week
 // and never its day.
 
-import { addDays, daysBetween, type ISODate } from "../dates";
-import { TERM_DAYS, WEEKS, type Week } from "../timeline";
+import { addDays, type ISODate } from "../dates";
+import { placeOf, type Week } from "../timeline";
 
 export type JournalEntry = {
   id: string;
@@ -25,43 +25,17 @@ export type JournalEntry = {
   editedAt: string | null;
 };
 
-/** A time as kept: HH:MM, from "09:30" or the time picker's "09:30:00". */
-export const TIME = /^([01]\d|2[0-3]):[0-5]\d$/;
+/** Anything kept on a day, perhaps at a time: an entry, a photo, a line of the story. */
+type Kept = { day: string; time: string | null; createdAt: string };
 
-export function toTime(value: string | undefined | null): string | null {
-  const hm = value?.slice(0, 5);
-  return hm && TIME.test(hm) ? hm : null;
+/** Newest first: by day, then time (one with none after the timed ones that day), then when it was kept. */
+export function byNewest(a: Kept, b: Kept): number {
+  return b.day.localeCompare(a.day) || (b.time ?? "").localeCompare(a.time ?? "") || b.createdAt.localeCompare(a.createdAt);
 }
 
-/** The local time of `now`, HH:MM. */
-export function timeNow(now: Date = new Date()): string {
-  return `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
-}
-
-/** "2:15 pm". */
-export function formatTime(time: string): string {
-  const [h, m] = time.split(":").map(Number) as [number, number];
-  return `${h % 12 || 12}:${String(m).padStart(2, "0")} ${h < 12 ? "am" : "pm"}`;
-}
-
-/** Newest first: by day, then time (an entry with none goes before the timed ones that day), then when it was written. */
-export function newestFirst(entries: readonly JournalEntry[]): JournalEntry[] {
-  return [...entries].sort((a, b) => b.day.localeCompare(a.day) || (b.time ?? "").localeCompare(a.time ?? "") || b.createdAt.localeCompare(a.createdAt));
-}
-
-/**
- * Where a day falls in the pregnancy: its week, or before it began, or after
- * week 42. Unlike today's position, an entry's isn't held to 1–42: a note
- * from before the pregnancy isn't week 1's.
- */
-export type Place = Week | "before" | "after";
-
-export function placeOf(day: ISODate, dueDate: ISODate): Place {
-  const days = TERM_DAYS - daysBetween(day, dueDate);
-  if (days < 0) return "before";
-  // The first days, before a week is complete, are week 1, as they are for today.
-  const week = Math.max(WEEKS.first, Math.floor(days / 7));
-  return week > WEEKS.last ? "after" : week;
+/** `entries`, newest first (`byNewest`). */
+export function newestFirst<E extends Kept>(entries: readonly E[]): E[] {
+  return [...entries].sort(byNewest);
 }
 
 /** The entries in `week`. */
@@ -74,7 +48,7 @@ export function entriesIn(entries: readonly JournalEntry[], week: Week, dueDate:
  * first movements come between 16 and 24 weeks. Logging one is harmless, so
  * once any is kept, or with no due date to tell, they are offered anyway.
  */
-export const MOVEMENTS_FROM: Week = 16;
+const MOVEMENTS_FROM: Week = 16;
 
 /** Whether movements are offered: never while something has happened. */
 export function movementsOffered({ now, quiet, entries }: { now: Week | null; quiet: boolean; entries: readonly JournalEntry[] }): boolean {
@@ -83,7 +57,7 @@ export function movementsOffered({ now, quiet, entries }: { now: Week | null; qu
 }
 
 /** Movements kept within this many minutes of each other are one: both of you tapping for the same kick is one movement. */
-export const SAME_MOVEMENT_MINUTES = 5;
+const SAME_MOVEMENT_MINUTES = 5;
 
 function minutes(time: string): number {
   const [h, m] = time.split(":").map(Number) as [number, number];
@@ -110,7 +84,7 @@ export function asOne<M extends { id: string; time: string; different: boolean }
 export const PATTERN_DAYS = 14;
 
 /** A day of movements: each at its time of day, and whether it felt different. */
-export type PatternDay = { day: ISODate; moved: { id: string; time: string; different: boolean }[] };
+type PatternDay = { day: ISODate; moved: { id: string; time: string; different: boolean }[] };
 
 /**
  * The movements of the last fortnight, newest day first, each at its time

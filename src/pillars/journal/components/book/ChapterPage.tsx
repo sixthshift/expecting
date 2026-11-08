@@ -2,18 +2,11 @@ import type { Chapter } from "../../../../lib/journal/chapters";
 import { hasRecap, recapParts } from "../../../../lib/journal/recap";
 import type { StoryItem } from "../../../../lib/journal/story/items";
 import type { Week } from "../../../../lib/timeline";
-import { RecapPartView, useRecap } from "./Recap";
+import { RECAP_PART_TITLE, RecapPartView, useRecap } from "./Recap";
 import { WeeksWritten } from "./WeeksWritten";
 
-const PART_TITLE = {
-  firsts: "Firsts",
-  bump: "The bump",
-  scans: "Scans",
-  craved: "Most craved",
-  voices: "In your own words",
-  letters: "Letters to them",
-  done: "What you got done",
-} as const;
+/** A part's title in the book: the recap's, the firsts and the scans said shorter. */
+const PART_TITLE = { ...RECAP_PART_TITLE, firsts: "Firsts", scans: "Scans" };
 
 /** A chapter: its weeks so far, written, then what you kept in them, each part only when it has something. */
 export function ChapterPage({ chapter, items, now }: { chapter: Chapter; items: readonly StoryItem[]; now: Week | null }) {

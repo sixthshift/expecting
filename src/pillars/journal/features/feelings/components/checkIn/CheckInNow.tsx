@@ -6,11 +6,10 @@ import { useState } from "react";
 import { feelingsSaves, useFeelingsQuery } from "../../../../../../api/rpc/feelings";
 import { useQuietKind } from "../../../../../../app/features/quiet/hooks/useQuietKind";
 import { useSave } from "../../../../../../app/hooks/useSave";
-import { todayISO } from "../../../../../../lib/dates";
 import { feelingsOf, isOwn, type Step } from "../../../../../../lib/journal/feelings";
-import { timeNow } from "../../../../../../lib/journal/journal";
-import { newId } from "../../../../../../lib/outbox";
 import type { Person } from "../../../../../../lib/people";
+import { useKeepStep } from "../../hooks/useKeepStep";
+import { changeOf } from "../../model/change";
 import { MoreWords } from "../MoreWords";
 import { StepPicker } from "../StepPicker";
 import { Support, supportItem } from "../Support";
@@ -19,7 +18,7 @@ import { Support, supportItem } from "../Support";
 export function CheckInNow({ me, onKept, onDone }: { me: Person; onKept?: () => void; onDone?: (id: string) => void }) {
   const { data: feelings } = useFeelingsQuery();
   const quiet = useQuietKind();
-  const add = useSave(feelingsSaves.addFeeling);
+  const keepStep = useKeepStep();
   const change = useSave(feelingsSaves.changeFeeling);
   // The check-in just made here, open for its words until done.
   const [justMade, setJustMade] = useState<string | null>(null);
@@ -27,12 +26,8 @@ export function CheckInNow({ me, onKept, onDone }: { me: Person; onKept?: () => 
   const made = mine.find((f) => f.id === justMade);
 
   function checkIn(step: Step) {
-    if (made) {
-      change({ id: made.id, day: made.day, time: made.time, step, words: made.words, note: made.note });
-      return;
-    }
-    const id = newId();
-    add({ id, day: todayISO(), time: timeNow(), step, words: [], note: null });
+    const id = keepStep(step, made);
+    if (made) return;
     setJustMade(id);
     onKept?.();
   }
@@ -46,7 +41,7 @@ export function CheckInNow({ me, onKept, onDone }: { me: Person; onKept?: () => 
           key={made.id}
           feeling={made}
           onDone={(more) => {
-            change({ id: made.id, day: made.day, time: made.time, step: made.step, ...more });
+            change(changeOf(made, more));
             setJustMade(null);
             onDone?.(made.id);
           }}

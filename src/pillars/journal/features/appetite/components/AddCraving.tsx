@@ -4,11 +4,11 @@ import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { type FormEvent, useState } from "react";
 import { appetiteSaves, useAppetiteQuery } from "../../../../../api/rpc/appetite";
 import { useSave } from "../../../../../app/hooks/useSave";
-import { todayISO } from "../../../../../lib/dates";
+import { timeNow, todayISO } from "../../../../../lib/dates";
 import { cravingChips, notFood, notFoodQuestion } from "../../../../../lib/journal/appetite";
-import { timeNow } from "../../../../../lib/journal/journal";
 import { newId } from "../../../../../lib/outbox";
 import { ItemLink } from "../../../../library/components/itemLink/ItemLink";
+import { UntilDone } from "../../../components/UntilDone";
 import { KIND_OPTIONS } from "./AppetiteFields";
 import { AskAtAppointment } from "./AskAtAppointment";
 
@@ -55,19 +55,15 @@ export function AddCraving({ onAdded }: { onAdded?: (id: string) => void }) {
 
   if (notFoodKept) {
     return (
-      <div className="flex flex-col gap-3">
+      <UntilDone
+        onDone={() => {
+          setNotFoodKept(null);
+          onAdded?.(notFoodKept.id);
+        }}
+      >
         <p className="text-sm text-fg-normal">Kept: {notFoodKept.what}.</p>
         <NotFood what={notFoodKept.what} />
-        <Button
-          variant="outline"
-          onClick={() => {
-            setNotFoodKept(null);
-            onAdded?.(notFoodKept.id);
-          }}
-        >
-          Done
-        </Button>
-      </div>
+      </UntilDone>
     );
   }
 

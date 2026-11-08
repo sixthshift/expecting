@@ -2,14 +2,14 @@
 // records, newest first. What was done in the Planner is its backbone, so a
 // Journal nobody wrote in still tells the story. See docs/product/journal.md.
 
-import { type ISODate, todayISO } from "../../dates";
+import { dayOf, type ISODate, timeNow } from "../../dates";
 import type { BingoMoment } from "../../drawer/bingo";
 import type { WeeklyPair } from "../../home/weekly";
-import { dayOf, type Night, nightsOf, type Start } from "../../itsTime";
+import { type Night, nightsOf, type Start } from "../../itsTime";
 import type { AppetiteEntry } from "../appetite";
 import type { Feeling } from "../feelings";
 import { type FirstMark, isMarked } from "../firsts";
-import { type JournalEntry, timeNow } from "../journal";
+import { byNewest, type JournalEntry } from "../journal";
 import type { Paper } from "../papers";
 import type { Photo } from "../photos";
 
@@ -54,11 +54,6 @@ export type StorySources = {
   /** Pregnancy bingo's bingos and full houses. */
   bingo?: readonly BingoMoment[];
 };
-
-/** Newest first: by day, then time (a line with none after the timed ones), then when it was kept. */
-export function byNewest(a: StoryItem, b: StoryItem): number {
-  return b.day.localeCompare(a.day) || (b.time ?? "").localeCompare(a.time ?? "") || b.createdAt.localeCompare(a.createdAt);
-}
 
 /** Every line of the story, newest first: a line for each thing kept or done, from each kind's own. */
 export function storyItems(s: StorySources): StoryItem[] {
@@ -141,7 +136,7 @@ const firstLine = (m: FirstMark & { day: string }): StoryItem => ({
 function doneLines(ticks: Record<string, string>, titles: ReadonlyMap<string, string>): StoryItem[] {
   return Object.entries(ticks).flatMap(([taskId, at]) => {
     const title = titles.get(taskId);
-    return title ? [{ key: `done-${taskId}`, day: todayISO(new Date(at)), time: null, by: null, createdAt: at, kind: "done" as const, taskId, title }] : [];
+    return title ? [{ key: `done-${taskId}`, day: dayOf(at), time: null, by: null, createdAt: at, kind: "done" as const, taskId, title }] : [];
   });
 }
 

@@ -1,8 +1,8 @@
-import { Button } from "@sixthshift/design-system/button";
 import { useState } from "react";
 import { journalSaves } from "../../../../../api/rpc/journal";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { newId } from "../../../../../lib/outbox";
+import { UntilDone } from "../../../components/UntilDone";
 import { MovementForm } from "./MovementForm";
 import { MovementsChanged } from "./MovementsChanged";
 
@@ -18,18 +18,14 @@ export function AddMovement({ onAdded }: { onAdded?: (id: string) => void }) {
 
   if (changed) {
     return (
-      <div className="flex flex-col gap-3">
+      <UntilDone
+        onDone={() => {
+          setChanged(null);
+          onAdded?.(changed);
+        }}
+      >
         <MovementsChanged />
-        <Button
-          variant="outline"
-          onClick={() => {
-            setChanged(null);
-            onAdded?.(changed);
-          }}
-        >
-          Done
-        </Button>
-      </div>
+      </UntilDone>
     );
   }
 

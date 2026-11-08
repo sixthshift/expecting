@@ -33,25 +33,24 @@ export function StoryControls({
   const layout = useLayout();
   const [looking, setLooking] = useState(false);
   if (views.length <= 1 && !searchable) return null;
+  const shows = (more: { appearance?: "separate"; className: string }) => (
+    <ToggleGroup
+      type="single"
+      variant="outline"
+      size="sm"
+      aria-label="Show"
+      value={view}
+      onValueChange={(value) => onView((value || "days") as StoryView)}
+      options={views.map((v) => ({ value: v, label: VIEW_LABEL[v] }))}
+      {...more}
+    />
+  );
   if (layout === "mobile") {
     const open = looking || words !== "";
     return (
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-2">
-          {views.length > 1 ? (
-            <ToggleGroup
-              type="single"
-              variant="outline"
-              size="sm"
-              aria-label="Show"
-              className="min-w-0 flex-1"
-              value={view}
-              onValueChange={(value) => onView((value || "days") as StoryView)}
-              options={views.map((v) => ({ value: v, label: VIEW_LABEL[v] }))}
-            />
-          ) : (
-            <span className="flex-1" />
-          )}
+          {views.length > 1 ? shows({ className: "min-w-0 flex-1" }) : <span className="flex-1" />}
           {searchable ? (
             <Button
               variant="outline"
@@ -76,19 +75,9 @@ export function StoryControls({
   }
   return (
     <div className="flex flex-col gap-3">
-      {views.length > 1 ? (
-        <ToggleGroup
-          type="single"
-          appearance="separate"
-          variant="outline"
-          size="sm"
-          aria-label="Show"
-          className="scrollbar-none -mx-4 overflow-x-auto px-4 desktop:mx-0 desktop:flex-wrap desktop:px-0"
-          value={view}
-          onValueChange={(value) => onView((value || "days") as StoryView)}
-          options={views.map((v) => ({ value: v, label: VIEW_LABEL[v] }))}
-        />
-      ) : null}
+      {views.length > 1
+        ? shows({ appearance: "separate", className: "scrollbar-none -mx-4 overflow-x-auto px-4 desktop:mx-0 desktop:flex-wrap desktop:px-0" })
+        : null}
       {searchable ? <SearchInput value={words} onValueChange={onWords} placeholder="Look through what's kept" aria-label="Search the Journal" /> : null}
     </div>
   );

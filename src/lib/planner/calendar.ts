@@ -8,7 +8,7 @@ import { addDays, type ISODate } from "../dates";
 import type { Appointment } from "./appointments";
 
 /** The calendar's id for an appointment: the same each time, so a calendar can tell it's one it has. */
-export const uidOf = (id: string) => `${id}@expecting`;
+const uidOf = (id: string) => `${id}@expecting`;
 
 /** Words as a calendar file writes them: backslash, semicolon, comma and line breaks escaped. */
 function text(value: string): string {

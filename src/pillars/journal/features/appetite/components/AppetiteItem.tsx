@@ -11,7 +11,6 @@ import { Card } from "@sixthshift/design-system/card";
 import { Input } from "@sixthshift/design-system/input";
 import { toast } from "@sixthshift/design-system/overlay";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
-import { Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { appetiteSaves } from "../../../../../api/rpc/appetite";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
@@ -20,8 +19,11 @@ import type { ISODate } from "../../../../../lib/dates";
 import { type AppetiteEntry, type AppetiteKind, describe, type How, inputOf } from "../../../../../lib/journal/appetite";
 import { when } from "../../../../../lib/labels";
 import { nameBy } from "../../../../../lib/people";
+import { KeptCard } from "../../../components/KeptCard";
+import { UntilDone } from "../../../components/UntilDone";
+import { WhenFields } from "../../../components/WhenFields";
 import { keptBy } from "../../../model/labels";
-import { HowPicker, KIND_OPTIONS, WhenFields } from "./AppetiteFields";
+import { HowPicker, KIND_OPTIONS } from "./AppetiteFields";
 import { TooSick } from "./TooSick";
 
 /** Changing an entry: how bad, or what, a few words, and when. */
@@ -63,7 +65,7 @@ function EntryForm({ entry, onSave, onCancel }: { entry: AppetiteEntry; onSave: 
         </>
       )}
       <Input value={note} onChange={(e) => setNote(e.target.value)} placeholder="A few words, if you want" aria-label="About it" maxLength={10_000} />
-      <WhenFields day={day} time={time} onDay={setDay} onTime={setTime} />
+      <WhenFields day={day} time={time} onDay={setDay} onTime={(t) => setTime(t ?? time)} />
       <div className="flex flex-wrap items-center gap-2">
         <Button type="submit" intent="brand" size="sm" disabled={!sick && what.trim().length === 0}>
           Save
@@ -110,28 +112,21 @@ export function AppetiteItem({ entry }: { entry: AppetiteEntry }) {
 
   if (tooSick) {
     return (
-      <div className="flex flex-col gap-3">
+      <UntilDone onDone={() => setTooSick(false)}>
         <TooSick />
-        <Button variant="outline" onClick={() => setTooSick(false)}>
-          Done
-        </Button>
-      </div>
+      </UntilDone>
     );
   }
 
   return (
-    <Card size="sm">
+    <KeptCard
+      what="this"
+      meta={[keptBy(name(entry.by)), when(entry.day, entry.time)].filter(Boolean).join(" · ")}
+      onChange={() => setEditing(true)}
+      onDelete={deleteIt}
+    >
       <p className="font-medium text-fg-strong">{describe(entry)}</p>
       {entry.note ? <p className="mt-1 whitespace-pre-wrap">{entry.note}</p> : null}
-      <div className="mt-2 flex items-center gap-1 text-xs text-fg-subtle">
-        <span className="flex-1">{[keptBy(name(entry.by)), when(entry.day, entry.time)].filter(Boolean).join(" · ")}</span>
-        <Button variant="ghost" size="sm" iconOnly aria-label="Change this" onClick={() => setEditing(true)}>
-          <Pencil aria-hidden size={16} />
-        </Button>
-        <Button variant="ghost" size="sm" iconOnly aria-label="Delete this" onClick={deleteIt}>
-          <Trash2 aria-hidden size={16} />
-        </Button>
-      </div>
-    </Card>
+    </KeptCard>
   );
 }

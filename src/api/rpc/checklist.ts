@@ -1,4 +1,4 @@
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { isBuiltInTaskId } from "../../content";
@@ -8,14 +8,15 @@ import type { OwnTaskRow } from "../../lib/planner/checklist";
 import { WEEKS, type Week } from "../../lib/timeline";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
+import { queryHook } from "../queryHook";
 
 /** The ticks and the tasks you added yourselves. */
-export const getChecklist = createServerFn({ method: "GET" }).handler(() => {
+const getChecklist = createServerFn({ method: "GET" }).handler(() => {
   const repo = new ChecklistRepo(getDb());
   return { ticks: repo.ticks(), ownTasks: repo.ownTasks() };
 });
 
-export const setTicked = createServerFn({ method: "POST" })
+const setTicked = createServerFn({ method: "POST" })
   .validator(z.object({ taskId: z.string().min(1).max(200), ticked: z.boolean() }).strict())
   .handler(({ data }) => {
     const repo = new ChecklistRepo(getDb());
@@ -29,11 +30,11 @@ const ownTaskInput = z
   .transform((t) => ({ ...t, title: t.title.trim() }))
   .refine((t) => t.title.length > 0 && t.title.length <= 200, "a title of 1–200 characters");
 
-export const addOwnTask = createServerFn({ method: "POST" })
+const addOwnTask = createServerFn({ method: "POST" })
   .validator(ownTaskInput)
   .handler(({ data }) => new ChecklistRepo(getDb()).addOwnTask(data, madeAt()));
 
-export const deleteOwnTask = createServerFn({ method: "POST" })
+const deleteOwnTask = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid() }).strict())
   .handler(({ data }) => new ChecklistRepo(getDb()).deleteOwnTask(data.id));
 
@@ -74,7 +75,4 @@ export const checklistSaves = {
   }),
 };
 
-/** checklistQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useChecklistQuery<TData = Checklist>(options?: Omit<UseSuspenseQueryOptions<Checklist, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...checklistQuery, ...options } as UseSuspenseQueryOptions<Checklist, Error, TData, string[]>);
-}
+export const useChecklistQuery = queryHook(checklistQuery);

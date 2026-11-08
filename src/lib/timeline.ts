@@ -73,6 +73,21 @@ export function positionOn(today: ISODate, dueDate: ISODate): Position {
   return { week: clamp(Math.floor(gestationDays / 7), WEEKS.first, WEEKS.last), gestationDays };
 }
 
+/**
+ * Where a day falls in the pregnancy: its week, or before it began, or after
+ * week 42. Unlike today's position, a day's isn't held to 1–42: a note
+ * from before the pregnancy isn't week 1's.
+ */
+export type Place = Week | "before" | "after";
+
+export function placeOf(day: ISODate, dueDate: ISODate): Place {
+  const days = TERM_DAYS - daysBetween(day, dueDate);
+  if (days < 0) return "before";
+  // The first days, before a week is complete, are week 1, as they are for today.
+  const week = Math.max(WEEKS.first, Math.floor(days / 7));
+  return week > WEEKS.last ? "after" : week;
+}
+
 /** Gestation as midwives write it: "28+3". */
 export function gestationLabel(gestationDays: number): string {
   return `${Math.floor(gestationDays / 7)}+${gestationDays % 7}`;

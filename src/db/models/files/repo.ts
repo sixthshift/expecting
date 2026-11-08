@@ -1,17 +1,15 @@
 import type { Database } from "bun:sqlite";
 import { eq } from "drizzle-orm";
 import type { Upload } from "../../../lib/files";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { upload } from "./schema";
 
 /** Every column that points at an upload: a record's table and its column, as SQLite says (so a new record's table counts without being listed). */
 type Reference = { table: string; column: string };
 
-export class FilesRepo {
-  private readonly db;
-
+export class FilesRepo extends Repo {
   constructor(private readonly raw: Database) {
-    this.db = orm(raw);
+    super(raw);
   }
 
   get(id: string): Upload | null {

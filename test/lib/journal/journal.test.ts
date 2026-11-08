@@ -1,17 +1,6 @@
 import { describe, expect, test } from "vitest";
 import type { ISODate } from "../../../src/lib/dates";
-import {
-  asOne,
-  dayFraction,
-  entriesIn,
-  formatTime,
-  type JournalEntry,
-  movementPattern,
-  movementsOffered,
-  newestFirst,
-  placeOf,
-  toTime,
-} from "../../../src/lib/journal/journal";
+import { asOne, dayFraction, entriesIn, type JournalEntry, movementPattern, movementsOffered, newestFirst } from "../../../src/lib/journal/journal";
 
 const entry = (id: string, day: string, time: string | null = null, createdAt = "2026-10-30T00:00:00Z"): JournalEntry => ({
   id,
@@ -30,25 +19,6 @@ const entry = (id: string, day: string, time: string | null = null, createdAt = 
 // Due 19 Jan 2027: week 28 is 27 Oct to 2 Nov 2026; the pregnancy began 14 Apr 2026.
 const due = "2027-01-19" as ISODate;
 
-describe("where a day falls", () => {
-  test("its week, counted as the timeline counts", () => {
-    expect(placeOf("2026-10-27" as ISODate, due)).toBe(28);
-    expect(placeOf("2026-11-02" as ISODate, due)).toBe(28);
-    expect(placeOf("2026-11-03" as ISODate, due)).toBe(29);
-  });
-
-  test("the first days are week 1; before them is before the pregnancy, and past 42 weeks is after", () => {
-    expect(placeOf("2026-04-14" as ISODate, due)).toBe(1);
-    expect(placeOf("2026-04-13" as ISODate, due)).toBe("before");
-    expect(placeOf("2027-02-08" as ISODate, due)).toBe(42);
-    expect(placeOf("2027-02-09" as ISODate, due)).toBe("after");
-  });
-
-  test("a moved due date moves the week, never the day", () => {
-    expect(placeOf("2026-10-30" as ISODate, "2027-01-26" as ISODate)).toBe(27);
-  });
-});
-
 test("newest first: by day, then time, then when written", () => {
   const ordered = newestFirst([
     entry("a", "2026-10-29", "09:00"),
@@ -63,14 +33,6 @@ test("a week's entries; none without a due date", () => {
   const entries = [entry("a", "2026-10-30"), entry("c", "2026-10-20")];
   expect(entriesIn(entries, 28, due).map((e) => e.id)).toEqual(["a"]);
   expect(entriesIn(entries, 28, null)).toEqual([]);
-});
-
-test("times: kept as HH:MM, shown as on a clock", () => {
-  expect(toTime("09:30:00")).toBe("09:30");
-  expect(toTime("25:00")).toBeNull();
-  expect(toTime(undefined)).toBeNull();
-  expect(formatTime("00:05")).toBe("12:05 am");
-  expect(formatTime("14:15")).toBe("2:15 pm");
 });
 
 describe("movements", () => {

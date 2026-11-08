@@ -5,8 +5,8 @@
 // See docs/product/journal.md.
 
 import { type ISODate, todayISO } from "../dates";
-import type { Week } from "../timeline";
-import { type Place, placeOf } from "./journal";
+import { type Place, placeOf, type Week } from "../timeline";
+import { newestFirst } from "./journal";
 
 /** What a photo is: the bump, a scan, or something else (the nursery, the first outfit). */
 export const PHOTO_KINDS = ["bump", "scan", "other"] as const;
@@ -39,11 +39,6 @@ export type PhotoChange = { id: string; kind: PhotoKind; day: string; time: stri
 export function tidyCaption(caption: string | null): string | null {
   const words = caption?.trim() ?? "";
   return words.length > 0 ? words : null;
-}
-
-/** Newest first: by day, then time (one without a time after the timed ones that day), then when it was kept. */
-export function newestFirst<T extends Pick<Photo, "day" | "time" | "createdAt">>(photos: readonly T[]): T[] {
-  return [...photos].sort((a, b) => b.day.localeCompare(a.day) || (b.time ?? "").localeCompare(a.time ?? "") || b.createdAt.localeCompare(a.createdAt));
 }
 
 /** A run of photos under one heading: a week, before or after the pregnancy, or (with no due date) a month. */

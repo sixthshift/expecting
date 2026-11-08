@@ -8,7 +8,7 @@ import { Button } from "@sixthshift/design-system/button";
 import { FileDropzone } from "@sixthshift/design-system/file-dropzone";
 import { Spinner } from "@sixthshift/design-system/spinner";
 import { Camera, FilePlus, FileText, X } from "lucide-react";
-import { type ChangeEvent, type FormEvent, useEffect, useRef, useState } from "react";
+import { type FormEvent, useEffect, useRef, useState } from "react";
 import { papersSaves } from "../../../../../api/rpc/papers";
 import { useQuietKind } from "../../../../../app/features/quiet/hooks/useQuietKind";
 import { useLayout } from "../../../../../app/hooks/useLayout";
@@ -17,52 +17,13 @@ import { FileProblemError, keepOnPhone, type Prepared, prepareFile, previewUrl }
 import { type FileProblem, formatSize, isImage, MAX_ORIGINAL } from "../../../../../lib/files";
 import { MAX_PAGES, type PaperPage, paperProblem } from "../../../../../lib/journal/papers";
 import { newId } from "../../../../../lib/outbox";
+import { Pick } from "../../../components/Pick";
 import { complete, handyOf, newDraft, PaperFields } from "./PaperFields";
 
 /** A page made ready, with its preview while it's on screen here. */
 type Sheet = Prepared & { preview: string | null };
 
 const ACCEPT = "image/*,application/pdf";
-
-/** A file input dressed as a button: the phone's camera, or its picker. */
-function Pick({
-  label,
-  icon: Icon,
-  camera = false,
-  primary = false,
-  size = "lg",
-  onFiles,
-}: {
-  label: string;
-  icon: typeof Camera;
-  camera?: boolean;
-  primary?: boolean;
-  size?: "sm" | "lg";
-  onFiles: (files: File[]) => void;
-}) {
-  function picked(event: ChangeEvent<HTMLInputElement>) {
-    const files = Array.from(event.target.files ?? []);
-    // So choosing the same file again still counts.
-    event.target.value = "";
-    onFiles(files);
-  }
-  return (
-    <Button asChild intent={primary ? "brand" : undefined} variant={primary ? undefined : "outline"} size={size}>
-      <label className="cursor-pointer focus-within:ring-2 focus-within:ring-border-focus">
-        <Icon aria-hidden size={size === "lg" ? 20 : 16} />
-        {label}
-        <input
-          type="file"
-          accept={camera ? "image/*" : ACCEPT}
-          capture={camera ? "environment" : undefined}
-          multiple={!camera}
-          className="sr-only"
-          onChange={picked}
-        />
-      </label>
-    </Button>
-  );
-}
 
 /**
  * Photograph a paper or choose it, page by page if it takes more than one,
@@ -174,29 +135,26 @@ export function AddPaper({ files: given, onAdded }: { files?: File[]; onAdded?: 
   if (pages.length === 0) {
     return (
       <div className="flex flex-col gap-3">
-        {status ?? (
-          <>
-            {layout === "mobile" ? (
-              // A phone: the camera, one tap, and the phone's own picker beside it (Files, for a PDF from an email).
-              <div className="grid grid-cols-2 gap-2">
-                <Pick label="Photograph it" icon={Camera} camera primary onFiles={(files) => void ready(files)} />
-                <Pick label="Choose a file" icon={FileText} onFiles={(files) => void ready(files)} />
-              </div>
-            ) : (
-              // A desktop: drop them in, or choose.
-              <FileDropzone
-                size="sm"
-                accept={ACCEPT}
-                multiple
-                maxSize={MAX_ORIGINAL}
-                label="Drop a PDF or photos of the pages here, or choose them"
-                hint="Several photos make one paper, a page each. PDF, JPEG, PNG or HEIC, up to 30 MB each."
-                onFilesChange={(files) => void ready(files)}
-                onFilesRejected={(rejected) => setProblem(paperProblem(rejected[0]?.reason === "size" ? "big" : "type"))}
-              />
-            )}
-          </>
-        )}
+        {status ??
+          (layout === "mobile" ? (
+            // A phone: the camera, one tap, and the phone's own picker beside it (Files, for a PDF from an email).
+            <div className="grid grid-cols-2 gap-2">
+              <Pick label="Photograph it" icon={Camera} camera primary onFiles={(files) => void ready(files)} />
+              <Pick label="Choose a file" icon={FileText} accept={ACCEPT} onFiles={(files) => void ready(files)} />
+            </div>
+          ) : (
+            // A desktop: drop them in, or choose.
+            <FileDropzone
+              size="sm"
+              accept={ACCEPT}
+              multiple
+              maxSize={MAX_ORIGINAL}
+              label="Drop a PDF or photos of the pages here, or choose them"
+              hint="Several photos make one paper, a page each. PDF, JPEG, PNG or HEIC, up to 30 MB each."
+              onFilesChange={(files) => void ready(files)}
+              onFilesRejected={(rejected) => setProblem(paperProblem(rejected[0]?.reason === "size" ? "big" : "type"))}
+            />
+          ))}
         {alert}
       </div>
     );
@@ -244,7 +202,7 @@ export function AddPaper({ files: given, onAdded }: { files?: File[]; onAdded?: 
       {pages.length < MAX_PAGES && !readying ? (
         <div className="flex flex-wrap items-center gap-2">
           {layout === "mobile" ? <Pick label="Another page" icon={Camera} camera size="sm" onFiles={(files) => void ready(files)} /> : null}
-          <Pick label="Add a file" icon={FilePlus} size="sm" onFiles={(files) => void ready(files)} />
+          <Pick label="Add a file" icon={FilePlus} accept={ACCEPT} size="sm" onFiles={(files) => void ready(files)} />
         </div>
       ) : null}
       {pages.length === 1 && pages[0]!.preview ? (

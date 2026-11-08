@@ -90,8 +90,8 @@ const WRITES: Record<string, ((x: string) => unknown) | null> = {
   "bingo.ts:markSquare": (x) => ({ squareId: x, day: "2026-11-01", note: x }),
   "bingo.ts:unmarkSquare": (x) => ({ squareId: x }),
   "quiet.ts:clearQuiet": null,
-  "journal.ts:addNote": (x) => ({ id: UUID, day: "2026-10-30", time: null, body: x }),
-  "journal.ts:editNote": (x) => ({ id: UUID, day: "2026-10-30", time: null, body: x, kind: "letter" }),
+  "journal.ts:addNote": (x) => ({ id: UUID, day: "2026-10-30", time: null, body: x, kind: "note", fromBoth: false }),
+  "journal.ts:editNote": (x) => ({ id: UUID, day: "2026-10-30", time: null, body: x, kind: "letter", fromBoth: false }),
   "journal.ts:restoreNote": (x) => ({
     id: UUID,
     kind: "note",
@@ -120,10 +120,8 @@ const WRITES: Record<string, ((x: string) => unknown) | null> = {
     editedAt: null,
   }),
   "journal.ts:deleteMovement": (x) => ({ id: x }),
-  "journal.ts:markJournalSeen": null,
   "reads.ts:markRead": (x) => ({ itemId: x }),
   "firsts.ts:markFirst": (x) => ({ key: x, day: "2026-10-30" }),
-  "firsts.ts:setFirstAside": (x) => ({ key: x }),
   "firsts.ts:unmarkFirst": (x) => ({ key: x }),
   "firsts.ts:setFirstWords": (x) => ({ key: "first-kick", body: x }),
   "feelings.ts:addFeeling": (x) => ({ id: UUID, day: "2026-10-30", time: null, step: "low", words: [], note: x }),
@@ -198,7 +196,7 @@ const RPC = "src/api/rpc";
 
 test("every write path is here", () => {
   const found = readdirSync(RPC).flatMap((file) =>
-    Array.from(readFileSync(join(RPC, file), "utf8").matchAll(/export const (\w+) = createServerFn\(\{ method: "POST" \}\)/g), (m) => `${file}:${m[1]}`)
+    Array.from(readFileSync(join(RPC, file), "utf8").matchAll(/^(?:export )?const (\w+) = createServerFn\(\{ method: "POST" \}\)/gm), (m) => `${file}:${m[1]}`)
   );
   expect(found.sort()).toEqual([...Object.keys(WRITES), ...SESSION].sort());
 });

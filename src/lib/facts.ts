@@ -4,7 +4,7 @@
 
 import { ASKS, type Ask, applies, cleanFacts, type FactQuestion, type Facts, factKey, isAnswer, UNSURE } from "../app/features/settings/model/facts";
 import type { Item, Task } from "../content/schema";
-import { addDays, type ISODate, todayISO } from "./dates";
+import { addDays, dayOf, type ISODate } from "./dates";
 import type { Role } from "./people";
 import { positionOn, WEEKS, type Week } from "./timeline";
 
@@ -12,7 +12,7 @@ import { positionOn, WEEKS, type Week } from "./timeline";
 export type Answer = { question: string; about: Role | null; value: string | null; answeredBy: string | null; answeredAt: string };
 
 /** A question answered `unsure` comes back this many weeks later, not every week. */
-export const ASK_AGAIN_AFTER = 4;
+const ASK_AGAIN_AFTER = 4;
 
 function keyOf(a: Pick<Answer, "question" | "about">): string {
   return factKey(a.question, a.about);
@@ -58,7 +58,7 @@ export function nextAsked(a: Ask, last: Answer | undefined, dueDate: ISODate): W
   if (week === undefined) return null;
   if (!last) return week;
   if (isSettled(a, last)) return null;
-  const answeredIn = positionOn(todayISO(new Date(last.answeredAt)), dueDate).week;
+  const answeredIn = positionOn(dayOf(last.answeredAt), dueDate).week;
   return answeredIn < week ? week : answeredIn + ASK_AGAIN_AFTER;
 }
 

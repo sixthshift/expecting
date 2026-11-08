@@ -1,19 +1,19 @@
 // The facts: your answers to src/app/features/settings/model/facts.data.ts's questions, each
 // kept with who answered and when.
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { ask, factKey, isAnswer } from "../../app/features/settings/model/facts";
 import { FactsRepo } from "../../db/models/facts/repo";
-import { PeopleRepo } from "../../db/models/people/repo";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
+import { queryHook } from "../queryHook";
 
 /** Every answer's latest, for questions still asked: one whose question has gone is left out. */
-export const getAnswers = createServerFn({ method: "GET" }).handler(() =>
+const getAnswers = createServerFn({ method: "GET" }).handler(() =>
   new FactsRepo(getDb()).latest().filter((a) => ask(factKey(a.question, a.about)) !== undefined)
 );
 
@@ -29,9 +29,7 @@ export const saveAnswer = createServerFn({ method: "POST" })
   .handler(({ data }) => {
     const db = getDb();
     const { question, about } = ask(data.key)!;
-    const id = personId();
-    const answeredBy = id && new PeopleRepo(db).get(id) ? id : null;
-    return new FactsRepo(db).answer({ question: question.id, about, value: data.answer, answeredBy }, madeAt());
+    return new FactsRepo(db).answer({ question: question.id, about, value: data.answer, answeredBy: personId() }, madeAt());
   });
 
 export type Answers = Awaited<ReturnType<typeof getAnswers>>;
@@ -52,7 +50,4 @@ export const factsSaves = {
   }),
 };
 
-/** answersQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useAnswersQuery<TData = Answers>(options?: Omit<UseSuspenseQueryOptions<Answers, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...answersQuery, ...options } as UseSuspenseQueryOptions<Answers, Error, TData, string[]>);
-}
+export const useAnswersQuery = queryHook(answersQuery);

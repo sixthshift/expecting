@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 import { builtInItems } from "../../../src/content";
-import { CHAPTERS, chapterOf, contents, young } from "../../../src/lib/journal/chapters";
+import { CHAPTERS, contents, young } from "../../../src/lib/journal/chapters";
 import { FIRSTS } from "../../../src/lib/journal/firsts";
 import { PLACES, placesReady } from "../../../src/lib/journal/places";
 import { storyItems } from "../../../src/lib/journal/story/items";
@@ -12,8 +12,6 @@ test("the chapters run through the weeks without a gap, and every first is in on
   expect(weeks.at(-1)![1]).toBe(42);
   for (const [i, w] of weeks.entries()) if (i > 0) expect(w[0]).toBe(weeks[i - 1]![1] + 1);
   expect(CHAPTERS.flatMap((c) => c.firsts).sort()).toEqual(FIRSTS.map((f) => f.key).sort());
-  expect(chapterOf(28).title).toBe("Getting ready");
-  expect(chapterOf(13).title).toBe("The first scan");
 });
 
 test("the contents: begun, now, still to come, or passed; the birth always still to come", () => {

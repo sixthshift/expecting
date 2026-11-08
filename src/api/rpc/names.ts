@@ -1,67 +1,60 @@
 // The names game. Every call is as the person holding this phone: the server
 // only ever returns their own votes, and the shortlist.
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { NamesRepo } from "../../db/models/names/repo";
-import { PeopleRepo } from "../../db/models/people/repo";
 import type { ISODate } from "../../lib/dates";
 import { tidyName } from "../../lib/drawer/names";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
+import { queryHook } from "../queryHook";
 
-/** Who's playing: the person this phone says it is. A phone that hasn't said can't vote. */
-function player(): string {
-  const id = personId();
-  if (!id || !new PeopleRepo(getDb()).get(id)) throw new Error("Say who's holding this phone first");
-  return id;
-}
+const getNames = createServerFn({ method: "GET" }).handler(() => new NamesRepo(getDb()).view(personId()));
 
-export const getNames = createServerFn({ method: "GET" }).handler(() => new NamesRepo(getDb()).view(player()));
-
-export const addName = createServerFn({ method: "POST" })
+const addName = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), name: z.string().transform(tidyName).pipe(z.string().min(1).max(60)) }).strict())
   .handler(({ data }) => {
     const repo = new NamesRepo(getDb());
-    const me = player();
+    const me = personId();
     const at = madeAt();
     const id = repo.add(data.name, me, at, data.id);
     // Whoever adds a name likes it.
     repo.vote(id, me, true, at);
   });
 
-export const voteName = createServerFn({ method: "POST" })
+const voteName = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), liked: z.boolean() }).strict())
-  .handler(({ data }) => new NamesRepo(getDb()).vote(data.id, player(), data.liked, madeAt()));
+  .handler(({ data }) => new NamesRepo(getDb()).vote(data.id, personId(), data.liked, madeAt()));
 
 /** Like or pass a name from the deck; one the deck doesn't have is turned away. */
-export const swipeName = createServerFn({ method: "POST" })
+const swipeName = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), name: z.string().max(60), liked: z.boolean() }).strict())
   .handler(async ({ data }) => {
     // Loaded here, on the server only: the deck isn't for the app's own bundle.
     const { inDeck } = await import("../../lib/drawer/nameDeck");
     const entry = inDeck(data.name);
     if (!entry) throw Response.json({ error: "That name isn't in the deck" }, { status: 400 });
-    new NamesRepo(getDb()).swipe(entry.name, player(), data.liked, madeAt(), data.id);
+    new NamesRepo(getDb()).swipe(entry.name, personId(), data.liked, madeAt(), data.id);
   });
 
 /** Take back your vote on a name: the last swipe, undone. */
-export const unvoteName = createServerFn({ method: "POST" })
+const unvoteName = createServerFn({ method: "POST" })
   .validator(z.object({ name: z.string().min(1).max(60) }).strict())
-  .handler(({ data }) => new NamesRepo(getDb()).unvote(data.name, player()));
+  .handler(({ data }) => new NamesRepo(getDb()).unvote(data.name, personId()));
 
 /**
  * Superlike a name: on the shortlist without waiting for the other, one a day (`day`, the phone's date,
  * so the day turns over at its midnight). A name not in the game must be in the deck.
  */
-export const superlikeName = createServerFn({ method: "POST" })
+const superlikeName = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid(), name: z.string().min(1).max(60), day: z.iso.date() }).strict())
   .handler(async ({ data }) => {
     const repo = new NamesRepo(getDb());
-    const me = player();
+    const me = personId();
     let name = data.name;
     if (!repo.has(name)) {
       const { inDeck } = await import("../../lib/drawer/nameDeck");
@@ -74,10 +67,10 @@ export const superlikeName = createServerFn({ method: "POST" })
   });
 
 /** Take a name off the shortlist, for either of you: out of the game, and not dealt again. */
-export const takeOffName = createServerFn({ method: "POST" })
+const takeOffName = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid() }).strict())
   .handler(({ data }) => {
-    player();
+    personId();
     new NamesRepo(getDb()).takeOff(data.id, madeAt());
   });
 
@@ -164,7 +157,4 @@ export const namesSaves = {
   }),
 };
 
-/** namesQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useNamesQuery<TData = Names>(options?: Omit<UseSuspenseQueryOptions<Names, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...namesQuery, ...options } as UseSuspenseQueryOptions<Names, Error, TData, string[]>);
-}
+export const useNamesQuery = queryHook(namesQuery);

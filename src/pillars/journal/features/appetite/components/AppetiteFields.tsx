@@ -1,12 +1,6 @@
-import { DatePicker } from "@sixthshift/design-system/date-picker";
-import type { ISOTime } from "@sixthshift/design-system/date-time";
-import { FormField } from "@sixthshift/design-system/form-field";
-import { TimePicker } from "@sixthshift/design-system/time-picker";
 import { cn } from "@sixthshift/design-system/utils";
 import { useId } from "react";
-import { type ISODate, todayISO } from "../../../../../lib/dates";
 import { HOW_LABEL, HOWS, type How } from "../../../../../lib/journal/appetite";
-import { toTime } from "../../../../../lib/journal/journal";
 
 /** What a sickness tap says under it, so the three are told apart at 3 am. */
 const HOW_HINT: Record<How, string> = { queasy: "Nausea", vomited: "Vomited", fluids: "Even water comes up" };
@@ -34,21 +28,6 @@ export function HowPicker({ value, onChoose }: { value: How | null; onChoose: (h
         );
       })}
     </fieldset>
-  );
-}
-
-/** A day and a time, for one kept after the fact. */
-export function WhenFields({ day, time, onDay, onTime }: { day: ISODate; time: string; onDay: (d: ISODate) => void; onTime: (t: string) => void }) {
-  const today = todayISO();
-  return (
-    <div className="flex flex-wrap gap-3">
-      <FormField label="Day">
-        <DatePicker value={day} onChange={(d) => (d ? onDay(d as ISODate) : null)} segmentOrder="dmy" weekStartsOn={1} clearable={false} maxDate={today} />
-      </FormField>
-      <FormField label="Time">
-        <TimePicker value={time as ISOTime} onChange={(t) => onTime(toTime(t) ?? time)} clockFormat="12h" />
-      </FormField>
-    </div>
   );
 }
 

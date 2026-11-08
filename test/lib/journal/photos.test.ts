@@ -1,17 +1,7 @@
 import { describe, expect, test } from "vitest";
 import type { ISODate } from "../../../src/lib/dates";
-import {
-  bumpToTake,
-  bumpWeeks,
-  newestFirst,
-  type Photo,
-  photoGroups,
-  sideBySide,
-  takenOn,
-  tidyCaption,
-  weekPhotos,
-  weekPhotoWords,
-} from "../../../src/lib/journal/photos";
+import { newestFirst } from "../../../src/lib/journal/journal";
+import { bumpToTake, bumpWeeks, type Photo, photoGroups, sideBySide, takenOn, tidyCaption, weekPhotos, weekPhotoWords } from "../../../src/lib/journal/photos";
 
 // Due 19 Jan 2027: week 28 runs 27 Oct – 2 Nov 2026, week 12 from 7 Jul.
 const DUE = "2027-01-19" as ISODate;

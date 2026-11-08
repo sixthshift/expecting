@@ -6,8 +6,8 @@
 // that aren't food is worth mentioning). See docs/product/journal.md.
 
 import { addDays, daysBetween, type ISODate } from "../dates";
-import type { Week } from "../timeline";
-import { type Place, placeOf } from "./journal";
+import { type Place, placeOf, type Week } from "../timeline";
+import { newestFirst } from "./journal";
 
 /** What an entry is: being sick, a craving, or something gone off. */
 export const APPETITE_KINDS = ["sick", "craving", "off"] as const;
@@ -67,11 +67,6 @@ export function describe(entry: Pick<AppetiteEntry, "kind" | "how" | "what">): s
   return `${entry.kind === "craving" ? "Craving" : "Gone off"}: ${entry.what ?? ""}`;
 }
 
-/** Newest first: by day, then time (one without a time before the timed ones that day), then when it was kept. */
-export function latestFirst<E extends AppetiteEntry>(entries: readonly E[]): E[] {
-  return [...entries].sort((a, b) => b.day.localeCompare(a.day) || (b.time ?? "").localeCompare(a.time ?? "") || b.createdAt.localeCompare(a.createdAt));
-}
-
 function sickness(entries: readonly AppetiteEntry[]): AppetiteEntry[] {
   return entries.filter((e) => e.kind === "sick" && e.how !== null);
 }
@@ -94,7 +89,7 @@ function worstByDay(entries: readonly AppetiteEntry[]): Map<ISODate, How> {
 
 /** Since when: the first day any sickness was kept, and the latest one. Null with none. */
 export function sicknessSince(entries: readonly AppetiteEntry[]): { first: ISODate; last: AppetiteEntry } | null {
-  const sick = latestFirst(sickness(entries));
+  const sick = newestFirst(sickness(entries));
   if (sick.length === 0) return null;
   return { first: sick.at(-1)!.day as ISODate, last: sick[0]! };
 }
@@ -176,7 +171,7 @@ function keyOf(what: string): string {
 export function tally(entries: readonly AppetiteEntry[], kind: "craving" | "off"): Tally[] {
   const by = new Map<string, Tally>();
   // Oldest first, so the name kept is the latest spelling.
-  for (const e of [...latestFirst(entries)].reverse()) {
+  for (const e of [...newestFirst(entries)].reverse()) {
     if (e.kind !== kind || !e.what) continue;
     const key = keyOf(e.what);
     const day = e.day as ISODate;

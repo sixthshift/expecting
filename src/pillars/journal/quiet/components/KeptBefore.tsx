@@ -1,11 +1,9 @@
 import { Button } from "@sixthshift/design-system/button";
-import { Modal } from "@sixthshift/design-system/modal";
 import { useState } from "react";
 import { useSettingsQuery } from "../../../../api/rpc/settings";
-import { kindsOffered } from "../../../../lib/journal/quiet";
 import { storyGroups } from "../../../../lib/journal/story/spine";
 import { StoryList } from "../../components/lines/StoryList";
-import { AddPhoto } from "../../features/photos/components/AddPhoto";
+import { QuietAddPhoto } from "../../features/photos/quiet/components/QuietAddPhoto";
 import { useQuietJournalPage } from "../contexts/QuietJournalPageContext";
 
 /** What's folded away, behind one quiet line, with one quiet way to add a photo. */
@@ -13,7 +11,6 @@ export function KeptBefore() {
   const { kind, folded } = useQuietJournalPage();
   const { data: settings } = useSettingsQuery();
   const [open, setOpen] = useState(false);
-  const [adding, setAdding] = useState(false);
   if (folded.length === 0) return null;
   if (!open) {
     return (
@@ -24,20 +21,8 @@ export function KeptBefore() {
   }
   return (
     <section aria-label="What you kept before" className="flex flex-col gap-4">
-      <Button variant="ghost" size="sm" className="self-start" onClick={() => setAdding(true)}>
-        Add a photo
-      </Button>
+      <QuietAddPhoto quiet={kind} />
       <StoryList groups={storyGroups(folded, settings.dueDate)} label="What you kept before" titled={false} />
-      {adding ? (
-        <Modal size="sm" align="top" closable onOpenChange={(o) => (o ? null : setAdding(false))} aria-label="Add a photo">
-          <Modal.Header>
-            <h2 className="font-display text-lg font-semibold text-fg-strong">Add a photo</h2>
-          </Modal.Header>
-          <Modal.Body className="px-6 pb-6">
-            <AddPhoto kinds={kindsOffered(kind)} onAdded={() => setAdding(false)} />
-          </Modal.Body>
-        </Modal>
-      ) : null}
     </section>
   );
 }

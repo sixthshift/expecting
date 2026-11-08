@@ -1,7 +1,7 @@
 // The settings: the due date, the baby's colours (the theme) and when
 // onboarding finished. One row.
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { useMemo } from "react";
 import { z } from "zod";
@@ -12,6 +12,7 @@ import { BABY, type Baby } from "../../lib/theme";
 import { positionOn } from "../../lib/timeline";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
+import { queryHook } from "../queryHook";
 
 const isoDate = z
   .string()
@@ -19,7 +20,7 @@ const isoDate = z
   .transform((d) => d as ISODate);
 
 /** The due date, the baby's colours and whether onboarding is done. */
-export const getSettings = createServerFn({ method: "GET" }).handler(() => new SettingsRepo(getDb()).get());
+const getSettings = createServerFn({ method: "GET" }).handler(() => new SettingsRepo(getDb()).get());
 
 export const saveSettings = createServerFn({ method: "POST" })
   .validator(
@@ -53,10 +54,7 @@ export const settingsSaves = {
   }),
 };
 
-/** settingsQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useSettingsQuery<TData = Settings>(options?: Omit<UseSuspenseQueryOptions<Settings, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...settingsQuery, ...options } as UseSuspenseQueryOptions<Settings, Error, TData, string[]>);
-}
+export const useSettingsQuery = queryHook(settingsQuery);
 
 /** Where today falls in the pregnancy; null until there's a due date. */
 export function usePosition() {

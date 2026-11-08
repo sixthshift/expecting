@@ -1,6 +1,5 @@
-import type { Database } from "bun:sqlite";
 import { and, asc, eq, gt, isNull, lt } from "drizzle-orm";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { person } from "../people/schema";
 import { connection, oauthClient, oauthCode, oauthToken } from "./schema";
 
@@ -32,13 +31,7 @@ function secret(): string {
   return Buffer.from(crypto.getRandomValues(new Uint8Array(32))).toString("base64url");
 }
 
-export class ConnectionsRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class ConnectionsRepo extends Repo {
   register(name: string, redirectUris: string[], now: Date = new Date()): Client {
     const client = { id: crypto.randomUUID(), name, redirectUris };
     this.db

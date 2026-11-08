@@ -1,19 +1,12 @@
-import type { Database } from "bun:sqlite";
 import { asc, eq, inArray } from "drizzle-orm";
 import type { How, LineState, Mark, OwnLineRow, OwnList } from "../../../lib/planner/lists/lines";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { listMark, ownLine, ownList } from "./schema";
 
 /** The lists' rows: your own lists and lines, and every line's mark, by line id. */
 export type Lists = { ownLists: OwnList[]; ownLines: OwnLineRow[]; marks: Record<string, Mark> };
 
-export class ListsRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class ListsRepo extends Repo {
   /** Your own lists and lines, oldest first, and the marks. */
   all(): Lists {
     return {

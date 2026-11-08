@@ -5,16 +5,13 @@
 // so one taken in a hospital car park with no signal is never lost.
 
 import { Button } from "@sixthshift/design-system/button";
-import { DatePicker } from "@sixthshift/design-system/date-picker";
-import type { ISOTime } from "@sixthshift/design-system/date-time";
 import { FileDropzone } from "@sixthshift/design-system/file-dropzone";
-import { FormField } from "@sixthshift/design-system/form-field";
 import { Input } from "@sixthshift/design-system/input";
+import { Modal } from "@sixthshift/design-system/modal";
 import { Spinner } from "@sixthshift/design-system/spinner";
-import { TimePicker } from "@sixthshift/design-system/time-picker";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { Camera, Images } from "lucide-react";
-import { type ChangeEvent, type FormEvent, useEffect, useState } from "react";
+import { type FormEvent, useEffect, useState } from "react";
 import { photosSaves } from "../../../../../api/rpc/photos";
 import { useSettingsQuery } from "../../../../../api/rpc/settings";
 import { useLayout } from "../../../../../app/hooks/useLayout";
@@ -22,11 +19,12 @@ import { useSave } from "../../../../../app/hooks/useSave";
 import { FileProblemError, keepOnPhone, type Prepared, prepareFile, previewUrl } from "../../../../../app/model/uploads";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
 import { FILE_PROBLEM, type FileProblem, isImage, MAX_ORIGINAL } from "../../../../../lib/files";
-import { placeOf, toTime } from "../../../../../lib/journal/journal";
 import { PHOTO_KIND_LABEL, PHOTO_KINDS, type PhotoKind, takenOn } from "../../../../../lib/journal/photos";
 import { when } from "../../../../../lib/labels";
 import { newId } from "../../../../../lib/outbox";
-import { weekLabel } from "../../../../../lib/timeline";
+import { placeOf, weekLabel } from "../../../../../lib/timeline";
+import { Pick } from "../../../components/Pick";
+import { WhenFields } from "../../../components/WhenFields";
 
 /** A picture made ready, with its preview while it's on screen here. */
 type Shot = Prepared & { preview: string | null };
@@ -121,13 +119,6 @@ export function AddPhoto({
     if (given) void ready(given);
   }, []);
 
-  function picked(event: ChangeEvent<HTMLInputElement>) {
-    const files = Array.from(event.target.files ?? []);
-    // So choosing the same file again still counts.
-    event.target.value = "";
-    void ready(files);
-  }
-
   async function keep(event: FormEvent) {
     event.preventDefault();
     if (!kind || shots.length === 0 || keeping) return;
@@ -157,40 +148,24 @@ export function AddPhoto({
           <p className="flex min-h-12 items-center gap-2 text-sm text-fg-subtle" role="status">
             <Spinner size="sm" /> Getting it ready…
           </p>
+        ) : layout === "mobile" ? (
+          // A phone: the camera, one tap, and the phone's own picker beside it.
+          <div className="grid grid-cols-2 gap-2">
+            <Pick label="Take a photo" icon={Camera} camera primary onFiles={(files) => void ready(files)} />
+            <Pick label="Choose photos" icon={Images} onFiles={(files) => void ready(files)} />
+          </div>
         ) : (
-          <>
-            {layout === "mobile" ? (
-              // A phone: the camera, one tap, and the phone's own picker beside it.
-              <div className="grid grid-cols-2 gap-2">
-                <Button asChild intent="brand" size="lg">
-                  <label className="cursor-pointer focus-within:ring-2 focus-within:ring-border-focus">
-                    <Camera aria-hidden size={20} />
-                    Take a photo
-                    <input type="file" accept="image/*" capture="environment" className="sr-only" onChange={picked} />
-                  </label>
-                </Button>
-                <Button asChild variant="outline" size="lg">
-                  <label className="cursor-pointer focus-within:ring-2 focus-within:ring-border-focus">
-                    <Images aria-hidden size={20} />
-                    Choose photos
-                    <input type="file" accept="image/*" multiple className="sr-only" onChange={picked} />
-                  </label>
-                </Button>
-              </div>
-            ) : (
-              // A desktop: drop them in, or choose.
-              <FileDropzone
-                size="sm"
-                accept="image/*"
-                multiple
-                maxSize={MAX_ORIGINAL}
-                label="Drop photos here, or choose them"
-                hint="Bump photos, scans, anything worth keeping. JPEG, PNG or HEIC, up to 30 MB."
-                onFilesChange={(files) => void ready(files)}
-                onFilesRejected={(rejected) => setProblem(FILE_PROBLEM[rejected[0]?.reason === "size" ? "big" : "type"])}
-              />
-            )}
-          </>
+          // A desktop: drop them in, or choose.
+          <FileDropzone
+            size="sm"
+            accept="image/*"
+            multiple
+            maxSize={MAX_ORIGINAL}
+            label="Drop photos here, or choose them"
+            hint="Bump photos, scans, anything worth keeping. JPEG, PNG or HEIC, up to 30 MB."
+            onFilesChange={(files) => void ready(files)}
+            onFilesRejected={(rejected) => setProblem(FILE_PROBLEM[rejected[0]?.reason === "size" ? "big" : "type"])}
+          />
         )}
         {problem ? (
           <p role="alert" className="text-sm text-fg-danger">
@@ -236,21 +211,7 @@ export function AddPhoto({
         </div>
       )}
       {choosing ? (
-        <div className="flex flex-wrap gap-3">
-          <FormField label="Day">
-            <DatePicker
-              value={day ?? today}
-              onChange={(d) => setDay((d as ISODate | undefined) ?? null)}
-              segmentOrder="dmy"
-              weekStartsOn={1}
-              clearable={false}
-              maxDate={today}
-            />
-          </FormField>
-          <FormField label="Time (if it matters)">
-            <TimePicker value={(time ?? undefined) as ISOTime | undefined} onChange={(t) => setTime(toTime(t))} clockFormat="12h" />
-          </FormField>
-        </div>
+        <WhenFields day={day ?? today} time={time} onDay={setDay} onTime={setTime} timeLabel="Time (if it matters)" />
       ) : (
         <Button
           type="button"
@@ -283,5 +244,19 @@ export function AddPhoto({
       </div>
       <p className="text-xs text-fg-subtle">You both see every photo.</p>
     </form>
+  );
+}
+
+/** `AddPhoto` on its own, over the page, under `title`; it closes once the photo is kept. */
+export function AddPhotoModal({ title, kind, kinds, onClose }: { title: string; kind?: PhotoKind; kinds?: readonly PhotoKind[]; onClose: () => void }) {
+  return (
+    <Modal size="sm" align="top" closable onOpenChange={(open) => (open ? null : onClose())} aria-label={title}>
+      <Modal.Header>
+        <h2 className="font-display text-lg font-semibold text-fg-strong">{title}</h2>
+      </Modal.Header>
+      <Modal.Body className="px-6 pb-6">
+        <AddPhoto kind={kind} kinds={kinds} onAdded={onClose} />
+      </Modal.Body>
+    </Modal>
   );
 }

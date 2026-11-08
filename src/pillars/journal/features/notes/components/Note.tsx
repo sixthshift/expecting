@@ -2,10 +2,8 @@
 // its day, or a letter to the baby (from one of you, or both). Shared, and
 // either of you can change one; each says who wrote it and who changed it last.
 
-import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
 import { toast } from "@sixthshift/design-system/overlay";
-import { Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { journalSaves } from "../../../../../api/rpc/journal";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
@@ -14,6 +12,8 @@ import type { ISODate } from "../../../../../lib/dates";
 import type { JournalEntry } from "../../../../../lib/journal/journal";
 import { when } from "../../../../../lib/labels";
 import { nameBy } from "../../../../../lib/people";
+import { KeptCard } from "../../../components/KeptCard";
+import { changedBy } from "../../../model/labels";
 import { NoteForm } from "./NoteForm";
 
 /** A note (or a letter to the baby, said so): its words, then who wrote it and when, and who changed it last. */
@@ -24,11 +24,8 @@ export function Note({ entry }: { entry: JournalEntry }) {
   const restore = useSave(journalSaves.restoreNote);
   const { data: people } = usePeopleQuery();
   const name = (id: string | null) => nameBy(id, people.me, people.people);
-  // Changed by the one who wrote it, or by someone forgotten since: only "changed".
-  const changer = entry.editedBy !== entry.by ? nameBy(entry.editedBy, people.me, people.people, "you") : null;
   // A letter from both is signed by both, whoever kept it.
   const signed = entry.kind === "letter" && entry.fromBoth ? "From both of you" : name(entry.by);
-  const changed = entry.editedAt ? (changer ? `changed by ${changer}` : "changed") : null;
 
   function deleteIt() {
     remove({ id: entry.id });
@@ -52,18 +49,14 @@ export function Note({ entry }: { entry: JournalEntry }) {
   }
 
   return (
-    <Card size="sm">
+    <KeptCard
+      what="this note"
+      meta={[signed, when(entry.day, entry.time), changedBy(entry, people.me, people.people)].filter(Boolean).join(" · ")}
+      onChange={() => setEditing(true)}
+      onDelete={deleteIt}
+    >
       {entry.kind === "letter" ? <p className="mb-1 text-xs font-semibold text-fg-brand">A letter to the baby</p> : null}
       <p className="whitespace-pre-wrap">{entry.body}</p>
-      <div className="mt-2 flex items-center gap-1 text-xs text-fg-subtle">
-        <span className="flex-1">{[signed, when(entry.day, entry.time), changed].filter(Boolean).join(" · ")}</span>
-        <Button variant="ghost" size="sm" iconOnly aria-label="Change this note" onClick={() => setEditing(true)}>
-          <Pencil aria-hidden size={16} />
-        </Button>
-        <Button variant="ghost" size="sm" iconOnly aria-label="Delete this note" onClick={deleteIt}>
-          <Trash2 aria-hidden size={16} />
-        </Button>
-      </div>
-    </Card>
+    </KeptCard>
   );
 }

@@ -1,16 +1,9 @@
-import type { Database } from "bun:sqlite";
 import { eq } from "drizzle-orm";
 import { type AppetiteEntry, type AppetiteInput, tidy } from "../../../lib/journal/appetite";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { appetiteEntry } from "./schema";
 
-export class AppetiteRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class AppetiteRepo extends Repo {
   /** Every entry; the page orders them. Shared: both of you see all of them. */
   list(): AppetiteEntry[] {
     return this.db.select().from(appetiteEntry).all();

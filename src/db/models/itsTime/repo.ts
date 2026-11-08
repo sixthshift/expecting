@@ -1,7 +1,6 @@
-import type { Database } from "bun:sqlite";
 import { and, asc, desc, eq, gt, isNull, lt } from "drizzle-orm";
 import type { Ending, ItsTime, Start, Waters } from "../../../lib/itsTime";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { contraction, labourStart, startLine, startTick } from "./schema";
 
 /**
@@ -10,13 +9,7 @@ import { contraction, labourStart, startLine, startTick } from "./schema";
  * the other phone) stands in for it, so both phones' taps land on one. A save
  * for a start that has ended does nothing.
  */
-export class ItsTimeRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class ItsTimeRepo extends Repo {
   /** Every start, newest first, with its contractions (oldest first) and ticks; and your own last things. */
   get(): ItsTime {
     const contractions = this.db.select().from(contraction).orderBy(asc(contraction.startedAt)).all();

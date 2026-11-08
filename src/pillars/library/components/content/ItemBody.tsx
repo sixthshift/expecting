@@ -9,7 +9,7 @@ import * as React from "react";
 import { variables } from "../../../../app/features/settings/model/facts";
 import { markdocConfig } from "../../../../content/markdoc";
 import { telHref } from "../../../../lib/emergency";
-import { splitPhones } from "../../../../lib/phones";
+import { splitPhones } from "../../../../lib/library/phones";
 import { Ask } from "./Ask";
 import { useContentContext } from "./context";
 import { Window } from "./Window";

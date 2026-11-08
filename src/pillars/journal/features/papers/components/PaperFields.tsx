@@ -3,7 +3,6 @@
 // it says.
 
 import { Button } from "@sixthshift/design-system/button";
-import { DatePicker } from "@sixthshift/design-system/date-picker";
 import { FormField } from "@sixthshift/design-system/form-field";
 import { Input } from "@sixthshift/design-system/input";
 import { Select } from "@sixthshift/design-system/select";
@@ -26,6 +25,7 @@ import {
 import { when } from "../../../../../lib/labels";
 import type { QuietKind } from "../../../../../lib/quiet";
 import { weekLabel } from "../../../../../lib/timeline";
+import { DayField } from "../../../components/WhenFields";
 
 /** A paper as it's being filled in. `titled`: its name was typed, so choosing what it's about leaves it be. `handy` null: as its kind suggests. */
 export type PaperDraft = {
@@ -128,16 +128,7 @@ export function PaperFields({ draft, onChange, quiet }: { draft: PaperDraft; onC
         />
       </FormField>
       {draft.choosingDay ? (
-        <FormField label="The date on it">
-          <DatePicker
-            value={draft.day}
-            onChange={(d) => set({ day: (d as ISODate | undefined) ?? draft.day })}
-            segmentOrder="dmy"
-            weekStartsOn={1}
-            clearable={false}
-            maxDate={today}
-          />
-        </FormField>
+        <DayField label="The date on it" value={draft.day} onChange={(day) => set({ day })} />
       ) : (
         <Button type="button" variant="ghost" size="sm" className="self-start" onClick={() => set({ choosingDay: true })}>
           {[dated(draft.day, today), week !== null ? weekLabel(week) : null].filter(Boolean).join(" · ")} · Change

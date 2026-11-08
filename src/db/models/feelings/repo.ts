@@ -1,7 +1,6 @@
-import type { Database } from "bun:sqlite";
 import { and, eq } from "drizzle-orm";
 import type { Feeling, OwnFeeling, Step, Word } from "../../../lib/journal/feelings";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { feeling } from "./schema";
 
 export type NewFeeling = { id: string; day: string; time: string | null; step: Step; words: Word[]; note: string | null };
@@ -11,15 +10,9 @@ function noteOf(note: string | null): string | null {
   return note?.trim() || null;
 }
 
-export class FeelingsRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class FeelingsRepo extends Repo {
   /** Every feeling, as `asker` may see it: their own whole, the other's step only. */
-  list(asker: string | null): (Feeling | OwnFeeling)[] {
+  list(asker: string): (Feeling | OwnFeeling)[] {
     return this.db
       .select()
       .from(feeling)

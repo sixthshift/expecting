@@ -1,8 +1,7 @@
 import { type ISODate, todayISO } from "../../../../../../../lib/dates";
 import type { Tally } from "../../../../../../../lib/journal/appetite";
-import { placeOf } from "../../../../../../../lib/journal/journal";
 import { shortDate } from "../../../../../../../lib/labels";
-import { weekLabel } from "../../../../../../../lib/timeline";
+import { placeOf, weekLabel } from "../../../../../../../lib/timeline";
 
 /** "Pickles · 14 times · from week 14". */
 export function TallyList({ title, tallies, dueDate, times }: { title: string; tallies: Tally[]; dueDate: ISODate | null; times: boolean }) {

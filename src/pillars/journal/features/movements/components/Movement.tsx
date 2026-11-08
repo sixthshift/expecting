@@ -4,10 +4,8 @@
 // slower, weaker or stopped leads straight to the call, as `baby-movements`
 // says: straight away, not tomorrow.
 
-import { Button } from "@sixthshift/design-system/button";
 import { Card } from "@sixthshift/design-system/card";
 import { toast } from "@sixthshift/design-system/overlay";
-import { Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { journalSaves } from "../../../../../api/rpc/journal";
 import { usePeopleQuery } from "../../../../../api/rpc/people";
@@ -16,6 +14,8 @@ import type { ISODate } from "../../../../../lib/dates";
 import type { JournalEntry } from "../../../../../lib/journal/journal";
 import { when } from "../../../../../lib/labels";
 import { nameBy } from "../../../../../lib/people";
+import { KeptCard } from "../../../components/KeptCard";
+import { UntilDone } from "../../../components/UntilDone";
 import { keptBy } from "../../../model/labels";
 import { MovementForm } from "./MovementForm";
 import { MovementsChanged } from "./MovementsChanged";
@@ -56,31 +56,24 @@ export function Movement({ entry }: { entry: JournalEntry }) {
 
   if (changed) {
     return (
-      <div className="flex flex-col gap-3">
+      <UntilDone onDone={() => setChanged(false)}>
         <MovementsChanged />
-        <Button variant="outline" onClick={() => setChanged(false)}>
-          Done
-        </Button>
-      </div>
+      </UntilDone>
     );
   }
 
   return (
-    <Card size="sm">
+    <KeptCard
+      what="this movement"
+      meta={[keptBy(name(entry.by)), when(entry.day, entry.time)].filter(Boolean).join(" · ")}
+      onChange={() => setEditing(true)}
+      onDelete={deleteIt}
+    >
       <p className="font-medium text-fg-strong">
         The baby moved
         {entry.different ? <span className="font-normal text-fg-normal"> · slower, weaker or stopped</span> : null}
       </p>
       {entry.body ? <p className="mt-1 whitespace-pre-wrap">{entry.body}</p> : null}
-      <div className="mt-2 flex items-center gap-1 text-xs text-fg-subtle">
-        <span className="flex-1">{[keptBy(name(entry.by)), when(entry.day, entry.time)].filter(Boolean).join(" · ")}</span>
-        <Button variant="ghost" size="sm" iconOnly aria-label="Change this movement" onClick={() => setEditing(true)}>
-          <Pencil aria-hidden size={16} />
-        </Button>
-        <Button variant="ghost" size="sm" iconOnly aria-label="Delete this movement" onClick={deleteIt}>
-          <Trash2 aria-hidden size={16} />
-        </Button>
-      </div>
-    </Card>
+    </KeptCard>
   );
 }

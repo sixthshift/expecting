@@ -26,7 +26,7 @@ export type ListSummary = {
 };
 
 /** How many of what's left a list names at a glance, before "and N more". */
-export const PREVIEW = 2;
+const PREVIEW = 2;
 
 /** The lists there are: each built-in list with a line on it, in LISTS' order, then your own, oldest first. */
 export function listsOf(lines: readonly Line[], own: readonly OwnList[], marks: Readonly<Record<string, Mark>>): ListSummary[] {

@@ -2,39 +2,27 @@
 // this phone. Opening an entry marks it; a private one is never marked (the
 // page doesn't send it, and the privacy middleware would refuse it).
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { isBuiltInItemId } from "../../content";
-import { PeopleRepo } from "../../db/models/people/repo";
 import { ReadsRepo } from "../../db/models/reads/repo";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
+import { queryHook } from "../queryHook";
 
 /** Item id to when you first opened it. */
 export type Reads = Record<string, string>;
 
-/** Someone still here, by id; else nobody. */
-function me(): string | null {
-  const id = personId();
-  return id && new PeopleRepo(getDb()).get(id) ? id : null;
-}
-
-/** What this phone's person has read; nothing for a phone that hasn't said who's holding it. */
-export const getReads = createServerFn({ method: "GET" }).handler((): Reads => {
-  const id = me();
-  return id ? new ReadsRepo(getDb()).reads(id) : {};
-});
+/** What this phone's person has read. */
+const getReads = createServerFn({ method: "GET" }).handler((): Reads => new ReadsRepo(getDb()).reads(personId()));
 
 /** This phone's person opened an entry, when the save was made. */
-export const markRead = createServerFn({ method: "POST" })
+const markRead = createServerFn({ method: "POST" })
   .validator(z.object({ itemId: z.string().min(1).max(200).refine(isBuiltInItemId, "an entry in content/items") }).strict())
-  .handler(({ data }) => {
-    const id = me();
-    if (id) new ReadsRepo(getDb()).markRead(id, data.itemId, madeAt().toISOString());
-  });
+  .handler(({ data }) => new ReadsRepo(getDb()).markRead(personId(), data.itemId, madeAt().toISOString()));
 
 export const readsQuery = queryOptions({ queryKey: ["reads"], queryFn: () => getReads() });
 
@@ -48,7 +36,4 @@ export const readsSaves = {
   }),
 };
 
-/** readsQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useReadsQuery<TData = Reads>(options?: Omit<UseSuspenseQueryOptions<Reads, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...readsQuery, ...options } as UseSuspenseQueryOptions<Reads, Error, TData, string[]>);
-}
+export const useReadsQuery = queryHook(readsQuery);

@@ -2,19 +2,18 @@
 // of the pregnancy on its spine, a week with nothing kept a faint line.
 
 import type { ISODate } from "../../dates";
-import type { Week } from "../../timeline";
-import { type Place, placeOf } from "../journal";
-
-import { byNewest, type StoryItem } from "./items";
+import { type Place, placeOf, type Week } from "../../timeline";
+import { byNewest } from "../journal";
+import type { StoryItem } from "./items";
 
 /** A day of the story. */
 export type StoryDay = { day: ISODate; items: StoryItem[] };
 
 /** A week of the story (or before or after the pregnancy, or with no due date a month), its days newest first. */
-export type StoryGroup = { kind: "group"; key: string; place: Place | null; month: string | null; days: StoryDay[] };
+type StoryGroup = { kind: "group"; key: string; place: Place | null; month: string | null; days: StoryDay[] };
 
 /** A week, or a run of weeks, with nothing kept: one faint line ("Week 26", "Weeks 9–13"), never marked as missing. */
-export type EmptyWeeks = { kind: "empty"; key: string; from: Week; to: Week };
+type EmptyWeeks = { kind: "empty"; key: string; from: Week; to: Week };
 
 /** What the story draws, in order: a week (or a month) with what's kept in it, or weeks with nothing. */
 export type StoryPart = StoryGroup | EmptyWeeks;

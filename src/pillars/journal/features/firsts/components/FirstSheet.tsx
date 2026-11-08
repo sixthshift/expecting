@@ -10,7 +10,7 @@ import { DetailSheet } from "../../../../../app/components/DetailSheet";
 import { useSave } from "../../../../../app/hooks/useSave";
 import type { ISODate } from "../../../../../lib/dates";
 import { type FirstMark, firstOf } from "../../../../../lib/journal/firsts";
-import { DayField } from "./DayField";
+import { DayField } from "../../../components/WhenFields";
 import { FirstWords } from "./FirstWords";
 
 /** A marked first, opened: its day to move, both your words, and a way to take it off. */
@@ -29,7 +29,7 @@ export function FirstSheet({ mark, onClose }: { mark: FirstMark & { day: string 
       onClose={onClose}
       className="flex flex-col gap-4"
     >
-      <DayField value={mark.day as ISODate} onChange={(day) => move({ key: mark.key, day })} />
+      <DayField label="When" value={mark.day as ISODate} onChange={(day) => move({ key: mark.key, day })} />
       <FirstWords mark={mark} />
       <Button
         variant="ghost"

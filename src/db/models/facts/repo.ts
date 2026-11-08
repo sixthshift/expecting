@@ -1,17 +1,10 @@
-import type { Database } from "bun:sqlite";
 import { asc, sql } from "drizzle-orm";
 import type { Answer } from "../../../lib/facts";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { answer } from "./schema";
 
 /** Which questions exist, and which answers fit them, is content's business, not this repo's. */
-export class FactsRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class FactsRepo extends Repo {
   /** The latest answer for each question and subject, skipped and cleared ones too. */
   latest(): Answer[] {
     const rows = this.db

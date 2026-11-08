@@ -1,17 +1,10 @@
-import type { Database } from "bun:sqlite";
 import { and, eq } from "drizzle-orm";
 import { JOBS, type JobsView, type Pick } from "../../../lib/drawer/jobs";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { person } from "../people/schema";
 import { jobPick } from "./schema";
 
-export class JobsRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class JobsRepo extends Repo {
   /**
    * The jobs as `personId` sees them: their own answers, and the other's
    * only for a job they've both answered; of the rest, only how many.

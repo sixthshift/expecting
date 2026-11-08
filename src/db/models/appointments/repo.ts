@@ -1,7 +1,6 @@
-import type { Database } from "bun:sqlite";
 import { asc, eq } from "drizzle-orm";
 import type { Appointment } from "../../../lib/planner/appointments";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { appointment } from "./schema";
 
 /** What's said of an appointment, new or changed: blank words are none. */
@@ -12,13 +11,7 @@ const words = (s: string | null | undefined) => {
   return t ? t : null;
 };
 
-export class AppointmentsRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class AppointmentsRepo extends Repo {
   /** Every appointment, earliest first. */
   list(): Appointment[] {
     return this.db.select().from(appointment).orderBy(asc(appointment.day), asc(appointment.time)).all();

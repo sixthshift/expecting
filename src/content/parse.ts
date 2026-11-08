@@ -1,6 +1,5 @@
-import type { z } from "zod";
 import type { Week } from "../lib/timeline";
-import { ContentError, type IndexHalf, type PageHalf, splitItem } from "./file";
+import { ContentError, check, type IndexHalf, type PageHalf, splitItem } from "./file";
 import { parseBody } from "./markdoc";
 import { type IndexFrontmatter, type Item, type ItemPage, type ItemType, indexSchema, pageSchema, SYMPTOM_LEVELS, type Task } from "./schema";
 
@@ -15,13 +14,6 @@ function idOf(file: string): string {
   const [folder, name] = file.split("/").slice(-2);
   if (folder !== FOLDER || !name?.endsWith(".md")) throw new ContentError(file, `belongs in ${FOLDER}/, as ${FOLDER}/<id>.md`);
   return name.slice(0, -".md".length);
-}
-
-function check<S extends z.ZodType>(file: string, schema: S, raw: unknown): z.output<S> {
-  const parsed = schema.safeParse(raw);
-  if (parsed.success) return parsed.data;
-  const problems = parsed.error.issues.map((i) => `${i.path.join(".") || "(root)"}: ${i.message}`).join("; ");
-  throw new ContentError(file, problems);
 }
 
 /** An item's index half into the item every list reads. Throws a ContentError naming the file on any problem. */

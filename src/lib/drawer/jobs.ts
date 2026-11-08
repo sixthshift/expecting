@@ -15,7 +15,7 @@ export const JOB_GROUPS = {
   admin: "The admin",
   people: "People",
 } as const;
-export type JobGroup = keyof typeof JOB_GROUPS;
+type JobGroup = keyof typeof JOB_GROUPS;
 
 export type Job = { id: string; title: string; group: JobGroup };
 
@@ -46,7 +46,7 @@ export function isJobId(id: string): boolean {
 }
 
 /** What the server shows this phone: each job's answers, the other's only once both have answered. */
-export type JobAnswer = { jobId: string; mine: Pick | null; theirs: Pick | null };
+type JobAnswer = { jobId: string; mine: Pick | null; theirs: Pick | null };
 export type JobsView = {
   answers: JobAnswer[];
   /** How many jobs the other has answered, though not which or how. */

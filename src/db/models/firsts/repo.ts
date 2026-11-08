@@ -1,16 +1,9 @@
-import type { Database } from "bun:sqlite";
 import { and, eq } from "drizzle-orm";
 import { type FirstMark, isFirstKey } from "../../../lib/journal/firsts";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { firstMark, firstWords } from "./schema";
 
-export class FirstsRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class FirstsRepo extends Repo {
   /** Every first marked or put aside, each with its words. */
   list(): FirstMark[] {
     const words = this.db.select().from(firstWords).all();
@@ -26,11 +19,6 @@ export class FirstsRepo {
   /** Mark a first on its day, or move it; one put aside is marked after all. */
   mark(key: string, day: string, by: string | null, now: Date = new Date()): void {
     this.db.insert(firstMark).values({ key, day, by, createdAt: now.toISOString() }).onConflictDoUpdate({ target: firstMark.key, set: { day } }).run();
-  }
-
-  /** Put a suggested first aside, not to be asked again; one already marked is left marked. */
-  setAside(key: string, by: string | null, now: Date = new Date()): void {
-    this.db.insert(firstMark).values({ key, day: null, by, createdAt: now.toISOString() }).onConflictDoNothing().run();
   }
 
   /** Take a first back off, words and all: it can be suggested again. */

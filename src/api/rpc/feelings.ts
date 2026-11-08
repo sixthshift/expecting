@@ -2,31 +2,17 @@
 // the words and the note are only ever sent to the phone of the person they're
 // about, and only they can change or delete one (src/lib/journal/feelings.ts).
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { FeelingsRepo, type NewFeeling } from "../../db/models/feelings/repo";
-import { PeopleRepo } from "../../db/models/people/repo";
-import { isISODate } from "../../lib/dates";
+import { isISODate, TIME } from "../../lib/dates";
 import { type Feeling, isOwn, type OwnFeeling, STEPS, WORDS } from "../../lib/journal/feelings";
-import { TIME } from "../../lib/journal/journal";
 import { save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
-
-/** The person this phone says it is, if still here; else nobody. */
-function asker(): string | null {
-  const id = personId();
-  return id && new PeopleRepo(getDb()).get(id) ? id : null;
-}
-
-/** Whose feeling this is: a phone that hasn't said who's holding it can't keep one. */
-function me(): string {
-  const id = asker();
-  if (!id) throw new Error("Say who's holding this phone first");
-  return id;
-}
+import { queryHook } from "../queryHook";
 
 const feeling = z
   .object({
@@ -42,21 +28,21 @@ const feeling = z
   })
   .strict();
 
-export const listFeelings = createServerFn({ method: "GET" }).handler(() => new FeelingsRepo(getDb()).list(asker()));
+const listFeelings = createServerFn({ method: "GET" }).handler(() => new FeelingsRepo(getDb()).list(personId()));
 
-export const addFeeling = createServerFn({ method: "POST" })
+const addFeeling = createServerFn({ method: "POST" })
   .validator(feeling)
-  .handler(({ data }) => new FeelingsRepo(getDb()).add(data, me(), madeAt()));
+  .handler(({ data }) => new FeelingsRepo(getDb()).add(data, personId(), madeAt()));
 
-export const changeFeeling = createServerFn({ method: "POST" })
+const changeFeeling = createServerFn({ method: "POST" })
   .validator(feeling)
   .handler(({ data }) => {
-    if (!new FeelingsRepo(getDb()).change(data, me())) throw new Error("Only the person it's about can change it");
+    if (!new FeelingsRepo(getDb()).change(data, personId())) throw new Error("Only the person it's about can change it");
   });
 
-export const deleteFeeling = createServerFn({ method: "POST" })
+const deleteFeeling = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid() }).strict())
-  .handler(({ data }) => new FeelingsRepo(getDb()).delete(data.id, me()));
+  .handler(({ data }) => new FeelingsRepo(getDb()).delete(data.id, personId()));
 
 /** Every feeling, as this phone's person may see it: their own whole, the other's step only. */
 export type Feelings = (Feeling | OwnFeeling)[];
@@ -94,7 +80,4 @@ export const feelingsSaves = {
   }),
 };
 
-/** feelingsQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function useFeelingsQuery<TData = Feelings>(options?: Omit<UseSuspenseQueryOptions<Feelings, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...feelingsQuery, ...options } as UseSuspenseQueryOptions<Feelings, Error, TData, string[]>);
-}
+export const useFeelingsQuery = queryHook(feelingsQuery);

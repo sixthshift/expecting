@@ -1,6 +1,6 @@
-import { addDays, type ISODate } from "../../dates";
+import { addDays, formatTime, type ISODate } from "../../dates";
 import { dayInSentence, placeInSentence } from "../../labels";
-import { formatTime, type JournalEntry } from "../journal";
+import type { JournalEntry } from "../journal";
 import { LATELY_DAYS, list, type Summary } from "./summary";
 
 /** The parts of the day a time falls in. */

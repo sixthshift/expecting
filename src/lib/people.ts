@@ -1,6 +1,8 @@
 // The people: the two of you, each an account (logged in as, with your own
 // password), each with a name and which of the two you are.
 
+import { capitalise } from "./labels";
+
 export type Role = "carrying" | "partner";
 
 /** Whose job a task is: one of the two, or both of you. */
@@ -77,8 +79,4 @@ export function nameBy(by: string | null, me: Person | null, people: readonly Pe
   if (by === null) return null;
   if (me?.id === by) return you;
   return people.find((p) => p.id === by)?.name ?? null;
-}
-
-function capitalise(text: string): string {
-  return text.charAt(0).toUpperCase() + text.slice(1);
 }

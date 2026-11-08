@@ -11,13 +11,12 @@ import { usePeopleQuery } from "../../../../api/rpc/people";
 import { useSettingsQuery } from "../../../../api/rpc/settings";
 import { type ISODate, todayISO } from "../../../../lib/dates";
 import { firstOf } from "../../../../lib/journal/firsts";
-import { placeOf } from "../../../../lib/journal/journal";
 import type { RecapSpan } from "../../../../lib/journal/journalNow";
 import { type Recap, type RecapPart, recapOf, recapParts } from "../../../../lib/journal/recap";
 import type { StoryItem } from "../../../../lib/journal/story/items";
 import { shortDate } from "../../../../lib/labels";
 import { nameBy } from "../../../../lib/people";
-import { weekLabel } from "../../../../lib/timeline";
+import { placeOf, weekLabel } from "../../../../lib/timeline";
 import { Picture } from "../../features/photos/components/Picture";
 import { Flipbook } from "../../features/photos/components/Scrubber";
 import { describePhoto } from "../../model/labels";
@@ -29,7 +28,7 @@ export function useRecap(span: RecapSpan, items: readonly StoryItem[]): Recap | 
   return recapOf({ span, dueDate: settings.dueDate, items });
 }
 
-const PART_TITLE: Record<RecapPart, string> = {
+export const RECAP_PART_TITLE: Record<RecapPart, string> = {
   firsts: "Your firsts",
   bump: "The bump",
   scans: "The scans",
@@ -136,8 +135,8 @@ export function RecapViewer({ recap, onClose }: { recap: Recap; onClose: () => v
       </Modal.Header>
       <Modal.Body className="flex flex-col gap-4 px-6 pb-6">
         {part ? (
-          <section aria-label={PART_TITLE[part]} className="flex min-h-64 flex-col gap-3">
-            <h3 className="text-sm font-semibold tracking-wide text-fg-subtle uppercase">{PART_TITLE[part]}</h3>
+          <section aria-label={RECAP_PART_TITLE[part]} className="flex min-h-64 flex-col gap-3">
+            <h3 className="text-sm font-semibold tracking-wide text-fg-subtle uppercase">{RECAP_PART_TITLE[part]}</h3>
             <RecapPartView recap={recap} part={part} />
           </section>
         ) : (

@@ -1,7 +1,6 @@
-import { Button } from "@sixthshift/design-system/button";
-import { useState } from "react";
 import { useAppetiteQuery } from "../../../../../../api/rpc/appetite";
-import { latestFirst } from "../../../../../../lib/journal/appetite";
+import { newestFirst } from "../../../../../../lib/journal/journal";
+import { useShowAll } from "../../../../hooks/useShowAll";
 import { AppetiteItem } from "../AppetiteItem";
 import { Cravings } from "./cravings/Cravings";
 import { SicknessWeeks } from "./sickness/SicknessWeeks";
@@ -10,16 +9,14 @@ import { SicknessWeeks } from "./sickness/SicknessWeeks";
 const LISTED = 8;
 
 /**
- * The Journal's Sickness & cravings record at full size: sickness since when as weeks of
+ * The sickness and cravings collection in full: sickness since when as weeks of
  * days, what's been craved and gone off, then each entry. New ones come in
- * through the "+"; the record is there only once one is kept, and never while
+ * through the "+"; the collection is there only once one is kept, and never while
  * something has happened (the Journal folds them away then).
  */
 export function AppetiteCollection() {
   const { data: entries } = useAppetiteQuery();
-  const [all, setAll] = useState(false);
-  const listed = latestFirst(entries);
-  const shown = all ? listed : listed.slice(0, LISTED);
+  const { shown, more } = useShowAll(newestFirst(entries), LISTED);
 
   return (
     <section aria-labelledby="appetite" className="flex flex-col gap-4">
@@ -32,11 +29,7 @@ export function AppetiteCollection() {
       {shown.map((entry) => (
         <AppetiteItem key={entry.id} entry={entry} />
       ))}
-      {listed.length > shown.length ? (
-        <Button variant="ghost" size="sm" className="self-start" onClick={() => setAll(true)}>
-          Show all {listed.length}
-        </Button>
-      ) : null}
+      {more}
     </section>
   );
 }

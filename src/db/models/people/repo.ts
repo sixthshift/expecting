@@ -1,19 +1,12 @@
-import type { Database } from "bun:sqlite";
 import { asc, eq } from "drizzle-orm";
 import { otherRole, type Person, type Role } from "../../../lib/people";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { person } from "./schema";
 
 /** A person's password: its hash (null until chosen) and whether they chose it (false while it is the shared one carried over). */
 export type Password = { hash: string | null; chosen: boolean };
 
-export class PeopleRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class PeopleRepo extends Repo {
   /** Everyone, in the order they joined. */
   list(): Person[] {
     return this.db.select({ id: person.id, name: person.name, role: person.role }).from(person).orderBy(asc(person.createdAt)).all();

@@ -31,16 +31,3 @@ test("a first is marked on its day, moved, and each of you keeps your own words 
   expect(repo.list()).toEqual([]);
   expect(db().query("SELECT * FROM first_words").all()).toEqual([]);
 });
-
-test("a suggestion put aside stays aside, takes no words, and is marked after all if you do", () => {
-  const repo = new FirstsRepo(db());
-  repo.setAside("first-scan", null);
-  repo.setAside("first-scan", null);
-  expect(repo.list()).toMatchObject([{ key: "first-scan", day: null }]);
-  expect(() => repo.setWords("first-scan", "x", "Lovely")).toThrow();
-  repo.mark("first-scan", "2026-05-01", null);
-  expect(repo.list()).toMatchObject([{ key: "first-scan", day: "2026-05-01" }]);
-  // Marked, it isn't put aside again.
-  repo.setAside("first-scan", null);
-  expect(repo.list()).toMatchObject([{ key: "first-scan", day: "2026-05-01" }]);
-});

@@ -1,18 +1,11 @@
-import type { Database } from "bun:sqlite";
 import { and, asc, eq, isNull, sql } from "drizzle-orm";
 import type { ISODate } from "../../../lib/dates";
 import type { NamesView } from "../../../lib/drawer/names";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { person } from "../people/schema";
 import { babyName, nameVote } from "./schema";
 
-export class NamesRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class NamesRepo extends Repo {
   /**
    * The game as `personId` sees it: their own votes, the shortlist and their latest superlike. Every name
    * either of you added is in it; a deck name only once they've voted on it, or someone else liked it. A

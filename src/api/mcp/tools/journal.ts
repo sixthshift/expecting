@@ -14,12 +14,11 @@ import { ListsRepo } from "../../../db/models/lists/repo";
 import { PapersRepo } from "../../../db/models/papers/repo";
 import { PhotosRepo } from "../../../db/models/photos/repo";
 import { QuestionsRepo } from "../../../db/models/questions/repo";
-import { addDays, type ISODate, isISODate, todayISO } from "../../../lib/dates";
+import { addDays, type ISODate, isISODate, TIME, todayISO } from "../../../lib/dates";
 import { isImage, MADE_TYPE } from "../../../lib/files";
 import { HOWS } from "../../../lib/journal/appetite";
 import { isOwn, STEPS, WORDS } from "../../../lib/journal/feelings";
 import { FIRST_KEYS, firstOf } from "../../../lib/journal/firsts";
-import { TIME } from "../../../lib/journal/journal";
 import { FileStore } from "../../../server/files/store";
 import { answer, refuse, type Tools } from "../answer";
 import { type Context, type Known, known, startOf } from "../context";
@@ -230,11 +229,7 @@ export function journalTools({ ctx, read, keep }: Tools) {
     },
     ({ text, kind, fromBoth, day: d, time: t }) => {
       const { db, personId, now } = ctx();
-      const entry = new JournalRepo(db).add(
-        { id: crypto.randomUUID(), day: d ?? todayISO(now), time: t ?? null, body: text, kind, fromBoth: kind === "letter" && fromBoth },
-        personId,
-        now
-      );
+      const entry = new JournalRepo(db).add({ id: crypto.randomUUID(), day: d ?? todayISO(now), time: t ?? null, body: text, kind, fromBoth }, personId, now);
       return answer({ kept: kind, id: entry.id });
     }
   );

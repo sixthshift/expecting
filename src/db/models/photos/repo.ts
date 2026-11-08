@@ -1,16 +1,9 @@
-import type { Database } from "bun:sqlite";
 import { eq } from "drizzle-orm";
 import { type Photo, type PhotoChange, type PhotoInput, tidyCaption } from "../../../lib/journal/photos";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { photo } from "./schema";
 
-export class PhotosRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class PhotosRepo extends Repo {
   /** Every photo; the page orders them. Shared: both of you see all of them. */
   list(): Photo[] {
     return this.db.select().from(photo).all();

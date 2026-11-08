@@ -3,9 +3,13 @@
 // from here, so they agree. Headings and labels are capitalised; the
 // `…InSentence` forms are for the middle of a sentence ("last kept today").
 
-import { daysBetween, formatDate, type ISODate, todayISO } from "./dates";
-import { formatTime, type Place, placeOf } from "./journal/journal";
-import { type Week, weekDates, weekLabel } from "./timeline";
+import { dayOf, daysBetween, formatDate, formatTime, type ISODate, todayISO } from "./dates";
+import { type Place, placeOf, type Week, weekDates, weekLabel } from "./timeline";
+
+/** "Week 28" from "week 28": the first letter a capital. */
+export function capitalise(text: string): string {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
 
 /** "Today", or "Thu 29": a day in the story's margin, its month being the week's. */
 export function marginDay(day: ISODate, today: ISODate): string {
@@ -34,7 +38,7 @@ export function fullDate(day: ISODate): string {
 
 /** "8 Sep", the day a moment (an ISO time) fell on, in this phone's time zone. */
 export function dayOfMoment(at: string): string {
-  return dayMonth(todayISO(new Date(at)));
+  return dayMonth(dayOf(at));
 }
 
 /**
@@ -43,7 +47,7 @@ export function dayOfMoment(at: string): string {
  */
 export function didOn(who: string | null | undefined, did: string, at: string, { comma = true }: { comma?: boolean } = {}): string {
   const day = dayOfMoment(at);
-  return who ? `${who} ${did}, ${day}` : `${did.charAt(0).toUpperCase()}${did.slice(1)}${comma ? "," : ""} ${day}`;
+  return who ? `${who} ${did}, ${day}` : `${capitalise(did)}${comma ? "," : ""} ${day}`;
 }
 
 /** "84 days to go", "due today", or "3 days past the due date" (with `short`, "3 days past"). */

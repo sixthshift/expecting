@@ -9,24 +9,24 @@
 
 import { asks, type DatedItem, type Item, type Task } from "../../content/schema";
 import type { WeekNote } from "../../content/weeks";
-import { type ISODate, todayISO } from "../dates";
+import { dayOf, type ISODate } from "../dates";
 import { type AppetiteEntry, weekAppetite } from "../journal/appetite";
 import { type Feeling, type Step, weekStep } from "../journal/feelings";
-import { type JournalEntry, placeOf } from "../journal/journal";
+import type { JournalEntry } from "../journal/journal";
 import { type Paper, type WeekPapers, weekPapers } from "../journal/papers";
 import { type Photo, type WeekPhotos, weekPhotos } from "../journal/photos";
 import type { Appointment } from "../planner/appointments";
 import type { Question } from "../planner/questions";
-import { allWeeks, positionOn, type Week, weekDates } from "../timeline";
+import { allWeeks, placeOf, positionOn, type Week, weekDates } from "../timeline";
 
 /** The weeks people mark. The trimesters are the timeline's chapters, not landmarks. */
 export const LANDMARKS: Readonly<Record<Week, string>> = { 20: "Halfway", 37: "Full term", 40: "Due date" };
 
 /** Where a window stands today: behind, open now, ahead, or done (every task ticked). */
-export type WindowState = "past" | "open" | "ahead" | "done";
+type WindowState = "past" | "open" | "ahead" | "done";
 
 /** An item that asks something of you, across its weeks. */
-export type TimelineWindow = { item: DatedItem; from: Week; to: Week; state: WindowState };
+type TimelineWindow = { item: DatedItem; from: Week; to: Week; state: WindowState };
 
 export function timelineWindows(items: readonly Item[], ticks: Record<string, string>, now: Week | null): TimelineWindow[] {
   const asking = items.filter(asks).sort((a, b) => a.from - b.from || a.to - b.to);
@@ -148,7 +148,7 @@ export function askedWeeks(questions: readonly Question[], dueDate: ISODate | nu
   const at = new Map<string, Week>();
   if (!dueDate) return at;
   for (const q of questions) {
-    if (q.askedAt) at.set(q.id, positionOn(todayISO(new Date(q.askedAt)), dueDate).week);
+    if (q.askedAt) at.set(q.id, positionOn(dayOf(q.askedAt), dueDate).week);
   }
   return at;
 }

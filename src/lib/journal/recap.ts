@@ -4,9 +4,10 @@
 // ends and at the end.
 
 import type { ISODate } from "../dates";
+import { placeOf } from "../timeline";
 import { type Tally, tally } from "./appetite";
 import type { FirstMark } from "./firsts";
-import { type JournalEntry, newestFirst, placeOf } from "./journal";
+import { type JournalEntry, newestFirst } from "./journal";
 import type { RecapSpan } from "./journalNow";
 import { type BumpWeek, bumpWeeks, type Photo } from "./photos";
 import { keptIn, type StoryItem } from "./story/items";

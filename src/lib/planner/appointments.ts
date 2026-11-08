@@ -5,9 +5,8 @@
 // like a Journal entry's, so a moved due date moves its week and never its day.
 
 import { daysBetween, type ISODate } from "../dates";
-import { placeOf } from "../journal/journal";
 import { when } from "../labels";
-import type { Week } from "../timeline";
+import { placeOf, type Week } from "../timeline";
 
 export type Appointment = {
   id: string;

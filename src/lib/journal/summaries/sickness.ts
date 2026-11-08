@@ -1,16 +1,11 @@
 import { addDays, daysBetween, type ISODate } from "../../dates";
 import { dayInSentence, placeInSentence } from "../../labels";
+import { placeOf } from "../../timeline";
 import type { AppetiteEntry } from "../appetite";
-import { placeOf } from "../journal";
-import { LATELY_DAYS, list, type Summary } from "./summary";
+import { count, LATELY_DAYS, list, type Summary } from "./summary";
 
 /** A gap longer than this between sick days starts a new spell. */
 const SPELL_GAP_DAYS = 14;
-
-/** "1 day", "5 days". */
-function dayCount(n: number): string {
-  return n === 1 ? "1 day" : `${n} days`;
-}
 
 /** Where a run of days falls: "in week 9", "from week 6 to week 13", or by date without a due date. */
 function span(first: ISODate, last: ISODate, dueDate: ISODate | null): string {
@@ -43,7 +38,7 @@ export function sicknessSummary(appetite: readonly AppetiteEntry[], today: ISODa
     if (spell && daysBetween(spell.at(-1)!, day) <= SPELL_GAP_DAYS) spell.push(day);
     else spells.push([day]);
   }
-  const lines = spells.map((spell, i) => `${i === 0 ? "Kept" : "Again"} on ${dayCount(spell.length)}, ${span(spell[0]!, spell.at(-1)!, dueDate)}.`);
+  const lines = spells.map((spell, i) => `${i === 0 ? "Kept" : "Again"} on ${count(spell.length, "day", "days")}, ${span(spell[0]!, spell.at(-1)!, dueDate)}.`);
   if (dueDate) {
     const byWeek = new Map<number, number>();
     for (const day of days) {
@@ -52,12 +47,13 @@ export function sicknessSummary(appetite: readonly AppetiteEntry[], today: ISODa
     }
     const most = Math.max(0, ...byWeek.values());
     const weeks = [...byWeek].filter(([, n]) => n === most).map(([w]) => w);
-    if (byWeek.size > 1 && most > 1 && weeks.length <= 3) lines.push(`Most in ${weeksSaid(weeks)}: ${dayCount(most)}${weeks.length > 1 ? " each" : ""}.`);
+    if (byWeek.size > 1 && most > 1 && weeks.length <= 3)
+      lines.push(`Most in ${weeksSaid(weeks)}: ${count(most, "day", "days")}${weeks.length > 1 ? " each" : ""}.`);
   }
   const threw = new Set(sick.filter((e) => e.how === "vomited" || e.how === "fluids").map((e) => e.day)).size;
-  if (threw > 0) lines.push(`Threw up on ${dayCount(threw)}.`);
+  if (threw > 0) lines.push(`Threw up on ${count(threw, "day", "days")}.`);
   const fluids = new Set(sick.filter((e) => e.how === "fluids").map((e) => e.day)).size;
-  if (fluids > 0) lines.push(`Couldn't keep fluids down on ${dayCount(fluids)}.`);
+  if (fluids > 0) lines.push(`Couldn't keep fluids down on ${count(fluids, "day", "days")}.`);
   const last = days.at(-1)!;
   const lately = days.filter((d) => d >= addDays(today, 1 - LATELY_DAYS)).length;
   if (lately > 0) lines.push(`Last kept ${dayInSentence(last, today)}.`);

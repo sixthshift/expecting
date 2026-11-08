@@ -4,12 +4,11 @@
 // says who kept it and who changed it last. The pages are uploads
 // (./files.ts), sent first by the same save (src/lib/journal/papers.ts).
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { FilesRepo } from "../../db/models/files/repo";
 import { PapersRepo } from "../../db/models/papers/repo";
-import { PeopleRepo } from "../../db/models/people/repo";
 import { isISODate } from "../../lib/dates";
 import { FILE_TYPES } from "../../lib/files";
 import { MAX_PAGES, offlineFiles, PAPER_KINDS, type Paper, type PaperChange, type PaperInput, tidyTitle, tidyWords } from "../../lib/journal/papers";
@@ -19,12 +18,8 @@ import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
 import { dropUpload } from "../../server/files/store";
+import { queryHook } from "../queryHook";
 import { withUploads } from "./files";
-
-/** Someone still here, by id; else nobody (a phone that hasn't said, or a person since forgotten). */
-function known(id: string | null | undefined): string | null {
-  return id && new PeopleRepo(getDb()).get(id) ? id : null;
-}
 
 const change = {
   id: z.uuid(),
@@ -43,9 +38,9 @@ const change = {
 /** A page as the phone knows it: only its upload's id is believed. */
 const page = z.object({ fileId: z.uuid(), type: z.enum(FILE_TYPES), name: z.string().max(200), size: z.number().int().nonnegative() }).strict();
 
-export const listPapers = createServerFn({ method: "GET" }).handler(() => new PapersRepo(getDb()).list());
+const listPapers = createServerFn({ method: "GET" }).handler(() => new PapersRepo(getDb()).list());
 
-export const addPaper = createServerFn({ method: "POST" })
+const addPaper = createServerFn({ method: "POST" })
   .validator(
     z
       .object({ ...change, pages: z.array(page).min(1).max(MAX_PAGES) })
@@ -57,15 +52,15 @@ export const addPaper = createServerFn({ method: "POST" })
     // Its pages go first, in the same save: without them, the paper never arrived.
     const files = new FilesRepo(db);
     if (data.pages.some((p) => !files.get(p.fileId))) throw Response.json({ error: "A page didn't arrive" }, { status: 400 });
-    return new PapersRepo(db).add(data, known(personId()), madeAt());
+    return new PapersRepo(db).add(data, personId(), madeAt());
   });
 
-export const editPaper = createServerFn({ method: "POST" })
+const editPaper = createServerFn({ method: "POST" })
   .validator(z.object(change).strict())
-  .handler(({ data }) => new PapersRepo(getDb()).edit(data, known(personId()), madeAt()));
+  .handler(({ data }) => new PapersRepo(getDb()).edit(data, personId(), madeAt()));
 
 /** Gone from both phones, every page: nothing to put back, so the page asks first. */
-export const deletePaper = createServerFn({ method: "POST" })
+const deletePaper = createServerFn({ method: "POST" })
   .validator(z.object({ id: z.uuid() }).strict())
   .handler(async ({ data }) => {
     const db = getDb();
@@ -129,7 +124,4 @@ export const papersSaves = {
   }),
 };
 
-/** papersQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. It has no select of its own, so the data is TData. */
-export function usePapersQuery<TData = Papers>(options?: Omit<UseSuspenseQueryOptions<Papers, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...papersQuery, ...options } as UseSuspenseQueryOptions<Papers, Error, TData, string[]>);
-}
+export const usePapersQuery = queryHook(papersQuery);

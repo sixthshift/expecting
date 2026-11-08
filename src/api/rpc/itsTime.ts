@@ -2,22 +2,16 @@
 // things, and your own last things. Shared: either phone taps, and while a
 // start is under way the query refetches every few seconds so both agree.
 
-import { queryOptions, type UseSuspenseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { ItsTimeRepo } from "../../db/models/itsTime/repo";
-import { PeopleRepo } from "../../db/models/people/repo";
 import { type Contraction, ENDINGS, type Ending, type ItsTime, openStart, type Start, WATERS, type Waters, WORDS_MAX } from "../../lib/itsTime";
 import { type Made, save, stamped } from "../../lib/outbox";
 import { getDb } from "../../server/core/db";
 import { madeAt } from "../../server/core/madeAt";
 import { personId } from "../../server/core/person";
-
-/** The person this phone says it is, if still here; else nobody. */
-function asker(): string | null {
-  const id = personId();
-  return id && new PeopleRepo(getDb()).get(id) ? id : null;
-}
+import { queryHook } from "../queryHook";
 
 const repo = () => new ItsTimeRepo(getDb());
 const id = z.string().uuid();
@@ -30,53 +24,53 @@ const key = z
   .max(100)
   .regex(/^[a-z0-9-]+$/);
 
-export const getItsTime = createServerFn({ method: "GET" }).handler(() => repo().get());
+const getItsTime = createServerFn({ method: "GET" }).handler(() => repo().get());
 
-export const beginStart = createServerFn({ method: "POST" })
+const beginStart = createServerFn({ method: "POST" })
   .validator(z.object({ id, waters: z.boolean() }).strict())
-  .handler(({ data }) => repo().begin(data.id, data.waters, asker(), madeAt()));
+  .handler(({ data }) => repo().begin(data.id, data.waters, personId(), madeAt()));
 
-export const setWaters = createServerFn({ method: "POST" })
+const setWaters = createServerFn({ method: "POST" })
   .validator(z.object({ startId: id, waters: waters.nullable() }).strict())
   .handler(({ data }) => repo().setWaters(data.startId, data.waters, madeAt()));
 
-export const leaveStart = createServerFn({ method: "POST" })
+const leaveStart = createServerFn({ method: "POST" })
   .validator(z.object({ startId: id }).strict())
   .handler(({ data }) => repo().leave(data.startId, madeAt()));
 
-export const endStart = createServerFn({ method: "POST" })
+const endStart = createServerFn({ method: "POST" })
   .validator(z.object({ startId: id, ended: z.enum(ENDINGS) }).strict())
   .handler(({ data }) => repo().end(data.startId, data.ended, madeAt()));
 
-export const deleteStart = createServerFn({ method: "POST" })
+const deleteStart = createServerFn({ method: "POST" })
   .validator(z.object({ id }).strict())
   .handler(({ data }) => repo().delete(data.id));
 
-export const beginContraction = createServerFn({ method: "POST" })
+const beginContraction = createServerFn({ method: "POST" })
   .validator(z.object({ id, startId: id }).strict())
-  .handler(({ data }) => repo().beginContraction(data.id, data.startId, asker(), madeAt()));
+  .handler(({ data }) => repo().beginContraction(data.id, data.startId, personId(), madeAt()));
 
-export const endContraction = createServerFn({ method: "POST" })
+const endContraction = createServerFn({ method: "POST" })
   .validator(z.object({ id, startId: id, startedAt: z.iso.datetime() }).strict())
   .handler(({ data }) => repo().endContraction(data.id, data.startId, data.startedAt, madeAt()));
 
-export const noteContraction = createServerFn({ method: "POST" })
+const noteContraction = createServerFn({ method: "POST" })
   .validator(z.object({ id, note: words }).strict())
   .handler(({ data }) => repo().noteContraction(data.id, data.note));
 
-export const deleteContraction = createServerFn({ method: "POST" })
+const deleteContraction = createServerFn({ method: "POST" })
   .validator(z.object({ id }).strict())
   .handler(({ data }) => repo().deleteContraction(data.id));
 
-export const tickStart = createServerFn({ method: "POST" })
+const tickStart = createServerFn({ method: "POST" })
   .validator(z.object({ startId: id, key, ticked: z.boolean() }).strict())
-  .handler(({ data }) => repo().tick(data.startId, data.key, data.ticked, asker(), madeAt()));
+  .handler(({ data }) => repo().tick(data.startId, data.key, data.ticked, personId(), madeAt()));
 
-export const addStartLine = createServerFn({ method: "POST" })
+const addStartLine = createServerFn({ method: "POST" })
   .validator(z.object({ id, title: words.refine((t) => t.trim().length > 0, "Say what it is") }).strict())
-  .handler(({ data }) => repo().addLine(data.id, data.title, asker(), madeAt()));
+  .handler(({ data }) => repo().addLine(data.id, data.title, personId(), madeAt()));
 
-export const deleteStartLine = createServerFn({ method: "POST" })
+const deleteStartLine = createServerFn({ method: "POST" })
   .validator(z.object({ id }).strict())
   .handler(({ data }) => repo().deleteLine(data.id));
 
@@ -242,7 +236,4 @@ export const itsTimeSaves = {
   }),
 };
 
-/** itsTimeQuery as useSuspenseQuery returns it; `options` (`select`, …) override its defaults. */
-export function useItsTimeQuery<TData = ItsTime>(options?: Omit<UseSuspenseQueryOptions<ItsTime, Error, TData, string[]>, "queryKey" | "queryFn">) {
-  return useSuspenseQuery({ ...itsTimeQuery, ...options } as UseSuspenseQueryOptions<ItsTime, Error, TData, string[]>);
-}
+export const useItsTimeQuery = queryHook(itsTimeQuery);

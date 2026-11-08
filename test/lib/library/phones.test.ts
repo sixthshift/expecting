@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { splitPhones } from "../../src/lib/phones";
+import { splitPhones } from "../../../src/lib/library/phones";
 
 test("the numbers services use, as they're written", () => {
   expect(splitPhones("Call triple zero (000), PANDA on 1300 726 306 or Lifeline on 13 11 14.")).toEqual([

@@ -16,9 +16,11 @@
 import { Ast, type Node } from "@markdoc/markdoc";
 import { z } from "zod";
 import { isISODate } from "../lib/dates";
+import { capitalise } from "../lib/labels";
 import { parseWeekKey, type Week } from "../lib/timeline";
-import { ContentError, readFrontmatter } from "./file";
+import { ContentError, check, readFrontmatter } from "./file";
 import { parseBody } from "./markdoc";
+import { textOf } from "./sections";
 
 export const SECTIONS = { baby: "The baby", body: "Your body", partner: "For the partner" } as const;
 
@@ -73,15 +75,6 @@ export type WeekNote = {
   checked: string | null;
 };
 
-/** The text of a heading node. */
-function headingText(node: Node): string {
-  return [...node.walk()]
-    .filter((n) => n.type === "text")
-    .map((n) => String(n.attributes.content))
-    .join("")
-    .trim();
-}
-
 /** The body cut at its `##` headings, which must be the three parts, in order, each with something under it. */
 function splitSections(file: string, doc: Node): Record<Section, Node> {
   const names = Object.keys(SECTIONS) as Section[];
@@ -89,10 +82,11 @@ function splitSections(file: string, doc: Node): Record<Section, Node> {
   for (const child of doc.children) {
     if (child.type === "heading") {
       const want = SECTIONS[names[parts.length]!];
-      if (child.attributes.level !== 2 || headingText(child) !== want) {
+      const found = textOf(child).trim();
+      if (child.attributes.level !== 2 || found !== want) {
         throw new ContentError(
           file,
-          `the parts are ${names.map((n) => `"## ${SECTIONS[n]}"`).join(", ")}, in that order; found "${"#".repeat(child.attributes.level)} ${headingText(child)}"`
+          `the parts are ${names.map((n) => `"## ${SECTIONS[n]}"`).join(", ")}, in that order; found "${"#".repeat(child.attributes.level)} ${found}"`
         );
       }
       parts.push([]);
@@ -121,15 +115,10 @@ export function parseWeek(file: string, source: string): WeekNote {
   }
 
   const { raw, body } = readFrontmatter(file, source);
-  const parsed = frontmatterSchema.safeParse(raw);
-  if (!parsed.success) {
-    const problems = parsed.error.issues.map((i) => `${i.path.join(".") || "(root)"}: ${i.message}`).join("; ");
-    throw new ContentError(file, problems);
-  }
+  const fm = check(file, frontmatterSchema, raw);
   const { ast, problems } = parseBody(body);
   if (problems.length > 0) throw new ContentError(file, `in the body, ${problems.join("; ")}`);
 
-  const fm = parsed.data;
   return {
     week,
     title: fm.title,
@@ -174,7 +163,7 @@ export function sizeLine(size: Size): string {
   const f = figures(size);
   const said = f ? (f.weight ? `${f.length}, ${f.weight}` : f.length) : null;
   if (!size.like) return `About ${said}`;
-  return said ? `${size.like.charAt(0).toUpperCase()}${size.like.slice(1)} · ${said}` : `The size of ${size.like}`;
+  return said ? `${capitalise(size.like)} · ${said}` : `The size of ${size.like}`;
 }
 
 /** "about 37.6 cm from head to heel and about 1.2 kg: about the size of a papaya". */
@@ -184,18 +173,6 @@ export function sizeLabel(size: Size): string {
   const measured = f ? (f.weight ? `about ${f.length} ${span} and about ${f.weight}` : `about ${f.length} ${span}`) : null;
   if (!size.like) return measured ?? "";
   return measured ? `${measured}: about the size of ${size.like}` : `about the size of ${size.like}`;
-}
-
-/** The first sentence of the baby's part, as plain text: what this week's page opens with. */
-export function babyLead(note: WeekNote): string {
-  const paragraph = [...note.sections.baby.walk()].find((n) => n.type === "paragraph");
-  const text = paragraph
-    ? [...paragraph.walk()]
-        .filter((n) => n.type === "text")
-        .map((n) => String(n.attributes.content))
-        .join("")
-    : "";
-  return text.match(/^.+?[.!?](?=\s|$)/)?.[0] ?? text;
 }
 
 /** The note in force in `week`: its own, or else the latest before it, until the next is written. */

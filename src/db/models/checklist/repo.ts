@@ -1,17 +1,10 @@
-import type { Database } from "bun:sqlite";
 import { asc, eq } from "drizzle-orm";
 import type { OwnTaskRow } from "../../../lib/planner/checklist";
 import type { Week } from "../../../lib/timeline";
-import { orm } from "../../connection/client";
+import { Repo } from "../../connection/client";
 import { ownTask, taskTick } from "./schema";
 
-export class ChecklistRepo {
-  private readonly db;
-
-  constructor(db: Database) {
-    this.db = orm(db);
-  }
-
+export class ChecklistRepo extends Repo {
   /** When each ticked task was ticked, by task id. */
   ticks(): Record<string, string> {
     const rows = this.db.select().from(taskTick).all();

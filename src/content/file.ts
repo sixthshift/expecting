@@ -5,6 +5,7 @@
 // screen shows, loaded when it opens.
 
 import { parse as parseYaml } from "yaml";
+import type { z } from "zod";
 
 const FRONTMATTER = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/;
 
@@ -24,6 +25,14 @@ export function readFrontmatter(file: string, source: string): { raw: unknown; b
   } catch (error) {
     throw new ContentError(file, `frontmatter is not YAML: ${(error as Error).message}`);
   }
+}
+
+/** Frontmatter checked against its schema. Throws a ContentError naming the file and every problem. */
+export function check<S extends z.ZodType>(file: string, schema: S, raw: unknown): z.output<S> {
+  const parsed = schema.safeParse(raw);
+  if (parsed.success) return parsed.data;
+  const problems = parsed.error.issues.map((i) => `${i.path.join(".") || "(root)"}: ${i.message}`).join("; ");
+  throw new ContentError(file, problems);
 }
 
 /** The frontmatter only an item's own page shows: loaded with its body when it opens. */

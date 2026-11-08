@@ -44,22 +44,25 @@ routes/         journal (/journal, a path only), story (its index, ?view= ?at=),
                 and collection ($name), book; index.ts, journalRoutes
 contexts/       JournalPageContext: the story's lines
 hooks/          useStoryItems (the story, over the queries), useStoryView, useStorySearch,
-                useScrollToWeek, useOpenWeek, useBook, useOnThisPhone,
-                useCollectionCards (the collections' cards, each with its summary)
-model/labels.ts the Journal's words: a photo's title, who kept it, a week's title
+                useScrollToWeek, useOpenWeek, useBook (and the cover's words, useCover), useOnThisPhone,
+                useCollectionCards (the collections' cards, each with its summary), useShowAll
+model/labels.ts the Journal's words: a photo's title, who kept it and who changed it, a week's title
 components/
   JournalTabs   Story, Collections and Book, as tabs in the bar at the top of every page on a phone
                 (PillarLayout's `tabs`, BarTabs)
-  story/        the story: JournalStory, its controls and search, JournalDays;
-                views/weeks/ (WeeksView, WeekGrid, Tile) and views/pregnancy/ (PregnancyView,
-                PregnancyLine), the story zoomed out
+  story/        the story: JournalStory, StoryViews (its controls and search, and the view
+                open, for both worlds), JournalDays; views/weeks/ (WeeksView, Tile) and
+                views/pregnancy/ (PregnancyView), the story zoomed out
   thisWeek/     what's to keep now: KeepNow (the firsts around now and the places ready, drawn
                 here and on Home), firsts/ (AroundNow, AlreadyHappened, AroundNowFirst),
-                places/ (Places, PlaceReady), and Calls (here and on Home)
+                places/ (Places), and Calls (here and on Home)
   lines/        a file per kind of line, Day (with `margin`, the diary's on a desktop: its marks
                 on the right), StoryList; parts.tsx is what lines are made of
   collections/  the overview: Collections, Group, CollectionCard
   book/         the cover and contents, the recaps, a chapter (ChapterPage, WeeksWritten)
+  (loose)       what the features' forms and cards share: KeptCard (one kept, to change or
+                delete), UntilDone (a call kept on screen), ChangeOrDelete (a photo's or paper's,
+                asked first), WhenFields and DayField, Pick (the camera or the picker)
 quiet/          the quiet Journal, while something has happened (below)
 desktop/        JournalRail: the story, the collections and the book, down the left of each page
                 on a desktop, in both worlds (JournalTabs is a phone's)
@@ -68,8 +71,9 @@ features/       a feature per kind kept: appetite, feelings, firsts, movements, 
                 papers, photos. Each has its forms and rows loose in components/ (the "+"
                 and other pillars use these) and its collection in full, components/collection/
                 (sickness/ and cravings/ for appetite's); a paper opened is PaperViewer, its
-                parts in viewer/, and its change model/change.ts; photos/quiet/ is the
-                photos' own quiet part (QuietPhotosCollection)
+                parts in viewer/, and its change model/change.ts (a check-in's too, with
+                feelings/hooks/useKeepStep); photos/quiet/ is the
+                photos' own quiet part (QuietAddPhoto)
 ```
 
 How days and weeks are said ("Thu 29", "Week 28", "27 Oct – 2 Nov") is
@@ -86,7 +90,7 @@ While something has happened.
 quiet/pages/        QuietJournalPage (the story as kept, and what's folded), QuietBookPage (only a line)
 quiet/contexts/     QuietJournalPageContext: what has happened, the lines that stay, the ones folded
 quiet/components/   QuietStory (the lines that stay), KeptBefore (what's folded, behind one line)
-features/photos/quiet/components/  QuietPhotosCollection (the album's one way to add, while quiet)
+features/photos/quiet/components/  QuietAddPhoto (the one way to add a photo, while quiet: the album's and KeptBefore's)
 ```
 
 - **The route chooses.** `routes/story.ts` and `routes/book.ts` name
