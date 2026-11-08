@@ -7,7 +7,6 @@
 import { Button } from "@sixthshift/design-system/button";
 import { FileDropzone } from "@sixthshift/design-system/file-dropzone";
 import { Input } from "@sixthshift/design-system/input";
-import { Modal } from "@sixthshift/design-system/modal";
 import { Spinner } from "@sixthshift/design-system/spinner";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { Camera, Images } from "lucide-react";
@@ -17,6 +16,7 @@ import { useSettingsQuery } from "../../../../../api/rpc/settings";
 import { useLayout } from "../../../../../app/hooks/useLayout";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { FileProblemError, keepOnPhone, type Prepared, prepareFile, previewUrl } from "../../../../../app/model/uploads";
+import { TitledModal } from "../../../../../components/TitledModal";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
 import { FILE_PROBLEM, type FileProblem, isImage, MAX_ORIGINAL } from "../../../../../lib/files";
 import { PHOTO_KIND_LABEL, PHOTO_KINDS, type PhotoKind, takenOn } from "../../../../../lib/journal/photos";
@@ -250,13 +250,8 @@ export function AddPhoto({
 /** `AddPhoto` on its own, over the page, under `title`; it closes once the photo is kept. */
 export function AddPhotoModal({ title, kind, kinds, onClose }: { title: string; kind?: PhotoKind; kinds?: readonly PhotoKind[]; onClose: () => void }) {
   return (
-    <Modal size="sm" align="top" closable onOpenChange={(open) => (open ? null : onClose())} aria-label={title}>
-      <Modal.Header>
-        <h2 className="font-display text-lg font-semibold text-fg-strong">{title}</h2>
-      </Modal.Header>
-      <Modal.Body className="px-6 pb-6">
-        <AddPhoto kind={kind} kinds={kinds} onAdded={onClose} />
-      </Modal.Body>
-    </Modal>
+    <TitledModal title={title} align="top" onClose={onClose}>
+      <AddPhoto kind={kind} kinds={kinds} onAdded={onClose} />
+    </TitledModal>
   );
 }

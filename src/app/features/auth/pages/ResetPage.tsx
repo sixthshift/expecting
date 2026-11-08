@@ -1,7 +1,7 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { Alone } from "../../../../components/Alone";
+import { ByCode } from "../components/ByCode";
 import { CodeEntry } from "../components/CodeEntry";
-import { Resetting } from "../components/reset/Resetting";
 
 const route = getRouteApi("/reset");
 
@@ -10,7 +10,7 @@ export function ResetPage() {
   const { code } = route.useSearch();
   return (
     <Alone title="A new password" subtitle={code ? undefined : "The code from the link you were sent."}>
-      {code ? <Resetting code={code} /> : <CodeEntry to="/reset" />}
+      {code ? <ByCode kind="reset" code={code} /> : <CodeEntry to="/reset" />}
     </Alone>
   );
 }

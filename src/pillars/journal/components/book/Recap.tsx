@@ -3,12 +3,12 @@
 // time, or (the whole pregnancy) as a book to print. See src/lib/journal/recap.ts.
 
 import { Button } from "@sixthshift/design-system/button";
-import { Modal } from "@sixthshift/design-system/modal";
 import { Link } from "@tanstack/react-router";
 import { Check, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { useState } from "react";
 import { usePeopleQuery } from "../../../../api/rpc/people";
 import { useSettingsQuery } from "../../../../api/rpc/settings";
+import { TitledModal } from "../../../../components/TitledModal";
 import { type ISODate, todayISO } from "../../../../lib/dates";
 import { firstOf } from "../../../../lib/journal/firsts";
 import type { RecapSpan } from "../../../../lib/journal/journalNow";
@@ -129,43 +129,38 @@ export function RecapViewer({ recap, onClose }: { recap: Recap; onClose: () => v
   const [at, setAt] = useState(0);
   const part = parts[at];
   return (
-    <Modal size="md" align="top" closable onOpenChange={(open) => (open ? null : onClose())} aria-label={`${recap.span.title}, kept`}>
-      <Modal.Header>
-        <h2 className="font-display text-lg font-semibold text-fg-strong">{recap.span.title}, kept</h2>
-      </Modal.Header>
-      <Modal.Body className="flex flex-col gap-4 px-6 pb-6">
-        {part ? (
-          <section aria-label={RECAP_PART_TITLE[part]} className="flex min-h-64 flex-col gap-3">
-            <h3 className="text-sm font-semibold tracking-wide text-fg-subtle uppercase">{RECAP_PART_TITLE[part]}</h3>
-            <RecapPartView recap={recap} part={part} />
-          </section>
-        ) : (
-          <p className="text-fg-subtle">Nothing kept in these weeks.</p>
-        )}
-        <div className="flex items-center justify-between gap-2">
-          <Button variant="ghost" size="sm" disabled={at === 0} onClick={() => setAt(at - 1)}>
-            <ChevronLeft aria-hidden size={16} /> Back
+    <TitledModal title={`${recap.span.title}, kept`} size="md" align="top" onClose={onClose} className="flex flex-col gap-4">
+      {part ? (
+        <section aria-label={RECAP_PART_TITLE[part]} className="flex min-h-64 flex-col gap-3">
+          <h3 className="text-sm font-semibold tracking-wide text-fg-subtle uppercase">{RECAP_PART_TITLE[part]}</h3>
+          <RecapPartView recap={recap} part={part} />
+        </section>
+      ) : (
+        <p className="text-fg-subtle">Nothing kept in these weeks.</p>
+      )}
+      <div className="flex items-center justify-between gap-2">
+        <Button variant="ghost" size="sm" disabled={at === 0} onClick={() => setAt(at - 1)}>
+          <ChevronLeft aria-hidden size={16} /> Back
+        </Button>
+        <span aria-hidden className="flex gap-1.5">
+          {parts.map((p, i) => (
+            <span key={p} className={i === at ? "size-2 rounded-full bg-fg-brand" : "size-2 rounded-full bg-bg-subtle"} />
+          ))}
+        </span>
+        {at < parts.length - 1 ? (
+          <Button variant="outline" size="sm" onClick={() => setAt(at + 1)}>
+            Next <ChevronRight aria-hidden size={16} />
           </Button>
-          <span aria-hidden className="flex gap-1.5">
-            {parts.map((p, i) => (
-              <span key={p} className={i === at ? "size-2 rounded-full bg-fg-brand" : "size-2 rounded-full bg-bg-subtle"} />
-            ))}
-          </span>
-          {at < parts.length - 1 ? (
-            <Button variant="outline" size="sm" onClick={() => setAt(at + 1)}>
-              Next <ChevronRight aria-hidden size={16} />
-            </Button>
-          ) : recap.span.key === "whole" ? (
-            <Link to="/journal/book" className="text-sm font-medium text-fg-brand underline">
-              The book
-            </Link>
-          ) : (
-            <Button variant="outline" size="sm" onClick={onClose}>
-              Done
-            </Button>
-          )}
-        </div>
-      </Modal.Body>
-    </Modal>
+        ) : recap.span.key === "whole" ? (
+          <Link to="/journal/book" className="text-sm font-medium text-fg-brand underline">
+            The book
+          </Link>
+        ) : (
+          <Button variant="outline" size="sm" onClick={onClose}>
+            Done
+          </Button>
+        )}
+      </div>
+    </TitledModal>
   );
 }

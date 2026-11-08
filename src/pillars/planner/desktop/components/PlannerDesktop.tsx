@@ -6,7 +6,6 @@ import { Ahead } from "../../components/toDo/Ahead";
 import { ToDo } from "../../components/toDo/ToDo";
 import { UpNext } from "../../components/upNext/UpNext";
 import { usePlannerPage } from "../../contexts/PlannerPageContext";
-import { ListsWayIn } from "../../features/lists/components/wayIn/ListsWayIn";
 import { PlannerRail } from "./PlannerRail";
 import { ToGet } from "./ToGet";
 
@@ -48,7 +47,7 @@ function NoDueDate() {
       <div className="grid grid-cols-[minmax(0,3fr)_minmax(0,2fr)] items-start gap-10">
         <ToDo />
         <div className="sticky top-[calc(var(--top-bar)+1.5rem)] flex flex-col gap-10">
-          <ListsWayIn />
+          <ToGet />
           <Appointments />
           <QuestionsSection />
         </div>

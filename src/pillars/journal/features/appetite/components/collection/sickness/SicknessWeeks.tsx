@@ -8,7 +8,7 @@ import { HOW_LABEL, type How, OFTEN, oftenQuestion, type SickWeek, sicknessSince
 import { dayAndWeek, shortDate, when } from "../../../../../../../lib/labels";
 import { weekLabel } from "../../../../../../../lib/timeline";
 import { ItemLink } from "../../../../../../library/components/itemLink/ItemLink";
-import { AskAtAppointment } from "../../AskAtAppointment";
+import { AskCard } from "../../../../../../planner/features/questions/components/AskCard";
 import { SEVERE } from "../../TooSick";
 
 /** A day's strength, worst fullest, in the brand's colour: never red. Can't keep fluids down is also ringed. */
@@ -65,7 +65,7 @@ export function SicknessWeeks() {
           <p className="text-fg-normal">
             Threw up on {often} of the last {OFTEN.days} days. Being sick often is worth a call to your midwife or doctor: there is treatment.
           </p>
-          <AskAtAppointment text={oftenQuestion(often, shortDate(since.first, today))} />
+          <AskCard text={oftenQuestion(often, shortDate(since.first, today))} />
           <ItemLink itemId={SEVERE} className="flex min-h-11 items-center text-fg-normal underline">
             When sickness is more than morning sickness
           </ItemLink>

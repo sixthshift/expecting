@@ -1,7 +1,7 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { Alone } from "../../../../components/Alone";
+import { ByCode } from "../components/ByCode";
 import { CodeEntry } from "../components/CodeEntry";
-import { Invited } from "../components/join/Invited";
 
 const route = getRouteApi("/join");
 
@@ -10,7 +10,7 @@ export function JoinPage() {
   const { code } = route.useSearch();
   return (
     <Alone title="Join Expecting" subtitle={code ? undefined : "The code from the invite you were sent."}>
-      {code ? <Invited code={code} /> : <CodeEntry to="/join" />}
+      {code ? <ByCode kind="join" code={code} /> : <CodeEntry to="/join" />}
     </Alone>
   );
 }

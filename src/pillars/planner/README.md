@@ -40,7 +40,7 @@ useTasks (items, answers, due date, own tasks)  + checklist's ticks
 usePlan → weeksChart (a bar for each task, grouped as To do is) → WeeksChart   features/weeks/
 
 useLines (items' lines that apply, and your own)  + lists (own lists, marks)
-  → useListSummaries     each list summed up (listsOf)   ListsPage, ListsWayIn, ToGet, PlannerRail
+  → useListSummaries     each list summed up (listsOf)   ListsPage, ToGet, PlannerRail
   → ListPageProvider     one list: its summary, just what's left, its lines' tasks
   → Sections → sectionsOf → SectionCard → ListLine → LineRow                  features/lists/
 ```

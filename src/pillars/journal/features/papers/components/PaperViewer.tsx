@@ -3,7 +3,6 @@
 // PDF as a tile that opens in the phone's own viewer. Kept handy or not in one
 // tap; changed, downloaded, or deleted (asked first). Never what it says.
 
-import { Modal } from "@sixthshift/design-system/modal";
 import { toast } from "@sixthshift/design-system/overlay";
 import { Switch } from "@sixthshift/design-system/switch";
 import { useEffect, useState } from "react";
@@ -12,6 +11,7 @@ import { usePeopleQuery } from "../../../../../api/rpc/people";
 import { useSettingsQuery } from "../../../../../api/rpc/settings";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { isOnPhone } from "../../../../../app/model/uploads";
+import { TitledModal } from "../../../../../components/TitledModal";
 import { builtInItems } from "../../../../../content";
 import { isPicturePage, type Paper } from "../../../../../lib/journal/papers";
 import { when } from "../../../../../lib/labels";
@@ -59,51 +59,46 @@ export function PaperViewer({ id, onClose }: { id: string; onClose: () => void }
   }
 
   return (
-    <Modal size="lg" closable onOpenChange={(open) => (open ? null : onClose())} aria-label={paper.title}>
-      <Modal.Header>
-        <h2 className="font-display text-lg font-semibold text-fg-strong">{paper.title}</h2>
-      </Modal.Header>
-      <Modal.Body className="flex flex-col gap-3 px-6 pb-6">
-        {changing ? (
-          <ChangePaper paper={paper} onDone={() => setChanging(false)} />
-        ) : (
-          <>
-            <p className="text-sm text-fg-normal">{paperLine(paper, settings.dueDate)}</p>
-            {item ? (
-              <p className="text-sm text-fg-normal">
-                About:{" "}
-                <ItemLink itemId={item.id} className="font-medium text-fg-brand underline">
-                  {item.title}
-                </ItemLink>
-              </p>
-            ) : null}
-            {paper.note ? <p className="whitespace-pre-wrap text-fg-normal">{paper.note}</p> : null}
-            <Switch label="Keep handy" checked={paper.handy} onCheckedChange={(on) => edit(changeOf(paper, { handy: on }))} />
-            <ol aria-label="Pages" className="flex flex-col gap-4">
-              {paper.pages.map((page, i) => (
-                <li key={page.fileId}>
-                  {isPicturePage(page) ? (
-                    <PicturePage page={page} alt={`${paper.title}, ${pageLabel(i).toLowerCase()}`} label={pageLabel(i)} />
-                  ) : (
-                    <PdfPage page={page} label={pageLabel(i)} />
-                  )}
-                </li>
-              ))}
-            </ol>
-            <p className="text-xs text-fg-subtle">
-              {[name(paper.by), `kept ${when(paper.createdAt.slice(0, 10), null).replace(/^Today/, "today")}`, changedBy(paper, people.me, people.people)]
-                .filter(Boolean)
-                .join(" · ")}
+    <TitledModal title={paper.title} size="lg" onClose={onClose} className="flex flex-col gap-3">
+      {changing ? (
+        <ChangePaper paper={paper} onDone={() => setChanging(false)} />
+      ) : (
+        <>
+          <p className="text-sm text-fg-normal">{paperLine(paper, settings.dueDate)}</p>
+          {item ? (
+            <p className="text-sm text-fg-normal">
+              About:{" "}
+              <ItemLink itemId={item.id} className="font-medium text-fg-brand underline">
+                {item.title}
+              </ItemLink>
             </p>
-            {paper.pages.some((p) => isOnPhone(p.fileId)) ? <p className="text-xs text-fg-subtle">Still on this phone: it goes up as soon as it can.</p> : null}
-            <ChangeOrDelete
-              asks="Delete this paper? Every page goes from both phones, and can't be put back."
-              onChange={() => setChanging(true)}
-              onDelete={() => deleteIt(paper)}
-            />
-          </>
-        )}
-      </Modal.Body>
-    </Modal>
+          ) : null}
+          {paper.note ? <p className="whitespace-pre-wrap text-fg-normal">{paper.note}</p> : null}
+          <Switch label="Keep handy" checked={paper.handy} onCheckedChange={(on) => edit(changeOf(paper, { handy: on }))} />
+          <ol aria-label="Pages" className="flex flex-col gap-4">
+            {paper.pages.map((page, i) => (
+              <li key={page.fileId}>
+                {isPicturePage(page) ? (
+                  <PicturePage page={page} alt={`${paper.title}, ${pageLabel(i).toLowerCase()}`} label={pageLabel(i)} />
+                ) : (
+                  <PdfPage page={page} label={pageLabel(i)} />
+                )}
+              </li>
+            ))}
+          </ol>
+          <p className="text-xs text-fg-subtle">
+            {[name(paper.by), `kept ${when(paper.createdAt.slice(0, 10), null).replace(/^Today/, "today")}`, changedBy(paper, people.me, people.people)]
+              .filter(Boolean)
+              .join(" · ")}
+          </p>
+          {paper.pages.some((p) => isOnPhone(p.fileId)) ? <p className="text-xs text-fg-subtle">Still on this phone: it goes up as soon as it can.</p> : null}
+          <ChangeOrDelete
+            asks="Delete this paper? Every page goes from both phones, and can't be put back."
+            onChange={() => setChanging(true)}
+            onDelete={() => deleteIt(paper)}
+          />
+        </>
+      )}
+    </TitledModal>
   );
 }

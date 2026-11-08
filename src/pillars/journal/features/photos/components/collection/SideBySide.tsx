@@ -1,6 +1,6 @@
-import { Modal } from "@sixthshift/design-system/modal";
 import { Select } from "@sixthshift/design-system/select";
 import { useState } from "react";
+import { TitledModal } from "../../../../../../components/TitledModal";
 import { type BumpWeek, sideBySide } from "../../../../../../lib/journal/photos";
 import { weekLabel } from "../../../../../../lib/timeline";
 import { Picture } from "../Picture";
@@ -21,30 +21,25 @@ export function SideBySide({ weeks, onClose }: { weeks: BumpWeek[]; onClose: () 
   ];
 
   return (
-    <Modal size="lg" closable onOpenChange={(open) => (open ? null : onClose())} aria-label="Side by side">
-      <Modal.Header>
-        <h2 className="font-display text-lg font-semibold text-fg-strong">Side by side</h2>
-      </Modal.Header>
-      <Modal.Body className="grid grid-cols-2 gap-3 px-6 pb-6">
-        {sides.map(({ label, week, set }) => {
-          const shown = weeks.find((b) => b.week === week);
-          return (
-            <figure key={label} className="flex flex-col gap-2">
-              {shown ? (
-                <Picture
-                  fileId={shown.photo.fileId}
-                  variant="display"
-                  alt={`Your bump at ${weekLabel(shown.week).toLowerCase()}`}
-                  className="aspect-[3/4] w-full rounded-md bg-bg-subtle object-contain"
-                />
-              ) : null}
-              <figcaption>
-                <Select aria-label={label} options={options} value={week === null ? undefined : String(week)} onValueChange={(v) => set(Number(v))} />
-              </figcaption>
-            </figure>
-          );
-        })}
-      </Modal.Body>
-    </Modal>
+    <TitledModal title="Side by side" size="lg" onClose={onClose} className="grid grid-cols-2 gap-3">
+      {sides.map(({ label, week, set }) => {
+        const shown = weeks.find((b) => b.week === week);
+        return (
+          <figure key={label} className="flex flex-col gap-2">
+            {shown ? (
+              <Picture
+                fileId={shown.photo.fileId}
+                variant="display"
+                alt={`Your bump at ${weekLabel(shown.week).toLowerCase()}`}
+                className="aspect-[3/4] w-full rounded-md bg-bg-subtle object-contain"
+              />
+            ) : null}
+            <figcaption>
+              <Select aria-label={label} options={options} value={week === null ? undefined : String(week)} onValueChange={(v) => set(Number(v))} />
+            </figcaption>
+          </figure>
+        );
+      })}
+    </TitledModal>
   );
 }

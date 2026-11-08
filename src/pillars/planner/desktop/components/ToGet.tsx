@@ -6,8 +6,8 @@ import { listIcon } from "../../features/lists/components/icons";
 import { useListSummaries } from "../../features/lists/hooks/useLines";
 
 /**
- * What's still to get, beside Up next on a desktop: the lists have no dates,
- * so they aren't on it. Each list with what's left in its own words, got and
+ * What's still to get, beside Up next (or To do, before a due date) on a
+ * desktop: the lists have no dates, so they aren't on it. Each list with what's left in its own words, got and
  * arranged as one bar, and the first few still to get; the way into it (for
  * a shop: Just what's left), and to a list of your own.
  */

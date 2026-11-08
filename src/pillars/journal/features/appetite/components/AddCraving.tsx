@@ -8,9 +8,9 @@ import { timeNow, todayISO } from "../../../../../lib/dates";
 import { cravingChips, notFood, notFoodQuestion } from "../../../../../lib/journal/appetite";
 import { newId } from "../../../../../lib/outbox";
 import { ItemLink } from "../../../../library/components/itemLink/ItemLink";
+import { AskCard } from "../../../../planner/features/questions/components/AskCard";
 import { UntilDone } from "../../../components/UntilDone";
 import { KIND_OPTIONS } from "./AppetiteFields";
-import { AskAtAppointment } from "./AskAtAppointment";
 
 const CRAVINGS = "food-cravings-and-aversions";
 
@@ -21,7 +21,7 @@ function NotFood({ what }: { what: string }) {
       <p className="text-fg-normal">
         Craving things that aren't food, like ice, chalk or clay, is worth mentioning to your midwife or doctor: it's been linked to low iron.
       </p>
-      <AskAtAppointment text={notFoodQuestion(what)} />
+      <AskCard text={notFoodQuestion(what)} />
       <ItemLink itemId={CRAVINGS} className="flex min-h-11 items-center text-fg-normal underline">
         About cravings
       </ItemLink>

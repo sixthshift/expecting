@@ -5,7 +5,6 @@
 
 import { Button } from "@sixthshift/design-system/button";
 import { Input } from "@sixthshift/design-system/input";
-import { Modal } from "@sixthshift/design-system/modal";
 import { toast } from "@sixthshift/design-system/overlay";
 import { ToggleGroup } from "@sixthshift/design-system/toggle-group";
 import { ChevronLeft, ChevronRight, Download } from "lucide-react";
@@ -15,6 +14,7 @@ import { photosSaves, usePhotosQuery } from "../../../../../api/rpc/photos";
 import { useSettingsQuery } from "../../../../../api/rpc/settings";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { isOnPhone } from "../../../../../app/model/uploads";
+import { TitledModal } from "../../../../../components/TitledModal";
 import type { ISODate } from "../../../../../lib/dates";
 import { fileUrl } from "../../../../../lib/files";
 import { PHOTO_KIND_LABEL, type Photo, type PhotoKind } from "../../../../../lib/journal/photos";
@@ -109,56 +109,51 @@ export function PhotoViewer({ ids, index: start, kinds, onClose }: { ids: string
   }
 
   return (
-    <Modal size="lg" closable onOpenChange={(open) => (open ? null : onClose())} aria-label={title}>
-      <Modal.Header>
-        <h2 className="font-display text-lg font-semibold text-fg-strong">{title}</h2>
-      </Modal.Header>
-      <Modal.Body className="flex flex-col gap-3 px-6 pb-6">
-        <Picture
-          fileId={photo.fileId}
-          variant="display"
-          alt={describePhoto(photo, settings.dueDate)}
-          className="max-h-[60vh] w-full rounded-md bg-bg-subtle object-contain"
-        />
-        {here.length > 1 ? (
-          <div className="flex items-center justify-between">
-            <Button variant="ghost" size="sm" onClick={() => go(-1)}>
-              <ChevronLeft aria-hidden size={16} /> Previous
-            </Button>
-            <span className="text-xs text-fg-subtle">
-              {at + 1} of {here.length}
-            </span>
-            <Button variant="ghost" size="sm" onClick={() => go(1)}>
-              Next <ChevronRight aria-hidden size={16} />
-            </Button>
-          </div>
-        ) : null}
-        {changing ? (
-          <ChangePhoto photo={photo} kinds={kinds} onDone={() => setChanging(false)} />
-        ) : (
-          <>
-            {photo.caption ? <p className="whitespace-pre-wrap text-fg-normal">{photo.caption}</p> : null}
-            <p className="text-xs text-fg-subtle">
-              {[keptBy(name(photo.by)), when(photo.day, photo.time), changedBy(photo, people.me, people.people)].filter(Boolean).join(" · ")}
-            </p>
-            {isOnPhone(photo.fileId) ? <p className="text-xs text-fg-subtle">Still on this phone: it goes up as soon as it can.</p> : null}
-            <ChangeOrDelete
-              key={photo.id}
-              asks="Delete this photo? It goes from both phones, and can't be put back."
-              onChange={() => setChanging(true)}
-              onDelete={() => deleteIt(photo)}
-            >
-              {isOnPhone(photo.fileId) ? null : (
-                <Button asChild variant="ghost" size="sm">
-                  <a href={fileUrl(photo.fileId, "original", { download: true })} download>
-                    <Download aria-hidden size={16} /> Download the original
-                  </a>
-                </Button>
-              )}
-            </ChangeOrDelete>
-          </>
-        )}
-      </Modal.Body>
-    </Modal>
+    <TitledModal title={title} size="lg" onClose={onClose} className="flex flex-col gap-3">
+      <Picture
+        fileId={photo.fileId}
+        variant="display"
+        alt={describePhoto(photo, settings.dueDate)}
+        className="max-h-[60vh] w-full rounded-md bg-bg-subtle object-contain"
+      />
+      {here.length > 1 ? (
+        <div className="flex items-center justify-between">
+          <Button variant="ghost" size="sm" onClick={() => go(-1)}>
+            <ChevronLeft aria-hidden size={16} /> Previous
+          </Button>
+          <span className="text-xs text-fg-subtle">
+            {at + 1} of {here.length}
+          </span>
+          <Button variant="ghost" size="sm" onClick={() => go(1)}>
+            Next <ChevronRight aria-hidden size={16} />
+          </Button>
+        </div>
+      ) : null}
+      {changing ? (
+        <ChangePhoto photo={photo} kinds={kinds} onDone={() => setChanging(false)} />
+      ) : (
+        <>
+          {photo.caption ? <p className="whitespace-pre-wrap text-fg-normal">{photo.caption}</p> : null}
+          <p className="text-xs text-fg-subtle">
+            {[keptBy(name(photo.by)), when(photo.day, photo.time), changedBy(photo, people.me, people.people)].filter(Boolean).join(" · ")}
+          </p>
+          {isOnPhone(photo.fileId) ? <p className="text-xs text-fg-subtle">Still on this phone: it goes up as soon as it can.</p> : null}
+          <ChangeOrDelete
+            key={photo.id}
+            asks="Delete this photo? It goes from both phones, and can't be put back."
+            onChange={() => setChanging(true)}
+            onDelete={() => deleteIt(photo)}
+          >
+            {isOnPhone(photo.fileId) ? null : (
+              <Button asChild variant="ghost" size="sm">
+                <a href={fileUrl(photo.fileId, "original", { download: true })} download>
+                  <Download aria-hidden size={16} /> Download the original
+                </a>
+              </Button>
+            )}
+          </ChangeOrDelete>
+        </>
+      )}
+    </TitledModal>
   );
 }
