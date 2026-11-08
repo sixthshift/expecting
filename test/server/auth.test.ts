@@ -56,7 +56,6 @@ describe("what is open without a session", () => {
     expect(isOpenPath("/login")).toBe(true);
     expect(isOpenPath("/join")).toBe(true);
     expect(isOpenPath("/reset")).toBe(true);
-    expect(isOpenPath("/password")).toBe(false);
     expect(isOpenPath("/api/health")).toBe(true);
     expect(isOpenPath("/api/login")).toBe(false);
     expect(isOpenPath("/settings")).toBe(false);

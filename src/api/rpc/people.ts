@@ -17,29 +17,17 @@ import { personId } from "../../server/core/person";
 import { queryHook } from "../queryHook";
 import { MIN_PASSWORD } from "./session";
 
-/**
- * The two of you, who's holding this phone, and what's left to sort out:
- * whether you must choose your own password (logins on, and yours is still
- * the shared one from before accounts, or none), and the place left for the
- * other to join, if any.
- */
+/** The two of you, who's holding this phone, and the place left for the other to join, if any. */
 const getPeople = createServerFn({ method: "GET" }).handler(() => {
   const people = new PeopleRepo(getDb());
-  const id = personId();
-  const password = people.password(id);
-  return {
-    me: people.get(id),
-    people: people.list(),
-    mustChoosePassword: loginOn() && password !== null && !password.chosen,
-    openRole: people.openRole(),
-  };
+  return { me: people.get(personId()), people: people.list(), openRole: people.openRole() };
 });
 
 export type ChangeResult = { ok: true } | { ok: false; error: "wrong" };
 
 /**
- * Your own password. The current one is asked, unless you must choose one
- * (still the shared one, just logged in with), or logins are off: then
+ * Your own password. The current one is asked, unless you have none yet, or
+ * logins are off: then
  * whoever reaches Expecting is trusted already, and this is the way back in
  * for one of you alone who forgot theirs (turn logins off, choose a new one,
  * turn them on). Your other phones are logged out; this one stays in.
@@ -49,9 +37,8 @@ export const choosePassword = createServerFn({ method: "POST" })
   .handler(async ({ data }): Promise<ChangeResult> => {
     const id = personId();
     const people = new PeopleRepo(getDb());
-    const password = people.password(id);
-    if (loginOn() && password?.chosen && !(password.hash && data.current && (await verifyPassword(data.current, password.hash))))
-      return { ok: false, error: "wrong" };
+    const hash = people.password(id)?.hash;
+    if (loginOn() && hash && !(data.current && (await verifyPassword(data.current, hash)))) return { ok: false, error: "wrong" };
     people.setPassword(id, await hashPassword(data.password));
     new SessionRepo(getDb()).endAllFor(id, readSessionCookie(getRequest()) ?? undefined);
     return { ok: true };

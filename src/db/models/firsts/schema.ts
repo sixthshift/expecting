@@ -2,11 +2,11 @@ import { sql } from "drizzle-orm";
 import { check, primaryKey, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { person } from "../people/schema";
 
-/** A first (src/lib/journal/firsts.ts), marked on its day, or put aside: a suggestion said no to, `day` null. */
+/** A first (src/lib/journal/firsts.ts), marked on its day. */
 export const firstMark = sqliteTable("first_mark", {
   key: text("key").primaryKey(),
-  /** The day it happened, YYYY-MM-DD; null when put aside. */
-  day: text("day"),
+  /** The day it happened, YYYY-MM-DD. */
+  day: text("day").notNull(),
   by: text("by").references(() => person.id, { onDelete: "set null" }),
   createdAt: text("created_at").notNull(),
 });

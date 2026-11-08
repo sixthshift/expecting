@@ -55,7 +55,7 @@ export const firstsSaves = {
     send: (data: { key: FirstKey; body: string }, made) => setFirstWords({ data, headers: stamped(made) }),
     apply: (firsts: Firsts, { key, body }, made) =>
       firsts.map((f) => {
-        if (f.key !== key || f.day === null || made.by === null) return f;
+        if (f.key !== key || made.by === null) return f;
         const others = f.words.filter((w) => w.by !== made.by);
         const words = body.trim();
         return { ...f, words: words ? [...others, { by: made.by, body: words, editedAt: made.at }] : others };

@@ -7,7 +7,6 @@
 
 import { join } from "../app/features/auth/routes/join";
 import { login } from "../app/features/auth/routes/login";
-import { password } from "../app/features/auth/routes/password";
 import { reset } from "../app/features/auth/routes/reset";
 import { connect } from "../app/features/connect/routes/connect";
 import { emergency } from "../app/features/emergency/routes/emergency";
@@ -32,12 +31,11 @@ const api = import.meta.env.SSR ? (await import("../api/rest")).restRoutes : ([]
 export const routeTree = rootRoute.addChildren([
   // The app's layout: the pillars, in navigation order, then Emergency info and It's time, settings, then any other address.
   app.addChildren([...homeRoutes, libraryRoutes, plannerRoutes, journalRoutes, drawerRoutes, emergency, itsTime, settingsRoutes, notFound]),
-  // Outside the frame: the first-run questions, a step to a URL, logging in, joining, a new password, and letting Claude in.
+  // Outside the frame: the first-run questions, a step to a URL, logging in, joining, a new password by a link, and letting Claude in.
   onboardingRoutes,
   login,
   join,
   reset,
-  password,
   connect,
   ...api,
 ]);

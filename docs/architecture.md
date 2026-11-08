@@ -408,7 +408,7 @@ add a kind of line is
   `labels.ts`, `journal.ts`, `firsts.ts`, `chapters.ts`, `places.ts`,
   `recap.ts`, `appetite.ts`, `feelings.ts`, `photos.ts`, `papers.ts`.
 - The store: `journal_entry` (`note`, `movement`, `letter`), `first_mark`
-  and `first_words`, `journal_seen`, `feeling`, `appetite_entry`, `photo`,
+  and `first_words`, `feeling`, `appetite_entry`, `photo`,
   and `paper` with `paper_page` (both on uploads). An entry keeps its day;
   its week is worked out from the due date as it's read.
 - **Feelings' words never reach the other phone.** `FeelingsRepo.list(asker)`

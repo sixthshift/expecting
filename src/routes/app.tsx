@@ -30,7 +30,7 @@ export const app = createRoute({
   id: "app",
   // The desktop's side panel, on any page (src/app/model/panel.ts).
   validateSearch: panelSearch,
-  loader: async ({ context: { queryClient }, location }) => {
+  loader: async ({ context: { queryClient } }) => {
     await restoreOutbox(queryClient);
     await Promise.all([
       queryClient.ensureQueryData(settingsQuery),
@@ -51,9 +51,6 @@ export const app = createRoute({
     // From the cache, not as fetched: with the saves still waiting applied over it.
     const settings = queryClient.getQueryData(settingsQuery.queryKey)!;
     const answers = queryClient.getQueryData(answersQuery.queryKey)!;
-    const people = queryClient.getQueryData(peopleQuery.queryKey)!;
-    // Your own password first, if you're still on the shared one; then the first-run questions.
-    if (people.mustChoosePassword) throw redirect({ to: "/password", search: { next: location.href } });
     if (onboardingLeft({ onboardedAt: settings.onboardedAt, answers }).length > 0) throw redirect({ to: "/onboarding" });
   },
   // The first start: no frame yet to draw a page's shape in, so the stork.

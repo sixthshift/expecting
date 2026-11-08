@@ -15,13 +15,12 @@ export const onboarding = createRoute({
   getParentRoute: () => rootRoute,
   path: "/onboarding",
   loader: async ({ context: { queryClient } }) => {
-    const [settings, answers, people] = await Promise.all([
+    const [settings, answers] = await Promise.all([
       queryClient.ensureQueryData(settingsQuery),
       queryClient.ensureQueryData(answersQuery),
       queryClient.ensureQueryData(peopleQuery),
       queryClient.ensureQueryData(extrasQuery),
     ]);
-    if (people.mustChoosePassword) throw redirect({ to: "/password", search: { next: "/onboarding" } });
     if (onboardingLeft({ onboardedAt: settings.onboardedAt, answers }).length === 0) throw redirect({ to: "/" });
   },
   pendingComponent: LoadingPage,

@@ -4,7 +4,7 @@ import { Star } from "lucide-react";
 import { useState } from "react";
 import { useFirstsQuery } from "../../../../../../api/rpc/firsts";
 import type { ISODate } from "../../../../../../lib/dates";
-import { type FirstMark, firstOf, isMarked } from "../../../../../../lib/journal/firsts";
+import { type FirstMark, firstOf } from "../../../../../../lib/journal/firsts";
 import { weekdayDate } from "../../../../../../lib/labels";
 import { FirstSheet } from "../FirstSheet";
 import { MarkFirst } from "../MarkFirst";
@@ -39,7 +39,7 @@ function FirstLine({ mark }: { mark: FirstMark & { day: string } }) {
 export function FirstsCollection() {
   const { data: firsts } = useFirstsQuery();
   const [marking, setMarking] = useState(false);
-  const marked = firsts.filter(isMarked).sort((a, b) => a.day.localeCompare(b.day));
+  const marked = [...firsts].sort((a, b) => a.day.localeCompare(b.day));
   return (
     <section aria-labelledby="firsts" className="flex flex-col gap-3">
       <div className="flex items-center justify-between gap-2">

@@ -15,7 +15,7 @@ const LABEL = { letter: "Write it", photo: "Add it", first: "Mark it" } as const
  * ticked (`onKept`); or the view of Your people it fills, opened, the task left
  * to tick when it's done. Ticking still works without it: keeping is offered,
  * never required. Not while something has happened, and not for a first
- * already marked or put aside.
+ * already marked.
  */
 export function KeepButton({ keeps, onKept }: { keeps: Keeps; onKept: () => void }) {
   const { data: quiet } = useQuietQuery();

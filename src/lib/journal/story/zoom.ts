@@ -3,7 +3,7 @@
 
 import type { ISODate } from "../../dates";
 import { placeOf, type Week } from "../../timeline";
-import { type FirstMark, isMarked } from "../firsts";
+import type { FirstMark } from "../firsts";
 import type { Photo } from "../photos";
 import { COLLECTIONS, type Collection, collectionOf } from "./collections";
 import type { StoryItem } from "./items";
@@ -34,9 +34,8 @@ export function weekTiles(items: readonly StoryItem[], dueDate: ISODate, now: We
 }
 
 /** The firsts on the whole pregnancy's line: each at its week, in order. */
-export function landmarks(firsts: readonly FirstMark[], dueDate: ISODate): { week: Week; mark: FirstMark & { day: string } }[] {
+export function landmarks(firsts: readonly FirstMark[], dueDate: ISODate): { week: Week; mark: FirstMark }[] {
   return firsts
-    .filter(isMarked)
     .flatMap((mark) => {
       const place = placeOf(mark.day as ISODate, dueDate);
       return typeof place === "number" ? [{ week: place, mark }] : [];

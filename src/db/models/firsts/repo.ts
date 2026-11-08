@@ -4,7 +4,7 @@ import { Repo } from "../../connection/client";
 import { firstMark, firstWords } from "./schema";
 
 export class FirstsRepo extends Repo {
-  /** Every first marked or put aside, each with its words. */
+  /** Every first marked, each with its words. */
   list(): FirstMark[] {
     const words = this.db.select().from(firstWords).all();
     return this.db
@@ -16,7 +16,7 @@ export class FirstsRepo extends Repo {
       );
   }
 
-  /** Mark a first on its day, or move it; one put aside is marked after all. */
+  /** Mark a first on its day, or move it. */
   mark(key: string, day: string, by: string | null, now: Date = new Date()): void {
     this.db.insert(firstMark).values({ key, day, by, createdAt: now.toISOString() }).onConflictDoUpdate({ target: firstMark.key, set: { day } }).run();
   }
@@ -29,7 +29,7 @@ export class FirstsRepo extends Repo {
   /** One of you's words for a marked first; empty takes them away. */
   setWords(key: string, by: string, body: string, now: Date = new Date()): void {
     const mark = this.db.select().from(firstMark).where(eq(firstMark.key, key)).get();
-    if (!mark?.day) throw new Error(`${key} isn't marked`);
+    if (!mark) throw new Error(`${key} isn't marked`);
     const words = body.trim();
     if (!words) {
       this.db

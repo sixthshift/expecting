@@ -30,13 +30,13 @@ test("two at most, one in each role: the database refuses a third, or a second i
   expect(repo.list()).toHaveLength(2);
 });
 
-test("a password is chosen when it is set, and none is kept with logins off", () => {
+test("a password is kept when it is set, and none with logins off", () => {
   const repo = new PeopleRepo(db());
   const sam = repo.add("Sam", "carrying", { passwordHash: "$argon2id$sam" });
   const jason = repo.add("Jason", "partner");
-  expect(repo.password(sam.id)).toEqual({ hash: "$argon2id$sam", chosen: true });
-  expect(repo.password(jason.id)).toEqual({ hash: null, chosen: false });
+  expect(repo.password(sam.id)).toEqual({ hash: "$argon2id$sam" });
+  expect(repo.password(jason.id)).toEqual({ hash: null });
   repo.setPassword(jason.id, "$argon2id$jason");
-  expect(repo.password(jason.id)).toEqual({ hash: "$argon2id$jason", chosen: true });
+  expect(repo.password(jason.id)).toEqual({ hash: "$argon2id$jason" });
   expect(repo.password(crypto.randomUUID())).toBeNull();
 });

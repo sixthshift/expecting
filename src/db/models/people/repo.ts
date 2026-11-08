@@ -3,8 +3,8 @@ import { otherRole, type Person, type Role } from "../../../lib/people";
 import { Repo } from "../../connection/client";
 import { person } from "./schema";
 
-/** A person's password: its hash (null until chosen) and whether they chose it (false while it is the shared one carried over). */
-export type Password = { hash: string | null; chosen: boolean };
+/** A person's password: its hash, null until one is chosen (never, with logins off). */
+export type Password = { hash: string | null };
 
 export class PeopleRepo extends Repo {
   /** Everyone, in the order they joined. */
@@ -23,10 +23,9 @@ export class PeopleRepo extends Repo {
    */
   add(name: string, role: Role, { passwordHash = null, now = new Date() }: { passwordHash?: string | null; now?: Date } = {}): Person {
     const row = { id: crypto.randomUUID(), name: name.trim(), role };
-    const at = now.toISOString();
     this.db
       .insert(person)
-      .values({ ...row, createdAt: at, passwordHash, passwordSetAt: passwordHash ? at : null })
+      .values({ ...row, createdAt: now.toISOString(), passwordHash })
       .run();
     return row;
   }
@@ -38,12 +37,11 @@ export class PeopleRepo extends Repo {
   }
 
   password(id: string): Password | null {
-    const row = this.db.select({ hash: person.passwordHash, setAt: person.passwordSetAt }).from(person).where(eq(person.id, id)).get();
-    return row ? { hash: row.hash, chosen: row.setAt !== null } : null;
+    return this.db.select({ hash: person.passwordHash }).from(person).where(eq(person.id, id)).get() ?? null;
   }
 
   /** `id` chose a new password. */
-  setPassword(id: string, passwordHash: string, now: Date = new Date()): void {
-    this.db.update(person).set({ passwordHash, passwordSetAt: now.toISOString() }).where(eq(person.id, id)).run();
+  setPassword(id: string, passwordHash: string): void {
+    this.db.update(person).set({ passwordHash }).where(eq(person.id, id)).run();
   }
 }

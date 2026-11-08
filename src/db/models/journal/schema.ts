@@ -32,11 +32,3 @@ export const journalEntry = sqliteTable(
     index("journal_entry_day").on(t.day),
   ]
 );
-
-/** When each of you last opened the Journal, for "since you looked". */
-export const journalSeen = sqliteTable("journal_seen", {
-  personId: text("person_id")
-    .primaryKey()
-    .references(() => person.id, { onDelete: "cascade" }),
-  seenAt: text("seen_at").notNull(),
-});

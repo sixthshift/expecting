@@ -16,8 +16,6 @@ export const person = sqliteTable(
     createdAt: text("created_at").notNull(),
     /** argon2id; null until one is chosen (never, with logins off). */
     passwordHash: text("password_hash"),
-    /** When they chose it; null while it is still the shared password carried over from before accounts. */
-    passwordSetAt: text("password_set_at"),
   },
   (t) => [check("person_name", sql`length(trim(${t.name})) > 0`), check("person_role", sql`${t.role} IN ('carrying', 'partner')`)]
 );

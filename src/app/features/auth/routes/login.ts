@@ -5,7 +5,7 @@ import { LoadingPage } from "../../../../components/loading/Loading";
 import { safeNext } from "../../../../lib/next";
 import { rootRoute } from "../../../../routes/root";
 
-/** Login's search, and /password's: where to go once in. */
+/** Login's search: where to go once in. */
 export const loginSearch = z.object({ next: z.string().optional() });
 
 /** Logging in as one of you, outside the frame, or setting Expecting up on a new instance. Already in, on to where you were going. */

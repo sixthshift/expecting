@@ -5,7 +5,7 @@ import { firstsSaves, useFirstsQuery } from "../../../../../api/rpc/firsts";
 import { settingsSaves, useSettingsQuery } from "../../../../../api/rpc/settings";
 import { useSave } from "../../../../../app/hooks/useSave";
 import { type ISODate, todayISO } from "../../../../../lib/dates";
-import { type FirstKey, firstOf, firstsOffered, isMarked } from "../../../../../lib/journal/firsts";
+import { type FirstKey, firstOf, firstsOffered } from "../../../../../lib/journal/firsts";
 import { BABY, type Baby } from "../../../../../lib/theme";
 import { DayField } from "../../../components/WhenFields";
 import { FirstWords } from "./FirstWords";
@@ -27,7 +27,7 @@ export function MarkFirst({ first, onAdded }: { first?: FirstKey; onAdded?: (key
   const [day, setDay] = useState<ISODate>(todayISO());
   const [marked, setMarked] = useState<FirstKey | null>(null);
   const kept = firsts.find((f) => f.key === marked);
-  const left = firstsOffered(settings.baby !== "unknown").filter((f) => !firsts.some((m) => m.key === f.key && isMarked(m)));
+  const left = firstsOffered(settings.baby !== "unknown").filter((f) => !firsts.some((m) => m.key === f.key));
 
   if (asking) {
     const use = (baby?: Baby) => {
@@ -52,7 +52,7 @@ export function MarkFirst({ first, onAdded }: { first?: FirstKey; onAdded?: (key
     );
   }
 
-  if (kept && isMarked(kept)) return <FirstWords mark={kept} onDone={() => onAdded?.(kept.key)} />;
+  if (kept) return <FirstWords mark={kept} onDone={() => onAdded?.(kept.key)} />;
 
   if (chosen) {
     return (

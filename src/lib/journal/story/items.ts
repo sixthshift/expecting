@@ -8,7 +8,7 @@ import type { WeeklyPair } from "../../home/weekly";
 import { type Night, nightsOf, type Start } from "../../itsTime";
 import type { AppetiteEntry } from "../appetite";
 import type { Feeling } from "../feelings";
-import { type FirstMark, isMarked } from "../firsts";
+import type { FirstMark } from "../firsts";
 import { byNewest, type JournalEntry } from "../journal";
 import type { Paper } from "../papers";
 import type { Photo } from "../photos";
@@ -64,7 +64,7 @@ export function storyItems(s: StorySources): StoryItem[] {
     ...s.photos.map(photoLine),
     ...s.papers.map(paperLine),
     ...s.feelings.map(feelingLine),
-    ...s.firsts.filter(isMarked).map(firstLine),
+    ...s.firsts.map(firstLine),
     ...doneLines(s.ticks, s.titles),
     ...nightsOf(s.starts).map(nightStoryLine),
     ...(s.bingo ?? []).map(bingoLine),
@@ -82,8 +82,8 @@ function writtenLines(journal: readonly JournalEntry[]): StoryItem[] {
 /**
  * A day's movements, on one line: their times in order, the line at the
  * last. One by each of you on the same day is still one line. It never says
- * who (they're the baby's), but "since you looked" asks who kept them, so it
- * has a `by` while one of you kept them all.
+ * who (they're the baby's), but searching by a name asks who kept them, so
+ * it has a `by` while one of you kept them all.
  */
 function movementLines(journal: readonly JournalEntry[]): StoryItem[] {
   const byDay = new Map<string, JournalEntry[]>();

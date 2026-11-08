@@ -19,7 +19,7 @@ describe("the story", () => {
         photos: [photo("bump", "2026-10-28")],
         papers: [paper("2026-10-21")],
         feelings: [feeling("sam", "2026-10-26")],
-        firsts: [first("first-kick", "2026-07-14"), first("first-scan", null)],
+        firsts: [first("first-kick", "2026-07-14")],
         ticks: { "pack-hospital-bag": "2026-10-25T03:00:00.000Z", gone: "2026-10-25T03:00:00.000Z" },
         titles: new Map([["pack-hospital-bag", "Pack the hospital bag"]]),
       })
@@ -80,7 +80,7 @@ describe("the story", () => {
     expect(tiles[0]!.photo?.kind).toBe("bump");
     expect(tiles[1]).toMatchObject({ week: 27, collections: ["notes", "firsts"] });
     expect(tiles[2]).toMatchObject({ week: 26, empty: true, photo: null });
-    expect(landmarks([first("first-kick", "2026-10-20"), first("first-scan", null)], DUE).map((l) => l.week)).toEqual([27]);
+    expect(landmarks([first("first-kick", "2026-10-20")], DUE).map((l) => l.week)).toEqual([27]);
   });
 });
 

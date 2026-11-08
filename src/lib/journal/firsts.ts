@@ -2,7 +2,7 @@
 // by either of you, with a question asked once it's marked and answered by
 // each of you in your own words. Some are suggested from what's kept or done,
 // only ever as a question to confirm, never marked on their own: a first is
-// yours to claim. One said no to is put aside (`day` null) and not asked again.
+// yours to claim.
 
 import type { Week } from "../timeline";
 
@@ -63,13 +63,8 @@ export function firstOf(key: FirstKey): FirstDef {
 /** One of you's words for a first. */
 type FirstWords = { by: string; body: string; editedAt: string };
 
-/** A first as kept: marked on its day, or put aside (null). */
-export type FirstMark = { key: FirstKey; day: string | null; by: string | null; createdAt: string; words: FirstWords[] };
-
-/** Whether a first is marked (not put aside). */
-export function isMarked(mark: FirstMark): mark is FirstMark & { day: string } {
-  return mark.day !== null;
-}
+/** A first as kept: marked on its day. */
+export type FirstMark = { key: FirstKey; day: string; by: string | null; createdAt: string; words: FirstWords[] };
 
 /** The firsts that can be marked: all, but boy or girl only when you know. */
 export function firstsOffered(knowing: boolean): FirstDef[] {
@@ -79,14 +74,14 @@ export function firstsOffered(knowing: boolean): FirstDef[] {
 /** How many firsts "around now" offers at once. */
 const AROUND_NOW = 2;
 
-/** Not yet marked or put aside, and offered (boy or girl only when you know). */
+/** Not yet marked, and offered (boy or girl only when you know). */
 function open(marks: readonly FirstMark[], knowing: boolean): FirstDef[] {
   const kept = new Set(marks.map((m) => m.key));
   return firstsOffered(knowing).filter((f) => !kept.has(f.key));
 }
 
 /**
- * The firsts whose weeks take in this one, not yet marked or put aside:
+ * The firsts whose weeks take in this one, not yet marked:
  * the Journal's invitation, each with its question (never the quiet
  * Journal's), and none without a week.
  */
@@ -98,7 +93,7 @@ export function aroundNow({ now, marks, knowing }: { now: Week | null; marks: re
 }
 
 /**
- * The firsts whose weeks are past, not yet marked or put aside, in the order
+ * The firsts whose weeks are past, not yet marked, in the order
  * they come: some of this has already happened, and can still be kept, on
  * the day it was. On the Journal only, never the quiet one.
  */

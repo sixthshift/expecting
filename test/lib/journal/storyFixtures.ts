@@ -85,8 +85,8 @@ export function feeling(by: string, day: string, over: Partial<Feeling> = {}): F
   return { id: `feel-${by}-${day}`, by, day, time: null, step: "good", createdAt: at(day), ...over };
 }
 
-export function first(key: FirstKey, day: string | null, over: Partial<FirstMark> = {}): FirstMark {
-  return { key, day, by: null, createdAt: at(day ?? "2026-01-01"), words: [], ...over };
+export function first(key: FirstKey, day: string, over: Partial<FirstMark> = {}): FirstMark {
+  return { key, day, by: null, createdAt: at(day), words: [], ...over };
 }
 
 export function sources(over: Partial<StorySources> = {}): StorySources {

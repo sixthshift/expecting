@@ -27,7 +27,7 @@ function seeded(people: [string, string, string][], password: boolean) {
   return db;
 }
 
-test("the shared password is carried to each of you, to log in with once and then replace", () => {
+test("the shared password is carried to each of you, as your own", () => {
   const db = seeded(
     [
       ["1", "Sam", "carrying"],
@@ -36,15 +36,15 @@ test("the shared password is carried to each of you, to log in with once and the
     true
   );
   const people = new PeopleRepo(db);
-  expect(people.password("1")).toEqual({ hash: "$argon2id$shared", chosen: false });
-  expect(people.password("2")).toEqual({ hash: "$argon2id$shared", chosen: false });
+  expect(people.password("1")).toEqual({ hash: "$argon2id$shared" });
+  expect(people.password("2")).toEqual({ hash: "$argon2id$shared" });
   expect(db.query("SELECT count(*) AS n FROM session").get()).toEqual({ n: 0 });
   expect(db.query("SELECT name FROM sqlite_master WHERE name = 'password'").get()).toBeNull();
 });
 
 test("with no password before (logins were off), there's none to carry: each chooses theirs on logging in", () => {
   const db = seeded([["1", "Sam", "carrying"]], false);
-  expect(new PeopleRepo(db).password("1")).toEqual({ hash: null, chosen: false });
+  expect(new PeopleRepo(db).password("1")).toEqual({ hash: null });
 });
 
 test("a database holding two in one role still opens, and nobody more can join", () => {
